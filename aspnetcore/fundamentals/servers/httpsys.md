@@ -11,18 +11,18 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 4173a2ef539859031674fb613b25031e3b343c67
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server web HTTP.sys in ASP.NET Core
 
 Da [Tom Dykstra](http://github.com/tdykstra) e [Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
-> Questo argomento si applica solo ai componenti di base di ASP.NET 2.0 e versioni successive. Nelle versioni precedenti di ASP.NET Core, denominato HTTP.sys [WebListener](WebListener.md).
+> Questo argomento si applica solo ai componenti di base di ASP.NET 2.0 e versioni successive. Nelle versioni precedenti di ASP.NET Core, denominato HTTP.sys [WebListener](xref:fundamentals/servers/weblistener).
 
 HTTP.sys è un [server web per ASP.NET Core](index.md) che viene eseguita solo su Windows. Si basa sul [driver in modalità kernel HTTP. sys](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys è un'alternativa a [Kestrel](kestrel.md) che offre alcune funzionalità che non Kestel. **HTTP.sys non può essere utilizzato con IIS o IIS Express, che non è compatibile con il [ASP.NET Core modulo](aspnet-core-module.md).**
 
@@ -80,7 +80,7 @@ Sono inoltre disponibili [impostazioni del Registro di sistema Http.Sys](https:/
 
 * Chiamare il `UseHttpSys` metodo di estensione su `WebHostBuilder` nel `Main` metodo, specificando uno [HTTP.sys opzioni](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs) che è necessario, come illustrato nell'esempio seguente:
 
-  [!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
+  [!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
 
 ### <a name="configure-httpsys-options"></a>Configurare le opzioni di HTTP.sys
 
@@ -90,7 +90,7 @@ Di seguito sono riportate alcune impostazioni HTTP.sys e i limiti che è possibi
 
 Impostare il numero massimo di connessioni simultanee aperte TCP per l'intera applicazione con il codice seguente in *Program.cs*:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=5)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=5)]
 
 Il numero massimo di connessioni è illimitato (null) per impostazione predefinita.
 
@@ -107,7 +107,7 @@ public IActionResult MyActionMethod()
 
 Di seguito è riportato un esempio che illustra come configurare il vincolo per l'intera applicazione, ogni richiesta:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=6)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=6)]
 
 È possibile ignorare l'impostazione di una richiesta specifica in *Startup.cs*:
 
@@ -121,7 +121,7 @@ Per informazioni sulle altre opzioni di HTTP.sys, vedere [HttpSysOptions](https:
 
 Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile utilizzare il `UseUrls` metodo di estensione, il `urls` argomento della riga di comando, la variabile di ambiente ASPNETCORE_URLS o `UrlPrefixes` proprietà [HttpSysOptions](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs). Nell'esempio di codice viene illustrato come utilizzare `UrlPrefixes`.
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=17)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=17)]
 
 Un vantaggio offerto da `UrlPrefixes` ottengono immediatamente un messaggio di errore se si tenta di aggiungere un prefisso che viene formattato errato. Un vantaggio offerto da `UseUrls` (condiviso con `urls` e ASPNETCORE_URLS) è che è possibile passare più facilmente tra Kestrel e HTTP.sys.
 
