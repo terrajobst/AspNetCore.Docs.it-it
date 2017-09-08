@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d04b740f1ded3fb41ef1c3edd0adad276d8fcef0
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lettura correlati dati - EF Core con l'esercitazione di base di ASP.NET MVC (6 di 10)
 
@@ -167,7 +167,7 @@ Successivamente, se è stato selezionato un corso, viene recuperato il corso sel
 
 In *Views/Instructors/Index.cshtml*, sostituire il codice del modello con il codice seguente. Le modifiche sono evidenziate.
 
-[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,18-19,41-54,56)]
+[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
 Le seguenti modifiche apportate al codice esistente:
 

@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1140f4916ca39cb454eaa41fdf6adfe7ad26cc31
-ms.sourcegitcommit: dfd6af48cf66813eaf04b011cb9341339a751254
+ms.openlocfilehash: bc2896d0eeda7e84cef06ee3f235e637bfe04318
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con l'esercitazione di base di ASP.NET MVC (3 di 10)
 
@@ -116,7 +116,7 @@ Per aggiungere il paging per la pagina di indice di studenti, si creerà un `Pag
 
 ![Gli studenti indice pagina con collegamenti di spostamento](sort-filter-page/_static/paging.png)
 
-Nella cartella del progetto crea `PaginatedList.cs`, quindi sostituire il codice del modello con il codice seguente.
+Nella cartella del progetto, creare `PaginatedList.cs`, quindi sostituire il codice del modello con il codice seguente.
 
 [!code-csharp[Principale](intro/samples/cu/PaginatedList.cs)]
 
@@ -213,7 +213,7 @@ Per il sito Web Contoso University **su** pagina verranno visualizzati il numero
 
 Creare un *SchoolViewModels* cartella la *modelli* cartella.
 
-Nella nuova cartella, aggiungere un file di classe EnrollmentDateGroup.cs e sostituire il codice del modello con il codice seguente:
+Nella nuova cartella, aggiungere un file di classe *EnrollmentDateGroup.cs* e sostituire il codice del modello con il codice seguente:
 
 [!code-csharp[Principale](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
@@ -247,7 +247,7 @@ Eseguire l'app e fare clic su di **su** collegamento. Il numero di studenti per 
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione è stato spiegato come eseguire l'ordinamento, filtro, paging e raggruppamento. Nella prossima esercitazione verrà illustrato come gestire le modifiche al modello di dati utilizzando le migrazioni.
+In questa esercitazione è stato spiegato come eseguire l'ordinamento, filtro, paging e raggruppamento. Nella prossima esercitazione, si apprenderà come gestire le modifiche al modello di dati utilizzando le migrazioni.
 
 >[!div class="step-by-step"]
 [Precedente](crud.md)

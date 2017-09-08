@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: b99a58d77d4f1751753ae576ade4bd6dd981fbbf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Creare, leggere, aggiornare ed eliminare - EF Core con l'esercitazione di base di ASP.NET MVC (2 di 10)
 
@@ -274,7 +274,7 @@ Fare clic su **eliminare**. Verrà visualizzata la pagina di indice senza gli st
 
 Per liberare le risorse che contiene una connessione al database, l'istanza del contesto deve essere eliminato presto quando al suo completamento. L'oggetto incorporato di ASP.NET Core [inserimento di dipendenze](../../fundamentals/dependency-injection.md) si occupa dell'attività per l'utente.
 
-In *Startup.cs* si chiama il [il metodo di estensione AddDbContext](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) per effettuare il provisioning di `DbContext` classe nel contenitore DI ASP.NET. Che metodo imposta la durata del servizio `Scoped` per impostazione predefinita. `Scoped`indica la durata dell'oggetto di contesto coincide con la durata richiesta web e `Dispose` metodo verrà chiamato automaticamente alla fine della richiesta web.
+In *Startup.cs*, si chiama il [il metodo di estensione AddDbContext](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) per effettuare il provisioning di `DbContext` classe nel contenitore DI ASP.NET. Che metodo imposta la durata del servizio `Scoped` per impostazione predefinita. `Scoped`indica la durata dell'oggetto di contesto coincide con la durata richiesta web e `Dispose` metodo verrà chiamato automaticamente alla fine della richiesta web.
 
 ## <a name="handling-transactions"></a>Gestione delle transazioni
 

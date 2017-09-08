@@ -12,8 +12,8 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30e00e2a442225bbe04be0d343f7048efe484477
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/05/2017
@@ -306,7 +306,7 @@ Number|Provider|Categorie che iniziano con|Livello di registrazione minima|
 3|Console|Microsoft.AspNetCore.Mvc.Razor.Razor|Debug|
 4|Console|Microsoft.AspNetCore.Mvc.Razor|Errore|
 5|Console|Tutte le categorie|Informazioni|
-6|Tutti i provider|Tutte le categorie|Avviso
+6|Tutti i provider|Tutte le categorie|Debug
 7|Tutti i provider|System|Debug
 8|Debug|Microsoft|Traccia
 

@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 85686fe4ebf95f95dc672fbc2d23cddd5bee85e5
-ms.sourcegitcommit: 605dc99d241b6d955432bcd42c0178e6e6a212fd
+ms.openlocfilehash: 655fefc0f9d884300bea670795c39a7a9aa10bb8
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>L'aggiornamento dei dati correlati - EF Core con l'esercitazione di base di ASP.NET MVC (7 di 10)
 
@@ -87,7 +87,7 @@ In *Views/Courses/Delete.cshtml*, aggiungere un campo del numero di corso nella 
 
 [!code-html[Principale](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
 
-In *Views/Course/Details.cshtml*, apportare la stessa modifica effettuati per *Delete.cshtml*.
+In *Views/Courses/Details.cshtml*, apportare la stessa modifica effettuati per *Delete.cshtml*.
 
 ### <a name="test-the-course-pages"></a>Le pagine del corso di test
 

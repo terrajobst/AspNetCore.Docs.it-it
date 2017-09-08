@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ad34a86c90c06dcddeeba7a0deba95f8057b4513
-ms.sourcegitcommit: def90564eff4adfeed0a8e511e4c201b040e9a5e
+ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Creazione di un modello di dati complessi - EF Core con l'esercitazione di base di ASP.NET MVC (5 di 10)
 
@@ -73,7 +73,7 @@ Si supponga che si desidera garantire che gli utenti non immettere più di 50 ca
 
 [!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Il `StringLength` attributo non impedisce a un utente di immettere lo spazio vuoto per un nome. È possibile utilizzare il `RegularExpression` attributo per applicare restrizioni per l'input. Ad esempio il codice seguente richiede il primo carattere da maiuscolo e i caratteri rimanenti alfabetico:
+Il `StringLength` attributo non impedisce a un utente di immettere lo spazio vuoto per un nome. È possibile utilizzare il `RegularExpression` attributo per applicare restrizioni per l'input. Ad esempio, il codice seguente richiede il primo carattere da maiuscolo e i caratteri rimanenti alfabetico:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
@@ -93,7 +93,7 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-Il `migrations add` comando genera un avviso che potrebbe verificarsi una perdita di dati, in quanto la modifica rende la lunghezza massima più breve per due colonne.  Le migrazioni crea un file denominato  *\<timeStamp > _MaxLengthOnNames.cs*. Questo file contiene codice di `Up` metodo che aggiornerà il database in base al modello di dati corrente. Il `database update` comando è stato eseguito il codice.
+Il `migrations add` comando genera un avviso che potrebbe verificarsi una perdita di dati, in quanto la modifica rende la lunghezza massima più breve per due colonne.  Le migrazioni crea un file denominato * \<timeStamp > _MaxLengthOnNames.cs*. Questo file contiene codice di `Up` metodo che aggiornerà il database in base al modello di dati corrente. Il `database update` comando è stato eseguito il codice.
 
 Il timestamp come preceduto al nome del file migrazioni utilizzato da Entity Framework per ordinare le migrazioni. È possibile creare più migrazioni prima di eseguire il comando update-database, e quindi tutte le migrazioni sono applicate nell'ordine in cui sono stati creati.
 
@@ -215,7 +215,7 @@ public int InstructorID { get; set; }
 
 È inoltre possibile utilizzare il `Key` attributo se l'entità dispone di chiave primaria ma si desidera attribuire un nome di proprietà diverso da classnameID o ID.
 
-Per impostazione predefinita la chiave EF considera come non generati dal database perché la colonna è la relazione di identificazione.
+Per impostazione predefinita, la chiave EF considera come non generati dal database perché la colonna è la relazione di identificazione.
 
 ### <a name="the-instructor-navigation-property"></a>La proprietà di navigazione Instructor
 
@@ -397,7 +397,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-In questa esercitazione si utilizza l'API fluent solo per mapping del database che si può fare con gli attributi. Tuttavia, è possibile utilizzare anche l'API fluent per specificare la maggior parte della formattazione, convalida e regole di mapping che è possibile eseguire utilizzando gli attributi. Alcuni attributi, ad esempio `MinimumLength` non può essere applicata con l'API fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, si applica solo una regola di convalida sul lato client e server.
+In questa esercitazione, si utilizza l'API fluent solo per mapping del database che si può fare con gli attributi. Tuttavia, è possibile utilizzare anche l'API fluent per specificare la maggior parte della formattazione, convalida e regole di mapping che è possibile eseguire utilizzando gli attributi. Alcuni attributi, ad esempio `MinimumLength` non può essere applicata con l'API fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, si applica solo una regola di convalida sul lato client e server.
 
 Alcuni sviluppatori preferiscono utilizzare l'API fluent esclusivamente in modo che mantengano le classi di entità "pulito". È possibile combinare gli attributi e l'API fluent se si desidera, e sono disponibili alcune personalizzazioni che è possono solo tramite l'API fluent, ma in genere di è consigliabile scegliere uno di questi due approcci e usare in che modo coerente il più possibile. Se si utilizzano entrambi, si noti che ogni volta che si verifica un conflitto, Microsoft Office Fluent API esegue l'override di attributi.
 
