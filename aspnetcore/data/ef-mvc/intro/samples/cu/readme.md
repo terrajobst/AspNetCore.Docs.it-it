@@ -1,0 +1,1 @@
+Questo progetto viene utilizzato per fornire i frammenti di [la serie di esercitazioni di Entity Framework MVC Core](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro). Il progetto di esempio creata seguendo le esercitazioni è https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final.
