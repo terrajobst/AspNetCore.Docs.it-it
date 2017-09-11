@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: bf90698bbac850b1917cd93dbf0a5fc5b6792aa0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="filters"></a>Filtri
 
@@ -117,7 +117,7 @@ Un filtro può essere aggiunto alla pipeline in uno dei tre *ambiti*. È possibi
 
 Quando sono presenti più filtri per una particolare fase della pipeline, l'ambito determina l'ordine di esecuzione di un filtro predefinito.  Filtri globali consente di racchiudere i filtri di classe, che a sua volta, racchiudere il filtro. Si è a volte definito come la nidificazione "Bambola russo", ogni incremento nell'ambito wrapping ambito precedente, ad esempio un [bambola nidificazione](https://en.wikipedia.org/wiki/Matryoshka_doll). In genere possibile ottenere il comportamento di override desiderato senza la necessità di determinare in modo esplicito l'ordinamento.
 
-Risultato asa nidificazione, il *dopo* codice dei filtri viene eseguito in ordine inverso rispetto al *prima* codice. La sequenza è simile al seguente:
+In seguito a questa funzione di nidificazione, il *dopo* codice dei filtri viene eseguito in ordine inverso il *prima* codice. La sequenza è simile al seguente:
 
 * Il *prima* codice dei filtri applicati a livello globale
   * Il *prima* codice dei filtri applicati ai controller

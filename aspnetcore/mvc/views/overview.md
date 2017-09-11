@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: a93ee8165be52e33c2e7da4d3fee2c8225864db9
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Il rendering di HTML con le viste in ASP.NET MVC di base
 
@@ -39,7 +39,7 @@ Forniscono visualizzazioni [separazione delle problematiche](http://deviq.com/se
 
 ## <a name="creating-a-view"></a>Creazione di una vista
 
-Le viste che sono specifiche di un controller vengono create nel *viste / [ControllerName]* cartella. Le viste che vengono condivisi tra i controller vengono inserite nel */visualizzazioni/Shared* cartella. Nome del file di visualizzazione come l'azione del controller associato e aggiungere il *. cshtml* estensione di file. Ad esempio, per creare una vista per la *su* azione sul *Home* controller, è necessario creare il *About.cshtml* file nel   */visualizzazioni/Home*cartella.
+Le viste che sono specifiche di un controller vengono create nel *viste / [ControllerName]* cartella. Le viste che vengono condivisi tra i controller vengono inserite nel */visualizzazioni/Shared* cartella. Nome del file di visualizzazione come l'azione del controller associato e aggiungere il *. cshtml* estensione di file. Ad esempio, per creare una vista per la *su* azione sul *Home* controller, è necessario creare il *About.cshtml* file nel  * /visualizzazioni/Home*cartella.
 
 Un file di vista di esempio (*About.cshtml*):
 
@@ -69,14 +69,14 @@ Quando un'azione restituisce una visualizzazione, un processo denominato *indivi
 
 Quando un'azione restituisce il `View` metodo, ad esempio `return View();`, il nome dell'azione viene utilizzato come nome della vista. Ad esempio, se è stato chiamato da un metodo di azione denominato "Index", sarebbe equivalente al passaggio di un nome di vista di "Index". Nome di una vista può essere passato al metodo in modo esplicito (`return View("SomeView");`). In entrambi i casi, visualizzare l'individuazione Cerca un file di visualizzazione corrispondente in:
 
-   1. Viste /<ControllerName>/<ViewName>. cshtml
+   1. Viste /\<ControllerName > /\<ViewName >. cshtml
 
-   2. Viste/Shared/<ViewName>. cshtml
+   2. Viste/Shared/\<ViewName >. cshtml
 
 >[!TIP]
 > Si consiglia di seguenti la convenzione di restituire semplicemente `View()` dalle azioni quando possibile, poiché comporta più flessibile e più semplice per il refactoring del codice.
 
-Può essere fornito un percorso di file di visualizzazione, invece di un nome di visualizzazione. In questo caso, il *. cshtml* estensione deve essere specificata come parte del percorso del file. Il percorso deve essere relativo alla radice dell'applicazione (e, facoltativamente, è possibile iniziare con "/" o "~ /"). Ad esempio: `return View("Views/Home/About.cshtml");`
+Può essere fornito un percorso di file di visualizzazione, invece di un nome di visualizzazione. Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata come parte del percorso del file. Ad esempio: `return View("Views/Home/About.cshtml");`. In alternativa, è possibile utilizzare un percorso relativo dalla directory del controller specifico all'interno di *viste* directory per specificare le viste in directory diverse. Ad esempio: `return View("../Manage/Index");` all'interno di *Home* controller. Analogamente, è possibile scorrere la directory di specifici controller corrente: `return View("./About");`. Si noti che i percorsi relativi non usano il *. cshtml* estensione. Come accennato in precedenza, seguire la procedura consigliata di organizzare la struttura dei file per le viste in modo da riflettere le relazioni tra i controller, azioni e visualizzazioni per maggiore chiarezza e la manutenibilità.
 
 > [!NOTE]
 > [Le visualizzazioni parziali](partial.md) e [visualizzare componenti](view-components.md) utilizzare meccanismi di individuazione simile (ma non identica).
