@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: 7abfa7ef855eb95e1a27ba6a699dd923c9e4d7c0
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Il rendering di HTML con le viste in ASP.NET MVC di base
 
@@ -76,7 +76,7 @@ Quando un'azione restituisce il `View` metodo, ad esempio `return View();`, il n
 >[!TIP]
 > Si consiglia di seguenti la convenzione di restituire semplicemente `View()` dalle azioni quando possibile, poiché comporta più flessibile e più semplice per il refactoring del codice.
 
-Può essere fornito un percorso di file di visualizzazione, invece di un nome di visualizzazione. Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata come parte del percorso del file. Ad esempio: `return View("Views/Home/About.cshtml");`. In alternativa, è possibile utilizzare un percorso relativo dalla directory del controller specifico all'interno di *viste* directory per specificare le viste in directory diverse. Ad esempio: `return View("../Manage/Index");` all'interno di *Home* controller. Analogamente, è possibile scorrere la directory di specifici controller corrente: `return View("./About");`. Si noti che i percorsi relativi non usano il *. cshtml* estensione. Come accennato in precedenza, seguire la procedura consigliata di organizzare la struttura dei file per le viste in modo da riflettere le relazioni tra i controller, azioni e visualizzazioni per maggiore chiarezza e la manutenibilità.
+Invece di un nome di visualizzazione, è possibile specificare un percorso di file di visualizzazione. Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata come parte del percorso del file (ad esempio, `return View("Views/Home/About.cshtml");`). In alternativa, è possibile utilizzare un percorso relativo dalla directory del controller specifico all'interno di *viste* directory per specificare le viste in directory diverse (ad esempio, `return View("../Manage/Index");` all'interno del `HomeController`). Analogamente, è possibile scorrere la directory di specifici controller corrente (ad esempio, `return View("./About");`). Si noti che i percorsi relativi non usano il *. cshtml* estensione. Come accennato in precedenza, seguire la procedura consigliata di organizzare la struttura dei file per le viste in modo da riflettere le relazioni tra i controller, azioni e visualizzazioni per maggiore chiarezza e la manutenibilità.
 
 > [!NOTE]
 > [Le visualizzazioni parziali](partial.md) e [visualizzare componenti](view-components.md) utilizzare meccanismi di individuazione simile (ma non identica).

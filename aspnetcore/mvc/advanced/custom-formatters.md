@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: af3b2174c73583832868d2062e6c7ab4689a1229
-ms.sourcegitcommit: 9d3f27a1ee5b7014fb40e4f2ec9b2a9cd744751c
+ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formattatori personalizzati nell'API web ASP.NET MVC di base
 
@@ -23,7 +23,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET MVC di base dispone di supporto integrato per lo scambio di dati nell'API web usando i formati di JSON, XML o testo normale. In questo articolo viene illustrato come aggiungere il supporto per formati aggiuntivi tramite la creazione di formattatori personalizzati.
 
-[Consente di visualizzare o scaricare l'esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample).
+[Consente di visualizzare o scaricare l'esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
 
 ## <a name="when-to-use-custom-formatters"></a>Quando utilizzare formattatori personalizzati
 
@@ -100,7 +100,7 @@ Formattatori vengono valutati nell'ordine che inserirli. Il primo ha la preceden
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [applicazione di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample), che implementa vCard semplice input e output formattatori.  L'applicazione legge e scrive vCard che come illustrato nell'esempio seguente:
+Vedere il [applicazione di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), che implementa vCard semplice input e output formattatori.  L'applicazione legge e scrive vCard che come illustrato nell'esempio seguente:
 
 ```
 BEGIN:VCARD
