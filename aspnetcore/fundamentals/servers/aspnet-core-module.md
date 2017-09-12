@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4124f71f30b758d82a6bf641328a8d5abf779f2
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 50c3085c28be4e6ddc4a732aba489ce871ab9ab1
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Introduzione al modulo ASP.NET Core
 
-Da [Tom Dykstra](http://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), e [Chris Ross](https://github.com/Tratcher) 
+Da [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), e [Chris Ross](https://github.com/Tratcher) 
 
 Modulo Core ASP.NET (ANCM) consente di eseguire le applicazioni protetti da IIS, ASP.NET Core utilizzando IIS è bene (sicurezza, gestibilità e altro ancora) e [Kestrel](kestrel.md) è bene (da velocemente) e il recupero di vantaggi di entrambe le tecnologie in una sola volta. **ANCM funziona solo con Kestrel; non è compatibile con WebListener (in ASP.NET Core 1. x) o HTTP.sys (in 2. x).** 
 

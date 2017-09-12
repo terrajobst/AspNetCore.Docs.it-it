@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: a676b695160b7219bd13f3915e291b722eef47c8
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 44fc8bd647ad869dd029d8ca4ced782962d71020
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Riferimento di configurazione di ASP.NET modulo Core
 
@@ -98,7 +98,7 @@ Mentre il *app_offline.htm* file è presente, il modulo di base di ASP.NET rispo
 
 ## <a name="start-up-error-page"></a>Pagina di errore di avvio
 
-Se il modulo di base di ASP.NET non è possibile avviare il processo di back-end o l'avvio di processo di back-end ma ha esito negativo per l'ascolto sulla porta configurata, si visualizzeranno una pagina di codice di stato HTTP 502.5. Per non visualizzare questa pagina e tornare alla tabella codici predefinita IIS 502 stato, utilizzare il `disableStartUpErrorPage` attributo. Per ulteriori informazioni sulla configurazione di messaggi di errore personalizzati, vedere [errori HTTP `<httpErrors>` ](https://www.iis.net/configreference/system.webserver/httperrors).
+Se il modulo di base di ASP.NET non è possibile avviare il processo di back-end o l'avvio di processo di back-end ma ha esito negativo per l'ascolto sulla porta configurata, si visualizzeranno una pagina di codice di stato HTTP 502.5. Per non visualizzare questa pagina e tornare alla tabella codici predefinita IIS 502 stato, utilizzare il `disableStartUpErrorPage` attributo. Per ulteriori informazioni sulla configurazione di messaggi di errore personalizzati, vedere [errori HTTP `<httpErrors>` ](https://docs.microsoft.com/iis/configuration/system.webServer/httpErrors/).
 
 ![Pagina stato 502](aspnet-core-module/_static/ANCM-502_5.png)
 
@@ -106,7 +106,7 @@ Se il modulo di base di ASP.NET non è possibile avviare il processo di back-end
 
 Il modulo di base di ASP.NET reindirizza `stdout` e `stderr` log su disco se si imposta la `stdoutLogEnabled` e `stdoutLogFile` gli attributi del `aspNetCore` elemento. Le cartelle di `stdoutLogFile` percorso deve essere presente affinché il modulo creare il file di log. Un'estensione di timestamp e il file verrà aggiunto automaticamente quando viene creato il file di log. Log non vengono ruotati, a meno che non si verifica il riciclo o al riavvio del processo. È responsabilità dell'host per limitare lo spazio su disco, che utilizzano i log. Utilizzo di `stdout` log è consigliato solo per la risoluzione dei problemi di avvio dell'applicazione e non per scopi di registrazione generali dell'applicazione.
 
-Il nome del file di log è costituito da aggiungendo l'ID processo (PID), timestamp (*yyyyMdhms*) e l'estensione di file (*log*) per l'ultimo segmento del `stdoutLogFile` percorso (in genere *stdout* ) delimitati da caratteri di sottolineatura. Ad esempio se il `stdoutLogFile` percorso termina con *stdout*, un log per un'app con un PID di 10652 creato in 10/8/2017 12:05:02 ha il nome del file *stdout_10652_20178101252.log*.
+Il nome del file di log è costituito da aggiungendo l'ID processo (PID), timestamp (*yyyyMdhms*) e l'estensione di file (*log*) per l'ultimo segmento del `stdoutLogFile` percorso (in genere *stdout *) delimitati da caratteri di sottolineatura. Ad esempio se il `stdoutLogFile` percorso termina con *stdout*, un log per un'app con un PID di 10652 creato in 10/8/2017 12:05:02 ha il nome del file *stdout_10652_20178101252.log*.
 
 Di seguito è riportato un esempio `aspNetCore` elemento che configura `stdout` registrazione. Il `stdoutLogFile` illustrato nell'esempio di percorso è appropriato per il servizio App di Azure. Un percorso locale o un percorso di condivisione di rete è accettabile per l'accesso locale. Verificare che l'identità dell'utente AppPool disponga dell'autorizzazione di scrittura per il percorso specificato.
 
@@ -120,7 +120,7 @@ Di seguito è riportato un esempio `aspNetCore` elemento che configura `stdout` 
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Modulo Core ASP.NET con IIS condiviso
 
-Il programma di installazione del modulo di base di ASP.NET viene eseguito con i privilegi del **sistema** account. Poiché l'account sistema locale non dispone dell'autorizzazione Modifica per il percorso della condivisione utilizzata per la configurazione condivisa di IIS, il programma di installazione verrà raggiunto un errore di accesso negato durante il tentativo di configurare le impostazioni del modulo in  *applicationHost. config* nella condivisione.
+Il programma di installazione del modulo di base di ASP.NET viene eseguito con i privilegi del **sistema** account. Poiché l'account sistema locale non dispone dell'autorizzazione Modifica per il percorso della condivisione utilizzata per la configurazione condivisa di IIS, il programma di installazione verrà raggiunto un errore di accesso negato durante il tentativo di configurare le impostazioni del modulo in * applicationHost. config* nella condivisione.
 
 È la soluzione non supportata per disabilitare la configurazione condivisa di IIS, eseguire il programma di installazione e l'esportazione aggiornato *applicationHost. config* alla condivisione di file e abilitare nuovamente la configurazione condivisa di IIS.
 

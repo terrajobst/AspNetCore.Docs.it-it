@@ -10,7 +10,7 @@
   dotnet ef database update
   ```
   
-  [.NET core](http://go.microsoft.com/fwlink/?LinkID=517853) è un'implementazione di più piattaforme di .NET. Ecco cosa questi comandi:
+  [.NET core](https://docs.microsoft.com/dotnet/core/tools/index) è un'implementazione di più piattaforme di .NET. Ecco cosa questi comandi:
 
   * `dotnet restore`: Consente di scaricare i pacchetti NuGet specificati nella *csproj* file.
   * `dotnet ef migrations add Initial`Esegue il comando di migrazioni di Entity Framework .NET Core CLI e crea la migrazione iniziale. Il parametro dopo "Aggiungi" è un nome assegnato per la migrazione. Qui si denominano la migrazione "Iniziale" perché è la migrazione del database iniziale. Questa operazione crea il *dati/migrazioni/\<data e ora > _Initial.cs* file contenente i comandi di migrazione per aggiungere il *film* tabella nel database.

@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b1de37d93f5dca2d6b6be24c429b5971692e17e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
 
@@ -151,7 +151,7 @@ Non appena viene immesso un attributo Helper di Tag, modificare i tipi di caratt
 
 ![immagine](intro/_static/labelaspfor2.png)
 
-È possibile immettere Visual Studio *CompleteWord* scelta rapida (Ctrl + barra spaziatrice è il [predefinito](https://msdn.microsoft.com/library/da5kh0wa.aspx)) all'interno delle virgolette doppie (""), ed è ora in c#, esattamente come sarebbe in una classe c#. IntelliSense consente di visualizzare tutti i metodi e proprietà sul modello di pagina. I metodi e proprietà sono disponibili perché il tipo della proprietà è `ModelExpression`. Nell'immagine seguente, si modifica il `Register` vista, pertanto la `RegisterViewModel` è disponibile.
+È possibile immettere Visual Studio *CompleteWord* scelta rapida (Ctrl + barra spaziatrice è il [predefinito](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) all'interno delle virgolette doppie (""), ed è ora in c#, esattamente come sarebbe in una classe c#. IntelliSense consente di visualizzare tutti i metodi e proprietà sul modello di pagina. I metodi e proprietà sono disponibili perché il tipo della proprietà è `ModelExpression`. Nell'immagine seguente, si modifica il `Register` vista, pertanto la `RegisterViewModel` è disponibile.
 
 ![immagine](intro/_static/intellemail.png)
 
@@ -169,7 +169,7 @@ Collegare gli helper di tag agli elementi HTML in visualizzazioni Razor, mentre 
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-L'in (`@`) simbolo indica Razor, si tratta dell'inizio del codice. I due parametri successivi ("FirstName" e "nome:") sono stringhe, pertanto [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx) non consente di. L'ultimo argomento:
+L'in (`@`) simbolo indica Razor, si tratta dell'inizio del codice. I due parametri successivi ("FirstName" e "nome:") sono stringhe, pertanto [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) non consente di. L'ultimo argomento:
 
 ```html
 new {@class="caption"}
@@ -245,7 +245,7 @@ Editor di Visual Studio consente di scrivere **tutti** del markup nell'approccio
 
 * Controlli Server Web utilizzano i convertitori di tipi per convertire le stringhe in oggetti. Gli helper di Tag, si lavora in modo nativo in c#, pertanto non è necessario al tipo di conversione.
 
-* Utilizzare i controlli Server Web [System. ComponentModel](https://msdn.microsoft.com/library/system.componentmodel%28v=vs.110%29.aspx) per implementare il comportamento in fase di esecuzione e in fase di progettazione di componenti e controlli. `System.ComponentModel`include le classi base e interfacce per l'implementazione di convertitori di tipi e gli attributi, associazioni a origini dati e componenti della licenza. Invece che per gli helper di Tag, che in genere derivano da `TagHelper`e `TagHelper` classe di base espone due metodi, `Process` e `ProcessAsync`.
+* Utilizzare i controlli Server Web [System. ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) per implementare il comportamento in fase di esecuzione e in fase di progettazione di componenti e controlli. `System.ComponentModel`include le classi base e interfacce per l'implementazione di convertitori di tipi e gli attributi, associazioni a origini dati e componenti della licenza. Invece che per gli helper di Tag, che in genere derivano da `TagHelper`e `TagHelper` classe di base espone due metodi, `Process` e `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Il tipo di carattere elemento Helper di Tag di personalizzazione
 

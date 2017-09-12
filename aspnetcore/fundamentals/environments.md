@@ -11,15 +11,15 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 5e41920c9745f903d33fa25922727e920c1efc26
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>Utilizzo di più ambienti
 
-Da [Steve Smith](http://ardalis.com)
+Da [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core fornisce supporto per il controllo del comportamento dell'app in ambienti diversi, ad esempio sviluppo, gestione temporanea e produzione. Le variabili di ambiente vengono utilizzate per indicare l'ambiente di runtime, consentendo all'app di essere configurato per tale ambiente.
 
@@ -27,7 +27,7 @@ ASP.NET Core fornisce supporto per il controllo del comportamento dell'app in am
 
 ## <a name="development-staging-production"></a>Sviluppo, gestione temporanea, produzione
 
-ASP.NET Core fa riferimento a un particolare [variabile di ambiente](https://github.com/aspnet/Home/wiki/Environment-Variables), `ASPNETCORE_ENVIRONMENT` per descrivere l'ambiente in cui è in esecuzione l'applicazione. Questa variabile può essere impostata su qualsiasi valore desiderato, ma vengono utilizzati tre valori per convenzione: `Development`, `Staging`, e `Production`. Si noterà questi valori utilizzati negli esempi e i modelli forniti con ASP.NET Core.
+ASP.NET Core fa riferimento a un particolare [variabile di ambiente](https://github.com/aspnet/Home/wiki), `ASPNETCORE_ENVIRONMENT` per descrivere l'ambiente in cui è in esecuzione l'applicazione. Questa variabile può essere impostata su qualsiasi valore desiderato, ma vengono utilizzati tre valori per convenzione: `Development`, `Staging`, e `Production`. Si noterà questi valori utilizzati negli esempi e i modelli forniti con ASP.NET Core.
 
 Impostazione dell'ambiente corrente può essere rilevata a livello di codice all'interno dell'applicazione. Inoltre, è possibile utilizzare l'ambiente [helper di tag](../mvc/views/tag-helpers/index.md) includere determinate sezioni del [vista](../mvc/views/index.md) in base all'ambiente dell'applicazione corrente.
 

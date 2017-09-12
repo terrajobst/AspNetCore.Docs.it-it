@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5898892c63e978adfabf9939394fef4ea1848d49
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 96a4fed19887a7a9eba08ec70296147f22e41569
+ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Introduzione alla gestione degli errori in ASP.NET Core
 
-Da [Steve Smith](http://ardalis.com) e [Tom Dykstra](https://github.com/tdykstra/)
+Da [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykstra/)
 
 Questo articolo descrive appoaches comuni di gestione degli errori nelle applicazioni ASP.NET Core.
 
@@ -30,7 +30,7 @@ Questo articolo descrive appoaches comuni di gestione degli errori nelle applica
 
 Per configurare un'app per visualizzare una pagina che visualizza informazioni dettagliate sulle eccezioni, installare il `Microsoft.AspNetCore.Diagnostics` NuGet pacchetto e aggiungere una riga per il [configurare metodo nella classe di avvio](startup.md):
 
-[!code-csharp[Principale](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 Inserire `UseDeveloperExceptionPage` prima middleware che si desidera intercettare le eccezioni, ad esempio `app.UseMvc`.
 
@@ -53,7 +53,7 @@ Questa richiesta non dispone di tutti i cookie, ma in caso contrario, verranno v
 
 È consigliabile configurare una pagina di gestore di eccezioni da utilizzare quando l'app non è in esecuzione `Development` ambiente.
 
-[!code-csharp[Principale](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 In un'applicazione MVC, non in modo esplicito decorare il metodo di azione del gestore di errori con gli attributi del metodo HTTP, ad esempio `HttpGet`. Utilizzando i verbi espliciti potrebbe impedire alcune richieste raggiungano il metodo.
 
@@ -79,7 +79,7 @@ Per impostazione predefinita, questo middleware aggiunge gestori di solo testo s
 
 Il middleware supporta diversi metodi di estensione differente. Uno accetta un'espressione lambda, un altro accetta una stringa di formato e tipo di contenuto.
 
-[!code-csharp[Principale](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
@@ -87,7 +87,7 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
 Sono disponibili metodi di estensione di reindirizzamento. Uno invia al client un codice di 302 stato e uno restituisce al client il codice di stato originale, ma esegue anche il gestore per l'URL di reindirizzamento.
 
-[!code-csharp[Principale](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -111,13 +111,13 @@ Inoltre, tenere presente che dopo le intestazioni di risposta sono state inviate
 
 ## <a name="server-exception-handling"></a>Gestione delle eccezioni
 
-Oltre alla logica dell'app, gestione delle eccezioni di [server](servers/index.md) ospita l'applicazione eseguirà alcune eccezioni. Se il server rileva un'eccezione prima che le intestazioni inviate che invia una risposta 500 Errore interno del Server senza il corpo. Se rileva un'eccezione dopo l'invio delle intestazioni, la connessione viene chiusa. Le richieste che non vengono gestite dalla tua app verranno gestite dal server e qualsiasi eccezione si verifichi verrà gestiti dall'eccezione del server la gestione. Le pagine di errore personalizzate o eccezioni middleware o è stato configurato per l'applicazione di filtri non influiranno questo comportamento.
+Oltre alla logica dell'app, gestione delle eccezioni di [server](servers/index.md) ospita l'app esegue alcune eccezioni. Se il server rileva un'eccezione prima che le intestazioni vengono inviate, il server invia una risposta 500 Errore interno del Server senza il corpo. Se il server memorizza nella cache dopo l'invio delle intestazioni di un'eccezione, il server chiude la connessione. Le richieste che non sono gestite dalla tua app vengono gestite dal server. Qualsiasi eccezione che si verifica viene gestita dall'eccezione del server la gestione. Qualsiasi configurato pagine di errore personalizzate o middleware di gestione delle eccezioni o i filtri non influisce su tale comportamento.
 
 ## <a name="startup-exception-handling"></a>Gestione delle eccezioni di avvio
 
-Il livello di hosting può gestire le eccezioni che si verificano durante l'avvio dell'app. Le eccezioni che si verificano durante l'avvio dell'app possono influire su comportamento del server. Ad esempio, se si verifica un'eccezione prima di chiamare `KestrelServerOptions.UseHttps`, il livello di hosting intercetta l'eccezione, verrà avviato il server e visualizza una pagina di errore sulla porta non SSL. Se si verifica un'eccezione dopo l'esecuzione di tale riga, la pagina di errore viene invece fornita tramite HTTPS.
+Il livello di hosting può gestire le eccezioni che si verificano durante l'avvio dell'app. È possibile [configurare il comportamento dell'host in risposta agli errori durante l'avvio](hosting.md#detailed-errors) utilizzando `captureStartupErrors` e `detailedErrors` chiave.
 
-È possibile [configurare il comportamento in risposta agli errori dell'host durante l'avvio](hosting.md#configuring-a-host) utilizzando `CaptureStartupErrors` e `detailedErrors` chiave.
+Hosting può mostrare solo una pagina di errore per un errore di avvio acquisita se l'errore si verifica dopo host binding di porta e indirizzo. Se un'associazione non riesce per qualsiasi motivo, il livello di hosting registra un'eccezione critica, l'arresto del processo dotnet, e non viene visualizzata alcuna pagina di errore.
 
 ## <a name="aspnet-mvc-error-handling"></a>Gestione degli errori di ASP.NET MVC
 

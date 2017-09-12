@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 466453bff68f3e0da8b90924edb13095c7548db5
-ms.sourcegitcommit: 4f075f2c22c5a4b5345ffa759be4365824110788
+ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Impedire attacchi di tipo Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 
-[Steve Smith](http://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), e [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>Quali attacco impedire antifalsificazione?
 
@@ -354,7 +354,7 @@ Quando un utente è connesso a un sistema, una sessione utente viene creata sul 
 
 ### <a name="user-tokens"></a>Token dell'utente
 
-L'autenticazione basata su token non archivia sessione sul server. Al contrario, quando un utente è connesso un token (non un token non riproducibili) vengono inviate. Il token contiene tutti i dati che sono necessaria per convalidare il token. Sono inoltre contenute informazioni utente, sotto forma di [attestazioni](https://msdn.microsoft.com/library/ff359101.aspx). Quando un utente tenta di accedere a una risorsa del server che richiede l'autenticazione, il token viene inviato al server con un'intestazione di autorizzazione aggiuntive sotto forma di connessione {token}. In questo modo, l'applicazione senza stato poiché in ogni richiesta successiva il token viene passato nella richiesta per la convalida sul lato server. Questo token non è *crittografati*; si tratta piuttosto di *codificato*. Sul lato server, il token può essere decodificato per accedere alle informazioni non elaborate all'interno del token. Per inviare il token nelle richieste successive, è possibile memorizzare il nell'archiviazione locale del browser o in un cookie. Non è necessario preoccuparsi delle vulnerabilità XSRF se il token viene archiviato nell'archiviazione locale, ma si tratta di un problema se il token viene archiviato in un cookie.
+L'autenticazione basata su token non archivia sessione sul server. Al contrario, quando un utente è connesso un token (non un token non riproducibili) vengono inviate. Il token contiene tutti i dati che sono necessaria per convalidare il token. Sono inoltre contenute informazioni utente, sotto forma di [attestazioni](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Quando un utente tenta di accedere a una risorsa del server che richiede l'autenticazione, il token viene inviato al server con un'intestazione di autorizzazione aggiuntive sotto forma di connessione {token}. In questo modo, l'applicazione senza stato poiché in ogni richiesta successiva il token viene passato nella richiesta per la convalida sul lato server. Questo token non è *crittografati*; si tratta piuttosto di *codificato*. Sul lato server, il token può essere decodificato per accedere alle informazioni non elaborate all'interno del token. Per inviare il token nelle richieste successive, è possibile memorizzare il nell'archiviazione locale del browser o in un cookie. Non è necessario preoccuparsi delle vulnerabilità XSRF se il token viene archiviato nell'archiviazione locale, ma si tratta di un problema se il token viene archiviato in un cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Più applicazioni sono ospitate in un dominio
 

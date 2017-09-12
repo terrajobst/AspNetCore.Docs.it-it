@@ -1,4 +1,4 @@
-Per la generazione di certificati SSL autofirmati in Windows, è possibile utilizzare il cmdlet PowerShell [New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633). Sono inoltre strumenti di terze parti che rendono più semplice per generare i certificati autofirmati:
+Per la generazione di certificati SSL autofirmati in Windows, è possibile utilizzare il cmdlet PowerShell [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate). Sono inoltre strumenti di terze parti che rendono più semplice per generare i certificati autofirmati:
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
 * [Interfaccia utente di Makecert](http://makecertui.codeplex.com/)

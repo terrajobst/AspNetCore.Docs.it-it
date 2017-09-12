@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introduzione alla registrazione di ASP.NET Core
 
-Da [Steve Smith](http://ardalis.com) e [Tom Dykstra](https://github.com/tdykstra)
+Da [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di log. I provider predefiniti consentono di inviare i log per una o più destinazioni, ed è possibile collegare un framework di registrazione di terze parti. In questo articolo viene illustrato come utilizzare i provider e l'API di registrazione incorporate nel codice.
 
@@ -244,7 +244,7 @@ Il messaggio di log risultante sarebbe simile al seguente:
 Parameter values: parm1, parm2
 ```
 
-Il framework di registrazione dei messaggi di formattazione in questo modo per rendere possibile per i provider di registrazione implementare [registrazione semantica, nota anche come registrazione strutturata](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Poiché gli argomenti stessi vengono passati al sistema di registrazione, non solo la stringa di messaggio formattato, i provider di registrazione è possono archiviare i valori dei parametri come campi oltre la stringa di messaggio. Ad esempio, se indirizza il log di output per l'archiviazione tabelle di Azure e la chiamata al metodo logger è simile al seguente:
+Il framework di registrazione dei messaggi di formattazione in questo modo per rendere possibile per i provider di registrazione implementare [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Poiché gli argomenti stessi vengono passati al sistema di registrazione, non solo la stringa di messaggio formattato, i provider di registrazione è possono archiviare i valori dei parametri come campi oltre la stringa di messaggio. Ad esempio, se indirizza il log di output per l'archiviazione tabelle di Azure e la chiamata al metodo logger è simile al seguente:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
@@ -514,7 +514,7 @@ Acquisizione di eventi in Nano Server richiede operazioni di configurazione aggi
   New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
   ```
 
-* Aggiungere i provider ETW per [CLR](https://msdn.microsoft.com/library/ff357718), ASP.NET Core e altri in base alle esigenze. Il provider ASP.NET Core GUID è `3ac73b97-af73-50e9-0822-5da4367920d0`. 
+* Aggiungere i provider ETW per [CLR](https://docs.microsoft.com/dotnet/framework/performance/clr-etw-providers), ASP.NET Core e altri in base alle esigenze. Il provider ASP.NET Core GUID è `3ac73b97-af73-50e9-0822-5da4367920d0`. 
 
   ```powershell
   Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
@@ -555,7 +555,7 @@ loggerFactory.AddEventLog()
 <a id="tracesource"></a>
 ### <a name="the-tracesource-provider"></a>Il provider TraceSource
 
-Il [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) provider pacchetto utilizza il [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) librerie e i provider.
+Il [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) provider pacchetto utilizza il [System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource) librerie e i provider.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
 
@@ -573,7 +573,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [Gli overload AddTraceSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.tracesourcefactoryextensions) consentono di passare un'opzione di origine e un listener di traccia.
 
-Per utilizzare questo provider, un'applicazione deve essere eseguito su di .NET Framework (anziché .NET Core). I provider consente di instradare i messaggi a una varietà di [listener](https://msdn.microsoft.com/library/4y5y10s7), ad esempio il [TextWriterTraceListener](https://msdn.microsoft.com/library/system.diagnostics.textwritertracelistener) utilizzato nell'applicazione di esempio.
+Per utilizzare questo provider, un'applicazione deve essere eseguito su di .NET Framework (anziché .NET Core). I provider consente di instradare i messaggi a una varietà di [listener](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/trace-listeners), ad esempio il [TextWriterTraceListener](https://docs.microsoft.com/dotnet/api/system.diagnostics.textwritertracelistenerr) utilizzato nell'applicazione di esempio.
 
 Nell'esempio seguente viene configurata una `TraceSource` provider che registra `Warning` e messaggi superiore alla finestra della console.
 
@@ -621,9 +621,9 @@ Ecco alcuni Framework di registrazione di terze parti che utilizzano ASP.NET Cor
 
 * [NLog](https://github.com/NLog/NLog.Extensions.Logging) -provider per la libreria NLog
 
-* [Serilog](https://github.com/serilog/serilog-framework-logging) -provider per la libreria Serilog
+* [Serilog](https://github.com/serilog/serilog-extensions-logging) -provider per la libreria Serilog
 
-Alcuni framework di terze parti è possibile eseguire [registrazione semantica, nota anche come registrazione strutturata](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Alcuni framework di terze parti è possibile eseguire [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 Utilizzare un framework di terze parti è simile all'utilizzo di uno dei provider predefiniti: aggiungere un pacchetto NuGet al progetto e chiamare un metodo di estensione su `ILoggerFactory`. Per ulteriori informazioni, vedere la documentazione del framework ogni.
 

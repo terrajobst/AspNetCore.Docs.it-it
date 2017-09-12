@@ -8,11 +8,11 @@ ms.topic: article
 ms.assetid: BC36CA84-3DE8-496E-9AA2-2F1B74AE8309
 ms.prod: asp.net-core
 uid: security/authentication/otherlogins
-ms.openlocfilehash: 421db8c89e01cebba0c1f98cc9286288a75777f2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a7a7443129c23269dd10fd224d7f8c46011d5d11
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="short-survey-of-other-authentication-providers"></a>Sondaggio di altri provider di autenticazione
 
@@ -22,28 +22,28 @@ Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://gi
 
 Qui vengono configurate le istruzioni per altri provider OAuth comuni. Pacchetti NuGet di terze parti, ad esempio quelli gestiti da [aspnet pensionistici](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) può essere utilizzato per integrare il provider di autenticazione implementato dal team di ASP.NET Core.
 
-* Impostare **LinkedIn** Accedi: [https://developer.linkedin.com/my-apps](https://developer.linkedin.com/my-apps). Vedere [passaggi ufficiali](https://developer.linkedin.com/docs/oauth2).
+* Impostare **LinkedIn** Accedi: [https://www.linkedin.com/developer/apps](https://www.linkedin.com/developer/apps). Vedere [passaggi ufficiali](https://developer.linkedin.com/docs/oauth2).
 
-* Impostare **Instagram** Accedi: [https://www.instagram.com/developer/clients/manage](https://www.instagram.com/developer/clients/manage). Vedere [passaggi ufficiali](https://www.instagram.com/developer/authentication/).
+* Impostare **Instagram** Accedi: [https://www.instagram.com/developer/register/](https://www.instagram.com/developer/register/). Vedere [passaggi ufficiali](https://www.instagram.com/developer/authentication/).
 
-* Impostare **Reddit** Accedi: [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps). Vedere [passaggi ufficiali](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).
+* Impostare **Reddit** Accedi: [https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps). Vedere [passaggi ufficiali](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).
 
-* Impostare **Github** Accedi: [https://github.com/settings/applications/new](https://github.com/settings/applications/new). Vedere [passaggi ufficiali](https://developer.github.com/v3/oauth/).
+* Impostare **Github** Accedi: [https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew). Vedere [passaggi ufficiali](https://developer.github.com/v3/oauth/).
 
-* Impostare **Yahoo** Accedi: [https://developer.yahoo.com/apps/create/](https://developer.yahoo.com/apps/create/). Vedere [passaggi ufficiali](https://developer.yahoo.com/bbauth/user.html).
+* Impostare **Yahoo** Accedi: [https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F). Vedere [passaggi ufficiali](https://developer.yahoo.com/bbauth/user.html).
 
-* Impostare **Tumblr** Accedi: [https://www.tumblr.com/oauth/apps](https://www.tumblr.com/oauth/apps). Vedere [passaggi ufficiali](https://www.tumblr.com/docs/en/api/v2#auth).
+* Impostare **Tumblr** Accedi: [https://www.tumblr.com/oauth/apps](https://www.tumblr.com/oauth/apps). Vedere [passaggi ufficiali](https://www.tumblr.com/docs/api/v2#auth).
 
-* Impostare **Pinterest** Accedi: [https://developers.pinterest.com/apps](https://developers.pinterest.com/apps). Vedere [passaggi ufficiali](https://developers.pinterest.com/docs/api/overview/?).
+* Impostare **Pinterest** Accedi: [https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F). Vedere [passaggi ufficiali](https://developers.pinterest.com/docs/api/overview/?).
 
-* Impostare **Pocket** Accedi: [http://getpocket.com/developer/apps/new](http://getpocket.com/developer/apps/new). Vedere [passaggi ufficiali](https://getpocket.com/developer/docs/authentication).
+* Impostare **Pocket** Accedi: [https://getpocket.com/developer/apps/new](https://getpocket.com/developer/apps/new). Vedere [passaggi ufficiali](https://getpocket.com/developer/docs/authentication).
 
 * Impostare **Flickr** Accedi: [https://www.flickr.com/services/apps/create](https://www.flickr.com/services/apps/create). Vedere [passaggi ufficiali](https://www.flickr.com/services/api/auth.oauth.html).
 
 * Impostare **Dribble** Accedi: [https://dribbble.com/signup](https://dribbble.com/signup). Vedere [passaggi ufficiali](http://developer.dribbble.com/v1/oauth/).
 
-* Impostare **Vimeo** Accedi: [https://developer.vimeo.com/apps](https://developer.vimeo.com/apps). Vedere [passaggi ufficiali](https://developer.vimeo.com/api/authentication).
+* Impostare **Vimeo** Accedi: [https://vimeo.com/join](https://vimeo.com/join). Vedere [passaggi ufficiali](https://developer.vimeo.com/api/authentication).
 
-* Impostare **SoundCloud** Accedi: [http://soundcloud.com/you/apps/new](http://soundcloud.com/you/apps/new). Vedere [passaggi ufficiali](https://developers.soundcloud.com/blog/we-love-oauth-2).
+* Impostare **SoundCloud** Accedi: [https://soundcloud.com/you/apps/new](https://soundcloud.com/you/apps/new). Vedere [passaggi ufficiali](https://developers.soundcloud.com/blog/we-love-oauth-2).
 
 * Impostare **VK** Accedi: [https://vk.com/apps?act=manage](https://vk.com/apps?act=manage). Vedere [passaggi ufficiali](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd69e008a81abc4f6785d93b89823c03e1a7df83
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c3f7792d7458013f837a48ca2caa459f35658f02
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introduzione all'utilizzo di helper di tag nei form in ASP.NET Core
 
@@ -34,7 +34,7 @@ Il [modulo](https://www.w3.org/TR/html401/interact/forms.html) Helper di Tag:
 
 * Genera il codice HTML [ \<FORM >](https://www.w3.org/TR/html401/interact/forms.html) `action` valore di attributo per un'azione del controller MVC o una route denominata
 
-* Genera l'errore nascosta [richiesta verifica Token](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) per impedire richieste intersito false (se usato con il `[ValidateAntiForgeryToken]` attributo nel metodo di azione HTTP Post)
+* Genera l'errore nascosta [richiesta verifica Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) per impedire richieste intersito false (se usato con il `[ValidateAntiForgeryToken]` attributo nel metodo di azione HTTP Post)
 
 * Fornisce il `asp-route-<Parameter Name>` attributo, in cui `<Parameter Name>` viene aggiunto per i valori della route. Il `routeValues` parametri `Html.BeginForm` e `Html.BeginRouteForm` offrono funzionalità simili.
 
@@ -53,7 +53,7 @@ L'Helper di Tag Form precedente genera il codice HTML seguente:
     </form>
    ```
 
-Il runtime MVC viene generato il `action` valore dell'attributo dagli attributi, gli Helper di Tag Form `asp-controller` e `asp-action`. L'Helper di Tag Form genera inoltre nascosta [richiesta verifica Token](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) per impedire richieste intersito false (se usato con il `[ValidateAntiForgeryToken]` attributo nel metodo di azione HTTP Post). La protezione di un HTML Form puro da richieste intersito false è difficile, l'Helper di Tag Form offre questo servizio per l'utente.
+Il runtime MVC viene generato il `action` valore dell'attributo dagli attributi, gli Helper di Tag Form `asp-controller` e `asp-action`. L'Helper di Tag Form genera inoltre nascosta [richiesta verifica Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) per impedire richieste intersito false (se usato con il `[ValidateAntiForgeryToken]` attributo nel metodo di azione HTTP Post). La protezione di un HTML Form puro da richieste intersito false è difficile, l'Helper di Tag Form offre questo servizio per l'utente.
 
 ### <a name="using-a-named-route"></a>Utilizzo di una route denominata
 
@@ -61,7 +61,7 @@ Il `asp-route` attributo Helper di Tag possa anche generare codice per l'HTML `a
 
 [!code-HTML[Principale](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Molte delle visualizzazioni di *viste/Account* cartella (generato quando si crea una nuova app web con *singoli account utente di*) contengono il [asp-route-returnurl](http://docs.asp.net/en/latest/mvc/views/working-with-forms.html#the-form-tag-helper) attributo:
+Molte delle visualizzazioni di *viste/Account* cartella (generato quando si crea una nuova app web con *singoli account utente di*) contengono il [asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) attributo:
 
 <!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
 
@@ -88,11 +88,11 @@ L'Helper di Tag di Input:
 
 * Genera il `id` e `name` attributi HTML per il nome dell'espressione specificata nel `asp-for` attributo. `asp-for="Property1.Property2"` è equivalente a `m => m.Property1.Property2`. Il nome dell'espressione viene utilizzato per il `asp-for` valore dell'attributo. Vedere il [i nomi delle espressioni](#expression-names) sezione per ulteriori informazioni.
 
-* Imposta il codice HTML `type` valore in base al tipo di modello dell'attributo e [annotazione dei dati](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) gli attributi applicati per la proprietà del modello
+* Imposta il codice HTML `type` valore in base al tipo di modello dell'attributo e [annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) gli attributi applicati per la proprietà del modello
 
 * Il codice HTML non comporta la sovrascrittura `type` quando è specificato un valore dell'attributo
 
-* Genera l'errore [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) gli attributi di convalida da [annotazione dei dati](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) gli attributi applicati alle proprietà del modello
+* Genera l'errore [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) gli attributi di convalida da [annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) gli attributi applicati alle proprietà del modello
 
 * Dispone di una funzione HTML Helper si sovrappongono con `Html.TextBoxFor` e `Html.EditorFor`. Vedere il **alternative HTML Helper per l'Helper di Tag di Input** sezione per informazioni dettagliate.
 
@@ -121,7 +121,7 @@ Il `Input` Helper di Tag imposta il codice HTML `type` attributo in base al tipo
 |Single, Double|tipo = "number"|
 
 
-La tabella seguente illustra alcuni comuni [le annotazioni dei dati](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) gli attributi che l'helper di tag di input verrà eseguito il mapping a tipi specifici di input (non tutti gli attributi di convalida sono elencato):
+La tabella seguente illustra alcuni comuni [le annotazioni dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) gli attributi che l'helper di tag di input verrà eseguito il mapping a tipi specifici di input (non tutti gli attributi di convalida sono elencato):
 
 
 |Attributo|Tipo di input|
@@ -260,7 +260,7 @@ Il *Views/Shared/EditorTemplates/ToDoItem.cshtml* modello:
 
 Il `Textarea Tag Helper` helper di tag è simile all'Helper di Tag di Input.
 
-* Genera il `id` e `name` gli attributi e gli attributi di convalida dei dati dal modello per un [ \<textarea >](http://www.w3.org/wiki/HTML/Elements/textarea) elemento.
+* Genera il `id` e `name` gli attributi e gli attributi di convalida dei dati dal modello per un [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) elemento.
 
 * Fornisce la tipizzazione forte.
 
@@ -324,7 +324,7 @@ Sono disponibili due helper di Tag di convalida. Il `Validation Message Tag Help
 
 ### <a name="the-validation-message-tag-helper"></a>L'Helper di Tag di messaggio di convalida
 
-* Aggiunge il [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` attributo la [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento, che collega i messaggi di errore di convalida nel campo di input della proprietà del modello specificato.   Quando si verifica un errore di convalida sul lato client, [jQuery](https://jquery.com/) viene visualizzato il messaggio di errore nel `<span>` elemento.
+* Aggiunge il [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` attributo la [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento, che collega i messaggi di errore di convalida nel campo di input della proprietà del modello specificato. Quando si verifica un errore di convalida sul lato client, [jQuery](https://jquery.com/) viene visualizzato il messaggio di errore nel `<span>` elemento.
 
 * La convalida avviene anche nel server. I client debba JavaScript disabilitato e una convalida può essere eseguita solo sul lato server.
 
@@ -594,12 +594,12 @@ Il corretto `<option>` verrà selezionato l'elemento (contengono il `selected="s
 
 * [Elemento di HTML Form](https://www.w3.org/TR/html401/interact/forms.html)
 
-* [Token di richiesta di verifica](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [Token di richiesta di verifica](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 
 * [Associazione di modelli](../models/model-binding.md)
 
 * [Convalida del modello](../models/validation.md)
 
-* [annotazioni dei dati](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)
+* [annotazioni dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
 
 * [Frammenti per il documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).

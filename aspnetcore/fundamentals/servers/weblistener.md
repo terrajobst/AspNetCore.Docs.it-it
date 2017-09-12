@@ -11,15 +11,15 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: bcd225875cfe2a544581c331231c704094780ea3
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 93e8b99e7fbac88aabd347c077d923214ba7aebe
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementazione del server web WebListener in ASP.NET Core
 
-Da [Tom Dykstra](http://github.com/tdykstra) e [Chris Ross](https://github.com/Tratcher)
+Da [Tom Dykstra](https://github.com/tdykstra) e [Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
 > In questo argomento si applica solo a ASP.NET di base 1. x. In ASP.NET 2.0 Core, è denominata WebListener [HTTP.sys](httpsys.md).
@@ -62,7 +62,7 @@ Di seguito viene fornita una panoramica delle attività di configurazione per il
 
 ### <a name="configure-windows-server"></a>Configurare Windows Server
 
-* Installare la versione di .NET che richiede l'applicazione, ad esempio [.NET Core](https://go.microsoft.com/fwlink/?LinkID=827524) o .NET Framework 4.5.1.
+* Installare la versione di .NET che richiede l'applicazione, ad esempio [.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe) o .NET Framework 4.5.1.
 
 * Pre-registrare prefissi URL per associare WebListener e configurare i certificati SSL
 
@@ -80,7 +80,7 @@ Sono inoltre disponibili [impostazioni del Registro di sistema Http.Sys](https:/
 
 * Installare il pacchetto NuGet [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Viene inoltre installato [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) come dipendenza.
 
-* Chiamare il [ `UseWebListener` ](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilderKestrelExtensions/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilderWebListenerExtensions.UseWebListener.md) metodo di estensione su [WebHostBuilder](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilder/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilder.md) nel `Main` metodo, specificando qualsiasi WebListener [opzioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) e [ impostazioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) che è necessario, come illustrato nell'esempio seguente:
+* Chiamare il [ `UseWebListener` ](https://docs.microsoft.com/aspnet/core/api) metodo di estensione su [WebHostBuilder](https://docs.microsoft.com/aspnet/core/api) nel `Main` metodo, specificando qualsiasi WebListener [opzioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) e [ impostazioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) che è necessario, come illustrato nell'esempio seguente:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -152,14 +152,14 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 Di seguito è riportata la documentazione di riferimento ufficiale:
 
-* [Comandi Netsh per Hypertext Transfer Protocol (HTTP)](http://technet.microsoft.com/library/cc725882.aspx)
+* [Comandi Netsh per Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
 * [UrlPrefix stringhe](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 Le risorse seguenti forniscono istruzioni dettagliate per scenari diversi. Gli articoli che fanno riferimento a `HttpListener` si applicano ugualmente a `WebListener`, come entrambe basate su HTTP. sys.
 
-* [Procedura: configurare una porta con un certificato SSL](http://msdn.microsoft.com/library/ms733791.aspx)
+* [Procedura: configurare una porta con un certificato SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [Le comunicazioni HTTPS - HttpListener basato su host e la certificazione Client](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) questo è un blog di terze parti e si è piuttosto precedente ma si dispone ancora di informazioni utili.
-* [Procedura: HttpListener utilizzando questa procedura dettagliata o un Http Server codice non gestito (C++) come Server semplice SSL](http://blogs.msdn.com/b/jpsanders/archive/2009/09/29/walkthrough-using-httplistener-as-an-ssl-simple-server.aspx) anche questo va un blog precedente con informazioni utili.
+* [Procedura: HttpListener utilizzando questa procedura dettagliata o un Http Server codice non gestito (C++) come Server semplice SSL](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) anche questo va un blog precedente con informazioni utili.
 * [Come impostare un WebListener Core .NET con SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
 
 Ecco alcuni strumenti di terze parti che possono essere più la riga di comando netsh.exe semplici da utilizzare. Questi non vengono forniti da o approvati da Microsoft. Gli strumenti di Esegui come amministratore per impostazione predefinita, poiché netsh.exe stesso richiede privilegi di amministratore.
@@ -167,7 +167,7 @@ Ecco alcuni strumenti di terze parti che possono essere più la riga di comando 
 * [http.sys Manager](http://httpsysmanager.codeplex.com/) fornisce un'interfaccia utente per l'elenco e la configurazione di opzioni e i certificati SSL, le prenotazioni del prefisso ed elenchi di certificati attendibili. 
 * [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) consente di elencare o configurare i certificati SSL e i prefissi URL. L'interfaccia utente è più precise di http.sys Manager ed espone alcuni ulteriori opzioni di configurazione, ma in caso contrario fornisce funzionalità simili. Non è possibile creare un nuovo elenco di certificati attendibili (CTL), ma può assegnare a quelli esistenti.
 
-Per la generazione di certificati SSL autofirmati, Microsoft fornisce gli strumenti da riga di comando: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) e il cmdlet PowerShell [New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633). Sono inoltre strumenti di terze parti dell'interfaccia utente che rendono più semplice per generare i certificati SSL autofirmati:
+Per la generazione di certificati SSL autofirmati, Microsoft fornisce gli strumenti da riga di comando: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) e il cmdlet PowerShell [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate). Sono inoltre strumenti di terze parti dell'interfaccia utente che rendono più semplice per generare i certificati SSL autofirmati:
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
 * [Interfaccia utente di Makecert](http://makecertui.codeplex.com/)

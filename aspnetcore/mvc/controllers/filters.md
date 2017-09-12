@@ -11,15 +11,15 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: b96a70a2446cab7b1af9bd689469584868980595
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="filters"></a>Filtri
 
-Da [Tom Dykstra](https://github.com/tdykstra/) e [Steve Smith](http://ardalis.com)
+Da [Tom Dykstra](https://github.com/tdykstra/) e [Steve Smith](https://ardalis.com/)
 
 *I filtri* in ASP.NET MVC di base consentono di eseguire codice prima o dopo determinate fasi della pipeline di elaborazione della richiesta.
 
@@ -115,7 +115,7 @@ Un filtro può essere aggiunto alla pipeline in uno dei tre *ambiti*. È possibi
 
 ### <a name="default-order-of-execution"></a>Ordine di esecuzione predefinito
 
-Quando sono presenti più filtri per una particolare fase della pipeline, l'ambito determina l'ordine di esecuzione di un filtro predefinito.  Filtri globali consente di racchiudere i filtri di classe, che a sua volta, racchiudere il filtro. Si è a volte definito come la nidificazione "Bambola russo", ogni incremento nell'ambito wrapping ambito precedente, ad esempio un [bambola nidificazione](https://en.wikipedia.org/wiki/Matryoshka_doll). In genere possibile ottenere il comportamento di override desiderato senza la necessità di determinare in modo esplicito l'ordinamento.
+Quando sono presenti più filtri per una particolare fase della pipeline, l'ambito determina l'ordine di esecuzione di un filtro predefinito.  Filtri globali consente di racchiudere i filtri di classe, che a sua volta, racchiudere il filtro. Si è a volte definito come la nidificazione "Bambola russo", ogni incremento nell'ambito wrapping ambito precedente, ad esempio un [bambola nidificazione](https://wikipedia.org/wiki/Matryoshka_doll). In genere possibile ottenere il comportamento di override desiderato senza la necessità di determinare in modo esplicito l'ordinamento.
 
 In seguito a questa funzione di nidificazione, il *dopo* codice dei filtri viene eseguito in ordine inverso il *prima* codice. La sequenza è simile al seguente:
 

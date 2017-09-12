@@ -11,11 +11,11 @@ ms.assetid: fda0c2a8-1743-4505-be1a-7f8ceeef8647
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/yeoman
-ms.openlocfilehash: 3a7cd83becc570d2f73014b356977fedb16f29bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 61561b55774faf375090c92b574a64f1a12f9647
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-building-projects-with-yeoman-in-aspnet-core"></a>Introduzione alla creazione di progetti con Yeoman in ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Sono necessari per Yeoman Node.js e npm. Scaricare da [Node.js](https://nodejs.org/en/). Il programma di installazione include [Node.js](https://nodejs.org/en/) e [npm](https://www.npmjs.com/). È necessario per l'installazione di Framework dell'interfaccia utente come Bootstrap anche bower.
+Sono necessari per Yeoman Node.js e npm. Scaricare da [Node.js](https://nodejs.org/). Il programma di installazione include [Node.js](https://nodejs.org/) e [npm](https://www.npmjs.com/). È necessario per l'installazione di Framework dell'interfaccia utente come Bootstrap anche bower.
 
 Per installare Yeoman e Bower, eseguire il comando seguente:
 
@@ -135,7 +135,7 @@ Aprire un web browser e passare a `http://localhost:5000`.
 
 ## <a name="adding-to-your-project-with-sub-generators"></a>Aggiunta a un progetto con i generatori di sub
 
-Utilizzando Yeoman [sub generatori](https://www.github.com/omnisharp/generator-aspnet#sub-generators), è possibile aggiungere un `nuget.config` o `web.config` dopo la creazione del progetto. Ad esempio, eseguire il comando seguente dalla directory in cui deve essere creato il file:
+Utilizzando Yeoman [sub generatori](https://github.com/omnisharp/generator-aspnet), è possibile aggiungere un `nuget.config` o `web.config` dopo la creazione del progetto. Ad esempio, eseguire il comando seguente dalla directory in cui deve essere creato il file:
 
 ```console
 yo aspnet:nugetconfig

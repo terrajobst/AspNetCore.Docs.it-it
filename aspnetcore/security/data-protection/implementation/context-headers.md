@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 16da0a4f78875ee26fa9ca7c9920b8dafd0ce417
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="context-headers"></a>Intestazioni di contesto
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="background-and-theory"></a>Sfondo e la teoria
 
-Nel sistema di protezione dati, una "chiave" significa che un oggetto che può fornire servizi di crittografia di autenticazione. Ogni chiave è identificato da un id univoco (GUID) e che comporta algoritmiche informazioni e materiale entropic. Lo scopo è che ogni chiave trasportare entropia univoca, ma il sistema non possa imporre che ed è anche necessario tenere conto per gli sviluppatori che potrebbero modificare la gestione delle chiavi manualmente modificando le informazioni di una chiave esistente nell'anello chiave algoritmiche. Per ottenere i requisiti di sicurezza specificati questi casi il sistema di protezione dati è un concetto di [agilità di crittografia](http://research.microsoft.com/apps/pubs/default.aspx?id=121045), che consente in modo sicuro per un singolo valore entropic attraverso più algoritmi di crittografia.
+Nel sistema di protezione dati, una "chiave" significa che un oggetto che può fornire servizi di crittografia di autenticazione. Ogni chiave è identificato da un id univoco (GUID) e che comporta algoritmiche informazioni e materiale entropic. Lo scopo è che ogni chiave trasportare entropia univoca, ma il sistema non possa imporre che ed è anche necessario tenere conto per gli sviluppatori che potrebbero modificare la gestione delle chiavi manualmente modificando le informazioni di una chiave esistente nell'anello chiave algoritmiche. Per ottenere i requisiti di sicurezza specificati questi casi il sistema di protezione dati è un concetto di [agilità di crittografia](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045), che consente in modo sicuro per un singolo valore entropic attraverso più algoritmi di crittografia.
 
 La maggior parte dei sistemi che supportano l'agilità di crittografia tale scopo, incluse alcune informazioni di identificazione dell'algoritmo all'interno del payload. OID dell'algoritmo è in genere un buon candidato per l'oggetto. Tuttavia, si è verificato un problema è che esistono più modi per specificare lo stesso algoritmo: "AES" (CNG) e di Aes, AesManaged, AesCryptoServiceProvider, AesCng e RijndaelManaged (assegnati parametri specifici) gestito classi sono tutte effettivamente cosa ed è necessario mantenere un mapping di tutti questi all'OID corretto. Se uno sviluppatore desidera fornire un algoritmo personalizzato (o anche un'altra implementazione di AES), dovranno essere segnalare all'OID. Questo passaggio di registrazione supplementare rende particolarmente faticosa configurazione di sistema.
 
@@ -53,7 +53,7 @@ L'intestazione del contesto è costituito dai componenti seguenti:
 
 In teoria è possibile passare tutti zero vettori per K_E e K_H. Tuttavia, si vuole evitare questa situazione in cui l'algoritmo sottostante verifica l'esistenza delle chiavi vulnerabili prima di eseguire le operazioni (in particolare DES e 3DES), che impedisce l'uso di un modello semplice o repeatable come un vettore tutti zero.
 
-Invece, utilizziamo l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) con una chiave di lunghezza zero, l'etichetta e contesto e HMACSHA512 come il PRF sottostante. Abbiamo derivare | K_E | + | K_H | byte di output, quindi scomporre il risultato in K_E e K_H autonomamente. Matematicamente, rappresentati come indicato di seguito.
+È usare invece l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con una chiave di lunghezza zero, l'etichetta e contesto e HMACSHA512 come il PRF sottostante. Abbiamo derivare | K_E | + | K_H | byte di output, quindi scomporre il risultato in K_E e K_H autonomamente. Matematicamente, rappresentati come indicato di seguito.
 
 (K_E | | K_H) = SP800_108_CTR (prf = HMACSHA512, key = "", label = "", contesto = "")
 

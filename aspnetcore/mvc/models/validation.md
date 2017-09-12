@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514c7770b7f508893a059c1adcf56204160aceda
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: be130c24f5baf643a4c9493a33ec45bdd4cc66ed
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
-Da [Rachel Appel](http://github.com/rachelappel)
+Da [Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-validation"></a>Introduzione alla convalida del modello
 
@@ -58,7 +58,7 @@ Semplicemente leggendo il modello vengono visualizzate le regole relative ai dat
 
 * `[Url]`: Consente di convalidare la proprietà ha un formato di URL.
 
-MVC supporta qualsiasi attributo che deriva da `ValidationAttribute` ai fini della convalida. Numero di attributi di convalida utile è reperibile nel [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations(v=vs.110).aspx) dello spazio dei nomi.
+MVC supporta qualsiasi attributo che deriva da `ValidationAttribute` ai fini della convalida. Numero di attributi di convalida utile è reperibile nel [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) dello spazio dei nomi.
 
 Potrebbero essere presenti istanze in cui è necessario più funzionalità rispetto a forniscono attributi predefiniti. Tutte le volte, è possibile creare gli attributi di convalida personalizzata mediante derivazione da `ValidationAttribute` o la modifica del modello per implementare `IValidatableObject`.
 

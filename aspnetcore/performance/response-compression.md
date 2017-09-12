@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: b79d86358a8f1552118fac508c4cc02cf674f169
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5705e9f879af4be3fe338716a4310bf9f0530039
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
@@ -169,7 +169,7 @@ Inviare una richiesta per l'app di esempio con il `Accept-Encoding: mycustomcomp
 ![Finestra di Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore mycustomcompression. Le intestazioni possono variare e Content-Encoding vengono aggiunti alla risposta.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>Compressione con protocollo sicuro
-Le risposte compresse tramite connessioni protette possono essere controllate con i `EnableForHttps` opzione, è disabilitato per impostazione predefinita. Utilizzo di compressione con pagine generate in modo dinamico può causare problemi di sicurezza, ad esempio il [CRIME](https://en.wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://en.wikipedia.org/wiki/BREACH_(security_exploit)) attacchi.
+Le risposte compresse tramite connessioni protette possono essere controllate con i `EnableForHttps` opzione, è disabilitato per impostazione predefinita. Utilizzo di compressione con pagine generate in modo dinamico può causare problemi di sicurezza, ad esempio il [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://wikipedia.org/wiki/BREACH_(security_exploit)) attacchi.
 
 ## <a name="adding-the-vary-header"></a>Aggiunta di intestazione Vary
 Quando la compressione delle risposte in base il `Accept-Encoding` intestazione, vi sono potenzialmente più versioni compresse della risposta e una versione non compressa. Per indicare di cache del client e del proxy che più versioni esistano e devono essere archiviate, il `Vary` intestazione viene aggiunto con un `Accept-Encoding` valore. In ASP.NET Core 1. x, aggiunta di `Vary` intestazione nella risposta viene eseguita manualmente. In ASP.NET Core 2. x, il middleware aggiunge il `Vary` intestazione automaticamente quando la risposta è compresso.

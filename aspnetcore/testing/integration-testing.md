@@ -11,15 +11,15 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: d30af6edc31fbce2ebb77c57be3fd78231c54b50
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrazione di test in ASP.NET Core
 
-Da [Steve Smith](http://ardalis.com)
+Da [Steve Smith](https://ardalis.com/)
 
 Test di integrazione garantisce che i componenti di un'applicazione funzionano correttamente quando assemblati. ASP.NET Core supporta l'integrazione test con Framework di unit test e un host web test predefinite che può essere utilizzato per gestire le richieste senza l'overhead di rete.
 
@@ -130,7 +130,7 @@ Con questo middleware e alcuni utili metodi di estensione creati per semplificar
 Seguendo questo refactoring, si è certi che l'applicazione web continui a funzionare come prima, poiché i test di integrazione sono il passaggio.
 
 > [!NOTE]
-> È consigliabile eseguire il commit delle modifiche al controllo del codice sorgente dopo aver completato un'operazione di refactoring e i test vengono superati. Se si è abituati a sviluppo basato su Test [considerare l'aggiunta di Commit per il ciclo di Red-Green-Refactor](http://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
+> È consigliabile eseguire il commit delle modifiche al controllo del codice sorgente dopo aver completato un'operazione di refactoring e i test vengono superati. Se si è abituati a sviluppo basato su Test [considerare l'aggiunta di Commit per il ciclo di Red-Green-Refactor](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
 
 ## <a name="resources"></a>Risorse
 

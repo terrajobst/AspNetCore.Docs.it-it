@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05ea4d5f0a0be08cbbdd114320d3544aae054dd2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: bd617a99ad348c545cbf50f6aa461ca8f456d3a8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
 
@@ -29,7 +29,7 @@ In un'applicazione web moderna tipiche, potrebbe essere il processo di compilazi
 * Compilare meno o SASS file CSS.
 * Compilare i file di CoffeeScript o TypeScript a JavaScript.
 
-Oggetto *runner attività* è uno strumento che consente di automatizzare le attività di sviluppo di routine e altro ancora. Visual Studio fornisce supporto incorporato per due canali di comuni attività basate su JavaScript: [Gulp](http://gulpjs.com) e [Grunt](using-grunt.md).
+Oggetto *runner attività* è uno strumento che consente di automatizzare le attività di sviluppo di routine e altro ancora. Visual Studio fornisce supporto incorporato per due canali di comuni attività basate su JavaScript: [Gulp](https://gulpjs.com/) e [Grunt](using-grunt.md).
 
 ## <a name="gulp"></a>Gulp
 
@@ -266,7 +266,7 @@ IntelliSense offre il completamento del codice, descrizioni dei parametri e altr
 
 ![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Per ulteriori informazioni su IntelliSense, vedere [JavaScript IntelliSense](https://msdn.microsoft.com/library/bb385682).
+Per ulteriori informazioni su IntelliSense, vedere [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Ambienti di sviluppo, gestione temporanea e produzione
 

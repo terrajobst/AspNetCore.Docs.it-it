@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 810d89798330aeb1c387ec85eb05b1f4efde167a
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>Come aggregare e riduzione in ASP.NET Core
 
@@ -91,8 +91,8 @@ Opzioni di raggruppamento includono:
 * minimizzare - minimizzazione opzioni per l'output di tipo. **parametro facoltativo**, *impostazione predefinita:`minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.
     * [Minimizzatore CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [Minimizzatore JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/jsminifier)
-    * [Minimizzatore HTML](https://github.com/madskristensen/BundlerMinifier/wiki/htmlminifier)
+    * [Minimizzatore JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [Minimizzatore HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
 * includeInProject - aggiungere i file generati file di progetto. **parametro facoltativo**, *predefinito: false*
 * mapping di origine - Genera mapping di origine per il file aggregato. **parametro facoltativo**, *predefinito: false*
 
@@ -106,7 +106,7 @@ Visualizzare le estensioni di selezionare e installare il **Bundler & Minimizzat
 
 ![Estensione BuildBundlerMinifier suggerimento](../client-side/bundling-and-minification/_static/view-extension.png)
 
-Una volta completato il riavvio, è necessario configurare la compilazione per eseguire i processi di scena e creazione di bundle di risorse sul lato client. Fare doppio clic su di `bundleconfig.json` file e selezionare *Enable bundle in fase di compilazione...* .
+Una volta completato il riavvio, è necessario configurare la compilazione per eseguire i processi di scena e creazione di bundle di risorse sul lato client. Fare doppio clic su di `bundleconfig.json` file e selezionare *Enable bundle in fase di compilazione... *.
 
 Compilare il progetto e `bundleconfig.json` è incluso nel processo di compilazione per generare i file di output in base alla configurazione.
 
@@ -202,7 +202,7 @@ Se il flusso di lavoro come aggregare e riduzione del app richiede procedure agg
 > [!NOTE]
 > Opzione di conversione disponibile solo in Visual Studio 2015 e 2017.
 
-Fare doppio clic su di `bundleconfig.json` e selezionare **convertire Gulp...** . Verrà generato il `gulpfile.js` e installare i pacchetti necessari npm.
+Fare doppio clic su di `bundleconfig.json` e selezionare **convertire Gulp... **. Verrà generato il `gulpfile.js` e installare i pacchetti necessari npm.
 
 ![Convertire Gulp](../client-side/bundling-and-minification/_static/convert-togulp.png)
 

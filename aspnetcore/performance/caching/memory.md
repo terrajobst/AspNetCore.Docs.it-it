@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f872cd0c355f7961ae8628c28c62d3b51c8db2c5
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), e [Steve Smith](http://ardalis.com)
+Da [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), e [Steve Smith](https://ardalis.com/)
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)
 
@@ -28,7 +28,7 @@ Da [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.c
 
 La memorizzazione nella cache può migliorare significativamente le prestazioni e la scalabilità di un'app, riducendo il lavoro necessario per generare il contenuto. Memorizzazione nella cache funziona meglio con i dati vengono modificati raramente. La memorizzazione nella cache crea una copia di dati che possono essere restituite molto più veloce dall'origine dati originale. È necessario scrivere e testare l'app per mai dipendono dai dati memorizzati nella cache.
 
-ASP.NET Core supporta diverse cache diverse. Dipende dalla cache più semplice la [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), che rappresenta una cache archiviata nella memoria del server web. Le app che vengono eseguiti in una server farm di più server è necessario assicurarsi che le sessioni sono permanenti quando si utilizza la cache in memoria. Le sessioni permanenti garantire che le successive richieste da un client tutti nello stesso server. Ad esempio, uso di App Web di Azure [Application Request Routing](http://www.iis.net/learn/extensions/planning-for-arr) (ARR) per il routing di tutte le richieste successive nello stesso server.
+ASP.NET Core supporta diverse cache diverse. Dipende dalla cache più semplice la [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), che rappresenta una cache archiviata nella memoria del server web. Le app che vengono eseguiti in una server farm di più server è necessario assicurarsi che le sessioni sono permanenti quando si utilizza la cache in memoria. Le sessioni permanenti garantire che le successive richieste da un client tutti nello stesso server. Ad esempio, uso di App Web di Azure [Application Request Routing](https://www.iis.net/learn/extensions/planning-for-arr) (ARR) per il routing di tutte le richieste successive nello stesso server.
 
 Le sessioni permanenti con non in una web farm richiedono un [cache distribuita](distributed.md) per evitare problemi di coerenza della cache. Per alcune App, una cache distribuita può supportare maggiore scalabilità rispetto a una cache in memoria. Una cache distribuita consente di scaricare la memoria cache per un processo esterno. 
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: b9b03dab6446aed7ee875916cd2e64acbb226e8f
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 72b6098b2a71957da338ef36beff4808201773f4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Provider di configurazione Azure insieme di credenziali chiave
 
@@ -161,4 +161,4 @@ Quando l'applicazione non riesce a caricare la configurazione utilizzando il pro
 * [Microsoft Azure: Insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Documentazione dell'insieme di credenziali chiave](https://docs.microsoft.com/azure/key-vault/)
 * [Come generare e trasferire HSM protetta di chiavi per l'insieme di credenziali chiave di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)
-* [Classe KeyVaultClient](https://msdn.microsoft.com/library/microsoft.azure.keyvault.keyvaultclient.aspx)
+* [Classe KeyVaultClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient)

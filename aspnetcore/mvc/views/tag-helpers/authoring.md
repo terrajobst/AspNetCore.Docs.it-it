@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f16af1184a29b891a9aab0b38ab833836c326c44
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Gli helper di Tag in ASP.NET di base, una procedura dettagliata con esempi di creazione
 
@@ -98,7 +98,7 @@ Aggiornamento di `EmailTagHelper` classe con le operazioni seguenti:
 
 **Note:**
 
-* Base alla convezione Pascal proprietà nomi di classe e per gli helper di tag vengono convertiti in loro [inferiore case kebab](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101). Pertanto, utilizzare il `MailTo` attributo, si userà `<email mail-to="value"/>` equivalente.
+* Base alla convezione Pascal proprietà nomi di classe e per gli helper di tag vengono convertiti in loro [inferiore case kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Pertanto, utilizzare il `MailTo` attributo, si userà `<email mail-to="value"/>` equivalente.
 
 * L'ultima riga imposta il contenuto completato per l'helper di tag minima funzionale.
 
@@ -193,7 +193,7 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
     
     **Note:**
     
-    * Come accennato in precedenza, gli helper di tag converte i nomi delle classi in base alla convezione Pascal c# e le proprietà per gli helper di tag in [inferiore case kebab](http://c2.com/cgi/wiki?KebabCase). Pertanto, utilizzare il `WebsiteInformationTagHelper` in Razor, verrà scritto `<website-information />`.
+    * Come accennato in precedenza, gli helper di tag converte i nomi delle classi in base alla convezione Pascal c# e le proprietà per gli helper di tag in [inferiore case kebab](http://wiki.c2.com/?KebabCase). Pertanto, utilizzare il `WebsiteInformationTagHelper` in Razor, verrà scritto `<website-information />`.
     
     * Non si desidera identificare in modo esplicito l'elemento di destinazione con il `[HtmlTargetElement]` attributo, pertanto il valore predefinito di `website-information` saranno destinati. Se è stato applicato l'attributo seguente (notare non case kebab ma corrisponde al nome di classe):
     
@@ -209,7 +209,7 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
     
     * Gli elementi che sono a chiusura automatica non abbiano contenuto. Per questo esempio, il markup Razor utilizzerà un tag di chiusura automatica, ma l'helper di tag creeranno un [sezione](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (che non è chiusura automatica e si scrive il contenuto all'interno di `section` elemento). Pertanto, è necessario impostare `TagMode` a `StartTagAndEndTag` per scrivere l'output. In alternativa, è possibile impostare come commento la riga che imposta `TagMode` e la scrittura di markup con un tag di chiusura. (Più avanti in questa esercitazione viene fornito codice di esempio).
     
-    * Il `$` (segno di dollaro) nella riga seguente viene utilizzato un [interpolati stringa](https://msdn.microsoft.com/library/Dn961160.aspx):
+    * Il `$` (segno di dollaro) nella riga seguente viene utilizzato un [interpolati stringa](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
@@ -272,11 +272,11 @@ L'helper di tag di condizione esegue il rendering di output quando viene passato
 4.  Eseguire l'app e passare alla home page. Il markup in condizionale `div` non vengono visualizzati. Aggiungere la stringa di query `?approved=true` all'URL (ad esempio, `http://localhost:1235/Home/Index?approved=true`). `approved`è impostato su true e condizionale markup verrà visualizzato.
 
 >[!NOTE]
->Utilizzare il [nameof](https://msdn.microsoft.com/library/dn986596.aspx) operatore per specificare l'attributo di destinazione, anziché specificare una stringa, come avviene per l'helper di tag in grassetto:
+>Utilizzare il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore per specificare l'attributo di destinazione, anziché specificare una stringa, come avviene per l'helper di tag in grassetto:
 >
 >[!code-csharp[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->Il [nameof](https://msdn.microsoft.com/library/dn986596.aspx) operatore proteggerà il codice necessario sempre il refactoring (potrebbe essere necessario modificare il nome in `RedCondition`).
+>Il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore proteggerà il codice necessario sempre il refactoring (potrebbe essere necessario modificare il nome in `RedCondition`).
 
 ### <a name="avoiding-tag-helper-conflicts"></a>Evitare i conflitti di Helper Tag
 
@@ -289,7 +289,7 @@ Poiché questi due helper sono strettamente correlati e potrebbero refactoring i
     [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >Il `AutoLinkerHttpTagHelper` classe destinazioni `p` elementi e viene utilizzato [Regex](https://msdn.microsoft.com/library/system.text.regularexpressions.regex.aspx) per creare il punto di ancoraggio.
+    >Il `AutoLinkerHttpTagHelper` classe destinazioni `p` elementi e viene utilizzato [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) per creare il punto di ancoraggio.
 
 2.  Aggiungere il markup seguente alla fine del *Views/Home/Contact.cshtml* file:
 

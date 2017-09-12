@@ -11,15 +11,15 @@ ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: b7d6341c0312b3f5f122acfb2ee01210151b33bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Richieste di gestione con i controller in ASP.NET MVC di base
 
-Da [Steve Smith](http://ardalis.com) e [Scott Addie](https://github.com/scottaddie)
+Da [Steve Smith](https://ardalis.com/) e [Scott Addie](https://github.com/scottaddie)
 
 I controller, azioni e risultati dell'azione sono una parte fondamentale della modalità con cui gli sviluppatori di compilare App scritte in ASP.NET MVC di base.
 
@@ -38,7 +38,7 @@ Un controller è una classe istanziabile in cui almeno una delle seguenti condiz
 
 Una classe controller non deve avere un oggetto associato `[NonController]` attributo.
 
-Controller devono seguire il [principio dipendenze esplicite](http://deviq.com/explicit-dependencies-principle). Esistono due approcci per l'implementazione di questo principio. Se più azioni del controller richiedono lo stesso servizio, è consigliabile utilizzare [inserimento costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per richiedere tali dipendenze. Se il servizio è necessario da un metodo di azione singola, è consigliabile utilizzare [attacco intrusivo nel codice di azione](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) per richiedere la dipendenza.
+Controller devono seguire il [principio dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/). Esistono due approcci per l'implementazione di questo principio. Se più azioni del controller richiedono lo stesso servizio, è consigliabile utilizzare [inserimento costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per richiedere tali dipendenze. Se il servizio è necessario da un metodo di azione singola, è consigliabile utilizzare [attacco intrusivo nel codice di azione](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) per richiedere la dipendenza.
 
 All'interno di **M**enti -**V**ISTA -**C**ontroller, un controller è responsabile per l'elaborazione della richiesta iniziale e la creazione di istanze del modello. In genere, le decisioni aziendali devono essere eseguite all'interno del modello.
 

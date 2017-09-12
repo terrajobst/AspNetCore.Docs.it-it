@@ -11,17 +11,17 @@ ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 4282e992ea80420181f9d7a2e3d6a55d6614c4de
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 128612eb2f7c6c8fdd0cc01f10b8e522df46dcf6
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introduzione alle applicazioni stile con meno, Sass e carattere straordinario in ASP.NET Core
 
-Da [Steve Smith](http://ardalis.com)
+Da [Steve Smith](https://ardalis.com/)
 
-Se si desidera applicare uno stile e l'esperienza complessiva, gli utenti delle applicazioni web hanno aspettative sempre più elevate. Applicazioni web moderne spesso sfruttano strumenti avanzati e Framework per definire e gestire l'aspetto in modo coerente. Framework come [Bootstrap](http://getbootstrap.com/) possono passare in modo che definisce un set comune di stili e le opzioni di layout per i siti web. Tuttavia, la maggior parte dei siti non semplice anche trarre vantaggio dalla possibilità di definire in modo efficace e Gestisci stili e i file di foglio di stile CSS, nonché l'accesso semplice a icone non di immagine che consentono di rendere più intuitiva interfaccia del sito. Corretta linguaggi e strumenti che supportano [meno](http://lesscss.org/) e [Sass](http://sass-lang.com/), e le librerie come [carattere straordinario](http://fortawesome.github.io/Font-Awesome/), sono disponibili in.
+Se si desidera applicare uno stile e l'esperienza complessiva, gli utenti delle applicazioni web hanno aspettative sempre più elevate. Applicazioni web moderne spesso sfruttano strumenti avanzati e Framework per definire e gestire l'aspetto in modo coerente. Framework come [Bootstrap](http://getbootstrap.com/) possono passare in modo che definisce un set comune di stili e le opzioni di layout per i siti web. Tuttavia, la maggior parte dei siti non semplice anche trarre vantaggio dalla possibilità di definire in modo efficace e Gestisci stili e i file di foglio di stile CSS, nonché l'accesso semplice a icone non di immagine che consentono di rendere più intuitiva interfaccia del sito. Corretta linguaggi e strumenti che supportano [meno](http://lesscss.org/) e [Sass](http://sass-lang.com/), e le librerie come [carattere straordinario](http://fontawesome.io/), sono disponibili in.
 
 ## <a name="css-preprocessor-languages"></a>Lingue per il preprocessore CSS
 

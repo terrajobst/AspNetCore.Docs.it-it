@@ -11,17 +11,17 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 <a name=fundamentals-configuration></a>
 
   # <a name="configuration-in-aspnet-core"></a>Configurazione di ASP.NET Core
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [feed di Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](http://ardalis.com), e [Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT), [feed di Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), e [Daniel Roth](https://github.com/danroth27)
 
 L'API di configurazione fornisce un modo per configurare un'app in base a un elenco di coppie nome-valore. Configurazione è di lettura in fase di esecuzione da più origini. Le coppie nome-valore possono essere raggruppate in una gerarchia a più livello. Sono disponibili provider di configurazione per:
 
@@ -33,7 +33,7 @@ L'API di configurazione fornisce un modo per configurare un'app in base a un ele
 * [Insieme di credenziali chiave di Azure](xref:security/key-vault-configuration)
 * Provider personalizzati, cui installa o crea
 
-Ogni valore di configurazione esegue il mapping a una chiave di stringa. Supporto di associazione predefinita per deserializzare le impostazioni in un oggetto personalizzato [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) oggetto (una classe .NET semplice con proprietà).
+Ogni valore di configurazione esegue il mapping a una chiave di stringa. Supporto di associazione predefinita per deserializzare le impostazioni in un oggetto personalizzato [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) oggetto (una classe .NET semplice con proprietà).
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
 

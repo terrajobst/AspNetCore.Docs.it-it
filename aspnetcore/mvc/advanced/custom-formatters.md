@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 792e007232c751d3db9dc5e50adbedfb2bb1a7ae
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formattatori personalizzati nell'API web ASP.NET MVC di base
 
@@ -29,7 +29,7 @@ ASP.NET MVC di base dispone di supporto integrato per lo scambio di dati nell'AP
 
 Utilizzare un formattatore personalizzato quando si desidera che il [negoziazione del contenuto](xref:mvc/models/formatting) processo per supportare un tipo di contenuto che non è supportato dai formattatori incorporati (JSON, XML e testo normale).
 
-Ad esempio, se alcuni dei client per l'API web in grado di gestire il [Protobuf](https://github.com/google/protobuf) formato, si potrebbe voler usare Protobuf con i client perché risulta più efficiente.  È necessario che l'API web per inviare i nomi dei contatti e indirizzi in [vCard](https://en.wikipedia.org/wiki/VCard) formato, un formato di uso comune per lo scambio di dati di contatto. L'app di esempio fornito in questo articolo implementa un formattatore vCard semplice.
+Ad esempio, se alcuni dei client per l'API web in grado di gestire il [Protobuf](https://github.com/google/protobuf) formato, si potrebbe voler usare Protobuf con i client perché risulta più efficiente.  È necessario che l'API web per inviare i nomi dei contatti e indirizzi in [vCard](https://wikipedia.org/wiki/VCard) formato, un formato di uso comune per lo scambio di dati di contatto. L'app di esempio fornito in questo articolo implementa un formattatore vCard semplice.
 
 ## <a name="overview-of-how-to-use-a-custom-formatter"></a>Panoramica di come utilizzare un formattatore personalizzato
 

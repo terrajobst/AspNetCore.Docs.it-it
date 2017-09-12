@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 930ea062ffb914cbd4f1500308b813167c1f601b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
-Da [Rachel Appel](http://github.com/rachelappel)
+Da [Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>Introduzione al modello di associazione
 
@@ -103,7 +103,7 @@ Dati della richiesta sono disponibili in un'ampia gamma di formati quali JSON, X
 > Può esistere al massimo un parametro per ogni azione decorati con `[FromBody]`. Runtime di ASP.NET MVC Core delega la responsabilità di lettura del flusso di richiesta al formattatore. Una volta il flusso di richiesta è di lettura per un parametro, non è in genere possibile leggere il flusso di richiesta nuovamente per l'associazione altri `[FromBody]` parametri.
 
 > [!NOTE]
-> Il `JsonInputFormatter` è il formattatore predefinito e si basa su [Json.NET](http://www.newtonsoft.com/json).
+> Il `JsonInputFormatter` è il formattatore predefinito e si basa su [Json.NET](https://www.newtonsoft.com/json).
 
 Formattatori di input in base a viene selezionato il [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) intestazione e il tipo del parametro, a meno che non vi è un attributo applicato alla funzione che specifica in caso contrario. Se si desidera utilizzare il codice XML o un altro formato, è necessario configurare nel *Startup.cs* file, ma è prima necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe essere simile al seguente:
 

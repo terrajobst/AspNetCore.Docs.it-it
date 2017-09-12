@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2e191a7395110cde7ab5b2f19b6154c96fb496e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 4d0302439fbc777c72f00c37a8c852fc0d46300e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introduzione a Dependency Injection in ASP.NET Core
 
 <a name=fundamentals-dependency-injection></a>
 
-Da [Steve Smith](http://ardalis.com) e [Scott Addie](https://scottaddie.com)
+Da [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core è progettato da zero per supportare e sfruttare l'inserimento di dipendenze. Applicazioni ASP.NET Core possono sfruttare servizi framework incorporato, poiché questi vengono inseriti in metodi della classe di avvio, e i servizi delle applicazioni possono essere configurati per l'attacco intrusivo nel codice anche. Il contenitore dei servizi predefiniti fornito da ASP.NET Core fornisce una funzionalità minima impostato e non è destinata a sostituire altri contenitori.
 
@@ -39,7 +39,7 @@ Quando un sistema è basato sull'uso DI, con molte classi che richiede le relati
 ASP.NET Core include un semplice contenitore predefinito (rappresentato dal `IServiceProvider` interface) che supporta l'inserimento del costruttore per impostazione predefinita e ASP.NET rende disponibili tramite DI determinati servizi. ASP. Contenitore di rete fa riferimento ai tipi gestiti come *servizi*. Nella parte restante di questo articolo, *servizi* farà riferimento ai tipi gestiti dal contenitore IoC di ASP.NET Core. Si configurano i servizi del contenitore predefinito nel `ConfigureServices` metodo dell'applicazione `Startup` classe.
 
 > [!NOTE]
-> Martin Fowler ha scritto un articolo completo su [inversione di contenitori di controlli e il modello di inserimento di dipendenza](http://www.martinfowler.com/articles/injection.html). Microsoft Patterns and Practices ha anche una descrizione di grande [Dependency Injection](https://msdn.microsoft.com/library/dn178469(v=pandp.30).aspx).
+> Martin Fowler ha scritto un articolo completo su [inversione di contenitori di controlli e il modello di inserimento di dipendenza](https://www.martinfowler.com/articles/injection.html). Microsoft Patterns and Practices ha anche una descrizione di grande [Dependency Injection](https://msdn.microsoft.com/library/hh323705.aspx).
 
 > [!NOTE]
 > Questo articolo descrive l'inserimento di dipendenze applicata a tutte le applicazioni ASP.NET. Inserimento di dipendenze all'interno di controller MVC è trattata nella [inserimento di dipendenze e i controller](../mvc/controllers/dependency-injection.md).
@@ -210,7 +210,7 @@ In genere, è consigliabile utilizzare queste proprietà direttamente, preferend
 
 ## <a name="designing-your-services-for-dependency-injection"></a>Progettazione di servizi per l'inserimento di dipendenze
 
-È consigliabile progettare i servizi di utilizzare l'inserimento di dipendenze per ottenere i collaboratori. Ciò significa evitare l'uso di chiamate al metodo statico con stato (che portare a un odore codice noto come [adesive statico](http://deviq.com/static-cling/)) e la creazione di istanze diretto delle classi dipendenti all'interno dei servizi. Può essere utile per ricordare la frase [nuovi è Glue](http://ardalis.com/new-is-glue), quando si sceglie di creare un'istanza di un tipo o di richiederla tramite l'inserimento di dipendenze. Seguendo il [a tinta unita principi dell'oggetto orientato alla progettazione](http://deviq.com/solid/), le classi tendono a essere piccole, facilmente testato e corretto factoring.
+È consigliabile progettare i servizi di utilizzare l'inserimento di dipendenze per ottenere i collaboratori. Ciò significa evitare l'uso di chiamate al metodo statico con stato (che portare a un odore codice noto come [adesive statico](http://deviq.com/static-cling/)) e la creazione di istanze diretto delle classi dipendenti all'interno dei servizi. Può essere utile per ricordare la frase [nuovi è Glue](https://ardalis.com/new-is-glue), quando si sceglie di creare un'istanza di un tipo o di richiederla tramite l'inserimento di dipendenze. Seguendo il [a tinta unita principi dell'oggetto orientato alla progettazione](http://deviq.com/solid/), le classi tendono a essere piccole, facilmente testato e corretto factoring.
 
 Cosa accade se si trova che le classi tendono ad avere modo troppe dipendenze venga introdotto? In genere si tratta di un segno che la classe sta tentando di eccessivo e se è probabile che stanno violando i criteri di restrizione software - il [singolo responsabilità principio](http://deviq.com/single-responsibility-principle/). Vedere se è possibile effettuare il refactoring della classe da spostare alcune delle proprie funzioni in una nuova classe. Tenere presente che il `Controller` classi devono essere incentrate sulle problematiche dell'interfaccia utente, in modo business dati e le regole di accesso ai dettagli di implementazione devono essere conservati in classi appropriate a questi [separare le problematiche](http://deviq.com/separation-of-concerns/).
 
@@ -245,7 +245,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="replacing-the-default-services-container"></a>Sostituendo il contenitore dei servizi predefiniti
 
-Il contenitore dei servizi predefiniti è progettato per soddisfare le esigenze di base di framework e la maggior parte delle applicazioni consumer compilate su di esso. Tuttavia, gli sviluppatori possono sostituire il contenitore predefinito con il relativo contenitore preferito. Il `ConfigureServices` metodo in genere restituisce `void`, ma se la firma viene modificata per restituire `IServiceProvider`, un diverso contenitore può essere configurato e restituito. Sono disponibili molti contenitori IOC per .NET. In questo esempio, il [Autofac](http://autofac.org/) viene utilizzato un pacchetto.
+Il contenitore dei servizi predefiniti è progettato per soddisfare le esigenze di base di framework e la maggior parte delle applicazioni consumer compilate su di esso. Tuttavia, gli sviluppatori possono sostituire il contenitore predefinito con il relativo contenitore preferito. Il `ConfigureServices` metodo in genere restituisce `void`, ma se la firma viene modificata per restituire `IServiceProvider`, un diverso contenitore può essere configurato e restituito. Sono disponibili molti contenitori IOC per .NET. In questo esempio, il [Autofac](https://autofac.org/) viene utilizzato un pacchetto.
 
 In primo luogo, installare i pacchetti contenitore appropriato:
 
@@ -317,8 +317,8 @@ Inserimento di dipendenze è un *alternativo* a criteri di accesso di oggetti st
 
 * [Scrittura di codice ottimizzato in ASP.NET Core con l'inserimento di dipendenze (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 
-* [Progettazione di applicazioni di gestire contenitori, preludio: In cui non il contenitore appartenere?](http://blogs.msdn.com/b/nblumhardt/archive/2008/12/27/container-managed-application-design-prelude-where-does-the-container-belong.aspx)
+* [Progettazione di applicazioni di gestire contenitori, preludio: In cui non il contenitore appartenere?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 
 * [Principio dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/)
 
-* [Inversione di contenitori di controlli e il criterio di aggiunta della dipendenza](http://www.martinfowler.com/articles/injection.html) (Fowler)
+* [Inversione di contenitori di controlli e il criterio di aggiunta della dipendenza](https://www.martinfowler.com/articles/injection.html) (Fowler)

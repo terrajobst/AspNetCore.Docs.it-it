@@ -11,17 +11,17 @@ ms.assetid: 80fb9e43-e4db-4af2-b2a8-e1364a712f69
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 05d64858dd70b45a1e2bb90a86ab3cbdc85264b1
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: ff3ded36a04fdbba0628dc5f223bfd865d58612a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-views"></a>Inserimento di dipendenze nelle viste
 
-Da [Steve Smith](http://ardalis.com)
+Da [Steve Smith](https://ardalis.com/)
 
-Supporta ASP.NET Core [inserimento di dipendenze](xref:fundamentals/dependency-injection) nelle viste. Questo può essere utile per i servizi di visualizzazione specifica, ad esempio localizzazione o dati necessari solo per il popolamento di elementi di visualizzazione. È consigliabile mantenere [separazione delle problematiche](http://deviq.com/separation-of-concerns) tra il controller e visualizzazioni. La maggior parte dei dati di che visualizzano le visualizzazioni devono essere passata dal controller.
+Supporta ASP.NET Core [inserimento di dipendenze](xref:fundamentals/dependency-injection) nelle viste. Questo può essere utile per i servizi di visualizzazione specifica, ad esempio localizzazione o dati necessari solo per il popolamento di elementi di visualizzazione. È consigliabile mantenere [separazione delle problematiche](http://deviq.com/separation-of-concerns/) tra il controller e visualizzazioni. La maggior parte dei dati di che visualizzano le visualizzazioni devono essere passata dal controller.
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)
 

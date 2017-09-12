@@ -11,15 +11,15 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 98756e2c5b336aabcf5155d929160b616baaf2ee
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
-Da [Ryan Nowak](https://github.com/rynowak), [Steve Smith](http://ardalis.com), e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Da [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Funzionalità di routing è responsabile per il mapping di una richiesta in ingresso a un gestore di route. Le route sono definite nell'applicazione di ASP.NET e configurate quando viene avviata l'app. Una route può facoltativamente estrarre valori dall'URL contenuta nella richiesta, e questi valori possono quindi essere utilizzati per l'elaborazione della richiesta. Utilizza informazioni relative all'itinerario da app ASP.NET, la funzionalità di routing è in grado di generare gli URL che eseguono il mapping ai gestori di route. Pertanto, routing, è possibile trovare un gestore di route in base a un URL o l'URL corrispondente a un gestore di route specificato in base alle informazioni del gestore di route.
 
@@ -325,9 +325,9 @@ Nella tabella seguente illustra alcuni vincoli della route e il relativo comport
 
 ## <a name="regular-expressions"></a>Espressioni regolari 
 
-Aggiunge il framework di ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressione regolare. Vedere [RegexOptions Enumeration](https://msdn.microsoft.com/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx) per una descrizione di questi membri.
+Aggiunge il framework di ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressione regolare. Vedere [RegexOptions Enumeration](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) per una descrizione di questi membri.
 
-Espressioni regolari utilizzano delimitatori e i token simili a quelli utilizzati dal servizio Routing e il linguaggio c#. I token di espressione regolare devono essere codificati. Ad esempio, per utilizzare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel servizio di Routing, è necessario disporre di `\` caratteri digitati come `\\` nel file di origine c# di escape per il `\` stringa di caratteri di escape (non usa [verbatim valori letterali stringa](https://msdn.microsoft.com/library/aa691090(v=vs.71).aspx)). Il `{` , `}` , ' [' e ']' necessario caratteri di escape raddoppiando in modo che i caratteri di delimitazione di parametro di Routing di escape.  Nella tabella seguente viene illustrata un'espressione regolare e la versione sottoposta a escape.
+Espressioni regolari utilizzano delimitatori e i token simili a quelli utilizzati dal servizio Routing e il linguaggio c#. I token di espressione regolare devono essere codificati. Ad esempio, per utilizzare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel servizio di Routing, è necessario disporre di `\` caratteri digitati come `\\` nel file di origine c# di escape per il `\` stringa di caratteri di escape (non usa [verbatim valori letterali stringa](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Il `{` , `}` , ' [' e ']' necessario caratteri di escape raddoppiando in modo che i caratteri di delimitazione di parametro di Routing di escape.  Nella tabella seguente viene illustrata un'espressione regolare e la versione sottoposta a escape.
 
 | Espressione               | Nota |
 | ----------------- | ------------ | 
@@ -347,7 +347,7 @@ Le espressioni regolari usate nel routing spesso inizierà con il `^` carattere 
 | `^[a-z]{2}$` |  hello | No | vedere `^` e `$` sopra |
 | `^[a-z]{2}$` |  123abc456 | No | vedere `^` e `$` sopra |
 
-Fare riferimento a [espressioni regolari di .NET Framework](https://msdn.microsoft.com/library/hs600312(v=vs.110).aspx) per ulteriori informazioni sulla sintassi delle espressioni regolari.
+Fare riferimento a [espressioni regolari di .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) per ulteriori informazioni sulla sintassi delle espressioni regolari.
 
 Per limitare un parametro con un set noto di valori possibili, utilizzare un'espressione regolare. Ad esempio `{action:regex(^(list|get|create)$)}` Cerca solo corrispondenze di `action` indirizzare valore `list`, `get`, o `create`. Se passato nel dizionario di vincoli, la stringa "^ (elenco | get | creare) $" sarebbe equivalente. I vincoli che vengono passati nel dizionario di vincoli (non in linea all'interno di un modello) che non corrispondono a uno dei vincoli noti vengono inoltre considerati espressioni regolari.
 

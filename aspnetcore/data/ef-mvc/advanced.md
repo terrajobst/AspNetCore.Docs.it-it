@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d1c6ece833672af3ef2003510ef96c4ff0d63fbf
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -83,7 +83,7 @@ Quando il **aggiornamento** si fa clic sul pulsante, viene chiamato il metodo Ht
 
 In **Esplora**, fare doppio clic su di *viste/corsi* cartella e quindi fare clic su **Aggiungi > Nuovo elemento**.
 
-Nel **Aggiungi nuovo elemento** finestra di dialogo, fare clic su **ASP.NET** in **installato** nel riquadro a sinistra, fare clic su **pagina visualizzazione MVC**e denominare la nuova vista  *UpdateCourseCredits.cshtml*.
+Nel **Aggiungi nuovo elemento** finestra di dialogo, fare clic su **ASP.NET** in **installato** nel riquadro a sinistra, fare clic su **pagina visualizzazione MVC**e denominare la nuova vista * UpdateCourseCredits.cshtml*.
 
 In *Views/Courses/UpdateCourseCredits.cshtml*, sostituire il codice del modello con il codice seguente:
 
@@ -171,7 +171,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core codice e lo sviluppo piani di origine
 
-Il codice sorgente per Entity Framework Core è disponibile all'indirizzo [https://github.com/aspnet/EntityFramework](https://github.com/aspnet/EntityFramework). Oltre a codice sorgente, è possibile ottenere le compilazioni notturne, Gestione problemi, funzionalità specifiche, note, progettare [Guida di orientamento per lo sviluppo futuro](https://github.com/aspnet/EntityFramework/wiki/Roadmap)e altro ancora. È possibile segnalare i bug ed è possibile fornire il propria miglioramenti per il codice sorgente di Entity Framework.
+Il codice sorgente per Entity Framework Core è disponibile all'indirizzo [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Oltre a codice sorgente, è possibile ottenere le compilazioni notturne, Gestione problemi, funzionalità specifiche, note, progettare [Guida di orientamento per lo sviluppo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)e altro ancora. È possibile segnalare i bug ed è possibile fornire il propria miglioramenti per il codice sorgente di Entity Framework.
 
 Anche se il codice sorgente è aperto, Entity Framework Core è completamente supportata come un prodotto Microsoft. Il team Microsoft Entity Framework mantiene controllo su cui vengono accettati i contributi e verifica di tutte le modifiche al codice per assicurare la qualità di ogni rilascio.
 
@@ -228,7 +228,7 @@ Eseguire il `migrations remove` comando, salvare le modifiche al codice e rieseg
 
 L'approccio più semplice consiste nel rinominare il database in *appSettings. JSON*. Alla successiva esecuzione `database update`, verrà creato un nuovo database.
 
-Per eliminare un database in sillaba SSOX, il pulsante destro del database, fare clic su **eliminare**e quindi la **Elimina Database** finestra di dialogo selezionare **Chiudi connessioni esistenti** e fare clic su  **OK**.
+Per eliminare un database in sillaba SSOX, il pulsante destro del database, fare clic su **eliminare**e quindi la **Elimina Database** finestra di dialogo selezionare **Chiudi connessioni esistenti** e fare clic su ** OK**.
 
 Per eliminare un database tramite l'interfaccia CLI, eseguire il `database drop` comando CLI:
 

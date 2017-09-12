@@ -11,17 +11,17 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 371fb0f721797e4d8f7a26858ae0a709cb5cd39e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inserimento di dipendenze controller
 
 <a name=dependency-injection-controllers></a>
 
-Da [Steve Smith](http://ardalis.com)
+Da [Steve Smith](https://ardalis.com/)
 
 Controller MVC ASP.NET Core deve richiedere le relative dipendenze in modo esplicito tramite i relativi costruttori. In alcuni casi, le azioni del controller singoli potrebbero richiedere un servizio e non può essere utile per richiedere a livello di controller. In questo caso, è possibile scegliere di inserire un servizio come parametro al metodo di azione.
 
@@ -29,7 +29,7 @@ Controller MVC ASP.NET Core deve richiedere le relative dipendenze in modo espli
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
-Inserimento di dipendenze è una tecnica che segue il [principio di inversione dipendenza](http://deviq.com/dependency-inversion-principle), consentendo di applicazioni deve essere composta da moduli regime di controllo. ASP.NET di base include il supporto incorporato per [inserimento di dipendenze](../../fundamentals/dependency-injection.md), rendendo più facile da testare e gestire le applicazioni.
+Inserimento di dipendenze è una tecnica che segue il [principio di inversione dipendenza](http://deviq.com/dependency-inversion-principle/), consentendo di applicazioni deve essere composta da moduli regime di controllo. ASP.NET di base include il supporto incorporato per [inserimento di dipendenze](../../fundamentals/dependency-injection.md), rendendo più facile da testare e gestire le applicazioni.
 
 ## <a name="constructor-injection"></a>Inserimento del costruttore
 
@@ -70,7 +70,7 @@ Una volta configurato il servizio, che esegue l'applicazione e passare alla home
 ![Messaggio introduttivo di server](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Vedere [logica del Controller di test](testing.md) per informazioni su come richiedere in modo esplicito le dipendenze [http://deviq.com/explicit-dependencies-principle](http://deviq.com/explicit-dependencies-principle) nei controller di codice risulta più facile da testare.
+> Vedere [logica del Controller di test](testing.md) per informazioni su come richiedere in modo esplicito le dipendenze [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) nei controller di codice risulta più facile da testare.
 
 Inserimento di dipendenze predefinito del ASP.NET Core supporta solo un singolo costruttore per le classi di richiesta di servizi. Se si dispone di più di un costruttore, si potrebbe ottenere un'eccezione indicante:
 
