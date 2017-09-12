@@ -11,11 +11,11 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc2d119ae2f7cf06ed0ea4b8a91fd8fa15804468
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 70cbeea15199498c592307dccc125e60206dadbf
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Configurazione dell'autenticazione di Account Microsoft
 
@@ -31,7 +31,7 @@ In questa esercitazione viene illustrato come consentire agli utenti di accedere
 
 ![Accedere alla finestra di dialogo](index/_static/MicrosoftDevLogin.png)
 
-Se si dispone già di un account Microsoft, tocca  **[crearne uno.](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Dopo l'accesso, si verrà reindirizzati a **applicazioni personali** pagina:
+Se si dispone già di un account Microsoft, tocca ** [crearne uno.](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Dopo l'accesso, si verrà reindirizzati a **applicazioni personali** pagina:
 
 ![Portale per sviluppatori Microsoft aperto in Microsoft Edge](index/_static/MicrosoftDev.png)
 
@@ -41,7 +41,7 @@ Se si dispone già di un account Microsoft, tocca  **[crearne uno.](https://sign
 
 * Ai fini di questa esercitazione, cancellare il **impostazione guidata** casella di controllo.
 
-* Toccare **crea** per continuare al **registrazione** pagina:
+* Toccare **crea** per continuare al **registrazione** pagina. Fornire un **nome** e prendere nota del valore del **Id applicazione**, utilizzabile come `ClientId` più avanti nell'esercitazione:
 
 ![Pagina di registrazione](index/_static/MicrosoftDevAppReg.png)
 
