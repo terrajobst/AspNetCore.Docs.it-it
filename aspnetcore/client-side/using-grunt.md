@@ -11,15 +11,15 @@ ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: df20c3a31fce81ab039ef2f63bf38ed9943c7c6c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Utilizzo di Grunt in ASP.NET Core 
 
-Da [Noel riso](http://blog.falafel.com/author/noel-rice/)
+Da [Noel riso](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt è un'esecuzione attività JavaScript che consente di automatizzare minimizzazione script, la compilazione di TypeScript, gli strumenti "lint" qualità del codice, pre-processori di CSS e praticamente alcun ricorrenti complessa che deve eseguire per supportare lo sviluppo di client. Grunt è completamente supportato in Visual Studio, anche se i modelli di progetto ASP.NET utilizzano Gulp per impostazione predefinita (vedere [utilizzando Gulp](using-gulp.md)).
 
@@ -211,7 +211,7 @@ Grunt viene configurato con un manifesto denominato *Gruntfile.js* che definisce
 
 10.  Aggiungere il `uglify` attività utilizzando il codice riportato di seguito.
 
-    Minimizza l'attività di *combined.js* file trovato nella directory temporanea e crea il file dei risultati in wwwroot/lib che seguono la convenzione di denominazione standard  *\<nome file\>. min.js*.
+    Minimizza l'attività di *combined.js* file trovato nella directory temporanea e crea il file dei risultati in wwwroot/lib che seguono la convenzione di denominazione standard * \<nome file\>. min.js*.
     
     ```javascript
     uglify: {
@@ -280,7 +280,7 @@ L'attività di espressione di controllo in Esplora esecuzione attività di mouse
 
 ## <a name="binding-to-visual-studio-events"></a>Associazione a eventi di Visual Studio
 
-A meno che non si desidera avviare manualmente l'attività ogni volta che si lavora in Visual Studio, è possibile associare le attività **prima di compilare**, **dopo la compilazione**, **Pulisci**, e  **Apri progetto** eventi.
+A meno che non si desidera avviare manualmente l'attività ogni volta che si lavora in Visual Studio, è possibile associare le attività **prima di compilare**, **dopo la compilazione**, **Pulisci**, e ** Apri progetto** eventi.
 
 Consente di associare `watch` in modo che venga eseguito ogni volta che apre Visual Studio. In Esplora esecuzione attività, l'attività di espressione di controllo e scegliere **associazioni > Apri progetto** dal menu di scelta rapida.
 
