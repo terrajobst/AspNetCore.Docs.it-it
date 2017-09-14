@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 7790f38dda61eabd3cbbc6088ad455c07289b739
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 4013619f738b3b8b58e45d9dfd205e7b75e056b4
+ms.sourcegitcommit: 029dd7fbc0793e84b9ed91f2b45624bbc187fb32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -30,25 +30,25 @@ Per includere il middleware in un progetto, aggiungere un riferimento di [ `Micr
 ## <a name="configuration"></a>Configurazione
 In `ConfigureServices`, aggiungere il middleware per la raccolta di servizio.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Principale](middleware/samples/2.x/Program.cs?name=snippet1&highlight=4)]
+[!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Principale](middleware/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[Main](middleware/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
 
 ---
 
 Configurare l'applicazione per utilizzare il middleware con il `UseResponseCaching` metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione della richiesta. L'app di esempio aggiunge un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) intestazione risposta che memorizza nella cache le risposte memorizzabile nella cache per un massimo di 10 secondi. L'esempio invia un [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) intestazione per configurare il middleware per fornire una risposta memorizzata nella cache solo se il [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) intestazione delle richieste successive corrisponda a quello della richiesta originale.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Principale](middleware/samples/2.x/Program.cs?name=snippet1&highlight=8)]
+[!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Principale](middleware/samples/1.x/Startup.cs?name=snippet2&highlight=3)]
+[!code-csharp[Main](middleware/samples/1.x/Startup.cs?name=snippet2&highlight=3)]
 
 ---
 
@@ -125,7 +125,7 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 * Il `Set-Cookie` intestazione non deve essere presente.
 * `Vary`parametri dell'intestazione devono essere valido e non è uguale a `*`.
 * Il `Content-Length` valore di intestazione (se impostato) deve corrispondere alle dimensioni del corpo della risposta.
-* Il `HttpSendFileFeature` non viene utilizzato.
+* Il [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) non viene utilizzato.
 * La risposta non deve essere non aggiornata come specificato da di `Expires` intestazione e il `max-age` e `s-maxage` direttive di memorizzare nella cache.
 * Il buffer delle risposte ha esito positivo, e le dimensioni della risposta è minore di o default `SizeLimit`.
 * La risposta deve essere memorizzabile nella cache in base al [7234 RFC](https://tools.ietf.org/html/rfc7234) specifiche. Ad esempio, il `no-store` direttiva non deve essere presente nei campi di intestazione di richiesta o risposta. Vedere *sezione 3: archiviare le risposte nella cache* di [7234 RFC](https://tools.ietf.org/html/rfc7234) per informazioni dettagliate.
