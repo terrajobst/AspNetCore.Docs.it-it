@@ -163,8 +163,7 @@
 ## [Uso di Browser Link](xref:client-side/using-browserlink)
 
 # [Dispositivi mobili](xref:mobile/index)
-
-# [Creazione di servizi back-end per applicazioni native per dispositivi mobili](xref:mobile/native-mobile-backend)
+## [Creazione di servizi back-end per applicazioni native per dispositivi mobili](xref:mobile/native-mobile-backend)
 
 # [Hosting e distribuzione](xref:publishing/index)
 ## [Host in Windows con IIS](xref:publishing/iis)
