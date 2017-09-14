@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Creazione di un modello di dati complessi - EF Core con l'esercitazione di base di ASP.NET MVC (5 di 10)
 
@@ -55,7 +55,7 @@ Il `ApplyFormatInEditMode` impostazione specifica che la formattazione deve esse
 
 È possibile utilizzare il `DisplayFormat` attributo da se stesso, ma in genere è consigliabile utilizzare il `DataType` anche l'attributo. Il `DataType` attributo fornisce la semantica dei dati anziché come eseguirne il rendering in una schermata e fornisce i seguenti vantaggi che non si ottengono con `DisplayFormat`:
 
-* Il browser è possibile abilitare le funzionalità di HTML5 (ad esempio per visualizzare un controllo di calendario, il simbolo di valuta delle impostazioni locali appropriata, i collegamenti di posta elettronica, alcuni client-side input convalida e così via).
+* Il browser è possibile abilitare le funzionalità di HTML5 (ad esempio per visualizzare un controllo di calendario, il simbolo di valuta delle impostazioni locali appropriata, i collegamenti di posta elettronica, alcuni client-side input convalida e così via)..
 
 * Per impostazione predefinita, il browser verrà eseguito il rendering di dati utilizzando il formato corretto in base alle impostazioni locali del sistema.
 
@@ -374,7 +374,7 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 Poiché le chiavi esterne non sono nullable e insieme in modo univoco ogni riga della tabella, non è necessario per una chiave primaria separata. Il *InstructorID* e *CourseID* proprietà dovrebbero funzionare come una chiave primaria composta. È l'unico modo per identificare le chiavi primarie composte per Entity Framework utilizzando la *API fluent* (non può essere eseguita con gli attributi). Si noterà come configurare la chiave primaria composta nella sezione successiva.
 
-Chiave composta assicura che possono essere presenti più righe per un corso e più righe per un insegnante, non può avere più righe per la stessa instructor e corso. Il `Enrollment` join entità definisce la propria chiave primaria, sono possibili i duplicati di questo tipo. Per evitare tali duplicati, è possibile aggiungere un indice univoco per i campi di chiave esterni o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per ulteriori informazioni, vedere [indici](https://docs.efproject.net/en/latest/modeling/indexes.html).
+Chiave composta assicura che possono essere presenti più righe per un corso e più righe per un insegnante, non può avere più righe per la stessa instructor e corso. Il `Enrollment` join entità definisce la propria chiave primaria, sono possibili i duplicati di questo tipo. Per evitare tali duplicati, è possibile aggiungere un indice univoco per i campi di chiave esterni o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per ulteriori informazioni, vedere [indici](https://docs.microsoft.com/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Aggiornare il contesto del database
 

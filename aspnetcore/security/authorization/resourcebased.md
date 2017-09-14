@@ -11,17 +11,17 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 2f799588ba4aca4664e1679e4c34657e7ca121fb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
+ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="resource-based-authorization"></a>Autorizzazione basata sulle risorse
 
 <a name=security-authorization-resource-based></a>
 
-Autorizzazione spesso dipende dalla risorsa a cui accedere. Ad esempio un documento può disporre di una proprietà dell'autore. Solo l'autore del documento sarebbe possibile aggiornarlo, pertanto la risorsa deve essere caricata dal repository di documenti prima di effettuare una valutazione di autorizzazione. Questa operazione non può essere eseguita con l'attributo Authorize come attributo valutazione ha luogo prima del data binding e prima dell'esecuzione di codice per caricare una risorsa all'interno di un'azione. Invece di autorizzazione dichiarativa, il metodo di attributo, è necessario utilizzare l'autorizzazione imperativa, in cui uno sviluppatore chiama una funzione di authorize interno del codice.
+Autorizzazione spesso dipende dalla risorsa a cui accedere. Ad esempio, un documento può contenere una proprietà author. Solo l'autore del documento sarebbe possibile aggiornarlo, pertanto la risorsa deve essere caricata dal repository di documenti prima di effettuare una valutazione di autorizzazione. Questa operazione non può essere eseguita con l'attributo Authorize come attributo valutazione ha luogo prima del data binding e prima dell'esecuzione di codice per caricare una risorsa all'interno di un'azione. Invece di autorizzazione dichiarativa, il metodo di attributo, è necessario utilizzare l'autorizzazione imperativa, in cui uno sviluppatore chiama una funzione di authorize interno del codice.
 
 ## <a name="authorizing-within-your-code"></a>Autorizzazione all'interno del codice
 
@@ -52,7 +52,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name=security-authorization-resource-based-imperative></a>
 
-Per chiamare il carico del servizio della risorsa all'interno dell'azione chiama quindi il `AuthorizeAsync` overload desiderate. Esempio:
+Per chiamare il servizio, caricare la risorsa all'interno dell'azione chiama quindi il `AuthorizeAsync` overload desiderate. Ad esempio:
 
 ```csharp
 public async Task<IActionResult> Edit(Guid documentId)
@@ -77,12 +77,12 @@ public async Task<IActionResult> Edit(Guid documentId)
 
 ## <a name="writing-a-resource-based-handler"></a>Scrittura di un gestore di risorse basato su
 
-Scrittura di un gestore per l'autorizzazione delle risorse, in base che non è molto diverso da [scrittura di un gestore di requisiti normale](policies.md#security-authorization-policies-based-authorization-handler). Si crea un requisito e implementa un gestore per il requisito, che specifica i requisiti come prima, nonché il tipo di risorsa. Ad esempio, un gestore che potrebbe accettare una risorsa documento potrebbe essere come segue:
+Scrittura di un gestore per l'autorizzazione delle risorse, in base che non è molto diverso da [scrittura di un gestore di requisiti normale](policies.md#security-authorization-policies-based-authorization-handler). Si crea un requisito e implementa un gestore per il requisito, che specifica i requisiti come prima, nonché il tipo di risorsa. Ad esempio, un gestore che potrebbe accettare una risorsa documento sarebbe come indicato di seguito:
 
 ```csharp
 public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
 {
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
                                                 MyRequirement requirement,
                                                 Document resource)
     {
@@ -93,7 +93,7 @@ public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, 
 }
 ```
 
-Non dimenticare è inoltre necessario registrare il gestore nel `ConfigureServices` ; (metodo)
+Non dimenticare è inoltre necessario registrare il gestore nel `ConfigureServices` metodo:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
@@ -101,7 +101,7 @@ services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
 
 ### <a name="operational-requirements"></a>Requisiti operativi
 
-Se si apportano decisioni basate su operazioni quali la lettura, scrittura, aggiornamento ed eliminazione, è possibile utilizzare il `OperationAuthorizationRequirement` classe il `Microsoft.AspNetCore.Authorization.Infrastructure` dello spazio dei nomi. Questa classe del requisito predefiniti consente di scrivere un singolo gestore che ha un nome di operazione con parametri, anziché creare classi singoli per ogni operazione. Per utilizzare fornisce alcuni nomi di operazione:
+Se si apportano decisioni basate su operazioni quali la lettura, scrittura, aggiornamento ed eliminazione, è possibile utilizzare il `OperationAuthorizationRequirement` classe il `Microsoft.AspNetCore.Authorization.Infrastructure` dello spazio dei nomi. Questa classe del requisito predefiniti consente di scrivere un singolo gestore che ha un nome di operazione con parametri, anziché creare classi singoli per ogni operazione. Per utilizzarlo, fornire alcuni nomi di operazione:
 
 ```csharp
 public static class Operations
@@ -117,7 +117,7 @@ public static class Operations
 }
 ```
 
-Il gestore possa quindi essere implementato come indicato di seguito, con un ipotetico `Document` classe come risorsa.
+Il gestore possa quindi essere implementato come indicato di seguito, con un ipotetico `Document` classe della risorsa:
 
 ```csharp
 public class DocumentAuthorizationHandler :
@@ -137,7 +137,7 @@ public class DocumentAuthorizationHandler :
 
 È possibile visualizzare il funzionamento del gestore in `OperationAuthorizationRequirement`. Il codice all'interno del gestore deve richiedere la proprietà Name del requisito fornito in considerazione quando si effettua la valutazione.
 
-Per chiamare un gestore di risorse operative, è necessario specificare l'operazione quando si chiama `AuthorizeAsync` nell'ambito dell'azione. Esempio:
+Per chiamare un gestore di risorse operative, è necessario specificare l'operazione quando si chiama `AuthorizeAsync` nell'ambito dell'azione. Ad esempio:
 
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))

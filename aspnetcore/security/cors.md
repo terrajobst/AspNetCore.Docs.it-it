@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 44936c6db8a003a61091ec9a7fd3be5786d89b5b
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Abilitare le richieste tra le origini (CORS)
 
@@ -23,7 +23,7 @@ Da [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.
 
 Protezione del browser impedisce che una pagina web effettua le richieste AJAX a un altro dominio. Questa restrizione viene chiamata il *criteri stessa origine*e impedisce a un sito di leggere i dati sensibili da un altro sito. Tuttavia, in alcuni casi è consigliabile consentire ad altri siti richieste cross-origin per l'API web.
 
-[Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) è uno standard W3C che consente a un server per ridurre i criteri della stessa origine. Tramite condivisione CORS, un server può consentire in modo esplicito alcune richieste cross-origin durante il rifiuto di altri utenti. CORS è più sicura e più flessibile di tecniche precedenti, ad esempio [JSONP](http://en.wikipedia.org/wiki/JSONP). In questo argomento viene illustrato come abilitare CORS in un'applicazione ASP.NET Core.
+[Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) è uno standard W3C che consente a un server per ridurre i criteri della stessa origine. Tramite condivisione CORS, un server può consentire in modo esplicito alcune richieste cross-origin durante il rifiuto di altri utenti. CORS è più sicura e più flessibile di tecniche precedenti, ad esempio [JSONP](https://wikipedia.org/wiki/JSONP). In questo argomento viene illustrato come abilitare CORS in un'applicazione ASP.NET Core.
 
 ## <a name="what-is-same-origin"></a>Che cos'è "stessa origine"?
 
