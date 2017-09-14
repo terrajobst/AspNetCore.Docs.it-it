@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: fd2f415947c049d1239ce4e6bf0b1cf0264e7836
-ms.sourcegitcommit: 41e3e007512c175a42910bc69678f3f0403cab04
+ms.openlocfilehash: 92136a6e5db68b4d7e5245e38960e4a1f01bfb73
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="aspnet-web-api-help-pages-using-swagger"></a>Pagine della Guida dell'API Web ASP.NET con Swagger
 
@@ -92,6 +92,12 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 Aggiungere il generatore di Swagger alla raccolta di servizi nel metodo `ConfigureServices` di *Startup.cs*:
 
 [!code-csharp[Principale](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup2.cs?name=snippet_ConfigureServices&highlight=7-10)]
+
+Aggiungere l'istruzione using seguente per la classe `Info`:
+
+```csharp
+using Swashbuckle.AspNetCore.Swagger;
+```
 
 Nel metodo `Configure` di *Startup.cs* abilitare il middleware per la gestione del documento JSON generato e l'interfaccia utente di Swagger:
 
