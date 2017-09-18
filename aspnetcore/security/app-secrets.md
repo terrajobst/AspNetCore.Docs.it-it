@@ -1,20 +1,20 @@
 ---
-title: Archiviazione sicura di segreti dell'app durante sviluppo in ASP.NET Core
+title: Archiviazione sicura di segreti dell'app durante lo sviluppo di ASP.NET Core
 author: rick-anderson
 description: Viene illustrato come archiviare in modo sicuro i segreti durante lo sviluppo
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 7/14/2017
+ms.date: 09/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e112cc5ef9cba5aff6470ce4b9b1091a3c2b2600
+ms.sourcegitcommit: f1271b218d7dfdc806ec8f411c81f3750130463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app durante lo sviluppo di ASP.NET Core
 
@@ -42,36 +42,19 @@ Lo strumento di gestione Secret archivia i dati sensibili per operazioni di svil
 >[!WARNING]
 > Lo strumento di gestione di chiave privata non consente di crittografare i segreti archiviati e non deve essere considerato un archivio attendibile. È solo a fini di sviluppo. Le chiavi e valori vengono archiviati in un file di configurazione JSON nella directory di profilo dell'utente.
 
-### <a name="visual-studio-2017-installing-the-secret-manager-tool"></a>Visual Studio 2017: L'installazione lo strumento di gestione di segreto
+## <a name="installing-the-secret-manager-tool"></a>Installazione dello strumento di gestione segreto
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Fare clic sul progetto in Esplora soluzioni e selezionare **modifica \<project_name\>csproj** dal menu di scelta rapida. Aggiungere la riga evidenziata per il *csproj* e salvataggio dei file per ripristinare il pacchetto NuGet associato:
 
-[!code-xml[Principale](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
-Fare clic sul progetto in Esplora soluzioni e selezionare **informazioni riservate dell'utente gestire** dal menu di scelta rapida. Questa azione aggiunge un nuovo `UserSecretsId` nodo all'interno di un `PropertyGroup` del *csproj* file. Inoltre, viene aperto un `secrets.json` file nell'editor di testo.
+Fare di nuovo il progetto in Esplora soluzioni e selezionare **informazioni riservate dell'utente gestire** dal menu di scelta rapida. Questa azione aggiunge un nuovo `UserSecretsId` nodo all'interno di un `PropertyGroup` del *csproj* file, come mostrato nell'esempio seguente:
 
-Aggiungere quanto segue a `secrets.json`:
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
-
-### <a name="visual-studio-2015-installing-the-secret-manager-tool"></a>Visual Studio 2015: Lo strumento di gestione di segreto l'installazione
-
-Aprire il progetto `project.json` file. Aggiungere un riferimento a `Microsoft.Extensions.SecretManager.Tools` all'interno di `tools` , proprietà e salvataggio per ripristinare il pacchetto NuGet associato:
-
-```json
-"tools": {
-    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final",
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
-},
-```
-
-Fare clic sul progetto in Esplora soluzioni e selezionare **informazioni riservate dell'utente gestire** dal menu di scelta rapida. Questa azione aggiunge un nuovo `userSecretsId` proprietà `project.json`. Inoltre, viene aperto un `secrets.json` file nell'editor di testo.
-
-Aggiungere quanto segue a `secrets.json`:
+Salvataggio modificato *csproj* anche file viene aperto un `secrets.json` file nell'editor di testo. Sostituire il contenuto del `secrets.json` file con il codice seguente:
 
 ```json
 {
@@ -79,11 +62,11 @@ Aggiungere quanto segue a `secrets.json`:
 }
 ```
 
-### <a name="visual-studio-code-or-command-line-installing-the-secret-manager-tool"></a>Visual Studio Code o della riga di comando: installazione dello strumento di gestione segreto
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Aggiungere `Microsoft.Extensions.SecretManager.Tools` per il *csproj* file ed eseguire `dotnet restore`.
+Aggiungere `Microsoft.Extensions.SecretManager.Tools` per il *csproj* file ed eseguire `dotnet restore`. È possibile utilizzare gli stessi passaggi per installare lo strumento di gestione di segreto tramite riga di comando.
 
-[!code-xml[Principale](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Testare lo strumento di gestione Secret eseguendo il comando seguente:
 
@@ -100,7 +83,7 @@ Lo strumento di gestione di segreto opera sulle impostazioni di configurazione s
 
 Aggiungere un `UserSecretsId` per il progetto nel *csproj* file:
 
-[!code-xml[Principale](app-secrets/sample/UserSecrets/UserSecrets.csproj?range=7-9&highlight=2)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Utilizzare lo strumento di gestione di segreto per impostare un segreto. Ad esempio, nella finestra di comando dalla directory del progetto, immettere quanto segue:
 
@@ -116,17 +99,19 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 Inoltre, è possibile utilizzare lo strumento di gestione di segreto per elenco, rimuovere e cancellare i segreti dell'app.
 
+-----
+
 ## <a name="accessing-user-secrets-via-configuration"></a>L'accesso a informazioni riservate dell'utente tramite la configurazione
 
 Segreto Manager segreti sono accessibili tramite il sistema di configurazione. Aggiungere il `Microsoft.Extensions.Configuration.UserSecrets` pacchetto ed eseguire `dotnet restore`.
 
 Aggiungere l'origine di configurazione di segreti utente per il `Startup` metodo:
 
-[!code-csharp[Principale](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 È possibile accedere a informazioni riservate dell'utente tramite l'API di configurazione:
 
-[!code-csharp[Principale](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>Il segreto Manager funzionamento dello strumento
 

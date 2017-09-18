@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6505378c718d2ec676b534ddeb141231faf3fca3
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: b4e67e7cfea3c01e3ca8c0d5df2a04e789749932
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>La migrazione di autenticazione e identità per i componenti di base di ASP.NET 2.0
 
@@ -260,11 +260,11 @@ Il `IAuthenticationManager` interfaccia è il punto di ingresso principale nel s
 
 Progetti di riferimento, ad esempio, 1. x un `Authentication` proprietà:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore1.1App/AspNetCoreDotNetCore1.1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 Nei progetti a 2.0, importare il `Microsoft.AspNetCore.Authentication` dello spazio dei nomi ed eliminare il `Authentication` riferimenti alle proprietà:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="windows-auth-changes"></a>
 
@@ -290,15 +290,15 @@ Un effetto collaterale delle 2.0 modifiche è il passaggio a denominato opzioni 
 
 Ad esempio, 1. x progetti utilizzano [inserimento costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per passare un `IdentityCookieOptions` parametro in *AccountController.cs*. Lo schema di autenticazione esterno cookie è accessibile dall'istanza fornita:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore1.1App/AspNetCoreDotNetCore1.1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
 L'inserimento di un costruttore menzionati in precedenza non è necessaria nei progetti di 2.0 e `_externalCookieScheme` campo può essere eliminato:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
 Il `IdentityConstants.ExternalScheme` costante può essere utilizzata direttamente:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="navigation-properties"></a>
 
@@ -360,30 +360,30 @@ protected override void OnModelCreating(ModelBuilder builder)
 ## <a name="replace-getexternalauthenticationschemes"></a>Sostituire GetExternalAuthenticationSchemes
 Il metodo sincrono `GetExternalAuthenticationSchemes` a favore di una versione asincrona è stata rimossa. 1. x progetti presentano nel codice seguente *ManageController.cs*:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore1.1App/AspNetCoreDotNetCore1.1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
 Questo metodo viene visualizzato *cshtml* troppo:
 
-[!code-cshtml[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore1.1App/AspNetCoreDotNetCore1.1App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?range=62,75-84)]
 
 Nei 2.0 progetti, usare il `GetExternalAuthenticationSchemesAsync` metodo:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
 In *cshtml*, `AuthenticationScheme` proprietà accessibile nel `foreach` ciclo diventa `Name`:
 
-[!code-cshtml[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?range=62,75-84)]
 
 <a name="property-change"></a>
 
 ## <a name="manageloginsviewmodel-property-change"></a>Modifica della proprietà ManageLoginsViewModel
 Oggetto `ManageLoginsViewModel` oggetto viene utilizzato nel `ManageLogins` azione di *ManageController.cs*. In del 1. x progetti, l'oggetto `OtherLogins` proprietà tipo restituito è `IList<AuthenticationDescription>`. Il tipo restituito richiede un'importazione di `Microsoft.AspNetCore.Http.Authentication`:
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore1.1App/AspNetCoreDotNetCore1.1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
 Nei progetti a 2.0, il tipo restituito viene modificato per `IList<AuthenticationScheme>`. Questo nuovo tipo restituito è sostituire il `Microsoft.AspNetCore.Http.Authentication` importare con un `Microsoft.AspNetCore.Authentication` importare.
 
-[!code-csharp[Principale](../1x-to-2x/samples/AspNetCoreDotNetCore2.0App/AspNetCoreDotNetCore2.0App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
 <a name="additional-resources"></a>
 

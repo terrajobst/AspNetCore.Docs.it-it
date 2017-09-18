@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b451bde1e3180d12781d55113638cc1a99182c8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 409444e99cfa49f30812c6130120391a8f477839
+ms.sourcegitcommit: 50608ec8ae49897d8bf11d5f6dc511da30862bfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato sessione e dell'applicazione ASP.NET di base
 
@@ -42,7 +42,7 @@ Nella parte restante di questa sezione vengono descritte le opzioni per l'archiv
 <a name="temp"></a>
 ### <a name="tempdata"></a>TempData
 
-ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Questa proprietà archivia i dati fino a quando non è di lettura. Il `Keep` e `Peek` metodi possono essere utilizzati per esaminare i dati senza l'eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`si basa sullo stato della sessione. 
+ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Questa proprietà archivia i dati finché non viene letta. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`si basa sullo stato della sessione. 
 
 ## <a name="cookie-based-tempdata-provider"></a>Provider TempData basato su cookie 
 
@@ -96,7 +96,15 @@ Il `Microsoft.AspNetCore.Session` pacchetto fornisce il middleware per la gestio
 
 Il codice seguente viene illustrato come configurare il provider della sessione in memoria.
 
-[!code-csharp[Principale](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+
+---
 
 È possibile fare riferimento a una sessione da `HttpContext` una volta installato e configurato.
 
@@ -116,7 +124,15 @@ Sessione utilizza un cookie per tenere traccia e identificare le richieste prove
 
 Per eseguire l'override delle impostazioni predefinite di sessione, utilizzare `SessionOptions`:
 
-[!code-csharp[Principale](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+---
 
 Il server utilizza il `IdleTimeout` proprietà per determinare quanto tempo una sessione può rimanere inattiva prima che il relativo contenuto viene abbandonato. Questa proprietà è indipendente dalla scadenza del cookie. Ogni richiesta che passa attraverso il middleware di sessione (leggere o scrivere) Reimposta il timeout.
 
@@ -128,15 +144,15 @@ Sessione avviene tramite il `Session` proprietà `HttpContext`. Questa propriet�
 
 L'esempio seguente mostra l'impostazione e recupero di un tipo int e una stringa:
 
-[!code-csharp[Principale](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
 
 Se si aggiungono i seguenti metodi di estensione, è possibile impostare e ottenere gli oggetti serializzabili alla sessione:
 
-[!code-csharp[Principale](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
 
 Nell'esempio seguente viene illustrato come impostare e ottenere un oggetto serializzabile:
 
-[!code-csharp[Principale](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
 
 
 ## <a name="working-with-httpcontextitems"></a>Utilizzo di HttpContext. Items
@@ -230,4 +246,5 @@ public class MyController : Controller
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
 
-* [Codice di esempio utilizzati in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 1. x: esempio di codice usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 2. x: esempio di codice usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

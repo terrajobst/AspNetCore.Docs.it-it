@@ -10,21 +10,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8fe21b1a1ccb93c124dbd12a540b195400d45ef6
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa esercitazione viene illustrato come compilare un'app di ASP.NET Core con messaggio di posta elettronica conferma e reimpostazione della password.
 
 ## <a name="create-a-new-aspnet-core-project"></a>Creare un nuovo progetto ASP.NET Core
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Questo passaggio si applica a Visual Studio in Windows. Vedere la sezione successiva per le istruzioni di CLI.
 
@@ -37,7 +37,7 @@ L'esercitazione è necessario Visual Studio 2017 Preview 2 o versione successiva
 
 ![Finestra Nuovo progetto con "Singoli account utente opzione"](accconfirm/_static/2.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 L'esercitazione è necessario Visual Studio 2017 o versione successiva.
 
@@ -96,14 +96,14 @@ In genere si desidera impedire agli utenti di nuovo di tutti i dati al sito web 
 
 Aggiornamento `ConfigureServices` per richiedere una conferma tramite posta elettronica:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Principale](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
+[!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=13-16)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=13-16)]
 
 ---
 
@@ -117,11 +117,11 @@ La riga precedente impedisce registrati in corso la registrazione fino a quando 
 
 In questa esercitazione, SendGrid viene utilizzato per inviare posta elettronica. È necessario un account SendGrid e una chiave per l'invio di posta elettronica. È possibile utilizzare altri provider di posta elettronica. ASP.NET Core 2. x include `System.Net.Mail`, che consente di inviare posta elettronica dalla tua app. È consigliabile che utilizzare SendGrid o un altro servizio di posta elettronica per inviare posta elettronica.
 
-Il [modello opzioni](xref:fundamentals/configuration#options-config-objects) viene utilizzato per accedere alle impostazioni di account e la chiave utente. Per ulteriori informazioni, vedere [configurazione](xref:fundamentals/configuration#fundamentals-configuration).
+Il [modello opzioni](xref:fundamentals/configuration#options-config-objects) viene utilizzato per accedere alle impostazioni di account e la chiave utente. Per ulteriori informazioni, vedere [configurazione](xref:fundamentals/configuration).
 
 Creare una classe per recuperare la chiave di proteggere la posta elettronica. Per questo esempio, il `AuthMessageSenderOptions` classe il *Services/AuthMessageSenderOptions.cs* file.
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 Impostare il `SendGridUser` e `SendGridKey` con il [strumento segreto manager](../app-secrets.md). Ad esempio:
 
@@ -145,12 +145,12 @@ Il contenuto del *secrets.json* file non vengono crittografati. Il *secrets.json
 
 Aggiungere `AuthMessageSenderOptions` al contenitore del servizio alla fine del `ConfigureServices` metodo il *Startup.cs* file:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Principale](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
+[!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+[!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
 
@@ -166,17 +166,17 @@ In questa esercitazione viene illustrato come aggiungere le notifiche di posta e
 
 #### <a name="configure-sendgrid"></a>Configurare SendGrid
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * Aggiungere il codice nel *Services/EmailSender.cs* simile al seguente per configurare SendGrid:
 
-[!code-csharp[Principale](accconfirm/sample/WebPW/Services/EmailSender.cs)]
+[!code-csharp[Main](accconfirm/sample/WebPW/Services/EmailSender.cs)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * Aggiungere il codice nel *Services/MessageServices.cs* simile al seguente per configurare SendGrid:
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
 ---
 
@@ -184,7 +184,7 @@ In questa esercitazione viene illustrato come aggiungere le notifiche di posta e
 
 Il modello presenta il codice per il ripristino di conferma e la password di account. Trovare il `[HttpPost] Register` metodo il *AccountController.cs* file.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Impedire che i nuovi utenti registrati automaticamente l'accesso da impostare come commento la riga seguente:
 
@@ -194,13 +194,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 Il metodo completo viene visualizzato con la riga modificata evidenziata:
 
-[!code-csharp[Principale](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
+[!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Rimuovere il commento il codice per consentire la conferma dell'account.
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
 
 Nota: È stiamo anche impedire un utente appena registrato automaticamente l'accesso da impostare come commento la riga seguente:
 
@@ -210,11 +210,11 @@ Nota: È stiamo anche impedire un utente appena registrato automaticamente l'acc
 
 Abilita ripristino password rimuovendo il codice di `ForgotPassword` azione nel *Controllers/AccountController.cs* file.
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
 
 Rimuovere il commento modulo *Views/Account/ForgotPassword.cshtml*. È possibile rimuovere il `<p> For more information on how to enable reset password ... </p>` elemento che contiene un collegamento a questo articolo.
 
-[!code-html[Principale](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
+[!code-html[Main](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
 ---
 
@@ -239,14 +239,14 @@ Potrebbe essere necessario espandere la barra di spostamento per visualizzare il
 
 ![barra di spostamento](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Verrà visualizzata la pagina di gestione con il **profilo** scheda selezionata. Il **posta elettronica** Mostra una casella di controllo che indica il messaggio di posta elettronica è stata confermata. 
 
 ![pagina Gestisci](accconfirm/_static/rick2.png)
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Su questa pagina verrà descritto più avanti nell'esercitazione.
 ![pagina Gestisci](accconfirm/_static/rick2.png)
@@ -278,7 +278,7 @@ Se non è possibile ottenere l'utilizzo di posta elettronica:
 
 Con i modelli di correnti, quando un utente ha completato il modulo di registrazione, vengono registrate nel (autenticato). In genere, è necessario confermare la posta elettronica prima di registrarle. Nella sezione seguente si modificherà il codice in modo da richiedere nuovi utenti dispongano di un messaggio di posta elettronica di conferma prima di vengono registrate nel. Aggiornamento di `[HttpPost] Login` azione nel *AccountController.cs* file con le seguenti modifiche evidenziate.
 
-[!code-csharp[Principale](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
+[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 
 **Nota:** è una procedura consigliata di non utilizzare i segreti di produzione nel test e sviluppo. Se si pubblica l'app in Azure, è possibile impostare i segreti SendGrid come impostazioni dell'applicazione nel portale di Azure Web App. Il sistema di configurazione è configurato per la lettura delle chiavi dalle variabili di ambiente.
 

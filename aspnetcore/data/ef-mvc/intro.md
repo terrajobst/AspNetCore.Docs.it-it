@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
@@ -30,8 +30,8 @@ L'applicazione di esempio è un sito web per un'università Contoso fittizio. In
 Componenti di base di Entity Framework 2.0 è la versione più recente di Entity Framework, ma non dispone ancora di tutte le funzionalità di Entity Framework 6. x. Per informazioni su come scegliere tra Entity Framework 6. x ed EF Core, vedere [vs EF Core. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Se si sceglie di Entity Framework 6. x, vedere [la versione precedente di questa serie di esercitazioni](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
-> * Per la versione di ASP.NET 1.1 componenti di base di questa esercitazione, vedere il [versione di Visual Studio 2017 aggiornamento 2 di questa esercitazione in formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf).
-> * Per la versione di Visual Studio 2015 di questa esercitazione, vedere il [Visual Studio 2015 versione della documentazione di ASP.NET Core in formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
+> * Per la versione di ASP.NET 1.1 componenti di base di questa esercitazione, vedere il [versione di Visual Studio 2017 aggiornamento 2 di questa esercitazione in formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
+> * Per la versione Visual Studio 2015 di questa esercitazione, vedere la [versione Visual Studio 2015 della documentazione di ASP.NET Core in formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -128,7 +128,7 @@ Nelle sezioni seguenti si creerà una classe per ognuna di queste entità.
 
 Nel *modelli* cartella, creare un file di classe denominato *Student.cs* e sostituire il codice del modello con il codice seguente.
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
 Il `ID` proprietà diventerà una colonna chiave primaria della tabella di database che corrisponde a questa classe. Per impostazione predefinita, Entity Framework interpreta una proprietà denominata `ID` o `classnameID` come chiave primaria.
 
@@ -142,7 +142,7 @@ Se una proprietà di navigazione può contenere più entità (ad esempio relazio
 
 Nel *modelli* cartella, creare *Enrollment.cs* e sostituire il codice esistente con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 Il `EnrollmentID` proprietà sarà la chiave primaria, questa entità vengono utilizzati il `classnameID` schema anziché `ID` da se stesso come è illustrato nel `Student` entità. In genere si potrebbe scegliere un modello e utilizzarlo in tutto il modello di dati. In questo caso, la variazione di seguito viene illustrato che è possibile utilizzare un modello. In un [esercitazione successiva](inheritance.md), si noterà come usando un ID senza classname rende più semplice implementare l'ereditarietà nel modello di dati.
 
@@ -160,7 +160,7 @@ Entity Framework interpreta una proprietà come proprietà di chiave esterna se 
 
 Nel *modelli* cartella, creare *Course.cs* e sostituire il codice esistente con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 Il `Enrollments` è una proprietà di navigazione. Oggetto `Course` entità può essere correlato a un numero qualsiasi di `Enrollment` entità.
 
@@ -168,21 +168,21 @@ Ciò che diremo più sul `DatabaseGenerated` attributo un [esercitazione success
 
 ## <a name="create-the-database-context"></a>Creare il contesto del Database
 
-La classe principale che coordina le funzionalità di Entity Framework per un modello di dati specificato è la classe di contesto di database. Creazione di questa classe mediante la derivazione da di `Microsoft.EntityFrameworkCore.DbContext` classe. Nel codice specificare le entità incluse nel modello di dati. È anche possibile personalizzare determinati comportamenti di Entity Framework. In questo progetto, la classe è denominata `SchoolContext`.
+La classe principale che coordina le funzionalità di Entity Framework per un modello di dati specificato è la classe di contesto di database. Questa classe viene creata mediante derivazione dalla classe `Microsoft.EntityFrameworkCore.DbContext`. Nel codice specificare le entità incluse nel modello di dati. È anche possibile personalizzare determinati comportamenti di Entity Framework. In questo progetto, la classe è denominata `SchoolContext`.
 
 Nella cartella del progetto, creare una cartella denominata *dati*.
 
 Nel *dati* cartella creare un nuovo file di classe denominato *SchoolContext.cs*e sostituire il codice del modello con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
-Questo codice crea un `DbSet` proprietà per ogni set di entità. Nella terminologia di Entity Framework, un set in genere di entità corrisponde a una tabella di database e un'entità a una riga nella tabella.
+Questo codice crea un `DbSet` proprietà per ogni set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database e un'entità corrisponde a una riga della tabella.
 
 È stato possibile stato omesso il `DbSet<Enrollment>` e `DbSet<Course>` istruzioni e funzionerà la stessa. Entity Framework sarebbe includerli in modo implicito perché il `Student` i riferimenti alle entità di `Enrollment` entità e il `Enrollment` i riferimenti alle entità di `Course` entità.
 
 Quando viene creato il database, EF crea le tabelle che presentano lo stesso come nomi di `DbSet` i nomi delle proprietà. I nomi delle proprietà per le raccolte sono in genere al plurale (studenti anziché studente), ma gli sviluppatori non d'accordo sul se i nomi di tabella devono essere pluralizzati o non. Per queste esercitazioni è sarà eseguire l'override del comportamento predefinito specificando i nomi di tabella singolare in DbContext. A tale scopo, aggiungere il codice evidenziato di seguito dopo l'ultima proprietà DbSet.
 
-[!code-csharp[Principale](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
+[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
 ## <a name="register-the-context-with-dependency-injection"></a>Registrare il contesto con l'inserimento di dipendenze
 
@@ -190,13 +190,13 @@ Implementa ASP.NET Core [inserimento di dipendenze](../../fundamentals/dependenc
 
 Per registrare `SchoolContext` come servizio, aprire *Startup.cs*e aggiungere le righe evidenziate per il `ConfigureServices` metodo.
 
-[!code-csharp[Principale](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
 Il nome della stringa di connessione viene passato al contesto chiamando un metodo su un `DbContextOptionsBuilder` oggetto. Per lo sviluppo locale, il [il sistema di configurazione di ASP.NET Core](../../fundamentals/configuration.md) legge la stringa di connessione di *appSettings. JSON* file.
 
 Aggiungere `using` istruzioni per `ContosoUniversity.Data` e `Microsoft.EntityFrameworkCore` gli spazi dei nomi e quindi compilare il progetto.
 
-[!code-csharp[Principale](intro/samples/cu/Startup.cs?name=snippet_Usings)]
+[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
 Aprire il *appSettings. JSON* file e aggiungere una stringa di connessione come illustrato nell'esempio seguente.
 
@@ -214,7 +214,7 @@ In questo caso verrà utilizzato il `EnsureCreated` metodo per creare automatica
 
 Nel *dati* cartella, creare un nuovo file di classe denominato *DbInitializer.cs* e sostituire il codice del modello con il codice seguente, che fa sì che un database da creare quando necessario e carica i dati nel nuovo di test database.
 
-[!code-csharp[Principale](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
 Il codice verifica se sono presenti eventuali studenti nel database, e se non si presuppone che il database è nuovo e deve essere effettuato il seeding con dati di test.  Carica i dati di test in matrici anziché `List<T>` raccolte per ottimizzare le prestazioni.
 
@@ -224,11 +224,11 @@ In *Program.cs*, modificare il `Main` metodo per eseguire le operazioni seguenti
 * Chiamare il metodo di inizializzazione, passare il contesto.
 * Eliminare il contesto quando il metodo di inizializzazione viene eseguito.
 
-[!code-csharp[Principale](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
+[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
 
 Aggiungere `using` istruzioni:
 
-[!code-csharp[Principale](intro/samples/cu/Program.cs?name=snippet_Usings)]
+[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Usings)]
 
 Nelle esercitazioni precedenti, si può vedere codice simile nel `Configure` metodo *Startup.cs*. È consigliabile utilizzare il `Configure` metodo solo per impostare la pipeline della richiesta. Codice di avvio dell'applicazione cui appartiene il `Main` metodo.
 
@@ -276,13 +276,13 @@ La creazione automatica delle viste e i metodi di azione CRUD è noto come lo sc
 
 Si noterà che il controller che utilizza un `SchoolContext` come parametro di costruttore.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
 Inserimento di dipendenze ASP.NET si occuperà di passare un'istanza di `SchoolContext` nel controller. È stato configurato nel *Startup.cs* file in precedenza.
 
 Il controller contiene un `Index` metodo di azione, che consente di visualizzare tutti gli studenti nel database. Il metodo ottiene un elenco di studenti dall'entità studenti impostato leggendo il `Students` proprietà dell'istanza del contesto di database:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
 
 Più avanti nell'esercitazione si apprenderà sugli elementi di programmazione asincroni in questo codice.
 
@@ -344,7 +344,7 @@ Codice asincrono che presenta una piccola quantità di overhead in fase di esecu
 
 Nel codice seguente, il `async` (parola chiave), `Task<T>` valore restituito, `await` (parola chiave), e `ToListAsync` metodo affinché il codice venga eseguito in modo asincrono.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
 
 * Il `async` parola chiave indica al compilatore di generare i callback per parti del corpo del metodo e per la creazione automatica di `Task<IActionResult>` oggetto restituito.
 
