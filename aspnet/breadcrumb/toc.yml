@@ -1,0 +1,53 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+    - name: ASP.NET
+      tocHref: /aspnet/
+      topicHref: /aspnet/index
+      items:
+        - name: ASP.NET AJAX
+          tocHref: /aspnet/ajax/
+          topicHref: /aspnet/ajax/index
+        - name: Procedure consigliate di ASP.NET
+          tocHref: /aspnet/aspnet/overview/web-development-best-practices/
+          topicHref: /aspnet/aspnet/overview/web-development-best-practices/index
+        - name: OWIN e Katana
+          tocHref: /aspnet/aspnet/overview/owin-and-katana/
+          topicHref: /aspnet/aspnet/overview/owin-and-katana/index
+        - name: Identità ASP.NET
+          tocHref: /aspnet/identity/
+          topicHref: /aspnet/identity/index
+        - name: Dispositivo mobile ASP.NET
+          tocHref: /aspnet/mobile/
+          topicHref: /aspnet/mobile/index
+        - name: ASP.NET MVC
+          tocHref: /aspnet/mvc/
+          topicHref: /aspnet/mvc/index
+        - name: ASP.NET SignalR
+          tocHref: /aspnet/signalr/
+          topicHref: /aspnet/signalr/index
+        - name: ASP.NET SPA
+          tocHref: /aspnet/single-page-application/
+          topicHref: /aspnet/single-page-application/index
+        - name: ASP.NET e Visual Studio
+          tocHref: /aspnet/visual-studio/
+          topicHref: /aspnet/visual-studio/index
+        - name: API Web ASP.NET
+          tocHref: /aspnet/web-api/
+          topicHref: /aspnet/web-api/index
+        - name: Web Form ASP.NET
+          tocHref: /aspnet/web-forms/
+          topicHref: /aspnet/web-forms/index
+        - name: Pagine Web ASP.NET
+          tocHref: /aspnet/web-pages/
+          topicHref: /aspnet/web-pages/index
+        - name: WebHook ASP.NET
+          tocHref: /aspnet/webhooks/
+          topicHref: /aspnet/webhooks/index
+        - name: White paper ASP.NET
+          tocHref: /aspnet/whitepapers/
+          topicHref: /aspnet/whitepapers/index
+        - name: ASP.NET Core
+          tocHref: /aspnet/core/
+          topicHref: /aspnet/core/intro
