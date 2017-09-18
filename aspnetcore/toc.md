@@ -168,6 +168,7 @@
 # [Hosting e distribuzione](xref:publishing/index)
 ## [Host in Windows con IIS](xref:publishing/iis)
 ### [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:hosting/aspnet-core-module)
+### [Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core](xref:publishing/development-time-iis-support)
 ### [Moduli IIS con ASP.NET Core](xref:hosting/iis-modules)
 ## [Host in un servizio Windows](xref:hosting/windows-service)
 ## [Host in Linux con Nginx](xref:publishing/linuxproduction)
