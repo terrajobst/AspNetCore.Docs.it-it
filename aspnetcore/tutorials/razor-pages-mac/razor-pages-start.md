@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: caadc3fcb3bb71abe0773aed4f6ff60a043e3a02
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 56ff18589d189b0d2760c761c58b5b030d02940b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Introduzione all'uso di pagine Razor in ASP.NET Core con Visual Studio per Mac
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra le nozioni di base della creazione di un'app Web p
 
 Installare gli elementi seguenti:
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva
 * [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-a-razor-web-app"></a>Creare un'app Web Razor
@@ -53,7 +53,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview), avvia un browser e passa a `http://localhost:5000`.
+In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview), avvia un browser e passa a `http://localhost:5000`.
 
 Nella prossima esercitazione viene aggiunto un modello al progetto.
 

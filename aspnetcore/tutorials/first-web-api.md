@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: c57c73c6f9c60874ef88749b838ed1cc1d353ead
-ms.sourcegitcommit: 7fef13045e98d716c589a2982613dad261694a65
+ms.openlocfilehash: 4aab61c7ee4498b33a4ea8bbec6033ce9828e2af
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
-In questa esercitazione si crea un'API Web per la gestione di un elenco di elementi di tipo "attività". Non si crea un'interfaccia utente.
+In questa esercitazione si creerà un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente.
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -36,7 +36,7 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 [!INCLUDE[install 2.0](../includes/install2.0.md)]
 
-Vedere [questo PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) per la versione ASP.NET Core 1.1.
+Vedere [questo PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) per la versione ASP.NET Core 1.1.
 
 ## <a name="create-the-project"></a>Creare il progetto
 
@@ -72,7 +72,7 @@ Sostituire il codice generato con il seguente:
 
 [!code-csharp[Principale](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
-Il database genera il `Id` quando viene creato un `TodoItem`.
+Il database genera `Id` quando viene creato un `TodoItem`.
 
 ### <a name="create-the-database-context"></a>Creare il contesto di database
 

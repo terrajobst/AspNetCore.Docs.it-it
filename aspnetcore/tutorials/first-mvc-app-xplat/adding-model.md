@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-eeee-4666-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 054ef316461447ab651cca8c4f324e7b4e98f856
-ms.sourcegitcommit: d9e2c99c837078fcac0e315025f8fbfbd45ea6e8
+ms.openlocfilehash: c68466a645687b6fe0193e9deec2f32632e6f0e7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
@@ -68,7 +68,7 @@ Il motore di scaffolding crea:
 * Un controller di filmati (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create, Delete, Details, Edit e Index (*Views/Movies/\*.cshtml*)
 
-La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di filmati.
+La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di filmati.
 
 [!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 

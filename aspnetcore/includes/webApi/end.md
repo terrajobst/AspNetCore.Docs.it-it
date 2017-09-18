@@ -6,7 +6,7 @@ Verranno aggiunti i metodi `Create`, `Update` e `Delete` al controller. Dato che
 
 [!code-csharp[Principale](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Questo è un metodo HTTP POST, indicato dall'attributo [`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html). L'attributo [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) indica a MVC di ottenere il valore dell'elemento attività dal corpo della richiesta HTTP.
+Questo è un metodo HTTP POST, indicato dall'attributo [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api). L'attributo [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) indica a MVC di ottenere il valore dell'elemento attività dal corpo della richiesta HTTP.
 
 Il metodo `CreatedAtRoute` restituisce una risposta 201, la risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `CreatedAtRoute` aggiunge anche un'intestazione Location (Posizione) alla risposta. L'intestazione Location (Posizione) specifica l'URI dell'elemento attività appena creato. Vedere [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 

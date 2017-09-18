@@ -11,17 +11,17 @@ ms.assetid: 16efbacf-fe7b-4b41-84b0-06a1574b95c2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 52fe9ee7bf006553c7dcb17c00ff659d3797b204
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7d7e7055dd6dc0a2aefd8f4a0a170483b8504267
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa sezione si userà Migrazioni Code First di [Entity Framework](http://docs.efproject.net/en/latest/platforms/aspnetcore/new-db.html) per aggiungere un nuovo campo al modello e migrare questa modifica nel database.
+In questa sezione si userà Migrazioni Code First di [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) per aggiungere un nuovo campo al modello e migrare questa modifica nel database.
 
 Quando si usa Code First di Entity Framework per creare automaticamente un database, viene aggiunta una tabella al database per rilevare se lo schema del database è sincronizzato con le classi del modello da cui è stato generato. Se questi elementi non sono sincronizzati, Entity Framework genera un'eccezione. In questo modo è più semplice individuare problemi di incoerenza nel database o nel codice.
 

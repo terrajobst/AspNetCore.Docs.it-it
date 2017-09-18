@@ -3,7 +3,7 @@
 Il codice precedente:
 
 * Definisce una classe controller vuota. Nelle sezioni successive verranno aggiunti i metodi per implementare l'API.
-* Il costruttore usa l'[inserimento dipendenze](xref:fundamentals/dependency-injection) per inserire il contesto del database (`TodoContext `) nel controller. Il contesto di database viene usato in ognuno dei metodi [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) nel controller.
+* Il costruttore usa l'[inserimento dipendenze](xref:fundamentals/dependency-injection) per inserire il contesto del database (`TodoContext `) nel controller. Il contesto di database viene usato in ognuno dei metodi [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) nel controller.
 * Se non esiste, il costruttore aggiunge un elemento al database in memoria.
 
 ## <a name="getting-to-do-items"></a>Recupero degli elementi attività

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: b2e447cac0012ac41d06a70b1452c7d0523546cf
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 028d6d3246908a9cd44a6834449d2fdbc9cae0b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 
@@ -30,11 +30,11 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva. Vedere [il pdf](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) per la versione ASP.NET Core 1.1.
+Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva. Vedere [il pdf](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) per la versione ASP.NET Core 1.1.
 
 Installare gli elementi seguenti:
 
-- [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva
+- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva
 - [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
@@ -53,7 +53,7 @@ Denominare il progetto **MvcMovie**, quindi selezionare **Crea**.
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview), lancia un browser, e passa a `http://localhost:port`, laddove *porta* è un numero di porta selezionato a caso.
+In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview), lancia un browser, e passa a `http://localhost:port`, laddove *porta* è un numero di porta selezionato a caso.
 
 ![Browser con nuovo progetto](start-mvc/b1.png)
 

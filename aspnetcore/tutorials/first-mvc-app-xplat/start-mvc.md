@@ -11,11 +11,11 @@ ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 82ce5bbc695b190759ac2c05cdceebb5f7854eb7
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: cfce91271ca21dd800fb68a14389606ce6d835f5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Introduzione a ASP.NET Core MVC in Mac, Linux o Windows
 
@@ -31,11 +31,11 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 ## <a name="install-vs-code-and-net-core"></a>Installare VS Code e .NET Core
 
-Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva. Vedere [il pdf](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) per la versione ASP.NET Core 1.1.
+Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva. Vedere [il pdf](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) per la versione ASP.NET Core 1.1.
 
 Installare gli elementi seguenti:
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva.
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
 * [Visual Studio Code](https://code.visualstudio.com)
 * VS Code [estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 
@@ -75,9 +75,9 @@ Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC
 - [Terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Tasti di scelta rapida](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Tasti di scelta rapida di Mac](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Tasti di scelta rapida di Linux](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Tasti di scelta rapida di Windows](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Tasti di scelta rapida di Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Tasti di scelta rapida di Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Tasti di scelta rapida di Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 >[!div class="step-by-step"]
 [Successivo - Aggiungere un controller](adding-controller.md)

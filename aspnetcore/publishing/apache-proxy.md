@@ -11,15 +11,15 @@ ms.assetid: fa9b0cb7-afb3-4361-9e7e-33afffeaca0c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/apache-proxy
-ms.openlocfilehash: 831e2fa148e52f6447e9065f5949785627d5e248
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 9dc22ea20a6ae2e2477f9e6db95ddabecc038dcb
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-apache-and-deploy-to-it"></a>Configurare un ambiente di hosting per ASP.NET Core in Linux con Apache e distribuirlo
 
-Di [Shayne Boyer](https://www.github.com/spboyer)
+Di [Shayne Boyer](https://github.com/spboyer)
 
 Apache è un server HTTP molto diffuso e può essere configurato come un proxy per reindirizzare il traffico HTTP simile a nginx. In questa guida si apprenderà come configurare Apache in CentOS 7 e come usarlo in qualità di proxy inverso per accogliere le connessioni in ingresso e reindirizzarle verso l'applicazione ASP.NET Core in esecuzione su Kestrel. A tale scopo, si userà l'estensione *mod_proxy* e altri moduli Apache correlati.
 
@@ -134,7 +134,8 @@ Un esempio di file del servizio per questa applicazione.
     WorkingDirectory=/var/aspnetcore/hellomvc
     ExecStart=/usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
     Restart=always
-    RestartSec=10                                          # Restart service after 10 seconds if dotnet service crashes
+    # Restart service after 10 seconds if dotnet service crashes
+    RestartSec=10
     SyslogIdentifier=dotnet-example
     User=apache
     Environment=ASPNETCORE_ENVIRONMENT=Production 
@@ -318,7 +319,7 @@ Questo esempio illustra come impostare e configurare Apache CentOS 7 e Kestrel n
     sudo yum install mod_proxy_balancer
 ```
 
-Nel file di configurazione un'istanza aggiuntiva dell'app `hellomvc` è stata configurata per l'esecuzione sulla porta 5001 e la sezione *Proxy* è stata impostata con una configurazione di bilanciamento del carico con due membri per il bilanciamento del carico *byrequests* .
+Nel file di configurazione un'istanza aggiuntiva dell'app `hellomvc` è stata configurata per l'esecuzione sulla porta 5001 e la sezione *Proxy* è stata impostata con una configurazione di bilanciamento del carico con due membri per il bilanciamento del carico *byrequests *.
 
 ```text
     <VirtualHost *:80>

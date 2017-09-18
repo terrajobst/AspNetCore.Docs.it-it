@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: b576ef6bce3b211afe7465f33dfe62c25dac1f62
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Distribuzione continua in Azure per ASP.NET Core con Visual Studio e Git
 
@@ -26,7 +26,7 @@ Questa esercitazione mostra come creare un'app web ASP.NET Core tramite Visual S
 Vedere anche [Usare VSTS per Compilare e Pubblicare un'App Web di Azure con una distribuzione continua](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic), che illustra come configurare un flusso di lavoro di recapito continuo per [Servizio App di Azure](https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/) con Visual Studio Team Services. Il recapito continuo di Azure in Team Services semplifica la configurazione di una pipeline di distribuzione solida per pubblicare gli aggiornamenti per l'app cel servizio App di Azure. È possibile configurare la pipeline dal portale di Azure per compilare, eseguire i test, distribuire in uno slot di staging e quindi distribuire nell'ambiente di produzione.
 
 > [!NOTE]
-> Per completare questa esercitazione, è necessario un account di Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici per il sottoscrittore MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o [iscriversi per una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Per completare questa esercitazione, è necessario un account di Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici per il sottoscrittore MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o [iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,9 +34,9 @@ Questa esercitazione presuppone che è già stato installato quanto segue:
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](http://go.microsoft.com/fwlink/?LinkId=627627) (runtime e strumenti)
+* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (runtime e strumenti)
 
-* [Git](http://git-scm.com/downloads) per Windows
+* [Git](https://git-scm.com/downloads) per Windows
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 

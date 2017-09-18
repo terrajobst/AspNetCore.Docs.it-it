@@ -6,7 +6,7 @@
 
   ![Creare una vista con i campi per genere, prezzo, data di rilascio e titolo](../../tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* Potrebbe non essere possibile immettere separatori decimali o virgole nel campo `Price`. Per supportare la [convalida jQuery](http://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Vedere https://github.com/aspnet/Docs/issues/4076 e [Risorse aggiuntive](#additional-resources) per ulteriori informazioni. Per il momento, immettere solo numeri interi come 10.
+* Potrebbe non essere possibile immettere separatori decimali o virgole nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Vedere https://github.com/aspnet/Docs/issues/4076 e [Risorse aggiuntive](#additional-resources) per ulteriori informazioni. Per il momento, immettere solo numeri interi come 10.
 
 <a name="displayformatdatelocal"></a>
 

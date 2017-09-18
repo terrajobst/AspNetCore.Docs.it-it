@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1a789ff1bc6b3e3af99419e7d74d3fb46bb2345
-ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
+ms.openlocfilehash: 4eb57cf80399abdb7c6d05546ea2b0d5718c56c3
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting in ASP.NET Core
 
@@ -26,7 +26,7 @@ Le applicazioni ASP.NET Core configurare e avviare un *host*, che è responsabil
 
 ## <a name="setting-up-a-host"></a>Impostazione di un host
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'applicazione, il `Main` metodo. Nei modelli di progetto, `Main` si trova in *Program.cs*. Una tipica *Program.cs* chiamate [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) per iniziare a configurare un host:
 
@@ -34,7 +34,7 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
 
 `CreateDefaultBuilder`esegue le attività seguenti:
 
-* Configura [Kestrel](servers/kestrel.md) come server web.
+* Configura [Kestrel](servers/kestrel.md) come server web. Per le opzioni predefinite Kestrel, vedere [il Kestrel Opzioni sezione di implementazione del server web Kestrel in ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Imposta la radice del contenuto [GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Configurazione facoltativa di carichi da:
   * *appSettings. JSON*.
@@ -43,7 +43,7 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Configura [registrazione](xref:fundamentals/logging) per l'output di console ed eseguire il debug con [filtri log](xref:fundamentals/logging#log-filtering) le regole specificate in una sezione di configurazione di registrazione di un *appSettings. JSON* o *appsettings. {Ambiente} JSON* file.
-* Quando si esegue dietro IIS, consente l'integrazione di IIS configurando il percorso di base e la porta server deve rimanere in attesa quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module). Il modulo Crea un proxy inverso tra Kestrel e IIS. Configura inoltre all'app di [acquisire gli errori di avvio](#capture-startup-errors).
+* Quando si esegue dietro IIS, consente [integrazione IIS](xref:publishing/iis) configurando il percorso di base e la porta server deve rimanere in attesa quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module). Il modulo Crea un proxy inverso tra IIS e Kestrel. Configura inoltre all'app di [acquisire gli errori di avvio](#capture-startup-errors). Per le opzioni predefinite IIS, vedere [IIS Opzioni sezione dell'Host ASP.NET Core in Windows con IIS](xref:publishing/iis#iis-options).
 
 Il *contenuto radice* determina in cui l'host esegue ricerche nei file di contenuto, ad esempio i file di visualizzazione MVC. La radice di contenuto predefinito è [GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory). Ciò comporta l'utilizzo di cartella radice del progetto web come radice del contenuto quando l'applicazione viene avviata dalla cartella radice (ad esempio, la chiamata [dotnet eseguire](/dotnet/core/tools/dotnet-run) dalla cartella del progetto). Questo è il valore predefinito utilizzato [Visual Studio](https://www.visualstudio.com/) e [dotnet nuovi modelli](/dotnet/core/tools/dotnet-new).
 
@@ -52,7 +52,7 @@ Vedere [configurazione in ASP.NET Core](xref:fundamentals/configuration) per ult
 > [!NOTE]
 > Come alternativa all'utilizzo statica `CreateDefaultBuilder` (metodo), creazione di un host da [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) è un approccio supportato con ASP.NET Core 2. x. Vedere la scheda di 1. x di ASP.NET Core per altre informazioni.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'applicazione, il `Main` metodo. Nei modelli di progetto, `Main` si trova in *Program.cs*. Nell'esempio *Program.cs* viene illustrato come utilizzare `WebHostBuilder` per compilare l'host:
 
@@ -97,7 +97,7 @@ Questa impostazione Controlla l'acquisizione degli errori di avvio.
 
 Quando `false`, errori durante il risultato di avvio nell'host di chiusura. Quando `true`, l'host consente di acquisire le eccezioni durante l'avvio e tenta di avviare il server.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -105,7 +105,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -126,7 +126,7 @@ Questa impostazione determina in cui inizia la ricerca di file di contenuto, ad 
 
 La radice del contenuto viene usata anche come percorso di base per il [impostazione radice Web](#web-root). Se il percorso non esiste, l'host non verrà avviato.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -134,7 +134,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -155,7 +155,7 @@ Determina se gli errori dettagliati devono essere acquisiti gli errori.
 
 Quando è abilitata (o quando il <a href="#environment">ambiente</a> è impostato su `Development`), l'app consente di acquisire le eccezioni dettagliate.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -163,7 +163,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -182,9 +182,9 @@ Imposta l'ambiente dell'app.
 **Predefinito**: produzione  
 **Impostare utilizzando**:`UseEnvironment`
 
-È possibile impostare il *ambiente* su qualsiasi valore. I valori definiti dal framework includono `Development`, `Staging`, e `Production`. I valori non sono tra maiuscole e minuscole. Per impostazione predefinita, il *ambiente* viene letto dal `ASPNETCORE_ENVIRONMENT` variabile di ambiente. Quando si utilizza [Visual Studio](https://www.visualstudio.com/), le variabili di ambiente possono essere impostate *launchSettings.json* file. Per ulteriori informazioni, vedere [utilizzo di più ambienti](xref:fundamentals/environments).
+È possibile impostare il *ambiente* su qualsiasi valore. I valori definiti dal framework includono `Development`, `Staging`, e `Production`. I valori non sono tra maiuscole e minuscole. Per impostazione predefinita, il *ambiente* viene letto dal `ASPNETCORE_ENVIRONMENT` variabile di ambiente. Quando si utilizza [Visual Studio](https://www.visualstudio.com/), le variabili di ambiente possono essere impostate *launchSettings.json* file. Per altre informazioni, vedere [Uso di più ambienti](xref:fundamentals/environments).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -192,7 +192,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -215,7 +215,7 @@ Stringa delimitata da punto e virgola di assembly di avvio da caricare all'avvio
 
 Anche se il valore di configurazione predefinito è una stringa vuota, gli assembly di avvio hosting sempre includono assembly dell'applicazione. Quando si specificano gli assembly di avvio hosting, vengono aggiunte all'assembly dell'applicazione per il caricamento quando l'app compila i servizi comuni durante l'avvio.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -223,7 +223,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
@@ -240,7 +240,7 @@ Indica se l'host deve eseguire l'ascolto gli URL configurati con il `WebHostBuil
 
 Questa funzionalità è stato introdotta in ASP.NET 2.0 Core.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -248,7 +248,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
@@ -265,7 +265,7 @@ Impedisce il caricamento automatico di assembly di avvio, tra cui assembly dell'
 
 Questa funzionalità è stato introdotta in ASP.NET 2.0 Core.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -273,7 +273,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
@@ -290,7 +290,7 @@ Indica il indirizzi IP o gli indirizzi host con le porte e protocolli che il ser
 
 Impostare in separati da punto e virgola (;) prefissi di elenco di URL per cui il server deve rispondere. Ad esempio `http://localhost:123`. Utilizzare "\*" per indicare che il server deve attendere le richieste su qualsiasi indirizzo IP o nome host utilizzando la porta specificata e il protocollo (ad esempio, `http://*:5000`). Il protocollo (`http://` o `https://`) deve essere incluso in ogni URL. I formati supportati variano tra i server.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -298,9 +298,9 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-Kestrel ha la propria configurazione di endpoint API. Per ulteriori informazioni, vedere [implementazione Kestrel del server web in ASP.NET Core](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration).
+Kestrel ha la propria configurazione di endpoint API. Per altre informazioni, vedere l'introduzione all'[implementazione del server Web Kestrel in ASP.NET Core](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -321,7 +321,7 @@ Specifica la quantità di tempo di attesa per l'host web per l'arresto.
 
 Anche se la chiave accetta un *int* con `UseSetting` (ad esempio, `.UseSetting(WebHostDefaults.ShutdownTimeoutKey, "10")`), il `UseShutdownTimeout` il metodo di estensione accetta una `TimeSpan`. Questa funzionalità è stato introdotta in ASP.NET 2.0 Core.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -329,7 +329,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
@@ -346,7 +346,7 @@ Determina l'assembly per la ricerca di `Startup` classe.
 
 È possibile fare riferimento all'assembly in base al nome (`string`) o un tipo (`TStartup`). Se più `UseStartup` metodi vengono chiamati, quella più recente ha la precedenza.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -360,7 +360,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -385,7 +385,7 @@ Imposta il percorso relativo alle risorse statiche dell'app.
 **Predefinito**: se non specificato, il valore predefinito è "(Content Root)/wwwroot", se il percorso esista. Se il percorso non esiste, viene utilizzato un provider di file viene eseguita alcuna operazione.  
 **Impostare utilizzando**:`UseWebRoot`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -393,7 +393,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 var host = new WebHostBuilder()
@@ -407,7 +407,7 @@ var host = new WebHostBuilder()
 
 Utilizzare [configurazione](configuration.md) per configurare l'host. Nell'esempio seguente, configurazione dell'host è specificato, facoltativamente, un *hosting.json* file. Qualsiasi configurazione caricata dal *hosting.json* file può essere sottoposto a override dagli argomenti della riga di comando. La configurazione generata (in `config`) viene usato per configurare l'host con `UseConfiguration`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 *Hosting.JSON*:
 
@@ -448,7 +448,7 @@ public class Program
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 *Hosting.JSON*:
 
@@ -506,7 +506,7 @@ Alcune delle `WebHostBuilder` impostazioni vengono lette prima dalle variabili d
 
 ## <a name="starting-the-host"></a>Avvio dell'host
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **Run**
 
@@ -677,7 +677,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 
 Produce lo stesso risultato **StartWith (azione<IApplicationBuilder> app)**, ad eccezione dell'applicazione risponde alla `http://localhost:8080`.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 **Run**
 

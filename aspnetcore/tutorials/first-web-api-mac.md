@@ -1,27 +1,27 @@
 ---
 title: Creare un'API Web con ASP.NET Core e Visual Studio per Mac
-author: rick-anderson
 description: Creare un'API Web con ASP.NET Core MVC e Visual Studio per Mac
-keywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/15/2017
 ms.topic: get-started-article
-ms.assetid: 830b4af5-ed14-1638-7734-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 08619d3b4ab2d6fdb04794dcbafac0b696dd8504
-ms.sourcegitcommit: 3273675dad5ac3e1dc1c589938b73db3f7d6660a
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+ms.technology: aspnet
+keywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+manager: wpickett
+ms.openlocfilehash: 992059f7abd7650f82c1307acf3ba3219a6fcbb5
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Creare un'API Web con ASP.NET Core MVC e Visual Studio per Mac
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
-In questa esercitazione si crea un'API Web per la gestione di un elenco di elementi di tipo "attività". Non si crea un'interfaccia utente.
+In questa esercitazione si creerà un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente.
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -44,7 +44,7 @@ Installare gli elementi seguenti:
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-In Visual Studio, selezionare **File > Nuova soluzione**.
+In Visual Studio selezionare **File > Nuova soluzione**.
 
 ![Nuova soluzione macOS](first-web-api-mac/_static/sln.png)
 
@@ -77,7 +77,7 @@ Installare il provider di database [Entity Framework Core InMemory](https://docs
 
 ### <a name="add-a-model-class"></a>Aggiungere una classe modello
 
-Un modello è un oggetto che rappresenta i dati nell'applicazione. In questo caso l'unico modello è un elemento attività da eseguire.
+Un modello è un oggetto che rappresenta i dati nell'applicazione. In questo caso l'unico modello è un elemento attività.
 
 Aggiungere una cartella denominata *Models*. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
@@ -89,7 +89,7 @@ Aggiungere una classe `TodoItem`. Fare clic con il pulsante destro del mouse sul
 
 Sostituire il codice generato con:
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Il database genera il `Id` quando viene creato un `TodoItem`.
 
@@ -99,7 +99,7 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 
 Aggiungere una classe `TodoContext` alla cartella *Models*.
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 
@@ -127,13 +127,13 @@ Passare al controller `Todo` all'indirizzo `http://localhost:port/api/todo`:
 
 ## <a name="implement-the-other-crud-operations"></a>Implementare le altre operazioni CRUD
 
-È prevista l'aggiunta dei metodi `Create`, `Update` e `Delete` al controller. Dato che si tratta di variazioni basate su un tema principale, di seguito viene visualizzato il codice e vengono evidenziate le differenze principali. Compilare il progetto dopo l'aggiunta o la modifica del codice.
+Verranno aggiunti i metodi `Create`, `Update` e `Delete` al controller. Dato che si tratta di variazioni di un tema, di seguito viene mostrato il codice evidenziando le differenze principali. Compilare il progetto dopo l'aggiunta o la modifica del codice.
 
 ### <a name="create"></a>Crea
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Questo è un metodo HTTP POST, indicato dall'attributo [`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html). L'attributo [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) indica a MVC di ottenere il valore dell'elemento attività dal corpo della richiesta HTTP.
+Questo è un metodo HTTP POST, indicato dall'attributo [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api). L'attributo [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) indica a MVC di ottenere il valore dell'elemento attività dal corpo della richiesta HTTP.
 
 Il metodo `CreatedAtRoute` restituisce una risposta 201, la risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `CreatedAtRoute` aggiunge anche un'intestazione Location (Posizione) alla risposta. L'intestazione Location (Posizione) specifica l'URI dell'elemento attività appena creato. Vedere [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
@@ -146,7 +146,7 @@ Il metodo `CreatedAtRoute` restituisce una risposta 201, la risposta standard pe
 
 * Impostare il metodo HTTP su `POST`.
 * Selezionare il pulsante di opzione **Body** (Corpo).
-* Selezionare il pulsante di opzione **raw**.
+* Selezionare il pulsante di opzione **raw** (non elaborato).
 * Impostare il tipo su JSON
 * Nell'editor chiave-valore immettere un elemento attività, ad esempio:
 
@@ -163,7 +163,7 @@ Il metodo `CreatedAtRoute` restituisce una risposta 201, la risposta standard pe
 
 ![Scheda Headers (Intestazioni) della console Postman](first-web-api/_static/pmget.png)
 
-È possibile usare l'URI dell'intestazione Location (Posizione) per accedere alla risorsa appena creata. Richiamare il metodo `GetById` per creare la route denominata `"GetTodo"`:
+È possibile usare l'URI dell'intestazione Location (Posizione) per accedere alla risorsa appena creata. Richiamare il metodo `GetById` che ha creato la route denominata `"GetTodo"`:
 
 ```csharp
 [HttpGet("{id}", Name = "GetTodo")]
@@ -172,9 +172,9 @@ public IActionResult GetById(string id)
 
 ### <a name="update"></a>Aggiorna
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`Update` è simile a `Create` ma usa HTTP PUT. La risposta è [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). In base alla specifica HTTP una richiesta PUT richiede che il client invii l'intera entità aggiornata, non solo i delta. Per supportare gli aggiornamenti parziali usare HTTP PATCH.
+`Update` è simile a `Create` ma usa la richiesta HTTP PUT. La risposta è [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). In base alla specifica HTTP una richiesta PUT richiede che il client invii l'intera entità aggiornata, non solo i delta. Per supportare gli aggiornamenti parziali usare HTTP PATCH.
 
 ```json
 {
@@ -188,7 +188,7 @@ public IActionResult GetById(string id)
 
 ### <a name="delete"></a>Eliminare
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
 La risposta è [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
@@ -200,4 +200,4 @@ La risposta è [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-se
 * Per informazioni sulla distribuzione dell'API, vedere [Pubblicazione e distribuzione](../publishing/index.md).
 * [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
 * [Postman](https://www.getpostman.com/)
-* [Fiddler](http://www.fiddler2.com/fiddler2/)
+* [Fiddler](https://www.telerik.com/download/fiddler)

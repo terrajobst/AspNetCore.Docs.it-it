@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 283a3869300b83235197951cbbee92a82532c6e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Introduzione ad ASP.NET Core MVC e Visual Studio
 
@@ -40,7 +40,7 @@ Per la versione Visual Studio 2015 di questa esercitazione, vedere la [versione 
 
 Installare Visual Studio Community 2017. Selezionare il download Community. Se Visual Studio 2017 è già installato ignorare questo passaggio.
 
-* [Home page di installazione di Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Home page di installazione di Visual Studio 2017](https://www.visualstudio.com/)
 
 Eseguire il programma di installazione e selezionare i carichi di lavoro seguenti:
 
@@ -98,7 +98,7 @@ Toccare **F5** per eseguire l'app in modalità di debug o **CTRL+F5** per esegui
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![App in esecuzione](start-mvc/_static/1.png)
 
-* Visual Studio avvia [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente il numero di porta è 5000. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
+* Visual Studio avvia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente il numero di porta è 5000. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
 * È possibile scegliere se avviare l'app in modalità di debug o non di debug nella voce di menu **Debug**:
 

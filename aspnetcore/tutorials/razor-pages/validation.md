@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 734dad7778eba41780f9d3ac0685879687288d47
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: ed1ad71b6b1395bce1dd287e86e499e23446f190
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Aggiunta della convalida alla pagina Razor
 
@@ -24,13 +24,13 @@ In questa sezione la logica della convalida viene aggiunta al modello `Movie`. L
 
 ## <a name="validation"></a>Convalida
 
-Un concetto di base dello sviluppo del software si chiama [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself", Non ripeterti). Le pagine Razor promuovono lo sviluppo in cui la funzionalità è stata specificata una volta e questa modifica è riflessa sull'intera app. DRY consente di ridurre la quantità di codice in un'app. DRY rende il codice meno soggetto ad errori ed è più facile da testare e gestire.
+Un concetto di base dello sviluppo del software si chiama [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself", Non ripeterti). Le pagine Razor promuovono lo sviluppo in cui la funzionalità è stata specificata una volta e questa modifica è riflessa sull'intera app. DRY consente di ridurre la quantità di codice in un'app. DRY rende il codice meno soggetto ad errori ed è più facile da testare e gestire.
 
 Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework è un buon esempio del principio di DRY. Le regole di convalida vengono specificate in modo dichiarativo in un'unica posizione (nella classe del modello) e le regole vengono applicate ovunque nell'app.
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
 
-Aprire il file *Movie.cs*. [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
+Aprire il file *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
 
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
@@ -49,7 +49,7 @@ Selezionare il collegamento **Crea nuovo**. Completare il modulo con alcuni valo
 ![Il modulo di vista del film con più errori di convalida del lato client jQuery](validation/_static/val.png)
 
 > [!NOTE]
-> Potrebbe non essere possibile immettere separatori decimali o virgole nel campo `Price`. Per supportare la [convalida jQuery](http://jqueryvalidation.org/) in impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Per altre informazioni, vedere [Risorse aggiuntive](#additional-resources). Per il momento, immettere solo numeri interi come 10.
+> Potrebbe non essere possibile immettere separatori decimali o virgole nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) in impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Per altre informazioni, vedere [Risorse aggiuntive](#additional-resources). Per il momento, immettere solo numeri interi come 10.
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida in ogni campo che contiene un valore non valido. Gli errori vengono applicati sia sul lato client (uso di JavaScript e jQuery) sia sul lato server (quando un utente ha JavaScript disabilitato).
 
@@ -83,7 +83,7 @@ Il codice seguente mostra una porzione della pagina *Create.cshtml* di cui è st
 
 [!code-cshtml[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
+L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
 
 Le pagine Crea e Modifica non dispongono di nessuna regola di convalida. Le regole di convalida e le stringhe di errore vengono specificate solo nella classe `Movie`. Queste regole di convalida vengono applicate automaticamente alle pagine Razor che modificano il modello `Movie`.
 
