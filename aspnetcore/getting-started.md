@@ -5,44 +5,49 @@ description: Un'esercitazione rapida per creare ed eseguire una semplice app Hel
 keywords: ASP.NET Core, esercitazione, introduzione
 ms.author: riande
 manager: wpickett
-ms.date: 08/07/2017
+ms.date: 08/30/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: 3399df3958093da9117b013736b1cb370fd6beb2
-ms.sourcegitcommit: 297ee5d2f3b3b24eb8a2c4a25195c9e2973cb91b
+ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
 > [!NOTE]
 > Queste istruzioni sono relative alla versione più recente di ASP.NET Core. Per iniziare con una versione precedente, vedere la [versione 1.1 di questa esercitazione](xref:getting-started-1.1).
 
-1. Installare [.NET Core](https://microsoft.com/net/core/).
+1. Installare [.NET Core](https://www.microsoft.com/net/core/).
 
 2. Creare un nuovo progetto .NET Core.
 
    In macOS e Linux aprire una finestra del terminale. In Windows aprire un prompt dei comandi.
 
-   ```terminal
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   dotnet new web
-   ```
+    ```terminal
+    dotnet new razor -o aspnetcoreapp
+    ```
     
 4. Eseguire l'app.
 
-   Il comando `dotnet run` compila prima l'app se necessario.
+    Usare i comandi seguenti per eseguire l'app:
 
-   ```terminal
-   dotnet run
-   ```
+    ```terminal
+    cd aspnetcoreapp
+    dotnet run
+    ```
 
-5. Passare a `http://localhost:5000`.
+5. Passare a [http://localhost:5000](http://localhost:5000)
+
+6. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is@DateTime.Now" (Buongiorno mondo! L'ora nel server è):
+
+    [!code-html[Principale](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+
+7. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

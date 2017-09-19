@@ -5,25 +5,25 @@ description: Helper per tag predefiniti di ASP.NET Core
 keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 7/11/2017
+ms.date: 09/13/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 3f47cc571eff0c522aaf6543de58f158835384d4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Helper per tag predefiniti di ASP.NET Core
 
 Di [Peter Kellner](http://peterkellner.net) 
 
-Il framework di ASP.NET Core include molti helper Tag che consentono di migliorare la produttività nella scrittura di un codice solido. In questa sezione viene fornita una panoramica di tutti gli helper Tag incorporati.
+ASP.NET Core include molti helper di tag predefiniti per incrementare la produttività. Questa sezione include una panoramica degli helper di tag predefiniti.
 
 > [!NOTE]
-> Esistono helper Tag incorporati che non vengono trattati, in quanto vengono usati internamente dal motore di vista [Razor](xref:mvc/views/razor). Ciò include un Helper Tag per il carattere ~ che si espande al percorso radice del sito web.
+> Esistono helper di tag predefiniti che non vengono trattati, in quanto vengono usati internamente dal motore di visualizzazione di [Razor](xref:mvc/views/razor). Ciò include un helper di tag per il carattere ~ che si espande nel percorso radice del sito Web.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>Helper per tag incorporati di ASP.NET Core
 
@@ -37,13 +37,13 @@ Il framework di ASP.NET Core include molti helper Tag che consentono di migliora
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
 
-[comment]: **[FormTagTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormTagHelper)**
+**[Helper per tag di modulo](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[Helper per tag di immagine](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
 
-[comment]: **[InputTagHelper](xref:mvc/views/tag-helpers/builtin-th/InputTagHelper)**
+**[Helper per tag di input](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-[comment]: **[LabelTagHelper](xref:mvc/views/tag-helpers/builtin-th/LabelTagHelper)**
+**[Helper per tag di etichetta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
 
@@ -51,21 +51,15 @@ Il framework di ASP.NET Core include molti helper Tag che consentono di migliora
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
 
-[comment]: **[SelectTagHelper](xref:mvc/views/tag-helpers/builtin-th/SelectTagTagHelper)**
+**[Helper per tag di selezione](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-[comment]: **[TextAreaTagHelper](xref:mvc/views/tag-helpers/builtin-th/TextAreaTagHelper)**
+**[Helper per tag area di testo](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-[comment]: **[ValidationMessageTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationMessageTagHelper)**
+**[Helper per tag messaggio di convalida](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-[comment]: **[ValidationSummaryTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationSummaryTagHelper)**  
-  
-  
-<!--
+**[Helper per tag riepilogo di convalida](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
-## Additional Resources
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-REQUIRED These must be xref links, not relative, that is ../../
-* [Client-Side Development](../../../client-side/index.md)
-
-* [Tag Helpers](xref:mvc/views/tag-helpers/intro)
--->
+* [Sviluppo lato client](xref:client-side/index)
+* [Helper tag](xref:mvc/views/tag-helpers/intro)
