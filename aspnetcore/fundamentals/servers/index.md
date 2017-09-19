@@ -11,17 +11,17 @@ ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: 1e6d0836f0da751fe433273b9a6896fcf259b69d
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 54c8e1ad7d4de7f953d9801c214c0bd577304f46
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
-Di [Tom Dykstra](http://github.com/tdykstra), [Steve Smith](http://ardalis.com), [Stephen Halter](https://twitter.com/halter73) e [Chris Ross](https://github.com/Tratcher)
+Di [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73) e [Chris Ross](https://github.com/Tratcher)
 
-Un'applicazione ASP.NET Core viene eseguita con un'implementazione del server HTTP in-process. L'implementazione del server attende le richieste HTTP e le rende visibili all'applicazione come set di [funzionalità di richiesta](https://docs.asp.net/en/latest/fundamentals/request-features.html) combinate in un oggetto `HttpContext`.
+Un'applicazione ASP.NET Core viene eseguita con un'implementazione del server HTTP in-process. L'implementazione del server attende le richieste HTTP e le rende visibili all'applicazione come set di [funzionalità di richiesta](https://docs.microsoft.com/aspnet/core/fundamentals/request-features) combinate in un oggetto `HttpContext`.
 
 Ad ASP.NET Core sono accluse due implementazioni di server:
 
@@ -115,13 +115,13 @@ Negli scenari con rete interna, in genere si consiglia Kestrel perché offre pre
 
 ## <a name="notes-about-aspnet-core-server-infrastructure"></a>Note sull'infrastruttura del server ASP.NET Core
 
-L'oggetto [`IApplicationBuilder`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Builder/IApplicationBuilder/index.html#Microsoft.AspNetCore.Builder.IApplicationBuilder.md), disponibile nella classe `Startup` all'interno del metodo `Configure`, espone la proprietà `ServerFeatures` del tipo [`IFeatureCollection`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Http/Features/IFeatureCollection/index.html#Microsoft.AspNetCore.Http.Features.IFeatureCollection.md). Kestrel e WebListener espongono entrambi solo una singola funzionalità, [`IServerAddressesFeature`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/Server/Features/IServerAddressesFeature/index.html#Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature.md), ma le diverse implementazioni del server possono esporre funzionalità aggiuntive.
+L'oggetto [`IApplicationBuilder`](/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder), disponibile nella classe `Startup` all'interno del metodo `Configure`, espone la proprietà `ServerFeatures` del tipo [`IFeatureCollection`](/aspnet/core/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel e WebListener espongono entrambi solo una singola funzionalità, [`IServerAddressesFeature`](/aspnet/core/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ma le diverse implementazioni del server possono esporre funzionalità aggiuntive.
 
 L'oggetto `IServerAddressesFeature` può essere usato per individuare la porta a cui è associata l'implementazione del server in fase di esecuzione.
 
 ## <a name="custom-servers"></a>Server personalizzati
 
-Se i server predefiniti non soddisfano le proprie esigenze, è possibile creare un'implementazione del server personalizzata. La [guida all'interfaccia OWIN (Open Web Interface for .NET)](../owin.md) spiega come scrivere un'implementazione [Nowin](https://github.com/Bobris/Nowin) di [IServer](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver). Si ha la possibilità di implementare solo le interfacce di funzionalità richieste dall'applicazione, anche se è necessario il supporto almeno per [IHttpRequestFeature](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) e [IHttpResponseFeature](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature).
+Se i server predefiniti non soddisfano le proprie esigenze, è possibile creare un'implementazione del server personalizzata. La [guida all'interfaccia OWIN (Open Web Interface for .NET)](../owin.md) spiega come scrivere un'implementazione [Nowin](https://github.com/Bobris/Nowin) di [IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver). Si ha la possibilità di implementare solo le interfacce di funzionalità richieste dall'applicazione, anche se è necessario il supporto almeno per [IHttpRequestFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) e [IHttpResponseFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

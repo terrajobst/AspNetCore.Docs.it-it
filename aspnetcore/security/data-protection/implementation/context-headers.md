@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="context-headers"></a>Intestazioni di contesto
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="background-and-theory"></a>Sfondo e la teoria
 
-Nel sistema di protezione dati, una "chiave" significa che un oggetto che può fornire servizi di crittografia di autenticazione. Ogni chiave è identificato da un id univoco (GUID) e che comporta algoritmiche informazioni e materiale entropic. Lo scopo è che ogni chiave trasportare entropia univoca, ma il sistema non possa imporre che ed è anche necessario tenere conto per gli sviluppatori che potrebbero modificare la gestione delle chiavi manualmente modificando le informazioni di una chiave esistente nell'anello chiave algoritmiche. Per ottenere i requisiti di sicurezza specificati questi casi il sistema di protezione dati è un concetto di [agilità di crittografia](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045), che consente in modo sicuro per un singolo valore entropic attraverso più algoritmi di crittografia.
+Nel sistema di protezione dati, una "chiave" significa che un oggetto che può fornire servizi di crittografia di autenticazione. Ogni chiave è identificato da un id univoco (GUID) e che comporta algoritmiche informazioni e materiale entropic. Lo scopo è che ogni chiave trasportare entropia univoca, ma il sistema non possa imporre che ed è anche necessario tenere conto per gli sviluppatori che potrebbero modificare la gestione delle chiavi manualmente modificando le informazioni di una chiave esistente nell'anello chiave algoritmiche. Per ottenere i requisiti di sicurezza specificati questi casi il sistema di protezione dati è un concetto di [agilità di crittografia](https://www.microsoft.com/en-us/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/), che consente in modo sicuro per un singolo valore entropic attraverso più algoritmi di crittografia.
 
 La maggior parte dei sistemi che supportano l'agilità di crittografia tale scopo, incluse alcune informazioni di identificazione dell'algoritmo all'interno del payload. OID dell'algoritmo è in genere un buon candidato per l'oggetto. Tuttavia, si è verificato un problema è che esistono più modi per specificare lo stesso algoritmo: "AES" (CNG) e di Aes, AesManaged, AesCryptoServiceProvider, AesCng e RijndaelManaged (assegnati parametri specifici) gestito classi sono tutte effettivamente cosa ed è necessario mantenere un mapping di tutti questi all'OID corretto. Se uno sviluppatore desidera fornire un algoritmo personalizzato (o anche un'altra implementazione di AES), dovranno essere segnalare all'OID. Questo passaggio di registrazione supplementare rende particolarmente faticosa configurazione di sistema.
 

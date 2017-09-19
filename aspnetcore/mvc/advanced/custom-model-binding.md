@@ -5,17 +5,17 @@ description: Personalizzazione di associazione del modello in ASP.NET MVC di bas
 keywords: ASP.NET Core, l'associazione di modelli, Raccoglitore di modelli personalizzati
 ms.author: riande
 manager: wpickett
-ms.date: 4/10/2017
+ms.date: 04/10/2017
 ms.topic: article
 ms.assetid: ebd98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 2b95073bc0972908d0c0b2158a036e4374c7df4d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 999c4f76354ef6ce07733bbb8b0094be90c03c26
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="custom-model-binding"></a>Associazione di modelli personalizzati
 
@@ -70,7 +70,7 @@ Quando si crea il propria Raccoglitore di modelli personalizzati, è possibile i
 
 Nell'esempio seguente viene illustrato come utilizzare `ByteArrayModelBinder` per convertire una stringa con codifica base64 in un `byte[]` e salvare il risultato in un file:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
 È possibile inviare una stringa con codifica base64 a questo metodo api usando uno strumento come [Postman](https://www.getpostman.com/):
 
@@ -78,7 +78,7 @@ Nell'esempio seguente viene illustrato come utilizzare `ByteArrayModelBinder` pe
 
 Fino a quando il gestore di associazione è possibile associare dati di richiesta alle proprietà denominate in modo appropriato o argomenti, l'associazione di modelli avrà esito positivo. Nell'esempio seguente viene illustrato come utilizzare `ByteArrayModelBinder` con un modello di visualizzazione:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
 ## <a name="custom-model-binder-sample"></a>Esempio di Raccoglitore di modelli personalizzati
 
@@ -90,21 +90,21 @@ In questa sezione verrà implementato un raccoglitore di modelli personalizzati 
 
 L'esempio seguente usa il `ModelBinder` attributo di `Author` modello:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
 Nel codice precedente, il `ModelBinder` attributo specifica il tipo di `IModelBinder` che deve essere utilizzata per associare `Author` parametri dell'azione. 
 
 Il `AuthorEntityBinder` viene utilizzata per associare un `Author` parametro mediante il recupero dell'entità da un'origine dati tramite Entity Framework Core e un `authorId`:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
 Il codice seguente viene illustrato come utilizzare il `AuthorEntityBinder` in un metodo di azione:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
 Il `ModelBinder` attributo può essere utilizzato per applicare il `AuthorEntityBinder` ai parametri che non utilizzano convenzioni predefinite:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
 In questo esempio, poiché il nome dell'argomento non è il valore predefinito `authorId`, viene specificato nel parametro usando `ModelBinder` attributo. Si noti che il controller e l'azione metodo sono semplificati rispetto alla ricerca di entità nel metodo di azione. La logica per recuperare l'autore usando Entity Framework Core viene spostata lo strumento di associazione del modello. Può trattarsi di una notevole semplificazione, quando si dispongono di diversi metodi che associare al modello di autore e può essere utile per seguire il [principio secca](http://deviq.com/don-t-repeat-yourself/).
 
@@ -114,13 +114,13 @@ In questo esempio, poiché il nome dell'argomento non è il valore predefinito `
 
 Anziché applicare un attributo, è possibile implementare `IModelBinderProvider`. Questo è l'implementazione dei gestori di associazione del framework incorporato. Quando si specifica il tipo del gestore di associazione opera su, specificare il tipo di argomento, viene generato, **non** accetta il gestore di associazione di input. Il provider del gestore di associazione seguente funziona con il `AuthorEntityBinder`. Quando viene aggiunto alla raccolta di MVC di provider, non è necessario utilizzare il `ModelBinder` attributo `Author` o `Author` parametri tipizzati.
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
 > Nota: Il codice precedente restituisce un `BinderTypeModelBinder`. `BinderTypeModelBinder`funge da una factory per raccoglitori di modelli e fornisce l'inserimento di dipendenze (DI). Il `AuthorEntityBinder` richiede DI accedere EF Core. Utilizzare `BinderTypeModelBinder` se il gestore di associazione del modello richiede servizi DI.
 
 Per utilizzare un provider di strumento di associazione del modello personalizzato, aggiungerlo in `ConfigureServices`:
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 Quando si valuta raccoglitori di modelli, la raccolta di provider viene esaminata in ordine. Viene utilizzato il primo provider che restituisce uno strumento di associazione.
 
@@ -130,7 +130,7 @@ La figura seguente mostra il valore predefinito raccoglitori dal debugger.
 
 Aggiunta alla fine della raccolta di provider può comportare un raccoglitore di modelli predefiniti viene chiamato prima che il gestore di associazione personalizzato con una possibilità. In questo esempio, il provider personalizzato viene aggiunto all'inizio della raccolta per assicurare venga utilizzato per `Author` argomenti dell'azione.
 
-[!code-csharp[Principale](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 ## <a name="recommendations-and-best-practices"></a>Indicazioni e procedure consigliate
 

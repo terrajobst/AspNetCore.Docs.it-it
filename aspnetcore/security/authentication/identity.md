@@ -5,17 +5,17 @@ description: "Utilizzando l'identità con un'applicazione ASP.NET di base"
 keywords: "Se l'autorizzazione ASP.NET Core, identità, sicurezza"
 ms.author: riande
 manager: wpickett
-ms.date: 7/7/2017
+ms.date: 07/07/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 5a76cac1d64718b9dece3a3201db06c8192fb6f3
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0c17daa96bc69dc0b8393811a4dfe0e5dc4a1884
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità su ASP.NET Core
 
@@ -38,7 +38,7 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
  
     ![Finestra di dialogo Nuovo progetto](identity/_static/01-mvc.png)
     
-    # <a name="net-core-clitabnetcore-cli"></a>[.NET core CLI](#tab/netcore-cli)
+    # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
     Se si utilizza l'interfaccia CLI Core .NET, creare il nuovo progetto utilizzando ``dotnet new mvc --auth Individual``. Si creerà un nuovo progetto con lo stesso codice di modello di identità che Visual Studio crea.
  
     Il progetto creato contiene il `Microsoft.AspNetCore.Identity.EntityFrameworkCore` pacchetto, che verrà mantenuti i dati di identità e schema a SQL Server utilizzando [Entity Framework Core](https://docs.microsoft.com/ef/).
@@ -49,25 +49,25 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
 
     I servizi di identità vengono aggiunti all'applicazione nel `ConfigureServices` metodo la `Startup` classe:
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
-    [!code-csharp[Principale](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
     Questi servizi vengono resi disponibili per l'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
     
     Identità è abilitata per l'applicazione chiamando `UseAuthentication` nel `Configure` metodo. `UseAuthentication`Aggiunge l'autenticazione [middleware](xref:fundamentals/middleware) alla pipeline delle richieste.
     
-    [!code-csharp[Principale](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
     
     Questi servizi vengono resi disponibili per l'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
     
     Identità è abilitata per l'applicazione chiamando `UseIdentity` nel `Configure` metodo. `UseIdentity`Aggiunge l'autenticazione basata su cookie [middleware](xref:fundamentals/middleware) alla pipeline delle richieste.
         
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     
     ---
      
@@ -90,7 +90,7 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
     
     Quando l'utente sceglie il **registrare** collegamento, il ``Register`` azione viene richiamata sul ``AccountController``. Il ``Register`` azione consente all'utente chiamando `CreateAsync` sul `_userManager` oggetto (fornito a ``AccountController`` dall'inserimento di dipendenze):
  
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
     Se l'utente è stato creato correttamente, l'utente è connesso tramite la chiamata di ``_signInManager.SignInAsync``.
 
@@ -100,7 +100,7 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
  
     Gli utenti possono accedere facendo clic di **Accedi** collegamento nella parte superiore del sito, o può essere reindirizzati alla pagina di accesso se si tenta di accedere a una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il ``AccountController`` ``Login`` azione viene chiamata.
 
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     Il ``Login`` azione chiama ``PasswordSignInAsync`` sul ``_signInManager`` oggetto (fornito a ``AccountController`` dall'inserimento di dipendenze).
  
@@ -110,7 +110,7 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
  
     Fare clic su di **disconnettersi** collegamento chiamate il `LogOut` azione.
  
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
     Il codice precedente le chiamate di sopra di `_signInManager.SignOutAsync` metodo. Il `SignOutAsync` metodo cancella attestazioni dell'utente archiviate in un cookie.
  
@@ -118,13 +118,13 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
 
     Identità dispone di alcuni comportamenti predefiniti che è possibile eseguire l'override in una classe di avvio dell'applicazione. Non è necessario configurare ``IdentityOptions`` se si usano i comportamenti predefiniti.
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
-    [!code-csharp[Principale](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
-    [!code-csharp[Principale](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
 
     ---
     
@@ -158,7 +158,7 @@ Per ulteriori informazioni e istruzioni sulla migrazione dell'identità esistent
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [La migrazione di autenticazione e identità](xref:migration/identity)
-* [La conferma dell'account e il recupero della Password](xref:security/authentication/accconfirm)
+* [Autenticazione della migrazione e identità](xref:migration/identity)
+* [Conferma account e recupero password](xref:security/authentication/accconfirm)
 * [Autenticazione a due fattori con SMS](xref:security/authentication/2fa)
 * [Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni](xref:security/authentication/social/index)

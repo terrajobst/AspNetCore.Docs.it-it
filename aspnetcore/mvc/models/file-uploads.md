@@ -5,17 +5,17 @@ description: Come utilizzare l'associazione del modello e lo streaming per caric
 keywords: ASP.NET Core, il caricamento di file del modello di associazione, IFormFile, streaming
 ms.author: riande
 manager: wpickett
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.assetid: ebc98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 3d42fd0657bcfb4b0fdab699bbcb572e5736688c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3d114f8d13345cb260430847e80a61500de170b4
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Caricamento di file in ASP.NET Core
 
@@ -73,7 +73,7 @@ Durante il caricamento di file utilizzando l'associazione di modelli e `IFormFil
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Principale](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
+[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
 I file caricati utilizzando il `IFormFile` tecnica vengono memorizzati nel buffer in memoria o su disco nel server web prima di essere elaborato. All'interno del metodo di azione, il `IFormFile` contenuto è accessibile come flusso. Oltre ai file system locale, file possono essere trasmesso a [archiviazione Blob di Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) o [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
@@ -153,15 +153,15 @@ public IActionResult Index()
 
 L'attributo utilizza predefinito di ASP.NET Core [Antiforgery](xref:security/anti-request-forgery) il supporto per impostare un cookie con un token di richiesta:
 
-[!code-csharp[Principale](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
+[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
 Angolare passa automaticamente un token non riproducibili in un'intestazione di richiesta denominata `X-XSRF-TOKEN`. L'app ASP.NET MVC di base è configurato per fare riferimento a questa intestazione nella sua configurazione *Startup.cs*:
 
-[!code-csharp[Principale](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
+[!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
 Il `DisableFormValueModelBinding` attributo, illustrato di seguito, viene utilizzato per l'associazione di modelli per disabilitare il `Upload` metodo di azione.
 
-[!code-csharp[Principale](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
+[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
 Poiché l'associazione del modello è disattivato, la `Upload` metodo di azione non accetta parametri. Interagisce direttamente con il `Request` proprietà `ControllerBase`. Oggetto `MultipartReader` viene utilizzato per leggere ogni sezione. Il file viene salvato con un nome di file GUID e i dati di chiave/valore vengono archiviati un `KeyValueAccumulator`. Una volta tutte le sezioni sono stati letti, il contenuto del `KeyValueAccumulator` vengono utilizzati per associare i dati del form a un tipo di modello.
 
@@ -169,7 +169,7 @@ L'intero `Upload` metodo è illustrato di seguito:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Principale](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
+[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

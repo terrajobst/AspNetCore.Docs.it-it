@@ -5,16 +5,16 @@ description: Viene descritta la sintassi Razor
 keywords: ASP.NET Core, Razor
 ms.author: riande
 manager: wpickett
-ms.date: 07/4/2017
+ms.date: 07/04/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 7648bc2ac7b9efd1653725cda749d6cd271bae77
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fff2f98592473a9baf6a2d4e360fec3026b7210d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintassi Razor di ASP.NET Core
 
@@ -36,7 +36,7 @@ Viene eseguito il rendering senza modifiche come `<p>Hello World</p>` dal server
 
 ## <a name="razor-syntax"></a>Sintassi Razor
 
-Razor supporta c# e viene utilizzato il `@` simbolo per la transizione da HTML in c#. Razor valuta le espressioni c# e li visualizza nell'output HTML. In c# o in codice Razor specifico Razor può eseguire la transizione da HTML. Quando un `@` simbolo è seguito da un [parola chiave riservata Razor](#razor-reserved-keywords) passa nel codice Razor specifico, in caso contrario esegue la transizione allo semplice in c#.
+Razor supporta c# e viene utilizzato il `@` simbolo per la transizione da HTML in c#. Razor valuta le espressioni c# e li visualizza nell'output HTML. Con Razor è possibile passare da HTML a C# o scegliere un markup specifico per Razor. Quando un `@` simbolo è seguito da un [parola chiave riservata Razor](#razor-reserved-keywords) passa nel codice Razor specifico, in caso contrario esegue la transizione allo semplice in c#.
 
 <a name=escape-at-label></a>
 
@@ -85,7 +85,7 @@ Qualsiasi contenuto all'interno di @ parentesi () viene valutata e il rendering 
 
 Le espressioni implicite, in genere, non possono contenere spazi. Nel codice seguente, ad esempio, una settimana non viene sottratto dall'ora corrente:
 
-[!code-html[Principale](razor/sample/Views/Home/Contact.cshtml?range=20)]
+[!code-html[Main](razor/sample/Views/Home/Contact.cshtml?range=20)]
 
 Che esegue il rendering HTML seguente:
 
@@ -350,7 +350,7 @@ In c# un utilizzando istruzione viene utilizzata per verificare che un oggetto �
 
 Gestione delle eccezioni è simile a c#:
 
-[!code-html[Principale](razor/sample/Views/Home/Contact7.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Contact7.cshtml)]
 
 ### `@lock`
 
@@ -401,7 +401,7 @@ Direttive Razor vengono rappresentate tramite espressioni implicite con seguenti
 
 Informazioni sulle modalità Razor genera il codice per una vista renderà più facile da comprendere il funzionano delle direttive. Una pagina Razor viene utilizzata per generare un file c#. Ad esempio, questa pagina Razor:
 
-[!code-html[Principale](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Contact8.cshtml)]
 
 Genera una classe simile al seguente:
 
@@ -425,7 +425,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 Il `@using` direttiva aggiungerà c# `using` alla pagina razor generato:
 
-[!code-html[Principale](razor/sample/Views/Home/Contact9.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Contact9.cshtml)]
 
 ### `@model`
 
@@ -471,19 +471,19 @@ Il `@inherits` direttiva offre il controllo completo della classe che eredita la
 
 Supponiamo, ad esempio, che si è verificato il seguente tipo di pagina Razor personalizzato:
 
-[!code-csharp[Principale](razor/sample/Classes/CustomRazorPage.cs)]
+[!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
 
 Genera il seguente Razor `<div>Custom text: Hello World</div>`.
 
-[!code-html[Principale](razor/sample/Views/Home/Contact10.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Contact10.cshtml)]
 
 Non è possibile utilizzare `@model` e `@inherits` nella stessa pagina. È possibile avere `@inherits` in un *viewimports. cshtml* file che importa la pagina Razor. Ad esempio, se la visualizzazione Razor importati seguenti *viewimports. cshtml* file:
 
-[!code-html[Principale](razor/sample/Views/_ViewImportsModel.cshtml)]
+[!code-html[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 
 La seguente pagina Razor fortemente tipizzata
 
-[!code-html[Principale](razor/sample/Views/Home/Login1.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Login1.cshtml)]
 
 Genera il markup HTML:
 
@@ -494,7 +494,7 @@ Genera il markup HTML:
 
 Quando viene passato "[Rick@contoso.com](mailto:Rick@contoso.com)" nel modello:
 
-   Vedere [Layout](layout.md) per ulteriori informazioni.
+   Vedere [Layout](layout.md) per altre informazioni.
 
 ### `@inject`
 
@@ -512,7 +512,7 @@ Il `@functions` direttiva consente di aggiungere il contenuto a livello di funzi
 
 Ad esempio:
 
-[!code-html[Principale](razor/sample/Views/Home/Contact6.cshtml)]
+[!code-html[Main](razor/sample/Views/Home/Contact6.cshtml)]
 
 Genera il markup HTML seguente:
 
@@ -522,7 +522,7 @@ Genera il markup HTML seguente:
 
 Generato Razor c# è simile a:
 
-[!code-csharp[Principale](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
+[!code-csharp[Main](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
 
 ### `@section`
 
@@ -581,11 +581,11 @@ Parole chiave c# Razor devono essere doppie precedute `@(@C# Razor Keyword)`, ad
 
 Aggiungere la classe seguente al progetto ASP.NET MVC di base:
 
-[!code-csharp[Principale](razor/sample/Services/CustomCompilationService.cs)]
+[!code-csharp[Main](razor/sample/Services/CustomCompilationService.cs)]
 
 Eseguire l'override di `ICompilationService` aggiunti da MVC con la classe precedente.
 
-[!code-csharp[Principale](razor/sample/Startup.cs?highlight=4&range=29-33)]
+[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=29-33)]
 
 Impostare un punto di interruzione per il `Compile` metodo `CustomCompilationService` e visualizzazione `compilationContent`.
 

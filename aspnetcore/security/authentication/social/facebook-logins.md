@@ -5,17 +5,17 @@ description: Configurazione di account di accesso esterno Facebook in ASP.NET Co
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 8/1/2017
+ms.date: 08/01/2017
 ms.topic: article
 ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 840513fc0b00c4aa478726faa6db8bdbffd561b1
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Configurazione dell'autenticazione di Facebook
 
@@ -74,7 +74,7 @@ Il modello di progetto utilizzato in questa esercitazione assicura che [Microsof
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Aggiungere il servizio di Facebook nel `ConfigureServices` metodo il *Startup.cs* file:
 
@@ -88,7 +88,7 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 Il `AddAuthentication` metodo deve essere chiamato solo una volta quando si aggiunge più provider di autenticazione. Le chiamate successive a esso hanno la possibilità di cui si esegue l'override di qualsiasi configurati in precedenza [AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) proprietà.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Aggiungere il middleware di Facebook nel `Configure` metodo *Startup.cs* file:
 

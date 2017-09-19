@@ -5,17 +5,17 @@ description: "Informazioni sull'utilizzo di parti dell'applicazione, che sono ab
 keywords: ASP.NET Core, parte dell'applicazione, da parte di app
 ms.author: riande
 manager: wpickett
-ms.date: 1/4/2017
+ms.date: 01/04/2017
 ms.topic: article
 ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a5205ebab6c827b4e6af63287e56fe2b8f72c933
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 77d3a58d58493bf1b0b760ab9037d2778ba23441
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 
@@ -68,7 +68,7 @@ Provider di funzionalità dell'applicazione esaminare parti dell'applicazione e 
 
 * [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
 * [Riferimento ai metadati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [Helper di tag](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [Helper tag](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
 * [Visualizza i componenti](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Provider di funzionalità ereditare `IApplicationFeatureProvider<T>`, dove `T` è il tipo della funzionalità. È possibile implementare la propria funzionalità i provider per uno qualsiasi dei tipi di funzionalità del MVC elencati in precedenza. L'ordine dei provider di funzionalità di `ApplicationPartManager.FeatureProviders` raccolta può essere importante, poiché i provider successive possano rispondere alle azioni eseguite dal provider precedenti.
@@ -77,11 +77,11 @@ Provider di funzionalità ereditare `IApplicationFeatureProvider<T>`, dove `T` �
 
 Per impostazione predefinita, componenti di base di ASP.NET MVC Ignora controller generico (ad esempio, `SomeController<T>`). In questo esempio utilizza un provider di funzionalità di controller che viene eseguita quando il provider predefinito e aggiunge istanze controller generico per un elenco specificato di tipi (definito in `EntityTypes.Types`):
 
-[!code-csharp[Principale](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
+[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
 
 I tipi di entità:
 
-[!code-csharp[Principale](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
+[!code-csharp[Main](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
 
 Il provider di funzionalità viene aggiunta in `Startup`:
 
@@ -93,11 +93,11 @@ services.AddMvc()
 
 Per impostazione predefinita, i nomi di controller generico utilizzati per il routing sarà nel formato *GenericController'1 [Widget]* anziché *Widget*. L'attributo seguente viene utilizzato per modificare il nome in modo che corrisponda al tipo generico utilizzato dal controller:
 
-[!code-csharp[Principale](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
+[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
 
 La `GenericController` classe:
 
-[!code-csharp[Principale](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
+[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
 
 Di conseguenza, quando viene richiesta una route corrispondente:
 
@@ -107,7 +107,7 @@ Di conseguenza, quando viene richiesta una route corrispondente:
 
 È possibile scorrere le funzionalità popolate disponibili per l'app richiedendo un `ApplicationPartManager` tramite [inserimento di dipendenze](../../fundamentals/dependency-injection.md) e utilizzarlo per popolare le istanze delle funzionalità appropriate:
 
-[!code-csharp[Principale](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
+[!code-csharp[Main](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
 Output di esempio:
 

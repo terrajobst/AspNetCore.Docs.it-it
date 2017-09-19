@@ -5,22 +5,22 @@ description: Informazioni su come creare gli helper di Tag in ASP.NET Core.
 keywords: ASP.NET Core, gli helper di tag
 ms.author: riande
 manager: wpickett
-ms.date: 6/14/2017
+ms.date: 06/14/2017
 ms.topic: article
 ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 1a5222da1380c2fe768b287bfa1a49b300c02f2b
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Gli helper di Tag in ASP.NET di base, una procedura dettagliata con esempi di creazione
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)
 
@@ -52,7 +52,7 @@ Vale a dire un tag di ancoraggio che è un collegamento di posta elettronica. È
 
 1.  Aggiungere il seguente `EmailTagHelper` classe per il *TagHelpers* cartella.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
     
     **Note:**
     
@@ -72,17 +72,17 @@ Vale a dire un tag di ancoraggio che è un collegamento di posta elettronica. È
     public class Email : TagHelper
     ```
 
-2.  Per rendere il `EmailTagHelper` classe disponibile per tutti i nostri visualizzazioni Razor, aggiungere il `addTagHelper` direttiva per il *Views/_ViewImports.cshtml* file: [!code-html [principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2.  Per rendere il `EmailTagHelper` classe disponibile per tutti i nostri visualizzazioni Razor, aggiungere il `addTagHelper` direttiva per il *Views/_ViewImports.cshtml* file:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
     Il codice precedente Usa la sintassi con caratteri jolly per specificare che tutti gli helper di tag in questo assembly saranno disponibili. La prima stringa dopo `@addTagHelper` specifica l'helper di tag per caricare (usare "*" per tutti gli helper di tag), e la seconda stringa "AuthoringTagHelpers" Specifica l'assembly è l'helper di tag. Si noti inoltre che la seconda riga riporta gli helper di tag di ASP.NET MVC di base utilizzando la sintassi con caratteri jolly (tali helper vengono discussi in [introduzione per gli helper di Tag](intro.md).) È il `@addTagHelper` direttiva che rende disponibili per la visualizzazione Razor l'helper di tag. In alternativa, è possibile fornire il nome completo (FQN) di un helper di tag, come illustrato di seguito:
     
-    [!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
     
     Per aggiungere un helper tag a una vista utilizzando un FQN, aggiungere innanzitutto i FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il nome dell'assembly (*AuthoringTagHelpers*). La maggior parte degli sviluppatori preferiranno utilizzare la sintassi con caratteri jolly. [Introduzione agli helper di Tag](intro.md) entra in dettaglio nella sintassi di aggiunta, rimozione, gerarchia e caratteri jolly di supporto dei tag.
     
 3.  Aggiornare il markup di *Views/Home/Contact.cshtml* file con queste modifiche:
 
-    [!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
 4.  Eseguire l'app e utilizzare il browser preferito per visualizzare l'origine HTML, per poter verificare che i tag di posta elettronica vengono sostituiti con il tag di ancoraggio (ad esempio, `<a>Support</a>`). *Supporto* e *Marketing* il rendering viene eseguito come collegamenti, ma che non dispongono di un `href` attributo in modo funzionale. Che verrà risolto nella sezione successiva.
 
@@ -94,7 +94,7 @@ In questa sezione verrà aggiornata la `EmailTagHelper` in modo che verrà creat
 
 Aggiornamento di `EmailTagHelper` classe con le operazioni seguenti:
 
-[!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
+[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
 **Note:**
 
@@ -104,18 +104,18 @@ Aggiornamento di `EmailTagHelper` classe con le operazioni seguenti:
 
 * La riga evidenziata mostra la sintassi per l'aggiunta di attributi:
 
-[!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?highlight=6&range=14-21)]
+[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?highlight=6&range=14-21)]
 
 Questo approccio funziona per l'attributo "href" fino a quando non esiste nella raccolta di attributi. È inoltre possibile utilizzare il `output.Attributes.Add` metodo per aggiungere un attributo di helper di tag di fine della raccolta di attributi di tag.
 
-1.  Aggiornare il markup di *Views/Home/Contact.cshtml* file con queste modifiche: [!code-html [principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1.  Aggiornare il markup di *Views/Home/Contact.cshtml* file con queste modifiche:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 2.  Eseguire l'applicazione e verificare che genera collegamenti corretti.
     
     > [!NOTE]
     >Se si volesse scrivere il messaggio di posta elettronica tag chiusura automatica (`<email mail-to="Rick" />`), l'output finale potrebbe anche essere a chiusura automatica. Per abilitare la possibilità di scrivere il tag con un tag di inizio (`<email mail-to="Rick">`) è necessario contrassegnare la classe con le operazioni seguenti:
     >
-    > [!code-csharp[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
+    > [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
     
     Con un helper di tag di posta elettronica chiusura automatica, l'output sarà `<a href="mailto:Rick@contoso.com" />`. Chiusura automatica di tag di ancoraggio non sono validi HTML, in modo che non si desidera crearne uno, ma si potrebbe voler creare un helper di tag di chiusura automatica. Gli helper di tag impostato il tipo di `TagMode` proprietà dopo la lettura di un tag.
     
@@ -125,7 +125,7 @@ In questa sezione, è necessario scrivere un helper del messaggio di posta elett
 
 1.  Sostituire il `EmailTagHelper` classe con il codice seguente:
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelper.cs?range=6-17)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelper.cs?range=6-17)]
 
     **Note:**
 
@@ -135,7 +135,7 @@ In questa sezione, è necessario scrivere un helper del messaggio di posta elett
 
 2.  Apportare le seguenti modifiche per il *Views/Home/Contact.cshtml* file pertanto l'helper di tag è possibile recuperare il messaggio di posta elettronica di destinazione.
 
-    [!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
 3.  Eseguire l'applicazione e verificare che genera collegamenti di posta elettronica valido.
 
@@ -143,7 +143,7 @@ In questa sezione, è necessario scrivere un helper del messaggio di posta elett
 
 1.  Aggiungere il seguente `BoldTagHelper` classe per il *TagHelpers* cartella.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
 
     **Note:**
     
@@ -153,7 +153,7 @@ In questa sezione, è necessario scrivere un helper del messaggio di posta elett
     
 2.  Modificare il *About.cshtml* vista per contenere un `bold` valore dell'attributo. Il codice completo è illustrato di seguito.
 
-    [!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
 3.  Eseguire l'app. È possibile utilizzare il browser preferito per controllare l'origine e verificare il markup.
 
@@ -165,7 +165,7 @@ In questa sezione, è necessario scrivere un helper del messaggio di posta elett
 
 La decorazione di una classe con più `[HtmlTargetElement]` attributi risulta un OR logico delle destinazioni. Ad esempio, tramite il codice riportato di seguito, un tag in grassetto o un attributo bold corrisponderanno.
 
-[!code-csharp[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zBoldTagHelperCopy.cs?highlight=1,2&range=5-15)]
+[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zBoldTagHelperCopy.cs?highlight=1,2&range=5-15)]
 
 Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li gestisce come un AND logico. Ad esempio, il codice riportato di seguito, un elemento HTML deve essere denominato "bold" con un attributo denominato "bold" (`<bold bold />`) per trovare la corrispondenza.
 
@@ -183,13 +183,13 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
 
 1.  Aggiungere un *modelli* cartella.
 
-2.  Aggiungere il seguente `WebsiteContext` classe per il *modelli* cartella:
+2.  Aggiungere la classe `WebsiteContext` seguente alla cartella *Models*:
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
 3.  Aggiungere il seguente `WebsiteInformationTagHelper` classe per il *TagHelpers* cartella.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
     
     **Note:**
     
@@ -217,12 +217,12 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
 
 4.  Aggiungere il markup seguente per il *About.cshtml* visualizzazione. Il markup evidenziato Visualizza le informazioni sul sito web.
     
-    [!code-html[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-)]
+    [!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-)]
     
     >[!NOTE]
     > Nel codice Razor illustrato di seguito:
     >
-    >[!code-html[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=13-17)]
+    >[!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=13-17)]
     > 
     >Razor conosca il `info` attributo è una classe, non è una stringa, e si desidera scrivere codice c#. Qualsiasi attributo helper di tag non di tipo stringa deve essere scritta senza la `@` carattere.
     
@@ -231,7 +231,7 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
     >[!NOTE]
     >È possibile utilizzare il markup seguente con un tag di chiusura e rimuovere la riga con `TagMode.StartTagAndEndTag` nell'helper tag:
     >
-    >[!code-html[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=13-18)]
+    >[!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=13-18)]
 
 ## <a name="condition-tag-helper"></a>Helper di Tag di condizione
 
@@ -239,7 +239,7 @@ L'helper di tag di condizione esegue il rendering di output quando viene passato
 
 1.  Aggiungere il seguente `ConditionTagHelper` classe per il *TagHelpers* cartella.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
 
 2.  Sostituire il contenuto del *Views/Home/Index.cshtml* file con il markup seguente:
 
@@ -267,14 +267,14 @@ L'helper di tag di condizione esegue il rendering di output quando viene passato
     
 3.  Sostituire il `Index` metodo il `Home` controller con il codice seguente:
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
 4.  Eseguire l'app e passare alla home page. Il markup in condizionale `div` non vengono visualizzati. Aggiungere la stringa di query `?approved=true` all'URL (ad esempio, `http://localhost:1235/Home/Index?approved=true`). `approved`è impostato su true e condizionale markup verrà visualizzato.
 
 >[!NOTE]
 >Utilizzare il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore per specificare l'attributo di destinazione, anziché specificare una stringa, come avviene per l'helper di tag in grassetto:
 >
->[!code-csharp[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
+>[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
 >Il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore proteggerà il codice necessario sempre il refactoring (potrebbe essere necessario modificare il nome in `RedCondition`).
 
@@ -286,39 +286,39 @@ Poiché questi due helper sono strettamente correlati e potrebbero refactoring i
 
 1.  Aggiungere il seguente `AutoLinkerHttpTagHelper` classe per il *TagHelpers* cartella.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
     >Il `AutoLinkerHttpTagHelper` classe destinazioni `p` elementi e viene utilizzato [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) per creare il punto di ancoraggio.
 
 2.  Aggiungere il markup seguente alla fine del *Views/Home/Contact.cshtml* file:
 
-    [!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
 
 3.  Eseguire l'app e verificare che l'helper di tag visualizzi correttamente il punto di ancoraggio.
 
 4.  Aggiornamento di `AutoLinker` classe per includere il `AutoLinkerWwwTagHelper` che convertirà www testo in un tag di ancoraggio che contiene anche il testo www originale. Il codice aggiornato è evidenziato di seguito:
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
 5.  Eseguire l'app. Si noti il testo www viene visualizzato come collegamento ma non è il testo HTTP. Se si inserisce un punto di interruzione in entrambe le classi, si noterà che la classe helper di tag HTTP viene eseguito per prima. Il problema è che viene memorizzato nella cache l'output di helper di tag e, quando viene eseguito l'helper di tag WWW, sovrascrive l'output memorizzato nella cache l'helper di tag HTTP. Più avanti nell'esercitazione vedremo come controllare l'ordine in cui eseguire gli helper di tag in. Il codice, è possibile risolvere con gli elementi seguenti:
 
-    [!code-csharp[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
+    [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
     >[!NOTE]
     >Nell'edizione prima degli helper di tag di collegamento automatico, è stato ottenuto il contenuto di destinazione con il codice seguente:
     >
-    >[!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=12)]
+    >[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=12)]
     >
     >Ovvero, si chiama `GetChildContentAsync` utilizzando il `TagHelperOutput` passato il `ProcessAsync` (metodo). Come accennato in precedenza, perché l'output viene memorizzato nella cache, l'ultimo tag helper per l'esecuzione di wins. È stato risolto il problema con il codice seguente:
     >
-    >[!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?range=34-35)]
+    >[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?range=34-35)]
     >
     >Il codice precedente verifica se il contenuto è stato modificato e, in caso affermativo, ottiene il contenuto del buffer di output.
 
 6.  Eseguire l'applicazione e verificare che i due collegamenti funzionino come previsto. Sebbene potrebbe essere visualizzato che l'helper di tag del linker automatico sia corretto e completo, con un problema complesso. Se l'helper di tag WWW viene eseguito per primo, i collegamenti www non saranno corretti. Aggiornare il codice aggiungendo i `Order` overload per controllare l'ordine in cui viene eseguito il tag in. Il `Order` proprietà determina l'ordine di esecuzione rispetto alla altri helper di tag come destinazione lo stesso elemento. Il valore dell'ordine predefinito è zero e le istanze con i valori più bassi vengono eseguite per prime.
 
-    [!code-csharp[Principale](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
+    [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
     Il codice sopra riportato garantisce che l'helper di tag HTTP viene eseguito prima dell'helper di tag WWW. Modifica `Order` a `MaxValue` e verificare che il markup generato per il tag WWW non è corretto.
 
@@ -330,6 +330,6 @@ Gli helper di tag forniscono diverse proprietà per recuperare il contenuto.
 -  È possibile controllare il risultato di `GetChildContentAsync` con `GetContent`.
 -  Se si modifica `output.Content`, non verrà eseguito o visualizzato a meno che si chiama il corpo di helper tag `GetChildContentAsync` come esempio automatica linker:
 
-[!code-csharp[Principale](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
+[!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
 -  Più chiamate al metodo `GetChildContentAsync` restituirà lo stesso valore e non verrà eseguita nuovamente la `TagHelper` corpo a meno che non viene passato un parametro false che indica di non utilizzare il risultato memorizzato nella cache.

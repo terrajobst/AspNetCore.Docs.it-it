@@ -5,17 +5,17 @@ description:
 keywords: ASP.NET di base, autenticazione, social, provider di autenticazione, google, facebook, twitter, account di microsoft
 ms.author: riande
 manager: wpickett
-ms.date: 11/1/2016
+ms.date: 11/01/2016
 ms.topic: article
 ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: ee6f08fe5d5dcf2883b5404f176d1f3c5ce2cd5b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5c4b7139a09acf2f02877840d09df431e0e71e0c
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni
 
@@ -29,9 +29,9 @@ I provider di [Facebook](facebook-logins.md), [Twitter](twitter-logins.md), [Goo
 
 ![Icone di social media per Facebook, Twitter, Google + e Windows](index/_static/social.png)
 
-Consentire agli utenti di accedere con le credenziali esistenti è utile per gli utenti e sposta molte delle complessità di gestione del processo di accesso in una terza parte. Per degli esempi di come gli account di accesso ai social possano risultare utili per la conversione del traffico e del cliente, vedere dei case study da [Facebook](https://developers.facebook.com/case-studies) e [Twitter](https://dev.twitter.com/resources/case-studies).
+Consentire agli utenti di accedere con le credenziali esistenti è utile per gli utenti e sposta molte delle complessità di gestione del processo di accesso in una terza parte. Per degli esempi di come gli account di accesso ai social possano risultare utili per la conversione del traffico e del cliente, vedere dei case study da [Facebook](https://www.facebook.com/unsupportedbrowser) e [Twitter](https://dev.twitter.com/resources/case-studies).
 
-Nota: i pacchetti qui presentati riassumono una notevole dose di complessità del flusso di autenticazione OAuth, ma comprendere i dettagli potrebbe essere necessario per risolvere il problema. Sono disponibili molte risorse; ad esempio, vedere [Introduzione a OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) o [Comprensione di OAuth 2](http://www.bubblecode.net/en/2016/01/22/understanding-oauth2/). Alcuni problemi possono essere risolti esaminando il [Codice sorgente di ASP.NET Core per i pacchetti di provider](https://github.com/aspnet/Security/tree/dev/src).
+Nota: i pacchetti qui presentati riassumono una notevole dose di complessità del flusso di autenticazione OAuth, ma comprendere i dettagli potrebbe essere necessario per risolvere il problema. Sono disponibili molte risorse; ad esempio, vedere [Introduzione a OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) o [Comprensione di OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Alcuni problemi possono essere risolti esaminando il [Codice sorgente di ASP.NET Core per i pacchetti di provider](https://github.com/aspnet/Security/tree/dev/src).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Creare un nuovo progetto ASP.NET Core
 

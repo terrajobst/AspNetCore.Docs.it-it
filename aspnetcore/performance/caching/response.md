@@ -5,16 +5,16 @@ description: Viene illustrato come utilizzare la memorizzazione nella cache per 
 keywords: ASP.NET Core, risposta, la memorizzazione nella cache, le intestazioni HTTP
 ms.author: riande
 manager: wpickett
-ms.date: 7/10/2017
+ms.date: 07/10/2017
 ms.topic: article
 ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 8b20ac70f257213ae3830749e729156ee5ab6447
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 97bc56a3cfe7383f207a4f621ab3fe8b8dc258ef
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="response-caching"></a>La memorizzazione nella cache di risposta
 
@@ -68,7 +68,7 @@ Il `ResponseCacheAttribute` viene utilizzato per configurare e creare (tramite `
 
 Questa intestazione viene scritto solo quando il `VaryByHeader` proprietà è impostata. È impostato sul `Vary` valore della proprietà. L'esempio seguente usa il `VaryByHeader` proprietà.
 
-[!code-csharp[Principale](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 È possibile visualizzare le intestazioni di risposta con gli strumenti di rete del browser. La figura seguente mostra il F12 Edge in uscita nel **rete** scheda quando il `About2` viene aggiornato il metodo di azione. 
 
@@ -85,7 +85,7 @@ Se `NoStore` è `false` e `Location` è `None`, `Cache-Control` e `Pragma` verr�
 
 In genere si imposta `NoStore` a `true` nelle pagine di errore. Ad esempio:
 
-[!code-csharp[Principale](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Restituirà le intestazioni seguenti:
 
@@ -103,7 +103,7 @@ Per abilitare la memorizzazione nella cache, `Duration` deve essere impostata su
 
 Di seguito è riportato un esempio che mostra le intestazioni ottenuto impostando `Duration` e lasciando il valore predefinito `Location` valore.
 
-[!code-csharp[Principale](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Genera le intestazioni seguenti:
 
@@ -117,11 +117,11 @@ Anziché ripetere `ResponseCache` su molti attributi di azione controller, i pro
 
 Impostazione di un profilo della cache:
 
-[!code-csharp[Principale](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
 
 Riferimento a un profilo della cache:
 
-[!code-csharp[Principale](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 Il `ResponseCache` attributo può essere applicato sia per le azioni (metodi), nonché i controller (classi). Gli attributi a livello di metodo sostituiranno le impostazioni specificate negli attributi a livello di classe.
 

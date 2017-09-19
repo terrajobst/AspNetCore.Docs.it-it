@@ -5,17 +5,17 @@ description:
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 11/1/2016
+ms.date: 11/01/2016
 ms.topic: article
 ms.assetid: E5931607-31C0-4B20-B416-85E3550F5EA8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 800f98285859a54198b76411aea000384de05cd3
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 401836c3782e5d9d31b13d7c94eb2f955045fa0c
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configuring-twitter-authentication"></a>Configurazione dell'autenticazione di Twitter
 
@@ -27,7 +27,7 @@ In questa esercitazione viene illustrato come consentire agli utenti di [accesso
 
 ## <a name="create-the-app-in-twitter"></a>Creare l'app in Twitter
 
-* Passare a [https://apps.twitter.com/](https://apps.twitter.com/) ed eseguire l'accesso. Se si dispone già di un account Twitter, utilizzare il  **[Iscriviti ora](https://twitter.com/signup)**  collegamento per crearne uno. Dopo l'accesso, il **Application Management** viene visualizzata la pagina:
+* Passare a [https://apps.twitter.com/](https://apps.twitter.com/) ed eseguire l'accesso. Se si dispone già di un account Twitter, utilizzare il ** [Iscriviti ora](https://twitter.com/signup) ** collegamento per crearne uno. Dopo l'accesso, il **Application Management** viene visualizzata la pagina:
 
 ![Gestione delle applicazioni Twitter aperto in Microsoft Edge](index/_static/TwitterAppManage.png)
 
@@ -60,7 +60,7 @@ Il modello di progetto utilizzato in questa esercitazione assicura che [Microsof
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Twitter`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Aggiungere il servizio di Twitter nel `ConfigureServices` metodo *Startup.cs* file:
 
@@ -74,7 +74,7 @@ services.AddAuthentication().AddTwitter(twitterOptions =>
 
 Il `AddAuthentication` metodo deve essere chiamato solo una volta quando si aggiunge più provider di autenticazione. Le chiamate successive a esso hanno la possibilità di cui si esegue l'override di qualsiasi configurati in precedenza [AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) proprietà.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Aggiungere il middleware di Twitter nel `Configure` metodo *Startup.cs* file:
 
