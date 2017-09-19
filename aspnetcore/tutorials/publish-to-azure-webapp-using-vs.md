@@ -11,11 +11,11 @@ ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14ce45f0cd15b2de39f722767df076d2c0313787
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio
 
@@ -23,7 +23,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https
 
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 
-* Installare gli [strumenti di .NET Core e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=798306).
+* Installare la versione più recente di [Azure SDK per Visual Studio](https://www.visualstudio.com/vs/azure-tools/). L'SDK installa Visual Studio, se non è già disponibile.
 
 * Verificare l'[account Azure](https://portal.azure.com/). È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/) o [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -71,7 +71,7 @@ Visual Studio crea la soluzione.
 
 * Selezionare **Registra** e registrare un nuovo utente. È possibile usare un indirizzo di posta elettronica fittizio. Quando si esegue l'invio, nella pagina viene visualizzato l'errore seguente:
 
-    *"Internal Server Error: A database operation failed while processing the request. SQL exception: Cannot open the database. Applying existing migrations for Application DB context may resolve this issue."* (Errore interno del server: Operazione sul database non riuscita durante l'elaborazione della richiesta. Eccezione SQL: Impossibile aprire il file di database. Per risolvere il problema, applicare le migrazioni esistenti per il contesto di database dell'applicazione).
+    *"Internal Server Error: A database operation failed while processing the request. Per un'eccezione SQL, non è possibile aprire il database. Applying existing migrations for Application DB context may resolve this issue."* (Errore interno del server: Operazione sul database non riuscita durante l'elaborazione della richiesta. Eccezione SQL: Impossibile aprire il file di database. Per risolvere il problema, applicare le migrazioni esistenti per il contesto di database dell'applicazione).
 
 * Selezionare **Apply Migrations** (Applica migrazioni) e, quando la pagina è stata caricata, eseguire l'aggiornamento.
 
@@ -95,7 +95,7 @@ Nella finestra di dialogo **Pubblica** selezionare **Servizio app di Microsoft A
 
 * Assegnare all'app un nome univoco. 
 
-* Selezionare una sottoscrizione MSDN.
+* Selezionare una sottoscrizione.
 
 * Selezionare **Nuovo** per il gruppo di risorse e immettere un nome per il nuovo gruppo di risorse.
 
@@ -160,7 +160,7 @@ Fare clic su **Pubblica**. Visual Studio pubblicherà l'app in Azure e avvierà 
 
 * Modificare la pagina Razor *Pages/About.cshtml* e modificarne il contenuto. Ad esempio, è possibile modificare il paragrafo specificando "Hello ASP.NET Core!":
 
-    [!code-html[Informazioni su](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Fare clic con il pulsante destro del mouse sul progetto e selezionare **Pubblica**.
 
