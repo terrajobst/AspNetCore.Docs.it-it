@@ -1,21 +1,23 @@
 ---
-title: Aggiunta di un modello a un'app ASP.NET MVC Core
+title: Aggiungere un modello a un'app ASP.NET MVC Core
 author: rick-anderson
-description: Aggiungere un modello a una semplice app ASP.NET Core.
+description: Aggiungere un modello a una app semplice di ASP.NET Core.
 keywords: ASP.NET Core, MVC, scaffold, scaffolding
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.devlang: csharp
+ms.date: 09/15/2017
 ms.topic: get-started-article
 ms.assetid: 8dc28498-eeee-1638-b903-b593059e9f39
 ms.technology: aspnet
-ms.prod: asp.net-core
+ms.prod: .net-core
+helpviewer_keywords: aspnet, csharp, mvc
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 4a158802a19011cbb45da1b3ca43d67706efe4cd
-ms.sourcegitcommit: d9e2c99c837078fcac0e315025f8fbfbd45ea6e8
+ms.openlocfilehash: 36819284073eb1cb20b19c41512944e34c54c6d3
+ms.sourcegitcommit: 3fece4e2869581df72090ff5e82af1a09d927699
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -28,7 +30,7 @@ ms.lasthandoff: 08/28/2017
 
 Aggiungere le proprietà seguenti alla classe `Movie`:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 Il campo `ID` è richiesto dal database per la chiave primaria.
 
@@ -42,17 +44,17 @@ Compilare il progetto per verificare che non ci siano errori. L'app **M**VC disp
 
 - Aggiungere i pacchetti NuGet evidenziati seguenti al file *MvcMovie.csproj*:
              
-  [!code-csharp[Principale](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
+  [!code-csharp[Main](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
 
 - Salvare il file.
 
-- Creare un file *Models/MvcMovieContext.cs* e aggiungere la classe `MvcMovieContext` seguente: [!code-csharp [Principale](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
+- Creare un file *Models/MvcMovieContext.cs* e aggiungere la classe `MvcMovieContext` seguente: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
    
-- Aprire il file *Startup.cs* file e aggiungere due using: [!code-csharp[Principale](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
+- Aprire il file *Startup.cs* e aggiungere due using: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
 
 - Aggiungere il contesto del database al file *Startup.cs*:
 
-   [!code-csharp[Principale](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
+   [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
 
   Indica a Entity Framework quali classi di modello sono incluse nel modello di dati. Si sta definendo un *set di entità* di oggetti filmato, che verranno rappresentati nel database come tabella di un filmato.
 
@@ -82,7 +84,7 @@ Il motore di scaffolding crea:
 * Un controller di filmati (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create, Delete, Details, Edit e Index (*Views/Movies/\*.cshtml*)
 
-La creazione automatica dei metodi di azione e delle viste [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di filmati.
+La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di filmati.
 
 ### <a name="add-the-files-to-visual-studio"></a>Aggiungere i file a Visual Studio
 
@@ -109,5 +111,5 @@ La creazione automatica dei metodi di azione e delle viste [CRUD](https://en.wik
 * [Globalizzazione e localizzazione](xref:fundamentals/localization)
 
 >[!div class="step-by-step"]
-[Indietro - Aggiunta di una vista](adding-view.md)
-[Avanti - Utilizzo del linguaggio SQL](working-with-sql.md)  
+[Precedente - Aggiunta di una vista](adding-view.md)
+[Successivo - Utilizzo del linguaggio SQL](working-with-sql.md)  

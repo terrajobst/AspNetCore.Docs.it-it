@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 8d0bebc22e1cfdc6d9b213d0c3159a7dab988020
-ms.sourcegitcommit: 0bd3f6ec577c648dd777877e97572ec2da1b36c4
+ms.openlocfilehash: 7469546494ec54bfe36bc5bd2f5f9702889ddf4a
+ms.sourcegitcommit: 2e61e287e220eddd5f3f4cd9147aa6417cfd9236
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -25,7 +25,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **M
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Assegnare il nome **Movie** alla classe e aggiungere le proprietà seguenti:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 Il campo `ID` è richiesto dal database per la chiave primaria. 
 
@@ -70,7 +70,7 @@ Visual Studio crea:
 * Un controller di film (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) (*Views/Movies/&ast;.cshtml*)
 
-La creazione automatica del contesto di database e di viste e metodi di azione [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di film.
+La creazione automatica del contesto di database e di viste e metodi di azione [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di film.
 
 Se si esegue l'app e si fa clic sul collegamento **Mvc Movie**, verrà visualizzato un errore simile al seguente:
 
@@ -106,7 +106,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-Nota: vedere l'[approccio con l'interfaccia della riga di comando](#cli) in caso di problemi con la Console di Gestione pacchetti.
+**Nota:** se viene visualizzato un errore con il comando `Install-Package`, aprire Gestione pacchetti NuGet e cercare il pacchetto `Microsoft.EntityFrameworkCore.Tools`. In questo modo è possibile installare il pacchetto o verificare se è già installato. In alternativa, in caso di problemi con la Console di Gestione pacchetti vedere l'[approccio con l'interfaccia della riga di comando](#cli).
 
 Il comando `Add-Migration` crea un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *Data/MvcMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualunque nome, ma per convenzione si sceglie un nome che descrive la migrazione. Per altre informazioni vedere [Introduzione alle migrazioni](xref:data/ef-mvc/migrations#introduction-to-migrations).
 
@@ -125,7 +125,7 @@ Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/\<time-s
 
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model4.md)]
 
