@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3393bb90d170cfc572d2307ec18f1a8e25bdce59
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Creare, leggere, aggiornare ed eliminare - EF Core con l'esercitazione di base di ASP.NET MVC (2 di 10)
 
@@ -44,7 +44,7 @@ Il codice per la pagina di indice di studenti scaffolding tralasciato il `Enroll
 
 In *Controllers/StudentsController.cs*, il metodo di azione per i dettagli visualizzare utilizza il `SingleOrDefaultAsync` metodo per recuperare un singolo `Student` entità. Aggiungere il codice che chiama `Include`. `ThenInclude`, e `AsNoTracking` metodi, come illustrato nel seguente codice evidenziato.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
 Il `Include` e `ThenInclude` metodi che il contesto di caricamento di `Student.Enrollments` proprietà di navigazione e all'interno di ogni registrazione di `Enrollment.Course` proprietà di navigazione.  Si apprenderà ulteriori informazioni su questi metodi di [la lettura dei dati correlati](read-related-data.md) esercitazione.
 
@@ -54,7 +54,7 @@ Il `AsNoTracking` metodo migliora le prestazioni negli scenari in cui le entità
 
 Il valore della chiave che viene passato per il `Details` metodo proviene da *indirizzare dati*. Dati di route sono presenti il gestore di associazione del modello in un segmento dell'URL. Ad esempio, la route predefinita specifica segmenti controller, azione e id:
 
-[!code-csharp[Principale](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
+[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
 
 L'URL seguente, la route predefinita esegue il mapping istruttore come controller di indice dell'azione e 1 come id. Questi sono valori di dati di route.
 
@@ -108,7 +108,7 @@ Se dopo avere incollato il codice, rientro del codice non è corretto, premere C
 
 Questo codice consente di scorrere le entità di `Enrollments` proprietà di navigazione. Per ogni registrazione, viene visualizzato il titolo del corso e il livello. Il titolo del corso viene recuperato dall'entità che viene archiviato in corso la `Course` proprietà di navigazione di entità le registrazioni.
 
-Eseguire l'applicazione, selezionare il **studenti** scheda, quindi scegliere il **dettagli** collegamento per uno studente. Per gli studenti selezionato vedere l'elenco di corsi e livelli:
+Eseguire l'app, selezionare il **studenti** scheda, quindi scegliere il **dettagli** collegamento per uno studente. Per gli studenti selezionato vedere l'elenco di corsi e livelli:
 
 ![Pagina dei dettagli per studenti](crud/_static/student-details.png)
 
@@ -116,7 +116,7 @@ Eseguire l'applicazione, selezionare il **studenti** scheda, quindi scegliere il
 
 In *StudentsController.cs*, modificare HttpPost `Create` metodo aggiunta di un blocco try-catch e rimuovendo l'ID di `Bind` attributo.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
 Questo codice aggiunge l'entità di studenti creato dal gestore di associazione di modelli ASP.NET MVC per l'entità di studenti set e quindi Salva le modifiche apportate al database. (Strumento di associazione fa riferimento alle funzionalità di ASP.NET MVC che rende più semplice da utilizzare con i dati inviati da un form, converte i valori del form inseriti a tipi CLR e li passa al metodo di azione nei parametri di un raccoglitore di modelli. In questo caso, il gestore di associazione del modello crea un'istanza di un'entità Student mediante i valori delle proprietà dalla raccolta di Form.)
 
@@ -156,7 +156,7 @@ Un modo alternativo per impedire overposting che è preferibile utilizzare molti
 
 Il codice in *Views/Students/Create.cshtml* Usa `label`, `input`, e `span` (per i messaggi di convalida) gli helper per ogni campo di tag.
 
-Eseguire la pagina selezionando il **studenti** scheda e facendo clic su **Crea nuovo**.
+Eseguire l'app, selezionare il **studenti** scheda e fare clic su **Crea nuovo**.
 
 Immettere i nomi e una data. Provare a immettere una data non valida se il browser consente di eseguire questa operazione. (Alcuni browser impongono l'utilizzo di un controllo selezione data). Quindi fare clic su **crea** per visualizzare il messaggio di errore.
 
@@ -164,7 +164,7 @@ Immettere i nomi e una data. Provare a immettere una data non valida se il brows
 
 Si tratta di convalida sul lato server che si ottiene per impostazione predefinita. in un'esercitazione successiva si noterà come aggiungere gli attributi che generano anche il codice per la convalida lato client. Il codice evidenziato di seguito viene illustrato il controllo di convalida nel modello di `Create` metodo.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
 
 Modificare la data in un valore valido e fare clic su **crea** per vedere il nuovo studente nel **indice** pagina.
 
@@ -176,7 +176,7 @@ In *StudentController.cs*, il HttpGet `Edit` metodo (quello senza il `HttpPost` 
 
 Sostituire il metodo di azione di modifica HttpPost con il codice seguente.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
 Queste modifiche implementano una procedura consigliata per evitare di overposting. Il scaffolder generato un `Bind` attributo e aggiungere l'entità creata dal gestore di associazione del modello dell'entità impostata con un `Modified` flag. Che codice non è consigliato per molti scenari, in quanto il `Bind` attributo Cancella tutti i dati esistenti nei campi non elencati nel `Include` parametro.
 
@@ -190,7 +190,7 @@ In seguito a queste modifiche, la firma del metodo di HttpPost `Edit` corrispond
 
 Il codice di modifica di HttpPost consigliato assicura che solo le colonne modificate vengono aggiornati e mantiene i dati nelle proprietà che non si desidera includere per l'associazione di modelli. Tuttavia, l'approccio incentrato lettura richiede un database aggiuntivo leggere e può generare codice più complesso per gestire i conflitti di concorrenza. Un'alternativa consiste nel connettere un'entità creata dal gestore di associazione del modello per il contesto di Entity Framework e contrassegnarlo come modificata. (Non aggiorna il progetto con questo codice è illustrato solo per illustrare un approccio facoltativo.) 
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
 È possibile utilizzare questo approccio quando l'interfaccia utente della pagina web include tutti i campi dell'entità e aggiornarne uno di essi.
 
@@ -222,7 +222,7 @@ Se si desidera evitare l'approccio incentrato lettura, ma si desidera anche l'is
 
 ### <a name="test-the-edit-page"></a>Pagina di modifica di test
 
-Eseguire l'applicazione e selezionare il **studenti** tab, quindi fare clic su un **modifica** collegamento ipertestuale.
+Eseguire l'app, selezionare il **studenti** tab, quindi fare clic su un **modifica** collegamento ipertestuale.
 
 ![Pagina Modifica studenti](crud/_static/student-edit.png)
 
@@ -238,7 +238,7 @@ Si aggiungerà un blocco try-catch per HttpPost `Delete` metodo per gestire even
 
 Sostituire il HttpGet `Delete` metodo di azione con il codice seguente, che gestisce la segnalazione errori.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
 
 Questo codice accetta un parametro facoltativo che indica se il metodo è stato chiamato dopo un errore di salvare le modifiche. Questo parametro è false quando la HttpGet `Delete` metodo viene chiamato senza un precedente errore. Quando viene chiamato da HttpPost `Delete` metodo in risposta a un errore di aggiornamento del database, il parametro è true e un messaggio di errore viene passato alla visualizzazione.
 
@@ -246,7 +246,7 @@ Questo codice accetta un parametro facoltativo che indica se il metodo è stato 
 
 Sostituire il HttpPost `Delete` metodo di azione (denominato `DeleteConfirmed`) con il codice seguente, che esegue l'operazione di eliminazione effettiva e rileva eventuali errori di aggiornamento del database.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
 
 Questo codice viene recuperato l'entità selezionata, quindi chiama il `Remove` per impostare lo stato dell'entità su `Deleted`. Quando `SaveChanges` viene chiamato un SQL DELETE comando viene generato.
 
@@ -254,7 +254,7 @@ Questo codice viene recuperato l'entità selezionata, quindi chiama il `Remove` 
 
 Se il miglioramento delle prestazioni in un'applicazione con volumi elevati è una priorità, è possibile evitare una query SQL non necessaria creando un'entità di Student usando solo il database primario della chiave di valore e quindi impostare lo stato dell'entità `Deleted`. Questo è tutto Entity Framework necessarie per eliminare l'entità. (Non inserire questo codice nel progetto, è solo per illustrare un'alternativa).
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
 
 Se l'entità dispone di dati correlati che devono essere eliminati anche, assicurarsi che tale eliminazione a catena è configurato nel database. Con questo approccio per l'eliminazione di entità, EF potrebbero non essere consapevoli esistono entità correlate da eliminare.
 
@@ -264,7 +264,7 @@ In *Views/Student/Delete.cshtml*, aggiungere un messaggio di errore tra l'intest
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-Eseguire la pagina selezionando il **studenti** scheda e facendo clic su un **eliminare** collegamento ipertestuale:
+Eseguire l'app, selezionare il **studenti** scheda e fare clic su un **eliminare** collegamento ipertestuale:
 
 ![Elimina pagina di conferma](crud/_static/student-delete.png)
 

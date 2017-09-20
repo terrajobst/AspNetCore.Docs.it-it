@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e818411f2cc568afdfd0612a6367dc3e257d0dd7
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lettura correlati dati - EF Core con l'esercitazione di base di ASP.NET MVC (6 di 10)
 
@@ -67,7 +67,7 @@ Aprire *CoursesController.cs* ed esaminare il `Index` metodo. Lo scaffolding aut
 
 Sostituire il `Index` (metodo) con il codice seguente che utilizza un nome più appropriato per il `IQueryable` che restituisce le entità Course (`courses` anziché `schoolContext`):
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Aprire *Views/Courses/Index.cshtml* e sostituire il codice del modello con il codice seguente. Le modifiche vengono evidenziate:
 
@@ -85,7 +85,7 @@ Le seguenti modifiche apportate al codice scaffolding:
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Eseguire la pagina (selezionare la scheda corsi nella home page University di Contoso) per visualizzare l'elenco con i nomi di reparto.
+Eseguire l'app e selezionare il **corsi** scheda per visualizzare l'elenco con i nomi di reparto.
 
 ![Pagina di indice corsi](read-related-data/_static/courses-index.png)
 
@@ -109,7 +109,7 @@ La pagina istruttori Mostra dati di tre tabelle diverse. Pertanto, si creerà un
 
 Nel *SchoolViewModels* cartella, creare *InstructorIndexData.cs* e sostituire il codice esistente con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Creare le visualizzazioni e controller Instructor
 
@@ -119,31 +119,31 @@ Creare un controller istruttori con azioni di lettura/scrittura EF come illustra
 
 Aprire *InstructorsController.cs* e aggiungere un tramite l'istruzione per lo spazio dei nomi ViewModel:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Sostituire il metodo di indice con il codice seguente per eseguire il caricamento immediato di dati correlati e inserirlo nel modello di visualizzazione.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 Il metodo accetta i dati della route facoltativo (`id`) e un parametro di stringa di query (`courseID`) che forniscono i valori di ID del corso selezionato e istruttore selezionato. I parametri sono forniti dal **selezionare** della pagina.
 
 Il codice inizia creando un'istanza del modello di visualizzazione e inserire in essa contenuti l'elenco di istruttori. Il codice specifica per il caricamento immediato di `Instructor.OfficeAssignment` e `Instructor.CourseAssignments` le proprietà di navigazione. All'interno di `CourseAssignments` proprietà, il `Course` è caricato all'interno della quale, il `Enrollments` e `Department` proprietà vengono caricati e all'interno di ogni `Enrollment` entità il `Student` proprietà è caricata.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Poiché la vista richiede sempre l'entità OfficeAssignment, è più efficiente recuperare che nella stessa query. Le entità Course sono necessari quando viene selezionato un docente nella pagina web, una singola query è migliore di più query solo se la pagina viene visualizzata più spesso con un corso selezionato rispetto senza.
 
 Il codice ripete `CourseAssignments` e `Course` perché è necessario due proprietà da `Course`. La prima stringa di `ThenInclude` chiama Ottiene `CourseAssignment.Course`, `Course.Enrollments`, e `Enrollment.Student`.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 A questo punto nel codice, un altro `ThenInclude` per proprietà di navigazione di `Student`, che non è necessario. Ma la chiamata `Include` ricomincia con `Instructor` proprietà, pertanto è necessario passare attraverso la catena di nuovo, questa volta specificare `Course.Department` anziché `Course.Enrollments`.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 Il codice seguente viene eseguito quando è stato selezionato un docente. Istruttore selezionato viene recuperato dall'elenco di istruttori nel modello di visualizzazione. Il modello di visualizzazione `Courses` proprietà viene quindi caricata con le entità Course da tale istruttore `CourseAssignments` proprietà di navigazione.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 Il `Where` metodo restituisce una raccolta, ma in questo caso i criteri di passati a tale metodo vengono restituiti solo una singola entità Instructor restituita. Il `Single` metodo converte la raccolta in una singola entità Instructor, che consente di accedere a tale entità `CourseAssignments` proprietà. Il `CourseAssignments` contiene proprietà `CourseAssignment` entità, da cui si desidera solo correlata `Course` entità.
 
@@ -161,7 +161,7 @@ Invece di:
 
 Successivamente, se è stato selezionato un corso, viene recuperato il corso selezionato dall'elenco dei corsi nel modello di visualizzazione. Del quindi il modello di visualizzazione `Enrollments` proprietà viene caricata con le entità di registrazione da quel corso `Enrollments` proprietà di navigazione.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Modificare la visualizzazione dell'indice Instructor
 
@@ -203,7 +203,7 @@ Le seguenti modifiche apportate al codice esistente:
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Eseguire l'applicazione e selezionare la scheda istruttori. La pagina Visualizza la proprietà Location di entità OfficeAssignment correlate e una cella vuota della tabella quando è presente alcuna entità OfficeAssignment correlati.
+Eseguire l'app e selezionare il **i docenti** scheda. La pagina Visualizza la proprietà Location di entità OfficeAssignment correlate e una cella vuota della tabella quando è presente alcuna entità OfficeAssignment correlati.
 
 ![Pagina di indice istruttori che non selezionato](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -213,7 +213,7 @@ Nel *Views/Instructors/Index.cshtml* file, dopo la chiusura tabella elemento (al
 
 Questo codice legge il `Courses` proprietà del modello di visualizzazione per visualizzare un elenco dei corsi. Fornisce inoltre un **selezionare** collegamento ipertestuale che invia l'ID del corso selezionato per il `Index` metodo di azione.
 
-Eseguire la pagina e selezionare un docente. È ora possibile visualizzare una griglia che visualizza i corsi assegnati a istruttore selezionato e per ogni corso vedrai il nome del reparto assegnato.
+Aggiornare la pagina e selezionare un docente. È ora possibile visualizzare una griglia che visualizza i corsi assegnati a istruttore selezionato e per ogni corso vedrai il nome del reparto assegnato.
 
 ![Istruttore pagina di indice istruttori selezionato](read-related-data/_static/instructors-index-instructor-selected.png)
 
@@ -223,7 +223,7 @@ Dopo il blocco di codice che appena aggiunto, aggiungere il codice seguente. Con
 
 Questo codice legge la proprietà le registrazioni del modello di visualizzazione per visualizzare un elenco di studenti iscritti in corso.
 
-Eseguire la pagina e selezionare un docente. Selezionare quindi un corso per visualizzare l'elenco degli studenti iscritti e i relativi voti.
+Aggiornare di nuovo la pagina e selezionare un docente. Selezionare quindi un corso per visualizzare l'elenco degli studenti iscritti e i relativi voti.
 
 ![Insegnante di pagina di indice istruttori e corso selezionato](read-related-data/_static/instructors-index.png)
 
@@ -233,11 +233,11 @@ Quando è stato recuperato l'elenco di istruttori in *InstructorsController.cs*,
 
 Si supponga che dovrebbero agli utenti di solo raramente si desidera visualizzare le registrazioni in corso e istruttore selezionato. In tal caso, si potrebbe voler caricare i dati di registrazione solo se richiesto. Per visualizzare un esempio di come eseguire il caricamento esplicito, sostituire il `Index` (metodo) con il codice seguente, che rimuove il caricamento immediato per le registrazioni e carica in modo esplicito tale proprietà. Le modifiche al codice sono evidenziati.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 Elimina il nuovo codice di *ThenInclude* chiamate per i dati di registrazione dal codice che consente di recuperare entità instructor. Se vengono selezionati un docente e corso, il codice evidenziato Recupera entità di registrazione per il corso selezionato e le entità di studenti per ogni registrazione.
 
-Eseguire la pagina di indice istruttore a questo punto, non si noterà alcuna differenza di ciò che viene visualizzato nella pagina anche se hai modificato la modalità di recupero dei dati.
+Eseguire che l'app, andare alla pagina di indice istruttori ora non si vedrà alcuna differenza di ciò che viene visualizzato nella pagina anche se hai modificato la modalità di recupero dei dati.
 
 ## <a name="summary"></a>Riepilogo
 

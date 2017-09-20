@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 149af0ce88d55527a42ba3b88d40047a61d510c9
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con l'esercitazione di base di ASP.NET MVC (3 di 10)
 
@@ -36,7 +36,7 @@ Per aggiungere l'ordinamento alla pagina di indice di studenti, sarà necessario
 
 In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 Questo codice riceve un `sortOrder` parametro dalla stringa di query nell'URL. Il valore di stringa di query viene fornito da ASP.NET MVC di base come parametro al metodo di azione. Il parametro sarà una stringa che è "Name" o "Date", seguito facoltativamente da un carattere di sottolineatura e la stringa "desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
 
@@ -44,7 +44,7 @@ La prima volta che viene richiesta la pagina di indice, viene individuata alcuna
 
 I due `ViewData` elementi (NameSortParm e DateSortParm) vengono utilizzati dalla vista per configurare i collegamenti ipertestuali sull'intestazione di colonna con i valori di stringa di query appropriata.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Si tratta di istruzioni ternarie. Il primo specifica che se il `sortOrder` parametro è null o vuoto, NameSortParm deve essere impostato su "name_desc"; in caso contrario, deve essere impostato su una stringa vuota. Le due istruzioni seguenti consentono la visualizzazione impostare la colonna collegamenti ipertestuali di intestazione come indicato di seguito:
 
@@ -67,7 +67,7 @@ Sostituire il codice in *Views/Students/Index.cshtml*, con il codice seguente pe
 
 Questo codice Usa le informazioni contenute in `ViewData` valori di stringa di proprietà per impostare i collegamenti ipertestuali con la query appropriato.
 
-Eseguire la pagina e fare clic su di **cognome** e **data di registrazione** funziona intestazioni di colonna per verificare che l'ordinamento.
+Eseguire l'app, selezionare il **studenti** scheda, quindi scegliere il **Last Name** e **data di registrazione** funziona intestazioni di colonna per verificare che l'ordinamento.
 
 ![Pagina di indice di studenti nell'ordine dei nomi](sort-filter-page/_static/name-order.png)
 
@@ -79,7 +79,7 @@ Per aggiungere filtri alla pagina di indice di studenti, aggiungerai un pulsante
 
 In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente (sono evidenziate le modifiche).
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 È stato aggiunto un `searchString` parametro per il `Index` (metodo). Il valore di stringa di ricerca viene ricevuto da una casella di testo che verrà aggiunto per la visualizzazione dell'indice. Inoltre aggiunti all'istruzione LINQ una clausola where clausola che seleziona solo gli studenti il cui nome o cognome contengono la stringa di ricerca. L'istruzione che aggiunge where clausola viene eseguita solo se è presente un valore per la ricerca.
 
@@ -94,9 +94,9 @@ In *Views/Student/Index.cshtml*, aggiungere il codice evidenziato immediatamente
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Questo codice Usa il `<form>` [helper di tag](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST, il che significa che i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL come stringhe di query. Quando si specifica di HTTP GET, i dati del form viene passati nell'URL come stringhe di query, che consente agli utenti di segnalibro l'URL. Ricevi preferibile W3C linee guida che è necessario utilizzare l'azione non comporta un aggiornamento.
+Questo codice Usa il `<form>` [helper di tag](xref:mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST, il che significa che i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL come stringhe di query. Quando si specifica di HTTP GET, i dati del form viene passati nell'URL come stringhe di query, che consente agli utenti di segnalibro l'URL. Ricevi preferibile W3C linee guida che è necessario utilizzare l'azione non comporta un aggiornamento.
 
-Eseguire la pagina, immettere una stringa di ricerca e fare clic su Cerca per verificare che il filtro sia funzionante.
+Eseguire l'app, selezionare il **studenti** scheda, immettere una stringa di ricerca e fare clic su Cerca per verificare che il filtro sia funzionante.
 
 ![Pagina di indice di studenti di filtro](sort-filter-page/_static/filtering.png)
 
@@ -118,7 +118,7 @@ Per aggiungere il paging per la pagina di indice di studenti, si creerà un `Pag
 
 Nella cartella del progetto, creare `PaginatedList.cs`, quindi sostituire il codice del modello con il codice seguente.
 
-[!code-csharp[Principale](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
 Il `CreateAsync` metodo in questo codice ha dimensioni di pagina e il numero di pagina e applica appropriata `Skip` e `Take` istruzioni per la `IQueryable`. Quando `ToListAsync` viene chiamato sul `IQueryable`, verrà restituito un elenco contenente solo la pagina richiesta. Le proprietà `HasPreviousPage` e `HasNextPage` può essere utilizzato per abilitare o disabilitare **precedente** e **Avanti** pulsanti di spostamento.
 
@@ -128,7 +128,7 @@ Oggetto `CreateAsync` metodo viene utilizzato invece di un costruttore per crear
 
 In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 Questo codice aggiunge un parametro di numeri di pagina, un parametro di ordine di ordinamento corrente e un parametro di filtro corrente per la firma del metodo.
 
@@ -193,7 +193,7 @@ Per gli helper di tag vengono visualizzati i pulsanti di paging:
 </a>
 ```
 
-Eseguire la pagina.
+Eseguire l'app e passare alla pagina di studenti.
 
 ![Gli studenti indice pagina con collegamenti di spostamento](sort-filter-page/_static/paging.png)
 
@@ -215,21 +215,21 @@ Creare un *SchoolViewModels* cartella la *modelli* cartella.
 
 Nella nuova cartella, aggiungere un file di classe *EnrollmentDateGroup.cs* e sostituire il codice del modello con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Modificare il Controller Home
 
 In *HomeController.cs*, aggiungere le seguenti istruzioni using all'inizio del file:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 Aggiungere una variabile di classe per il contesto del database immediatamente dopo la parentesi graffa di apertura per la classe e ottenere un'istanza del contesto da ASP.NET Core DI:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 Sostituire il metodo `About` con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 Raggruppa le entità di studenti per data di registrazione dell'istruzione LINQ, calcola il numero di entità in ciascun gruppo e archivia i risultati in una raccolta di `EnrollmentDateGroup` consente di visualizzare gli oggetti del modello.
 > [!NOTE] 
@@ -241,7 +241,7 @@ Sostituire il codice di *Views/Home/About.cshtml* file con il codice seguente:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Eseguire l'app e fare clic su di **su** collegamento. Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
+Eseguire l'app e passare alla pagina di informazioni. Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
 ![Informazioni sulla pagina](sort-filter-page/_static/about.png)
 

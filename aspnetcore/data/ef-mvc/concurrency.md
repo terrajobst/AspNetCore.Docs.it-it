@@ -11,11 +11,11 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: fc6b218034183a9153c1ef22c99d920a942d2d09
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - EF Core con l'esercitazione di base di ASP.NET MVC (8 di 10)
 
@@ -91,7 +91,7 @@ Nella parte restante di questa esercitazione si aggiungerà un `rowversion` prop
 
 In *Models/Department.cs*, aggiungere una proprietà di rilevamento denominata RowVersion:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 Il `Timestamp` attributo specifica che questa colonna sarà inclusa nelle Where clausola dei comandi di aggiornamento ed eliminazione inviate al database. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server utilizzato un database SQL `timestamp` il tipo di dati prima di SQL `rowversion` sostituito. Il tipo .NET per `rowversion` è una matrice di byte.
 
@@ -122,7 +122,7 @@ Eseguire lo scaffolding di un controller di reparti e le visualizzazioni come fa
 
 Nel *DepartmentsController.cs* file, modificare tutte le occorrenze di "FirstMidName" in "FullName" in modo che gli elenchi di riepilogo a discesa amministratore reparto conterrà il nome completo del istruttore anziché solo l'ultimo nome.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Aggiornare la visualizzazione dell'indice reparti
 
@@ -130,7 +130,7 @@ Il motore di scaffolding creata una colonna RowVersion nella vista dell'indice, 
 
 Sostituire il codice in *Views/Departments/Index.cshtml* con il codice seguente.
 
-[!code-html[Principale](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Questo viene modificato il titolo "Servizi", Elimina la colonna RowVersion e Mostra il nome completo anziché il nome per l'amministratore.
 
@@ -138,11 +138,11 @@ Questo viene modificato il titolo "Servizi", Elimina la colonna RowVersion e Mos
 
 In entrambi i HttpGet `Edit` (metodo) e `Details` metodo, aggiungere `AsNoTracking`. Nel HttpGet `Edit` metodo, aggiungere il caricamento immediato per l'amministratore.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 Sostituire il codice esistente per HttpPost `Edit` metodo con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 Il codice inizia la lettura del reparto da aggiornare. Se il `SingleOrDefaultAsync` metodo restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice Usa i valori di modulo registrato per creare un'entità di reparto, in modo che la pagina di modifica può essere visualizzata con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità department se si visualizza un messaggio di errore senza rivisualizzazione i campi di reparto.
 
@@ -156,19 +156,19 @@ Quando Entity Framework viene creato un comando SQL UPDATE, il comando, includer
 
 Il codice nel blocco catch per tale eccezione Ottiene l'entità Department interessato con i valori aggiornati dal `Entries` proprietà per l'oggetto eccezione.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 Il `Entries` raccolta avrà uno `EntityEntry` oggetto.  È possibile utilizzare tale oggetto per ottenere i nuovi valori immessi dall'utente e i valori del database corrente.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 Il codice aggiunge un messaggio di errore personalizzato per ogni colonna con valori di database diversi da quali immessi dall'utente dal menu Modifica pagina (un solo campo è riportato per brevità).
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Infine, il codice imposta il `RowVersion` valore il `departmentToUpdate` per il nuovo valore recuperato dal database. Questa nuova `RowVersion` valore verrà archiviato nel campo nascosto quando la modifica di pagina viene visualizzata e la successiva ora l'utente fa clic **salvare**, solo gli errori di concorrenza che si verificano dopo la visualizzazione della pagina di modifica verrà rilevata.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 Il `ModelState.Remove` istruzione è necessaria perché `ModelState` è il vecchio `RowVersion` valore. Nella visualizzazione, il `ModelState` valore per un campo ha la precedenza sui valori di proprietà del modello quando sono presenti entrambe.
 
@@ -180,13 +180,11 @@ In *Views/Departments/Edit.cshtml*, apportare le modifiche seguenti:
 
 * Aggiungere un'opzione "Selezionare amministratore" per l'elenco a discesa.
 
-[!code-html[Principale](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Verificare i conflitti di concorrenza presente nella pagina di modifica
 
-Esecuzione del sito e fare clic per passare alla pagina di indice reparti i reparti.
-
-Fare doppio clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, quindi fare clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese. Le schede del due browser ora visualizzano le stesse informazioni.
+Eseguire l'app e passare alla pagina di indice reparti. Fare doppio clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, quindi fare clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese. Le schede del due browser ora visualizzano le stesse informazioni.
 
 Modificare un campo nella prima scheda del browser e fare clic su **salvare**.
 
@@ -212,13 +210,13 @@ Per la pagina di eliminazione, Entity Framework rileva i conflitti di concorrenz
 
 In *DepartmentsController.cs*, sostituire il HttpGet `Delete` metodo con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 Il metodo accetta un parametro facoltativo che indica se la pagina viene nuovamente visualizzata dopo un errore di concorrenza. Se questo flag è true e il reparto specificato non esiste, è stata eliminata da un altro utente. In tal caso, il codice reindirizza alla pagina di indice.  Se questo flag è true e il reparto esiste, è stato modificato da un altro utente. In tal caso, il codice invia un messaggio di errore per la visualizzazione con `ViewData`.  
 
 Sostituire il codice in HttpPost `Delete` metodo (denominato `DeleteConfirmed`) con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 Nel codice scaffolding che è stato sostituito solo, questo metodo è accettato solo un ID di record:
 
@@ -243,7 +241,7 @@ Se viene rilevato un errore di concorrenza, il codice viene visualizzata nuovame
 
 In *Views/Departments/Delete.cshtml*, sostituire il codice di supporto temporaneo con il seguente codice che aggiunge un campo di messaggio di errore e i campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche sono evidenziate.
 
-[!code-html[Principale](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 In questo modo le modifiche seguenti:
 
@@ -255,7 +253,7 @@ In questo modo le modifiche seguenti:
 
 * Aggiunge un campo nascosto per il `RowVersion` proprietà.
 
-Eseguire la pagina di indice reparti. Fare clic il **eliminare** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, fare clic su nella prima scheda le **modifica** collegamento ipertestuale per il reparto in lingua inglese.
+Eseguire l'app e passare alla pagina di indice reparti. Fare doppio clic su di **eliminare** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, fare clic su nella prima scheda di **modifica** collegamento ipertestuale per il reparto in lingua inglese.
 
 Nella prima finestra, modificare uno dei valori e fare clic su **salvare**:
 
@@ -273,11 +271,11 @@ Facoltativamente, è possibile pulire il codice scaffolding nei dettagli e crear
 
 Sostituire il codice in *Views/Departments/Details.cshtml* per eliminare la colonna RowVersion e visualizzare il nome completo dell'amministratore.
 
-[!code-html[Principale](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Sostituire il codice in *Views/Departments/Create.cshtml* da aggiungere all'elenco di riepilogo a discesa selezionare l'opzione.
 
-[!code-html[Principale](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Riepilogo
 

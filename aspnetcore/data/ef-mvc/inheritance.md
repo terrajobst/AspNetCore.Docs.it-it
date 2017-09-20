@@ -11,11 +11,11 @@ ms.assetid: 41dc0db7-6f17-453e-aba6-633430609c74
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 3c86dea145d2d4dec10c77e008f511cfe67975f9
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 6102b426cb5aff78fedb9389df229cd8100e4f36
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Ereditarietà - EF Core con l'esercitazione di base di ASP.NET MVC (9 di 10)
 
@@ -62,23 +62,23 @@ In questa esercitazione viene illustrato come implementare Implementerà l'eredi
 
 Nella cartella Models, creare Person e sostituire il codice del modello con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Person.cs)]
+[!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
 
 ## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Creazione delle classi Student e Instructor ereditare da una persona
 
 In *Instructor.cs*, derivare la classe istruttore dalla classe di persona e rimuovere i campi chiavi e il nome. Il codice sarà analogo al seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
 Apportare le stesse modifiche nel *Student.cs*.
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
 ## <a name="add-the-person-entity-type-to-the-data-model"></a>Aggiungere il tipo di entità utente per il modello di dati
 
 Aggiungere il tipo di entità utente per *SchoolContext.cs*. Le nuove righe vengono evidenziate.
 
-[!code-csharp[Principale](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
+[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
 Questo è tutto ciò che necessita di Entity Framework per configurare l'ereditarietà tabella per gerarchia. Come si vedrà, quando il database viene aggiornato, si otterrà una tabella Person invece le tabelle Student e Instructor.
 
@@ -94,7 +94,7 @@ Non vengono eseguiti il `database update` ancora di comando. Tale comando causer
 
 Aprire *migrazioni /\<timestamp > _Inheritance.cs* e sostituire il `Up` (metodo) con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
+[!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
 Questo codice si occupa delle attività di aggiornamento di database seguenti:
 
@@ -131,7 +131,7 @@ dotnet ef database update
 
 ## <a name="test-with-inheritance-implemented"></a>Eseguire il test con ereditarietà implementato
 
-Aprire il sito e provare diverse pagine. Tutto ciò che funziona come in precedenza.
+Eseguire l'app e provare diverse pagine. Tutto ciò che funziona come in precedenza.
 
 In **Esplora oggetti di SQL Server**, espandere **connessioni dati/SchoolContext** e quindi **tabelle**, noterai che le tabelle Student e Instructor sono state sostituite da un Tabella Person. Aprire Progettazione tabelle Person e si noterà che contiene tutte le colonne utilizzate per le tabelle Student e Instructor.
 

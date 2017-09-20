@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 60ac318cb47b5a5b4c651c88e60d43772ce59958
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: b728c3d62b59f28f1d020b6f3732918a1fcdf4eb
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Utilizzo dell'autenticazione Cookie senza identità ASP.NET Core
 
@@ -29,7 +29,7 @@ Una modifica importante in ASP.NET Core 2. x è che il middleware del cookie è 
 
 ## <a name="adding-and-configuring"></a>Aggiunta e configurazione
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Completare i passaggi seguenti:
 
@@ -51,7 +51,7 @@ Completare i passaggi seguenti:
             });
     ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Completare i passaggi seguenti:
 
@@ -94,13 +94,13 @@ I frammenti di codice precedenti per configurare alcune o tutte le opzioni segue
 
 Per creare un cookie che contiene le informazioni sull'utente, è necessario costruire un [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) che contiene le informazioni che si desidera essere serializzati nel cookie. Dopo aver adatto `ClaimsPrincipal` di oggetto, chiamare il seguente all'interno del metodo del controller:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync("MyCookieAuthenticationScheme", principal);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync("MyCookieAuthenticationScheme", principal);
@@ -116,13 +116,13 @@ Dietro le quinte, la crittografia utilizzata è ASP.NET Core [la protezione dei 
 
 Per effettuare la disconnessione dell'utente corrente ed eliminare i cookie, chiamare il seguente all'interno del controller:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignOutAsync("MyCookieAuthenticationScheme");
@@ -147,7 +147,7 @@ Task ValidateAsync(CookieValidatePrincipalContext context);
 
 ASP.NET Identity Core implementa questo controllo come parte del relativo `SecurityStampValidator`. Un esempio è simile al seguente:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 public static class LastChangedValidator
@@ -187,7 +187,7 @@ services.AddAuthentication("MyCookieAuthenticationScheme")
         });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 public static class LastChangedValidator
@@ -236,7 +236,7 @@ Si consideri l'esempio in cui è stato aggiornato il proprio nome &mdash; una de
 
 Il [CookieAuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) classe dotata di varie opzioni di configurazione per ottimizzare i cookie viene creati.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 2. x unifica le API utilizzate per i cookie di configurazione di ASP.NET Core. Il 1. x API sono state contrassegnate come obsolete e un nuovo `Cookie` proprietà di tipo `CookieBuilder` è stato introdotto nel `CookieAuthenticationOptions` classe. È consigliabile eseguire la migrazione a 2. x API.
 
@@ -271,7 +271,7 @@ services.AddAuthentication()
         });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * `ClaimsIssuer`è l'autorità emittente da utilizzare per il [dell'autorità di certificazione](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) proprietà in tutte le attestazioni creato dal middleware.
 
@@ -306,7 +306,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 È la scadenza del cookie per rendere persistenti le sessioni del browser e si desidera una scadenza assoluta per l'identità e il cookie il trasporto. Questo tipo di persistenza deve essere abilitata solo con consenso esplicito, tramite un controllo checkbox "Memorizza dati" su account di accesso o un meccanismo simile. È possibile eseguire queste operazioni utilizzando il `AuthenticationProperties` parametro il `SignInAsync` metodo chiamato quando [un'identità di firma e la creazione del cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie). Ad esempio:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
@@ -320,7 +320,7 @@ await HttpContext.SignInAsync(
 
 Il `AuthenticationProperties` (classe), utilizzato nel frammento di codice precedente, si trova nel `Microsoft.AspNetCore.Authentication` dello spazio dei nomi.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(
@@ -340,7 +340,7 @@ Frammento di codice precedente crea un'identità e i cookie corrispondente che r
 
 <a name="security-authentication-absolute-expiry"></a>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
@@ -352,7 +352,7 @@ await HttpContext.SignInAsync(
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(

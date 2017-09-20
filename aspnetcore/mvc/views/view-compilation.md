@@ -11,15 +11,15 @@ ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 1395717341bfcf5441b78633ca3957630ae5d899
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 0cb61315916d1b38f7cab3339e150c446fb69d98
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Compilazione di visualizzazione Razor e precompilazione in ASP.NET Core
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Visualizzazioni Razor vengono compilate in fase di esecuzione quando viene richiamata la vista. ASP.NET Core 1.1.0 e versione successiva possono facoltativamente compilare visualizzazioni Razor e distribuirli con l'app &mdash; un processo noto come la precompilazione. Per impostazione predefinita, i modelli di progetto ASP.NET Core 2. x abilitare precompilazione.
 
@@ -33,7 +33,7 @@ Considerazioni sulla precompilazione:
 
 Per distribuire precompilate viste:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Se il progetto è destinato a .NET Framework, includere un riferimento pacchetto `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`:
 
@@ -45,12 +45,12 @@ Se il progetto è destinato a .NET Core, non sono necessarie modifiche.
 
 I modelli di progetto ASP.NET Core 2. x viene impostata in modo implicito `MvcRazorCompileOnPublish` a `true` per impostazione predefinita, ovvero il nodo può essere rimosso in modo sicuro dal *csproj* file. Se si preferisce, è necessario essere espliciti sono non crea alcun problema nell'impostazione di `MvcRazorCompileOnPublish` proprietà `true`. Nell'esempio *csproj* ed evidenzia questa impostazione:
 
-[!code-xml[Principale](view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=5)]
+[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Impostare `MvcRazorCompileOnPublish` a `true`e includere un riferimento pacchetto `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. Nell'esempio *csproj* ed evidenzia queste impostazioni:
 
-[!code-xml[Principale](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---

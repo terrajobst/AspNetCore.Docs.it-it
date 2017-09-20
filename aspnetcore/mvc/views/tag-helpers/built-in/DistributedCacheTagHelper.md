@@ -2,7 +2,7 @@
 title: Helper di Tag della Cache distribuita | Documenti Microsoft
 author: pkellner
 description: Di seguito viene illustrato l'utilizzo di Helper di Tag della Cache
-keywords: ASP.NET Core, helper tag
+keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
 ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>Helper di Tag Cache distribuita
 
-Da [Peter Kellner](http://peterkellner.net) 
+Di [Peter Kellner](http://peterkellner.net) 
 
 
 L'Helper di Tag della Cache distribuita consente di migliorare notevolmente le prestazioni dell'applicazione ASP.NET di base per la memorizzazione nella cache il contenuto a un'origine cache distribuita.

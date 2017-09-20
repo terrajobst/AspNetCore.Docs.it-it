@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70434d1c814af2a96493027c6a2ad87845cd5cae
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -43,7 +43,7 @@ Il `DbSet<TEntity>` classe fornisce un metodo che è possibile utilizzare per es
 
 In *DepartmentsController.cs*nella `Details` (metodo), sostituire il codice che recupera un reparto con un `FromSql` chiamata al metodo, come illustrato nel codice evidenziato seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 Per verificare che il nuovo codice funziona correttamente, selezionare il **reparti** scheda e quindi **dettagli** per uno dei servizi.
 
@@ -55,13 +55,13 @@ Per verificare che il nuovo codice funziona correttamente, selezionare il **repa
 
 In *HomeController.cs*, sostituire il `About` (metodo) con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 Aggiungere un tramite istruzione:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-Eseguire la pagina di informazioni. Visualizza gli stessi dati che non è stato modificato.
+Eseguire l'app e passare alla pagina di informazioni. Visualizza gli stessi dati che non è stato modificato.
 
 ![Informazioni sulla pagina](advanced/_static/about.png)
 
@@ -73,9 +73,9 @@ Si supponga che gli amministratori University Contoso desiderano eseguire modifi
 
 In *CoursesContoller.cs*, aggiungere metodi UpdateCourseCredits per HttpGet e HttpPost:
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 Quando il controller elabora una richiesta di HttpGet, non viene restituito `ViewData["RowsAffected"]`, e la visualizzazione consente di visualizzare una casella di testo e un pulsante di invio, come illustrato nella figura precedente.
 
@@ -87,7 +87,7 @@ Nel **Aggiungi nuovo elemento** finestra di dialogo, fare clic su **ASP.NET** in
 
 In *Views/Courses/UpdateCourseCredits.cshtml*, sostituire il codice del modello con il codice seguente:
 
-[!code-html[Principale](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 Eseguire il `UpdateCourseCredits` metodo selezionando il **corsi** scheda, quindi aggiungendo "/ UpdateCourseCredits" alla fine dell'URL nella barra degli indirizzi del browser (ad esempio: `http://localhost:5813/Courses/UpdateCourseCredits`). Immettere un numero nella casella di testo:
 
@@ -109,7 +109,7 @@ A volte risulta utile essere in grado di visualizzare le query SQL effettive ven
 
 Aprire *StudentsController.cs* e il `Details` metodo imposta un punto di interruzione il `if (student == null)` istruzione.
 
-Eseguire l'applicazione in modalità di debug e passare alla pagina dei dettagli per uno studente.
+Eseguire l'app in modalità di debug e passare alla pagina dei dettagli per uno studente.
 
 Passare al **Output** finestra che mostra il debug di output e viene visualizzata la query:
 
@@ -184,7 +184,7 @@ Per decodificare un modello di dati, incluse le classi di entità da un database
 
 Il [terza esercitazione di questa serie](sort-filter-page.md) viene illustrato come scrivere codice LINQ da nomi di colonne a livello di codice in un `switch` istruzione. Con due colonne da selezionare, questa procedura funziona correttamente, ma se si dispone di un numero di colonne è stato possibile ottenere dettagliato il codice. Per risolvere il problema, è possibile utilizzare il `EF.Property` metodo per specificare il nome della proprietà come stringa. Per provare a utilizzare questo approccio, sostituire il `Index` metodo il `StudentsController` con il codice seguente.
 
-[!code-csharp[Principale](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -200,7 +200,7 @@ Per informazioni su altri argomenti relativi a ASP.NET MVC di base, quali l'aute
 
 Tom Dykstra e Rick Anderson (twitter @RickAndMSFT) ha scritto in questa esercitazione. Rowan Miller, Diego Vega e altri membri del team di Entity Framework assistiti da con le revisioni del codice che ha contribuito il debug di problemi che si è verificato mentre stessimo scrivendo codice per le esercitazioni.
 
-## <a name="common-errors"></a>Errori più comuni  
+## <a name="common-errors"></a>Errori comuni  
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll utilizzato da un altro processo
 
