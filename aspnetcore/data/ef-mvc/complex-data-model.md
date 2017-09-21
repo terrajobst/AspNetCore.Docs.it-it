@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: dde50f766dc9842089cbb0561b8bd6e2d8e7c34f
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Creazione di un modello di dati complessi - EF Core con l'esercitazione di base di ASP.NET MVC (5 di 10)
 
@@ -39,29 +39,29 @@ Per le date di registrazione studenti, tutte le pagine web attualmente Visualizz
 
 In *Models/Student.cs*, aggiungere un `using` istruzione per il `System.ComponentModel.DataAnnotations` dello spazio dei nomi e aggiungere `DataType` e `DisplayFormat` gli attributi di `EnrollmentDate` proprietà, come illustrato nell'esempio seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-Il `DataType` attributo viene utilizzato per specificare un tipo di dati che è più specifico di tipo intrinseco del database. In questo caso si vuole inserire solo tenere traccia delle date, non la data e ora. Il `DataType` enumerazione fornisce per molti tipi di dati, ad esempio Date, Time, PhoneNumber, valuta, EmailAddress e altro ancora. Il `DataType` attributo può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, un `mailto:` possibile creare un collegamento per `DataType.EmailAddress`, e un selettore data può essere fornito per `DataType.Date` nei browser che supporta HTML5. Il `DataType` attributo genera HTML 5 `data-` attributi (si pronuncia dati dash) in grado di comprendere i browser HTML 5. Il `DataType` attributi non forniscono alcuna convalida.
+L'attributo `DataType` viene usato per specificare un tipo di dati che è più specifico del tipo intrinseco del database. In questo caso si vuole inserire solo tenere traccia delle date, non la data e ora. Il `DataType` enumerazione fornisce per molti tipi di dati, ad esempio Date, Time, PhoneNumber, valuta, EmailAddress e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Il `DataType` attributo genera HTML 5 `data-` attributi (si pronuncia dati dash) in grado di comprendere i browser HTML 5. Il `DataType` attributi non forniscono alcuna convalida.
 
-`DataType.Date`Specifica il formato della data che viene visualizzato. Per impostazione predefinita, viene visualizzato il campo dei dati in base ai formati predefiniti in base a CultureInfo del server.
+`DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, viene visualizzato il campo dei dati in base ai formati predefiniti in base a CultureInfo del server.
 
-Il `DisplayFormat` attributo viene utilizzato per specificare in modo esplicito il formato di data:
+L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il formato della data:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-Il `ApplyFormatInEditMode` impostazione specifica che la formattazione deve essere applicata anche quando il valore viene visualizzato in una casella di testo per la modifica. (Non è possibile che per alcuni campi, ad esempio, per i valori di valuta, occorre evitare il simbolo di valuta nella casella di testo per la modifica.)
+L'impostazione `ApplyFormatInEditMode` specifica che la formattazione deve essere applicata anche quando il valore viene visualizzato in una casella di testo per la modifica. (Non è possibile che per alcuni campi, ad esempio, per i valori di valuta, occorre evitare il simbolo di valuta nella casella di testo per la modifica.)
 
 È possibile utilizzare il `DisplayFormat` attributo da se stesso, ma in genere è consigliabile utilizzare il `DataType` anche l'attributo. Il `DataType` attributo fornisce la semantica dei dati anziché come eseguirne il rendering in una schermata e fornisce i seguenti vantaggi che non si ottengono con `DisplayFormat`:
 
 * Il browser è possibile abilitare le funzionalità di HTML5 (ad esempio per visualizzare un controllo di calendario, il simbolo di valuta delle impostazioni locali appropriata, i collegamenti di posta elettronica, alcuni client-side input convalida e così via)..
 
-* Per impostazione predefinita, il browser verrà eseguito il rendering di dati utilizzando il formato corretto in base alle impostazioni locali del sistema.
+* Per impostazione predefinita, il browser eseguirà il rendering dei dati usando il formato corretto in base alle impostazioni locali del sistema.
 
 Per ulteriori informazioni, vedere il [ \<input > tag di documentazione di supporto](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
-Eseguire nuovamente la pagina di indice di studenti e notare che volte non vengono più visualizzate per le date di registrazione. Lo stesso sarà true per qualsiasi vista che utilizza il modello di studenti.
+Eseguire l'app, passare alla pagina di indice di studenti e notare che volte non vengono più visualizzate per le date di registrazione. Lo stesso sarà true per qualsiasi vista che utilizza il modello di studenti.
 
 ![Pagina di indice di studenti con date senza tempi di](complex-data-model/_static/dates-no-times.png)
 
@@ -71,7 +71,7 @@ Eseguire nuovamente la pagina di indice di studenti e notare che volte non vengo
 
 Si supponga che si desidera garantire che gli utenti non immettere più di 50 caratteri per un nome. Per aggiungere questa limitazione, è necessario `StringLength` gli attributi di `LastName` e `FirstMidName` proprietà, come illustrato nell'esempio seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 Il `StringLength` attributo non impedisce a un utente di immettere lo spazio vuoto per un nome. È possibile utilizzare il `RegularExpression` attributo per applicare restrizioni per l'input. Ad esempio, il codice seguente richiede il primo carattere da maiuscolo e i caratteri rimanenti alfabetico:
 
@@ -97,7 +97,7 @@ Il `migrations add` comando genera un avviso che potrebbe verificarsi una perdit
 
 Il timestamp come preceduto al nome del file migrazioni utilizzato da Entity Framework per ordinare le migrazioni. È possibile creare più migrazioni prima di eseguire il comando update-database, e quindi tutte le migrazioni sono applicate nell'ordine in cui sono stati creati.
 
-Eseguire la pagina di creazione e immettere il nome di più di 50 caratteri. Quando si fa clic su Crea, la convalida lato client viene illustrato un messaggio di errore.
+Eseguire l'app, selezionare il **studenti** scheda, fare clic su **Crea nuovo**e immettere il nome di più di 50 caratteri. Quando fa clic su **crea**, la convalida lato client verrà visualizzato un messaggio di errore.
 
 ![Gli studenti indice pagina la visualizzazione di errori di lunghezza stringa](complex-data-model/_static/string-length-errors.png)
 
@@ -109,7 +109,7 @@ Il `Column` attributo specifica che quando viene creato il database, la colonna 
 
 Nel *Student.cs* file, aggiungere un `using` istruzione per `System.ComponentModel.DataAnnotations.Schema` e aggiungere l'attributo del nome di colonna per il `FirstMidName` proprietà, come illustrato nel codice evidenziato seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 L'aggiunta del `Column` attributo modifica il supporto del modello di `SchoolContext`, in modo che non corrisponda al database.
 
@@ -138,7 +138,7 @@ Prima dell'applicazione le prime due migrazioni, le colonne nome sono di tipo nv
 
 In *Models/Student.cs*, sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
 
-[!code-csharp[Principale](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>L'attributo obbligatorio
 
@@ -166,7 +166,7 @@ Il `Display` attributo specifica che la didascalia per le caselle di testo deve 
 
 Creare *Models/Instructor.cs*, sostituendo il codice del modello con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
+[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
 Si noti che molte proprietà sono uguali nelle entità Student e Instructor. Nel [implementazione ereditarietà](inheritance.md) esercitazione più avanti in questa serie, sarà il refactoring questo codice per eliminare la ridondanza.
 
@@ -202,7 +202,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 Creare *Models/OfficeAssignment.cs* con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>L'attributo chiave
 
@@ -229,7 +229,7 @@ Entità Instructor è nullable `OfficeAssignment` proprietà di navigazione (per
 
 In *Models/Course.cs*, sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
 
-[!code-csharp[Principale](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 L'entità corso ha una proprietà di chiave esterna `DepartmentID` che fa riferimento a entità reparto correlata che ha un `Department` proprietà di navigazione.
 
@@ -279,7 +279,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 Creare *Models/Department.cs* con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>L'attributo di colonna
 
@@ -324,7 +324,7 @@ public ICollection<Course> Courses { get; set; }
 
 In *Models/Enrollment.cs*, sostituire il codice aggiunto in precedenza con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Proprietà di chiave e la navigazione esterna
 
@@ -364,7 +364,7 @@ Se la tabella di registrazione non include informazioni di livello, sarebbe suff
 
 Creare *Models/CourseAssignment.cs* con il codice seguente:
 
-[!code-csharp[Principale](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
 
 ### <a name="join-entity-names"></a>Aggiungere i nomi delle entità
 
@@ -380,7 +380,7 @@ Chiave composta assicura che possono essere presenti più righe per un corso e p
 
 Aggiungere il codice evidenziato di seguito per il *Data/SchoolContext.cs* file:
 
-[!code-csharp[Principale](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 Questo codice aggiunge le nuove entità e configura chiave primaria composta CourseAssignment dell'entità.
 
@@ -415,7 +415,7 @@ Oltre alle linee di relazione uno-a-molti (da 1 a \*), sarà possibile visualizz
 
 Sostituire il codice di *Data/DbInitializer.cs* file con il codice seguente per fornire i dati iniziali per le nuove entità creata.
 
-[!code-csharp[Principale](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
 Come osservato nella prima esercitazione, la maggior parte di questo codice crea nuovi oggetti entità e carica i dati di esempio nella proprietà come necessario per i test. Si noti la modalità di gestione delle relazioni molti-a-molti: il codice crea relazioni tramite la creazione di entità di `Enrollments` e `CourseAssignment` aggiungere set di entità.
 
@@ -446,11 +446,11 @@ Per rendere questa migrazione lavorare con i dati esistenti, che è necessario m
 
 * Impostare come commento la riga di codice che aggiunge la colonna DepartmentID è presente nella tabella Course.
 
-  [!code-csharp[Principale](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
 * Dopo il codice che crea la tabella di reparto, aggiungere il codice evidenziato di seguito:
 
-  [!code-csharp[Principale](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 In un'applicazione di produzione, è necessario scrivere codice o script per aggiungere righe di reparto e correlare righe corso per le nuove righe di reparto. È quindi non è più necessario il reparto "Temp" o il valore predefinito nella colonna Course.DepartmentID.
 
@@ -483,11 +483,11 @@ dotnet ef database update
 
 Eseguire l'app affinché i `DbInitializer.Initialize` metodo per eseguire e popolare il nuovo database.
 
-Aprire il database in sillaba SSOX come fatto in precedenza ed espandere il **tabelle** nodo per visualizzare tutte le tabelle che sono state create. (Se è ancora aperto sillaba SSOX dal momento precedente, fare clic sul pulsante Aggiorna).
+Aprire il database in sillaba SSOX come fatto in precedenza ed espandere il **tabelle** nodo per visualizzare tutte le tabelle che sono state create. (Se è ancora aperto sillaba SSOX dal momento precedente, fare clic su di **aggiornamento** pulsante.)
 
 ![Tabelle in sillaba SSOX](complex-data-model/_static/ssox-tables.png)
 
-Eseguire l'applicazione per attivare l'inizializzatore di codice che esegue il seeding del database.
+Eseguire l'app per attivare il codice di inizializzatore che esegue il seeding del database.
 
 Fare doppio clic su di **CourseAssignment** tabella e selezionare **Visualizza dati** per verificare che disponga di dati in essa contenuti.
 
