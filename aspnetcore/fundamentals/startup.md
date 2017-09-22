@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 69af91de6d2c48af58bc10a32d8857af18a41b6a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 009df1416c822018d6e88912cc77e525c7349c34
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Avvio dell'applicazione in ASP.NET Core
 
@@ -42,7 +42,7 @@ Il [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspn
 
 Per le funzionalità che richiedono l'installazione sostanziale esistono `Add[Service]` metodi di estensione in [IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). In questo esempio il modello di sito web predefinito configurato l'applicazione per utilizzare i servizi per Entity Framework, l'identità e MVC:
 
-[!code-csharp[Principale](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
+[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
 Aggiunta di servizi per il contenitore dei servizi sono disponibili all'interno dell'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
 
@@ -64,7 +64,7 @@ Il `Configure` consente di specificare la modalità con cui l'applicazione ASP.N
 
 Nell'esempio seguente il modello di sito web predefinito, i diversi metodi di estensione vengono utilizzati per configurare la pipeline con il supporto per [BrowserLink](http://vswebessentials.com/features/browserlink), pagine di errore, file statici, ASP.NET MVC e identità.
 
-[!code-csharp[Principale](../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
 
 Ogni `Use` metodo di estensione aggiunge un [middleware](xref:fundamentals/middleware) componente alla pipeline delle richieste. Ad esempio, il `UseMvc` metodo di estensione aggiunge la [routing](routing.md) middleware alla pipeline delle richieste e configura [MVC](xref:mvc/overview) come gestore predefinito.
 
@@ -74,7 +74,7 @@ Servizi aggiuntivi, ad esempio `IHostingEnvironment` e `ILoggerFactory` può anc
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Utilizzo di più ambienti](xref:fundamentals/environments)
+* [Uso di più ambienti](xref:fundamentals/environments)
 * [Middleware](xref:fundamentals/middleware)
 * [Registrazione](xref:fundamentals/logging)
 * [Configurazione](xref:fundamentals/configuration)

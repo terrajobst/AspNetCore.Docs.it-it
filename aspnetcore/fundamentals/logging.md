@@ -2,7 +2,7 @@
 title: Registrazione di ASP.NET Core
 author: ardalis
 description: "Introduce il framework di registrazione di ASP.NET Core. Include una sezione per ogni provider di registrazione predefiniti e collegamenti ad alcuni provider di terze parti più diffusi."
-keywords: Gli ambiti di ASP.NET Core, registrazione, il provider di log, Microsoft.Extensions.Logging, ILogger, ILoggerFactory, LogLevel, WithFilter, TraceSource, EventLog, EventSource,
+keywords: ASP.NET Core, registrazione, la registrazione providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introduzione alla registrazione di ASP.NET Core
 
@@ -24,11 +24,11 @@ Da [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykst
 
 ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di log. I provider predefiniti consentono di inviare i log per una o più destinazioni, ed è possibile collegare un framework di registrazione di terze parti. In questo articolo viene illustrato come utilizzare i provider e l'API di registrazione incorporate nel codice.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)
 
@@ -50,7 +50,7 @@ ASP.NET Core non forniscono async logger metodi perché la registrazione deve es
 
 ## <a name="how-to-add-providers"></a>Come aggiungere i provider
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Un provider di log preleva i messaggi creati con un `ILogger` dell'oggetto e consente di visualizzare o archiviarli. Ad esempio, il provider di Console visualizza i messaggi nella console e il provider di servizio App di Azure può archiviare nell'archiviazione blob di Azure.
 
@@ -62,7 +62,7 @@ Il modello di progetto predefinito imposta livello di registrazione il modo in c
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Un provider di log preleva i messaggi creati con un `ILogger` dell'oggetto e consente di visualizzare o archiviarli. Ad esempio, il provider di Console visualizza i messaggi nella console e il provider di servizio App di Azure può archiviare nell'archiviazione blob di Azure.
 
@@ -269,7 +269,7 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>Il filtraggio di log
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 È possibile specificare un livello di log minimo per un determinato provider e la categoria o per tutti i provider o tutte le categorie.  Tutti i log sotto il livello minimo non sono passati a tale provider, in modo non ottenere visualizzati o archiviati. 
 
@@ -351,7 +351,7 @@ Se si non imposta in modo esplicito il livello minimo, il valore predefinito è 
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Alcuni provider di registrazione consente di specificare quando devono essere scritti in un supporto di archiviazione oppure ignorati registri in base a categoria e livello di registrazione.
 
@@ -381,13 +381,13 @@ Un ambito è un `IDisposable` tipo restituito dal `ILogger.BeginScope<TState>` m
 
 Il codice seguente consente gli ambiti per il provider di console:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 In *Program.cs*:
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 In *Startup.cs*:
 
@@ -422,13 +422,13 @@ ASP.NET Core sono disponibili i provider seguenti:
 
 Il [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) package provider invia l'output di log nella console. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddConsole()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddConsole()
@@ -448,7 +448,7 @@ Questo codice si intende il `Logging` sezione il *appSettings. JSON* file:
 
 [!code-json[](logging/sample//appsettings.json)]
 
-Le impostazioni visualizzate limite framework accede agli avvisi, consentendo l'app per accedere a livello di debug, come illustrato nel [filtri Log](#log-filtering) sezione. Per ulteriori informazioni, vedere [configurazione](configuration.md).
+Le impostazioni visualizzate limite framework accede agli avvisi, consentendo l'app per accedere a livello di debug, come illustrato nel [filtri Log](#log-filtering) sezione. Per altre informazioni, vedere [Configurazione](configuration.md).
 
 ---
 
@@ -459,13 +459,13 @@ Il [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft
 
 In Linux, il provider scrive i log per */var/log/message*.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddDebug()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddDebug()
@@ -480,13 +480,13 @@ loggerFactory.AddDebug()
 
 Per le app destinate a ASP.NET Core 1.1.0 o versione successiva, il [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) package provider può implementare la traccia eventi. In Windows, viene utilizzato [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Il provider è multipiattaforma, ma sono non disponibili gli strumenti di raccolta e la visualizzazione ancora per Linux o Mac OS alcun evento. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventSourceLogger()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddEventSourceLogger()
@@ -536,13 +536,13 @@ Il valore risultante *C:\trace.etl* file può essere analizzati con PerfView com
 
 Il [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) package provider invia l'output di log nel registro eventi di Windows.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventLog()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddEventLog()
@@ -557,13 +557,13 @@ loggerFactory.AddEventLog()
 
 Il [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) provider pacchetto utilizza il [System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource) librerie e i provider.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddTraceSource(sourceSwitchName);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddTraceSource(sourceSwitchName);
@@ -584,14 +584,14 @@ Nell'esempio seguente viene configurata una `TraceSource` provider che registra 
 
 Il [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) package provider scrive i log in file di testo nel file system di un'applicazione servizio App di Azure e a [nell'archiviazione blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in un account di archiviazione di Azure. Il provider è disponibile solo per le app destinate a ASP.NET Core 1.1.0 o versione successiva. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 > [!NOTE]
 > Componenti di base di ASP.NET 2.0 è disponibile in anteprima.  Le app create con la versione di anteprima più recente potrebbero non essere eseguita quando distribuito in Azure App Service. Quando viene rilasciata Core ASP.NET 2.0, Azure App Service eseguirà 2.0 App e il servizio App di Azure provider funzionerà come indicato di seguito.
 
 Non è necessario installare il pacchetto del provider o una chiamata di `AddAzureWebAppDiagnostics` metodo di estensione.  Il provider è automaticamente disponibile per l'app quando si distribuisce l'applicazione di servizio App di Azure.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddAzureWebAppDiagnostics();

@@ -11,11 +11,11 @@ ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: a8d1d65be07b5a8e8dc3f4526a81ece524b2f7ed
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 214343c9b964baca3c436966d39caede1a58aba2
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzato per ASP.NET Identity Core
 
@@ -114,7 +114,7 @@ Archivia e recupera i ruoli assegnati a cui gli utenti. [Esempio](https://docs.m
 
 Nelle classi di accesso ai dati, fornire il codice per eseguire operazioni sui dati per il meccanismo di persistenza. Ad esempio, all'interno di un provider personalizzato, è necessario il codice seguente per creare un nuovo utente nel *archiviare* classe:
 
-[!code-csharp[Principale](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 La logica di implementazione per la creazione dell'utente è il ``_usersTable.CreateAsync`` metodo illustrato di seguito.
 
@@ -147,7 +147,7 @@ Il parametro facoltativo che ereditano da `IUserStore`. È possibile visualizzar
 
 All'interno di `UserStore` (classe), utilizzare le classi di accesso ai dati creati per eseguire operazioni. Questi vengono passati mediante l'inserimento di dipendenza. Ad esempio, in SQL Server con implementazione Dapper, il `UserStore` classe dispone di `CreateAsync` metodo che utilizza un'istanza di `DapperUsersTable` per inserire un nuovo record:
 
-[!code-csharp[Principale](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfacce da implementare per la personalizzazione archivio utente
 
@@ -198,7 +198,7 @@ Quando si implementa un provider di archiviazione di ruolo, è possibile creare 
 
 Di seguito è una classe ruolo di esempio:
 
-[!code-csharp[Principale](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Personalizzare l'archivio di ruolo
 

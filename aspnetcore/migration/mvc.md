@@ -2,7 +2,7 @@
 title: Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 author: ardalis
 description: 
-keywords: La migrazione di componenti di base, MVC ASP.NET
+keywords: ASP.NET Core, MVC, migrazione
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 385ab7dfea5b92687a427bdfe9558462227113b1
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 
@@ -54,13 +54,13 @@ Creare un nuovo *vuoto* app web ASP.NET Core con lo stesso nome del progetto pre
 
 * Aprire il *csproj* file (pulsante destro del mouse sul progetto in **Esplora** e selezionare **WebApp1.csproj modifica**) e aggiungere un `PrepareForPublish` destinazione:
 
-  [!code-xml[Principale](mvc/sample/WebApp1.csproj?range=21-23)]
+  [!code-xml[Main](mvc/sample/WebApp1.csproj?range=21-23)]
 
   Il `PrepareForPublish` destinazione è necessaria per l'acquisizione delle librerie sul lato client tramite Bower. Parleremo che in un secondo momento.
 
 * Aprire il *Startup.cs* file e modificare il codice in modo che corrisponda a quanto segue:
 
-  [!code-csharp[Principale](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[Main](mvc/sample/Startup.cs?highlight=14,27-34)]
 
   Il `UseStaticFiles` metodo di estensione viene aggiunto il gestore di file statici. Come accennato in precedenza, il runtime di ASP.NET è modulare e deve esplicitamente ad utilizzati file statici. Il `UseMvc` consente di aggiungere il metodo di estensione di routing. Per ulteriori informazioni, vedere [avvio dell'applicazione](../fundamentals/startup.md) e [Routing](../fundamentals/routing.md).
 
@@ -72,7 +72,7 @@ In questa sezione si aggiungerà un controller di minima e una visualizzazione p
 
 * Aggiungere un **classe controller MVC** con il nome *HomeController.cs* per il *controller* cartella.
 
-![Aggiungere una finestra di dialogo Nuovo elemento](mvc/_static/add_mvc_ctl.png)
+![Finestra di dialogo Aggiungi nuovo elemento](mvc/_static/add_mvc_ctl.png)
 
 * Aggiungere un *viste* cartella.
 
@@ -80,7 +80,7 @@ In questa sezione si aggiungerà un controller di minima e una visualizzazione p
 
 * Aggiungere un *cshtml* pagina visualizzazione MVC per il *Views/Home* cartella.
 
-![Aggiungere una finestra di dialogo Nuovo elemento](mvc/_static/view.png)
+![Finestra di dialogo Aggiungi nuovo elemento](mvc/_static/view.png)
 
 La struttura del progetto è illustrata di seguito:
 
@@ -142,7 +142,7 @@ Nel nuovo progetto, verrà aggiunto il supporto per l'avvio e altre librerie sul
 
 * Aggiungi un [Bower](https://bower.io/) file di configurazione denominato *bower. JSON* alla radice del progetto (pulsante destro del mouse sul progetto, quindi **Aggiungi > Nuovo elemento > File di configurazione Bower**). Aggiungere [Bootstrap](http://getbootstrap.com/) e [jQuery](https://jquery.com/) al file (vedere le righe evidenziate riportato di seguito).
 
-  [!code-json[Principale](mvc/sample/bower.json?highlight=5-6)]
+  [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
 
 Dopo il salvataggio del file, Bower scaricherà automaticamente le dipendenze per il *wwwroot/lib* cartella. È possibile utilizzare il **Cerca in Esplora soluzioni** per trovare il percorso delle risorse:
 
@@ -189,7 +189,7 @@ I tag di script di sostituzione:
 
 L'aggiornamento *layout. cshtml* file è illustrato di seguito:
 
-[!code-html[Principale](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-html[Main](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
 
 Visualizzare il sito nel browser. Ora debba caricare correttamente, con gli stili previsto sul posto.
 
@@ -226,6 +226,6 @@ Vedere **utilizzando la pagina di eccezione Developer** in [Error Handling](../f
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Sviluppo sul lato client](../client-side/index.md)
+* [Sviluppo lato client](../client-side/index.md)
 
-* [Helper di tag](../mvc/views/tag-helpers/index.md)
+* [Helper tag](../mvc/views/tag-helpers/index.md)

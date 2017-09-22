@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 97c5fb6db6fe2a1dbae5529c11479413fd4814fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso di moduli IIS con ASP.NET Core
 
@@ -36,10 +36,10 @@ Modulo | .NET core attivo | Opzione di ASP.NET Core
 **Documento predefinito**<br>`DefaultDocumentModule` | No | [Middleware di file predefinito](xref:fundamentals/static-files#serving-a-default-document)
 **Autenticazione del digest**<br>`DigestAuthenticationModule` | Sì | 
 **Esplorazione directory**<br>`DirectoryListingModule` | No | [Middleware di esplorazione directory](xref:fundamentals/static-files#enabling-directory-browsing)
-**Compressione dinamica**<br>`DynamicCompressionModule` | Sì | [Risposta compressione Middleware](xref:performance/response-compression)
+**Compressione dinamica**<br>`DynamicCompressionModule` | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression)
 **Traccia**<br>`FailedRequestsTracingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging#the-tracesource-provider)
-**La memorizzazione nella cache di file**<br>`FileCacheModule` | No | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware)
-**La memorizzazione nella cache di HTTP**<br>`HttpCacheModule` | No | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware)
+**La memorizzazione nella cache di file**<br>`FileCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
+**La memorizzazione nella cache di HTTP**<br>`HttpCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 **Registrazione HTTP**<br>`HttpLoggingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging)<br>Le implementazioni: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **Reindirizzamento HTTP**<br>`HttpRedirectionModule` | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting)
 **Autenticazione Mapping certificati Client IIS**<br>`IISCertificateMappingAuthenticationModule` | Sì | 
@@ -51,7 +51,7 @@ Modulo | .NET core attivo | Opzione di ASP.NET Core
 **Monitoraggio richieste**<br>`RequestMonitorModule` | Sì | 
 **La riscrittura URL**<br>`RewriteModule` | Yes† | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting)
 **Server Side Includes**<br>`ServerSideIncludeModule` | No | 
-**Compressione statica**<br>`StaticCompressionModule` | No | [Risposta compressione Middleware](xref:performance/response-compression)
+**Compressione statica**<br>`StaticCompressionModule` | No | [Middleware di compressione delle risposte](xref:performance/response-compression)
 **Contenuto statico**<br>`StaticFileModule` | No | [Middleware di File statici](xref:fundamentals/static-files)
 **La memorizzazione nella cache token**<br>`TokenCacheModule` | Sì | 
 **Memorizzazione nella cache URI**<br>`UriCacheModule` | Sì | 
@@ -67,7 +67,7 @@ AnonymousIdentification | No |
 DefaultAuthentication | No | 
 FileAuthorization | No | 
 FormsAuthentication | No | [Cookie di Middleware di autenticazione](xref:security/authentication/cookie)
-OutputCache | No | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware)
+OutputCache | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 Profilo | No | 
 RoleManager | No | 
 ScriptModule 4.0 | No | 

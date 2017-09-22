@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be130c24f5baf643a4c9493a33ec45bdd4cc66ed
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0874d3b677cee2859da9eb85b0573811abbed12a
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -36,7 +36,7 @@ Gli attributi di convalida sono un modo per configurare la convalida del modello
 
 Di seguito è riportato un annotazioni `Movie` modello da un'app archivia informazioni sui film e programmi TV. La maggior parte delle proprietà sono necessario e diverse proprietà di stringa sono i requisiti di lunghezza. Inoltre, non c'è una restrizione di intervallo numerico in atto per la `Price` proprietà da 0 a $999,99, insieme a un attributo di convalida personalizzata.
 
-[!code-csharp[Principale](validation/sample/Movie.cs?range=6-31)]
+[!code-csharp[Main](validation/sample/Movie.cs?range=6-31)]
 
 Semplicemente leggendo il modello vengono visualizzate le regole relative ai dati per questa app, semplificando la gestione del codice. Di seguito sono diversi attributi di convalida incorporate comuni:
 
@@ -68,7 +68,7 @@ Stato del modello rappresenta gli errori di convalida nei valori di form HTML in
 
 MVC continuerà convalida dei campi finché non raggiunge il numero massimo di errori (200 per impostazione predefinita). È possibile configurare questo numero, inserendo il codice seguente nel `ConfigureServices` metodo il *Startup.cs* file:
 
-[!code-csharp[Principale](validation/sample/Startup.cs?range=27)]
+[!code-csharp[Main](validation/sample/Startup.cs?range=27)]
 
 ## <a name="handling-model-state-errors"></a>Lo stato del modello di gestione degli errori
 
@@ -82,7 +82,7 @@ Una volta completata la convalida e l'associazione di modelli, si desidera ripet
 
 Potrebbe essere necessario eseguire manualmente la convalida. A tale scopo, chiamare il `TryValidateModel` (metodo), come illustrato di seguito:
 
-[!code-csharp[Principale](validation/sample/MoviesController.cs?range=52)]
+[!code-csharp[Main](validation/sample/MoviesController.cs?range=52)]
 
 ## <a name="custom-validation"></a>Convalida personalizzata
 
@@ -90,13 +90,13 @@ Gli attributi di convalida di lavoro per la maggior parte delle esigenze di conv
 
 Nell'esempio seguente indica che gli utenti non possono impostare il genere una regola business *classico* per un filmato rilasciato dopo 1960. Il `[ClassicMovie]` attributo controlla per primo il genere e se è un classico, quindi controlla la data di rilascio per verificare che è successiva a quella 1960. Se viene rilasciato dopo 1960, la convalida non riesce. L'attributo accetta un parametro integer che rappresenta l'anno che è possibile utilizzare per convalidare i dati. È possibile acquisire il valore del parametro nel costruttore dell'attributo, come illustrato di seguito:
 
-[!code-csharp[Principale](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
+[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
 
 Il `movie` variabile sopra rappresenta un `Movie` oggetto che contiene i dati per convalidare l'invio del modulo. In questo caso, il codice di convalida controlla la data e un paese di `IsValid` metodo il `ClassicMovieAttribute` classe in base alle regole. Dopo la convalida `IsValid` restituisce un `ValidationResult.Success` codice, e quando la convalida non riesce, un `ValidationResult` con un messaggio di errore. Quando un utente modifica il `Genre` campo e invia il form, il `IsValid` metodo il `ClassicMovieAttribute` verificherà se il film sia un classico. Ad esempio un attributo predefinito, applicare il `ClassicMovieAttribute` a una proprietà, ad esempio `ReleaseDate` per garantire che convalida viene eseguita, come illustrato nell'esempio di codice precedente. Poiché l'esempio funziona solo con `Movie` tipi, un'opzione migliore consiste nell'utilizzare `IValidatableObject` come illustrato nel paragrafo seguente.
 
 In alternativa, questo codice stesso può essere inserito nel modello mediante l'implementazione di `Validate` metodo il `IValidatableObject` interfaccia. Mentre gli attributi di convalida personalizzata funziona anche per la convalida delle proprietà singole, implementazione `IValidatableObject` può essere utilizzato per implementare la convalida a livello di classe come illustrato di seguito.
 
-[!code-csharp[Principale](validation/sample/MovieIValidatable.cs?range=33-41)]
+[!code-csharp[Main](validation/sample/MovieIValidatable.cs?range=33-41)]
 
 ## <a name="client-side-validation"></a>Convalida lato client
 
@@ -104,13 +104,13 @@ La convalida lato client è una maggiore praticità per gli utenti. Consente di 
 
 È necessario disporre una vista con i riferimenti a script JavaScript appropriate sul posto per la convalida lato client funzionare come seguito.
 
-[!code-html[Principale](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-html[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-html[Principale](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-html[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 Per convalidare i dati e visualizzare eventuali messaggi di errore utilizzando JavaScript, MVC Usa attributi di convalida oltre ai metadati del tipo di proprietà del modello. Quando si utilizza MVC per il rendering degli elementi di formato da un modello utilizzando [gli helper di Tag](xref:mvc/views/tag-helpers/intro) o [helper HTML](xref:mvc/views/overview) verranno aggiunti HTML 5 [attributi dati](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) negli elementi del form che devono essere convalidate, come di seguito riportato. MVC genera il `data-` gli attributi per gli attributi incorporati e personalizzati. È possibile visualizzare gli errori di convalida sul client utilizzando gli helper di tag rilevanti, come illustrato di seguito:
 
-[!code-html[Principale](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-html[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
 Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che il `data-` attributi nel codice HTML di output corrispondono agli attributi di convalida per il `ReleaseDate` proprietà. Il `data-val-required` attributo seguente contiene un messaggio di errore da visualizzare se l'utente non compila il campo Data di rilascio e consente di visualizzare che il messaggio di accompagnamento `<span>` elemento.
 
@@ -141,7 +141,7 @@ MVC determina i valori di attributo di tipo in base al tipo di dati .NET di una 
 
 È possibile creare logica sul lato client per l'attributo personalizzato, e [convalida non intrusiva](http://jqueryvalidation.org/documentation/) verrà eseguito sul client per l'utente automaticamente come parte della convalida. Il primo passaggio consiste nel controllare gli attributi di dati vengono aggiunti mediante l'implementazione di `IClientModelValidator` interfaccia come illustrato di seguito:
 
-[!code-csharp[Principale](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
+[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 
 Gli attributi che implementano questa interfaccia è possono aggiungere campi generati di attributi HTML. Esaminare l'output per il `ReleaseDate` elemento rivela HTML che è simile all'esempio precedente, ma ora è un `data-val-classicmovie` attributo definita in precedenza il `AddValidation` metodo `IClientModelValidator`.
 
@@ -156,7 +156,7 @@ id="ReleaseDate" name="ReleaseDate" value="" />
 
 La convalida non intrusiva utilizza i dati di `data-` gli attributi da visualizzare i messaggi di errore. Tuttavia, jQuery non riconosce le regole di messaggi o finché non vengono aggiunti del jQuery `validator` oggetto. Come illustrato nell'esempio riportato di seguito che aggiunge un metodo denominato `classicmovie` contenente codice di convalida personalizzata per il jQuery `validator` oggetto.
 
-[!code-javascript[Principale](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[Main](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
 
 JQuery dispone ora le informazioni per eseguire la convalida personalizzata di JavaScript, nonché il messaggio di errore da visualizzare se il codice di convalida restituisce false.
 
@@ -166,10 +166,10 @@ La convalida remota è una caratteristica fondamentale da utilizzare quando è n
 
 È possibile implementare la convalida remota in un processo in due fasi. In primo luogo, è necessario annotare il modello con il `[Remote]` attributo. Il `[Remote]` attributo accetta più overload, è possibile utilizzare per indirizzare JavaScript sul lato client per il codice appropriato da chiamare. Nell'esempio punta al `VerifyEmail` il metodo di azione del `Users` controller.
 
-[!code-csharp[Principale](validation/sample/User.cs?range=5-9)]
+[!code-csharp[Main](validation/sample/User.cs?range=5-9)]
 
 Il secondo passaggio è l'inserimento di codice di convalida nel metodo di azione corrispondente come definito nel `[Remote]` attributo. Restituisce un `JsonResult` che sul lato client consente di continuare o sospendere e visualizzare un errore, se necessario.
 
-[!code-none[Principale](validation/sample/UsersController.cs?range=19-28)]
+[!code-none[Main](validation/sample/UsersController.cs?range=19-28)]
 
 Ora quando gli utenti immettono un messaggio di posta elettronica, JavaScript nella visualizzazione effettua una chiamata remota per vedere se è stato eseguito il messaggio di posta elettronica e in tal caso, viene visualizzato il messaggio di errore. In caso contrario, l'utente può inviare il modulo come di consueto.

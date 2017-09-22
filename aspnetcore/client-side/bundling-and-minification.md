@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 11528cb2067ced79a09845f9ff78d897da033438
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>Come aggregare e riduzione in ASP.NET Core
 
@@ -82,7 +82,7 @@ I byte inviati aveva una significativa riduzione con aggregazione come browser s
 
 Il modello di progetto MVC fornisce un `bundleconfig.json` file di configurazione che definisce le opzioni per ogni pacchetto. Per impostazione predefinita, viene modificata una configurazione di pacchetto per il codice JavaScript personalizzato (`wwwroot/js/site.js`) e fogli di stile (`wwwroot/css/site.css`) file.
 
-[!code-json[Principale](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig.json)]
+[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig.json)]
 
 Opzioni di raggruppamento includono:
 
@@ -174,7 +174,7 @@ footer
 
 Aggiungere il relativo percorso `bundleconfig.json`.
 
-[!code-json[Principale](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig2.json)]
+[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig2.json)]
 
 > [!NOTE]
 > In alternativa, è Impossibile utilizzare il modello il glob - `"inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]` che ottiene CSS tutti i file e consente di escludere il modello di file minimizzata.
@@ -189,11 +189,11 @@ In generale, si desidera utilizzare i file in bundle e minimizzati dell'app solo
 
 Il seguente tag di ambiente verrà eseguito il rendering di file CSS non elaborati durante l'esecuzione nel `Development` ambiente:
 
-[!code-html[Principale](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=3&range=9-12)]
+[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=3&range=9-12)]
 
 Il tag di ambiente verrà eseguito il rendering di file CSS in dotazione e minimizzati solo durante l'esecuzione in `Production` o `Staging`:
 
-[!code-html[Principale](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=5&range=13-18)]
+[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=5&range=13-18)]
 
 ## <a name="consuming-bundleconfigjson-from-gulp"></a>Utilizzo di bundleconfig.json da Gulp
 
@@ -208,7 +208,7 @@ Fare doppio clic su di `bundleconfig.json` e selezionare **convertire Gulp... **
 
 Il `gulpfile.js` prodotti letture di `bundleconfig.json` file per la configurazione, pertanto può continuare a essere usata per l'input/output e le impostazioni.
 
-[!code-javascript[Principale](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/gulpfile.js)]
+[!code-javascript[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/gulpfile.js)]
 
 Per abilitare Gulp quando si compila il progetto in Visual Studio 2017, aggiungere il file *. csproj quanto segue:
 
@@ -229,6 +229,6 @@ Per abilitare Gulp quando si compila il progetto in Visual Studio 2015, aggiunge
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Uso di Gulp](using-gulp.md)
-* [Utilizzo di Grunt](using-grunt.md)
-* [Utilizzo di più ambienti](../fundamentals/environments.md)
-* [Helper di tag](../mvc/views/tag-helpers/index.md)
+* [Uso di Grunt](using-grunt.md)
+* [Uso di più ambienti](../fundamentals/environments.md)
+* [Helper tag](../mvc/views/tag-helpers/index.md)

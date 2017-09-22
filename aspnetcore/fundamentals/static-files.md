@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea6c180332dd5ab3a7238dcd73a4a1c8534c6243
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>Introduzione all'utilizzo dei file statici di ASP.NET Core
 
 <a name=fundamentals-static-files></a>
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 File statici, ad esempio HTML, CSS, immagini e JavaScript, sono attività che un'applicazione ASP.NET di base può essere utilizzato direttamente al client.
 
@@ -32,7 +32,7 @@ File statici, ad esempio HTML, CSS, immagini e JavaScript, sono attività che un
 
 File statici in genere si trovano nel `web root` (*\<contenuto radice > / wwwroot*) cartella. Vedere [contenuto radice](xref:fundamentals/index#content-root) e [radice Web](xref:fundamentals/index#web-root) per ulteriori informazioni. In genere imposta la radice del contenuto è la directory corrente in modo che il progetto `web root` verrà trovato mentre è in fase di sviluppo.
 
-[!code-csharp[Principale](../common/samples/WebApplication1/Program.cs?highlight=5&start=12&end=22)]
+[!code-csharp[Main](../common/samples/WebApplication1/Program.cs?highlight=5&start=12&end=22)]
 
 File statici possono essere archiviati in qualsiasi cartella sotto la `web root` ed è accessibile tramite un percorso relativo a tale livello. Ad esempio, quando si crea un progetto di applicazione Web predefinita in Visual Studio, esistono diverse cartelle create all'interno di *wwwroot* cartella - *css*, *immagini*, e *js*. L'URI per accedere a un'immagine nel *immagini* sottocartella:
 
@@ -41,7 +41,7 @@ File statici possono essere archiviati in qualsiasi cartella sotto la `web root`
 
 Per i file statici da gestire, è necessario configurare il [Middleware](middleware.md) per aggiungere file statici per la pipeline. Il middleware del file statico può essere configurato tramite l'aggiunta di una dipendenza sul *Microsoft.AspNetCore.StaticFiles* pacchetto al progetto e quindi chiamando il `UseStaticFiles` il metodo di estensione da `Startup.Configure`:
 
-[!code-csharp[Principale](../fundamentals/static-files/sample/StartupStaticFiles.cs?highlight=3&name=snippet1)]
+[!code-csharp[Main](../fundamentals/static-files/sample/StartupStaticFiles.cs?highlight=3&name=snippet1)]
 
 `app.UseStaticFiles();`rende i file in `web root` (*wwwroot* per impostazione predefinita) servable. In seguito verrà illustrato come rendere servable con altro contenuto della directory `UseStaticFiles`.
 
@@ -52,7 +52,7 @@ Per i file statici da gestire, è necessario configurare il [Middleware](middlew
 
 Si supponga di avrà una gerarchia del progetto in cui i file statici che si desidera gestire sono di fuori di `web root`. Ad esempio:
 
-* Wwwroot
+* wwwroot
   * css
   * images
   * ...
@@ -61,13 +61,13 @@ Si supponga di avrà una gerarchia del progetto in cui i file statici che si des
 
 Per una richiesta di accesso *test.png*, configurare il middleware di file statici come indicato di seguito:
 
-[!code-csharp[Principale](../fundamentals/static-files/sample/StartupTwoStaticFiles.cs?highlight=5,6,7,8,9,10&name=snippet1)]
+[!code-csharp[Main](../fundamentals/static-files/sample/StartupTwoStaticFiles.cs?highlight=5,6,7,8,9,10&name=snippet1)]
 
 Una richiesta di `http://<app>/StaticFiles/test.png` verrà utilizzato il *test.png* file.
 
 `StaticFileOptions()`impostare le intestazioni di risposta. Ad esempio, il codice seguente imposta file statico che funge dal *wwwroot* cartella e imposta il `Cache-Control` intestazione per renderli pubblicamente memorizzabile nella cache per 10 minuti (600 secondi):
 
-[!code-csharp[Principale](../fundamentals/static-files/sample/StartupAddHeader.cs?name=snippet1)]
+[!code-csharp[Main](../fundamentals/static-files/sample/StartupAddHeader.cs?name=snippet1)]
 
 ![Le intestazioni di risposta che mostra l'intestazione Cache-Control è stata aggiunta](static-files/_static/add-header.png)
 
@@ -83,11 +83,11 @@ Il modulo di file statici fornisce **non** controlli di autorizzazione. Qualsias
 
 Esplorazione directory consente all'utente dell'app web visualizzare un elenco di directory e file all'interno di una directory specificata. Esplorazione directory è disabilitata per impostazione predefinita per motivi di sicurezza (vedere [considerazioni](#considerations)). Per abilitare l'esplorazione directory, chiamare il `UseDirectoryBrowser` il metodo di estensione da `Startup.Configure`:
 
-[!code-csharp[Principale](static-files/sample/StartupBrowse.cs?name=snippet1)]
+[!code-csharp[Main](static-files/sample/StartupBrowse.cs?name=snippet1)]
 
 E aggiungere i servizi necessari chiamando `AddDirectoryBrowser` il metodo di estensione da `Startup.ConfigureServices`:
 
-[!code-csharp[Principale](static-files/sample/StartupBrowse.cs?name=snippet2)]
+[!code-csharp[Main](static-files/sample/StartupBrowse.cs?name=snippet2)]
 
 Il codice precedente consente l'esplorazione delle directory per il *wwwroot/immagini* cartella utilizzando l'URL http://\<app > / MyImages, con collegamenti ai singoli file e cartelle:
 
@@ -97,13 +97,13 @@ Vedere [considerazioni](#considerations) sui rischi di sicurezza quando si abili
 
 Tenere presente le due `app.UseStaticFiles` chiamate. Il primo è richiesto per gestire il CSS, immagini e JavaScript nel *wwwroot* cartella e la seconda chiamata per l'esplorazione delle directory per il *wwwroot/immagini* cartella utilizzando l'URL http://\<app > / MyImages:
 
-[!code-csharp[Principale](static-files/sample/StartupBrowse.cs?highlight=3,5&name=snippet1)]
+[!code-csharp[Main](static-files/sample/StartupBrowse.cs?highlight=3,5&name=snippet1)]
 
 ## <a name="serving-a-default-document"></a>Serve un documento predefinito
 
 L'impostazione di una home page predefinita offre un punto di partenza quando si visita il sito visitatori del sito. Affinché l'app Web gestire una pagina predefinita senza che sia necessario qualificare completamente l'URI, chiamare il `UseDefaultFiles` il metodo di estensione da `Startup.Configure` come indicato di seguito.
 
-[!code-csharp[Principale](../fundamentals/static-files/sample/StartupEmpty.cs?highlight=3&name=snippet1)]
+[!code-csharp[Main](../fundamentals/static-files/sample/StartupEmpty.cs?highlight=3&name=snippet1)]
 
 > [!NOTE]
 > `UseDefaultFiles`deve essere chiamato prima `UseStaticFiles` per servire il file predefinito. `UseDefaultFiles`è un URL processo di scrittura che non viene effettivamente servire il file. È necessario abilitare il middleware di file statici (`UseStaticFiles`) per servire il file.
@@ -119,7 +119,7 @@ Il primo file trovato nell'elenco verrà utilizzato come se la richiesta è l'UR
 
 Il codice seguente viene illustrato come modificare il nome file predefinito per *mydefault.html*.
 
-[!code-csharp[Principale](static-files/sample/StartupDefault.cs?name=snippet1)]
+[!code-csharp[Main](static-files/sample/StartupDefault.cs?name=snippet1)]
 
 ## <a name="usefileserver"></a>UseFileServer
 
@@ -139,7 +139,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 
 Vedere [considerazioni](#considerations) sui rischi di sicurezza quando si abilita l'esplorazione. Come con `UseStaticFiles`, `UseDefaultFiles`, e `UseDirectoryBrowser`, se si desidera gestire i file che esistono di fuori di `web root`, si crea un'istanza e si configura un `FileServerOptions` oggetto passato come parametro per `UseFileServer`. Nell'app Web, ad esempio, data la seguente gerarchia di directory:
 
-* Wwwroot
+* wwwroot
 
   * css
 
@@ -155,11 +155,11 @@ Vedere [considerazioni](#considerations) sui rischi di sicurezza quando si abili
 
 Utilizzando l'esempio di gerarchia precedente, è opportuno abilitare file statici, i file predefiniti e cercare il `MyStaticFiles` directory. Nel frammento di codice seguente, che viene eseguita con una singola chiamata a `FileServerOptions`.
 
-[!code-csharp[Principale](static-files/sample/StartupUseFileServer.cs?highlight=5,6,7,8,9,10,11&name=snippet1)]
+[!code-csharp[Main](static-files/sample/StartupUseFileServer.cs?highlight=5,6,7,8,9,10,11&name=snippet1)]
 
 Se `enableDirectoryBrowsing` è impostato su `true` è necessario chiamare `AddDirectoryBrowser` il metodo di estensione da `Startup.ConfigureServices`:
 
-[!code-csharp[Principale](static-files/sample/StartupUseFileServer.cs?name=snippet2)]
+[!code-csharp[Main](static-files/sample/StartupUseFileServer.cs?name=snippet2)]
 
 Utilizzando la gerarchia di file e il codice precedente:
 
@@ -179,7 +179,7 @@ Se si trovano in alcun valore predefinito denominato file di *MyStaticFiles* dir
 
 La `FileExtensionContentTypeProvider` classe contiene una raccolta di estensioni di file viene eseguito il mapping a tipi di contenuto MIME. Nell'esempio seguente, diverse estensioni di file registrate per i tipi MIME noti, viene sostituito "RTF" e "MP4" viene rimosso.
 
-[!code-csharp[Principale](../fundamentals/static-files/sample/StartupFileExtensionContentTypeProvider.cs?highlight=3,4,5,6,7,8,9,10,11,12,19&name=snippet1)]
+[!code-csharp[Main](../fundamentals/static-files/sample/StartupFileExtensionContentTypeProvider.cs?highlight=3,4,5,6,7,8,9,10,11,12,19&name=snippet1)]
 
 Vedere [tipi di contenuto MIME](http://www.iana.org/assignments/media-types/media-types.xhtml).
 
@@ -189,7 +189,7 @@ Il middleware di file statici ASP.NET riconosce i tipi di contenuto di file cono
 
 Il codice seguente consente serve tipi sconosciuti e verrà eseguito il rendering di file sconosciute come immagine.
 
-[!code-csharp[Principale](static-files/sample/StartupServeUnknownFileTypes.cs?name=snippet1)]
+[!code-csharp[Main](static-files/sample/StartupServeUnknownFileTypes.cs?name=snippet1)]
 
 Con il codice precedente, una richiesta per un file con un tipo di contenuto sconosciuto verrà restituita come un'immagine.
 
@@ -199,7 +199,7 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 ### <a name="considerations"></a>Considerazioni
 
 >[!WARNING]
-> `UseDirectoryBrowser`e `UseStaticFiles` possono verificarsi perdite di informazioni riservate. È consigliabile che si **non** directory Attivazione esplorazione nell'ambiente di produzione. Prestare attenzione sulle directory di cui si abilita con `UseStaticFiles` o `UseDirectoryBrowser` come l'intera directory e tutte le sottodirectory saranno accessibili. Si consiglia di mantenere i contenuti pubblici nella propria directory, ad esempio  *\<contenuto radice > / wwwroot*, lontano da visualizzazioni applicazione, i file di configurazione e così via.
+> `UseDirectoryBrowser`e `UseStaticFiles` possono verificarsi perdite di informazioni riservate. È consigliabile che si **non** directory Attivazione esplorazione nell'ambiente di produzione. Prestare attenzione sulle directory di cui si abilita con `UseStaticFiles` o `UseDirectoryBrowser` come l'intera directory e tutte le sottodirectory saranno accessibili. Si consiglia di mantenere i contenuti pubblici nella propria directory, ad esempio * \<contenuto radice > / wwwroot*, lontano da visualizzazioni applicazione, i file di configurazione e così via.
 
 * Gli URL per il contenuto esposti con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione maiuscole/minuscole e le restrizioni del carattere del loro file system sottostante. Ad esempio, Windows viene fatta distinzione tra maiuscole e minuscole, ma Mac e Linux non sono.
 

@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: b96a70a2446cab7b1af9bd689469584868980595
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="filters"></a>Filtri
 
@@ -59,11 +59,11 @@ I filtri supportano implementazioni sincrone e asincrone tramite definizioni di 
 
 Codice sincroni filtri che è possono eseguire sia prima e dopo la fase della pipeline è definito in*fase*durante l'esecuzione e nella*fase*eseguito metodi. Ad esempio, `OnActionExecuting` viene chiamato prima di chiamare il metodo di azione, e `OnActionExecuted` viene chiamato dopo che il metodo di azione restituisce.
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
 
 Asincrona che definiscono un singolo in*fase*ExecutionAsync metodo. Questo metodo accetta un *FilterType*ExecutionDelegate delegato che esegue una fase della pipeline del filtro. Ad esempio, `ActionExecutionDelegate` chiama il metodo di azione e si possono eseguire codice prima e dopo che è possibile chiamare.
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
 È possibile implementare le interfacce per più fasi di filtro in una singola classe. Ad esempio, il [ActionFilterAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute) implementa una classe astratta sia `IActionFilter` e `IResultFilter`, nonché i relativi equivalenti asincroni.
 
@@ -76,7 +76,7 @@ Asincrona che definiscono un singolo in*fase*ExecutionAsync metodo. Questo metod
 
 È possibile implementare `IFilterFactory` nelle implementazioni attributo come un altro approccio per la creazione di filtri:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
 
 ### <a name="built-in-filter-attributes"></a>Attributi di filtro predefinito
 
@@ -84,11 +84,11 @@ Il framework include i filtri basati su attributi predefiniti che è possibile c
 
 <a name=add-header-attribute></a>
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
 Gli attributi consentono di filtri accettare argomenti, come illustrato nell'esempio precedente. Si potrebbe aggiungere questo attributo a un metodo di azione o controller e specificare il nome e il valore dell'intestazione HTTP:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1)]
 
 Il risultato di `Index` di seguito è riportata l'azione, in basso a destra vengono visualizzate le intestazioni di risposta.
 
@@ -111,7 +111,7 @@ Attributi di filtro:
 
 Un filtro può essere aggiunto alla pipeline in uno dei tre *ambiti*. È possibile aggiungere un filtro a un metodo di azione particolare o a una classe controller utilizzando un attributo. Oppure è possibile registrare un filtro a livello globale (per tutti i controller e azioni) è necessario il `MvcOptions.Filters` insieme il `ConfigureServices` metodo nel `Startup` classe:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=5-8)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=5-8)]
 
 ### <a name="default-order-of-execution"></a>Ordine di esecuzione predefinito
 
@@ -169,11 +169,11 @@ Il `Order` proprietà supera l'ambito per determinare l'ordine in cui verranno e
 
 <a name=short-circuiting-resource-filter></a>
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
 Nel codice seguente, sia il `ShortCircuitingResourceFilter` e `AddHeader` destinazione filtro il `SomeResource` metodo di azione. Tuttavia, poiché il `ShortCircuitingResourceFilter` viene eseguito per primo (perché è un filtro di risorse e `AddHeader` è un filtro azione) e provoca un corto circuito il resto della pipeline, il `AddHeader` filtro non viene mai eseguita per il `SomeResource` azione. Questo comportamento sarà lo stesso se entrambi i filtri sono stati applicati a livello di metodo di azione, fornito il `ShortCircuitingResourceFilter` è stato eseguito prima (a causa di tipo di filtro, o esplicita utilizzare `Order` proprietà, ad esempio).
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
@@ -194,9 +194,9 @@ Se i filtri hanno dipendenze che è necessario accedere da DI, esistono diversi 
 
 Oggetto `ServiceFilter` recupera un'istanza del filtro da DI. Aggiungere il filtro per il contenitore in `ConfigureServices`e di farvi riferimento in un `ServiceFilter` attributo
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
-[!code-csharp[Principale](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
+[!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
 Utilizzando `ServiceFilter` senza registrare i risultati di tipo di filtro in un'eccezione:
 
@@ -213,11 +213,11 @@ System.InvalidOperationException: No service for type
 
 A causa di questa differenza, tipi di cui viene fatto riferimento tramite il `TypeFilterAttribute` non è necessario essere registrati con il contenitore (ma hanno ancora le relative dipendenze soddisfatte dal contenitore). Inoltre, `TypeFilterAttribute` può facoltativamente accettare gli argomenti del costruttore per il tipo in questione. Nell'esempio riportato di seguito viene illustrato come passare argomenti a un tipo usando `TypeFilterAttribute`:
 
-[!code-csharp[Principale](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
+[!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
 
 Se si dispone di un filtro che non richiede alcun argomento, ma che dispone di dipendenze di costruttore che devono essere immesse DI, è possibile utilizzare il propria denominato dell'attributo sulle classi e metodi invece degli `[TypeFilter(typeof(FilterType))]`). Il filtro seguente viene illustrato come possono essere implementata:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/SampleActionFilterAttribute.cs?name=snippet_TypeFilterAttribute&highlight=1,3,7)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilterAttribute.cs?name=snippet_TypeFilterAttribute&highlight=1,3,7)]
 
 Questo filtro può essere applicato alle classi o metodi usando il `[SampleActionFilter]` sintassi, anziché dover usare `[TypeFilter]` o `[ServiceFilter]`.
 
@@ -241,7 +241,7 @@ Il [breve filtro risorsa corto](#short-circuiting-resource-filter) illustrato in
 
 Di seguito è riportato un filtro di azione di esempio:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
 Il [ActionExecutingContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) fornisce le proprietà seguenti:
 
@@ -260,7 +260,7 @@ Il framework fornisce una classe astratta `ActionFilterAttribute` che è possibi
 
 È possibile utilizzare un filtro azione automaticamente convalidare lo stato del modello e restituisce eventuali errori, se lo stato è valido:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/ValidateModelAttribute.cs)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ValidateModelAttribute.cs)]
 
 Il `OnActionExecuted` esecuzione del metodo dopo il metodo di azione e possono visualizzare e modificare i risultati dell'azione mediante il `ActionExecutedContext.Result` proprietà. `ActionExecutedContext.Canceled`verrà impostato su true se l'esecuzione dell'azione è stata esegue un corto circuito da un altro filtro. `ActionExecutedContext.Exception`essere imposterà su un valore non null se l'azione o un filtro azioni successive ha generato un'eccezione. Impostazione `ActionExecutedContext.Exception` su null in modo efficace 'handles' un'eccezione, e `ActionExectedContext.Result` quindi essere eseguita come se sono stati restituito dal metodo di azione normalmente.
 
@@ -270,7 +270,7 @@ Il `OnActionExecuted` esecuzione del metodo dopo il metodo di azione e possono v
 
 Il filtro di eccezione di esempio seguente viene utilizzata un sviluppatore personalizzato errore per visualizzare i dettagli sulle eccezioni che si verificano quando l'applicazione è in fase di sviluppo:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
 I filtri eccezioni non dispongono di due eventi (per prima e dopo aver) - solo implementano `OnException` (o `OnExceptionAsync`). 
 
@@ -291,7 +291,7 @@ Il framework fornisce una classe astratta `ExceptionFilterAttribute` che è poss
 
 Di seguito è riportato un esempio di un filtro dei risultati che aggiunge un'intestazione HTTP.
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/LoggingAddHeaderFilter.cs?name=snippet_ResultFilter)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/LoggingAddHeaderFilter.cs?name=snippet_ResultFilter)]
 
 Il tipo di risultato eseguita dipende dall'azione in questione. Include tutti razor elaborazione come parte di un'azione MVC restituzione di una vista di `ViewResult` in esecuzione. Un metodo API potrebbe eseguire alcuni serializzazione come parte dell'esecuzione del risultato. Altre informazioni, vedere [risultati dell'azione](actions.md)
 
@@ -315,11 +315,11 @@ In ASP.NET Core 1.1, è possibile utilizzare middleware nella pipeline di filtro
 
 Per utilizzare middleware come filtro, creare un tipo con un `Configure` metodo che specifica il middleware che si desidera inserire nella pipeline di filtro. Di seguito è riportato un esempio che utilizza il middleware di localizzazione per stabilire le impostazioni cultura correnti per una richiesta:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
 
 È quindi possibile utilizzare il `MiddlewareFilterAttribute` per eseguire il middleware per un'azione o controller selezionato o a livello globale:
 
-[!code-csharp[Principale](./filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_MiddlewareFilter&highlight=2)]
+[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_MiddlewareFilter&highlight=2)]
 
 Middleware filtri vengono eseguiti nella stessa fase della pipeline filtro come filtri delle risorse, prima di associazione del modello e dopo il resto della pipeline.
 

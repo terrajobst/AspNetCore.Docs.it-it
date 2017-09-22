@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
-ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
+ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
@@ -80,7 +80,7 @@ Aprire Visual Studio e creare un nuovo progetto web ASP.NET Core c# denominato "
 
 * Fare clic su **OK**
 
-  ![Finestra di dialogo Nuovo progetto ASP.NET](intro/_static/new-aspnet.png)
+  ![Nuova finestra di dialogo Progetto ASP.NET](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Impostare lo stile del sito
 
@@ -204,7 +204,7 @@ Aprire il *appSettings. JSON* file e aggiungere una stringa di connessione come 
 
 ### <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
 
-La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine e deve essere lo sviluppo di applicazioni, non uso in produzione. LocalDB viene avviato su richiesta e viene eseguito in modalità utente, pertanto non c'è alcuna configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file di database nel `C:/Users/<user>` directory.
+La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine e deve essere lo sviluppo di applicazioni, non uso in produzione. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file di database nel `C:/Users/<user>` directory.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Aggiungere il codice per inizializzare il database con dati di test
 
@@ -242,7 +242,7 @@ La creazione automatica delle viste e i metodi di azione CRUD è noto come lo sc
 
 * Fare doppio clic sul **controller** cartella **Esplora** e selezionare **Aggiungi > Nuovo elemento di scaffolding**.
 
-* Nel **aggiungere le dipendenze MVC** finestra di dialogo Seleziona **dipendenze minime**e selezionare **Aggiungi**.
+* Nella finestra di dialogo **Aggiungi dipendenze MVC** selezionare **Dipendenze minime**, quindi **Aggiungi**.
 
   ![Aggiunta di dipendenze](intro/_static/add-depend.png)
 

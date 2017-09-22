@@ -10,24 +10,24 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 72b6098b2a71957da338ef36beff4808201773f4
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2c94daafec8d3b4051bd3091478521ab12a434bd
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Provider di configurazione Azure insieme di credenziali chiave
 
 Da [Luke Latham](https://github.com/GuardRex) e [Andrew Stanton-infermiera](https://github.com/anurse)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Consente di visualizzare o scaricare il codice di esempio per 2. x:
 
 * [Esempio di base](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) -legge i valori dei segreti in un'app.
 * [Esempio di prefisso di nome della chiave](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) - legge i valori dei segreti mediante un prefisso del nome della chiave che rappresenta la versione di un'app, che consente di caricare un set diverso di valori segreti per ogni versione di app.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Consente di visualizzare o scaricare il codice di esempio per 1. x:
 
@@ -52,7 +52,7 @@ Il provider viene aggiunto per il `ConfigurationBuilder` con il `AddAzureKeyVaul
 | `ClientId`     | Id di App di Azure Active Directory  | 627e911e-43CC-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Chiave dell'applicazione Azure Active Directory | g58K3dtg59o1Pa e59v2Tx829w6VxTB2yv9sv/101di + = |
 
-[!code-csharp[Programma](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Creazione di segreti dell'insieme di credenziali chiave e il caricamento dei valori di configurazione (esempio di base)
 1. Creare un insieme di credenziali chiave e configurare Azure Active Directory (Azure AD) per l'applicazione seguendo le istruzioni in [introduzione insieme credenziali chiavi Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
@@ -83,7 +83,7 @@ Quando si esegue l'app, una pagina Web Mostra i valori caricati segreti:
 
 Utilizza la seconda applicazione di esempio, creare un segreto nell'insieme di credenziali chiave per `5000-AppSecret` (periodi non sono consentiti nei nomi di insieme di credenziali chiave privata) che rappresenta un segreto dell'app per la versione 5.0.0.0 dell'app. Per un'altra versione, 5.1.0.0, si crea una chiave privata per `5100-AppSecret`. Ogni versione di app carica il proprio valore segreto nella relativa configurazione come `AppSecret`, stripping la versione durante il caricamento del segreto. Implementazione dell'esempio è illustrato di seguito:
 
-[!code-csharp[Generatore di configurazione](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 

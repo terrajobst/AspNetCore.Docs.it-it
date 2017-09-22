@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a961d46d7804b7ac7e570692fe42727feae3d5c9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Introduzione all'implementazione di server web Kestrel in ASP.NET Core
 
@@ -32,11 +32,11 @@ Kestrel supporta le funzionalità seguenti:
 
 Kestrel è supportata in tutte le piattaforme e le versioni che supporta .NET Core.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Consente di visualizzare o scaricare il codice di esempio per 2. x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [Consente di visualizzare o scaricare il codice di esempio per 1. x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample1)
 
@@ -44,27 +44,27 @@ Kestrel è supportata in tutte le piattaforme e le versioni che supporta .NET Co
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Quando utilizzare Kestrel con un proxy inverso
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-È possibile utilizzare Kestrel da sola o con un *server proxy inverso*, ad esempio IIS, Nginx o Apache. Un server proxy inverso riceve le richieste HTTP da Internet e li inoltra a Kestrel dopo alcune operazioni di gestione preliminare.
+È possibile usare Kestrel da solo o con un *server proxy inverso*, ad esempio IIS, Nginx o Apache. Un server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel dopo alcune operazioni di gestione preliminari.
 
 ![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
 
-![Kestrel comunica indirettamente in Internet tramite un server di proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
+![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Entrambe le configurazioni &mdash; con o senza un server proxy inverso &mdash; può essere utilizzato anche se Kestrel viene esposto solo a una rete interna.
+È possibile usare una delle due configurazioni &mdash; con o senza un server proxy inverso &mdash; anche se Kestrel viene esposto solo a una rete interna.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Se l'applicazione accetta le richieste solo da una rete interna, è possibile utilizzare Kestrel da solo.
+Se l'applicazione accetta le richieste solo da una rete interna, è possibile usare Kestrel da solo.
 
 ![Kestrel comunica direttamente con la rete interna](kestrel/_static/kestrel-to-internal.png)
 
-Se si espone l'applicazione a Internet, è necessario utilizzare IIS, Nginx o Apache come un *server proxy inverso*. Un server proxy inverso riceve le richieste HTTP da Internet e li inoltra a Kestrel dopo alcune operazioni di gestione preliminare.
+Se si espone l'applicazione a Internet, è necessario usare IIS, Nginx o Apache come *server proxy inverso*. Un server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel dopo alcune operazioni di gestione preliminari.
 
-![Kestrel comunica indirettamente in Internet tramite un server di proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
+![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Un proxy inverso è obbligatorio per le distribuzioni di edge (esposte per il traffico da Internet) per motivi di sicurezza. Le versioni 1. x di Kestrel non dispongono di una serie completa di difese contro gli attacchi. Queste comprendono, ma non è limitata a timeout appropriato, limiti di dimensioni e i limiti di connessioni simultanee.
+Un proxy inverso è obbligatorio per le distribuzioni di edge (esposte per il traffico da Internet) per motivi di sicurezza. Nelle versioni 1. x di Kestrel non è disponibile una serie completa di difese contro gli attacchi. Queste comprendono, ma non è limitata a timeout appropriato, limiti di dimensioni e i limiti di connessioni simultanee.
 
 ---
 
@@ -79,7 +79,7 @@ Anche se non è necessario un server proxy inverso, utilizzando uno potrebbe ess
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Come usare Kestrel nelle applicazioni ASP.NET Core
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Il [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) incluso nel pacchetto di [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
 
@@ -91,7 +91,7 @@ Se è necessario configurare le opzioni Kestrel, chiamare `UseKestrel` in *Progr
 
 [!code-csharp[](kestrel/sample2/Program.cs?name=snippet_DefaultBuilder&highlight=9-16)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Installare il [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) pacchetto NuGet.
 
@@ -103,13 +103,13 @@ Chiamare il [UseKestrel](https://docs.microsoft.com/aspnet/core/api/microsoft.as
 
 ### <a name="kestrel-options"></a>Opzioni kestrel
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Il server web Kestrel dispone di opzioni di configurazione del vincolo che risultano particolarmente utili nelle distribuzioni con connessione Internet. Ecco alcuni dei limiti di cui che è possibile impostare:
 
-- Connessioni client massima
+- Numero massimo di connessioni client
 - Dimensione massima del corpo della richiesta
-- Velocità di dati minima richiesta del corpo
+- Velocità minima dei dati del corpo della richiesta
 
 Impostare questi vincoli e gli altri il `Limits` proprietà del [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs) classe. Il `Limits` proprietà contiene un'istanza di [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs) classe. 
 
@@ -166,7 +166,7 @@ Per informazioni sulle altre opzioni Kestrel, vedere le classi seguenti:
 * [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)
 * [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Per informazioni sulle opzioni di Kestrel, vedere [KestrelServerOptions classe](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions).
 
@@ -174,7 +174,7 @@ Per informazioni sulle opzioni di Kestrel, vedere [KestrelServerOptions classe](
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. Configurare i prefissi URL e delle porte per Kestrel in ascolto su chiamando `Listen` o `ListenUnixSocket` metodi su `KestrelServerOptions`. (`UseUrls`, `urls` argomento della riga di comando, mentre la variabile di ambiente ASPNETCORE_URLS funzionano anche ma presentano le limitazioni indicate [più avanti in questo articolo](#useurls-limitations).)
 
@@ -213,7 +213,7 @@ Se si specifica il numero di porta 0, Kestrel associa dinamicamente a una porta 
 
 Se si utilizza IIS, i binding di URL per IIS esegue l'override di tutti i binding è impostata tramite la chiamata a `Listen` o `UseUrls`. Per ulteriori informazioni, vedere [Introduzione a ASP.NET Core modulo](aspnet-core-module.md).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. È possibile configurare i prefissi URL e delle porte per Kestrel in ascolto su utilizzando il `UseUrls` metodo di estensione, il `urls` argomento della riga di comando o il sistema di configurazione di ASP.NET Core. Per ulteriori informazioni su questi metodi, vedere [Hosting](../../fundamentals/hosting.md). Per informazioni sul funzionamento dell'associazione URL quando si utilizza IIS come un proxy inverso, vedere [ASP.NET Core modulo](aspnet-core-module.md). 
 
@@ -223,7 +223,7 @@ Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. È 
 
 Se si chiama `UseUrls` o utilizzare il `urls` argomento della riga di comando o una variabile di ambiente ASPNETCORE_URLS, i prefissi URL possono essere in uno dei formati seguenti. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Solo i prefissi URL HTTP sono validi. Kestrel non supporta SSL quando si configura associazioni URL utilizzando `UseUrls`.
 
@@ -264,7 +264,7 @@ Solo i prefissi URL HTTP sono validi. Kestrel non supporta SSL quando si configu
 
   Quando `localhost` viene specificato, Kestrel tenta di associare le interfacce di loopback IPv4 e IPv6. Se la porta richiesta è in uso da un altro servizio in entrambe le interfacce loopback, Kestrel non verrà avviato. Se nessuna delle due interfacce di loopback non è disponibile per qualsiasi motivo (la maggior parte delle comune perché non è supportato IPv6), Kestrel registra un avviso. 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * Indirizzo IPv4 con numero di porta
 
@@ -347,12 +347,12 @@ var host = new WebHostBuilder()
 
 Per altre informazioni, vedere le seguenti risorse:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * [Applicazione di esempio per 2. x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 * [Codice sorgente kestrel](https://github.com/aspnet/KestrelHttpServer)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * [Applicazione di esempio per 1. x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample1)
 * [Codice sorgente kestrel](https://github.com/aspnet/KestrelHttpServer)

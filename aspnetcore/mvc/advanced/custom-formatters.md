@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 792e007232c751d3db9dc5e50adbedfb2bb1a7ae
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5e665abe10fd7444c3fd5f20cfeca3ef0a5f79d3
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formattatori personalizzati nell'API web ASP.NET MVC di base
 
@@ -54,7 +54,7 @@ Per creare un formattatore:
 
 Per tipi di file di testo (ad esempio, vCard), derivare la [TextInputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) o [TextOutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) classe di base.
 
-[!code-csharp[Principale](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
+[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
 Per i tipi binari, derivare la [InputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) o [OutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) classe di base.
 
@@ -62,7 +62,7 @@ Per i tipi binari, derivare la [InputFormatter](https://docs.microsoft.com/aspne
 
 Nel costruttore, specificare tipi di supporto valido e codifiche aggiungendo il `SupportedMediaTypes` e `SupportedEncodings` raccolte.
 
-[!code-csharp[Principale](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
+[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
 > [!NOTE]  
 > È possibile eseguire l'inserimento di dipendenze di costruttore in una classe del formattatore. Ad esempio, è possibile ottenere un logger mediante l'aggiunta di un parametro di logger al costruttore. Per accedere ai servizi, è necessario utilizzare l'oggetto di contesto passato ai metodi di. Un esempio di codice [seguito](#read-write) viene illustrato come eseguire questa operazione.
@@ -71,7 +71,7 @@ Nel costruttore, specificare tipi di supporto valido e codifiche aggiungendo il 
 
 Specificare il tipo è possibile deserializzare in o serializzare da eseguendo l'override di `CanReadType` o `CanWriteType` metodi. Ad esempio, potrebbe essere solo in grado di creare testo vCard da un `Contact` tipo e viceversa.
 
-[!code-csharp[Principale](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
+[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
 #### <a name="the-canwriteresult-method"></a>Il metodo CanWriteResult
 
@@ -88,13 +88,13 @@ Ad esempio, si supponga che la firma del metodo di azione restituisce un `Person
 
 Eseguire il lavoro effettivo del deserializzazione o la serializzazione `ReadRequestBodyAsync` o `WriteResponseBodyAsync`.  Le righe evidenziate nell'esempio seguente viene illustrato come ottenere servizi dal contenitore dell'inserimento di dipendenza (non è possibile ottenere tali da parametri del costruttore).
 
-[!code-csharp[Principale](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
+[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>Come configurare MVC per utilizzare un formattatore personalizzato
  
 Per utilizzare un formattatore personalizzato, aggiungere un'istanza della classe del formattatore per la `InputFormatters` o `OutputFormatters` insieme.
 
-[!code-csharp[Principale](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
+[!code-csharp[Main](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
 
 Formattatori vengono valutati nell'ordine che inserirli. Il primo ha la precedenza. 
 

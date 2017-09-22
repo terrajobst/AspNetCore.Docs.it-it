@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b5dca6a81a66ce2a8771f1a16e63834d6504d8b6
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core
 
@@ -40,21 +40,21 @@ La cache in memoria è possibile archiviare qualsiasi oggetto. l'interfaccia cac
 
 Memorizzazione nella cache in memoria è un *servizio* a cui fa riferimento da cui l'app utilizzando [Dependency Injection](../../fundamentals/dependency-injection.md). Chiamare `AddMemoryCache` in `ConfigureServices`:
 
-[!code-csharp[Principale](memory/sample/WebCache/Startup.cs?highlight=8)] 
+[!code-csharp[Main](memory/sample/WebCache/Startup.cs?highlight=8)] 
 
 Richiesta di `IMemoryCache` istanza nel costruttore:
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-)] 
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-)] 
 
 `IMemoryCache`richiede il pacchetto NuGet "Microsoft.Extensions.Caching.Memory".
 
 Il codice seguente usa [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) per verificare se l'ora corrente è nella cache. Se l'elemento non è memorizzato nella cache, una nuova voce viene creata e aggiunto alla cache con [impostare](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
 Viene visualizzata l'ora corrente e quella memorizzata nella cache:
 
-[!code-html[Principale](memory/sample/WebCache/Views/Home/Cache.cshtml)]
+[!code-html[Main](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
 Memorizzato nella cache `DateTime` valore rimane nella cache mentre vi sono richieste entro il periodo di timeout (e nessuna rimozione a causa di memoria). L'immagine seguente mostra l'ora corrente e un'ora precedente recuperato dalla cache:
 
@@ -62,11 +62,11 @@ Memorizzato nella cache `DateTime` valore rimane nella cache mentre vi sono rich
 
 Il codice seguente usa [GetOrCreate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) e [GetOrCreateAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) per memorizzare i dati. 
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
 Il codice seguente chiama [ottenere](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) per recuperare l'ora memorizzati nella cache:
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
 Vedere [metodi IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache) e [metodi CacheExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions) per una descrizione dei metodi della cache.
 
@@ -79,13 +79,13 @@ L'esempio seguente:
 - Imposta la priorità di cache su `CacheItemPriority.NeverRemove`. 
 - Imposta un [PostEvictionDelegate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.postevictiondelegate) che verrà chiamato dopo la voce viene rimossa dalla cache. Il callback viene eseguito su un thread diverso dal codice che rimuove l'elemento dalla cache.
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
 
 ## <a name="cache-dependencies"></a>Dipendenze della cache
 
 L'esempio seguente viene illustrato come la scadenza di una voce della cache se la scadenza di una voce di dipendenti. Oggetto `CancellationChangeToken` viene aggiunto all'elemento memorizzato nella cache. Quando `Cancel` viene chiamato sul `CancellationTokenSource`, entrambe le voci della cache vengono rimossi. 
 
-[!code-csharp[Principale](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
 Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuovere come gruppo. Con il `using` modello nel codice precedente, le voci della cache creato all'interno di `using` blocco erediterà le impostazioni di scadenza e trigger.
 
@@ -100,5 +100,5 @@ Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuo
 
 ### <a name="other-resources"></a>Altre risorse
 
-* [Utilizzo di una Cache distribuita](distributed.md)
+* [Uso di una cache distribuita](distributed.md)
 * [Middleware di memorizzazione nella cache di risposta](middleware.md)

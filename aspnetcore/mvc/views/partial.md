@@ -11,11 +11,11 @@ ms.assetid: 4be1b12c-b74e-44ff-826b-99ce86e8d464
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: 777c4d663f646f3bc3fbe6da0b537d651a1fb4d8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8f890009f71d4c1f693ee06dcd448e9803164aca
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="partial-views"></a>Visualizzazioni parziali
 
@@ -45,15 +45,15 @@ Visualizzazioni parziali vengono create come qualsiasi altra visualizzazione: si
 
 All'interno di una pagina di visualizzazione, esistono diversi modi in cui è possibile eseguire il rendering di una visualizzazione parziale. La più semplice consiste nell'utilizzare `Html.Partial`, che restituisce un `IHtmlString` e a cui fa riferimento, facendolo precedere la chiamata con `@`:
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
 
 Il `PartialAsync` metodo è disponibile per parziale viste contenenti codice asincrono (anche se è in genere sconsigliata codice nelle viste):
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
 È possibile eseguire il rendering di una visualizzazione parziale con `RenderPartial`. Questo metodo non restituisce un risultato. il flusso di output del rendering direttamente alla risposta. Perché non restituisce un risultato, deve essere chiamato all'interno di un blocco di codice Razor (è anche possibile chiamare `RenderPartialAsync` se necessario):
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
 
 Poiché il flusso direttamente, il risultato `RenderPartial` e `RenderPartialAsync` può offrire prestazioni superiori in alcuni scenari. Tuttavia, nella maggior parte dei casi, si consiglia di utilizzare `Partial` e `PartialAsync`.
 
@@ -106,19 +106,19 @@ Quando viene creata un'istanza di una visualizzazione parziale, ottiene una copi
 
 È possibile passare un'istanza di `ViewDataDictionary` e un modello di visualizzazione per una visualizzazione parziale:
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 Il markup seguente viene illustrato il *Views/Articles/Read.cshtml* vista che contiene due visualizzazioni parziali. La visualizzazione parziale secondo passa in un modello e `ViewData` della visualizzazione parziale. È possibile passare a nuovi `ViewData` dizionario mantenendo esistente `ViewData` se si utilizza l'overload del costruttore del `ViewDataDictionary` evidenziato di seguito:
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Viste, condivisi/AuthorPartial*:
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 Il *ArticleSection* parziale:
 
-[!code-html[Principale](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 In fase di esecuzione, i parziali vengono sottoposti a rendering nella visualizzazione padre, che a sua volta viene eseguito il rendering all'interno di condiviso *layout. cshtml*
 

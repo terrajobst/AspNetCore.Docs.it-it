@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796d075d4d0c6b888be4fc2225fc482acdbad498
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 9edacb494c38d7812f9e3826ab9277cd1dffd675
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Introduzione per aprire interfaccia Web per .NET (OWIN)
 
@@ -105,7 +105,7 @@ app.UseOwin(pipeline =>
 
 Server basati su OWIN può ospitare applicazioni ASP.NET. Un server di questo tipo è [Nowin](https://github.com/Bobris/Nowin), un server web di OWIN .NET. Nell'esempio di questo articolo, ho incluso un progetto che fa riferimento a Nowin e viene utilizzato per creare un `IServer` in grado di self-hosting ASP.NET Core.
 
-[!code-csharp[Principale](owin/sample/src/NowinSample/Program.cs?highlight=15)]
+[!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
 `IServer`è un'interfaccia che richiede un `Features` proprietà e un `Start` metodo.
 

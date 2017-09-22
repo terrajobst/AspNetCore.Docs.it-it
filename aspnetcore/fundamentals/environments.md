@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-multiple-environments"></a>Utilizzo di più ambienti
 
@@ -45,7 +45,7 @@ Il profilo per IIS Express è illustrato di seguito:
 
 Ecco un `launchSettings.json` file che include i profili per `Development` e `Staging`:
 
-[!code-json[Principale](../fundamentals/environments/sample/src/Environments/Properties/launchSettings.json?highlight=15,22)]
+[!code-json[Main](../fundamentals/environments/sample/src/Environments/Properties/launchSettings.json?highlight=15,22)]
 
 Le modifiche apportate ai profili di progetto non abbiano effetto, è necessario riavviare il server web utilizzato (in particolare, Kestrel devono essere riavviati prima che rileva le modifiche apportate al relativo ambiente).
 
@@ -100,7 +100,7 @@ Vedere il *impostare variabili di ambiente* sezione la [riferimento di configura
 
 **Per ogni Pool di applicazioni IIS**
 
-Se è necessario impostare le variabili di ambiente per le singole applicazioni in esecuzione nel pool di applicazioni isolate (supportata in IIS 10.0 +), vedere il *comando AppCmd.exe* sezione la [le variabili di ambiente \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) documentazione di riferimento di argomento in di IIS.
+Se è necessario impostare le variabili di ambiente per le singole app in esecuzione nel pool di applicazioni isolate (supportate in IIS 10.0+), vedere la sezione *Comando AppCmd.exe* dell'argomento [Variabili di ambiente \<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) nella documentazione di riferimento.
 
 ### <a name="macos"></a>MacOS
 L'impostazione l'ambiente corrente per macOS può essere effettuata in linea, durante l'esecuzione dell'applicazione.
@@ -131,13 +131,13 @@ Il `IHostingEnvironment` servizio fornisce l'astrazione fondamentale per l'utili
 
 Ad esempio, è possibile utilizzare il codice seguente nel metodo di configurazione per la gestione degli errori specifici di ambiente del programma di installazione:
 
-[!code-csharp[Principale](environments/sample/src/Environments/Startup.cs?range=19-30)]
+[!code-csharp[Main](environments/sample/src/Environments/Startup.cs?range=19-30)]
 
 Se l'app è in esecuzione in un `Development` ambiente, quindi si abilita il supporto di runtime necessario per utilizzare la funzionalità "BrowserLink" in Visual Studio, le pagine di errore specifico di sviluppo (che in genere non devono essere eseguite nell'ambiente di produzione) ed errore di database speciale pagine (che forniscono un modo per applicare le migrazioni e devono pertanto essere utilizzate solo in fase di sviluppo). In caso contrario, se l'app non è in esecuzione in un ambiente di sviluppo, una pagina di gestione degli errori standard è configurata per essere visualizzato in risposta a eventuali eccezioni non gestite.
 
 Potrebbe essere necessario determinare quale contenuto da inviare al client in fase di esecuzione, a seconda dell'ambiente corrente. Ad esempio, in un ambiente di sviluppo si forniscono in genere non ridotta a icona script e fogli di stile, che rende il debug. Ambienti di produzione e di test devono essere utilizzato per le versioni minimizzate e in genere da una rete CDN. È possibile farlo usando l'ambiente [helper di tag](../mvc/views/tag-helpers/intro.md). L'helper di tag di ambiente restituirà il relativo contenuto solo se l'ambiente corrente corrisponde a uno degli ambienti specificati utilizzando il `names` attributo.
 
-[!code-html[Principale](environments/sample/src/Environments/Views/Shared/_Layout.cshtml?range=13-22)]
+[!code-html[Main](environments/sample/src/Environments/Views/Shared/_Layout.cshtml?range=13-22)]
 
 Per iniziare a utilizzare gli helper di tag nell'applicazione, vedere [introduzione per gli helper di Tag](../mvc/views/tag-helpers/intro.md).
 
@@ -160,4 +160,4 @@ ASP.NET Core fornisce una serie di funzionalità e le convenzioni che consentono
 
 * [Configurazione](configuration.md)
 
-* [Introduzione agli helper di Tag](../mvc/views/tag-helpers/intro.md)
+* [Introduzione agli helper tag](../mvc/views/tag-helpers/intro.md)

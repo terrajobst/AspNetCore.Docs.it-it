@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 7a845cec23f662dd6fe48044b819099f2c20ecb3
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 541774d46bbf570ee860c72fdff5cece364935df
+ms.sourcegitcommit: 55759ae80e7039036a7c6da8e3806f7c88ade325
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrazione da ASP.NET Core 1.x a 2.0
 
@@ -152,7 +152,7 @@ Per impostazione predefinita, i progetti ASP.NET Core 1.1 creati in Visual Studi
 
 3. Rimuovere la chiamata di API sul lato client di Application Insights da *_Layout.cshtml*. Comprende le due righe di codice seguenti:
 
-    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19)]
+    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
 Se si usa Application Insights SDK direttamente, continuare a farlo. Il [metapacchetto](xref:fundamentals/metapackage) 2.0 comprende la versione più recente di Application Insights, pertanto viene visualizzato un errore di downgrade del pacchetto se si fa riferimento a una versione precedente.
 

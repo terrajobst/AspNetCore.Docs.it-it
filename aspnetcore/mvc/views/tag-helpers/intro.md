@@ -11,15 +11,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 10471210075dc8a5366b7d5170d6594c2e66ce94
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Quali sono gli helper di Tag?
 
@@ -57,13 +57,13 @@ Ambito di helper di tag è controllata da una combinazione di `@addTagHelper`, `
 
 Se si crea una nuova app web ASP.NET Core denominata *AuthoringTagHelpers* (con nessuna autenticazione), le operazioni seguenti *Views/_ViewImports.cshtml* file verrà aggiunto al progetto:
 
-[!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 Il `@addTagHelper` direttiva rende disponibile per la visualizzazione gli helper di Tag. In questo caso, il file della visualizzazione è *Views/_ViewImports.cshtml*, che per impostazione predefinita viene ereditata da tutti i file di visualizzazione di *viste* cartella e le sottodirectory; rendere disponibili gli helper di Tag. Il codice precedente utilizza la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper di Tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) sarà disponibile per tutti i file nella visualizzazione di *viste* directory o sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper di Tag da caricare (usiamo "\*" per tutti gli helper di Tag), e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" Specifica l'assembly contenente gli helper di Tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper di Tag predefiniti di ASP.NET Core.
 
 Per esporre tutti gli helper di Tag in questo progetto (che consente di creare un assembly denominato *AuthoringTagHelpers*), è necessario utilizzare la seguente:
 
-[!code-html[Principale](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 Se il progetto contiene un `EmailTagHelper` con spazio dei nomi predefinito (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), è possibile fornire il nome completo (FQN) dell'Helper di Tag:
 
@@ -223,7 +223,7 @@ Il markup è molto più semplice e più facile da leggere, modificare e gestire 
 
 Si consideri il *posta elettronica* gruppo:
 
-[!code-csharp[Principale](intro/sample/Register.cshtml?range=12-18)]
+[!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
 
 Gli attributi "asp-" ha un valore di "Email" e "Email" non è una stringa. In questo contesto, "Email" è la proprietà expression di modello c# per il `RegisterViewModel`.
 
@@ -255,7 +255,7 @@ Editor di Visual Studio consente di scrivere **tutti** del markup nell'approccio
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Creazione e modifica gli helper di Tag](authoring.md)
+* [Creazione e modifica di helper tag](authoring.md)
 * [Utilizzo dei moduli](../working-with-forms.md)
 * [TagHelperSamples su GitHub](https://github.com/dpaquette/TagHelperSamples) sono inclusi esempi di Helper di Tag per l'utilizzo di [Bootstrap](http://getbootstrap.com/).
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d0302439fbc777c72f00c37a8c852fc0d46300e
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e5dfebeddb3a9394fd1faf798e029a9312201089
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introduzione a Dependency Injection in ASP.NET Core
 
@@ -96,7 +96,7 @@ Il `ConfigureServices` metodo la `Startup` classe è responsabile per definire i
 
 Di seguito è riportato un esempio di come aggiungere servizi aggiuntivi per il contenitore utilizzando un numero di metodi di estensione, ad esempio `AddDbContext`, `AddIdentity`, e `AddMvc`.
 
-[!code-csharp[Principale](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
 
 Le funzionalità fornite da ASP.NET, ad esempio MVC, middleware seguono una convenzione dell'utilizzo di un singolo componente*ServiceName* metodo di estensione per registrare tutti i servizi richiesti da tale funzionalità.
 
@@ -107,7 +107,7 @@ Le funzionalità fornite da ASP.NET, ad esempio MVC, middleware seguono una conv
 
 È possibile registrare i servizi dell'applicazione, come indicato di seguito. Il primo tipo generico rappresenta il tipo (in genere un'interfaccia) che verrà richieste dal contenitore. Il secondo tipo generico rappresenta il tipo concreto che verrà creata un'istanza mediante il contenitore e utilizzato per soddisfare tali richieste.
 
-[!code-csharp[Principale](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?range=53-54)]
 
 > [!NOTE]
 > Ogni `services.Add<ServiceName>` metodo di estensione aggiunge (e potenzialmente Configura) servizi. Ad esempio, `services.AddMvc()` aggiunge i servizi MVC richiede. È consigliabile attenersi a questa convenzione, inserire i metodi di estensione nel `Microsoft.Extensions.DependencyInjection` dello spazio dei nomi per incapsulare i gruppi di registrazioni di servizio.
@@ -116,18 +116,18 @@ Il `AddTransient` metodo viene utilizzato per eseguire il mapping di tipi astrat
 
 Nell'esempio di questo articolo, è un controller semplice che visualizza i nomi di caratteri, chiamati `CharactersController`. Il relativo `Index` metodo consente di visualizzare l'elenco corrente di caratteri che sono stati archiviati nell'applicazione e inizializza la raccolta con un numero limitato di caratteri se non esiste. Si noti che anche se questa applicazione usa Entity Framework Core e `ApplicationDbContext` classe per la persistenza, nessuno di questi obiettivi è evidente nel controller. Al contrario, il meccanismo di accesso ai dati specifici è stato indipendenti e possono essere protetti da un'interfaccia, `ICharacterRepository`, che segue il [modello di repository](http://deviq.com/repository-pattern/). Un'istanza di `ICharacterRepository` viene richiesto tramite il costruttore e assegnato a un campo privato, che viene quindi usato per accedere ai caratteri in base alle esigenze.
 
-[!code-csharp[Principale](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
 Il `ICharacterRepository` definisce i metodi di due controller deve essere utilizzato con `Character` istanze.
 
-[!code-csharp[Principale](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
 Questa interfaccia viene implementata a sua volta da un tipo concreto, `CharacterRepository`, che viene utilizzato in fase di esecuzione.
 
 > [!NOTE]
 > Viene utilizzata la modalità DI con la `CharacterRepository` classe è un modello generale, è possibile seguire per tutti i servizi dell'applicazione, non solo in "repository" o classi di accesso ai dati.
 
-[!code-csharp[Principale](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
 
 Si noti che `CharacterRepository` richieste un `ApplicationDbContext` nel relativo costruttore. Non è insolito per l'inserimento di dipendenze da utilizzare in modo concatenato simile al seguente, con ogni dipendenza richiesta richiede a sua volta relative dipendenze. Il contenitore è responsabile per la risoluzione di tutte le dipendenze nel grafico e la restituzione viene completamente risolto.
 
@@ -136,7 +136,7 @@ Si noti che `CharacterRepository` richieste un `ApplicationDbContext` nel relati
 
 In questo caso, entrambi `ICharacterRepository` e a sua volta `ApplicationDbContext` deve essere registrato con il contenitore dei servizi in `ConfigureServices` in `Startup`. `ApplicationDbContext`è configurato con la chiamata al metodo di estensione `AddDbContext<T>`. Il codice seguente illustra la registrazione del `CharacterRepository` tipo.
 
-[!code-csharp[Principale](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
 Contesti di Entity Framework devono essere aggiunti al contenitore di servizi usando il `Scoped` durata. Ciò viene preso in considerazione automaticamente se si utilizzano i metodi di supporto, come illustrato in precedenza. I repository che utilizza Entity Framework devono utilizzare la stessa durata.
 
@@ -165,21 +165,21 @@ I servizi possono essere registrati con il contenitore in diversi modi. Abbiamo 
 
 Per illustrare la differenza tra le opzioni di durata e la registrazione, si consideri una semplice interfaccia che rappresenta una o più attività come un *operazione* con un identificatore univoco, `OperationId`. A seconda di come si configura la durata per questo servizio, il contenitore fornirà uguali o diverse istanze del servizio per la classe richiesta. Per indicare chiaramente quali durata viene richiesto, si creerà un tipo per ogni opzione di durata:
 
-[!code-csharp[Principale](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
 
 Implementare queste interfacce utilizzando un'unica classe `Operation`, che accetta un `Guid` nel relativo costruttore o utilizza un nuovo `Guid` se non è specificato.
 
 Successivamente, nel `ConfigureServices`, ogni tipo viene aggiunto al contenitore in base alla durata denominata:
 
-[!code-csharp[Principale](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
 
 Si noti che il `IOperationSingletonInstance` servizio utilizza un'istanza specifica con un ID noto di `Guid.Empty` in modo che sia chiaro quando questo tipo è in uso (il relativo Guid sarà tutti zeri). È stato registrato anche un `OperationService` che dipende da ognuno degli altri `Operation` tipi, in modo che sia possibile deselezionare all'interno di una richiesta se questo servizio è di ottenere la stessa istanza del controller o un altro, per ogni tipo di operazione. Questo servizio non è di esporre le relative dipendenze come proprietà, in modo che possano essere visualizzate nella vista.
 
-[!code-csharp[Principale](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
 Per dimostrare la durata degli oggetti all'interno e tra separate singole richieste all'applicazione, l'esempio include un `OperationsController` che richiede ogni tipo di `IOperation` tipo, nonché un `OperationService`. Il `Index` quindi l'azione consente di visualizzare tutti i controller e del servizio `OperationId` valori.
 
-[!code-csharp[Principale](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
 Ora due richieste separate vengono apportate a questa azione del controller:
 
