@@ -11,15 +11,15 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: 9ec635b596520e3d19f4040758dd59c1cbca97f4
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Struttura di directory di App ASP.NET Core pubblicate
 
-Da [Luke Latham](https://github.com/GuardRex)
+Da [Luke Latham](https://github.com/guardrex)
 
 Nella directory dell'applicazione ASP.NET Core *pubblicare*, è costituito da file dell'applicazione, i file di configurazione, asset statico, pacchetti e il runtime (per applicazioni indipendenti). Questa è la stessa struttura di directory di versioni precedenti di ASP.NET, in cui risiede l'intera applicazione all'interno della directory radice web.
 

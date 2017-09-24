@@ -11,11 +11,11 @@ ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0cb61315916d1b38f7cab3339e150c446fb69d98
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: bfee2e5e8f71c99465be79589a77f0e173097b23
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Compilazione di visualizzazione Razor e precompilazione in ASP.NET Core
 
@@ -24,7 +24,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 Visualizzazioni Razor vengono compilate in fase di esecuzione quando viene richiamata la vista. ASP.NET Core 1.1.0 e versione successiva possono facoltativamente compilare visualizzazioni Razor e distribuirli con l'app &mdash; un processo noto come la precompilazione. Per impostazione predefinita, i modelli di progetto ASP.NET Core 2. x abilitare precompilazione.
 
 > [!NOTE]
-> Precompilazione di visualizzazione Razor non è disponibile quando si esegue un [Self-Contained distribuzione](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) nelle versioni di ASP.NET Core 2.0.0 e versioni precedenti.
+> Precompilazione di visualizzazione Razor non è attualmente disponibile quando si esegue un [distribuzione indipendente (dimensione a modifica lenta)](/dotnet/core/deploying/#self-contained-deployments-scd) Core ASP.NET 2.0. La funzionalità sarà disponibile per dimensioni a modifica lenta quando rilascia 2.1. Per ulteriori informazioni, vedere [la compilazione di visualizzazione non riesce durante la compilazione incrociata per Linux in Windows](https://github.com/aspnet/MvcPrecompilation/issues/102).
 
 Considerazioni sulla precompilazione:
 
