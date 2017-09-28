@@ -5,16 +5,16 @@ description: Descrive l'utilizzo di SQL Server Local DB e ASP.NET Core.
 keywords: ASP.NET Core, pagine Razor, Razor, MVC, SQL, Local DB
 ms.author: riande
 manager: wpickett
-ms.date: 8/7/2017
+ms.date: 08/07/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 173bdcca80a599ec2d87ff4158614727b35f984a
-ms.sourcegitcommit: d02d90b6272372178723ff932e8a9b9566afedb8
+ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Utilizzo di SQL Server Local DB e ASP.NET Core
 
@@ -22,11 +22,11 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Joe Audette](https://twit
 
 L'oggetto `MovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` nel file *Startup.cs*:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
 
 Il sistema di [configurazione](xref:fundamentals/configuration) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale ottiene la stringa di connessione dal file *appSettings.JSON*:
 
-[!code-javascript[Principale](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-javascript[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 Quando si distribuisce l'app in un server di test o di produzione, è possibile usare una variabile di ambiente o un altro approccio per impostare la stringa di connessione su un SQL Server reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration).
 
@@ -55,7 +55,7 @@ Si noti l'icona a forma di chiave accanto a `ID`. Per impostazione predefinita, 
 
 Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituire il codice generato con il seguente:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
 
 Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
@@ -70,7 +70,7 @@ if (context.Movie.Any())
 
 Aggiungere l'inizializzatore del valore di inizializzazione alla fine del metodo `Main` nel file *Program.cs*:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Program.cs?highlight=6,17-32)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Program.cs?highlight=6,17-32)]
 
 Eseguire il test dell'app
 

@@ -11,11 +11,11 @@ ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 872e8c99734a0913770281d9d87b1e30c250ab0a
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 665c98b5ac16bb9739af4ac204fca59a55dbb812
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>Creare profili di pubblicazione per Visual Studio e MSBuild, per distribuire applicazioni ASP.NET Core
 
@@ -68,7 +68,7 @@ Il file *.csproj* seguente è stato creato con il comando `dotnet new mvc`:
 L'attributo `Sdk` nell'elemento `<Project>` (nella prima riga) del markup riportato sopra esegue le operazioni seguenti:
 
 * Importa il file `props` da *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.Props* all'inizio.
-* Importa il file di destinazioni da  *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.targets* alla fine.
+* Importa il file di destinazioni da * $(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.targets* alla fine.
 
 Il percorso predefinito per `MSBuildSDKsPath` (con Visual Studio 2017 Enterprise) è la cartella *%programfiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\Sdks*.
 
@@ -206,7 +206,7 @@ Richiamando `dotnet build` viene chiamato `msbuild` per eseguire il processo di 
 
 Il profilo di pubblicazione cartella seguente è stato creato con Visual Studio ed esegue la pubblicazione in una condivisione di rete:
 
-[!code-xml[Principale](web-publishing-vs/sample/FolderProfile.pubxml?highlight=5,9,11,18)]
+[!code-xml[Main](web-publishing-vs/sample/FolderProfile.pubxml?highlight=5,9,11,18)]
 
 Tenere presente che `<LastUsedBuildConfiguration>` è impostato su `Release`.  Nella pubblicazione da Visual Studio, il valore della proprietà di configurazione `<LastUsedBuildConfiguration>` viene impostato usando il valore, quando viene avviato il processo di pubblicazione. La proprietà di configurazione `<LastUsedBuildConfiguration>` è speciale e non deve essere sottoposta a override in un file di MSBuild importato. È possibile eseguire l'override di questa proprietà dalla riga di comando. Ad esempio:
 
@@ -345,7 +345,7 @@ Il markup evidenziato seguente illustra come:
 * Escludere la cartella *wwwroot\Content*.
 * Escludere *Views\Home\About2.cshtml*.
 
-[!code-xml[Principale](web-publishing-vs/sample/FolderProfile2.pubxml?highlight=21-29)]
+[!code-xml[Main](web-publishing-vs/sample/FolderProfile2.pubxml?highlight=21-29)]
 
 Per altri campioni di distribuzione vedere [WebSDK Readme](https://github.com/aspnet/websdk).
 

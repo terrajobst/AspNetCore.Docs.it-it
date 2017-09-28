@@ -5,16 +5,16 @@ description: Aggiunta di un modello a un'app di pagine Razor in ASP.NET Core
 keywords: ASP.NET Core, pagine Razor, Razor, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 7/27/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 1a08ecf1ee12fa0860cb6a18c1a63eaff2ddfbed
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Aggiunta di un modello a un'app di pagine Razor
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/29/2017
 
 In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
-Fare clic con il pulsante destro del mouse sulla cartella *Modelli* > **Aggiungi** > **Classe**. Assegnare un nome alla classe **Movie** e aggiungere le proprietà seguenti:
+Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Assegnare un nome alla classe **Movie** e aggiungere le proprietà seguenti:
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -33,14 +33,14 @@ Fare clic con il pulsante destro del mouse sulla cartella *Modelli* > **Aggiungi
 
 Aggiungere una stringa di connessione al file *appsettings.json*.
 
-[!code-json[Principale](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=8-10)]
+[!code-json[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=8-10)]
 
 <a name="reg"></a>
 ###  <a name="register-the-database-context"></a>Registrare il contesto del database
 
 Registrare il contesto del database con il contenitore [Dependency Injection](xref:fundamentals/dependency-injection) (inserimento delle dipendenze) nel file *Startup.cs*.
 
-[!code-csharp[Principale](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-6)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-6)]
 
 Compilare il progetto per verificare che non ci siano errori.
 
@@ -55,7 +55,7 @@ In questa sezione viene usata la Console di Gestione pacchetti per:
 
 Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
 
-  ![Menu PMC](../first-mvc-app/adding-model/_static/pmc.png)
+  ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
 In PMC, immettere i comandi seguenti:
 

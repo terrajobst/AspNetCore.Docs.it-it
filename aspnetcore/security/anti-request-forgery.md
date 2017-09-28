@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
+ms.sourcegitcommit: 31a979c5d45fd3ed38aa13ef17cddb3389721588
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/25/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Impedire attacchi di tipo Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 
@@ -134,9 +134,8 @@ L'approccio più comune di difesa contro gli attacchi CSRF è il modello di toke
 </form>
 ```
 
+In ognuno dei casi precedenti, ASP.NET Core verranno aggiunti a un campo modulo nascosto simile al seguente:
 ```html
-In each of the preceding cases, ASP.NET Core will add a hidden form field similar to the following:
-
 <input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkSldwD9CpLRyOtm6FiJB1Jr_F3FQJQDvhlHoLNJJrLA6zaMUmhjMsisu2D2tFkAiYgyWQawJk9vNm36sYP1esHOtamBEPvSk1_x--Sg8Ey2a-d9CV2zHVWIN9MVhvKHOSyKqdZFlYDVd69XYx-rOWPw3ilHGLN6K0Km-1p83jZzF0E4WU5OGg5ns2-m9Yw" />
 ```
 
@@ -243,7 +242,7 @@ services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
 Utilizzo di JavaScript con visualizzazioni, è possibile creare il token utilizzando un servizio dall'interno della visualizzazione. A tale scopo, inserisce il `Microsoft.AspNetCore.Antiforgery.IAntiforgery` servizio nella vista e chiamata `GetAndStoreTokens`, come illustrato:
 
-[!code-csharp[Principale](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,24)]
+[!code-csharp[Main](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,24)]
 
 Questo approccio elimina la necessità di interagire direttamente con l'impostazione di cookie dal server o la relativa lettura dai client.
 

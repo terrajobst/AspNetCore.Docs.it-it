@@ -1,21 +1,21 @@
 ---
 title: Creare un'API Web con ASP.NET Core e Visual Studio Code
-author: rick-anderson
 description: Compilare un'API Web in macOS, Linux o Windows con ASP.NET Core MVC e Visual Studio Code
-keywords: ASP.NET Core, WebAPI, Web API, REST, Mac, Linux, HTTP, servizio, servizio HTTP, VS Code
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/22/2017
 ms.topic: get-started-article
-ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+keywords: ASP.NET Core, WebAPI, Web API, REST, Mac, Linux, HTTP, Service, HTTP Service,VS Code
+manager: wpickett
+ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 17687e38aae066bdab4663268a2af54f20a6ad75
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e09943b2f810d04456a65589976aa07065a9f010
+ms.sourcegitcommit: e6bcd56a4b11e20ff55df004971f9ed384937342
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Creare un'API Web con ASP.NET Core MVC e Visual Studio Code in Linux, macOS e Windows
 
@@ -69,7 +69,7 @@ Vedere la [Guida di Visual Studio Code](#visual-studio-code-help) per suggerimen
 
 Modificare il file *TodoApi.csproj* per installare il provider di database [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/). Questo provider di database consente l'uso di Entity Framework Core con un database in memoria.
 
-[!code-xml[Principale](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
+[!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
 
 Eseguire `dotnet restore` per scaricare e installare il provider di database in memoria di Entity Framework Core. È possibile eseguire `dotnet restore` dal terminale o immettere `⌘⇧P` (macOS) o `Ctrl+Shift+P` (Linux) in Visual Studio Code e quindi digitare **.NET**. Selezionare **.NET: Ripristina pacchetti**.
 
@@ -81,7 +81,7 @@ Aggiungere una cartella denominata *Models*. È possibile inserire le classi del
 
 Aggiungere una classe `TodoItem` con il codice seguente:
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Il database genera `Id` quando viene creato un `TodoItem`.
 
@@ -91,7 +91,7 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 
 Aggiungere una classe `TodoContext` alla cartella *Models*:
 
-[!code-csharp[Principale](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 

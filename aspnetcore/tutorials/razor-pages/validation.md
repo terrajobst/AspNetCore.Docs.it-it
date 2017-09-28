@@ -5,16 +5,16 @@ description: Procedura su come aggiungere la convalida alla pagina Razor
 keywords: ASP.NET Core, convalida, DataAnnotations, Razor, pagine Razor
 ms.author: riande
 manager: wpickett
-ms.date: 8/7/2017
+ms.date: 08/07/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: ed1ad71b6b1395bce1dd287e86e499e23446f190
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f8d86b48363675adaf27e2bed39f835f117e624a
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Aggiunta della convalida alla pagina Razor
 
@@ -34,7 +34,7 @@ Aprire il file *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/m
 
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare il vincolo di convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non consentiti). L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. I [tipi di valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (ad esempio `decimal`, `int`, `float`, `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
 
@@ -81,7 +81,7 @@ Facoltativo, convalida sul lato server del test:
 
 Il codice seguente mostra una porzione della pagina *Create.cshtml* di cui è stato eseguito lo scaffolding in precedenza nell'esercitazione. Viene usato dalle pagine Creazione e Modifica per visualizzare il modulo iniziale e per visualizzare nuovamente il modulo in caso di errore.
 
-[!code-cshtml[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
+[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
 
@@ -93,7 +93,7 @@ Quando la logica di convalida deve cambiare, avviene solo nel modello. La conval
 
 Esaminare la classe `Movie`. Lo spazio dei nomi `System.ComponentModel.DataAnnotations` fornisce gli attributi di formattazione oltre al set predefinito di attributi di convalida. L'attributo `DataType` viene applicato alle proprietà `ReleaseDate` e `Price`.
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 Gli attributi `DataType` forniscono solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli attributi, ad esempio `<a>` per gli URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). Usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati che è più specifico del tipo intrinseco del database. Gli attributi `DataType` non sono gli attributi di convalida. Nell'applicazione di esempio, viene visualizzata solo la data, senza l'ora.
 
@@ -126,7 +126,7 @@ In genere non è consigliabile compilare date reali nei modelli, quindi l'uso de
 
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 Grazie aver completato questa introduzione alle pagine Razor. Si apprezza l'invio di commenti. [Getting started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un ottimo completamento per questa esercitazione.
 

@@ -1,5 +1,5 @@
 
-Gli attributi [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) verranno esaminati nell'esercitazione successiva. L'attributo [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) specifica il testo da visualizzare per il nome di un campo, in questo caso "Release Date" anziché "ReleaseDate". L'attributo [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) specifica il tipo di dati (Date) e quindi non vengono visualizzate le informazioni sull'ora archiviate nel campo.
+Gli attributi [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) verranno esaminati nell'esercitazione successiva. L'attributo [Display](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) specifica il testo da visualizzare per il nome di un campo, in questo caso "Release Date" anziché "ReleaseDate". L'attributo [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) specifica il tipo di dati (Date) e quindi non vengono visualizzate le informazioni sull'ora archiviate nel campo.
 
 Passare al controller `Movies` e posizionare il puntatore del mouse su un collegamento **Edit** (Modifica) per visualizzare l'URL di destinazione.
 
@@ -35,7 +35,7 @@ Il codice seguente illustra il metodo `HTTP POST Edit`, che elabora i valori di 
 
 [!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-L'attributo `[Bind]` è un modo per proteggersi dall'[overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). È necessario includere solo le proprietà nell'attributo `[Bind]` che si vuole modificare. Per altre informazioni, vedere [Proteggere il controller dall'overposting](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). [ViewModel](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) offre un approccio alternativo per evitare l'overposting.
+L'attributo `[Bind]` è un modo per proteggersi dall'[overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). È necessario includere solo le proprietà nell'attributo `[Bind]` che si vuole modificare. Per altre informazioni, vedere [Proteggere il controller dall'overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModel](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) offre un approccio alternativo per evitare l'overposting.
 
 Si noti che il secondo metodo di azione `Edit` è preceduto dall'attributo `[HttpPost]`.
 
@@ -89,7 +89,7 @@ Tutti i metodi `HttpGet` nel controller di film seguono un pattern simile. Ricev
 * [Introduzione agli helper tag](xref:mvc/views/tag-helpers/intro)
 * [Creazione e modifica di helper tag](xref:mvc/views/tag-helpers/authoring)
 * [Richiesta intersito falsa](xref:security/anti-request-forgery)
-* Proteggere il controller dall'[dall'overposting](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost).
+* Proteggere il controller dall'[dall'overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application).
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Helper tag di modulo](xref:mvc/views/working-with-forms)
 * [Helper tag di input](xref:mvc/views/working-with-forms)

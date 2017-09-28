@@ -6,7 +6,7 @@ Sostituire il contenuto di *Controllers/HelloWorldController.cs* con quanto segu
 
 Un endpoint HTTP è un URL definibile come destinazione nell'applicazione Web, ad esempio `http://localhost:1234/HelloWorld`, e combina il protocollo usato (`HTTP`), il percorso di rete del server Web, tra cui la porta TCP (`localhost:1234`) e l'URI di destinazione (`HelloWorld`).
 
-Il primo commento indica che si tratta di un metodo [HTTP GET](http://www.w3schools.com/tags/ref_httpmethods.asp) che viene richiamato aggiungendo "/HelloWorld/" all'URL di base. Il secondo commento specifica un metodo [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) che viene richiamato aggiungendo "/HelloWorld/Welcome/" all'URL. In una fase successiva dell'esercitazione si userà il motore di scaffolding per generare i metodi `HTTP POST`.
+Il primo commento indica che si tratta di un metodo [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) che viene richiamato aggiungendo "/HelloWorld/" all'URL di base. Il secondo commento specifica un metodo [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) che viene richiamato aggiungendo "/HelloWorld/Welcome/" all'URL. In una fase successiva dell'esercitazione si userà il motore di scaffolding per generare i metodi `HTTP POST`.
 
 Eseguire l'app in modalità non di debug e aggiungere "HelloWorld" al percorso nella barra degli indirizzi. Il metodo `Index` restituisce una stringa.
 
@@ -46,7 +46,7 @@ Sostituire xxxx con il numero di porta. È possibile provare diversi valori per 
 
 ![Finestra del browser con una risposta dell'applicazione, Hello Rick, NumTimes is: 4](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-Nell'immagine precedente non viene usato il segmento di URL (`Parameters`), i parametri `name` e `numTimes` vengono passati come [stringhe di query](http://en.wikipedia.org/wiki/Query_string). Il punto interrogativo `?` nell'URL precedente è un separatore e seguono le stringhe di query. Il carattere `&` separa le stringhe di query.
+Nell'immagine precedente non viene usato il segmento di URL (`Parameters`), i parametri `name` e `numTimes` vengono passati come [stringhe di query](https://wikipedia.org/wiki/Query_string). Il punto interrogativo `?` nell'URL precedente è un separatore e seguono le stringhe di query. Il carattere `&` separa le stringhe di query.
 
 Sostituire il metodo `Welcome` con il codice seguente:
 

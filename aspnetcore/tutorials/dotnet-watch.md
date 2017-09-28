@@ -11,11 +11,11 @@ ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 30e0d07bdfbd16a475e03c1a21cdd10220bd1630
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6a8943619e6174dbcd3d901b7bb736ba5d3af95d
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Sviluppo di app ASP.NET Core con dotnet watch
 
@@ -52,7 +52,7 @@ Passare all'API del prodotto (`http://localhost:5000/api/math/product?a=4&b=5`),
 - Aggiungere `Microsoft.DotNet.Watcher.Tools` al file *.csproj*:
  ```xml
  <ItemGroup>
-   <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+   <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
  </ItemGroup> 
  ```
 

@@ -1,7 +1,7 @@
 ---
 title: Hosting di ASP.NET Core in Linux con Apache
 description: Informazioni su come configurare Apache come server di proxy inverso in CentOS per reindirizzare il traffico HTTP a un'applicazione Web ASP.NET Core in esecuzione su Kestrel.
-keywords: ASP.NET Core Apache, CentOS, Proxy inverso, Linux, mod_proxy, httpd, hosting
+keywords: ASP.NET Core, Apache, CentOS, proxy inverso, Linux, mod_proxy, httpd, hosting
 author: spboyer
 ms.author: spboyer
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: fa9b0cb7-afb3-4361-9e7e-33afffeaca0c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/apache-proxy
-ms.openlocfilehash: 9dc22ea20a6ae2e2477f9e6db95ddabecc038dcb
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 34ede2fdebe0e9516f62e39618e7adba3c8c89db
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-apache-and-deploy-to-it"></a>Configurare un ambiente di hosting per ASP.NET Core in Linux con Apache e distribuirlo
 
