@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 8a272b63edb1d173c4ae0324fe4bbdbfede424c6
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2ffb6f13a7303527444085d137d1acac02d7e0ef
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-search-to-an-aspnet-core-mvc-app"></a>Aggiunta della funzionalità di ricerca a un'app ASP.NET Core MVC
 
@@ -24,7 +24,7 @@ In questo documento viene aggiunta una funzionalità di ricerca alla pagina di i
 
 Aggiornare il metodo `OnGetAsync` della pagina di indice con il codice seguente:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
 
 La prima riga del metodo `OnGetAsync` crea una query [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/) per selezionare i film:
 
@@ -37,7 +37,7 @@ La query viene *solo* definita in questo punto, ma **non** viene eseguita nel da
 
 Se il parametro `searchString` contiene una stringa, la query dei film viene modificata per filtrare gli elementi in base alla stringa di ricerca:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
 Il codice `s => s.Title.Contains()` è un'[espressione lambda](https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Le espressioni lambda vengono usate nelle query [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/) basate sul metodo come argomenti dei metodi di operatore query standard, ad esempio il metodo [Where](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) o `Contains` (usato nel codice precedente). Le query LINQ non vengono eseguite al momento della definizione o della modifica chiamando un metodo, ad esempio `Where`, `Contains` o `OrderBy`. L'esecuzione della query viene invece posticipata. Per esecuzione posticipata si intende che la valutazione di un'espressione viene ritardata finché non viene eseguita l'iterazione del valore ottenuto o non viene chiamato il metodo `ToListAsync`. Per altre informazioni, vedere [Esecuzione di query](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
@@ -61,7 +61,7 @@ Non è tuttavia possibile supporre che gli utenti modifichino l'URL per cercare 
 
 Aprire il file *Pages/Movies/Index.cshtml* e aggiungere il markup `<form>` evidenziato nel codice seguente:
 
-[!code-cshtml[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
+[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
 
 Il tag HTML `<form>` usa l'[helper tag del modulo](xref:mvc/views/working-with-forms#the-form-tag-helper). Quando il modulo viene inviato, la stringa di filtro verrà inviata alla pagina *Pages/Movies/Index*. Salvare le modifiche e testare il filtro.
 
@@ -71,7 +71,7 @@ Il tag HTML `<form>` usa l'[helper tag del modulo](xref:mvc/views/working-with-f
 
 Aggiungere le proprietà evidenziate seguenti in *Pages/Movies/Index.cshtml.cs*:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-)]
 
 `SelectList Genres` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
 
@@ -79,11 +79,11 @@ La proprietà `MovieGenre` contiene il genere specificato selezionate dall'utent
 
 Aggiornare il metodo `OnGetAsync` con il codice seguente:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
 
 Il codice seguente è una query LINQ che recupera tutti i generi dal database.
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
 
 L'elenco `SelectList` di generi viene creato presentando generi distinti.
 
@@ -103,7 +103,7 @@ Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
 
 Aggiornare *Index.cshtml* come indicato di seguito:
 
-[!code-cshtml[Principale](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
+[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 Eseguire il test dell'app effettuando una ricerca per genere, titolo del film e usando entrambi i filtri.
 
