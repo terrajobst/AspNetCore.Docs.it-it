@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 39b65f8af8304fabc6cf8d9a27992043f1e381a0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 290d752ea5f177348ff3e749cc125e946ae6e763
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="updating-the-generated-pages"></a>Aggiornamento delle pagine generate
 
@@ -28,12 +28,11 @@ Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentaz
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate nel codice seguente:
 
-[!code-csharp[Principale](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
 
 Fare clic con il pulsante destro del mouse su una riga rossa ondulata > **Azioni rapide e refactoring**.
 
   ![Menu di scelta rapida con **> Azioni rapide e refactoring**.](da1/qa.png)
-
 
 Selezionare `using System.ComponentModel.DataAnnotations;`.
 
@@ -47,9 +46,9 @@ Accedere a Pages/Movies e passare il mouse su un collegamento **Edit** (Modifica
 
 ![Finestra del browser con il passaggio del mouse sul collegamento Edit (Modifica) e un URL di collegamento di http://localhost:1234/Movies/Edit/5](da1/edit7.png)
 
-I collegamenti **Edit** (Modifica), **Details** (Dettagli) e **Delete** (Elimina) vengono generati dall'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper) nel file *Pages/Movies/Index.cshtml*.
+I collegamenti **Edit** (Modifica), **Details** (Dettagli) e **Delete** (Elimina) vengono generati dall'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) nel file *Pages/Movies/Index.cshtml*.
 
-[!code-cshtml[Principale](razor-pages-start\snapshot_sample\RazorPagesMovie\Pages\Movie\Index.cshtml?highlight=16-18&range=32-)]
+[!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
 Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Nel codice precedente `AnchorTagHelper` genera in modo dinamico il valore di attributo `href` HTML dalla pagina Razor (la route è relativa), `asp-page` e l'ID di route (`asp-route-id`). Per altre informazioni, vedere [Generazione di URL per le pagine](xref:mvc/razor-pages/index#url-generation-for-pages).
 
@@ -61,7 +60,6 @@ Usare **Visualizza origine** dal browser preferito per esaminare il codice gener
   <a href="/Movies/Details?id=1">Details</a> |
   <a href="/Movies/Delete?id=1">Delete</a>
 </td>
-
 ```
 
 I collegamenti generati dinamicamente passano l'ID del film con una stringa di query, ad esempio `http://localhost:5000/Movies/Details?id=2`. 
@@ -86,7 +84,7 @@ Una richiesta alla pagina con il modello di route "{id: int}" che **non** includ
 
 Aggiornare il metodo `OnPostAsync` nel file *Pages/Movies/Edit.cshtml.cs*. Il codice evidenziato seguente illustra le modifiche:
 
-[!code-csharp[Principale](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet1&highlight=17-24)]
+[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
 Il codice precedente rileva le eccezioni di concorrenza solo quando il primo client concorrente elimina il film e il secondo client concorrente invia le modifiche al film.
 
@@ -101,7 +99,7 @@ Il codice di produzione in genere rileva i conflitti di concorrenza quando due o
 
 ### <a name="posting-and-binding-review"></a>Invio di post e analisi delle associazioni
 
-Esaminare il file *Pages/Movies/Edit.cshtml.cs*: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet2)]
+Esaminare il file *Pages/Movies/Edit.cshtml.cs*: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 Quando viene eseguita una richiesta HTTP GET alla pagina Movies/Edit (Film/Modifica), ad esempio `http://localhost:5000/Movies/Edit/2`:
 
@@ -113,10 +111,10 @@ Quando viene inviata la pagina Movies/Edit (Film/Modifica):
 
 * I valori del modulo nella pagina vengono associati alla proprietà `Movie`. L'attributo `[BindProperty]` abilita l'[associazione di modelli](xref:mvc/models/model-binding).
 
-```csharp
-[BindProperty]
-public Movie Movie { get; set; }
-```
+  ```csharp
+  [BindProperty]
+  public Movie Movie { get; set; }
+  ```
 
 * Se sono presenti errori nello stato del modello, ad esempio `ReleaseDate` non può essere convertito in una data, il modulo viene inviato nuovamente con i valori presentati.
 * Se non sono presenti errori del modello, il film viene salvato.
