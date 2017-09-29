@@ -1,24 +1,24 @@
 ---
 title: Collegamento del browser in ASP.NET Core
 author: ncarandini
-description: "Una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser"
+description: "Informazioni su come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser."
 keywords: ASP.NET Core, il collegamento del browser, sincronizzazione CSS
 ms.author: riande
 manager: wpickett
-ms.date: 12/28/2016
+ms.date: 09/22/2017
 ms.topic: article
 ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 211dd5d03e6b8414e0b2ed3234d8970c92f72452
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-browser-link-in-aspnet-core"></a>Introduzione al collegamento del Browser ASP.NET Core 
+# <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core 
 
 Da [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson), e [Tom Dykstra](https://github.com/tdykstra)
 
@@ -26,42 +26,49 @@ Collegamento del browser è una funzionalità di Visual Studio che crea un canal
 
 ## <a name="browser-link-setup"></a>Installazione del collegamento browser
 
-ASP.NET Core **applicazione Web** modelli di progetto nella finestra di Visual Studio 2015 e versioni successive sono disponibili tutti gli elementi necessari per il collegamento del Browser.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Per aggiungere il collegamento del Browser a un progetto creato utilizzando ASP.NET Core **vuoto** o **API Web** modello, seguire questi passaggi:
+ASP.NET Core 2. x **applicazione Web**, **vuoto**, e **API Web** modello progetti utilizzano il [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) Meta pacchetto, che contiene un riferimento al pacchetto per [browserlink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). Pertanto, l'utilizzo di `Microsoft.AspNetCore.All` meta pacchetto non richiede alcuna azione aggiuntiva per rendere disponibili per l'utilizzo di collegamento del Browser.
 
-1. Aggiungere il *Microsoft.VisualStudio.Web.BrowserLink.Loader* pacchetto 
-2. Aggiungere il codice di configurazione nel *Startup.cs* file.
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-### <a name="add-the-package"></a>Aggiungere il pacchetto
+ASP.NET Core 1. x **applicazione Web** modello di progetto è un riferimento al pacchetto per il [browserlink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pacchetto. Il **vuoto** o **API Web** progetti di modello è necessario aggiungere un riferimento pacchetto `Microsoft.VisualStudio.Web.BrowserLink`.
 
-Poiché si tratta di una funzionalità di Visual Studio, il modo più semplice per aggiungere il pacchetto è per aprire la **Package Manager Console** (**Vista > altre finestre > Console di gestione pacchetti**) ed eseguire il comando seguente:
+Poiché si tratta di una funzionalità di Visual Studio, il modo più semplice per aggiungere il pacchetto a un **vuoto** o **API Web** progetto modello è anche possibile aprire il **Package Manager Console** (**Visualizzazione** > **altre finestre** > **Package Manager Console**) ed eseguire il comando seguente:
 
 ```console
-install-package Microsoft.VisualStudio.Web.BrowserLink.Loader
+install-package Microsoft.VisualStudio.Web.BrowserLink
 ```
 
-In alternativa, è possibile utilizzare **Gestione pacchetti NuGet**.  Fare doppio clic sul nome del progetto in **Esplora**e scegliere **Gestisci pacchetti NuGet**. 
+In alternativa, è possibile utilizzare **Gestione pacchetti NuGet**. Fare doppio clic sul nome del progetto in **Esplora** e scegliere **Gestisci pacchetti NuGet**:
 
 ![Aprire Gestisci pacchetti NuGet](using-browserlink/_static/open-nuget-package-manager.png)
 
-Quindi, individuare e installare il pacchetto.
+Trovare e installare il pacchetto:
 
 ![Aggiungere il pacchetto con Gestione pacchetti NuGet](using-browserlink/_static/add-package-with-nuget-package-manager.png)
 
-### <a name="add-configuration-code"></a>Aggiungere il codice di configurazione
+---
 
-Aprire il *Startup.cs* file e il `Configure` metodo aggiungere il codice seguente:
+### <a name="configuration"></a>Configurazione
+
+Nel `Configure` metodo il *Startup.cs* file:
 
 ```csharp
 app.UseBrowserLink();
 ```
 
-In genere che il codice è all'interno di un `if` blocco che consente il collegamento Browser solo nell'ambiente di sviluppo, come illustrato di seguito:
+In genere il codice è all'interno di un `if` blocco che consente solo di collegamento del Browser nell'ambiente di sviluppo, come illustrato di seguito:
 
-[!code-csharp[Main](./using-browserlink/sample/BrowserLinkSample/src/BrowserLinkSample/Startup.cs?highlight=1,4&range=40-44)]
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseBrowserLink();
+}
+```
 
-Per altre informazioni, vedere [Uso di più ambienti](../fundamentals/environments.md).
+Per altre informazioni, vedere [Uso di più ambienti](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Come utilizzare il collegamento del Browser
 
@@ -71,10 +78,10 @@ Quando è aperto un progetto ASP.NET Core, Visual Studio Mostra il controllo bar
 
 Dal controllo della barra degli strumenti di collegamento del Browser, è possibile:
 
-- Aggiornare l'applicazione web browser diversi in una sola volta
-- Aprire il **Dashboard del collegamento Browser**
-- Abilitare o disabilitare **collegamento Browser**
-- Abilitare o disabilitare la sincronizzazione automatica CSS
+* Aggiornare l'applicazione web nel browser diverse contemporaneamente.
+* Aprire il **Dashboard del collegamento Browser**.
+* Abilitare o disabilitare **collegamento Browser**. Nota: Collegamento del Browser è disabilitato per impostazione predefinita in Visual Studio 2017 (15.3).
+* Abilitare o disabilitare la sincronizzazione automatica CSS.
 
 > [!NOTE]
 > Alcuni plug-in Visual Studio, in particolare *Web estensione Pack 2015* e *Web estensione Pack 2017*, offrono funzionalità estese per il collegamento del Browser, ma alcune funzionalità aggiuntive non funzionano con ASP. Progetti di componenti di base NET.
@@ -85,11 +92,11 @@ Per scegliere un singolo web browser per avviare all'avvio del progetto, utilizz
 
 ![Menu di scelta rapida F5](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-Per aprire contemporaneamente più browser, scegliere **Esplora con... ** dalla stessa elenco a discesa.  Tenere premuto il tasto CTRL per selezionare i browser desiderato e quindi fare clic su **Sfoglia**:
+Per aprire contemporaneamente più browser, scegliere **Esplora con...**  dalla stessa elenco a discesa. Tenere premuto il tasto CTRL per selezionare i browser desiderato e quindi fare clic su **Sfoglia**:
 
 ![Aprire contemporaneamente molti browser](using-browserlink/_static/open-many-browsers-at-once.png)
 
-Ecco una schermata di esempio con Visual Studio con la visualizzazione dell'indice aperto e due i browser aperti:
+Ecco una schermata che illustra di Visual Studio con la visualizzazione dell'indice aperto e due i browser aperti:
 
 ![Sincronizzazione con un esempio di due browser](using-browserlink/_static/sync-with-two-browsers-example.png)
 
@@ -109,11 +116,11 @@ Aprire il Dashboard di collegamento Browser dal menu per gestire la connessione 
 
 ![dashboard di browserslink Apri](using-browserlink/_static/open-browserlink-dashboard.png)
 
-Se non è connesso alcun browser, è possibile avviare una sessione non debug scegliendo il _Visualizza nel Browser_ collegamento:
+Se non è connesso alcun browser, è possibile avviare una sessione di debug non selezionando il *Visualizza nel Browser* collegamento:
 
 ![browserlink-dashboard-no-connessioni](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
-In caso contrario, vengono visualizzati i browser connessi, con il percorso della pagina da cui viene visualizzata ogni browser:
+In caso contrario, i browser connessi sono mostrati con il percorso della pagina da cui viene visualizzata ogni browser:
 
 ![browserlink-dashboard-due connessioni](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
@@ -143,4 +150,4 @@ Collegamento del browser utilizza SignalR per creare un canale di comunicazione 
 
 I file di origine non vengono modificati. Il componente middleware inserisce i riferimenti a script in modo dinamico. 
 
-Dal momento che il codice lato browser è il supporto di JavaScript, funziona per tutti i browser che supporta SignalR, senza richiedere alcun plug-in browser.
+Dal momento che il codice lato browser è il supporto di JavaScript, funziona per tutti i browser che supporta SignalR senza richiedere un plug-in del browser.

@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f6b454da838308adddaaddb84073722f647af379
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inserimento di dipendenze controller
 
@@ -35,21 +35,19 @@ Inserimento di dipendenze è una tecnica che segue il [principio di inversione d
 
 Supporto incorporato dell'ASP.NET Core inserimento di dipendenza basato sul costruttore si estende al controller MVC. Aggiungendo semplicemente un tipo di servizio al controller come parametro costruttore, ASP.NET Core tenterà di risolvere il tipo in questione utilizzando incorporato nel contenitore dei servizi. I servizi sono in genere, ma non sempre, definiti utilizzando le interfacce. Ad esempio, se l'applicazione dispone di logica di business che dipende dal tempo corrente, è possibile inserire un servizio che recupera il tempo (anziché a livello di codice), quali i test passare le implementazioni che usano un determinato periodo di tempo.
 
-[!code-csharp[Principale](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
 
 
 Implementazione di un'interfaccia come questo in modo che utilizzi l'orologio di sistema in fase di esecuzione è piuttosto semplice:
 
-[!code-csharp[Principale](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
 
 
 A questo punto, è possibile usare il servizio in questo controller. In questo caso, è stata aggiunta logica per il `HomeController` `Index` metodo per visualizzare un saluto all'utente in base all'ora del giorno.
 
-[!code-csharp[Principale](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
 
 Se si esegue ora l'applicazione, si verificherà probabilmente un errore:
-
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
 ```
 An unhandled exception occurred while processing the request.
@@ -60,7 +58,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 
 Questo errore si verifica quando non è stato configurato un servizio nel `ConfigureServices` metodo nel nostro `Startup` classe. Per specificare che le richieste di `IDateTime` deve essere risolto utilizzando un'istanza di `SystemDateTime`, aggiungere la riga evidenziata nell'elenco seguente per il `ConfigureServices` metodo:
 
-[!code-csharp[Principale](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
+[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
 
 > [!NOTE]
 > Questo particolare servizio può essere implementato usando una qualsiasi delle diverse opzioni di durata diversa (`Transient`, `Scoped`, o `Singleton`). Vedere [Dependency Injection](../../fundamentals/dependency-injection.md) comprendere ognuna di queste opzioni di ambito verrà influenza il comportamento del servizio.
@@ -73,8 +71,6 @@ Una volta configurato il servizio, che esegue l'applicazione e passare alla home
 > Vedere [logica del Controller di test](testing.md) per informazioni su come richiedere in modo esplicito le dipendenze [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) nei controller di codice risulta più facile da testare.
 
 Inserimento di dipendenze predefinito del ASP.NET Core supporta solo un singolo costruttore per le classi di richiesta di servizi. Se si dispone di più di un costruttore, si potrebbe ottenere un'eccezione indicante:
-
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
 ```
 An unhandled exception occurred while processing the request.
@@ -89,7 +85,7 @@ Come indicato nel messaggio di errore, è possibile correggere il problema con s
 
 In alcuni casi non è necessario un servizio per più di un'azione all'interno del controller. In questo caso, può avere senso per inserire il servizio come parametro al metodo di azione. Questa operazione viene eseguita contrassegnando il parametro con l'attributo `[FromServices]` come illustrato di seguito:
 
-[!code-csharp[Principale](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
 
 ## <a name="accessing-settings-from-a-controller"></a>Accesso alle impostazioni da un Controller
 
@@ -97,17 +93,17 @@ Accesso alle impostazioni dell'applicazione o di configurazione all'interno di u
 
 Per utilizzare il modello di opzioni, è necessario creare una classe che rappresenta le opzioni, ad esempio questo:
 
-[!code-csharp[Principale](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
 
 È quindi necessario configurare l'applicazione per utilizzare il modello di opzioni e aggiungere la classe di configurazione per la raccolta di servizi in `ConfigureServices`:
 
-[!code-csharp[Principale](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
 > Nell'elenco precedente, è in fase di configurazione dell'applicazione per leggere le impostazioni da un file in formato JSON. È anche possibile configurare le impostazioni interamente nel codice, come illustrato nel codice commentato precedente. Vedere [configurazione](../../fundamentals/configuration.md) per ulteriori opzioni di configurazione.
 
 Dopo aver specificato un oggetto fortemente tipizzato configurazione (in questo caso, `SampleWebSettings`) e aggiungerlo alla raccolta di servizi, è possibile richiedere qualsiasi metodo di azione o Controller richiedendo un'istanza di `IOptions<T>` (in questo caso, `IOptions<SampleWebSettings>`) . Il codice seguente viene illustrato come uno richiede le impostazioni da un controller:
 
-[!code-csharp[Principale](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
 Modello di opzioni consente le impostazioni e configurazione per essere separato rispetto a altro e assicura il controller è seguito [separazione delle problematiche](http://deviq.com/separation-of-concerns/), poiché non è necessario sapere come o dove trovare le impostazioni informazioni. Inoltre semplifica il controller di test unità [logica del Controller di test](testing.md), poiché non esiste alcun [adesive statico](http://deviq.com/static-cling/) o diretta creazione di istanze di classi di impostazioni all'interno della classe controller.

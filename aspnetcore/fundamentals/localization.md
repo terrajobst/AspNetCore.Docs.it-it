@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 2a760343566d2c2be591983e20830b5207a2199b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -39,41 +39,41 @@ Localizzazione App comporta quanto segue:
 
 Introdotto in ASP.NET Core, `IStringLocalizer` e `IStringLocalizer<T>` sono state progettate per migliorare la produttività durante lo sviluppo di App localizzata. `IStringLocalizer`Usa il [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) e [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) per fornire risorse specifiche delle impostazioni cultura in fase di esecuzione. L'interfaccia semplice dispone di un indicizzatore e un `IEnumerable` per la restituzione di stringhe localizzate. `IStringLocalizer`non è necessario archiviare le stringhe di linguaggio predefinito in un file di risorse. È possibile sviluppare un'app di destinazione per la localizzazione e non è necessario creare file di risorse nelle prime fasi di sviluppo. Il codice riportato di seguito viene illustrato come eseguire il wrapping la stringa "Title su" per la localizzazione.
 
-[!code-csharp[Principale](localization/sample/Controllers/AboutController.cs)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
 Nel codice precedente, il `IStringLocalizer<T>` implementazione proviene da [Dependency Injection](dependency-injection.md). Se non viene trovato il valore localizzato di "Su Title", quindi la chiave dell'indicizzatore viene restituita, ovvero la stringa "Title su". È possibile lasciare l'impostazione predefinita, le stringhe letterali lingua nell'app e wrap in localizzatore, in modo che sia possibile concentrarsi sullo sviluppo di app. Sviluppare l'applicazione con la lingua predefinita e prepararlo per il passaggio di localizzazione senza prima creare un file di risorse predefinito. In alternativa, è possibile utilizzare l'approccio tradizionale e fornire una chiave per recuperare la stringa di lingua predefinita. Per molti sviluppatori nuovo flusso di lavoro di non avere una lingua predefinita *resx* file e semplicemente il wrapping i valori letterali stringa possono ridurre l'overhead di localizzazione di un'app. Come può rendere più facile lavorare con più valori letterali stringa e rendono più semplice aggiornare le stringhe localizzate, altri sviluppatori preferiranno il flusso di lavoro tradizionale.
 
 Utilizzare il `IHtmlLocalizer<T>` implementazione per le risorse che contengono HTML. `IHtmlLocalizer`HTML codifica argomenti in cui vengono utilizzati la stringa di risorsa, ma non la stringa di risorsa. Nell'esempio evidenziate, solo il valore di `name` parametro è codificato in formato HTML.
 
-[!code-csharp[Principale](../fundamentals/localization/sample/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
+[!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
 Nota: In genere necessario localizzare solo testo e non il codice HTML.
 
 Al livello inferiore, è possibile ottenere `IStringLocalizerFactory` fuori [Dependency Injection](dependency-injection.md):
 
-[!code-csharp[Principale](localization/sample/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
 
 Il codice sopra riportato di seguito viene illustrato ogni della factory due metodi di creazione.
 
 È possibile partizionare le stringhe localizzate dal controller, area o avere un solo contenitore. Nell'applicazione di esempio, una classe fittizia denominata `SharedResource` viene utilizzato per le risorse condivise.
 
-[!code-csharp[Principale](localization/sample/Resources/SharedResource.cs)]
+[!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
 Alcuni sviluppatori utilizzano il `Startup` classe per contenere stringhe globale o condivise.  Nell'esempio seguente, il `InfoController` e `SharedResource` vengono utilizzati i localizzatori:
 
-[!code-csharp[Principale](localization/sample/Controllers/InfoController.cs?range=9-26)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
 ## <a name="view-localization"></a>Localizzazione di visualizzazione
 
 Il `IViewLocalizer` servizio fornisce stringhe localizzate per un [vista](https://docs.microsoft.com/aspnet/core). La `ViewLocalizer` classe implementa questa interfaccia e consente di trovare il percorso della risorsa dal percorso del file di visualizzazione. Il codice seguente viene illustrato come utilizzare l'implementazione predefinita di `IViewLocalizer`:
 
-[!code-HTML[Principale](localization/sample/Views/Home/About.cshtml)]
+[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 L'implementazione predefinita di `IViewLocalizer` trova il file di risorse basato sul nome di file della vista. Non è disponibile alcuna opzione per utilizzare un file di risorsa globale condivisa. `ViewLocalizer`implementa il localizzatore utilizzando `IHtmlLocalizer`, pertanto Razor non HTML codificare la stringa localizzata. È possibile parametrizzare le stringhe di risorsa e `IViewLocalizer` HTML codificherà i parametri, ma non la stringa di risorsa. Si consideri il seguente codice Razor:
 
-```HTML
+```cshtml
 @Localizer["<i>Hello</i> <b>{0}!</b>", UserManager.GetUserName(User)]
-   ```
+```
 
 Un file di risorse francese potrebbe contenere quanto segue:
 
@@ -89,7 +89,7 @@ Note:
 
 Per utilizzare un file di risorse condivise in una vista, inserire `IHtmlLocalizer<T>`:
 
-[!code-HTML[Principale](../fundamentals/localization/sample/Views/Test/About.cshtml?highlight=5,12)]
+[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>Localizzazione DataAnnotations
 
@@ -98,7 +98,7 @@ I messaggi di errore DataAnnotations vengono localizzati con `IStringLocalizer<T
 * Resources/ViewModels.Account.RegisterViewModel.fr.resx
 * Resources/ViewModels/Account/RegisterViewModel.fr.resx
 
-[!code-csharp[Principale](localization/sample/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
+[!code-csharp[Main](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
 In ASP.NET MVC di base 1.1.0 e superiori, non convalida gli attributi sono localizzati. Componenti di base di ASP.NET MVC 1,0 **non** cercare stringhe localizzate per gli attributi non di convalida.
 
@@ -107,7 +107,7 @@ In ASP.NET MVC di base 1.1.0 e superiori, non convalida gli attributi sono local
 
 Il codice seguente viene illustrato come utilizzare una stringa di risorsa per gli attributi di convalida con più classi:
 
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc()
@@ -136,7 +136,7 @@ Un file di risorse è un meccanismo utile per la separazione di stringhe localiz
 
 2. Nel **Cerca modelli installati** immettere "resource", quindi denominare il file.
 
-    ![Aggiungere una finestra di dialogo Nuovo elemento](localization/_static/res.png)
+    ![Finestra di dialogo Aggiungi nuovo elemento](localization/_static/res.png)
 
 3. Immettere il valore della chiave (stringa nativi) nei **nome** colonna e la stringa tradotta nel **valore** colonna.
 
@@ -182,7 +182,7 @@ Se si crea un file di risorse in Visual Studio senza le impostazioni cultura nel
 
 ### <a name="adding-other-cultures"></a>Aggiunta di altre impostazioni cultura
 
-Ogni combinazione di lingua e le impostazioni cultura (diversa da quella predefinita) richiede un file di risorse univoco. Creare file di risorse per diverse impostazioni cultura e le impostazioni locali mediante la creazione di nuovi file di risorse in cui i codici di lingua ISO fanno parte del nome file (ad esempio, **en-us**, **fr-ca**, e ** en-gb**). Questi codici vengono inseriti tra il nome del file e *resx* estensione nome file, come in *Welcome.es MX* (spagnolo/Messico). Per specificare una lingua indipendente dalle impostazioni cultura, rimuovere il codice paese (`MX` nell'esempio precedente). Il nome del file di risorse spagnolo indipendenti dalle impostazioni cultura *Welcome.es.resx*.
+Ogni combinazione di lingua e le impostazioni cultura (diversa da quella predefinita) richiede un file di risorse univoco. Creare file di risorse per diverse impostazioni cultura e le impostazioni locali mediante la creazione di nuovi file di risorse in cui i codici di lingua ISO fanno parte del nome file (ad esempio, **en-us**, **fr-ca**, e  **en-gb**). Questi codici vengono inseriti tra il nome del file e *resx* estensione nome file, come in *Welcome.es MX* (spagnolo/Messico). Per specificare una lingua indipendente dalle impostazioni cultura, rimuovere il codice paese (`MX` nell'esempio precedente). Il nome del file di risorse spagnolo indipendenti dalle impostazioni cultura *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementare una strategia per selezionare la lingua per ogni richiesta  
 
@@ -190,7 +190,7 @@ Ogni combinazione di lingua e le impostazioni cultura (diversa da quella predefi
 
 Localizzazione è configurata nel `ConfigureServices` metodo:
 
-[!code-csharp[Principale](localization/sample/Program.cs?name=snippet1)]
+[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
 
 * `AddLocalization`Aggiunge i servizi di localizzazione per il contenitore dei servizi. Il codice sopra imposta inoltre il percorso delle risorse in "Resources".
 
@@ -202,7 +202,7 @@ Localizzazione è configurata nel `ConfigureServices` metodo:
 
 Le impostazioni cultura correnti per una richiesta sono stata impostata la localizzazione [Middleware](middleware.md). Il middleware di localizzazione è abilitato nel `Configure` metodo *Program.cs* file. Si noti che il middleware di localizzazione deve essere configurato prima middleware che è possibile controllare le impostazioni cultura richiesta (ad esempio, `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[Principale](localization/sample/Program.cs?name=snippet2)]
+[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
 `UseRequestLocalization`Inizializza un `RequestLocalizationOptions` oggetto. Ogni richiesta, l'elenco di `RequestCultureProvider` nel `RequestLocalizationOptions` viene enumerata e viene utilizzato il primo provider in grado di determinare correttamente le impostazioni cultura richiesta. I provider predefiniti provengono dalla `RequestLocalizationOptions` classe:
 
@@ -287,15 +287,15 @@ Utilizzare `RequestLocalizationOptions` per aggiungere o rimuovere i provider di
 
 In questo esempio **Localization.StarterWeb** progetto [GitHub](https://github.com/aspnet/entropy) contiene l'interfaccia utente di impostare il `Culture`. Il *Views/Shared/_SelectLanguagePartial.cshtml* file consente di selezionare le impostazioni cultura dall'elenco delle impostazioni cultura supportate:
 
-[!code-HTML[Principale](localization/sample/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 Il *Views/Shared/_SelectLanguagePartial.cshtml* file viene aggiunto per il `footer` sezione del file di layout in modo che sia disponibile per tutte le viste:
 
-[!code-HTML[Principale](localization/sample/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 Il `SetLanguage` metodo imposta il cookie di impostazioni cultura.
 
-[!code-csharp[Principale](localization/sample/Controllers/HomeController.cs?range=57-67)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
 Non è possibile collegare il *_SelectLanguagePartial.cshtml* al codice di esempio per questo progetto. Il **Localization.StarterWeb** progetto [GitHub](https://github.com/aspnet/entropy) include il codice per il flusso di `RequestLocalizationOptions` per un Razor parziale tramite il [Dependency Injection](dependency-injection.md) contenitore.
 

@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
@@ -32,8 +32,6 @@ Quando MVC riceve una richiesta HTTP, viene instradato a un metodo di azione spe
 `http://contoso.com/movies/edit/2`
 
 Poiché il modello di route è simile al seguente, `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` instrada il `Movies` controller e il relativo `Edit` metodo di azione. Tale metodo accetta inoltre un parametro facoltativo denominato `id`. Il codice per il metodo di azione dovrebbe essere simile al seguente:
-
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public IActionResult Edit(int? id)
@@ -71,7 +69,7 @@ Esistono inoltre alcuni tipi di dati speciale che deve prendere in considerazion
 
 * `IFormFile`, `IEnumerable<IFormFile>`: Uno o più file caricati che fanno parte della richiesta HTTP.
 
-* `CancelationToken`: Usato per annullare l'attività in un controller asincrono.
+* `CancellationToken`: Usato per annullare l'attività in un controller asincrono.
 
 Questi tipi possono essere associati ai parametri di azione o alle proprietà a un tipo di classe.
 
@@ -107,15 +105,13 @@ Dati della richiesta sono disponibili in un'ampia gamma di formati quali JSON, X
 
 Formattatori di input in base a viene selezionato il [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) intestazione e il tipo del parametro, a meno che non vi è un attributo applicato alla funzione che specifica in caso contrario. Se si desidera utilizzare il codice XML o un altro formato, è necessario configurare nel *Startup.cs* file, ma è prima necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe essere simile al seguente:
 
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
-   {
-       services.AddMvc()
-          .AddXmlSerializerFormatters();
+{
+    services.AddMvc()
+        .AddXmlSerializerFormatters();
    }
-   ```
+```
 
 Codice il *Startup.cs* file contiene un `ConfigureServices` metodo con un `services` argomento è possibile utilizzare per compilare i servizi per l'applicazione ASP.NET. Nell'esempio, si aggiungono un formattatore XML come un servizio che fornisce per questa applicazione MVC. Il `options` argomento passato il `AddMvc` metodo consente di aggiungere e gestire i filtri, i formattatori e altre opzioni di sistema da MVC dopo l'avvio delle app. Quindi applicare il `Consumes` attributo alle classi controller o ai metodi di azione per lavorare con il formato desiderato.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 07626ae7f40dc6f704d69d71cb7f95d318e6f503
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -105,6 +105,17 @@ La memorizzazione nella cache dal middleware di risposta viene configurato trami
 | Data | Quando Gestione dalla cache, il `Date` intestazione viene impostata dal middleware se esso non è stato fornito nella risposta originale. |
 | Lunghezza del contenuto | Quando Gestione dalla cache, il `Content-Length` intestazione viene impostata dal middleware se esso non è stato fornito nella risposta originale. |
 | Età | Il `Age` intestazione inviata nella risposta originale viene ignorato. Il middleware calcola un nuovo valore per la gestione di una risposta memorizzata nella cache. |
+
+## <a name="caching-respects-request-cache-control-directives"></a>La memorizzazione nella cache rispetta le direttive Cache-Control richiesta
+
+Il middleware rispetta le regole del [specifica la memorizzazione nella cache di HTTP 1.1](https://tools.ietf.org/html/rfc7234#section-5.2). Le regole richiedono una cache per rispettare un valido `Cache-Control` intestazione inviata dal client. In specifica di un client può eseguire richieste con un `no-cache` valore dell'intestazione e forza un server per generare una nuova risposta per ogni richiesta. Non è attualmente alcun controllo sviluppatore su questo comportamento di memorizzazione nella cache quando si utilizza il middleware perché il middleware conforme alla memorizzazione nella cache specifica ufficiale.
+
+[Miglioramenti futuri correlati al middleware](https://github.com/aspnet/ResponseCaching/issues/96) consentirà di configurare il middleware per la memorizzazione nella cache gli scenari in cui la richiesta `Cache-Control` intestazione deve essere ignorata quando si decide di gestire una risposta memorizzata nella cache. Se si ricerca maggiore controllo sul comportamento di memorizzazione nella cache, è possibile esplorare altre funzionalità di memorizzazione nella cache di ASP.NET Core. Vedere gli argomenti seguenti:
+
+* [Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core](xref:performance/caching/memory)
+* [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
+* [Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se il comportamento di memorizzazione nella cache non è come previsto, verificare che le risposte siano memorizzabile nella cache e in grado di servito dalla cache esaminando le intestazioni in ingresso della richiesta e della risposta in uscita. Abilitazione [registrazione](xref:fundamentals/logging) possono risultare utili durante il debug. Il middleware esegue la memorizzazione nella cache di comportamento e quando una risposta viene recuperata dalla cache.

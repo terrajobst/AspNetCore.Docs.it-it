@@ -2,20 +2,20 @@
 title: Integrazione di test in ASP.NET Core
 author: ardalis
 description: Come utilizzare l'integrazione di ASP.NET Core test per garantire che i componenti di un'applicazione funzionano correttamente.
-keywords: ASP.NET Core, il test di integrazione
+keywords: ASP.NET Core, integrazione test, Razor
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 09/25/2017
 ms.topic: article
 ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: fab1fb0e64debd8488713b3518cb3bc90182616b
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrazione di test in ASP.NET Core
 
@@ -49,7 +49,7 @@ ASP.NET Core include un host di test che può essere aggiunti ai progetti di tes
 
 Una volta il `Microsoft.AspNetCore.TestHost` pacchetto è incluso nel progetto, sarà possibile creare e configurare un `TestServer` nei test. Il test seguente mostra come verificare che una richiesta effettuata nella radice di un sito restituisce "Hello World!" e deve essere eseguito correttamente con il valore predefinito il modello Web vuoto di ASP.NET Core creato da Visual Studio.
 
-[!code-csharp[Principale](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 Questo test viene usato il modello Arrange-Act-Assert. Il passaggio di disposizione viene eseguito nel costruttore, che crea un'istanza di `TestServer`. Configurato `WebHostBuilder` verrà utilizzato per creare un `TestHost`; in questo esempio, il `Configure` sistema sottoposto a test (SUT) metodo `Startup` classe viene passata al `WebHostBuilder`. Questo metodo verrà utilizzato per configurare la pipeline di richieste del `TestServer` in modo identico in modalità server SUT sarà configurato.
 
@@ -57,13 +57,30 @@ Nella parte del test di Act, viene effettuata una richiesta per il `TestServer` 
 
 È ora possibile aggiungere alcuni test di integrazione aggiuntive per verificare che il primo controllo funzionalità funziona tramite l'applicazione web:
 
-[!code-csharp[Principale](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 Si noti che non è realmente si tenta di verificare la correttezza del controllo dei numeri primi con questi test, ma piuttosto che l'applicazione web esegue quanto previsto. Si dispone già di code coverage di unit test che ci si assicura `PrimeService`, come si può vedere di seguito:
 
 ![Esplora test](integration-testing/_static/test-explorer.png)
 
 Altre informazioni sugli unit test nel [Unit test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) articolo.
+
+
+### <a name="integration-testing-mvcrazor"></a>Test di Mvc/Razor di integrazione
+
+Progetti di test contenenti visualizzazioni Razor richiedono `<PreserveCompilationContext>` essere impostata su true nel *csproj* file:
+
+
+```xml
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+```
+
+Progetti di questo elemento mancante verranno generato un errore simile al seguente:
+```
+Microsoft.AspNetCore.Mvc.Razor.Compilation.CompilationFailedException: 'One or more compilation failures occurred:
+ooebhccx.1bd(4,62): error CS0012: The type 'Attribute' is defined in an assembly that is not referenced. You must add a reference to assembly 'netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+```
+
 
 ## <a name="refactoring-to-use-middleware"></a>Per l'utilizzo di middleware di refactoring
 
@@ -119,13 +136,13 @@ Per consentire il percorso in cui il middleware utilizza per essere specificato 
 > [!NOTE]
 > Dal momento che il middleware dipende il `PrimeService` servizio, inoltre richiesta un'istanza del servizio con il costruttore. Il framework fornirà il servizio tramite [Dependency Injection](xref:fundamentals/dependency-injection), presupponendo che è stato configurato, ad esempio in `ConfigureServices`.
 
-[!code-csharp[Principale](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 Poiché questo middleware agisce come un endpoint nella catena di delegato richiesta quando il relativo percorso corrisponde, non vi è alcuna chiamata a `_next.Invoke` quando questo middleware gestisce la richiesta.
 
 Con questo middleware e alcuni utili metodi di estensione creati per semplificare la configurazione, il refactoring `Configure` metodo è simile al seguente:
 
-[!code-csharp[Principale](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 Seguendo questo refactoring, si è certi che l'applicazione web continui a funzionare come prima, poiché i test di integrazione sono il passaggio.
 
@@ -134,6 +151,6 @@ Seguendo questo refactoring, si è certi che l'applicazione web continui a funzi
 
 ## <a name="resources"></a>Risorse
 
-* [Unit test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Testing unità](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Middleware](xref:fundamentals/middleware)
-* [Controller di test](xref:mvc/controllers/testing)
+* [Test dei controller](xref:mvc/controllers/testing)

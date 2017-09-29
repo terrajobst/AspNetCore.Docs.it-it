@@ -1,7 +1,7 @@
 ---
 title: Utilizzo di file statici di ASP.NET Core
 author: rick-anderson
-description: Utilizzo di file statici
+description: Utilizzo di file statici in ASP.NET Core
 keywords: ASP.NET Core, file statici, asset statico, HTML, CSS, JavaScript
 ms.author: riande
 manager: wpickett
@@ -12,13 +12,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>Introduzione all'utilizzo dei file statici di ASP.NET Core
+# <a name="working-with-static-files-in-aspnet-core"></a>Utilizzo di file statici di ASP.NET Core
 
 <a name=fundamentals-static-files></a>
 
@@ -199,7 +199,7 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 ### <a name="considerations"></a>Considerazioni
 
 >[!WARNING]
-> `UseDirectoryBrowser`e `UseStaticFiles` possono verificarsi perdite di informazioni riservate. È consigliabile che si **non** directory Attivazione esplorazione nell'ambiente di produzione. Prestare attenzione sulle directory di cui si abilita con `UseStaticFiles` o `UseDirectoryBrowser` come l'intera directory e tutte le sottodirectory saranno accessibili. Si consiglia di mantenere i contenuti pubblici nella propria directory, ad esempio * \<contenuto radice > / wwwroot*, lontano da visualizzazioni applicazione, i file di configurazione e così via.
+> `UseDirectoryBrowser`e `UseStaticFiles` possono verificarsi perdite di informazioni riservate. È consigliabile che si **non** directory Attivazione esplorazione nell'ambiente di produzione. Prestare attenzione sulle directory di cui si abilita con `UseStaticFiles` o `UseDirectoryBrowser` come l'intera directory e tutte le sottodirectory saranno accessibili. Si consiglia di mantenere i contenuti pubblici nella propria directory, ad esempio  *\<contenuto radice > / wwwroot*, lontano da visualizzazioni applicazione, i file di configurazione e così via.
 
 * Gli URL per il contenuto esposti con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione maiuscole/minuscole e le restrizioni del carattere del loro file system sottostante. Ad esempio, Windows viene fatta distinzione tra maiuscole e minuscole, ma Mac e Linux non sono.
 

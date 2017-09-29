@@ -1,7 +1,7 @@
 ---
 title: Convalida del modello in ASP.NET MVC di base
-author: rick-anderson
-description: Introduce la convalida del modello in ASP.NET MVC di base.
+author: rachelappel
+description: Informazioni sulla convalida del modello in ASP.NET MVC di base.
 keywords: Convalida di ASP.NET Core, MVC,
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0874d3b677cee2859da9eb85b0573811abbed12a
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: efbc68e898cadd06d61fa69914fe08f3a12ba802
+ms.sourcegitcommit: 8b5733f1cd5d2c2b6d432bf82fcd4be2d2d6b2a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -36,7 +36,7 @@ Gli attributi di convalida sono un modo per configurare la convalida del modello
 
 Di seguito è riportato un annotazioni `Movie` modello da un'app archivia informazioni sui film e programmi TV. La maggior parte delle proprietà sono necessario e diverse proprietà di stringa sono i requisiti di lunghezza. Inoltre, non c'è una restrizione di intervallo numerico in atto per la `Price` proprietà da 0 a $999,99, insieme a un attributo di convalida personalizzata.
 
-[!code-csharp[Main](validation/sample/Movie.cs?range=6-31)]
+[!code-csharp[Main](validation/sample/Movie.cs?range=6-29)]
 
 Semplicemente leggendo il modello vengono visualizzate le regole relative ai dati per questa app, semplificando la gestione del codice. Di seguito sono diversi attributi di convalida incorporate comuni:
 
@@ -61,6 +61,18 @@ Semplicemente leggendo il modello vengono visualizzate le regole relative ai dat
 MVC supporta qualsiasi attributo che deriva da `ValidationAttribute` ai fini della convalida. Numero di attributi di convalida utile è reperibile nel [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) dello spazio dei nomi.
 
 Potrebbero essere presenti istanze in cui è necessario più funzionalità rispetto a forniscono attributi predefiniti. Tutte le volte, è possibile creare gli attributi di convalida personalizzata mediante derivazione da `ValidationAttribute` o la modifica del modello per implementare `IValidatableObject`.
+
+## <a name="notes-on-the-use-of-the-required-attribute"></a>Note sull'utilizzo dell'attributo obbligatorio
+
+Non nullable [i tipi di valore](/dotnet/csharp/language-reference/keywords/value-types) (ad esempio `decimal`, `int`, `float`, e `DateTime`) sono intrinsecamente necessari e non è necessaria la `Required` attributo. L'applicazione non esegue alcun controllo di convalida sul lato server per i tipi non contrassegnati `Required`.
+
+Associazione di modelli MVC, che non è attualmente preoccupata per convalida e gli attributi di convalida, rifiuta l'invio di un campo di form che contiene un valore mancante o spazi vuoti per un tipo non nullable. In assenza di un `BindRequired` attributo sulla proprietà di destinazione, l'associazione di modelli ignora i dati mancanti per i tipi che non ammette valori null, in cui il campo del form è assente da dati del form in ingresso.
+
+Il [BindRequired attributo](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (vedere anche [personalizzare il comportamento di associazione del modello con attributi](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) è utile per verificare i dati del form sono stati completati. Se applicato a una proprietà, il sistema di associazione del modello richiede un valore per tale proprietà. Quando applicato a un tipo, il sistema di associazione del modello richiede valori per tutte le proprietà di quel tipo.
+
+Quando si utilizza un [Nullable\<T > tipo](/dotnet/csharp/programming-guide/nullable-types/) (ad esempio, `decimal?` o `System.Nullable<decimal>`) e contrassegnarla `Required`, viene eseguito un controllo di convalida sul lato server come se la proprietà fosse un tipo nullable standard (per l'esempio, un `string`).
+
+La convalida lato client richiede un valore per un campo modulo che corrisponde a una proprietà del modello che è stata contrassegnata `Required` e per una proprietà di tipo non nullable non sono stati contrassegnati `Required`. `Required`può essere utilizzato per controllare il messaggio di errore di convalida lato client.
 
 ## <a name="model-state"></a>Stato del modello
 
@@ -104,15 +116,15 @@ La convalida lato client è una maggiore praticità per gli utenti. Consente di 
 
 È necessario disporre una vista con i riferimenti a script JavaScript appropriate sul posto per la convalida lato client funzionare come seguito.
 
-[!code-html[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-html[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 Per convalidare i dati e visualizzare eventuali messaggi di errore utilizzando JavaScript, MVC Usa attributi di convalida oltre ai metadati del tipo di proprietà del modello. Quando si utilizza MVC per il rendering degli elementi di formato da un modello utilizzando [gli helper di Tag](xref:mvc/views/tag-helpers/intro) o [helper HTML](xref:mvc/views/overview) verranno aggiunti HTML 5 [attributi dati](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) negli elementi del form che devono essere convalidate, come di seguito riportato. MVC genera il `data-` gli attributi per gli attributi incorporati e personalizzati. È possibile visualizzare gli errori di convalida sul client utilizzando gli helper di tag rilevanti, come illustrato di seguito:
 
-[!code-html[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che il `data-` attributi nel codice HTML di output corrispondono agli attributi di convalida per il `ReleaseDate` proprietà. Il `data-val-required` attributo seguente contiene un messaggio di errore da visualizzare se l'utente non compila il campo Data di rilascio e consente di visualizzare che il messaggio di accompagnamento `<span>` elemento.
+Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che il `data-` attributi nel codice HTML di output corrispondono agli attributi di convalida per il `ReleaseDate` proprietà. Il `data-val-required` attributo seguente contiene un messaggio di errore da visualizzare se l'utente non compila il campo Data di rilascio e consente di visualizzare che il messaggio di accompagnamento  **\<span >** elemento.
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -147,11 +159,11 @@ Gli attributi che implementano questa interfaccia è possono aggiungere campi ge
 
 ```html
 <input class="form-control" type="datetime"
-data-val="true"
-data-val-classicmovie="Classic movies must have a release year earlier than 1960."
-data-val-classicmovie-year="1960"
-data-val-required="The ReleaseDate field is required."
-id="ReleaseDate" name="ReleaseDate" value="" />
+    data-val="true"
+    data-val-classicmovie="Classic movies must have a release year earlier than 1960."
+    data-val-classicmovie-year="1960"
+    data-val-required="The ReleaseDate field is required."
+    id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
 La convalida non intrusiva utilizza i dati di `data-` gli attributi da visualizzare i messaggi di errore. Tuttavia, jQuery non riconosce le regole di messaggi o finché non vengono aggiunti del jQuery `validator` oggetto. Come illustrato nell'esempio riportato di seguito che aggiunge un metodo denominato `classicmovie` contenente codice di convalida personalizzata per il jQuery `validator` oggetto.

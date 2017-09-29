@@ -11,11 +11,11 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5d81e0193fb042993452ed314e70fb63573e615c
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Logica di controller di test in ASP.NET Core
 
@@ -51,11 +51,11 @@ Se si sta scrivendo filtri personalizzati, route e così via, si consiglia di un
 
 Per illustrare gli unit test, esaminare il seguente controller. Visualizza un elenco di sessioni di confronto e consente nuove sessioni vengono creati con un POST di confronto:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 Il controller di seguito è illustrata la [principio dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/), prevede l'inserimento di dipendenze per fornire un'istanza di `IBrainstormSessionRepository`. In questo modo abbastanza semplice eseguire il test con un framework di oggetti fittizi, ad esempio [Moq](https://www.nuget.org/packages/Moq/). Il `HTTP GET Index` non dispone di alcun ciclo o diramazione e solo chiama un metodo. Per eseguire il test `Index` (metodo), è necessario verificare che un `ViewResult` viene restituito, con un `ViewModel` del repository `List` metodo.
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 Il `HomeController` `HTTP POST Index` metodo (illustrato in precedenza) è necessario verificare:
 
@@ -65,7 +65,7 @@ Il `HomeController` `HTTP POST Index` metodo (illustrato in precedenza) è neces
 
 Stato del modello non valido può essere testato aggiungendo gli errori utilizzando `AddModelError` come illustrato nel primo test riportato di seguito.
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 Il primo test conferma quando `ModelState` non è valido, lo stesso `ViewResult` viene restituito come per un `GET` richiesta. Si noti che il test non tenta di passare in un modello non valido. Che non funzionerebbe comunque dall'associazione del modello non è in esecuzione (anche se un [test di integrazione](xref:mvc/controllers/testing#integration-testing) utilizzerebbe l'associazione di modelli esercizio). In questo caso, l'associazione di modelli non testato. Queste unità solo test operazioni eseguite dal codice nel metodo di azione.
 
@@ -76,23 +76,23 @@ Il secondo test verifica che, quando `ModelState` è valido, un nuovo `Brainstor
 
 Un altro controller nell'app Visualizza le informazioni correlate a una sessione di brainstorming particolare. Include la logica per gestire i valori di id non valido:
 
-[!code-csharp[Principale](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Azione del controller è tre casi da testare, uno per ogni `return` istruzione:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 L'app espone la funzionalità di una web API (un elenco di idee associata a una sessione e un metodo per l'aggiunta di nuove idee a una sessione):
 
 <a name=ideas-controller></a>
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 Il `ForSession` il metodo restituisce un elenco di `IdeaDTO` tipi. Evitare di restituire le entità di dominio aziendali direttamente tramite chiamate API, poiché spesso includono più dati richiede il client API, e vengono inutilmente associare il modello di dominio interno dell'app con l'API Esponi esternamente. Mapping tra le entità di dominio e i tipi si tornerà in rete può essere eseguito manualmente (utilizzando un LINQ `Select` come illustrato di seguito) o tramite una libreria come [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 
 Unit test per il `Create` e `ForSession` metodi API:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 Come indicato in precedenza, per testare il comportamento del metodo quando `ModelState` non è valido, aggiungere un errore del modello al controller come parte del test. Non tentare di test di convalida o modello di associazione del modello negli unit test - test solo il comportamento del metodo di azione se confrontate con un particolare `ModelState` valore.
 
@@ -114,7 +114,7 @@ In questa applicazione di esempio, si sta utilizzando il supporto di InMemoryDat
 
 La `Startup` classe:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 Verrà visualizzato il `GetTestSession` metodo usata di frequente nei test di integrazione riportati di seguito.
 
@@ -122,20 +122,18 @@ Verrà visualizzato il `GetTestSession` metodo usata di frequente nei test di in
 
 Ogni classe di test di integrazione consente di configurare il `TestServer` che eseguirà l'app ASP.NET Core. Per impostazione predefinita, `TestServer` ospita l'app web nella cartella in cui è in esecuzione, in questo caso, la cartella di progetto di test. Pertanto, quando si tenta di verificare le azioni del controller che restituiscono `ViewResult`, potrebbe essere visualizzato questo errore:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "none"} -->
-
-```none
+```
 The view 'Index' was not found. The following locations were searched:
 (list of locations)
 ```
 
 Per risolvere questo problema, è necessario configurare radice del contenuto del server, in modo da consentirne l'individuazione le viste per il progetto sottoposto a test. Questa operazione viene eseguita da una chiamata a `UseContentRoot` nel `TestFixture` (classe), illustrato di seguito:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 Il `TestFixture` classe è responsabile della configurazione e la creazione di `TestServer`, impostare un `HttpClient` per comunicare con il `TestServer`. Ogni dell'integrazione di test Usa il `Client` proprietà per connettersi al server di prova e di effettuare una richiesta.
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 Il primo test precedente, il `responseString` contiene l'effettivo eseguito il rendering HTML dalla visualizzazione, che può essere controllata per verificare contenga i risultati previsti.
 
@@ -147,7 +145,7 @@ Se l'app espone web API, è consigliabile automatizzare i test conferma vengono 
 
 Il seguente set di test di `Create` metodo il [IdeasController](xref:mvc/controllers/testing#ideas-controller) classe illustrato in precedenza:
 
-[!code-csharp[Principale](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 A differenza dei test di integrazione delle azioni che restituisce viste HTML, i metodi API web che restituiscono risultati in genere possibile deserializzati come oggetti fortemente tipizzati, come illustrato sopra l'ultimo test. In questo caso, il test deserializza il risultato a un `BrainstormSession` istanza e conferma che l'idea è stato aggiunto correttamente alla relativa raccolta di idee.
 

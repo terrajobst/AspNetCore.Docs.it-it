@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: cb39d74b9293b3ab341beba08d2f0af90261ca5f
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Nozioni fondamentali di Middleware di ASP.NET Core
 
@@ -44,7 +44,7 @@ La pipeline delle richieste ASP.NET Core è costituito da una sequenza di delega
 
 ![Modello di elaborazione di richiesta che mostra una richiesta in arrivo, l'elaborazione tramite tre middlewares e la risposta e l'applicazione. Ogni middleware esegue la logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione Next. Dopo il terzo middleware elabora la richiesta, è la mano attraverso il due middlewares precedenti per un'elaborazione aggiuntiva dopo istruzioni Next a sua volta prima di chiudere l'applicazione in risposta al client.](middleware/_static/request-delegate-pipeline.png)
 
-Delegati possono eseguire operazioni prima e dopo che il delegato successivo. Un delegato può anche decidere di non passare una richiesta per il delegato successivo, che viene chiamato la pipeline di richieste di corto circuito. Corto circuito è spesso utile perché consente di lavoro non necessario evitare. Ad esempio, il middleware di file statici può restituire una richiesta di un file statico e il resto della pipeline di corto circuito. Gestione delle eccezioni delegati devono essere chiamato nelle prime fasi della pipeline, in modo che può intercettare le eccezioni generate in fasi successive della pipeline.
+Delegati possono eseguire operazioni prima e dopo che il delegato successivo. Un delegato può anche decidere di non passare una richiesta per il delegato successivo, che viene chiamato la pipeline di richieste di corto circuito. Corto circuito è spesso consigliabile in quanto evita di lavoro non necessario. Ad esempio, il middleware di file statici può restituire una richiesta di un file statico e il resto della pipeline di corto circuito. Gestione delle eccezioni delegati devono essere chiamato nelle prime fasi della pipeline, in modo che può intercettare le eccezioni generate in fasi successive della pipeline.
 
 L'app di ASP.NET Core più semplice possibile imposta un delegato singola richiesta che gestisce tutte le richieste. In questo caso non include una pipeline della richiesta effettiva. Al contrario, una singola funzione anonima viene chiamata in risposta a ogni richiesta HTTP.
 

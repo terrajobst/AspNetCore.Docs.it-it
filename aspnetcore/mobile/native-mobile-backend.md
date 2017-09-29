@@ -11,11 +11,11 @@ ms.assetid: 3b6a32f2-5af9-4ede-9b7f-17ab300526d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 7b2b35b1519badbc8b8fbddab97a0c6336926185
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: be1cd9f4fe41f1a79669975cb6a89439cdd9e5c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>Creazione di servizi back-end per applicazioni Native per dispositivi mobili
 
@@ -47,8 +47,6 @@ Toccare un elemento sullo schermo principale elenco apre una finestra di dialogo
 
 In questo esempio è configurato per impostazione predefinita per utilizzare i servizi back-end ospitati developer.xamarin.com, che consentono operazioni di sola lettura. Per eseguire il test viene prima persona l'applicazione ASP.NET di base creato nella sezione successiva in esecuzione nel computer, è necessario aggiornare l'app `RestUrl` costante. Passare il `ToDoREST` del progetto e aprire il *Constants.cs* file. Sostituire il `RestUrl` con un URL che include l'IP del computer indirizzo (non localhost o 127.0.0.1, poiché questo indirizzo viene utilizzato dall'emulatore di dispositivo, non dal computer in uso). Includono anche il numero di porta (5000). Per verificare che i servizi funzionino con un dispositivo, verificare che non si dispone di un firewall attive bloccando l'accesso a questa porta.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)
 //public static string RestUrl = "http://developer.xamarin.com:8081/api/todoitems{0}";
@@ -65,26 +63,26 @@ Creare una nuova applicazione Web di ASP.NET Core in Visual Studio. Scegliere il
 
 L'applicazione deve rispondere a tutte le richieste effettuate alla porta 5000. Aggiornamento *Program.cs* includere `.UseUrls("http://*:5000")` per ottenere questo risultato:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
 > Assicurarsi di eseguire l'applicazione direttamente, anziché dietro IIS Express, che consente di ignorare le richieste non locale per impostazione predefinita. Eseguire `dotnet run` da un prompt dei comandi, oppure scegliere il profilo dell'applicazione nome nell'elenco a discesa destinazione Debug sulla barra degli strumenti di Visual Studio.
 
 Aggiungere una classe modello che rappresenti gli elementi di attività da eseguire. Contrassegno richiesto campi utilizzando la `[Required]` attributo:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
 I metodi dell'API richiedono alcune modalità di utilizzo dei dati. Utilizzare lo stesso `IToDoRepository` interfaccia gli utilizzi di esempio originali di Xamarin:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
 Per questo esempio, l'implementazione utilizza solo una raccolta privata di elementi:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
 Configurare l'implementazione in *Startup.cs*:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
 A questo punto, si è pronti a creare il *ToDoItemsController*.
 
@@ -97,7 +95,7 @@ Aggiunge un nuovo controller al progetto, *ToDoItemsController*. Eredita da Micr
 
 Il controller è richiesto un `IToDoRepository` di funzione; richiedere un'istanza di questo tipo tramite il costruttore del controller. In fase di esecuzione, questa istanza è disponibile tramite il supporto del framework per [inserimento di dipendenze](../fundamentals/dependency-injection.md).
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
 Questa API supporta quattro verbi HTTP diversi per eseguire operazioni CRUD (Create, Read, Update, Delete) nell'origine dati. Il più semplice di questi è l'operazione di lettura, che corrisponde a una richiesta HTTP GET.
 
@@ -105,7 +103,7 @@ Questa API supporta quattro verbi HTTP diversi per eseguire operazioni CRUD (Cre
 
 Richiesta di un elenco di elementi viene eseguita con una richiesta GET per il `List` metodo. Il `[HttpGet]` attributo la `List` metodo indica che questa azione solo deve gestire le richieste GET. La route per questa azione è la route specificata nel controller. Non è necessario utilizzare il nome dell'azione come parte della route. È sufficiente garantire che ogni azione di una route univoca e non ambigua. Routing attributi possono essere applicati nel server di controller e i livelli di metodo per compilare i percorsi specifici.
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
 Il `List` metodo restituisce un codice di 200 risposta OK e tutti gli elementi di attività, serializzati come JSON.
 
@@ -119,11 +117,11 @@ Per convenzione, creazione di nuovi elementi di dati viene eseguito il mapping p
 
 All'interno del metodo, l'elemento è selezionato per la validità ed esistenza precedente nell'archivio dati, e se si verificano senza problemi, viene aggiunta tramite il repository. Controllo `ModelState.IsValid` esegue [la convalida del modello](../mvc/models/validation.md)e deve essere eseguita in ogni metodo dell'API che accetta l'input dell'utente.
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
 L'esempio utilizza un'enumerazione che contiene i codici di errore vengono passati al client per dispositivi mobili:
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
 Aggiunta di nuovi elementi tramite Postman scegliendo il verbo POST fornendo il nuovo oggetto in formato JSON nel corpo della richiesta di test. È inoltre necessario aggiungere un'intestazione di richiesta specificando un `Content-Type` di `application/json`.
 
@@ -135,7 +133,7 @@ Il metodo restituisce l'elemento appena creato nella risposta.
 
 La modifica di record viene eseguita utilizzando richieste PUT HTTP. Oltre a questa modifica, il `Edit` è pressoché identico al metodo `Create`. Si noti che se il record non viene trovato, il `Edit` azione restituirà un `NotFound` risposta (404).
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
 Per eseguire test con Postman, modificare il verbo PUT. Specificare i dati dell'oggetto aggiornato nel corpo della richiesta.
 
@@ -147,7 +145,7 @@ Questo metodo restituisce un `NoContent` risposta (204) al termine, per coerenza
 
 Eliminazione di record viene eseguita, effettua le richieste di eliminazione per il servizio e passando l'ID dell'elemento da eliminare. Come con gli aggiornamenti, per gli elementi che non sono presenti richieste `NotFound` le risposte. In caso contrario, si riceverà una richiesta con esito positivo un `NoContent` risposta (204).
 
-[!code-csharp[Principale](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
+[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
 Si noti che, durante il test la funzionalità di eliminazione, non è necessario nel corpo della richiesta.
 

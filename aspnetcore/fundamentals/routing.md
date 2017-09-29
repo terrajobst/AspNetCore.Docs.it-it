@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 469c30cf66d28e82519d5eff7f2fc82d490827b7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
@@ -189,7 +189,7 @@ Aggiungere il pacchetto NuGet "Microsoft.AspNetCore.Routing".
 
 Aggiungere il routing al contenitore del servizio in *Startup.cs*:
 
-[!code-csharp[Principale](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Le route devono essere configurate nel `Configure` metodo la `Startup` classe. Nell'esempio seguente Usa queste API:
 
@@ -197,8 +197,6 @@ Le route devono essere configurate nel `Configure` metodo la `Startup` classe. N
 * `Build`
 * `MapGet`Corrisponde solo richieste GET HTTP
 * `UseRouter`
-
-<!-- literal_block {"xml:space": "preserve", "source": "fundamentals/routing/sample/RoutingSample/Startup.cs", "ids": [], "linenos": false, "highlight_args": {"linenostart": 1}} -->
 
 ```csharp
 public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
@@ -355,7 +353,7 @@ Per limitare un parametro con un set noto di valori possibili, utilizzare un'esp
 
 Nell'esempio seguente viene illustrato come generare un collegamento a una route specificata di un dizionario dei valori di route e un `RouteCollection`.
 
-[!code-csharp[Principale](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 Il `VirtualPath` generato alla fine dell'esempio precedente è `/package/create/123`.
 

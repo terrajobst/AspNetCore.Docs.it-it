@@ -11,11 +11,11 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: dd7187f67887bb39a5ff425dcbae0927c7565cb8
-ms.sourcegitcommit: 41e3e007512c175a42910bc69678f3f0403cab04
+ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorizzazione personalizzata basata su criteri
 
@@ -24,8 +24,6 @@ ms.lasthandoff: 09/01/2017
 Nel sistema l'il [autorizzazione ruolo](roles.md#security-authorization-role-based) e [le attestazioni di autorizzazione](claims.md#security-authorization-claims-based) verificare l'utilizzo di un requisito, un gestore per il requisito e i criteri configurati in precedenza. Questi blocchi predefiniti consentono di esprimere le valutazioni di autorizzazione nel codice, consentendo più dettagliato, riutilizzabili e nella struttura di autorizzazione facilmente testabili.
 
 Criteri di autorizzazione sono costituita da uno o più requisiti e registrato all'avvio dell'applicazione come parte della configurazione del servizio di autorizzazione, in `ConfigureServices` nel *Startup.cs* file.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -44,8 +42,6 @@ Qui è possibile visualizzare che un criterio di "Over21" viene creato con un un
 
 I criteri vengono applicati utilizzando il `Authorize` attributo specificando il nome dei criteri, ad esempio;
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Authorize(Policy="Over21")]
 public class AlcoholPurchaseRequirementsController : Controller
@@ -63,8 +59,6 @@ public class AlcoholPurchaseRequirementsController : Controller
 ## <a name="requirements"></a>Requisiti
 
 Un requisito di autorizzazione è una raccolta di parametri dei dati che un criterio è possibile utilizzare per valutare l'entità utente corrente. Nei criteri di durata minima il requisito è è un singolo parametro, la data minima. È necessario implementare un requisito `IAuthorizationRequirement`. Si tratta di un'interfaccia vuota, di marcatore. Un requisito di età minima con parametri potrebbe essere implementato come segue:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -89,8 +83,6 @@ Un gestore di autorizzazione è responsabile per la valutazione di tutte le prop
 <a name=security-authorization-handler-example></a>
 
 Il gestore di età minima potrebbe essere simile al seguente:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
@@ -128,8 +120,6 @@ Nel codice sopra viene innanzitutto analizzato per vedere se l'entità utente co
 
 Gestori eventi devono essere registrati nella raccolta di servizi durante la configurazione, ad esempio,
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 
 public void ConfigureServices(IServiceCollection services)
@@ -165,8 +155,6 @@ Indipendentemente dal fatto si chiama il gestore all'interno di tutti i gestori 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Perché desiderare più gestori per un requisito?
 
 Nei casi in cui si desidera valutazione in un **o** è implementare più gestori per un unico requisito di base. Microsoft ha ad esempio, le porte che viene aperta solo con schede di chiave. Se si lascia la smart card a casa il centralinista Stampa etichetta della custodia temporanea e verrà aperta la porta. In questo scenario è necessario un unico requisito *EnterBuilding*, ma più gestori, ciascuno di essi un unico requisito di analisi.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class EnterBuildingRequirement : IAuthorizationRequirement
@@ -209,8 +197,6 @@ Potrebbe accadere che soddisfano un criterio in semplice per esprimere nel codic
 
 Ad esempio precedente `BadgeEntryHandler` potrebbe essere riscritto come segue:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 services.AddAuthorization(options =>
     {
@@ -232,8 +218,6 @@ Il `Handle` (metodo) deve implementare un gestore di autorizzazione ha due param
 Ad esempio MVC passa un'istanza di `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` nella proprietà della risorsa che viene utilizzata per accedere HttpContext, RouteData e tutti gli elementi else MVC fornisce.
 
 L'utilizzo del `Resource` è di proprietà specifici del framework. Utilizzando le informazioni nel `Resource` proprietà limiterà i criteri di autorizzazione per un framework specifico. È necessario eseguire il cast di `Resource` proprietà utilizzando il `as` (parola chiave) e quindi controllare il cast ha esito positivo per verificare che il codice non viene arrestato in modo anomalo con `InvalidCastExceptions` quando viene eseguito da altri Framework;
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 if (context.Resource is Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext mvcContext)

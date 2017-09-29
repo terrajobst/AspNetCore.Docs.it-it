@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: 7e37a8af4ae5a957483fa5f4a89ea4e8999a3d1d
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 8723a74250ff1b0a63139057bfc17fdd31dd169e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>Configurazione dell'autenticazione di Google in ASP.NET Core
 
@@ -26,7 +26,7 @@ In questa esercitazione viene illustrato come consentire agli utenti di accedere
 
 ## <a name="create-the-app-in-google-api-console"></a>Creare l'app nella Console API di Google
 
-* Passare a [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) ed eseguire l'accesso. Se si dispone già di un account Google, usare **più opzioni** > **[creare account](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api) ** collegamento per creare uno:
+* Passare a [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) ed eseguire l'accesso. Se si dispone già di un account Google, usare **più opzioni** > **[creare account](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  collegamento per creare uno:
 
 ![Console di API di Google](index/_static/GoogleConsoleLogin.png)
 
@@ -101,6 +101,10 @@ Il modello di progetto utilizzato in questa esercitazione assicura che [Microsof
 Aggiungere il servizio Google il `ConfigureServices` metodo *Startup.cs* file:
 
 ```csharp
+services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
 services.AddAuthentication().AddGoogle(googleOptions =>
 {
     googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
@@ -108,7 +112,7 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 });
 ```
 
-Il `AddAuthentication` metodo deve essere chiamato solo una volta quando si aggiunge più provider di autenticazione. Le chiamate successive a esso hanno la possibilità di cui si esegue l'override di qualsiasi configurati in precedenza [AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) proprietà.
+[!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

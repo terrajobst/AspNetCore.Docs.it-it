@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: a47d2f91e6764bf6760ea559f1e2753e966753e3
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="context-headers"></a>Intestazioni di contesto
 
@@ -63,14 +63,12 @@ Ad esempio, considerare il caso in cui l'algoritmo di crittografia simmetrico è
 
 In primo luogo, let (K_E | | K_H) = SP800_108_CTR (prf = HMACSHA512, key = "", label = "", contesto = ""), dove | K_E | = 192 bit e | K_H | = 256 bit per gli algoritmi specificati. Questo porta K_E = 5BB6... 21DD e K_H = A04A... 00A9 nell'esempio seguente:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 5B B6 C9 83 13 78 22 1D 8E 10 73 CA CF 65 8E B0
-   61 62 42 71 CB 83 21 DD A0 4A 05 00 5B AB C0 A2
-   49 6F A5 61 E3 E2 49 87 AA 63 55 CD 74 0A DA C4
-   B7 92 3D BF 59 90 00 A9
-   ```
+61 62 42 71 CB 83 21 DD A0 4A 05 00 5B AB C0 A2
+49 6F A5 61 E3 E2 49 87 AA 63 55 CD 74 0A DA C4
+B7 92 3D BF 59 90 00 A9
+```
 
 Successivamente, calcolare Enc_CBC (K_E, IV, "") per AES-192-CBC dato IV = 0 * e K_E come illustrato in precedenza.
 
@@ -82,15 +80,13 @@ risultato: = D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C
 
 Viene prodotto l'intestazione del contesto completo riportato di seguito:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 00 00 00 00 18 00 00 00 10 00 00 00 20 00 00
-   00 20 F4 74 B1 87 2B 3B 53 E4 72 1D E1 9C 08 41
-   DB 6F D4 79 11 84 B9 96 09 2E E1 20 2F 36 E8 60
-   8F A8 FB D9 8A BD FF 54 02 F2 64 B1 D7 21 15 36
-   22 0C
-   ```
+00 20 F4 74 B1 87 2B 3B 53 E4 72 1D E1 9C 08 41
+DB 6F D4 79 11 84 B9 96 09 2E E1 20 2F 36 E8 60
+8F A8 FB D9 8A BD FF 54 02 F2 64 B1 D7 21 15 36
+22 0C
+```
 
 Questa intestazione del contesto è l'identificazione personale della coppia di algoritmo di crittografia autenticato (la crittografia AES-192-CBC + HMACSHA256 convalida). I componenti, come descritto [sopra](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers-cbc-components) sono:
 
@@ -115,13 +111,11 @@ Questa intestazione del contesto è l'identificazione personale della coppia di 
 
 In primo luogo, let (K_E | | K_H) = SP800_108_CTR (prf = HMACSHA512, key = "", label = "", contesto = ""), dove | K_E | = 192 bit e | K_H | = 160 bit per gli algoritmi specificati. Questo porta K_E = A219... E2BB e K_H = DC4A... B464 nell'esempio seguente:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 A2 19 60 2F 83 A9 13 EA B0 61 3A 39 B8 A6 7E 22
-   61 D9 F8 6C 10 51 E2 BB DC 4A 00 D7 03 A2 48 3E
-   D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
-   ```
+61 D9 F8 6C 10 51 E2 BB DC 4A 00 D7 03 A2 48 3E
+D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
+```
 
 Successivamente, calcolare Enc_CBC (K_E, IV, "") per 3DES-192-CBC dato IV = 0 * e K_E come illustrato in precedenza.
 
@@ -133,13 +127,11 @@ risultato: = 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
 
 Viene prodotto l'intestazione del contesto completo che è un'identificazione personale dell'autenticato algoritmo coppia di crittografia (crittografia 3DES-192-CBC + convalida HMACSHA1), illustrato di seguito:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 00 00 00 00 18 00 00 00 08 00 00 00 14 00 00
-   00 14 AB B1 00 F8 1E 53 E1 0E 76 EB 18 9B 35 CF
-   03 46 1D DF 87 7C D9 F4 B1 B4 D6 3A 75 55
-   ```
+00 14 AB B1 00 F8 1E 53 E1 0E 76 EB 18 9B 35 CF
+03 46 1D DF 87 7C D9 F4 B1 B4 D6 3A 75 55
+```
 
 I componenti si suddividono come indicato di seguito:
 
@@ -189,13 +181,11 @@ risultato: = E7DCCE66DF855A323A6BB7BD7A59BE45
 
 Viene prodotto l'intestazione del contesto completo riportato di seguito:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 01 00 00 00 20 00 00 00 0C 00 00 00 10 00 00
-   00 10 E7 DC CE 66 DF 85 5A 32 3A 6B B7 BD 7A 59
-   BE 45
-   ```
+00 10 E7 DC CE 66 DF 85 5A 32 3A 6B B7 BD 7A 59
+BE 45
+```
 
 I componenti si suddividono come indicato di seguito:
 

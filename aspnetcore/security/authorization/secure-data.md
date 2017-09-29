@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 54a737f140a8434035e5fc5abfefa458fdb69321
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 036ff9a682dc17ead991c85a9d5dd9c4b6a7d0c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crea un'applicazione ASP.NET di base con i dati dell'utente protetti dall'autorizzazione
 
@@ -107,7 +107,7 @@ Nel `ConfigureServices` metodo il *Startup.cs* file, aggiungere il [RequireHttps
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
-Se si utilizza Visual Studio, vedere [configurare IIS Express per SSL e HTTPS](xref:security/enforcing-ssl#set-up-iis-express-for-sslhttps). Per reindirizzare le richieste HTTP a HTTPS, vedere [Middleware di riscrittura URL](xref:fundamentals/url-rewriting). Se si utilizza Visual Studio Code o test in locale della piattaforma che non include un certificato di prova per SSL:
+Per reindirizzare le richieste HTTP a HTTPS, vedere [Middleware di riscrittura URL](xref:fundamentals/url-rewriting). Se si utilizza Visual Studio Code o test in locale della piattaforma che non include un certificato di prova per SSL:
 
 - Impostare `"LocalTest:skipSSL": true` nel *appSettings. JSON* file.
 
