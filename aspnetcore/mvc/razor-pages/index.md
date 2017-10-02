@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 72ab979c6c718544955ae5734903ec936fc5afbc
-ms.sourcegitcommit: 195b2b331434f74334c5c5b7dfeba62d744a1e38
+ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -157,11 +157,9 @@ Il file code-behind *Index.cshtml.cs*:
 
 Il file *Index.cshtml* contiene il markup seguente per creare un collegamento di modifica per ogni contatto:
 
-```cshtml
-<a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-```
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper) ha usato l'attributo [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper#route) per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`.
+[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l'attributo [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`.
 
 Il file *Pages/Edit.cshtml*:
 
@@ -172,6 +170,34 @@ La prima riga contiene la direttiva `@page "{id:int}"`. Il vincolo di routing `"
 Il file *Pages/Edit.cshtml.cs*:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Edit.cshtml.cs)]
+
+Il file *Index.cshtml* contiene anche il markup per creare un pulsante di eliminazione per ogni contatto cliente:
+
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=22-23)]
+
+Quando viene eseguito il rendering del pulsante di eliminazione in HTML, il relativo `formaction` include i parametri per:
+
+* L'ID di contatto cliente dall'attributo `asp-route-id`.
+* L'`handler` specificato dall'attributo `asp-page-handler`.
+
+Di seguito è riportato un esempio di pulsante di eliminazione di cui è stato eseguito il rendering con un ID di contatto cliente `1`:
+
+```html
+<button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
+```
+
+Quando il pulsante è selezionato, viene inviata una richiesta `POST` di modulo al server. Per convenzione, il nome del metodo del gestore viene selezionato in base al valore del parametro `handler` in base allo schema `OnPost[handler]Async`.
+
+Poiché in questo esempio l'`handler` è `delete`, il metodo `OnPostDeleteAsync` viene usato per elaborare la richiesta `POST`. Se `asp-page-handler` viene impostato su un valore diverso, come `remove`, viene selezionato un metodo gestore della pagina con il nome `OnPostRemoveAsync`.
+
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
+
+Il metodo `OnPostDeleteAsync`:
+
+* Accetta l'`id` dalla stringa di query.
+* Interroga il database in merito al contatto del cliente con `FindAsync`.
+* Se viene trovato il contatto cliente, viene rimosso dall'elenco dei contatti del cliente. Il database viene aggiornato.
+* Chiama `RedirectToPage` per reindirizzare alla pagina di indice radice (`/Index`).
 
 <a name="xsrf"></a>
 
