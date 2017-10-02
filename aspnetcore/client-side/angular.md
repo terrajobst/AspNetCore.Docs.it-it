@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/angular
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d271560476ee4efdffbd457e37eb769a7ae6ca25
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 4aecf9e9bd11cc7e2b36b40955178d9e9368c185
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="using-angularjs-for-single-page-applications-spas-with-aspnet-core"></a>Utilizzo di AngularJS per applicazioni a pagina singola (stabilimenti termali) con ASP.NET Core
 
@@ -25,7 +25,7 @@ Da [Venkata Koppaka](https://blog.falafel.com/falafel-software-recognized-sitefi
 
 In questo articolo si apprenderà come compilare un'applicazione ASP.NET SPA stile con AngularJS.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample)
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/angular/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-angularjs"></a>Che cos'è AngularJS?
 
@@ -63,7 +63,7 @@ Una volta ottenuto un riferimento di *angular.js* file di script, si è pronti p
 
 ## <a name="key-components"></a>Componenti chiave
 
-AngularJS include un numero di componenti principali, ad esempio *direttive*, *modelli*, *controlli Repeater*, *moduli*, * controller*, *componenti*, *router componente* e altro ancora. Esaminiamo questi componenti interagiscono per aggiungere un comportamento alle pagine web.
+AngularJS include un numero di componenti principali, ad esempio *direttive*, *modelli*, *controlli Repeater*, *moduli*,  *controller*, *componenti*, *router componente* e altro ancora. Esaminiamo questi componenti interagiscono per aggiungere un comportamento alle pagine web.
 
 ### <a name="directives"></a>Direttive
 

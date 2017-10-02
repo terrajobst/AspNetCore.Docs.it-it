@@ -1,7 +1,7 @@
 ---
 title: Utilizzo di file statici di ASP.NET Core
 author: rick-anderson
-description: Utilizzo di file statici in ASP.NET Core
+description: Informazioni su come utilizzare i file statici in ASP.NET Core.
 keywords: ASP.NET Core, file statici, asset statico, HTML, CSS, JavaScript
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e099c4767958f153134e0fb6b3de8132ab1ead82
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-static-files-in-aspnet-core"></a>Utilizzo di file statici di ASP.NET Core
 
@@ -26,7 +26,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 File statici, ad esempio HTML, CSS, immagini e JavaScript, sono attività che un'applicazione ASP.NET di base può essere utilizzato direttamente al client.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample)
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="serving-static-files"></a>Gestione dei file statici
 

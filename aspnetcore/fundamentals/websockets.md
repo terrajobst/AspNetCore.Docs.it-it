@@ -1,7 +1,7 @@
 ---
 title: Supporto di WebSocket in ASP.NET Core
 author: tdykstra
-description: "Che cos'è WebSocket è supportato in ASP.NET Core e come utilizzarla."
+description: Informazioni su come iniziare a utilizzare WebSocket in ASP.NET Core.
 keywords: ASP.NET Core, WebSocket
 ms.author: tdykstra
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: 0e0fedcd-a7b4-4479-8ae0-36eab0229d7e
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: 8a6b5cc8ca8ac17f0e4c5b23f20013130cd472c8
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 114d52d831668e5facd1142b5f9e5f68e7456f7e
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Introduzione ai WebSocket in ASP.NET Core
 
@@ -23,7 +23,7 @@ Da [Tom Dykstra](https://github.com/tdykstra) e [Andrew Stanton-infermiera](http
 
 In questo articolo viene illustrato come iniziare a utilizzare WebSocket in ASP.NET Core. [WebSocket](https://wikipedia.org/wiki/WebSocket) è un protocollo che consente di canali di comunicazione persistente su connessioni TCP. Viene utilizzato per le applicazioni, ad esempio una chat, ticker, giochi, ovunque si desidera aggiungere la funzionalità in tempo reale in un'applicazione web.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample). Vedere il [passaggi successivi](#next-steps) sezione per ulteriori informazioni.
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)). Vedere il [passaggi successivi](#next-steps) sezione per ulteriori informazioni.
 
 
 ## <a name="prerequisites"></a>Prerequisiti

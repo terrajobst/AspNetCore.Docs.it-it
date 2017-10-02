@@ -1,7 +1,7 @@
 ---
 title: Middleware in ASP.NET Core di riscrittura URL
 author: guardrex
-description: Introduzione all'URL di riscrittura e reindirizzamento con le istruzioni su come utilizzare il Middleware di riscrittura URL nelle applicazioni ASP.NET Core.
+description: Informazioni sull'URL di riscrittura e il reindirizzamento tramite il Middleware di riscrittura URL nelle applicazioni ASP.NET Core.
 keywords: ASP.NET Core, la riscrittura URL, URL rewrite, URL di reindirizzamento, reindirizzamento dell'URL, middleware, apache_mod
 ms.author: riande
 manager: wpickett
@@ -11,17 +11,17 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 0a4024edf13651e2ed7e0f87e554e8ba8d895619
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware in ASP.NET Core di riscrittura URL
 
 Da [Luke Latham](https://github.com/guardrex) e [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
 
 La riscrittura URL è l'azione di modifica richiesta URL in base a uno o più regole predefinite. La riscrittura URL crea un'astrazione tra i percorsi delle risorse e i relativi indirizzi in modo che i percorsi e gli indirizzi non sono strettamente collegati. Esistono diversi scenari in cui la riscrittura URL è utile:
 * Spostando o sostituendo le risorse del server, temporaneamente o definitivamente, mantenendo i localizzatori stabili per le risorse

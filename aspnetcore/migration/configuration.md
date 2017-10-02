@@ -11,11 +11,11 @@ ms.assetid: 8468d859-ff32-4a92-9e62-08c4a9e36594
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: 62660f7e58467a69f540966df188747b6fde57fe
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 4cf2227db22fbfd7f0c6239dad0d0a470c35d28c
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="migrating-configuration"></a>Migrazione della configurazione
 
@@ -23,7 +23,7 @@ Da [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
 Nell'articolo precedente, abbiamo iniziato [la migrazione di un progetto MVC ASP.NET ad ASP.NET MVC Core](mvc.md). In questo articolo è la migrazione di configurazione.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="setup-configuration"></a>Configurazione dell'installazione
 
@@ -33,7 +33,7 @@ Il *Web. config* file è stato sostituito anche in ASP.NET Core. Configurazione 
 
 Per questo articolo, si inizierà con il progetto ASP.NET Core parzialmente migrati da [l'articolo precedente](mvc.md). Configurazione del programma di installazione, aggiungere il seguente costruttore e proprietà per il *Startup.cs* file si trova nella radice del progetto:
 
-[!code-csharp[Principale](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
+[!code-csharp[Main](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
 
 Si noti che a questo punto, il *Startup.cs* file non verrà compilato, come è necessario aggiungere il seguente `using` istruzione:
 
@@ -49,7 +49,7 @@ Aggiungere un *appSettings. JSON* file nella radice del progetto utilizzando il 
 
 Il progetto ASP.NET MVC incluso la stringa di connessione di database richiesti in *Web. config*, nel `<connectionStrings>` elemento. Nel progetto ASP.NET di base, verrà conservata nel *appSettings. JSON* file. Aprire *appSettings. JSON*e si noti che include le operazioni seguenti:
 
-[!code-json[Principale](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
+[!code-json[Main](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
 
 
 Nella riga evidenziata illustrata in precedenza, modificare il nome del database da **_CHANGE_ME** per il nome del database.

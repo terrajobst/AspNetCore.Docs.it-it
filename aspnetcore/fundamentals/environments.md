@@ -1,7 +1,7 @@
 ---
-title: "Utilizzo di più ambienti"
+title: "Utilizzo di più ambienti in ASP.NET Core"
 author: ardalis
-description: 
+description: Scopri come ASP.NET Core fornisce supporto per il controllo del comportamento dell'app in ambienti diversi.
 keywords: ASP.NET di base, le impostazioni di ambiente, ASPNETCORE_ENVIRONMENT
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-multiple-environments"></a>Utilizzo di più ambienti
 
@@ -23,7 +23,7 @@ Da [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core fornisce supporto per il controllo del comportamento dell'app in ambienti diversi, ad esempio sviluppo, gestione temporanea e produzione. Le variabili di ambiente vengono utilizzate per indicare l'ambiente di runtime, consentendo all'app di essere configurato per tale ambiente.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)
+[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>Sviluppo, gestione temporanea, produzione
 
