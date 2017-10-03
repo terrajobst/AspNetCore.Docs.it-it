@@ -5,17 +5,17 @@ description: Informazioni su ASP.NET Core middleware e la pipeline della richies
 keywords: ASP.NET Core, Middleware, pipeline, delegato
 ms.author: riande
 manager: wpickett
-ms.date: 08/14/2017
+ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 730b4c281a766059b16ca1c36bbeb9611b979b72
+ms.sourcegitcommit: 0f23400cae837e90927043aa0dfd6c31108a4e2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/02/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Nozioni fondamentali di Middleware di ASP.NET Core
 
@@ -74,6 +74,26 @@ Il metodo Configure (mostrato sotto) consente di aggiungere i componenti middlew
 3. Autenticazione
 4. MVC
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
+                                            // thrown in the following middleware.
+
+    app.UseStaticFiles();                   // Return static files and end pipeline.
+
+    app.UseAuthentication();               // Authenticate before you access
+                                           // secure resources.
+
+    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+}
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
@@ -89,11 +109,22 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+-----------
+
 Nel codice precedente, `UseExceptionHandler` è il primo componente middleware aggiunto alla pipeline, pertanto, consente di rilevare le eccezioni che si verificano nelle chiamate successive.
 
 Il middleware del file statico viene chiamato nelle prime fasi della pipeline, pertanto può gestire le richieste e di corto circuito senza passare attraverso i componenti rimanenti. Fornisce il middleware di file statici **non** controlli di autorizzazione. Qualsiasi file forniti, tra cui quelle contenute *wwwroot*, sono disponibili pubblicamente. Vedere [utilizzo di file statici](xref:fundamentals/static-files) per un approccio proteggere i file statici.
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+Se la richiesta non è gestita dal middleware del file statico, viene passato al middleware di identità (`app.UseAuthentication`), che esegue l'autenticazione. Identità non di corto circuito le richieste non autenticate. Anche se le richieste vengono autenticate identità, autorizzazione (e rifiuto) si verifica solo dopo aver MVC consente di selezionare una pagina Razor o controller e un'azione specifica.
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 Se la richiesta non è gestita dal middleware del file statico, viene passato al middleware di identità (`app.UseIdentity`), che esegue l'autenticazione. Identità non di corto circuito le richieste non autenticate. Anche se le richieste vengono autenticate identità, autorizzazione (e rifiuto) si verifica solo dopo aver MVC consente di selezionare un controller specifico e l'azione.
+
+-----------
 
 Nell'esempio seguente viene illustrato un tipo di middleware ordine in cui le richieste di file statici vengono gestite dal middleware del file statico prima il middleware di compressione di risposta. File statici non vengono compressi con questo tipo di ordinamento del middleware. Le risposte MVC [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) possono essere compressi.
 

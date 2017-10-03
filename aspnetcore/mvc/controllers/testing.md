@@ -11,11 +11,11 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 5d81e0193fb042993452ed314e70fb63573e615c
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b8ba5740c96b116f9be3feb1967b91c2d675a97d
+ms.sourcegitcommit: 5ee9b2ab62acaafe78ad06f1dc4ba624811ab630
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/02/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Logica di controller di test in ASP.NET Core
 
@@ -47,7 +47,7 @@ Responsabilità tipiche controller:
 Se si sta scrivendo filtri personalizzati, route e così via, si consiglia di unit test di loro, ma non come parte dei test per un'azione del controller specifico. Essi devono essere testate in isolamento.
 
 > [!TIP]
-> [Creare ed eseguire unit test con Visual Studio](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs).
+> [Creare ed eseguire unit test con Visual Studio](https://docs.microsoft.com/visualstudio/test/unit-test-your-code).
 
 Per illustrare gli unit test, esaminare il seguente controller. Visualizza un elenco di sessioni di confronto e consente nuove sessioni vengono creati con un POST di confronto:
 
