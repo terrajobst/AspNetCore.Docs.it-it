@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: bd2c3e09366e228fade69f843849e7452196c475
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Aggiunta di un modello a un'app di pagine Razor
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/20/2017
 
 In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
-Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Assegnare un nome alla classe **Movie** e aggiungere le proprietà seguenti:
+Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Assegnare il nome **Movie** alla classe e aggiungere le proprietà seguenti:
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -53,7 +53,7 @@ In questa sezione viene usata la Console di Gestione pacchetti per:
 * Aggiungere una migrazione iniziale.
 * Aggiornare il database con la migrazione iniziale.
 
-Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
