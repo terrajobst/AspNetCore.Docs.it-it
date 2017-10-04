@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 302e3077e8cf1cc3b145fcb4ba2ff677023d1524
+ms.sourcegitcommit: c9658c0db446f7cb2e443f62b00cf773bed545fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/30/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Aggiunta della convalida alla pagina Razor
 
@@ -36,7 +36,12 @@ Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalid
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare il vincolo di convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non consentiti). L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. I [tipi di valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (ad esempio `decimal`, `int`, `float`, `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
+Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
+
+* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
+* L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non sono consentiti).
+* L'attributo `Range` vincola un valore a un intervallo specificato.
+* L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. 
 
 Il possesso di regole di convalida applicate automaticamente da ASP.NET Core consente di rendere un'app più solida. La convalida automatica sui modelli consente di proteggere l'app perché non è necessario ricordarsi di applicarli quando viene aggiunto nuovo codice.
 
@@ -127,6 +132,10 @@ In genere non è consigliabile compilare date reali nei modelli, quindi l'uso de
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+### <a name="publish-to-azure"></a>Pubblicare in Azure
+
+Per istruzioni su come pubblicare l'app in Azure, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

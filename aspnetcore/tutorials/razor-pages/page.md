@@ -10,8 +10,8 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 211d5fd3b8a736799155c2ab1c1cf92993e63fc3
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/28/2017
@@ -20,7 +20,7 @@ ms.lasthandoff: 09/28/2017
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa esercitazione vengono esaminate le pagine Razor create tramite scaffolding nell'[esercitazione precedente](xref:tutorials/razor-pages/page). 
+In questa esercitazione vengono esaminate le pagine Razor create tramite scaffolding nell'argomento dell'esercitazione precedente [Aggiunta di un modello](xref:tutorials/razor-pages/model#scaffold-the-movie-model). 
 
 [Visualizzare o scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) l'esempio.
 
@@ -144,5 +144,5 @@ L'[helper tag di input](xref:mvc/views/working-with-forms) (`<input asp-for="Mov
 L'esercitazione successiva illustra SQL Server LocalDB e il seeding del database.
 
 >[!div class="step-by-step"]
-[Previous: Adding a model](xref:tutorials/razor-pages/modelz) (Precedente: Aggiunta di un modello)
+[Previous: Adding a model](xref:tutorials/razor-pages/model) (Precedente: Aggiunta di un modello)
 [Next: SQL Server LocalDB](xref:tutorials/razor-pages/sql) (Successivo: SQL Server LocalDB)
