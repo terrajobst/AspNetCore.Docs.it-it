@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
+ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Roberto Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), e [Ateya Hisham Bin](https://twitter.com/hishambinateya)
 
-Creazione di un sito Web multilingue con ASP.NET Core consentirà il sito raggiungere un gruppo di destinatari più ampio. ASP.NET Core fornisce servizi e middleware per la localizzazione in diverse lingue e impostazioni cultura.
+Creazione di un sito Web multilingue con ASP.NET Core consentirà il sito raggiungere un gruppo di destinatari più ampio. AP.NET Core offre servizi e middleware per la localizzazione in diverse lingue e culture.
 
 Internazionalizzazione implica [globalizzazione](https://docs.microsoft.com/dotnet/api/system.globalization) e [localizzazione](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Globalizzazione è il processo di progettazione di applicazioni che supportano impostazioni cultura diverse. Globalizzazione aggiunge il supporto per input, visualizzazione e l'output di un set definito di alfabeti relativi ad aree geografiche specifiche.
 
@@ -43,7 +43,7 @@ Introdotto in ASP.NET Core, `IStringLocalizer` e `IStringLocalizer<T>` sono stat
 
 Nel codice precedente, il `IStringLocalizer<T>` implementazione proviene da [Dependency Injection](dependency-injection.md). Se non viene trovato il valore localizzato di "Su Title", quindi la chiave dell'indicizzatore viene restituita, ovvero la stringa "Title su". È possibile lasciare l'impostazione predefinita, le stringhe letterali lingua nell'app e wrap in localizzatore, in modo che sia possibile concentrarsi sullo sviluppo di app. Sviluppare l'applicazione con la lingua predefinita e prepararlo per il passaggio di localizzazione senza prima creare un file di risorse predefinito. In alternativa, è possibile utilizzare l'approccio tradizionale e fornire una chiave per recuperare la stringa di lingua predefinita. Per molti sviluppatori nuovo flusso di lavoro di non avere una lingua predefinita *resx* file e semplicemente il wrapping i valori letterali stringa possono ridurre l'overhead di localizzazione di un'app. Come può rendere più facile lavorare con più valori letterali stringa e rendono più semplice aggiornare le stringhe localizzate, altri sviluppatori preferiranno il flusso di lavoro tradizionale.
 
-Utilizzare il `IHtmlLocalizer<T>` implementazione per le risorse che contengono HTML. `IHtmlLocalizer`HTML codifica argomenti in cui vengono utilizzati la stringa di risorsa, ma non la stringa di risorsa. Nell'esempio evidenziate, solo il valore di `name` parametro è codificato in formato HTML.
+Utilizzare il `IHtmlLocalizer<T>` implementazione per le risorse che contengono HTML. `IHtmlLocalizer`HTML codifica argomenti in cui vengono utilizzati la stringa di risorsa, ma HTML non codificare la stringa risorsa stessa. Nell'esempio evidenziate, solo il valore di `name` parametro è codificato in formato HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -317,6 +317,7 @@ Condizioni:
 * Impostazioni cultura: È un linguaggio e, facoltativamente, un'area.
 * Impostazioni cultura di sistema: le impostazioni cultura sono la lingua specificata, ma non una regione. (ad esempio "IT", "es")
 * Impostazioni cultura specifiche: impostazioni cultura che dispone di una lingua specificata e area. (ad esempio "en-US", "en-GB", "es-CL")
+* Impostazioni cultura padre: impostazioni cultura di sistema che contiene le impostazioni cultura specifiche. (ad esempio, "en" è la lingua padre della "en-US" e "en-GB")
 * Impostazioni locali: Le impostazioni locali sono lo stesso come impostazioni cultura.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
