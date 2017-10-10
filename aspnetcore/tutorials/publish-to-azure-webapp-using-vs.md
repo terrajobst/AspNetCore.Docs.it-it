@@ -5,27 +5,25 @@ description:
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 09/01/2017
+ms.date: 10/05/2017
 ms.topic: get-started-article
 ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: df22852d2daddb2a3faef8404d0d250a6a1697a5
+ms.sourcegitcommit: e987c950caae7af9c4ece8a82228caa364e0a5df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs) e [Rachel Appel](https://twitter.com/rachelappel)
 
-## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
+## <a name="set-up"></a>Impostare
 
-* Installare la versione più recente di [Azure SDK per Visual Studio](https://www.visualstudio.com/vs/azure-tools/). L'SDK installa Visual Studio, se non è già disponibile.
-
-* Verificare l'[account Azure](https://portal.azure.com/). È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/) o [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+* Aprire un [account Azure gratuito](https://aka.ms/K5y5yh) se non è già disponibile un account. 
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -99,7 +97,7 @@ Nella finestra di dialogo **Pubblica** selezionare **Servizio app di Microsoft A
 
 * Selezionare **Nuovo** per il gruppo di risorse e immettere un nome per il nuovo gruppo di risorse.
 
-* Selezionare **Nuovo ** per il piano di servizio app e selezionare una località nelle proprie vicinanze. È possibile tenere il nome che viene generato per impostazione predefinita.
+* Selezionare **Nuovo**  per il piano di servizio app e selezionare una località nelle proprie vicinanze. È possibile tenere il nome che viene generato per impostazione predefinita.
 
 ![Finestra di dialogo Servizio app](publish-to-azure-webapp-using-vs/_static/newrg1.png)
 
@@ -186,8 +184,4 @@ Al termine del test dell'app accedere al [portale di Azure](https://portal.azure
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione ad ASP.NET Core MVC e Visual Studio](first-mvc-app/start-mvc.md)
-
-* [Introduzione a ASP.NET Core](../index.md)
-
-* [Concetti fondamentali](../fundamentals/index.md)
+* [Distribuzione continua in Azure con Visual Studio e Git](../publishing/azure-continuous-deployment.md)
