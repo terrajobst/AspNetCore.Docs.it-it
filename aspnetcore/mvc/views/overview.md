@@ -1,233 +1,341 @@
 ---
-title: Panoramica di viste
+title: Visualizzazioni in ASP.NET MVC di base
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: Informazioni su come viste di gestiscono la presentazione dei dati dell'app e l'interazione dell'utente in ASP.NET MVC di base.
+keywords: ASP.NET Core, visualizzare, MVC, razor, viewmodel, viewdata, viewbag
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 09/26/2017
 ms.topic: article
 ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 3b33c13f2385d3b07ba9b6f0bc0fd560abc3735c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: d3fbdecaed87b3432f0532748a0833c833c65129
+ms.sourcegitcommit: a60a99104fe7a29e271667cead6a06b6d8258d03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/03/2017
 ---
-# <a name="rendering-html-with-views-in-aspnet-core-mvc"></a><span data-ttu-id="6d9d1-103">Il rendering di HTML con le viste in ASP.NET MVC di base</span><span class="sxs-lookup"><span data-stu-id="6d9d1-103">Rendering HTML with views in ASP.NET Core MVC</span></span>
+# <a name="views-in-aspnet-core-mvc"></a><span data-ttu-id="6c738-104">Visualizzazioni in ASP.NET MVC di base</span><span class="sxs-lookup"><span data-stu-id="6c738-104">Views in ASP.NET Core MVC</span></span>
 
-<span data-ttu-id="6d9d1-104">Da [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="6d9d1-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="6c738-105">Da [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="6c738-105">By [Steve Smith](https://ardalis.com/) and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="6d9d1-105">Controller MVC Core ASP.NET può restituire risultati formattati tramite *viste*.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-105">ASP.NET Core MVC controllers can return formatted results using *views*.</span></span>
+<span data-ttu-id="6c738-106">Nel **M**enti -**V**ISTA -**C**modello ontroller (MVC), il *vista* gestisce l'interazione utente e presentazione dei dati dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-106">In the **M**odel-**V**iew-**C**ontroller (MVC) pattern, the *view* handles the app's data presentation and user interaction.</span></span> <span data-ttu-id="6c738-107">Una vista è un modello HTML con incorporato [markup Razor](xref:mvc/views/razor).</span><span class="sxs-lookup"><span data-stu-id="6c738-107">A view is an HTML template with embedded [Razor markup](xref:mvc/views/razor).</span></span> <span data-ttu-id="6c738-108">Markup Razor è codice che interagisce con il markup HTML per produrre una pagina Web che viene inviata al client.</span><span class="sxs-lookup"><span data-stu-id="6c738-108">Razor markup is code that interacts with HTML markup to produce a webpage that's sent to the client.</span></span>
 
-## <a name="what-are-views"></a><span data-ttu-id="6d9d1-106">Quali sono le visualizzazioni?</span><span class="sxs-lookup"><span data-stu-id="6d9d1-106">What are Views?</span></span>
+<span data-ttu-id="6c738-109">In ASP.NET MVC di base, le visualizzazioni sono *. cshtml* file che utilizzano il [linguaggio di programmazione c#](/dotnet/csharp/) nel codice Razor.</span><span class="sxs-lookup"><span data-stu-id="6c738-109">In ASP.NET Core MVC, views are *.cshtml* files that use the [C# programming language](/dotnet/csharp/) in Razor markup.</span></span> <span data-ttu-id="6c738-110">In genere, visualizzare i file sono raggruppati in cartelle denominate per ognuna dell'app [controller](xref:mvc/controllers/actions).</span><span class="sxs-lookup"><span data-stu-id="6c738-110">Usually, view files are grouped into folders named for each of the app's [controllers](xref:mvc/controllers/actions).</span></span> <span data-ttu-id="6c738-111">Le cartelle vengono archiviate in una in un *viste* cartella principale dell'app:</span><span class="sxs-lookup"><span data-stu-id="6c738-111">The folders are stored in a in a *Views* folder at the root of the app:</span></span>
 
-<span data-ttu-id="6d9d1-107">Nel modello Model-View-Controller (MVC), il *vista* incapsula i dettagli di presentazione di interazione dell'utente con l'app.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-107">In the Model-View-Controller (MVC) pattern, the *view* encapsulates the presentation details of the user's interaction with the app.</span></span> <span data-ttu-id="6d9d1-108">Le visualizzazioni sono modelli HTML con codice incorporato che generano contenuto da inviare al client.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-108">Views are HTML templates with embedded code that generate content to send to the client.</span></span> <span data-ttu-id="6d9d1-109">Visualizzazioni utilizzano [sintassi Razor](razor.md), che consente l'interazione con codice HTML con quantità minima di codice o conferimento del codice.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-109">Views use [Razor syntax](razor.md), which allows code to interact with HTML with minimal code or ceremony.</span></span>
+![Esplora soluzioni di Visual Studio nella cartella viste è aperta con la cartella Home aprire per visualizzare i file cshtml About.cshtml e Contact.cshtml](overview/_static/views_solution_explorer.png)
 
-<span data-ttu-id="6d9d1-110">Le visualizzazioni ASP.NET MVC di base sono *. cshtml* file archiviati per impostazione predefinita in un *viste* cartella all'interno dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-110">ASP.NET Core MVC views are *.cshtml* files stored by default in a *Views* folder within the application.</span></span> <span data-ttu-id="6d9d1-111">In genere, ogni controller disporrà cartella corrispondente, in cui sono viste per le azioni del controller specifico.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-111">Typically, each controller will have its own folder, in which are views for specific controller actions.</span></span>
+<span data-ttu-id="6c738-113">Il *Home* controller è rappresentato da un *Home* cartella all'interno di *viste* cartella.</span><span class="sxs-lookup"><span data-stu-id="6c738-113">The *Home* controller is represented by a *Home* folder inside the *Views* folder.</span></span> <span data-ttu-id="6c738-114">Il *Home* cartella contiene le viste per il *su*, *contatto*, e *indice* pagine Web (Home Page).</span><span class="sxs-lookup"><span data-stu-id="6c738-114">The *Home* folder contains the views for the *About*, *Contact*, and *Index* (homepage) webpages.</span></span> <span data-ttu-id="6c738-115">Quando un utente richiede uno di questi tre pagine Web, le azioni del controller nel *Home* controller determinare quale delle tre visualizzazioni viene utilizzato per compilare e restituire una pagina Web all'utente.</span><span class="sxs-lookup"><span data-stu-id="6c738-115">When a user requests one of these three webpages, controller actions in the *Home* controller determine which of the three views is used to build and return a webpage to the user.</span></span>
 
-![Cartella Views in Esplora soluzioni](overview/_static/views_solution_explorer.png)
+<span data-ttu-id="6c738-116">Utilizzare [layout](xref:mvc/views/layout) per fornire le sezioni di pagina Web coerente e ridurre ripetizioni nel codice.</span><span class="sxs-lookup"><span data-stu-id="6c738-116">Use [layouts](xref:mvc/views/layout) to provide consistent webpage sections and reduce code repetition.</span></span> <span data-ttu-id="6c738-117">Layout contengono spesso l'intestazione, gli elementi di navigazione e i menu e il piè di pagina.</span><span class="sxs-lookup"><span data-stu-id="6c738-117">Layouts often contain the header, navigation and menu elements, and the footer.</span></span> <span data-ttu-id="6c738-118">L'intestazione e piè di pagina contengono in genere codice boilerplate per molti elementi di metadati e i collegamenti alle risorse di script e stile.</span><span class="sxs-lookup"><span data-stu-id="6c738-118">The header and footer usually contain boilerplate markup for many metadata elements and links to script and style assets.</span></span> <span data-ttu-id="6c738-119">Layout consentono di evitare questo markup boilerplate nelle visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-119">Layouts help you avoid this boilerplate markup in your views.</span></span>
 
-<span data-ttu-id="6d9d1-113">Oltre alle viste di azione specifici, [visualizzazioni parziali](partial.md), [layout e altri file di visualizzazione speciale](layout.md) può essere utilizzato per ridurre la ripetizione e consentire di riutilizzare all'interno delle visualizzazioni dell'app.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-113">In addition to action-specific views, [partial views](partial.md), [layouts, and other special view files](layout.md) can be used to help reduce repetition and allow for reuse within the app's views.</span></span>
+<span data-ttu-id="6c738-120">[Le visualizzazioni parziali](xref:mvc/views/partial) ridurre la duplicazione del codice mediante la gestione di parti riutilizzabili di viste.</span><span class="sxs-lookup"><span data-stu-id="6c738-120">[Partial views](xref:mvc/views/partial) reduce code duplication by managing reusable parts of views.</span></span> <span data-ttu-id="6c738-121">Ad esempio, una visualizzazione parziale è utile per una biografia autore in un sito Web del blog che viene visualizzato in diverse visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-121">For example, a partial view is useful for an author biography on a blog website that appears in several views.</span></span> <span data-ttu-id="6c738-122">Una biografia autore è contenuto visualizzazione comune e non richiede codice da eseguire per produrre il contenuto per la pagina Web.</span><span class="sxs-lookup"><span data-stu-id="6c738-122">An author biography is ordinary view content and doesn't require code to execute in order to produce the content for the webpage.</span></span> <span data-ttu-id="6c738-123">Contenuto biografia autore è disponibile per la visualizzazione per l'associazione di modelli da solo, pertanto l'utilizzo di una visualizzazione parziale per questo tipo di contenuto è ideale.</span><span class="sxs-lookup"><span data-stu-id="6c738-123">Author biography content is available to the view by model binding alone, so using a partial view for this type of content is ideal.</span></span>
 
-## <a name="benefits-of-using-views"></a><span data-ttu-id="6d9d1-114">Vantaggi dell'utilizzo di viste</span><span class="sxs-lookup"><span data-stu-id="6d9d1-114">Benefits of Using Views</span></span>
+<span data-ttu-id="6c738-124">[Visualizzare i componenti](xref:mvc/views/view-components) sono simili a parziale viste che consentono di ridurre il codice ripetitivo, ma appropriati per visualizzare il contenuto che richiede il codice per l'esecuzione nel server per eseguire il rendering della pagina Web.</span><span class="sxs-lookup"><span data-stu-id="6c738-124">[View components](xref:mvc/views/view-components) are similar to partial views in that they allow you to reduce repetitive code, but they're appropriate for view content that requires code to run on the server in order to render the webpage.</span></span> <span data-ttu-id="6c738-125">Visualizza i componenti sono utili quando il contenuto sottoposto a rendering richiede interazione con il database, ad esempio per un sito Web carrello degli acquisti.</span><span class="sxs-lookup"><span data-stu-id="6c738-125">View components are useful when the rendered content requires database interaction, such as for a website shopping cart.</span></span> <span data-ttu-id="6c738-126">Visualizza i componenti non sono limitati per l'associazione del modello per produrre l'output di pagina Web.</span><span class="sxs-lookup"><span data-stu-id="6c738-126">View components aren't limited to model binding in order to produce webpage output.</span></span>
 
-<span data-ttu-id="6d9d1-115">Forniscono visualizzazioni [separazione delle problematiche](http://deviq.com/separation-of-concerns/) all'interno di un'applicazione MVC, che incapsula markup livello di interfaccia utente separatamente dalla logica di business.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-115">Views provide [separation of concerns](http://deviq.com/separation-of-concerns/) within an MVC app, encapsulating user interface level markup separately from business logic.</span></span> <span data-ttu-id="6d9d1-116">ASP.NET MVC visualizzazioni utilizzano [sintassi Razor](razor.md) per cambiare HTML markup e server logica sul lato semplice.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-116">ASP.NET MVC views use [Razor syntax](razor.md) to make switching between HTML markup and server side logic painless.</span></span> <span data-ttu-id="6d9d1-117">Aspetti comuni, ricorrenti dell'interfaccia utente dell'applicazione possono essere riutilizzati facilmente tra viste utilizzando [layout e direttive condivise](layout.md) o [visualizzazioni parziali](partial.md).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-117">Common, repetitive aspects of the app's user interface can easily be reused between views using [layout and shared directives](layout.md) or [partial views](partial.md).</span></span>
+## <a name="benefits-of-using-views"></a><span data-ttu-id="6c738-127">Vantaggi dell'utilizzo di viste</span><span class="sxs-lookup"><span data-stu-id="6c738-127">Benefits of using views</span></span>
 
-## <a name="creating-a-view"></a><span data-ttu-id="6d9d1-118">Creazione di una vista</span><span class="sxs-lookup"><span data-stu-id="6d9d1-118">Creating a View</span></span>
+<span data-ttu-id="6c738-128">Le viste consentono di definire un [ **S**eparation **o**f **C**oncerns (SoC) progettazione](http://deviq.com/separation-of-concerns/) all'interno di un'applicazione MVC separando il markup dell'interfaccia utente altre parti dell'app.</span><span class="sxs-lookup"><span data-stu-id="6c738-128">Views help to establish a [**S**eparation **o**f **C**oncerns (SoC) design](http://deviq.com/separation-of-concerns/) within an MVC app by separating the user interface markup from other parts of the app.</span></span> <span data-ttu-id="6c738-129">Dopo la progettazione SoC rende l'app modulare, che offre diversi vantaggi:</span><span class="sxs-lookup"><span data-stu-id="6c738-129">Following SoC design makes your app modular, which provides several benefits:</span></span>
 
-<span data-ttu-id="6d9d1-119">Le viste che sono specifiche di un controller vengono create nel *viste / [ControllerName]* cartella.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-119">Views that are specific to a controller are created in the *Views/[ControllerName]* folder.</span></span> <span data-ttu-id="6d9d1-120">Le viste che vengono condivisi tra i controller vengono inserite nel */visualizzazioni/Shared* cartella.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-120">Views that are shared among controllers are placed in the */Views/Shared* folder.</span></span> <span data-ttu-id="6d9d1-121">Nome del file di visualizzazione come l'azione del controller associato e aggiungere il *. cshtml* estensione di file.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-121">Name the view file the same as its associated controller action, and add the *.cshtml* file extension.</span></span> <span data-ttu-id="6d9d1-122">Ad esempio, per creare una vista per la *su* azione sul *Home* controller, è necessario creare il *About.cshtml* file nel  * /visualizzazioni/Home*cartella.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-122">For example, to create a view for the *About* action on the *Home* controller, you would create the *About.cshtml* file in the */Views/Home* folder.</span></span>
+* <span data-ttu-id="6c738-130">L'app è più facile da gestire perché è meglio organizzato.</span><span class="sxs-lookup"><span data-stu-id="6c738-130">The app is easier to maintain because it's better organized.</span></span> <span data-ttu-id="6c738-131">Le visualizzazioni vengono in genere raggruppate per funzionalità delle app.</span><span class="sxs-lookup"><span data-stu-id="6c738-131">Views are generally grouped by app feature.</span></span> <span data-ttu-id="6c738-132">Questo rende più semplice trovare viste correlate, quando si utilizza una funzionalità.</span><span class="sxs-lookup"><span data-stu-id="6c738-132">This makes it easier to find related views when working on a feature.</span></span>
+* <span data-ttu-id="6c738-133">Le parti dell'app sono loosely coupled.</span><span class="sxs-lookup"><span data-stu-id="6c738-133">The parts of the app are loosely coupled.</span></span> <span data-ttu-id="6c738-134">È possibile compilare e aggiornare le visualizzazioni dell'app separatamente dai componenti di accesso dati e logica di business.</span><span class="sxs-lookup"><span data-stu-id="6c738-134">You can build and update the app's views separately from the business logic and data access components.</span></span> <span data-ttu-id="6c738-135">È possibile modificare le visualizzazioni dell'app senza dover necessariamente aggiornare altre parti dell'app.</span><span class="sxs-lookup"><span data-stu-id="6c738-135">You can modify the views of the app without necessarily having to update other parts of the app.</span></span>
+* <span data-ttu-id="6c738-136">Risulta più semplice testare le parti dell'interfaccia utente dell'app, perché le visualizzazioni sono unità distinte.</span><span class="sxs-lookup"><span data-stu-id="6c738-136">It's easier to test the user interface parts of the app because the views are separate units.</span></span>
+* <span data-ttu-id="6c738-137">A causa di una migliore organizzazione, è meno probabile che sarà accidentalmente ripetizione sezioni dell'interfaccia utente.</span><span class="sxs-lookup"><span data-stu-id="6c738-137">Due to better organization, it's less likely that you'll accidently repeat sections of the user interface.</span></span>
 
-<span data-ttu-id="6d9d1-123">Un file di vista di esempio (*About.cshtml*):</span><span class="sxs-lookup"><span data-stu-id="6d9d1-123">A sample view file (*About.cshtml*):</span></span>
+## <a name="creating-a-view"></a><span data-ttu-id="6c738-138">Creazione di una vista</span><span class="sxs-lookup"><span data-stu-id="6c738-138">Creating a view</span></span>
 
-<span data-ttu-id="6d9d1-124">[!code-html[Principale](../../common/samples/WebApplication1/Views/Home/About.cshtml)]</span><span class="sxs-lookup"><span data-stu-id="6d9d1-124">[!code-html[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]</span></span>
+<span data-ttu-id="6c738-139">Le viste che sono specifiche di un controller vengono create nel *viste / [ControllerName]* cartella.</span><span class="sxs-lookup"><span data-stu-id="6c738-139">Views that are specific to a controller are created in the *Views/[ControllerName]* folder.</span></span> <span data-ttu-id="6c738-140">Le viste che vengono condivisi tra i controller vengono inserite nel *Views/Shared* cartella.</span><span class="sxs-lookup"><span data-stu-id="6c738-140">Views that are shared among controllers are placed in the *Views/Shared* folder.</span></span> <span data-ttu-id="6c738-141">Per creare una vista, aggiungere un nuovo file e assegnargli lo stesso nome dell'azione del controller associata con il *. cshtml* estensione di file.</span><span class="sxs-lookup"><span data-stu-id="6c738-141">To create a view, add a new file and give it the same name as its associated controller action with the *.cshtml* file extension.</span></span> <span data-ttu-id="6c738-142">Per creare una visualizzazione corrispondente con il *su* azione nel *Home* controller, creare un *About.cshtml* file nel *Views/Home*cartella:</span><span class="sxs-lookup"><span data-stu-id="6c738-142">To create a view that corresponds with the *About* action in the *Home* controller, create an *About.cshtml* file in the *Views/Home* folder:</span></span>
 
-<span data-ttu-id="6d9d1-125">*Razor* codice è indicato il `@` simbolo.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-125">*Razor* code is denoted by the `@` symbol.</span></span> <span data-ttu-id="6d9d1-126">C# istruzioni vengono eseguite all'interno di blocchi di codice disattivare le parentesi graffe Razor (`{` `}`), ad esempio l'assegnazione di "About" per il `ViewData["Title"]` elemento illustrato in precedenza.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-126">C# statements are run within Razor code blocks set off by curly braces (`{` `}`), such as the assignment of "About" to the `ViewData["Title"]` element shown above.</span></span> <span data-ttu-id="6d9d1-127">Razor può essere utilizzato per visualizzare i valori all'interno di HTML facendo riferimento il valore con il `@` symbol, come illustrato nel `<h2>` e `<h3>` elementi sopra riportato.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-127">Razor can be used to display values within HTML by simply referencing the value with the `@` symbol, as shown within the `<h2>` and `<h3>` elements above.</span></span>
+[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
-<span data-ttu-id="6d9d1-128">Questa vista è incentrata sulla solo la parte dell'output di cui è responsabile.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-128">This view focuses on just the portion of the output for which it is responsible.</span></span> <span data-ttu-id="6d9d1-129">Il resto del layout della pagina e altri aspetti comuni della visualizzazione, vengono specificati in un' posizione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-129">The rest of the page's layout, and other common aspects of the view, are specified elsewhere.</span></span> <span data-ttu-id="6d9d1-130">Altre informazioni, vedere [layout e la logica di visualizzazione condivisa](layout.md).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-130">Learn more about [layout and shared view logic](layout.md).</span></span>
+<span data-ttu-id="6c738-143">*Razor* markup inizia con il `@` simbolo.</span><span class="sxs-lookup"><span data-stu-id="6c738-143">*Razor* markup starts with the `@` symbol.</span></span> <span data-ttu-id="6c738-144">Eseguire istruzioni c# inserendo in c# il codice all'interno [blocchi di codice Razor](xref:mvc/views/razor#razor-code-blocks) disattivare le parentesi graffe (`{ ... }`).</span><span class="sxs-lookup"><span data-stu-id="6c738-144">Run C# statements by placing C# code within [Razor code blocks](xref:mvc/views/razor#razor-code-blocks) set off by curly braces (`{ ... }`).</span></span> <span data-ttu-id="6c738-145">Ad esempio, vedere l'assegnazione di "About" per `ViewData["Title"]` illustrato in precedenza.</span><span class="sxs-lookup"><span data-stu-id="6c738-145">For example, see the assignment of "About" to `ViewData["Title"]` shown above.</span></span> <span data-ttu-id="6c738-146">È possibile visualizzare i valori in HTML facendo riferimento il valore con il `@` simbolo.</span><span class="sxs-lookup"><span data-stu-id="6c738-146">You can display values within HTML by simply referencing the value with the `@` symbol.</span></span> <span data-ttu-id="6c738-147">Visualizzare il contenuto del `<h2>` e `<h3>` elementi sopra riportato.</span><span class="sxs-lookup"><span data-stu-id="6c738-147">See the contents of the `<h2>` and `<h3>` elements above.</span></span>
 
-## <a name="how-do-controllers-specify-views"></a><span data-ttu-id="6d9d1-131">Come viste specificare controller?</span><span class="sxs-lookup"><span data-stu-id="6d9d1-131">How do Controllers Specify Views?</span></span>
+<span data-ttu-id="6c738-148">Il contenuto della visualizzazione illustrato in precedenza è solo una parte dell'intera pagina Web che viene eseguito il rendering all'utente.</span><span class="sxs-lookup"><span data-stu-id="6c738-148">The view content shown above is only part of the entire webpage that's rendered to the user.</span></span> <span data-ttu-id="6c738-149">Il resto del layout della pagina e altri aspetti comuni della visualizzazione sono specificati in altri file di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-149">The rest of the page's layout and other common aspects of the view are specified in other view files.</span></span> <span data-ttu-id="6c738-150">Per ulteriori informazioni, vedere il [argomento Layout](xref:mvc/views/layout).</span><span class="sxs-lookup"><span data-stu-id="6c738-150">To learn more, see the [Layout topic](xref:mvc/views/layout).</span></span>
 
-<span data-ttu-id="6d9d1-132">Le visualizzazioni vengono in genere restituite dalle azioni come un `ViewResult`.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-132">Views are typically returned from actions as a `ViewResult`.</span></span> <span data-ttu-id="6d9d1-133">Metodo di azione, è possibile creare e restituire un `ViewResult` direttamente, ma in genere se il controller eredita da `Controller`, si utilizzerà semplicemente il `View` metodo di supporto, come in questo esempio viene illustrato:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-133">Your action method can create and return a `ViewResult` directly, but more commonly if your controller inherits from `Controller`, you'll simply use the `View` helper method, as this example demonstrates:</span></span>
+## <a name="how-controllers-specify-views"></a><span data-ttu-id="6c738-151">Il modo in cui i controller specifica viste</span><span class="sxs-lookup"><span data-stu-id="6c738-151">How controllers specify views</span></span>
 
-<span data-ttu-id="6d9d1-134">*HomeController. cs*</span><span class="sxs-lookup"><span data-stu-id="6d9d1-134">*HomeController.cs*</span></span>
+<span data-ttu-id="6c738-152">Le visualizzazioni vengono in genere restituite dalle azioni come un [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), che è un tipo di [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult).</span><span class="sxs-lookup"><span data-stu-id="6c738-152">Views are typically returned from actions as a [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), which is a type of [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult).</span></span> <span data-ttu-id="6c738-153">Metodo di azione, è possibile creare e restituire un `ViewResult` direttamente, ma che non è in genere eseguito.</span><span class="sxs-lookup"><span data-stu-id="6c738-153">Your action method can create and return a `ViewResult` directly, but that isn't commonly done.</span></span> <span data-ttu-id="6c738-154">Poiché la maggior parte dei controller eredita [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), è sufficiente utilizzare il `View` metodo helper per restituire il `ViewResult`:</span><span class="sxs-lookup"><span data-stu-id="6c738-154">Since most controllers inherit from [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), you simply use the `View` helper method to return the `ViewResult`:</span></span>
 
-<span data-ttu-id="6d9d1-135">[!code-csharp[Principale](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]</span><span class="sxs-lookup"><span data-stu-id="6d9d1-135">[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]</span></span>
+<span data-ttu-id="6c738-155">*HomeController. cs*</span><span class="sxs-lookup"><span data-stu-id="6c738-155">*HomeController.cs*</span></span>
 
-<span data-ttu-id="6d9d1-136">Il `View` metodo di supporto contiene diversi overload per rendere più semplice la restituzione di visualizzazioni per gli sviluppatori di app.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-136">The `View` helper method has several overloads to make returning views easier for app developers.</span></span> <span data-ttu-id="6d9d1-137">È possibile specificare facoltativamente una visualizzazione da restituire, nonché un oggetto modello da passare alla visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-137">You can optionally specify a view to return, as well as a model object to pass to the view.</span></span>
+[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
-<span data-ttu-id="6d9d1-138">Quando questa azione viene restituito, il *About.cshtml* visualizzazione indicata sopra viene eseguito il rendering:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-138">When this action returns, the *About.cshtml* view shown above is rendered:</span></span>
+<span data-ttu-id="6c738-156">Quando questa azione viene restituito, il *About.cshtml* visualizzazione indicata nell'ultima sezione viene visualizzato come la seguente pagina Web:</span><span class="sxs-lookup"><span data-stu-id="6c738-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![Informazioni sulla pagina](overview/_static/about-page.png)
+![Sulla pagina sottoposta a rendering nel browser Edge](overview/_static/about-page.png)
 
-### <a name="view-discovery"></a><span data-ttu-id="6d9d1-140">Individuazione di visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6d9d1-140">View Discovery</span></span>
+<span data-ttu-id="6c738-158">Il `View` metodo helper dispone di diversi overload.</span><span class="sxs-lookup"><span data-stu-id="6c738-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="6c738-159">È possibile specificare:</span><span class="sxs-lookup"><span data-stu-id="6c738-159">You can optionally specify:</span></span>
 
-<span data-ttu-id="6d9d1-141">Quando un'azione restituisce una visualizzazione, un processo denominato *individuazione visualizzazione* avviene.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-141">When an action returns a view, a process called *view discovery* takes place.</span></span> <span data-ttu-id="6d9d1-142">Questo processo determina quali file di visualizzazione verrà utilizzato.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-142">This process determines which view file will be used.</span></span> <span data-ttu-id="6d9d1-143">A meno che non viene specificato un file di visualizzazione, il runtime cercherà una visualizzazione specifica del controller, quindi cerca innanzitutto il nome di visualizzazione corrispondente nel *Shared* cartella.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-143">Unless a specific view file is specified, the runtime looks for a controller-specific view first, then looks for matching view name in the *Shared* folder.</span></span>
+* <span data-ttu-id="6c738-160">Una vista esplicita da restituire:</span><span class="sxs-lookup"><span data-stu-id="6c738-160">An explicit view to return:</span></span>
 
-<span data-ttu-id="6d9d1-144">Quando un'azione restituisce il `View` metodo, ad esempio `return View();`, il nome dell'azione viene utilizzato come nome della vista.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-144">When an action returns the `View` method, like so `return View();`, the action name is used as the view name.</span></span> <span data-ttu-id="6d9d1-145">Ad esempio, se è stato chiamato da un metodo di azione denominato "Index", sarebbe equivalente al passaggio di un nome di vista di "Index".</span><span class="sxs-lookup"><span data-stu-id="6d9d1-145">For example, if this were called from an action method named "Index", it would be equivalent to passing in a view name of "Index".</span></span> <span data-ttu-id="6d9d1-146">Nome di una vista può essere passato al metodo in modo esplicito (`return View("SomeView");`).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-146">A view name can be explicitly passed to the method (`return View("SomeView");`).</span></span> <span data-ttu-id="6d9d1-147">In entrambi i casi, visualizzare l'individuazione Cerca un file di visualizzazione corrispondente in:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-147">In both of these cases, view discovery searches for a matching view file in:</span></span>
+  ```csharp
+  return View("Orders");
+  ```
+* <span data-ttu-id="6c738-161">A [modello](xref:mvc/models/model-binding) da passare alla vista:</span><span class="sxs-lookup"><span data-stu-id="6c738-161">A [model](xref:mvc/models/model-binding) to pass to the the view:</span></span>
 
-   1. <span data-ttu-id="6d9d1-148">Viste /\<ControllerName > /\<ViewName >. cshtml</span><span class="sxs-lookup"><span data-stu-id="6d9d1-148">Views/\<ControllerName>/\<ViewName>.cshtml</span></span>
+  ```csharp
+  return View(Orders);
+  ```
+* <span data-ttu-id="6c738-162">Una vista e un modello:</span><span class="sxs-lookup"><span data-stu-id="6c738-162">Both a view and a model:</span></span>
 
-   2. <span data-ttu-id="6d9d1-149">Viste/Shared/\<ViewName >. cshtml</span><span class="sxs-lookup"><span data-stu-id="6d9d1-149">Views/Shared/\<ViewName>.cshtml</span></span>
+  ```csharp
+  return View("Orders", Orders);
+  ```
 
->[!TIP]
-> <span data-ttu-id="6d9d1-150">Si consiglia di seguenti la convenzione di restituire semplicemente `View()` dalle azioni quando possibile, poiché comporta più flessibile e più semplice per il refactoring del codice.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-150">We recommend following the convention of simply returning `View()` from actions when possible, as it results in more flexible, easier to refactor code.</span></span>
+### <a name="view-discovery"></a><span data-ttu-id="6c738-163">Individuazione di visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6c738-163">View discovery</span></span>
 
-<span data-ttu-id="6d9d1-151">Invece di un nome di visualizzazione, è possibile specificare un percorso di file di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-151">A view file path can be provided instead of a view name.</span></span> <span data-ttu-id="6d9d1-152">Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata come parte del percorso del file (ad esempio, `return View("Views/Home/About.cshtml");`).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-152">If using an absolute path starting at the application root (optionally starting with "/" or "~/"), the *.cshtml* extension must be specified as part of the file path (for example, `return View("Views/Home/About.cshtml");`).</span></span> <span data-ttu-id="6d9d1-153">In alternativa, è possibile utilizzare un percorso relativo dalla directory del controller specifico all'interno di *viste* directory per specificare le viste in directory diverse (ad esempio, `return View("../Manage/Index");` all'interno del `HomeController`).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-153">Alternatively, you can use a relative path from the controller-specific directory within the *Views* directory to specify views in different directories (for example, `return View("../Manage/Index");` inside the `HomeController`).</span></span> <span data-ttu-id="6d9d1-154">Analogamente, è possibile scorrere la directory di specifici controller corrente (ad esempio, `return View("./About");`).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-154">Similarly, you can traverse the current controller-specific directory (for example, `return View("./About");`).</span></span> <span data-ttu-id="6d9d1-155">Si noti che i percorsi relativi non usano il *. cshtml* estensione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-155">Note that relative paths don't use the *.cshtml* extension.</span></span> <span data-ttu-id="6d9d1-156">Come accennato in precedenza, seguire la procedura consigliata di organizzare la struttura dei file per le viste in modo da riflettere le relazioni tra i controller, azioni e visualizzazioni per maggiore chiarezza e la manutenibilità.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-156">As previously mentioned, follow the best practice of organizing the file structure for views to reflect the relationships among controllers, actions, and views for maintainability and clarity.</span></span>
+<span data-ttu-id="6c738-164">Quando un'azione restituisce una visualizzazione, un processo denominato *individuazione visualizzazione* avviene.</span><span class="sxs-lookup"><span data-stu-id="6c738-164">When an action returns a view, a process called *view discovery* takes place.</span></span> <span data-ttu-id="6c738-165">Questo processo determina quale file di visualizzazione in base al nome di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-165">This process determines which view file is used based on the view name.</span></span> 
 
-> [!NOTE]
-> <span data-ttu-id="6d9d1-157">[Le visualizzazioni parziali](partial.md) e [visualizzare componenti](view-components.md) utilizzare meccanismi di individuazione simile (ma non identica).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-157">[Partial views](partial.md) and [view components](view-components.md) use similar (but not identical) discovery mechanisms.</span></span>
+<span data-ttu-id="6c738-166">Il comportamento predefinito del `View` metodo (`return View();`) deve restituire una visualizzazione con lo stesso nome del metodo di azione da cui viene chiamato.</span><span class="sxs-lookup"><span data-stu-id="6c738-166">The default behavior of the `View` method (`return View();`) is to return a view with the same name as the action method from which it's called.</span></span> <span data-ttu-id="6c738-167">Ad esempio, il *su* `ActionResult` nome del metodo del controller a cui viene utilizzato per cercare un file di visualizzazione denominato *About.cshtml*.</span><span class="sxs-lookup"><span data-stu-id="6c738-167">For example, the *About* `ActionResult` method name of the controller is used to search for a view file named *About.cshtml*.</span></span> <span data-ttu-id="6c738-168">In primo luogo, il runtime cerca *viste / [ControllerName]* cartella per la visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-168">First, the runtime looks in the *Views/[ControllerName]* folder for the view.</span></span> <span data-ttu-id="6c738-169">Se non esiste una visualizzazione corrispondente non viene trovato, viene cercato il *Shared* cartella per la visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-169">If it doesn't find a matching view there, it searches the *Shared* folder for the view.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="6d9d1-158">È possibile personalizzare la convenzione predefinita relative in cui le visualizzazioni si trovano all'interno dell'app usando un oggetto personalizzato `IViewLocationExpander`.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-158">You can customize the default convention regarding where views are located within the app by using a custom `IViewLocationExpander`.</span></span>
+<span data-ttu-id="6c738-170">Non è importante se si restituisce in modo implicito il `ViewResult` con `return View();` o passare in modo esplicito il nome della visualizzazione per il `View` metodo con `return View("<ViewName>");`.</span><span class="sxs-lookup"><span data-stu-id="6c738-170">It doesn't matter if you implicitly return the `ViewResult` with `return View();` or explicitly pass the view name to the `View` method with `return View("<ViewName>");`.</span></span> <span data-ttu-id="6c738-171">In entrambi i casi, visualizzare l'individuazione Cerca un file di visualizzazione corrispondente nell'ordine indicato:</span><span class="sxs-lookup"><span data-stu-id="6c738-171">In both cases, view discovery searches for a matching view file in this order:</span></span>
 
->[!TIP]
-> <span data-ttu-id="6d9d1-159">Nomi di visualizzazione possono essere tra maiuscole e minuscole in base al file system sottostante.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-159">View names may be case sensitive depending on the underlying file system.</span></span> <span data-ttu-id="6d9d1-160">Per garantire la compatibilità tra i sistemi operativi, è sempre maiuscole/minuscole tra controller e i nomi di azione e le cartelle di visualizzazione associata e i nomi di file.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-160">For compatibility across operating systems, always match case between controller and action names and associated view folders and filenames.</span></span>
+   1. <span data-ttu-id="6c738-172">*Viste /\[ControllerName]\[ViewName]. cshtml*</span><span class="sxs-lookup"><span data-stu-id="6c738-172">*Views/\[ControllerName]\[ViewName].cshtml*</span></span>
+   1. <span data-ttu-id="6c738-173">*Viste/Shared/\[ViewName]. cshtml*</span><span class="sxs-lookup"><span data-stu-id="6c738-173">*Views/Shared/\[ViewName].cshtml*</span></span>
 
-## <a name="passing-data-to-views"></a><span data-ttu-id="6d9d1-161">Passaggio di dati a viste</span><span class="sxs-lookup"><span data-stu-id="6d9d1-161">Passing Data to Views</span></span>
+<span data-ttu-id="6c738-174">Invece di un nome di visualizzazione, è possibile specificare un percorso di file di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-174">A view file path can be provided instead of a view name.</span></span> <span data-ttu-id="6c738-175">Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata:</span><span class="sxs-lookup"><span data-stu-id="6c738-175">If using an absolute path starting at the app root (optionally starting with "/" or "~/"), the *.cshtml* extension must be specified:</span></span>
 
-<span data-ttu-id="6d9d1-162">È possibile passare dati alle viste utilizzando diversi meccanismi.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-162">You can pass data to views using several mechanisms.</span></span> <span data-ttu-id="6d9d1-163">L'approccio più efficace consiste nello specificare un *modello* tipo nella visualizzazione (conosciuta come un *viewmodel*, per distinguerlo dai tipi di modello di dominio aziendale) e quindi passare un'istanza di questo tipo per la visualizzazione dall'azione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-163">The most robust approach is to specify a *model* type in the view (commonly referred to as a *viewmodel*, to distinguish it from business domain model types), and then pass an instance of this type to the view from the action.</span></span> <span data-ttu-id="6d9d1-164">È consigliabile che utilizzare un modello o modello di visualizzazione per passare dati a una visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-164">We recommend you use a model or view model to pass data to a view.</span></span> <span data-ttu-id="6d9d1-165">In questo modo la visualizzazione di sfruttare il controllo dei tipi sicuri.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-165">This allows the view to take advantage of strong type checking.</span></span> <span data-ttu-id="6d9d1-166">È possibile specificare un modello per una visualizzazione utilizzando il `@model` direttiva:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-166">You can specify a model for a view using the `@model` directive:</span></span>
+```csharp
+return View("Views/Home/About.cshtml");
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1]}} -->
+<span data-ttu-id="6c738-176">È inoltre possibile utilizzare un percorso relativo per specificare le viste in directory diverse senza la *. cshtml* estensione.</span><span class="sxs-lookup"><span data-stu-id="6c738-176">You can also use a relative path to specify views in different directories without the *.cshtml* extension.</span></span> <span data-ttu-id="6c738-177">All'interno di `HomeController`, è possibile restituire il *indice* visualizzazione del *Gestisci* viste con un percorso relativo:</span><span class="sxs-lookup"><span data-stu-id="6c738-177">Inside the `HomeController`, you can return the *Index* view of your *Manage* views with a relative path:</span></span>
 
-```html
+```csharp
+return View("../Manage/Index");
+```
+
+<span data-ttu-id="6c738-178">Analogamente, è possibile indicare la directory di specifici controller corrente con il ". /" prefisso:</span><span class="sxs-lookup"><span data-stu-id="6c738-178">Similarly, you can indicate the current controller-specific directory with the "./" prefix:</span></span>
+
+```csharp
+return View("./About");
+```
+
+<span data-ttu-id="6c738-179">[Le visualizzazioni parziali](xref:mvc/views/partial) e [visualizzare componenti](xref:mvc/views/view-components) utilizzare meccanismi di individuazione simile (ma non identica).</span><span class="sxs-lookup"><span data-stu-id="6c738-179">[Partial views](xref:mvc/views/partial) and [view components](xref:mvc/views/view-components) use similar (but not identical) discovery mechanisms.</span></span>
+
+<span data-ttu-id="6c738-180">È possibile personalizzare la convenzione predefinita per la modalità viste si trovano all'interno dell'app usando un oggetto personalizzato [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).</span><span class="sxs-lookup"><span data-stu-id="6c738-180">You can customize the default convention for how views are located within the app by using a custom [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).</span></span>
+
+<span data-ttu-id="6c738-181">Individuazione di visualizzazione si basa sull'individuazione di visualizzare i file in base al nome di file.</span><span class="sxs-lookup"><span data-stu-id="6c738-181">View discovery relies on finding view files by file name.</span></span> <span data-ttu-id="6c738-182">Se il file system sottostante è tra maiuscole e minuscole, visualizzare i nomi sono probabilmente maiuscole/minuscole.</span><span class="sxs-lookup"><span data-stu-id="6c738-182">If the underlying file system is case sensitive, view names are probably case sensitive.</span></span> <span data-ttu-id="6c738-183">Per garantire la compatibilità tra i sistemi operativi, maiuscole/minuscole tra controller e i nomi di azione e le cartelle di visualizzazione associata e i nomi di file.</span><span class="sxs-lookup"><span data-stu-id="6c738-183">For compatibility across operating systems, match case between controller and action names and associated view folders and file names.</span></span> <span data-ttu-id="6c738-184">Se si verifica un errore che non è possibile trovare un file di visualizzazione mentre si lavora con un sistema di file tra maiuscole e minuscole, verificare che le maiuscole e minuscole corrispondano tra il file di visualizzazione richiesta e il nome del file di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-184">If you encounter an error that a view file can't be found while working with a case-sensitive file system, confirm that the casing matches between the requested view file and the actual view file name.</span></span>
+
+<span data-ttu-id="6c738-185">Seguire la procedura consigliata di organizzare la struttura dei file per le visualizzazioni in modo da riflettere le relazioni tra i controller, azioni e visualizzazioni per maggiore chiarezza e la manutenibilità.</span><span class="sxs-lookup"><span data-stu-id="6c738-185">Follow the best practice of organizing the file structure for your views to reflect the relationships among controllers, actions, and views for maintainability and clarity.</span></span>
+
+## <a name="passing-data-to-views"></a><span data-ttu-id="6c738-186">Passaggio di dati a viste</span><span class="sxs-lookup"><span data-stu-id="6c738-186">Passing data to views</span></span>
+
+<span data-ttu-id="6c738-187">È possibile passare dati alle viste utilizzando diversi approcci.</span><span class="sxs-lookup"><span data-stu-id="6c738-187">You can pass data to views using several approaches.</span></span> <span data-ttu-id="6c738-188">L'approccio più efficace consiste nello specificare un [modello](xref:mvc/models/model-binding) tipo nella visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-188">The most robust approach is to specify a [model](xref:mvc/models/model-binding) type in the view.</span></span> <span data-ttu-id="6c738-189">Questo modello è noto come un *viewmodel*.</span><span class="sxs-lookup"><span data-stu-id="6c738-189">This model is commonly referred to as a *viewmodel*.</span></span> <span data-ttu-id="6c738-190">Passare un'istanza del tipo viewmodel alla visualizzazione dall'azione.</span><span class="sxs-lookup"><span data-stu-id="6c738-190">You pass an instance of the viewmodel type to the view from the action.</span></span>
+
+<span data-ttu-id="6c738-191">Utilizzando un viewmodel di passare dati a una vista consente di sfruttare *sicuro* controllo dei tipi.</span><span class="sxs-lookup"><span data-stu-id="6c738-191">Using a viewmodel to pass data to a view allows the view to take advantage of *strong* type checking.</span></span> <span data-ttu-id="6c738-192">*Tipizzazione forte* (o *fortemente tipizzato*) significa che ogni variabile e costante dispone di un tipo definito in modo esplicito (ad esempio, `string`, `int`, o `DateTime`).</span><span class="sxs-lookup"><span data-stu-id="6c738-192">*Strong typing* (or *strongly-typed*) means that every variable and constant has an explicitly defined type (for example, `string`, `int`, or `DateTime`).</span></span> <span data-ttu-id="6c738-193">In fase di compilazione, viene verificata la validità dei tipi utilizzati in una vista.</span><span class="sxs-lookup"><span data-stu-id="6c738-193">The validity of types used in a view is checked at compile time.</span></span>
+
+<span data-ttu-id="6c738-194">[Visual Studio](https://www.visualstudio.com/vs/) e [codice di Visual Studio](https://code.visualstudio.com/) sono elencati i membri di classe fortemente tipizzata utilizzando la funzione [IntelliSense](/visualstudio/ide/using-intellisense).</span><span class="sxs-lookup"><span data-stu-id="6c738-194">[Visual Studio](https://www.visualstudio.com/vs/) and [Visual Studio Code](https://code.visualstudio.com/) list strongly-typed class members using a feature called [IntelliSense](/visualstudio/ide/using-intellisense).</span></span> <span data-ttu-id="6c738-195">Quando si desidera visualizzare le proprietà di un elemento viewmodel, digitare il nome della variabile per l'elemento viewmodel seguito da un punto (`.`).</span><span class="sxs-lookup"><span data-stu-id="6c738-195">When you want to see the properties of a viewmodel, type the variable name for the viewmodel followed by a period (`.`).</span></span> <span data-ttu-id="6c738-196">Ciò consente di scrivere codice più rapidamente con meno errori.</span><span class="sxs-lookup"><span data-stu-id="6c738-196">This helps you write code faster with fewer errors.</span></span>
+
+<span data-ttu-id="6c738-197">Specificare un modello utilizzando il `@model` direttiva.</span><span class="sxs-lookup"><span data-stu-id="6c738-197">Specify a model using the `@model` directive.</span></span> <span data-ttu-id="6c738-198">Utilizzare il modello con `@Model`:</span><span class="sxs-lookup"><span data-stu-id="6c738-198">Use the model with `@Model`:</span></span>
+
+```cshtml
 @model WebApplication1.ViewModels.Address
-   <h2>Contact</h2>
-   <address>
-       @Model.Street<br />
-       @Model.City, @Model.State @Model.PostalCode<br />
-       <abbr title="Phone">P:</abbr>
-       425.555.0100
-   </address>
-   ```
 
-<span data-ttu-id="6d9d1-167">Una volta che un modello è stato specificato per una vista, l'istanza inviato per la visualizzazione è possibile accedere in modo fortemente tipizzato tramite `@Model` come illustrato in precedenza.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-167">Once a model has been specified for a view, the instance sent to the view can be accessed in a strongly-typed manner using `@Model` as shown above.</span></span> <span data-ttu-id="6d9d1-168">Per fornire un'istanza del tipo di modello per la visualizzazione, il controller passa come parametro:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-168">To provide an instance of the model type to the view, the controller passes it as a parameter:</span></span>
+<h2>Contact</h2>
+<address>
+    @Model.Street<br>
+    @Model.City, @Model.State @Model.PostalCode<br>
+    <abbr title="Phone">P:</abbr> 425.555.0100
+</address>
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [13]}} -->
+<span data-ttu-id="6c738-199">Per fornire al modello per la visualizzazione, il controller passa come parametro:</span><span class="sxs-lookup"><span data-stu-id="6c738-199">To provide the model to the view, the controller passes it as a parameter:</span></span>
 
 ```csharp
 public IActionResult Contact()
-   {
-       ViewData["Message"] = "Your contact page.";
+{
+    ViewData["Message"] = "Your contact page.";
 
-       var viewModel = new Address()
-       {
-           Name = "Microsoft",
-           Street = "One Microsoft Way",
-           City = "Redmond",
-           State = "WA",
-           PostalCode = "98052-6399"
-       };
-       return View(viewModel);
-   }
-   ```
+    var viewModel = new Address()
+    {
+        Name = "Microsoft",
+        Street = "One Microsoft Way",
+        City = "Redmond",
+        State = "WA",
+        PostalCode = "98052-6399"
+    };
 
-<span data-ttu-id="6d9d1-169">Non sono previste restrizioni per i tipi che possono essere forniti per una vista come modello.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-169">There are no restrictions on the types that can be provided to a view as a model.</span></span> <span data-ttu-id="6d9d1-170">È consigliabile passare oggetti poco (Plain Old CLR Object) di visualizzazione di modelli con pochi o nessun comportamento, in modo che la logica di business può essere incapsulata in un' posizione nell'app.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-170">We recommend passing Plain Old CLR Object (POCO) view models with little or no behavior, so that business logic can be encapsulated elsewhere in the app.</span></span> <span data-ttu-id="6d9d1-171">Un esempio di questo approccio è la *indirizzo* viewmodel utilizzato nell'esempio precedente:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-171">An example of this approach is the *Address* viewmodel used in the example above:</span></span>
+    return View(viewModel);
+}
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [13]}} -->
+<span data-ttu-id="6c738-200">Non sono previste restrizioni per i tipi di modello che è possibile fornire una visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-200">There are no restrictions on the model types that you can provide to a view.</span></span> <span data-ttu-id="6c738-201">Si consiglia di utilizzare **P**Incolla **O**ld **C**LR **O**ViewModel oggetto (POCO) con pochi o nessun comportamento (metodi) definita.</span><span class="sxs-lookup"><span data-stu-id="6c738-201">We recommend using **P**lain **O**ld **C**LR **O**bject (POCO) viewmodels with little or no behavior (methods) defined.</span></span> <span data-ttu-id="6c738-202">In genere, le classi viewmodel sono archiviate nel *modelli* cartella o un oggetto separato *ViewModel* cartella nella radice dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-202">Usually, viewmodel classes are either stored in the *Models* folder or a separate *ViewModels* folder at the root of the app.</span></span> <span data-ttu-id="6c738-203">Il *indirizzo* viewmodel utilizzato nell'esempio precedente è un elemento viewmodel POCO archiviati in un file denominato *Address.cs*:</span><span class="sxs-lookup"><span data-stu-id="6c738-203">The *Address* viewmodel used in the example above is a POCO viewmodel stored in a file named *Address.cs*:</span></span>
 
 ```csharp
 namespace WebApplication1.ViewModels
-   {
-       public class Address
-       {
-           public string Name { get; set; }
-           public string Street { get; set; }
-           public string City { get; set; }
-           public string State { get; set; }
-           public string PostalCode { get; set; }
-       }
-   }
-   ```
+{
+    public class Address
+    {
+        public string Name { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
+    }
+}
+```
 
 > [!NOTE]
-> <span data-ttu-id="6d9d1-172">Non impedisce di utilizzare le stesse classi come tipi di modello di business e i tipi di modello di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-172">Nothing prevents you from using the same classes as your business model types and your display model types.</span></span> <span data-ttu-id="6d9d1-173">Tuttavia, mantenendoli separato consente le visualizzazioni variare in modo indipendente dal modello di dominio o persistenza e può offrire alcuni vantaggi di sicurezza nonché (per i modelli che invieranno agli utenti per l'app mediante [associazione del modello](../models/model-binding.md)).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-173">However, keeping them separate allows your views to vary independently from your domain or persistence model, and can offer some security benefits as well (for models that users will send to the app using [model binding](../models/model-binding.md)).</span></span>
+> <span data-ttu-id="6c738-204">Non impedisce di utilizzare le stesse classi per i tipi di viewmodel e i tipi di modello di business.</span><span class="sxs-lookup"><span data-stu-id="6c738-204">Nothing prevents you from using the same classes for both your viewmodel types and your business model types.</span></span> <span data-ttu-id="6c738-205">L'utilizzo di modelli separati consente, tuttavia, le visualizzazioni variare in modo indipendente dai dati di logica di business e parti di accesso dell'app.</span><span class="sxs-lookup"><span data-stu-id="6c738-205">However, using separate models allows your views to vary independently from the business logic and data access parts of your app.</span></span> <span data-ttu-id="6c738-206">La separazione dei modelli e ViewModel offre vantaggi di sicurezza se i modelli usano [associazione del modello](xref:mvc/models/model-binding) e [convalida](xref:mvc/models/validation) per i dati inviati all'app dall'utente.</span><span class="sxs-lookup"><span data-stu-id="6c738-206">Separation of models and viewmodels also offers security benefits when models use [model binding](xref:mvc/models/model-binding) and [validation](xref:mvc/models/validation) for data sent to the app by the user.</span></span>
 
-### <a name="loosely-typed-data"></a><span data-ttu-id="6d9d1-174">Dati non tipizzati</span><span class="sxs-lookup"><span data-stu-id="6d9d1-174">Loosely Typed Data</span></span>
+### <a name="weakly-typed-data-viewdata-and-viewbag"></a><span data-ttu-id="6c738-207">Dati con tipizzazione debole (ViewData e ViewBag)</span><span class="sxs-lookup"><span data-stu-id="6c738-207">Weakly-typed data (ViewData and ViewBag)</span></span>
 
-<span data-ttu-id="6d9d1-175">Oltre a visualizzazioni fortemente tipizzate, tutte le visualizzazioni hanno accesso a una raccolta di dati non tipizzato.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-175">In addition to strongly typed views, all views have access to a loosely typed collection of data.</span></span> <span data-ttu-id="6d9d1-176">È possibile fare riferimento a questa raccolta stessa tramite la `ViewData` o `ViewBag` proprietà sul controller e visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-176">This same collection can be referenced through either the `ViewData` or `ViewBag` properties on controllers and views.</span></span> <span data-ttu-id="6d9d1-177">Il `ViewBag` proprietà è un wrapper `ViewData` che fornisce una visualizzazione dinamica in tale raccolta.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-177">The `ViewBag` property is a wrapper around `ViewData` that provides a dynamic view over that collection.</span></span> <span data-ttu-id="6d9d1-178">Non è una raccolta separata.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-178">It is not a separate collection.</span></span>
+<span data-ttu-id="6c738-208">Oltre a visualizzazioni fortemente tipizzate, le visualizzazioni di avere a disposizione un *con tipizzazione debole* (chiamato anche *fortemente tipizzato*) insieme di dati.</span><span class="sxs-lookup"><span data-stu-id="6c738-208">In addition to strongly-typed views, views have access to a *weakly-typed* (also called *loosely-typed*) collection of data.</span></span> <span data-ttu-id="6c738-209">A differenza dei tipi sicuri, *tipi deboli* (o *perdere tipi*) significa che non dichiarare in modo esplicito il tipo di dati in uso.</span><span class="sxs-lookup"><span data-stu-id="6c738-209">Unlike strong types, *weak types* (or *loose types*) means that you don't explicitly declare the type of data you're using.</span></span> <span data-ttu-id="6c738-210">È possibile utilizzare la raccolta dei dati con tipizzazione debole per il passaggio di piccole quantità di dati da e verso i controller e visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-210">You can use the collection of weakly-typed data for passing small amounts of data in and out of controllers and views.</span></span>
 
-<span data-ttu-id="6d9d1-179">`ViewData`un oggetto dizionario avviene tramite `string` chiavi.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-179">`ViewData` is a dictionary object accessed through `string` keys.</span></span> <span data-ttu-id="6d9d1-180">È possibile archiviare e recuperare gli oggetti in essa contenuti e dovrai cast a un tipo specifico quando si estrae li.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-180">You can store and retrieve objects in it, and you'll need to cast them to a specific type when you extract them.</span></span> <span data-ttu-id="6d9d1-181">È possibile utilizzare `ViewData` per passare i dati da un controller per le visualizzazioni, nonché all'interno di viste (e le visualizzazioni parziali e layout).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-181">You can use `ViewData` to pass data from a controller to views, as well as within views (and partial views and layouts).</span></span> <span data-ttu-id="6d9d1-182">Dati di tipo stringa possono essere archiviati e utilizzati direttamente, senza la necessità di un cast.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-182">String data can be stored and used directly, without the need for a cast.</span></span>
+| <span data-ttu-id="6c738-211">Passaggio di dati tra un...</span><span class="sxs-lookup"><span data-stu-id="6c738-211">Passing data between a ...</span></span>                        | <span data-ttu-id="6c738-212">Esempio</span><span class="sxs-lookup"><span data-stu-id="6c738-212">Example</span></span>                                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------------------ |
+| <span data-ttu-id="6c738-213">Controller e una visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6c738-213">Controller and a view</span></span>                             | <span data-ttu-id="6c738-214">Popolamento di un elenco a discesa con i dati.</span><span class="sxs-lookup"><span data-stu-id="6c738-214">Populating a dropdown list with data.</span></span>                                          |
+| <span data-ttu-id="6c738-215">Visualizzazione e un [visualizzazione layout](xref:mvc/views/layout)</span><span class="sxs-lookup"><span data-stu-id="6c738-215">View and a [layout view](xref:mvc/views/layout)</span></span>   | <span data-ttu-id="6c738-216">L'impostazione di  **\<titolo >** contenuto dell'elemento in visualizzazione layout di finestra da un file di visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="6c738-216">Setting the **\<title>** element content in the layout view from a view file.</span></span>  |
+| <span data-ttu-id="6c738-217">[Visualizzazione parziale](xref:mvc/views/partial) e una visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6c738-217">[Partial view](xref:mvc/views/partial) and a view</span></span> | <span data-ttu-id="6c738-218">Un widget che visualizza i dati in base a una pagina Web che l'utente ha richiesto.</span><span class="sxs-lookup"><span data-stu-id="6c738-218">A widget that displays data based on the webpage that the user requested.</span></span>      |
 
-<span data-ttu-id="6d9d1-183">Impostare alcuni valori per `ViewData` un'azione:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-183">Set some values for `ViewData` in an action:</span></span>
+<span data-ttu-id="6c738-219">È possibile fare riferimento a questa raccolta tramite il `ViewData` o `ViewBag` proprietà sul controller e visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-219">This collection can be referenced through either the `ViewData` or `ViewBag` properties on controllers and views.</span></span> <span data-ttu-id="6c738-220">Il `ViewData` proprietà è un dizionario di oggetti con tipizzazione debole.</span><span class="sxs-lookup"><span data-stu-id="6c738-220">The `ViewData` property is a dictionary of weakly-typed objects.</span></span> <span data-ttu-id="6c738-221">Il `ViewBag` proprietà è un wrapper `ViewData` che fornisce le proprietà dinamiche per sottostante `ViewData` insieme.</span><span class="sxs-lookup"><span data-stu-id="6c738-221">The `ViewBag` property is a wrapper around `ViewData` that provides dynamic properties for the underlying `ViewData` collection.</span></span>
+
+<span data-ttu-id="6c738-222">`ViewData`e `ViewBag` vengono risolti in modo dinamico in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="6c738-222">`ViewData` and `ViewBag` are dynamically resolved at runtime.</span></span> <span data-ttu-id="6c738-223">Poiché non offrono controllo dei tipi in fase di compilazione, entrambi sono in genere più errori rispetto all'utilizzo di un elemento viewmodel.</span><span class="sxs-lookup"><span data-stu-id="6c738-223">Since they don't offer compile-time type checking, both are generally more error-prone than using a viewmodel.</span></span> <span data-ttu-id="6c738-224">Per questo motivo, alcuni sviluppatori preferiscono utilizzare minima o mai `ViewData` e `ViewBag`.</span><span class="sxs-lookup"><span data-stu-id="6c738-224">For that reason, some developers prefer to minimally or never use `ViewData` and `ViewBag`.</span></span>
+
+<span data-ttu-id="6c738-225">**ViewData**</span><span class="sxs-lookup"><span data-stu-id="6c738-225">**ViewData**</span></span>
+
+<span data-ttu-id="6c738-226">`ViewData`è un [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) si accede tramite `string` chiavi.</span><span class="sxs-lookup"><span data-stu-id="6c738-226">`ViewData` is a [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) object accessed through `string` keys.</span></span> <span data-ttu-id="6c738-227">Dati di tipo stringa possono essere archiviati e usati direttamente, senza la necessità di un cast, ma è necessario eseguire il cast di altri `ViewData` valori a specifici tipi di oggetto quando li estraggono.</span><span class="sxs-lookup"><span data-stu-id="6c738-227">String data can be stored and used directly without the need for a cast, but you must cast other `ViewData` object values to specific types when you extract them.</span></span> <span data-ttu-id="6c738-228">È possibile utilizzare `ViewData` per passare i dati dal controller alle visualizzazioni e all'interno di visualizzazioni, tra cui [visualizzazioni parziali](xref:mvc/views/partial) e [layout](xref:mvc/views/layout).</span><span class="sxs-lookup"><span data-stu-id="6c738-228">You can use `ViewData` to pass data from controllers to views and within views, including [partial views](xref:mvc/views/partial) and [layouts](xref:mvc/views/layout).</span></span>
+
+<span data-ttu-id="6c738-229">Di seguito è riportato un esempio che imposta valori per un messaggio di benvenuto e un indirizzo utilizzando `ViewData` un'azione:</span><span class="sxs-lookup"><span data-stu-id="6c738-229">The following is an example that sets values for a greeting and an address using `ViewData` in an action:</span></span>
 
 ```csharp
 public IActionResult SomeAction()
-   {
-       ViewData["Greeting"] = "Hello";
-       ViewData["Address"]  = new Address()
-       {
-           Name = "Steve",
-           Street = "123 Main St",
-           City = "Hudson",
-           State = "OH",
-           PostalCode = "44236"
-       };
+{
+    ViewData["Greeting"] = "Hello";
+    ViewData["Address"]  = new Address()
+    {
+        Name = "Steve",
+        Street = "123 Main St",
+        City = "Hudson",
+        State = "OH",
+        PostalCode = "44236"
+    };
 
-       return View();
-   }
-   ```
+    return View();
+}
+```
 
-<span data-ttu-id="6d9d1-184">Utilizzare i dati in una vista:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-184">Work with the data in a view:</span></span>
+<span data-ttu-id="6c738-230">Utilizzare i dati in una vista:</span><span class="sxs-lookup"><span data-stu-id="6c738-230">Work with the data in a view:</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [3, 6]}} -->
-
-```html
+```cshtml
 @{
-       // Requires cast
-       var address = ViewData["Address"] as Address;
-   }
+    // Since Address isn't a string, it requires a cast.
+    var address = ViewData["Address"] as Address;
+}
 
-   @ViewData["Greeting"] World!
+@ViewData["Greeting"] World!
 
-   <address>
-       @address.Name<br />
-       @address.Street<br />
-       @address.City, @address.State @address.PostalCode
-   </address>
-   ```
+<address>
+    @address.Name<br>
+    @address.Street<br>
+    @address.City, @address.State @address.PostalCode
+</address>
+```
 
-<span data-ttu-id="6d9d1-185">Il `ViewBag` oggetti fornisce l'accesso dinamico per gli oggetti archiviati in `ViewData`.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-185">The `ViewBag` objects provides dynamic access to the objects stored in `ViewData`.</span></span> <span data-ttu-id="6d9d1-186">Può essere più semplice da utilizzare in quanto non richiede il cast.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-186">This can be more convenient to work with, since it doesn't require casting.</span></span> <span data-ttu-id="6d9d1-187">Nell'esempio stesso come in precedenza, mediante `ViewBag` anziché un oggetto fortemente tipizzato `address` istanza nella visualizzazione:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-187">The same example as above, using `ViewBag` instead of a strongly typed `address` instance in the view:</span></span>
+<span data-ttu-id="6c738-231">**ViewBag**</span><span class="sxs-lookup"><span data-stu-id="6c738-231">**ViewBag**</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1, 4, 5, 6]}} -->
+<span data-ttu-id="6c738-232">`ViewBag`è un [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) oggetto che fornisce l'accesso dinamico per gli oggetti archiviati in `ViewData`.</span><span class="sxs-lookup"><span data-stu-id="6c738-232">`ViewBag` is a [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) object that provides dynamic access to the objects stored in `ViewData`.</span></span> <span data-ttu-id="6c738-233">`ViewBag`può essere più semplice da utilizzare in quanto non richiede il cast.</span><span class="sxs-lookup"><span data-stu-id="6c738-233">`ViewBag` can be more convenient to work with, since it doesn't require casting.</span></span> <span data-ttu-id="6c738-234">Nell'esempio seguente viene illustrato come utilizzare `ViewBag` con lo stesso risultato utilizzando `ViewData` sopra:</span><span class="sxs-lookup"><span data-stu-id="6c738-234">The following example shows how to use `ViewBag` with the same result as using `ViewData` above:</span></span>
 
-```html
+```csharp
+public IActionResult SomeAction()
+{
+    ViewBag.Greeting = "Hello";
+    ViewBag.Address  = new Address()
+    {
+        Name = "Steve",
+        Street = "123 Main St",
+        City = "Hudson",
+        State = "OH",
+        PostalCode = "44236"
+    };
+
+    return View();
+}
+```
+
+```cshtml
 @ViewBag.Greeting World!
 
-   <address>
-       @ViewBag.Address.Name<br />
-       @ViewBag.Address.Street<br />
-       @ViewBag.Address.City, @ViewBag.Address.State @ViewBag.Address.PostalCode
-   </address>
-   ```
+<address>
+    @ViewBag.Address.Name<br>
+    @ViewBag.Address.Street<br>
+    @ViewBag.Address.City, @ViewBag.Address.State @ViewBag.Address.PostalCode
+</address>
+```
 
-> [!NOTE]
-> <span data-ttu-id="6d9d1-188">Poiché entrambi si riferiscono allo stesso sottostante `ViewData` insieme, è possibile combinare e trovare una corrispondenza tra `ViewData` e `ViewBag` durante la lettura e scrittura di valori, se pratico.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-188">Since both refer to the same underlying `ViewData` collection, you can mix and match between `ViewData` and `ViewBag` when reading and writing values, if convenient.</span></span>
+<span data-ttu-id="6c738-235">**Utilizzano ViewData e ViewBag simultaneamente**</span><span class="sxs-lookup"><span data-stu-id="6c738-235">**Using ViewData and ViewBag simultaneously**</span></span>
 
-### <a name="dynamic-views"></a><span data-ttu-id="6d9d1-189">Visualizzazioni dinamiche</span><span class="sxs-lookup"><span data-stu-id="6d9d1-189">Dynamic Views</span></span>
+<span data-ttu-id="6c738-236">Poiché `ViewData` e `ViewBag` fare riferimento alla stessa sottostante `ViewData` insieme, è possibile utilizzare sia `ViewData` e `ViewBag` e combinare e associare tra loro durante la lettura e scrittura di valori.</span><span class="sxs-lookup"><span data-stu-id="6c738-236">Since `ViewData` and `ViewBag` refer to the same underlying `ViewData` collection, you can use both `ViewData` and `ViewBag` and mix and match between them when reading and writing values.</span></span>
 
-<span data-ttu-id="6d9d1-190">Viste non dichiarano un tipo di modello, ma hanno un'istanza del modello vengano passata possono fare riferimento l'istanza in modo dinamico.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-190">Views that do not declare a model type but have a model instance passed to them can reference this instance dynamically.</span></span> <span data-ttu-id="6d9d1-191">Ad esempio, se un'istanza di `Address` viene passato a una vista che non si dichiara un `@model`, la visualizzazione sarà comunque in grado di fare riferimento alle proprietà dell'istanza in modo dinamico, come illustrato:</span><span class="sxs-lookup"><span data-stu-id="6d9d1-191">For example, if an instance of `Address` is passed to a view that doesn't declare an `@model`, the view would still be able to refer to the instance's properties dynamically as shown:</span></span>
+<span data-ttu-id="6c738-237">Impostare il titolo tramite `ViewBag` e la descrizione usando `ViewData` nella parte superiore di un *About.cshtml* Vista:</span><span class="sxs-lookup"><span data-stu-id="6c738-237">Set the title using `ViewBag` and the description using `ViewData` at the top of an *About.cshtml* view:</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [13, 16, 17, 18]}} -->
+```cshtml
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "About Contoso";
+    ViewData["Description"] = "Let us tell you about Contoso's philosophy and mission.";
+}
+```
+
+<span data-ttu-id="6c738-238">Leggere le proprietà ma inverte l'utilizzo di `ViewData` e `ViewBag`.</span><span class="sxs-lookup"><span data-stu-id="6c738-238">Read the properties but reverse the use of `ViewData` and `ViewBag`.</span></span> <span data-ttu-id="6c738-239">Nel *layout. cshtml* file, ottenere il titolo tramite `ViewData` e ottenere la descrizione utilizzando `ViewBag`:</span><span class="sxs-lookup"><span data-stu-id="6c738-239">In the *_Layout.cshtml* file, obtain the title using `ViewData` and obtain the description using `ViewBag`:</span></span>
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewBag.Description">
+    ...
+```
+
+<span data-ttu-id="6c738-240">Tenere presente che le stringhe non richiedono un cast per `ViewData`.</span><span class="sxs-lookup"><span data-stu-id="6c738-240">Remember that strings don't require a cast for `ViewData`.</span></span> <span data-ttu-id="6c738-241">È possibile utilizzare `@ViewData["Title"]` senza eseguire il cast.</span><span class="sxs-lookup"><span data-stu-id="6c738-241">You can use `@ViewData["Title"]` without casting.</span></span>
+
+<span data-ttu-id="6c738-242">Utilizzo di entrambe `ViewData` e `ViewBag` in lavori stesso, tempo fa, combinazione e la corrispondenza di lettura e scrittura delle proprietà.</span><span class="sxs-lookup"><span data-stu-id="6c738-242">Using both `ViewData` and `ViewBag` at the same time works, as does mixing and matching reading and writing the properties.</span></span> <span data-ttu-id="6c738-243">Il markup seguente viene eseguito il rendering:</span><span class="sxs-lookup"><span data-stu-id="6c738-243">The following markup is rendered:</span></span>
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Contoso</title>
+    <meta name="description" content="Let us tell you about Contoso's philosophy and mission.">
+    ...
+```
+
+<span data-ttu-id="6c738-244">**Riepilogo delle differenze tra ViewData e ViewBag**</span><span class="sxs-lookup"><span data-stu-id="6c738-244">**Summary of the differences between ViewData and ViewBag**</span></span>
+
+* `ViewData`
+  * <span data-ttu-id="6c738-245">Deriva da [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), pertanto dispone di proprietà di dizionario che può essere utile, ad esempio `ContainsKey`, `Add`, `Remove`, e `Clear`.</span><span class="sxs-lookup"><span data-stu-id="6c738-245">Derives from [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), so it has dictionary properties that can be useful, such as `ContainsKey`, `Add`, `Remove`, and `Clear`.</span></span>
+  * <span data-ttu-id="6c738-246">Le chiavi nel dizionario sono stringhe, pertanto gli spazi vuoti sono consentito.</span><span class="sxs-lookup"><span data-stu-id="6c738-246">Keys in the dictionary are strings, so whitespace is allowed.</span></span> <span data-ttu-id="6c738-247">Esempio: `ViewData["Some Key With Whitespace"]`</span><span class="sxs-lookup"><span data-stu-id="6c738-247">Example: `ViewData["Some Key With Whitespace"]`</span></span>
+  * <span data-ttu-id="6c738-248">Qualsiasi tipo diverso da un `string` deve essere impostato nella visualizzazione per utilizzare `ViewData`.</span><span class="sxs-lookup"><span data-stu-id="6c738-248">Any type other than a `string` must be cast in the view to use `ViewData`.</span></span>
+* `ViewBag`
+  * <span data-ttu-id="6c738-249">Deriva da [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), quindi ne consente la creazione delle proprietà dinamiche utilizzando la notazione del punto (`@ViewBag.SomeKey = <value or object>`), ed non è necessario alcun cast.</span><span class="sxs-lookup"><span data-stu-id="6c738-249">Derives from [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), so it allows the creation of dynamic properties using dot notation (`@ViewBag.SomeKey = <value or object>`), and no casting is required.</span></span> <span data-ttu-id="6c738-250">La sintassi di `ViewBag` rende più rapido aggiungere al controller e visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-250">The syntax of `ViewBag` makes it quicker to add to controllers and views.</span></span>
+  * <span data-ttu-id="6c738-251">Più semplice verificare la presenza di valori null.</span><span class="sxs-lookup"><span data-stu-id="6c738-251">Simpler to check for null values.</span></span> <span data-ttu-id="6c738-252">Esempio: `@ViewBag.Person?.Name`</span><span class="sxs-lookup"><span data-stu-id="6c738-252">Example: `@ViewBag.Person?.Name`</span></span>
+
+<span data-ttu-id="6c738-253">**Quando utilizzare ViewData o ViewBag**</span><span class="sxs-lookup"><span data-stu-id="6c738-253">**When to use ViewData or ViewBag**</span></span>
+
+<span data-ttu-id="6c738-254">Entrambi `ViewData` e `ViewBag` sono ugualmente validi approcci per il passaggio di piccole quantità di dati tra i controller e visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-254">Both `ViewData` and `ViewBag` are equally valid approaches for passing small amounts of data among controllers and views.</span></span> <span data-ttu-id="6c738-255">La scelta del protocollo di utilizzo (o entrambe) possono essere ottenute verso il basso le preferenze dell'organizzazione o preferenze personali.</span><span class="sxs-lookup"><span data-stu-id="6c738-255">The choice of which one to use (or both) comes down to personal preference or the preference of your organization.</span></span> <span data-ttu-id="6c738-256">Anche se è possibile combinare e associare `ViewData` e `ViewBag` oggetti, il codice è più facile da leggere e gestire quando si sceglie un solo e utilizzarlo in modo coerente.</span><span class="sxs-lookup"><span data-stu-id="6c738-256">Though you can mix and match `ViewData` and `ViewBag` objects, the code is easier to read and maintain when you choose only one and use it consistently.</span></span> <span data-ttu-id="6c738-257">Poiché entrambi vengono risolti in modo dinamico in fase di esecuzione e quindi soggetto a causa di errori di runtime, utilizzarli con attenzione.</span><span class="sxs-lookup"><span data-stu-id="6c738-257">Since both are dynamically resolved at runtime and thus prone to causing runtime errors, use them carefully.</span></span> <span data-ttu-id="6c738-258">Alcuni sviluppatori evitano completamente.</span><span class="sxs-lookup"><span data-stu-id="6c738-258">Some developers avoid them completely.</span></span>
+
+### <a name="dynamic-views"></a><span data-ttu-id="6c738-259">Visualizzazioni dinamiche</span><span class="sxs-lookup"><span data-stu-id="6c738-259">Dynamic views</span></span>
+
+<span data-ttu-id="6c738-260">Tipo di viste che non dichiarano un modello utilizzando `@model` ma che dispongono di un'istanza del modello passata a essi (ad esempio, `return View(Address);`) possono fare riferimento le proprietà dell'istanza in modo dinamico:</span><span class="sxs-lookup"><span data-stu-id="6c738-260">Views that don't declare a model type using `@model` but that have a model instance passed to them (for example, `return View(Address);`) can reference the instance's properties dynamically:</span></span>
+
+```cshtml
 <address>
-       @Model.Street<br />
-       @Model.City, @Model.State @Model.PostalCode<br />
-       <abbr title="Phone">P:</abbr>
-       425.555.0100
-   </address>
-   ```
+    @Model.Street<br>
+    @Model.City, @Model.State @Model.PostalCode<br>
+    <abbr title="Phone">P:</abbr> 425.555.0100
+</address>
+```
 
-<span data-ttu-id="6d9d1-192">Questa funzionalità può offrire una certa flessibilità, ma non offre alcun protezione compilazione IntelliSense.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-192">This feature can offer some flexibility, but does not offer any compilation protection or IntelliSense.</span></span> <span data-ttu-id="6d9d1-193">Se la proprietà non esiste, la pagina avrà esito negativo in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-193">If the property doesn't exist, the page will fail at runtime.</span></span>
+<span data-ttu-id="6c738-261">Questa funzionalità offre flessibilità ma non offre protezione compilazione o IntelliSense.</span><span class="sxs-lookup"><span data-stu-id="6c738-261">This feature offers flexibility but doesn't offer compilation protection or IntelliSense.</span></span> <span data-ttu-id="6c738-262">Se la proprietà non esiste, la generazione di pagine Web non riesce in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="6c738-262">If the property doesn't exist, webpage generation fails at runtime.</span></span>
 
-## <a name="more-view-features"></a><span data-ttu-id="6d9d1-194">Altre funzionalità di visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6d9d1-194">More View Features</span></span>
+## <a name="more-view-features"></a><span data-ttu-id="6c738-263">Altre funzionalità di visualizzazione</span><span class="sxs-lookup"><span data-stu-id="6c738-263">More view features</span></span>
 
-<span data-ttu-id="6d9d1-195">[Gli helper di tag](tag-helpers/intro.md) rendono più facile aggiungere un comportamento lato server per i tag HTML esistenti, evitando la necessità di utilizzare codice personalizzato o helper all'interno di viste.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-195">[Tag helpers](tag-helpers/intro.md) make it easy to add server-side behavior to existing HTML tags, avoiding the need to use custom code or helpers within views.</span></span> <span data-ttu-id="6d9d1-196">Gli helper di tag vengono applicati come attributi agli elementi HTML, che vengono ignorati dall'editor che non ha familiarità con essi, che consente di visualizzare i tag essere modificato e il rendering in una varietà di strumenti.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-196">Tag helpers are applied as attributes to HTML elements, which are ignored by editors that aren't familiar with them, allowing view markup to be edited and rendered in a variety of tools.</span></span> <span data-ttu-id="6d9d1-197">Gli helper di tag di SQL e in particolare è possibile effettuare [utilizzo dei moduli](working-with-forms.md) molto più semplice.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-197">Tag helpers have many uses, and in particular can make [working with forms](working-with-forms.md) much easier.</span></span>
+<span data-ttu-id="6c738-264">[Gli helper di tag](xref:mvc/views/tag-helpers/intro) rendono più facile aggiungere un comportamento lato server per i tag HTML esistenti.</span><span class="sxs-lookup"><span data-stu-id="6c738-264">[Tag Helpers](xref:mvc/views/tag-helpers/intro) make it easy to add server-side behavior to existing HTML tags.</span></span> <span data-ttu-id="6c738-265">Gli helper di Tag consente di evitare la necessità di scrivere codice personalizzato o helper all'interno delle visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="6c738-265">Using Tag Helpers avoids the need to write custom code or helpers within your views.</span></span> <span data-ttu-id="6c738-266">Gli helper di tag vengono applicati come attributi agli elementi HTML e vengono ignorati per gli editor che non è possibile elaborarli.</span><span class="sxs-lookup"><span data-stu-id="6c738-266">Tag helpers are applied as attributes to HTML elements and are ignored by editors that can't process them.</span></span> <span data-ttu-id="6c738-267">Ciò consente di modificare ed eseguire il rendering di markup di visualizzazione in un'ampia gamma di strumenti.</span><span class="sxs-lookup"><span data-stu-id="6c738-267">This allows you to edit and render view markup in a variety of tools.</span></span>
 
-<span data-ttu-id="6d9d1-198">Generazione di codice HTML personalizzato può essere ottenuta con molti helper HTML incorporati, e una logica più complessa dell'interfaccia utente (potenzialmente con i propri requisiti di dati) può essere incapsulata [Visualizza i componenti](view-components.md).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-198">Generating custom HTML markup can be achieved with many built-in HTML Helpers, and more complex UI logic (potentially with its own data requirements) can be encapsulated in [View Components](view-components.md).</span></span> <span data-ttu-id="6d9d1-199">Visualizza i componenti forniscono la stessa separazione delle problematiche che offrono controller e visualizzazioni e consente di eliminare la necessità di azioni e le viste per gestire i dati utilizzati dagli elementi dell'interfaccia utente comuni.</span><span class="sxs-lookup"><span data-stu-id="6d9d1-199">View components provide the same separation of concerns that controllers and views offer, and can eliminate the need for actions and views to deal with data used by common UI elements.</span></span>
+<span data-ttu-id="6c738-268">Generazione di codice HTML personalizzato può essere ottenuta con molti helper HTML incorporato.</span><span class="sxs-lookup"><span data-stu-id="6c738-268">Generating custom HTML markup can be achieved with many built-in HTML Helpers.</span></span> <span data-ttu-id="6c738-269">Una logica più complessa dell'interfaccia utente può essere gestita da [Visualizza i componenti](xref:mvc/views/view-components).</span><span class="sxs-lookup"><span data-stu-id="6c738-269">More complex user interface logic can be handled by [View Components](xref:mvc/views/view-components).</span></span> <span data-ttu-id="6c738-270">Visualizza i componenti forniscono la stessa SoC tale controller e visualizzazioni offrono.</span><span class="sxs-lookup"><span data-stu-id="6c738-270">View components provide the same SoC that controllers and views offer.</span></span> <span data-ttu-id="6c738-271">È possibile eliminare la necessità di azioni e visualizzazioni che gestiscono i dati utilizzati da elementi dell'interfaccia utente comune.</span><span class="sxs-lookup"><span data-stu-id="6c738-271">They can eliminate the need for actions and views that deal with data used by common user interface elements.</span></span>
 
-<span data-ttu-id="6d9d1-200">Come molti altri aspetti di ASP.NET Core, viste supportano [inserimento di dipendenze](../../fundamentals/dependency-injection.md), consentendo di servizi da [inserite nelle viste](dependency-injection.md).</span><span class="sxs-lookup"><span data-stu-id="6d9d1-200">Like many other aspects of ASP.NET Core, views support [dependency injection](../../fundamentals/dependency-injection.md), allowing services to be [injected into views](dependency-injection.md).</span></span>
+<span data-ttu-id="6c738-272">Come molti altri aspetti di ASP.NET Core, viste supportano [inserimento di dipendenze](xref:fundamentals/dependency-injection), consentendo di servizi da [inserite nelle viste](xref:mvc/views/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="6c738-272">Like many other aspects of ASP.NET Core, views support [dependency injection](xref:fundamentals/dependency-injection), allowing services to be [injected into views](xref:mvc/views/dependency-injection).</span></span>
