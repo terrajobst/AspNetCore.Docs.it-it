@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a93dae3edec73f1b5254aa60662834ca83de62fd
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
+ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/10/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Utilizzo di JavaScriptServices per la creazione di applicazioni a pagina singola con ASP.NET Core
 
@@ -24,7 +24,7 @@ Da [Scott Addie](https://github.com/scottaddie) e [Fiyaz Hasan](http://fiyazhasa
 
 Un'applicazione a pagina singola (SPA) è un tipo comune di applicazione web a causa l'esperienza utente avanzata inerente. Integrazione Framework SPA o raccolte, sul lato client, ad esempio [angolare](https://angular.io/) o [reagire](https://facebook.github.io/react/), con Framework sul lato server quali ASP.NET Core può essere difficile. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) è stato sviluppato per ridurre le forze di attrito nel processo di integrazione. In questo modo l'operatività tra diversi client e gli stack di tecnologie di server.
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 <a name="what-is-js-services"></a>
 
@@ -167,7 +167,7 @@ Il *webpack.config.js* file `output.publicPath` proprietà indica il middleware 
 
 ## <a name="hot-module-replacement"></a>Sostituzione di un modulo a caldo
 
-Si consideri di Webpack [sostituzione di un modulo a caldo](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) funzionalità (HMR) come un'evoluzione del [Webpack Dev Middleware](#webpack-dev-middleware). HMR introduce gli stessi vantaggi, ma ulteriormente semplifica il flusso di lavoro di sviluppo aggiornando automaticamente il contenuto della pagina dopo la compilazione delle modifiche. Non confondere con un aggiornamento del browser, che potrebbe interferire con la stato in memoria corrente e la sessione di debug di SPA. È presente un collegamento in tempo reale tra il servizio Webpack Dev Middleware e il browser, il che significa che le modifiche sono ~ semplicemente un'altra parola escluso ~ inserito nel browser.
+Si consideri di Webpack [sostituzione di un modulo a caldo](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) funzionalità (HMR) come un'evoluzione del [Webpack Dev Middleware](#webpack-dev-middleware). HMR introduce gli stessi vantaggi, ma ulteriormente semplifica il flusso di lavoro di sviluppo aggiornando automaticamente il contenuto della pagina dopo la compilazione delle modifiche. Non confondere con un aggiornamento del browser, che potrebbe interferire con la stato in memoria corrente e la sessione di debug di SPA. È presente un collegamento in tempo reale tra il servizio Webpack Dev Middleware e il browser, il che significa che le modifiche vengono inviate al browser.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
