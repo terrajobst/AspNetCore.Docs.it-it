@@ -84,7 +84,7 @@ Esempio:
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
+| TimeSpan    | " @TimeSpan.FromSeconds (120)"    |
 
 
 Imposta il periodo di tempo alla prima richiesta per memorizzare nella cache il contenuto. 
@@ -103,7 +103,7 @@ Esempio:
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
+| TimeSpan    | " @TimeSpan.FromSeconds (60)"     |
 
 
 Imposta il tempo che una voce della cache deve essere eliminata se non ha ricevuto accessi.
@@ -229,7 +229,7 @@ Utilizzo di questo attributo mantiene il contenuto nella cache tramite un ciclo 
 
 | Tipo di attributo    | Valori di esempio                |
 |----------------   |----------------               |
-| Stringa             | "@Model"                 |
+| Stringa             | " @Model "                 |
 
 
 Consente la personalizzazione dell'Ottiene memorizzati nella cache i dati. Quando viene aggiornato l'oggetto di riferimento dalle modifiche del valore stringa dell'attributo, il contenuto dell'Helper di Tag della Cache. Spesso una concatenazione di valori del modello vengono assegnati a questo attributo.  In effetti, ciò significa che l'aggiornamento di uno dei valori concatenati invalida la cache.
