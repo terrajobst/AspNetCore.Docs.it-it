@@ -174,7 +174,7 @@ Le annotazioni dei dati applicate al `Email` e `Password` proprietà generano me
 
 ### <a name="expression-names"></a>Nomi delle espressioni
 
-Il `asp-for` valore dell'attributo è un `ModelExpression` e il lato destro di un'espressione lambda. Pertanto, `asp-for="Property1"` diventa `m => m.Property1` nel codice generato motivo per cui non è necessario prefisso `Model`. È possibile utilizzare il "@" caratteri per avviare un'espressione inline e spostare prima la `m.`:
+Il `asp-for` valore dell'attributo è un `ModelExpression` e il lato destro di un'espressione lambda. Pertanto, `asp-for="Property1"` diventa `m => m.Property1` nel codice generato motivo per cui non è necessario prefisso `Model`. È possibile utilizzare il « @ » caratteri per avviare un'espressione inline e spostare prima la `m.`:
 
 ```HTML
 @{
