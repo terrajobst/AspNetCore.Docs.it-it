@@ -1,79 +1,144 @@
 ---
-title: "Limitazione dell'identità dallo schema"
+title: Autorizzazione con uno specifico schema - ASP.NET Core
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "In questo articolo viene illustrato come limitare l'identità per uno schema specifico quando si lavora con più metodi di autenticazione."
+keywords: "ASP.NET Core, identità, schema di autenticazione"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 10/12/2017
 ms.topic: article
 ms.assetid: d3d6ca1b-b4b5-4bf7-898e-dcd90ec1bf8c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 2483c441da317a5c29b611b3a4910eae3c01fd7a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: cf3259f206b8d970cc6f2b0b9e52e233c30d6df3
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="limiting-identity-by-scheme"></a>Limitazione dell'identità dallo schema
+# <a name="authorize-with-a-specific-scheme"></a>Autorizzazione con uno schema specifico
 
-<a name=security-authorization-limiting-by-scheme></a>
+In alcuni scenari, ad esempio applicazioni a pagina singola (stabilimenti termali), è comune per utilizzare più metodi di autenticazione. Ad esempio, l'app può utilizzare l'autenticazione basata su cookie di accesso e l'autenticazione della connessione JWT per le richieste di JavaScript. In alcuni casi, l'app può avere più istanze di un gestore di autenticazione. Ad esempio, due gestori di cookie in cui uno contiene un'identità di base e uno viene creato quando un'autenticazione a più fattori (MFA) è stata attivata. Autenticazione a più fattori può essere attivata perché l'utente ha richiesto un'operazione che richiede una maggiore sicurezza.
 
-In alcuni scenari, ad esempio applicazioni a pagina singola è possibile finire con più metodi di autenticazione. Ad esempio, l'applicazione potrà usare l'autenticazione basata su cookie di accesso e l'autenticazione della connessione per le richieste di JavaScript. In alcuni casi potrebbe essere più istanze di un middleware di autenticazione. Ad esempio, due cookie middlewares in cui una contiene un'identità di base e ne viene creata quando è attivata un'autenticazione a più fattori perché l'utente ha richiesto un'operazione che richiede una maggiore sicurezza.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Gli schemi di autenticazione sono denominati quando middleware di autenticazione viene configurato durante l'autenticazione, ad esempio
+Uno schema di autenticazione denominato quando il servizio di autenticazione viene configurato durante l'autenticazione. Ad esempio:
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions()
+public void ConfigureServices(IServiceCollection services)
 {
-    AuthenticationScheme = "Cookie",
-    LoginPath = new PathString("/Account/Unauthorized/"),
-    AccessDeniedPath = new PathString("/Account/Forbidden/"),
-    AutomaticAuthenticate = false
-});
+    // Code omitted for brevity
 
-app.UseBearerAuthentication(options =>
-{
-    options.AuthenticationScheme = "Bearer";
-    options.AutomaticAuthenticate = false;
-});
+    services.AddAuthentication()
+        .AddCookie(options => {
+            options.LoginPath = "/Account/Unauthorized/";
+            options.AccessDeniedPath = "/Account/Forbidden/";
+        })
+        .AddJwtBearer(options => {
+            options.Audience = "http://localhost:5001/";
+            options.Authority = "http://localhost:5000/";
+        });
 ```
 
-In questa configurazione due middlewares di autenticazione sono stati aggiunti, uno per i cookie e uno per la connessione.
+Nel codice precedente, sono stati aggiunti due gestori di autenticazione: uno per i cookie e uno per la connessione.
 
 >[!NOTE]
->Quando si aggiungono più middleware di autenticazione, che è necessario assicurarsi che nessun middleware sia configurato per l'esecuzione automatica. A questo scopo, impostare il `AutomaticAuthenticate` opzioni proprietà su false. Se non è possibile eseguire il filtraggio dallo schema non funzionerà.
+>Specifica lo schema predefinito comporta la `HttpContext.User` proprietà viene impostata su tale identità. Se non si desidera questo comportamento, disattivarlo richiamando la forma senza parametri di `AddAuthentication`.
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Gli schemi di autenticazione sono denominati quando l'autenticazione middlewares vengono configurati durante l'autenticazione. Ad esempio:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    // Code omitted for brevity
+
+    app.UseCookieAuthentication(new CookieAuthenticationOptions()
+    {
+        AuthenticationScheme = "Cookie",
+        LoginPath = "/Account/Unauthorized/",
+        AccessDeniedPath = "/Account/Forbidden/",
+        AutomaticAuthenticate = false
+    });
+    
+    app.UseJwtBearerAuthentication(new JwtBearerOptions()
+    {
+        AuthenticationScheme = "Bearer",
+        AutomaticAuthenticate = false,
+        Audience = "http://localhost:5001/",
+        Authority = "http://localhost:5000/",
+        RequireHttpsMetadata = false
+    });
+```
+
+Nel codice precedente, sono stati aggiunti due autenticazione middlewares: uno per i cookie e uno per la connessione.
+
+>[!NOTE]
+>Specifica lo schema predefinito comporta la `HttpContext.User` proprietà viene impostata su tale identità. Questo comportamento non è possibile disabilitarlo impostando il `AuthenticationOptions.AutomaticAuthenticate` proprietà `false`.
+
+---
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Selezionare lo schema con l'attributo Authorize
 
-Il middleware di autenticazione non è configurato per eseguire automaticamente e creare un'identità, che è necessario, nel punto di autorizzazione selezionare quale middleware verrà utilizzato. È il modo più semplice per selezionare il middleware desiderato per l'autorizzazione a utilizzare il `ActiveAuthenticationSchemes` proprietà. Questa proprietà accetta un elenco delimitato da virgole degli schemi di autenticazione da utilizzare. Ad esempio;
+Al momento di autorizzazione, l'app indica il gestore da utilizzare. Selezionare il gestore con cui l'app autorizzerà passando un elenco delimitato da virgole di schemi di autenticazione `[Authorize]`. Il `[Authorize]` attributo specifica lo schema di autenticazione o il schemi da utilizzare, indipendentemente dal fatto che sia stata configurata un'impostazione predefinita. Ad esempio:
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```csharp
+[Authorize(AuthenticationSchemes = "Cookie,Bearer")]
+public class MixedController : Controller
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = "Cookie,Bearer")]
 public class MixedController : Controller
 ```
 
-Nell'esempio precedente il cookie e di connessione middlewares verrà eseguito e la possibilità di creare e aggiungere un'identità per l'utente corrente. Specificando un unico schema verrà eseguita solo il middleware specificato.
+---
+
+Nell'esempio precedente, i gestori di connessione sia il cookie eseguire e la possibilità di creare e aggiungere un'identità per l'utente corrente. Specificando un unico schema, viene eseguito il gestore corrispondente.
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```csharp
+[Authorize(AuthenticationSchemes = "Bearer")]
+public class MixedController : Controller
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = "Bearer")]
+public class MixedController : Controller
 ```
 
-In questo caso è necessario eseguire solo il middleware con lo schema della connessione e le identità basata su cookie verrebbero ignorate.
+---
+
+Nel codice precedente, viene eseguito solo il gestore con lo schema "Bearer". Vengono ignorate le identità basate su cookie.
 
 ## <a name="selecting-the-scheme-with-policies"></a>Lo schema con i criteri di selezione
 
-Se si preferisce specificare gli schemi desiderati in [criteri](policies.md#security-authorization-policies-based) è possibile impostare il `AuthenticationSchemes` raccolta quando si aggiunge il criterio.
+Se si preferisce specificare gli schemi desiderati in [criteri](xref:security/authorization/policies#security-authorization-policies-based), è possibile impostare il `AuthenticationSchemes` raccolta quando si aggiunge il criterio:
 
 ```csharp
-options.AddPolicy("Over18", policy =>
+services.AddAuthorization(options =>
 {
-    policy.AuthenticationSchemes.Add("Bearer");
-    policy.RequireAuthenticatedUser();
-    policy.Requirements.Add(new Over18Requirement());
+    options.AddPolicy("Over18", policy =>
+    {
+        policy.AuthenticationSchemes.Add("Bearer");
+        policy.RequireAuthenticatedUser();
+        policy.Requirements.Add(new MinimumAgeRequirement());
+    });
 });
 ```
 
-In questo esempio il Over18 criteri verranno eseguiti solo in base all'identità creati il `Bearer` middleware.
+Nell'esempio precedente, il criterio "Over18" viene eseguito solo in base all'identità creata dal gestore "Bearer". Usare i criteri impostando il `[Authorize]` dell'attributo `Policy` proprietà:
+
+```csharp
+[Authorize(Policy = "Over18")]
+public class RegistrationController : Controller
+```

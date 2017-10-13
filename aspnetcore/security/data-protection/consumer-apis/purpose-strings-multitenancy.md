@@ -11,17 +11,17 @@ ms.assetid: 9d18c287-e0e6-4541-b09c-7fed45c902d9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: dd87d8bcaf0056b322908e9a3ef75678f603e1e6
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b25af7c1f4dd3c63734290e6ac82e2e30a030c61
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Gerarchia scopo e multi-tenancy in ASP.NET Core
 
 Dato che un oggetto IDataProtector anche in modo implicito un IDataProtectionProvider, a scopo può essere concatenato insieme. Questo provider di rilevamento. CreateProtector (["purpose1", "purpose2"]) equivale al provider. CreateProtector("purpose1"). CreateProtector("purpose2").
 
-In questo modo per alcune relazioni gerarchiche interessanti attraverso il sistema di protezione dati. Nell'esempio precedente di [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), il componente di SecureMessage può chiamare provider. CreateProtector("Contoso.Messaging.SecureMessage") una volta iniziale e il risultato in un campo privato _myProvider cache. Protezioni future possono quindi essere creati tramite chiamate a _myProvider.CreateProtector ("utente: nome utente"), e queste protezioni possono essere utilizzate per la protezione dei singoli messaggi.
+In questo modo per alcune relazioni gerarchiche interessanti attraverso il sistema di protezione dati. Nell'esempio precedente di [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), il componente di SecureMessage può chiamare provider. CreateProtector("Contoso.Messaging.SecureMessage") una volta iniziale e cache il risultato in una privata `_myProvide` campo. Protezioni future possono quindi essere creati tramite chiamate a `_myProvider.CreateProtector("User: username")`, e queste protezioni possono essere utilizzate per la protezione dei singoli messaggi.
 
 Questo può anche essere invertito. Prendere in considerazione una singola applicazione logica quali host più tenant (un CMS sembra ragionevole) e ogni tenant può essere configurato con un proprio sistema di gestione di autenticazione e lo stato. L'applicazione di tipo generico è un unico provider master, quindi chiama provider. CreateProtector ("Tenant 1") e provider. CreateProtector ("Tenant 2") per concedere a ogni tenant periodo isolato del sistema di protezione dati. I tenant Impossibile derivare le proprie singoli programmi di protezione in base alle proprie esigenze, ma indipendentemente dalla modalità tentano non possono creare protezioni con cui sono in conflitto con un altro tenant nel sistema. Graficamente è rappresentato come indicato di seguito.
 

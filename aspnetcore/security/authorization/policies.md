@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
+ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorizzazione personalizzata basata su criteri
 
 <a name=security-authorization-policies-based></a>
 
-Nel sistema l'il [autorizzazione ruolo](roles.md#security-authorization-role-based) e [le attestazioni di autorizzazione](claims.md#security-authorization-claims-based) verificare l'utilizzo di un requisito, un gestore per il requisito e i criteri configurati in precedenza. Questi blocchi predefiniti consentono di esprimere le valutazioni di autorizzazione nel codice, consentendo più dettagliato, riutilizzabili e nella struttura di autorizzazione facilmente testabili.
+Nel sistema l'il [autorizzazione ruolo](roles.md) e [le attestazioni di autorizzazione](claims.md) verificare l'utilizzo di un requisito, un gestore per il requisito e i criteri configurati in precedenza. Questi blocchi predefiniti consentono di esprimere le valutazioni di autorizzazione nel codice, consentendo più dettagliato, riutilizzabili e nella struttura di autorizzazione facilmente testabili.
 
 Criteri di autorizzazione sono costituita da uno o più requisiti e registrato all'avvio dell'applicazione come parte della configurazione del servizio di autorizzazione, in `ConfigureServices` nel *Startup.cs* file.
 

@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
@@ -94,11 +94,11 @@ Aprire *Views/Shared/_Layout.cshtml* e apportare le modifiche seguenti:
 
 Le modifiche sono evidenziate.
 
-[!code-html[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
 
 In *Views/Home/Index.cshtml*, sostituire il contenuto del file con il codice seguente per sostituire il testo su ASP.NET e MVC con testo sull'applicazione:
 
-[!code-html[](intro/samples/cu/Views/Home/Index.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Home/Index.cshtml)]
 
 Premere CTRL + F5 per eseguire il progetto oppure scegliere **Debug > Avvia senza eseguire debug** dal menu. Viene visualizzata la pagina home con schede per le pagine create in queste esercitazioni.
 
@@ -288,7 +288,7 @@ Più avanti nell'esercitazione si apprenderà sugli elementi di programmazione a
 
 Il *Views/Students/Index.cshtml* Visualizza l'elenco in una tabella:
 
-[!code-html[](intro/samples/cu/Views/Students/Index1.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Students/Index1.cshtml)]
 
 Premere CTRL + F5 per eseguire il progetto oppure scegliere **Debug > Avvia senza eseguire debug** dal menu.
 
@@ -330,7 +330,7 @@ La quantità di codice che era necessario scrivere affinché Entity Framework si
 
 * Le proprietà delle entità denominate ID o classnameID sono riconosciute come proprietà della chiave primaria.
 
-* Una proprietà viene interpretata come una proprietà di chiave esterna se il file è denominato * <navigation property name> <primary key property name> * (ad esempio, `StudentID` per il `Student` proprietà di navigazione perché il `Student` chiave primaria dell'entità è `ID`). Proprietà di chiave esterna può anche essere denominata semplicemente * <primary key property name> * (ad esempio, `EnrollmentID` poiché il `Enrollment` chiave primaria dell'entità è `EnrollmentID`).
+* Una proprietà viene interpretata come una proprietà di chiave esterna se il file è denominato  *<navigation property name> <primary key property name>*  (ad esempio, `StudentID` per il `Student` proprietà di navigazione perché il `Student` chiave primaria dell'entità è `ID`). Proprietà di chiave esterna può anche essere denominata semplicemente  *<primary key property name>*  (ad esempio, `EnrollmentID` poiché il `Enrollment` chiave primaria dell'entità è `EnrollmentID`).
 
 È possibile sostituire un comportamento convenzionale. Ad esempio, è possibile specificare in modo esplicito i nomi di tabella, come illustrato in precedenza in questa esercitazione. Ed è possibile impostare i nomi delle colonne e impostare qualsiasi proprietà di primary key o foreign key come verrà visualizzato un [esercitazione successiva](complex-data-model.md) di questa serie.
 
