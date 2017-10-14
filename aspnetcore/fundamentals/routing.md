@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
-ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
+ms.openlocfilehash: 5dd8bee7228587d7e13f128bc8f16102fb70a412
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
@@ -26,7 +26,7 @@ Funzionalità di routing è responsabile per il mapping di una richiesta in ingr
 >[!IMPORTANT]
 > Questo documento descrive di basso livello ASP.NET Core routing. Per il routing di ASP.NET MVC di base, vedere [Routing alle azioni del Controller](../mvc/controllers/routing.md)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali di routing
 
@@ -40,7 +40,7 @@ In genere, un'applicazione ha un unico insieme di route. Quando arriva una richi
 
 Routing è connesso il [middleware](middleware.md) pipeline per la `RouterMiddleware` classe. [ASP.NET MVC](../mvc/overview.md) aggiunge il routing a pipeline middleware come parte della relativa configurazione. Per ulteriori informazioni sull'utilizzo di routing come componente autonomo, vedere [utilizzando routing-middleware](#using-routing-middleware).
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>URL corrispondente
 
@@ -159,7 +159,7 @@ Questo modello corrisponderanno a un percorso URL come `/Products/5` che consent
 
 ![Token di Windows di variabili locali](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>Generazione di URL
 

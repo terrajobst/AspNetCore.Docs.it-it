@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78004aa370cac8b297fd7ede534260c83965ae79
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
 
@@ -51,7 +51,7 @@ Il `asp-for` attributo è reso disponibile per il `For` proprietà il `LabelTagH
 
 Ambito di helper di tag è controllata da una combinazione di `@addTagHelper`, `@removeTagHelper`e "!" rinuncia carattere.
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`rende disponibili gli helper di Tag
 
@@ -82,7 +82,7 @@ Per aggiungere un Helper Tag a una vista utilizzando un FQN, aggiungere innanzit
 
 Come indicato in precedenza, l'aggiunta di `@addTagHelper` direttiva per il *Views/_ViewImports.cshtml* file rende disponibili a tutti i file di visualizzazione dell'Helper di Tag di *viste* directory e sottodirectory. È possibile utilizzare il `@addTagHelper` direttiva nei file di visualizzazione specifico se si desidera registrarsi per esporre l'Helper di Tag solo tali viste.
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Rimuove gli helper di Tag
 
@@ -104,7 +104,7 @@ Il `@removeTagHelper` ha gli stessi due parametri di `@addTagHelper`, e viene ri
 
 È necessario applicare il carattere di rinuncia Helper di Tag per il tag di apertura e chiusura. (Editor di Visual Studio aggiunge automaticamente il carattere di aderire al tag di chiusura quando si aggiunge uno al tag di apertura). Dopo aver aggiunto il carattere di rifiuto esplicito, l'elemento e gli attributi di Helper di Tag non sono più visualizzati in un unico tipo di carattere.
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Utilizzando `@tagHelperPrefix` rendere esplicito l'utilizzo di Helper Tag
 
@@ -127,7 +127,7 @@ Si consiglia di scrivere l'HTML `<label>` elemento. Non appena immette `<l` nell
 
 ![immagine](intro/_static/label.png)
 
-Non solo ottenere della Guida HTML, ma l'icona (il "@" simbolo con "<>" sotto di esso).
+Non solo ottenere della Guida HTML, ma l'icona (il "@" symbol with "<>" sotto di esso).
 
 ![immagine](intro/_static/tagSym.png)
 

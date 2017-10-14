@@ -11,15 +11,15 @@ ms.assetid: c96ed361-c382-4980-8933-800e740cfc38
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: cc33bcfab4945e6d6f9ca7e61edeff4d1837661a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 799c3dc2768e264307783efafee626a346a9362c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="purpose-strings"></a>Scopo stringhe
 
-<a name=data-protection-consumer-apis-purposes></a>
+<a name="data-protection-consumer-apis-purposes"></a>
 
 I componenti che utilizzano IDataProtectionProvider devono passare un univoco *scopi* parametro al metodo CreateProtector. Gli scopi *parametro* è implicito per la sicurezza del sistema di protezione dati, in quanto forniscono isolamento tra il servizio di crittografia consumer, anche se le chiavi di crittografia radice sono uguali.
 
@@ -38,7 +38,7 @@ La stringa scopo non deve necessariamente essere segreto. Semplicemente deve ess
 
 Poiché il parametro scopi CreateProtector è una matrice di stringhe, il precedente stato sono stati invece specificati come ["Contoso.Security.BearerToken", "v1"]. In questo modo la definizione di una gerarchia di scopi e offre la possibilità di scenari multi-tenancy con il sistema di protezione dati.
 
-<a name=data-protection-contoso-purpose></a>
+<a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
 > I componenti non devono consentire input utente non attendibile per essere l'unica fonte di input per la catena di scopi.

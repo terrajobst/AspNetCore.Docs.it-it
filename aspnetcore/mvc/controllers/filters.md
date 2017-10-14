@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 34a5be6e77f8558c9b3c257575272e167ed95ea4
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="filters"></a>Filtri
 
@@ -82,7 +82,7 @@ Asincrona che definiscono un singolo in*fase*ExecutionAsync metodo. Questo metod
 
 Il framework include i filtri basati su attributi predefiniti che è possibile creare una sottoclasse e personalizzare. Ad esempio, il filtro di risultati seguente aggiunge un'intestazione nella risposta.
 
-<a name=add-header-attribute></a>
+<a name="add-header-attribute"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
@@ -167,7 +167,7 @@ Il `Order` proprietà supera l'ambito per determinare l'ordine in cui verranno e
 
 È possibile di corto circuito di pipeline filtro in qualsiasi momento impostando la `Result` proprietà il `context` parametro fornito al metodo di filtro. Ad esempio, il filtro di risorse seguente impedisce l'esecuzione il resto della pipeline.
 
-<a name=short-circuiting-resource-filter></a>
+<a name="short-circuiting-resource-filter"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 

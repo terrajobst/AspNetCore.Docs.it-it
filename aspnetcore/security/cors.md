@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0d1c34f5c82fe1a28a405617ea77084db899139b
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Abilitare le richieste tra le origini (CORS)
 
@@ -54,7 +54,7 @@ Per impostare CORS per l'applicazione aggiungere le `Microsoft.AspNetCore.Cors` 
 
 Aggiungere i servizi CORS in Startup.cs:
 
-[!code-csharp[Principale](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
 ## <a name="enabling-cors-with-middleware"></a>Abilitazione di CORS con middleware
 
@@ -62,7 +62,7 @@ Per abilitare CORS per l'intera applicazione, aggiungere il middleware CORS la r
 
 È possibile specificare un criterio di cross-origin quando si aggiunge il middleware CORS tramite la `CorsPolicyBuilder` classe. È possibile ottenere questo risultato in due modi. Il primo consiste nel chiamare UseCors con un'espressione lambda:
 
-[!code-csharp[Principale](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
 **Nota:** l'URL deve essere specificato senza una barra finale (`/`). Se l'URL termina con `/`, verrà restituito il confronto `false` e non verrà restituita alcuna intestazione.
 
@@ -70,11 +70,11 @@ L'espressione lambda ha un `CorsPolicyBuilder` oggetto. È disponibile un elenco
 
 Si noti che CorsPolicyBuilder presenta un'API intuitiva, pertanto è possibile concatenare le chiamate al metodo:
 
-[!code-csharp[Principale](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+[!code-csharp[Main](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
 Il secondo approccio consiste nel definire uno o più criteri CORS denominati e quindi selezionare i criteri in base al nome in fase di esecuzione.
 
-[!code-csharp[Principale](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+[!code-csharp[Main](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 Questo esempio aggiunge un criterio CORS denominato "AllowSpecificOrigin". Per selezionare i criteri, passare il nome di `UseCors`.
 
@@ -86,19 +86,19 @@ In alternativa, è possibile utilizzare MVC per applicare specifiche CORS per og
 
 Per specificare un criterio CORS per un'azione specifica aggiungere il `[EnableCors]` attributo all'azione. Specificare il nome del criterio.
 
-[!code-csharp[Principale](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Per ogni controller
 
 Per specificare il criterio CORS per un controller specifico aggiungere il `[EnableCors]` attributo alla classe controller. Specificare il nome del criterio.
 
-[!code-csharp[Principale](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>A livello globale
 
 È possibile abilitare a livello globale CORS per tutti i controller mediante l'aggiunta di `CorsAuthorizationFilterFactory` filtro all'insieme di filtri globali:
 
-[!code-csharp[Principale](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+[!code-csharp[Main](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
 L'ordine di precedenza è: azione, controller, globale. A livello di azione criteri hanno la precedenza sui criteri a livello di controller e i criteri a livello di controller hanno la precedenza sui criteri globali.
 
@@ -106,7 +106,7 @@ L'ordine di precedenza è: azione, controller, globale. A livello di azione crit
 
 Per disabilitare CORS per un controller o un'azione, utilizzare il `[DisableCors]` attributo.
 
-[!code-csharp[Principale](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
 ## <a name="cors-policy-options"></a>Opzioni dei criteri CORS
 
@@ -130,11 +130,11 @@ Per alcune opzioni può essere utile leggere [funziona come CORS](#how-cors-work
 
 Per consentire a uno o più origini specifiche:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
 Per consentire tutte le origini:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
 Valutare con attenzione prima di consentire le richieste provenienti da qualsiasi origine. Significa che letteralmente qualsiasi sito Web di effettuare chiamate AJAX all'API.
 
@@ -142,7 +142,7 @@ Valutare con attenzione prima di consentire le richieste provenienti da qualsias
 
 Per consentire a tutti i metodi HTTP:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
 Questo influisce sulle richieste preliminari e intestazione Access-controllo-Allow-Methods.
 
@@ -152,11 +152,11 @@ Una richiesta preliminare CORS potrebbe includere un'intestazione Access-Control
 
 A intestazioni specifiche whitelist:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
 Per consentire tutti creare intestazioni di richiesta:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
 Browser non sono completamente coerenti in modalità impostano Access-Control-Request-Headers. Se si imposta le intestazioni a un valore diverso da "*", è necessario includere almeno "accetta", "content-type" e "origine", più eventuali intestazioni personalizzate che si desidera supportare.
 
@@ -178,7 +178,7 @@ Per impostazione predefinita, il browser non espone tutte le intestazioni di ris
 
 Le specifiche CORS chiama questi *le intestazioni di risposta semplice*. Per rendere disponibili per l'applicazione altre intestazioni:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=71-76)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>Credenziali in richieste cross-origin
 
@@ -205,7 +205,7 @@ $.ajax({
 
 Inoltre, il server deve concedere le credenziali. Per consentire le credenziali di cross-origin:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
 Ora la risposta HTTP includerà un'intestazione controllo-Consenti-le credenziali di accesso, che indica al browser che il server consenta le credenziali per una richiesta multiorigine.
 
@@ -217,9 +217,9 @@ Prestare molta attenzione su come consentire tra le origini credenziali, in quan
 
 L'intestazione di controllo accesso-Max-Age specifica quanto tempo può essere memorizzati nella cache la risposta alla richiesta preliminare. Per impostare questa intestazione:
 
-[!code-csharp[Principale](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
-<a name=cors-how-cors-works></a>
+<a name="cors-how-cors-works"></a>
 
 ## <a name="how-cors-works"></a>Funzionamento di CORS
 

@@ -11,15 +11,15 @@ ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: fc00bcce24d586865bf6a1d3f2f7e782a2f1c703
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f89ad584600c3f12a936599de27f931aff0cd4b5
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creazione di efficaci e reattive siti con Bootstrap
 
-<a name=bootstrap-index></a>
+<a name="bootstrap-index"></a>
 
 Da [Steve Smith](https://ardalis.com/)
 
@@ -33,7 +33,7 @@ Esistono diversi modi per iniziare con Bootstrap. Se si inizia una nuova applica
 
 Aggiunta di Bootstrap per un ASP.NET Core progetto è sufficiente aggiungerli alla *bower. JSON* come dipendenza:
 
-[!code-json[Principale](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 Questo è il modo consigliato per aggiungere un progetto ASP.NET Core di Bootstrap.
 
@@ -62,7 +62,7 @@ Install-Package bootstrap
 
 Se viene fatto riferimento proprie versioni locali del Bootstrap, è necessario farvi riferimento in tutte le pagine che verranno utilizzato. Nell'ambiente di produzione è necessario fare riferimento tramite una rete CDN bootstrap. Nel modello di sito ASP.NET predefinito, il *layout. cshtml* file così come segue:
 
-[!code-html[Principale](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > Se prevede di utilizzare uno qualsiasi dei plug-in di jQuery del Bootstrap, è necessario inoltre fare riferimento a jQuery.
@@ -204,7 +204,7 @@ Bootstrap include set di icone da Glyphicons ([http://glyphicons.com](http://gly
 
 ![Glyphicons](bootstrap/_static/theme-glyphicons.png)
 
-### <a name="input-groups"></a>Gruppi di input
+### <a name="input-groups"></a>gruppi di input
 
 Gruppi di input consentono l'aggiunta di testo aggiuntivi o i pulsanti con un elemento di input, fornisce all'utente un'esperienza più intuitiva:
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
-ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
+ms.openlocfilehash: d4d10ef45d562f34c3f8b5ce025abaf763c862d3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato sessione e dell'applicazione ASP.NET di base
 
@@ -43,6 +43,7 @@ Il provider della sessione in memoria archivia i dati di sessione nel server loc
 
 ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Questa proprietà archivia i dati finché non viene letta. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`è implementato dal provider TempData, ad esempio, utilizza i cookie o lo stato della sessione.
 
+<a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData provider
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
@@ -106,7 +107,7 @@ Il `Items` raccolta è una buona posizione in cui archiviare i dati necessari so
 
 La memorizzazione nella cache è un modo efficiente per archiviare e recuperare dati. È possibile controllare la durata di elementi memorizzati nella cache in base al tempo e altre considerazioni. Altre informazioni, vedere [la memorizzazione nella cache](../performance/caching/index.md).
 
-<a name=session></a>
+<a name="session"></a>
 ## <a name="working-with-session-state"></a>Utilizzo con lo stato della sessione
 
 ### <a name="configuring-session"></a>Configurazione della sessione
@@ -167,7 +168,7 @@ Sessione avviene tramite il `Session` proprietà `HttpContext`. Questa propriet�
 
 L'esempio seguente mostra l'impostazione e recupero di un tipo int e una stringa:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 Se si aggiungono i seguenti metodi di estensione, è possibile impostare e ottenere gli oggetti serializzabili alla sessione:
 
@@ -232,7 +233,7 @@ public class HomeController : Controller
 
 Questo approccio presenta inoltre il vantaggio di eliminare la ripetizione di stringhe"magiche" in più posizioni nel codice.
 
-<a name=appstate-errors></a>
+<a name="appstate-errors"></a>
 
 ## <a name="application-state-data"></a>Dati di stato dell'applicazione
 

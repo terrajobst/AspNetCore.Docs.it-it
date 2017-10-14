@@ -11,19 +11,19 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: d35e0e806999ffd2e0f8f82e0adfc940ea2b503d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuring-data-protection"></a>Configurazione della protezione dati
 
-<a name=data-protection-configuring></a>
+<a name="data-protection-configuring"></a>
 
 Quando viene inizializzato il sistema di protezione dati applica alcuni [impostazioni predefinite](default-settings.md#data-protection-default-settings) in base all'ambiente operativo. Queste impostazioni sono in genere utile per le applicazioni in esecuzione in un singolo computer. Vi sono casi in cui uno sviluppatore potrebbe essere necessario modificare questi (probabilmente perché l'applicazione viene distribuito tra più computer o per motivi di conformità), e per questi scenari, il sistema di protezione dati offre un'API di configurazione avanzate.
 
-<a name=data-protection-configuration-callback></a>
+<a name="data-protection-configuration-callback"></a>
 
 È un metodo di estensione AddDataProtection che restituisce un IDataProtectionBuilder che a sua volta espone i metodi di estensione che è possibile concatenare per configurare la protezione dei dati di varie opzioni. Ad esempio, per archiviare le chiavi in una condivisione UNC anziché % LOCALAPPDATA % (impostazione predefinita), configurare il sistema come segue:
 
@@ -38,7 +38,7 @@ public void ConfigureServices(IServiceCollection services)
 >[!WARNING]
 > Se si modifica il percorso della chiave di persistenza, il sistema non viene più crittografare chiavi inattivi, poiché non è chiaro se DPAPI è un meccanismo di crittografia appropriati.
 
-<a name=configuring-x509-certificate></a>
+<a name="configuring-x509-certificate"></a>
 
 È possibile configurare il sistema per proteggere le chiavi inattivi chiamando uno del ProtectKeysWith\* le API di configurazione. Si consideri l'esempio seguente, che archivia le chiavi in una condivisione UNC e consente di crittografare le chiavi inattivi con un certificato x. 509 specifico.
 
@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Per impostazione predefinita il sistema di protezione dati consente di isolare le applicazioni da un altro, anche se essi condividono lo stesso repository chiave fisico. In questo modo le applicazioni dalla comprensione di altro payload protetto. Per condividere un payload protetto tra due diverse applicazioni, configurare il sistema passando il nome dell'applicazione stessa sia per le applicazioni come nell'esempio seguente:
 
-<a name=data-protection-code-sample-application-name></a>
+<a name="data-protection-code-sample-application-name"></a>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuring-disable-automatic-key-generation></a>
+<a name="data-protection-configuring-disable-automatic-key-generation"></a>
 
 Infine, è possibile uno scenario in cui non si desidera un'applicazione per distribuire automaticamente le chiavi come l'approccio della scadenza. Un esempio potrebbe essere impostate in una relazione primaria / secondaria, in cui solo l'applicazione principale è responsabile per motivi di gestione delle chiavi e tutte le applicazioni secondarie sono semplicemente una visualizzazione di sola lettura dell'anello chiave applicazioni. Le applicazioni secondarie possono essere configurate per considerare la gestione delle chiavi in sola lettura per la configurazione del sistema come indicato di seguito:
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuration-per-app-isolation></a>
+<a name="data-protection-configuration-per-app-isolation"></a>
 
 ## <a name="per-application-isolation"></a>Isolamento per ogni applicazione
 
@@ -105,7 +105,7 @@ Questo meccanismo di isolamento si presuppone che le applicazioni non siano dann
 
 Se il sistema di protezione dati non viene fornito da un host ASP.NET Core (ad esempio, se lo sviluppatore ne crea un'istanza se stesso tramite il tipo concreto DataProtectionProvider), l'isolamento delle applicazioni è disabilitato per impostazione predefinita e tutte le applicazioni supportate da reimpostazione della chiave stessa materiale può condividere i payload come forniscono gli scopi appropriati. Per garantire l'isolamento delle applicazioni in questo ambiente, chiamare il metodo SetApplicationName sull'oggetto di configurazione, vedere il [nell'esempio di codice](#data-protection-code-sample-application-name) sopra.
 
-<a name=data-protection-changing-algorithms></a>
+<a name="data-protection-changing-algorithms"></a>
 
 ## <a name="changing-algorithms"></a>Algoritmi di modifica
 
@@ -144,7 +144,7 @@ Lo sviluppatore può specificare un'implementazione manualmente se si desidera t
 >[!TIP]
 > La modifica di algoritmi non influisce sulle chiavi esistenti dell'anello di chiave. Riguarda solo le chiavi appena generato.
 
-<a name=data-protection-changing-algorithms-custom-managed></a>
+<a name="data-protection-changing-algorithms-custom-managed"></a>
 
 ### <a name="specifying-custom-managed-algorithms"></a>Specifica gli algoritmi gestiti personalizzati
 
@@ -193,7 +193,7 @@ In genere il \*le proprietà del tipo devono puntare a concreto, istanziabili (t
 > [!NOTE]
 > Il SymmetricAlgorithm deve avere una lunghezza della chiave di ≤ 128 bit e una dimensione del blocco di ≥ 64 bit e deve supportare la crittografia in modalità CBC con riempimento PKCS #7. Il KeyedHashAlgorithm deve avere una dimensione di digest di > = 128 bit, e deve supportare le chiavi di lunghezza uguale alla lunghezza di digest dell'algoritmo hash. Il KeyedHashAlgorithm non è strettamente necessaria per essere HMAC.
 
-<a name=data-protection-changing-algorithms-cng></a>
+<a name="data-protection-changing-algorithms-cng"></a>
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>Specifica gli algoritmi CNG di Windows personalizzati
 

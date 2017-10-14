@@ -11,15 +11,15 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 687207cb6a1cea89166fd2b6172cdc0a013de4b3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management"></a>Gestione delle chiavi
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
 Il sistema di protezione dati gestisce automaticamente la durata delle chiavi master utilizzata per proteggere e annullare la protezione di payload. Ogni chiave può essere presente in una delle quattro fasi.
 
@@ -46,7 +46,7 @@ Il motivo per il sistema di protezione di dati genera una nuova chiave immediata
 
 Si verifica un'eccezione. Se lo sviluppatore di applicazioni ha [disabilitata la generazione automatica delle chiave](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation), quindi il sistema di protezione dati è necessario scegliere un elemento come chiave predefinita. In questo scenario di fallback, il sistema sceglierà la chiave non è stato revocato con la data più recente di attivazione, usando preferibilmente delle chiavi che hanno avuto tempo per propagare ad altri computer nel cluster. Il sistema di fallback può finire la scelta di una chiave predefinita scaduta di conseguenza. Il sistema di fallback non sceglierà mai una chiave revocata come chiave predefinita e se la gestione delle chiavi è vuoto o se ogni chiave è stato revocato il sistema verrà generato un errore al momento dell'inizializzazione.
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>Scadenza della chiave e in sequenza
 
@@ -79,7 +79,7 @@ Qualsiasi operazione che modifica la gestione delle chiavi (creazione di una nuo
 
 Nell'esempio seguente viene illustrato l'utilizzo dell'interfaccia IKeyManager per esaminare e manipolare l'anello chiave, tra cui revocare le chiavi esistenti e generare manualmente una nuova chiave.
 
-[!code-none[Principale](key-management/samples/key-management.cs)]
+[!code-none[Main](key-management/samples/key-management.cs)]
 
 ## <a name="key-storage"></a>Archiviazione delle chiavi
 

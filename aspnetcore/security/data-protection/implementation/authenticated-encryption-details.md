@@ -11,15 +11,15 @@ ms.assetid: 826e6d5d-9620-44e6-ad93-3b1d9969b70b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: 4d0e63d7722071ab8806a217e96ee7ad7bf10286
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 6229adaa7145ff192104e2243daefb77f516c2c5
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="authenticated-encryption-details"></a>Dettagli di crittografia autenticata.
 
-<a name=data-protection-implementation-authenticated-encryption-details></a>
+<a name="data-protection-implementation-authenticated-encryption-details"></a>
 
 Le chiamate a IDataProtector.Protect sono le operazioni di crittografia autenticata. Il metodo Protect offre riservatezza e autenticità e quest'ultima è associata alla catena scopo utilizzato per derivare questa particolare istanza di oggetto IDataProtector IDataProtectionProvider radice.
 

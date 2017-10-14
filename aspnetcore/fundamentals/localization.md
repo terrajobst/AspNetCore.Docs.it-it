@@ -11,8 +11,8 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: b64af625dd280b40e3c743af9415e3a67155fe6e
-ms.sourcegitcommit: e9bd53f53c0ba148343cd2057c714a7c72ee81e9
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2017
@@ -100,7 +100,7 @@ I messaggi di errore DataAnnotations vengono localizzati con `IStringLocalizer<T
 
 In ASP.NET MVC di base 1.1.0 e superiori, non convalida gli attributi sono localizzati. Componenti di base di ASP.NET MVC 1,0 **non** cercare stringhe localizzate per gli attributi non di convalida.
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Utilizzando una stringa di risorsa per le classi più
 
 Il codice seguente viene illustrato come utilizzare una stringa di risorsa per gli attributi di convalida con più classi:

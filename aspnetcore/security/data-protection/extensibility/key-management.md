@@ -11,15 +11,15 @@ ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: ed84b6dc257d5fd9e4c1cf6106df3c8bd6e14f64
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ce23931e72404347ebc17c69ae90e70cd15328bc
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management-extensibility"></a>Estensibilità di gestione delle chiavi
 
-<a name=data-protection-extensibility-key-management></a>
+<a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
 > Lettura di [gestione delle chiavi](../implementation/key-management.md#data-protection-implementation-key-management) sezione prima di leggere questa sezione, come vengono illustrati alcuni dei concetti di queste API.
@@ -37,11 +37,11 @@ L'interfaccia IKey è la rappresentazione di base di una chiave nel sistema di c
 
 * Identificatore di chiave (GUID)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Inoltre, IKey espone un metodo CreateDecryptor che può essere utilizzato per creare un [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associato a questa chiave.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Inoltre, IKey espone un metodo CreateEncryptorInstance che può essere utilizzato per creare un [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associato a questa chiave.
 
@@ -63,7 +63,7 @@ L'interfaccia IKeyManager rappresenta un oggetto responsabile della chiavi gener
 >[!WARNING]
 > Scrittura di un IKeyManager è un'attività molto avanzata e la maggior parte degli sviluppatori non deve tentare. Al contrario, la maggior parte degli sviluppatori devono sfruttare le funzionalità offerte dal [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) classe.
 
-<a name=data-protection-extensibility-key-management-xmlkeymanager></a>
+<a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
@@ -71,7 +71,7 @@ Il tipo XmlKeyManager è l'implementazione concreta nella casella di IKeyManager
 
 XmlKeyManager dipende da numerosi altri componenti nel corso di completare le attività:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * AlgorithmConfiguration, che determina gli algoritmi utilizzati dai nuove chiavi.
 
@@ -81,7 +81,7 @@ XmlKeyManager dipende da numerosi altri componenti nel corso di completare le at
 
 * [Facoltativo] IKeyEscrowSink che fornisce servizi di deposito delle chiavi.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * IXmlRepository, che controlla in cui le chiavi vengono rese persistenti nell'archiviazione.
 
@@ -93,7 +93,7 @@ XmlKeyManager dipende da numerosi altri componenti nel corso di completare le at
 
 Di seguito sono diagrammi di livello superiore che indicano come questi componenti vengono collegati tra loro in XmlKeyManager.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
    ![Creazione della chiave](key-management/_static/keycreation2.png)
 
@@ -101,7 +101,7 @@ Di seguito sono diagrammi di livello superiore che indicano come questi componen
 
 Nell'implementazione di CreateNewKey, il componente AlgorithmConfiguration viene utilizzato per creare un IAuthenticatedEncryptorDescriptor univoco, che viene quindi serializzato come XML. Se un sink di deposito delle chiavi è presente, il XML non elaborato (non crittografato) viene fornita al sink per l'archiviazione a lungo termine. Il codice XML non crittografato viene eseguito tramite un IXmlEncryptor (se richiesto) per generare il documento XML crittografato. Questo documento crittografato è persistente nell'archiviazione a lungo termine tramite il IXmlRepository. (Se non è configurato alcun IXmlEncryptor, il documento non crittografato è persistente nel IXmlRepository.)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
    ![Creazione della chiave](key-management/_static/keycreation1.png)
 
@@ -111,11 +111,11 @@ Nell'implementazione di CreateNewKey, il componente IAuthenticatedEncryptorConfi
 
 ---
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2. x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
    ![Recupero della chiave](key-management/_static/keyretrieval2.png)
    
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1. x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
    ![Recupero della chiave](key-management/_static/keyretrieval1.png)
 
@@ -139,7 +139,7 @@ Le implementazioni di IXmlRepository necessario analizzare il codice XML che li 
 
 Esistono due tipi concreti predefiniti che implementano IXmlRepository: FileSystemXmlRepository e RegistryXmlRepository. Vedere il [documento i provider di archiviazione chiavi](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers) per ulteriori informazioni. Registrazione un IXmlRepository personalizzato potrebbe essere il modo appropriato da utilizzare un altro archivio di backup, ad esempio, archiviazione Blob di Azure. Per modificare il livello di applicazione predefinito repository, registrare un singleton personalizzato IXmlRepository il provider del servizio.
 
-<a name=data-protection-extensibility-key-management-ixmlencryptor></a>
+<a name="data-protection-extensibility-key-management-ixmlencryptor"></a>
 
 ## <a name="ixmlencryptor"></a>IXmlEncryptor
 
@@ -187,4 +187,4 @@ Esempio di codice seguente illustra la creazione e la registrazione di un IKeyEs
 > [!NOTE]
 > Per eseguire questo esempio, è necessario essere in un dominio di Windows 8 / computer con Windows Server 2012 e il controller di dominio deve essere Windows Server 2012 o versione successiva.
 
-[!code-none[Principale](key-management/samples/key-management-extensibility.cs)]
+[!code-none[Main](key-management/samples/key-management-extensibility.cs)]

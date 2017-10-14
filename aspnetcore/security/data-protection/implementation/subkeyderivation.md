@@ -11,22 +11,22 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e070742b5d9966c4772fd2f0a6d637d98a46137c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivazione della sottochiave e la crittografia autenticata
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 La maggior parte delle chiavi nell'anello chiave conterrà una forma di entropia e disporrà di informazioni algoritmiche indicante "crittografia in modalità CBC + convalida HMAC" o "crittografia GCM + convalida". In questi casi, l'entropia incorporato noti come il materiale della chiave master (o KM) per la chiave e si esegue una funzione di derivazione della chiave per derivare le chiavi che verranno utilizzate per le operazioni di crittografia effettive.
 
 > [!NOTE]
 > Le chiavi sono classi astratte e un'implementazione personalizzata potrebbe non funzionare come indicato di seguito. Se la chiave fornisce la propria implementazione dell'IAuthenticatedEncryptor, anziché utilizzare uno dei nostri factory incorporate, il meccanismo descritto in questa sezione non è più applicabile.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Dati di autenticazione aggiuntivi e la derivazione della sottochiave
 
@@ -42,7 +42,7 @@ Poiché Azure ad è univoco per la tupla di tutti e tre i componenti, è possibi
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, | | keyModifier)
 
-In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) con i parametri seguenti:
+In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con i parametri seguenti:
 
 * Chiave di derivazione della chiave (KDK) = K_M
 
