@@ -12,25 +12,25 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: b2e991ea37b1b726e472d78d839143546ebd559f
+ms.sourcegitcommit: 29da58de11e20c9c60448e36e7075c6b13622624
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introduzione alla registrazione di ASP.NET Core
 
 Da [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di log. I provider predefiniti consentono di inviare i log per una o più destinazioni, ed è possibile collegare un framework di registrazione di terze parti. In questo articolo viene illustrato come utilizzare i provider e l'API di registrazione incorporate nel codice.
+ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione. I provider predefiniti consentono di inviare i log per una o più destinazioni, ed è possibile collegare un framework di registrazione di terze parti. In questo articolo viene illustrato come utilizzare i provider e l'API di registrazione incorporate nel codice.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ---
 
@@ -585,9 +585,6 @@ Nell'esempio seguente viene configurata una `TraceSource` provider che registra 
 Il [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) package provider scrive i log in file di testo nel file system di un'applicazione servizio App di Azure e a [nell'archiviazione blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in un account di archiviazione di Azure. Il provider è disponibile solo per le app destinate a ASP.NET Core 1.1.0 o versione successiva. 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-> [!NOTE]
-> Componenti di base di ASP.NET 2.0 è disponibile in anteprima.  Le app create con la versione di anteprima più recente potrebbero non essere eseguita quando distribuito in Azure App Service. Quando viene rilasciata Core ASP.NET 2.0, Azure App Service eseguirà 2.0 App e il servizio App di Azure provider funzionerà come indicato di seguito.
 
 Non è necessario installare il pacchetto del provider o una chiamata di `AddAzureWebAppDiagnostics` metodo di estensione.  Il provider è automaticamente disponibile per l'app quando si distribuisce l'applicazione di servizio App di Azure.
 
