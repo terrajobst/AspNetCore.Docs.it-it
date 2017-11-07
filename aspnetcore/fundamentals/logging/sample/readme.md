@@ -1,3 +1,0 @@
-# <a name="aspnet-core-logging-sample-application"></a>Applicazione di esempio di registrazione di ASP.NET Core
-
-Questa applicazione di esempio è per il [la registrazione di ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) articolo e si basa sull'esempio creato per il [prima API Web con ASP.NET MVC Core](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) esercitazione.
