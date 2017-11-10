@@ -11,11 +11,11 @@ ms.assetid: 16efbacf-fe7b-4b41-84b0-06a1574b95c2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 7d7e7055dd6dc0a2aefd8f4a0a170483b8504267
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 9c872a48aba4974ddac2e49ca40c944da356f0e0
+ms.sourcegitcommit: 79bbe7481c3d1297a0db8e41dd2b635b0f778264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
 
@@ -29,7 +29,7 @@ Quando si usa Code First di Entity Framework per creare automaticamente un datab
 
 Aprire il file *Models/Movie.cs* e aggiungere una proprietà `Rating`:
 
-[!code-csharp[Principale](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 Compilare l'app (CTRL+MAIUSC+B).
 
@@ -43,7 +43,7 @@ Poiché è stato aggiunto un nuovo campo alla classe `Movie`, è necessario anch
 
 Modificare il file */Views/Movies/Index.cshtml* e aggiungere un campo `Rating`:
 
-[!code-HTML[Principale](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[Main](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 Aggiornare */Views/Movies/Create.cshtml* con un campo `Rating`. È possibile copiare e incollare il "gruppo di moduli" precedente e aggiornare i campi usando intelliSense. IntelliSense funziona con gli [helper tag](xref:mvc/views/tag-helpers/intro). Nota: nella versione RTM di Visual Studio 2017 è necessario installare [Servizi di linguaggio Razor](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices) per intelliSense di Razor. Il problema verrà risolto nella versione successiva.
 
@@ -67,7 +67,7 @@ Per questa esercitazione si userà Migrazioni Code First.
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni `new Movie`.
 
-[!code-csharp[Principale](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Compilare la soluzione.
 
@@ -77,7 +77,7 @@ Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gesti
 
 Nella Console di Gestione pacchetti immettere i comandi seguenti:
 
-```PMC
+```powershell
 Add-Migration Rating
 Update-Database
 ```

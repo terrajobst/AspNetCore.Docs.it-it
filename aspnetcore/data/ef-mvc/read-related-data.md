@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 37613d974fdf1766b187cdd05efc926ecc6a351b
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 778ef976fdbef70684ca26b0c7c548ffcc83ee00
+ms.sourcegitcommit: e45f8912ce32b4071bf7e83b8f8315cd8bba3520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lettura correlati dati - EF Core con l'esercitazione di base di ASP.NET MVC (6 di 10)
 
@@ -184,7 +184,7 @@ Le seguenti modifiche apportate al codice esistente:
   }
   ```
 
-* Aggiungere un **corsi** invece di colonna che visualizza i corsi per ciascun insegnante. Vedere [esplicita riga transizione con `@:` ](xref:mvc/views/razor#explicit-line-transition-with-label) per altre informazioni su questa sintassi razor.
+* Aggiungere un **corsi** invece di colonna che visualizza i corsi per ciascun insegnante. Vedere [esplicita riga transizione con `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) per altre informazioni su questa sintassi razor.
 
 * Aggiunta di codice che aggiunge dinamicamente `class="success"` per il `tr` elemento istruttore selezionato. Consente di impostare un colore di sfondo per la riga selezionata utilizzando una classe di Bootstrap.
 

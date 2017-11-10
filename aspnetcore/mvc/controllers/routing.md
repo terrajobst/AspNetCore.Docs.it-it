@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: cc3277400aee956f47c53e5a4f3d4e84d3a3d1a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-to-controller-actions"></a>Routing di azioni del Controller
 
@@ -118,7 +118,7 @@ app.UseRouter(routes.Build());
 
 `UseMvc`non definire direttamente le route, viene aggiunto un segnaposto per la raccolta di route per il `attribute` route. L'overload `UseMvc(Action<IRouteBuilder>)` consente di aggiungere route personalizzati e supporta anche l'attributo di routing.  `UseMvc`e le sue varianti viene aggiunto un segnaposto per la route di attributo: routing degli attributi è sempre disponibile indipendentemente dalla modalità di configurazione `UseMvc`. `UseMvcWithDefaultRoute`definisce una route predefinita e supporta il routing di attributo. Il [attributo Routing](#attribute-routing-ref-label) sono incluse ulteriori informazioni sul routing degli attributi.
 
-<a name=routing-conventional-ref-label></a>
+<a name="routing-conventional-ref-label"></a>
 
 ## <a name="conventional-routing"></a>Il routing convenzionale
 
@@ -190,7 +190,7 @@ Il `HttpPostAttribute` ( `[HttpPost]` ) è un'implementazione di `IActionConstra
 
 Se più route corrispondano e MVC non è possibile trovare una route 'le', verrà generata una `AmbiguousActionException`.
 
-<a name=routing-route-name-ref-label></a>
+<a name="routing-route-name-ref-label"></a>
 
 ### <a name="route-names"></a>Nomi di route
 
@@ -210,7 +210,7 @@ I nomi delle route dare la route un nome logico, in modo che la route denominata
 
 I nomi di route non avere un impatto sull'URL corrispondente o la gestione di richieste. vengono utilizzati solo per la generazione di URL. [Routing](xref:fundamentals/routing) maggiori informazioni sulla generazione di URL incluso generazione URL helper MVC specifico.
 
-<a name=attribute-routing-ref-label></a>
+<a name="attribute-routing-ref-label"></a>
 
 ## <a name="attribute-routing"></a>Routing degli attributi
 
@@ -324,7 +324,7 @@ I nomi di route è utilizzabile per generare un URL basato su un percorso specif
 > [!NOTE]
 > Ciò si differenzia convenzionali *route predefinita*, che definisce il `id` parametro come facoltativi (`{id?}`). La possibilità di specificare in modo preciso le API presenta vantaggi, ad esempio per consentire `/products` e `/products/5` deve essere inviato a diverse azioni.
 
-<a name=routing-combining-ref-label></a>
+<a name="routing-combining-ref-label"></a>
 
 ### <a name="combining-routes"></a>Route di combinazione
 
@@ -369,7 +369,7 @@ public class HomeController : Controller
 }
 ```
 
-<a name=routing-ordering-ref-label></a>
+<a name="routing-ordering-ref-label"></a>
 
 ### <a name="ordering-attribute-routes"></a>Route di attributi di ordinamento
 
@@ -382,7 +382,7 @@ Route di attributi è possono configurare un ordine, utilizzando il `Order` prop
 > [!TIP]
 > Evitare in base alle `Order`. Se lo spazio di URL richiede valori di ordine espliciti per indirizzare correttamente, è probabilmente confusione anche ai client. In generale attributo routing selezionerà corretta route con URL corrispondente. Se l'ordine predefinito utilizzato per la generazione di URL non funziona, utilizzando il nome della route come una sostituzione è in genere più semplice rispetto all'applicazione il `Order` proprietà.
 
-<a name=routing-token-replacement-templates-ref-label></a>
+<a name="routing-token-replacement-templates-ref-label"></a>
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Token di sostituzione nei modelli di route ([controller], [azione], [area])
 
@@ -414,7 +414,7 @@ Sostituzione dei token si applica anche ai nomi di route definiti per una route 
 
 In modo che corrisponda al delimitatore valore letterale per la sostituzione dei token `[` o `]`, ripetendo il carattere di escape (`[[` o `]]`).
 
-<a name=routing-multiple-routes-ref-label></a>
+<a name="routing-multiple-routes-ref-label"></a>
 
 ### <a name="multiple-routes"></a>Più route
 
@@ -458,7 +458,7 @@ public class ProductsController : Controller
 > [!TIP]
 > Utilizzo di più route in azioni può sembrare potente, è preferibile mantenere spazio URL dell'applicazione semplice e ben definito. Utilizzare più route azioni solo in caso di necessità, ad esempio per supportare i client esistenti.
 
-<a name=routing-attr-options></a>
+<a name="routing-attr-options"></a>
 
 ### <a name="specifying-attribute-route-optional-parameters-default-values-and-constraints"></a>Specifica di parametri facoltativi route di attributo, i valori predefiniti e vincoli
 
@@ -474,7 +474,7 @@ public IActionResult ShowProduct(int id)
 
 Vedere [riferimento del modello di Route](../../fundamentals/routing.md#route-template-reference) per una descrizione dettagliata della sintassi di modello di route.
 
-<a name=routing-cust-rt-attr-irt-ref-label></a>
+<a name="routing-cust-rt-attr-irt-ref-label"></a>
 
 ### <a name="custom-route-attributes-using-iroutetemplateprovider"></a>Attributi di route personalizzati utilizzando`IRouteTemplateProvider`
 
@@ -495,7 +495,7 @@ public class MyApiControllerAttribute : Attribute, IRouteTemplateProvider
 
 Imposta automaticamente l'attributo dell'esempio precedente il `Template` a `"api/[controller]"` quando `[MyApiController]` viene applicato.
 
-<a name=routing-app-model-ref-label></a>
+<a name="routing-app-model-ref-label"></a>
 
 ### <a name="using-application-model-to-customize-attribute-routes"></a>Utilizzando il modello di applicazione per personalizzare le route di attributo
 
@@ -503,7 +503,7 @@ Il *modello applicativo* è un modello a oggetti creato all'avvio con tutti i me
 
 [!code-csharp[Main](routing/sample/main/NamespaceRoutingConvention.cs)]
 
-<a name=routing-mixed-ref-label></a>
+<a name="routing-mixed-ref-label"></a>
 
 ## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Mista routing: attributo vs routing il routing convenzionale
 
@@ -514,7 +514,7 @@ Azioni di vengono tradizionalmente indirizzate o attributo indirizzato. Inserime
 > [!NOTE]
 > Ciò che distingue i due tipi di sistemi di routing è il processo applicato dopo un URL corrisponde a un modello di route. Nel routing convenzionale, vengono utilizzati i valori della route da quella per scegliere l'azione e il controller da una tabella di ricerca di tutte le azioni indirizzate convenzionale. Routing degli attributi, ogni modello è già associata a un'azione, in non è necessaria alcuna ulteriore ricerca.
 
-<a name=routing-url-gen-ref-label></a>
+<a name="routing-url-gen-ref-label"></a>
 
 ## <a name="url-generation"></a>Generazione di URL
 
@@ -567,7 +567,7 @@ Più overload di `Url.Action` accettano anche un ulteriore *i valori di route* o
 > [!TIP]
 > Per creare un URL assoluto, usare un overload che accetta un `protocol`:`Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
 
-<a name=routing-gen-urls-route-ref-label></a>
+<a name="routing-gen-urls-route-ref-label"></a>
 
 ### <a name="generating-urls-by-route"></a>Generazione degli URL route
 
@@ -575,7 +575,7 @@ Il codice precedente è stato illustrato generazione di un URL passando il nome 
 
 [!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
-<a name=routing-gen-urls-html-ref-label></a>
+<a name="routing-gen-urls-html-ref-label"></a>
 
 ### <a name="generating-urls-in-html"></a>Generazione degli URL in formato HTML
 
@@ -585,7 +585,7 @@ TagHelpers generare URL tramite il `form` helper tag e `<a>` helper tag. Entramb
 
 All'interno delle viste, le `IUrlHelper` è disponibile tramite il `Url` proprietà per tutte le generazioni di URL ad hoc non coperto da sopra indicate.
 
-<a name=routing-gen-urls-action-ref-label></a>
+<a name="routing-gen-urls-action-ref-label"></a>
 
 ### <a name="generating-urls-in-action-results"></a>Generazione degli URL nei risultati di azione
 
@@ -606,7 +606,7 @@ public Task<IActionResult> Edit(int id, Customer customer)
 
 I metodi di azione risultati factory seguono un modello simile ai metodi `IUrlHelper`.
 
-<a name=routing-dedicated-ref-label></a>
+<a name="routing-dedicated-ref-label"></a>
 
 ### <a name="special-case-for-dedicated-conventional-routes"></a>Caso speciale per le route convenzionale dedicate
 
@@ -625,7 +625,7 @@ Utilizzo di queste definizioni di route, `Url.Action("Index", "Home")` genererà
 
 Le route convenzionale dedicate si basano su un comportamento speciale dei valori predefiniti che non dispongono di un parametro di route corrispondenti che impedisce la route "troppo greedy" con la generazione di URL. In questo caso i valori predefiniti sono `{ controller = Blog, action = Article }`e né `controller` né `action` viene visualizzato come un parametro di route. Quando il routing esegue la generazione di URL, i valori forniti devono corrispondere i valori predefiniti. Generazione di URL utilizzando `blog` avrà esito negativo perché i valori `{ controller = Home, action = Index }` non corrispondono `{ controller = Blog, action = Article }`. Routing quindi esegue il fallback per provare `default`, che ha esito positivo.
 
-<a name=routing-areas-ref-label></a>
+<a name="routing-areas-ref-label"></a>
 
 ## <a name="areas"></a>Aree
 
@@ -670,7 +670,7 @@ Quando si esegue un'azione all'interno di un'area, il valore per la route `area`
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 
-<a name=iactionconstraint-ref-label></a>
+<a name="iactionconstraint-ref-label"></a>
 
 ## <a name="understanding-iactionconstraint"></a>Informazioni sui IActionConstraint
 
@@ -695,7 +695,7 @@ Quando il `HttpGetAttribute` esegue, indicherà che *Edit()* è una corrisponden
 
 Concettualmente, `IActionConstraint` è una forma di *overload*, ma anziché l'overload dei metodi con lo stesso nome, è l'overload tra le azioni che corrispondono all'URL stesso. Attributo di routing utilizza inoltre `IActionConstraint` e possono causare azioni dai diversi controller sia presa in considerazione candidati.
 
-<a name=iactionconstraint-impl-ref-label></a>
+<a name="iactionconstraint-impl-ref-label"></a>
 
 ### <a name="implementing-iactionconstraint"></a>Implementazione IActionConstraint
 

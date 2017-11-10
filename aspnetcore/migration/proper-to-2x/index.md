@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6e32ee64970bac5d7f09207e570f543477745b60
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: b9170878e4797c729a94caa47c045c3ca3a3d9b8
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrazione da ASP.NET ad ASP.NET Core 2.0
 
@@ -26,7 +26,6 @@ Questo articolo offre una guida di riferimento per la migrazione delle applicazi
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [.NET Core 2.0.0 SDK](https://dot.net/core) o versione successiva.
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) versione 15.3 o successiva con il carico di lavoro **Sviluppo ASP.NET e Web**.
 
 ## <a name="target-frameworks"></a>Framework di destinazione
 I progetti di ASP.NET Core 2.0 offrono agli sviluppatori la flessibilità necessaria per scegliere .NET Core, .NET Framework o entrambi come destinazione. Vedere [Scelta di .NET Core o .NET Framework per le app server](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) per determinare quale framework di destinazione è più appropriato.

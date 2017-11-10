@@ -11,11 +11,11 @@ ms.assetid: 29f12d1f-9734-48bd-bf1a-cee53a8ab700
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: 25aa5fc730d9076fdcf9d29cb5d9dfa75a246a1a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 064621d8756b007c5b8859111bf3a03a0d7dda81
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="layout"></a>Layout
 
@@ -39,19 +39,19 @@ Questo layout definisce un modello di livello superiore per le viste nell'app. A
 
 Un esempio `_Layout.cshtml`:
 
-[!code-html[Principale](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Specificare un Layout
 
 Visualizzazioni Razor hanno un `Layout` proprietà. Singole visualizzazioni per specificare un layout, impostazione di questa proprietà:
 
-[!code-html[Principale](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 Il layout specificato è possibile utilizzare un percorso completo (esempio: `/Views/Shared/_Layout.cshtml`) o un nome parziale (esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cercherà il file di layout tramite il processo di individuazione standard. La cartella associata al controller viene eseguita la ricerca in primo luogo, aggiungendo il `Shared` cartella. Questo processo di individuazione è identico a quello utilizzato per individuare [visualizzazioni parziali](partial.md).
 
 Per impostazione predefinita, è necessario chiamare ogni layout `RenderBody`. Quando la chiamata a `RenderBody` è inserito, verrà visualizzato il contenuto della visualizzazione.
 
-<a name=layout-sections-label></a>
+<a name="layout-sections-label"></a>
 
 ### <a name="sections"></a>Sezioni
 
@@ -77,7 +77,7 @@ Per indicare al motore di visualizzazione per ignorare il corpo o sezioni, chiam
 
 Il corpo e tutte le sezioni in una pagina Razor deve essere eseguito il rendering o ignorati.
 
-<a name=viewimports></a>
+<a name="viewimports"></a>
 
 ## <a name="importing-shared-directives"></a>L'importazione delle direttive condivise
 
@@ -101,7 +101,7 @@ Il file non supporta altre funzionalità di Razor, ad esempio le funzioni e le d
 
 Un esempio `_ViewImports.cshtml` file:
 
-[!code-html[Principale](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 Il `_ViewImports.cshtml` file per un'applicazione ASP.NET MVC di base in genere viene posizionata nel `Views` cartella. Oggetto `_ViewImports.cshtml` file può essere posizionato in qualsiasi cartella, nel quale caso verranno applicata solo a viste all'interno di tale cartella e nelle relative sottocartelle. `_ViewImports`i file vengono elaborati a partire a livello di radice, e quindi per ogni cartella iniziali fino al percorso della visualizzazione stessa, che le impostazioni specificate a livello di radice può essere sottoposto a override a livello di cartella.
 
@@ -121,7 +121,7 @@ Se più `_ViewImports.cshtml` i file vengono eseguiti per una vista, combinati c
 
 * `@inject`: per ogni proprietà, il più vicino alla vista esegue l'override di tutti gli altri con lo stesso nome di proprietà
 
-<a name=viewstart></a>
+<a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>Esecuzione di codice prima di ogni visualizzazione.
 
@@ -129,7 +129,7 @@ Se si dispone di codice è necessario eseguire prima di ogni visualizzazione, qu
 
 Un esempio `_ViewStart.cshtml` file:
 
-[!code-html[Principale](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Il file precedente specifica che tutte le viste useranno il `_Layout.cshtml` layout.
 
