@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: 8960853438d3227de3ef7c50936626149d8d5997
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="controller-methods-and-views"></a>Metodi e viste del controller
 
@@ -27,7 +27,7 @@ Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentaz
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate di seguito:
 
-[!code-csharp[Principale](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
 
 Fare clic con il pulsante destro del mouse su una riga rossa ondulata **> Azioni rapide e refactoring**.
 
@@ -46,7 +46,7 @@ Rimuovere le istruzioni `using` che non sono necessarie. Per impostazione predef
 
 Il codice aggiornato:
 
-[!code-csharp[Principale](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
+[!code-csharp[Main](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
 
 <!-- include start -->
 

@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: c572315d7a801b9b87d5f4cd14b82c5ed27e7a85
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -58,7 +58,7 @@ Per informazioni sullo stato della documentazione prevista, vedere l'[argomento 
 
 In ASP.NET Core 2.0 la registrazione è incorporata nel sistema di inserimento delle dipendenze per impostazione predefinita. Si aggiungono i provider e si configurano i filtri nel file *Program.cs* anziché nel file *Startup.cs*. E l'oggetto `ILoggerFactory` predefinito supporta i filtri in modo tale da consentire l'uso di un unico approccio flessibile sia per il filtraggio tra provider, sia per il filtraggio di un provider specifico.
 
-Per altre informazioni, vedere l'[introduzione alla registrazione in ASP.NET Core](xref:fundamentals/logging).
+Per altre informazioni, vedere l'[introduzione alla registrazione in ASP.NET Core](xref:fundamentals/logging/index).
 
 ## <a name="authentication-update"></a>Aggiornamento dell'autenticazione
 

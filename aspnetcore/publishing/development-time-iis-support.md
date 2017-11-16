@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/development-time-iis-support
 ms.openlocfilehash: a35a6fd9896c4c110d1b6680b6aaf718d29a18ab
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -38,7 +38,7 @@ Se l'installazione di IIS richiede un riavvio, riavviare il sistema.
 
 ## <a name="enable-development-time-iis-support"></a>Abilitare il supporto IIS in fase di sviluppo
 
-Dopo aver installato IIS avviare il programma di installazione di Visual Studio per modificare l'installazione esistente di Visual Studio. Nel programma di installazione selezionare il componente **Supporto IIS in fase di sviluppo **. Il componente è elencato come componente facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Viene installato il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core.
+Dopo aver installato IIS avviare il programma di installazione di Visual Studio per modificare l'installazione esistente di Visual Studio. Nel programma di installazione selezionare il componente **Supporto IIS in fase di sviluppo** . Il componente è elencato come componente facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Viene installato il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core.
 
 ![Modifica delle funzionalità di Visual Studio: la scheda Carichi di lavoro è selezionata. Nella sezione Web e Cloud è selezionato il pannello Sviluppo ASP.NET e Web. A destra, nell'area Facoltativi del pannello Riepilogo è presente la casella di controllo Supporto IIS in fase di sviluppo.](development-time-iis-support/_static/development_time_support.png)
 

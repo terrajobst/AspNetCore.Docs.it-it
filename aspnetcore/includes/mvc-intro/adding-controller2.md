@@ -1,6 +1,6 @@
 Sostituire il contenuto di *Controllers/HelloWorldController.cs* con quanto segue:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 È possibile chiamare ogni metodo `public` in un controller come endpoint HTTP. Nell'esempio precedente entrambi i metodi restituiscono una stringa.  Notare i commenti che precedono ogni metodo.
 
@@ -18,7 +18,7 @@ MVC richiama le classi controller, e i metodi di azione in esse contenute, in ba
 
 Il formato per il routing viene impostato nel file *Startup.cs*.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Quando si esegue l'app e non si forniscono i segmenti di URL, i valori predefiniti sono il controller "Home" e il metodo "Index" specificati nella riga del modello evidenziata sopra.
 
@@ -30,7 +30,7 @@ Passare a `http://localhost:xxxx/HelloWorld/Welcome`. Il metodo `Welcome` viene 
 
 Modificare il codice in modo da passare le informazioni dei parametri dall'URL al controller. Ad esempio `/HelloWorld/Welcome?name=Rick&numtimes=4`. Modificare il metodo `Welcome` in modo da includere due parametri, come illustrato nel codice seguente. 
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Il codice precedente:
 
@@ -50,7 +50,7 @@ Nell'immagine precedente non viene usato il segmento di URL (`Parameters`), i pa
 
 Sostituire il metodo `Welcome` con il codice seguente:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
 Eseguire l'app e immettere l'URL seguente: `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
@@ -58,6 +58,6 @@ Eseguire l'app e immettere l'URL seguente: `http://localhost:xxx/HelloWorld/Welc
 
 Questa volta il terzo segmento di URL corrisponde al parametro di route `id`. Il metodo `Welcome` contiene un parametro `id` che corrisponde al modello di URL nel metodo `MapRoute`. Il carattere finale `?` (in `id?`) indica che il parametro `id` è facoltativo.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 In questi esempi il controller rappresenta la parte "VC" di MVC, ovvero il ruolo di vista e controller. Il controller restituisce direttamente l'HTML. In genere è preferibile che i controller non restituiscano direttamente l'HTML, dal momento che la codifica e la gestione sono molto complesse. In genere usare invece un file del modello di vista Razor separato per generare la risposta HTML. Questa operazione viene eseguita nell'esercitazione successiva.

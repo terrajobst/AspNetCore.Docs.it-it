@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 1f2b5fc6d769c63110f832a31cd0d0aa8c3298e9
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>Configurare un ambiente di hosting per ASP.NET Core in Linux con Nginx e distribuirlo
 
@@ -158,7 +158,8 @@ Restart=always
 RestartSec=10  # Restart service after 10 seconds if dotnet service crashes
 SyslogIdentifier=dotnet-example
 User=www-data
-Environment=ASPNETCORE_ENVIRONMENT=Production 
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target
@@ -281,11 +282,11 @@ La libreria PCRE è obbligatoria per le espressioni regolari. Le espressioni reg
 
 Aggiungere il file di configurazione */etc/nginx/proxy.conf*:
 
-[!code-nginx[Principale](linuxproduction/proxy.conf)]
+[!code-nginx[Main](linuxproduction/proxy.conf)]
 
 Aggiungere il file di configurazione */etc/nginx/proxy.conf*. L'esempio contiene entrambe le sezioni `http` e `server` in un unico file di configurazione.
 
-[!code-nginx[Principale](../publishing/linuxproduction/nginx.conf?highlight=2)]
+[!code-nginx[Main](../publishing/linuxproduction/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Proteggere Nginx dal clickjacking
 Il clickjacking è una tecnica fraudolenta con cui i clic di un utente vengono "catturati" e reindirizzati a un oggetto in un sito infetto. Usare X-FRAME-OPTIONS per proteggere il sito.

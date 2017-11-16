@@ -1,6 +1,6 @@
 Sostituire il contenuto del file di vista Razor *Views/HelloWorld/Index.cshtml* con quanto segue:
 
-[!code-HTML[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Passare a `http://localhost:xxxx/HelloWorld`. Il metodo `Index` in `HelloWorldController` non ha eseguito molte operazioni; ha eseguito l'istruzione `return View();` che ha specificato che il metodo deve usare un file di modello della vista per eseguire il rendering di una risposta al browser. Poiché non è stato specificato in modo esplicito il nome del file di modello della vista, MVC imposta come predefinito il file della vista *Index.cshtml* nella cartella */Views/HelloWorld*. L'immagine seguente mostra la stringa "Hello from our View Template!" hardcoded nella vista.
 
@@ -22,7 +22,7 @@ Modificare il contenuto dell'elemento titolo. Modificare il testo di ancoraggio 
 
 Nota: la versione di ASP.NET 2.0 Core è leggermente diversa. Non contiene `@inject ApplicationInsights` e `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
-[!code-html[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > Il controller `Movies` non è stato ancora implementato e quindi, se si fa clic su questo collegamento, verrà visualizzato un errore 404 (Non trovato).
@@ -85,7 +85,7 @@ Attualmente il metodo `Welcome` nella classe `HelloWorldController` accetta un p
 
 Tornare al file *HelloWorldController.cs* e modificare il metodo `Welcome` in modo da aggiungere un valore `Message` e `NumTimes` al dizionario `ViewData`. Il dizionario `ViewData` è un oggetto dinamico, ovvero è possibile inserirvi gli elementi desiderati; l'oggetto `ViewData` non dispone di proprietà definite fino a quando non si inserisce un elemento al suo interno. Il sistema di [associazione di modelli MVC](xref:mvc/models/model-binding) esegue il mapping dei parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 L'oggetto di dizionario `ViewData` contiene i dati che verranno passati alla vista. 
 
@@ -93,7 +93,7 @@ Creare un modello di vista Welcome denominato *Views/HelloWorld/Welcome.cshtml*.
 
 Si creerà un ciclo nel modello di vista *Welcome.cshtml* che visualizza la stringa "Hello" `NumTimes`. Sostituire il contenuto di *Views/HelloWorld/Welcome.cshtml* con quanto segue:
 
-[!code-html[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Salvare le modifiche e passare all'URL seguente:
 
