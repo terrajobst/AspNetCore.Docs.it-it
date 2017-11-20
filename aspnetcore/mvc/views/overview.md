@@ -64,7 +64,7 @@ ms.lasthandoff: 10/03/2017
 
 <span data-ttu-id="6c738-156">Quando questa azione viene restituito, il *About.cshtml* visualizzazione indicata nell'ultima sezione viene visualizzato come la seguente pagina Web:</span><span class="sxs-lookup"><span data-stu-id="6c738-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![Sulla pagina sottoposta a rendering nel browser Edge](overview/_static/about-page.png)
+![Sulla pagina sottoposta a rendering nel browser Microsoft Edge](overview/_static/about-page.png)
 
 <span data-ttu-id="6c738-158">Il `View` metodo helper dispone di diversi overload.</span><span class="sxs-lookup"><span data-stu-id="6c738-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="6c738-159">È possibile specificare:</span><span class="sxs-lookup"><span data-stu-id="6c738-159">You can optionally specify:</span></span>
 
