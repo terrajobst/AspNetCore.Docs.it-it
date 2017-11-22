@@ -1,7 +1,7 @@
 ---
 title: Aggiunta della convalida
 author: rick-anderson
-description: Procedura su come aggiungere la convalida alla pagina Razor
+description: Illustra come aggiungere la convalida alla pagina Razor.
 keywords: ASP.NET Core, convalida, DataAnnotations, Razor, pagine Razor
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f8d86b48363675adaf27e2bed39f835f117e624a
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Aggiunta della convalida alla pagina Razor
 
@@ -36,7 +36,12 @@ Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalid
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare il vincolo di convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non consentiti). L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. I [tipi di valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (ad esempio `decimal`, `int`, `float`, `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
+Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
+
+* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
+* L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non sono consentiti).
+* L'attributo `Range` vincola un valore a un intervallo specificato.
+* L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. 
 
 Il possesso di regole di convalida applicate automaticamente da ASP.NET Core consente di rendere un'app più solida. La convalida automatica sui modelli consente di proteggere l'app perché non è necessario ricordarsi di applicarli quando viene aggiunto nuovo codice.
 
@@ -128,7 +133,9 @@ Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-Grazie aver completato questa introduzione alle pagine Razor. Si apprezza l'invio di commenti. [Getting started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un ottimo completamento per questa esercitazione.
+### <a name="publish-to-azure"></a>Pubblicare in Azure
+
+Per istruzioni su come pubblicare l'app in Azure, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -138,4 +145,5 @@ Grazie aver completato questa introduzione alle pagine Razor. Si apprezza l'invi
 * [Creazione e modifica di helper tag](xref:mvc/views/tag-helpers/authoring)
 
 >[!div class="step-by-step"]
-[Precedente: Aggiunta di un nuovo campo](xref:tutorials/razor-pages/new-field)
+[Articolo precedente: Aggiunta di un nuovo campo](xref:tutorials/razor-pages/new-field)
+[Articolo successivo: Caricamento di file](xref:tutorials/razor-pages/uploading-files)

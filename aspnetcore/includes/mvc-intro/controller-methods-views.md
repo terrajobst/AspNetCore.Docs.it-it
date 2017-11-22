@@ -5,9 +5,9 @@ Passare al controller `Movies` e posizionare il puntatore del mouse su un colleg
 
 ![Finestra del browser con il passaggio del mouse sul collegamento Edit (Modifica) e un URL di collegamento di http://localhost:1234/Movies/Edit/5](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
-I collegamenti **Edit** (Modifica), **Details** (Dettagli) e **Delete** (Elimina) vengono generati da Anchor Tag Helper di MVC Core nel file *Views/Movies/Index.cshtml*.
+I collegamenti **Edit** (Modifica), **Details** (Dettagli) e **Delete** (Elimina) vengono generati dall'helper per i tag di ancoraggio di Core MVC nel file *Views/Movies/Index.cshtml*.
 
-[!code-HTML[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
 Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Nel codice precedente, `AnchorTagHelper` genera in modo dinamico il valore dell'attributo `href` HTML dall'ID di route e dal metodo di azione del controller. Usare **Visualizza origine** dal browser preferito o gli strumenti di sviluppo per esaminare il markup generato. Di seguito è riportata una parte del codice HTML generato:
 
@@ -21,7 +21,7 @@ Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato ser
 
 Tenere presente il formato per il [routing](xref:mvc/controllers/routing) impostato nel file *Startup.cs*:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 ASP.NET Core converte `http://localhost:1234/Movies/Edit/4` in una richiesta al metodo di azione `Edit` del controller `Movies` con il parametro `Id` impostato su 4. I metodi del controller sono noti anche come metodi di azione.
 
@@ -29,33 +29,33 @@ Una delle nuove funzionalità più note di ASP.NET Core è rappresentata dagli [
 
 Aprire il controller `Movies` ed esaminare i due metodi di azione `Edit`. Il codice seguente illustra il metodo `HTTP GET Edit`, che recupera il film e popola il modulo di modifica generato dal file Razor *Edit.cshtml*.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Il codice seguente illustra il metodo `HTTP POST Edit`, che elabora i valori di film inviati:
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 L'attributo `[Bind]` è un modo per proteggersi dall'[overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). È necessario includere solo le proprietà nell'attributo `[Bind]` che si vuole modificare. Per altre informazioni, vedere [Proteggere il controller dall'overposting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModel](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) offre un approccio alternativo per evitare l'overposting.
 
 Si noti che il secondo metodo di azione `Edit` è preceduto dall'attributo `[HttpPost]`.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
 
 L'attributo `HttpPost` specifica che questo metodo `Edit` può essere richiamato *solo* per le richieste `POST`. È possibile applicare l'attributo `[HttpGet]` al primo metodo di modifica, ma non è necessario perché l'impostazione predefinita è `[HttpGet]`.
 
 L'attributo `ValidateAntiForgeryToken` viene usato per [impedire la falsificazione di una richiesta](xref:security/anti-request-forgery) ed è accoppiato a un token antifalsificazione generato nel file di vista di modifica (*Views/Movies/Edit.cshtml*). Il file di vista di modifica genera il token antifalsificazione con l'[helper tag di modulo](xref:mvc/views/working-with-forms).
 
-[!code-HTML[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
 
 L'[helper tag](xref:mvc/views/working-with-forms) genera un token antifalsificazione nascosto che deve corrispondere al token antifalsificazione generato `[ValidateAntiForgeryToken]` nel metodo `Edit` del controller di film. Per altre informazioni, vedere [Richiesta intersito falsa](xref:security/anti-request-forgery).
 
 Il metodo `HttpGet Edit` accetta il parametro `ID`, cerca il film tramite il metodo `SingleOrDefaultAsync` Entity Framework e restituisce il film selezionato nella vista Edit. Se non vengono trovati film, viene restituito l'errore HTTP 404 `NotFound`.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Quando il sistema di scaffolding ha creato la vista Edit, ha esaminato la classe `Movie` e il codice creato per eseguire il rendering degli elementi `<label>` e `<input>` per ogni proprietà della classe. L'esempio seguente illustra la vista Edit (Modifica) generata dal sistema di scaffolding di Visual Studio:
 
-[!code-HTML[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
 
 Si noti come il modello di vista contiene un'istruzione `@model MvcMovie.Models.Movie` all'inizio del file. `@model MvcMovie.Models.Movie` specifica che il modelli previsto dalla vista per il modello di vista sia di tipo `Movie`.
 
@@ -63,7 +63,7 @@ Il codice di scaffolding usa diversi metodi helper tag per semplificare il marku
 
 Eseguire l'applicazione e passare all'URL `/Movies`. Fare clic su un collegamento **Edit** (Modifica). Nel browser visualizzare l'origine per la pagina. Il codice HTML generato per l'elemento `<form>` è riportato di seguito.
 
-[!code-HTML[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
 
 Gli elementi `<input>` si trovano in un elemento `HTML <form>` il cui attributo `action` è impostato per inviare all'URL `/Movies/Edit/id`. I dati del modulo verranno inviati al server quando si fa clic sul pulsante `Save`. L'ultima riga prima dell'elemento `</form>` di chiusura mostra il token [XSRF](xref:security/anti-request-forgery) nascosto generato dall'[helper tag del modulo](xref:mvc/views/working-with-forms).
 
@@ -71,7 +71,7 @@ Gli elementi `<input>` si trovano in un elemento `HTML <form>` il cui attributo 
 
 Nell'elenco seguente viene indicata la versione `[HttpPost]` del metodo di azione `Edit`.
 
-[!code-csharp[Principale](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 L'attributo `[ValidateAntiForgeryToken]` convalida il token [XSRF](xref:security/anti-request-forgery) nascosto generato dal generatore di token antifalsificazione nell'[helper tag del modulo](xref:mvc/views/working-with-forms)
 

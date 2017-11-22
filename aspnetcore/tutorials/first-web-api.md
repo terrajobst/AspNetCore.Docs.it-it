@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 617b11cd7652e393c06446c62138802e4a4e90df
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 3ef6fb26eab123c9f6f8275ee1d979b090db0413
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
-In questa esercitazione si creerà un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente.
+Questa esercitazione consente di creare un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente (UI).
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -52,27 +52,27 @@ Nella finestra di dialogo **Nuova Applicazione Web ASP.NET Core - TodoApi**, sel
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. In Chrome, Edge e Firefox viene visualizzato quanto segue:
+In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. In Chrome, Microsoft Edge e Firefox viene visualizzato l'output seguente:
 
 ```
 ["value1","value2"]
-``` 
+```
 
-### <a name="add-a-model-class"></a>Aggiungere una classe modello
+### <a name="add-a-model-class"></a>Aggiungere una classe del modello
 
-Un modello è un oggetto che rappresenta i dati nell'applicazione. In questo caso l'unico modello è un elemento attività da eseguire.
+Un modello è un oggetto che rappresenta i dati nell'app. In questo caso l'unico modello è un elemento attività.
 
-Aggiungere una cartella denominata "Models". In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+Aggiungere una cartella denominata "Models". In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
 Nota: è possibile inserire le classi del modello in qualsiasi punto del progetto, ma per convenzione viene usata la cartella *Models*.
 
 Aggiungere una classe `TodoItem`. Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare il nome `TodoItem` alla classe, quindi selezionare **Aggiungi**.
 
-Sostituire il codice generato con il seguente:
+Aggiornare la classe `TodoItem` con il codice seguente:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
-Il database genera il `Id` quando viene creato un `TodoItem`.
+Il database genera `Id` quando viene creato un `TodoItem`.
 
 ### <a name="create-the-database-context"></a>Creare il contesto di database
 
@@ -80,7 +80,7 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 
 Aggiungere una classe `TodoContext`. Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare il nome `TodoContext` alla classe, quindi selezionare **Aggiungi**.
 
-Sostituire il codice generato con il seguente:
+Sostituire la classe con il codice seguente:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
@@ -92,13 +92,13 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella *
 
 ![Finestra di dialogo Aggiungi nuovo elemento con controller nella casella di ricerca e controller API Web selezionato](first-web-api/_static/new_controller.png)
 
-Sostituire il codice generato con il seguente:
+Sostituire la classe con il codice seguente:
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
-  
+
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. Se si usa Firefox, Chrome o Edge i dati vengono visualizzati. Se si usa Internet Explorer viene richiesto di aprire o salvare il file *values.json*. Passare al controller `Todo` appena creato: `http://localhost:port/api/todo`.
+In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. Passare al controller `Todo` all'indirizzo `http://localhost:port/api/todo`.
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 

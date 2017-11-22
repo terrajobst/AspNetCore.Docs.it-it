@@ -10,17 +10,19 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 028d6d3246908a9cd44a6834449d2fdbc9cae0b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 387d7a91ae7d58cbc293c04039017df1dd208c82
+ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione mostra i concetti fondamentali di creazione di un'app Web ASP.NET Core MVC usando [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/). [!INCLUDE[consider RP](../../includes/razor.md)]
+Questa esercitazione mostra i concetti fondamentali di creazione di un'app Web ASP.NET Core MVC usando [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/). 
+
+[!INCLUDE[consider RP](../../includes/razor.md)]
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -53,7 +55,7 @@ Denominare il progetto **MvcMovie**, quindi selezionare **Crea**.
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview), lancia un browser, e passa a `http://localhost:port`, laddove *porta* è un numero di porta selezionato a caso.
+In Visual Studio selezionare **Esegui > Avvia senza eseguire debug** per avviare l'app. Visual Studio avvia [Kestrel](xref:fundamentals/servers/index#Kestrel), apre un browser e naviga all'indirizzo `http://localhost:port`, dove *port* è un numero di porta selezionato a caso.
 
 ![Browser con nuovo progetto](start-mvc/b1.png)
 

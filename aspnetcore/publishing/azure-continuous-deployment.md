@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f7ea2e76fdee19a3d964e42053f0060a0a505e5b
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Distribuzione continua in Azure per ASP.NET Core con Visual Studio e Git
 
@@ -34,7 +34,7 @@ Questa esercitazione presuppone che è già stato installato quanto segue:
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (runtime e strumenti)
+* [ASP.NET Core](https://www.microsoft.com/net/download/core) (runtime e strumenti)
 
 * [Git](https://git-scm.com/downloads) per Windows
 
@@ -44,14 +44,16 @@ Questa esercitazione presuppone che è già stato installato quanto segue:
 
 2. Scegliere **Nuovo** > **Progetto** dal menu **File**.
 
-3. Selezionare il modello di progetto **Applicazione Web ASP.NET**. Viene visualizzata in **Modelli** > **Installati** > **Visual C#** > **Web**. Denominare il progetto `SampleWebAppDemo`. Selezionare l'opzione **Creare un nuovo repository Git** e fare clic su **OK**.
+3. Selezionare il modello di progetto **Applicazione Web ASP.NET Core**. Viene visualizzato in **Modelli** > **installati** > **Visual C#** > **.NET Core**. Denominare il progetto `SampleWebAppDemo`. Selezionare l'opzione **Creare un nuovo repository Git** e fare clic su **OK**.
 
    ![Finestra di dialogo Nuovo progetto](azure-continuous-deployment/_static/01-new-project.png)
 
-4. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello ASP.NET Core **Vuoto**, quindi fare clic su **OK**.
+4. Nella finestra di dialogo **Nuovo progetto ASP.NET Core** selezionare il modello ASP.NET Core **Vuoto** e quindi fare clic su **OK**.
 
    ![Nuova finestra di dialogo Progetto ASP.NET](azure-continuous-deployment/_static/02-web-site-template.png)
 
+>[!NOTE]
+    >La versione più recente di .NET Core è la 2.0.
 
 ### <a name="running-the-web-app-locally"></a>Esecuzione dell'applicazione Web in locale
 
@@ -94,21 +96,17 @@ GIT è un sistema di controllo della versione distribuita che è possibile usare
 
 1. Accedere al [portale di Azure](https://portal.azure.com), se non si è già connessi.
 
-2. Fare clic su **Sfoglia**, posizionato nella parte inferiore del riquadro di spostamento.
+2. Fare clic su **Servizi app** per visualizzare un elenco dei servizi app associati alla sottoscrizione di Azure.
 
-3. Fare clic su **App Web** per visualizzare un elenco delle App web associate alla sottoscrizione di Azure.
+3. Selezionare l'app web che è stata creata nella sezione precedente di questa esercitazione.
 
-4. Selezionare l'app web che è stata creata nella sezione precedente di questa esercitazione.
+4. Nel pannello **Distribuzione** selezionare **Opzioni di distribuzione** > **Scegli origine** > **Repository Git locale**.
 
-5. Se il pannello **Impostazioni** non viene visualizzato, selezionare **Impostazioni** nel pannello **App Web**.
+   ![Pannello delle impostazioni: pannello di origine della distribuzione: scegliere Pannello di origine](azure-continuous-deployment/_static/deployment-options.png)
 
-6. Nel pannello **Impostazioni** selezionare **Origine distribuzione** > **Scegli origine** > **Repository Git locale**.
+5. Fare clic su **OK**.
 
-   ![Pannello delle impostazioni: pannello di origine della distribuzione: scegliere Pannello di origine](azure-continuous-deployment/_static/08-azure-localrepository.png)
-
-7. Fare clic su **OK**.
-
-8. Se le credenziali di distribuzione per la pubblicazione di un'app web o di altri servizi app web non sono state precedentemente configurate, impostarle ora:
+6. Se le credenziali di distribuzione per la pubblicazione di un'app web o di altri servizi app web non sono state precedentemente configurate, impostarle ora:
 
    * Fare clic su **impostazioni** > **Credenziali di distribuzione**. Il pannello **Impostare le credenziali di distribuzione** verrà visualizzato.
 
@@ -116,9 +114,9 @@ GIT è un sistema di controllo della versione distribuita che è possibile usare
 
    * Fare clic su **Salva**.
 
-9. Nel pannello **App Web** fare clic su **Impostazioni** > **Proprietà**. L'URL del repository Git remoto che verrà distribuita è visualizzata in **URL GIT**.
+7. Nel pannello **App Web** fare clic su **Impostazioni** > **Proprietà**. L'URL del repository Git remoto che verrà distribuita è visualizzata in **URL GIT**.
 
-10. Copiare il valore **URL GIT** per un uso successivo nell'esercitazione.
+8. Copiare il valore **URL GIT** per un uso successivo nell'esercitazione.
 
    ![Portale di Azure: pannello Proprietà dell'applicazione](azure-continuous-deployment/_static/09-azure-giturl.png)
 
@@ -194,7 +192,7 @@ In questa sezione si creerà un repository Git locale, tramite Visual Studio, e 
 
 È possibile verificare di aver trasferito con esito positivo l'app web dall'ambiente locale in Azure. Verrà visualizzata la corretta distribuzione elencata.
 
-1. Nel [portale Azure](https://portal.azure.com) selezionare l'app web. Selezionare quindi **Impostazioni** > **Distribuzione continua**.
+1. Nel [portale Azure](https://portal.azure.com) selezionare l'app web. Selezionare quindi **Distribuzione** > **Opzioni di distribuzione**.
 
    ![Portale di Azure: pannello impostazioni: pannello di distribuzione che mostra la distribuzione con esito positivo](azure-continuous-deployment/_static/13-verify-deployment.png)
 

@@ -9,12 +9,12 @@ ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
-uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+uid: tutorials/razor-pages/model
+ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Aggiunta di un modello a un'app di pagine Razor
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/20/2017
 
 In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
-Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Assegnare un nome alla classe **Movie** e aggiungere le proprietà seguenti:
+Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Assegnare il nome **Movie** alla classe e aggiungere le proprietà seguenti:
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -53,7 +53,7 @@ In questa sezione viene usata la Console di Gestione pacchetti per:
 * Aggiungere una migrazione iniziale.
 * Aggiornare il database con la migrazione iniziale.
 
-Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
@@ -73,9 +73,23 @@ Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/\<time-s
 
 [!INCLUDE[model 4windows](../../includes/RP/model4Win.md)]
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)]
+[!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
 
-L'esercitazione successiva illustra i file creati dallo scaffolding.
+<a name="test"></a>
+### <a name="test-the-app"></a>Eseguire il test dell'app
+
+* Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
+* Eseguire il test del collegamento **Crea**.
+
+ ![Pagina Crea](../../tutorials/razor-pages/model/_static/conan.png)
+
+<a name="scaffold"></a>
+
+* Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
+
+Se viene visualizzata un'eccezione SQL, verificare di avere eseguito le migrazioni e di avere aggiornato il database:
+
+L'esercitazione successiva illustra i file creati tramite scaffolding.
 
 >[!div class="step-by-step"]
 [Indietro: Introduzione](xref:tutorials/razor-pages/razor-pages-start)

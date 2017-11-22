@@ -5,19 +5,19 @@ description: Un'esercitazione rapida per creare ed eseguire una semplice app Hel
 keywords: ASP.NET Core, esercitazione, introduzione
 ms.author: riande
 manager: wpickett
-ms.date: 08/30/2017
+ms.date: 10/18/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e944f0f5a3da6d1686ca8a3036666d8dadc9a0f8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="getting-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
+# <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
 > [!NOTE]
 > Queste istruzioni sono relative alla versione più recente di ASP.NET Core. Per iniziare con una versione precedente, vedere la [versione 1.1 di questa esercitazione](xref:getting-started-1.1).
@@ -43,9 +43,9 @@ ms.lasthandoff: 09/12/2017
 
 5. Passare a [http://localhost:5000](http://localhost:5000)
 
-6. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is@DateTime.Now" (Buongiorno mondo! L'ora nel server è):
+6. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is @DateTime.Now " (Buongiorno mondo! L'ora nel server è):
 
-    [!code-html[Principale](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 7. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
 

@@ -25,10 +25,9 @@ dotnet aspnet-codegenerator razorpage -h
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
-Se viene visualizzato l'errore seguente, verificare di aver eseguito le migrazioni e di aver aggiornato il database:
+Se viene visualizzato un errore simile al seguente, verificare di avere eseguito le migrazioni e di avere aggiornato il database:
 
 ```
 An unhandled exception occurred while processing the request.
-SqliteException: SQLite Error 1: 'no such table: Movie'.
-Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(int rc, sqlite3 db)
+'no such table: Movie'.
 ```

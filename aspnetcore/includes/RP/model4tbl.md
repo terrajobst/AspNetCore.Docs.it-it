@@ -1,0 +1,15 @@
+<a name="codegenerator"></a> Nella tabella seguente sono specificati i parametri dei generatori di codice ASP.NET Core:
+
+| Parametro               | Descrizione|
+| ----------------- | ------------ |
+| -m  | Nome del modello. |
+| -dc  | Contesto dati. |
+| -udl | Uso del layout predefinito. |
+| -outDir | Percorso relativo della cartella di output per creare le viste. |
+| --referenceScriptLibraries | Aggiunge `_ValidationScriptsPartial` per modificare e creare pagine |
+
+Utilizzare il commutatore `h` per ottenere assistenza sul comando `aspnet-codegenerator razorpage`:
+
+```console
+dotnet aspnet-codegenerator razorpage -h
+```

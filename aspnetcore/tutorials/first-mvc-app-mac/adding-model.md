@@ -12,11 +12,11 @@ ms.assetid: 8dc28498-eeee-1638-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: .net-core
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 15fef14ab754b48935d17e754daa011acdd90b42
-ms.sourcegitcommit: a73fb5161fbdbee1d2e8474205e9840a134ee2ad
+ms.openlocfilehash: ff0b262bdf2685bd1bc410c30c12aa2d16f6dcda
+ms.sourcegitcommit: 7d092cd99057bad9246c472a8a0a8cbc7ab9fa9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -71,7 +71,7 @@ Se viene visualizzato l'errore `No executable found matching command "dotnet-asp
 
  * Si è nella directory del progetto. La directory del progetto ha i file *Program.cs*, *Startup.cs* e *.csproj*.
  * La versione dotnet è 1.1 o versione successiva. Eseguire `dotnet` per ottenere la versione.
- * È stato aggiunto l'elemento `<DotNetCliToolReference>` al file [MvcMovie.csproj](#prepare-the-project-for-scaffolding).
+ * È stato aggiunto l'elemento `<DotNetCliToolReference>` al [file MvcMovie.csproj](#prepare-the-project-for-scaffolding).
  
 <!--
 > [!NOTE]
