@@ -33,3 +33,4 @@ Questa serie di esercitazioni illustra le informazioni di base sulla creazione d
 1. [Aggiunta di un nuovo campo](new-field.md)
 1. [Aggiunta della convalida](validation.md)
 1. [Analisi dei dettagli e dei metodi di eliminazione](xref:tutorials/first-mvc-app/details)
+ 
