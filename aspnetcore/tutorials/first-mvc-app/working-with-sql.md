@@ -11,11 +11,11 @@ ms.assetid: ff8fd9b8-7c98-424d-8641-7524e23bf541
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: e44b6de13540d93337bf9a128d287808cffbfb46
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 67894d05bfd44b0406d10cbbe30ddfdaf0d66636
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="working-with-sql-server-localdb"></a>Utilizzo di SQL Server Local DB
 
@@ -25,11 +25,11 @@ L'oggetto `MvcMovieContext` gestisce l'attività di connessione al database e di
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-Il sistema di [configurazione](xref:fundamentals/configuration) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale ottiene la stringa di connessione dal file *appSettings.JSON*:
+Il sistema di [configurazione](xref:fundamentals/configuration/index) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale ottiene la stringa di connessione dal file *appSettings.JSON*:
 
-[!code-javascript[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-Quando si distribuisce l'app in un server di test o di produzione, è possibile usare una variabile di ambiente o un altro approccio per impostare la stringa di connessione su un SQL Server reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration).
+Quando si distribuisce l'app in un server di test o di produzione, è possibile usare una variabile di ambiente o un altro approccio per impostare la stringa di connessione su un SQL Server reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
 
 ## <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
 

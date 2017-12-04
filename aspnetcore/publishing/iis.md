@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: e9e9019d5b879498e8800bb579c177dd3ad64061
-ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
+ms.openlocfilehash: 7eb1537df47fcf0b24db2a7d843b655a6f6f8f21
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -56,7 +56,7 @@ Procedere con il passaggio **Conferma** per installare il ruolo del server web e
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installare l'aggregazione di Hosting di.NET Core Windows Server
 
-1. Installare l'[aggregazione di Hosting di.NET Core Windows Server](https://download.microsoft.com/download/5/C/1/5C190037-632B-443D-842D-39085F02E1E8/DotNetCore.2.0.3-WindowsHosting.exe) nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se nel sistema non è presente una connessione a Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare l'aggregazione di Hosting di .NET Core Windows Server.
+1. Installare l'[aggregazione di Hosting di.NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting) nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se nel sistema non è presente una connessione a Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare l'aggregazione di Hosting di .NET Core Windows Server.
 
 2. Riavviare il sistema o eseguire **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi per visualizzare una modifica al percorso di sistema.
 
@@ -272,7 +272,7 @@ La configurazione di IIS è comunque influenzata dalla sezione `<system.webServe
 
 ## <a name="configuration-sections-of-webconfig"></a>Sezioni di configurazione di web.config
 
-A differenza delle applicazioni .NET Framework che sono configurate con gli elementi `<system.web>`, `<appSettings>`, `<connectionStrings>`, e `<location>` in *web.config*, le app ASP.NET Core vengono configurate tramite altri provider di configurazione. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration).
+A differenza delle applicazioni .NET Framework che sono configurate con gli elementi `<system.web>`, `<appSettings>`, `<connectionStrings>`, e `<location>` in *web.config*, le app ASP.NET Core vengono configurate tramite altri provider di configurazione. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
 
 ## <a name="application-pools"></a>Pool di applicazioni
 
