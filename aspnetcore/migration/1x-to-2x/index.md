@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 9574f1f8e0970e1b64c2910bf46794621583f18d
-ms.sourcegitcommit: 3cf879f6beaaca2d401ad980cd26cfec70c05c24
+ms.openlocfilehash: 12734504953f2942458c3bfe1fe146f48d8f24ff
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrazione da ASP.NET Core 1.x a 2.0
 
@@ -123,7 +123,7 @@ Per rimuovere i provider predefiniti aggiunti da `WebHostBuilder.CreateDefaultBu
 
 La configurazione usata dal metodo `CreateDefaultBuilder` nel frammento di codice precedente può essere visualizzata [qui](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152).
 
-Per altre informazioni, vedere [Configurazione in ASP.NET Core](xref:fundamentals/configuration).
+Per altre informazioni, vedere [Configurazione in ASP.NET Core](xref:fundamentals/configuration/index).
 
 <a name="db-init-code"></a>
 
