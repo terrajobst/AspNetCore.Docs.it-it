@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/index
 ms.openlocfilehash: 56cd92cb55c4c2071ce8be48dc9237d3f4ec35fa
-ms.sourcegitcommit: aa6951e0c2e62209bf7c25e3b3138f04eb92898d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mobile"></a><span data-ttu-id="06cd1-103">Cellulare</span><span class="sxs-lookup"><span data-stu-id="06cd1-103">Mobile</span></span>
+# <a name="mobile"></a><span data-ttu-id="9565c-103">Cellulare</span><span class="sxs-lookup"><span data-stu-id="9565c-103">Mobile</span></span>
 
-*   [<span data-ttu-id="06cd1-104">Creazione di servizi back-end per applicazioni native per dispositivi mobili</span><span class="sxs-lookup"><span data-stu-id="06cd1-104">Creating Backend Services for Native Mobile Applications</span></span>](native-mobile-backend.md)
+*   [<span data-ttu-id="9565c-104">Creazione di servizi back-end per applicazioni native per dispositivi mobili</span><span class="sxs-lookup"><span data-stu-id="9565c-104">Creating Backend Services for Native Mobile Applications</span></span>](native-mobile-backend.md)
