@@ -1,7 +1,7 @@
 ---
 title: Introduzione a ASP.NET Core
 author: rick-anderson
-description: 
+description: Offre un'introduzione ad ASP.NET Core.
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: a075c63fddb9e28a1da37d4ef6647808a0dcb583
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -29,13 +29,13 @@ ASP.NET Core è un framework multipiattaforma, ad alte prestazioni, [open source
 
 ## <a name="why-use-aspnet-core"></a>Perché usare ASP.NET Core?
 
-Milioni di sviluppatori hanno usato ASP.NET (e continuano a usarlo) per creare app web. ASP.NET Core è una riprogettazione di ASP.NET, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
+Milioni di sviluppatori hanno usato, e continuano a usare, ASP.NET per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
 
 ASP.NET Core offre i vantaggi seguenti:
 
 * Una storia unificata per la compilazione dell'interfaccia utente web e delle API web.
 * Integrazione di [moderni framework lato client](xref:client-side/index) e di flussi di lavoro di sviluppo.
-* Un [sistema di configurazione](xref:fundamentals/configuration) basato sull'ambiente, pronto per il cloud.
+* Un [sistema di configurazione](xref:fundamentals/configuration/index) basato sull'ambiente, pronto per il cloud.
 * [Inserimento delle dipendenze](xref:fundamentals/dependency-injection) incorporato.
 * Una pipeline di richiesta HTTP leggera, ad alte prestazioni e modulare.
 * Capacità di eseguire l'host in IIS o il self-host nel processo dell'utente.
