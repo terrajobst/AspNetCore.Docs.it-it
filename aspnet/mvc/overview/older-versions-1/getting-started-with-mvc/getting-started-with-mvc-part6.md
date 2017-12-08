@@ -1,0 +1,71 @@
+---
+uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
+title: Aggiunta di un metodo di creazione e creare vista | Documenti Microsoft
+author: shanselman
+description: "Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà un'applicazione web semplice la lettura e scrittura da un database."
+ms.author: aspnetcontent
+manager: wpickett
+ms.date: 08/14/2010
+ms.topic: article
+ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
+ms.technology: dotnet-mvc
+ms.prod: .net-framework
+msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
+msc.type: authoredcontent
+ms.openlocfilehash: 4792689087ab85be25fe186b2ec97915af448ef9
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/10/2017
+---
+<a name="adding-a-create-method-and-create-view"></a><span data-ttu-id="f6dd8-104">Aggiunta di un metodo di creazione e creare vista</span><span class="sxs-lookup"><span data-stu-id="f6dd8-104">Adding a Create Method and Create View</span></span>
+====================
+<span data-ttu-id="f6dd8-105">da [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="f6dd8-105">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+
+> <span data-ttu-id="f6dd8-106">Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-106">This is a beginner tutorial that introduces the basics of ASP.NET MVC.</span></span> <span data-ttu-id="f6dd8-107">Si creerà un'applicazione web semplice la lettura e scrittura da un database.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-107">You'll create a simple web application that reads and writes from a database.</span></span> <span data-ttu-id="f6dd8-108">Visitare il [area risorse di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-108">Visit the [ASP.NET MVC learning center](../../../index.md) to find other ASP.NET MVC tutorials and samples.</span></span>
+
+
+<span data-ttu-id="f6dd8-109">In questa sezione verrà per implementare il supporto necessario per consentire agli utenti di creare nuovi film nel database.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-109">In this section we are going to implement the support necessary to enable users to create new movies in our database.</span></span> <span data-ttu-id="f6dd8-110">Faremo implementando l'azione URL filmati/Create.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-110">We'll do this by implementing the /Movies/Create URL action.</span></span>
+
+<span data-ttu-id="f6dd8-111">Implementare l'URL di filmati/Create è un processo in due fasi.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-111">Implementing the /Movies/Create URL is a two step process.</span></span> <span data-ttu-id="f6dd8-112">Quando un utente visita innanzitutto l'URL di filmati/Create desideriamo mostrare un form HTML che è possibile compilare per immettere un nuovo filmato.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-112">When a user first visits the /Movies/Create URL we want to show them an HTML form that they can fill out to enter a new movie.</span></span> <span data-ttu-id="f6dd8-113">Quando l'utente invia il form e gli invii che i dati di postback al server, si desidera recuperare il contenuto registrato e salvarlo nel database.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-113">Then, when the user submits the form and posts the data back to the server, we want to retrieve the posted contents and save it into our database.</span></span>
+
+<span data-ttu-id="f6dd8-114">Questi due passaggi all'interno di due metodi di metodo di creazione verrà implementato all'interno della classe MoviesController.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-114">We'll implement these two steps within two Create() methods within our MoviesController class.</span></span> <span data-ttu-id="f6dd8-115">Verrà visualizzato un metodo di &lt;modulo&gt; che l'utente deve compilare per creare un nuovo film.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-115">One method will show the &lt;form&gt; that the user should fill out to create a new movie.</span></span> <span data-ttu-id="f6dd8-116">Il secondo metodo gestisce l'elaborazione dei dati inviati quando l'utente invia il &lt;modulo&gt; il postback al server e salvare un nuovo filmato all'interno del database.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-116">The second method will handle processing the posted data when the user submits the &lt;form&gt; back to the server, and save a new Movie within our database.</span></span>
+
+<span data-ttu-id="f6dd8-117">Di seguito è riportato il codice verrà aggiunto alla classe MoviesController per implementare questa:</span><span class="sxs-lookup"><span data-stu-id="f6dd8-117">Below is the code we'll add to our MoviesController class to implement this:</span></span>
+
+[!code-csharp[Main](getting-started-with-mvc-part6/samples/sample1.cs)]
+
+<span data-ttu-id="f6dd8-118">Il codice sopra riportato contiene tutto il codice che è necessario all'interno di questo Controller.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-118">The above code contains all of the code that we'll need within our Controller.</span></span>
+
+<span data-ttu-id="f6dd8-119">Verrà ora implementata il modello Create View che verranno utilizzate per visualizzare un form all'utente.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-119">Let's now implement the Create View template that we'll use to display a form to the user.</span></span> <span data-ttu-id="f6dd8-120">Si sarà fare clic con il primo metodo di creazione e selezionare "Aggiungi visualizzazione" per creare il modello di visualizzazione per il modulo di film.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-120">We'll right click in the first Create method and select "Add View" to create the view template for our Movie form.</span></span>
+
+<span data-ttu-id="f6dd8-121">Si selezionerà si decide di passare il modello di visualizzazione di un filmato"" come la classe di visualizzazione dati, e indicare che si desidera "lo scaffolding" modello "Creazione".</span><span class="sxs-lookup"><span data-stu-id="f6dd8-121">We'll select that we are going to pass the view template a "Movie" as its view data class, and indicate that we want to "scaffold" a "Create" template.</span></span>
+
+<span data-ttu-id="f6dd8-122">[![Aggiungi visualizzazione](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="f6dd8-122">[![Add View](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)</span></span>
+
+<span data-ttu-id="f6dd8-123">Dopo aver fatto clic sul pulsante Aggiungi modello di visualizzazione \Movies\Create.aspx verrà creato automaticamente.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-123">After you click the Add button, \Movies\Create.aspx View template will be created for you.</span></span> <span data-ttu-id="f6dd8-124">Poiché è selezionata l'opzione "Crea" nell'elenco a discesa "Visualizza contenuto", la finestra di dialogo Aggiungi visualizzazione automaticamente "scaffolding" del contenuto predefinito per noi.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-124">Because we selected "Create" from the "view content" dropdown, the Add View dialog automatically "scaffolded" some default content for us.</span></span> <span data-ttu-id="f6dd8-125">Lo scaffolding creato HTML &lt;modulo&gt;, per passare una posizione per errore di convalida dei messaggi e poiché lo scaffolding conoscenza di filmati, creata etichetta e i campi per ogni proprietà di classe.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-125">The scaffolding created an HTML &lt;form&gt;, a place for validation error messages to go, and since scaffolding knows about Movies, it created Label and Fields for each property of our class.</span></span>
+
+[!code-aspx[Main](getting-started-with-mvc-part6/samples/sample2.aspx)]
+
+<span data-ttu-id="f6dd8-126">Poiché il database offre un filmato automaticamente un ID, rimuovere tali campi tale modello di riferimento. ID dalla visualizzazione di creazione.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-126">Since our database automatically gives a Movie an ID, let's remove those fields that reference model.Id from our Create View.</span></span> <span data-ttu-id="f6dd8-127">Rimuovere le righe dopo 7 &lt;legenda&gt;campi&lt;/legend&gt; come visualizzano il campo ID non vogliamo.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-127">Remove the 7 lines after &lt;legend&gt;Fields&lt;/legend&gt; as they show the ID field that we don't want.</span></span>
+
+<span data-ttu-id="f6dd8-128">Verrà ora creare un nuovo filmato e aggiungerlo al database.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-128">Let's now create a new movie and add it to the database.</span></span> <span data-ttu-id="f6dd8-129">Verrà questo scopo, eseguire nuovamente l'applicazione e visitare il "/ filmati" URL e fare clic su "Crea" collegamento per aggiungere un nuovo film.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-129">We'll do this by running the application again and visit the "/Movies" URL and click the "Create" link to add a new Movie.</span></span>
+
+<span data-ttu-id="f6dd8-130">[![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)</span><span class="sxs-lookup"><span data-stu-id="f6dd8-130">[![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)</span></span>
+
+<span data-ttu-id="f6dd8-131">Quando si fa clic sul pulsante Crea, verranno resi disponibili (tramite HTTP POST) i dati del form per il metodo /Movies/Create che abbiamo appena creato.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-131">When we click the Create button, we'll be posting back (via HTTP POST) the data on this form to the /Movies/Create method that we just created.</span></span> <span data-ttu-id="f6dd8-132">Analogamente a quando automaticamente il sistema ha impiegato il parametro "numTimes" e "name" all'URL e li mappati ai parametri su un metodo in precedenza, il sistema automaticamente richiedere i campi del modulo da un POST e associarli a un oggetto.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-132">Just like when the system automatically took the "numTimes" and "name " parameter out of the URL and mapped them to parameters on a method earlier, the system will automatically take the Form Fields from a POST and map them to an object.</span></span> <span data-ttu-id="f6dd8-133">In questo caso, i valori dei campi in formato HTML come "ReleaseDate" e "Title" verranno automaticamente messe nelle proprietà corrette di una nuova istanza di un film.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-133">In this case, values from fields in HTML like "ReleaseDate" and "Title" will automatically be put into the correct properties of a new instance of a Movie.</span></span>
+
+<span data-ttu-id="f6dd8-134">Esaminiamo il secondo metodo Create dal nostro MoviesController nuovamente.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-134">Let's look at the second Create method from our MoviesController again.</span></span> <span data-ttu-id="f6dd8-135">Si noti come accetta un oggetto di "Filmato" come argomento:</span><span class="sxs-lookup"><span data-stu-id="f6dd8-135">Notice how it takes a "Movie" object as an argument:</span></span>
+
+[!code-csharp[Main](getting-started-with-mvc-part6/samples/sample3.cs)]
+
+<span data-ttu-id="f6dd8-136">Questo oggetto film quindi passato alla versione [HttpPost] del metodo di azione Create e viene salvato nel database e quindi l'utente viene reindirizzato al metodo di azione Index () che consente di visualizzare il risultato salvato nell'elenco di film:</span><span class="sxs-lookup"><span data-stu-id="f6dd8-136">This Movie object was then passed to the [HttpPost] version of our Create action method, and we saved it in the database and then redirected the user back to the Index() action method which will show the saved result in the movie list:</span></span>
+
+<span data-ttu-id="f6dd8-137">[![Elenco di film - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)</span><span class="sxs-lookup"><span data-stu-id="f6dd8-137">[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)</span></span>
+
+<span data-ttu-id="f6dd8-138">È non verifica se i filmati siano corretti, tuttavia, e il database non consente di salvare un filmato con nessun titolo.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-138">We aren't checking if our movies are correct, though, and the database won't allow us to save a movie with no Title.</span></span> <span data-ttu-id="f6dd8-139">Sarebbe utile se è stato possibile indicare all'utente di database ha generato un errore.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-139">It'd be nice if we could tell the user that before the database threw an error.</span></span> <span data-ttu-id="f6dd8-140">Successiva attività verranno eseguite tramite l'aggiunta di supporto della convalida per l'applicazione.</span><span class="sxs-lookup"><span data-stu-id="f6dd8-140">We'll do this next by adding validation support to our application.</span></span>
+
+>[!div class="step-by-step"]
+<span data-ttu-id="f6dd8-141">[Precedente](getting-started-with-mvc-part5.md)
+[Successivo](getting-started-with-mvc-part7.md)</span><span class="sxs-lookup"><span data-stu-id="f6dd8-141">[Previous](getting-started-with-mvc-part5.md)
+[Next](getting-started-with-mvc-part7.md)</span></span>
