@@ -27,7 +27,11 @@ Nota: la versione di ASP.NET 2.0 Core è leggermente diversa. Non contiene `@inj
 >[!WARNING]
 > Il controller `Movies` non è stato ancora implementato e quindi, se si fa clic su questo collegamento, verrà visualizzato un errore 404 (Non trovato).
 
-Salvare le modifiche e toccare il collegamento **About** (Informazioni su). Si noti come il titolo sulla scheda del browser visualizzi ora **About - Movie App** (Informazioni su - Movie App) anziché **About - Mvc Movie** (Informazioni su - Mvc Movie). Toccare il collegamento **Contact** (Contatto) e notare che anche qui viene visualizzato **Movie App**. La modifica è stata apportata una volta nel modello di layout e tutte le pagine nel sito riflettono il nuovo testo del collegamento e il nuovo titolo.
+Salvare le modifiche e toccare il collegamento **About** (Informazioni su). Si noti come il titolo sulla scheda del browser visualizzi ora **About - Movie App** (Informazioni su - Movie App) anziché **About - Mvc Movie** (Informazioni su - Mvc Movie): 
+
+![Informazioni sulla scheda](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+
+Toccare il collegamento **Contact** (Contatto) e notare che anche qui viene visualizzato **Movie App**. La modifica è stata apportata una volta nel modello di layout e tutte le pagine nel sito riflettono il nuovo testo del collegamento e il nuovo titolo.
 
 Esaminare il file *Views/_ViewStart.cshtml*:
 

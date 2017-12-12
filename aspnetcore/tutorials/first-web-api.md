@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3ef6fb26eab123c9f6f8275ee1d979b090db0413
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: da47296fd952300ce60121603834a9f22be3c339
+ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
 
@@ -64,7 +64,7 @@ Un modello è un oggetto che rappresenta i dati nell'app. In questo caso l'unico
 
 Aggiungere una cartella denominata "Models". In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
-Nota: è possibile inserire le classi del modello in qualsiasi punto del progetto, ma per convenzione viene usata la cartella *Models*.
+Nota: è possibile inserire le classi del modello in qualsiasi punto del progetto. ma per convenzione viene usata la cartella *Models*.
 
 Aggiungere una classe `TodoItem`. Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare il nome `TodoItem` alla classe, quindi selezionare **Aggiungi**.
 
