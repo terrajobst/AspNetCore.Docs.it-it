@@ -1,79 +1,158 @@
 ---
-title: "Limitazione dell'identità dallo schema"
+title: Autorizzazione con uno specifico schema - ASP.NET Core
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "In questo articolo viene illustrato come limitare l'identità per uno schema specifico quando si lavora con più metodi di autenticazione."
+keywords: "ASP.NET Core, identità, schema di autenticazione"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 10/12/2017
 ms.topic: article
 ms.assetid: d3d6ca1b-b4b5-4bf7-898e-dcd90ec1bf8c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 2483c441da317a5c29b611b3a4910eae3c01fd7a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8c9d068b88263d0c06b11a6b87416fb02885c475
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="limiting-identity-by-scheme"></a><span data-ttu-id="1ee12-103">Limitazione dell'identità dallo schema</span><span class="sxs-lookup"><span data-stu-id="1ee12-103">Limiting identity by scheme</span></span>
+# <a name="authorize-with-a-specific-scheme"></a><span data-ttu-id="859c9-104">Autorizzazione con uno schema specifico</span><span class="sxs-lookup"><span data-stu-id="859c9-104">Authorize with a specific scheme</span></span>
 
-<a name=security-authorization-limiting-by-scheme></a>
+<span data-ttu-id="859c9-105">In alcuni scenari, ad esempio applicazioni a pagina singola (stabilimenti termali), è comune per utilizzare più metodi di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="859c9-105">In some scenarios, such as Single Page Applications (SPAs), it's common to use multiple authentication methods.</span></span> <span data-ttu-id="859c9-106">Ad esempio, l'app può utilizzare l'autenticazione basata su cookie di accesso e l'autenticazione della connessione JWT per le richieste di JavaScript.</span><span class="sxs-lookup"><span data-stu-id="859c9-106">For example, the app may use cookie-based authentication to log in and JWT bearer authentication for JavaScript requests.</span></span> <span data-ttu-id="859c9-107">In alcuni casi, l'app può avere più istanze di un gestore di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="859c9-107">In some cases, the app may have multiple instances of an authentication handler.</span></span> <span data-ttu-id="859c9-108">Ad esempio, due gestori di cookie in cui uno contiene un'identità di base e uno viene creato quando un'autenticazione a più fattori (MFA) è stata attivata.</span><span class="sxs-lookup"><span data-stu-id="859c9-108">For example, two cookie handlers where one contains a basic identity and one is created when a multi-factor authentication (MFA) has been triggered.</span></span> <span data-ttu-id="859c9-109">Autenticazione a più fattori può essere attivata perché l'utente ha richiesto un'operazione che richiede una maggiore sicurezza.</span><span class="sxs-lookup"><span data-stu-id="859c9-109">MFA may be triggered because the user requested an operation that requires extra security.</span></span>
 
-<span data-ttu-id="1ee12-104">In alcuni scenari, ad esempio applicazioni a pagina singola è possibile finire con più metodi di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="1ee12-104">In some scenarios, such as Single Page Applications it is possible to end up with multiple authentication methods.</span></span> <span data-ttu-id="1ee12-105">Ad esempio, l'applicazione potrà usare l'autenticazione basata su cookie di accesso e l'autenticazione della connessione per le richieste di JavaScript.</span><span class="sxs-lookup"><span data-stu-id="1ee12-105">For example, your application may use cookie-based authentication to log in and bearer authentication for JavaScript requests.</span></span> <span data-ttu-id="1ee12-106">In alcuni casi potrebbe essere più istanze di un middleware di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="1ee12-106">In some cases you may have multiple instances of an authentication middleware.</span></span> <span data-ttu-id="1ee12-107">Ad esempio, due cookie middlewares in cui una contiene un'identità di base e ne viene creata quando è attivata un'autenticazione a più fattori perché l'utente ha richiesto un'operazione che richiede una maggiore sicurezza.</span><span class="sxs-lookup"><span data-stu-id="1ee12-107">For example, two cookie middlewares where one contains a basic identity and one is created when a multi-factor authentication has triggered because the user requested an operation that requires extra security.</span></span>
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="859c9-110">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="859c9-110">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="1ee12-108">Gli schemi di autenticazione sono denominati quando middleware di autenticazione viene configurato durante l'autenticazione, ad esempio</span><span class="sxs-lookup"><span data-stu-id="1ee12-108">Authentication schemes are named when authentication middleware is configured during authentication, for example</span></span>
+<span data-ttu-id="859c9-111">Uno schema di autenticazione denominato quando il servizio di autenticazione viene configurato durante l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="859c9-111">An authentication scheme is named when the authentication service is configured during authentication.</span></span> <span data-ttu-id="859c9-112">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="859c9-112">For example:</span></span>
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions()
+public void ConfigureServices(IServiceCollection services)
 {
-    AuthenticationScheme = "Cookie",
-    LoginPath = new PathString("/Account/Unauthorized/"),
-    AccessDeniedPath = new PathString("/Account/Forbidden/"),
-    AutomaticAuthenticate = false
-});
+    // Code omitted for brevity
 
-app.UseBearerAuthentication(options =>
-{
-    options.AuthenticationScheme = "Bearer";
-    options.AutomaticAuthenticate = false;
-});
+    services.AddAuthentication()
+        .AddCookie(options => {
+            options.LoginPath = "/Account/Unauthorized/";
+            options.AccessDeniedPath = "/Account/Forbidden/";
+        })
+        .AddJwtBearer(options => {
+            options.Audience = "http://localhost:5001/";
+            options.Authority = "http://localhost:5000/";
+        });
 ```
 
-<span data-ttu-id="1ee12-109">In questa configurazione due middlewares di autenticazione sono stati aggiunti, uno per i cookie e uno per la connessione.</span><span class="sxs-lookup"><span data-stu-id="1ee12-109">In this configuration two authentication middlewares have been added, one for cookies and one for bearer.</span></span>
+<span data-ttu-id="859c9-113">Nel codice precedente, sono stati aggiunti due gestori di autenticazione: uno per i cookie e uno per la connessione.</span><span class="sxs-lookup"><span data-stu-id="859c9-113">In the preceding code, two authentication handlers have been added: one for cookies and one for bearer.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="1ee12-110">Quando si aggiungono più middleware di autenticazione, che è necessario assicurarsi che nessun middleware sia configurato per l'esecuzione automatica.</span><span class="sxs-lookup"><span data-stu-id="1ee12-110">When adding multiple authentication middleware you should ensure that no middleware is configured to run automatically.</span></span> <span data-ttu-id="1ee12-111">A questo scopo, impostare il `AutomaticAuthenticate` opzioni proprietà su false.</span><span class="sxs-lookup"><span data-stu-id="1ee12-111">You do this by setting the `AutomaticAuthenticate` options property to false.</span></span> <span data-ttu-id="1ee12-112">Se non è possibile eseguire il filtraggio dallo schema non funzionerà.</span><span class="sxs-lookup"><span data-stu-id="1ee12-112">If you fail to do this filtering by scheme will not work.</span></span>
+><span data-ttu-id="859c9-114">Specifica lo schema predefinito comporta la `HttpContext.User` proprietà viene impostata su tale identità.</span><span class="sxs-lookup"><span data-stu-id="859c9-114">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="859c9-115">Se non si desidera questo comportamento, disattivarlo richiamando la forma senza parametri di `AddAuthentication`.</span><span class="sxs-lookup"><span data-stu-id="859c9-115">If that behavior isn't desired, disable it by invoking the parameterless form of `AddAuthentication`.</span></span>
 
-## <a name="selecting-the-scheme-with-the-authorize-attribute"></a><span data-ttu-id="1ee12-113">Selezionare lo schema con l'attributo Authorize</span><span class="sxs-lookup"><span data-stu-id="1ee12-113">Selecting the scheme with the Authorize attribute</span></span>
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="859c9-116">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="859c9-116">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="1ee12-114">Il middleware di autenticazione non è configurato per eseguire automaticamente e creare un'identità, che è necessario, nel punto di autorizzazione selezionare quale middleware verrà utilizzato.</span><span class="sxs-lookup"><span data-stu-id="1ee12-114">As no authentication middleware is configured to automatically run and create an identity you must, at the point of authorization choose which middleware will be used.</span></span> <span data-ttu-id="1ee12-115">È il modo più semplice per selezionare il middleware desiderato per l'autorizzazione a utilizzare il `ActiveAuthenticationSchemes` proprietà.</span><span class="sxs-lookup"><span data-stu-id="1ee12-115">The simplest way to select the middleware you wish to authorize with is to use the `ActiveAuthenticationSchemes` property.</span></span> <span data-ttu-id="1ee12-116">Questa proprietà accetta un elenco delimitato da virgole degli schemi di autenticazione da utilizzare.</span><span class="sxs-lookup"><span data-stu-id="1ee12-116">This property accepts a comma delimited list of Authentication Schemes to use.</span></span> <span data-ttu-id="1ee12-117">Ad esempio;</span><span class="sxs-lookup"><span data-stu-id="1ee12-117">For example;</span></span>
+<span data-ttu-id="859c9-117">Gli schemi di autenticazione sono denominati quando l'autenticazione middlewares vengono configurati durante l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="859c9-117">Authentication schemes are named when authentication middlewares are configured during authentication.</span></span> <span data-ttu-id="859c9-118">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="859c9-118">For example:</span></span>
 
 ```csharp
-[Authorize(ActiveAuthenticationSchemes = "Cookie,Bearer")]
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    // Code omitted for brevity
+
+    app.UseCookieAuthentication(new CookieAuthenticationOptions()
+    {
+        AuthenticationScheme = "Cookie",
+        LoginPath = "/Account/Unauthorized/",
+        AccessDeniedPath = "/Account/Forbidden/",
+        AutomaticAuthenticate = false
+    });
+    
+    app.UseJwtBearerAuthentication(new JwtBearerOptions()
+    {
+        AuthenticationScheme = "Bearer",
+        AutomaticAuthenticate = false,
+        Audience = "http://localhost:5001/",
+        Authority = "http://localhost:5000/",
+        RequireHttpsMetadata = false
+    });
+```
+
+<span data-ttu-id="859c9-119">Nel codice precedente, sono stati aggiunti due autenticazione middlewares: uno per i cookie e uno per la connessione.</span><span class="sxs-lookup"><span data-stu-id="859c9-119">In the preceding code, two authentication middlewares have been added: one for cookies and one for bearer.</span></span>
+
+>[!NOTE]
+><span data-ttu-id="859c9-120">Specifica lo schema predefinito comporta la `HttpContext.User` proprietà viene impostata su tale identità.</span><span class="sxs-lookup"><span data-stu-id="859c9-120">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="859c9-121">Questo comportamento non è possibile disabilitarlo impostando il `AuthenticationOptions.AutomaticAuthenticate` proprietà `false`.</span><span class="sxs-lookup"><span data-stu-id="859c9-121">If that behavior isn't desired, disable it by setting the `AuthenticationOptions.AutomaticAuthenticate` property to `false`.</span></span>
+
+---
+
+## <a name="selecting-the-scheme-with-the-authorize-attribute"></a><span data-ttu-id="859c9-122">Selezionare lo schema con l'attributo Authorize</span><span class="sxs-lookup"><span data-stu-id="859c9-122">Selecting the scheme with the Authorize attribute</span></span>
+
+<span data-ttu-id="859c9-123">Al momento di autorizzazione, l'app indica il gestore da utilizzare.</span><span class="sxs-lookup"><span data-stu-id="859c9-123">At the point of authorization, the app indicates the handler to be used.</span></span> <span data-ttu-id="859c9-124">Selezionare il gestore con cui l'app autorizzerà passando un elenco delimitato da virgole di schemi di autenticazione `[Authorize]`.</span><span class="sxs-lookup"><span data-stu-id="859c9-124">Select the handler with which the app will authorize by passing a comma-delimited list of authentication schemes to `[Authorize]`.</span></span> <span data-ttu-id="859c9-125">Il `[Authorize]` attributo specifica lo schema di autenticazione o il schemi da utilizzare, indipendentemente dal fatto che sia stata configurata un'impostazione predefinita.</span><span class="sxs-lookup"><span data-stu-id="859c9-125">The `[Authorize]` attribute specifies the authentication scheme or schemes to use regardless of whether a default is configured.</span></span> <span data-ttu-id="859c9-126">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="859c9-126">For example:</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="859c9-127">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="859c9-127">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+```csharp
+[Authorize(AuthenticationSchemes = AuthSchemes)]
+public class MixedController : Controller
+    // Requires the following imports:
+    // using Microsoft.AspNetCore.Authentication.Cookies;
+    // using Microsoft.AspNetCore.Authentication.JwtBearer;
+    private const string AuthSchemes =
+        CookieAuthenticationDefaults.AuthenticationScheme + "," +
+        JwtBearerDefaults.AuthenticationScheme;
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="859c9-128">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="859c9-128">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+```csharp
+[Authorize(ActiveAuthenticationSchemes = AuthSchemes)]
+public class MixedController : Controller
+    // Requires the following imports:
+    // using Microsoft.AspNetCore.Authentication.Cookies;
+    // using Microsoft.AspNetCore.Authentication.JwtBearer;
+    private const string AuthSchemes =
+        CookieAuthenticationDefaults.AuthenticationScheme + "," +
+        JwtBearerDefaults.AuthenticationScheme;
+```
+
+---
+
+<span data-ttu-id="859c9-129">Nell'esempio precedente, i gestori di connessione sia il cookie eseguire e la possibilità di creare e aggiungere un'identità per l'utente corrente.</span><span class="sxs-lookup"><span data-stu-id="859c9-129">In the preceding example, both the cookie and bearer handlers run and have a chance to create and append an identity for the current user.</span></span> <span data-ttu-id="859c9-130">Specificando un unico schema, viene eseguito il gestore corrispondente.</span><span class="sxs-lookup"><span data-stu-id="859c9-130">By specifying a single scheme only, the corresponding handler runs.</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="859c9-131">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="859c9-131">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+```csharp
+[Authorize(AuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
 public class MixedController : Controller
 ```
 
-<span data-ttu-id="1ee12-118">Nell'esempio precedente il cookie e di connessione middlewares verrà eseguito e la possibilità di creare e aggiungere un'identità per l'utente corrente.</span><span class="sxs-lookup"><span data-stu-id="1ee12-118">In the example above both the cookie and bearer middlewares will run and have a chance to create and append an identity for the current user.</span></span> <span data-ttu-id="1ee12-119">Specificando un unico schema verrà eseguita solo il middleware specificato.</span><span class="sxs-lookup"><span data-stu-id="1ee12-119">By specifying a single scheme only the specified middleware will run;</span></span>
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="859c9-132">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="859c9-132">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
-[Authorize(ActiveAuthenticationSchemes = "Bearer")]
+[Authorize(ActiveAuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
+public class MixedController : Controller
 ```
 
-<span data-ttu-id="1ee12-120">In questo caso è necessario eseguire solo il middleware con lo schema della connessione e le identità basata su cookie verrebbero ignorate.</span><span class="sxs-lookup"><span data-stu-id="1ee12-120">In this case only the middleware with the Bearer scheme would run, and any cookie based identities would be ignored.</span></span>
+---
 
-## <a name="selecting-the-scheme-with-policies"></a><span data-ttu-id="1ee12-121">Lo schema con i criteri di selezione</span><span class="sxs-lookup"><span data-stu-id="1ee12-121">Selecting the scheme with policies</span></span>
+<span data-ttu-id="859c9-133">Nel codice precedente, viene eseguito solo il gestore con lo schema "Bearer".</span><span class="sxs-lookup"><span data-stu-id="859c9-133">In the preceding code, only the handler with the "Bearer" scheme runs.</span></span> <span data-ttu-id="859c9-134">Vengono ignorate le identità basate su cookie.</span><span class="sxs-lookup"><span data-stu-id="859c9-134">Any cookie-based identities are ignored.</span></span>
 
-<span data-ttu-id="1ee12-122">Se si preferisce specificare gli schemi desiderati in [criteri](policies.md#security-authorization-policies-based) è possibile impostare il `AuthenticationSchemes` raccolta quando si aggiunge il criterio.</span><span class="sxs-lookup"><span data-stu-id="1ee12-122">If you prefer to specify the desired schemes in [policy](policies.md#security-authorization-policies-based) you can set the `AuthenticationSchemes` collection when adding your policy.</span></span>
+## <a name="selecting-the-scheme-with-policies"></a><span data-ttu-id="859c9-135">Lo schema con i criteri di selezione</span><span class="sxs-lookup"><span data-stu-id="859c9-135">Selecting the scheme with policies</span></span>
+
+<span data-ttu-id="859c9-136">Se si preferisce specificare gli schemi desiderati in [criteri](xref:security/authorization/policies), è possibile impostare il `AuthenticationSchemes` raccolta quando si aggiunge il criterio:</span><span class="sxs-lookup"><span data-stu-id="859c9-136">If you prefer to specify the desired schemes in [policy](xref:security/authorization/policies), you can set the `AuthenticationSchemes` collection when adding your policy:</span></span>
 
 ```csharp
-options.AddPolicy("Over18", policy =>
+services.AddAuthorization(options =>
 {
-    policy.AuthenticationSchemes.Add("Bearer");
-    policy.RequireAuthenticatedUser();
-    policy.Requirements.Add(new Over18Requirement());
+    options.AddPolicy("Over18", policy =>
+    {
+        policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+        policy.RequireAuthenticatedUser();
+        policy.Requirements.Add(new MinimumAgeRequirement());
+    });
 });
 ```
 
-<span data-ttu-id="1ee12-123">In questo esempio il Over18 criteri verranno eseguiti solo in base all'identità creati il `Bearer` middleware.</span><span class="sxs-lookup"><span data-stu-id="1ee12-123">In this example the Over18 policy will only run against the identity created by the `Bearer` middleware.</span></span>
+<span data-ttu-id="859c9-137">Nell'esempio precedente, il criterio "Over18" viene eseguito solo in base all'identità creata dal gestore "Bearer".</span><span class="sxs-lookup"><span data-stu-id="859c9-137">In the preceding example, the "Over18" policy only runs against the identity created by the "Bearer" handler.</span></span> <span data-ttu-id="859c9-138">Usare i criteri impostando il `[Authorize]` dell'attributo `Policy` proprietà:</span><span class="sxs-lookup"><span data-stu-id="859c9-138">Use the policy by setting the `[Authorize]` attribute's `Policy` property:</span></span>
+
+```csharp
+[Authorize(Policy = "Over18")]
+public class RegistrationController : Controller
+```

@@ -5,149 +5,314 @@ description: Una spiegazione dell'utilizzo dell'autenticazione cookie senza ASP.
 keywords: ASP.NET Core, i cookie
 ms.author: riande
 manager: wpickett
-ms.date: 08/14/2017
+ms.date: 10/11/2017
 ms.topic: article
 ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: e5c53a7044edb56e065b2dc1536343fdaf9fb007
-ms.sourcegitcommit: 7d8f4e3443a2989a64343f8fec83e6a4c4ed2f97
+ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="using-cookie-authentication-without-aspnet-core-identity"></a><span data-ttu-id="0321a-104">Utilizzo dell'autenticazione Cookie senza identità ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="0321a-104">Using Cookie Authentication without ASP.NET Core Identity</span></span>
+# <a name="using-cookie-authentication-without-aspnet-core-identity"></a><span data-ttu-id="b76da-104">Utilizzo dell'autenticazione Cookie senza identità ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b76da-104">Using Cookie Authentication without ASP.NET Core Identity</span></span>
 
-<a name="security-authentication-cookie-middleware"></a>
+<span data-ttu-id="b76da-105">Da [Rick Anderson](https://twitter.com/RickAndMSFT) e [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="b76da-105">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="0321a-105">ASP.NET Core 1. x fornisce il cookie [middleware](../../fundamentals/middleware.md#fundamentals-middleware) che serializza un'entità utente in un cookie crittografato e nelle richieste successive convalida quindi il cookie, ricrea l'entità e lo assegna al `HttpContext.User` proprietà .</span><span class="sxs-lookup"><span data-stu-id="0321a-105">ASP.NET Core 1.x provides cookie [middleware](../../fundamentals/middleware.md#fundamentals-middleware) which serializes a user principal into an encrypted cookie and then, on subsequent requests, validates the cookie, recreates the principal, and assigns it to the `HttpContext.User` property.</span></span> <span data-ttu-id="0321a-106">Se si desidera fornire schermate di accesso e i database utente, è possibile utilizzare il middleware del cookie come funzionalità autonoma.</span><span class="sxs-lookup"><span data-stu-id="0321a-106">If you want to provide your own login screens and user databases, you can use the cookie middleware as a standalone feature.</span></span>
+<span data-ttu-id="b76da-106">Come si è visto negli argomenti precedenti autenticazione [ASP.NET Identity Core](xref:security/authentication/identity) è un provider di autenticazione completa e completa per creare e gestire gli account di accesso.</span><span class="sxs-lookup"><span data-stu-id="b76da-106">As you've seen in the earlier authentication topics, [ASP.NET Core Identity](xref:security/authentication/identity) is a complete, full-featured authentication provider for creating and maintaining logins.</span></span> <span data-ttu-id="b76da-107">Tuttavia, si consiglia di utilizzare la logica di autenticazione personalizzato con l'autenticazione basata su cookie in alcuni casi.</span><span class="sxs-lookup"><span data-stu-id="b76da-107">However, you may want to use your own custom authentication logic with cookie-based authentication at times.</span></span> <span data-ttu-id="b76da-108">È possibile utilizzare l'autenticazione basata su cookie come un provider di autenticazione autonomo senza ASP.NET Identity Core.</span><span class="sxs-lookup"><span data-stu-id="b76da-108">You can use cookie-based authentication as a standalone authentication provider without ASP.NET Core Identity.</span></span>
 
-<span data-ttu-id="0321a-107">Una modifica importante in ASP.NET Core 2. x è che il middleware del cookie è assente.</span><span class="sxs-lookup"><span data-stu-id="0321a-107">A major change in ASP.NET Core 2.x is that the cookie middleware is absent.</span></span> <span data-ttu-id="0321a-108">Invece di `UseAuthentication` chiamata al metodo nel `Configure` metodo *Startup.cs* aggiunge AuthenticationMiddleware che imposta il `HttpContext.User` proprietà.</span><span class="sxs-lookup"><span data-stu-id="0321a-108">Instead, the `UseAuthentication` method invocation in the `Configure` method of *Startup.cs* adds the AuthenticationMiddleware which sets the `HttpContext.User` property.</span></span>
+<span data-ttu-id="b76da-109">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="b76da-109">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-<a name="security-authentication-cookie-middleware-configuring"></a>
+<span data-ttu-id="b76da-110">Per informazioni sulla migrazione di autenticazione basato su cookie da ASP.NET Core 1. x a 2.0, vedere [la migrazione di autenticazione e identità per ASP.NET 2.0 Core argomento (basato su Cookie di autenticazione)](xref:migration/1x-to-2x/identity-2x#cookie-based-authentication).</span><span class="sxs-lookup"><span data-stu-id="b76da-110">For information on migrating cookie-based authentication from ASP.NET Core 1.x to 2.0, see [Migrating Authentication and Identity to ASP.NET Core 2.0 topic (Cookie-based Authentication)](xref:migration/1x-to-2x/identity-2x#cookie-based-authentication).</span></span>
 
-## <a name="adding-and-configuring"></a><span data-ttu-id="0321a-109">Aggiunta e configurazione</span><span class="sxs-lookup"><span data-stu-id="0321a-109">Adding and configuring</span></span>
+## <a name="configuration"></a><span data-ttu-id="b76da-111">Configurazione</span><span class="sxs-lookup"><span data-stu-id="b76da-111">Configuration</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-110">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-110">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-112">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-112">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="0321a-111">Completare i passaggi seguenti:</span><span class="sxs-lookup"><span data-stu-id="0321a-111">Complete the following steps:</span></span>
+<span data-ttu-id="b76da-113">Se non si utilizza il [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage), installare la versione 2.0 di [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) pacchetto NuGet.</span><span class="sxs-lookup"><span data-stu-id="b76da-113">If you aren't using the [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage), install version 2.0+ of the [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) NuGet package.</span></span>
 
-- <span data-ttu-id="0321a-112">Se non si utilizza il `Microsoft.AspNetCore.All` [metapackage](xref:fundamentals/metapackage), installare la versione 2.0 del `Microsoft.AspNetCore.Authentication.Cookies` pacchetto NuGet nel progetto.</span><span class="sxs-lookup"><span data-stu-id="0321a-112">If not using the `Microsoft.AspNetCore.All` [metapackage](xref:fundamentals/metapackage), install version 2.0+ of the `Microsoft.AspNetCore.Authentication.Cookies` NuGet package in your project.</span></span>
+<span data-ttu-id="b76da-114">Nel `ConfigureServices` (metodo), creare il servizio di Middleware di autenticazione con il `AddAuthentication` e `AddCookie` metodi:</span><span class="sxs-lookup"><span data-stu-id="b76da-114">In the `ConfigureServices` method, create the Authentication Middleware service with the `AddAuthentication` and `AddCookie` methods:</span></span>
 
-- <span data-ttu-id="0321a-113">Richiamare il `UseAuthentication` metodo il `Configure` metodo il *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="0321a-113">Invoke the `UseAuthentication` method in the `Configure` method of the *Startup.cs* file:</span></span>
+[!code-csharp[Main](cookie/sample/Startup.cs?name=snippet1)]
 
-    ```csharp
-    app.UseAuthentication();
-    ```
+<span data-ttu-id="b76da-115">`AuthenticationScheme`passato a `AddAuthentication` imposta lo schema di autenticazione predefinito per l'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-115">`AuthenticationScheme` passed to `AddAuthentication` sets the default authentication scheme for the app.</span></span> <span data-ttu-id="b76da-116">`AuthenticationScheme`è utile quando sono presenti più istanze di autenticazione dei cookie e si desidera [autorizzazione con uno schema specifico](xref:security/authorization/limitingidentitybyscheme).</span><span class="sxs-lookup"><span data-stu-id="b76da-116">`AuthenticationScheme` is useful when there are multiple instances of cookie authentication and you want to [authorize with a specific scheme](xref:security/authorization/limitingidentitybyscheme).</span></span> <span data-ttu-id="b76da-117">L'impostazione di `AuthenticationScheme` a `CookieAuthenticationDefaults.AuthenticationScheme` fornisce un valore pari a "Cookie" per lo schema.</span><span class="sxs-lookup"><span data-stu-id="b76da-117">Setting the `AuthenticationScheme` to `CookieAuthenticationDefaults.AuthenticationScheme` provides a value of "Cookies" for the scheme.</span></span> <span data-ttu-id="b76da-118">È possibile fornire qualsiasi valore stringa che distingue lo schema.</span><span class="sxs-lookup"><span data-stu-id="b76da-118">You can supply any string value that distinguishes the scheme.</span></span>
 
-- <span data-ttu-id="0321a-114">Richiamare il `AddAuthentication` e `AddCookie` metodi il `ConfigureServices` metodo il *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="0321a-114">Invoke the `AddAuthentication` and `AddCookie` methods in the `ConfigureServices` method of the *Startup.cs* file:</span></span>
+<span data-ttu-id="b76da-119">Nel `Configure` metodo, utilizzare il `UseAuthentication` metodo da richiamare il Middleware di autenticazione che imposta il `HttpContext.User` proprietà.</span><span class="sxs-lookup"><span data-stu-id="b76da-119">In the `Configure` method, use the `UseAuthentication` method to invoke the Authentication Middleware that sets the `HttpContext.User` property.</span></span> <span data-ttu-id="b76da-120">Chiamare il `UseAuthentication` metodo prima di chiamare `AddMvcWithDefaultRoute` in un'applicazione MVC o `AddMvc` in un'app Razor pagine:</span><span class="sxs-lookup"><span data-stu-id="b76da-120">Call the `UseAuthentication` method before calling `AddMvcWithDefaultRoute` in an MVC app or `AddMvc` in a Razor Pages app:</span></span>
 
-    ```csharp
-    services.AddAuthentication("MyCookieAuthenticationScheme")
-            .AddCookie("MyCookieAuthenticationScheme", options => {
-                options.AccessDeniedPath = "/Account/Forbidden/";
-                options.LoginPath = "/Account/Unauthorized/";
-            });
-    ```
+[!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-115">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-115">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+<span data-ttu-id="b76da-121">**Opzioni AddCookie**</span><span class="sxs-lookup"><span data-stu-id="b76da-121">**AddCookie Options**</span></span>
 
-<span data-ttu-id="0321a-116">Completare i passaggi seguenti:</span><span class="sxs-lookup"><span data-stu-id="0321a-116">Complete the following steps:</span></span>
+<span data-ttu-id="b76da-122">Il [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions?view=aspnetcore-2.0) classe viene utilizzata per configurare le opzioni del provider di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-122">The [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions?view=aspnetcore-2.0) class is used to configure the authentication provider options.</span></span>
 
-- <span data-ttu-id="0321a-117">Installare il `Microsoft.AspNetCore.Authentication.Cookies` pacchetto NuGet nel progetto.</span><span class="sxs-lookup"><span data-stu-id="0321a-117">Install the `Microsoft.AspNetCore.Authentication.Cookies` NuGet package in your project.</span></span> <span data-ttu-id="0321a-118">Questo pacchetto contiene middleware del cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-118">This package contains the cookie middleware.</span></span>
+| <span data-ttu-id="b76da-123">Opzione</span><span class="sxs-lookup"><span data-stu-id="b76da-123">Option</span></span> | <span data-ttu-id="b76da-124">Descrizione</span><span class="sxs-lookup"><span data-stu-id="b76da-124">Description</span></span> |
+| ------ | ----------- |
+| [<span data-ttu-id="b76da-125">AccessDeniedPath</span><span class="sxs-lookup"><span data-stu-id="b76da-125">AccessDeniedPath</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath?view=aspnetcore-2.0) | <span data-ttu-id="b76da-126">Fornisce il percorso di fornire un 302 trovato (reindirizzamento dell'URL) quando sono attivati da `HttpContext.ForbidAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-126">Provides the path to supply with a 302 Found (URL redirect) when triggered by `HttpContext.ForbidAsync`.</span></span> <span data-ttu-id="b76da-127">Il valore predefinito è `/Account/AccessDenied`.</span><span class="sxs-lookup"><span data-stu-id="b76da-127">The default value is `/Account/AccessDenied`.</span></span> |
+| [<span data-ttu-id="b76da-128">ClaimsIssuer</span><span class="sxs-lookup"><span data-stu-id="b76da-128">ClaimsIssuer</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer?view=aspnetcore-2.0) | <span data-ttu-id="b76da-129">L'autorità emittente da utilizzare per il [dell'autorità di certificazione](/dotnet/api/system.security.claims.claim.issuer) proprietà in tutte le attestazioni creata dal servizio di autenticazione del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-129">The issuer to use for the [Issuer](/dotnet/api/system.security.claims.claim.issuer) property on any claims created by the cookie authentication service.</span></span> |
+| [<span data-ttu-id="b76da-130">Cookie.Domain</span><span class="sxs-lookup"><span data-stu-id="b76da-130">Cookie.Domain</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain?view=aspnetcore-2.0) | <span data-ttu-id="b76da-131">Il nome di dominio in cui il cookie viene servito.</span><span class="sxs-lookup"><span data-stu-id="b76da-131">The domain name where the cookie is served.</span></span> <span data-ttu-id="b76da-132">Per impostazione predefinita, questo è il nome host della richiesta.</span><span class="sxs-lookup"><span data-stu-id="b76da-132">By default, this is the host name of the request.</span></span> <span data-ttu-id="b76da-133">Il browser invia solo il cookie nelle richieste inviate a un nome host corrispondente.</span><span class="sxs-lookup"><span data-stu-id="b76da-133">The browser only sends the cookie in requests to a matching host name.</span></span> <span data-ttu-id="b76da-134">Si potrebbe voler modificare questa opzione per disporre i cookie disponibili per tutti gli host nel dominio.</span><span class="sxs-lookup"><span data-stu-id="b76da-134">You may wish to adjust this to have cookies available to any host in your domain.</span></span> <span data-ttu-id="b76da-135">Ad esempio, impostando il dominio del cookie `.contoso.com` rende disponibili agli `contoso.com`, `www.contoso.com`, e `staging.www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="b76da-135">For example, setting the cookie domain to `.contoso.com` makes it available to `contoso.com`, `www.contoso.com`, and `staging.www.contoso.com`.</span></span> |
+| [<span data-ttu-id="b76da-136">Cookie.Expiration</span><span class="sxs-lookup"><span data-stu-id="b76da-136">Cookie.Expiration</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration?view=aspnetcore-2.0) | <span data-ttu-id="b76da-137">Ottiene o imposta la durata di un cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-137">Gets or sets the lifespan of a cookie.</span></span> <span data-ttu-id="b76da-138">Attualmente, questa opzione no ops e diventerà obsoleta in ASP.NET Core 2.1 +.</span><span class="sxs-lookup"><span data-stu-id="b76da-138">Currently, this option no-ops and will become obsolete in ASP.NET Core 2.1+.</span></span> <span data-ttu-id="b76da-139">Utilizzare il `ExpireTimeSpan` opzione per impostare la scadenza del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-139">Use the `ExpireTimeSpan` option to set cookie expiration.</span></span> <span data-ttu-id="b76da-140">Per ulteriori informazioni, vedere [chiarire il comportamento di CookieAuthenticationOptions.Cookie.Expiration](https://github.com/aspnet/Security/issues/1293).</span><span class="sxs-lookup"><span data-stu-id="b76da-140">For more information, see [Clarify behavior of CookieAuthenticationOptions.Cookie.Expiration](https://github.com/aspnet/Security/issues/1293).</span></span> |
+| [<span data-ttu-id="b76da-141">Cookie.HttpOnly</span><span class="sxs-lookup"><span data-stu-id="b76da-141">Cookie.HttpOnly</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly?view=aspnetcore-2.0) | <span data-ttu-id="b76da-142">Flag che indica se il cookie deve essere accessibile solo ai server.</span><span class="sxs-lookup"><span data-stu-id="b76da-142">A flag indicating if the cookie should be accessible only to servers.</span></span> <span data-ttu-id="b76da-143">Modifica questo valore su `false` consenta script lato client per accedere al cookie e possono aprire l'app al rischio di furto di cookie che l'app deve avere un [Cross-site scripting (XSS)](xref:security/cross-site-scripting) vulnerabilità.</span><span class="sxs-lookup"><span data-stu-id="b76da-143">Changing this value to `false` permits client-side scripts to access the cookie and may open your app to cookie theft should your app have a [Cross-site scripting (XSS)](xref:security/cross-site-scripting) vulnerability.</span></span> <span data-ttu-id="b76da-144">Il valore predefinito è `true`.</span><span class="sxs-lookup"><span data-stu-id="b76da-144">The default value is `true`.</span></span> |
+| [<span data-ttu-id="b76da-145">Cookie.Name</span><span class="sxs-lookup"><span data-stu-id="b76da-145">Cookie.Name</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name?view=aspnetcore-2.0) | <span data-ttu-id="b76da-146">Imposta il nome del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-146">Sets the name of the cookie.</span></span> |
+| [<span data-ttu-id="b76da-147">Cookie.Path</span><span class="sxs-lookup"><span data-stu-id="b76da-147">Cookie.Path</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path?view=aspnetcore-2.0) | <span data-ttu-id="b76da-148">Utilizzato per isolare le app eseguono lo stesso nome host.</span><span class="sxs-lookup"><span data-stu-id="b76da-148">Used to isolate apps running on the same host name.</span></span> <span data-ttu-id="b76da-149">Se si dispone di un'app in esecuzione in `/app1` e desidera limitare i cookie per tale app, impostare il `CookiePath` proprietà `/app1`.</span><span class="sxs-lookup"><span data-stu-id="b76da-149">If you have an app running at `/app1` and want to restrict cookies to that app, set the `CookiePath` property to `/app1`.</span></span> <span data-ttu-id="b76da-150">In questo modo, il cookie è disponibile solo per le richieste per `/app1` e tutte le app disponibili al suo interno.</span><span class="sxs-lookup"><span data-stu-id="b76da-150">By doing so, the cookie is only available on requests to `/app1` and any app underneath it.</span></span> |
+| [<span data-ttu-id="b76da-151">Cookie.SameSite</span><span class="sxs-lookup"><span data-stu-id="b76da-151">Cookie.SameSite</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite?view=aspnetcore-2.0) | <span data-ttu-id="b76da-152">Indica se il browser deve consentire i cookie da collegare alle richieste di nello stesso sito solo (`SameSiteMode.Strict`) o le richieste tra siti tramite i metodi HTTP sicuro e richieste di nello stesso sito (`SameSiteMode.Lax`).</span><span class="sxs-lookup"><span data-stu-id="b76da-152">Indicates whether the browser should allow the cookie to be attached to same-site requests only (`SameSiteMode.Strict`) or cross-site requests using safe HTTP methods and same-site requests (`SameSiteMode.Lax`).</span></span> <span data-ttu-id="b76da-153">Se impostato su `SameSiteMode.None`, non è impostato il valore dell'intestazione cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-153">When set to `SameSiteMode.None`, the cookie header value isn't set.</span></span> <span data-ttu-id="b76da-154">Si noti che [Middleware criteri Cookie](#cookie-policy-middleware) potrebbe sovrascrivere il valore fornito dall'utente.</span><span class="sxs-lookup"><span data-stu-id="b76da-154">Note that [Cookie Policy Middleware](#cookie-policy-middleware) might overwrite the value that you provide.</span></span> <span data-ttu-id="b76da-155">Per supportare l'autenticazione OAuth, il valore predefinito è `SameSiteMode.Lax`.</span><span class="sxs-lookup"><span data-stu-id="b76da-155">To support OAuth authentication, the default value is `SameSiteMode.Lax`.</span></span> <span data-ttu-id="b76da-156">Per ulteriori informazioni, vedere [autenticazione OAuth interrotto a causa dei criteri di cookie SameSite](https://github.com/aspnet/Security/issues/1231).</span><span class="sxs-lookup"><span data-stu-id="b76da-156">For more information, see [OAuth authentication broken due to SameSite cookie policy](https://github.com/aspnet/Security/issues/1231).</span></span> |
+| [<span data-ttu-id="b76da-157">Cookie.SecurePolicy</span><span class="sxs-lookup"><span data-stu-id="b76da-157">Cookie.SecurePolicy</span></span>](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.securepolicy?view=aspnetcore-2.0) | <span data-ttu-id="b76da-158">Flag che indica se il cookie creato deve essere limitato a HTTPS (`CookieSecurePolicy.Always`), HTTP o HTTPS (`CookieSecurePolicy.None`), o lo stesso protocollo della richiesta (`CookieSecurePolicy.SameAsRequest`).</span><span class="sxs-lookup"><span data-stu-id="b76da-158">A flag indicating if the cookie created should be limited to HTTPS (`CookieSecurePolicy.Always`), HTTP or HTTPS (`CookieSecurePolicy.None`), or the same protocol as the request (`CookieSecurePolicy.SameAsRequest`).</span></span> <span data-ttu-id="b76da-159">Il valore predefinito è `CookieSecurePolicy.SameAsRequest`.</span><span class="sxs-lookup"><span data-stu-id="b76da-159">The default value is `CookieSecurePolicy.SameAsRequest`.</span></span> |
+| [<span data-ttu-id="b76da-160">DataProtectionProvider</span><span class="sxs-lookup"><span data-stu-id="b76da-160">DataProtectionProvider</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider?view=aspnetcore-2.0) | <span data-ttu-id="b76da-161">Imposta il `DataProtectionProvider` che viene utilizzato per creare il valore predefinito `TicketDataFormat`.</span><span class="sxs-lookup"><span data-stu-id="b76da-161">Sets the `DataProtectionProvider` that's used to create the default `TicketDataFormat`.</span></span> <span data-ttu-id="b76da-162">Se il `TicketDataFormat` è impostata, il `DataProtectionProvider` non viene usata l'opzione.</span><span class="sxs-lookup"><span data-stu-id="b76da-162">If the `TicketDataFormat` property is set, the `DataProtectionProvider` option isn't used.</span></span> <span data-ttu-id="b76da-163">Se omesso, viene utilizzato provider di protezione dati predefinito dell'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-163">If not provided, the app's default data protection provider is used.</span></span> |
+| [<span data-ttu-id="b76da-164">Eventi</span><span class="sxs-lookup"><span data-stu-id="b76da-164">Events</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.events?view=aspnetcore-2.0) | <span data-ttu-id="b76da-165">Il gestore chiama i metodi nel provider che offrono il controllo di app in alcune fasi di elaborazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-165">The handler calls methods on the provider that give the app control at certain processing points.</span></span> <span data-ttu-id="b76da-166">Se `Events` non fornito, viene fornita un'istanza predefinita che non esegue alcuna operazione quando i metodi vengono chiamati.</span><span class="sxs-lookup"><span data-stu-id="b76da-166">If `Events` aren't provided, a default instance is supplied that does nothing when the methods are called.</span></span> |
+| [<span data-ttu-id="b76da-167">EventsType</span><span class="sxs-lookup"><span data-stu-id="b76da-167">EventsType</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.eventstype?view=aspnetcore-2.0) | <span data-ttu-id="b76da-168">Utilizzato come tipo di servizio per ottenere il `Events` istanza anziché la proprietà.</span><span class="sxs-lookup"><span data-stu-id="b76da-168">Used as the service type to get the `Events` instance instead of the property.</span></span> |
+| [<span data-ttu-id="b76da-169">ExpireTimeSpan</span><span class="sxs-lookup"><span data-stu-id="b76da-169">ExpireTimeSpan</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan?view=aspnetcore-2.0) | <span data-ttu-id="b76da-170">Il `TimeSpan` dopo che il ticket di autenticazione archiviato il cookie scade.</span><span class="sxs-lookup"><span data-stu-id="b76da-170">The `TimeSpan` after which the authentication ticket stored inside the cookie expires.</span></span> <span data-ttu-id="b76da-171">`ExpireTimeSpan`viene aggiunto all'ora corrente per creare l'ora di scadenza per il ticket.</span><span class="sxs-lookup"><span data-stu-id="b76da-171">`ExpireTimeSpan` is added to the current time to create the expiration time for the ticket.</span></span> <span data-ttu-id="b76da-172">Il `ExpiredTimeSpan` valore diventa sempre il ticket di autenticazione crittografato verificati dal server.</span><span class="sxs-lookup"><span data-stu-id="b76da-172">The `ExpiredTimeSpan` value always goes into the encrypted AuthTicket verified by the server.</span></span> <span data-ttu-id="b76da-173">Può inoltre analizzare le [Set-Cookie](https://tools.ietf.org/html/rfc6265#section-4.1) intestazione, ma solo se `IsPersistent` è impostata.</span><span class="sxs-lookup"><span data-stu-id="b76da-173">It may also go into the [Set-Cookie](https://tools.ietf.org/html/rfc6265#section-4.1) header, but only if `IsPersistent` is set.</span></span> <span data-ttu-id="b76da-174">Per impostare `IsPersistent` a `true`, configurare il [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties) passato a `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-174">To set `IsPersistent` to `true`, configure the [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties) passed to `SignInAsync`.</span></span> <span data-ttu-id="b76da-175">Il valore predefinito di `ExpireTimeSpan` è 14 giorni.</span><span class="sxs-lookup"><span data-stu-id="b76da-175">The default value of `ExpireTimeSpan` is 14 days.</span></span> |
+| [<span data-ttu-id="b76da-176">LoginPath</span><span class="sxs-lookup"><span data-stu-id="b76da-176">LoginPath</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath?view=aspnetcore-2.0) | <span data-ttu-id="b76da-177">Fornisce il percorso di fornire un 302 trovato (reindirizzamento dell'URL) quando sono attivati da `HttpContext.ChallengeAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-177">Provides the path to supply with a 302 Found (URL redirect) when triggered by `HttpContext.ChallengeAsync`.</span></span> <span data-ttu-id="b76da-178">L'URL corrente che ha generato il codice 401 viene aggiunto per il `LoginPath` come parametro di stringa di query denominato dal `ReturnUrlParameter`.</span><span class="sxs-lookup"><span data-stu-id="b76da-178">The current URL that generated the 401 is added to the `LoginPath` as a query string parameter named by the `ReturnUrlParameter`.</span></span> <span data-ttu-id="b76da-179">Una volta una richiesta per il `LoginPath` concede una nuova identità di accesso, il `ReturnUrlParameter` valore viene utilizzato per reindirizzare il browser all'URL che ha causato il codice di stato unauthorized originale.</span><span class="sxs-lookup"><span data-stu-id="b76da-179">Once a request to the `LoginPath` grants a new sign-in identity, the `ReturnUrlParameter` value is used to redirect the browser back to the URL that caused the original unauthorized status code.</span></span> <span data-ttu-id="b76da-180">Il valore predefinito è `/Account/Login`.</span><span class="sxs-lookup"><span data-stu-id="b76da-180">The default value is `/Account/Login`.</span></span> |
+| [<span data-ttu-id="b76da-181">Proprietà logoutpath dal</span><span class="sxs-lookup"><span data-stu-id="b76da-181">LogoutPath</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath?view=aspnetcore-2.0) | <span data-ttu-id="b76da-182">Se il `LogoutPath` viene fornito per il gestore, quindi reindirizza una richiesta per il percorso in base al valore del `ReturnUrlParameter`.</span><span class="sxs-lookup"><span data-stu-id="b76da-182">If the `LogoutPath` is provided to the handler, then a request to that path redirects based on the value of the `ReturnUrlParameter`.</span></span> <span data-ttu-id="b76da-183">Il valore predefinito è `/Account/Logout`.</span><span class="sxs-lookup"><span data-stu-id="b76da-183">The default value is `/Account/Logout`.</span></span> |
+| [<span data-ttu-id="b76da-184">ReturnUrlParameter</span><span class="sxs-lookup"><span data-stu-id="b76da-184">ReturnUrlParameter</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.returnurlparameter?view=aspnetcore-2.0) | <span data-ttu-id="b76da-185">Determina il nome del parametro della stringa di query che viene aggiunto dal gestore di risposta 302 trovato (reindirizzamento dell'URL).</span><span class="sxs-lookup"><span data-stu-id="b76da-185">Determines the name of the query string parameter that's appended by the handler for a 302 Found (URL redirect) response.</span></span> <span data-ttu-id="b76da-186">`ReturnUrlParameter`viene utilizzato quando arriva una richiesta di `LoginPath` o `LogoutPath` per restituire il browser all'URL originale al termine dell'operazione di connessione o disconnessione.</span><span class="sxs-lookup"><span data-stu-id="b76da-186">`ReturnUrlParameter` is used when a request arrives on the `LoginPath` or `LogoutPath` to return the browser to the original URL after the login or logout action is performed.</span></span> <span data-ttu-id="b76da-187">Il valore predefinito è `ReturnUrl`.</span><span class="sxs-lookup"><span data-stu-id="b76da-187">The default value is `ReturnUrl`.</span></span> |
+| [<span data-ttu-id="b76da-188">SessionStore</span><span class="sxs-lookup"><span data-stu-id="b76da-188">SessionStore</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.sessionstore?view=aspnetcore-2.0) | <span data-ttu-id="b76da-189">Un contenitore facoltativo utilizzato per archiviare l'identità in tutte le richieste.</span><span class="sxs-lookup"><span data-stu-id="b76da-189">An optional container used to store identity across requests.</span></span> <span data-ttu-id="b76da-190">Se utilizzato, solo un identificatore di sessione viene inviato al client.</span><span class="sxs-lookup"><span data-stu-id="b76da-190">When used, only a session identifier is sent to the client.</span></span> <span data-ttu-id="b76da-191">`SessionStore`Consente di attenuare i potenziali problemi con le identità di grandi dimensioni.</span><span class="sxs-lookup"><span data-stu-id="b76da-191">`SessionStore` can be used to mitigate potential problems with large identities.</span></span> |
+| [<span data-ttu-id="b76da-192">SlidingExpiration</span><span class="sxs-lookup"><span data-stu-id="b76da-192">SlidingExpiration</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-2.0) | <span data-ttu-id="b76da-193">Un flag che indica se un nuovo cookie con una scadenza aggiornato deve essere visualizzato in modo dinamico.</span><span class="sxs-lookup"><span data-stu-id="b76da-193">A flag indicating if a new cookie with an updated expiration time should be issued dynamically.</span></span> <span data-ttu-id="b76da-194">Questa situazione può verificarsi in qualsiasi richiesta in cui il periodo di scadenza cookie corrente è superiore al 50% scaduto.</span><span class="sxs-lookup"><span data-stu-id="b76da-194">This can happen on any request where the current cookie expiration period is more than 50% expired.</span></span> <span data-ttu-id="b76da-195">La nuova data di scadenza viene spostata in avanti la data corrente più il `ExpireTimespan`.</span><span class="sxs-lookup"><span data-stu-id="b76da-195">The new expiration date is moved forward to be the current date plus the `ExpireTimespan`.</span></span> <span data-ttu-id="b76da-196">Un [data di scadenza assoluto cookie](xref:security/authentication/cookie#absolute-cookie-expiration) può essere impostato utilizzando il `AuthenticationProperties` classe quando si chiama `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-196">An [absolute cookie expiration time](xref:security/authentication/cookie#absolute-cookie-expiration) can be set by using the `AuthenticationProperties` class when calling `SignInAsync`.</span></span> <span data-ttu-id="b76da-197">Un'ora di scadenza assoluto può migliorare la sicurezza dell'app, limitando il periodo di tempo che il cookie di autenticazione è valido.</span><span class="sxs-lookup"><span data-stu-id="b76da-197">An absolute expiration time can improve the security of your app by limiting the amount of time that the authentication cookie is valid.</span></span> <span data-ttu-id="b76da-198">Il valore predefinito è `true`.</span><span class="sxs-lookup"><span data-stu-id="b76da-198">The default value is `true`.</span></span> |
+| [<span data-ttu-id="b76da-199">Proprietà TicketDataFormat</span><span class="sxs-lookup"><span data-stu-id="b76da-199">TicketDataFormat</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.ticketdataformat?view=aspnetcore-2.0) | <span data-ttu-id="b76da-200">Il `TicketDataFormat` viene utilizzata per proteggere e annullare la protezione dell'identità e altre proprietà che vengono archiviate nel valore del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-200">The `TicketDataFormat` is used to protect and unprotect the identity and other properties that are stored in the cookie value.</span></span> <span data-ttu-id="b76da-201">Se non specificato, un `TicketDataFormat` viene creato utilizzando il [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider?view=aspnetcore-2.0).</span><span class="sxs-lookup"><span data-stu-id="b76da-201">If not provided, a `TicketDataFormat` is created using the [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider?view=aspnetcore-2.0).</span></span> |
+| [<span data-ttu-id="b76da-202">Convalidare</span><span class="sxs-lookup"><span data-stu-id="b76da-202">Validate</span></span>](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate?view=aspnetcore-2.0) | <span data-ttu-id="b76da-203">Metodo che verifica che le opzioni sono valide.</span><span class="sxs-lookup"><span data-stu-id="b76da-203">Method that checks that the options are valid.</span></span> |
 
-- <span data-ttu-id="0321a-119">Aggiungere le seguenti righe al `Configure` metodo nel *Startup.cs* file prima di `app.UseMvc()` istruzione:</span><span class="sxs-lookup"><span data-stu-id="0321a-119">Add the following lines to the `Configure` method in your *Startup.cs* file before the `app.UseMvc()` statement:</span></span>
+<span data-ttu-id="b76da-204">Impostare `CookieAuthenticationOptions` nella configurazione del servizio per l'autenticazione nel `ConfigureServices` metodo:</span><span class="sxs-lookup"><span data-stu-id="b76da-204">Set `CookieAuthenticationOptions` in the service configuration for authentication in the `ConfigureServices` method:</span></span>
 
-    ```csharp
-    app.UseCookieAuthentication(new CookieAuthenticationOptions()
+```csharp
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
     {
-        AccessDeniedPath = "/Account/Forbidden/",
-        AuthenticationScheme = "MyCookieAuthenticationScheme",
-        AutomaticAuthenticate = true,
-        AutomaticChallenge = true,
-        LoginPath = "/Account/Unauthorized/"
+        ...
     });
-    ```
-
----
-
-<span data-ttu-id="0321a-120">I frammenti di codice precedenti per configurare alcune o tutte le opzioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="0321a-120">The code snippets above configure some or all of the following options:</span></span>
-
-* <span data-ttu-id="0321a-121">`AccessDeniedPath`-Si tratta del percorso relativo in cui le richieste di reindirizzamento quando un utente tenta di accedere a una risorsa ma non supera [criteri di autorizzazione](xref:security/authorization/policies#security-authorization-policies-based) per tale risorsa.</span><span class="sxs-lookup"><span data-stu-id="0321a-121">`AccessDeniedPath` - This is the relative path to which requests redirect when a user attempts to access a resource but does not pass any [authorization policies](xref:security/authorization/policies#security-authorization-policies-based) for that resource.</span></span>
-
-* <span data-ttu-id="0321a-122">`AuthenticationScheme`-Si tratta di un valore con cui è noto uno schema particolare cookie di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="0321a-122">`AuthenticationScheme` - This is a value by which a particular cookie authentication scheme is known.</span></span> <span data-ttu-id="0321a-123">Ciò è utile quando sono presenti più istanze di autenticazione dei cookie e si desidera [limitare l'autorizzazione a un'istanza](xref:security/authorization/limitingidentitybyscheme#security-authorization-limiting-by-scheme).</span><span class="sxs-lookup"><span data-stu-id="0321a-123">This is useful when there are multiple instances of cookie authentication and you want to [limit authorization to one instance](xref:security/authorization/limitingidentitybyscheme#security-authorization-limiting-by-scheme).</span></span>
-
-* <span data-ttu-id="0321a-124">`AutomaticAuthenticate`-Questo flag è rilevante solo per ASP.NET Core 1. x.</span><span class="sxs-lookup"><span data-stu-id="0321a-124">`AutomaticAuthenticate` - This flag is relevant only for ASP.NET Core 1.x.</span></span> <span data-ttu-id="0321a-125">Indica che l'autenticazione dei cookie deve eseguire in ogni richiesta e tentare di convalidare e ricostruire qualsiasi entità serializzato che è creato.</span><span class="sxs-lookup"><span data-stu-id="0321a-125">It indicates that the cookie authentication should run on every request and attempt to validate and reconstruct any serialized principal it created.</span></span>
-
-* <span data-ttu-id="0321a-126">`AutomaticChallenge`-Questo flag è rilevante solo per ASP.NET Core 1. x.</span><span class="sxs-lookup"><span data-stu-id="0321a-126">`AutomaticChallenge` - This flag is relevant only for ASP.NET Core 1.x.</span></span> <span data-ttu-id="0321a-127">Indica che l'autenticazione dei cookie 1. x deve reindirizzare il browser per il `LoginPath` o `AccessDeniedPath` quando autorizzazione ha esito negativo.</span><span class="sxs-lookup"><span data-stu-id="0321a-127">It indicates that the 1.x cookie authentication should redirect the browser to the `LoginPath` or `AccessDeniedPath` when authorization fails.</span></span>
-
-* <span data-ttu-id="0321a-128">`LoginPath`-Questo è il percorso relativo in cui le richieste di reindirizzamento quando un utente tenta di accedere a una risorsa ma non è stato autenticato.</span><span class="sxs-lookup"><span data-stu-id="0321a-128">`LoginPath` - This is the relative path to which requests redirect when a user attempts to access a resource but has not been authenticated.</span></span>
-
-<span data-ttu-id="0321a-129">[Altre opzioni](xref:security/authentication/cookie#security-authentication-cookie-options) includono la possibilità di impostare l'autorità emittente per tutte le attestazioni di autenticazione dei cookie crea, Elimina il nome del cookie di autenticazione, il dominio per il cookie e varie proprietà di sicurezza nel cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-129">[Other options](xref:security/authentication/cookie#security-authentication-cookie-options) include the ability to set the issuer for any claims the cookie authentication creates, the name of the cookie the authentication drops, the domain for the cookie and various security properties on the cookie.</span></span> <span data-ttu-id="0321a-130">Per impostazione predefinita, l'autenticazione dei cookie utilizza le opzioni di sicurezza appropriate per i cookie che crea, ad esempio:</span><span class="sxs-lookup"><span data-stu-id="0321a-130">By default, the cookie authentication uses appropriate security options for any cookies it creates, such as:</span></span>
-- <span data-ttu-id="0321a-131">L'impostazione del contrassegno HttpOnly per impedire l'accesso di cookie in JavaScript sul lato client</span><span class="sxs-lookup"><span data-stu-id="0321a-131">Setting the HttpOnly flag to prevent cookie access in client-side JavaScript</span></span>
-- <span data-ttu-id="0321a-132">Limitare il cookie a HTTPS, se una richiesta è stato trasferito su HTTPS</span><span class="sxs-lookup"><span data-stu-id="0321a-132">Limiting the cookie to HTTPS if a request has traveled over HTTPS</span></span>
-
-<a name="security-authentication-cookie-middleware-creating-a-cookie"></a>
-
-## <a name="creating-an-identity-cookie"></a><span data-ttu-id="0321a-133">Creazione di un cookie di identità</span><span class="sxs-lookup"><span data-stu-id="0321a-133">Creating an Identity cookie</span></span>
-
-<span data-ttu-id="0321a-134">Per creare un cookie che contiene le informazioni sull'utente, è necessario costruire un [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) che contiene le informazioni che si desidera essere serializzati nel cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-134">To create a cookie holding your user information, you must construct a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) holding the information you wish to be serialized in the cookie.</span></span> <span data-ttu-id="0321a-135">Dopo aver adatto `ClaimsPrincipal` di oggetto, chiamare il seguente all'interno del metodo del controller:</span><span class="sxs-lookup"><span data-stu-id="0321a-135">Once you have a suitable `ClaimsPrincipal` object, call the following inside your controller method:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-136">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-136">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-```csharp
-await HttpContext.SignInAsync("MyCookieAuthenticationScheme", principal);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-137">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-137">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-205">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-205">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+<span data-ttu-id="b76da-206">ASP.NET Core 1. x utilizza cookie [middleware](xref:fundamentals/middleware) che serializza un'entità utente in un cookie crittografato.</span><span class="sxs-lookup"><span data-stu-id="b76da-206">ASP.NET Core 1.x uses cookie [middleware](xref:fundamentals/middleware) that serializes a user principal into an encrypted cookie.</span></span> <span data-ttu-id="b76da-207">Nelle richieste successive, il cookie viene convalidato e ricreato e assegnata l'entità di `HttpContext.User` proprietà.</span><span class="sxs-lookup"><span data-stu-id="b76da-207">On subsequent requests, the cookie is validated, and the principal is recreated and assigned to the `HttpContext.User` property.</span></span>
+
+<span data-ttu-id="b76da-208">Installare il [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) pacchetto NuGet nel progetto.</span><span class="sxs-lookup"><span data-stu-id="b76da-208">Install the [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) NuGet package in your project.</span></span> <span data-ttu-id="b76da-209">Questo pacchetto contiene middleware del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-209">This package contains the cookie middleware.</span></span>
+
+<span data-ttu-id="b76da-210">Utilizzare il `UseCookieAuthentication` metodo nel `Configure` metodo i *Startup.cs* file prima di `UseMvc` o `UseMvcWithDefaultRoute`:</span><span class="sxs-lookup"><span data-stu-id="b76da-210">Use the `UseCookieAuthentication` method in the `Configure` method in your *Startup.cs* file before `UseMvc` or `UseMvcWithDefaultRoute`:</span></span>
 
 ```csharp
-await HttpContext.Authentication.SignInAsync("MyCookieAuthenticationScheme", principal);
+app.UseCookieAuthentication(new CookieAuthenticationOptions()
+{
+    AccessDeniedPath = "/Account/Forbidden/",
+    AuthenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme,
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    LoginPath = "/Account/Unauthorized/"
+});
 ```
 
----
+<span data-ttu-id="b76da-211">**Opzioni di CookieAuthenticationOptions**</span><span class="sxs-lookup"><span data-stu-id="b76da-211">**CookieAuthenticationOptions Options**</span></span>
 
-<span data-ttu-id="0321a-138">Questo crea un cookie crittografato e lo aggiunge alla risposta corrente.</span><span class="sxs-lookup"><span data-stu-id="0321a-138">This creates an encrypted cookie and adds it to the current response.</span></span> <span data-ttu-id="0321a-139">Il `AuthenticationScheme` specificato durante [configurazione](xref:security/authentication/cookie#security-authentication-cookie-middleware-configuring) deve essere utilizzato quando si chiama `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="0321a-139">The `AuthenticationScheme` specified during [configuration](xref:security/authentication/cookie#security-authentication-cookie-middleware-configuring) must be used when calling `SignInAsync`.</span></span>
+<span data-ttu-id="b76da-212">Il [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions?view=aspnetcore-1.1) classe viene utilizzata per configurare le opzioni del provider di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-212">The [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions?view=aspnetcore-1.1) class is used to configure the authentication provider options.</span></span>
 
-<span data-ttu-id="0321a-140">Dietro le quinte, la crittografia utilizzata è ASP.NET Core [la protezione dei dati](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) sistema.</span><span class="sxs-lookup"><span data-stu-id="0321a-140">Under the covers, the encryption used is ASP.NET Core's [Data Protection](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) system.</span></span> <span data-ttu-id="0321a-141">Se si trovano in più computer, carico bilanciamento del carico o utilizzare una web farm, è quindi necessario [configurare la protezione dati](xref:security/data-protection/configuration/overview#data-protection-configuring) come utilizzare la stessa chiave anello e identificatore dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="0321a-141">If you are hosting on multiple machines, load balancing, or using a web farm, then you need to [configure data protection](xref:security/data-protection/configuration/overview#data-protection-configuring) to use the same key ring and application identifier.</span></span>
+| <span data-ttu-id="b76da-213">Opzione</span><span class="sxs-lookup"><span data-stu-id="b76da-213">Option</span></span> | <span data-ttu-id="b76da-214">Descrizione</span><span class="sxs-lookup"><span data-stu-id="b76da-214">Description</span></span> |
+| ------ | ----------- |
+| [<span data-ttu-id="b76da-215">AuthenticationScheme</span><span class="sxs-lookup"><span data-stu-id="b76da-215">AuthenticationScheme</span></span>](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.authenticationscheme?view=aspnetcore-1.1) | <span data-ttu-id="b76da-216">Imposta lo schema di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-216">Sets the authentication scheme.</span></span> <span data-ttu-id="b76da-217">`AuthenticationScheme`è utile quando sono presenti più istanze di autenticazione e si desidera [autorizzazione con uno schema specifico](xref:security/authorization/limitingidentitybyscheme).</span><span class="sxs-lookup"><span data-stu-id="b76da-217">`AuthenticationScheme` is useful when there are multiple instances of authentication and you want to [authorize with a specific scheme](xref:security/authorization/limitingidentitybyscheme).</span></span> <span data-ttu-id="b76da-218">L'impostazione di `AuthenticationScheme` a `CookieAuthenticationDefaults.AuthenticationScheme` fornisce un valore pari a "Cookie" per lo schema.</span><span class="sxs-lookup"><span data-stu-id="b76da-218">Setting the `AuthenticationScheme` to `CookieAuthenticationDefaults.AuthenticationScheme` provides a value of "Cookies" for the scheme.</span></span> <span data-ttu-id="b76da-219">È possibile fornire qualsiasi valore stringa che distingue lo schema.</span><span class="sxs-lookup"><span data-stu-id="b76da-219">You can supply any string value that distinguishes the scheme.</span></span> |
+| [<span data-ttu-id="b76da-220">AutomaticAuthenticate</span><span class="sxs-lookup"><span data-stu-id="b76da-220">AutomaticAuthenticate</span></span>](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticauthenticate?view=aspnetcore-1.1) | <span data-ttu-id="b76da-221">Imposta un valore per indicare che l'autenticazione dei cookie di eseguire in ogni richiesta e tenta di convalidare e ricostruire qualsiasi entità serializzato che è creato.</span><span class="sxs-lookup"><span data-stu-id="b76da-221">Sets a value to indicate that the cookie authentication should run on every request and attempt to validate and reconstruct any serialized principal it created.</span></span> |
+| [<span data-ttu-id="b76da-222">AutomaticChallenge</span><span class="sxs-lookup"><span data-stu-id="b76da-222">AutomaticChallenge</span></span>](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge?view=aspnetcore-1.1) | <span data-ttu-id="b76da-223">Se true, il middleware di autenticazione gestisce sfide automatico.</span><span class="sxs-lookup"><span data-stu-id="b76da-223">If true, the authentication middleware handles automatic challenges.</span></span> <span data-ttu-id="b76da-224">Se false, il middleware di autenticazione altera solo le risposte quando richiesto esplicitamente dal `AuthenticationScheme`.</span><span class="sxs-lookup"><span data-stu-id="b76da-224">If false, the authentication middleware only alters responses when explicitly indicated by the `AuthenticationScheme`.</span></span> |
+| [<span data-ttu-id="b76da-225">ClaimsIssuer</span><span class="sxs-lookup"><span data-stu-id="b76da-225">ClaimsIssuer</span></span>](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.claimsissuer?view=aspnetcore-1.1) | <span data-ttu-id="b76da-226">L'autorità emittente da utilizzare per il [dell'autorità di certificazione](/dotnet/api/system.security.claims.claim.issuer) proprietà in tutte le attestazioni creato dal middleware di autenticazione del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-226">The issuer to use for the [Issuer](/dotnet/api/system.security.claims.claim.issuer) property on any claims created by the cookie authentication middleware.</span></span> |
+| [<span data-ttu-id="b76da-227">CookieDomain</span><span class="sxs-lookup"><span data-stu-id="b76da-227">CookieDomain</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiedomain?view=aspnetcore-1.1) | <span data-ttu-id="b76da-228">Il nome di dominio in cui il cookie viene servito.</span><span class="sxs-lookup"><span data-stu-id="b76da-228">The domain name where the cookie is served.</span></span> <span data-ttu-id="b76da-229">Per impostazione predefinita, questo è il nome host della richiesta.</span><span class="sxs-lookup"><span data-stu-id="b76da-229">By default, this is the host name of the request.</span></span> <span data-ttu-id="b76da-230">Il browser opera solo il cookie a un nome host corrispondente.</span><span class="sxs-lookup"><span data-stu-id="b76da-230">The browser only serves the cookie to a matching host name.</span></span> <span data-ttu-id="b76da-231">Si potrebbe voler modificare questa opzione per disporre i cookie disponibili per tutti gli host nel dominio.</span><span class="sxs-lookup"><span data-stu-id="b76da-231">You may wish to adjust this to have cookies available to any host in your domain.</span></span> <span data-ttu-id="b76da-232">Ad esempio, impostando il dominio del cookie `.contoso.com` rende disponibili agli `contoso.com`, `www.contoso.com`, e `staging.www.contoso.com`.</span><span class="sxs-lookup"><span data-stu-id="b76da-232">For example, setting the cookie domain to `.contoso.com` makes it available to `contoso.com`, `www.contoso.com`, and `staging.www.contoso.com`.</span></span> |
+| [<span data-ttu-id="b76da-233">CookieHttpOnly</span><span class="sxs-lookup"><span data-stu-id="b76da-233">CookieHttpOnly</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiehttponly?view=aspnetcore-1.1) | <span data-ttu-id="b76da-234">Flag che indica se il cookie deve essere accessibile solo ai server.</span><span class="sxs-lookup"><span data-stu-id="b76da-234">A flag indicating if the cookie should be accessible only to servers.</span></span> <span data-ttu-id="b76da-235">Modifica questo valore su `false` consenta script lato client per accedere al cookie e possono aprire l'app al rischio di furto di cookie che l'app deve avere un [Cross-site scripting (XSS)](xref:security/cross-site-scripting) vulnerabilità.</span><span class="sxs-lookup"><span data-stu-id="b76da-235">Changing this value to `false` permits client-side scripts to access the cookie and may open your app to cookie theft should your app have a [Cross-site scripting (XSS)](xref:security/cross-site-scripting) vulnerability.</span></span> <span data-ttu-id="b76da-236">Il valore predefinito è `true`.</span><span class="sxs-lookup"><span data-stu-id="b76da-236">The default value is `true`.</span></span> |
+| [<span data-ttu-id="b76da-237">CookiePath</span><span class="sxs-lookup"><span data-stu-id="b76da-237">CookiePath</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiepath?view=aspnetcore-1.1) | <span data-ttu-id="b76da-238">Utilizzato per isolare le app eseguono lo stesso nome host.</span><span class="sxs-lookup"><span data-stu-id="b76da-238">Used to isolate apps running on the same host name.</span></span> <span data-ttu-id="b76da-239">Se si dispone di un'app in esecuzione in `/app1` e desidera limitare i cookie per tale app, impostare il `CookiePath` proprietà `/app1`.</span><span class="sxs-lookup"><span data-stu-id="b76da-239">If you have an app running at `/app1` and want to restrict cookies to that app, set the `CookiePath` property to `/app1`.</span></span> <span data-ttu-id="b76da-240">In questo modo, il cookie è disponibile solo per le richieste per `/app1` e tutte le app disponibili al suo interno.</span><span class="sxs-lookup"><span data-stu-id="b76da-240">By doing so, the cookie is only available on requests to `/app1` and any app underneath it.</span></span> |
+| [<span data-ttu-id="b76da-241">CookieSecure</span><span class="sxs-lookup"><span data-stu-id="b76da-241">CookieSecure</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure?view=aspnetcore-1.1) | <span data-ttu-id="b76da-242">Flag che indica se il cookie creato deve essere limitato a HTTPS (`CookieSecurePolicy.Always`), HTTP o HTTPS (`CookieSecurePolicy.None`), o lo stesso protocollo della richiesta (`CookieSecurePolicy.SameAsRequest`).</span><span class="sxs-lookup"><span data-stu-id="b76da-242">A flag indicating if the cookie created should be limited to HTTPS (`CookieSecurePolicy.Always`), HTTP or HTTPS (`CookieSecurePolicy.None`), or the same protocol as the request (`CookieSecurePolicy.SameAsRequest`).</span></span> <span data-ttu-id="b76da-243">Il valore predefinito è `CookieSecurePolicy.SameAsRequest`.</span><span class="sxs-lookup"><span data-stu-id="b76da-243">The default value is `CookieSecurePolicy.SameAsRequest`.</span></span> |
+| [<span data-ttu-id="b76da-244">Descrizione</span><span class="sxs-lookup"><span data-stu-id="b76da-244">Description</span></span>](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description?view=aspnetcore-1.1) | <span data-ttu-id="b76da-245">Informazioni aggiuntive sul tipo di autenticazione viene resa disponibile per l'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-245">Additional information about the authentication type which is made available to the app.</span></span> |
+| [<span data-ttu-id="b76da-246">ExpireTimeSpan</span><span class="sxs-lookup"><span data-stu-id="b76da-246">ExpireTimeSpan</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.expiretimespan?view=aspnetcore-1.1) | <span data-ttu-id="b76da-247">Il `TimeSpan` dopo cui scade il ticket di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-247">The `TimeSpan` after which the authentication ticket expires.</span></span> <span data-ttu-id="b76da-248">Viene aggiunto all'ora corrente per creare l'ora di scadenza per il ticket.</span><span class="sxs-lookup"><span data-stu-id="b76da-248">It's added to the current time to create the expiration time for the ticket.</span></span> <span data-ttu-id="b76da-249">Per utilizzare `ExpireTimeSpan`, è necessario impostare `IsPersistent` a `true` nel `AuthenticationProperties` passato a `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-249">To use `ExpireTimeSpan`, you must set `IsPersistent` to `true` in the `AuthenticationProperties` passed to `SignInAsync`.</span></span> <span data-ttu-id="b76da-250">Il valore predefinito è 14 giorni.</span><span class="sxs-lookup"><span data-stu-id="b76da-250">The default value is 14 days.</span></span> |
+| [<span data-ttu-id="b76da-251">SlidingExpiration</span><span class="sxs-lookup"><span data-stu-id="b76da-251">SlidingExpiration</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | <span data-ttu-id="b76da-252">Un flag che indica se la data di scadenza del cookie viene reimpostato quando più di semestre di `ExpireTimeSpan` trascorso l'intervallo.</span><span class="sxs-lookup"><span data-stu-id="b76da-252">A flag indicating whether the cookie expiration date resets when more than half of the `ExpireTimeSpan` interval has passed.</span></span> <span data-ttu-id="b76da-253">La nuova ora exipiration viene spostata in avanti la data corrente più il `ExpireTimespan`.</span><span class="sxs-lookup"><span data-stu-id="b76da-253">The new exipiration time is moved forward to be the current date plus the `ExpireTimespan`.</span></span> <span data-ttu-id="b76da-254">Un [data di scadenza assoluto cookie](xref:security/authentication/cookie#absolute-cookie-expiration) può essere impostato utilizzando il `AuthenticationProperties` classe quando si chiama `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="b76da-254">An [absolute cookie expiration time](xref:security/authentication/cookie#absolute-cookie-expiration) can be set by using the `AuthenticationProperties` class when calling `SignInAsync`.</span></span> <span data-ttu-id="b76da-255">Un'ora di scadenza assoluto può migliorare la sicurezza dell'app, limitando il periodo di tempo che il cookie di autenticazione è valido.</span><span class="sxs-lookup"><span data-stu-id="b76da-255">An absolute expiration time can improve the security of your app by limiting the amount of time that the authentication cookie is valid.</span></span> <span data-ttu-id="b76da-256">Il valore predefinito è `true`.</span><span class="sxs-lookup"><span data-stu-id="b76da-256">The default value is `true`.</span></span> |
 
-## <a name="signing-out"></a><span data-ttu-id="0321a-142">La disconnessione</span><span class="sxs-lookup"><span data-stu-id="0321a-142">Signing out</span></span>
-
-<span data-ttu-id="0321a-143">Per effettuare la disconnessione dell'utente corrente ed eliminare i cookie, chiamare il seguente all'interno del controller:</span><span class="sxs-lookup"><span data-stu-id="0321a-143">To sign out the current user and delete their cookie, call the following inside your controller:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-144">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-144">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+<span data-ttu-id="b76da-257">Impostare `CookieAuthenticationOptions` per il Middleware di autenticazione nel Cookie di `Configure` metodo:</span><span class="sxs-lookup"><span data-stu-id="b76da-257">Set `CookieAuthenticationOptions` for the Cookie Authentication Middleware in the `Configure` method:</span></span>
 
 ```csharp
-await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
-```
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-145">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-145">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-```csharp
-await HttpContext.Authentication.SignOutAsync("MyCookieAuthenticationScheme");
+app.UseCookieAuthentication(new CookieAuthenticationOptions
+{
+    ...
+});
 ```
 
 ---
 
-## <a name="reacting-to-back-end-changes"></a><span data-ttu-id="0321a-146">Reazione alle modifiche di back-end</span><span class="sxs-lookup"><span data-stu-id="0321a-146">Reacting to back-end changes</span></span>
+## <a name="cookie-policy-middleware"></a><span data-ttu-id="b76da-258">Middleware criteri cookie</span><span class="sxs-lookup"><span data-stu-id="b76da-258">Cookie Policy Middleware</span></span>
 
->[!WARNING]
-> <span data-ttu-id="0321a-147">Dopo aver creato un cookie principale, diventa l'unica origine di identità.</span><span class="sxs-lookup"><span data-stu-id="0321a-147">Once a principal cookie has been created, it becomes the single source of identity.</span></span> <span data-ttu-id="0321a-148">Anche se si disabilita un utente nei sistemi back-end, l'autenticazione dei cookie non ha alcuna conoscenza di questo oggetto e un utente rimane connesso, purché i cookie è valido.</span><span class="sxs-lookup"><span data-stu-id="0321a-148">Even if you disable a user in your back-end systems, the cookie authentication has no knowledge of this, and a user stays logged in as long as their cookie is valid.</span></span>
-
-<span data-ttu-id="0321a-149">L'autenticazione dei cookie viene fornita una serie di eventi nella relativa classe di opzione.</span><span class="sxs-lookup"><span data-stu-id="0321a-149">The cookie authentication provides a series of events in its option class.</span></span> <span data-ttu-id="0321a-150">Il `ValidateAsync()` evento consente di intercettare ed eseguire l'override di convalida dell'identità del cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-150">The `ValidateAsync()` event can be used to intercept and override validation of the cookie identity.</span></span>
-
-<span data-ttu-id="0321a-151">Prendere in considerazione un database utente di back-end che può contenere una colonna "LastChanged".</span><span class="sxs-lookup"><span data-stu-id="0321a-151">Consider a back-end user database that may have a "LastChanged" column.</span></span> <span data-ttu-id="0321a-152">Per invalidare un cookie quando viene modificato il database, è necessario innanzitutto, quando [creazione il cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie), aggiungere un'attestazione "LastChanged" contenente il valore corrente.</span><span class="sxs-lookup"><span data-stu-id="0321a-152">In order to invalidate a cookie when the database changes, you should first, when [creating the cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie), add a "LastChanged" claim containing the current value.</span></span> <span data-ttu-id="0321a-153">Quando viene modificato il database, è necessario aggiornare il valore "LastChanged".</span><span class="sxs-lookup"><span data-stu-id="0321a-153">When the database changes, the "LastChanged" value should be updated.</span></span>
-
-<span data-ttu-id="0321a-154">Per implementare un override per il `ValidateAsync()` evento, è necessario scrivere un metodo con la firma seguente:</span><span class="sxs-lookup"><span data-stu-id="0321a-154">To implement an override for the `ValidateAsync()` event, you must write a method with the following signature:</span></span>
+<span data-ttu-id="b76da-259">[Cookie criteri Middleware](/dotnet/api/microsoft.aspnetcore.cookiepolicy.cookiepolicymiddleware) consente le funzionalità di criteri di cookie in un'applicazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-259">[Cookie Policy Middleware](/dotnet/api/microsoft.aspnetcore.cookiepolicy.cookiepolicymiddleware) enables cookie policy capabilities in an app.</span></span> <span data-ttu-id="b76da-260">L'aggiunta di middleware alla pipeline di elaborazione app è ordine sensibili; riguarda solo i componenti registrati dopo di esso nella pipeline.</span><span class="sxs-lookup"><span data-stu-id="b76da-260">Adding the middleware to the app processing pipeline is order sensitive; it only affects components registered after it in the pipeline.</span></span>
 
 ```csharp
-Task ValidateAsync(CookieValidatePrincipalContext context);
+app.UseCookiePolicy(cookiePolicyOptions);
 ```
 
-<span data-ttu-id="0321a-155">ASP.NET Identity Core implementa questo controllo come parte del relativo `SecurityStampValidator`.</span><span class="sxs-lookup"><span data-stu-id="0321a-155">ASP.NET Core Identity implements this check as part of its `SecurityStampValidator`.</span></span> <span data-ttu-id="0321a-156">Un esempio è simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="0321a-156">An example looks like the following:</span></span>
+ <span data-ttu-id="b76da-261">Il [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) fornito per il Middleware di criteri di Cookie consentono di controllare caratteristiche globali del cookie elaborazione e l'hook in elaborazione cookie gestori quando i cookie vengono aggiunti o eliminati.</span><span class="sxs-lookup"><span data-stu-id="b76da-261">The [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) provided to the Cookie Policy Middleware allow you to control global characteristics of cookie processing and hook into cookie processing handlers when cookies are appended or deleted.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-157">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-157">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+| <span data-ttu-id="b76da-262">Proprietà</span><span class="sxs-lookup"><span data-stu-id="b76da-262">Property</span></span> | <span data-ttu-id="b76da-263">Descrizione</span><span class="sxs-lookup"><span data-stu-id="b76da-263">Description</span></span> |
+| -------- | ----------- |
+| [<span data-ttu-id="b76da-264">HttpOnly</span><span class="sxs-lookup"><span data-stu-id="b76da-264">HttpOnly</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.httponly) | <span data-ttu-id="b76da-265">Interessa se i cookie devono essere HttpOnly, che è un flag che indica se il cookie deve essere accessibile solo ai server.</span><span class="sxs-lookup"><span data-stu-id="b76da-265">Affects whether cookies must be HttpOnly, which is a flag indicating if the cookie should be accessible only to servers.</span></span> <span data-ttu-id="b76da-266">Il valore predefinito è `HttpOnlyPolicy.None`.</span><span class="sxs-lookup"><span data-stu-id="b76da-266">The default value is `HttpOnlyPolicy.None`.</span></span> |
+| [<span data-ttu-id="b76da-267">MinimumSameSitePolicy</span><span class="sxs-lookup"><span data-stu-id="b76da-267">MinimumSameSitePolicy</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.minimumsamesitepolicy) | <span data-ttu-id="b76da-268">Interessa attributo nello stesso sito del cookie (vedere sotto).</span><span class="sxs-lookup"><span data-stu-id="b76da-268">Affects the cookie's same-site attribute (see below).</span></span> <span data-ttu-id="b76da-269">Il valore predefinito è `SameSiteMode.Lax`.</span><span class="sxs-lookup"><span data-stu-id="b76da-269">The default value is `SameSiteMode.Lax`.</span></span> <span data-ttu-id="b76da-270">Questa opzione è disponibile per i componenti di base di ASP.NET 2.0 +.</span><span class="sxs-lookup"><span data-stu-id="b76da-270">This option is available for ASP.NET Core 2.0+.</span></span> |
+| [<span data-ttu-id="b76da-271">OnAppendCookie</span><span class="sxs-lookup"><span data-stu-id="b76da-271">OnAppendCookie</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.onappendcookie) | <span data-ttu-id="b76da-272">Chiamato quando viene aggiunto un cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-272">Called when a cookie is appended.</span></span> |
+| [<span data-ttu-id="b76da-273">OnDeleteCookie</span><span class="sxs-lookup"><span data-stu-id="b76da-273">OnDeleteCookie</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.ondeletecookie) | <span data-ttu-id="b76da-274">Chiamato quando viene eliminato un cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-274">Called when a cookie is deleted.</span></span> |
+| [<span data-ttu-id="b76da-275">Proteggere</span><span class="sxs-lookup"><span data-stu-id="b76da-275">Secure</span></span>](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.secure) | <span data-ttu-id="b76da-276">Determina se i cookie devono essere protetto.</span><span class="sxs-lookup"><span data-stu-id="b76da-276">Affects whether cookies must be Secure.</span></span> <span data-ttu-id="b76da-277">Il valore predefinito è `CookieSecurePolicy.None`.</span><span class="sxs-lookup"><span data-stu-id="b76da-277">The default value is `CookieSecurePolicy.None`.</span></span> |
+
+<span data-ttu-id="b76da-278">**MinimumSameSitePolicy** (ASP.NET Core 2.0 + solo)</span><span class="sxs-lookup"><span data-stu-id="b76da-278">**MinimumSameSitePolicy** (ASP.NET Core 2.0+ only)</span></span>
+
+<span data-ttu-id="b76da-279">Il valore predefinito `MinimumSameSitePolicy` valore `SameSiteMode.Lax` per consentire l'autenticazione OAuth2.</span><span class="sxs-lookup"><span data-stu-id="b76da-279">The default `MinimumSameSitePolicy` value is `SameSiteMode.Lax` to permit OAuth2 authentication.</span></span> <span data-ttu-id="b76da-280">Per applicare rigorosamente criteri nello stesso sito di `SameSiteMode.Strict`, impostare il `MinimumSameSitePolicy`.</span><span class="sxs-lookup"><span data-stu-id="b76da-280">To strictly enforce a same-site policy of `SameSiteMode.Strict`, set the `MinimumSameSitePolicy`.</span></span> <span data-ttu-id="b76da-281">Anche se questa impostazione di interruzioni di OAuth2 e altri schemi di autenticazione tra le origini, eleva il livello di sicurezza dei cookie per altri tipi di App che non richiedono l'elaborazione della richiesta multiorigine.</span><span class="sxs-lookup"><span data-stu-id="b76da-281">Although this setting breaks OAuth2 and other cross-origin authentication schemes, it elevates the level of cookie security for other types of apps that don't rely on cross-origin request processing.</span></span>
+
+```csharp
+var cookiePolicyOptions = new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+};
+```
+
+<span data-ttu-id="b76da-282">L'impostazione di Middleware di criteri di Cookie per `MinimumSameSitePolicy` possono influenzare l'impostazione di `Cookie.SameSite` in `CookieAuthenticationOptions` impostazioni in base alla matrice di seguito.</span><span class="sxs-lookup"><span data-stu-id="b76da-282">The Cookie Policy Middleware setting for `MinimumSameSitePolicy` can affect your setting of `Cookie.SameSite` in `CookieAuthenticationOptions` settings according to the matrix below.</span></span>
+
+| <span data-ttu-id="b76da-283">MinimumSameSitePolicy</span><span class="sxs-lookup"><span data-stu-id="b76da-283">MinimumSameSitePolicy</span></span> | <span data-ttu-id="b76da-284">Cookie.SameSite</span><span class="sxs-lookup"><span data-stu-id="b76da-284">Cookie.SameSite</span></span> | <span data-ttu-id="b76da-285">Impostazione Cookie.SameSite risultante</span><span class="sxs-lookup"><span data-stu-id="b76da-285">Resultant Cookie.SameSite setting</span></span> |
+| --------------------- | --------------- | --------------------------------- |
+| <span data-ttu-id="b76da-286">SameSiteMode.None</span><span class="sxs-lookup"><span data-stu-id="b76da-286">SameSiteMode.None</span></span>     | <span data-ttu-id="b76da-287">SameSiteMode.None</span><span class="sxs-lookup"><span data-stu-id="b76da-287">SameSiteMode.None</span></span><br><span data-ttu-id="b76da-288">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-288">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-289">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-289">SameSiteMode.Strict</span></span> | <span data-ttu-id="b76da-290">SameSiteMode.None</span><span class="sxs-lookup"><span data-stu-id="b76da-290">SameSiteMode.None</span></span><br><span data-ttu-id="b76da-291">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-291">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-292">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-292">SameSiteMode.Strict</span></span> |
+| <span data-ttu-id="b76da-293">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-293">SameSiteMode.Lax</span></span>      | <span data-ttu-id="b76da-294">SameSiteMode.None</span><span class="sxs-lookup"><span data-stu-id="b76da-294">SameSiteMode.None</span></span><br><span data-ttu-id="b76da-295">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-295">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-296">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-296">SameSiteMode.Strict</span></span> | <span data-ttu-id="b76da-297">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-297">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-298">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-298">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-299">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-299">SameSiteMode.Strict</span></span> |
+| <span data-ttu-id="b76da-300">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-300">SameSiteMode.Strict</span></span>   | <span data-ttu-id="b76da-301">SameSiteMode.None</span><span class="sxs-lookup"><span data-stu-id="b76da-301">SameSiteMode.None</span></span><br><span data-ttu-id="b76da-302">SameSiteMode.Lax</span><span class="sxs-lookup"><span data-stu-id="b76da-302">SameSiteMode.Lax</span></span><br><span data-ttu-id="b76da-303">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-303">SameSiteMode.Strict</span></span> | <span data-ttu-id="b76da-304">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-304">SameSiteMode.Strict</span></span><br><span data-ttu-id="b76da-305">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-305">SameSiteMode.Strict</span></span><br><span data-ttu-id="b76da-306">SameSiteMode.Strict</span><span class="sxs-lookup"><span data-stu-id="b76da-306">SameSiteMode.Strict</span></span> |
+
+## <a name="creating-an-authentication-cookie"></a><span data-ttu-id="b76da-307">Creazione di un cookie di autenticazione</span><span class="sxs-lookup"><span data-stu-id="b76da-307">Creating an authentication cookie</span></span>
+
+<span data-ttu-id="b76da-308">Per creare un cookie contenente le informazioni sull'utente, è necessario costruire un [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal).</span><span class="sxs-lookup"><span data-stu-id="b76da-308">To create a cookie holding user information, you must construct a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal).</span></span> <span data-ttu-id="b76da-309">Le informazioni utente vengano serializzate e memorizzate nel cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-309">The user information is serialized and stored in the cookie.</span></span> 
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-310">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-310">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+<span data-ttu-id="b76da-311">Chiamare [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) per l'accesso dell'utente:</span><span class="sxs-lookup"><span data-stu-id="b76da-311">Call [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) to sign in the user:</span></span>
+
+```csharp
+await HttpContext.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme, 
+    new ClaimsPrincipal(claimsIdentity));
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-312">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-312">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+<span data-ttu-id="b76da-313">Chiamare [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signinasync?view=aspnetcore-1.1) per l'accesso dell'utente:</span><span class="sxs-lookup"><span data-stu-id="b76da-313">Call [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signinasync?view=aspnetcore-1.1) to sign in the user:</span></span>
+
+```csharp
+await HttpContext.Authentication.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity));
+```
+
+---
+
+<span data-ttu-id="b76da-314">`SignInAsync`Crea un cookie crittografato e lo aggiunge alla risposta corrente.</span><span class="sxs-lookup"><span data-stu-id="b76da-314">`SignInAsync` creates an encrypted cookie and adds it to the current response.</span></span> <span data-ttu-id="b76da-315">Se non si specifica un `AuthenticationScheme`, viene utilizzato lo schema predefinito.</span><span class="sxs-lookup"><span data-stu-id="b76da-315">If you don't specify an `AuthenticationScheme`, the default scheme is used.</span></span>
+
+<span data-ttu-id="b76da-316">Dietro le quinte, la crittografia utilizzata è ASP.NET Core [la protezione dei dati](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) sistema.</span><span class="sxs-lookup"><span data-stu-id="b76da-316">Under the covers, the encryption used is ASP.NET Core's [Data Protection](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) system.</span></span> <span data-ttu-id="b76da-317">Se si ospita l'applicazione in più computer, il bilanciamento del carico tra App o utilizzando una web farm, quindi è necessario [configurare la protezione dati](xref:security/data-protection/configuration/overview) per utilizzare la stessa chiave anello e identificatore dell'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-317">If you're hosting app on multiple machines, load balancing across apps, or using a web farm, then you must [configure data protection](xref:security/data-protection/configuration/overview) to use the same key ring and app identifier.</span></span>
+
+## <a name="signing-out"></a><span data-ttu-id="b76da-318">La disconnessione</span><span class="sxs-lookup"><span data-stu-id="b76da-318">Signing out</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-319">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-319">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+<span data-ttu-id="b76da-320">Per effettuare la disconnessione dell'utente corrente ed eliminare i cookie, chiamare [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signoutasync?view=aspnetcore-2.0):</span><span class="sxs-lookup"><span data-stu-id="b76da-320">To sign out the current user and delete their cookie, call [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signoutasync?view=aspnetcore-2.0):</span></span>
+
+```csharp
+await HttpContext.SignOutAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme);
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-321">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-321">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+<span data-ttu-id="b76da-322">Per effettuare la disconnessione dell'utente corrente ed eliminare i cookie, chiamare [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signoutasync?view=aspnetcore-1.1):</span><span class="sxs-lookup"><span data-stu-id="b76da-322">To sign out the current user and delete their cookie, call [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signoutasync?view=aspnetcore-1.1):</span></span>
+
+```csharp
+await HttpContext.Authentication.SignOutAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme);
+```
+
+---
+
+<span data-ttu-id="b76da-323">Se non si utilizza `CookieAuthenticationDefaults.AuthenticationScheme` (o "Cookie") per lo schema (ad esempio, "ContosoCookie"), specificare lo schema usato durante la configurazione del provider di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="b76da-323">If you aren't using `CookieAuthenticationDefaults.AuthenticationScheme` (or "Cookies") as the scheme (for example, "ContosoCookie"), supply the scheme you used when configuring the authentication provider.</span></span> <span data-ttu-id="b76da-324">In caso contrario, viene utilizzato lo schema predefinito.</span><span class="sxs-lookup"><span data-stu-id="b76da-324">Otherwise, the default scheme is used.</span></span>
+
+## <a name="reacting-to-back-end-changes"></a><span data-ttu-id="b76da-325">Reazione alle modifiche di back-end</span><span class="sxs-lookup"><span data-stu-id="b76da-325">Reacting to back-end changes</span></span>
+
+<span data-ttu-id="b76da-326">Dopo aver creato un cookie, diventa l'unica origine di identità.</span><span class="sxs-lookup"><span data-stu-id="b76da-326">Once a cookie is created, it becomes the single source of identity.</span></span> <span data-ttu-id="b76da-327">Anche se si disabilita un utente nei sistemi back-end, il sistema di autenticazione cookie non ha alcuna conoscenza di questo oggetto e un utente rimane connesso, purché i cookie è valido.</span><span class="sxs-lookup"><span data-stu-id="b76da-327">Even if you disable a user in your back-end systems, the cookie authentication system has no knowledge of this, and a user stays logged in as long as their cookie is valid.</span></span>
+
+<span data-ttu-id="b76da-328">Il [ValidatePrincipal](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationevents.validateprincipal) evento in ASP.NET Core 2. x o [ValidateAsync](/dotnet/api/microsoft.aspnetcore.identity.isecuritystampvalidator.validateasync?view=aspnetcore-1.1) metodo in ASP.NET Core 1. x consente di intercettare ed eseguire l'override di convalida dell'identità del cookie.</span><span class="sxs-lookup"><span data-stu-id="b76da-328">The [ValidatePrincipal](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationevents.validateprincipal) event in ASP.NET Core 2.x or the [ValidateAsync](/dotnet/api/microsoft.aspnetcore.identity.isecuritystampvalidator.validateasync?view=aspnetcore-1.1) method in ASP.NET Core 1.x can be used to intercept and override validation of the cookie identity.</span></span> <span data-ttu-id="b76da-329">Questo approccio riduce il rischio di utenti revocati l'accesso all'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-329">This approach mitigates the risk of revoked users accessing the app.</span></span>
+
+<span data-ttu-id="b76da-330">Un approccio alla convalida dei cookie è basato su tenere traccia di quando il database utente è stato modificato.</span><span class="sxs-lookup"><span data-stu-id="b76da-330">One approach to cookie validation is based on keeping track of when the user database has been changed.</span></span> <span data-ttu-id="b76da-331">Se il database non è stato modificato perché è stato emesso il cookie dell'utente, non è necessario autenticare nuovamente l'utente se il cookie è ancora valido.</span><span class="sxs-lookup"><span data-stu-id="b76da-331">If the database hasn't been changed since the user's cookie was issued, there is no need to re-authenticate the user if their cookie is still valid.</span></span> <span data-ttu-id="b76da-332">Implementare questo scenario, il database, che viene implementato in `IUserRepository` per questo esempio, archivia un `LastChanged` valore.</span><span class="sxs-lookup"><span data-stu-id="b76da-332">To implement this scenario, the database, which is implemented in `IUserRepository` for this example, stores a `LastChanged` value.</span></span> <span data-ttu-id="b76da-333">Quando un utente viene aggiornato nel database, il `LastChanged` è impostato sull'ora corrente.</span><span class="sxs-lookup"><span data-stu-id="b76da-333">When any user is updated in the database, the `LastChanged` value is set to the current time.</span></span>
+
+<span data-ttu-id="b76da-334">Per invalidare un cookie quando le modifiche del database basano sul `LastChanged` valore, creare il cookie con una `LastChanged` attestazione contenente corrente `LastChanged` valore dal database:</span><span class="sxs-lookup"><span data-stu-id="b76da-334">In order to invalidate a cookie when the database changes based on the `LastChanged` value, create the cookie with a `LastChanged` claim containing the current `LastChanged` value from the database:</span></span>
+
+```csharp
+var claims = new List<Claim>
+{
+    new Claim(ClaimTypes.Name, user.Email),
+    new Claim("LastChanged", {Database Value})
+};
+
+var claimsIdentity = new ClaimsIdentity(
+    claims, 
+    CookieAuthenticationDefaults.AuthenticationScheme);
+
+await HttpContext.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme, 
+    new ClaimsPrincipal(claimsIdentity));
+```
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-335">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-335">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+<span data-ttu-id="b76da-336">Per implementare un override per il `ValidatePrincipal` evento, scrivere un metodo con la firma seguente in una classe derivata da [CookieAuthenticationEvents](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationevents):</span><span class="sxs-lookup"><span data-stu-id="b76da-336">To implement an override for the `ValidatePrincipal` event, write a method with the following signature in a class that you derive from [CookieAuthenticationEvents](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationevents):</span></span>
+
+```csharp
+ValidatePrincipal(CookieValidatePrincipalContext)
+```
+
+<span data-ttu-id="b76da-337">Un esempio è simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="b76da-337">An example looks like the following:</span></span>
+
+```csharp
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
+public class CustomCookieAuthenticationEvents : CookieAuthenticationEvents
+{
+    private readonly IUserRepository _userRepository;
+
+    public CustomCookieAuthenticationEvents(IUserRepository userRepository)
+    {
+        // Get the database from registered DI services.
+        _userRepository = userRepository;
+    }
+
+    public override async Task ValidatePrincipal(CookieValidatePrincipalContext context)
+    {
+        var userPrincipal = context.Principal;
+
+        // Look for the LastChanged claim.
+        var lastChanged = (from c in userPrincipal.Claims
+                           where c.Type == "LastChanged"
+                           select c.Value).FirstOrDefault();
+
+        if (string.IsNullOrEmpty(lastChanged) ||
+            !_userRepository.ValidateLastChanged(lastChanged))
+        {
+            context.RejectPrincipal();
+
+            await context.HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+    }
+}
+```
+
+<span data-ttu-id="b76da-338">Registrare l'istanza di eventi durante la registrazione del servizio nel cookie di `ConfigureServices` metodo.</span><span class="sxs-lookup"><span data-stu-id="b76da-338">Register the events instance during cookie service registration in the `ConfigureServices` method.</span></span> <span data-ttu-id="b76da-339">Fornire una registrazione di servizio con ambito per il `CustomCookieAuthenticationEvents` classe:</span><span class="sxs-lookup"><span data-stu-id="b76da-339">Provide a scoped service registration for your `CustomCookieAuthenticationEvents` class:</span></span>
+
+```csharp
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.EventsType = typeof(CustomCookieAuthenticationEvents);
+    });
+
+services.AddScoped<CustomCookieAuthenticationEvents>();
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-340">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-340">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+<span data-ttu-id="b76da-341">Per implementare un override per il `ValidateAsync` eventi, scrivere un metodo con la firma seguente:</span><span class="sxs-lookup"><span data-stu-id="b76da-341">To implement an override for the `ValidateAsync` event, write a method with the following signature:</span></span>
+
+```csharp
+ValidateAsync(CookieValidatePrincipalContext)
+```
+
+<span data-ttu-id="b76da-342">ASP.NET Identity Core implementa questo controllo come parte del relativo [SecurityStampValidator](/dotnet/api/microsoft.aspnetcore.identity.securitystampvalidator-1.validateasync).</span><span class="sxs-lookup"><span data-stu-id="b76da-342">ASP.NET Core Identity implements this check as part of its [SecurityStampValidator](/dotnet/api/microsoft.aspnetcore.identity.securitystampvalidator-1.validateasync).</span></span> <span data-ttu-id="b76da-343">Un esempio è simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="b76da-343">An example looks like the following:</span></span>
 
 ```csharp
 public static class LastChangedValidator
@@ -155,66 +320,29 @@ public static class LastChangedValidator
     public static async Task ValidateAsync(CookieValidatePrincipalContext context)
     {
         // Pull database from registered DI services.
-        var userRepository = context.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
+        var userRepository = 
+            context.HttpContext.RequestServices
+                .GetRequiredService<IUserRepository>();
         var userPrincipal = context.Principal;
 
         // Look for the last changed claim.
-        string lastChanged;
-        lastChanged = (from c in userPrincipal.Claims
-                        where c.Type == "LastUpdated"
-                        select c.Value).FirstOrDefault();
+        var lastChanged = (from c in userPrincipal.Claims
+                           where c.Type == "LastChanged"
+                           select c.Value).FirstOrDefault();
 
         if (string.IsNullOrEmpty(lastChanged) ||
-            !userRepository.ValidateLastChanged(userPrincipal, lastChanged))
+            !userRepository.ValidateLastChanged(lastChanged))
         {
             context.RejectPrincipal();
-            await context.HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
+
+            await context.HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme);
         }
     }
 }
 ```
 
-<span data-ttu-id="0321a-158">Questo sarebbe quindi necessario collegare durante la registrazione del servizio nel cookie di `ConfigureServices` metodo *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="0321a-158">This would then be wired up during cookie service registration in the `ConfigureServices` method of *Startup.cs*:</span></span>
-
-```csharp
-services.AddAuthentication("MyCookieAuthenticationScheme")
-        .AddCookie("MyCookieAuthenticationScheme", options =>
-        {
-            options.Events = new CookieAuthenticationEvents
-            {
-                OnValidatePrincipal = LastChangedValidator.ValidateAsync
-            };
-        });
-```
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-159">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-159">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-```csharp
-public static class LastChangedValidator
-{
-    public static async Task ValidateAsync(CookieValidatePrincipalContext context)
-    {
-        // Pull database from registered DI services.
-        var userRepository = context.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
-        var userPrincipal = context.Principal;
-
-        // Look for the last changed claim.
-        string lastChanged;
-        lastChanged = (from c in userPrincipal.Claims
-                        where c.Type == "LastUpdated"
-                        select c.Value).FirstOrDefault();
-
-        if (string.IsNullOrEmpty(lastChanged) ||
-            !userRepository.ValidateLastChanged(userPrincipal, lastChanged))
-        {
-            context.RejectPrincipal();
-            await context.HttpContext.Authentication.SignOutAsync("MyCookieAuthenticationScheme");
-        }
-    }
-}
-```
-
-<span data-ttu-id="0321a-160">Questo sarebbe quindi necessario collegare durante la configurazione dell'autenticazione nel cookie di `Configure` metodo *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="0321a-160">This would then be wired up during cookie authentication configuration in the `Configure` method of *Startup.cs*:</span></span>
+<span data-ttu-id="b76da-344">Registrare l'evento durante la configurazione dell'autenticazione nel cookie di `Configure` metodo:</span><span class="sxs-lookup"><span data-stu-id="b76da-344">Register the event during cookie authentication configuration in the `Configure` method:</span></span>
 
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -228,144 +356,82 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 ---
 
-<span data-ttu-id="0321a-161">Si consideri l'esempio in cui è stato aggiornato il proprio nome &mdash; una decisione che non influisce sulla sicurezza in alcun modo.</span><span class="sxs-lookup"><span data-stu-id="0321a-161">Consider the example in which their name has been updated &mdash; a decision which doesn't affect security in any way.</span></span> <span data-ttu-id="0321a-162">Se si desidera aggiornare distruttivo l'entità utente, è possibile chiamare `context.ReplacePrincipal()` e impostare il `context.ShouldRenew` proprietà `true`.</span><span class="sxs-lookup"><span data-stu-id="0321a-162">If you want to non-destructively update the user principal, you can call `context.ReplacePrincipal()` and set the `context.ShouldRenew` property to `true`.</span></span>
+<span data-ttu-id="b76da-345">Si consideri una situazione in cui viene aggiornato il nome dell'utente &mdash; una decisione che non influisce sulla sicurezza in alcun modo.</span><span class="sxs-lookup"><span data-stu-id="b76da-345">Consider a situation in which the user's name is updated &mdash; a decision that doesn't affect security in any way.</span></span> <span data-ttu-id="b76da-346">Se si desidera aggiornare distruttivo l'entità utente, chiamare `context.ReplacePrincipal` e impostare il `context.ShouldRenew` proprietà `true`.</span><span class="sxs-lookup"><span data-stu-id="b76da-346">If you want to non-destructively update the user principal, call `context.ReplacePrincipal` and set the `context.ShouldRenew` property to `true`.</span></span>
 
-<a name="security-authentication-cookie-options"></a>
+> [!WARNING]
+> <span data-ttu-id="b76da-347">L'approccio descritto di seguito viene attivata ogni richiesta.</span><span class="sxs-lookup"><span data-stu-id="b76da-347">The approach described here is triggered on every request.</span></span> <span data-ttu-id="b76da-348">Ciò può comportare una riduzione delle prestazioni di grandi dimensioni per l'app.</span><span class="sxs-lookup"><span data-stu-id="b76da-348">This can result in a large performance penalty for the app.</span></span>
 
-## <a name="controlling-cookie-options"></a><span data-ttu-id="0321a-163">Controllo delle opzioni di cookie</span><span class="sxs-lookup"><span data-stu-id="0321a-163">Controlling cookie options</span></span>
+## <a name="persistent-cookies"></a><span data-ttu-id="b76da-349">Cookie permanenti</span><span class="sxs-lookup"><span data-stu-id="b76da-349">Persistent cookies</span></span>
 
-<span data-ttu-id="0321a-164">Il [CookieAuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) classe dotata di varie opzioni di configurazione per ottimizzare i cookie viene creati.</span><span class="sxs-lookup"><span data-stu-id="0321a-164">The [CookieAuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) class comes with various configuration options to fine-tune the cookies being created.</span></span>
+<span data-ttu-id="b76da-350">È possibile che il cookie per rendere persistenti le sessioni del browser.</span><span class="sxs-lookup"><span data-stu-id="b76da-350">You may want the cookie to persist across browser sessions.</span></span> <span data-ttu-id="b76da-351">Questo tipo di persistenza deve essere abilitata solo con il consenso esplicito utente con un controllo checkbox "Memorizza dati" su account di accesso o un meccanismo simile.</span><span class="sxs-lookup"><span data-stu-id="b76da-351">This persistence should only be enabled with explicit user consent with a "Remember Me" checkbox on login or a similar mechanism.</span></span> 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-165">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-165">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+<span data-ttu-id="b76da-352">Il seguente frammento di codice crea un'identità e i cookie corrispondente che resta tramite chiusure browser.</span><span class="sxs-lookup"><span data-stu-id="b76da-352">The following code snippet creates an identity and corresponding cookie that survives through browser closures.</span></span> <span data-ttu-id="b76da-353">Le impostazioni di scadenza variabile configurate in precedenza vengono rispettate.</span><span class="sxs-lookup"><span data-stu-id="b76da-353">Any sliding expiration settings previously configured are honored.</span></span> <span data-ttu-id="b76da-354">Se il cookie scade mentre il browser viene chiuso, il browser Cancella cookie quando viene riavviato.</span><span class="sxs-lookup"><span data-stu-id="b76da-354">If the cookie expires while the browser is closed, the browser clears the cookie once it's restarted.</span></span>
 
-<span data-ttu-id="0321a-166">2. x unifica le API utilizzate per i cookie di configurazione di ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="0321a-166">ASP.NET Core 2.x unifies the APIs used for configuring cookies.</span></span> <span data-ttu-id="0321a-167">Il 1. x API sono state contrassegnate come obsolete e un nuovo `Cookie` proprietà di tipo `CookieBuilder` è stato introdotto nel `CookieAuthenticationOptions` classe.</span><span class="sxs-lookup"><span data-stu-id="0321a-167">The 1.x APIs have been marked as obsolete, and a new `Cookie` property of type `CookieBuilder` has been introduced in the `CookieAuthenticationOptions` class.</span></span> <span data-ttu-id="0321a-168">È consigliabile eseguire la migrazione a 2. x API.</span><span class="sxs-lookup"><span data-stu-id="0321a-168">It's recommended that you migrate to the 2.x APIs.</span></span>
-
-* <span data-ttu-id="0321a-169">`ClaimsIssuer`è l'autorità emittente da utilizzare per il [dell'autorità di certificazione](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) proprietà in tutte le attestazioni creato per l'autenticazione dei cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-169">`ClaimsIssuer` is the issuer to be used for the [Issuer](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) property on any claims created by the cookie authentication.</span></span>
-
-* <span data-ttu-id="0321a-170">`CookieBuilder.Domain`è il nome di dominio a cui il cookie viene servito.</span><span class="sxs-lookup"><span data-stu-id="0321a-170">`CookieBuilder.Domain` is the domain name to which the cookie is served.</span></span> <span data-ttu-id="0321a-171">Per impostazione predefinita, questo è il nome host che è stata inviata la richiesta.</span><span class="sxs-lookup"><span data-stu-id="0321a-171">By default, this is the host name the request was sent to.</span></span> <span data-ttu-id="0321a-172">Il browser opera solo il cookie a un nome host corrispondente.</span><span class="sxs-lookup"><span data-stu-id="0321a-172">The browser only serves the cookie to a matching host name.</span></span> <span data-ttu-id="0321a-173">Si potrebbe voler modificare questa opzione per disporre i cookie disponibili per tutti gli host nel dominio.</span><span class="sxs-lookup"><span data-stu-id="0321a-173">You may wish to adjust this to have cookies available to any host in your domain.</span></span> <span data-ttu-id="0321a-174">Ad esempio, impostando il dominio del cookie `.contoso.com` rende disponibili agli `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`e così via.</span><span class="sxs-lookup"><span data-stu-id="0321a-174">For example, setting the cookie domain to `.contoso.com` makes it available to `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`, etc.</span></span>
-
-* <span data-ttu-id="0321a-175">`CookieBuilder.HttpOnly`flag che indica se il cookie deve essere accessibile solo ai server.</span><span class="sxs-lookup"><span data-stu-id="0321a-175">`CookieBuilder.HttpOnly` is a flag indicating if the cookie should be accessible only to servers.</span></span> <span data-ttu-id="0321a-176">L'impostazione predefinita è `true`.</span><span class="sxs-lookup"><span data-stu-id="0321a-176">This defaults to `true`.</span></span> <span data-ttu-id="0321a-177">Se si modifica questo valore può aprire l'applicazione per il furto di cookie l'applicazione deve disporre di un bug Cross-Site Scripting.</span><span class="sxs-lookup"><span data-stu-id="0321a-177">Changing this value may open your application to cookie theft should your application have a Cross-Site Scripting bug.</span></span>
-
-* <span data-ttu-id="0321a-178">`CookieBuilder.Path`Consente di isolare le applicazioni eseguono lo stesso nome host.</span><span class="sxs-lookup"><span data-stu-id="0321a-178">`CookieBuilder.Path` can be used to isolate applications running on the same host name.</span></span> <span data-ttu-id="0321a-179">Se si dispone di un'app in esecuzione in `/app1` per limitare i cookie per essere inviati solo a tale applicazione, quindi è necessario impostare il `CookiePath` proprietà `/app1`.</span><span class="sxs-lookup"><span data-stu-id="0321a-179">If you have an app running in `/app1` and want to limit the cookies issued to just be sent to that application, then you should set the `CookiePath` property to `/app1`.</span></span> <span data-ttu-id="0321a-180">In questo modo, il cookie è disponibile solo per le richieste a `/app1` o qualsiasi elemento in esso contenuti.</span><span class="sxs-lookup"><span data-stu-id="0321a-180">By doing so, the cookie is only available to requests to `/app1` or anything underneath it.</span></span>
-
-* <span data-ttu-id="0321a-181">`CookieBuilder.SameSite`indica se il browser deve consentire i cookie da collegare alle richieste nello stesso sito o tra siti.</span><span class="sxs-lookup"><span data-stu-id="0321a-181">`CookieBuilder.SameSite` indicates whether the browser should allow the cookie to be attached to same-site or cross-site requests.</span></span> <span data-ttu-id="0321a-182">L'impostazione predefinita è `SameSiteMode.Lax`.</span><span class="sxs-lookup"><span data-stu-id="0321a-182">This defaults to `SameSiteMode.Lax`.</span></span>
-
-* <span data-ttu-id="0321a-183">`CookieBuilder.SecurePolicy`flag che indica se il cookie creato deve essere limitato a HTTPS, HTTP o HTTPS o lo stesso protocollo della richiesta.</span><span class="sxs-lookup"><span data-stu-id="0321a-183">`CookieBuilder.SecurePolicy` is a flag indicating if the cookie created should be limited to HTTPS, HTTP or HTTPS, or the same protocol as the request.</span></span> <span data-ttu-id="0321a-184">L'impostazione predefinita è `SameAsRequest`.</span><span class="sxs-lookup"><span data-stu-id="0321a-184">This defaults to `SameAsRequest`.</span></span>
-
-* <span data-ttu-id="0321a-185">`ExpireTimeSpan`è il `TimeSpan` dopo che il cookie scade.</span><span class="sxs-lookup"><span data-stu-id="0321a-185">`ExpireTimeSpan` is the `TimeSpan` after which the cookie expires.</span></span> <span data-ttu-id="0321a-186">Viene aggiunto per la data e ora correnti per creare la data di scadenza del cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-186">It's added to the current date and time to create the expiry date for the cookie.</span></span>
-
-* <span data-ttu-id="0321a-187">`SlidingExpiration`flag che indica se la data di scadenza del cookie viene reimpostato quando più di metà del `ExpireTimeSpan` trascorso l'intervallo.</span><span class="sxs-lookup"><span data-stu-id="0321a-187">`SlidingExpiration` is a flag indicating whether the cookie expiration date resets when more than half of the `ExpireTimeSpan` interval has passed.</span></span> <span data-ttu-id="0321a-188">La nuova data di scadenza viene spostata in avanti la data corrente più il `ExpireTimespan`.</span><span class="sxs-lookup"><span data-stu-id="0321a-188">The new expiry date is moved forward to be the current date plus the `ExpireTimespan`.</span></span> <span data-ttu-id="0321a-189">Un [ora di scadenza assoluto](xref:security/authentication/cookie#security-authentication-absolute-expiry) può essere impostato utilizzando il `AuthenticationProperties` classe quando si chiama `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="0321a-189">An [absolute expiry time](xref:security/authentication/cookie#security-authentication-absolute-expiry) can be set by using the `AuthenticationProperties` class when calling `SignInAsync`.</span></span> <span data-ttu-id="0321a-190">Una scadenza assoluta può migliorare la sicurezza dell'applicazione per limitare la quantità di tempo per cui il cookie di autenticazione è valido.</span><span class="sxs-lookup"><span data-stu-id="0321a-190">An absolute expiry can improve the security of your application by limiting the amount of time for which the authentication cookie is valid.</span></span>
-
-<span data-ttu-id="0321a-191">Un esempio di utilizzo `CookieAuthenticationOptions` nel `ConfigureServices` metodo *Startup.cs* segue:</span><span class="sxs-lookup"><span data-stu-id="0321a-191">An example of using `CookieAuthenticationOptions` in the `ConfigureServices` method of *Startup.cs* follows:</span></span>
-
-```csharp
-services.AddAuthentication("MyCookieAuthenticationScheme")
-        .AddCookie("MyCookieAuthenticationScheme", options =>
-        {
-            options.Cookie.Name = "AuthCookie";
-            options.Cookie.Domain = "contoso.com";
-            options.Cookie.Path = "/";
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        });
-```
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-192">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-192">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-* <span data-ttu-id="0321a-193">`ClaimsIssuer`è l'autorità emittente da utilizzare per il [dell'autorità di certificazione](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) proprietà in tutte le attestazioni creato dal middleware.</span><span class="sxs-lookup"><span data-stu-id="0321a-193">`ClaimsIssuer` is the issuer to be used for the [Issuer](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer) property on any claims created by the middleware.</span></span>
-
-* <span data-ttu-id="0321a-194">`CookieDomain`è il nome di dominio a cui il cookie viene servito.</span><span class="sxs-lookup"><span data-stu-id="0321a-194">`CookieDomain` is the domain name to which the cookie is served.</span></span> <span data-ttu-id="0321a-195">Per impostazione predefinita, questo è il nome host che è stata inviata la richiesta.</span><span class="sxs-lookup"><span data-stu-id="0321a-195">By default, this is the host name the request was sent to.</span></span> <span data-ttu-id="0321a-196">Il browser opera solo il cookie a un nome host corrispondente.</span><span class="sxs-lookup"><span data-stu-id="0321a-196">The browser only serves the cookie to a matching host name.</span></span> <span data-ttu-id="0321a-197">Si potrebbe voler modificare questa opzione per disporre i cookie disponibili per tutti gli host nel dominio.</span><span class="sxs-lookup"><span data-stu-id="0321a-197">You may wish to adjust this to have cookies available to any host in your domain.</span></span> <span data-ttu-id="0321a-198">Ad esempio, impostando il dominio del cookie `.contoso.com` rende disponibili agli `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`e così via.</span><span class="sxs-lookup"><span data-stu-id="0321a-198">For example, setting the cookie domain to `.contoso.com` makes it available to `contoso.com`, `www.contoso.com`, `staging.www.contoso.com`, etc.</span></span>
-
-* <span data-ttu-id="0321a-199">`CookieHttpOnly`flag che indica se il cookie deve essere accessibile solo ai server.</span><span class="sxs-lookup"><span data-stu-id="0321a-199">`CookieHttpOnly` is a flag indicating if the cookie should be accessible only to servers.</span></span> <span data-ttu-id="0321a-200">L'impostazione predefinita è `true`.</span><span class="sxs-lookup"><span data-stu-id="0321a-200">This defaults to `true`.</span></span> <span data-ttu-id="0321a-201">Se si modifica questo valore può aprire l'applicazione per il furto di cookie l'applicazione deve disporre di un bug Cross-Site Scripting.</span><span class="sxs-lookup"><span data-stu-id="0321a-201">Changing this value may open your application to cookie theft should your application have a Cross-Site Scripting bug.</span></span>
-
-* <span data-ttu-id="0321a-202">`CookiePath`Consente di isolare le applicazioni eseguono lo stesso nome host.</span><span class="sxs-lookup"><span data-stu-id="0321a-202">`CookiePath` can be used to isolate applications running on the same host name.</span></span> <span data-ttu-id="0321a-203">Se si dispone di un'app in esecuzione in `/app1` per limitare i cookie per essere inviati solo a tale applicazione, quindi è necessario impostare il `CookiePath` proprietà `/app1`.</span><span class="sxs-lookup"><span data-stu-id="0321a-203">If you have an app running in `/app1` and want to limit the cookies issued to just be sent to that application, then you should set the `CookiePath` property to `/app1`.</span></span> <span data-ttu-id="0321a-204">In questo modo, il cookie è disponibile solo per le richieste a `/app1` o qualsiasi elemento in esso contenuti.</span><span class="sxs-lookup"><span data-stu-id="0321a-204">By doing so, the cookie is only available to requests to `/app1` or anything underneath it.</span></span>
-
-* <span data-ttu-id="0321a-205">`CookieSecure`flag che indica se il cookie creato deve essere limitato a HTTPS, HTTP o HTTPS o lo stesso protocollo della richiesta.</span><span class="sxs-lookup"><span data-stu-id="0321a-205">`CookieSecure` is a flag indicating if the cookie created should be limited to HTTPS, HTTP or HTTPS, or the same protocol as the request.</span></span> <span data-ttu-id="0321a-206">L'impostazione predefinita è `SameAsRequest`.</span><span class="sxs-lookup"><span data-stu-id="0321a-206">This defaults to `SameAsRequest`.</span></span>
-
-* <span data-ttu-id="0321a-207">`ExpireTimeSpan`è il `TimeSpan` dopo che il cookie scade.</span><span class="sxs-lookup"><span data-stu-id="0321a-207">`ExpireTimeSpan` is the `TimeSpan` after which the cookie expires.</span></span> <span data-ttu-id="0321a-208">Viene aggiunto per la data e ora correnti per creare la data di scadenza del cookie.</span><span class="sxs-lookup"><span data-stu-id="0321a-208">It's added to the current date and time to create the expiry date for the cookie.</span></span>
-
-* <span data-ttu-id="0321a-209">`SlidingExpiration`flag che indica se la data di scadenza del cookie viene reimpostato quando più di metà del `ExpireTimeSpan` trascorso l'intervallo.</span><span class="sxs-lookup"><span data-stu-id="0321a-209">`SlidingExpiration` is a flag indicating whether the cookie expiration date resets when more than half of the `ExpireTimeSpan` interval has passed.</span></span> <span data-ttu-id="0321a-210">La nuova data di scadenza viene spostata in avanti la data corrente più il `ExpireTimespan`.</span><span class="sxs-lookup"><span data-stu-id="0321a-210">The new expiry date is moved forward to be the current date plus the `ExpireTimespan`.</span></span> <span data-ttu-id="0321a-211">Un [ora di scadenza assoluto](xref:security/authentication/cookie#security-authentication-absolute-expiry) può essere impostato utilizzando il `AuthenticationProperties` classe quando si chiama `SignInAsync`.</span><span class="sxs-lookup"><span data-stu-id="0321a-211">An [absolute expiry time](xref:security/authentication/cookie#security-authentication-absolute-expiry) can be set by using the `AuthenticationProperties` class when calling `SignInAsync`.</span></span> <span data-ttu-id="0321a-212">Una scadenza assoluta può migliorare la sicurezza dell'applicazione per limitare la quantità di tempo per cui il cookie di autenticazione è valido.</span><span class="sxs-lookup"><span data-stu-id="0321a-212">An absolute expiry can improve the security of your application by limiting the amount of time for which the authentication cookie is valid.</span></span>
-
-<span data-ttu-id="0321a-213">Un esempio di utilizzo `CookieAuthenticationOptions` nel `Configure` metodo *Startup.cs* segue:</span><span class="sxs-lookup"><span data-stu-id="0321a-213">An example of using `CookieAuthenticationOptions` in the `Configure` method of *Startup.cs* follows:</span></span>
-
-```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions
-{
-    CookieName = "AuthCookie",
-    CookieDomain = "contoso.com",
-    CookiePath = "/",
-    CookieHttpOnly = true,
-    CookieSecure = CookieSecurePolicy.Always
-});
-```
-
----
-
-## <a name="persistent-cookies-and-absolute-expiry-times"></a><span data-ttu-id="0321a-214">I cookie permanenti e ora di scadenza assoluto</span><span class="sxs-lookup"><span data-stu-id="0321a-214">Persistent cookies and absolute expiry times</span></span>
-
-<span data-ttu-id="0321a-215">È la scadenza del cookie per rendere persistenti le sessioni del browser e si desidera una scadenza assoluta per l'identità e il cookie il trasporto.</span><span class="sxs-lookup"><span data-stu-id="0321a-215">You may want the cookie expiry to persist across browser sessions and want an absolute expiry to the identity and the cookie transporting it.</span></span> <span data-ttu-id="0321a-216">Questo tipo di persistenza deve essere abilitata solo con consenso esplicito, tramite un controllo checkbox "Memorizza dati" su account di accesso o un meccanismo simile.</span><span class="sxs-lookup"><span data-stu-id="0321a-216">This persistence should only be enabled with explicit user consent, via a "Remember Me" checkbox on login or a similar mechanism.</span></span> <span data-ttu-id="0321a-217">È possibile eseguire queste operazioni utilizzando il `AuthenticationProperties` parametro il `SignInAsync` metodo chiamato quando [un'identità di firma e la creazione del cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie).</span><span class="sxs-lookup"><span data-stu-id="0321a-217">You can do these things by using the `AuthenticationProperties` parameter on the `SignInAsync` method called when [signing in an identity and creating the cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie).</span></span> <span data-ttu-id="0321a-218">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="0321a-218">For example:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-219">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-219">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-355">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-355">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
-    "MyCookieAuthenticationScheme",
-    principal,
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity),
     new AuthenticationProperties
     {
         IsPersistent = true
     });
 ```
 
-<span data-ttu-id="0321a-220">Il `AuthenticationProperties` (classe), utilizzato nel frammento di codice precedente, si trova nel `Microsoft.AspNetCore.Authentication` dello spazio dei nomi.</span><span class="sxs-lookup"><span data-stu-id="0321a-220">The `AuthenticationProperties` class, used in the preceding code snippet, resides in the `Microsoft.AspNetCore.Authentication` namespace.</span></span>
+<span data-ttu-id="b76da-356">Il [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties?view=aspnetcore-2.0) risiede nella classe di `Microsoft.AspNetCore.Authentication` dello spazio dei nomi.</span><span class="sxs-lookup"><span data-stu-id="b76da-356">The [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties?view=aspnetcore-2.0) class resides in the `Microsoft.AspNetCore.Authentication` namespace.</span></span>
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-221">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-221">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-357">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-357">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(
-    "MyCookieAuthenticationScheme",
-    principal,
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity),
     new AuthenticationProperties
     {
         IsPersistent = true
     });
 ```
 
-<span data-ttu-id="0321a-222">Il `AuthenticationProperties` (classe), utilizzato nel frammento di codice precedente, si trova nel `Microsoft.AspNetCore.Http.Authentication` dello spazio dei nomi.</span><span class="sxs-lookup"><span data-stu-id="0321a-222">The `AuthenticationProperties` class, used in the preceding code snippet, resides in the `Microsoft.AspNetCore.Http.Authentication` namespace.</span></span>
+<span data-ttu-id="b76da-358">Il [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.http.authentication.authenticationproperties?view=aspnetcore-1.1) risiede nella classe di `Microsoft.AspNetCore.Http.Authentication` dello spazio dei nomi.</span><span class="sxs-lookup"><span data-stu-id="b76da-358">The [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.http.authentication.authenticationproperties?view=aspnetcore-1.1) class resides in the `Microsoft.AspNetCore.Http.Authentication` namespace.</span></span>
 
 ---
 
-<span data-ttu-id="0321a-223">Frammento di codice precedente crea un'identità e i cookie corrispondente che resta tramite chiusure browser.</span><span class="sxs-lookup"><span data-stu-id="0321a-223">The preceding code snippet creates an identity and corresponding cookie which survives through browser closures.</span></span> <span data-ttu-id="0321a-224">Qualsiasi variabile configurate in precedenza tramite le impostazioni di scadenza [opzioni del cookie](xref:security/authentication/cookie#security-authentication-cookie-options) sono comunque supportati.</span><span class="sxs-lookup"><span data-stu-id="0321a-224">Any sliding expiration settings previously configured via [cookie options](xref:security/authentication/cookie#security-authentication-cookie-options) are still honored.</span></span> <span data-ttu-id="0321a-225">Se il cookie scade al contempo il browser viene chiuso, il browser cancellato quando viene riavviato.</span><span class="sxs-lookup"><span data-stu-id="0321a-225">If the cookie expires whilst the browser is closed, the browser clears it once it is restarted.</span></span>
+## <a name="absolute-cookie-expiration"></a><span data-ttu-id="b76da-359">Scadenza del cookie assoluto</span><span class="sxs-lookup"><span data-stu-id="b76da-359">Absolute cookie expiration</span></span>
 
-<a name="security-authentication-absolute-expiry"></a>
+<span data-ttu-id="b76da-360">È possibile impostare un'ora di scadenza assoluto con `ExpiresUtc`.</span><span class="sxs-lookup"><span data-stu-id="b76da-360">You can set an absolute expiration time with `ExpiresUtc`.</span></span> <span data-ttu-id="b76da-361">È inoltre necessario impostare `IsPersistent`; in caso contrario, `ExpiresUtc` viene ignorato e viene creato un cookie di sessione singola.</span><span class="sxs-lookup"><span data-stu-id="b76da-361">You must also set `IsPersistent`; otherwise, `ExpiresUtc` is ignored and a single-session cookie is created.</span></span> <span data-ttu-id="b76da-362">Quando `ExpiresUtc` è impostato su `SignInAsync`, sostituisce il valore del `ExpireTimeSpan` opzione di `CookieAuthenticationOptions`, se impostata.</span><span class="sxs-lookup"><span data-stu-id="b76da-362">When `ExpiresUtc` is set on `SignInAsync`, it overrides the value of the `ExpireTimeSpan` option of `CookieAuthenticationOptions`, if set.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="0321a-226">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="0321a-226">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+<span data-ttu-id="b76da-363">Il seguente frammento di codice crea un'identità e i cookie corrispondente che la durata è di 20 minuti.</span><span class="sxs-lookup"><span data-stu-id="b76da-363">The following code snippet creates an identity and corresponding cookie that lasts for 20 minutes.</span></span> <span data-ttu-id="b76da-364">Questo ignora eventuali impostazioni di scadenza variabile configurati in precedenza.</span><span class="sxs-lookup"><span data-stu-id="b76da-364">This ignores any sliding expiration settings previously configured.</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b76da-365">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b76da-365">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
-    "MyCookieAuthenticationScheme",
-    principal,
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity),
     new AuthenticationProperties
     {
+        IsPersistent = true,
         ExpiresUtc = DateTime.UtcNow.AddMinutes(20)
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="0321a-227">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="0321a-227">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b76da-366">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b76da-366">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(
-    "MyCookieAuthenticationScheme",
-    principal,
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    new ClaimsPrincipal(claimsIdentity),
     new AuthenticationProperties
     {
+        IsPersistent = true,
         ExpiresUtc = DateTime.UtcNow.AddMinutes(20)
     });
 ```
 
 ---
 
-<span data-ttu-id="0321a-228">Frammento di codice precedente crea un'identità e i cookie corrispondente che la durata è di 20 minuti.</span><span class="sxs-lookup"><span data-stu-id="0321a-228">The preceding code snippet creates an identity and corresponding cookie which lasts for 20 minutes.</span></span> <span data-ttu-id="0321a-229">Questo ignora eventuali impostazioni di scadenza variabile configurati in precedenza tramite [opzioni del cookie](xref:security/authentication/cookie#security-authentication-cookie-options).</span><span class="sxs-lookup"><span data-stu-id="0321a-229">This ignores any sliding expiration settings previously configured via [cookie options](xref:security/authentication/cookie#security-authentication-cookie-options).</span></span>
+## <a name="see-also"></a><span data-ttu-id="b76da-367">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="b76da-367">See also</span></span>
 
-<span data-ttu-id="0321a-230">Il `ExpiresUtc` e `IsPersistent` si escludono a vicenda.</span><span class="sxs-lookup"><span data-stu-id="0321a-230">The `ExpiresUtc` and `IsPersistent` properties are mutually exclusive.</span></span>
+* [<span data-ttu-id="b76da-368">Modifiche di autenticazione 2.0 / migrazione annuncio</span><span class="sxs-lookup"><span data-stu-id="b76da-368">Auth 2.0 Changes / Migration Announcement</span></span>](https://github.com/aspnet/Announcements/issues/262)
+* [<span data-ttu-id="b76da-369">Limitazione dell'identità tramite schema</span><span class="sxs-lookup"><span data-stu-id="b76da-369">Limiting identity by scheme</span></span>](xref:security/authorization/limitingidentitybyscheme)
