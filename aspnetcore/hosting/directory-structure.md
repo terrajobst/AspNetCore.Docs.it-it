@@ -11,15 +11,15 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 60797bff85a44dd10caad4aabc109ee12dedfe61
+ms.sourcegitcommit: 7efdc4b6025ad70c15c26bf7451c3c0411123794
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Struttura di directory di App ASP.NET Core pubblicate
 
-Da [Luke Latham](https://github.com/guardrex)
+Di [Luke Latham](https://github.com/guardrex)
 
 Nella directory dell'applicazione ASP.NET Core *pubblicare*, è costituito da file dell'applicazione, i file di configurazione, asset statico, pacchetti e il runtime (per applicazioni indipendenti). Questa è la stessa struttura di directory di versioni precedenti di ASP.NET, in cui risiede l'intera applicazione all'interno della directory radice web.
 
@@ -32,12 +32,16 @@ Nella directory dell'applicazione ASP.NET Core *pubblicare*, è costituito da fi
 Il contenuto del *pubblicare* directory rappresenta il *percorso radice del contenuto*, denominati anche il *percorso base dell'applicazione*, della distribuzione. Verrà assegnato qualsiasi nome di *pubblicare* directory nella distribuzione, il percorso viene utilizzato come percorso fisico del server l'applicazione ospitata. Il *wwwroot* directory, se presente, contiene solo gli asset statici. Il *registri* directory può essere inclusi nella distribuzione creazione del progetto e aggiungendo il `<Target>` elemento mostrata di seguito per il *csproj* file oppure creando fisicamente la directory sul Server.
 
 ```xml
-<Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
-  <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
-  <MakeDir Directories="$(PublishUrl)Logs" Condition="!Exists('$(PublishUrl)Logs')" />
+<Target Name="CreateLogsFolder" AfterTargets="Publish">
+  <MakeDir Directories="$(PublishDir)Logs" 
+           Condition="!Exists('$(PublishDir)Logs')" />
+  <WriteLinesToFile File="$(PublishDir)Logs\.log" 
+                    Lines="Generated file" 
+                    Overwrite="True" 
+                    Condition="!Exists('$(PublishDir)Logs\.log')" />
 </Target>
 ```
 
-Il primo `<MakeDir>` elemento che utilizza il `PublishDir` proprietà, viene utilizzata da CLI .NET Core per determinare il percorso di destinazione per l'operazione di pubblicazione. Il secondo `<MakeDir>` elemento che utilizza il `PublishUrl` proprietà, viene utilizzata da Visual Studio per determinare il percorso di destinazione. Visual Studio Usa il `PublishUrl` proprietà per la compatibilità con i progetti non .NET Core.
+Il `<MakeDir>` elemento crea un oggetto vuoto *registri* cartella nell'output pubblicato. L'elemento Usa il `PublishDir` proprietà per determinare il percorso di destinazione per la creazione della cartella. Diversi metodi di distribuzione, ad esempio di distribuzione Web, ignorano le cartelle vuote durante la distribuzione. Il `<WriteLinesToFile>` elemento genera un file nel *registri* cartella, che garantisce la distribuzione della cartella in cui il server. Si noti che la creazione di cartelle può avere comunque esito negativo se il processo di lavoro non dispone dell'accesso in scrittura alla cartella di destinazione.
 
 La directory di distribuzione è necessarie autorizzazioni di lettura/esecuzione, mentre il *registri* directory richiede autorizzazioni di lettura/scrittura. Directory aggiuntive in cui verranno scritto asset richiedono autorizzazioni di lettura/scrittura.

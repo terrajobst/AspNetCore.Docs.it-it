@@ -1,8 +1,8 @@
 ---
 title: Autorizzazione personalizzata basata su criteri
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento illustra come creare e utilizzare i gestori di criteri di autorizzazione personalizzato in un'applicazione ASP.NET Core.
+keywords: ASP.NET Core, autorizzazione, i criteri personalizzati, i criteri di autorizzazione
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 0281d054204a11acc2cf11cf5fca23a8f70aad8e
+ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorizzazione personalizzata basata su criteri
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
-Nel sistema l'il [autorizzazione ruolo](roles.md#security-authorization-role-based) e [le attestazioni di autorizzazione](claims.md#security-authorization-claims-based) verificare l'utilizzo di un requisito, un gestore per il requisito e i criteri configurati in precedenza. Questi blocchi predefiniti consentono di esprimere le valutazioni di autorizzazione nel codice, consentendo più dettagliato, riutilizzabili e nella struttura di autorizzazione facilmente testabili.
+Sotto le quinte, il [autorizzazione ruolo](roles.md) e [le attestazioni di autorizzazione](claims.md) verificare l'utilizzo di un requisito, un gestore per il requisito e un criterio configurato in precedenza. Questi blocchi predefiniti consentono di esprimere le valutazioni di autorizzazione nel codice, consentendo più dettagliato, riutilizzabili e nella struttura di autorizzazione facilmente testabili.
 
 Criteri di autorizzazione sono costituita da uno o più requisiti e registrato all'avvio dell'applicazione come parte della configurazione del servizio di autorizzazione, in `ConfigureServices` nel *Startup.cs* file.
 
@@ -58,7 +58,7 @@ public class AlcoholPurchaseRequirementsController : Controller
 
 ## <a name="requirements"></a>Requisiti
 
-Un requisito di autorizzazione è una raccolta di parametri dei dati che un criterio è possibile utilizzare per valutare l'entità utente corrente. Nei criteri di durata minima il requisito è è un singolo parametro, la data minima. È necessario implementare un requisito `IAuthorizationRequirement`. Si tratta di un'interfaccia vuota, di marcatore. Un requisito di età minima con parametri potrebbe essere implementato come segue:
+Un requisito di autorizzazione è una raccolta di parametri dei dati che un criterio è possibile utilizzare per valutare l'entità utente corrente. Nel criterio periodo di memorizzazione minimo, il requisito è è un singolo parametro, la data minima. È necessario implementare un requisito `IAuthorizationRequirement`. Si tratta di un'interfaccia vuota, di marcatore. Un requisito di età minima con parametri potrebbe essere implementato come segue:
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 Non è un requisito a dati o proprietà.
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>Gestori di autorizzazione
 
 Un gestore di autorizzazione è responsabile per la valutazione di tutte le proprietà di un requisito. Il gestore di autorizzazione necessario valutarli in base a un oggetto fornito `AuthorizationHandlerContext` per decidere se l'autorizzazione è consentita. Può avere un requisito [più gestori](policies.md#security-authorization-policies-based-multiple-handlers). I gestori devono ereditare `AuthorizationHandler<T>` dove T è il requisito gestisce.
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 Il gestore di età minima potrebbe essere simile al seguente:
 
@@ -114,10 +114,11 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 }
 ```
 
-Nel codice sopra viene innanzitutto analizzato per vedere se l'entità utente corrente dispone di una data di nascita di attestazioni che è stata eseguita da un'autorità di certificazione è noto e attendibile. Se manca l'attestazione è Impossibile autorizzare in modo verrà restituito. Se si dispone di un'attestazione è capire risale l'utente e se soddisfano la data minima passata dal requisito quindi autorizzazione è stata completata. Una volta che viene concessa autorizzazione definiamo `context.Succeed()` passando il requisito che è stato eseguito correttamente come parametro.
+Nel codice precedente, viene innanzitutto analizzato per vedere se l'entità utente corrente dispone di una data di nascita di attestazioni che è stata eseguita da un'autorità di certificazione è noto e attendibile. Se manca l'attestazione è Impossibile autorizzare in modo verrà restituito. Se si dispone di un'attestazione è capire risale l'utente e se soddisfano la data minima passata dal requisito quindi autorizzazione è stata completata. Una volta che viene concessa autorizzazione definiamo `context.Succeed()` passando il requisito che è stato eseguito correttamente come parametro.
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
+### <a name="handler-registration"></a>Registrazione del gestore
 Gestori eventi devono essere registrati nella raccolta di servizi durante la configurazione, ad esempio,
 
 ```csharp
@@ -148,9 +149,9 @@ Ogni gestore viene aggiunto alla raccolta di servizi tramite `services.AddSingle
 
 * Errore anche se altri gestori per un requisito di esito positivo, chiamare `context.Fail`.
 
-Indipendentemente dal fatto si chiama il gestore all'interno di tutti i gestori per un requisito verranno chiamati quando un criterio richiede il requisito. In questo modo i requisiti di effetti collaterali, ad esempio la registrazione, che verrà sempre eseguita anche se `context.Fail()` è stato chiamato in un altro gestore.
+Indipendentemente dal fatto ciò che è definito all'interno del gestore, tutti i gestori per un requisito verranno chiamati quando un criterio richiede il requisito. In questo modo i requisiti di effetti collaterali, ad esempio la registrazione, che verrà sempre eseguita anche se `context.Fail()` è stato chiamato in un altro gestore.
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>Perché desiderare più gestori per un requisito?
 
@@ -215,7 +216,7 @@ services.AddAuthorization(options =>
 
 Il `Handle` (metodo) deve implementare un gestore di autorizzazione ha due parametri, un `AuthorizationContext` e `Requirement` si sta gestendo. Framework di MVC o Jabbr hanno la possibilità di aggiungere qualsiasi oggetto di `Resource` proprietà di `AuthorizationContext` passare informazioni aggiuntive.
 
-Ad esempio MVC passa un'istanza di `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` nella proprietà della risorsa che viene utilizzata per accedere HttpContext, RouteData e tutti gli elementi else MVC fornisce.
+Ad esempio, MVC passa un'istanza di `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` nella proprietà della risorsa che viene utilizzata per accedere HttpContext, RouteData e tutti gli elementi else MVC fornisce.
 
 L'utilizzo del `Resource` è di proprietà specifici del framework. Utilizzando le informazioni nel `Resource` proprietà limiterà i criteri di autorizzazione per un framework specifico. È necessario eseguire il cast di `Resource` proprietà utilizzando il `as` (parola chiave) e quindi controllare il cast ha esito positivo per verificare che il codice non viene arrestato in modo anomalo con `InvalidCastExceptions` quando viene eseguito da altri Framework;
 

@@ -1,26 +1,24 @@
 ---
 title: Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 author: guardrex
-description: Configurazione e l'uso di Middleware di memorizzazione nella cache risposta nelle applicazioni ASP.NET Core.
-keywords: ASP.NET Core, la memorizzazione nella cache, ResponseCache, ResponseCaching, memorizzazione nella cache risposta Cache-Control, VaryByQueryKeys, middleware
+description: Informazioni su come configurare e utilizzare il Middleware di memorizzazione nella cache risposta nelle applicazioni ASP.NET Core.
 ms.author: riande
 manager: wpickett
 ms.date: 08/22/2017
 ms.topic: article
-ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3312d0c333b47169c71891eea79f03be0abcfa3
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
 Da [Luke Latham](https://github.com/guardrex) e [John Luo](https://github.com/JunTaoLuo)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 Questo documento vengono fornite informazioni dettagliate su come configurare il Middleware di memorizzazione nella cache della risposta in applicazioni ASP.NET Core. Il middleware determina quando le risposte sono memorizzabile nella cache le risposte di archivi e funge da risposta dalla cache. Per un'introduzione alla memorizzazione nella cache di HTTP e `ResponseCache` attributo, vedere [la memorizzazione nella cache di risposta](response.md).
 
@@ -112,13 +110,13 @@ Il middleware rispetta le regole del [specifica la memorizzazione nella cache di
 
 [Miglioramenti futuri correlati al middleware](https://github.com/aspnet/ResponseCaching/issues/96) consentirà di configurare il middleware per la memorizzazione nella cache gli scenari in cui la richiesta `Cache-Control` intestazione deve essere ignorata quando si decide di gestire una risposta memorizzata nella cache. Se si ricerca maggiore controllo sul comportamento di memorizzazione nella cache, è possibile esplorare altre funzionalità di memorizzazione nella cache di ASP.NET Core. Vedere gli argomenti seguenti:
 
-* [Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core](xref:performance/caching/memory)
+* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
 * [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
 * [Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Se il comportamento di memorizzazione nella cache non è come previsto, verificare che le risposte siano memorizzabile nella cache e in grado di servito dalla cache esaminando le intestazioni in ingresso della richiesta e della risposta in uscita. Abilitazione [registrazione](xref:fundamentals/logging) possono risultare utili durante il debug. Il middleware esegue la memorizzazione nella cache di comportamento e quando una risposta viene recuperata dalla cache.
+Se il comportamento di memorizzazione nella cache non è come previsto, verificare che le risposte siano memorizzabile nella cache e in grado di servito dalla cache esaminando le intestazioni in ingresso della richiesta e della risposta in uscita. Abilitazione [registrazione](xref:fundamentals/logging/index) possono risultare utili durante il debug. Il middleware esegue la memorizzazione nella cache di comportamento e quando una risposta viene recuperata dalla cache.
 
 Durante il test e risoluzione dei problemi di comportamento di memorizzazione nella cache, un browser può impostare le intestazioni di richiesta che influiscono sulla memorizzazione nella cache in modalità indesiderati. Ad esempio, è possibile impostare un browser di `Cache-Control` intestazione `no-cache` quando si aggiorna la pagina. Gli strumenti seguenti possono impostare esplicitamente le intestazioni di richiesta e vengono preferiti per i test la memorizzazione nella cache:
 
@@ -148,3 +146,9 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware)
+* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
+* [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
+* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
+* [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
+* [Helper di Tag della cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

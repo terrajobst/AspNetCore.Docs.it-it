@@ -11,27 +11,32 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
+ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
-Da [Luke Latham](https://github.com/guardrex)
+Di [Luke Latham](https://github.com/guardrex)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 Larghezza di banda di rete è una risorsa limitata. Riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso in modo significativo. Un modo per ridurre le dimensioni di payload consiste nella compressione delle risposte di un'app.
 
 ## <a name="when-to-use-response-compression-middleware"></a>Quando utilizzare il Middleware di compressione risposta
-Utilizzare le tecnologie di compressione risposta basata sul server in IIS, Apache o Nginx in cui le prestazioni del middleware probabilmente non corrispondano a quello dei moduli server. Utilizzare il Middleware di compressione risposta quando si è grado di utilizzare:
-* [Modulo di compressione dinamica di IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-* [Modulo mod_deflate Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-* [NGINX compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
-* [Server HTTP. sys](xref:fundamentals/servers/httpsys) (in precedenza denominato [WebListener](xref:fundamentals/servers/weblistener))
-* [Kestrel](xref:fundamentals/servers/kestrel)
+Utilizzare le tecnologie di compressione risposta basata sul server in IIS, Apache o Nginx. Le prestazioni del middleware probabilmente non corrisponderanno a quello dei moduli server. [Server HTTP. sys](xref:fundamentals/servers/httpsys) e [Kestrel](xref:fundamentals/servers/kestrel) attualmente non offre il supporto della compressione incorporata.
+
+Utilizzare il Middleware di compressione risposta quando si è:
+
+* Impossibile utilizzare le tecnologie di compressione basata su server seguenti:
+  * [Modulo di compressione dinamica di IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Modulo mod_deflate Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+* Hosting direttamente in:
+  * [Server HTTP. sys](xref:fundamentals/servers/httpsys) (in precedenza denominato [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Compressione di risposta
 In genere, le risposte compresse in modo nativo possono trarre vantaggio dalla compressione di risposta. Le risposte compresse in modo nativo in genere includono: CSS, JavaScript, HTML, XML e JSON. Non deve comprimere asset compresso in modo nativo, ad esempio i file PNG. Se si tenta di comprimere ulteriormente una risposta compressa in modo nativo, qualsiasi lieve riduzione aggiuntiva in fase di dimensioni e la trasmissione verrà probabilmente essere rimane in ombra base al tempo impiegato per elaborare la compressione. Non comprimere i file più piccoli di circa 150-1000 byte (a seconda del contenuto del file e l'efficienza della compressione). L'overhead di compressione di file di piccole dimensioni può produrre un file compresso più grande del file non compresso.

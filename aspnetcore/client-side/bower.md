@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9acc59b6f40dc8a336f59925d639fff007c4e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 183e748cbf87b1973941eacb3fb1008f4041bb2a
+ms.sourcegitcommit: 532a323f99a37c4d7894c95cee3f7a04b594dcec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Gestire i pacchetti sul lato client con Bower in ASP.NET Core
 
@@ -36,7 +36,7 @@ In questa esercitazione, verrà aggiunto il supporto per [carattere straordinari
 
 * Fare clic sul progetto in Esplora soluzioni e selezionare **Gestisci pacchetti Bower** (in alternativa dal menu principale, **progetto** > **Gestisci pacchetti Bower**).
 
-* Nel **Bower: \<nome progetto\> ** finestra, fare clic sulla scheda "Sfoglia" e quindi filtrare l'elenco di pacchetti immettendo `font-awesome` nella casella di ricerca:
+* Nel **Bower: \<nome progetto\>**  finestra, fare clic sulla scheda "Sfoglia" e quindi filtrare l'elenco di pacchetti immettendo `font-awesome` nella casella di ricerca:
 
  ![gestire i pacchetti bower](bower/_static/manage-bower-packages.png)
 
@@ -78,7 +78,7 @@ Eseguire l'app e passare alla visualizzazione di informazioni per verificare il 
 
 ## <a name="exploring-the-client-side-build-process"></a>Esplorare il processo di compilazione sul lato client
 
-La maggior parte dei modelli di progetto ASP.NET Core sono già configurati per utilizzare Bower. In questa procedura dettagliata successiva inizia con un progetto vuoto di ASP.NET Core e aggiunge ogni elemento manualmente, è possibile ottenere un aspetto della modalità di utilizzo Bower in un progetto. Vedrai possibile cosa accade alla struttura del progetto e viene eseguito il runtime di output come ogni modifica della configurazione.
+La maggior parte dei modelli di progetto ASP.NET Core sono già configurati per utilizzare Bower. In questa procedura dettagliata successiva inizia con un progetto vuoto di ASP.NET Core e aggiunge ogni elemento manualmente, è possibile ottenere un aspetto della modalità di utilizzo Bower in un progetto. È possibile vedere cosa accade alla struttura di progetto e il runtime di output come viene eseguita ogni modifica alla configurazione.
 
 I passaggi generali per utilizzare il processo di compilazione sul lato client con Bower sono:
 

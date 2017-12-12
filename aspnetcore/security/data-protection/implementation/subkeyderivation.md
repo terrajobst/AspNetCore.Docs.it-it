@@ -1,8 +1,8 @@
 ---
 title: Derivazione della sottochiave e la crittografia autenticata
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento illustra i dettagli di implementazione della protezione dei dati di ASP.NET Core sottochiave derivazione e autenticato di crittografia.
+keywords: Crittografia di autenticazione ASP.NET Core, protezione dei dati, il sottochiave derivazione,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,38 +11,38 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivazione della sottochiave e la crittografia autenticata
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 La maggior parte delle chiavi nell'anello chiave conterrà una forma di entropia e disporrà di informazioni algoritmiche indicante "crittografia in modalità CBC + convalida HMAC" o "crittografia GCM + convalida". In questi casi, l'entropia incorporato noti come il materiale della chiave master (o KM) per la chiave e si esegue una funzione di derivazione della chiave per derivare le chiavi che verranno utilizzate per le operazioni di crittografia effettive.
 
 > [!NOTE]
-> Le chiavi sono classi astratte e un'implementazione personalizzata potrebbe non funzionare come indicato di seguito. Se la chiave fornisce la propria implementazione dell'IAuthenticatedEncryptor, anziché utilizzare uno dei nostri factory incorporate, il meccanismo descritto in questa sezione non è più applicabile.
+> Le chiavi sono classi astratte e un'implementazione personalizzata potrebbe non funzionare come indicato di seguito. Se la chiave fornisce la propria implementazione di `IAuthenticatedEncryptor` invece di usare uno dei nostri factory incorporate, il meccanismo descritto in questa sezione non è più valido.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Dati di autenticazione aggiuntivi e la derivazione della sottochiave
 
-L'interfaccia IAuthenticatedEncryptor funge da interfaccia principale per tutte le operazioni di crittografia autenticata. Il metodo di crittografia accetta due buffer: testo non crittografato e additionalAuthenticatedData (AAD). Il flusso di contenuto di testo normale invariata la chiamata a IDataProtector.Protect, ma AAD è generato dal sistema ed è costituito da tre componenti:
+Il `IAuthenticatedEncryptor` interfaccia funge da interfaccia principale per tutte le operazioni di crittografia autenticata. Il relativo `Encrypt` metodo accetta due buffer: testo non crittografato e additionalAuthenticatedData (AAD). Il flusso di contenuto di testo normale invariata la chiamata a `IDataProtector.Protect`, ma AAD è generato dal sistema ed è costituito da tre componenti:
 
 1. L'intestazione magic 32-bit 09 F0 C9 F0 che identifica questa versione del sistema di protezione dati.
 
 2. Id della chiave a 128 bit.
 
-3. Stringa a lunghezza variabile formata dalla catena di scopo che ha creato l'oggetto IDataProtector che esegue questa operazione.
+3. Stringa a lunghezza variabile formata dalla catena di scopo che ha creato il `IDataProtector` che esegue questa operazione.
 
-Poiché Azure ad è univoco per la tupla di tutti e tre i componenti, è possibile usarlo per derivare nuove chiavi KM anziché KM stesso in tutti gli operazioni di crittografia. Per ogni chiamata a IAuthenticatedEncryptor.Encrypt, il processo di derivazione della chiave seguente ha luogo:
+Poiché Azure ad è univoco per la tupla di tutti e tre i componenti, è possibile usarlo per derivare nuove chiavi KM anziché KM stesso in tutti gli operazioni di crittografia. Per ogni chiamata a `IAuthenticatedEncryptor.Encrypt`, avviene il processo di derivazione della chiave seguente:
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, | | keyModifier)
 
-In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) con i parametri seguenti:
+In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con i parametri seguenti:
 
 * Chiave di derivazione della chiave (KDK) = K_M
 
@@ -52,7 +52,7 @@ In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di co
 
 * contesto = contextHeader | | keyModifier
 
-L'intestazione del contesto è di lunghezza variabile e funge essenzialmente da un'identificazione personale degli algoritmi per il quale si sta derivazione K_E e K_H. Il modificatore di chiave è una stringa di 128 bit generata in modo casuale per ogni chiamata a Encrypt e serve a garantire con sovraccaricare probabilità che KE e KH siano univoci per questa operazione di crittografia di autenticazione specifici, anche se tutti gli altri input per l'utilizzo è costanti.
+L'intestazione del contesto è di lunghezza variabile e funge essenzialmente da un'identificazione personale degli algoritmi per il quale si sta derivazione K_E e K_H. Il modificatore di chiave è una stringa di 128 bit generata in modo casuale per ogni chiamata a `Encrypt` e serve a garantire con sovraccaricare probabilità che KE e KH siano univoci per questa operazione di crittografia di autenticazione specifici, anche se tutti gli altri input per l'utilizzo è costante.
 
 Per la crittografia in modalità CBC + le operazioni di convalida HMAC, | K_E | è la lunghezza della chiave di crittografia simmetrico, e | K_H | è la dimensione del digest della routine HMAC. Per la crittografia GCM + operazioni di convalida, | K_H | = 0.
 
@@ -65,7 +65,7 @@ Una volta K_E viene generato tramite il meccanismo precedente, si genera un vett
 *output: = keyModifier | | vettore di inizializzazione | | E_cbc (dati K_E, iv) | | Codice HMAC (K_H, iv | | E_cbc (dati K_E, iv))*
 
 > [!NOTE]
-> L'implementazione di IDataProtector.Protect verrà [anteporre l'intestazione magic e l'id chiave](authenticated-encryption-details.md#data-protection-implementation-authenticated-encryption-details) all'output prima di restituirlo al chiamante. Poiché l'intestazione magic e l'id chiave sono implicitamente in parte [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), e poiché il modificatore di chiave viene inserito come input per l'utilizzo, questo significa che ogni singolo byte del payload restituito finale è autenticato da Mac.
+> Il `IDataProtector.Protect` implementazione verrà [anteporre l'intestazione magic e l'id chiave](authenticated-encryption-details.md) all'output prima di restituirlo al chiamante. Poiché l'intestazione magic e l'id chiave sono implicitamente in parte [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), e poiché il modificatore di chiave viene inserito come input per l'utilizzo, questo significa che ogni singolo byte del payload restituito finale è autenticato da Mac.
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>La crittografia della modalità Galois/contatore + convalida
 

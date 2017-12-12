@@ -1,8 +1,8 @@
 ---
 title: Gestione delle chiavi
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento descrive i dettagli di implementazione di ASP.NET Core dati protezione della gestione delle chiavi API.
+keywords: ASP.NET Core, protezione dei dati, gestione delle chiavi
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d9e38fd5c8de2b10ad24fe557aa6e3063e40236e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-management"></a>Gestione delle chiavi
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
-Il sistema di protezione dati gestisce automaticamente la durata delle chiavi master utilizzata per proteggere e annullare la protezione di payload. Ogni chiave può essere presente in una delle quattro fasi.
+Il sistema di protezione dati gestisce automaticamente la durata delle chiavi master utilizzata per proteggere e annullare la protezione di payload. Ogni chiave può essere presente in una delle quattro fasi:
 
 * Create - la chiave esiste nell'anello chiave, ma non è ancora stata attivata. La chiave non deve essere usata per le nuove operazioni di proteggere fino a quando non è trascorso tempo sufficiente che la chiave abbia avuto la possibilità di propagare a tutti i computer che utilizzano la gestione delle chiavi.
 
@@ -44,9 +44,9 @@ L'euristica generale è che il sistema di protezione dati viene scelta la chiave
 
 Il motivo per il sistema di protezione di dati genera una nuova chiave immediatamente, anziché eseguire il fallback su un'altra chiave è che la nuova generazione di chiavi deve essere considerata come una scadenza implicita di tutte le chiavi che sono stati attivati prima la nuova chiave. L'idea generale è che le nuove chiavi potrebbero essere state configurate con algoritmi diversi o meccanismi di crittografia a riposo rispetto a quelle precedenti e il sistema deve utilizzare la configurazione corrente su cui eseguire il fallback.
 
-Si verifica un'eccezione. Se lo sviluppatore di applicazioni ha [disabilitata la generazione automatica delle chiave](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation), quindi il sistema di protezione dati è necessario scegliere un elemento come chiave predefinita. In questo scenario di fallback, il sistema sceglierà la chiave non è stato revocato con la data più recente di attivazione, usando preferibilmente delle chiavi che hanno avuto tempo per propagare ad altri computer nel cluster. Il sistema di fallback può finire la scelta di una chiave predefinita scaduta di conseguenza. Il sistema di fallback non sceglierà mai una chiave revocata come chiave predefinita e se la gestione delle chiavi è vuoto o se ogni chiave è stato revocato il sistema verrà generato un errore al momento dell'inizializzazione.
+Si verifica un'eccezione. Se lo sviluppatore di applicazioni ha [disabilitata la generazione automatica delle chiave](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), quindi il sistema di protezione dati è necessario scegliere un elemento come chiave predefinita. In questo scenario di fallback, il sistema sceglierà la chiave non è stato revocato con la data più recente di attivazione, usando preferibilmente delle chiavi che hanno avuto tempo per propagare ad altri computer nel cluster. Il sistema di fallback può finire la scelta di una chiave predefinita scaduta di conseguenza. Il sistema di fallback non sceglierà mai una chiave revocata come chiave predefinita e se la gestione delle chiavi è vuoto o se ogni chiave è stato revocato il sistema verrà generato un errore al momento dell'inizializzazione.
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>Scadenza della chiave e in sequenza
 
@@ -62,24 +62,24 @@ Durata della chiave predefinita è 90 giorni, anche se questa opzione è configu
 services.AddDataProtection()
        // use 14-day lifetime instead of 90-day lifetime
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
-   ```
+```
 
-Un amministratore può inoltre modificare l'impostazione predefinita a livello di sistema, anche se una chiamata esplicita a SetDefaultKeyLifetime eseguirà l'override di tutti i criteri a livello di sistema. Durata della chiave predefinita non può essere inferiore a 7 giorni.
+Un amministratore può inoltre modificare il valore predefinito a livello di sistema, anche se una chiamata esplicita a `SetDefaultKeyLifetime` eseguirà l'override di tutti i criteri a livello di sistema. Durata della chiave predefinita non può essere inferiore a 7 giorni.
 
-## <a name="automatic-keyring-refresh"></a>Aggiornamento automatico keyring
+## <a name="automatic-key-ring-refresh"></a>Aggiornamento automatico delle chiavi
 
 Quando si inizializza il sistema di protezione dati, legge la gestione delle chiavi dal repository sottostante e lo memorizza nella cache in memoria. Questa cache consente operazioni di protezione e Unprotect continuare senza raggiungere l'archivio di backup. Il sistema controlla automaticamente l'archivio di backup per le modifiche circa ogni 24 ore o quando scade la chiave predefinita corrente, verifica per primo.
 
 >[!WARNING]
 > Gli sviluppatori devono raramente (se applicabile) è necessario utilizzare direttamente le API di gestione principali. Il sistema di protezione dati eseguirà gestione automatica delle chiavi, come descritto in precedenza.
 
-Il sistema di protezione dati espone un'interfaccia IKeyManager che può essere utilizzato per controllare e apportare modifiche per la gestione delle chiavi. Il sistema DI cui l'istanza di IDataProtectionProvider può anche fornire un'istanza di IKeyManager per il consumo. In alternativa, è possibile effettuare il pull di IKeyManager retta da IServiceProvider come nell'esempio seguente.
+Il sistema di protezione dati espone un'interfaccia `IKeyManager` che può essere utilizzato per controllare e apportare modifiche per la gestione delle chiavi. Il sistema DI cui l'istanza di `IDataProtectionProvider` può anche fornire un'istanza di `IKeyManager` per il consumo. In alternativa, è possibile effettuare il pull di `IKeyManager` direttamente dal `IServiceProvider` come nell'esempio seguente.
 
-Qualsiasi operazione che modifica la gestione delle chiavi (creazione di una nuova chiave in modo esplicito o l'esecuzione di una revoca) invalida la cache in memoria. La chiamata successiva a proteggere o Unprotect causerà il sistema di protezione dati esegua la rilettura di gestione delle chiavi e la ricreazione della cache.
+Qualsiasi operazione che modifica la gestione delle chiavi (creazione di una nuova chiave in modo esplicito o l'esecuzione di una revoca) invalida la cache in memoria. La chiamata successiva a `Protect` o `Unprotect` il sistema di protezione dati esegua la rilettura di gestione delle chiavi e la ricreazione della cache.
 
-Nell'esempio seguente viene illustrato l'utilizzo dell'interfaccia IKeyManager per esaminare e manipolare l'anello chiave, tra cui revocare le chiavi esistenti e generare manualmente una nuova chiave.
+Nell'esempio seguente viene illustrato l'utilizzo di `IKeyManager` interfaccia per esaminare e manipolare l'anello chiave, tra cui revocare le chiavi esistenti e generare manualmente una nuova chiave.
 
-[!code-none[Principale](key-management/samples/key-management.cs)]
+[!code-csharp[Main](key-management/samples/key-management.cs)]
 
 ## <a name="key-storage"></a>Archiviazione delle chiavi
 

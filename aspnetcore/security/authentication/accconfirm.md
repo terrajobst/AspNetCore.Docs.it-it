@@ -5,20 +5,20 @@ description: Viene illustrato come compilare un'app di ASP.NET Core con messaggi
 keywords: ASP.NET Core, la reimpostazione della password, conferma tramite posta elettronica, protezione
 ms.author: riande
 manager: wpickett
-ms.date: 07/19/2017
+ms.date: 12/1/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b05dd2fee50f6cc96058971daa42b069dbb6d21d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 
-Di [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Joe Audette](https://twitter.com/joeaudette) 
 
 In questa esercitazione viene illustrato come compilare un'app di ASP.NET Core con messaggio di posta elettronica conferma e reimpostazione della password.
 
@@ -117,7 +117,7 @@ La riga precedente impedisce registrati in corso la registrazione fino a quando 
 
 In questa esercitazione, SendGrid viene utilizzato per inviare posta elettronica. È necessario un account SendGrid e una chiave per l'invio di posta elettronica. È possibile utilizzare altri provider di posta elettronica. ASP.NET Core 2. x include `System.Net.Mail`, che consente di inviare posta elettronica dalla tua app. È consigliabile che utilizzare SendGrid o un altro servizio di posta elettronica per inviare posta elettronica.
 
-Il [modello opzioni](xref:fundamentals/configuration#options-config-objects) viene utilizzato per accedere alle impostazioni di account e la chiave utente. Per ulteriori informazioni, vedere [configurazione](xref:fundamentals/configuration).
+Il [modello opzioni](xref:fundamentals/configuration/options) viene utilizzato per accedere alle impostazioni di account e la chiave utente. Per ulteriori informazioni, vedere [configurazione](xref:fundamentals/configuration/index).
 
 Creare una classe per recuperare la chiave di proteggere la posta elettronica. Per questo esempio, il `AuthMessageSenderOptions` classe il *Services/AuthMessageSenderOptions.cs* file.
 
@@ -195,6 +195,8 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 Il metodo completo viene visualizzato con la riga modificata evidenziata:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
+
+Nota: Il codice precedente avrà esito negativo se si implementa `IEmailSender` e inviare un messaggio di testo normale. Vedere [questo problema](https://github.com/aspnet/Home/issues/2152) per ulteriori informazioni e una soluzione alternativa.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

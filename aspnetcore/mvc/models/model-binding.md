@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
@@ -61,9 +61,19 @@ Nell'esempio viene utilizzato finora tipi semplici. In MVC tipi semplici sono qu
 
 In ordine di associazione consente di eseguire la classe deve avere un costruttore predefinito pubblico e membro sia associato deve essere pubblica proprietà accessibile in scrittura. Quando si verifica l'associazione di modelli che della classe sarà possibile creare istanze solo utilizzando il costruttore predefinito pubblico, è possono impostare le proprietà.
 
-Quando è associato un parametro, l'associazione di modelli arresta cercando valori con lo stesso nome e lo sposta associare il parametro successivo. Se l'associazione non riesce, MVC genera un errore. È possibile eseguire query per gli errori di stato modello controllando il `ModelState.IsValid` proprietà.
+Quando è associato un parametro, l'associazione di modelli arresta cercando valori con lo stesso nome e lo sposta associare il parametro successivo. In caso contrario, il comportamento di associazione del modello predefinito imposta parametri i valori predefiniti in base al tipo:
 
-Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors property`. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid` .
+* `T[]`: Con l'eccezione di matrici di tipo `byte[]`, associazione imposta i parametri di tipo `T[]` a `Array.Empty<T>()`. Le matrici di tipo `byte[]` sono impostate su `null`.
+
+* I tipi di riferimento: Associazione crea un'istanza di una classe con il costruttore predefinito senza l'impostazione delle proprietà. Tuttavia, modello di binding imposta `string` parametri `null`.
+
+* Tipi nullable: Tipi Nullable sono impostati su `null`. Nell'esempio precedente, il set di associazione del modello `id` a `null` perché è di tipo `int?`.
+
+* Tipi di valore: I tipi di valore Non nullable di tipo `T` sono impostate su `default(T)`. Ad esempio, l'associazione di modelli verrà impostato un parametro `int id` su 0. Si consideri usando la convalida del modello o un tipo nullable anziché basarsi sui valori predefiniti.
+
+Se l'associazione non riesce, MVC genera un errore. Ogni azione che accetta l'input dell'utente deve controllare il `ModelState.IsValid` proprietà.
+
+Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors` proprietà. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid` .
 
 Esistono inoltre alcuni tipi di dati speciale che deve prendere in considerazione quando si esegue l'associazione del modello MVC:
 

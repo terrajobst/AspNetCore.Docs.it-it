@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: ff0a1a34ee6b025be6312a81f1a0bcdd07026adb
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 46b92a1cab6fb2cd06eff44feb6a55788fca5c2a
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inserimento di dipendenze controller
 
@@ -89,7 +89,7 @@ In alcuni casi non è necessario un servizio per più di un'azione all'interno d
 
 ## <a name="accessing-settings-from-a-controller"></a>Accesso alle impostazioni da un Controller
 
-Accesso alle impostazioni dell'applicazione o di configurazione all'interno di un controller è un modello comune. Questo tipo di accesso deve utilizzare il modello di opzioni descritto [configurazione](../../fundamentals/configuration.md). È in genere consigliabile non richiedere impostazioni direttamente dal controller di mediante l'inserimento di dipendenza. Un approccio migliore consiste nella richiesta un `IOptions<T>` istanza, in cui `T` è la classe di configurazione è necessario.
+Accesso alle impostazioni dell'applicazione o di configurazione all'interno di un controller è un modello comune. Questo tipo di accesso deve utilizzare il modello di opzioni descritto [configurazione](xref:fundamentals/configuration/index). È in genere consigliabile non richiedere impostazioni direttamente dal controller di mediante l'inserimento di dipendenza. Un approccio migliore consiste nella richiesta un `IOptions<T>` istanza, in cui `T` è la classe di configurazione è necessario.
 
 Per utilizzare il modello di opzioni, è necessario creare una classe che rappresenta le opzioni, ad esempio questo:
 
@@ -100,7 +100,7 @@ Per utilizzare il modello di opzioni, è necessario creare una classe che rappre
 [!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
-> Nell'elenco precedente, è in fase di configurazione dell'applicazione per leggere le impostazioni da un file in formato JSON. È anche possibile configurare le impostazioni interamente nel codice, come illustrato nel codice commentato precedente. Vedere [configurazione](../../fundamentals/configuration.md) per ulteriori opzioni di configurazione.
+> Nell'elenco precedente, è in fase di configurazione dell'applicazione per leggere le impostazioni da un file in formato JSON. È anche possibile configurare le impostazioni interamente nel codice, come illustrato nel codice commentato precedente. Vedere [configurazione](xref:fundamentals/configuration/index) per ulteriori opzioni di configurazione.
 
 Dopo aver specificato un oggetto fortemente tipizzato configurazione (in questo caso, `SampleWebSettings`) e aggiungerlo alla raccolta di servizi, è possibile richiedere qualsiasi metodo di azione o Controller richiedendo un'istanza di `IOptions<T>` (in questo caso, `IOptions<SampleWebSettings>`) . Il codice seguente viene illustrato come uno richiede le impostazioni da un controller:
 

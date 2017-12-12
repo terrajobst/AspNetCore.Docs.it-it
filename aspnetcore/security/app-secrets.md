@@ -10,23 +10,23 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 280819a6a0afb72311f0d50f7d3b83a942e9fcc3
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app durante lo sviluppo di ASP.NET Core
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), e [Scott Addie](https://scottaddie.com) 
 
-Questo documento illustra come è possibile utilizzare lo strumento di gestione di segreto nello sviluppo per proteggere le informazioni riservate fuori dal codice. L'aspetto più importante è evitare di archiviare le password o altri dati sensibili nel codice sorgente e non è consigliabile utilizzare i segreti di produzione in modalità di sviluppo e test. È possibile utilizzare invece il [configurazione](../fundamentals/configuration.md) sistema per la lettura di questi valori dalle variabili di ambiente o strumento da valori archiviati utilizzando la chiave privata di gestione. Lo strumento di gestione di segreto consente di impedire che i dati sensibili viene archiviato nel controllo del codice sorgente. Il [configurazione](../fundamentals/configuration.md) sistema può leggere i segreti memorizzati con lo strumento di gestione di segreto descritto in questo articolo.
+Questo documento illustra come è possibile utilizzare lo strumento di gestione di segreto nello sviluppo per proteggere le informazioni riservate fuori dal codice. L'aspetto più importante è evitare di archiviare le password o altri dati sensibili nel codice sorgente e non è consigliabile utilizzare i segreti di produzione in modalità di sviluppo e test. È possibile utilizzare invece il [configurazione](xref:fundamentals/configuration/index) sistema per la lettura di questi valori dalle variabili di ambiente o strumento da valori archiviati utilizzando la chiave privata di gestione. Lo strumento di gestione di segreto consente di impedire che i dati sensibili viene archiviato nel controllo del codice sorgente. Il [configurazione](xref:fundamentals/configuration/index) sistema può leggere i segreti memorizzati con lo strumento di gestione di segreto descritto in questo articolo.
 
 Lo strumento di gestione segreto viene utilizzato solo in fase di sviluppo. È possibile proteggere i segreti di test e di produzione Azure con il [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) provider di configurazione. Vedere [provider di configurazione insieme credenziali chiavi Azure](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration) per ulteriori informazioni.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-Per evitare di archiviare i segreti dell'app nel codice o nel file di configurazione locali, archiviare i segreti in variabili di ambiente. È possibile configurare il [configurazione](../fundamentals/configuration.md) framework per leggere i valori dalle variabili di ambiente chiamando `AddEnvironmentVariables`. È quindi possibile utilizzare le variabili di ambiente per eseguire l'override dei valori di configurazione per tutte le origini di configurazione specificato in precedenza.
+Per evitare di archiviare i segreti dell'app nel codice o nel file di configurazione locali, archiviare i segreti in variabili di ambiente. È possibile configurare il [configurazione](xref:fundamentals/configuration/index) framework per leggere i valori dalle variabili di ambiente chiamando `AddEnvironmentVariables`. È quindi possibile utilizzare le variabili di ambiente per eseguire l'override dei valori di configurazione per tutte le origini di configurazione specificato in precedenza.
 
 Ad esempio, se si crea una nuova app web ASP.NET Core con singoli account utente, aggiungerà una stringa di connessione predefinito per il *appSettings. JSON* file nel progetto con la chiave `DefaultConnection`. La stringa di connessione predefinito sia configurato per usare LocalDB, che viene eseguito in modalità utente e non richiede una password. Quando si distribuisce un'applicazione a un server di prova o di produzione, è possibile eseguire l'override di `DefaultConnection` valore della chiave con un'impostazione di variabili di ambiente che contiene la stringa di connessione (potenzialmente con credenziali sensibili) per un database di test o produzione Server.
 
@@ -127,4 +127,4 @@ Il valore di `userSecretsId` proviene dal valore specificato in *csproj* file.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Configurazione](../fundamentals/configuration.md)
+* [Configurazione](xref:fundamentals/configuration/index)

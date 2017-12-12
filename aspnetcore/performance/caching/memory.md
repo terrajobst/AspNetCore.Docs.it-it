@@ -1,28 +1,26 @@
 ---
 title: Memorizzazione nella cache in ASP.NET Core
 author: rick-anderson
-description: Viene illustrato come memorizzare nella cache di dati in memoria in ASP.NET Core.
-keywords: ASP.NET di base, le prestazioni in memoria, cache,
+description: Imparare a memorizzare nella cache i dati in memoria in ASP.NET Core.
 ms.author: riande
 manager: wpickett
 ms.date: 12/14/2016
 ms.topic: article
-ms.assetid: 819511cf-d33e-410a-b5a9-bef7fa64d2f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce865427b6ca44c76888908fdeea9cd45c881c4
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core
+# <a name="in-memory-caching-in-aspnet-core"></a>Memorizzazione nella cache in ASP.NET Core
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), e [Steve Smith](https://ardalis.com/)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Nozioni fondamentali sulla memorizzazione nella cache
 
@@ -89,7 +87,7 @@ L'esempio seguente viene illustrato come la scadenza di una voce della cache se 
 
 Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuovere come gruppo. Con il `using` modello nel codice precedente, le voci della cache creato all'interno di `using` blocco erediterà le impostazioni di scadenza e trigger.
 
-### <a name="additional-notes"></a>Note aggiuntive
+## <a name="additional-notes"></a>Note aggiuntive
 
 - Quando si usa un callback di ricompilare un elemento della cache:
 
@@ -98,7 +96,11 @@ Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuo
 
 - Quando una voce di cache viene utilizzata per creare un altro, l'elemento figlio copia i token di scadenza della voce padre e le impostazioni di scadenza basati sul tempo. L'elemento figlio non è scaduto per la rimozione manuale o l'aggiornamento della voce padre.
 
-### <a name="other-resources"></a>Altre risorse
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Uso di una cache distribuita](distributed.md)
-* [Middleware di memorizzazione nella cache di risposta](middleware.md)
+* [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
+* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
+* [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
+* [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
+* [Helper di Tag della cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

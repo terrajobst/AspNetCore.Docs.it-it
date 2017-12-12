@@ -12,21 +12,21 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 8d12960708f9d9bf2bc7c5997f82096d93087d13
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introduzione a Dependency Injection in ASP.NET Core
 
-<a name=fundamentals-dependency-injection></a>
+<a name="fundamentals-dependency-injection"></a>
 
 Da [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core è progettato da zero per supportare e sfruttare l'inserimento di dipendenze. Applicazioni ASP.NET Core possono sfruttare servizi framework incorporato, poiché questi vengono inseriti in metodi della classe di avvio, e i servizi delle applicazioni possono essere configurati per l'attacco intrusivo nel codice anche. Il contenitore dei servizi predefiniti fornito da ASP.NET Core fornisce una funzionalità minima impostato e non è destinata a sostituire altri contenitori.
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-dependency-injection"></a>Che cos'è l'inserimento di dipendenze?
 
@@ -143,7 +143,7 @@ Contesti di Entity Framework devono essere aggiunti al contenitore di servizi us
 >[!WARNING]
 > Risolve il pericolo principale per assicurarsi di aver un `Scoped` servizio da un singleton. È probabile che in questo caso che il servizio sarà di stato non corretto durante l'elaborazione delle richieste successive.
 
-Servizi che hanno dipendenze devono registrarli nel contenitore. Se il costruttore di un servizio richiede una primitiva, ad esempio un `string`, si possono essere inserita utilizzando il [modello e la configurazione delle opzioni](configuration.md).
+Servizi che hanno dipendenze devono registrarli nel contenitore. Se il costruttore di un servizio richiede una primitiva, ad esempio un `string`, si possono essere inserita utilizzando [configurazione](xref:fundamentals/configuration/index) e [modello opzioni](xref:fundamentals/configuration/options).
 
 ## <a name="service-lifetimes-and-registration-options"></a>La durata del servizio e le opzioni di registrazione
 
@@ -228,11 +228,16 @@ public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
 
+public interface ISomeService {}
+public class SomeServiceImplementation : ISomeService, IDisposable {}
+
+
 public void ConfigureServices(IServiceCollection services)
 {
     // container will create the instance(s) of these types and will dispose them
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
+    services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
     // container did not create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
@@ -296,7 +301,7 @@ Quando si lavora con inserimento di dipendenze, tenere presente quanto segue:
 
 * SEN è per gli oggetti che hanno dipendenze complesse. I controller, servizi, schede e repository sono tutti esempi di oggetti che possono essere aggiunti alla DI.
 
-* Evitare di archiviare i dati e la configurazione direttamente DI. Ad esempio, carrello acquisti un utente non deve in genere aggiunto per il contenitore dei servizi. Configurazione deve usare il [Opzioni modello](configuration.md#options-config-objects). Evitare in modo analogo, gli oggetti "contenitore di dati" esistenti solo per consentire l'accesso a un altro oggetto. È preferibile richiedere l'elemento effettivo necessaria tramite DI, se possibile.
+* Evitare di archiviare i dati e la configurazione direttamente DI. Ad esempio, carrello acquisti un utente non deve in genere aggiunto per il contenitore dei servizi. Configurazione deve usare il [modello opzioni](xref:fundamentals/configuration/options). Evitare in modo analogo, gli oggetti "contenitore di dati" esistenti solo per consentire l'accesso a un altro oggetto. È preferibile richiedere l'elemento effettivo necessaria tramite DI, se possibile.
 
 * Evitare l'accesso ai servizi statico.
 

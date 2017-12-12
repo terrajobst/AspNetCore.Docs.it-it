@@ -1,8 +1,8 @@
 ---
 title: Intestazioni di contesto
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento descrive i dettagli di implementazione delle intestazioni di contesto protezione dati ASP.NET Core.
+keywords: ASP.NET Core, protezione dei dati, le intestazioni di contesto
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: a47d2f91e6764bf6760ea559f1e2753e966753e3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: eb8e4c9ad67d3046648aea1b45f4a675b41b3ec0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="context-headers"></a>Intestazioni di contesto
 
-<a name=data-protection-implementation-context-headers></a>
+<a name="data-protection-implementation-context-headers"></a>
 
 ## <a name="background-and-theory"></a>Sfondo e la teoria
 
@@ -33,7 +33,7 @@ Questo concetto di sicuro PRPs e PRFs è usare per creare un'intestazione del co
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>La crittografia in modalità CBC + autenticazione HMAC
 
-<a name=data-protection-implementation-context-headers-cbc-components></a>
+<a name="data-protection-implementation-context-headers-cbc-components"></a>
 
 L'intestazione del contesto è costituito dai componenti seguenti:
 
@@ -51,7 +51,7 @@ L'intestazione del contesto è costituito dai componenti seguenti:
 
 * MAC (K_H, ""), che è l'output dell'algoritmo HMAC dato un input di stringa vuota. La costruzione di K_H è descritta di seguito.
 
-In teoria è possibile passare tutti zero vettori per K_E e K_H. Tuttavia, si vuole evitare questa situazione in cui l'algoritmo sottostante verifica l'esistenza delle chiavi vulnerabili prima di eseguire le operazioni (in particolare DES e 3DES), che impedisce l'uso di un modello semplice o repeatable come un vettore tutti zero.
+Idealmente, è possibile passare tutti zero vettori per K_E e K_H. Tuttavia, si vuole evitare questa situazione in cui l'algoritmo sottostante verifica l'esistenza delle chiavi vulnerabili prima di eseguire le operazioni (in particolare DES e 3DES), che impedisce l'uso di un modello semplice o repeatable come un vettore tutti zero.
 
 È usare invece l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con una chiave di lunghezza zero, l'etichetta e contesto e HMACSHA512 come il PRF sottostante. Abbiamo derivare | K_E | + | K_H | byte di output, quindi scomporre il risultato in K_E e K_H autonomamente. Matematicamente, rappresentati come indicato di seguito.
 

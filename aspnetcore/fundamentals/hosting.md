@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 455b992dc10129278f8e23366aac9d8bcbf5594c
-ms.sourcegitcommit: ef9784dd7500f22fb98b3591ebd73d57d4f67544
+ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting in ASP.NET Core
 
-Da [Luke Latham](https://github.com/guardrex)
+Di [Luke Latham](https://github.com/guardrex)
 
-Le applicazioni ASP.NET Core configurare e avviare un *host*, che è responsabile della gestione di avvio e la durata delle app. Come minimo, l'host consente di configurare un server e una pipeline di elaborazione della richiesta.
+Le app ASP.NET Core configurano e avviano un *host*, che è responsabile della gestione dell'avvio e della durata delle app. Come minimo, l'host consente di configurare un server e una pipeline di elaborazione della richiesta.
 
 ## <a name="setting-up-a-host"></a>Impostazione di un host
 
@@ -40,12 +40,12 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
   * [Informazioni riservate dell'utente](xref:security/app-secrets) quando viene eseguita l'app `Development` ambiente.
   * Variabili di ambiente.
   * Argomenti della riga di comando.
-* Configura [registrazione](xref:fundamentals/logging) per l'output di console ed eseguire il debug con [filtri log](xref:fundamentals/logging#log-filtering) le regole specificate in una sezione di configurazione di registrazione di un *appSettings. JSON* o *appsettings. {Ambiente} JSON* file.
+* Configura [registrazione](xref:fundamentals/logging/index) per l'output di console ed eseguire il debug con [filtri log](xref:fundamentals/logging/index#log-filtering) le regole specificate in una sezione di configurazione di registrazione di un *appSettings. JSON* o *appsettings. {Ambiente} JSON* file.
 * Quando si esegue dietro IIS, consente [integrazione IIS](xref:publishing/iis) configurando il percorso di base e la porta server deve rimanere in attesa quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module). Il modulo Crea un proxy inverso tra IIS e Kestrel. Configura inoltre all'app di [acquisire gli errori di avvio](#capture-startup-errors). Per le opzioni predefinite IIS, vedere [IIS Opzioni sezione dell'Host ASP.NET Core in Windows con IIS](xref:publishing/iis#iis-options).
 
 Il *contenuto radice* determina in cui l'host esegue ricerche nei file di contenuto, ad esempio i file di visualizzazione MVC. La radice di contenuto predefinito è [GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory). Ciò comporta l'utilizzo di cartella radice del progetto web come radice del contenuto quando l'applicazione viene avviata dalla cartella radice (ad esempio, la chiamata [dotnet eseguire](/dotnet/core/tools/dotnet-run) dalla cartella del progetto). Questo è il valore predefinito utilizzato [Visual Studio](https://www.visualstudio.com/) e [dotnet nuovi modelli](/dotnet/core/tools/dotnet-new).
 
-Vedere [configurazione in ASP.NET Core](xref:fundamentals/configuration) per ulteriori informazioni sulla configurazione delle app.
+Vedere [configurazione in ASP.NET Core](xref:fundamentals/configuration/index) per ulteriori informazioni sulla configurazione delle app.
 
 > [!NOTE]
 > Come alternativa all'utilizzo statica `CreateDefaultBuilder` (metodo), creazione di un host da [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) è un approccio supportato con ASP.NET Core 2. x. Vedere la scheda di 1. x di ASP.NET Core per altre informazioni.
@@ -403,7 +403,7 @@ var host = new WebHostBuilder()
 
 ## <a name="overriding-configuration"></a>Si esegue l'override di configurazione
 
-Utilizzare [configurazione](configuration.md) per configurare l'host. Nell'esempio seguente, configurazione dell'host è specificato, facoltativamente, un *hosting.json* file. Qualsiasi configurazione caricata dal *hosting.json* file può essere sottoposto a override dagli argomenti della riga di comando. La configurazione generata (in `config`) viene usato per configurare l'host con `UseConfiguration`.
+Utilizzare [configurazione](xref:fundamentals/configuration/index) per configurare l'host. Nell'esempio seguente, configurazione dell'host è specificato, facoltativamente, un *hosting.json* file. Qualsiasi configurazione caricata dal *hosting.json* file può essere sottoposto a override dagli argomenti della riga di comando. La configurazione generata (in `config`) viene usato per configurare l'host con `UseConfiguration`.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

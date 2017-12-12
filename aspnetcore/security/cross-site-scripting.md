@@ -1,8 +1,8 @@
 ---
 title: Impedendo Cross-Site Scripting
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "Questo documento introduce Cross-Site Scripting (XSS) e le tecniche per risolvere questa vulnerabilità in un'applicazione ASP.NET Core."
+keywords: "Vulnerabilità di ASP.NET Core, XSS,"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: 1816977837efd82f374a03d9f776db21358e2850
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="preventing-cross-site-scripting"></a>Impedendo Cross-Site Scripting
 
-<a name=security-cross-site-scripting></a>
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Cross-Site Scripting (XSS) è una vulnerabilità di sicurezza che consente a un utente malintenzionato di inserire gli script lato client (in genere JavaScript) nelle pagine web. Quando altri utenti di caricare pagine interessate verranno eseguiti gli script di utenti malintenzionati, consentendo all'utente malintenzionato di rubare i cookie e token di sessione, modificare il contenuto della pagina web mediante modifica DOM o reindirizzare il browser a un'altra pagina. Vulnerabilità XSS si verificano in genere quando si accetta l'input dell'utente e lo restituisce in una pagina senza convalida, la codifica o caratteri di escape un'applicazione.
 
@@ -183,7 +183,7 @@ Dopo la codifica di encodedValue variabile conterrà `%22Quoted%20Value%20with%2
 >[!WARNING]
 > Non utilizzare come parte di un percorso URL di input non attendibile. Passare sempre l'input non attendibile come valore di stringa di query.
 
-<a name=security-cross-site-scripting-customization></a>
+<a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>I codificatori di personalizzazione
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efbc68e898cadd06d61fa69914fe08f3a12ba802
-ms.sourcegitcommit: 8b5733f1cd5d2c2b6d432bf82fcd4be2d2d6b2a3
+ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -64,7 +64,7 @@ Potrebbero essere presenti istanze in cui è necessario più funzionalità rispe
 
 ## <a name="notes-on-the-use-of-the-required-attribute"></a>Note sull'utilizzo dell'attributo obbligatorio
 
-Non nullable [i tipi di valore](/dotnet/csharp/language-reference/keywords/value-types) (ad esempio `decimal`, `int`, `float`, e `DateTime`) sono intrinsecamente necessari e non è necessaria la `Required` attributo. L'applicazione non esegue alcun controllo di convalida sul lato server per i tipi non contrassegnati `Required`.
+I [tipi valore](/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`. L'applicazione non esegue alcun controllo di convalida sul lato server per i tipi non contrassegnati `Required`.
 
 Associazione di modelli MVC, che non è attualmente preoccupata per convalida e gli attributi di convalida, rifiuta l'invio di un campo di form che contiene un valore mancante o spazi vuoti per un tipo non nullable. In assenza di un `BindRequired` attributo sulla proprietà di destinazione, l'associazione di modelli ignora i dati mancanti per i tipi che non ammette valori null, in cui il campo del form è assente da dati del form in ingresso.
 
@@ -102,13 +102,13 @@ Gli attributi di convalida di lavoro per la maggior parte delle esigenze di conv
 
 Nell'esempio seguente indica che gli utenti non possono impostare il genere una regola business *classico* per un filmato rilasciato dopo 1960. Il `[ClassicMovie]` attributo controlla per primo il genere e se è un classico, quindi controlla la data di rilascio per verificare che è successiva a quella 1960. Se viene rilasciato dopo 1960, la convalida non riesce. L'attributo accetta un parametro integer che rappresenta l'anno che è possibile utilizzare per convalidare i dati. È possibile acquisire il valore del parametro nel costruttore dell'attributo, come illustrato di seguito:
 
-[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
+[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
 
 Il `movie` variabile sopra rappresenta un `Movie` oggetto che contiene i dati per convalidare l'invio del modulo. In questo caso, il codice di convalida controlla la data e un paese di `IsValid` metodo il `ClassicMovieAttribute` classe in base alle regole. Dopo la convalida `IsValid` restituisce un `ValidationResult.Success` codice, e quando la convalida non riesce, un `ValidationResult` con un messaggio di errore. Quando un utente modifica il `Genre` campo e invia il form, il `IsValid` metodo il `ClassicMovieAttribute` verificherà se il film sia un classico. Ad esempio un attributo predefinito, applicare il `ClassicMovieAttribute` a una proprietà, ad esempio `ReleaseDate` per garantire che convalida viene eseguita, come illustrato nell'esempio di codice precedente. Poiché l'esempio funziona solo con `Movie` tipi, un'opzione migliore consiste nell'utilizzare `IValidatableObject` come illustrato nel paragrafo seguente.
 
 In alternativa, questo codice stesso può essere inserito nel modello mediante l'implementazione di `Validate` metodo il `IValidatableObject` interfaccia. Mentre gli attributi di convalida personalizzata funziona anche per la convalida delle proprietà singole, implementazione `IValidatableObject` può essere utilizzato per implementare la convalida a livello di classe come illustrato di seguito.
 
-[!code-csharp[Main](validation/sample/MovieIValidatable.cs?range=33-41)]
+[!code-csharp[Main](validation/sample/MovieIValidatable.cs?range=32-40)]
 
 ## <a name="client-side-validation"></a>Convalida lato client
 
@@ -120,11 +120,11 @@ La convalida lato client è una maggiore praticità per gli utenti. Consente di 
 
 [!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-Per convalidare i dati e visualizzare eventuali messaggi di errore utilizzando JavaScript, MVC Usa attributi di convalida oltre ai metadati del tipo di proprietà del modello. Quando si utilizza MVC per il rendering degli elementi di formato da un modello utilizzando [gli helper di Tag](xref:mvc/views/tag-helpers/intro) o [helper HTML](xref:mvc/views/overview) verranno aggiunti HTML 5 [attributi dati](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) negli elementi del form che devono essere convalidate, come di seguito riportato. MVC genera il `data-` gli attributi per gli attributi incorporati e personalizzati. È possibile visualizzare gli errori di convalida sul client utilizzando gli helper di tag rilevanti, come illustrato di seguito:
+Il [jQuery non intrusiva convalida](https://github.com/aspnet/jquery-validation-unobtrusive) script è una libreria di front-end Microsoft personalizzata che si basa sulla famosa [convalida jQuery](https://jqueryvalidation.org/) plug-in. Senza jQuery non intrusiva convalida, è necessario codice la stessa logica di convalida in due posizioni: una volta negli attributi di convalida sul lato server nelle proprietà del modello, quindi nuovamente in script sul lato client (gli esempi per jQuery convalida [ `validate()` ](https://jqueryvalidation.org/validate/) metodo mostra come complesso questo potrebbe diventare). Invece di MVC [gli helper di Tag](xref:mvc/views/tag-helpers/intro) e [helper HTML](xref:mvc/views/overview) sono in grado di utilizzare gli attributi di convalida e metadati dalle proprietà dei modelli per eseguire il rendering HTML 5 [attributi dati](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) in gli elementi di formato che devono essere convalidate. MVC genera il `data-` gli attributi per gli attributi incorporati e personalizzati. jQuery non intrusiva convalida quindi analizzata thes `data-` attributi e passa la logica di convalida, in modo efficace "copia" la logica di convalida sul lato server al client jQuery. È possibile visualizzare gli errori di convalida sul client utilizzando gli helper di tag rilevanti, come illustrato di seguito:
 
 [!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che il `data-` attributi nel codice HTML di output corrispondono agli attributi di convalida per il `ReleaseDate` proprietà. Il `data-val-required` attributo seguente contiene un messaggio di errore da visualizzare se l'utente non compila il campo Data di rilascio e consente di visualizzare che il messaggio di accompagnamento  **\<span >** elemento.
+Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che il `data-` attributi nel codice HTML di output corrispondono agli attributi di convalida per il `ReleaseDate` proprietà. Il `data-val-required` attributo seguente contiene un messaggio di errore da visualizzare se l'utente non compila il campo Data di rilascio. jQuery non intrusiva convalida tale valore viene passato per la convalida jQuery [ `required()` ](https://jqueryvalidation.org/required-method/) (metodo), che consente di visualizzare il messaggio di accompagnamento  **\<span >** elemento.
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -145,9 +145,53 @@ Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che i
 </form>
 ```
 
-La convalida lato client impedisce l'invio fino a quando il form è valido. Pulsante Invia esegue JavaScript che invia il form o Visualizza messaggi di errore.
+Di conseguenza, la convalida lato client impedisce l'invio fino a quando il form è valido. Pulsante Invia esegue JavaScript che invia il form o Visualizza messaggi di errore.
 
 MVC determina i valori di attributo di tipo in base al tipo di dati .NET di una proprietà, probabilmente sottoposto a override utilizzando `[DataType]` attributi. La base `[DataType]` attributo non esegue alcuna convalida reale lato server. Browser scegliere i propri messaggi di errore e visualizzare gli errori, ma vogliono, tuttavia il pacchetto non intrusivo convalida jQuery è possibile ignorare i messaggi e visualizzarli in modo coerente con altri utenti. Questo errore si verifica più ovviamente quando gli utenti applicare `[DataType]` sottoclassi, ad esempio `[EmailAddress]`.
+
+### <a name="adding-validation-to-dynamic-forms"></a>Aggiunta della convalida di moduli dinamici:
+
+Poiché jQuery non intrusiva convalida passa la logica di convalida e i parametri di convalida jQuery al primo caricamento della pagina, form generato in modo dinamico non assumerà automaticamente la convalida. In alternativa, è necessario indicare jQuery non intrusiva convalida per analizzare il modulo dinamico immediatamente dopo averlo creato. Ad esempio, il codice riportato di seguito viene illustrato come è possibile impostare la convalida lato client in un form aggiunto tramite AJAX.
+
+```js
+$.get({
+    url: "https://url/that/returns/a/form",
+    dataType: "html",
+    error: function(jqXHR, textStatus, errorThrown) {
+        alert(textStatus + ": Could not add form. " + errorThrown);
+    },
+    success: function(newFormHTML) {
+        var container = document.getElementById("form-container");
+        container.insertAdjacentHTML("beforeend", newFormHTML);
+        var forms = container.getElementsByTagName("form");
+        var newForm = forms[forms.length - 1];
+        $.validator.unobtrusive.parse(newForm);
+    }
+})
+```
+
+Il `$.validator.unobtrusive.parse()` metodo accetta un selettore di jQuery per un argomento. Questo metodo indica jQuery non intrusiva convalida per analizzare il `data-` gli attributi dei moduli all'interno di tale tipo di selettore. I valori di questi attributi vengono quindi passati per il plug-in di convalida jQuery in modo che il modulo presenta le regole di convalida sul lato client desiderato.
+
+### <a name="adding-validation-to-dynamic-controls"></a>Aggiunta della convalida per i controlli dinamici:
+
+È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non verrà aggiornata.  In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
+
+```js
+$.get({
+    url: "https://url/that/returns/a/control",
+    dataType: "html",
+    error: function(jqXHR, textStatus, errorThrown) {
+        alert(textStatus + ": Could not add form. " + errorThrown);
+    },
+    success: function(newInputHTML) {
+        var form = document.getElementById("my-form");
+        form.insertAdjacentHTML("beforeend", newInputHTML);
+        form.removeData("validator")    // Added by the raw jQuery Validate
+            .removeData("unobtrusiveValidation");   // Added by jQuery Unobtrusive Validation
+        $.validator.unobtrusive.parse(form);
+    }
+})
+```
 
 ## <a name="iclientmodelvalidator"></a>IClientModelValidator
 
@@ -176,12 +220,40 @@ JQuery dispone ora le informazioni per eseguire la convalida personalizzata di J
 
 La convalida remota è una caratteristica fondamentale da utilizzare quando è necessario convalidare i dati nel client rispetto ai dati nel server. Ad esempio, l'app potrebbe essere necessario verificare se un nome utente o di posta elettronica è già in uso e deve eseguire la query una grande quantità di dati a tale scopo. Download di grandi set di dati per la convalida di uno o alcuni campi utilizza troppe risorse. Può anche esporre informazioni riservate. In alternativa è possibile effettuare una richiesta di andata e ritorno per convalidare un campo.
 
-È possibile implementare la convalida remota in un processo in due fasi. In primo luogo, è necessario annotare il modello con il `[Remote]` attributo. Il `[Remote]` attributo accetta più overload, è possibile utilizzare per indirizzare JavaScript sul lato client per il codice appropriato da chiamare. Nell'esempio punta al `VerifyEmail` il metodo di azione del `Users` controller.
+È possibile implementare la convalida remota in un processo in due fasi. In primo luogo, è necessario annotare il modello con il `[Remote]` attributo. Il `[Remote]` attributo accetta più overload, è possibile utilizzare per indirizzare JavaScript sul lato client per il codice appropriato da chiamare. Nell'esempio seguente fa riferimento al `VerifyEmail` il metodo di azione del `Users` controller.
 
-[!code-csharp[Main](validation/sample/User.cs?range=5-9)]
+[!code-csharp[Main](validation/sample/User.cs?range=7-8)]
 
-Il secondo passaggio è l'inserimento di codice di convalida nel metodo di azione corrispondente come definito nel `[Remote]` attributo. Restituisce un `JsonResult` che sul lato client consente di continuare o sospendere e visualizzare un errore, se necessario.
+Il secondo passaggio è l'inserimento di codice di convalida nel metodo di azione corrispondente come definito nel `[Remote]` attributo. Secondo la convalida jQuery [ `remote()` ](https://jqueryvalidation.org/remote-method/) documentazione relativa al metodo:
 
-[!code-none[Main](validation/sample/UsersController.cs?range=19-28)]
+> La risposta di serverside deve essere una stringa JSON che deve essere `"true"` per elementi validi e può essere `"false"`, `undefined`, o `null` per elementi non validi, utilizzando il messaggio di errore predefinito. Se la risposta serverside è una stringa, ad esempio. `"That name is already taken, try peter123 instead"`, questa stringa verrà visualizzata come un messaggio di errore personalizzato al posto del valore predefinito.
 
-Ora quando gli utenti immettono un messaggio di posta elettronica, JavaScript nella visualizzazione effettua una chiamata remota per vedere se è stato eseguito il messaggio di posta elettronica e in tal caso, viene visualizzato il messaggio di errore. In caso contrario, l'utente può inviare il modulo come di consueto.
+La definizione di `VerifyEmail()` metodo segue queste regole, come illustrato di seguito. Restituisce un errore di convalida del messaggio se non viene eseguita, il messaggio di posta elettronica o `true` se il messaggio di posta elettronica è gratuito e include il risultato in un `JsonResult` oggetto. Sul lato client può quindi utilizzare il valore restituito per continuare o visualizzare l'errore, se necessario.
+
+[!code-csharp[Main](validation/sample/UsersController.cs?range=19-28)]
+
+Quando gli utenti immettono un messaggio di posta elettronica, JavaScript nella visualizzazione diventerà una chiamata remota per verificare se tale messaggio di posta elettronica è stato eseguito e, in caso affermativo, viene visualizzato il messaggio di errore. In caso contrario, l'utente può inviare il modulo come di consueto.
+
+Il `AdditionalFields` proprietà del `[Remote]` attributo è utile per la convalida delle combinazioni di campi sui dati nel server.  Ad esempio, se il `User` modello precedente ha due proprietà aggiuntive chiamata `FirstName` e `LastName`, si consiglia di verificare che nessun utente esistente dispongano di tale coppia di nomi.  Per definire le proprietà di nuovo, come illustrato nel codice seguente:
+
+[!code-csharp[Main](validation/sample/User.cs?range=10-13)]
+
+`AdditionalFields`avrebbero potuto essere impostate in modo esplicito per le stringhe `"FirstName"` e `"LastName"`, ma tramite il [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operatore questo semplifica il refactoring in un secondo momento.  Il metodo di azione per eseguire la convalida deve quindi accetta due argomenti, uno per il valore di `FirstName` e uno per il valore di `LastName`.
+
+
+[!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
+
+A questo punto quando gli utenti immettere un nome e cognome, JavaScript:
+
+* Effettua una chiamata remota per vedere se è stato eseguito tale coppia di nomi.
+* Se la coppia è stata eseguita, viene visualizzato un messaggio di errore. 
+* Se non è stato eseguito, l'utente può inviare il modulo.
+
+Se si desidera convalidare uno o più campi aggiuntivi con il `[Remote]` attributo, fornito come un elenco delimitato da virgole.  Ad esempio, per aggiungere un `MiddleName` impostata per il modello, il `[Remote]` attributo come illustrato nel codice seguente:
+
+```cs
+[Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
+public string MiddleName { get; set; }
+```
+
+`AdditionalFields`, come tutti gli argomenti di attributo, deve essere un'espressione costante.  Pertanto, non è necessario utilizzare un [interpolati stringa](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o chiamare [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) inizializzare `AdditionalFields`. Per ogni campo aggiuntivo che si aggiunge al `[Remote]` attributo, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.

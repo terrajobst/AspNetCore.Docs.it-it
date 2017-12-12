@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core. 
 
@@ -169,11 +169,11 @@ Middleware aggiunto alla pipeline prima che il ramo verrà richiamato in tutte l
 
 Alcuni gestori e i moduli sono disponibili opzioni di configurazione che vengono archiviate in *Web. config*. Tuttavia, in ASP.NET Core viene utilizzato un nuovo modello di configurazione al posto di *Web. config*.
 
-Il nuovo [sistema di configurazione](../fundamentals/configuration.md) fornisce le seguenti opzioni per risolvere il problema:
+Il nuovo [sistema di configurazione](xref:fundamentals/configuration/index) fornisce le seguenti opzioni per risolvere il problema:
 
 * Inserire direttamente le opzioni in middleware, come illustrato nel [nella sezione successiva](#loading-middleware-options-through-direct-injection).
 
-* Utilizzare il [modello opzioni](../fundamentals/configuration.md#options-config-objects):
+* Utilizzare il [modello opzioni](xref:fundamentals/configuration/options):
 
 1.  Creare una classe che contenga le opzioni del middleware, ad esempio:
 
@@ -384,7 +384,7 @@ Il `SetCookies` metodo di callback avrà un aspetto simile al seguente:
 
 * [Panoramica di moduli HTTP e i gestori HTTP](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
-* [Configurazione](../fundamentals/configuration.md)
+* [Configurazione](xref:fundamentals/configuration/index)
 
 * [Avvio dell'applicazione](../fundamentals/startup.md)
 

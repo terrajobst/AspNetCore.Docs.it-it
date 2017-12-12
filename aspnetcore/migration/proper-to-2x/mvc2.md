@@ -1,8 +1,8 @@
 ---
 title: La migrazione da ASP.NET per ASP.NET 2.0 Core
 author: isaac2004
-description: In questo documento fornisce materiale sussidiario per migrazione ASP.NET MVC o Web API delle applicazioni esistenti per ASP.NET 2.0 Core.
-keywords: La migrazione di componenti di base, MVC ASP.NET
+description: "Questo documento di riferimento contiene indicazioni sulla migrazione di applicazioni già esistenti in ASP.NET MVC o Web API ad ASP.NET Core 2.0."
+keywords: ASP.NET Core, MVC, migrazione
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/27/2017
@@ -11,28 +11,28 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc2
-ms.openlocfilehash: e0691b276b63ee12d3163ac48d1392696fb97aa6
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8005d23ad00774e488eecc9771f36a244a051126
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>La migrazione da ASP.NET per ASP.NET 2.0 Core
 
-Da [Isaac Levin](https://isaaclevin.com)
+Di [Isaac Levin](https://isaaclevin.com)
 
-In questo articolo viene utilizzato come una Guida di riferimento per la migrazione delle applicazioni ASP.NET ad ASP.NET Core 2.0.
+Questo articolo offre una guida di riferimento per la migrazione delle applicazioni ASP.NET ad ASP.NET Core 2.0.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [.NET core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
 
 ## <a name="target-frameworks"></a>Framework di destinazione
-Progetti di componenti di base di ASP.NET 2.0 offrono agli sviluppatori la flessibilità di destinazione di .NET Core, .NET Framework o entrambi. Vedere [scelta tra .NET Core e .NET Framework per applicazioni server](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) per determinare quali framework di destinazione è più appropriato.
+I progetti di ASP.NET Core 2.0 offrono agli sviluppatori la flessibilità necessaria per scegliere .NET Core, .NET Framework o entrambi come destinazione. Vedere [Scelta di .NET Core o .NET Framework per le app server](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) per determinare quale framework di destinazione è più appropriato.
 
-Quando la destinazione è .NET Framework, è necessario fare riferimento a singoli pacchetti NuGet progetti.
+Quando la destinazione è .NET Framework, i progetti devono fare riferimento a singoli pacchetti NuGet.
 
-Destinato a .NET Core consente di eliminare numerosi riferimenti pacchetto esplicita, grazie ai componenti di base di ASP.NET 2.0 [metapackage](xref:fundamentals/metapackage). Installare il `Microsoft.AspNetCore.All` metapackage nel progetto:
+La scelta di .NET Core come destinazione consente di eliminare numerosi riferimenti espliciti ai pacchetti, grazie al [metapacchetto](xref:fundamentals/metapackage) di ASP.NET 2.0 Core. Installare il metapacchetto `Microsoft.AspNetCore.All` nel progetto:
 
 ```xml
 <ItemGroup>
@@ -40,114 +40,114 @@ Destinato a .NET Core consente di eliminare numerosi riferimenti pacchetto espli
 </ItemGroup>
 ```
 
-Quando viene utilizzato il metapackage, nessun pacchetto a cui fa riferimento il metapackage viene distribuito con l'app. L'archivio di Runtime .NET Core include queste risorse, e sono precompilati per migliorare le prestazioni. Vedere [metapackage Microsoft.AspNetCore.All per ASP.NET Core 2. x](xref:fundamentals/metapackage) per ulteriori dettagli.
+Quando si usa il metapacchetto, con l'app non viene distribuito alcun pacchetto a cui si fa riferimento nel metapacchetto. L'archivio di runtime di .NET Core include questi asset, che vengono precompilati per migliorare le prestazioni. Vedere le informazioni sul [metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2. x](xref:fundamentals/metapackage) per maggiori dettagli.
 
-## <a name="project-structure-differences"></a>Differenze di struttura di progetto
-Il *csproj* formato di file è stato semplificato in ASP.NET Core. Alcune modifiche importanti includono:
-- Esplicita inclusione di file non è necessaria affinché possano essere considerate parte del progetto. Questo riduce il rischio di conflitti di unione XML quando si lavora in team di grandi dimensioni.
-- Non sono presenti riferimenti basato su GUID per altri progetti, che migliora la leggibilità di file.
+## <a name="project-structure-differences"></a>Differenze di struttura del progetto
+Il formato di file *CSPROJ* è stato semplificato in ASP.NET Core. Alcune modifiche importanti includono:
+- L'inclusione esplicita dei file non è necessaria affinché i file vengano considerati parte del progetto. In questo modo si riduce il rischio di conflitti di merge XML quando si lavora con team di grandi dimensioni.
+- Non sono presenti riferimenti basati su GUID ad altri progetti e questo migliora la leggibilità dei file.
 - Il file può essere modificato senza scaricarlo in Visual Studio:
 
-    ![Modificare l'opzione del menu contesto CSPROJ in Visual Studio 2017](_static/EditProjectVs2017.png)
+    ![Modificare l'opzione CSPROJ del menu di scelta rapida in Visual Studio 2017](_static/EditProjectVs2017.png)
 
-## <a name="globalasax-file-replacement"></a>Sostituzione di file Global. asax
-È stato introdotto un nuovo meccanismo per l'avvio di un'applicazione ASP.NET Core. Il punto di ingresso per le applicazioni ASP.NET è il *Global. asax* file. Attività quali la configurazione delle route e le registrazioni di area e di filtro vengono gestite nel *Global. asax* file.
+## <a name="globalasax-file-replacement"></a>Sostituzione di file Global.asax
+In ASP.NET Core è stato introdotto un nuovo meccanismo per l'avvio automatico delle app. Il punto di ingresso per le applicazioni ASP.NET è il file *Global.asax*. Attività quali la configurazione della route e le registrazioni di area e filtro vengono gestite nel file *Global.asax*.
 
-[!code-csharp[Principale](samples/globalasax-sample.cs)]
+[!code-csharp[Main](samples/globalasax-sample.cs)]
 
-Collegato a questo approccio l'applicazione e il server a cui è stato distribuito in modo che interferisce con l'implementazione. Nel tentativo di separare, [OWIN](http://owin.org/) è stata introdotta per fornire un modo più semplice da utilizzare insieme più Framework. OWIN fornisce una pipeline per aggiungere solo i moduli necessari. L'ambiente host ha un [avvio](xref:fundamentals/startup) funzione per configurare servizi e delle pipeline delle richieste dell'applicazione. `Startup`Registra un set di middleware con l'applicazione. Per ogni richiesta, l'applicazione chiama ognuno dei componenti middleware con il puntatore head di un elenco collegato a un set esistente di gestori. Ogni componente del middleware è possibile aggiungere uno o più gestori per la gestione della pipeline delle richieste. Questa operazione viene eseguita tramite la restituzione di un riferimento al gestore che è il nuovo inizio dell'elenco. Ogni gestore è responsabile per la memorizzazione e richiamare il gestore successivo nell'elenco. Il punto di ingresso a un'applicazione ASP.NET di base, è `Startup`, e non è una dipendenza *Global. asax*. Quando si utilizza OWIN con .NET Framework, è possibile utilizzare il seguente come una pipeline:
+Con questo approccio l'applicazione e il server a cui viene distribuita vengono accoppiati in un modo che interferisce con l'implementazione. Al fine di disaccoppiare gli elementi, è stata introdotta la funzionalità [OWIN](http://owin.org/) che offre un modo più semplice di usare più framework insieme. OWIN offre una pipeline per aggiungere solo i moduli necessari. L'ambiente host accetta una funzione di [avvio](xref:fundamentals/startup) per configurare i servizi e la pipeline delle richieste dell'applicazione. `Startup` registra un set di middleware con l'applicazione. Per ogni richiesta, l'applicazione chiama ognuno dei componenti middleware con il puntatore iniziale di un elenco collegato a un set esistente di gestori. Ogni componente middleware può aggiungere uno o più gestori alla pipeline di gestione delle richieste. Questa operazione viene eseguita restituendo un riferimento al gestore che rappresenta il nuovo inizio dell'elenco. Ogni gestore è responsabile della memorizzazione e della chiamata del gestore successivo nell'elenco. Con ASP.NET Core, il punto di ingresso a un'applicazione è `Startup` e non esiste più una dipendenza da *Global.asax*. Quando si usa OWIN con .NET Framework, usare una pipeline simile alla seguente:
 
-[!code-csharp[Principale](samples/webapi-owin.cs)]
+[!code-csharp[Main](samples/webapi-owin.cs)]
 
-Ciò consente di configurare le route predefinite e il valore predefinito XmlSerialization su Json. Aggiungere altro Middleware per questa pipeline in base alle esigenze (il caricamento di servizi, le impostazioni di configurazione, file statici, ecc.).
+Ciò consente di configurare le route predefinite e impostare come predefinito XmlSerialization per Json. Aggiungere altro middleware a questa pipeline in base alle esigenze, ad esempio caricamento di servizi, impostazioni di configurazione, file statici e così via.
 
-ASP.NET Core viene utilizzato un approccio simile, ma non si basi su OWIN per gestire la voce. Invece, che viene eseguita tramite il *Program.cs* `Main` metodo (simile alle applicazioni console) e `Startup` viene caricato tramite tale posizione.
+ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce. L'operazione viene invece eseguita usando il metodo *Program.cs* `Main` (simile alle applicazioni console) e `Startup` viene caricato da tale posizione.
 
-[!code-csharp[Principale](samples/program.cs)]
+[!code-csharp[Main](samples/program.cs)]
 
-`Startup`deve includere un `Configure` metodo. In `Configure`, aggiungere il middleware necessario per la pipeline. Nell'esempio seguente (dal modello sito web predefinito), i diversi metodi di estensione vengono utilizzati per configurare la pipeline con il supporto per:
+`Startup` deve includere un metodo `Configure`. In `Configure` aggiungere il middleware necessario alla pipeline. Nell'esempio seguente, estratto dal modello di sito Web predefinito, vengono usati vari metodi di estensione per configurare la pipeline con il supporto per:
 
 * [BrowserLink](http://vswebessentials.com/features/browserlink)
 * Pagine di errore
 * File statici
-* Componenti di base di ASP.NET MVC
+* ASP.NET Core MVC
 * Identità
 
-[!code-csharp[Principale](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[Main](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
 
-L'host e applicazione sono state separate, che fornisce la flessibilità di transizione a una piattaforma diversa in futuro.
+L'host e applicazione sono stati disaccoppiati e questo offre la possibilità di passare a una piattaforma diversa in futuro.
 
-**Nota:** per un riferimento più dettaglio di avvio ASP.NET di base e Middleware, vedere [avvio ASP.NET Core](xref:fundamentals/startup)
+**Nota:** per un riferimento più dettaglio all'avvio e al middleware di ASP.NET Core, vedere l'articolo sull'[avvio in ASP.NET Core](xref:fundamentals/startup)
 
 ## <a name="storing-configurations"></a>Archiviazione delle configurazioni
-ASP.NET supporta le impostazioni di archiviazione. Queste impostazioni vengono utilizzate, ad esempio, per supportare l'ambiente in cui sono state distribuite le applicazioni. È pratica comune per archiviare tutte le coppie chiave-valore personalizzate nel `<appSettings>` sezione la *Web. config* file:
+ASP.NET supporta le impostazioni di archiviazione. Tali impostazioni vengono usate, ad esempio, per supportare l'ambiente in cui vengono distribuite le applicazioni. Una prassi comune era archiviare tutte le coppie chiave-valore personalizzate nella sezione `<appSettings>` del file *Web.config*:
 
-[!code-xml[Principale](samples/webconfig-sample.xml)]
+[!code-xml[Main](samples/webconfig-sample.xml)]
 
-Le applicazioni leggono queste impostazioni utilizzando il `ConfigurationManager.AppSettings` insieme il `System.Configuration` dello spazio dei nomi:
+Le applicazioni leggono queste impostazioni usando la raccolta `ConfigurationManager.AppSettings` nello spazio dei nomi `System.Configuration`:
 
-[!code-csharp[Principale](samples/read-webconfig.cs)]
+[!code-csharp[Main](samples/read-webconfig.cs)]
 
-ASP.NET Core è possibile archiviare i dati di configurazione per l'applicazione in tutti i file e caricarli come parte di avvio automatico di middleware. Il file predefinito utilizzato nei modelli di progetto è *appSettings. JSON*:
+ASP.NET Core è in grado di archiviare i dati di configurazione per l'applicazione in tutti i file e di caricarli come parte dell'avvio automatico del middleware. Il file predefinito usato nei modelli di progetto è *appSettings.json*:
 
-[!code-json[Principale](samples/appsettings-sample.json)]
+[!code-json[Main](samples/appsettings-sample.json)]
 
-Caricare il file in un'istanza di `IConfiguration` all'interno dell'applicazione viene eseguita in *Startup.cs*:
+Il caricamento del file in un'istanza di `IConfiguration` all'interno dell'applicazione viene eseguito in *Startup.cs*:
 
-[!code-csharp[Principale](samples/startup-builder.cs)]
+[!code-csharp[Main](samples/startup-builder.cs)]
 
 L'app legge da `Configuration` per ottenere le impostazioni:
 
-[!code-csharp[Principale](samples/read-appsettings.cs)]
+[!code-csharp[Main](samples/read-appsettings.cs)]
 
-Sono disponibili estensioni di questo approccio per rendere più affidabile, ad esempio utilizzando il processo [Dependency Injection](xref:fundamentals/dependency-injection) (DI) per caricare un servizio con questi valori. L'approccio DI fornisce un set di fortemente tipizzata di oggetti di configurazione.
+Sono disponibili estensioni di questo approccio che aumentano l'efficacia del processo, ad esempio l'uso dell'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per caricare un servizio con questi valori. L'approccio con inserimento delle dipendenze offre un set fortemente tipizzato di oggetti di configurazione.
 
 ````csharp
 // Assume AppConfiguration is a class representing a strongly-typed version of AppConfiguration section
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**Nota:** per la documentazione più dettagliata alla configurazione di ASP.NET Core, vedere [configurazione in ASP.NET Core](xref:fundamentals/configuration).
+**Nota:** per informazioni più dettagliate sulla configurazione di ASP.NET Core, vedere l'articolo sulla [configurazione in ASP.NET Core](xref:fundamentals/configuration/index).
 
-## <a name="native-dependency-injection"></a>Inserimento di dipendenze nativo
-Un importante obiettivo durante la compilazione di applicazioni di grandi dimensioni, scalabile è dell'accoppiamento debole di componenti e servizi. [Inserimento di dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune per raggiungere questo obiettivo, ed è un componente nativo di ASP.NET Core.
+## <a name="native-dependency-injection"></a>Inserimento delle dipendenze nativo
+Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune che consente di raggiungerlo ed è un componente nativo di ASP.NET Core.
 
-Nelle applicazioni ASP.NET, gli sviluppatori si basano su una libreria di terze parti per implementare l'inserimento di dipendenze. È una di queste librerie [Unity](https://github.com/unitycontainer/unity), fornito da Microsoft Patterns & Practices. 
+Nelle applicazioni ASP.NET, gli sviluppatori si affidano a una libreria di terze parti per implementare l'inserimento delle dipendenze. Una di queste librerie è [Unity](https://github.com/unitycontainer/unity) e fa parte di Modelli e procedure Microsoft. 
 
-Implementazione di un esempio di configurazione di inserimento di dipendenze con Unity `IDependencyResolver` che esegue il wrapping di un `UnityContainer`:
+Un esempio di configurazione dell'inserimento delle dipendenze con Unity è l'implementazione di `IDependencyResolver` che esegue il wrapping di un oggetto `UnityContainer`:
 
-[!code-csharp[Principale](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
-Creare un'istanza del `UnityContainer`, registrare il servizio e impostare il resolver di dipendenza di `HttpConfiguration` nella nuova istanza di `UnityResolver` per il contenitore:
+Creare un'istanza di `UnityContainer`, registrare il servizio e impostare il sistema di risoluzione delle dipendenze di `HttpConfiguration` sulla nuova istanza di `UnityResolver` per il contenitore:
 
-[!code-csharp[Principale](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
 
 Inserire `IProductRepository` dove necessario:
 
-[!code-csharp[Principale](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
-Poiché l'inserimento di dipendenze fa parte di ASP.NET Core, è possibile aggiungere il servizio nel `ConfigureServices` metodo *Startup.cs*:
+Poiché l'inserimento delle dipendenze fa parte di ASP.NET Core, è possibile aggiungere il servizio nel metodo `ConfigureServices` di *Startup.cs*:
 
-[!code-csharp[Principale](samples/configure-services.cs)]
+[!code-csharp[Main](samples/configure-services.cs)]
 
 Il repository può essere inserito in qualsiasi posizione, analogamente a Unity.
 
-**Nota:** per un riferimento dettagliato per l'inserimento di dipendenze in ASP.NET Core, vedere [Dependency Injection in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
+**Nota:** per un riferimento dettagliato all'inserimento delle dipendenze in ASP.NET Core, vedere l'introduzione all'[inserimento delle dipendenze in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
 
 ## <a name="serving-static-files"></a>Gestione dei file statici
-Una parte importante dello sviluppo web è la possibilità di distribuire asset statico, sul lato client. Gli esempi più comuni dei file statici sono HTML, CSS, Javascript e immagini. Questi file devono essere salvati nella posizione di pubblicazione dell'app (o della rete CDN) e a cui fa riferimento in modo che può essere caricati da una richiesta. Questo processo è stato modificato in ASP.NET Core.
+Una parte importante dello sviluppo Web è la possibilità di distribuire asset statici sul lato client. Gli esempi più comuni di file statici sono HTML, CSS, Javascript e immagini. Questi file devono essere salvati nella posizione di pubblicazione dell'app (o della rete CDN) con riferimenti che ne consentano il caricamento da parte di una richiesta. Questo processo è stato modificato in ASP.NET Core.
 
-In ASP.NET, file statici sono archiviati in directory diverse e a cui fa riferimento nelle viste.
+In ASP.NET i file statici vengono archiviati in directory diverse e viene fatto riferimento ai file nelle viste.
 
-In ASP.NET Core, file statici vengono archiviati nella radice web"" (*&lt;contenuto radice&gt;/wwwroot*), salvo configurazione diversa. I file vengono caricati nella pipeline delle richieste richiamando il `UseStaticFiles` il metodo di estensione da `Startup.Configure`:
+In ASP.NET Core i file statici vengono archiviati nella "radice Web" (*&lt;radice contenuto&gt;/wwwroot*), a meno che la configurazione non sia diversa. I file vengono caricati nella pipeline delle richieste chiamando il metodo di estensione `UseStaticFiles` da `Startup.Configure`:
 
-[!code-csharp[Principale](../../fundamentals/static-files/sample/StartupStaticFiles.cs?highlight=3&name=snippet1)]
+[!code-csharp[Main](../../fundamentals/static-files/sample/StartupStaticFiles.cs?highlight=3&name=snippet1)]
 
-**Nota:** se la destinazione di .NET Framework, installare il pacchetto NuGet `Microsoft.AspNetCore.StaticFiles`.
+**Nota:** se la destinazione è .NET Framework, installare il pacchetto NuGet `Microsoft.AspNetCore.StaticFiles`.
 
-Ad esempio, una risorsa immagine nel *wwwroot/immagini* cartella sia accessibile al browser in corrispondenza della posizione, ad esempio `http://<app>/images/<imageFileName>`.
+Ad esempio, un asset immagine nella cartella *wwwroot/images* è accessibile al browser in corrispondenza di una posizione come `http://<app>/images/<imageFileName>`.
 
-**Nota:** per la documentazione più dettagliata di gestione dei file statici in ASP.NET Core, vedere [Introduzione all'utilizzo dei file statici di ASP.NET Core](xref:fundamentals/static-files).
+**Nota:** per informazioni più dettagliate sulla gestione dei file statici in ASP.NET Core, vedere l'[introduzione all'uso dei file statici in ASP.NET Core](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Importazione di librerie per .NET Core](https://docs.microsoft.com/dotnet/core/porting/libraries)
+* [Portabilità in .NET Core - Librerie](https://docs.microsoft.com/dotnet/core/porting/libraries)

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/formatting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ba2456178fe806b90f27bbd2940773da950423
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: abc125a093ff2cd5a38a537ecdfc795ff03e23f7
+ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/19/2017
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Introduzione alla formattazione dei dati di risposta in ASP.NET MVC di base
 
@@ -84,7 +84,7 @@ Nell'esempio, una richiesta per un alias valido autore riceverà una risposta 20
 
 ### <a name="content-negotiation-process"></a>Processo di negoziazione del contenuto
 
-Contenuto *negoziazione* avviene solo se un `Accept` intestazione è presente nella richiesta. Quando una richiesta contiene un'intestazione accept, il framework permette di enumerare i tipi di supporto nell'intestazione accept in ordine di preferenza e tenterà di trovare un formattatore in grado di produrre una risposta in uno dei formati specificati dall'intestazione accept. Nel caso in cui non viene trovato alcun formattatore che può soddisfare la richiesta del client, il framework tenterà di trovare il primo formattatore in grado di produrre una risposta (a meno che lo sviluppatore ha configurato l'opzione su `MvcOptions` per restituire 406 inaccettabile invece). Se la richiesta specifica di XML, ma il formattatore XML non è stato configurato, verrà utilizzato il formattatore JSON. Più in generale, se non è configurato alcun formattatore che può fornire il formato richiesto, quindi viene utilizzato il primo formattatore in quanto è possibile formattare l'oggetto. Se non viene specificata alcuna intestazione, il primo formattatore in grado di gestire l'oggetto deve essere restituito da utilizzare per serializzare la risposta. In questo caso, non è eseguita qualsiasi negoziazione - consiste nel determinare quale formato utilizzerà il server.
+Contenuto *negoziazione* avviene solo se un `Accept` intestazione è presente nella richiesta. Quando una richiesta contiene un'intestazione accept, il framework permette di enumerare i tipi di supporto nell'intestazione accept in ordine di preferenza e tenterà di trovare un formattatore in grado di produrre una risposta in uno dei formati specificati dall'intestazione accept. Nel caso in cui non viene trovato alcun formattatore che può soddisfare la richiesta del client, il framework tenterà di trovare il primo formattatore in grado di produrre una risposta (a meno che lo sviluppatore ha configurato l'opzione su `MvcOptions` per restituire 406 inaccettabile invece). Se la richiesta specifica di XML, ma il formattatore XML non è stato configurato, verrà utilizzato il formattatore JSON. Più in generale, se non è configurato alcun formattatore che può fornire il formato richiesto, quindi viene utilizzato il primo formattatore in grado di formattare l'oggetto. Se non viene specificata alcuna intestazione, il primo formattatore in grado di gestire l'oggetto deve essere restituito da utilizzare per serializzare la risposta. In questo caso, non è eseguita qualsiasi negoziazione - consiste nel determinare quale formato utilizzerà il server.
 
 > [!NOTE]
 > Se l'intestazione Accept contiene `*/*`, l'intestazione verrà ignorata a meno che non `RespectBrowserAcceptHeader` è impostata su true in `MvcOptions`.
@@ -99,7 +99,7 @@ Se si preferisce intestazioni accept browser onore applicazione, è possibile co
 services.AddMvc(options =>
 {
     options.RespectBrowserAcceptHeader = true; // false by default
-}
+});
 ```
 
 ## <a name="configuring-formatters"></a>Configurazione di formattatori

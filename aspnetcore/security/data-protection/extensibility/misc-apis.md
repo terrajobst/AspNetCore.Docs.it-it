@@ -1,8 +1,8 @@
 ---
 title: Varie API
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento descrive l'interfaccia ASP.NET Core ISecret protezione dei dati.
+keywords: ASP.NET Core, protezione dei dati, ISecret
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,29 +11,29 @@ ms.assetid: 512c6ba7-88ec-47e4-a656-6b30350b34e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/misc-apis
-ms.openlocfilehash: 541dd721a00495632f0d633577b55933c9be03fa
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: f5d6920f9f229bd480a76c952dab30efb7d9eff5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="miscellaneous-apis"></a>Varie API
 
-<a name=data-protection-extensibility-mics-apis></a>
+<a name="data-protection-extensibility-mics-apis"></a>
 
 >[!WARNING]
 > Tipi che implementano le interfacce seguenti devono essere thread-safe per più i chiamanti.
 
 ## <a name="isecret"></a>ISecret
 
-L'interfaccia ISecret rappresenta un valore segreto, ad esempio chiavi crittografiche. Contiene la superficie dell'API seguente.
+Il `ISecret` interfaccia rappresenta un valore segreto, ad esempio chiavi crittografiche. Contiene la superficie dell'API seguente:
 
-* Lunghezza: int
+* `Length`: `int`
 
-* Dispose (): void
+* `Dispose()`: `void`
 
-* WriteSecretIntoBuffer (ArraySegment<byte> buffer): void
+* `WriteSecretIntoBuffer(ArraySegment<byte> buffer)`: `void`
 
-Il metodo WriteSecretIntoBuffer consente di popolare il buffer fornito con il valore non elaborato segreto. Il motivo di che questa API buffer accetta come parametro, anziché restituire che una matrice di byte sia direttamente che in questo modo il chiamante l'opportunità di aggiungere l'oggetto buffer, limita l'esposizione dei segreti gestiti garbage collector.
+Il `WriteSecretIntoBuffer` metodo popola il buffer fornito con il valore non elaborato segreto. Il motivo di questa API richiede il buffer come parametro e non restituiscono un `byte[]` direttamente è che in questo modo il chiamante l'opportunità di aggiungere l'oggetto buffer, limita l'esposizione dei segreti gestiti garbage collector.
 
-Il tipo segreto è un'implementazione concreta di ISecret in cui è archiviato il valore segreto in memoria nel processo. Su piattaforme Windows, il valore segreto viene crittografato tramite [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).
+Il `Secret` tipo è un'implementazione concreta di `ISecret` in cui è archiviato il valore segreto in memoria nel processo. Su piattaforme Windows, il valore segreto viene crittografato tramite [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).
