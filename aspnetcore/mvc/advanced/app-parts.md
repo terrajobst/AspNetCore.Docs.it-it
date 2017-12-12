@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
 ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 Un *parte dell'applicazione* è un'astrazione sulle risorse di un'applicazione, da cui MVC funzionalità quali controller, i componenti di visualizzazione, o gli helper di tag possono essere individuati. Un esempio di una parte dell'applicazione è un AssemblyPart, che incapsula un riferimento all'assembly ed espone i tipi e i riferimenti di compilazione. *Funzionalità provider* funzionano con parti dell'applicazione per popolare le funzionalità di un'applicazione ASP.NET MVC di base. Nel caso di utilizzo principale di parti dell'applicazione è consentire di configurare l'app per individuare (o evitare di caricamento) funzionalità MVC da un assembly.
 

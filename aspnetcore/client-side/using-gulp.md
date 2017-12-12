@@ -7,22 +7,21 @@ ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
 ms.topic: article
-ms.assetid: 4095d273-bf3f-46cf-bdcc-18cf6815cbad
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2a2971a46d9d45a8fda5ac56073af608a0ede2b
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
 
 Da [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Daniel Roth](https://github.com/danroth27), e [Shayne Boyer](https://twitter.com/spboyer)
 
-In un'applicazione web moderna tipiche, potrebbe essere il processo di compilazione:
+In un'app web moderna tipiche, potrebbe essere il processo di compilazione:
 
 * Aggregare e minimizzare file CSS e JavaScript.
 * Eseguire gli strumenti per chiamare le operazioni di aggregazione e minimizzazione prima di ogni compilazione.
@@ -31,7 +30,7 @@ In un'applicazione web moderna tipiche, potrebbe essere il processo di compilazi
 
 Oggetto *runner attività* è uno strumento che consente di automatizzare le attività di sviluppo di routine e altro ancora. Visual Studio fornisce supporto incorporato per due canali di comuni attività basate su JavaScript: [Gulp](https://gulpjs.com/) e [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>Gulp
+## <a name="gulp"></a>gulp
 
 Gulp è un basate su JavaScript streaming compilazione toolkit per il codice sul lato client. Viene usata in genere per i file sul lato client tramite una serie di processi di flusso quando viene generato un evento specifico in un ambiente di compilazione. Ad esempio, Gulp possono essere utilizzati per automatizzare [come aggregare e minimizzazione](bundling-and-minification.md) o la pulizia di un ambiente di sviluppo prima di una nuova compilazione.
 

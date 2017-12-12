@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei componenti di base di ASP.NET MVC
+title: Panoramica di ASP.NET MVC
 author: ardalis
 description: "Informazioni su come Core di ASP.NET MVC è un framework completo per la compilazione di applicazioni web e modello di progettazione utilizzando Model-View-Controller API."
 keywords: ASP.NET Core,
@@ -12,12 +12,12 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
 ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="overview-of-aspnet-core-mvc"></a>Panoramica dei componenti di base di ASP.NET MVC
+# <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
 Da [Steve Smith](https://ardalis.com/)
 

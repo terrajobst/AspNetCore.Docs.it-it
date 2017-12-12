@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
 ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Richieste di gestione con i controller in ASP.NET MVC di base
 
@@ -104,6 +104,6 @@ Più di filtrare gli attributi, ad esempio `[Authorize]`, può essere applicato 
 
 Gestione degli errori e la memorizzazione nella cache di risposta sono spesso problemi di montaggio incrociato:
    * [Gestione degli errori](xref:mvc/controllers/filters#exception-filters)
-   * [La memorizzazione nella cache di risposta](xref:performance/caching/response)
+   * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 
 Numerosi problemi di montaggio incrociato possono essere gestiti utilizzando filtri o personalizzata [middleware](xref:fundamentals/middleware).

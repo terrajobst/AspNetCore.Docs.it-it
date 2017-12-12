@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
 ms.openlocfilehash: da5b7b3bf1aa01ee22edf9bd003d8f79a00a5d0b
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache
 
@@ -84,7 +84,7 @@ Esempio:
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (120)"    |
+| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
 
 
 Imposta il periodo di tempo alla prima richiesta per memorizzare nella cache il contenuto. 
@@ -103,7 +103,7 @@ Esempio:
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (60)"     |
+| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
 
 
 Imposta il tempo che una voce della cache deve essere eliminata se non ha ricevuto accessi.
@@ -229,7 +229,7 @@ Utilizzo di questo attributo mantiene il contenuto nella cache tramite un ciclo 
 
 | Tipo di attributo    | Valori di esempio                |
 |----------------   |----------------               |
-| Stringa             | " @Model "                 |
+| Stringa             | "@Model"                 |
 
 
 Consente la personalizzazione dell'Ottiene memorizzati nella cache i dati. Quando viene aggiornato l'oggetto di riferimento dalle modifiche del valore stringa dell'attributo, il contenuto dell'Helper di Tag della Cache. Spesso una concatenazione di valori del modello vengono assegnati a questo attributo.  In effetti, ciò significa che l'aggiornamento di uno dei valori concatenati invalida la cache.

@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
 ms.openlocfilehash: f1abb3558546cd907c78b44d9353d9c9f1f5aff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementazione del server web WebListener in ASP.NET Core
 
@@ -42,7 +42,7 @@ Versioni supportate di Windows:
 
 - Windows 7 e Windows Server 2008 R2 e versioni successive
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-weblistener"></a>Quando utilizzare WebListener
 
@@ -86,7 +86,7 @@ Sono inoltre disponibili [impostazioni del Registro di sistema Http.Sys](https:/
 
 * Configurare gli URL e le porte per l'attesa su 
 
-  Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile utilizzare il `UseURLs` metodo di estensione, il `urls` argomento della riga di comando o il sistema di configurazione di ASP.NET Core. Per ulteriori informazioni, vedere [Hosting](../../fundamentals/hosting.md).
+  Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile utilizzare il `UseURLs` metodo di estensione, il `urls` argomento della riga di comando o il sistema di configurazione di ASP.NET Core. Per altre informazioni, vedere [Hosting](../../fundamentals/hosting.md).
 
   Usa Listener Web il [formati di stringa di prefisso Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Non sono previsti requisiti del formato di stringa di prefisso WebListener specifici.
 

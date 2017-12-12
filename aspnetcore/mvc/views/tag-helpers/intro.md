@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78d9fdbd32eae29d7714507498d5d68b86c6d12e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
 
@@ -35,13 +35,13 @@ Gli helper di tag consentono al codice lato server partecipare alla creazione e 
 
 La maggior parte degli helper Tag predefiniti come destinazione gli elementi HTML esistenti e fornire attributi sul lato server per l'elemento. Ad esempio, il `<input>` elemento utilizzato in molte delle visualizzazioni del *viste/Account* cartella contiene il `asp-for` attributo, che estrae il nome della proprietà del modello specificato in codice HTML visualizzabile. Il markup Razor seguente:
 
-```html
+```cshtml
 <label asp-for="Email"></label>
 ```
 
 Genera il codice HTML seguente:
 
-```html
+```cshtml
 <label for="Email">Email</label>
 ```
 
@@ -51,19 +51,19 @@ Il `asp-for` attributo è reso disponibile per il `For` proprietà il `LabelTagH
 
 Ambito di helper di tag è controllata da una combinazione di `@addTagHelper`, `@removeTagHelper`e "!" rinuncia carattere.
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`rende disponibili gli helper di Tag
 
 Se si crea una nuova app web ASP.NET Core denominata *AuthoringTagHelpers* (con nessuna autenticazione), le operazioni seguenti *Views/_ViewImports.cshtml* file verrà aggiunto al progetto:
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 Il `@addTagHelper` direttiva rende disponibile per la visualizzazione gli helper di Tag. In questo caso, il file della visualizzazione è *Views/_ViewImports.cshtml*, che per impostazione predefinita viene ereditata da tutti i file di visualizzazione di *viste* cartella e le sottodirectory; rendere disponibili gli helper di Tag. Il codice precedente utilizza la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper di Tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) sarà disponibile per tutti i file nella visualizzazione di *viste* directory o sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper di Tag da caricare (usiamo "\*" per tutti gli helper di Tag), e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" Specifica l'assembly contenente gli helper di Tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper di Tag predefiniti di ASP.NET Core.
 
 Per esporre tutti gli helper di Tag in questo progetto (che consente di creare un assembly denominato *AuthoringTagHelpers*), è necessario utilizzare la seguente:
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 Se il progetto contiene un `EmailTagHelper` con spazio dei nomi predefinito (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), è possibile fornire il nome completo (FQN) dell'Helper di Tag:
 
@@ -75,14 +75,14 @@ Se il progetto contiene un `EmailTagHelper` con spazio dei nomi predefinito (`Au
 
 Per aggiungere un Helper Tag a una vista utilizzando un FQN, aggiungere innanzitutto i FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il nome dell'assembly (*AuthoringTagHelpers*). La maggior parte degli sviluppatori preferiscono utilizzare il "\*" sintassi dei caratteri jolly. La sintassi con caratteri jolly consente di inserire il carattere jolly "\*" come suffisso in un FQN. Ad esempio, una delle seguenti direttive fornirà `EmailTagHelper`:
 
-```csharp
+```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
 Come indicato in precedenza, l'aggiunta di `@addTagHelper` direttiva per il *Views/_ViewImports.cshtml* file rende disponibili a tutti i file di visualizzazione dell'Helper di Tag di *viste* directory e sottodirectory. È possibile utilizzare il `@addTagHelper` direttiva nei file di visualizzazione specifico se si desidera registrarsi per esporre l'Helper di Tag solo tali viste.
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Rimuove gli helper di Tag
 
@@ -98,19 +98,19 @@ Il `@removeTagHelper` ha gli stessi due parametri di `@addTagHelper`, e viene ri
 
 È possibile disabilitare un Helper Tag a livello di elemento con il carattere di rinuncia Helper di Tag ("!"). Ad esempio, `Email` convalida è disabilitata nel `<span>` con il carattere di rinuncia Helper di Tag:
 
-```csharp
+```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
 È necessario applicare il carattere di rinuncia Helper di Tag per il tag di apertura e chiusura. (Editor di Visual Studio aggiunge automaticamente il carattere di aderire al tag di chiusura quando si aggiunge uno al tag di apertura). Dopo aver aggiunto il carattere di rifiuto esplicito, l'elemento e gli attributi di Helper di Tag non sono più visualizzati in un unico tipo di carattere.
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Utilizzando `@tagHelperPrefix` rendere esplicito l'utilizzo di Helper Tag
 
 Il `@tagHelperPrefix` direttiva consente di specificare una stringa di prefisso di tag per abilitare il supporto di Helper di Tag e rendere esplicito l'utilizzo di Helper di Tag. Ad esempio, è possibile aggiungere il markup seguente per il *Views/_ViewImports.cshtml* file:
 
-```html
+```cshtml
 @tagHelperPrefix th:
 ```
 Nell'immagine di codice seguente, il prefisso di Tag Helper è impostato su `th:`, in modo che solo gli elementi utilizzando il prefisso `th:` supportano gli helper di Tag (abilitato Helper di Tag di elementi di un carattere distintivo). Il `<label>` e `<input>` elementi dispongono del prefisso dell'Helper di Tag e sono abilitati per il supporto di Tag, durante il `<span>` non elemento.
@@ -127,7 +127,7 @@ Si consiglia di scrivere l'HTML `<label>` elemento. Non appena immette `<l` nell
 
 ![immagine](intro/_static/label.png)
 
-Non solo ottenere della Guida HTML, ma l'icona (il "@" simbolo con "<>" sotto di esso).
+Non solo ottenere della Guida HTML, ma l'icona (il "@" symbol with "<>" sotto di esso).
 
 ![immagine](intro/_static/tagSym.png)
 
@@ -163,13 +163,13 @@ IntelliSense Elenca le proprietà e i metodi disponibili per il modello nella pa
 
 Collegare gli helper di tag agli elementi HTML in visualizzazioni Razor, mentre [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) vengono chiamati come metodi frammisto HTML in visualizzazioni Razor. Si consideri il seguente markup Razor, che consente di creare un'etichetta HTML con la classe CSS "titolo":
 
-```html
+```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
 L'in (`@`) simbolo indica Razor, si tratta dell'inizio del codice. I due parametri successivi ("FirstName" e "nome:") sono stringhe, pertanto [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) non consente di. L'ultimo argomento:
 
-```html
+```cshtml
 new {@class="caption"}
 ```
 
@@ -189,7 +189,7 @@ IntelliSense consente di scrivere l'intera riga. Il `LabelTagHelper` anche per i
 
 Genera l'errore:
 
-```html
+```cshtml
 <label class="caption" for="FirstName">First Name</label>
 ```
 
@@ -199,7 +199,7 @@ Le maiuscole/minuscole camel al contenuto in base alla frase non viene usata se 
 
 Genera l'errore:
 
-```html
+```cshtml
 <label class="caption" for="FirstName">Name First</label>
 ```
 
@@ -209,7 +209,7 @@ L'immagine di codice seguente mostra la parte di *Views/Account/Register.cshtml*
 
 Editor di Visual Studio consente di visualizzare il codice c# con uno sfondo grigio. Ad esempio, il `AntiForgeryToken` HTML Helper:
 
-```html
+```cshtml
 @Html.AntiForgeryToken()
 ```
 

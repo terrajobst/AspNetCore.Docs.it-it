@@ -12,16 +12,16 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
 ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>Funzionalità di richiesta ASP.NET Core
 
 Da [Steve Smith](https://ardalis.com/)
 
-Dettagli di implementazione di server Web relativi alle richieste HTTP e le risposte sono definite nelle interfacce. Queste interfacce sono usate da implementazioni del server e del middleware per creare e modificare pipeline hosting dell'applicazione.
+I dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP vengono definiti nelle interfacce. Queste interfacce sono usate da implementazioni del server e del middleware per creare e modificare pipeline hosting dell'applicazione.
 
 ## <a name="feature-interfaces"></a>Interfacce di funzionalità
 

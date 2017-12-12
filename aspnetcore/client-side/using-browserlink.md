@@ -1,7 +1,7 @@
 ---
 title: Collegamento del browser in ASP.NET Core
 author: ncarandini
-description: "Informazioni su come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser."
+description: "Viene spiegato come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser."
 keywords: ASP.NET Core, il collegamento del browser, sincronizzazione CSS
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core 
 
@@ -81,7 +81,7 @@ Dal controllo della barra degli strumenti di collegamento del Browser, è possib
 * Aggiornare l'applicazione web nel browser diverse contemporaneamente.
 * Aprire il **Dashboard del collegamento Browser**.
 * Abilitare o disabilitare **collegamento Browser**. Nota: Collegamento del Browser è disabilitato per impostazione predefinita in Visual Studio 2017 (15.3).
-* Abilitare o disabilitare la sincronizzazione automatica CSS.
+* Abilitare o disabilitare [sincronizzazione automatica CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
 > Alcuni plug-in Visual Studio, in particolare *Web estensione Pack 2015* e *Web estensione Pack 2017*, offrono funzionalità estese per il collegamento del Browser, ma alcune funzionalità aggiuntive non funzionano con ASP. Progetti di componenti di base NET.

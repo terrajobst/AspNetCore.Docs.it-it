@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 20b05801ac666feef29fd05dd3e4738b1bd50b86
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migrazioni - EF Core con l'esercitazione di base di ASP.NET MVC (4 di 10)
 
@@ -87,11 +87,11 @@ Done. To undo this action, use 'ef migrations remove'
 > [!NOTE]
 > Se viene visualizzato un messaggio di errore *alcun eseguibile non trovato corrispondente comando "dotnet-ef"*, vedere [questo post di blog](http://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) per la risoluzione dei problemi della Guida.
 
-Se viene visualizzato un messaggio di errore "*Impossibile accedere al file... ContosoUniversity.dll perché è utilizzato da un altro processo. *", individuare l'icona di IIS Express nella barra delle applicazioni di Windows, pulsante destro del mouse, quindi fare clic su **ContosoUniversity > sito**.
+Se viene visualizzato un messaggio di errore "*Impossibile accedere al file... ContosoUniversity.dll perché è utilizzato da un altro processo.* ", individuare l'icona di IIS Express nella barra delle applicazioni di Windows, pulsante destro del mouse, quindi fare clic su **ContosoUniversity > sito**.
 
 ## <a name="examine-the-up-and-down-methods"></a>Esaminare l'alto e verso il basso di metodi
 
-Quando è stata eseguita la `migrations add` comando EF ha generato il codice che verrà creato il database da zero. Questo codice è il *migrazioni* cartella, nel file denominato * \<timestamp > _InitialCreate.cs*. Il `Up` metodo il `InitialCreate` classe crea le tabelle di database che corrispondono ai set di entità del modello di dati, e `Down` metodo eliminati, come illustrato nell'esempio seguente.
+Quando è stata eseguita la `migrations add` comando EF ha generato il codice che verrà creato il database da zero. Questo codice è il *migrazioni* cartella, nel file denominato  *\<timestamp > _InitialCreate.cs*. Il `Up` metodo il `InitialCreate` classe crea le tabelle di database che corrispondono ai set di entità del modello di dati, e `Down` metodo eliminati, come illustrato nell'esempio seguente.
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
@@ -109,7 +109,7 @@ Le migrazioni crea anche un *snapshot* dello schema del database corrente in *Mi
 
 Poiché lo schema del database corrente è rappresentato nel codice, Core EF non deve interagire con il database per creare le migrazioni. Quando si aggiunge una migrazione, EF determina le modifiche confrontando il modello di dati del file di snapshot. EF interagisce con il database solo quando è necessario aggiornare il database. 
 
-Il file di snapshot deve essere mantenuta sincronizzata con le migrazioni che creano, pertanto non è possibile rimuovere una migrazione solo eliminando il file denominato * \<timestamp > _\<migrationname >. cs*. Se si elimina il file, le migrazioni rimanenti sarà sincronizzate con il file di snapshot di database. Per eliminare l'ultima migrazione che è stato aggiunto, usare il [migrazioni ef dotnet rimuovere](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) comando.
+Il file di snapshot deve essere mantenuta sincronizzata con le migrazioni che creano, pertanto non è possibile rimuovere una migrazione solo eliminando il file denominato  *\<timestamp > _\<migrationname >. cs*. Se si elimina il file, le migrazioni rimanenti sarà sincronizzate con il file di snapshot di database. Per eliminare l'ultima migrazione che è stato aggiunto, usare il [migrazioni ef dotnet rimuovere](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) comando.
 
 ## <a name="apply-the-migration-to-the-database"></a>Applicare la migrazione al database
 
@@ -119,7 +119,7 @@ Nella finestra di comando, immettere il comando seguente per creare il database 
 dotnet ef database update
 ```
 
-L'output del comando è simile al `migrations add` comando, a eccezione del fatto che si registri per i comandi SQL che imposta backup del database. La maggior parte dei log vengono omessi negli output di esempio seguente. Se si preferisce non visualizzare questo livello di dettaglio nei messaggi di log, è possibile modificare i livelli di log di *appsettings. Development.JSON* file. Per ulteriori informazioni, vedere [Introduzione a registrazione](xref:fundamentals/logging).
+L'output del comando è simile al `migrations add` comando, a eccezione del fatto che si registri per i comandi SQL che imposta backup del database. La maggior parte dei log vengono omessi negli output di esempio seguente. Se si preferisce non visualizzare questo livello di dettaglio nei messaggi di log, è possibile modificare il livello di registrazione nel *appsettings. Development.JSON* file. Per ulteriori informazioni, vedere [Introduzione a registrazione](xref:fundamentals/logging/index).
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]

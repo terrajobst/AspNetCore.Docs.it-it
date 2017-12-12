@@ -1,8 +1,8 @@
 ---
 title: Autorizzazione basata sulle attestazioni
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questo documento viene illustrato come aggiungere i controlli di attestazioni per l'autorizzazione in un'applicazione ASP.NET Core.
+keywords: Le attestazioni di ASP.NET Core, autorizzazione,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="claims-based-authorization"></a>Autorizzazione basata sulle attestazioni
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
-Quando viene creata un'identità è possibile assegnare una o più attestazioni emesso da un'entità attendibile. Un'attestazione è il valore di nome coppia che rappresenta il soggetto è, non quali l'oggetto è possibile farlo. Ad esempio si dispone di una licenza di driver, emesso da un'autorità di licenza Guida locale. Di Guida la patente presenta la data di nascita. In questo caso il nome di attestazione sarebbe `DateOfBirth`, il valore dell'attestazione sarebbe ad esempio la data di nascita, `8th June 1970` e l'autorità emittente sarebbe l'autorità di licenza determinante. Nella forma più semplice, l'autorizzazione basata sulle attestazioni, controlla il valore di un'attestazione e consente l'accesso a una risorsa in base al valore. Per esempio, se si desidera che l'accesso a un'associazione di notte il processo di autorizzazione potrebbe essere:
+Quando viene creata un'identità è possibile assegnare una o più attestazioni emesso da un'entità attendibile. Un'attestazione è il valore di nome coppia che rappresenta il soggetto è, non quali l'oggetto è possibile farlo. Ad esempio, è possibile di Guida patente, emesso da un'autorità di licenza Guida locale. Di Guida la patente presenta la data di nascita. In questo caso il nome di attestazione sarebbe `DateOfBirth`, il valore dell'attestazione sarebbe ad esempio la data di nascita, `8th June 1970` e l'autorità emittente sarebbe l'autorità di licenza determinante. Nella forma più semplice, l'autorizzazione basata sulle attestazioni, controlla il valore di un'attestazione e consente l'accesso a una risorsa in base al valore. Per esempio, se si desidera che l'accesso a un'associazione di notte il processo di autorizzazione potrebbe essere:
 
 Responsabile della sicurezza della porta restituirà il valore della tua data di nascita attestazione e se devono considerare attendibili l'autorità emittente (l'autorità licenza determinante) prima che concede che l'accesso.
 
@@ -105,7 +105,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="multiple-policy-evaluation"></a>Più la valutazione dei criteri
 
-Se si applicano più criteri a un controller o un'azione prima che venga concesso l'accesso necessario passare tutti i criteri. Ad esempio:
+Se più criteri si applicano a un controller o un'azione, tutti i criteri devono passare prima che venga concesso l'accesso. Ad esempio:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -124,4 +124,4 @@ public class SalaryController : Controller
 
 Nell'esempio precedente qualsiasi identità che soddisfa la `EmployeeOnly` criteri possono accedere il `Payslip` azione come tale criterio viene imposto per il controller. Tuttavia per chiamare il `UpdateSalary` azione deve soddisfare l'identità *entrambi* il `EmployeeOnly` criteri e `HumanResources` criteri.
 
-Se si desidera criteri più complessi, ad esempio l'esecuzione di una data di nascita attestazione, il calcolo di un'età da quest'ultimo verifica la validità è 21 o meno recenti quindi è necessario scrivere [gestori di criteri personalizzati](policies.md#security-authorization-policies-based).
+Se si desidera criteri più complessi, ad esempio l'esecuzione di una data di nascita attestazione, il calcolo di un'età da quest'ultimo verifica la validità è 21 o meno recenti quindi è necessario scrivere [gestori di criteri personalizzati](policies.md).

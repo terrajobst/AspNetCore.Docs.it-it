@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
 ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server web HTTP.sys in ASP.NET Core
 
@@ -40,7 +40,7 @@ Versioni supportate di Windows:
 
 - Windows 7 e Windows Server 2008 R2 e versioni successive
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Quando utilizzare HTTP.sys
 
@@ -125,7 +125,7 @@ Per impostazione predefinita ASP.NET Core associa a `http://localhost:5000`. Per
 
 Un vantaggio offerto da `UrlPrefixes` ottengono immediatamente un messaggio di errore se si tenta di aggiungere un prefisso che viene formattato errato. Un vantaggio offerto da `UseUrls` (condiviso con `urls` e ASPNETCORE_URLS) è che è possibile passare più facilmente tra Kestrel e HTTP.sys.
 
-Se si utilizzano entrambi `UseUrls` (o `urls` o ASPNETCORE_URLS) e `UrlPrefixes`, le impostazioni di `UrlPrefixes` eseguire l'override di quelli nei `UseUrls`. Per ulteriori informazioni, vedere [Hosting](xref:fundamentals/hosting).
+Se si utilizzano entrambi `UseUrls` (o `urls` o ASPNETCORE_URLS) e `UrlPrefixes`, le impostazioni di `UrlPrefixes` eseguire l'override di quelli nei `UseUrls`. Per altre informazioni, vedere [Hosting](xref:fundamentals/hosting).
 
 HTTP.sys Usa il [formati stringa HTTP Server API UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 

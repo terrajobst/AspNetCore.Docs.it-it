@@ -5,16 +5,16 @@ description: "Questo articolo vengono illustrati i passaggi più comuni per la m
 keywords: "Autenticazione ASP.NET Core, identità,"
 ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
+ms.date: 10/26/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: b4e67e7cfea3c01e3ca8c0d5df2a04e789749932
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 1d8c75a21cd7110b3e414f0c600e9f05cbaeff45
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>La migrazione di autenticazione e identità per i componenti di base di ASP.NET 2.0
 
@@ -59,7 +59,8 @@ public void ConfigureServices(IServiceCollection services)
     // If you want to tweak Identity cookies, they're no longer part of IdentityOptions.
     services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -108,7 +109,8 @@ Selezionare una delle due opzioni seguenti e apportare le modifiche necessarie i
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User, 
         // remove the CookieAuthenticationDefaults.AuthenticationScheme parameter passed to AddAuthentication.
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => {
+                .AddCookie(options => 
+                {
                     options.LoginPath = "/Account/LogIn";
                     options.LogoutPath = "/Account/LogOff";
                 });
@@ -126,7 +128,8 @@ Apportare le modifiche seguenti in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options => {
+            .AddJwtBearer(options => 
+            {
                 options.Audience = "http://localhost:5001/";
                 options.Authority = "http://localhost:5000/";
             });
@@ -146,12 +149,14 @@ Apportare le modifiche seguenti in *Startup.cs*:
 - Richiamare il `AddOpenIdConnect` metodo il `ConfigureServices` metodo:
 
     ```csharp
-    services.AddAuthentication(options => {
+    services.AddAuthentication(options => 
+    {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
     })
     .AddCookie()
-    .AddOpenIdConnect(options => {
+    .AddOpenIdConnect(options => 
+    {
         options.Authority = Configuration["auth:oidc:authority"];
         options.ClientId = Configuration["auth:oidc:clientid"];
     });
@@ -169,7 +174,8 @@ Apportare le modifiche seguenti in *Startup.cs*:
     
     ```csharp
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -187,7 +193,8 @@ Apportare le modifiche seguenti in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddGoogle(options => {
+            .AddGoogle(options => 
+            {
                 options.ClientId = Configuration["auth:google:clientid"];
                 options.ClientSecret = Configuration["auth:google:clientsecret"];
             });    
@@ -205,7 +212,8 @@ Apportare le modifiche seguenti in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddMicrosoftAccount(options => {
+            .AddMicrosoftAccount(options => 
+            {
                 options.ClientId = Configuration["auth:microsoft:clientid"];
                 options.ClientSecret = Configuration["auth:microsoft:clientsecret"];
             });
@@ -223,25 +231,29 @@ Apportare le modifiche seguenti in *Startup.cs*:
 
     ```csharp
     services.AddAuthentication()
-            .AddTwitter(options => {
+            .AddTwitter(options => 
+            {
                 options.ConsumerKey = Configuration["auth:twitter:consumerkey"];
                 options.ConsumerSecret = Configuration["auth:twitter:consumersecret"];
             });
     ```
 
 ### <a name="setting-default-authentication-schemes"></a>L'impostazione predefinita gli schemi di autenticazione
-In 1. x, il `AutomaticAuthenticate` e `AutomaticChallenge` sono stati deve essere impostata su uno schema di autenticazione singola proprietà. Si è verificato non è possibile applicare questo comportamento.
+In 1. x, il `AutomaticAuthenticate` e `AutomaticChallenge` le proprietà del [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) sono stati deve essere impostata su uno schema di autenticazione singola classe di base. Si è verificato non è possibile applicare questo comportamento.
 
-2.0, queste due proprietà sono state rimosse come flag sui singoli `AuthenticationOptions` istanza e sono stati spostati all'interno della base [AuthenticationOptions](/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions) classe. Le proprietà possono essere configurate nel `AddAuthentication` chiamata al metodo all'interno di `ConfigureServices` metodo *Startup.cs*:
+In 2.0 sono state rimosse queste due proprietà come proprietà per il singolo `AuthenticationOptions` istanza. Può essere configurati nel `AddAuthentication` chiamata al metodo all'interno di `ConfigureServices` metodo *Startup.cs*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
+Nel frammento di codice precedente, lo schema predefinito è impostato su `CookieAuthenticationDefaults.AuthenticationScheme` ("cookie").
+
 In alternativa, utilizzare una versione di overload di `AddAuthentication` per impostare più di una proprietà. Nell'esempio seguente il metodo di overload, lo schema predefinito è impostato su `CookieAuthenticationDefaults.AuthenticationScheme`. In alternativa, lo schema di autenticazione può essere specificato all'interno di singoli `[Authorize]` attributi o i criteri di autorizzazione.
 
 ```csharp
-services.AddAuthentication(options => {
+services.AddAuthentication(options => 
+{
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 });

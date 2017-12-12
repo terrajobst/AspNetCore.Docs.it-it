@@ -1,8 +1,8 @@
 ---
 title: Configurazione di account di accesso esterno Facebook in ASP.NET Core
 author: rick-anderson
-description: Configurazione di account di accesso esterno Facebook in ASP.NET Core
-keywords: ASP.NET Core,
+description: Questa esercitazione illustra l'integrazione dell'autenticazione di Facebook account utente in un'applicazione ASP.NET di base esistente.
+keywords: ASP.NET Core, Facebook, account di accesso, autenticazione
 ms.author: riande
 manager: wpickett
 ms.date: 08/01/2017
@@ -11,23 +11,21 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 2b478ce38e98977a7c52e9317b5bc6fa0d6624b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Configurazione dell'autenticazione di Facebook
 
-<a name=security-authentication-facebook-logins></a>
-
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa esercitazione viene illustrato come consentire agli utenti di accedere con il proprio account Facebook tramite un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](index.md). Viene innanzitutto creato un ID App Facebook seguendo il [passaggi ufficiali](https://www.facebook.com/unsupportedbrowser).
+In questa esercitazione viene illustrato come consentire agli utenti di accedere con il proprio account Facebook tramite un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](index.md). Viene innanzitutto creato un ID App Facebook seguendo il [passaggi ufficiali](https://developers.facebook.com).
 
 ## <a name="create-the-app-in-facebook"></a>Creare l'app in Facebook
 
-*  Passare il [Facebook per gli sviluppatori](https://www.facebook.com/unsupportedbrowser) pagina ed eseguire l'accesso. Se si dispone già di un account Facebook, utilizzare il **iscriversi a Facebook** collegamento nella pagina di accesso per crearne uno.
+*  Passare il [Facebook per gli sviluppatori](https://developers.facebook.com) pagina ed eseguire l'accesso. Se si dispone già di un account Facebook, utilizzare il **iscriversi a Facebook** collegamento nella pagina di accesso per crearne uno.
 
 * Toccare il **creare App** pulsante nell'angolo superiore destro per creare un nuovo ID di App.
 
@@ -64,6 +62,13 @@ In questa esercitazione viene illustrato come consentire agli utenti di accedere
 ## <a name="store-facebook-app-id-and-app-secret"></a>Archiviare ID App Facebook e segreto dell'applicazione
 
 Collegare le impostazioni sensibili, ad esempio Facebook `App ID` e `App Secret` all'applicazione mediante configurazione di [Manager segreto](xref:security/app-secrets). Ai fini di questa esercitazione, denominare il token `Authentication:Facebook:AppId` e `Authentication:Facebook:AppSecret`.
+
+Eseguire i comandi seguenti per archiviare in modo sicuro `App ID` e `App Secret` utilizzando Gestione segreto:
+
+```console
+dotnet user-secrets set Authentication:Facebook:AppId <app-id>
+dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
+```
 
 ## <a name="configure-facebook-authentication"></a>Configurare l'autenticazione di Facebook
 

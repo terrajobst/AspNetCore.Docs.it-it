@@ -1,8 +1,8 @@
 ---
 title: Configurazione dell'account di accesso esterno Account Microsoft
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Questa esercitazione illustra l'integrazione dell'autenticazione di Microsoft account utente in un'applicazione ASP.NET di base esistente.
+keywords: ASP.NET di base, l'account Microsoft, l'account di accesso, autenticazione
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
@@ -11,15 +11,13 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cb4ea63664f29e39c2dd26cbf814a484a295ec6c
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 77c16e3ae93c9bfe1f569d0a5888c5b765d04241
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Configurazione dell'autenticazione di Account Microsoft
-
-<a name=security-authentication-microsoft-logins></a>
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 

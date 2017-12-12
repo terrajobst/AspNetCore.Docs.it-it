@@ -11,15 +11,15 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: afad266874d3ac059d9f3a6d26a5330a0006320b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: fee8e830ab43f731de9c90fad06b577662760f87
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso di moduli IIS con ASP.NET Core
 
-Da [Luke Latham](https://github.com/guardrex)
+Di [Luke Latham](https://github.com/guardrex)
 
 Le applicazioni ASP.NET Core sono ospitate da IIS in una configurazione di proxy inverso. Alcuni dei moduli nativi IIS e tutti i moduli IIS gestiti non sono disponibili per elaborare le richieste per le applicazioni ASP.NET Core. In molti casi, ASP.NET Core offre un'alternativa alle funzionalità native e gestite dei moduli di IIS.
 
@@ -37,10 +37,10 @@ Modulo | .NET core attivo | Opzione di ASP.NET Core
 **Autenticazione del digest**<br>`DigestAuthenticationModule` | Sì | 
 **Esplorazione directory**<br>`DirectoryListingModule` | No | [Middleware di esplorazione directory](xref:fundamentals/static-files#enabling-directory-browsing)
 **Compressione dinamica**<br>`DynamicCompressionModule` | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression)
-**Traccia**<br>`FailedRequestsTracingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging#the-tracesource-provider)
+**Traccia**<br>`FailedRequestsTracingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider)
 **La memorizzazione nella cache di file**<br>`FileCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 **La memorizzazione nella cache di HTTP**<br>`HttpCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-**Registrazione HTTP**<br>`HttpLoggingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging)<br>Le implementazioni: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+**Registrazione HTTP**<br>`HttpLoggingModule` | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index)<br>Le implementazioni: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **Reindirizzamento HTTP**<br>`HttpRedirectionModule` | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting)
 **Autenticazione Mapping certificati Client IIS**<br>`IISCertificateMappingAuthenticationModule` | Sì | 
 **Restrizioni per IP e domini**<br>`IpRestrictionModule` | Sì | 

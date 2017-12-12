@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0a2a374ac77b9fd7c626aa6749cffbd3fb0f08d5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="filters"></a>Filtri
 
@@ -82,7 +82,7 @@ Asincrona che definiscono un singolo in*fase*ExecutionAsync metodo. Questo metod
 
 Il framework include i filtri basati su attributi predefiniti che è possibile creare una sottoclasse e personalizzare. Ad esempio, il filtro di risultati seguente aggiunge un'intestazione nella risposta.
 
-<a name=add-header-attribute></a>
+<a name="add-header-attribute"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
@@ -167,7 +167,7 @@ Il `Order` proprietà supera l'ambito per determinare l'ordine in cui verranno e
 
 È possibile di corto circuito di pipeline filtro in qualsiasi momento impostando la `Result` proprietà il `context` parametro fornito al metodo di filtro. Ad esempio, il filtro di risorse seguente impedisce l'esecuzione il resto della pipeline.
 
-<a name=short-circuiting-resource-filter></a>
+<a name="short-circuiting-resource-filter"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
@@ -188,7 +188,7 @@ Se i filtri hanno dipendenze che è necessario accedere da DI, esistono diversi 
 * `IFilterFactory`implementato su attributo
 
 > [!NOTE]
-> Una dipendenza di che si potrebbe voler ottenere da è un logger. Tuttavia, evitare di creazione e utilizzo di filtri esclusivamente per scopi di registrazione, poiché il [le funzionalità di registrazione framework incorporato](../../fundamentals/logging.md) possono offrire le informazioni necessarie. Se si intende aggiungere la registrazione per i filtri, consigliabile concentrarsi sul problemi di dominio aziendali o del comportamento specifico per il filtro, anziché azioni MVC o altri eventi di framework.
+> Una dipendenza di che si potrebbe voler ottenere da è un logger. Tuttavia, evitare di creazione e utilizzo di filtri esclusivamente per scopi di registrazione, poiché il [le funzionalità di registrazione framework incorporato](xref:fundamentals/logging/index) possono offrire le informazioni necessarie. Se si intende aggiungere la registrazione per i filtri, consigliabile concentrarsi sul problemi di dominio aziendali o del comportamento specifico per il filtro, anziché azioni MVC o altri eventi di framework.
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 

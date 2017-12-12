@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
 ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Utilizzo di Grunt in ASP.NET Core 
 
@@ -211,7 +211,7 @@ Grunt viene configurato con un manifesto denominato *Gruntfile.js* che definisce
 
 10.  Aggiungere il `uglify` attività utilizzando il codice riportato di seguito.
 
-    Minimizza l'attività di *combined.js* file trovato nella directory temporanea e crea il file dei risultati in wwwroot/lib che seguono la convenzione di denominazione standard * \<nome file\>. min.js*.
+    Minimizza l'attività di *combined.js* file trovato nella directory temporanea e crea il file dei risultati in wwwroot/lib che seguono la convenzione di denominazione standard  *\<nome file\>. min.js*.
     
     ```javascript
     uglify: {
@@ -280,7 +280,7 @@ L'attività di espressione di controllo in Esplora esecuzione attività di mouse
 
 ## <a name="binding-to-visual-studio-events"></a>Associazione a eventi di Visual Studio
 
-A meno che non si desidera avviare manualmente l'attività ogni volta che si lavora in Visual Studio, è possibile associare le attività **prima di compilare**, **dopo la compilazione**, **Pulisci**, e ** Apri progetto** eventi.
+A meno che non si desidera avviare manualmente l'attività ogni volta che si lavora in Visual Studio, è possibile associare le attività **prima di compilare**, **dopo la compilazione**, **Pulisci**, e  **Apri progetto** eventi.
 
 Consente di associare `watch` in modo che venga eseguito ogni volta che apre Visual Studio. In Esplora esecuzione attività, l'attività di espressione di controllo e scegliere **associazioni > Apri progetto** dal menu di scelta rapida.
 

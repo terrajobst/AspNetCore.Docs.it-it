@@ -1,0 +1,1 @@
+Questa cartella se per il contenuto di SignalR. Eliminare questo file quando il primo file viene aggiunto a questa directory.

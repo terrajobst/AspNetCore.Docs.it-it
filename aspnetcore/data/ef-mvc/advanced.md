@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -83,7 +83,7 @@ Quando il **aggiornamento** si fa clic sul pulsante, viene chiamato il metodo Ht
 
 In **Esplora**, fare doppio clic su di *viste/corsi* cartella e quindi fare clic su **Aggiungi > Nuovo elemento**.
 
-Nel **Aggiungi nuovo elemento** finestra di dialogo, fare clic su **ASP.NET** in **installato** nel riquadro a sinistra, fare clic su **pagina visualizzazione MVC**e denominare la nuova vista * UpdateCourseCredits.cshtml*.
+Nel **Aggiungi nuovo elemento** finestra di dialogo, fare clic su **ASP.NET** in **installato** nel riquadro a sinistra, fare clic su **pagina visualizzazione MVC**e denominare la nuova vista  *UpdateCourseCredits.cshtml*.
 
 In *Views/Courses/UpdateCourseCredits.cshtml*, sostituire il codice del modello con il codice seguente:
 
@@ -228,7 +228,7 @@ Eseguire il `migrations remove` comando, salvare le modifiche al codice e rieseg
 
 L'approccio più semplice consiste nel rinominare il database in *appSettings. JSON*. Alla successiva esecuzione `database update`, verrà creato un nuovo database.
 
-Per eliminare un database in sillaba SSOX, il pulsante destro del database, fare clic su **eliminare**e quindi la **Elimina Database** finestra di dialogo selezionare **Chiudi connessioni esistenti** e fare clic su ** OK**.
+Per eliminare un database in sillaba SSOX, il pulsante destro del database, fare clic su **eliminare**e quindi la **Elimina Database** finestra di dialogo selezionare **Chiudi connessioni esistenti** e fare clic su  **OK**.
 
 Per eliminare un database tramite l'interfaccia CLI, eseguire il `database drop` comando CLI:
 

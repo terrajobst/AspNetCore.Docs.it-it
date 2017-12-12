@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
@@ -26,7 +26,7 @@ Funzionalità di routing è responsabile per il mapping di una richiesta in ingr
 >[!IMPORTANT]
 > Questo documento descrive di basso livello ASP.NET Core routing. Per il routing di ASP.NET MVC di base, vedere [Routing alle azioni del Controller](../mvc/controllers/routing.md)
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali di routing
 
@@ -40,23 +40,23 @@ In genere, un'applicazione ha un unico insieme di route. Quando arriva una richi
 
 Routing è connesso il [middleware](middleware.md) pipeline per la `RouterMiddleware` classe. [ASP.NET MVC](../mvc/overview.md) aggiunge il routing a pipeline middleware come parte della relativa configurazione. Per ulteriori informazioni sull'utilizzo di routing come componente autonomo, vedere [utilizzando routing-middleware](#using-routing-middleware).
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>URL corrispondente
 
 URL corrispondente è il processo per il routing invia un fax in ingresso richieste per un *gestore*. Questo processo è in genere in base ai dati nel percorso URL, ma può essere estesa per prendere in considerazione tutti i dati nella richiesta. La possibilità di inviare le richieste ai diversi gestori è fondamentale per il ridimensionamento le dimensioni e la complessità di un'applicazione.
 
-Immettere le richieste in ingresso di `RouterMiddleware`, che chiama il `RouteAsync` metodo su ogni route nella sequenza. Il `IRouter` istanza sceglie se *gestire* richiesta impostando il `RouteContext` `Handler` con un valore non null `RequestDelegate`. Se una route imposta un gestore per la richiesta, verrà richiamato per elaborare la richiesta di elaborazione viene arrestata e il gestore di route. Se tutte le route vengono tentate e viene individuato alcun gestore per la richiesta, il middleware chiama *Avanti* e viene richiamato il middleware successivo nella pipeline delle richieste.
+Immettere le richieste in ingresso di `RouterMiddleware`, che chiama il `RouteAsync` metodo su ogni route nella sequenza. Il `IRouter` istanza sceglie se *gestire* richiesta impostando il `RouteContext.Handler` con un valore non null `RequestDelegate`. Se una route imposta un gestore per la richiesta, verrà richiamato per elaborare la richiesta di elaborazione viene arrestata e il gestore di route. Se tutte le route vengono tentate e viene individuato alcun gestore per la richiesta, il middleware chiama *Avanti* e viene richiamato il middleware successivo nella pipeline delle richieste.
 
-L'input principale `RouteAsync` è il `RouteContext` `HttpContext` associato alla richiesta corrente. Il `RouteContext.Handler` e `RouteContext` `RouteData` sono output che verranno impostati dopo una route corrispondente.
+L'input principale `RouteAsync` è il `RouteContext.HttpContext` associato alla richiesta corrente. Il `RouteContext.Handler` e `RouteContext.RouteData` sono output che verranno impostati dopo una route corrispondente.
 
 Una corrispondenza durante `RouteAsync` verrà inoltre impostare le proprietà del `RouteContext.RouteData` ai valori appropriati in base l'elaborazione della richiesta fino a questo punto. Se una route corrisponde a una richiesta, il `RouteContext.RouteData` conterrà le informazioni sullo stato importanti circa la *risultato*.
 
-`RouteData``Values` è un dizionario di *i valori di route* prodotta dalla route. Questi valori in genere sono determinati dalla suddivisione in token l'URL e possono essere utilizzati per accettare l'input dell'utente o per prendere decisioni ulteriormente invio all'interno dell'applicazione.
+`RouteData.Values`è un dizionario di *i valori di route* prodotta dalla route. Questi valori in genere sono determinati dalla suddivisione in token l'URL e possono essere utilizzati per accettare l'input dell'utente o per prendere decisioni ulteriormente invio all'interno dell'applicazione.
 
-`RouteData``DataTokens` è un contenitore delle proprietà di dati aggiuntivi relativi a una route corrispondente. `DataTokens`vengono forniti per supportare lo stato di associazione dati con ogni route in modo l'applicazione può prendere decisioni in un secondo momento in base la route corrispondono. Questi valori sono definite dallo sviluppatore e si **non** influiscono sul comportamento di routing in alcun modo. Inoltre, i valori accantonati nei token di dati possono essere di qualsiasi tipo, a differenza di valori di route, che deve essere facilmente convertibili da e verso le stringhe.
+`RouteData.DataTokens`è un contenitore delle proprietà di dati aggiuntivi relativi a una route corrispondente. `DataTokens`vengono forniti per supportare lo stato di associazione dati con ogni route in modo l'applicazione può prendere decisioni in un secondo momento in base la route corrispondono. Questi valori sono definite dallo sviluppatore e si **non** influiscono sul comportamento di routing in alcun modo. Inoltre, i valori accantonati nei token di dati possono essere di qualsiasi tipo, a differenza di valori di route, che deve essere facilmente convertibili da e verso le stringhe.
 
-`RouteData``Routers` è riportato un elenco di route che ha partecipato alla corrispondenza correttamente la richiesta. Le route possono essere annidate all'interno di un altro e `Routers` proprietà riflette il percorso nell'albero logico di route che ha comportato una corrispondenza. In genere il primo elemento `Routers` è la raccolta di route e deve essere utilizzato per la generazione di URL. L'ultimo elemento `Routers` è il gestore di route corrispondente.
+`RouteData.Routers`è un elenco di route che ha partecipato alla corrispondenza correttamente la richiesta. Le route possono essere annidate all'interno di un altro e `Routers` proprietà riflette il percorso nell'albero logico di route che ha comportato una corrispondenza. In genere il primo elemento `Routers` è la raccolta di route e deve essere utilizzato per la generazione di URL. L'ultimo elemento `Routers` è il gestore di route corrispondente.
 
 ### <a name="url-generation"></a>Generazione di URL
 
@@ -66,11 +66,11 @@ Generazione URL segue un processo iterativo simile, ma ha inizio con il codice u
 
 Il database primario è input `GetVirtualPath` sono:
 
-* `VirtualPathContext` `HttpContext`
+* `VirtualPathContext.HttpContext`
 
-* `VirtualPathContext` `Values`
+* `VirtualPathContext.Values`
 
-* `VirtualPathContext` `AmbientValues`
+* `VirtualPathContext.AmbientValues`
 
 Le route usano principalmente i valori della route forniti dal `Values` e `AmbientValues` decidere dove è possibile generare un URL e valori da includere. Il `AmbientValues` sono il set di valori di route che sono state prodotte dalla corrispondenza la richiesta corrente con il sistema di routing. Al contrario, `Values` sono i valori della route che specificano la modalità generare l'URL desiderato per l'operazione corrente. Il `HttpContext` viene fornita nel caso in cui una route deve ottenere servizi o dati aggiuntivi associati al contesto corrente.
 
@@ -78,11 +78,11 @@ Suggerimento: Considerare `Values` come un set di override per il `AmbientValues
 
 L'output di `GetVirtualPath` è un `VirtualPathData`. `VirtualPathData`è un'operazione parallela del `RouteData`; contiene il `VirtualPath` per l'URL di output, nonché alcune proprietà aggiuntive che deve essere impostata per la route.
 
-Il `VirtualPathData` `VirtualPath` proprietà contiene il *percorso virtuale* prodotta dalla route. A seconda delle esigenze potrebbe essere necessario elaborare ulteriormente il percorso. Ad esempio, se si desidera eseguire il rendering in HTML URL generato è necessario anteporre il percorso di base dell'applicazione.
+Il `VirtualPathData.VirtualPath` proprietà contiene il *percorso virtuale* prodotta dalla route. A seconda delle esigenze potrebbe essere necessario elaborare ulteriormente il percorso. Ad esempio, se si desidera eseguire il rendering in HTML URL generato è necessario anteporre il percorso di base dell'applicazione.
 
-Il `VirtualPathData` `Router` è un riferimento alla route che è stato generato correttamente l'URL.
+Il `VirtualPathData.Router` è un riferimento alla route che è stato generato correttamente l'URL.
 
-Il `VirtualPathData` `DataTokens` proprietà è un dizionario di dati aggiuntivi relativi alla route che ha generato l'URL. Si tratta di parallelo di `RouteData.DataTokens`.
+Il `VirtualPathData.DataTokens` proprietà è un dizionario di dati aggiuntivi relativi alla route che ha generato l'URL. Si tratta di parallelo di `RouteData.DataTokens`.
 
 ### <a name="creating-routes"></a>Creazione di route
 
@@ -159,7 +159,7 @@ Questo modello corrisponderanno a un percorso URL come `/Products/5` che consent
 
 ![Token di Windows di variabili locali](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>Generazione di URL
 
@@ -286,7 +286,7 @@ Nella tabella seguente illustra alcuni modelli di route e il relativo comportame
 
 Utilizzo di un modello è in genere l'approccio più semplice per il routing. I vincoli e le impostazioni predefinite possono essere specificate anche all'esterno del modello di route.
 
-Suggerimento: Abilitare [registrazione](logging.md) per vedere come il basate nelle implementazioni di routine, ad esempio `Route`, alle richieste.
+Suggerimento: Abilitare [registrazione](xref:fundamentals/logging/index) per vedere come il basate nelle implementazioni di routine, ad esempio `Route`, alle richieste.
 
 ## <a name="route-constraint-reference"></a>Riferimento di vincolo di route
 

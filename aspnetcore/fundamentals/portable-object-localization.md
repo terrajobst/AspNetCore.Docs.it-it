@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/portable-object-localization
 ms.openlocfilehash: 4fa73ae08b10217de657681a27f6097fc3443737
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Configurare la localizzazione oggetto portabile con Orchard Core
 
@@ -24,7 +24,7 @@ In questo articolo vengono illustrati i passaggi per l'utilizzo di file oggetto 
 
 **Nota:** Orchard Core non è un prodotto Microsoft. Di conseguenza, Microsoft non fornisce supporto per questa funzionalità.
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-a-po-file"></a>Che cos'è un file di ordine di acquisto?
 
