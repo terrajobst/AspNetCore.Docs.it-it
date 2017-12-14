@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: d3bcf9aaf7fa809825a0ba8631ee52d3860b090d
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 98fe1b0c2dcf2e133d921b2cc8695bd2056c5ec0
+ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Introduzione a Entity Framework Core con Visual Studio (1 di 8) e di pagine Razor
 
@@ -71,9 +71,9 @@ Aprire *Pages/_Layout.cshtml* e apportare le modifiche seguenti:
 
 Le modifiche sono evidenziate.
 
-[!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-39,47&range=1-50)]
+[!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-38,47&range=1-50)]
 
-In *Views/Home/Index.cshtml*, sostituire il contenuto del file con il codice seguente per sostituire il testo su ASP.NET e MVC con testo sull'app:
+In *Pages/Index.cshtml*, sostituire il contenuto del file con il codice seguente per sostituire il testo su ASP.NET e MVC con testo sull'app:
 
 [!code-html[](intro/samples/cu/Pages/Index.cshtml)]
 
@@ -279,7 +279,7 @@ Espandere il **tabelle** nodo.
 
 Fare doppio clic su di **Student** tabella e fare clic su **Visualizza dati** per visualizzare le colonne create e le righe inserite nella tabella.
 
-Il *con estensione mdf* e *ldf* presenti file di database di *C:\Users\<nomeutente >* cartella.
+Il *con estensione mdf* e *ldf* presenti file di database di *C:\Users\\ <yourusername>*  cartella.
 
 `EnsureCreated`viene chiamato all'avvio dell'app, che consente il flusso di lavoro seguente:
 
