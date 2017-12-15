@@ -13,7 +13,7 @@ Per ulteriori informazioni sul funzionamento dell'esempio, vedere il [provider d
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Registrare l'app di esempio con Azure Active Directory.
-  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToKeys list,get`.
+  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
 2. Aggiornare l'app *appSettings. JSON* file con i valori di `Vault`, `ClientId`, e `ClientSecret`.
 3. Eseguire l'app di esempio, che ottiene i valori di configurazione da `IConfigurationRoot` con lo stesso nome come nome del segreto.
   * I valori non gerarchico: il valore per `SecretName` viene ottenuto con `config["SecretName"]`.

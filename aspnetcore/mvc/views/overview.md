@@ -5,21 +5,22 @@ description: Informazioni su come viste di gestiscono la presentazione dei dati 
 keywords: ASP.NET Core, visualizzare, MVC, razor, viewmodel, viewdata, viewbag
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET MVC di base
 
 Da [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardrex)
+
+Questo documento illustra le viste utilizzate nelle applicazioni ASP.NET MVC di base. Per informazioni sulle pagine Razor, vedere [Introduzione alle pagine Razor](xref:mvc/razor-pages/index).
 
 Nel **M**enti -**V**ISTA -**C**modello ontroller (MVC), il *vista* gestisce l'interazione utente e presentazione dei dati dell'applicazione. Una vista è un modello HTML con incorporato [markup Razor](xref:mvc/views/razor). Markup Razor è codice che interagisce con il markup HTML per produrre una pagina Web che viene inviata al client.
 

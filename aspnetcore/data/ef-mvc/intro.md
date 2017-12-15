@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
@@ -244,15 +244,10 @@ La creazione automatica delle viste e i metodi di azione CRUD è noto come lo sc
 
 * Fare doppio clic sul **controller** cartella **Esplora** e selezionare **Aggiungi > Nuovo elemento di scaffolding**.
 
-* Nella finestra di dialogo **Aggiungi dipendenze MVC** selezionare **Dipendenze minime**, quindi **Aggiungi**.
+Se il **aggiungere le dipendenze MVC** viene visualizzata la finestra:
 
-  ![Aggiunta di dipendenze](intro/_static/add-depend.png)
-
-  Visual Studio aggiunge le dipendenze necessarie per eseguire lo scaffolding di un controller. La modifica sola nel file di progetto è l'aggiunta del `Microsoft.VisualStudio.Web.CodeGeneration.Design` pacchetto.
-
-  Oggetto *ScaffoldingReadMe.txt* viene creato un file che è possibile eliminare.
-
-* Ancora una volta, fare doppio clic sul **controller** cartella **Esplora** e selezionare **Aggiungi > Nuovo elemento di scaffolding**.
+* [L'aggiornamento alla versione più recente di Visual Studio](https://www.visualstudio.com/downloads/). Versioni di Visual Studio prima 15,5 mostrano questa finestra di dialogo.
+* Se non è possibile aggiornare, selezionare **Aggiungi**e seguire i passaggi di Aggiungi controller.
 
 * Nel **aggiungere lo scaffolding** la finestra di dialogo:
 

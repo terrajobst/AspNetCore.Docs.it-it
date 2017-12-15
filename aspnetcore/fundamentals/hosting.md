@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting in ASP.NET Core
 
@@ -254,7 +254,7 @@ Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
 ### <a name="prevent-hosting-startup"></a>Impedire l'avvio di Hosting
 
-Impedisce il caricamento automatico di assembly di avvio, tra cui assembly dell'applicazione di hosting.
+Impedisce il caricamento automatico di hosting agli assembly di avvio, inclusi gli assembly di avvio configurati dall'assembly dell'applicazione di hosting. Vedere [aggiungere le funzionalità dell'app da un assembly esterno utilizzando IHostingStartup](xref:hosting/ihostingstartup) per ulteriori informazioni.
 
 **Chiave**: preventHostingStartup  
 **Tipo**: *bool* (`true` o `1`)  

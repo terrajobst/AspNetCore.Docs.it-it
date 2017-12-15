@@ -15,7 +15,7 @@ Per ulteriori informazioni sul funzionamento dell'esempio, vedere il [provider d
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Registrare l'app di esempio con Azure Active Directory.
-  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToKeys list,get`.
+  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
 2. Aggiornare l'app *appSettings. JSON* file con i valori di `Vault`, `ClientId`, e `ClientSecret`.
 3. Eseguire l'app di esempio, che ottiene i valori di configurazione da `IConfigurationRoot` con lo stesso nome come nome del segreto con prefisso. In questo esempio, il prefisso è la versione dell'app, che è fornito per il `PrefixKeyVaultSecretManager` quando è stato aggiunto il provider di configurazione insieme credenziali chiavi Azure. Il valore per `AppSecret` viene ottenuto con `config["AppSecret"]`.
 4. Modificare la versione dell'assembly nel file di progetto da app `5.0.0.0` a `5.1.0.0` ed eseguire nuovamente l'app. Questa volta, il valore secret restituito è `5.1.0.0_secret_value`.

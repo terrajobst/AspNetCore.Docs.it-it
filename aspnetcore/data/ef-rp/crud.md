@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 410829608540697ac4563f1399c8e72d28a13cf2
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: b4b24c155c29a0ef8ffffda752253f56097e50ed
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Creare, leggere, aggiornare ed eliminare - Core EF con pagine Razor (2 di 8)
 
@@ -102,7 +102,7 @@ Il `AsNoTracking` metodo migliora le prestazioni negli scenari quando le entità
 Aprire *Pages/Students/Details.cshtml*. Aggiungere il codice evidenziato di seguito per visualizzare un elenco delle registrazioni:
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=35-53)]
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Se dopo avere incollato il codice, rientro del codice non è corretto, premere CTRL-K-D per correggere l'errore.
 
