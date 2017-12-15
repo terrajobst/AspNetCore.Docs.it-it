@@ -1,25 +1,30 @@
 ---
 title: Creare un'app Web con ASP.NET Core MVC in Windows
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: Sommario di introduzione ad ASP.NET Core MVC con Visual Studio su Windows.
+keywords: ASP.NET Core, MVC, esercitazione, introduzione
 ms.author: riande
 manager: wpickett
-ms.date: 06/26/2017
+ms.date: 10/26/2017
 ms.topic: get-started-article
-ms.assetid: 959ff4ca-be2d-444c-ac04-789e787146f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: b69f345e4b9d9996f48be7f07e436cde4e2d7fa4
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 9b4525d64b4d5bb309cb0708e36a152863a51ae8
+ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-on-windows"></a>Creare un'app Web con ASP.NET Core MVC tramite Visual Studio in Windows
+# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio"></a>Creare un'app web con ASP.NET Core MVC tramite Visual Studio
 
-Questa serie di esercitazioni contiene informazioni di base sulla creazione di un'app Web ASP.NET Core MVC usando Visual Studio. [!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE[consider RP](../../includes/razor.md)]
+
+Sono disponibili 3 versioni dell'esercitazione:
+
+* Windows: questa serie
+* macOS: [Creare un'app ASP.NET Core MVC con Visual Studio per Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
+* macOS, Linux e Windows: [Creare un'app ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc) La serie di esercitazioni include:
 
 1. [Introduzione](start-mvc.md)
 1. [Aggiunta di un controller](adding-controller.md)

@@ -11,11 +11,11 @@ ms.assetid: f0930c68-4d17-4748-adbf-801e17601eb6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/index
-ms.openlocfilehash: df3c1f0c2768b89c3ea5dc901782170c530a542e
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 0de459128426c4d027606951592b1fe3fdd24fd9
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="hosting-and-deployment-overview-for-aspnet-core-apps"></a>Panoramica dell'hosting e della distribuzione per le app ASP.NET Core
 
@@ -58,6 +58,10 @@ Se l'app usa il server Web [Kestrel](xref:fundamentals/servers/kestrel) ed è es
 In molti casi la distribuzione richiede attività aggiuntive oltre alla copia dell'output da `dotnet publish` a un server. Ad esempio può risultare utile includere file aggiuntivi nella cartella *publish* o escludere file dalla cartella stessa. Per la distribuzione Web Visual Studio usa MSBuild, che può essere personalizzato per l'esecuzione di molte altre attività durante la distribuzione. Per altre informazioni, vedere [Publish profiles in Visual Studio](xref:publishing/web-publishing-vs) (Pubblicare profili in Visual Studio) e il libro [Using MSBuild and Team Foundation Build](http://msbuildbook.com/) (Uso di MSBuild e Team Foundation Build).
 
 È possibile eseguire direttamente la distribuzione da Visual Studio al Servizio app di Azure usando la [funzionalità Pubblica sito Web](xref:tutorials/publish-to-azure-webapp-using-vs) o il [supporto di Git incorporato](xref:publishing/azure-continuous-deployment). Visual Studio Team Services supporta la [distribuzione continua al Servizio app di Azure](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure).
+
+## <a name="publishing-to-azure"></a>Pubblicazione in Azure
+
+Per istruzioni su come pubblicare l'app in Azure usando Visual Studio, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).  L'app può essere pubblicata in Azure anche dalla [riga di comando](xref:tutorials/publish-to-azure-webapp-using-cli).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

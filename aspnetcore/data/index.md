@@ -1,28 +1,39 @@
 ---
 title: Uso dei dati in ASP.NET Core
 author: rick-anderson
-description: 
+description: Collegamenti ad articoli sull'uso dei dati. Molti usano Entity Framework Core.
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2ef
 ms.technology: aspnet
 ms.prod: asp.net-core
-ms.openlocfilehash: 3566127476289ae085a9161132b103638bc9b068
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+uid: data/index
+ms.openlocfilehash: b3bcd15a078ed2125d14c3e94311e385a1db9683
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="working-with-data-in-aspnet-core"></a>Uso dei dati in ASP.NET Core 
 
+* [Introduzione a Razor Pages e a Entity Framework Core con Visual Studio](xref:data/ef-rp/index)
+
+   * [Introduzione a Razor Pages ed Entity Framework](xref:data/ef-rp/intro)
+   * [Operazioni di creazione, lettura, aggiornamento ed eliminazione](xref:data/ef-rp/crud)
+   * [Ordinamento, filtro, paging e raggruppamento](xref:data/ef-rp/sort-filter-page)
+   * [Migrazioni](xref:data/ef-rp/migrations)
+   * [Creazione di un modello di dati complesso](xref:data/ef-rp/complex-data-model)
+   * [Lettura di dati correlati](xref:data/ef-rp/read-related-data)
+   * [Aggiornamento di dati correlati](xref:data/ef-rp/update-related-data)
+   * [Gestione di conflitti di concorrenza](xref:data/ef-rp/concurrency)
+
 *   [Introduzione ad ASP.NET Core ed Entity Framework Core con Visual Studio](ef-mvc/index.md)
     *   [Introduzione](ef-mvc/intro.md)
-    *   [Operazioni di creazione, lettura, aggiornamento ed eliminazione](ef-mvc/crud.md)
-    *   [Ordinamento, filtro, paging e raggruppamento](ef-mvc/sort-filter-page.md)
-    *   [Migrazioni](ef-mvc/migrations.md)
+    *   [Operazioni di creazione, lettura, aggiornamento ed eliminazione](xref:data/ef-mvc/crud)
+    *   [Ordinamento, filtro, paging e raggruppamento](xref:data/ef-mvc/sort-filter-page)
+    *   [Migrazioni](xref:data/ef-mvc/migrations)
     *   [Creazione di un modello di dati complesso](ef-mvc/complex-data-model.md)
     *   [Lettura di dati correlati](ef-mvc/read-related-data.md)
     *   [Aggiornamento di dati correlati](ef-mvc/update-related-data.md)
@@ -37,3 +48,4 @@ ms.lasthandoff: 08/11/2017
     *   [Introduzione all'archiviazione BLOB di Azure a Servizi connessi di Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
     *   [Introduzione all'archiviazione code e a Servizi connessi di Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
     *   [Modalità riguardanti l'introduzione all'archiviazione tabelle di Azure a Servizi connessi di Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+

@@ -1,23 +1,47 @@
 ---
-title: Sicurezza
-author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+title: Panoramica sulla sicurezza di ASP.NET Core | Microsoft Docs
+author: rachelappel
+description: Informazioni sui concetti di base di autenticazione, autorizzazione e sicurezza in ASP.NET Core
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 11/01/2017
 ms.topic: article
 ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: f173d03f55a1ce52222a75c023f9e8a20d5c60dc
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 4f3a74d67ce3453499ea9785cc80bee183dc1aff
+ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="security"></a>Sicurezza
+# <a name="aspnet-core-security-overview"></a>Panoramica sulla sicurezza di ASP.NET Core
+
+ASP.NET Core consente agli sviluppatori di configurare e gestire facilmente la sicurezza per le proprie app. ASP.NET Core contiene funzionalità per gestire l'autenticazione, l'autorizzazione, la protezione dei dati, l'applicazione di SSL, i segreti dell'app, la protezione dalla falsificazione delle richieste e la gestione di CORS. Queste funzionalità di sicurezza consentono di compilare app ASP.NET Core solide e sicure. 
+
+## <a name="aspnet-core-security-features"></a>Funzionalità di sicurezza di ASP.NET Core
+
+ASP.NET Core fornisce numerosi strumenti e librerie per proteggere le app, inclusi i provider di identità predefiniti, ma è anche possibile usare servizi di identità di terze parti, ad esempio Facebook, Twitter e LinkedIn. Con ASP.NET Core, è possibile gestire facilmente i segreti dell'app, che consentono di archiviare e usare informazioni riservate senza la necessità di esporle nel codice. 
+
+## <a name="authentication-vs-authorization"></a>Autenticazione e autorizzazione
+
+L'autenticazione è un processo in cui un utente fornisce le credenziali che vengono quindi confrontate con quelle archiviate in un sistema operativo, un database, un'applicazione o una risorsa. Se corrispondono, gli utenti vengono autenticati correttamente e quindi possono eseguire azioni per cui sono autorizzati, durante un processo di autorizzazione. L'autorizzazione è il processo che determina quali operazioni può eseguire un utente. 
+
+È possibile considerare l'autenticazione come un modo per entrare in uno spazio, ad esempio un server, un database, un'app o una risorsa, mentre l'autorizzazione definisce le azioni che l'utente può eseguire e su quali oggetti all'interno di tale spazio (server, database o app).
+
+## <a name="common-vulnerabilities-in-software"></a>Vulnerabilità comuni nel software
+
+ASP.NET Core ed Entity Framework contengono funzionalità che consentono di proteggere le app e impedire violazioni della sicurezza. L'elenco di collegamenti seguente offre documentazione in cui sono descritte le tecniche per evitare le vulnerabilità della sicurezza più comuni nelle app Web:
+
+* [Attacchi con script da altri siti](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
+* [Attacchi injection di SQL](https://docs.microsoft.com/ef/core/querying/raw-sql)
+* [Richieste intersito false](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
+* [Attacchi di reindirizzamento aperti](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
+
+Esistono altre vulnerabilità di cui è necessario essere consapevoli. Per altre informazioni, vedere la sezione in questo documento sulla *documentazione sulla sicurezza di ASP.NET*. 
+
+## <a name="aspnet-security-documentation"></a>Documentazione sulla sicurezza di ASP.NET
 
 *   [Autenticazione](authentication/index.md)
     *   [Introduzione a Identity](authentication/identity.md)
@@ -40,8 +64,8 @@ ms.lasthandoff: 09/28/2017
     *   [Autorizzazione basata sulle attestazioni](authorization/claims.md)
     *   [Autorizzazione personalizzata basata su criteri](authorization/policies.md)
     *   [Inserimento di dipendenze nei gestori di requisiti](authorization/dependencyinjection.md)
-    *   [Autorizzazione basata sulle risorse](authorization/resourcebased.md)
-    *   [Autorizzazione basata sulle visualizzazioni](authorization/views.md)
+    *   [Autorizzazione basata su risorse](authorization/resourcebased.md)
+    *   [Autorizzazione basata sulla visualizzazione](authorization/views.md)
     *   [Limitazione dell'identità tramite schema](authorization/limitingidentitybyscheme.md)
 *   [Protezione dati](data-protection/index.md)
     *   [Introduzione alla protezione dati](data-protection/introduction.md)

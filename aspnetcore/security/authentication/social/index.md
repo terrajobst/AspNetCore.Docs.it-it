@@ -1,7 +1,7 @@
 ---
-title: Abilitazione dell'autenticazione con Facebook, Google e altri esterni
+title: Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni
 author: rick-anderson
-description: 
+description: Questa esercitazione illustra come compilare un'app ASP.NET Core 2.x tramite OAuth 2.0 con provider di autenticazione esterni.
 keywords: ASP.NET di base, autenticazione, social, provider di autenticazione, google, facebook, twitter, account di microsoft
 ms.author: riande
 manager: wpickett
@@ -11,15 +11,15 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 56036000535156b4b5814dde2a0145dcdfff28c3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9fc0d6c3e9691f8c3fa0d769ac53c3337d822fc5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni
 
-<a name=security-authentication-social-logins></a>
+<a name="security-authentication-social-logins"></a>
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 

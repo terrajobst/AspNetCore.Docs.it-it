@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: dfe8136dccb0e98a9fc6b1395161ccb442392c76
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c66bb3a9d766e02c7775906cdd547a0e12c15336
+ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="updating-the-generated-pages"></a>Aggiornamento delle pagine generate
 
@@ -95,7 +95,7 @@ Per testare il blocco `catch`:
 * In un'altra finestra del browser, selezionare il collegamento **Delete** (Elimina) per lo stesso film e quindi eliminare il film.
 * Nella finestra del browser precedente inviare le modifiche al film.
 
-Il codice di produzione in genere rileva i conflitti di concorrenza quando due o più client hanno aggiornato contemporaneamente un record. Per altre informazioni, vedere [Gestione dei conflitti di concorrenza](xref:data/ef-mvc/concurrency).
+Il codice di produzione in genere rileva i conflitti di concorrenza quando due o più client hanno aggiornato contemporaneamente un record. Per altre informazioni, vedere [Gestione dei conflitti di concorrenza](xref:data/ef-rp/concurrency).
 
 ### <a name="posting-and-binding-review"></a>Invio di post e analisi delle associazioni
 
