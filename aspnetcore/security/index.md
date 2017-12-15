@@ -1,85 +1,109 @@
 ---
-title: Sicurezza
-author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+title: Panoramica sulla sicurezza di ASP.NET Core | Microsoft Docs
+author: rachelappel
+description: Informazioni sui concetti di base di autenticazione, autorizzazione e sicurezza in ASP.NET Core
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 11/01/2017
 ms.topic: article
 ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: f173d03f55a1ce52222a75c023f9e8a20d5c60dc
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 4f3a74d67ce3453499ea9785cc80bee183dc1aff
+ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="security"></a>Sicurezza
+# <a name="aspnet-core-security-overview"></a><span data-ttu-id="44691-103">Panoramica sulla sicurezza di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="44691-103">ASP.NET Core Security Overview</span></span>
 
-*   [Autenticazione](authentication/index.md)
-    *   [Introduzione a Identity](authentication/identity.md)
-    *   [Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni](authentication/social/index.md)
-    * [Configurare l'autenticazione Windows](authentication/windowsauth.md)
-    *   [Conferma account e recupero password](authentication/accconfirm.md)
-    *   [Autenticazione a due fattori con SMS](authentication/2fa.md) 
-    *   [Uso dell'autenticazione tramite cookie senza ASP.NET Core Identity](authentication/cookie.md)
-    *   [Azure Active Directory](authentication/azure-active-directory/index.md)
-        *   [Integrazione di Azure AD in un'app Web ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-        *   [Chiamata di un'API Web ASP.NET Core da un'applicazione WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Chiamata di un'API Web in un'applicazione Web ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-        *   [Un'app Web ASP.NET Core con Azure Active Directory B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-    *   [Protezione di app ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
-*   [Autorizzazione](authorization/index.md)
-    *   [Introduzione](authorization/introduction.md)
-    *   [Creare un'app con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data)
-    *   [Autorizzazione semplice](authorization/simple.md)
-    *   [Autorizzazione basata sui ruoli](authorization/roles.md)
-    *   [Autorizzazione basata sulle attestazioni](authorization/claims.md)
-    *   [Autorizzazione personalizzata basata su criteri](authorization/policies.md)
-    *   [Inserimento di dipendenze nei gestori di requisiti](authorization/dependencyinjection.md)
-    *   [Autorizzazione basata sulle risorse](authorization/resourcebased.md)
-    *   [Autorizzazione basata sulle visualizzazioni](authorization/views.md)
-    *   [Limitazione dell'identità tramite schema](authorization/limitingidentitybyscheme.md)
-*   [Protezione dati](data-protection/index.md)
-    *   [Introduzione alla protezione dati](data-protection/introduction.md)
-    *   [Introduzione alle API di protezione dati](data-protection/using-data-protection.md)
-    *   [API utente](data-protection/consumer-apis/index.md)
-        *   [Panoramica di API utente](data-protection/consumer-apis/overview.md)
-        *   [Stringhe di scopi](data-protection/consumer-apis/purpose-strings.md)
-        *   [Gerarchia di scopi e multi-tenancy](data-protection/consumer-apis/purpose-strings-multitenancy.md)
-        *   [Hashing della password](data-protection/consumer-apis/password-hashing.md)
-        *   [Limitazione della durata di payload protetti](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Rimozione della protezione di payload le cui chiavi sono state revocate](data-protection/consumer-apis/dangerous-unprotect.md)
-    *   [Configurazione](data-protection/configuration/index.md)
-        *   [Configurazione della protezione dati](data-protection/configuration/overview.md)
-        *   [Impostazioni predefinite](data-protection/configuration/default-settings.md)
-        *   [Criteri a livello di computer](data-protection/configuration/machine-wide-policy.md)
-        *   [Scenari non compatibili con DI](data-protection/configuration/non-di-scenarios.md)
-    *   [API di estendibilità](data-protection/extensibility/index.md)
-        *   [Estendibilità della crittografia Core](data-protection/extensibility/core-crypto.md)
-        *   [Estendibilità della gestione delle chiavi](data-protection/extensibility/key-management.md)
-        *   [Varie API](data-protection/extensibility/misc-apis.md)
-    *   [Implementazione](data-protection/implementation/index.md)
-        *   [Dettagli di crittografia autenticata](data-protection/implementation/authenticated-encryption-details.md)
-        *   [Derivazione di sottochiavi e crittografia autenticata](data-protection/implementation/subkeyderivation.md)
-        *   [Intestazioni di contesto](data-protection/implementation/context-headers.md)
-        *   [Gestione delle chiavi](data-protection/implementation/key-management.md)
-        *   [Provider di archiviazione chiavi](data-protection/implementation/key-storage-providers.md)
-        *   [Crittografia chiavi inattive](data-protection/implementation/key-encryption-at-rest.md)
-        *   [Immutabilità della chiave e modifica delle impostazioni](data-protection/implementation/key-immutability.md)
-        *   [Formato di archiviazione chiavi](data-protection/implementation/key-storage-format.md)
-        *   [Provider di protezione dati temporanea](data-protection/implementation/key-storage-ephemeral.md)
-    *   [Compatibilità](data-protection/compatibility/index.md)
-        *   [Condivisione dei cookie tra applicazioni](data-protection/compatibility/cookie-sharing.md)
-        *   [Sostituzione di <machineKey> in ASP.NET](data-protection/compatibility/replacing-machinekey.md)
-*   [Creare un'app con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data)
-*   [Archiviazione sicura di segreti dell'app durante lo sviluppo](app-secrets.md)
-*   [Azure Key Vault configuration provider](key-vault-configuration.md) (Provider di configurazione di Azure Key Vault)
-*   [Applicazione di SSL](enforcing-ssl.md)
-*   [Richiesta intersito falsa](anti-request-forgery.md)
-*   [Prevenzione di attacchi di reindirizzamento aperti](preventing-open-redirects.md)
-*   [Prevenzione di XSS](cross-site-scripting.md)
-*   [Abilitazione di richieste multiorigine (CORS)](cors.md)
+<span data-ttu-id="44691-104">ASP.NET Core consente agli sviluppatori di configurare e gestire facilmente la sicurezza per le proprie app.</span><span class="sxs-lookup"><span data-stu-id="44691-104">ASP.NET Core enables developers to easily configure and manage security for their apps.</span></span> <span data-ttu-id="44691-105">ASP.NET Core contiene funzionalità per gestire l'autenticazione, l'autorizzazione, la protezione dei dati, l'applicazione di SSL, i segreti dell'app, la protezione dalla falsificazione delle richieste e la gestione di CORS.</span><span class="sxs-lookup"><span data-stu-id="44691-105">ASP.NET Core contains features for managing authentication, authorization, data protection, SSL enforcement, app secrets, anti-request forgery protection, and CORS management.</span></span> <span data-ttu-id="44691-106">Queste funzionalità di sicurezza consentono di compilare app ASP.NET Core solide e sicure.</span><span class="sxs-lookup"><span data-stu-id="44691-106">These security features allow you to build robust yet secure ASP.NET Core apps.</span></span> 
+
+## <a name="aspnet-core-security-features"></a><span data-ttu-id="44691-107">Funzionalità di sicurezza di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="44691-107">ASP.NET Core security features</span></span>
+
+<span data-ttu-id="44691-108">ASP.NET Core fornisce numerosi strumenti e librerie per proteggere le app, inclusi i provider di identità predefiniti, ma è anche possibile usare servizi di identità di terze parti, ad esempio Facebook, Twitter e LinkedIn.</span><span class="sxs-lookup"><span data-stu-id="44691-108">ASP.NET Core provides many tools and libraries to secure your apps including built-in Identity providers but you can use 3rd party identity services such as Facebook, Twitter, or LinkedIn.</span></span> <span data-ttu-id="44691-109">Con ASP.NET Core, è possibile gestire facilmente i segreti dell'app, che consentono di archiviare e usare informazioni riservate senza la necessità di esporle nel codice.</span><span class="sxs-lookup"><span data-stu-id="44691-109">With ASP.NET Core, you can easily manage app secrets, which are a way to store and use confidential information without having to expose it in the code.</span></span> 
+
+## <a name="authentication-vs-authorization"></a><span data-ttu-id="44691-110">Autenticazione e autorizzazione</span><span class="sxs-lookup"><span data-stu-id="44691-110">Authentication vs. Authorization</span></span>
+
+<span data-ttu-id="44691-111">L'autenticazione è un processo in cui un utente fornisce le credenziali che vengono quindi confrontate con quelle archiviate in un sistema operativo, un database, un'applicazione o una risorsa.</span><span class="sxs-lookup"><span data-stu-id="44691-111">Authentication is a process in which a user provides credentials that are then compared to those stored in an operating system, database, app or resource.</span></span> <span data-ttu-id="44691-112">Se corrispondono, gli utenti vengono autenticati correttamente e quindi possono eseguire azioni per cui sono autorizzati, durante un processo di autorizzazione.</span><span class="sxs-lookup"><span data-stu-id="44691-112">If they match, users authenticate successfully, and can then perform actions that they are authorized for, during an authorization process.</span></span> <span data-ttu-id="44691-113">L'autorizzazione è il processo che determina quali operazioni può eseguire un utente.</span><span class="sxs-lookup"><span data-stu-id="44691-113">The authorization refers to the process that determines what a user is allowed to do.</span></span> 
+
+<span data-ttu-id="44691-114">È possibile considerare l'autenticazione come un modo per entrare in uno spazio, ad esempio un server, un database, un'app o una risorsa, mentre l'autorizzazione definisce le azioni che l'utente può eseguire e su quali oggetti all'interno di tale spazio (server, database o app).</span><span class="sxs-lookup"><span data-stu-id="44691-114">Another way to think of authentication is to consider it as a way to enter a space, such as a server, database, app or resource, while authorization is which actions the user can perform to which objects inside that space (server, database, or app).</span></span>
+
+## <a name="common-vulnerabilities-in-software"></a><span data-ttu-id="44691-115">Vulnerabilità comuni nel software</span><span class="sxs-lookup"><span data-stu-id="44691-115">Common Vulnerabilities in software</span></span>
+
+<span data-ttu-id="44691-116">ASP.NET Core ed Entity Framework contengono funzionalità che consentono di proteggere le app e impedire violazioni della sicurezza.</span><span class="sxs-lookup"><span data-stu-id="44691-116">ASP.NET Core and EF contain features that help you secure your apps and prevent security breaches.</span></span> <span data-ttu-id="44691-117">L'elenco di collegamenti seguente offre documentazione in cui sono descritte le tecniche per evitare le vulnerabilità della sicurezza più comuni nelle app Web:</span><span class="sxs-lookup"><span data-stu-id="44691-117">The following list of links takes you to documentation detailing techniques to avoid the most common security vulnerabilities in web apps:</span></span>
+
+* [<span data-ttu-id="44691-118">Attacchi con script da altri siti</span><span class="sxs-lookup"><span data-stu-id="44691-118">Cross site scripting attacks</span></span>](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
+* [<span data-ttu-id="44691-119">Attacchi injection di SQL</span><span class="sxs-lookup"><span data-stu-id="44691-119">SQL Injection attacks</span></span>](https://docs.microsoft.com/ef/core/querying/raw-sql)
+* [<span data-ttu-id="44691-120">Richieste intersito false</span><span class="sxs-lookup"><span data-stu-id="44691-120">Cross-Site Request Forgery (CSRF)</span></span>](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
+* [<span data-ttu-id="44691-121">Attacchi di reindirizzamento aperti</span><span class="sxs-lookup"><span data-stu-id="44691-121">Open redirect attacks</span></span>](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
+
+<span data-ttu-id="44691-122">Esistono altre vulnerabilità di cui è necessario essere consapevoli.</span><span class="sxs-lookup"><span data-stu-id="44691-122">There are more vulnerabilities that you should be aware of.</span></span> <span data-ttu-id="44691-123">Per altre informazioni, vedere la sezione in questo documento sulla *documentazione sulla sicurezza di ASP.NET*.</span><span class="sxs-lookup"><span data-stu-id="44691-123">For more information, see the section in this document on *ASP.NET Security Documentation*.</span></span> 
+
+## <a name="aspnet-security-documentation"></a><span data-ttu-id="44691-124">Documentazione sulla sicurezza di ASP.NET</span><span class="sxs-lookup"><span data-stu-id="44691-124">ASP.NET Security Documentation</span></span>
+
+*   [<span data-ttu-id="44691-125">Autenticazione</span><span class="sxs-lookup"><span data-stu-id="44691-125">Authentication</span></span>](authentication/index.md)
+    *   [<span data-ttu-id="44691-126">Introduzione a Identity</span><span class="sxs-lookup"><span data-stu-id="44691-126">Introduction to Identity</span></span>](authentication/identity.md)
+    *   [<span data-ttu-id="44691-127">Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni</span><span class="sxs-lookup"><span data-stu-id="44691-127">Enabling authentication using Facebook, Google and other external providers</span></span>](authentication/social/index.md)
+    * [<span data-ttu-id="44691-128">Configurare l'autenticazione Windows</span><span class="sxs-lookup"><span data-stu-id="44691-128">Configure Windows Authentication</span></span>](authentication/windowsauth.md)
+    *   [<span data-ttu-id="44691-129">Conferma account e recupero password</span><span class="sxs-lookup"><span data-stu-id="44691-129">Account Confirmation and Password Recovery</span></span>](authentication/accconfirm.md)
+    *   [<span data-ttu-id="44691-130">Autenticazione a due fattori con SMS</span><span class="sxs-lookup"><span data-stu-id="44691-130">Two-factor authentication with SMS</span></span>](authentication/2fa.md) 
+    *   [<span data-ttu-id="44691-131">Uso dell'autenticazione tramite cookie senza ASP.NET Core Identity</span><span class="sxs-lookup"><span data-stu-id="44691-131">Using Cookie Authentication without ASP.NET Core Identity</span></span>](authentication/cookie.md)
+    *   [<span data-ttu-id="44691-132">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="44691-132">Azure Active Directory</span></span>](authentication/azure-active-directory/index.md)
+        *   [<span data-ttu-id="44691-133">Integrazione di Azure AD in un'app Web ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="44691-133">Integrating Azure AD Into an ASP.NET Core Web App</span></span>](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [<span data-ttu-id="44691-134">Chiamata di un'API Web ASP.NET Core da un'applicazione WPF con Azure AD</span><span class="sxs-lookup"><span data-stu-id="44691-134">Calling a ASP.NET Core Web API From a WPF Application Using Azure AD</span></span>](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+        *   [<span data-ttu-id="44691-135">Chiamata di un'API Web in un'applicazione Web ASP.NET Core con Azure AD</span><span class="sxs-lookup"><span data-stu-id="44691-135">Calling a Web API in an ASP.NET Core Web Application Using Azure AD</span></span>](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [<span data-ttu-id="44691-136">Un'app Web ASP.NET Core con Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="44691-136">An ASP.NET Core web app with Azure AD B2C</span></span>](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
+    *   [<span data-ttu-id="44691-137">Protezione di app ASP.NET Core con IdentityServer4</span><span class="sxs-lookup"><span data-stu-id="44691-137">Securing ASP.NET Core apps with IdentityServer4</span></span>](https://identityserver4.readthedocs.io)
+*   [<span data-ttu-id="44691-138">Autorizzazione</span><span class="sxs-lookup"><span data-stu-id="44691-138">Authorization</span></span>](authorization/index.md)
+    *   [<span data-ttu-id="44691-139">Introduzione</span><span class="sxs-lookup"><span data-stu-id="44691-139">Introduction</span></span>](authorization/introduction.md)
+    *   [<span data-ttu-id="44691-140">Creare un'app con i dati utente protetti da autorizzazione</span><span class="sxs-lookup"><span data-stu-id="44691-140">Create an app with user data protected by authorization</span></span>](xref:security/authorization/secure-data)
+    *   [<span data-ttu-id="44691-141">Autorizzazione semplice</span><span class="sxs-lookup"><span data-stu-id="44691-141">Simple Authorization</span></span>](authorization/simple.md)
+    *   [<span data-ttu-id="44691-142">Autorizzazione basata sui ruoli</span><span class="sxs-lookup"><span data-stu-id="44691-142">Role based Authorization</span></span>](authorization/roles.md)
+    *   [<span data-ttu-id="44691-143">Autorizzazione basata sulle attestazioni</span><span class="sxs-lookup"><span data-stu-id="44691-143">Claims-Based Authorization</span></span>](authorization/claims.md)
+    *   [<span data-ttu-id="44691-144">Autorizzazione personalizzata basata su criteri</span><span class="sxs-lookup"><span data-stu-id="44691-144">Custom Policy-Based Authorization</span></span>](authorization/policies.md)
+    *   [<span data-ttu-id="44691-145">Inserimento di dipendenze nei gestori di requisiti</span><span class="sxs-lookup"><span data-stu-id="44691-145">Dependency Injection in requirement handlers</span></span>](authorization/dependencyinjection.md)
+    *   [<span data-ttu-id="44691-146">Autorizzazione basata su risorse</span><span class="sxs-lookup"><span data-stu-id="44691-146">Resource-based authorization</span></span>](authorization/resourcebased.md)
+    *   [<span data-ttu-id="44691-147">Autorizzazione basata sulla visualizzazione</span><span class="sxs-lookup"><span data-stu-id="44691-147">View-based authorization</span></span>](authorization/views.md)
+    *   [<span data-ttu-id="44691-148">Limitazione dell'identità tramite schema</span><span class="sxs-lookup"><span data-stu-id="44691-148">Limiting identity by scheme</span></span>](authorization/limitingidentitybyscheme.md)
+*   [<span data-ttu-id="44691-149">Protezione dati</span><span class="sxs-lookup"><span data-stu-id="44691-149">Data Protection</span></span>](data-protection/index.md)
+    *   [<span data-ttu-id="44691-150">Introduzione alla protezione dati</span><span class="sxs-lookup"><span data-stu-id="44691-150">Introduction to Data Protection</span></span>](data-protection/introduction.md)
+    *   [<span data-ttu-id="44691-151">Introduzione alle API di protezione dati</span><span class="sxs-lookup"><span data-stu-id="44691-151">Getting Started with the Data Protection APIs</span></span>](data-protection/using-data-protection.md)
+    *   [<span data-ttu-id="44691-152">API utente</span><span class="sxs-lookup"><span data-stu-id="44691-152">Consumer APIs</span></span>](data-protection/consumer-apis/index.md)
+        *   [<span data-ttu-id="44691-153">Panoramica di API utente</span><span class="sxs-lookup"><span data-stu-id="44691-153">Consumer APIs Overview</span></span>](data-protection/consumer-apis/overview.md)
+        *   [<span data-ttu-id="44691-154">Stringhe di scopi</span><span class="sxs-lookup"><span data-stu-id="44691-154">Purpose Strings</span></span>](data-protection/consumer-apis/purpose-strings.md)
+        *   [<span data-ttu-id="44691-155">Gerarchia di scopi e multi-tenancy</span><span class="sxs-lookup"><span data-stu-id="44691-155">Purpose hierarchy and multi-tenancy</span></span>](data-protection/consumer-apis/purpose-strings-multitenancy.md)
+        *   [<span data-ttu-id="44691-156">Hashing della password</span><span class="sxs-lookup"><span data-stu-id="44691-156">Password Hashing</span></span>](data-protection/consumer-apis/password-hashing.md)
+        *   [<span data-ttu-id="44691-157">Limitazione della durata di payload protetti</span><span class="sxs-lookup"><span data-stu-id="44691-157">Limiting the lifetime of protected payloads</span></span>](data-protection/consumer-apis/limited-lifetime-payloads.md)
+        *   [<span data-ttu-id="44691-158">Rimozione della protezione di payload le cui chiavi sono state revocate</span><span class="sxs-lookup"><span data-stu-id="44691-158">Unprotecting payloads whose keys have been revoked</span></span>](data-protection/consumer-apis/dangerous-unprotect.md)
+    *   [<span data-ttu-id="44691-159">Configurazione</span><span class="sxs-lookup"><span data-stu-id="44691-159">Configuration</span></span>](data-protection/configuration/index.md)
+        *   [<span data-ttu-id="44691-160">Configurazione della protezione dati</span><span class="sxs-lookup"><span data-stu-id="44691-160">Configuring Data Protection</span></span>](data-protection/configuration/overview.md)
+        *   [<span data-ttu-id="44691-161">Impostazioni predefinite</span><span class="sxs-lookup"><span data-stu-id="44691-161">Default Settings</span></span>](data-protection/configuration/default-settings.md)
+        *   [<span data-ttu-id="44691-162">Criteri a livello di computer</span><span class="sxs-lookup"><span data-stu-id="44691-162">Machine Wide Policy</span></span>](data-protection/configuration/machine-wide-policy.md)
+        *   [<span data-ttu-id="44691-163">Scenari non compatibili con DI</span><span class="sxs-lookup"><span data-stu-id="44691-163">Non DI Aware Scenarios</span></span>](data-protection/configuration/non-di-scenarios.md)
+    *   [<span data-ttu-id="44691-164">API di estendibilità</span><span class="sxs-lookup"><span data-stu-id="44691-164">Extensibility APIs</span></span>](data-protection/extensibility/index.md)
+        *   [<span data-ttu-id="44691-165">Estendibilità della crittografia Core</span><span class="sxs-lookup"><span data-stu-id="44691-165">Core cryptography extensibility</span></span>](data-protection/extensibility/core-crypto.md)
+        *   [<span data-ttu-id="44691-166">Estendibilità della gestione delle chiavi</span><span class="sxs-lookup"><span data-stu-id="44691-166">Key management extensibility</span></span>](data-protection/extensibility/key-management.md)
+        *   [<span data-ttu-id="44691-167">Varie API</span><span class="sxs-lookup"><span data-stu-id="44691-167">Miscellaneous APIs</span></span>](data-protection/extensibility/misc-apis.md)
+    *   [<span data-ttu-id="44691-168">Implementazione</span><span class="sxs-lookup"><span data-stu-id="44691-168">Implementation</span></span>](data-protection/implementation/index.md)
+        *   [<span data-ttu-id="44691-169">Dettagli di crittografia autenticata</span><span class="sxs-lookup"><span data-stu-id="44691-169">Authenticated encryption details</span></span>](data-protection/implementation/authenticated-encryption-details.md)
+        *   [<span data-ttu-id="44691-170">Derivazione di sottochiavi e crittografia autenticata</span><span class="sxs-lookup"><span data-stu-id="44691-170">Subkey Derivation and Authenticated Encryption</span></span>](data-protection/implementation/subkeyderivation.md)
+        *   [<span data-ttu-id="44691-171">Intestazioni di contesto</span><span class="sxs-lookup"><span data-stu-id="44691-171">Context headers</span></span>](data-protection/implementation/context-headers.md)
+        *   [<span data-ttu-id="44691-172">Gestione delle chiavi</span><span class="sxs-lookup"><span data-stu-id="44691-172">Key Management</span></span>](data-protection/implementation/key-management.md)
+        *   [<span data-ttu-id="44691-173">Provider di archiviazione chiavi</span><span class="sxs-lookup"><span data-stu-id="44691-173">Key Storage Providers</span></span>](data-protection/implementation/key-storage-providers.md)
+        *   [<span data-ttu-id="44691-174">Crittografia chiavi inattive</span><span class="sxs-lookup"><span data-stu-id="44691-174">Key Encryption At Rest</span></span>](data-protection/implementation/key-encryption-at-rest.md)
+        *   [<span data-ttu-id="44691-175">Immutabilità della chiave e modifica delle impostazioni</span><span class="sxs-lookup"><span data-stu-id="44691-175">Key Immutability and Changing Settings</span></span>](data-protection/implementation/key-immutability.md)
+        *   [<span data-ttu-id="44691-176">Formato di archiviazione chiavi</span><span class="sxs-lookup"><span data-stu-id="44691-176">Key Storage Format</span></span>](data-protection/implementation/key-storage-format.md)
+        *   [<span data-ttu-id="44691-177">Provider di protezione dati temporanea</span><span class="sxs-lookup"><span data-stu-id="44691-177">Ephemeral data protection providers</span></span>](data-protection/implementation/key-storage-ephemeral.md)
+    *   [<span data-ttu-id="44691-178">Compatibilità</span><span class="sxs-lookup"><span data-stu-id="44691-178">Compatibility</span></span>](data-protection/compatibility/index.md)
+        *   [<span data-ttu-id="44691-179">Condivisione dei cookie tra applicazioni</span><span class="sxs-lookup"><span data-stu-id="44691-179">Sharing cookies between applications</span></span>](data-protection/compatibility/cookie-sharing.md)
+        *   [<span data-ttu-id="44691-180">Sostituzione di <machineKey> in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="44691-180">Replacing <machineKey> in ASP.NET</span></span>](data-protection/compatibility/replacing-machinekey.md)
+*   [<span data-ttu-id="44691-181">Creare un'app con i dati utente protetti da autorizzazione</span><span class="sxs-lookup"><span data-stu-id="44691-181">Create an app with user data protected by authorization</span></span>](xref:security/authorization/secure-data)
+*   [<span data-ttu-id="44691-182">Archiviazione sicura di segreti dell'app durante lo sviluppo</span><span class="sxs-lookup"><span data-stu-id="44691-182">Safe storage of app secrets during development</span></span>](app-secrets.md)
+*   <span data-ttu-id="44691-183">[Azure Key Vault configuration provider](key-vault-configuration.md) (Provider di configurazione di Azure Key Vault)</span><span class="sxs-lookup"><span data-stu-id="44691-183">[Azure Key Vault configuration provider](key-vault-configuration.md)</span></span>
+*   [<span data-ttu-id="44691-184">Applicazione di SSL</span><span class="sxs-lookup"><span data-stu-id="44691-184">Enforcing SSL</span></span>](enforcing-ssl.md)
+*   [<span data-ttu-id="44691-185">Richiesta intersito falsa</span><span class="sxs-lookup"><span data-stu-id="44691-185">Anti-Request Forgery</span></span>](anti-request-forgery.md)
+*   [<span data-ttu-id="44691-186">Prevenzione di attacchi di reindirizzamento aperti</span><span class="sxs-lookup"><span data-stu-id="44691-186">Preventing Open Redirect Attacks</span></span>](preventing-open-redirects.md)
+*   [<span data-ttu-id="44691-187">Prevenzione di XSS</span><span class="sxs-lookup"><span data-stu-id="44691-187">Preventing Cross-Site Scripting</span></span>](cross-site-scripting.md)
+*   [<span data-ttu-id="44691-188">Abilitazione di richieste multiorigine (CORS)</span><span class="sxs-lookup"><span data-stu-id="44691-188">Enabling Cross-Origin Requests (CORS)</span></span>](cors.md)
