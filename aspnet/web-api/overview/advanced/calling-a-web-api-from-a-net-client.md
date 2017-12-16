@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8fcc5e7c6bc39f961931589128a7a5863482aa4e
-ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
+ms.openlocfilehash: 41f014e1d23d46ed28c8c1be5ee92f1a6d878ad9
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Chiamare un'API Web da un Client .NET (c#)
 ====================
@@ -167,7 +167,7 @@ Ad esempio GET, una richiesta di eliminazione non dispone di un corpo della rich
 
 Per testare l'app client:
 
-1. [Scaricare](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/samples/server) ed eseguire l'applicazione server. [Istruzioni di download](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Verificare il che funzionamento dell'applicazione server. Per exaxmple, `http://localhost:64195/api/products` deve restituire un elenco di prodotti.
+1. [Scaricare](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ed eseguire l'applicazione server. [Istruzioni di download](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Verificare il che funzionamento dell'applicazione server. Per exaxmple, `http://localhost:64195/api/products` deve restituire un elenco di prodotti.
 2. Impostare l'URI di base per le richieste HTTP. Modificare il numero di porta per la porta utilizzata per l'applicazione server.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

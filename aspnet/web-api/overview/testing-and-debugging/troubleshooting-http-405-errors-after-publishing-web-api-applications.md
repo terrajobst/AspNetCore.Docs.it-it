@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 2455bbed891179466de8fb6ade3b0a8e66eadee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87ae7420e1295030e90c30e97b1e331413ce263
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Risoluzione dei problemi HTTP 405 errori dopo la pubblicazione Web API 2 applicazioni
 ====================
@@ -44,7 +44,7 @@ Come una breve revisione, ecco alcuni dei metodi HTTP utilizzati più come defin
 | **OTTIENI** | Questo metodo viene utilizzato per recuperare dati da un URI e probabilmente il metodo HTTP più utilizzati. |
 | **HEAD** | Questo metodo è simile al metodo GET, ad eccezione del fatto che in realtà non recupera i dati dall'URI della richiesta: semplicemente recupera lo stato HTTP. |
 | **INSERISCI** | Questo metodo viene in genere utilizzato per inviare i nuovi dati all'URI; POST viene spesso utilizzato per inviare i dati. |
-| **PUT** | Questo metodo viene in genere utilizzato per dati non elaborati all'URI; PUT viene spesso utilizzato per inviare i dati JSON o XML per applicazioni Web API. |
+| **PUT** | Questo metodo viene in genere utilizzato per inviare dati non elaborati all'URI; PUT viene spesso utilizzato per inviare i dati JSON o XML per applicazioni Web API. |
 | **ELIMINARE** | Questo metodo viene utilizzato per rimuovere i dati da un URI. |
 | **OPZIONI** | Questo metodo viene in genere utilizzato per recuperare l'elenco di metodi HTTP supportati per un URI. |
 | **COPIA DI SPOSTAMENTO** | Questi due metodi vengono utilizzati con WebDAV e il loro scopo è facile comprensione. |
