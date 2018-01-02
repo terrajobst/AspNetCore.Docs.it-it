@@ -5,17 +5,17 @@ description: Di seguito viene illustrato l'utilizzo di Helper di Tag di ancoragg
 keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 12/20/2017
 ms.topic: article
 ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: e3754c4313f01bc746ccb8efe11611ae213e3955
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 503ad7c4ce8c4f08b2a06dbe9f985566f54d3ca2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="anchor-tag-helper"></a>Helper di Tag di ancoraggio
 
@@ -25,15 +25,12 @@ L'Helper di Tag di ancoraggio migliora il punto di ancoraggio HTML (`<a ... ></a
 
 Negli esempi in questo documento viene usato il controller di voce riportata di seguito.
 
-<br/>
 **SpeakerController.cs** 
 
 [!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
 
 
 ## <a name="anchor-tag-helper-attributes"></a>Attributi Helper di Tag di ancoraggio
-
-- - -
 
 ### <a name="asp-controller"></a>ASP controller
 
@@ -51,13 +48,10 @@ Il markup generato sarà:
 
 Se il `asp-controller` specificato e `asp-action` non lo è, il valore predefinito `asp-action` sarà metodo controller predefinito per la visualizzazione attualmente in esecuzione. Che nell'esempio precedente, se viene `asp-action` viene lasciata fuori, e viene generato questo Helper di Tag di ancoraggio da *HomeController*del `Index` vista (**/Home**), il markup generato sarà:
 
-
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-- - -
-  
 ### <a name="asp-action"></a>azione di ASP
 
 `asp-action`è il nome del metodo di azione nel controller che verranno inclusi nell'oggetto generato `href`. Ad esempio, il codice seguente imposta generato `href` in modo che punti alla pagina di dettaglio del relatore:
@@ -76,9 +70,33 @@ Se non `asp-controller` attributo viene specificato, verrà utilizzato il contro
  
 Se l'attributo `asp-action` è `Index`, nessuna azione viene aggiunto all'URL, determinando il valore predefinito `Index` metodo chiamato. L'azione specificata (o per impostazione predefinita), deve esistere nel controller a cui fa riferimento `asp-controller`.
 
-- - -
-  
-<a name="route"></a>
+### <a name="asp-page"></a>pagina ASP
+
+Utilizzare il `asp-page` attributo in un tag di ancoraggio per impostare il relativo URL in modo che punti a una pagina specifica. Prefisso per il nome di pagina con una barra "/" crea l'URL. Nell'esempio seguente l'URL punta alla pagina "Voce" nella directory corrente.
+
+```cshtml
+<a asp-page="/Speakers">All Speakers</a>
+```
+
+Il `asp-page` attributo nell'esempio di codice precedente viene eseguito il rendering di output HTML nella visualizzazione è simile al frammento riportato di seguito:
+
+```html
+<a href="/items?page=%2FSpeakers">Speakers</a>
+``
+
+The `asp-page` attribute is mutually exclusive with the `asp-route`, `asp-controller`, and `asp-action` attributes. However, `asp-page` can be used with `asp-route-id` to control routing, as the following code sample demonstrates:
+
+```
+cshtml<a asp-page="/Speaker" asp-route-id="@speaker.Id">altoparlante della visualizzazione</a>
+```
+
+The `asp-route-id` produces the following output:
+
+```html
+https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
+```
+
+
 ### <a name="asp-route-value"></a>ASP - route-{value}
 
 `asp-route-`è un prefisso di route con caratteri jolly. Qualsiasi valore inserito dopo il trattino finale verrà interpretato come un parametro di route possibili. Se una route predefinita non viene trovata, verrà aggiunto il prefisso della route per href generato come valore di parametro di richiesta e. In caso contrario verrà sostituito nel modello di route.
@@ -91,7 +109,7 @@ public IActionResult AnchorTagHelper(string id)
     var speaker = new SpeakerData()
     {
         SpeakerId = 12
-    };      
+    };
     return View(viewName, speaker);
 }
 ```
@@ -136,22 +154,17 @@ Se il prefisso di route non fa parte di trovare il modello di routing, che si ve
 
 Il codice HTML generato verrà quindi modificato come segue perché **speakerid** non è stato trovato nella route corrispondenza:
 
-
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
 ```
 
 Se il valore `asp-controller` o `asp-action` non vengono specificati, viene seguito l'elaborazione predefinita stesso in cui è nel `asp-route` attributo.
 
-- - -
-
 ### <a name="asp-route"></a>route di ASP
 
 `asp-route`fornisce un modo per creare un URL che colleghi direttamente a una route denominata. Gli attributi di routing una route può essere denominata come illustrato nel `SpeakerController` e utilizzato nel relativo `Evaluations` metodo.
 
 `Name = "speakerevals"`indica l'Helper di Tag di ancoraggio per generare una route direttamente a tale metodo controller utilizzando l'URL `/Speaker/Evaluations`. Se `asp-controller` o `asp-action` è specificato in aggiunta al `asp-route`, la route generata potrebbe non essere quello previsto. `asp-route`non deve essere utilizzato con uno degli attributi `asp-controller` o `asp-action` per evitare un conflitto di route.
-
-- - -
 
 ### <a name="asp-all-route-data"></a>dati della route di all ASP
 
@@ -168,8 +181,8 @@ Come nell'esempio seguente viene illustrato, viene creato un dizionario inline e
             {"currentYear", "true"}
         };
 }
-<a asp-route="speakerevalscurrent" 
-   asp-all-route-data="dict">SpeakerEvals</a>
+<a asp-route="speakerevalscurrent"
+asp-all-route-data="dict">SpeakerEvals</a>
 ```
 
 Il codice precedente genera il seguente URL: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
@@ -177,8 +190,6 @@ Il codice precedente genera il seguente URL: http://localhost/Speaker/Evaluation
 Quando viene selezionato il collegamento, il metodo controller `EvaluationsCurrent` viene chiamato. Viene chiamato perché tale controller presenta due parametri di stringa che corrispondono a ciò che è stato creato dal `asp-all-route-data` dizionario.
 
 Se le chiavi nella corrispondenza dizionario parametri della route, tali valori saranno sostituiti nella route come appropriato e gli altri valori non corrispondenti verranno generati come parametri di richiesta.
-
-- - -
 
 ### <a name="asp-fragment"></a>frammento di ASP
 
@@ -193,36 +204,22 @@ L'URL generato sarà: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
 Tag di hash sono utili quando si compilano applicazioni sul lato client. Possono essere utilizzati per contrassegnare e la ricerca in JavaScript, ad esempio semplice.
 
-- - -
-
 ### <a name="asp-area"></a>area di ASP
 
 `asp-area`Imposta il nome dell'area che ASP.NET Core viene utilizzato per impostare la route appropriata. Di seguito sono riportati esempi di come l'attributo area causa una modifica del mapping delle route. Impostazione `asp-area` ai blog prefissi di directory `Areas/Blogs` a tutte le route delle controller associato e le viste per il tag di ancoraggio.
 
 * Nome progetto
+  * wwwroot
+  * Aree
+    * Blog
+      * Controller
+        * HomeController.cs
+      * Visualizzazioni
+        * Home
+          * Cshtml
+          * AboutBlog.cshtml
+  * Controller
 
-  * *Wwwroot*
-
-  * *Aree*
-
-    * *Blog*
-
-      * *Controller*
-
-        * *HomeController. cs*
-
-      * *Visualizzazioni*
-
-        * *Home Page*
-
-          * *Index.cshtml*
-          
-          * *AboutBlog.cshtml*
-          
-  * *Controller*
-  
-
-        
 Specificare un tag area valido, ad esempio ```area="Blogs"``` quando si fa riferimento il ```AboutBlog.cshtml``` file sarà simile al seguente utilizzando l'Helper di Tag di ancoraggio.
 
 ```cshtml
@@ -238,8 +235,6 @@ Il codice HTML generato includerà il segmento di aree e verrà modificato come 
 > [!TIP]
 > Per le aree MVC funzionare in un'applicazione web, il modello di route deve includere un riferimento all'area, se esiste. Modello, che è il secondo parametro del `routes.MapRoute` chiamata al metodo, verrà visualizzato come:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-- - -
-
 ### <a name="asp-protocol"></a>protocollo di ASP
 
 Il `asp-protocol` consente di specificare un protocollo (ad esempio `https`) nell'indirizzo URL. Un esempio di Helper di Tag di ancoraggio che include il protocollo apparirà come segue:
@@ -251,8 +246,6 @@ e genererà HTML come indicato di seguito:
 ```<a href="https://localhost/Home/About">About</a>```
 
 Nell'esempio il dominio è localhost, ma l'Helper di Tag di ancoraggio utilizza dominio pubblico del sito Web durante la generazione dell'URL.
-
-- - -
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

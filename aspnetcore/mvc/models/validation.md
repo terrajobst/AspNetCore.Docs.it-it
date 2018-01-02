@@ -5,18 +5,17 @@ description: Informazioni sulla convalida del modello in ASP.NET MVC di base.
 keywords: Convalida di ASP.NET Core, MVC,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/18/2016
 ms.topic: article
 ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -84,7 +83,7 @@ MVC continuerà convalida dei campi finché non raggiunge il numero massimo di e
 
 ## <a name="handling-model-state-errors"></a>Lo stato del modello di gestione degli errori
 
-Si verifica la convalida del modello prima di ogni azione del controller richiamato ed è responsabilità del metodo di azione per controllare `ModelState.IsValid` e rispondere nel modo appropriato. In molti casi, la reazione appropriata è di restituire un tipo di risposta di errore, in teoria che riporta in dettaglio il motivo per cui non è riuscita la convalida del modello.
+Si verifica la convalida del modello prima di ogni azione del controller richiamato ed è responsabilità del metodo di azione per controllare `ModelState.IsValid` e rispondere nel modo appropriato. In molti casi, la reazione appropriata è di restituire una risposta di errore, in teoria che riporta in dettaglio il motivo per cui non è riuscita la convalida del modello.
 
 Alcune applicazioni è possibile scegliere di seguire una convenzione standard per la gestione di errori di convalida del modello, nel qual caso un filtro può essere un luogo adatto per implementare criteri di. È consigliabile testare il comportamento delle azioni con gli stati di modello valido e non validi.
 
@@ -98,7 +97,7 @@ Potrebbe essere necessario eseguire manualmente la convalida. A tale scopo, chia
 
 ## <a name="custom-validation"></a>Convalida personalizzata
 
-Gli attributi di convalida di lavoro per la maggior parte delle esigenze di convalida. Tuttavia, alcune regole di convalida sono specifici per l'azienda, come non si appena è necessaria la convalida di dati generici, ad esempio garantire un campo o la conformità a un intervallo di valori. Per questi scenari, gli attributi di convalida personalizzata sono un'ottima soluzione. La creazione di attributi di convalida personalizzata in MVC è semplice. Solo ereditare il `ValidationAttribute`ed eseguire l'override di `IsValid` metodo. Il `IsValid` metodo accetta due parametri, il primo è un oggetto denominato *valore* e il secondo è un `ValidationContext` oggetto denominato *validationContext*. *Valore* fa riferimento al valore effettivo del campo che convalida il validator personalizzato.
+Gli attributi di convalida di lavoro per la maggior parte delle esigenze di convalida. Tuttavia, alcune regole di convalida sono specifici per l'azienda. Le regole potrebbero non essere più comuni tecniche di convalida di dati, ad esempio, è necessario garantire un campo o che sia conforme a un intervallo di valori. Per questi scenari, gli attributi di convalida personalizzata sono un'ottima soluzione. La creazione di attributi di convalida personalizzata in MVC è semplice. Solo ereditare il `ValidationAttribute`ed eseguire l'override di `IsValid` metodo. Il `IsValid` metodo accetta due parametri, il primo è un oggetto denominato *valore* e il secondo è un `ValidationContext` oggetto denominato *validationContext*. *Valore* fa riferimento al valore effettivo del campo che convalida il validator personalizzato.
 
 Nell'esempio seguente indica che gli utenti non possono impostare il genere una regola business *classico* per un filmato rilasciato dopo 1960. Il `[ClassicMovie]` attributo controlla per primo il genere e se è un classico, quindi controlla la data di rilascio per verificare che è successiva a quella 1960. Se viene rilasciato dopo 1960, la convalida non riesce. L'attributo accetta un parametro integer che rappresenta l'anno che è possibile utilizzare per convalidare i dati. È possibile acquisire il valore del parametro nel costruttore dell'attributo, come illustrato di seguito:
 
@@ -145,11 +144,11 @@ Gli helper di tag precedenti in formato HTML riportato di seguito. Si noti che i
 </form>
 ```
 
-Di conseguenza, la convalida lato client impedisce l'invio fino a quando il form è valido. Pulsante Invia esegue JavaScript che invia il form o Visualizza messaggi di errore.
+La convalida lato client impedisce l'invio fino a quando il form è valido. Pulsante Invia esegue JavaScript che invia il form o Visualizza messaggi di errore.
 
 MVC determina i valori di attributo di tipo in base al tipo di dati .NET di una proprietà, probabilmente sottoposto a override utilizzando `[DataType]` attributi. La base `[DataType]` attributo non esegue alcuna convalida reale lato server. Browser scegliere i propri messaggi di errore e visualizzare gli errori, ma vogliono, tuttavia il pacchetto non intrusivo convalida jQuery è possibile ignorare i messaggi e visualizzarli in modo coerente con altri utenti. Questo errore si verifica più ovviamente quando gli utenti applicare `[DataType]` sottoclassi, ad esempio `[EmailAddress]`.
 
-### <a name="adding-validation-to-dynamic-forms"></a>Aggiunta della convalida di moduli dinamici:
+### <a name="add-validation-to-dynamic-forms"></a>Aggiungere la convalida di moduli dinamici
 
 Poiché jQuery non intrusiva convalida passa la logica di convalida e i parametri di convalida jQuery al primo caricamento della pagina, form generato in modo dinamico non assumerà automaticamente la convalida. In alternativa, è necessario indicare jQuery non intrusiva convalida per analizzare il modulo dinamico immediatamente dopo averlo creato. Ad esempio, il codice riportato di seguito viene illustrato come è possibile impostare la convalida lato client in un form aggiunto tramite AJAX.
 
@@ -172,7 +171,7 @@ $.get({
 
 Il `$.validator.unobtrusive.parse()` metodo accetta un selettore di jQuery per un argomento. Questo metodo indica jQuery non intrusiva convalida per analizzare il `data-` gli attributi dei moduli all'interno di tale tipo di selettore. I valori di questi attributi vengono quindi passati per il plug-in di convalida jQuery in modo che il modulo presenta le regole di convalida sul lato client desiderato.
 
-### <a name="adding-validation-to-dynamic-controls"></a>Aggiunta della convalida per i controlli dinamici:
+### <a name="add-validation-to-dynamic-controls"></a>Aggiungere la convalida per i controlli dinamici
 
 È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non verrà aggiornata.  In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
 

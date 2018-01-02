@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
+ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Introduzione a Entity Framework Core con Visual Studio (1 di 8) e di pagine Razor
 
@@ -29,6 +29,8 @@ L'app di esempio è un sito web per un'università Contoso fittizio. Include fun
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
+
+Conoscenza [pagine Razor](xref:mvc/razor-pages/index). Dovrà essere completato per i programmatori nuovo [introduzione pagine Razor](xref:tutorials/razor-pages/razor-pages-start) prima di avviare questa serie.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -347,4 +349,4 @@ Per ulteriori informazioni sulla programmazione asincrona in .NET, vedere [Async
 Nella prossima esercitazione base CRUD (create, leggere, aggiornare ed eliminare) vengono esaminate le operazioni.
 
 >[!div class="step-by-step"]
-[Successivo](xref:data/ef-rp/crud)
+[avanti](xref:data/ef-rp/crud)

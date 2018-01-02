@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
@@ -50,9 +50,9 @@ Quando un client può elaborare il contenuto compresso, il client deve informare
 | `deflate`                       | No                   | i dati compressi in formato "zlib" dati "deflate"     |
 | `exi`                           | No                   | W3C XML efficiente interscambio                               |
 | `gzip`                          | Sì (impostazione predefinita)        | formato del file gzip                                            |
-| `identity`                      | Sì                  | "Nessuna codifica" identificatore: la risposta non deve essere codificata. |
+| `identity`                      | Yes                  | "Nessuna codifica" identificatore: la risposta non deve essere codificata. |
 | `pack200-gzip`                  | No                   | Formato di trasferimento di rete per gli archivi di Java                   |
-| `*`                             | Sì                  | Qualsiasi contenuto disponibile, la codifica non è richiesto in modo esplicito     |
+| `*`                             | Yes                  | Qualsiasi contenuto disponibile, la codifica non è richiesto in modo esplicito     |
 
 Per ulteriori informazioni, vedere il [IANA ufficiale elenco codifica contenuto](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
@@ -183,7 +183,7 @@ Quando la compressione delle risposte in base il `Accept-Encoding` intestazione,
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
-## <a name="middlware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema Middlware dietro un proxy inverso Nginx
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema di middleware dietro un proxy inverso Nginx
 Quando una richiesta viene inviata da Nginx, il `Accept-Encoding` intestazione viene rimosso. Ciò impedisce il middleware di compressione della risposta. Per ulteriori informazioni, vedere [NGINX: la compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Questo problema viene rilevato da [scoprire la compressione di tipo pass-through per nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Utilizzo con la compressione dinamica di IIS
