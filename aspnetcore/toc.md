@@ -37,6 +37,18 @@
 ### [Aggiornamento di dati correlati](xref:data/ef-rp/update-related-data)
 ### [Gestione di conflitti di concorrenza](xref:data/ef-rp/concurrency)
 
+## [Accesso ai dati - MVC con Entity Framework Core](data/ef-mvc/index.md)
+### [Introduzione](data/ef-mvc/intro.md)
+### [Operazioni di creazione, lettura, aggiornamento ed eliminazione](data/ef-mvc/crud.md)
+### [Ordinamento, filtro, paging e raggruppamento](data/ef-mvc/sort-filter-page.md)
+### [Migrazioni](data/ef-mvc/migrations.md)
+### [Creazione di un modello di dati complesso](data/ef-mvc/complex-data-model.md)
+### [Lettura di dati correlati](data/ef-mvc/read-related-data.md)
+### [Aggiornamento di dati correlati](data/ef-mvc/update-related-data.md)
+### [Gestione di conflitti di concorrenza](data/ef-mvc/concurrency.md)
+### [Ereditarietà](data/ef-mvc/inheritance.md)
+### [Argomenti avanzati](data/ef-mvc/advanced.md)
+
 ## [Creazione di servizi back-end per app per dispositivi mobili](mobile/native-mobile-backend.md)
 ## [Compilazione di API Web](mvc/web-api/index.md)
 ## [Creare un'API Web](xref:tutorials/first-web-api-mac)
@@ -121,7 +133,7 @@
 ## [Debugger di snapshot](/azure/application-insights/app-insights-snapshot-debugger)
 
 # [Uso di dati](data/index.md)
-## [Introduzione alle pagine Razor e a Entity Framework Core con Visual Studio](xref:data/ef-rp/intro)
+## [Introduzione a Razor Pages e a Entity Framework Core con Visual Studio](xref:data/ef-rp/intro)
 ## [Introduzione ad ASP.NET Core ed Entity Framework Core con Visual Studio](data/ef-mvc/index.md)
 ## [ASP.NET Core con Entity Framework Core con nuovo database](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 ## [ASP.NET Core con Entity Framework Core con database esistente](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
