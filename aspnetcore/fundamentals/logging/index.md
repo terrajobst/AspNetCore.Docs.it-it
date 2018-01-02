@@ -5,16 +5,16 @@ description: "Informazioni sul framework di registrazione di ASP.NET Core. Infor
 keywords: ASP.NET Core,registrazione,provider di registrazione,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,ambiti
 ms.author: tdykstra
 manager: wpickett
-ms.date: 11/15/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7f5f08799513aa07223995410f2125407c58c94
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introduzione alla registrazione in ASP.NET Core
 
@@ -297,7 +297,7 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| Numero | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| Number | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
@@ -587,7 +587,13 @@ Il pacchetto di provider [Microsoft.Extensions.Logging.AzureAppServices](https:/
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Non è necessario installare il pacchetto di provider o chiamare il metodo di estensione `AddAzureWebAppDiagnostics`. Il provider è automaticamente disponibile per l'app quando la si distribuisce nel di Servizio app di Azure.
+Se la destinazione è .NET Core, non è necessario installare il pacchetto di provider o chiamare `AddAzureWebAppDiagnostics` in modo esplicito. Il provider è automaticamente disponibile per l'app quando la si distribuisce nel di Servizio app di Azure.
+
+Se la destinazione è .NET Framework, aggiungere il pacchetto di provider al progetto e richiamare `AddAzureWebAppDiagnostics`:
+
+```csharp
+logging.AddAzureWebAppDiagnostics();
+```
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

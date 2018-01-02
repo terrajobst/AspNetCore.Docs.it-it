@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
+ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -123,7 +123,7 @@ Il file code-behind *Pages/Create.cshtml.cs* per la visualizzazione:
 
 Per convenzione, la classe `PageModel` è denominata `<PageName>Model` e si trova nello stesso spazio dei nomi della pagina.
 
-L'uso di un file `PageModel` code-behind supporta il testing unità, ma richiede la scrittura di un costruttore e una classe espliciti. Le pagine senza file `PageModel` code-behind supportano la compilazione di runtime e questo può essere un vantaggio in fase di sviluppo.  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
+La classe `PageModel` consente la separazione della logica di una pagina dalla relativa presentazione. Definisce i gestori di pagina per le richieste inviate alla pagina e i dati usati per il rendering della pagina. Questa separazione consente di gestire le dipendenze della pagina tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection) e di eseguire [unit test](xref:testing/razor-pages-testing) delle pagine.
 
 La pagina contiene un oggetto `OnPostAsync`, ovvero un *metodo gestore* che viene eseguito per le richieste `POST`, quando un utente invia il form. È possibile aggiungere metodi gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
 
