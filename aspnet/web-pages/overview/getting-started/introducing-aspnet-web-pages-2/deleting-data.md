@@ -5,24 +5,24 @@ author: tfitzmac
 description: In questa esercitazione viene illustrato come eliminare una voce di singoli database. Si presuppone di che aver completato la serie tramite l'aggiornamento di dati di Database in PA Web di ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introduzione a ASP.NET Web Pages: eliminazione di dati di Database
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questa esercitazione viene illustrato come eliminare una voce di singoli database. Si presuppone di aver completato la serie tramite [aggiornamento dei dati del Database in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583).
+> In questa esercitazione viene illustrato come eliminare una voce di singoli database. Si presuppone di aver completato la serie tramite [aggiornamento dei dati del Database in ASP.NET Web Pages](updating-data.md).
 > 
 > Illustra quanto segue:
 > 
@@ -76,7 +76,7 @@ La nuova colonna viene illustrato un collegamento (`<a>` elemento) con il testo 
 
 Questo collegamento verrà richiamato una pagina denominata *DeleteMovie* e passare l'ID del filmato selezionata.
 
-In questa esercitazione non descritte in dettaglio come questo collegamento viene costruito, perché è quasi identica a quella di **modifica** collegamento dall'esercitazione precedente ([aggiornamento dei dati del Database in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583)).
+In questa esercitazione non descritte in dettaglio come questo collegamento viene costruito, perché è quasi identica a quella di **modifica** collegamento dall'esercitazione precedente ([aggiornamento dei dati del Database in ASP.NET Web Pages](updating-data.md)).
 
 ## <a name="creating-the-delete-page"></a>Creazione pagina di eliminazione
 
@@ -169,7 +169,7 @@ L'esercitazione successiva viene illustrato come assegnare tutte le pagine nel s
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](../introducing-razor-syntax-c.md)
 - [Istruzione DELETE SQL](http://www.w3schools.com/sql/sql_delete.asp) nel sito W3Schools
 
 >[!div class="step-by-step"]

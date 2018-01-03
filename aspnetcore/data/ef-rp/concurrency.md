@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 0c49376fd1b602fe03ef2a152d19b58513ae2710
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 en-us /
 
@@ -194,7 +194,7 @@ Aggiornamento *pages\departments\edit.cshtml.cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Per rilevare un problema di concorrenza, il [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) viene aggiornato con il `rowVersion` dall'entità era è stato recuperato. Core EF genera un comando SQL UPDATE con una clausola WHERE contenente originale `RowVersion` valore. Se nessuna riga è interessata dal comando di aggiornamento (righe di non avere originale `RowVersion` valore), un `DbUpdateConcurrencyException` viene generata un'eccezione.
+Per rilevare un problema di concorrenza, il [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) viene aggiornato con il `rowVersion` valore dall'entità è stato recuperato. Core EF genera un comando SQL UPDATE con una clausola WHERE contenente originale `RowVersion` valore. Se nessuna riga è interessata dal comando di aggiornamento (righe di non avere originale `RowVersion` valore), un `DbUpdateConcurrencyException` viene generata un'eccezione.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unità di pagine Razor e integrazione test in ASP.NET Core
 
@@ -57,7 +57,7 @@ L'applicazione di messaggio è un semplice sistema messaggio Razor pagine con le
 * Viene descritto un messaggio dal `Message` classe (*Data/Message.cs*) con due proprietà: `Id` (chiave) e `Text` (messaggio). Il `Text` proprietà è necessaria e limitata a 200 caratteri.
 * I messaggi vengono archiviati utilizzando [database in memoria di Entity Framework](/ef/core/providers/in-memory/)&#8224;.
 * L'app contiene un livello di accesso ai dati (DAL) nella relativa classe di contesto di database, `AppDbContext` (*Data/AppDbContext.cs*). I metodi DAL sono contrassegnati `virtual`, che consente a tali i metodi da utilizzare nei test.
-* Nell'ambiente di sviluppo, l'archivio di messaggi viene inizializzata con tre messaggi. Questi *seeding messaggi* vengono inoltre utilizzati nel test.
+* Se il database è vuoto all'avvio dell'app, l'archivio di messaggi viene inizializzato con tre messaggi. Questi *seeding messaggi* vengono inoltre utilizzati nel test.
 
 &#8224; L'argomento EF [test con InMemory](/ef/core/miscellaneous/testing/in-memory), viene illustrato come utilizzare un database in memoria per il test con MSTest. Questo argomento viene utilizzato il [xUnit](https://xunit.github.io/) framework di test. Le implementazioni di test in diversi framework di test e test concetti sono simili ma non identica.
 

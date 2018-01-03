@@ -5,24 +5,24 @@ author: tfitzmac
 description: In questa esercitazione viene illustrato come aggiornare la voce di un database esistente (modifica) quando si utilizzano pagine Web ASP.NET (Razor). Si presuppone di aver completato la serie th...
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introduzione a ASP.NET Web Pages: aggiornamento dei dati di Database
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questa esercitazione viene illustrato come aggiornare la voce di un database esistente (modifica) quando si utilizzano pagine Web ASP.NET (Razor). Si presuppone di aver completato la serie tramite [immissione di dati da utilizzare form utilizzando ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582).
+> In questa esercitazione viene illustrato come aggiornare la voce di un database esistente (modifica) quando si utilizzano pagine Web ASP.NET (Razor). Si presuppone di aver completato la serie tramite [immissione di dati da utilizzare form utilizzando ASP.NET Web Pages](entering-data.md).
 > 
 > Illustra quanto segue:
 > 
@@ -143,7 +143,7 @@ Creare una pagina denominata *EditMovie.cshtml* e sostituire quello presente nel
 
 In questo markup e il codice è simile a quanto è presente nel *AddMovie* pagina. È una piccola differenza nel testo del pulsante Invia. Come con la *AddMovie* pagina, è presente un `Html.ValidationSummary` chiamata che consente di visualizzare se sono presenti errori di convalida. Questa fase ci stiamo escludendo le chiamate a `Validation.Message`, dal momento che gli errori verranno visualizzati nel riepilogo di convalida. Come indicato nell'esercitazione precedente, è possibile utilizzare il riepilogo di convalida e i singoli messaggi di errore in varie combinazioni.
 
-Nuovo notare che il `method` attributo del `<form>` è impostato su `post`. Come con la *AddMovie.cshtml* pagina, questa pagina apporta modifiche al database. Pertanto, questo modulo è necessario eseguire un `POST` operazione. (Per ulteriori informazioni sulla differenza tra `GET` e `POST` operazioni, vedere il [sicurezza verbo HTTP GET e POST](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) barra laterale nell'esercitazione di form HTML.)
+Nuovo notare che il `method` attributo del `<form>` è impostato su `post`. Come con la *AddMovie.cshtml* pagina, questa pagina apporta modifiche al database. Pertanto, questo modulo è necessario eseguire un `POST` operazione. (Per ulteriori informazioni sulla differenza tra `GET` e `POST` operazioni, vedere il [sicurezza verbo HTTP GET e POST](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) barra laterale nell'esercitazione di form HTML.)
 
 Come osservato in un'esercitazione precedente, il `value` vengono impostati gli attributi delle caselle di testo con codice Razor per precaricare li. Questa volta, tuttavia, si usa variabili come `title` e `genre` per l'attività anziché `Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ Dopo il codice Usa `db.Execute` per eseguire il `Update` istruzione, viene reind
 > 
 > Naturalmente, la `Query` metodo può restituire solo una riga di database. Tuttavia, ASP.NET considera sempre i risultati del `Query` metodo come una raccolta. Anche se il metodo restituisce una sola riga, è necessario estrarre la singola riga dalla raccolta. Pertanto, in situazioni in cui si *conoscere* si otterrà solo una riga, è un po' più comodo usare `QuerySingle`.
 > 
-> Esistono alcuni altri metodi che eseguono tipi specifici di operazioni di database. È possibile trovare un elenco di metodi di database di [riferimento rapido di ASP.NET Web Pages API](https://go.microsoft.com/fwlink/?LinkID=202907#Data).
+> Esistono alcuni altri metodi che eseguono tipi specifici di operazioni di database. È possibile trovare un elenco di metodi di database di [riferimento rapido di ASP.NET Web Pages API](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Effettua la convalida per più ID affidabile
@@ -308,7 +308,7 @@ Nella prossima esercitazione, si noterà come eliminare un record di film.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](introducing-razor-syntax-c.md)
 - [Istruzione SQL UPDATE](http://www.w3schools.com/sql/sql_update.asp) nel sito W3Schools
 
 >[!div class="step-by-step"]
