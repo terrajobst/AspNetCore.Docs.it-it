@@ -219,9 +219,9 @@ public class ManageController : Controller
 }
 ```
 
-## <a name="javascript-ajax-and-spas"></a>Stabilimenti termali JavaScript e AJAX
+## <a name="javascript-ajax-and-spas"></a>JavaScript, AJAX e SPAs (Single Page Applications)
 
-Nelle applicazioni basate su HTML tradizionale, i token non riproducibili vengono passati al server utilizzando i campi del form nascosto. In App moderne basate su JavaScript e applicazioni a pagina singola (stabilimenti termali), numero di richieste viene eseguite a livello di codice. Queste richieste AJAX possono utilizzare altre tecniche (ad esempio le intestazioni di richiesta o i cookie) per inviare il token. Se i cookie vengono usati per archiviare i token di autenticazione e per autenticare le richieste API nel server, CSRF sarà un potenziale problema. Tuttavia, se l'archiviazione locale viene utilizzato per memorizzare il token, CSRF vulnerabilità può essere contrastata, poiché i valori dall'archivio locale non vengono inviati automaticamente al server con ogni nuova richiesta. Pertanto, utilizzare l'archiviazione locale per archiviare il token non riproducibili sul client che invia il token come intestazione della richiesta è un approccio consigliato.
+Nelle applicazioni basate su HTML tradizionale, i token non riproducibili vengono passati al server utilizzando i campi del form nascosto. In App moderne basate su JavaScript e applicazioni a pagina singola (SPAs), numero di richieste viene eseguite a livello di codice. Queste richieste AJAX possono utilizzare altre tecniche (ad esempio le intestazioni di richiesta o i cookie) per inviare il token. Se i cookie vengono usati per archiviare i token di autenticazione e per autenticare le richieste API nel server, CSRF sarà un potenziale problema. Tuttavia, se l'archiviazione locale viene utilizzato per memorizzare il token, CSRF vulnerabilità può essere contrastata, poiché i valori dall'archivio locale non vengono inviati automaticamente al server con ogni nuova richiesta. Pertanto, utilizzare l'archiviazione locale per archiviare il token non riproducibili sul client che invia il token come intestazione della richiesta è un approccio consigliato.
 
 ### <a name="angularjs"></a>AngularJS
 
@@ -341,7 +341,7 @@ Il [IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/a
 
 ## <a name="fundamentals"></a>Concetti fondamentali
 
-Attacchi CSRF si basano sul comportamento di invio di cookie associati a un dominio con ogni richiesta effettuata per quel dominio browser predefinito. Questi cookie vengono archiviati all'interno del browser. Spesso includono i cookie di sessione per gli utenti autenticati. L'autenticazione basata su cookie è una forma comune di autenticazione. Sistemi di autenticazione basata su token sono sempre più diffusi, soprattutto per stabilimenti termali e altri scenari "smart client".
+Attacchi CSRF si basano sul comportamento di invio di cookie associati a un dominio con ogni richiesta effettuata per quel dominio browser predefinito. Questi cookie vengono archiviati all'interno del browser. Spesso includono i cookie di sessione per gli utenti autenticati. L'autenticazione basata su cookie è una forma comune di autenticazione. Sistemi di autenticazione basata su token sono sempre più diffusi, soprattutto per SPAs e altri scenari "smart client".
 
 ### <a name="cookie-based-authentication"></a>Autenticazione basata su cookie
 
