@@ -11,11 +11,11 @@ ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 9baf2ce2a1270a728616a8a2ab45deca9a9cde6f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Sviluppo di app ASP.NET Core con dotnet watch
 
@@ -111,6 +111,6 @@ Verificare che `http://localhost:<port number>/api/math/product?a=4&b=5` restitu
 
 ## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 
-dotnet-watch fa parte del [repository DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/Microsoft.DotNet.Watcher.Tools) GitHub.
+dotnet-watch fa parte del [repository DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch) GitHub.
 
-La [sezione MSBuild](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md#msbuild) del file [Leggimi di dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md) spiega come dotnet-watch può essere configurato dal file di progetto MSBuild che viene controllato. Il file [Leggimi di dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md) contiene informazioni su dotnet-watch non trattate in questa esercitazione.
+La [sezione MSBuild](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild) del file [Leggimi di dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) spiega come dotnet-watch può essere configurato dal file di progetto MSBuild che viene controllato. Il file [Leggimi di dotnet-watch](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) contiene informazioni su dotnet-watch non trattate in questa esercitazione.

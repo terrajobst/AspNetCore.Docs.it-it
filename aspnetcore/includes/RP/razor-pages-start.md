@@ -11,9 +11,8 @@ La tabella seguente elenca i file e le cartelle nel progetto. Per questa esercit
 | File o cartella              | Scopo |
 | ----------------- | ------------ | 
 | wwwroot | Contiene file statici. Vedere [Uso di file statici](xref:fundamentals/static-files). |
-| Pagine | Cartella per [Pagine Razor](xref:mvc/razor-pages/index). | 
+| .NET | Cartella per [Pagine Razor](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Configurazione](xref:fundamentals/configuration/index) |
-| *bower. JSON* | Gestione pacchetti lato client. Vedere [Bower](xref:client-side/bower).|
 | *Program.cs* | [Ospita](xref:fundamentals/hosting) l'app ASP.NET Core.|
 | *Startup.cs* | Configura i servizi e la pipeline della richiesta. Vedere [Avvio](xref:fundamentals/startup).|
 
