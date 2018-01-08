@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/index
-ms.openlocfilehash: 2ffa2361077c4c2719a458c59bebecf1cb0e9879
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f27bfaf49dac3ca9eccf8e968606c0264564b1fa
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-code"></a>Creare un'app web Razor Pages con ASP.NET Core e Visual Studio Code
 
-Si tratta di un lavoro in corso. Ci auguriamo che la serie sia completa entro due settimane.
+Si tratta di un lavoro in corso.
 
 Questa serie illustra le nozioni di base della creazione di un'app web Razor Pages con Visual Studio Code.
 
