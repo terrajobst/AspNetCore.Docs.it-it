@@ -153,7 +153,7 @@
 ## [Creazione di bundle e minimizzazione](xref:client-side/bundling-and-minification)
 ## [Uso di Browser Link](xref:client-side/using-browserlink)
 ## [Uso di JavaScriptServices per app a pagina singola](xref:client-side/spa-services)
-## [Uso dei modelli di progetto per app a pagina singola (anteprima)](xref:spa/index)
+## [Uso dei modelli di progetto per app a pagina singola (RC)](xref:spa/index)
 ### [Modello di progetto per Angular](xref:spa/angular)
 ### [Modello di progetto per React](xref:spa/react)
 ### [Modello di progetto per React con Redux](xref:spa/react-with-redux)
