@@ -1,7 +1,7 @@
 ---
 title: Usare i modelli di applicazione a pagina singola
 author: SteveSandersonMS
-description: Informazioni su come installare e iniziare a usare i modelli di progetto in anteprima per applicazioni a pagina singola di ASP.NET Core.
+description: Informazioni su come installare e iniziare a usare i modelli di progetto di applicazioni a pagina singola della versione finale candidata di ASP.NET Core.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 59031d79a9558bb8fc94e55ac04e70876618dc02
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 0ac3803aabdc148401b9d5b614645a8560c9a089
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="use-the-single-page-application-templates-preview"></a>Usare i modelli di applicazione a pagina singola (anteprima)
+# <a name="use-the-single-page-application-templates-release-candidate"></a>Usare i modelli di applicazione a pagina singola (versione finale candidata)
 
 > [!NOTE]
 > La versione rilasciata di .NET Core 2.0.x SDK include modelli di progetto per Angular, React e React con Redux. **Questa documentazione non riguarda questi modelli di progetto rilasciati.** Questa documentazione è riferita alla prossima versione dei modelli per Angular, React e React con Redux, di cui è previsto il rilascio agli inizi del 2018.
@@ -29,10 +29,10 @@ ms.lasthandoff: 12/14/2017
 
 ## <a name="installation"></a>Installazione
 
-Eseguire il comando seguente per installare la versione di **anteprima** dei modelli di ASP.NET Core per Angular, React e React con Redux:
+Eseguire il comando seguente per installare la  **versione finale candidata** dei modelli di ASP.NET Core per Angular, React e React con Redux:
 
 ```console
-dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0-preview1-final
+dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0-rc1-final
 ```
 
 ## <a name="use-the-templates"></a>Usare i modelli

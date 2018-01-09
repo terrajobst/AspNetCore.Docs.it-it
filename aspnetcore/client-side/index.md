@@ -11,11 +11,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2e4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/index
-ms.openlocfilehash: b4770a91a735cf9c7304e03b848f9593bacb1455
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 926aecb243153b92d70d5aa5a689eeec4dc8415a
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="client-side-development-in-aspnet-core"></a>Sviluppo sul lato client in ASP.NET Core
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
 - [Uso di Browser Link](xref:client-side/using-browserlink)
 - [Uso di JavaScriptServices per app a pagina singola](xref:client-side/spa-services)
-- [Uso dei modelli di progetto per app a pagina singola (anteprima)](xref:spa/index)
+- [Uso dei modelli di progetto per app a pagina singola (RC)](xref:spa/index)
     - [Modello di progetto per Angular](xref:spa/angular)
     - [Modello di progetto per React](xref:spa/react)
     - [Modello di progetto per React con Redux](xref:spa/react-with-redux)
