@@ -5,17 +5,17 @@ description: "Informazioni su come Core di ASP.NET MVC è un framework completo 
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -38,7 +38,7 @@ Questo limite delle responsabilità consente di scalare l'applicazione in termin
 
 ### <a name="model-responsibilities"></a>Responsabilità di modello
 
-Il modello in un'applicazione MVC rappresenta lo stato dell'applicazione e qualsiasi logica di business o di operazioni che devono essere eseguite da esso. Logica di business deve essere incapsulata nel modello, insieme a qualsiasi logica di implementazione per la persistenza dello stato dell'applicazione. Visualizzazioni fortemente tipizzate in genere si usa tipi ViewModel appositamente progettati per contenere i dati da visualizzare in tale visualizzazione. il controller di creare e popolare le istanze di ViewModel dal modello.
+Il modello in un'applicazione MVC rappresenta lo stato dell'applicazione e qualsiasi logica di business o di operazioni che devono essere eseguite da esso. Logica di business deve essere incapsulata nel modello, insieme a qualsiasi logica di implementazione per la persistenza dello stato dell'applicazione. Visualizzazioni fortemente tipizzate utilizzano in genere i tipi di ViewModel progettati per contenere i dati da visualizzare per tale vista. Il controller crea e popola le istanze di ViewModel dal modello.
 
 > [!NOTE]
 > Esistono diversi modi per organizzare il modello in un'applicazione che utilizza il modello architetturale MVC. Altre informazioni su alcune [diversi tipi di modello](http://deviq.com/kinds-of-models/).
@@ -112,7 +112,7 @@ Componenti di base di ASP.NET MVC [associazione del modello](models/model-bindin
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
    ```
 
-### <a name="model-validation"></a>convalida del modello
+### <a name="model-validation"></a>Convalida modello
 
 Componenti di base ASP.NET MVC supporta [convalida](models/validation.md) dichiarando l'oggetto modello con gli attributi di convalida di dati dell'annotazione. Gli attributi di convalida vengono controllate sul lato client prima che i valori vengono inviati al server, nonché nel server prima di azione del controller viene chiamato.
 
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-Il framework gestiscono la convalida dei dati di richiesta del client e nel server. La logica di convalida specificata sui tipi di modello viene aggiunto alle viste sottoposto a rendering come annotazioni non intrusivi e viene applicata nei browser con [convalida jQuery](https://jqueryvalidation.org/).
+Il framework gestisce convalida dei dati richiesta sul client e nel server. La logica di convalida specificata sui tipi di modello viene aggiunto alle viste sottoposto a rendering come annotazioni non intrusivi e viene applicata nei browser con [convalida jQuery](https://jqueryvalidation.org/).
 
 ### <a name="dependency-injection"></a>Inserimento di dipendenze
 
@@ -181,11 +181,11 @@ Inoltre è possibile utilizzare l'app [inserimento di dipendenze di file nella v
 
 ### <a name="areas"></a>Aree
 
-[Aree](controllers/areas.md) consentono di suddividere un'app Web ASP.NET MVC di base di grandi dimensioni in raggruppamenti funzionali più piccoli. Un'area è in effetti una struttura MVC all'interno di un'applicazione. In un progetto MVC, vengono mantenuti i componenti logici come modello, Controller e visualizza in cartelle diverse e MVC utilizza le convenzioni di denominazione per creare la relazione tra questi componenti. Per un'app di grandi dimensioni, può risultare utile per partizionare l'app in varie aree di livello elevate di funzionalità. Ad esempio, un'applicazione di e-commerce con più unità aziendali, ad esempio l'estrazione, fatturazione e la ricerca e così via. Ognuna di queste unità sono le proprie viste componenti logici, controller e i modelli.
+[Aree](controllers/areas.md) consentono di suddividere un'app Web ASP.NET MVC di base di grandi dimensioni in raggruppamenti funzionali più piccoli. Un'area è una struttura MVC all'interno di un'applicazione. In un progetto MVC, vengono mantenuti i componenti logici come modello, Controller e visualizza in cartelle diverse e MVC utilizza le convenzioni di denominazione per creare la relazione tra questi componenti. Per un'app di grandi dimensioni, può risultare utile per partizionare l'app in varie aree di livello elevate di funzionalità. Ad esempio, un'applicazione di e-commerce con più unità aziendali, ad esempio l'estrazione, fatturazione e la ricerca e così via. Ognuna di queste unità sono le proprie viste componenti logici, controller e i modelli.
 
 ### <a name="web-apis"></a>API Web
 
-Oltre a essere una piattaforma ideale per la compilazione di siti web, ASP.NET MVC di base dispone di supporto ottimale per la compilazione di API Web. È possibile compilare servizi che possono raggiungere una vasta gamma di client, inclusi browser e dispositivi mobili.
+Oltre a essere una piattaforma ideale per la compilazione di siti web, ASP.NET MVC di base dispone di supporto ottimale per la compilazione di API Web. È possibile compilare servizi raggiungono una vasta gamma di client, inclusi browser e dispositivi mobili.
 
 Il framework include il supporto per la negoziazione del contenuto HTTP con supporto incorporato per [la formattazione dei dati](models/formatting.md) come JSON o XML. Scrivere [formattatori personalizzati](advanced/custom-formatters.md) per aggiungere supporto per formati personalizzati.
 
@@ -213,7 +213,7 @@ Tramite il motore di visualizzazione Razor è possibile definire [layout](views/
 
 Visualizzazioni Razor in MVC possono essere fortemente tipizzate in base al modello. Controller è possono passare un modello fortemente tipizzato per abilitare le viste di controllo dei tipi e IntelliSense supporta le viste.
 
-Ad esempio, la vista seguente definisce un modello di tipo `IEnumerable<Product>`:
+Ad esempio, la vista seguente esegue il rendering di un modello di tipo `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>

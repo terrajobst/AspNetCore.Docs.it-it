@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 en-us /
 
@@ -302,7 +302,7 @@ Il browser viene mostrata la pagina di indice con il valore modificato e aggiorn
 
 Eliminare il reparto di test dalla seconda scheda. Un errore di concorrenza viene visualizzato con i valori correnti dal database. Fare clic su **eliminare** Elimina l'entità, a meno che non `RowVersion` è stata updated.department è stato eliminato.
 
-Vedere [ereditarietà](xref:data/ef-mvc/inheritance) per istruzioni sulle modalità di ereditarietà nel modello di dati.
+Vedere [ereditarietà](xref:data/ef-mvc/inheritance) su come ereditare un modello di dati.
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 

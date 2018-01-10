@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
@@ -31,7 +31,7 @@ Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded
 
 Il `Index` metodo precedente Usa un modello di visualizzazione per generare una risposta HTML al browser. I metodi del controller (noto anche come [metodi di azione](http://rachelappel.com/asp.net-mvc-actionresults-explained)), ad esempio il `Index` dei metodi descritti sopra, restituiscono in genere un [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (o una classe derivata da [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), i tipi non primitivi come stringa.
 
-Fare clic destro la *Views\HelloWorld* cartella e fare clic su **Aggiungi**, quindi fare clic su **pagina visualizzazione MVC 5 con (Layout di Razor)**.
+Fare clic destro la *Views\HelloWorld* cartella e fare clic su **Aggiungi**, quindi fare clic su **pagina visualizzazione MVC 5 con Layout (Razor)**.
   
 ![](adding-a-view/_static/image1.png)   
   

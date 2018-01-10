@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware in ASP.NET Core di riscrittura URL
 
@@ -142,15 +142,15 @@ Nell'esempio precedente con la regola di reindirizzamento, `redirect-rule/(.*)`,
 
 | Path                               | Corrispondenza con |
 | ---------------------------------- | :---: |
-| `/redirect-rule/1234/5678`         | Sì   |
+| `/redirect-rule/1234/5678`         | Yes   |
 | `/my-cool-redirect-rule/1234/5678` | Sì   |
-| `/anotherredirect-rule/1234/5678`  | Sì   |
+| `/anotherredirect-rule/1234/5678`  | Yes   |
 
 La regola di riscrittura `^rewrite-rule/(\d+)/(\d+)`, corrisponde solo percorsi se iniziano con `rewrite-rule/`. Si noti la differenza nella corrispondenza tra la seguente regola di riscrittura e la relativa regola precedente.
 
 | Path                              | Corrispondenza con |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | Sì   |
+| `/rewrite-rule/1234/5678`         | Yes   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
 | `/anotherrewrite-rule/1234/5678`  | No    |
 
@@ -299,7 +299,7 @@ Il middleware supporta le seguenti variabili server IIS URL Rewrite Module:
 ### <a name="method-based-rule"></a>Regole basate su metodo
 Utilizzare `Add(Action<RewriteContext> applyRule)` per implementare la propria logica della regola in un metodo. Il `RewriteContext` espone il `HttpContext` per l'utilizzo del metodo. Il `context.Result` determina le modalità pipeline l'elaborazione viene gestita.
 
-| contesto. Risultato                       | Azione                                                          |
+| contesto. Risultato                       | Operazione                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (impostazione predefinita) | Continuare ad applicare le regole                                         |
 | `RuleResult.EndResponse`             | Arrestare l'applicazione di regole e inviare la risposta                       |
