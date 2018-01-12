@@ -5,17 +5,17 @@ description: Informazioni su come ottimizzare le risorse statiche in un'applicaz
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>Come aggregare e riduzione
 
@@ -57,7 +57,7 @@ Originale | Ridenominazione
 
 Nella tabella seguente vengono descritte le differenze tra il caricamento delle risorse singolarmente e utilizzando l'aggregazione e la riduzione:
 
-Azione | Con B/M | Senza B/M | Modifica
+Operazione | Con B/M | Senza B/M | Modifica
 --- | :---: | :---: | :---:
 Richieste di file  | 7   | 18     | 157%
 KB trasferiti | 156 | 264.68 | 70%
@@ -75,7 +75,7 @@ I modelli di progetto MVC e pagine Razor forniscono un *bundleconfig.json* file 
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-Opzioni di raggruppamento includono:
+Opzioni di configurazione includono:
 
 * `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **Obbligatorio**
 * `inputFiles`: Una matrice di file da raggruppare. Questi sono i percorsi relativi al file di configurazione. **parametro facoltativo**, * comporta un valore vuoto in un file di output vuoto. [il glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
@@ -91,6 +91,9 @@ Opzioni di raggruppamento includono:
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Esecuzione della fase di compilazione di aggregazione e di riduzione
 
 Il [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) pacchetto NuGet consente l'esecuzione dell'aggregazione e riduzione in fase di compilazione. Inserisce il pacchetto [destinazioni di MSBuild](/visualstudio/msbuild/msbuild-targets) che eseguita in compilazione e l'ora pulita. Il *bundleconfig.json* file viene analizzato dal processo di compilazione per generare i file di output in base alla configurazione definita.
+
+> [!NOTE]
+> BuildBundlerMinifier appartiene a un progetto basato sulla community su GitHub per il quale Microsoft non fornisce supporto. Devono essere presentati problemi [qui](https://github.com/madskristensen/BundlerMinifier/issues).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -176,6 +179,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
+> [!NOTE]
+> BundlerMinifier.Core appartiene a un progetto basato sulla community su GitHub per il quale Microsoft non fornisce supporto. Devono essere presentati problemi [qui](https://github.com/madskristensen/BundlerMinifier/issues).
+
 Questo pacchetto estende l'interfaccia CLI Core .NET per includere il *dotnet bundle* strumento. Nella finestra della Console di gestione di pacchetti (PMC) o in una shell dei comandi, è possibile eseguire il comando seguente:
 
 ```console
@@ -243,6 +249,9 @@ Vi sono casi in cui come aggregare e minimizzazione flusso di lavoro un'app rich
 ### <a name="use-the-bundler--minifier-extension"></a>Utilizzare l'estensione di Bundler & Minimizzatore
 
 Visual Studio [Bundler & Minimizzatore](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) estensione gestisce la conversione a Gulp.
+
+> [!NOTE]
+> L'estensione di Bundler & Minimizzatore appartiene a un progetto basato sulla community su GitHub per il quale Microsoft non fornisce supporto. Devono essere presentati problemi [qui](https://github.com/madskristensen/BundlerMinifier/issues).
 
 Fare doppio clic su di *bundleconfig.json* file in Esplora soluzioni e selezionare **Bundler & Minimizzatore** > **convertire a Gulp...** :
 

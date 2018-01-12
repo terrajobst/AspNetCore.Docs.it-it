@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware in ASP.NET Core di riscrittura URL
 
@@ -245,7 +245,7 @@ Richiesta originale:`/iis-rules-rewrite/1234`
 
 ![Finestra del browser con gli strumenti di sviluppo di rilevamento di richiesta e risposta](url-rewriting/_static/add_iis_url_rewrite.png)
 
-Se si dispone di un modulo di riscrivere IIS attivo con le regole a livello di server configurate che avrebbe sulle app in modi indesiderati, è possibile disabilitare il modulo IIS di riscrittura per un'app. Per ulteriori informazioni, vedere [moduli IIS disabilitazione](xref:hosting/iis-modules#disabling-iis-modules).
+Se si dispone di un modulo di riscrivere IIS attivo con le regole a livello di server configurate che avrebbe sulle app in modi indesiderati, è possibile disabilitare il modulo IIS di riscrittura per un'app. Per ulteriori informazioni, vedere [moduli IIS disabilitazione](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 #### <a name="unsupported-features"></a>Funzionalità non supportate
 

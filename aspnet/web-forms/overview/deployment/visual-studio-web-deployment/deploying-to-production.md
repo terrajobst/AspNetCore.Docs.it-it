@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell'ambiente di produzione
 ====================
@@ -42,7 +42,7 @@ Se si dispone già di un account Azure, è possibile creare un account di valuta
 ## <a name="create-a-staging-environment"></a>Creare un ambiente di gestione temporanea
 
 > [!NOTE]
-> Dopo la scrittura di questa esercitazione, il servizio App di Azure aggiunta una nuova funzionalità per automatizzare molti processi intorno con gli ambienti di gestione temporanea e produzione. Vedere [configurare ambienti per le app web in Azure App Service di gestione temporanea](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+> Dopo la scrittura di questa esercitazione, il servizio App di Azure aggiunta una nuova funzionalità per automatizzare molti processi per la creazione di ambienti di gestione temporanea e produzione. Vedere [configurare ambienti per le app web in Azure App Service di gestione temporanea](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
 
 Come spiegato nel [distribuzione per l'esercitazione di ambiente di Test](deploying-to-iis.md), più ambiente di test affidabile è un sito web al provider di hosting che ha come sito web di produzione. Molti provider di hosting è necessario valutare i vantaggi di questo oggetto in costi aggiuntivi significativi, ma in Azure è possibile creare un'app web gratuito aggiuntive come l'applicazione di gestione temporanea. È inoltre necessario un database e i costi aggiuntivi per che tramite il costo del database di produzione sarà Nessuno o minima. In Azure, si paga per la quantità di archiviazione di database da utilizzare invece che per ogni database e la quantità di memoria aggiuntiva da usare in gestione temporanea sarà minima.

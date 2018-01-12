@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 3a18ed30819a3d395e9bfb5dba0547667a4425e8
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 5d8e9a72a3b69866f5a4f725076e44575d20d64f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -38,7 +38,7 @@ ASP.NET Core offre i vantaggi seguenti:
 * Un [sistema di configurazione](xref:fundamentals/configuration/index) basato sull'ambiente, pronto per il cloud.
 * [Inserimento delle dipendenze](xref:fundamentals/dependency-injection) incorporato.
 * Una pipeline di richieste HTTP leggera, [ad alte prestazioni](https://github.com/aspnet/benchmarks) e modulare.
-* Possibilità di gestire l'hosting in [IIS](xref:publishing/iis), [Nginx](xref:publishing/linuxproduction), [Apache](xref:publishing/apache-proxy) e [Docker](xref:publishing/docker) o di testare internamente i processi personalizzati.
+* Possibilità di gestire l'hosting in [IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) e [Docker](xref:host-and-deploy/docker/index) o di testare internamente i processi personalizzati.
 * Controllo delle versioni delle app affiancato quando la destinazione è [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
 * Gli strumenti che semplificano lo sviluppo del web moderno.
 * Possibilità di compilare ed eseguire in Windows, macOS e Linux.
@@ -48,7 +48,7 @@ ASP.NET Core viene fornito esclusivamente come pacchetti [NuGet](https://www.nug
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Compilare API web e interfaccia utente web tramite ASP.NET Core MVC
 
-ASP.NET Core MVC offre funzionalità per la compilazione di [API Web](xref:tutorials/index#building-web-apis) e [app Web](xref:tutorials/index#building-web-applications):
+ASP.NET Core MVC offre funzionalità per la compilazione di [API Web](xref:tutorials/index#build-web-apis) e [app Web](xref:tutorials/index#build-web-apps):
 
 * Il [Model-View-Controller (MVC)](xref:mvc/overview) consente di rendere le API web e le app web [testabili](testing/index.md).
 * [Le pagine Razor](xref:mvc/razor-pages/index) (una novità di ASP.NET Core 2.0) sono un modello di programmazione basato su pagine che rende la creazione di un'interfaccia utente Web più semplice ed efficace.

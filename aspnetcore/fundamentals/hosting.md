@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting in ASP.NET Core
 
@@ -41,7 +41,7 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Configura [registrazione](xref:fundamentals/logging/index) per l'output di console ed eseguire il debug. La registrazione include [filtri log](xref:fundamentals/logging/index#log-filtering) le regole specificate in una sezione di configurazione di registrazione di un *appSettings. JSON* o *appsettings. { Ambiente} JSON* file.
-* Quando si esegue dietro IIS, abilita [integrazione IIS](xref:publishing/iis). Consente di configurare il percorso di base e la porta server deve rimanere in attesa quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module). Il modulo Crea un proxy inverso tra IIS e Kestrel. Configura inoltre all'app di [acquisire gli errori di avvio](#capture-startup-errors). Per le opzioni predefinite IIS, vedere [IIS Opzioni sezione dell'Host ASP.NET Core in Windows con IIS](xref:publishing/iis#iis-options).
+* Quando si esegue dietro IIS, abilita [integrazione IIS](xref:host-and-deploy/iis/index). Consente di configurare il percorso di base e la porta di ascolto il server quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module). Il modulo Crea un proxy inverso tra IIS e Kestrel. Configura inoltre all'app di [acquisire gli errori di avvio](#capture-startup-errors). Per le opzioni predefinite IIS, vedere [IIS Opzioni sezione dell'Host ASP.NET Core in Windows con IIS](xref:host-and-deploy/iis/index#iis-options).
 
 Il *contenuto radice* determina in cui l'host esegue ricerche nei file di contenuto, ad esempio i file di visualizzazione MVC. Quando l'app viene avviata dalla cartella radice del progetto, cartella radice del progetto viene utilizzato come radice del contenuto. Questo è il valore predefinito utilizzato [Visual Studio](https://www.visualstudio.com/) e [dotnet nuovi modelli](/dotnet/core/tools/dotnet-new).
 
@@ -60,7 +60,7 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
 
 Il *contenuto radice* determina in cui l'host esegue ricerche nei file di contenuto, ad esempio i file di visualizzazione MVC. La radice di contenuto predefinito viene ottenuta per `UseContentRoot` da [GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1). Quando l'app viene avviata dalla cartella radice del progetto, cartella radice del progetto viene utilizzato come radice del contenuto. Questo è il valore predefinito utilizzato [Visual Studio](https://www.visualstudio.com/) e [dotnet nuovi modelli](/dotnet/core/tools/dotnet-new).
 
-Per utilizzare IIS come un proxy inverso, chiamare [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) come parte della creazione dell'host. `UseIISIntegration`non configurare un *server*, ad esempio [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) does. `UseIISIntegration`Consente di configurare il percorso di base e la porta server deve rimanere in attesa quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) per creare un proxy inverso tra Kestrel e IIS. Per utilizzare IIS con ASP.NET Core, `UseKestrel` e `UseIISIntegration` deve essere specificato. `UseIISIntegration`attiva solo quando si esegue IIS o IIS Express. Per ulteriori informazioni, vedere [Introduzione a ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) e [riferimento di configurazione di ASP.NET Core modulo](xref:hosting/aspnet-core-module).
+Per utilizzare IIS come un proxy inverso, chiamare [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) come parte della creazione dell'host. `UseIISIntegration`non configurare un *server*, ad esempio [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) does. `UseIISIntegration`Consente di configurare il percorso di base e la porta di ascolto il server quando si utilizza il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) per creare un proxy inverso tra Kestrel e IIS. Per utilizzare IIS con ASP.NET Core, `UseKestrel` e `UseIISIntegration` deve essere specificato. `UseIISIntegration`attiva solo quando si esegue IIS o IIS Express. Per ulteriori informazioni, vedere [Introduzione a ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) e [riferimento di configurazione di ASP.NET Core modulo](xref:host-and-deploy/aspnet-core-module).
 
 Un'implementazione minima che consente di configurare un host (e un'applicazione ASP.NET Core) prevede la specificazione di un server e la configurazione della pipeline di richieste dell'applicazione:
 
@@ -266,7 +266,7 @@ Questa funzionalità è disponibile in ASP.NET Core 1. x.
 
 ### <a name="prevent-hosting-startup"></a>Impedire l'avvio di Hosting
 
-Impedisce il caricamento automatico di hosting agli assembly di avvio, inclusi gli assembly di avvio configurati dall'assembly dell'applicazione di hosting. Vedere [aggiungere le funzionalità dell'app da un assembly esterno utilizzando IHostingStartup](xref:hosting/ihostingstartup) per ulteriori informazioni.
+Impedisce il caricamento automatico di hosting agli assembly di avvio, inclusi gli assembly di avvio configurati dall'assembly dell'applicazione di hosting. Vedere [aggiungere le funzionalità dell'app da un assembly esterno utilizzando IHostingStartup](xref:host-and-deploy/ihostingstartup) per ulteriori informazioni.
 
 **Chiave**: preventHostingStartup  
 **Tipo**: *bool* (`true` o `1`)  
@@ -908,7 +908,7 @@ Per ulteriori informazioni, vedere [annunci: Microsoft.Extensions.PlatformAbstra
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Pubblicare in Windows tramite IIS](../publishing/iis.md)
-* [Pubblicare in Linux con Nginx](../publishing/linuxproduction.md)
-* [Pubblicare in Linux con Apache](../publishing/apache-proxy.md)
-* [Host in un servizio Windows](xref:hosting/windows-service)
+* [Host in Windows con IIS](xref:host-and-deploy/iis/index)
+* [Host in Linux con Nginx](xref:host-and-deploy/linux-nginx)
+* [Host in Linux con Apache](xref:host-and-deploy/linux-apache)
+* [Host in un servizio Windows](xref:host-and-deploy/windows-service)
