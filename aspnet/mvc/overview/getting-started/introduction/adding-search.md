@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: a7664d16a056424ee51db2208152cb5d35d8e5d9
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="search"></a>Cerca
 ====================
@@ -123,7 +123,7 @@ Il codice seguente è una query LINQ che recupera tutti i generi dal database.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta da aggiungere all'elenco di tutti i generi distinti. (Senza il `Distinct` modificatore, generi duplicati verrebbero aggiunto, ad esempio, verrebbero aggiunto comici due volte nel nostro esempio). Il codice quindi archivia l'elenco di generi nel `ViewBag.movieGenre` oggetto. L'archiviazione dei dati della categoria (del tali un genere) come un [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati di categoria in una casella di riepilogo a discesa è un approccio tipico per le applicazioni MVC.
+Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta da aggiungere all'elenco di tutti i generi distinti. (Senza il `Distinct` modificatore, generi duplicati verrebbero aggiunto, ad esempio, verrebbero aggiunto comici due volte nel nostro esempio). Il codice quindi archivia l'elenco di generi nel `ViewBag.MovieGenre` oggetto. L'archiviazione dei dati della categoria (del tali un genere) come un [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati di categoria in una casella di riepilogo a discesa è un approccio tipico per le applicazioni MVC.
 
 Il codice seguente viene illustrato come controllare il `movieGenre` parametro. Se non è vuota, ulteriormente il codice vincola la query di filmati per limitare i film selezionati per il genere specificato.
 
@@ -141,7 +141,7 @@ Nel codice seguente:
 
 [!code-cshtml[Main](adding-search/samples/sample15.cshtml)]
 
-Il parametro "movieGenre" fornisce la chiave per la `DropDownList` helper per trovare un `IEnumerable<SelectListItem>` nel `ViewBag`. Il `ViewBag` è stato popolato nel metodo di azione:
+Il parametro "MovieGenre" fornisce la chiave per la `DropDownList` helper per trovare un `IEnumerable<SelectListItem>` nel `ViewBag`. Il `ViewBag` è stato popolato nel metodo di azione:
 
 [!code-csharp[Main](adding-search/samples/sample16.cs?highlight=10)]
 
