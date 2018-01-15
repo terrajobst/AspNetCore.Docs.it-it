@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/index
-ms.openlocfilehash: 5bc3307f3e7c5e9d6f6f3adc668b807ed835f8f5
-ms.sourcegitcommit: 1563ba5d06ed6b7d2ccf6e00ee77175b3af888c7
+ms.openlocfilehash: b7dae97d0b16eda1a94f6b9b824506d80be9c663
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Introduzione a Razor Pages ed Entity Framework Core con Visual Studio
 
-Questa serie di esercitazioni illustra come creare applicazioni web ASP.NET Core MVC che usano Entity Framework Core per l'accesso ai dati. Le esercitazioni richiedono Visual Studio 2017.
+Questa serie di esercitazioni illustra come creare app Web ASP.NET Core Razor Pages che usano Entity Framework (EF) Core per l'accesso ai dati. Le esercitazioni richiedono Visual Studio 2017.
 
 1. [Introduzione](xref:data/ef-rp/intro)
 1. [Operazioni di creazione, lettura, aggiornamento ed eliminazione](xref:data/ef-rp/crud)

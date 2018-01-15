@@ -10,11 +10,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 3f4df08d6cf5d183735ae4b4ec4f07ed60a9623a
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: f6a1f32c1edd098b0782fd066d8e32f09952a9b7
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Panoramica sulla sicurezza di ASP.NET Core
 
@@ -34,8 +34,8 @@ L'autenticazione è un processo in cui un utente fornisce le credenziali che ven
 
 ASP.NET Core ed Entity Framework contengono funzionalità che consentono di proteggere le app e impedire violazioni della sicurezza. L'elenco di collegamenti seguente offre documentazione in cui sono descritte le tecniche per evitare le vulnerabilità della sicurezza più comuni nelle app Web:
 
-* [Attacchi con script da altri siti](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
-* [Attacchi injection di SQL](https://docs.microsoft.com/ef/core/querying/raw-sql)
+* [Attacchi di tipo cross-site scripting (XSS)](https://docs.microsoft.com/aspnet/core/security/cross-site-scripting)
+* [Attacchi SQL injection](https://docs.microsoft.com/ef/core/querying/raw-sql)
 * [Richieste intersito false](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
 * [Attacchi di reindirizzamento aperti](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
 
@@ -45,43 +45,43 @@ Esistono altre vulnerabilità di cui è necessario essere consapevoli. Per altre
 
 *   [Autenticazione](authentication/index.md)
     *   [Introduzione a Identity](authentication/identity.md)
-    *   [Abilitazione dell'autenticazione con Facebook, Google e altri provider esterni](authentication/social/index.md)
+    *   [Abilitare l'autenticazione tramite Facebook, Google e altri provider esterni](authentication/social/index.md)
     * [Configurare l'autenticazione Windows](authentication/windowsauth.md)
     *   [Conferma account e recupero password](authentication/accconfirm.md)
     *   [Autenticazione a due fattori con SMS](authentication/2fa.md) 
-    *   [Uso dell'autenticazione tramite cookie senza ASP.NET Core Identity](authentication/cookie.md)
+    *   [Usare l'autenticazione tramite cookie senza Identity](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
-        *   [Integrazione di Azure AD in un'app Web ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-        *   [Chiamata di un'API Web ASP.NET Core da un'applicazione WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Chiamata di un'API Web in un'applicazione Web ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [Integrare Azure AD in un'app Web ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [Chiamare un'API Web ASP.NET Core da un'app WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+        *   [Chiamare un'API Web in un'app Web ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [Un'app Web ASP.NET Core con Azure Active Directory B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-    *   [Protezione di app ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
+    *   [Proteggere app ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
 *   [Autorizzazione](authorization/index.md)
     *   [Introduzione](authorization/introduction.md)
     *   [Creare un'app con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data)
     *   [Autorizzazione semplice](authorization/simple.md)
     *   [Autorizzazione basata sui ruoli](authorization/roles.md)
     *   [Autorizzazione basata sulle attestazioni](authorization/claims.md)
-    *   [Autorizzazione personalizzata basata su criteri](authorization/policies.md)
+    *   [Autorizzazione basata sui criteri](authorization/policies.md)
     *   [Inserimento di dipendenze nei gestori di requisiti](authorization/dependencyinjection.md)
     *   [Autorizzazione basata su risorse](authorization/resourcebased.md)
     *   [Autorizzazione basata sulla visualizzazione](authorization/views.md)
-    *   [Limitazione dell'identità tramite schema](authorization/limitingidentitybyscheme.md)
+    *   [Limitare l'identità tramite schema](authorization/limitingidentitybyscheme.md)
 *   [Protezione dati](data-protection/index.md)
     *   [Introduzione alla protezione dati](data-protection/introduction.md)
-    *   [Introduzione alle API di protezione dati](data-protection/using-data-protection.md)
+    *   [Introduzione alle Data Protection API](data-protection/using-data-protection.md)
     *   [API utente](data-protection/consumer-apis/index.md)
         *   [Panoramica di API utente](data-protection/consumer-apis/overview.md)
         *   [Stringhe di scopi](data-protection/consumer-apis/purpose-strings.md)
         *   [Gerarchia di scopi e multi-tenancy](data-protection/consumer-apis/purpose-strings-multitenancy.md)
         *   [Hashing della password](data-protection/consumer-apis/password-hashing.md)
-        *   [Limitazione della durata di payload protetti](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Rimozione della protezione di payload le cui chiavi sono state revocate](data-protection/consumer-apis/dangerous-unprotect.md)
+        *   [Limitare la durata di payload protetti](data-protection/consumer-apis/limited-lifetime-payloads.md)
+        *   [Payload non protetti le cui chiavi sono state revocate](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Configurazione](data-protection/configuration/index.md)
-        *   [Configurazione della protezione dati](data-protection/configuration/overview.md)
+        *   [Configurare la protezione dati](data-protection/configuration/overview.md)
         *   [Impostazioni predefinite](data-protection/configuration/default-settings.md)
         *   [Criteri a livello di computer](data-protection/configuration/machine-wide-policy.md)
-        *   [Scenari non compatibili con DI](data-protection/configuration/non-di-scenarios.md)
+        *   [Scenari non compatibili con l'inserimento di dipendenze](data-protection/configuration/non-di-scenarios.md)
     *   [API di estendibilità](data-protection/extensibility/index.md)
         *   [Estendibilità della crittografia Core](data-protection/extensibility/core-crypto.md)
         *   [Estendibilità della gestione delle chiavi](data-protection/extensibility/key-management.md)
@@ -92,18 +92,18 @@ Esistono altre vulnerabilità di cui è necessario essere consapevoli. Per altre
         *   [Intestazioni di contesto](data-protection/implementation/context-headers.md)
         *   [Gestione delle chiavi](data-protection/implementation/key-management.md)
         *   [Provider di archiviazione chiavi](data-protection/implementation/key-storage-providers.md)
-        *   [Crittografia chiavi inattive](data-protection/implementation/key-encryption-at-rest.md)
-        *   [Immutabilità della chiave e modifica delle impostazioni](data-protection/implementation/key-immutability.md)
+        *   [Crittografia a chiave inattiva](data-protection/implementation/key-encryption-at-rest.md)
+        *   [Immutabilità delle chiavi e modifica delle impostazioni](data-protection/implementation/key-immutability.md)
         *   [Formato di archiviazione chiavi](data-protection/implementation/key-storage-format.md)
         *   [Provider di protezione dati temporanea](data-protection/implementation/key-storage-ephemeral.md)
     *   [Compatibilità](data-protection/compatibility/index.md)
-        *   [Condivisione dei cookie tra applicazioni](data-protection/compatibility/cookie-sharing.md)
-        *   [Sostituzione di <machineKey> in ASP.NET](data-protection/compatibility/replacing-machinekey.md)
+        *   [Condividere cookie tra app](data-protection/compatibility/cookie-sharing.md)
+        *   [Sostituire <machineKey> in ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Creare un'app con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data)
 *   [Archiviazione sicura di segreti dell'app durante lo sviluppo](app-secrets.md)
 *   [Azure Key Vault configuration provider](key-vault-configuration.md) (Provider di configurazione di Azure Key Vault)
-*   [Applicazione di SSL](enforcing-ssl.md)
+*   [Imporre SSL](enforcing-ssl.md)
 *   [Richiesta intersito falsa](anti-request-forgery.md)
-*   [Prevenzione di attacchi di reindirizzamento aperti](preventing-open-redirects.md)
-*   [Prevenzione di XSS](cross-site-scripting.md)
-*   [Abilitazione di richieste multiorigine (CORS)](cors.md)
+*   [Prevenire attacchi di reindirizzamento aperto](preventing-open-redirects.md)
+*   [Evitare il cross-site scripting](cross-site-scripting.md)
+*   [Abilitare richieste tra le origini (CORS)](cors.md)
