@@ -11,11 +11,11 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 manager: wpickett
-ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f84fa55baf6d808185a28db290d9e6d3c46bdac
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Creare un'API Web con ASP.NET Core MVC e Visual Studio per Mac
 
@@ -91,7 +91,7 @@ Sostituire il codice generato con:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
-Il database genera il `Id` quando viene creato un `TodoItem`.
+Il database genera `Id` quando viene creato un `TodoItem`.
 
 ### <a name="create-the-database-context"></a>Creare il contesto di database
 
@@ -197,7 +197,7 @@ La risposta è [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-se
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Routing alle azioni del controller](xref:mvc/controllers/routing)
-* Per informazioni sulla distribuzione dell'API, vedere [Pubblicazione e distribuzione](../publishing/index.md).
+* Per informazioni sulla distribuzione dell'API, vedere [Ospitare e distribuire](xref:host-and-deploy/index).
 * [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)

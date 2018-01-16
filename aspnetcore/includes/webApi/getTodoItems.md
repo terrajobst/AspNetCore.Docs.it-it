@@ -39,7 +39,7 @@ L'attributo `[HttpGet]` specifica un metodo HTTP GET. Il percorso dell'URL per o
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
-* Sostituire "[Controller]" con il nome del controller, ovvero il nome della classe controller meno il suffisso "Controller". In questo esempio, il nome della classe controller è **Todo**Controller e il nome della radice è "todo". Il [routing](xref:mvc/controllers/routing) ASP.NET Core non fa distinzione tra maiuscole e minuscole.
+* Sostituire `[controller]` con il nome del controller, ovvero il nome della classe controller meno il suffisso "Controller". In questo esempio, il nome della classe controller è **Todo**Controller e il nome della radice è "todo". Il [routing](xref:mvc/controllers/routing) ASP.NET Core non fa distinzione tra maiuscole e minuscole.
 * Se l'attributo `[HttpGet]` ha un modello di route, ad esempio `[HttpGet("/products")]`, aggiungerlo al percorso. In questo esempio non si usa un modello. Per altre informazioni, vedere [Routing degli attributi con attributi Http [verbo]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 Nel metodo `GetById`:

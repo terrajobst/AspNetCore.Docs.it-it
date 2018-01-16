@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f01f047f809e4eaa055a4204611b152c5db87f74
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -142,8 +142,8 @@ Per informazioni sullo stato delle funzionalità di C# 7.1, vedere il [repositor
 
 ## <a name="other-documentation-updates-for-20"></a>Altri aggiornamenti alla documentazione per la versione 2.0
 
-* [Create publish profiles for Visual Studio and MSBuild, to deploy ASP.NET Core apps](xref:publishing/web-publishing-vs) (Creare profili di pubblicazione per Visual Studio e MSBuild, per distribuire applicazioni ASP.NET Core)
-* [Key Management](xref:security/data-protection/implementation/key-management) (Gestione delle chiavi)
+* [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles) (Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core)
+* [Gestione delle chiavi](xref:security/data-protection/implementation/key-management)
 * [Configuring Facebook authentication](xref:security/authentication/facebook-logins) (Configurazione dell'autenticazione di Facebook)
 * [Configuring Twitter authentication](xref:security/authentication/twitter-logins) (Configurazione dell'autenticazione di Twitter)
 * [Configuring Google authentication](xref:security/authentication/google-logins) (Configurazione dell'autenticazione di Google)
