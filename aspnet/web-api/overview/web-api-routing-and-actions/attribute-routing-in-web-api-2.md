@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Attributo di Routing in ASP.NET Web API 2
 ====================
@@ -130,7 +130,7 @@ Metodi controller che non dispongono di un attributo route utilizzano basato sul
 
 API Web seleziona anche azioni in base al metodo HTTP della richiesta (GET, POST e così via). Per impostazione predefinita, Web API Cerca una corrispondenza tra maiuscole e minuscole con l'inizio del nome di metodo del controller. Ad esempio, un metodo del controller denominato `PutCustomers` corrisponde a una richiesta HTTP PUT.
 
-È possibile ignorare questa convenzione dichiarando il (metodo) con i seguenti attributi:
+È possibile ignorare questa convenzione dichiarando il metodo con i seguenti attributi:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -180,22 +180,22 @@ Nella tabella seguente vengono elencati i vincoli che sono supportati.
 
 | Vincolo | Descrizione | Esempio |
 | --- | --- | --- |
-| Alfa | Corrispondenze lettere maiuscole o minuscole dell'alfabeto latino caratteri (a-z, A-Z) | {x: alfa} |
-| bool | Corrisponde a un valore booleano. | {x: bool} |
-| datetime | Corrispondenze un **DateTime** valore. | {x: datetime} |
-| decimal | Corrisponde a un valore decimale. | {x: decimale} |
-| double | Corrisponde a un valore a virgola mobile a 64 bit. | {x: doppia} |
-| mobile | Corrisponde a un valore a virgola mobile a 32 bit. | {x: float} |
-| guid | Corrisponde a un valore GUID. | {x: guid} |
-| int | Corrisponde a un valore integer a 32 bit. | {x: int} |
+| alpha | Corrispondenze lettere maiuscole o minuscole dell'alfabeto latino caratteri (a-z, A-Z) | {x:alpha} |
+| bool | Corrisponde a un valore booleano. | {x:bool} |
+| datetime | Corrispondenze un **DateTime** valore. | {x:datetime} |
+| decimal | Corrisponde a un valore decimale. | {x:decimal} |
+| double | Corrisponde a un valore a virgola mobile a 64 bit. | {x:double} |
+| float | Corrisponde a un valore a virgola mobile a 32 bit. | {x:float} |
+| guid | Corrisponde a un valore GUID. | {x:guid} |
+| int | Corrisponde a un valore integer a 32 bit. | {x:int} |
 | length | Corrisponde a una stringa con la lunghezza specificata o in un determinato intervallo di lunghezza. | {x: length(6)} {x: length(1,20)} |
-| long | Corrisponde a un valore integer a 64 bit. | {x: long} |
-| max | Consente di ricercare un numero intero con un valore massimo. | {x: max(10)} |
+| long | Corrisponde a un valore integer a 64 bit. | {x:long} |
+| max | Consente di ricercare un numero intero con un valore massimo. | {x:max(10)} |
 | MaxLength | Corrisponde a una stringa con una lunghezza massima. | {x: maxlength(10)} |
-| min | Consente di ricercare un numero intero con un valore minimo. | {x: min(10)} |
+| min | Consente di ricercare un numero intero con un valore minimo. | {x:min(10)} |
 | minLength | Corrisponde a una stringa con una lunghezza minima. | {x: minlength(10)} |
-| range | Consente di ricercare un numero intero in un intervallo di valori. | {x: range(10,50)} |
-| regex | Corrisponde a un'espressione regolare. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| range | Consente di ricercare un numero intero in un intervallo di valori. | {x:range(10,50)} |
+| regex | Corrisponde a un'espressione regolare. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Si noti che alcuni dei vincoli, ad esempio &quot;min&quot;, accettano argomenti tra parentesi. È possibile applicare più vincoli a un parametro, separato da due punti.
 
@@ -269,10 +269,10 @@ Di seguito è riportato un esempio. Si supponga di che definisce il seguente con
 
 Queste route vengono ordinate nel modo seguente.
 
-1. gli ordini/dettagli
-2. gli ordini / {id}
-3. gli ordini / {NomeCliente}
-4. gli ordini / {\*Data}
-5. gli ordini / in sospeso
+1. orders/details
+2. orders/{id}
+3. orders/{customerName}
+4. orders/{\*date}
+5. orders/pending
 
 Si noti che "Dettagli" sono un valore letterale segmento e viene visualizzato prima di "{id}", ma "in sospeso" viene visualizzato ultima perché il **RouteOrder** proprietà è 1. (In questo esempio presuppone che vi sono Nessun cliente denominato "Dettagli" o "in sospeso". In generale, tentare di evitare cicli ambigui. In questo esempio, un modello di route migliore per `GetByCustomer` è "clienti / {NomeCliente}")
