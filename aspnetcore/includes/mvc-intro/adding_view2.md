@@ -18,7 +18,7 @@ I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Modificare il titolo e il collegamento di menu nel file di layout
 
-Modificare il contenuto dell'elemento titolo. Modificare il testo di ancoraggio nel modello di layout in "Movie App" e il controller da `Home` in `Movies`, come evidenziato di seguito:
+Nell'elemento del titolo cambiare `MvcMovie` in `Movie App`. Modificare il testo di ancoraggio nel modello di layout da `MvcMovie` a `Mvc Movie` e il controller da `Home` a `Movies`, come evidenziato di seguito:
 
 Nota: la versione di ASP.NET 2.0 Core è leggermente diversa. Non contiene `@inject ApplicationInsights` e `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -29,9 +29,9 @@ Nota: la versione di ASP.NET 2.0 Core è leggermente diversa. Non contiene `@inj
 
 Salvare le modifiche e toccare il collegamento **About** (Informazioni su). Si noti come il titolo sulla scheda del browser visualizzi ora **About - Movie App** (Informazioni su - Movie App) anziché **About - Mvc Movie** (Informazioni su - Mvc Movie): 
 
-![Informazioni sulla scheda](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Informazioni sulla scheda](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Toccare il collegamento **Contact** (Contatto) e notare che anche qui viene visualizzato **Movie App**. La modifica è stata apportata una volta nel modello di layout e tutte le pagine nel sito riflettono il nuovo testo del collegamento e il nuovo titolo.
+Toccare il collegamento **Contact** e notare che anche il titolo e il testo di ancoraggio visualizzano **Movie App**. La modifica è stata apportata una volta nel modello di layout e tutte le pagine nel sito riflettono il nuovo testo del collegamento e il nuovo titolo.
 
 Esaminare il file *Views/_ViewStart.cshtml*:
 
@@ -105,7 +105,7 @@ Salvare le modifiche e passare all'URL seguente:
 
 I dati vengono prelevati dall'URL e passati al controller usando lo [strumento di associazione di modelli MVC](xref:mvc/models/model-binding). Il controller crea un pacchetto di dati in un dizionario `ViewData` e passa tale oggetto alla vista. La vista esegue quindi il rendering dei dati in formato HTML al browser.
 
-![Vista About (Informazioni su) con un'etichetta di benvenuto e la frase Hello Rick riportata quattro volte](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![Vista About (Informazioni su) con un'etichetta di benvenuto e la frase Hello Rick riportata quattro volte](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 Nell'esempio precedente è stato usato il dizionario `ViewData` per passare i dati dal controller a una vista. Più avanti nell'esercitazione si userà un modello di vista per passare i dati da un controller a una vista. In genere l'approccio basato sul modello di vista per passare i dati è preferito rispetto all'approccio basato sul dizionario `ViewData`. Per altre informazioni, vedere [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) (Confronto tra ViewModel, ViewData, ViewBag, TempData e Session in MVC).
 

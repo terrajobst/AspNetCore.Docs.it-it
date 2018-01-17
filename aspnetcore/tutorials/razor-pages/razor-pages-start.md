@@ -2,31 +2,33 @@
 title: Introduzione all'uso di pagine Razor in ASP.NET Core
 author: rick-anderson
 description: Introduzione all'uso di pagine Razor in ASP.NET Core
-keywords: ASP.NET Core,pagine Razor,Razor,MVC
+keywords: ASP.NET Core, pagine Razor, Razor, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 08/27/2017
+ms.date: 12/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 5c58b5156f62572687755c9c0878db10c3c14eb1
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core"></a>Introduzione all'uso di pagine Razor in ASP.NET Core
+# <a name="get-started-with-razor-pages-in-aspnet-core"></a>Introduzione all'uso di pagine Razor in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione illustra le nozioni di base della creazione di un'app Web pagine Razor di ASP.NET Core. Si consiglia di leggere [Introduzione all'uso di pagine Razor](xref:mvc/razor-pages/index) prima di iniziare questa esercitazione. Pagine Razor è il modo consigliato per creare l'interfaccia utente per applicazioni Web in ASP.NET Core.
+Questa esercitazione illustra le nozioni di base della creazione di un'app Web pagine Razor di ASP.NET Core. Le pagine Razor sono il modo consigliato per creare l'interfaccia utente per app Web in ASP.NET Core.
 
 Sono disponibili tre versioni di questa esercitazione:
 
 * Windows: questa esercitazione
 * macOS: [Introduzione all'uso di pagine Razor con Visual Studio per Mac](xref:tutorials/razor-pages-mac/razor-pages-start)
 * macOS, Linux e Windows: [Introduzione all'uso di pagine Razor in ASP.NET Core con Visual Studio Code](xref:tutorials/razor-pages-vsc/razor-pages-start)
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +40,11 @@ Sono disponibili tre versioni di questa esercitazione:
 * Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione di copia/incolla del codice.
   ![nuova applicazione Web ASP.NET Core](../../mvc/razor-pages/index/_static/np.png)
 * Selezionare **ASP.NET Core 2.0** nell'elenco a discesa, quindi selezionare **applicazione Web**.
-  ![Applicazione Web (pagine Razor)](../../mvc/razor-pages/index/_static/np2.png)
+
+> [!NOTE]
+> Se si vuole usare ASP.NET Core in .NET Framework, è necessario innanzitutto selezionare **.NET Framework** nell'elenco a discesa all'estrema sinistra nella finestra di dialogo, quindi è possibile selezionare la versione di ASP.NET Core desiderata.
+
+  ![Applicazione Web (pagine Razor)](razor-pages-start/_static/np2.png)
 
 Il modello di Visual Studio crea un progetto di avvio:
 

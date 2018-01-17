@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e42e7e469e411d2d4bc1bd1b3a3995a77c355ebd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Pagine Razor create in ASP.NET Core tramite scaffolding
 
@@ -28,7 +28,7 @@ In questa esercitazione vengono esaminate le pagine Razor create tramite scaffol
 
 Esaminare il file code-behind *Pages/Movies/Index.cshtml.cs*: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe derivata `PageModel` viene denominata `<PageName>Model`. Il costruttore usa l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per aggiungere `MovieContext` alla pagina. Tutte le pagine create tramite scaffolding seguono questo schema.
+Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe derivata `PageModel` viene denominata `<PageName>Model`. Il costruttore usa l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per aggiungere `MovieContext` alla pagina. Tutte le pagine create tramite scaffolding seguono questo schema. Vedere [Codice asincrono](xref:data/ef-rp/intro#asynchronous-code) per altre informazioni sulla programmazione asincrona con Entity Framework.
 
 Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restituisce un elenco di filmati alla pagina Razor. Nella pagina Razor viene chiamato `OnGetAsync`o `OnGet` per inizializzare lo stato della pagina. In questo caso, `OnGetAsync` ottiene un elenco di filmati da visualizzare.
 

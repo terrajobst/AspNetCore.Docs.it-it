@@ -5,23 +5,20 @@ description: Aggiungere un modello a una semplice app ASP.NET Core.
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.date: 12/8/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 03c16e523fe2f91cae5c71357835684d813e3a1f
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Nota: i modelli ASP.NET Core 2.0 contengono la cartella *Models*.
-
-In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **MvcMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Assegnare il nome **Movie** alla classe e aggiungere le proprietà seguenti:
 
@@ -37,15 +34,10 @@ In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartel
 
 ![vista del passaggio precedente](adding-model/_static/add_controller.png)
 
-Nella finestra di dialogo **Aggiungi dipendenze MVC** selezionare **Dipendenze minime**, quindi **Aggiungi**.
+Se viene visualizzata la finestra di dialogo **Aggiungi dipendenze MVC**:
 
-![vista del passaggio precedente](adding-model/_static/add_depend.png)
-
-Visual Studio aggiunge le dipendenze necessarie per eseguire lo scaffolding di un controller, ma il controller stesso non viene creato. La successiva chiamata di **> Aggiungi > Controller** crea il controller. 
-
-In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Controllers*> **Aggiungi > Controller**.
-
-![vista del passaggio precedente](adding-model/_static/add_controller.png)
+* [Aggiornare Visual Studio alla versione più recente](https://www.visualstudio.com/downloads/). Questa finestra di dialogo viene visualizzata nelle versioni di Visual Studio precedenti alla 15.5.
+* Se non è possibile eseguire l'aggiornamento, selezionare **Aggiungi** ed eseguire di nuovo i passaggi per l'aggiunta del controller.
 
 Nella finestra di dialogo **Aggiungi scaffolding** toccare **Controller MVC con visualizzazioni, che usa Entity Framework**.
 
@@ -72,7 +64,7 @@ Visual Studio crea:
 
 La creazione automatica del contesto di database e di viste e metodi di azione [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di film.
 
-Se si esegue l'app e si fa clic sul collegamento **Mvc Movie**, verrà visualizzato un errore simile al seguente:
+Se si esegue l'app e si fa clic sul collegamento **Mvc Movie**, viene visualizzato un errore simile al seguente:
 
 ```
 An unhandled exception occurred while processing the request.
