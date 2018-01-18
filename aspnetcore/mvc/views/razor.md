@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintassi Razor di ASP.NET Core
 
@@ -76,7 +76,7 @@ Il codice precedente genera un errore del compilatore simile a uno dei valori se
  * L'elemento "int" non è stata chiusa.  Tutti gli elementi devono essere una chiusura automatica o ha un corrispondente tag di fine.
  *  Impossibile convertire il gruppo di metodi 'Recuperata un'' per 'object' di tipo non delegato. Si intendeva richiamare il metodo?' 
  
-Chiamate di metodo generico devono essere incluso in un [espressione Razor esplicita](#explicit-razor-expressions) o [blocco di codice Razor](#razor-code-blocks). Questa restrizione non si applica a *. vbhtml* Razor file perché la sintassi di Visual Basic inserisce parentesi che racchiudono i parametri di tipo generico anziché le parentesi quadre.
+Chiamate di metodo generico devono essere incluso in un [espressione Razor esplicita](#explicit-razor-expressions) o [blocco di codice Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Espressioni Razor esplicite
 
@@ -127,8 +127,6 @@ Il codice precedente genera un errore del compilatore simile a uno dei valori se
 ```cshtml
 <p>@(GenericMethod<int>())</p>
 ```
-
-Nota: questa restrizione non si applica a *. vbhtml* file Razor.  Con *. vbhtml* file Razor, sintassi di Visual Basic inserisce parentesi che racchiudono i parametri di tipo generico anziché le parentesi quadre.
 
 ## <a name="expression-encoding"></a>Codifica di espressione
 
@@ -569,7 +567,7 @@ Parole chiave Razor sono precedute da `@(Razor Keyword)` (ad esempio, `@(functio
 
 ### <a name="c-razor-keywords"></a>Parole chiave c# Razor
 
-* case
+* maiuscole e minuscole
 * do
 * default
 * for
