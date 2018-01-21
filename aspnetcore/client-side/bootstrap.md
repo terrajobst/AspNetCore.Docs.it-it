@@ -2,20 +2,18 @@
 title: Creazione di efficaci e reattive siti con Bootstrap
 author: ardalis
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: f89ad584600c3f12a936599de27f931aff0cd4b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creazione di efficaci e reattive siti con Bootstrap
 
@@ -73,7 +71,7 @@ Il modello di Bootstrap di base è molto simile a quello di *layout. cshtml* fil
 
 ### <a name="basic-navigation"></a>Navigazione di base
 
-Il modello predefinito utilizza un set di `<div>` elementi per il rendering di una barra di spostamento superiore e il corpo principale della pagina. Se si utilizza HTML5, è possibile sostituire il primo `<div>` tag con un `<nav>` tag per ottenere lo stesso effetto, ma con una semantica più precisa.  All'interno di questo primo `<div>` è possibile visualizzare esistono molti altri. Innanzitutto, un `<div>` con una classe "container", quindi all'interno di tale tipo, più due `<div>` elementi: "navbar-header" e "barra di spostamento e compressione".  Tag div barra di spostamento intestazione include un pulsante che verrà visualizzato quando la schermata è di sotto di una determinata larghezza minima, mostrare 3 linee orizzontali (una cosiddetta "icona pulsante"). L'icona viene eseguito il rendering con pure HTML e CSS. Nessuna immagine è obbligatorio. Questo è il codice che viene visualizzata l'icona, con ogni il <span> tag per il rendering di una delle barre bianche:
+Il modello predefinito utilizza un set di `<div>` elementi per il rendering di una barra di spostamento superiore e il corpo principale della pagina. Se si utilizza HTML5, è possibile sostituire il primo `<div>` tag con un `<nav>` tag per ottenere lo stesso effetto, ma con una semantica più precisa. All'interno di questo primo `<div>` è possibile visualizzare esistono molti altri. Innanzitutto, un `<div>` con una classe "container", quindi all'interno di tale tipo, più due `<div>` elementi: "navbar-header" e "barra di spostamento e compressione". Tag div barra di spostamento intestazione include un pulsante che verrà visualizzato quando la schermata è di sotto di una determinata larghezza minima, mostrare 3 linee orizzontali (una cosiddetta "icona pulsante"). L'icona viene eseguito il rendering con pure HTML e CSS. Nessuna immagine è obbligatorio. Questo è il codice che viene visualizzata l'icona, con ogni il <span> tag per il rendering di una delle barre bianche:
 
 ```html
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -83,7 +81,7 @@ Il modello predefinito utilizza un set di `<div>` elementi per il rendering di u
 </button>
 ```
 
-Include inoltre il nome dell'applicazione, che viene visualizzata nella parte superiore sinistra.  Il menu di navigazione principale viene eseguito il rendering per il `<ul>` elemento all'interno del tag div, secondo e i collegamenti per circa, Home e contattare. Collegamenti aggiuntivi per l'account di accesso e di registro vengono aggiunti per la riga loginpartial nella riga 29. Di sotto di spostamento, il corpo principale di ogni pagina viene eseguito il rendering in un altro `<div>`, contrassegnata con le classi "container" e "contenuto del corpo". Nel file layout predefinito semplice illustrato di seguito, il contenuto della pagina di cui esegue il rendering specifica visualizzazione associata con la pagina e quindi una semplice `<footer>` viene aggiunto alla fine del `<div>` elemento.  È possibile visualizzare come predefinito sulla pagina viene visualizzata utilizzando questo modello:
+Include inoltre il nome dell'applicazione, che viene visualizzata nella parte superiore sinistra. Il menu di navigazione principale viene eseguito il rendering per il `<ul>` elemento all'interno del tag div, secondo e i collegamenti per circa, Home e contattare. Collegamenti aggiuntivi per l'account di accesso e di registro vengono aggiunti per la riga loginpartial nella riga 29. Di sotto di spostamento, il corpo principale di ogni pagina viene eseguito il rendering in un altro `<div>`, contrassegnata con le classi "container" e "contenuto del corpo". Nel file layout predefinito semplice illustrato di seguito, il contenuto della pagina di cui esegue il rendering specifica visualizzazione associata con la pagina e quindi una semplice `<footer>` viene aggiunto alla fine del `<div>` elemento. È possibile visualizzare come predefinito sulla pagina viene visualizzata utilizzando questo modello:
 
 ![Informazioni sulla pagina](bootstrap/_static/about-page-wide.png)
 
@@ -117,10 +115,10 @@ Successivamente, aggiungere ulteriori `<div>` elementi per ogni colonna e specif
 
 Prefisso di classe CSS | Livello di dispositivo | Larghezza
 :---: | :---: | :---:
-col-xs: | Telefoni | < 768px
-col-sm - | Tablet | > = 768px
-col-md - | Desktop | > = 992px
-col-lg - | Consente di visualizzare Desktop più grande | > = 1200px
+col-xs- | Telefoni | < 768px
+col-sm - | Tablet | >= 768px
+col-md- | Desktop | >= 992px
+col-lg - | Consente di visualizzare Desktop più grande | >= 1200px
 
 Quando si specificano due colonne entrambi con "6-md-col" layout risultante sarà due colonne con risoluzioni desktop, ma queste due colonne verranno disposti in verticale quando sottoposto a rendering in dispositivi di piccole dimensioni (o una finestra del browser più ristretta su un computer desktop), consentendo agli utenti di visualizzare facilmente contenuto senza dover scorrere orizzontalmente.
 
@@ -136,7 +134,7 @@ In questo esempio, una sola riga `<div>` è stato usato, e ancora Bootstrap ha p
 
 ### <a name="jumbotron"></a>Jumbotron
 
-Se si utilizza i modelli MVC ASP.NET predefiniti in Visual Studio 2012 o 2013, si sarà notato Jumbotron nell'azione. Fa riferimento a una grande quantità di larghezza massima di una pagina che può essere utilizzata per visualizzare un'immagine di sfondo di grandi dimensioni, una chiamata a azione, un ciclo o elementi simili. Per aggiungere un jumbotron a una pagina, aggiungere semplicemente un `<div>` e assegnargli una classe di "jumbotron", quindi posizionare un contenitore `<div>` all'interno e aggiungere il contenuto.  È possibile regolare facilmente lo standard sulla pagina da utilizzare un jumbotron per le intestazioni principale che visualizza:
+Se si utilizza i modelli MVC ASP.NET predefiniti in Visual Studio 2012 o 2013, si sarà notato Jumbotron nell'azione. Fa riferimento a una grande quantità di larghezza massima di una pagina che può essere utilizzata per visualizzare un'immagine di sfondo di grandi dimensioni, una chiamata a azione, un ciclo o elementi simili. Per aggiungere un jumbotron a una pagina, aggiungere semplicemente un `<div>` e assegnargli una classe di "jumbotron", quindi posizionare un contenitore `<div>` all'interno e aggiungere il contenuto. È possibile regolare facilmente lo standard sulla pagina da utilizzare un jumbotron per le intestazioni principale che visualizza:
 
 ![esempio Jumbotron](bootstrap/_static/jumbotron.png)
 
@@ -154,7 +152,7 @@ Badge, consultare le didascalie di piccole dimensioni, in genere numeriche accan
 
 ### <a name="alerts"></a>Avvisi
 
-Potrebbe essere necessario visualizzare un tipo di notifica, avviso o messaggio di errore per gli utenti dell'applicazione. Ovvero in cui le classi di avviso standard sono utili.  Sono disponibili quattro diversi livelli di gravità con combinazioni di colori associato:
+Potrebbe essere necessario visualizzare un tipo di notifica, avviso o messaggio di errore per gli utenti dell'applicazione. Ovvero in cui le classi di avviso standard sono utili. Sono disponibili quattro diversi livelli di gravità con combinazioni di colori associato:
 
 ![avvisi con tema](bootstrap/_static/theme-alerts.png)
 
@@ -164,23 +162,23 @@ Il layout include già una barra di spostamento standard, ma il tema Bootstrap s
 
 ![elenchi di schede con tema](bootstrap/_static/theme-tabstrips.png)
 
-Barre di spostamento vengono compilate in modo analogo, ma sono un po' più complessi.  Iniziano con un `<nav>` o `<div>` con una classe di "barra di spostamento", in cui un elemento div contenitore contiene il resto degli elementi. La pagina include già una barra di spostamento nella relativa intestazione – quello riportato di seguito si espande semplicemente su questo, aggiunta del supporto per un menu a discesa:
+Barre di spostamento vengono compilate in modo analogo, ma sono un po' più complessi. Iniziano con un `<nav>` o `<div>` con una classe di "barra di spostamento", in cui un elemento div contenitore contiene il resto degli elementi. La pagina include già una barra di spostamento nella relativa intestazione – quello riportato di seguito si espande semplicemente su questo, aggiunta del supporto per un menu a discesa:
 
 ![barre di spostamento con tema](bootstrap/_static/theme-navbars.png)
 
 ### <a name="additional-elements"></a>Elementi aggiuntivi
 
-Il tema predefinito può anche essere utilizzato per presentare tabelle HTML in uno stile formattato in modo appropriato, incluso il supporto per le viste con striping. Sono presenti etichette con stili che sono simili a quelle dei pulsanti. È possibile creare menu a discesa personalizzati che supportano le opzioni di stile aggiuntive oltre il codice HTML standard `<select>` elemento nonché attraenti simile a quello di sito di avvio predefinito è già in uso. Se è necessario un indicatore di stato, sono disponibili diversi stili da scegliere, nonché elencare i gruppi e pannelli che includono un titolo e il contenuto.  Esplorare le opzioni aggiuntive di seguito il tema Bootstrap standard:
+Il tema predefinito può anche essere utilizzato per presentare tabelle HTML in uno stile formattato in modo appropriato, incluso il supporto per le viste con striping. Sono presenti etichette con stili che sono simili a quelle dei pulsanti. È possibile creare menu a discesa personalizzati che supportano le opzioni di stile aggiuntive oltre il codice HTML standard `<select>` elemento nonché attraenti simile a quello di sito di avvio predefinito è già in uso. Se è necessario un indicatore di stato, sono disponibili diversi stili da scegliere, nonché elencare i gruppi e pannelli che includono un titolo e il contenuto. Esplorare le opzioni aggiuntive di seguito il tema Bootstrap standard:
 
-[http://getbootstrap.com/Examples/Theme/](http://getbootstrap.com/examples/theme/)
+[http://getbootstrap.com/examples/theme/](http://getbootstrap.com/examples/theme/)
 
 ## <a name="more-themes"></a>Più temi
 
-È possibile estendere il tema di Bootstrap standard eseguendo l'override di alcuni o tutti i relativi CSS, modificare i colori e stili in base alle esigenze dell'applicazione. Se si desidera iniziare da un tema predefinito, sono disponibili diverse raccolte di tema disponibile online che specializzare Bootstrap dei temi, ad esempio WrapBootstrap.com (che include una varietà di temi commerciali) e Bootswatch.com (che offre i temi disponibili).  Alcuni dei modelli di pagamento disponibili forniscono numerose funzionalità disponibile per il tema di Bootstrap base, ad esempio un supporto avanzato per amministrativi menu e i dashboard con i misuratori e grafici avanzati. Un esempio di un modello di pagamento comune è Inspinia, attualmente in vendita per $18, che include un modello di ASP.NET MVC5 oltre AngularJS e alle versioni HTML statiche. Di seguito è riportata una schermata di esempio.
+È possibile estendere il tema di Bootstrap standard eseguendo l'override di alcuni o tutti i relativi CSS, modificare i colori e stili in base alle esigenze dell'applicazione. Se si desidera iniziare da un tema predefinito, sono disponibili diverse raccolte di tema disponibile online che specializzare Bootstrap dei temi, ad esempio WrapBootstrap.com (che include una varietà di temi commerciali) e Bootswatch.com (che offre i temi disponibili). Alcuni dei modelli di pagamento disponibili forniscono numerose funzionalità disponibile per il tema di Bootstrap base, ad esempio un supporto avanzato per amministrativi menu e i dashboard con i misuratori e grafici avanzati. Un esempio di un modello di pagamento comune è Inspinia, attualmente in vendita per $18, che include un modello di ASP.NET MVC5 oltre AngularJS e alle versioni HTML statiche. Di seguito è riportata una schermata di esempio.
 
 ![Esempio tema inspinia](bootstrap/_static/theme-inspinia.png)
 
-Se si desidera modificare il tema Bootstrap, inserire il *bootstrap.css* file per il tema desiderato di **wwwroot/css** cartella e modificare i riferimenti in *layout. cshtml* per puntare.  Modificare i collegamenti per tutti gli ambienti:
+Se si desidera modificare il tema Bootstrap, inserire il *bootstrap.css* file per il tema desiderato di **wwwroot/css** cartella e modificare i riferimenti in *layout. cshtml* per puntare. Modificare i collegamenti per tutti gli ambienti:
 
 ```html
 <environment names="Development">

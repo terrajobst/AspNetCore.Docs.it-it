@@ -2,21 +2,19 @@
 title: Utilizzo di JavaScriptServices per la creazione di applicazioni a pagina singola
 author: scottaddie
 description: Informazioni sui vantaggi dell'utilizzo JavaScriptServices per creare un'applicazione a pagina singola (SPA) supportato da ASP.NET Core.
-keywords: ASP.NET Core angolare, SPA, JavaScriptServices, SpaServices
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 4b30576b-2718-4c39-9253-a59966747893
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Utilizzo di JavaScriptServices per la creazione di applicazioni a pagina singola con ASP.NET Core
 
@@ -239,12 +237,12 @@ Viene visualizzato un elenco dei modelli SPA disponibili:
 
 | Modelli                                 | Nome breve | Linguaggio | Tag        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC ASP.NET Core con Angular             | angular    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core con Aurelia             | aurelia    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core con Knockout.js         | Knockout   | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core con React.js            | react      | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core con React.js e il ritorno  | reactredux | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core con Vue.js              | dotato        | [C#]     | MVC/Web/SPA | 
+| MVC ASP.NET Core con Angular             | angular    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con Knockout.js         | knockout   | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con React.js            | react      | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con React.js e il ritorno  | reactredux | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con Vue.js              | dotato        | [C#]     | Web/MVC/SPA | 
 
 Per creare un nuovo progetto utilizzando uno dei modelli di SPA, inclusa la **nome breve** del modello nel `dotnet new` comando. Il comando seguente crea un'applicazione angolare con ASP.NET MVC di base configurato per il lato server:
 

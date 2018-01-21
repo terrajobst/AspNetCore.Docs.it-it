@@ -2,20 +2,18 @@
 title: Panoramica di API di consumer
 author: rick-anderson
 description: Questo documento fornisce una breve panoramica del consumer di varie API disponibili all'interno della libreria di protezione dati di ASP.NET Core.
-keywords: ASP.NET Core, protezione dei dati, le API di consumer
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: f69beb9d-a519-43a8-857c-f6b01886a903
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: c80ed22776b0dbbaccb686f8c2ea534e6f5d9a74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5ec11dce3ba485a84b6ce5f7ddaf16430162659c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="consumer-apis-overview"></a>Panoramica di API di consumer
 
@@ -25,7 +23,7 @@ Il `IDataProtectionProvider` e `IDataProtector` interfacce sono le interfacce di
 
 L'interfaccia del provider rappresenta la radice del sistema di protezione dati. E non può essere utilizzato direttamente per proteggere o rimuovere la protezione dati. Al contrario, il consumer deve ottenere un riferimento a un `IDataProtector` chiamando `IDataProtectionProvider.CreateProtector(purpose)`, in cui scopo è una stringa che descrive il caso di utilizzo previsto di consumer. Vedere [scopo stringhe](purpose-strings.md) per molte più informazioni allo scopo di questo parametro e come scegliere un valore appropriato.
 
-## <a name="idataprotector"></a>Oggetto IDataProtector
+## <a name="idataprotector"></a>IDataProtector
 
 L'interfaccia di protezione viene restituito da una chiamata a `CreateProtector`, ed è questa interfaccia che i consumer possono utilizzare per eseguire proteggere e annullare la protezione di operazioni.
 

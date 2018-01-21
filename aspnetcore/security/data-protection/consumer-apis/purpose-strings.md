@@ -2,20 +2,18 @@
 title: Scopo stringhe
 author: rick-anderson
 description: Questo documento illustra in dettaglio come stringhe scopo vengono utilizzate nelle API di protezione dati ASP.NET Core.
-keywords: ASP.NET Core, protezione dei dati, allo scopo di stringhe
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: c96ed361-c382-4980-8933-800e740cfc38
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: 0d759937703d2a25604042b5e74e71155d635c1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="purpose-strings"></a>Scopo stringhe
 

@@ -2,7 +2,6 @@
 title: "Estendibilità della crittografia core"
 author: rick-anderson
 description: Spiega IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer e la factory di primo livello.
-keywords: ASP.NET Core, IAuthenticatedEncryptorDescriptorDeserializer IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor,
 ms.author: riande
 manager: wpickett
 ms.date: 8/11/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 69839562c39ab83531085e20dac1bd56e8d13d3f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Estendibilità della crittografia core
 
@@ -78,7 +77,7 @@ Il **IAuthenticatedEncryptorDescriptor** interfaccia rappresenta un tipo in grad
 
 * CreateEncryptorInstance(): IAuthenticatedEncryptor
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 Ad esempio IAuthenticatedEncryptor, un'istanza di IAuthenticatedEncryptorDescriptor equivale a eseguire il wrapping di una chiave specifica. Ciò significa che per un'istanza di IAuthenticatedEncryptorDescriptor specificata, qualsiasi rifiutati autenticati creati dal metodo CreateEncryptorInstance devono essere considerati equivalenti, come l'esempio di codice riportato di seguito.
 
@@ -110,7 +109,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 Il **IAuthenticatedEncryptorDescriptor** interfaccia rappresenta un tipo in grado di esportare se stessa in formato XML. L'API è come indicato di seguito.
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -145,7 +144,7 @@ I tipi che implementano IAuthenticatedEncryptorDescriptorDeserializer devono ave
 
 * .ctor(IServiceProvider)
 
-* . ctor)
+* .ctor()
 
 > [!NOTE]
 > L'IServiceProvider passato al costruttore può essere null.

@@ -2,20 +2,18 @@
 title: Core di ASP.NET MVC con Entity Framework Core, 8 - concorrenza - 10
 author: tdykstra
 description: "In questa esercitazione viene illustrato come gestire i conflitti quando più utenti aggiornano la stessa entità nello stesso momento."
-keywords: Concorrenza di ASP.NET Core, Entity Framework Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: ffe8ef968d7bde9755d5c55389f6f1548f03ffec
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - EF Core con l'esercitazione di base di ASP.NET MVC (8 di 10)
 

@@ -2,20 +2,18 @@
 title: "Razor pagine route e app convenzione le funzionalità ASP.NET Core"
 author: guardrex
 description: Individuare la route e app modello provider convenzione che consentono di routing di controllo pagina, l'individuazione e l'elaborazione.
-keywords: Componenti di base di ASP.NET, pagine Razor, convenzioni, AddFolderRouteModelConvention, AddPageRouteModelConvention, AddPageRoute, AddFolderApplicationModelConvention, AddPageApplicationModelConvention, ConfigureFilter, filtri
 ms.author: riande
 manager: wpickett
 ms.date: 10/23/2017
 ms.topic: article
-ms.assetid: 6b60514c-81ad-485b-bb22-9b71416dff08
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 81fe5198e25c4275f5cf0a123536a9130be8c1d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor pagine route e app convenzione le funzionalità ASP.NET Core
 
@@ -207,7 +205,7 @@ I metodi del gestore per i verbi HTTP (i metodi del gestore "senza nome") seguon
 | -------------------------- | ------------------------------ |
 | `OnGet`/`OnGetAsync`       | Inizializzare lo stato della pagina.     |
 | `OnPost`/`OnPostAsync`     | Gestire le richieste POST.          |
-| `OnDelete`/`OnDeleteAsync` | Gestire le richieste DELETE &#8224;. |
+| `OnDelete`/`OnDeleteAsync` | Handle DELETE requests&#8224;. |
 | `OnPut`/`OnPutAsync`       | Gestire le richieste PUT &#8224;.    |
 | `OnPatch`/`OnPatchAsync`   | Gestire le richieste PATCH &#8224;.  |
 
@@ -235,7 +233,7 @@ Si supponga che si vuole modificare il modo in cui sono denominati metodi denomi
 | ------------------------------------ | ------------------------------ |
 | `Get`                                | Inizializzare lo stato della pagina.     |
 | `Post`/`PostAsync`                   | Gestire le richieste POST.          |
-| `Delete`/`DeleteAsync`               | Gestire le richieste DELETE &#8224;. |
+| `Delete`/`DeleteAsync`               | Handle DELETE requests&#8224;. |
 | `Put`/`PutAsync`                     | Gestire le richieste PUT &#8224;.    |
 | `Patch`/`PatchAsync`                 | Gestire le richieste PATCH &#8224;.  |
 | `GetMessage`                         | Ottenere un messaggio.              |
@@ -298,4 +296,4 @@ Richiedere la pagina Page3 dall'applicazione di esempio con in `localhost:5000/O
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Convenzioni di autorizzazione pagine Razor](xref:security/authorization/razor-pages-authorization)
+* [Convenzioni di autorizzazione di Razor Pages](xref:security/authorization/razor-pages-authorization)

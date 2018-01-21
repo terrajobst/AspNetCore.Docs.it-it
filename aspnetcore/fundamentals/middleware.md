@@ -2,20 +2,18 @@
 title: Middleware ASP.NET Core
 author: rick-anderson
 description: Informazioni su ASP.NET Core middleware e la pipeline della richiesta.
-keywords: ASP.NET Core, Middleware, pipeline, delegato
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Nozioni fondamentali di Middleware di ASP.NET Core
 
@@ -153,9 +151,9 @@ La tabella seguente mostra le richieste e risposte da `http://localhost:1234` ut
 | Richiesta | Risposta |
 | --- | --- |
 | localhost:1234 | Hello dal delegato non mappa.  |
-| localhost:1234 / map1 | Eseguire il mapping di Test 1 |
-| localhost:1234 / map2 | Test mappa 2 |
-| localhost:1234 / map3 | Hello dal delegato non mappa.  |
+| localhost:1234/map1 | Eseguire il mapping di Test 1 |
+| localhost:1234/map2 | Test mappa 2 |
+| localhost:1234/map3 | Hello dal delegato non mappa.  |
 
 Quando `Map` è utilizzato, ai segmenti di percorso corrispondenti vengono rimossi dal `HttpRequest.Path` e accodato a `HttpRequest.PathBase` per ogni richiesta.
 

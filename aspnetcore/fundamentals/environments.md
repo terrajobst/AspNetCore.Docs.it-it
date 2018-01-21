@@ -2,7 +2,6 @@
 title: "Utilizzo di più ambienti in ASP.NET Core"
 author: rick-anderson
 description: Scopri come ASP.NET Core fornisce supporto per il controllo del comportamento dell'app in ambienti diversi.
-keywords: ASP.NET di base, le impostazioni di ambiente, ASPNETCORE_ENVIRONMENT
 ms.author: riande
 manager: wpickett
 ms.date: 12/25/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 784d176145c3e4e44ddc0ea06b6702f70cd4b08c
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: 83d1593d46761b1c00aa431cfdcde59cb3b28b65
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-multiple-environments"></a>Utilizzo di più ambienti
 
@@ -157,7 +156,7 @@ export ASPNETCORE_ENVIRONMENT=Development
 ### <a name="linux"></a>Linux
 Per le distribuzioni di Linux, usare il `export` comando dalla riga di comando per sessione in base a impostazioni delle variabili e *bash_profile* file per le impostazioni di ambiente di livello computer.
 
-### <a name="configuration-by-environment"></a>Configurazione di ambiente
+### <a name="configuration-by-environment"></a>Configurazione per ambiente
 
 Vedere [configurazione dall'ambiente](xref:fundamentals/configuration/index#configuration-by-environment) per ulteriori informazioni.
 

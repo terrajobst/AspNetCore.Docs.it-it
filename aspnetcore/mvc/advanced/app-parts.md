@@ -2,20 +2,18 @@
 title: Parti dell'applicazione in ASP.NET Core
 author: ardalis
 description: "Informazioni sull'utilizzo di parti dell'applicazione, che sono abstrations sulle risorse di un'app, configurare l'app per individuare o evitare di caricare le funzionalità da un assembly."
-keywords: ASP.NET Core, parte dell'applicazione, da parte di app
 ms.author: riande
 manager: wpickett
 ms.date: 01/04/2017
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 

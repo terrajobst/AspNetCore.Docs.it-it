@@ -2,7 +2,6 @@
 title: Hosting in ASP.NET Core
 author: guardrex
 description: "Informazioni sull'host web in ASP.NET Core, che è responsabile per la gestione di app di avvio e durata."
-keywords: Web di ASP.NET Core, host, IWebHost, WebHostBuilder, IHostingEnvironment, IApplicationLifetime
 ms.author: riande
 manager: wpickett
 ms.date: 09/21/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7f6712073002b73ca4ddd7586718c81e62cacbc2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting in ASP.NET Core
 
@@ -35,8 +34,8 @@ Creare un host utilizzando un'istanza di [WebHostBuilder](/dotnet/api/microsoft.
 * Configura [Kestrel](servers/kestrel.md) come server web. Per le opzioni predefinite Kestrel, vedere [il Kestrel Opzioni sezione di implementazione del server web Kestrel in ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Imposta la radice del contenuto per il percorso restituito da [GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Configurazione facoltativa di carichi da:
-  * *appSettings. JSON*.
-  * *appSettings. {Ambiente} JSON*.
+  * *appsettings.json*.
+  * *appsettings.{Environment}.json*.
   * [Informazioni riservate dell'utente](xref:security/app-secrets) quando viene eseguita l'app `Development` ambiente.
   * Variabili di ambiente.
   * Argomenti della riga di comando.
@@ -424,7 +423,7 @@ Utilizzare [configurazione](xref:fundamentals/configuration/index) per configura
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {
@@ -465,7 +464,7 @@ public class Program
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {

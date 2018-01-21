@@ -2,20 +2,18 @@
 title: Intestazioni di contesto
 author: rick-anderson
 description: Questo documento descrive i dettagli di implementazione delle intestazioni di contesto protezione dati ASP.NET Core.
-keywords: ASP.NET Core, protezione dei dati, le intestazioni di contesto
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: eb8e4c9ad67d3046648aea1b45f4a675b41b3ec0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5ed2e48a55e23d73bccd01a731b35ea68f8944e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="context-headers"></a>Intestazioni di contesto
 
@@ -72,11 +70,11 @@ B7 92 3D BF 59 90 00 A9
 
 Successivamente, calcolare Enc_CBC (K_E, IV, "") per AES-192-CBC dato IV = 0 * e K_E come illustrato in precedenza.
 
-risultato: = F474B1872B3B53E4721DE19C0841DB6F
+result := F474B1872B3B53E4721DE19C0841DB6F
 
 Successivamente, calcolo MAC (K_H, "") per HMACSHA256 dato K_H come illustrato in precedenza.
 
-risultato: = D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C
+result := D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C
 
 Viene prodotto l'intestazione del contesto completo riportato di seguito:
 
@@ -119,11 +117,11 @@ D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
 
 Successivamente, calcolare Enc_CBC (K_E, IV, "") per 3DES-192-CBC dato IV = 0 * e K_E come illustrato in precedenza.
 
-risultato: = ABB100F81E53E10E
+result := ABB100F81E53E10E
 
 Successivamente, calcolo MAC (K_H, "") per HMACSHA1 dato K_H come illustrato in precedenza.
 
-risultato: = 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
+result := 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
 
 Viene prodotto l'intestazione del contesto completo che è un'identificazione personale dell'autenticato algoritmo coppia di crittografia (crittografia 3DES-192-CBC + convalida HMACSHA1), illustrato di seguito:
 
@@ -173,11 +171,11 @@ K_E = SP800_108_CTR (prf = HMACSHA512, key = "", label = "", contesto = "")
 
 In primo luogo, let K_E = SP800_108_CTR (prf = HMACSHA512, chiave = "", label = "", contesto = ""), dove | K_E | = 256 bit.
 
-K_E: = 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8
+K_E := 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8
 
 Successivamente, calcolare il tag di autenticazione di Enc_GCM (K_E, nonce, "") per AES-256-GCM specificato parametro nonce = 096 e K_E come illustrato in precedenza.
 
-risultato: = E7DCCE66DF855A323A6BB7BD7A59BE45
+result := E7DCCE66DF855A323A6BB7BD7A59BE45
 
 Viene prodotto l'intestazione del contesto completo riportato di seguito:
 

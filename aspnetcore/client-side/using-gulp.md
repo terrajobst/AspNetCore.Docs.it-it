@@ -2,7 +2,6 @@
 title: Uso di Gulp in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come utilizzare Gulp in ASP.NET Core.
-keywords: ASP.NET Core, Gulp
 ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
@@ -11,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f7254a2f3d3d132f2f6af6d5ddab23f896cf63
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
 
@@ -65,7 +64,7 @@ Il codice sopra riportato specifica i moduli di nodo sono necessari. Il `require
 |gulp|Il sistema di compilazione flusso Gulp. Per ulteriori informazioni, vedere [gulp](https://www.npmjs.com/package/gulp).|
 |rimraf|Un modulo di eliminazione del nodo. Per ulteriori informazioni, vedere [rimraf](https://www.npmjs.com/package/rimraf).|
 |gulp concat|Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per ulteriori informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp cssmin|Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
+|gulp-cssmin|Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
 |uglify gulp|Un modulo che minimizza *. js* file. Per ulteriori informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify).|
 
 Dopo aver importati i moduli necessari, è possibile specificare le attività. Di seguito sono riportate le sei attività registrato, rappresentato dal codice seguente:
@@ -103,10 +102,10 @@ Nella tabella seguente viene fornita una spiegazione delle attività specificato
 |Nome attività|Descrizione|
 |--- |--- |
 |Pulisci: js|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.js minimizzata.|
-|Pulisci: css|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.css minimizzata.|
+|clean:css|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.css minimizzata.|
 |Pulire|Un'attività che chiama il `clean:js` attività, aggiungendo il `clean:css` attività.|
 |min:js|Attività che minimizza e concatena tutti i file con estensione js all'interno della cartella js. I. min.js i file vengono esclusi.|
-|min:CSS|Attività che minimizza e concatena tutti i file con estensione CSS all'interno della cartella di css. I. min.css i file vengono esclusi.|
+|min:css|Attività che minimizza e concatena tutti i file con estensione CSS all'interno della cartella di css. I. min.css i file vengono esclusi.|
 |min|Un'attività che chiama il `min:js` attività, aggiungendo il `min:css` attività.|
 
 ## <a name="running-default-tasks"></a>Esecuzione di attività predefinito
@@ -249,7 +248,7 @@ Quando si eseguono più attività, le attività eseguite contemporaneamente per 
     gulp.task("series", ["series:first", "series:second"], function () {});
     ```
  
-    Ora è tre attività: `series:first`, `series:second`, e `series`. Il `series:second` attività include un secondo parametro che specifica una matrice di attività deve essere eseguita e completata prima di `series:second` attività verrà eseguita.  Come specificato nel codice precedente, solo il `series:first` attività deve essere completata prima di `series:second` attività verrà eseguita.
+    Ora è tre attività: `series:first`, `series:second`, e `series`. Il `series:second` attività include un secondo parametro che specifica una matrice di attività deve essere eseguita e completata prima di `series:second` attività verrà eseguita. Come specificato nel codice precedente, solo il `series:first` attività deve essere completata prima di `series:second` attività verrà eseguita.
 
 2.  Salvare *gulpfile.js*.
 
@@ -328,14 +327,14 @@ Per ulteriori informazioni relative agli ambienti di ASP.NET Core, vedere [utili
 
 ## <a name="task-and-module-details"></a>Dettagli attività e il modulo
 
-Un'attività Gulp è registrata con un nome di funzione.  Se è necessario eseguire altre attività prima dell'attività corrente, è possibile specificare le dipendenze. Funzioni aggiuntive consentono di eseguire e controllare le attività Gulp, nonché di impostare l'origine (*src*) e di destinazione (*dest*) dei file da modificare. Le funzioni API Gulp principali sono i seguenti:
+Un'attività Gulp è registrata con un nome di funzione. Se è necessario eseguire altre attività prima dell'attività corrente, è possibile specificare le dipendenze. Funzioni aggiuntive consentono di eseguire e controllare le attività Gulp, nonché di impostare l'origine (*src*) e di destinazione (*dest*) dei file da modificare. Le funzioni API Gulp principali sono i seguenti:
 
 |Gulp (funzione)|Sintassi|Descrizione|
 |---   |--- |--- |
 |attività  |`gulp.task(name[, deps], fn) { }`|Il `task` funzione crea un'attività. Il `name` parametro definisce il nome dell'attività. Il `deps` parametro contiene una matrice di attività da completare prima dell'esecuzione di questa attività. Il `fn` parametro rappresenta una funzione di callback che esegue le operazioni dell'attività.|
 |Espressioni di controllo |`gulp.watch(glob [, opts], tasks) { }`|Il `watch` funzione consente di monitorare le attività di file e viene eseguito quando si verifica una modifica di file. Il `glob` parametro è un `string` o `array` che determina quali sono i file da controllare. Il `opts` parametro fornisce controllo Opzioni aggiuntive del file.|
 |src   |`gulp.src(globs[, options]) { }`|Il `src` funzione fornisce i file che corrispondono ai valori glob. Il `glob` parametro è un `string` o `array` che determina quali sono i file da leggere. Il `options` parametro fornisce opzioni aggiuntive del file.|
-|distruttore  |`gulp.dest(path[, options]) { }`|Il `dest` funzione definisce una posizione in cui è possano scrivere file. Il `path` parametro è una stringa o una funzione che determina la cartella di destinazione. Il `options` parametro è un oggetto che specifica le opzioni di cartella di output.|
+|dest  |`gulp.dest(path[, options]) { }`|Il `dest` funzione definisce una posizione in cui è possano scrivere file. Il `path` parametro è una stringa o una funzione che determina la cartella di destinazione. Il `options` parametro è un oggetto che specifica le opzioni di cartella di output.|
 
 Per ulteriori informazioni di riferimento Gulp API, vedere [Gulp documenti API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
 

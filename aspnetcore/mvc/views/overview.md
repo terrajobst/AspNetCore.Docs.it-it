@@ -2,7 +2,6 @@
 title: Visualizzazioni in ASP.NET MVC di base
 author: ardalis
 description: Informazioni su come viste di gestiscono la presentazione dei dati dell'app e l'interazione dell'utente in ASP.NET MVC di base.
-keywords: ASP.NET Core, visualizzare, MVC, razor, viewmodel, viewdata, viewbag
 ms.author: riande
 manager: wpickett
 ms.date: 12/12/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: c0a1f475941f3389e9aa1f5bb7819bef491b2cae
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET MVC di base
 
@@ -59,7 +58,7 @@ Il contenuto della visualizzazione illustrato in precedenza è solo una parte de
 
 Le visualizzazioni vengono in genere restituite dalle azioni come un [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), che è un tipo di [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult). Metodo di azione, è possibile creare e restituire un `ViewResult` direttamente, ma che non è in genere eseguito. Poiché la maggior parte dei controller eredita [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), è sufficiente utilizzare il `View` metodo helper per restituire il `ViewResult`:
 
-*HomeController. cs*
+*HomeController.cs*
 
 [!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
@@ -93,8 +92,8 @@ Il comportamento predefinito del `View` metodo (`return View();`) deve restituir
 
 Non è importante se si restituisce in modo implicito il `ViewResult` con `return View();` o passare in modo esplicito il nome della visualizzazione per il `View` metodo con `return View("<ViewName>");`. In entrambi i casi, visualizzare l'individuazione Cerca un file di visualizzazione corrispondente nell'ordine indicato:
 
-   1. *Viste /\[ControllerName]\[ViewName]. cshtml*
-   1. *Viste/Shared/\[ViewName]. cshtml*
+   1. *Views/\[ControllerName]\[ViewName].cshtml*
+   1. *Views/Shared/\[ViewName].cshtml*
 
 Invece di un nome di visualizzazione, è possibile specificare un percorso di file di visualizzazione. Se si utilizza un percorso assoluto a partire dalla radice dell'applicazione (facoltativamente inizia con "/" o "~ /"), il *. cshtml* estensione deve essere specificata:
 

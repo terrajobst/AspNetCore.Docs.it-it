@@ -2,20 +2,18 @@
 title: Minore, Sass e tipo di carattere straordinario in ASP.NET Core
 author: ardalis
 description: Informazioni su come utilizzare minore, Sass e tipo di carattere straordinario nelle applicazioni ASP.NET Core.
-keywords: ASP.NET Core, meno Sass, tipo di carattere straordinario, i preprocessori
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 159377300d33e98393fd6705d0fec578f8f6b735
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introduzione alle applicazioni stile con meno, Sass e carattere straordinario in ASP.NET Core
 
@@ -545,7 +543,7 @@ Ciò produce il seguente nel browser - si noti l'icona accanto a ogni elemento:
 
 È possibile visualizzare un elenco completo delle icone disponibili:
 
-http://fontawesome.IO/Icons/
+http://fontawesome.io/icons/
 
 ## <a name="summary"></a>Riepilogo
 

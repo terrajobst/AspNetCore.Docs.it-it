@@ -2,7 +2,6 @@
 title: Configurare la localizzazione oggetto portabile
 author: sebastienros
 description: In questo articolo vengono introdotti i file oggetto portabile e vengono delineati i passaggi per il loro utilizzo in un'applicazione ASP.NET di base con il framework di base Orchard.
-keywords: ASP.NET Core, localizzazione, impostazioni cultura, lingua, oggetto portabile
 ms.author: scaddie
 manager: wpickett
 ms.date: 09/26/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 4fa73ae08b10217de657681a27f6097fc3443737
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dfdd86b4706a1fb8e313c24ba830ec996fe09225
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Configurare la localizzazione oggetto portabile con Orchard Core
 
@@ -37,7 +36,7 @@ I file di ordine di acquisto vengono distribuiti come file di testo contenente l
 
 Ecco un file di ordine di acquisto di esempio che contiene la traduzione per le due stringhe in francese, tra cui quella con la forma plurale:
 
-*fr.PO*
+*fr.po*
 
 ```text
 #: Services/EmailService.cs:29

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 350c2e4e92c8a53d22dd2500330281b4003a05e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5283da2786d41c0ae06607185dd416aeb7d2b62a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Creazione di un modello di dati più complesso per un'applicazione ASP.NET MVC (4 di 10)
 ====================
@@ -81,7 +81,7 @@ Eseguire nuovamente la pagina di indice per studenti e notare che volte non veng
 
 Il [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) attributo non impedisce a un utente di immettere lo spazio vuoto per un nome. È possibile utilizzare il [RegularExpression](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) attributo per applicare restrizioni per l'input. Ad esempio il codice seguente richiede il primo carattere da maiuscolo e i caratteri rimanenti alfabetico:
 
-`[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]`
+`[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
 Il [MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) attributo fornisce funzionalità simili a quelle di [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) attributo ma non è disponibile sul lato client convalida.
 
@@ -295,17 +295,17 @@ La proprietà di chiave esterna e le proprietà di navigazione rifletteranno le 
 
 Nella figura seguente viene illustrato l'aspetto queste relazioni in un diagramma di entità. (Questo diagramma è stato generato utilizzando il [Power Tools di Entity Framework](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); la creazione del diagramma non fa parte dell'esercitazione, appena viene utilizzato come un'illustrazione.)
 
-![Studente Course_many a many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
+![Student-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
 
 Ogni linea della relazione dispone di un 1 al fine di uno e un asterisco (\*) in un'altra, per indicare una relazione uno-a-molti.
 
 Se il `Enrollment` tabella non include informazioni di livello, sufficiente contenere le due chiavi esterne `CourseID` e `StudentID`. In tal caso, corrisponde a una tabella di join molti-a-molti *senza payload* (o un *tabella join pure*) nel database, e non è necessario creare una classe di modello per tale affatto. Il `Instructor` e `Course` le entità dispongono di tale tipo di relazione molti-a-molti e come si può notare, non vi è alcuna classe di entità tra di essi:
 
-![Istruttore Course_many a many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+![Instructor-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
 Una tabella di join è necessario nel database, tuttavia, come illustrato nel diagramma di database seguenti:
 
-![Istruttore Course_many a many_relationship_tables](https://asp.net/media/2577802/Windows-Live-Writer_Creating-a.NET-MVC-Application-4-of-10h1_B662_Instructor-Course_many-to-many_relationship_tables_03e042cf-db89-4b4c-985a-e458351ada76.png)
+![Instructor-Course_many-to-many_relationship_tables](https://asp.net/media/2577802/Windows-Live-Writer_Creating-a.NET-MVC-Application-4-of-10h1_B662_Instructor-Course_many-to-many_relationship_tables_03e042cf-db89-4b4c-985a-e458351ada76.png)
 
 Entity Framework crea automaticamente il `CourseInstructor` e si leggere e aggiornare indirettamente mediante la lettura e aggiornamento di `Instructor.Courses` e `Course.Instructors` le proprietà di navigazione.
 

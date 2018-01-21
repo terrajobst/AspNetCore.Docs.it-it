@@ -2,20 +2,18 @@
 title: Supporto di WebSocket in ASP.NET Core
 author: tdykstra
 description: Informazioni su come iniziare a utilizzare WebSocket in ASP.NET Core.
-keywords: ASP.NET Core, WebSocket
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/25/2017
 ms.topic: article
-ms.assetid: 0e0fedcd-a7b4-4479-8ae0-36eab0229d7e
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: 114d52d831668e5facd1142b5f9e5f68e7456f7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46c1f42b925a43df470d7491a1e259ab51ea5f50
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Introduzione ai WebSocket in ASP.NET Core
 
@@ -33,7 +31,7 @@ In questo articolo viene illustrato come iniziare a utilizzare WebSocket in ASP.
   
   * Windows 7 / Windows Server 2008 e versioni successive
   * Linux
-  * MacOS
+  * macOS
 
 * **Eccezione**: se l'app viene eseguita in Windows con IIS o con WebListener, è necessario utilizzare:
 
@@ -56,7 +54,7 @@ Se non si desidera attendere SignalR Core, è possibile usare i WebSocket dirett
 * Supporto per i client che chiamano metodi nel server o viceversa.
 * Supporto per la scala di più server.
 
-## <a name="how-to-use-it"></a>Come utilizzare questo strumento
+## <a name="how-to-use-it"></a>Come usare la funzionalità
 
 * Installare il [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) pacchetto.
 * Configurare il middleware.

@@ -2,20 +2,18 @@
 title: Core di ASP.NET MVC con Entity Framework di base - avanzate - 10 di 10
 author: tdykstra
 description: Questa esercitazione vengono descritti i diversi argomenti utili da tenere presenti quando superano le nozioni di base dello sviluppo di applicazioni web ASP.NET che utilizzano componenti di base di Entity Framework.
-keywords: "ASP.NET Core, Entity Framework Core, sql non elaborati, esaminare sql, modello di repository, l'unità di lavoro modello, il rilevamento delle modifiche automatico, database esistente"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -161,7 +159,7 @@ Entity Framework determina come è stata modificata un'entità (e pertanto gli a
 
 * DbContext.Entry
 
-* ChangeTracker
+* ChangeTracker.Entries
 
 Se si desidera tenere traccia di un numero elevato di entità e viene chiamato uno di questi metodi più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento delle modifiche automatico utilizzando il `ChangeTracker.AutoDetectChangesEnabled` proprietà. Ad esempio:
 

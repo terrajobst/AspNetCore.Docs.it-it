@@ -2,26 +2,24 @@
 title: Core di ASP.NET MVC con Entity Framework Core - esercitazione 1 di 10
 author: tdykstra
 description: 
-keywords: Esercitazione di ASP.NET Core, Entity Framework Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
 Da [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-È disponibile una versione Razor pagine di questa esercitazione [qui](xref:data/ef-rp/intro). La versione di pagine Razor è più semplice da seguire e vengono illustrate le altre funzionalità di Entity Framework. È consigliabile seguire il [versione Razor pagine di questa esercitazione](xref:data/ef-rp/intro).
+È disponibile una versione Razor pagine di questa esercitazione [qui](xref:data/ef-rp/intro). La versione di Razor Pages è più semplice da seguire e copre più funzionalità di Entity Framework. È consigliabile seguire il [versione Razor pagine di questa esercitazione](xref:data/ef-rp/intro).
 
 L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni web ASP.NET MVC 2.0 di base utilizzando componenti di base di Entity Framework (EF) 2.0 e Visual Studio 2017.
 
@@ -44,7 +42,7 @@ Componenti di base di Entity Framework 2.0 è la versione più recente di Entity
 Se si esegue un problema non è possibile risolvere, è possibile trovare la soluzione in genere confrontando il codice per il [progetto completato](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Per un elenco di errori comuni e come risolverli, vedere [la sezione Risoluzione dell'ultima esercitazione nella serie](advanced.md#common-errors). Se non si trova ciò che è necessario non esiste, è possibile pubblicare una domanda StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
-> Si tratta di una serie di 10 esercitazioni, ognuno dei quali si basa su ciò che viene eseguita nelle esercitazioni precedenti.  Si consiglia di salvare una copia del progetto dopo ogni completamento dell'esercitazione.  Se si verificano problemi, si può iniziare dall'esercitazione precedente anziché tornando all'inizio dell'intera serie.
+> Si tratta di una serie di 10 esercitazioni, ognuno dei quali si basa su ciò che viene eseguita nelle esercitazioni precedenti. Si consiglia di salvare una copia del progetto dopo ogni completamento dell'esercitazione. Se si verificano problemi, si può iniziare dall'esercitazione precedente anziché tornando all'inizio dell'intera serie.
 
 ## <a name="the-contoso-university-web-application"></a>L'applicazione web di Contoso University
 
@@ -136,7 +134,7 @@ Il `ID` proprietà diventerà una colonna chiave primaria della tabella di datab
 
 Il `Enrollments` è una proprietà di navigazione. Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso, il `Enrollments` proprietà di un `Student entity` conterrà tutte le `Enrollment` entità correlate che `Student` entità. In altre parole, se una determinata riga studente nel database presenta due correlate (righe che contengono chiave primaria tale student nella rispettiva colonna di chiave esterna StudentID), le righe di registrazione che `Student` dell'entità `Enrollments` conterrà le proprietà di navigazione due `Enrollment` entità.
 
-Se una proprietà di navigazione può contenere più entità (ad esempio relazioni molti-a-molti o uno-a-molti), il tipo deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, ad esempio `ICollection<T>`.  È possibile specificare `ICollection<T>` o un tipo, ad esempio `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, EF crea un `HashSet<T>` insieme per impostazione predefinita.
+Se una proprietà di navigazione può contenere più entità (ad esempio relazioni molti-a-molti o uno-a-molti), il tipo deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo, ad esempio `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, EF crea un `HashSet<T>` insieme per impostazione predefinita.
 
 ### <a name="the-enrollment-entity"></a>L'entità di registrazione
 
@@ -210,7 +208,7 @@ La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB �
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Aggiungere il codice per inizializzare il database con dati di test
 
-Entity Framework creerà un database vuoto per l'utente.  In questa sezione, scrivere un metodo che viene chiamato dopo che il database viene creato per popolarlo con i dati di test.
+Entity Framework creerà un database vuoto per l'utente. In questa sezione, scrivere un metodo che viene chiamato dopo che il database viene creato per popolarlo con i dati di test.
 
 In questo caso verrà utilizzato il `EnsureCreated` metodo per creare automaticamente il database. In un [esercitazione successiva](migrations.md) si noterà come gestire le modifiche al modello utilizzando migrazioni Code First per modificare lo schema del database anziché eliminare e ricreare il database.
 
@@ -218,7 +216,7 @@ Nel *dati* cartella, creare un nuovo file di classe denominato *DbInitializer.cs
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Il codice verifica se sono presenti eventuali studenti nel database, e se non si presuppone che il database è nuovo e deve essere effettuato il seeding con dati di test.  Carica i dati di test in matrici anziché `List<T>` raccolte per ottimizzare le prestazioni.
+Il codice verifica se sono presenti eventuali studenti nel database, e se non si presuppone che il database è nuovo e deve essere effettuato il seeding con dati di test. Carica i dati di test in matrici anziché `List<T>` raccolte per ottimizzare le prestazioni.
 
 In *Program.cs*, modificare il `Main` metodo per eseguire le operazioni seguenti all'avvio dell'applicazione:
 
@@ -244,10 +242,10 @@ La creazione automatica delle viste e i metodi di azione CRUD è noto come lo sc
 
 * Fare doppio clic sul **controller** cartella **Esplora** e selezionare **Aggiungi > Nuovo elemento di scaffolding**.
 
-Se il **aggiungere le dipendenze MVC** viene visualizzata la finestra:
+Se viene visualizzata la finestra di dialogo **Aggiungi dipendenze MVC**:
 
-* [L'aggiornamento alla versione più recente di Visual Studio](https://www.visualstudio.com/downloads/). Versioni di Visual Studio prima 15,5 mostrano questa finestra di dialogo.
-* Se non è possibile aggiornare, selezionare **Aggiungi**e seguire i passaggi di Aggiungi controller.
+* [Aggiornare Visual Studio alla versione più recente](https://www.visualstudio.com/downloads/). Questa finestra di dialogo viene visualizzata nelle versioni di Visual Studio precedenti alla 15.5.
+* Se non è possibile eseguire l'aggiornamento, selezionare **Aggiungi** ed eseguire di nuovo i passaggi per l'aggiunta del controller.
 
 * Nel **aggiungere lo scaffolding** la finestra di dialogo:
 
@@ -353,7 +351,7 @@ Nel codice seguente, il `async` (parola chiave), `Task<T>` valore restituito, `a
 
 Alcuni aspetti da tenere in considerazione quando si scrive codice asincrono che usa Entity Framework:
 
-* Solo le istruzioni che generano query o comandi da inviare al database vengono eseguite in modo asincrono. Ad esempio, che include `ToListAsync`, `SingleOrDefaultAsync`, e `SaveChangesAsync`.  Non include, ad esempio, le istruzioni che modificano solo un `IQueryable`, ad esempio `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Solo le istruzioni che generano query o comandi da inviare al database vengono eseguite in modo asincrono. Ad esempio, che include `ToListAsync`, `SingleOrDefaultAsync`, e `SaveChangesAsync`. Non include, ad esempio, le istruzioni che modificano solo un `IQueryable`, ad esempio `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Un contesto di Entity Framework non è thread-safe: non tenta di eseguire più operazioni in parallelo. Quando si chiama qualsiasi metodo asincrono in Entity Framework, usare sempre il `await` (parola chiave).
 
@@ -366,4 +364,4 @@ Per ulteriori informazioni sulla programmazione asincrona in .NET, vedere [Async
 Ora è stata creata una semplice applicazione che usa il Core di Entity Framework e SQL Server Express LocalDB per archiviare e visualizzare i dati. Nell'esercitazione seguente, si apprenderà come eseguire operazioni di base (creare, leggere, aggiornare ed eliminare) operazioni.
 
 >[!div class="step-by-step"]
-[Successivo](crud.md)  
+[avanti](crud.md)

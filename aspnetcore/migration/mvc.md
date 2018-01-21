@@ -2,20 +2,18 @@
 title: Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 author: ardalis
 description: 
-keywords: ASP.NET Core, MVC, migrazione
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
 ms.topic: article
-ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 7a4357da4cc97d7c60cc7e309add7583ef096597
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 88e5b7575930434e291a7aa4daef429306c653e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 

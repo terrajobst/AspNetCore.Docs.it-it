@@ -2,18 +2,17 @@
 title: Pagine Razor con Entity Framework Core - ordinamento, filtro, Paging - 3 di 8
 author: rick-anderson
 description: "In questa esercitazione si aggiungeranno ordinamento, filtro e paging funzionalità alla pagina utilizzando ASP.NET Core e componenti di base di Entity Framework."
-keywords: ASP.NET Core, Entity Framework Core, ordinamento, filtro, il paging, raggruppamento
 ms.author: riande
 ms.date: 10/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 5e17663b88a622101245228e9372db55e4e874be
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con pagine Razor (3 di 8)
 
@@ -142,7 +141,7 @@ In *Views/Student/Index.cshtml*, aggiungere il codice evidenziato di seguito per
 
 Il codice precedente utilizza il `<form>` [helper di tag](xref:mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST del form. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene utilizzato HTTP GET, i dati del form viene passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di segnalibro l'URL. Il [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consiglia che GET deve essere utilizzato quando l'azione non comporta un aggiornamento.
 
-Testare l'app:
+Eseguire il test dell'app:
 
 * Selezionare il **studenti** scheda e immettere una stringa di ricerca.
 * Selezionare **ricerca**.
@@ -280,7 +279,7 @@ Se si verificano problemi, è possibile risolvere, scaricare il [app completata 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Debug di origine di ASP.NET Core 2. x](https://github.com/aspnet/Docs/issues/4155)
+* [Debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
 
 Nella prossima esercitazione, l'app Usa le migrazioni per aggiornare il modello di dati.
 

@@ -2,20 +2,18 @@
 title: Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache
 author: pkellner
 description: Di seguito viene illustrato l'utilizzo di Helper di Tag della Cache
-keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache
 
@@ -98,7 +96,7 @@ Esempio:
 
 - - -
 
-### <a name="expires-sliding"></a>la variabile scade
+### <a name="expires-sliding"></a>expires-sliding
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
@@ -182,12 +180,12 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-cookie"></a>variano da cookie
+### <a name="vary-by-cookie"></a>vary-by-cookie
 
 | Tipo di attributo    | Valori di esempio                |
 |----------------   |----------------               |
-| Stringa            | ". AspNetCore.Identity.Application"                |
-|                   | ". AspNetCore.Identity.Application,HairColor" |
+| Stringa            | ".AspNetCore.Identity.Application"                |
+|                   | ".AspNetCore.Identity.Application,HairColor" |
 
 Accetta un valore di intestazione singolo o un elenco delimitato da virgole dei valori di intestazione che attivano un aggiornamento della cache quando i valori di intestazione modifica (s). Nell'esempio seguente vengono esaminate il cookie associato all'identità di ASP.NET. Quando un utente è autenticato da impostare il cookie di richiesta che attiva un aggiornamento della cache.
 
@@ -264,7 +262,7 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 
 | Tipo di attributo    | Valori di esempio                |
 |----------------   |----------------               |
-| Enumerazione CacheItemPriority  | "Alto"                   |
+| CacheItemPriority  | "Alto"                   |
 |                    | "Basso" |
 |                    | "NeverRemove" |
 |                    | "Normal" |

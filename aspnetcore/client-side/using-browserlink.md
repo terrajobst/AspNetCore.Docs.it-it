@@ -2,21 +2,19 @@
 title: Collegamento del browser in ASP.NET Core
 author: ncarandini
 description: "Viene spiegato come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser."
-keywords: ASP.NET Core, il collegamento del browser, sincronizzazione CSS
 ms.author: riande
 manager: wpickett
 ms.date: 09/22/2017
 ms.topic: article
-ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5db65c268923e96c45b034639437fc3496ccac1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core 
 
@@ -106,7 +104,7 @@ Passare il mouse sopra il controllo barra degli strumenti di collegamento del Br
 
 Modificare la visualizzazione dell'indice e tutti i browser connessi vengono aggiornati quando si fa clic sul pulsante Aggiorna collegamento Browser:
 
-![browser sincronizzazione di modifiche](using-browserlink/_static/browsers-sync-to-changes.png)
+![browsers-sync-to-changes](using-browserlink/_static/browsers-sync-to-changes.png)
 
 Collegamento del browser funziona anche con i browser che si avvia dall'esterno di Visual Studio e accedere all'URL dell'applicazione.
 
@@ -114,15 +112,15 @@ Collegamento del browser funziona anche con i browser che si avvia dall'esterno 
 
 Aprire il Dashboard di collegamento Browser dal menu per gestire la connessione con i browser aperte a discesa collegamento Browser:
 
-![dashboard di browserslink Apri](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Se non è connesso alcun browser, è possibile avviare una sessione di debug non selezionando il *Visualizza nel Browser* collegamento:
 
-![browserlink-dashboard-no-connessioni](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 In caso contrario, i browser connessi sono mostrati con il percorso della pagina da cui viene visualizzata ogni browser:
 
-![browserlink-dashboard-due connessioni](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Se si desidera, è possibile fare clic sul nome di un browser elencati per aggiornare il browser singolo.
 

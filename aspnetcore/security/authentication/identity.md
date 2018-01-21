@@ -2,20 +2,18 @@
 title: "Introduzione all'identità su ASP.NET Core"
 author: rick-anderson
 description: "Usa l'identità con un'applicazione ASP.NET di base"
-keywords: "Se l'autorizzazione ASP.NET Core, identità, sicurezza"
 ms.author: riande
 manager: wpickett
 ms.date: 01/02/2018
 ms.topic: article
-ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità su ASP.NET Core
 
@@ -146,7 +144,7 @@ In questo argomento, verranno imparare a usare ASP.NET Identity Core per aggiung
  
 7.  Visualizzare il database.
 
-    Se l'app Usa un database di SQL Server (impostazione predefinita in Windows e per gli utenti di Visual Studio), è possibile visualizzare il database dell'applicazione creata. È possibile utilizzare **SQL Server Management Studio**. In alternativa, da Visual Studio, selezionare **vista** > **Esplora oggetti di SQL Server**. Connettersi a **(localdb) \MSSQLLocalDB**. Il database con un nome corrispondente  **aspnet - <*nome del progetto*>-<*stringa data*> * * viene visualizzato.
+    Se l'app Usa un database di SQL Server (impostazione predefinita in Windows e per gli utenti di Visual Studio), è possibile visualizzare il database dell'applicazione creata. È possibile utilizzare **SQL Server Management Studio**. In alternativa, da Visual Studio, selezionare **vista** > **Esplora oggetti di SQL Server**. Connettersi a **(localdb) \MSSQLLocalDB**. Il database con un nome corrispondente **aspnet - <*nome del progetto*>-<*stringa data* >**  viene visualizzato.
 
     ![Menu di scelta rapida nella tabella di database AspNetUsers](identity/_static/04-db.png)
     

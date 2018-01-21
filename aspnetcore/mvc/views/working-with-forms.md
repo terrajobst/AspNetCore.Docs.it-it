@@ -2,21 +2,19 @@
 title: Helper di tag nei form in ASP.NET Core
 author: rick-anderson
 description: Descrive gli helper di Tag utilizzati con i moduli predefiniti.
-keywords: Helper di tag ASP.NET Core, l'Helper di Tag, Form HTML nel form
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introduzione all'utilizzo di helper di tag nei form in ASP.NET Core
 
@@ -128,7 +126,7 @@ La tabella seguente illustra alcuni comuni [le annotazioni dei dati](https://doc
 |[Url]|tipo = "url"|
 |[HiddenInput]|tipo = "hidden"|
 |[Phone]|tipo = "tel"|
-|[DataType(DataType.Password)]| tipo = "password"|
+|[DataType(DataType.Password)]| type=”password”|
 |[DataType(DataType.Date)]| tipo = "Data"|
 |[DataType(DataType.Time)]| tipo = "ora"|
 
@@ -366,7 +364,7 @@ Il `Validation Summary Tag Helper` viene utilizzato per visualizzare un riepilog
 |--- |--- |
 |ValidationSummary.All|Livello di proprietà e il modello|
 |ValidationSummary.ModelOnly|Modello|
-|ValidationSummary.None|Nessuno|
+|ValidationSummary.None|nessuno|
 
 ### <a name="sample"></a>Esempio
 

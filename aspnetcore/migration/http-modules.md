@@ -2,20 +2,18 @@
 title: La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core.
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
 ms.topic: article
-ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core. 
 
@@ -259,7 +257,7 @@ Fornisce un id univoco per ogni richiesta. Molto utile da includere nei file reg
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Trace)]
 
-### <a name="httpcontextrequest"></a>HttpContext. Request
+### <a name="httpcontextrequest"></a>HttpContext.Request
 
 **HttpContext.Request.HttpMethod** viene convertito in:
 

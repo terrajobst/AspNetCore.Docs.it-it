@@ -2,20 +2,18 @@
 title: Introduzione alla protezione dei dati
 author: rick-anderson
 description: Questo documento introduce il concetto di protezione dei dati e descrive i principi di progettazione delle API principali ASP.NET associato.
-keywords: ASP.NET Core, protezione dei dati
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-data-protection"></a>Introduzione alla protezione dei dati
 

@@ -2,21 +2,19 @@
 title: Stato di sessione e dell'applicazione in ASP.NET Core
 author: rick-anderson
 description: Approcci per la conservazione di applicazione e lo stato utente (sessione) tra le richieste.
-keywords: Registrare ASP.NET Core, lo stato dell'applicazione, lo stato della sessione, stringa di query,
 ms.author: riande
 manager: wpickett
 ms.date: 11/27/2017
 ms.topic: article
-ms.assetid: 18cda488-0769-4cb9-82f6-4c6685f2045d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 35b34f1a40e431e59e6b9c1d9bfb4ce3fced35e6
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 13b4d759ae574cdf9899ca148f0ffd3d9df6f9ae
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato sessione e dell'applicazione ASP.NET di base
 
@@ -107,7 +105,7 @@ Poiché i cookie sono soggette alla manomissione, devono essere convalidati nel 
 
 I cookie vengono spesso utilizzati per la personalizzazione, in cui il contenuto viene personalizzato per un utente noto. Poiché l'utente viene identificato solo e non è stato autenticato nella maggior parte dei casi, è possibile proteggere in genere un cookie archiviando il nome utente, nome dell'account o un ID utente univoco (ad esempio un GUID) nel cookie. È quindi possibile utilizzare il cookie di accesso all'infrastruttura di personalizzazione utente di un sito.
 
-## <a name="httpcontextitems"></a>HttpContext. Items
+## <a name="httpcontextitems"></a>HttpContext.Items
 
 Il `Items` raccolta è una buona posizione in cui archiviare i dati necessari solo durante l'elaborazione una particolare richiesta. Contenuto della raccolta viene eliminato dopo ogni richiesta. Il `Items` insieme è particolarmente utile come un modo per componenti o middleware per comunicare quando operano in momenti diversi durante una richiesta e in alcun modo diretto per passare i parametri. Per ulteriori informazioni, vedere [utilizzo HttpContext. Items](#working-with-httpcontextitems), più avanti in questo articolo.
 

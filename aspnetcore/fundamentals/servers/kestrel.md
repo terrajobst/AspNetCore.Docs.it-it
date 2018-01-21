@@ -2,21 +2,19 @@
 title: Implementazione del server web kestrel in ASP.NET Core
 author: tdykstra
 description: Introduce Kestrel, il server web multipiattaforma per ASP.NET Core in base a libuv.
-keywords: ASP.NET Core, Kestrel, libuv, i prefissi url
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 560bd66f-7dd0-4e68-b5fb-f31477e4b785
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451c36fc9095b6e076e5287c992b6163205c523b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3695a6a127f77bd90538d72af6112ccf507f3482
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Introduzione all'implementazione di server web Kestrel in ASP.NET Core
 

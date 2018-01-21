@@ -2,20 +2,18 @@
 title: Associazione di modelli
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
@@ -73,7 +71,7 @@ Quando è associato un parametro, l'associazione di modelli arresta cercando val
 
 Se l'associazione non riesce, MVC genera un errore. Ogni azione che accetta l'input dell'utente deve controllare il `ModelState.IsValid` proprietà.
 
-Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors` proprietà. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid` .
+Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors` proprietà. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid`.
 
 Esistono inoltre alcuni tipi di dati speciale che deve prendere in considerazione quando si esegue l'associazione del modello MVC:
 

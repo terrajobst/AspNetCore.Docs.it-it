@@ -2,20 +2,18 @@
 title: Crittografia chiave
 author: rick-anderson
 description: Questo documento descrive i dettagli di implementazione di ASP.NET Core protezione chiave la crittografia dei dati inattivi.
-keywords: ASP.NET Core, protezione dei dati, la crittografia con chiave
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: b56dc56ed94662dbedeea49022aa73941bc833c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a0b9ab31264e5cae666a69491bf4a8ee8251a86f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="key-encryption-at-rest"></a>Crittografia chiave
 
@@ -30,7 +28,7 @@ Per impostazione predefinita, il sistema di protezione dati [utilizza un approcc
 
 Il sistema di protezione dati viene fornito con tre meccanismi di crittografia della chiave nella casella.
 
-## <a name="windows-dpapi"></a>DPAPI di Windows
+## <a name="windows-dpapi"></a>Windows DPAPI
 
 *Questo meccanismo è disponibile solo in Windows.*
 
@@ -66,7 +64,7 @@ A causa di limitazioni di .NET Framework sono supportati solo i certificati con 
 
 <a name="data-protection-implementation-key-encryption-at-rest-dpapi-ng"></a>
 
-## <a name="windows-dpapi-ng"></a>DPAPI di Windows-NG
+## <a name="windows-dpapi-ng"></a>Windows DPAPI-NG
 
 *Questo meccanismo è disponibile solo in Windows 8 o Windows Server 2012 e versioni successive.*
 

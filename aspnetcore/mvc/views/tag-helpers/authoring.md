@@ -2,29 +2,27 @@
 title: Creazione e modifica gli helper di Tag in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come creare gli helper di Tag in ASP.NET Core.
-keywords: ASP.NET Core, gli helper di tag
 ms.author: riande
 manager: wpickett
-ms.date: 06/14/2017
+ms.date: 01/19/2018
 ms.topic: article
-ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
+ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Gli helper di Tag in ASP.NET di base, una procedura dettagliata con esempi di creazione
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Helper di Tag autore in ASP.NET di base, una procedura dettagliata con esempi
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="getting-started-with-tag-helpers"></a>Introduzione agli helper di Tag
+## <a name="get-started-with-tag-helpers"></a>Iniziare a utilizzare gli helper di Tag
 
 In questa esercitazione fornisce un'introduzione alla programmazione gli helper di Tag. [Introduzione agli helper di Tag](intro.md) vengono descritti i vantaggi che forniscono gli helper di Tag.
 
@@ -46,7 +44,7 @@ Il server utilizzerà l'helper di tag di posta elettronica per convertire il mar
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
-   ```
+```
 
 Vale a dire un tag di ancoraggio che è un collegamento di posta elettronica. È possibile eseguire questa operazione se si sta scrivendo un motore di blog ed è necessario per inviare posta elettronica di marketing, supporto e altri contatti, tutti allo stesso dominio.
 
@@ -188,7 +186,7 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
 [HtmlTargetElement("MyBold")]
    ```
 
-## <a name="passing-a-model-to-a-tag-helper"></a>Il passaggio di un modello a un Helper Tag
+## <a name="pass-a-model-to-a-tag-helper"></a>Passare a un modello a un Helper Tag
 
 1.  Aggiungere un *modelli* cartella.
 
@@ -285,7 +283,7 @@ L'helper di tag di condizione esegue il rendering di output quando viene passato
 >
 >Il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore proteggerà il codice necessario sempre il refactoring (potrebbe essere necessario modificare il nome in `RedCondition`).
 
-### <a name="avoiding-tag-helper-conflicts"></a>Evitare i conflitti di Helper Tag
+### <a name="avoid-tag-helper-conflicts"></a>Evitare conflitti di Helper Tag
 
 In questa sezione, scrivere una coppia degli helper di tag di collegamento automatico. Il primo sostituirà markup contenente un URL che inizia con HTTP in un HTML ancoraggio tag che contiene lo stesso URL (e generando un collegamento all'URL). Il secondo sarà eseguire la stessa operazione per un URL a partire da WWW.
 
@@ -329,7 +327,7 @@ Poiché questi due helper sono strettamente correlati e potrebbero refactoring i
     
     Il codice sopra riportato garantisce che l'helper di tag HTTP viene eseguito prima dell'helper di tag WWW. Modifica `Order` a `MaxValue` e verificare che il markup generato per il tag WWW non è corretto.
 
-## <a name="inspecting-and-retrieving-child-content"></a>Controllo e il recupero del contenuto figlio
+## <a name="inspect-and-retrieve-child-content"></a>Controllare e recuperare il contenuto figlio
 
 Gli helper di tag forniscono diverse proprietà per recuperare il contenuto.
 

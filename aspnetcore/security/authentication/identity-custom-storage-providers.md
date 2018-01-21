@@ -2,20 +2,18 @@
 title: Provider di archiviazione personalizzato per ASP.NET Identity Core | Documenti Microsoft
 author: ardalis
 description: Come configurare i provider di archiviazione personalizzato per ASP.NET Identity Core.
-keywords: "Provider di archiviazione personalizzati ASP.NET Core, identità,"
 ms.author: riande
 manager: wpickett
 ms.date: 05/24/2017
 ms.topic: article
-ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzato per ASP.NET Identity Core
 
@@ -204,9 +202,9 @@ Di seguito è una classe ruolo di esempio:
 
 È possibile creare un ``RoleStore`` classe che fornisce i metodi per tutte le operazioni di dati sui ruoli. Questa classe è equivalente al [oggetto RoleStore<TRole> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) classe. Nel `RoleStore` (classe), implementare il ``IRoleStore<TRole>`` e facoltativamente la ``IQueryableRoleStore<TRole>`` interfaccia.
 
-- **Interfaccia IRoleStore&lt;TRole&gt;**  
+- **IRoleStore&lt;TRole&gt;**  
  Il [IRoleStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.irolestore-1) interfaccia definisce i metodi da implementare nella classe dell'archivio di ruolo. Contiene metodi per la creazione, aggiornamento, eliminazione e il recupero dei ruoli.
-- **Oggetto RoleStore&lt;TRole&gt;**  
+- **RoleStore&lt;TRole&gt;**  
  Per personalizzare `RoleStore`, creare una classe che implementa il `IRoleStore` interfaccia. 
 
 ## <a name="reconfigure-app-to-use-new-storage-provider"></a>Riconfigurare l'applicazione per utilizzare il nuovo provider di archiviazione

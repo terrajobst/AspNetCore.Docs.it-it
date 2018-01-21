@@ -2,20 +2,18 @@
 title: Helper di Tag di ancoraggio | Documenti Microsoft
 author: pkellner
 description: Di seguito viene illustrato l'utilizzo di Helper di Tag di ancoraggio
-keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>Helper di Tag di ancoraggio
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > Utilizzare il `asp-page` attributo nelle pagine Razor, l'URL deve essere un percorso relativo, ad esempio `"./Speaker"`. I percorsi relativi nel `asp-page` attributo non sono disponibili nelle visualizzazioni MVC. Utilizzare la sintassi "/" per le visualizzazioni MVC.
 
-### <a name="asp-route-value"></a>ASP - route-{value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`è un prefisso di route con caratteri jolly. Qualsiasi valore inserito dopo il trattino finale verrà interpretato come un parametro di route possibili. Se una route predefinita non viene trovata, verrà aggiunto il prefisso della route per href generato come valore di parametro di richiesta e. In caso contrario verrà sostituito nel modello di route.
 
@@ -168,7 +166,7 @@ Se il valore `asp-controller` o `asp-action` non vengono specificati, viene segu
 
 `Name = "speakerevals"`indica l'Helper di Tag di ancoraggio per generare una route direttamente a tale metodo controller utilizzando l'URL `/Speaker/Evaluations`. Se `asp-controller` o `asp-action` è specificato in aggiunta al `asp-route`, la route generata potrebbe non essere quello previsto. `asp-route`non deve essere utilizzato con uno degli attributi `asp-controller` o `asp-action` per evitare un conflitto di route.
 
-### <a name="asp-all-route-data"></a>dati della route di all ASP
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`Consente di creare un dizionario di coppie chiave-valore in cui la chiave è il nome del parametro e il valore è il valore associato a tale chiave.
 
@@ -206,7 +204,7 @@ L'URL generato sarà: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
 Tag di hash sono utili quando si compilano applicazioni sul lato client. Possono essere utilizzati per contrassegnare e la ricerca in JavaScript, ad esempio semplice.
 
-### <a name="asp-area"></a>area di ASP
+### <a name="asp-area"></a>asp-area
 
 `asp-area`Imposta il nome dell'area che ASP.NET Core viene utilizzato per impostare la route appropriata. Di seguito sono riportati esempi di come l'attributo area causa una modifica del mapping delle route. Impostazione `asp-area` ai blog prefissi di directory `Areas/Blogs` a tutte le route delle controller associato e le viste per il tag di ancoraggio.
 
@@ -218,7 +216,7 @@ Tag di hash sono utili quando si compilano applicazioni sul lato client. Possono
         * HomeController.cs
       * Visualizzazioni
         * Home
-          * Cshtml
+          * Index.cshtml
           * AboutBlog.cshtml
   * Controller
 

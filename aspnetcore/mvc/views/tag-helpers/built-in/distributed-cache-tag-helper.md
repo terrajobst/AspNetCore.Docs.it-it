@@ -2,20 +2,18 @@
 title: Helper di Tag della Cache distribuita | Documenti Microsoft
 author: pkellner
 description: Di seguito viene illustrato l'utilizzo di Helper di Tag della Cache
-keywords: Helper per tag di ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a022
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 462c3775677924fc7b9b715cd6de75fe53ada89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5844dade218fdba1169a55fe3ce251a9cc03db2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="distributed-cache-tag-helper"></a>Helper di Tag Cache distribuita
 
@@ -43,7 +41,7 @@ Per le definizioni, vedere l'Helper di Tag della Cache. Helper di Tag della Cach
 
 | Tipo di attributo    | Valore di esempio     |
 |----------------   |----------------   |
-| string    | "my-distributed-cache-unique-key-101"     |
+| stringa    | "my-distributed-cache-unique-key-101"     |
 
 Obbligatorio `name` attributo viene utilizzato come chiave di cache archiviata per ogni istanza di un Helper di Tag della Cache distribuita.  A differenza di base Helper Tag di Cache che assegna una chiave a ogni istanza dell'Helper di Tag della Cache in base Razor pagina nome e il percorso dell'helper di tag nella pagina razor, l'Helper di Tag della Cache distribuita basi solo la chiave dell'attributo`name`
 

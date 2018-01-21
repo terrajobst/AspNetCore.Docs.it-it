@@ -2,20 +2,18 @@
 title: Convalida del modello in ASP.NET MVC di base
 author: rachelappel
 description: Informazioni sulla convalida del modello in ASP.NET MVC di base.
-keywords: Convalida di ASP.NET Core, MVC,
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -173,7 +171,7 @@ Il `$.validator.unobtrusive.parse()` metodo accetta un selettore di jQuery per u
 
 ### <a name="add-validation-to-dynamic-controls"></a>Aggiungere la convalida per i controlli dinamici
 
-È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non verrà aggiornata.  In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
+È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non verrà aggiornata. In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ La definizione di `VerifyEmail()` metodo segue queste regole, come illustrato di
 
 Quando gli utenti immettono un messaggio di posta elettronica, JavaScript nella visualizzazione diventerà una chiamata remota per verificare se tale messaggio di posta elettronica è stato eseguito e, in caso affermativo, viene visualizzato il messaggio di errore. In caso contrario, l'utente può inviare il modulo come di consueto.
 
-Il `AdditionalFields` proprietà del `[Remote]` attributo è utile per la convalida delle combinazioni di campi sui dati nel server.  Ad esempio, se il `User` modello precedente ha due proprietà aggiuntive chiamata `FirstName` e `LastName`, si consiglia di verificare che nessun utente esistente dispongano di tale coppia di nomi.  Per definire le proprietà di nuovo, come illustrato nel codice seguente:
+Il `AdditionalFields` proprietà del `[Remote]` attributo è utile per la convalida delle combinazioni di campi sui dati nel server. Ad esempio, se il `User` modello precedente ha due proprietà aggiuntive chiamata `FirstName` e `LastName`, si consiglia di verificare che nessun utente esistente dispongano di tale coppia di nomi. Per definire le proprietà di nuovo, come illustrato nel codice seguente:
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`avrebbero potuto essere impostate in modo esplicito per le stringhe `"FirstName"` e `"LastName"`, ma tramite il [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operatore questo semplifica il refactoring in un secondo momento.  Il metodo di azione per eseguire la convalida deve quindi accetta due argomenti, uno per il valore di `FirstName` e uno per il valore di `LastName`.
+`AdditionalFields`avrebbero potuto essere impostate in modo esplicito per le stringhe `"FirstName"` e `"LastName"`, ma tramite il [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operatore questo semplifica il refactoring in un secondo momento. Il metodo di azione per eseguire la convalida deve quindi accetta due argomenti, uno per il valore di `FirstName` e uno per il valore di `LastName`.
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ A questo punto quando gli utenti immettere un nome e cognome, JavaScript:
 * Se la coppia è stata eseguita, viene visualizzato un messaggio di errore. 
 * Se non è stato eseguito, l'utente può inviare il modulo.
 
-Se si desidera convalidare uno o più campi aggiuntivi con il `[Remote]` attributo, fornito come un elenco delimitato da virgole.  Ad esempio, per aggiungere un `MiddleName` impostata per il modello, il `[Remote]` attributo come illustrato nel codice seguente:
+Se si desidera convalidare uno o più campi aggiuntivi con il `[Remote]` attributo, fornito come un elenco delimitato da virgole. Ad esempio, per aggiungere un `MiddleName` impostata per il modello, il `[Remote]` attributo come illustrato nel codice seguente:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, come tutti gli argomenti di attributo, deve essere un'espressione costante.  Pertanto, non è necessario utilizzare un [interpolati stringa](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o chiamare [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) inizializzare `AdditionalFields`. Per ogni campo aggiuntivo che si aggiunge al `[Remote]` attributo, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.
+`AdditionalFields`, come tutti gli argomenti di attributo, deve essere un'espressione costante. Pertanto, non è necessario utilizzare un [interpolati stringa](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o chiamare [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) inizializzare `AdditionalFields`. Per ogni campo aggiuntivo che si aggiunge al `[Remote]` attributo, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.

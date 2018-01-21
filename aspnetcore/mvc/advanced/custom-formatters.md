@@ -2,20 +2,18 @@
 title: Formattatori personalizzati nell'API web ASP.NET MVC di base
 author: tdykstra
 description: Informazioni su come creare e utilizzare i formattatori personalizzati per il web API in ASP.NET Core.
-keywords: ASP.NET Core, web api, formattatori personalizzati
 ms.author: tdykstra
 manager: wpickett
 ms.date: 02/08/2017
 ms.topic: article
-ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 5e665abe10fd7444c3fd5f20cfeca3ef0a5f79d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a6474fdae29b170978226de74d523b20a16cd0c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formattatori personalizzati nell'API web ASP.NET MVC di base
 
@@ -84,7 +82,7 @@ In alcuni scenari è necessario eseguire l'override `CanWriteResult` anziché `C
 Ad esempio, si supponga che la firma del metodo di azione restituisce un `Person` tipo, ma può restituire un `Student` o `Instructor` tipo che deriva da `Person`. Se si desidera che il formattatore di gestire solo `Student` oggetti, controllare il tipo di [oggetto](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) nell'oggetto di contesto fornito per il `CanWriteResult` metodo. Si noti che non è necessario utilizzare `CanWriteResult` quando il metodo di azione restituisce `IActionResult`; in tal caso, il `CanWriteType` metodo riceve il tipo di runtime.
 
 <a id="read-write"></a>
-### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Eseguire l'override ReadRequestBodyAsync/WriteResponseBodyAsync 
+### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Override ReadRequestBodyAsync/WriteResponseBodyAsync 
 
 Eseguire il lavoro effettivo del deserializzazione o la serializzazione `ReadRequestBodyAsync` o `WriteResponseBodyAsync`.  Le righe evidenziate nell'esempio seguente viene illustrato come ottenere servizi dal contenitore dell'inserimento di dipendenza (non è possibile ottenere tali da parametri del costruttore).
 

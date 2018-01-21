@@ -2,20 +2,18 @@
 title: Derivazione della sottochiave e la crittografia autenticata
 author: rick-anderson
 description: Questo documento illustra i dettagli di implementazione della protezione dei dati di ASP.NET Core sottochiave derivazione e autenticato di crittografia.
-keywords: Crittografia di autenticazione ASP.NET Core, protezione dei dati, il sottochiave derivazione,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3927678b7b67b0e521a961e363200bdfe0bdaeb3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivazione della sottochiave e la crittografia autenticata
 
@@ -40,7 +38,7 @@ Il `IAuthenticatedEncryptor` interfaccia funge da interfaccia principale per tut
 
 Poiché Azure ad è univoco per la tupla di tutti e tre i componenti, è possibile usarlo per derivare nuove chiavi KM anziché KM stesso in tutti gli operazioni di crittografia. Per ogni chiamata a `IAuthenticatedEncryptor.Encrypt`, avviene il processo di derivazione della chiave seguente:
 
-(K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, | | keyModifier)
+( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
 In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con i parametri seguenti:
 
@@ -50,7 +48,7 @@ In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di co
 
 * etichetta = additionalAuthenticatedData
 
-* contesto = contextHeader | | keyModifier
+* context = contextHeader || keyModifier
 
 L'intestazione del contesto è di lunghezza variabile e funge essenzialmente da un'identificazione personale degli algoritmi per il quale si sta derivazione K_E e K_H. Il modificatore di chiave è una stringa di 128 bit generata in modo casuale per ogni chiamata a `Encrypt` e serve a garantire con sovraccaricare probabilità che KE e KH siano univoci per questa operazione di crittografia di autenticazione specifici, anche se tutti gli altri input per l'utilizzo è costante.
 
@@ -62,7 +60,7 @@ Una volta K_E viene generato tramite il meccanismo precedente, si genera un vett
 
 ![Restituzione e il processo in modalità CBC](subkeyderivation/_static/cbcprocess.png)
 
-*output: = keyModifier | | vettore di inizializzazione | | E_cbc (dati K_E, iv) | | Codice HMAC (K_H, iv | | E_cbc (dati K_E, iv))*
+*output:= keyModifier || iv || E_cbc (K_E,iv,data) || HMAC(K_H, iv || E_cbc (K_E,iv,data))*
 
 > [!NOTE]
 > Il `IDataProtector.Protect` implementazione verrà [anteporre l'intestazione magic e l'id chiave](authenticated-encryption-details.md) all'output prima di restituirlo al chiamante. Poiché l'intestazione magic e l'id chiave sono implicitamente in parte [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), e poiché il modificatore di chiave viene inserito come input per l'utilizzo, questo significa che ogni singolo byte del payload restituito finale è autenticato da Mac.

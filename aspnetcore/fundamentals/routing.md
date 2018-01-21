@@ -2,20 +2,18 @@
 title: Routing di ASP.NET Core
 author: ardalis
 description: "Individuare la funzionalità di routing di ASP.NET Core è responsabile per il mapping di una richiesta in ingresso a un gestore di route."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
@@ -233,10 +231,10 @@ La tabella seguente mostra le risposte con l'URI specificato.
 | URI | Risposta  |
 | ------- | -------- |
 | /package/create/3  | Hello! I valori di route: [operazione, creare], [id, 3] |
-| pacchetto/traccia/3  | Hello! I valori di route: [operazione, traccia], [id, -3] |
+| /package/track/-3  | Hello! I valori di route: [operazione, traccia], [id, -3] |
 | / pacchetto/traccia/3 / | Hello! I valori di route: [operazione, traccia], [id, -3]  |
 | /package traccia / | \<Passaggio alcuna corrispondenza > |
-| OTTENERE /hello/Joe | Salve, Joe! |
+| GET /hello/Joe | Salve, Joe! |
 | POST /hello/Joe | \<Passaggio a, HTTP GET solo corrispondenze > |
 | OTTENERE /hello/Joe/Smith | \<Passaggio alcuna corrispondenza > |
 
@@ -277,12 +275,12 @@ Nella tabella seguente illustra alcuni modelli di route e il relativo comportame
 
 | Modello di route | Esempio di URL corrispondenti | Note |
 | -------- | -------- | ------- |
-| hello  | /Hello  | Solo corrisponda al percorso del singolo`/hello` |
-| {Pagina Home =} | / | Corrispondente e imposta `Page` per`Home` |
-| {Pagina Home =}  | / Contatto  | Corrispondente e imposta `Page` per`Contact` |
-| {controller} / {action} / {id}? | / / Elenco dei prodotti | Esegue il mapping a `Products` controller e `List` azione |
-| {controller} / {action} / {id}? | / Prodotti/dettagli/123  |  Esegue il mapping a `Products` controller e `Details` azione.  `id`Impostare su 123 |
-| {controller Home =} / {azione = indice} / {id}? | /  |  Esegue il mapping a `Home` controller e `Index` ; (metodo) `id` viene ignorato. |
+| hello  | /hello  | Solo corrisponda al percorso del singolo`/hello` |
+| {Page=Home} | / | Corrispondente e imposta `Page` per`Home` |
+| {Page=Home}  | / Contatto  | Corrispondente e imposta `Page` per`Contact` |
+| {controller}/{action}/{id?} | /Products/List | Esegue il mapping a `Products` controller e `List` azione |
+| {controller}/{action}/{id?} | /Products/Details/123  |  Esegue il mapping a `Products` controller e `Details` azione.  `id`Impostare su 123 |
+| {controller=Home}/{action=Index}/{id?} | /  |  Esegue il mapping a `Home` controller e `Index` ; (metodo) `id` viene ignorato. |
 
 Utilizzo di un modello è in genere l'approccio più semplice per il routing. I vincoli e le impostazioni predefinite possono essere specificate anche all'esterno del modello di route.
 
@@ -340,7 +338,7 @@ Le espressioni regolari usate nel routing spesso inizierà con il `^` carattere 
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | hello | sì | sottostringa corrispondenze |
 | `[a-z]{2}` | 123abc456 | sì | sottostringa corrispondenze |
-| `[a-z]{2}` | MZ | sì | corrisponde all'espressione |
+| `[a-z]{2}` | mz | sì | corrisponde all'espressione |
 | `[a-z]{2}` | MZ | sì | prevedono la distinzione tra maiuscole e minuscole non |
 | `^[a-z]{2}$` |  hello | No | vedere `^` e `$` sopra |
 | `^[a-z]{2}$` |  123abc456 | No | vedere `^` e `$` sopra |
@@ -365,10 +363,10 @@ I valori che vengono forniti in modo esplicito, ma che non corrisponde a nessun 
 
 | Valori di ambiente | Valori espliciti | Risultato |
 | -------------   | -------------- | ------ |
-| controller = "Home" | azione = "About" | `/Home/About` |
-| controller = "Home" | controller = "Order", azione = "About" | `/Order/About` |
-| controller = "Home", color = "Red" | azione = "About" | `/Home/About` |
-| controller = "Home" | azione = colore "About" = "Red" | `/Home/About?color=Red`
+| controller="Home" | action="About" | `/Home/About` |
+| controller="Home" | controller="Order",action="About" | `/Order/About` |
+| controller="Home",color="Red" | action="About" | `/Home/About` |
+| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
 
 Se una route ha un valore predefinito che non corrisponde a un parametro e tale valore viene fornito in modo esplicito, il valore predefinito deve corrispondere. Ad esempio:
 

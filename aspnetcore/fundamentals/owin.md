@@ -2,21 +2,19 @@
 title: Open Web Interface for .NET (OWIN)
 author: ardalis
 description: Scoprire come ASP.NET Core supporta l'interfaccia Web aperta per .NET (OWIN), che consente alle App web di essere scollegata dal server web.
-keywords: ASP.NET Core, interfaccia Web aperta per .NET, OWIN
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 70c4e6bc-a773-4039-96ec-6fe557c9369d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ee970a1c9cd05ebee76b92c3e2c7c6c6cc6ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Introduzione per aprire interfaccia Web per .NET (OWIN)
 
@@ -241,84 +239,84 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin. RequestScheme | `String` |  |
-| owin. RequestMethod  | `String` | |    
-| owin. RequestPathBase  | `String` | |    
-| owin. RequestPath | `String` | |     
-| owin. RequestQueryString  | `String` | |    
-| owin. RequestProtocol  | `String` | |    
-| owin. RequestHeaders | `IDictionary<string,string[]>`  | |
-| owin. RequestBody | `Stream`  | |
+| owin.RequestScheme | `String` |  |
+| owin.RequestMethod  | `String` | |    
+| owin.RequestPathBase  | `String` | |    
+| owin.RequestPath | `String` | |     
+| owin.RequestQueryString  | `String` | |    
+| owin.RequestProtocol  | `String` | |    
+| owin.RequestHeaders | `IDictionary<string,string[]>`  | |
+| owin.RequestBody | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>Dati della richiesta (OWIN v1.1.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin. ID richiesta | `String` | Facoltativo |
+| owin.RequestId | `String` | Facoltativo |
 
 ### <a name="response-data-owin-v100"></a>Dati di risposta (versione 1.0.0 OWIN)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin. ResponseStatusCode | `int` | Facoltativo |
-| owin. ResponseReasonPhrase | `String` | Facoltativo |
-| owin. ResponseHeaders | `IDictionary<string,string[]>`  | |
-| owin. ResponseBody | `Stream`  | |
+| owin.ResponseStatusCode | `int` | Facoltativo |
+| owin.ResponseReasonPhrase | `String` | Facoltativo |
+| owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
+| owin.ResponseBody | `Stream`  | |
 
 
 ### <a name="other-data-owin-v100"></a>Altri dati (versione 1.0.0 OWIN)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin. CallCancelled | `CancellationToken` |  |
-| owin. Versione  | `String` | |   
+| owin.CallCancelled | `CancellationToken` |  |
+| owin.Version  | `String` | |   
 
 
 ### <a name="common-keys"></a>Chiavi comuni
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| SSL. ClientCertificate | `X509Certificate` |  |
-| SSL. LoadClientCertAsync  | `Func<Task>` | |    
-| Server. IndirizzoIPRemoto  | `String` | |    
-| Server. PortaRemota | `String` | |     
-| Server. LocalIpAddress  | `String` | |    
-| Server. Porta locale  | `String` | |    
-| Server. IsLocal  | `bool` | |    
-| Server. Pseudoevento  | `Action<Action<object>,object>` | |
+| ssl.ClientCertificate | `X509Certificate` |  |
+| ssl.LoadClientCertAsync  | `Func<Task>` | |    
+| server.RemoteIpAddress  | `String` | |    
+| server.RemotePort | `String` | |     
+| server.LocalIpAddress  | `String` | |    
+| server.LocalPort  | `String` | |    
+| server.IsLocal  | `bool` | |    
+| server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
 
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| SendFile. SendAsync | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | Per ogni richiesta |
+| sendfile.SendAsync | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | Per ogni richiesta |
 
 
-### <a name="opaque-v030"></a>V0.3.0 opaco
+### <a name="opaque-v030"></a>Opaque v0.3.0
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| opaco. Versione | `String` |  |
-| opaco. Aggiornamento | `OpaqueUpgrade` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| opaco. Flusso | `Stream` |  |
-| opaco. CallCancelled | `CancellationToken` |  |
+| opaque.Version | `String` |  |
+| opaque.Upgrade | `OpaqueUpgrade` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| opaque.Stream | `Stream` |  |
+| opaque.CallCancelled | `CancellationToken` |  |
 
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| WebSocket. Versione | `String` |  |
-| WebSocket. Accettare | `WebSocketAccept` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| WebSocket. AcceptAlt |  | Non-spec |
-| WebSocket. Protocollo secondario | `String` | Vedere [RFC6455 sezione 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) passaggio 5.5 |
-| WebSocket. SendAsync | `WebSocketSendAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| WebSocket. ReceiveAsync | `WebSocketReceiveAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| WebSocket. CloseAsync | `WebSocketCloseAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| WebSocket. CallCancelled | `CancellationToken` |  |
-| WebSocket. ClientCloseStatus | `int` | Facoltativo |
-| WebSocket. ClientCloseDescription | `String` | Facoltativo |
+| websocket.Version | `String` |  |
+| websocket.Accept | `WebSocketAccept` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| websocket.AcceptAlt |  | Non-spec |
+| websocket.SubProtocol | `String` | Vedere [RFC6455 sezione 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) passaggio 5.5 |
+| websocket.SendAsync | `WebSocketSendAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CallCancelled | `CancellationToken` |  |
+| websocket.ClientCloseStatus | `int` | Facoltativo |
+| websocket.ClientCloseDescription | `String` | Facoltativo |
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
