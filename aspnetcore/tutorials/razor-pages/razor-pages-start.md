@@ -2,7 +2,6 @@
 title: Introduzione all'uso di pagine Razor in ASP.NET Core
 author: rick-anderson
 description: Introduzione all'uso di pagine Razor in ASP.NET Core
-keywords: ASP.NET Core, pagine Razor, Razor, MVC
 ms.author: riande
 manager: wpickett
 ms.date: 12/22/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
-ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
+ms.openlocfilehash: 69a5bc439130ffacf2d267c79b1a6b0347171e49
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -41,10 +40,7 @@ Sono disponibili tre versioni di questa esercitazione:
   ![nuova applicazione Web ASP.NET Core](../../mvc/razor-pages/index/_static/np.png)
 * Selezionare **ASP.NET Core 2.0** nell'elenco a discesa, quindi selezionare **applicazione Web**.
 
-> [!NOTE]
-> Se si vuole usare ASP.NET Core in .NET Framework, è necessario innanzitutto selezionare **.NET Framework** nell'elenco a discesa all'estrema sinistra nella finestra di dialogo, quindi è possibile selezionare la versione di ASP.NET Core desiderata.
-
-  ![Applicazione Web (pagine Razor)](razor-pages-start/_static/np2.png)
+  [!INCLUDE[install 2.0](../../includes/dotnetcore-on-dotnetfx-vs.md)]
 
 Il modello di Visual Studio crea un progetto di avvio:
 
@@ -58,6 +54,9 @@ Premere **F5** per eseguire l'app in modalità di debug o **Ctrl-F5** per l'esec
 * Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+
+>[!div class="step-by-step"]
+[Avanti: Aggiunta di un modello](xref:tutorials/razor-pages/model)
 
 >[!div class="step-by-step"]
 [Avanti: Aggiunta di un modello](xref:tutorials/razor-pages/model)

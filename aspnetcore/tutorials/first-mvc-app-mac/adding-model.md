@@ -2,21 +2,19 @@
 title: Aggiungere un modello a un'app ASP.NET Core MVC
 author: rick-anderson
 description: Aggiungere un modello a una app semplice di ASP.NET Core.
-keywords: ASP.NET Core, MVC, scaffolding
 ms.author: riande
 manager: wpickett
 ms.devlang: csharp
 ms.date: 09/22/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-eeee-1638-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: .net-core
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: ff0b262bdf2685bd1bc410c30c12aa2d16f6dcda
-ms.sourcegitcommit: 7d092cd99057bad9246c472a8a0a8cbc7ab9fa9b
+ms.openlocfilehash: 3a7db5e435fe72150feb1e0ec905b6f6adc16f2c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -83,7 +81,7 @@ Il motore di scaffolding crea:
 * Un controller di filmati (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create, Delete, Details, Edit e Index (*Views/Movies/\*.cshtml*)
 
-La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di filmati.
+La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*. Sarà presto disponibile un'applicazione Web completamente funzionale che consente di gestire un database di film.
 
 ### <a name="add-the-files-to-visual-studio"></a>Aggiungere i file a Visual Studio
 
