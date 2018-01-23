@@ -1,19 +1,20 @@
 ---
 title: Associazione di modelli
-author: rick-anderson
-description: 
-ms.author: riande
+author: rachelappel
+description: Informazioni sull'associazione del modello in ASP.NET MVC di base
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
@@ -41,7 +42,7 @@ MVC tenterà di associare i dati di richiesta per i parametri dell'azione in bas
 
 1. `Form values`: Si tratta di valori del form che nella richiesta HTTP con il metodo POST. (incluse le richieste POST jQuery).
 
-2. `Route values`: Il set di valori di route disponibili in [Routing](../../fundamentals/routing.md)
+2. `Route values`: Il set di valori di route disponibili in [Routing](xref:fundamentals/routing)
 
 3. `Query strings`: La parte di stringa di query dell'URI.
 
@@ -101,7 +102,7 @@ MVC contiene numerosi attributi che è possibile utilizzare per indirizzare il c
 
 Gli attributi sono strumenti molto utili quando è necessario eseguire l'override del comportamento predefinito di associazione del modello.
 
-## <a name="binding-formatted-data-from-the-request-body"></a>Associazione dati formattati da un corpo della richiesta
+## <a name="bind-formatted-data-from-the-request-body"></a>Associare i dati formattati dal corpo della richiesta
 
 Dati della richiesta sono disponibili in un'ampia gamma di formati quali JSON, XML e molti altri. Quando si utilizza l'attributo [FromBody] per indicare che si desidera associare un parametro per i dati nel corpo della richiesta, MVC utilizza un set di formattatori di cui è stato configurato per gestire i dati della richiesta in base al tipo di contenuto. Per impostazione predefinita, MVC include un `JsonInputFormatter` classe per la gestione di dati JSON, ma è possibile aggiungere altri formattatori per la gestione di XML e altri formati personalizzati.
 

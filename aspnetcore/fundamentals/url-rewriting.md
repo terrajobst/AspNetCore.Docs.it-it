@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware in ASP.NET Core di riscrittura URL
 
@@ -38,7 +38,9 @@ La riscrittura URL è l'azione di modifica richiesta URL in base a uno o più re
 ## <a name="url-redirect-and-url-rewrite"></a>Reindirizzamento dell'URL e l'URL di riscrittura
 La differenza nella formulazione tra *reindirizzamento dell'URL* e *URL rewrite* potrebbe sembrare complesso in primo ma ha implicazioni molto importanti per le risorse necessarie per i client. URL di riscrittura Middleware dell'ASP.NET di base è in grado di soddisfare la necessità di entrambi.
 
-Oggetto *reindirizzamento dell'URL* è un'operazione lato client, in cui il client viene richiesto di accedere a una risorsa in un altro indirizzo. Questa operazione richiede un round trip al server e l'URL di reindirizzamento restituito al client viene visualizzata nella barra degli indirizzi del browser quando il client effettua una nuova richiesta per la risorsa. Se `/resource` è *reindirizzato* a `/different-resource`, le richieste del client `/resource`, e il server risponde che il client deve ottenere la risorsa a `/different-resource` con un codice di stato che indica che il reindirizzamento è temporaneo o permanente. Il client esegue una nuova richiesta per la risorsa dell'URL di reindirizzamento.
+Oggetto *reindirizzamento dell'URL* è un'operazione lato client, in cui il client viene richiesto di accedere a una risorsa in un altro indirizzo. Ciò richiede un round trip al server. L'URL di reindirizzamento restituito al client viene visualizzata nella barra degli indirizzi del browser quando il client effettua una nuova richiesta per la risorsa. 
+
+Se `/resource` è *reindirizzato* a `/different-resource`, le richieste del client `/resource`. Il server risponde che il client deve ottenere la risorsa a `/different-resource` con un codice di stato che indica che il reindirizzamento è temporaneo o permanente. Il client esegue una nuova richiesta per la risorsa dell'URL di reindirizzamento.
 
 ![Un endpoint del servizio WebAPI è stato modificato temporaneamente dalla versione 1 (v1) alla versione 2 (v2) nel server. Un client effettua una richiesta al servizio in /v1/api di percorso la versione 1. Il server invia una risposta 302 (trovato) con il nuovo percorso temporaneo per il servizio in /v2/api versione 2. Il client esegue una seconda richiesta al servizio all'URL di reindirizzamento. Il server risponde con un codice di stato 200 (OK).](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ Richiesta originale:`/image.jpg`
 | Percorso di riscrittura nella stringa di query | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Rimuovere una barra finale | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Applicare la barra finale | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Evitare la riscrittura di richieste specifiche | `(.*[^(\.axd)])$`<br>Sì:`/resource.htm`<br>No:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| Evitare la riscrittura di richieste specifiche | `^(.*)(?<!\.axd)$` o `^(?!.*\.axd$)(.*)$`<br>Sì:`/resource.htm`<br>No:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | Ridisporre i segmenti di URL | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | Sostituire un segmento di URL | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
+ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core codice e lo sviluppo piani di origine
 
-Il codice sorgente per Entity Framework Core è disponibile all'indirizzo [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Oltre a codice sorgente, è possibile ottenere le compilazioni notturne, Gestione problemi, funzionalità specifiche, note, progettare [Guida di orientamento per lo sviluppo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)e altro ancora. È possibile segnalare i bug ed è possibile fornire il propria miglioramenti per il codice sorgente di Entity Framework.
+Trova l'origine di Entity Framework Core [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Il repository di EF Core contiene le compilazioni notturne, gestione dei problemi, le specifiche funzionalità, verbali, progettazione e [Guida di orientamento per lo sviluppo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). È possibile del file o individuare i bug e collaborazione.
 
 Anche se il codice sorgente è aperto, Entity Framework Core è completamente supportata come un prodotto Microsoft. Il team Microsoft Entity Framework mantiene controllo su cui vengono accettati i contributi e verifica di tutte le modifiche al codice per assicurare la qualità di ogni rilascio.
 

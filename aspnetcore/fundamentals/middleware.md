@@ -4,16 +4,16 @@ author: rick-anderson
 description: Informazioni su ASP.NET Core middleware e la pipeline della richiesta.
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Nozioni fondamentali di Middleware di ASP.NET Core
 
@@ -23,7 +23,7 @@ Da [Rick Anderson](https://twitter.com/RickAndMSFT) e [Steve Smith](https://arda
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-middleware"></a>Che cos'è middleware
+## <a name="what-is-middleware"></a>Che cos'è middleware?
 
 Middleware è un software che viene assemblata in una pipeline dell'applicazione per gestire le richieste e risposte. Ogni componente:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Middleware incorporato
 
-ASP.NET Core viene fornito con i componenti middleware seguenti:
+ASP.NET Core viene fornito con i componenti middleware seguenti, nonché una descrizione dell'ordine in cui deve essere aggiunto:
 
-| Middleware | Descrizione |
-| ----- | ------- |
-| [Autenticazione](xref:security/authentication/identity) | Fornisce supporto per l'autenticazione. |
-| [CORS](xref:security/cors) | Configura la condivisione delle risorse Multiorigine. |
-| [Memorizzazione nella cache delle risposte](xref:performance/caching/middleware) | Fornisce supporto per la memorizzazione nella cache le risposte. |
-| [Compressione di risposta](xref:performance/response-compression) | Fornisce il supporto per la compressione delle risposte. |
-| [Routing](xref:fundamentals/routing) | Definisce e vincola una route richiesta. |
-| [Sessione](xref:fundamentals/app-state) | Fornisce il supporto per la gestione delle sessioni utente. |
-| [File statici](xref:fundamentals/static-files) | Fornisce il supporto per la gestione di file statici e di esplorazione directory. |
-| [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) | Fornisce supporto per la riscrittura degli URL e reindirizzamento delle richieste. |
+| Middleware | Descrizione | Ordinamento |
+| ---------- | ----------- | ----- |
+| [Autenticazione](xref:security/authentication/identity) | Fornisce supporto per l'autenticazione. | Prima di `HttpContext.User` è necessaria. Terminal per i callback di OAuth. |
+| [CORS](xref:security/cors) | Configura la condivisione delle risorse Multiorigine. | Prima di componenti che utilizzano CORS. |
+| [Diagnostica](xref:fundamentals/error-handling) | Configura la diagnostica. | Prima di componenti che generano errori. |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Inoltra elaborate intestazioni nella richiesta corrente. | Prima di componenti che utilizzano i campi aggiornati (esempi: schema, Host, ClientIP, metodo). |
+| [Memorizzazione nella cache delle risposte](xref:performance/caching/middleware) | Fornisce supporto per la memorizzazione nella cache le risposte. | Prima di componenti che richiedono la memorizzazione nella cache. |
+| [Compressione di risposta](xref:performance/response-compression) | Fornisce il supporto per la compressione delle risposte. | Prima di componenti che richiedono la compressione. |
+| [RequestLocalization](xref:fundamentals/localization) | Fornisce il supporto di localizzazione. | Prima di componenti sensibili localizzazione. |
+| [Routing](xref:fundamentals/routing) | Definisce e vincola una route richiesta. | Terminale per route corrispondenti. |
+| [Sessione](xref:fundamentals/app-state) | Fornisce il supporto per la gestione delle sessioni utente. | Prima di componenti che richiedono una sessione. |
+| [File statici](xref:fundamentals/static-files) | Fornisce il supporto per la gestione di file statici e di esplorazione directory. | Terminal se corrisponde a una richiesta di file. |
+| [La riscrittura URL](xref:fundamentals/url-rewriting) | Fornisce supporto per la riscrittura degli URL e reindirizzamento delle richieste. | Prima di componenti che utilizzano l'URL. |
+| [Oggetti WebSocket](xref:fundamentals/websockets) | Abilita il protocollo WebSocket. | Prima di componenti necessari per accettare le richieste WebSocket. |
 
 <a name="middleware-writing-middleware"></a>
 
