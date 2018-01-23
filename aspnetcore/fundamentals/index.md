@@ -2,21 +2,19 @@
 title: Nozioni fondamentali su ASP.NET Core
 author: rick-anderson
 description: Individuare i concetti fondamentali per la compilazione di applicazioni ASP.NET Core.
-keywords: ASP.NET Core, nozioni di base, panoramica
 ms.author: riande
 manager: wpickett
 ms.date: 09/30/2017
 ms.topic: get-started-article
-ms.assetid: a19b7836-63e4-44e8-8250-50d426dd1070
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bed4676be3ca752442da3fe560f1f2a4d728a1
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 0d977c13eb5f4cbe8bac261733bdc747e6c19b2a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -163,7 +161,7 @@ Per altre informazioni, vedere [Stato di sessione e applicazione](xref:fundament
 
 ## <a name="servers"></a>Server
 
-Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app. La richiesta inoltrata viene inclusa come un set di oggetti di funzionalità cui è possibile accedere tramite le interfacce. ASP.NET Core include un server Web gestito, multipiattaforma, denominato [Kestrel](xref:fundamentals/servers/kestrel). Kestrel viene spesso eseguito con un server Web di produzione, come ad esempio [IIS](https://www.iis.net/) o [nginx](http://nginx.org). Kestrel può essere eseguito come un server perimetrale.
+Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app. La richiesta inoltrata viene inclusa come un set di oggetti di funzionalità cui è possibile accedere tramite le interfacce. ASP.NET Core include un server Web gestito, multipiattaforma, denominato [Kestrel](xref:fundamentals/servers/kestrel). Kestrel viene spesso eseguito con un server Web di produzione, come ad esempio [IIS](https://www.iis.net/) o [Nginx](http://nginx.org). Kestrel può essere eseguito come un server perimetrale.
 
 Per altre informazioni, vedere [Server](xref:fundamentals/servers/index) e gli argomenti seguenti:
 
