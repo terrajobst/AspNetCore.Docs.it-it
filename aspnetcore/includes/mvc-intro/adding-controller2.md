@@ -16,7 +16,7 @@ MVC richiama le classi controller, e i metodi di azione in esse contenute, in ba
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Il formato per il routing viene impostato nel file *Startup.cs*.
+Il formato per il routing viene impostato nel metodo `Configure` nel file *Startup.cs*.
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
