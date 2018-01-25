@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: e507d97903583c7233456e9139e1a869f8bf75bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Pagine Web ASP.NET (Razor) Troubleshooting Guide
 ====================
@@ -60,7 +60,7 @@ Assicurarsi che la radice del sito Web disponga di almeno uno *. cshtml* file in
 
 Se viene visualizzato questo errore quando il server web in un server remoto, contattare l'amministratore del server. Assicurarsi che il server dispone di .NET Framework 4 o successiva. Assicurarsi inoltre che l'applicazione è in esecuzione in un pool di applicazioni configurato per utilizzare tale versione di.NET Framework.
 
-Se si dispone di controllo del server, assicurarsi che la versione corretta di .NET Framework è in esecuzione. È anche possibile provare a ripristinare l'installazione eseguendo il `aspnet_regiis -iru` comando. (Ad esempio, se si installa IIS dopo l'installazione di .NET Framework, IIS verrà non essere configurato correttamente per eseguire le pagine ASP.NET.) Per ulteriori informazioni, vedere [strumento di registrazione IIS ASP.NET (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-US/library/k6h9cz8h(v=vs.100).aspx).
+Se si dispone di controllo del server, assicurarsi che la versione corretta di .NET Framework è in esecuzione. È anche possibile provare a ripristinare l'installazione eseguendo il `aspnet_regiis -iru` comando. (Ad esempio, se si installa IIS dopo l'installazione di .NET Framework, IIS verrà non essere configurato correttamente per eseguire le pagine ASP.NET.) Per ulteriori informazioni, vedere [strumento di registrazione IIS ASP.NET (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
 ### <a name="http-error-40314---forbidden"></a>Errore HTTP 403.14 - accesso negato
 
@@ -139,7 +139,7 @@ Sostituire i valori appropriati per `your-SMTP-server-name`e così via. Alcuni d
 
 - *Errore durante l'invio di posta elettronica.*
 
-    -oppure-
+    oppure
 
     *Un tentativo di connessione non riuscita perché l'entità connesso non ha risposto correttamente dopo un periodo di tempo o stabilire una connessione non è riuscita perché l'host connesso non ha risposto*
 
@@ -158,6 +158,6 @@ Sostituire i valori appropriati per `your-SMTP-server-name`e così via. Alcuni d
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[ASP.NET Web Pages domande frequenti (Razor)](https://go.microsoft.com/fwlink/?LinkId=253000)
+[Domande frequenti sulle pagine Web ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkId=253000)
 
 [WebMatrix e ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) forum sul sito Web ASP.NET

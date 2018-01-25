@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: a40a3779ddc416e141dd27b665f43830a43590b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Consigliate per lo sviluppo Web (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -142,20 +142,20 @@ Per ulteriori informazioni, vedere le risorse seguenti.
 
 Server web senza stato:
 
-- [Microsoft Patterns and Practices - Guida per la scalabilità automatica](https://msdn.microsoft.com/en-us/library/dn589774.aspx).
+- [Microsoft Patterns and Practices - Guida per la scalabilità automatica](https://msdn.microsoft.com/library/dn589774.aspx).
 - [Disabilitazione ARR istanza l'affinità in siti Web di Azure Windows](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Post di blog di Erez Benari, illustra l'affinità di sessione in siti Web di Windows Azure.
 
-RETE CDN:
+CDN:
 
 - [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Vedere la discussione della rete CDN nell'episodio 3 a partire da 1:34:00.
-- [Modello di Microsoft Patterns e procedure consigliate statico Hosting del contenuto](https://msdn.microsoft.com/en-us/library/dn589776.aspx)
+- [Modello di Microsoft Patterns e procedure consigliate statico Hosting del contenuto](https://msdn.microsoft.com/library/dn589776.aspx)
 - [Rete CDN revisioni](http://www.cdnreviews.com/). Panoramica di molte reti CDN.
 
 Programmazione asincrona:
 
 - [Utilizzare i metodi asincroni in ASP.NET MVC 4](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Esercitazione di Rick Anderson.
-- [Programmazione asincrona con Async e Await (c# e Visual Basic)](https://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx). White paper di MSDN che illustra come scrivere codice per la relativa implementazione, il funzionamento in ASP.NET 4.5 e spiegazione logica per la programmazione asincrona.
-- [Query asincrone di Entity Framework e salvataggio](https://msdn.microsoft.com/en-us/data/jj819165)
+- [Programmazione asincrona con Async e Await (c# e Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). White paper di MSDN che illustra come scrivere codice per la relativa implementazione, il funzionamento in ASP.NET 4.5 e spiegazione logica per la programmazione asincrona.
+- [Query asincrone di Entity Framework e salvataggio](https://msdn.microsoft.com/data/jj819165)
 - [Come creare applicazioni Web ASP.NET utilizzando asincrono](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Presentazione video di Miller Rowan. È inclusa una dimostrazione di grafici di programmazione asincrona può facilitare l'aumento della velocità effettiva del server web in condizioni di carico elevato.
 - [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Per informazioni sull'impatto della programmazione asincrona sulla scalabilità, vedere episodio 4 e 8 episodio.
 - [Il trucco dell'utilizzo di metodi asincroni in ASP.NET 4.5 più un problema importante](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Post di blog di Scott Hanselman, principalmente sull'utilizzo di async in applicazioni Web Form ASP.NET.

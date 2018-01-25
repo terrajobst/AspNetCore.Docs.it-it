@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
 ms.technology: 
 ms.prod: .net-framework
-ms.openlocfilehash: 3aaef756ee00d7e44aa757062e1ef297312ecf22
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12acae0883c12698a8f9c2150623ba792303e7ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-webhooks-handlers"></a>Gestori ASP.NET Webhook
 
@@ -62,7 +62,7 @@ public class MyWebHookHandler : WebHookHandler
 
 La maggior parte dei mittenti WebHook invia di nuovo un WebHook se non viene generata una risposta entro pochi secondi. Ciò significa che il gestore deve completare l'elaborazione all'interno di tale periodo di tempo in modo che non può essere chiamata nuovamente.
 
-Se l'elaborazione richiede più tempo, oppure è preferibile gestire separatamente il [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) può essere utilizzato per inviare la richiesta di WebHook da una coda, ad esempio [coda di archiviazione di Azure](https://msdn.microsoft.com/en-us/library/azure/dd179353.aspx).
+Se l'elaborazione richiede più tempo, oppure è preferibile gestire separatamente il [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) può essere utilizzato per inviare la richiesta di WebHook da una coda, ad esempio [coda di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179353.aspx).
 
 Una struttura di un [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) implementazione è fornita di seguito:
 

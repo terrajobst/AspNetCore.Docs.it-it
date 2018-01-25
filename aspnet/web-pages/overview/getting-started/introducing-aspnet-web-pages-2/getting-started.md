@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Introduzione a ASP.NET Web Pages - introduzione
 ====================
@@ -124,8 +124,8 @@ Si desidera vedere il sito completo in esecuzione come un'app web in tempo reale
 
 È necessario un account Azure per distribuire questa soluzione in Azure. Se si dispone già di un account, sono disponibili le opzioni seguenti:
 
-- [Aprire un account Azure, gratuitamente](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) -si ottiene crediti è possibile utilizzare per provare i servizi di Azure a pagamento e anche dopo l'uso massimo è possibile mantenere l'account e utilizzare senza servizi di Azure.
-- [Attivare i benefici per sottoscrittori MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Your sottoscrizione MSDN offre crediti ogni mese in cui è possibile utilizzare per i servizi di Azure a pagamento.
+- [Aprire un account Azure, gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -si ottiene crediti è possibile utilizzare per provare i servizi di Azure a pagamento e anche dopo l'uso massimo è possibile mantenere l'account e utilizzare senza servizi di Azure.
+- [Attivare i benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -Your sottoscrizione MSDN offre crediti ogni mese in cui è possibile utilizzare per i servizi di Azure a pagamento.
 
 ## <a name="installing-everything"></a>L'installazione di tutti gli elementi
 
@@ -155,7 +155,7 @@ Il processo di installazione determina quali è installato nel computer e avvia 
 
 Al termine, il processo di installazione può avviare automaticamente WebMatrix. In caso contrario, in Windows, dal **avviare** menu, avviare **Microsoft WebMatrix**.
 
-Quando si avvia WebMatrix per la prima volta, viene offerta la possibilità di accedere a Microsoft Azure con l'account Microsoft. Effettuando l'accesso, si riceverà 10 App web gratuito tramite Azure. Queste App web gratuito forniscono un modo pratico per testare le app. Se si dispone già di un account Azure, ma si dispone di una sottoscrizione MSDN, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). In caso contrario, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Quando si avvia WebMatrix per la prima volta, viene offerta la possibilità di accedere a Microsoft Azure con l'account Microsoft. Effettuando l'accesso, si riceverà 10 App web gratuito tramite Azure. Queste App web gratuito forniscono un modo pratico per testare le app. Se si dispone già di un account Azure, ma si dispone di una sottoscrizione MSDN, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). In caso contrario, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 Non è necessario accedere adesso per proseguire questa esercitazione. Se non riesci a questo punto, è possibile accedere in seguito sarà comunque necessario. L'ultimo [argomento](publishing.md) in questa esercitazione serie viene descritto come distribuire il sito Web in Azure; pertanto, è necessario accedere per completare questo argomento.
 
@@ -290,4 +290,4 @@ Nella prossima esercitazione di questa serie, è esplorare pagine Web ASP.NET di
 [Creare un sito Web ASP.NET da zero](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Si tratta di un'esercitazione in cui è in particolare sull'utilizzo di WebMatrix (non ASP.NET Web Pages). Diventa un po' più dettagli su alcune delle funzionalità aggiuntive di WebMatrix che non verranno trattati in questa esercitazione set.
 
 >[!div class="step-by-step"]
-[Successivo](intro-to-web-pages-programming.md)
+[avanti](intro-to-web-pages-programming.md)

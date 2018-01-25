@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 68870caf1608e596962650cf653e5b455b82382a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Creazione di un MVC 3 Application with Razor and JavaScript non intrusivo
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > L'applicazione web di esempio elenco utenti viene illustrato quanto sia semplice per creare applicazioni ASP.NET MVC 3 con il motore di visualizzazione Razor. L'applicazione di esempio viene illustrato come utilizzare il nuovo motore di visualizzazione Razor con ASP.NET MVC versione 3 e Visual Studio 2010 per creare un sito Web di elenco degli utenti fittizi che include funzionalità, quali la creazione, visualizzazione, modifica ed eliminazione degli utenti.
 > 
@@ -68,7 +68,7 @@ Assegnare alla classe il nome `UserModel`. Sostituire il contenuto del *UserMode
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-La `UserModel` classe rappresenta gli utenti. Ogni membro della classe è annotato con il [necessari](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) dall'attributo di [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi. Gli attributi di [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi forniscono la convalida lato client e server automatica per le applicazioni web.
+La `UserModel` classe rappresenta gli utenti. Ogni membro della classe è annotato con il [necessari](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) dall'attributo di [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi. Gli attributi di [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi forniscono la convalida lato client e server automatica per le applicazioni web.
 
 Aprire il `HomeController` classe e aggiungere un `using` direttiva in modo da poter accedere il `UserModel` e `Users` classi:
 
@@ -172,7 +172,7 @@ Impostazione `ClientValidationEnabled` su true consente la convalida lato client
 
 I primi due script jQuery sono ospitati da di Microsoft Ajax rete CDN (Content Delivery). È possibile sfruttare la rete CDN di Microsoft Ajax, è possibile migliorare notevolmente il primo numero di passaggi delle prestazioni delle applicazioni.
 
-Eseguire l'applicazione e fare clic su un collegamento di modifica. Consente di visualizzare l'origine della pagina nel browser. L'origine del browser Mostra molti attributi della maschera `data-val` (per la convalida dei dati). Quando la convalida del client e JavaScript non intrusivo è abilitato, i campi di input con una regola di convalida client contengono il `data-val="true"` attributo per attivare la convalida del client non intrusiva. Ad esempio, il `City` campo nel modello è decorata con il [necessari](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) attributo, che comporta il codice HTML mostrato nell'esempio seguente:
+Eseguire l'applicazione e fare clic su un collegamento di modifica. Consente di visualizzare l'origine della pagina nel browser. L'origine del browser Mostra molti attributi della maschera `data-val` (per la convalida dei dati). Quando la convalida del client e JavaScript non intrusivo è abilitato, i campi di input con una regola di convalida client contengono il `data-val="true"` attributo per attivare la convalida del client non intrusiva. Ad esempio, il `City` campo nel modello è decorata con il [necessari](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) attributo, che comporta il codice HTML mostrato nell'esempio seguente:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
@@ -180,7 +180,7 @@ Per ogni regola di convalida client, viene aggiunto un attributo che ha il forma
 
 ![Città richiesto](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-Analogamente, per ogni parametro nella regola di convalida client, viene aggiunto un attributo che ha il formato `data-val-rulename-paramname=paramvalue`. Ad esempio, il `FirstName` proprietà viene annotata con il [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) degli attributi e specifica una lunghezza minima di 3 e la lunghezza massima di 8. La regola di convalida di dati denominata `length` è il nome del parametro `max` e il valore del parametro 8. Di seguito è riportato il codice HTML generato per il `FirstName` campo quando si modifica uno degli utenti:
+Analogamente, per ogni parametro nella regola di convalida client, viene aggiunto un attributo che ha il formato `data-val-rulename-paramname=paramvalue`. Ad esempio, il `FirstName` proprietà viene annotata con il [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) degli attributi e specifica una lunghezza minima di 3 e la lunghezza massima di 8. La regola di convalida di dati denominata `length` è il nome del parametro `max` e il valore del parametro 8. Di seguito è riportato il codice HTML generato per il `FirstName` campo quando si modifica uno degli utenti:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
@@ -29,7 +29,7 @@ Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-Il `Index` metodo precedente Usa un modello di visualizzazione per generare una risposta HTML al browser. I metodi del controller (noto anche come [metodi di azione](http://rachelappel.com/asp.net-mvc-actionresults-explained)), ad esempio il `Index` dei metodi descritti sopra, restituiscono in genere un [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (o una classe derivata da [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), i tipi non primitivi come stringa.
+Il `Index` metodo precedente Usa un modello di visualizzazione per generare una risposta HTML al browser. I metodi del controller (noto anche come [metodi di azione](http://rachelappel.com/asp.net-mvc-actionresults-explained)), ad esempio il `Index` dei metodi descritti sopra, restituiscono in genere un [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (o una classe derivata da [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), i tipi non primitivi come stringa.
 
 Fare clic destro la *Views\HelloWorld* cartella e fare clic su **Aggiungi**, quindi fare clic su **pagina visualizzazione MVC 5 con Layout (Razor)**.
   
@@ -73,7 +73,7 @@ In primo luogo, si desidera modificare il &quot;nome applicazione&quot; collegam
 
 Modelli di layout consentono di specificare il layout di contenitore HTML del sito in un'unica posizione e quindi applicarlo in più pagine del sito. Trovare la riga `@RenderBody()`. `RenderBody` è un segnaposto dove tutte le pagine specifiche della vista vengono presentate, &quot;incapsulate&quot; nella pagina di layout. Ad esempio, se si seleziona il **su** collegamento, il *Views\Home\About.cshtml* vista viene eseguita all'interno di `RenderBody` (metodo).
 
-Modificare il contenuto dell'elemento titolo. Modifica il [ActionLink](https://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx) nel modello di layout da &quot;nome applicazione&quot; a &quot;MVC film&quot; e il controller da `Home` a `Movies`. Il file di layout completo è illustrato di seguito:
+Modificare il contenuto dell'elemento titolo. Modifica il [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) nel modello di layout da &quot;nome applicazione&quot; a &quot;MVC film&quot; e il controller da `Home` a `Movies`. Il file di layout completo è illustrato di seguito:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 

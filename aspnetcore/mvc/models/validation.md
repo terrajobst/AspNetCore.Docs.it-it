@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 56928c61ae47d313145afadf3e0fa93a078b681b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introduzione alla convalida del modello in ASP.NET MVC di base
 
@@ -148,14 +148,14 @@ MVC determina i valori di attributo di tipo in base al tipo di dati .NET di una 
 
 ### <a name="add-validation-to-dynamic-forms"></a>Aggiungere la convalida di moduli dinamici
 
-Poiché jQuery non intrusiva convalida passa la logica di convalida e i parametri di convalida jQuery al primo caricamento della pagina, form generato in modo dinamico non assumerà automaticamente la convalida. In alternativa, è necessario indicare jQuery non intrusiva convalida per analizzare il modulo dinamico immediatamente dopo averlo creato. Ad esempio, il codice riportato di seguito viene illustrato come è possibile impostare la convalida lato client in un form aggiunto tramite AJAX.
+Poiché jQuery non intrusiva convalida passa la logica di convalida e i parametri di convalida jQuery al primo caricamento della pagina, form generato in modo dinamico non presentano automaticamente la convalida. In alternativa, è necessario indicare jQuery non intrusiva convalida per analizzare il modulo dinamico immediatamente dopo averlo creato. Ad esempio, il codice riportato di seguito viene illustrato come è possibile impostare la convalida lato client in un form aggiunto tramite AJAX.
 
 ```js
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newFormHTML) {
         var container = document.getElementById("form-container");
@@ -171,14 +171,14 @@ Il `$.validator.unobtrusive.parse()` metodo accetta un selettore di jQuery per u
 
 ### <a name="add-validation-to-dynamic-controls"></a>Aggiungere la convalida per i controlli dinamici
 
-È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non verrà aggiornata. In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
+È inoltre possibile aggiornare le regole di convalida in un form quando singoli controlli, ad esempio `<input/>`s e `<select/>`s, vengono generati in modo dinamico. Non è possibile passare i selettori per questi elementi per il `parse()` metodo direttamente perché circostanti analisi è già stata completata e non vengono aggiornate. In alternativa, è innanzitutto rimuovere i dati di convalida esistenti, quindi reparse l'intero form, come illustrato di seguito:
 
 ```js
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newInputHTML) {
         var form = document.getElementById("my-form");
@@ -235,8 +235,7 @@ Il `AdditionalFields` proprietà del `[Remote]` attributo è utile per la conval
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`avrebbero potuto essere impostate in modo esplicito per le stringhe `"FirstName"` e `"LastName"`, ma tramite il [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operatore questo semplifica il refactoring in un secondo momento. Il metodo di azione per eseguire la convalida deve quindi accetta due argomenti, uno per il valore di `FirstName` e uno per il valore di `LastName`.
-
+`AdditionalFields`Impossibile stato impostato in modo esplicito le stringhe `"FirstName"` e `"LastName"`, ma tramite il [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operatore questo semplifica il refactoring in un secondo momento. Il metodo di azione per eseguire la convalida deve quindi accetta due argomenti, uno per il valore di `FirstName` e uno per il valore di `LastName`.
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
 
@@ -253,4 +252,4 @@ Se si desidera convalidare uno o più campi aggiuntivi con il `[Remote]` attribu
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, come tutti gli argomenti di attributo, deve essere un'espressione costante. Pertanto, non è necessario utilizzare un [interpolati stringa](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o chiamare [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) inizializzare `AdditionalFields`. Per ogni campo aggiuntivo che si aggiunge al `[Remote]` attributo, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.
+`AdditionalFields`, come tutti gli argomenti di attributo, deve essere un'espressione costante. Pertanto, non è necessario utilizzare un [interpolati stringa](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) o chiamare [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) inizializzare `AdditionalFields`. Per ogni campo aggiuntivo che si aggiunge al `[Remote]` attributo, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.

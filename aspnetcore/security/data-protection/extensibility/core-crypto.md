@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8a3f4cf267998ddc7f393401059ca9d83ef2d8e7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Estendibilità della crittografia core
 
@@ -128,7 +128,7 @@ Il descrittore serializzato può contenere informazioni riservate, ad esempio ch
 >[!TIP]
 > È un'API di supporto per l'impostazione di questo attributo. Chiamare il metodo di estensione che XElement.markasrequiresencryption() si trova nello spazio dei nomi Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.
 
-Può anche essere casi in cui il descrittore serializzato non contiene informazioni riservate. Si consideri di nuovo nel caso di una chiave di crittografia archiviata in un HSM. Il descrittore non è possibile scrivere il materiale della chiave durante la serializzazione stesso, poiché il modulo di protezione non espone il materiale di riferimento in formato non crittografato. Al contrario, il descrittore di può scrivere la versione di chiave con wrapping della chiave (se il modulo di protezione hardware consente l'esportazione in questo modo) o l'identificatore univoco dell'hardware per la chiave.
+Può anche essere casi in cui il descrittore serializzato non contiene informazioni riservate. Si consideri di nuovo nel caso di una chiave di crittografia archiviata in un HSM. Il descrittore non è possibile scrivere il materiale della chiave durante la serializzazione di se stesso dall'hardware di non esporre il materiale di riferimento in formato non crittografato. Al contrario, il descrittore di può scrivere la versione di chiave con wrapping della chiave (se il modulo di protezione hardware consente l'esportazione in questo modo) o l'identificatore univoco dell'hardware per la chiave.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
@@ -157,7 +157,7 @@ Il **AlgorithmConfiguration** classe rappresenta un tipo che sia in grado di cre
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-AlgorithmConfiguration può essere paragonato alla factory di primo livello. La configurazione viene utilizzato come modello. Esegue il wrapping informazioni algoritmiche (ad esempio, questa configurazione genera descrittori con una chiave master di AES-128-GCM), ma non è ancora associata a una chiave specifica.
+AlgorithmConfiguration può essere paragonato alla factory di primo livello. La configurazione viene utilizzato come modello. Esegue il wrapping informazioni algoritmiche (ad esempio, questa configurazione genera descrittori con una chiave master di AES-128-GCM), ma non ancora è associata a una chiave specifica.
 
 Quando viene chiamato CreateNewDescriptor, nuovo materiale della chiave viene creato esclusivamente per la chiamata e viene generato un nuovo IAuthenticatedEncryptorDescriptor che include il materiale della chiave e le informazioni algoritmiche necessarie per utilizzare il materiale di riferimento. Il materiale della chiave potrebbe creato in software (e in memoria), viene creato e potrebbe essere contenuta all'interno di un modulo di protezione hardware e così via. Il punto essenziale è che le due chiamate a CreateNewDescriptor mai devono essere create istanze IAuthenticatedEncryptorDescriptor equivalente.
 
@@ -169,7 +169,7 @@ Il **IAuthenticatedEncryptorConfiguration** interfaccia rappresenta un tipo che 
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-IAuthenticatedEncryptorConfiguration può essere paragonato alla factory di primo livello. La configurazione viene utilizzato come modello. Esegue il wrapping informazioni algoritmiche (ad esempio, questa configurazione genera descrittori con una chiave master di AES-128-GCM), ma non è ancora associata a una chiave specifica.
+IAuthenticatedEncryptorConfiguration può essere paragonato alla factory di primo livello. La configurazione viene utilizzato come modello. Esegue il wrapping informazioni algoritmiche (ad esempio, questa configurazione genera descrittori con una chiave master di AES-128-GCM), ma non ancora è associata a una chiave specifica.
 
 Quando viene chiamato CreateNewDescriptor, nuovo materiale della chiave viene creato esclusivamente per la chiamata e viene generato un nuovo IAuthenticatedEncryptorDescriptor che include il materiale della chiave e le informazioni algoritmiche necessarie per utilizzare il materiale di riferimento. Il materiale della chiave potrebbe creato in software (e in memoria), viene creato e potrebbe essere contenuta all'interno di un modulo di protezione hardware e così via. Il punto essenziale è che le due chiamate a CreateNewDescriptor mai devono essere create istanze IAuthenticatedEncryptorDescriptor equivalente.
 

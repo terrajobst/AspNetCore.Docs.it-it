@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Distribuita di memorizzazione nella cache (compilazione Cloud del mondo reale App con Azure)
 ====================
@@ -79,12 +79,12 @@ Questi sono esempi per illustrare semplice codice di memorizzazione nella cache.
 
 ## <a name="azure-caching-services"></a>Servizi di caching di Azure
 
-Azure offre i seguenti servizi di memorizzazione nella cache: [Cache Redis di Azure](https://msdn.microsoft.com/en-us/library/dn690523.aspx) e [Cache gestita di Azure](https://msdn.microsoft.com/en-us/library/dn386094.aspx). Cache Redis di Azure si basa sulla famosa [Cache Redis open source](http://redis.io/) ed è la prima scelta per la maggior parte di memorizzazione nella cache gli scenari.
+Azure offre i seguenti servizi di memorizzazione nella cache: [Cache Redis di Azure](https://msdn.microsoft.com/library/dn690523.aspx) e [Cache gestita di Azure](https://msdn.microsoft.com/library/dn386094.aspx). Cache Redis di Azure si basa sulla famosa [Cache Redis open source](http://redis.io/) ed è la prima scelta per la maggior parte di memorizzazione nella cache gli scenari.
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>Stato della sessione ASP.NET utilizza un provider di cache
 
-Come accennato nel [capitolo di web sviluppo best practices](web-development-best-practices.md), una procedura consigliata consiste nell'evitare di utilizzare lo stato della sessione. Se l'applicazione richiede lo stato della sessione, la successiva procedura ottimale consiste nell'evitare il provider in memoria predefinito dal momento che non abilitare la scalabilità orizzontale (più istanze del server web). Il provider di stato sessione ASP.NET SQL Server consente a un sito in esecuzione su più server web per utilizzare lo stato della sessione, ma comporta un costo di latenza elevata rispetto a un provider in memoria. La soluzione migliore se è necessario utilizzare lo stato della sessione consiste nell'utilizzare un provider di cache, ad esempio il [Provider di stato sessione per Cache di Azure](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Come accennato nel [capitolo di web sviluppo best practices](web-development-best-practices.md), una procedura consigliata consiste nell'evitare di utilizzare lo stato della sessione. Se l'applicazione richiede lo stato della sessione, la successiva procedura ottimale consiste nell'evitare il provider in memoria predefinito dal momento che non abilitare la scalabilità orizzontale (più istanze del server web). Il provider di stato sessione ASP.NET SQL Server consente a un sito in esecuzione su più server web per utilizzare lo stato della sessione, ma comporta un costo di latenza elevata rispetto a un provider in memoria. La soluzione migliore se è necessario utilizzare lo stato della sessione consiste nell'utilizzare un provider di cache, ad esempio il [Provider di stato sessione per Cache di Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Riepilogo
 
@@ -96,11 +96,11 @@ Per ulteriori informazioni sulla memorizzazione nella cache, vedere le risorse s
 
 Documentazione
 
-- [Cache di Azure](https://msdn.microsoft.com/en-us/library/gg278356.aspx). Ufficiale documentazione MSDN relativa alla memorizzazione nella cache in Azure.
-- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Visualizzare informazioni aggiuntive di memorizzazione nella cache e modello Cache-Aside.
-- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Vedere la sezione la memorizzazione nella cache.
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). W. White paper Mark Simms e Michael Thomassy. Vedere la sezione di memorizzazione nella cache distribuita.
-- [Cache nel percorso scalabilità distribuita](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx). Un articolo di MSDN Magazine meno recente (2009), ma un'introduzione chiare per la cache distribuita. vengono inseriti in modo più dettagliato le sezioni di memorizzazione nella cache dei white paper operatore alternativo e procedure consigliate.
+- [Cache di Azure](https://msdn.microsoft.com/library/gg278356.aspx). Ufficiale documentazione MSDN relativa alla memorizzazione nella cache in Azure.
+- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Visualizzare informazioni aggiuntive di memorizzazione nella cache e modello Cache-Aside.
+- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Vedere la sezione la memorizzazione nella cache.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. White paper Mark Simms e Michael Thomassy. Vedere la sezione di memorizzazione nella cache distribuita.
+- [Cache nel percorso scalabilità distribuita](https://msdn.microsoft.com/magazine/dd942840.aspx). Un articolo di MSDN Magazine meno recente (2009), ma un'introduzione chiare per la cache distribuita. vengono inseriti in modo più dettagliato le sezioni di memorizzazione nella cache dei white paper operatore alternativo e procedure consigliate.
 
 Video
 

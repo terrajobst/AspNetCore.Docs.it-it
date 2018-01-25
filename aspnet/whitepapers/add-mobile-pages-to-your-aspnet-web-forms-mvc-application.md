@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: c7d893fb9633aaa8628f2f46a8db7f2c09f81830
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Procedura: Aggiungere pagine per dispositivi mobili per il Web Form ASP.NET / applicazione MVC
 ====================
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/10/2017
 > In questa procedura vengono descritti vari modi per fornire pagine ottimizzate per i dispositivi mobili di Web Form ASP.NET / applicazione MVC e suggerisce dell'architettura e problemi da prendere in considerazione quando la destinazione di un'ampia gamma di dispositivi di progettazione. Questo documento illustra anche i controlli di ASP.NET Mobile da ASP.NET 2.0 a 3.5 perché sono ora obsoleti e vengono illustrate alcune alternative moderne.
 
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 - Panoramica
 - Opzioni dell'architettura
@@ -104,7 +104,7 @@ Il prerequisito di chiave per tutte le tecniche sul lato server per supportare i
 - Metodo di input (mouse o tastiera, tocco, tastierino, joystick,...)
 - La dimensione dello schermo (fisicamente e, in pixel)
 - Formati di dati e i supporti supportati
-- E così via.
+- Etc.
 
 Si consiglia di prendere decisioni in base alle caratteristiche del numero di modello, in quanto, quindi è in grado di gestire dispositivi futuri.
 
@@ -118,7 +118,7 @@ Gli sviluppatori di Web Form ASP.NET e MVC possono individuare immediatamente im
 - Request.Browser.SupportsXmlHttp
 - ... e molti altri
 
-Dietro le quinte, la piattaforma di ASP.NET corrisponde in ingresso *User-Agent* intestazione HTTP (agente utente) con le espressioni regolari in un set di file XML di definizione del Browser. È possibile aggiungere file di definizione del Browser personalizzati ad altri utenti che si desidera riconoscere per impostazione predefinita la piattaforma include le definizioni per molti dispositivi mobili comuni. Per ulteriori informazioni, vedere la pagina MSDN [controlli Server Web ASP.NET e le funzionalità del Browser](https://msdn.microsoft.com/en-us/library/x3k2ssx2.aspx).
+Dietro le quinte, la piattaforma di ASP.NET corrisponde in ingresso *User-Agent* intestazione HTTP (agente utente) con le espressioni regolari in un set di file XML di definizione del Browser. È possibile aggiungere file di definizione del Browser personalizzati ad altri utenti che si desidera riconoscere per impostazione predefinita la piattaforma include le definizioni per molti dispositivi mobili comuni. Per ulteriori informazioni, vedere la pagina MSDN [controlli Server Web ASP.NET e le funzionalità del Browser](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
 ### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Usando il database di dispositivo WURFL tramite 51Degrees.mobi Foundation
 
@@ -213,9 +213,9 @@ Per altri suggerimenti su come ottimizzare il markup e CSS per i browser per dis
 
 Poiché il modello Model-View-Controller separa la logica dell'applicazione (in controller) dalla logica di presentazione (nelle viste), è possibile scegliere da uno degli approcci seguenti per la gestione di supporto per dispositivi mobili nel codice sul lato server:
 
-1. ***Utilizzare lo stesso controller e visualizzazioni per i browser desktop e mobili, ma il rendering di visualizzazioni con layout di Razor diversi a seconda del tipo di dispositivo*.** Questa opzione funziona meglio se si sta visualizzando dati identici in tutti i dispositivi, ma desidera semplicemente specificare diversi fogli di stile CSS o modificare alcuni elementi HTML di livello superiore per dispositivi mobili.
+1. ***Utilizzare lo stesso controller e visualizzazioni per i browser desktop e mobili, ma il rendering di visualizzazioni con layout di Razor diversi a seconda di tipo di dispositivo *.** Questa opzione funziona meglio se si sta visualizzando dati identici in tutti i dispositivi, ma desidera semplicemente specificare diversi fogli di stile CSS o modificare alcuni elementi HTML di livello superiore per dispositivi mobili.
 2. ***Utilizzare gli stessi controller per i browser desktop e mobili, ma il rendering di visualizzazioni diverse a seconda del tipo di dispositivo***. Questa opzione funziona meglio se è attiva la visualizzazione all'incirca gli stessi dati e fornire la stesse dei flussi di lavoro per gli utenti finali, ma desidera eseguire il rendering di markup HTML molto diversi per soddisfare il dispositivo in uso.
-3. ***Creare aree separate per i browser desktop e mobile, implementazione indipendente controller e visualizzazioni per ogni*.** Questa opzione funziona meglio se si sta visualizzare schermate molto diverse, che contiene informazioni diverse e che l'utente attraverso diversi flussi di lavoro ottimizzato per il relativo tipo di dispositivo. Ciò può significare alcuni ripetizione di codice, ma è possibile ridurre al minimo eseguendo il factoring logica comune in un servizio o il livello sottostante.
+3. ***Creare aree separate per i browser desktop e mobile, implementazione indipendente controller e visualizzazioni per ogni *.** Questa opzione funziona meglio se si sta visualizzare schermate molto diverse, che contiene informazioni diverse e che l'utente attraverso diversi flussi di lavoro ottimizzato per il relativo tipo di dispositivo. Ciò può significare alcuni ripetizione di codice, ma è possibile ridurre al minimo eseguendo il factoring logica comune in un servizio o il livello sottostante.
 
 Se si desidera eseguire il **prima** opzione e il layout di Razor variano per ogni tipo di dispositivo, è molto semplice. Modificare solo il \_ViewStart.cshtml file come segue:
 

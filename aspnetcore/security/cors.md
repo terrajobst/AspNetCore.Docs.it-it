@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Abilitare le richieste tra le origini (CORS)
 
@@ -44,7 +44,7 @@ Questi URL sono origini diverse rispetto a quelli due:
 * `http://example.com:9000/foo.html`-Porta diversa
 
 > [!NOTE]
-> Internet Explorer non considera la porta quando si confrontano le origini.
+> Internet Explorer non viene considerata la porta quando si confrontano le origini.
 
 ## <a name="setting-up-cors"></a>Impostazione di CORS
 
@@ -207,7 +207,7 @@ Inoltre, il server deve concedere le credenziali. Per consentire le credenziali 
 
 Ora la risposta HTTP includerà un'intestazione controllo-Consenti-le credenziali di accesso, che indica al browser che il server consenta le credenziali per una richiesta multiorigine.
 
-Se il browser invia le credenziali, ma la risposta non include un'intestazione controllo-Consenti-le credenziali di accesso valida, il browser non espone la risposta all'applicazione e la richiesta AJAX non riesce.
+Se il browser invia le credenziali, ma la risposta non include un'intestazione controllo-Consenti-le credenziali di accesso valida, il browser non esporre la risposta all'applicazione e la richiesta AJAX non riesce.
 
 Prestare molta attenzione su come consentire tra le origini credenziali, in quanto significa che un sito Web in un altro dominio può inviare le credenziali dell'utente connesso all'applicazione per conto dell'utente, senza che l'utente viene presa in considerazione. CORS della specifica anche gli stati di origine di impostazione da "*" (tutte le origini) non è valido se l'intestazione controllo-Consenti-le credenziali di accesso è presente.
 
@@ -252,7 +252,7 @@ Content-Length: 12
 Test message
 ```
 
-Se la risposta non include l'intestazione Access-Control-Allow-Origin, la richiesta AJAX. In particolare, il browser non consente la richiesta. Anche se il server restituisce una risposta con esito positivo, il browser non rende la risposta disponibili per l'applicazione client.
+Se la risposta non include l'intestazione Access-Control-Allow-Origin, la richiesta AJAX. In particolare, il browser non consente la richiesta. Anche se il server restituisce una risposta con esito positivo, il browser non verificare la risposta disponibili per l'applicazione client.
 
 ### <a name="preflight-requests"></a>Richieste preliminari
 
@@ -290,7 +290,7 @@ La richiesta preliminare viene utilizzato il metodo OPTIONS HTTP. Include due in
 
 * Access-Control-Request-Method: Il metodo HTTP utilizzato per la richiesta effettiva.
 
-* Access-Control-Request-Headers: Un elenco di intestazioni di richiesta che l'applicazione è impostata su richiesta effettiva. (Nuovamente, questo non includono le intestazioni che imposta il browser).
+* Access-Control-Request-Headers: Un elenco di intestazioni di richiesta che l'applicazione è impostata su richiesta effettiva. (Nuovamente, questo non include le intestazioni che imposta il browser.)
 
 Di seguito è riportata una risposta di esempio, supponendo che il server consenta la richiesta:
 

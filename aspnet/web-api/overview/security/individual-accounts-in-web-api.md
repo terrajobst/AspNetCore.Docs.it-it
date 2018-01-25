@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8207df79c1e915b33a0ba095d917a6dc69550173
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2056e769edf972cba830b31cf37f6418148ca73
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Proteggere un'API Web con singoli account e un account di accesso locale in ASP.NET Web API 2.2
 ====================
@@ -204,8 +204,8 @@ Di seguito sono le classi dell'applicazione principale che implementano queste f
 
 - `AccountController`. Fornisce un endpoint Web API per la gestione degli account utente. Il `Register` azione è l'unica che è stato usato in questa esercitazione. Altri metodi sulla classe supportano la reimpostazione della password, gli account di accesso social networking e altre funzionalità.
 - `ApplicationUser`, definito in /Models/IdentityModels.cs. Questa classe è il modello di Entity Framework per gli account utente nel database delle appartenenze.
-- `ApplicationUserManager`, definito in /App\_Start/IdentityConfig.cs tale classe deriva dalla [UserManager](https://msdn.microsoft.com/en-us/library/dn613290.aspx) e vengono eseguite operazioni sugli account utente, ad esempio la creazione di un nuovo utente, la verifica delle password e così via e rende automaticamente persistente modifiche al database.
-- `ApplicationOAuthProvider`. L'oggetto si collega il middleware OWIN ed elabora gli eventi generati dal middleware. Deriva da [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
+- `ApplicationUserManager`, definito in /App\_Start/IdentityConfig.cs tale classe deriva dalla [UserManager](https://msdn.microsoft.com/library/dn613290.aspx) e vengono eseguite operazioni sugli account utente, ad esempio la creazione di un nuovo utente, la verifica delle password e così via e rende automaticamente persistente modifiche al database.
+- `ApplicationOAuthProvider`. L'oggetto si collega il middleware OWIN ed elabora gli eventi generati dal middleware. Deriva da [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 

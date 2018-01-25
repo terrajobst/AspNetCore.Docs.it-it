@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cd3343f58cbb9bb868d15a91152f07444c2bd68e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Configurazione di un Server Web per la pubblicazione (distribuzione Offline) di distribuzione Web
 ====================
@@ -60,7 +60,7 @@ Questo argomento viene illustrato come eseguire ognuna di queste procedure. Le a
 - Il server ha un indirizzo IP statico.
 
 > [!NOTE]
-> Per ulteriori informazioni sull'aggiunta di computer a un dominio, vedere [aggiunta di computer al dominio e registrazione](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Per ulteriori informazioni sulla configurazione di indirizzi IP statici, vedere [configurare un indirizzo IP statico](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Per ulteriori informazioni sull'aggiunta di computer a un dominio, vedere [aggiunta di computer al dominio e registrazione](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Per ulteriori informazioni sulla configurazione di indirizzi IP statici, vedere [configurare un indirizzo IP statico](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="install-products-and-components"></a>Installare i prodotti e componenti
@@ -70,7 +70,7 @@ In questa sezione vi assisterà durante l'installazione di componenti e i prodot
 In questo caso, è necessario installare quanto segue:
 
 - **Configurazione consigliata per IIS 7**. In questo modo il **Server Web (IIS)** ruolo sul server web e installa il set di moduli IIS e i componenti necessari per ospitare un'applicazione ASP.NET.
-- **.NET framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
+- **.NET Framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
 - **2.1 o successivo dello strumento di distribuzione Web**. Questo modo vengono installati sul server di distribuzione Web (e il relativo file eseguibile sottostante, MSDeploy.exe). Distribuzione Web integrato con IIS e consente di importare ed esportare pacchetti web.
 - **ASP.NET MVC 3**. Consente di installare gli assembly che necessari per eseguire applicazioni MVC 3.
 
@@ -103,7 +103,7 @@ In questo caso, è necessario installare quanto segue:
 11. Esaminare le condizioni di licenza e, se accettano le condizioni, fare clic su **accetto**.
 12. Una volta completato l'installazione, fare clic su **fine**, quindi chiudere il **installazione guidata piattaforma Web 3.0** finestra.
 
-Se è installato .NET Framework 4.0 prima di installare IIS, è necessario eseguire il [strumento di registrazione ASP.NET IIS](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) per registrare la versione più recente di ASP.NET con IIS. Se non eseguire questa operazione, sono disponibili che IIS verrà contenuto statico (ad esempio file HTML) senza problemi, ma restituirà **404.0 Errore HTTP: non trovato** quando si tenta di passare al contenuto ASP.NET. È possibile utilizzare la procedura seguente per verificare che sia registrato ASP.NET 4.0.
+Se è installato .NET Framework 4.0 prima di installare IIS, è necessario eseguire il [strumento di registrazione ASP.NET IIS](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) per registrare la versione più recente di ASP.NET con IIS. Se non eseguire questa operazione, sono disponibili che IIS verrà contenuto statico (ad esempio file HTML) senza problemi, ma restituirà **404.0 Errore HTTP: non trovato** quando si tenta di passare al contenuto ASP.NET. È possibile utilizzare la procedura seguente per verificare che sia registrato ASP.NET 4.0.
 
 **Per registrare ASP.NET 4.0 con IIS**
 
@@ -149,7 +149,7 @@ Anche se non c'è niente di arresto dalla distribuzione del contenuto per il sit
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image4.png)
 
     > [!NOTE]
-    > In un ambiente di produzione sarà sicuramente si desidera ospitare il sito Web sulla porta 80 e configurare un'intestazione host, con i record DNS corrispondenti. Per ulteriori informazioni sulla configurazione di IIS 7 intestazioni host, vedere [configurare un'intestazione Host per un sito Web (IIS 7)](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Per ulteriori informazioni sul ruolo Server DNS in Windows Server 2008 R2, vedere [Panoramica del Server DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) e [Server DNS](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > In un ambiente di produzione sarà sicuramente si desidera ospitare il sito Web sulla porta 80 e configurare un'intestazione host, con i record DNS corrispondenti. Per ulteriori informazioni sulla configurazione di IIS 7 intestazioni host, vedere [configurare un'intestazione Host per un sito Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Per ulteriori informazioni sul ruolo Server DNS in Windows Server 2008 R2, vedere [Panoramica del Server DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) e [Server DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. Nel riquadro **Azioni** sotto **Modifica sito**, fare clic su **Binding**.
 10. Nel **binding sito** la finestra di dialogo, fare clic su **Aggiungi**.
 
@@ -193,8 +193,8 @@ L'approccio più comune consiste nell'assegnare autorizzazioni a locale **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. Nel **Seleziona utenti o gruppi** della finestra di dialogo tipo **IIS\_IUSRS**, fare clic su **Controlla nomi**, quindi fare clic su **OK**.
-6. Nel **le autorizzazioni per***[nome cartella]* la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il **lettura &amp; eseguire**, **visualizzazione contenuto cartella contenuto**, e **lettura** le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su **OK**.
-7. Fare clic su **OK** per chiudere la *[nome cartella]***proprietà** la finestra di dialogo.
+6. Nel **le autorizzazioni per * * * [nome cartella]* la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il **lettura &amp; eseguire**, **visualizzazione contenuto cartella**, e **Lettura** le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su **OK**.
+7. Fare clic su **OK** per chiudere la *[nome cartella] * * * proprietà** la finestra di dialogo.
 
 ## <a name="disable-the-remote-agent-service"></a>Disabilitare il servizio agente remoto
 

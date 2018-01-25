@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c63b8f591023b68720c523d1c9184a527a34e9cc
-ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
+ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementazione della funzionalità CRUD di base con Entity Framework in applicazione MVC ASP.NET
 ====================
@@ -45,7 +45,7 @@ In questa esercitazione si creerà le pagine web seguenti:
 
 Il codice di supporto temporaneo per studenti `Index` pagina tralasciato il `Enrollments` proprietà, in quanto tale proprietà contiene una raccolta. Nel `Details` pagina verranno visualizzati il contenuto della raccolta in una tabella HTML.
 
- In *Controllers\StudentController.cs*, il metodo di azione per il `Details` visualizzare utilizza il [trovare](https://msdn.microsoft.com/en-us/library/gg696418(v=VS.103).aspx) metodo per recuperare un singolo `Student` entità. 
+ In *Controllers\StudentController.cs*, il metodo di azione per il `Details` visualizzare utilizza il [trovare](https://msdn.microsoft.com/library/gg696418(v=VS.103).aspx) metodo per recuperare un singolo `Student` entità. 
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -92,7 +92,7 @@ Nel codice seguente, `courseID` non corrisponde a un parametro di route predefin
 
 ## <a name="update-the-create-page"></a>Aggiornare la pagina di creazione
 
-1. In *Controllers\StudentController.cs*, sostituire il `HttpPost``Create` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e rimuovere `ID` dal [attributo Bind](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) per il metodo di supporto temporaneo:
+1. In *Controllers\StudentController.cs*, sostituire il `HttpPost``Create` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e rimuovere `ID` dal [attributo Bind](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) per il metodo di supporto temporaneo:
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample7.cs?highlight=3,5-6,13-18)]
 
@@ -108,7 +108,7 @@ Nel codice seguente, `courseID` non corrisponde a un parametro di route predefin
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    Anche se non è un `Secret` campo della pagina web, un pirata informatico potrebbe utilizzare uno strumento come [fiddler](http://fiddler2.com/home), o scrivere alcuni JavaScript, per registrare un `Secret` modulo valore. Senza il [associare](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) attributo limitando i campi che il gestore di associazione del modello viene utilizzato quando viene creato un `Student` istanza*,* lo strumento di associazione del modello preleverebbe che `Secret` formato valore e utilizzarlo per creare il `Student` istanza di entità. Quindi indipendentemente dal valore specificato per hacker il `Secret` campo modulo verranno aggiornato nel database. La figura seguente mostra il fiddler strumento aggiungendo il `Secret` campo (con il valore "OverPost") per i valori del form inseriti.
+    Anche se non è un `Secret` campo della pagina web, un pirata informatico potrebbe utilizzare uno strumento come [fiddler](http://fiddler2.com/home), o scrivere alcuni JavaScript, per registrare un `Secret` modulo valore. Senza il [associare](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) attributo limitando i campi che il gestore di associazione del modello viene utilizzato quando viene creato un `Student` istanza*,* lo strumento di associazione del modello preleverebbe che `Secret` formato valore e utilizzarlo per creare il `Student` istanza di entità. Quindi indipendentemente dal valore specificato per hacker il `Secret` campo modulo verranno aggiornato nel database. La figura seguente mostra il fiddler strumento aggiungendo il `Secret` campo (con il valore "OverPost") per i valori del form inseriti.
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
@@ -120,7 +120,7 @@ Nel codice seguente, `courseID` non corrisponde a un parametro di route predefin
 
     Un modo alternativo per impedire overposting che è preferibile utilizzare molti sviluppatori è usare visualizzazione di modelli anziché le classi di entità con l'associazione di modelli. Includere solo le proprietà che si desidera aggiornare il modello di visualizzazione. Al termine il raccoglitore di modelli MVC, copiare le proprietà del modello di visualizzazione per l'istanza di entità, eventualmente utilizzando uno strumento come [AutoMapper](http://automapper.org/). Utilizzare db. Voce sull'istanza di entità per impostare il proprio stato su Unchanged e quindi impostare Property("PropertyName"). IsModified su true in ogni proprietà di entità che è incluso nel modello di visualizzazione. Questo funzionamento del metodo sia in modifica e creare scenari.
 
-    Diverso dal `Bind` attributo, il `try-catch` blocco è l'unica modifica apportate al codice di scaffolding. Se un'eccezione che deriva da [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) è rilevata durante il salvataggio delle modifiche, viene visualizzato un messaggio di errore generico. [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) eccezioni talvolta sono causate da un elemento esterno per l'applicazione, anziché un errore di programmazione, pertanto l'utente è consigliabile ripetere l'operazione. Anche se non è implementato in questo esempio, un'applicazione di qualità di produzione l'accesso utilizzando l'eccezione. Per ulteriori informazioni, vedere il **Log per informazioni dettagliate** sezione [monitoraggio e telemetria (compilazione reali le app Cloud mediante Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
+    Diverso dal `Bind` attributo, il `try-catch` blocco è l'unica modifica apportate al codice di scaffolding. Se un'eccezione che deriva da [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) è rilevata durante il salvataggio delle modifiche, viene visualizzato un messaggio di errore generico. [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) eccezioni talvolta sono causate da un elemento esterno per l'applicazione, anziché un errore di programmazione, pertanto l'utente è consigliabile ripetere l'operazione. Anche se non è implementato in questo esempio, un'applicazione di qualità di produzione l'accesso utilizzando l'eccezione. Per ulteriori informazioni, vedere il **Log per informazioni dettagliate** sezione [monitoraggio e telemetria (compilazione reali le app Cloud mediante Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
 
     Il codice in *Views\Student\Create.cshtml* è simile a quello visualizzato *Details.cshtml*, ad eccezione del fatto che `EditorFor` e `ValidationMessageFor` helper vengono utilizzati per ogni campo anziché `DisplayFor`. Ecco il codice pertinente:
 
@@ -151,7 +151,7 @@ Tuttavia, sostituire il `HttpPost` `Edit` il metodo di azione con il codice segu
 
 Queste modifiche di sicurezza consigliata per evitare di implementare [overposting](#overpost), il scaffolder generato un `Bind` attributo e aggiungere l'entità creata dal gestore di associazione del modello per il set con un flag di modifica di entità. Codice non è più consigliato perché il `Bind` attributo Cancella tutti i dati esistenti nei campi non elencati nel `Include` parametro. In futuro, verrà aggiornato il scaffolder controller MVC in modo che non genera `Bind` attributi per i metodi di modifica.
 
-Il nuovo codice legge di entità esistente e chiama [TryUpdateModel](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx) per aggiornare i campi dall'input dell'utente nei dati del form inseriti. Rilevamento delle modifiche automatico set del Entity Framework il [Modified](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx) flag nell'entità. Quando il [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metodo viene chiamato, il `Modified` flag fa Entity Framework creare istruzioni SQL per aggiornare la riga di database. [I conflitti di concorrenza](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) vengono ignorati e vengono aggiornate tutte le colonne della riga di database, inclusi quelli che l'utente non è stato modificato. (Un'esercitazione successiva viene illustrato come gestire i conflitti di concorrenza e, se si vuole solo singoli campi da aggiornare nel database, è possibile impostare l'entità su Unchanged e singoli campi modificati.)
+Il nuovo codice legge di entità esistente e chiama [TryUpdateModel](https://msdn.microsoft.com/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx) per aggiornare i campi dall'input dell'utente nei dati del form inseriti. Rilevamento delle modifiche automatico set del Entity Framework il [Modified](https://msdn.microsoft.com/library/system.data.entitystate.aspx) flag nell'entità. Quando il [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metodo viene chiamato, il `Modified` flag fa Entity Framework creare istruzioni SQL per aggiornare la riga di database. [I conflitti di concorrenza](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) vengono ignorati e vengono aggiornate tutte le colonne della riga di database, inclusi quelli che l'utente non è stato modificato. (Un'esercitazione successiva viene illustrato come gestire i conflitti di concorrenza e, se si vuole solo singoli campi da aggiornare nel database, è possibile impostare l'entità su Unchanged e singoli campi modificati.)
 
 Come procedura consigliata per evitare di overposting, i campi che si desidera siano aggiornabili nella pagina di modifica sono inclusi nel `TryUpdateModel` parametri. Attualmente non esistono campi aggiuntivi che si vuole proteggere, ma l'elenco di campi che si desidera lo strumento di associazione per l'associazione assicura che se si aggiungono campi al modello di dati in futuro, che siano automaticamente protetti fino a quando non vengono aggiunti esplicitamente qui.
 
@@ -161,9 +161,9 @@ In seguito a queste modifiche, la firma del metodo del metodo HttpPost modifica 
 > 
 > **Stati di entità e il collegamento e i metodi di SaveChanges**
 > 
-> Il contesto di database tiene traccia del fatto che le entità in memoria vengono sincronizzate con le relative righe corrispondenti nel database e questa informazione determina cosa accade quando si chiama il `SaveChanges` metodo. Ad esempio, quando si passa una nuova entità per il [Aggiungi](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.add(v=vs.103).aspx) (metodo), che lo stato dell'entità è impostato su `Added`. Quando si chiama il [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) (metodo), il contesto del database SQL di problemi `INSERT` comando.
+> Il contesto di database tiene traccia del fatto che le entità in memoria vengono sincronizzate con le relative righe corrispondenti nel database e questa informazione determina cosa accade quando si chiama il `SaveChanges` metodo. Ad esempio, quando si passa una nuova entità per il [Aggiungi](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) (metodo), che lo stato dell'entità è impostato su `Added`. Quando si chiama il [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) (metodo), il contesto del database SQL di problemi `INSERT` comando.
 > 
-> Un'entità potrebbe essere in uno del[seguenti stati](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx):
+> Un'entità potrebbe essere in uno del[seguenti stati](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 > 
 > - `Added`. L'entità non esiste ancora nel database. Il `SaveChanges` metodo deve eseguire un `INSERT` istruzione.
 > - `Unchanged`. Non deve essere eseguita con questa entità per il `SaveChanges` metodo. Quando si legga un'entità dal database, l'entità che inizia con questo stato.
@@ -173,9 +173,9 @@ In seguito a queste modifiche, la firma del metodo del metodo HttpPost modifica 
 > 
 > In un'applicazione desktop, le modifiche dello stato vengono in genere impostate automaticamente. In un tipo desktop dell'applicazione, un'entità di leggere e modificare alcuni valori delle relative proprietà. In questo modo lo stato dell'entità viene convertito automaticamente in `Modified`. Quando si chiama `SaveChanges`, Entity Framework genera l'errore SQL `UPDATE` istruzione che aggiorna solo le proprietà effettive che è stato modificato.
 > 
-> Questa sequenza continua non consentono la natura disconnessa di App web. Il [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) che legge un'entità viene eliminata dopo il rendering di una pagina. Quando il `HttpPost` `Edit` viene chiamato il metodo di azione, viene effettuata una richiesta di nuovo e si dispone di una nuova istanza del [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx), pertanto è necessario impostare manualmente lo stato dell'entità `Modified.` quindi quando si chiama `SaveChanges`, Entity Framework Aggiorna tutte le colonne della riga di database, poiché il contesto non ha modo di conoscere le proprietà che è stato modificato.
+> Questa sequenza continua non consentono la natura disconnessa di App web. Il [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) che legge un'entità viene eliminata dopo il rendering di una pagina. Quando il `HttpPost` `Edit` viene chiamato il metodo di azione, viene effettuata una richiesta di nuovo e si dispone di una nuova istanza del [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx), pertanto è necessario impostare manualmente lo stato dell'entità `Modified.` quindi quando si chiama `SaveChanges`, Entity Framework Aggiorna tutte le colonne della riga di database, poiché il contesto non ha modo di conoscere le proprietà che è stato modificato.
 > 
-> Se si desidera che l'istruzione SQL `Update` istruzione per aggiornare solo i campi che l'utente ha effettivamente modificato, è possibile salvare i valori originali in qualche modo (ad esempio nascosti) in modo che siano disponibili quando la `HttpPost` `Edit` metodo viene chiamato. È possibile creare un `Student` entità utilizzando i valori originali, chiamata di `Attach` metodo con tale versione originale dell'entità, aggiornare i valori dell'entità per i nuovi valori e quindi chiamare `SaveChanges.` per ulteriori informazioni, vedere [ Stati di entità e SaveChanges](https://msdn.microsoft.com/en-us/data/jj592676) e [dati locali](https://msdn.microsoft.com/en-us/data/jj592872) nel centro per sviluppatori MSDN dati.
+> Se si desidera che l'istruzione SQL `Update` istruzione per aggiornare solo i campi che l'utente ha effettivamente modificato, è possibile salvare i valori originali in qualche modo (ad esempio nascosti) in modo che siano disponibili quando la `HttpPost` `Edit` metodo viene chiamato. È possibile creare un `Student` entità utilizzando i valori originali, chiamata di `Attach` metodo con tale versione originale dell'entità, aggiornare i valori dell'entità per i nuovi valori e quindi chiamare `SaveChanges.` per ulteriori informazioni, vedere [ Stati di entità e SaveChanges](https://msdn.microsoft.com/data/jj592676) e [dati locali](https://msdn.microsoft.com/data/jj592872) nel centro per sviluppatori MSDN dati.
 
 
 Il codice HTML e Razor *Views\Student\Edit.cshtml* è simile a quello visualizzato *Create.cshtml*, e non sono necessarie modifiche.
@@ -200,12 +200,12 @@ Si aggiungerà un `try-catch` blocco per il `HttpPost` `Delete` metodo per gesti
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
-    Questo codice accetta un [parametro facoltativo](https://msdn.microsoft.com/en-us/library/dd264739.aspx) che indica se il metodo è stato chiamato dopo un errore di salvare le modifiche. Questo parametro è `false` quando il `HttpGet` `Delete` metodo viene chiamato senza un precedente errore. Quando viene chiamato `HttpPost` `Delete` metodo in risposta a un errore di aggiornamento del database, il parametro è `true` e un messaggio di errore viene passato alla visualizzazione.
+    Questo codice accetta un [parametro facoltativo](https://msdn.microsoft.com/library/dd264739.aspx) che indica se il metodo è stato chiamato dopo un errore di salvare le modifiche. Questo parametro è `false` quando il `HttpGet` `Delete` metodo viene chiamato senza un precedente errore. Quando viene chiamato `HttpPost` `Delete` metodo in risposta a un errore di aggiornamento del database, il parametro è `true` e un messaggio di errore viene passato alla visualizzazione.
 - Sostituire il `HttpPost` `Delete` metodo di azione (denominato `DeleteConfirmed`) con il codice seguente, che esegue l'operazione di eliminazione effettiva e rileva eventuali errori di aggiornamento del database.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    Questo codice viene recuperato l'entità selezionata, quindi chiama il [rimuovere](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.remove(v=vs.103).aspx) per impostare lo stato dell'entità su `Deleted`. Quando `SaveChanges` viene chiamato, un database SQL `DELETE` comando viene generato. È stato modificato il nome del metodo di azione da `DeleteConfirmed` a `Delete`. Il codice di supporto temporaneo denominato il `HttpPost` `Delete` metodo `DeleteConfirmed` per fornire il `HttpPost` metodo una firma univoca. (Common Language Runtime richiede metodi di overload per disporre di parametri di metodo diverso). Ora che le firme sono univoche, è possibile utilizzare la convenzione MVC e utilizzare lo stesso nome per il `HttpPost` e `HttpGet` eliminare i metodi.
+    Questo codice viene recuperato l'entità selezionata, quindi chiama il [rimuovere](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) per impostare lo stato dell'entità su `Deleted`. Quando `SaveChanges` viene chiamato, un database SQL `DELETE` comando viene generato. È stato modificato il nome del metodo di azione da `DeleteConfirmed` a `Delete`. Il codice di supporto temporaneo denominato il `HttpPost` `Delete` metodo `DeleteConfirmed` per fornire il `HttpPost` metodo una firma univoca. (Common Language Runtime richiede metodi di overload per disporre di parametri di metodo diverso). Ora che le firme sono univoche, è possibile utilizzare la convenzione MVC e utilizzare lo stesso nome per il `HttpPost` e `HttpGet` eliminare i metodi.
 
     Se il miglioramento delle prestazioni in un'applicazione con volumi elevati è una priorità, è possibile evitare una query SQL non necessaria per recuperare la riga sostituendo le righe di codice che chiamano il `Find` e `Remove` metodi con il codice seguente:
 
@@ -225,7 +225,7 @@ Si aggiungerà un `try-catch` blocco per il `HttpPost` `Delete` metodo per gesti
 
 ## <a name="closing-database-connections"></a>Chiusura delle connessioni di Database
 
-Per chiudere le connessioni al database e liberare le risorse che contengano appena possibile, eliminare l'istanza del contesto al termine con esso. Vale a dire perché il codice di scaffolding fornisce un [Dispose](https://msdn.microsoft.com/en-us/library/system.idisposable.dispose(v=vs.110).aspx) metodo alla fine del `StudentController` classe *StudentController.cs*, come illustrato nell'esempio seguente:
+Per chiudere le connessioni al database e liberare le risorse che contengano appena possibile, eliminare l'istanza del contesto al termine con esso. Vale a dire perché il codice di scaffolding fornisce un [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx) metodo alla fine del `StudentController` classe *StudentController.cs*, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -234,11 +234,11 @@ La base `Controller` già classe implementa il `IDisposable` interfaccia, in mod
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>Gestione delle transazioni
 
-Per impostazione predefinita di Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui si apportano modifiche a più righe o le tabelle e quindi chiamare `SaveChanges`, Entity Framework di verificare che tutte le modifiche apportate dal tutte esito automaticamente. Se alcune modifiche sono state completate prima e quindi si verifica un errore, tali modifiche vengono automaticamente il rollback. Per scenari in cui è necessario più controllare, ad esempio, se si desidera includere operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [si utilizzano le transazioni](https://msdn.microsoft.com/en-US/data/dn456843) su MSDN.
+Per impostazione predefinita di Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui si apportano modifiche a più righe o le tabelle e quindi chiamare `SaveChanges`, Entity Framework di verificare che tutte le modifiche apportate dal tutte esito automaticamente. Se alcune modifiche sono state completate prima e quindi si verifica un errore, tali modifiche vengono automaticamente il rollback. Per scenari in cui è necessario più controllare, ad esempio, se si desidera includere operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [si utilizzano le transazioni](https://msdn.microsoft.com/data/dn456843) su MSDN.
 
 ## <a name="summary"></a>Riepilogo
 
-Ora è un set completo di pagine in cui eseguire semplici operazioni CRUD per `Student` entità. Helper MVC usato per generare elementi dell'interfaccia utente per i campi dati. Per ulteriori informazioni su helper MVC, vedere [il Rendering di un helper HTML utilizzando modulo](https://msdn.microsoft.com/en-us/library/dd410596(v=VS.98).aspx) (la pagina è per MVC 3, ma sono ancora rilevanti per MVC 5).
+Ora è un set completo di pagine in cui eseguire semplici operazioni CRUD per `Student` entità. Helper MVC usato per generare elementi dell'interfaccia utente per i campi dati. Per ulteriori informazioni su helper MVC, vedere [il Rendering di un helper HTML utilizzando modulo](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx) (la pagina è per MVC 3, ma sono ancora rilevanti per MVC 5).
 
 Nella prossima esercitazione si saranno espandere le funzionalità della pagina di indice mediante l'aggiunta di ordinamento e paging.
 

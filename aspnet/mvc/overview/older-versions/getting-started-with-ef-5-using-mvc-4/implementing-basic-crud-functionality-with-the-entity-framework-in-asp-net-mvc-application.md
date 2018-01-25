@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 425335d72643da39faee6e457d552c9faa6a1f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d031cd760fb578d29626933eed39fe987ef796d7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC (2 di 10)
 ====================
@@ -71,7 +71,7 @@ Il codice di supporto temporaneo per studenti `Index` pagina tralasciato il `Enr
 
 ## <a name="updating-the-create-page"></a>Aggiornamento della pagina di creazione
 
-1. In *Controllers\StudentController.cs*, sostituire il `HttpPost``Create` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e [attributo Bind](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) al metodo di supporto temporaneo: 
+1. In *Controllers\StudentController.cs*, sostituire il `HttpPost``Create` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e [attributo Bind](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) al metodo di supporto temporaneo: 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample4.cs?highlight=4,7-8,14-20)]
 
@@ -86,7 +86,7 @@ Il codice di supporto temporaneo per studenti `Index` pagina tralasciato il `Enr
     > 
     > [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample5.cs?highlight=7)]
     > 
-    > Even if you don't have a `Secret` field on the web page, a hacker could use a tool such as [fiddler](http://fiddler2.com/home), or write some JavaScript, to post a `Secret` form value. Without the [Bind](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) attribute limiting the fields that the model binder uses when it creates a `Student` instance*,* the model binder would pick up that `Secret` form value and use it to update the `Student` entity instance. Then whatever value the hacker specified for the `Secret` form field would be updated in your database. The following image shows the fiddler tool adding the `Secret` field (with the value "OverPost") to the posted form values.
+    > Even if you don't have a `Secret` field on the web page, a hacker could use a tool such as [fiddler](http://fiddler2.com/home), or write some JavaScript, to post a `Secret` form value. Without the [Bind](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) attribute limiting the fields that the model binder uses when it creates a `Student` instance*,* the model binder would pick up that `Secret` form value and use it to update the `Student` entity instance. Then whatever value the hacker specified for the `Secret` form field would be updated in your database. The following image shows the fiddler tool adding the `Secret` field (with the value "OverPost") to the posted form values.
     > 
     > ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image6.png)  
     > 
@@ -96,7 +96,7 @@ Il codice di supporto temporaneo per studenti `Index` pagina tralasciato il `Enr
     > 
     > Another alternative approach, and one preferred by many, is to use only view models with model binding. The view model contains only the properties you want to bind. Once the MVC model binder has finished, you copy the view model properties to the entity instance.
 
-    Other than the `Bind` attribute, the `try-catch` block is the only change you've made to the scaffolded code. If an exception that derives from [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) is caught while the changes are being saved, a generic error message is displayed. [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) exceptions are sometimes caused by something external to the application rather than a programming error, so the user is advised to try again. Although not implemented in this sample, a production quality application would log the exception (and non-null inner exceptions ) with a logging mechanism such as [ELMAH](https://code.google.com/p/elmah/).
+    Other than the `Bind` attribute, the `try-catch` block is the only change you've made to the scaffolded code. If an exception that derives from [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) is caught while the changes are being saved, a generic error message is displayed. [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) exceptions are sometimes caused by something external to the application rather than a programming error, so the user is advised to try again. Although not implemented in this sample, a production quality application would log the exception (and non-null inner exceptions ) with a logging mechanism such as [ELMAH](https://code.google.com/p/elmah/).
 
     The code in *Views\Student\Create.cshtml* is similar to what you saw in *Details.cshtml*, except that `EditorFor` and `ValidationMessageFor` helpers are used for each field instead of `DisplayFor`. The following example shows the relevant code:
 
@@ -125,17 +125,17 @@ Il codice di supporto temporaneo per studenti `Index` pagina tralasciato il `Enr
 
 In *Controllers\StudentController.cs*, `HttpGet` `Edit` (metodo) (quello senza il `HttpPost` attributo) utilizza il `Find` metodo per recuperare l'oggetto selezionato `Student` entità, come è stato illustrato nel `Details` metodo. Non è necessario modificare questo metodo.
 
-Tuttavia, sostituire il `HttpPost` `Edit` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e [attributo Bind](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx):
+Tuttavia, sostituire il `HttpPost` `Edit` metodo di azione con il codice seguente per aggiungere un `try-catch` blocco e [attributo Bind](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx):
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs)]
 
-Questo codice è simile a quello visualizzato nel `HttpPost` `Create` metodo. Tuttavia, anziché aggiungere l'entità creata dal gestore di associazione del modello per il set di entità, questo codice imposta un flag per l'entità che indica che è stato modificato. Quando il [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metodo viene chiamato, il [Modified](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx) flag fa Entity Framework creare istruzioni SQL per aggiornare la riga di database. Verranno aggiornate tutte le colonne della riga di database, inclusi quelli che l'utente non sono stati modificati, e vengono ignorati i conflitti di concorrenza. (Si apprenderà come gestire la concorrenza in un'esercitazione successiva di questa serie.)
+Questo codice è simile a quello visualizzato nel `HttpPost` `Create` metodo. Tuttavia, anziché aggiungere l'entità creata dal gestore di associazione del modello per il set di entità, questo codice imposta un flag per l'entità che indica che è stato modificato. Quando il [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metodo viene chiamato, il [Modified](https://msdn.microsoft.com/library/system.data.entitystate.aspx) flag fa Entity Framework creare istruzioni SQL per aggiornare la riga di database. Verranno aggiornate tutte le colonne della riga di database, inclusi quelli che l'utente non sono stati modificati, e vengono ignorati i conflitti di concorrenza. (Si apprenderà come gestire la concorrenza in un'esercitazione successiva di questa serie.)
 
 ### <a name="entity-states-and-the-attach-and-savechanges-methods"></a>Stati di entità e il collegamento e i metodi di SaveChanges
 
-Il contesto di database tiene traccia del fatto che le entità in memoria vengono sincronizzate con le relative righe corrispondenti nel database e questa informazione determina cosa accade quando si chiama il `SaveChanges` metodo. Ad esempio, quando si passa una nuova entità per il [Aggiungi](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.add(v=vs.103).aspx) (metodo), che lo stato dell'entità è impostato su `Added`. Quando si chiama il [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) (metodo), il contesto del database SQL di problemi `INSERT` comando.
+Il contesto di database tiene traccia del fatto che le entità in memoria vengono sincronizzate con le relative righe corrispondenti nel database e questa informazione determina cosa accade quando si chiama il `SaveChanges` metodo. Ad esempio, quando si passa una nuova entità per il [Aggiungi](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) (metodo), che lo stato dell'entità è impostato su `Added`. Quando si chiama il [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) (metodo), il contesto del database SQL di problemi `INSERT` comando.
 
-Un'entità potrebbe essere in uno del[seguenti stati](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx):
+Un'entità potrebbe essere in uno del[seguenti stati](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 
 - `Added`. L'entità non esiste ancora nel database. Il `SaveChanges` metodo deve eseguire un `INSERT` istruzione.
 - `Unchanged`. Non deve essere eseguita con questa entità per il `SaveChanges` metodo. Quando si legga un'entità dal database, l'entità che inizia con questo stato.
@@ -145,9 +145,9 @@ Un'entità potrebbe essere in uno del[seguenti stati](https://msdn.microsoft.com
 
 In un'applicazione desktop, le modifiche dello stato vengono in genere impostate automaticamente. In un tipo desktop dell'applicazione, un'entità di leggere e modificare alcuni valori delle relative proprietà. In questo modo lo stato dell'entità viene convertito automaticamente in `Modified`. Quando si chiama `SaveChanges`, Entity Framework genera l'errore SQL `UPDATE` istruzione che aggiorna solo le proprietà effettive che è stato modificato.
 
-Questa sequenza continua non consentono la natura disconnessa di App web. Il [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) che legge un'entità viene eliminata dopo il rendering di una pagina. Quando il `HttpPost` `Edit` viene chiamato il metodo di azione, viene effettuata una richiesta di nuovo e si dispone di una nuova istanza del [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx), pertanto è necessario impostare manualmente lo stato dell'entità `Modified.` quindi quando si chiama `SaveChanges`, Entity Framework Aggiorna tutte le colonne della riga di database, poiché il contesto non ha modo di conoscere le proprietà che è stato modificato.
+Questa sequenza continua non consentono la natura disconnessa di App web. Il [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) che legge un'entità viene eliminata dopo il rendering di una pagina. Quando il `HttpPost` `Edit` viene chiamato il metodo di azione, viene effettuata una richiesta di nuovo e si dispone di una nuova istanza del [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx), pertanto è necessario impostare manualmente lo stato dell'entità `Modified.` quindi quando si chiama `SaveChanges`, Entity Framework Aggiorna tutte le colonne della riga di database, poiché il contesto non ha modo di conoscere le proprietà che è stato modificato.
 
-Se si desidera che l'istruzione SQL `Update` istruzione per aggiornare solo i campi che l'utente ha effettivamente modificato, è possibile salvare i valori originali in qualche modo (ad esempio nascosti) in modo che siano disponibili quando la `HttpPost` `Edit` metodo viene chiamato. È possibile creare un `Student` entità utilizzando i valori originali, chiamata di `Attach` metodo con tale versione originale dell'entità, aggiornare i valori dell'entità per i nuovi valori e quindi chiamare `SaveChanges.` per ulteriori informazioni, vedere [ Stati di entità e SaveChanges](https://msdn.microsoft.com/en-us/data/jj592676) e [dati locali](https://msdn.microsoft.com/en-us/data/jj592872) nel centro per sviluppatori MSDN dati.
+Se si desidera che l'istruzione SQL `Update` istruzione per aggiornare solo i campi che l'utente ha effettivamente modificato, è possibile salvare i valori originali in qualche modo (ad esempio nascosti) in modo che siano disponibili quando la `HttpPost` `Edit` metodo viene chiamato. È possibile creare un `Student` entità utilizzando i valori originali, chiamata di `Attach` metodo con tale versione originale dell'entità, aggiornare i valori dell'entità per i nuovi valori e quindi chiamare `SaveChanges.` per ulteriori informazioni, vedere [ Stati di entità e SaveChanges](https://msdn.microsoft.com/data/jj592676) e [dati locali](https://msdn.microsoft.com/data/jj592872) nel centro per sviluppatori MSDN dati.
 
 Il codice in *Views\Student\Edit.cshtml* è simile a quello visualizzato *Create.cshtml*, e non sono necessarie modifiche.
 
@@ -171,12 +171,12 @@ Si aggiungerà un `try-catch` blocco per il `HttpPost` `Delete` metodo per gesti
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample9.cs)]
 
-    Questo codice accetta un [facoltativo](https://msdn.microsoft.com/en-us/library/dd264739.aspx) parametro booleano che indica se è stata chiamata dopo un errore di salvare le modifiche. Questo parametro è `false` quando il `HttpGet` `Delete` metodo viene chiamato senza un precedente errore. Quando viene chiamato `HttpPost` `Delete` metodo in risposta a un errore di aggiornamento del database, il parametro è `true` e un messaggio di errore viene passato alla visualizzazione.
+    Questo codice accetta un [facoltativo](https://msdn.microsoft.com/library/dd264739.aspx) parametro booleano che indica se è stata chiamata dopo un errore di salvare le modifiche. Questo parametro è `false` quando il `HttpGet` `Delete` metodo viene chiamato senza un precedente errore. Quando viene chiamato `HttpPost` `Delete` metodo in risposta a un errore di aggiornamento del database, il parametro è `true` e un messaggio di errore viene passato alla visualizzazione.
 - Sostituire il `HttpPost` `Delete` metodo di azione (denominato `DeleteConfirmed`) con il codice seguente, che esegue l'operazione di eliminazione effettiva e rileva eventuali errori di aggiornamento del database.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs)]
 
-    Questo codice viene recuperato l'entità selezionata, quindi chiama il [rimuovere](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.remove(v=vs.103).aspx) per impostare lo stato dell'entità su `Deleted`. Quando `SaveChanges` viene chiamato, un database SQL `DELETE` comando viene generato. È stato modificato il nome del metodo di azione da `DeleteConfirmed` a `Delete`. Il codice di supporto temporaneo denominato il `HttpPost` `Delete` metodo `DeleteConfirmed` per fornire il `HttpPost` metodo una firma univoca. (Common Language Runtime richiede metodi di overload per disporre di parametri di metodo diverso). Ora che le firme sono univoche, è possibile utilizzare la convenzione MVC e utilizzare lo stesso nome per il `HttpPost` e `HttpGet` eliminare i metodi.
+    Questo codice viene recuperato l'entità selezionata, quindi chiama il [rimuovere](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) per impostare lo stato dell'entità su `Deleted`. Quando `SaveChanges` viene chiamato, un database SQL `DELETE` comando viene generato. È stato modificato il nome del metodo di azione da `DeleteConfirmed` a `Delete`. Il codice di supporto temporaneo denominato il `HttpPost` `Delete` metodo `DeleteConfirmed` per fornire il `HttpPost` metodo una firma univoca. (Common Language Runtime richiede metodi di overload per disporre di parametri di metodo diverso). Ora che le firme sono univoche, è possibile utilizzare la convenzione MVC e utilizzare lo stesso nome per il `HttpPost` e `HttpGet` eliminare i metodi.
 
     Se il miglioramento delle prestazioni in un'applicazione con volumi elevati è una priorità, è possibile evitare una query SQL non necessaria per recuperare la riga sostituendo le righe di codice che chiamano il `Find` e `Remove` metodi con il codice seguente come illustrato in giallo evidenziare:
 
@@ -196,7 +196,7 @@ Si aggiungerà un `try-catch` blocco per il `HttpPost` `Delete` metodo per gesti
 
 ## <a name="ensuring-that-database-connections-are-not-left-open"></a>Verificare che le connessioni al Database non vengono lasciate aperte
 
-Per assicurarsi che le connessioni al database vengano chiuse correttamente e le risorse contengano liberati backup, verrà visualizzato a tale che l'istanza del contesto è stato eliminato. Vale a dire perché il codice di scaffolding fornisce un [Dispose](https://msdn.microsoft.com/en-us/library/system.idisposable.dispose(v=vs.110).aspx) metodo alla fine del `StudentController` classe *StudentController.cs*, come illustrato nell'esempio seguente:
+Per assicurarsi che le connessioni al database vengano chiuse correttamente e le risorse contengano liberati backup, verrà visualizzato a tale che l'istanza del contesto è stato eliminato. Vale a dire perché il codice di scaffolding fornisce un [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx) metodo alla fine del `StudentController` classe *StudentController.cs*, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
@@ -204,7 +204,7 @@ La base `Controller` già classe implementa il `IDisposable` interfaccia, in mod
 
 ## <a name="summary"></a>Riepilogo
 
-Ora è un set completo di pagine in cui eseguire semplici operazioni CRUD per `Student` entità. Helper MVC usato per generare elementi dell'interfaccia utente per i campi dati. Per ulteriori informazioni su helper MVC, vedere [il Rendering di un helper HTML utilizzando modulo](https://msdn.microsoft.com/en-us/library/dd410596(v=VS.98).aspx) (la pagina è per MVC 3, ma sono ancora rilevanti per MVC 4).
+Ora è un set completo di pagine in cui eseguire semplici operazioni CRUD per `Student` entità. Helper MVC usato per generare elementi dell'interfaccia utente per i campi dati. Per ulteriori informazioni su helper MVC, vedere [il Rendering di un helper HTML utilizzando modulo](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx) (la pagina è per MVC 3, ma sono ancora rilevanti per MVC 4).
 
 Nella prossima esercitazione si saranno espandere le funzionalità della pagina di indice mediante l'aggiunta di ordinamento e paging.
 

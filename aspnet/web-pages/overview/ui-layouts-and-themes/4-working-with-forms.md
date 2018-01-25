@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: fcdded3a7e80ee797eae445f347735f0f7b3d7ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Utilizzo di form HTML in siti Web di ASP.NET di pagine (Razor)
 ====================
@@ -134,12 +134,12 @@ Quando il test della pagina nella sezione precedente, è possibile notare che se
     Il `value` attributo del `<input>` elementi è stata impostata in modo dinamico, leggere il valore del campo da di `Request.Form` oggetto. La prima volta che viene richiesta la pagina, i valori di `Request.Form` oggetto siano vuoti. L'operazione è corretta, perché in questo modo il modulo è vuoto.
 2. Avviare la pagina nel browser, compilare i campi modulo o lasciare il campo vuoto e fare clic su **Invia**. Viene visualizzata una pagina che mostra i valori inviati.
 
-    ![Form 5](4-working-with-forms/_static/image5.jpg)
+    ![forms-5](4-working-with-forms/_static/image5.jpg)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [1.001 modi per ottenere l'Input dagli utenti Web](https://msdn.microsoft.com/en-us/library/ms971057.aspx)
-- [Utilizzo di form e l'elaborazione dell'Input dell'utente](https://msdn.microsoft.com/en-us/library/ms525182(VS.90).aspx)
-- [Convalida dell'Input utente nei siti di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [Utilizzo di completamento automatico nei form HTML](https://msdn.microsoft.com/en-us/library/ms533032(VS.85).aspx)
+- [1.001 modi per ottenere l'Input dagli utenti Web](https://msdn.microsoft.com/library/ms971057.aspx)
+- [Utilizzo di form e l'elaborazione dell'Input dell'utente](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
+- [Convalida dell'input utente nelle pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Utilizzo di completamento automatico nei form HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

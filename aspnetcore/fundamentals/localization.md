@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -41,7 +41,7 @@ Introdotto in ASP.NET Core, `IStringLocalizer` e `IStringLocalizer<T>` sono stat
 
 Nel codice precedente, il `IStringLocalizer<T>` implementazione proviene da [Dependency Injection](dependency-injection.md). Se non viene trovato il valore localizzato di "Su Title", quindi la chiave dell'indicizzatore viene restituita, ovvero la stringa "Title su". È possibile lasciare l'impostazione predefinita, le stringhe letterali lingua nell'app e wrap in localizzatore, in modo che sia possibile concentrarsi sullo sviluppo di app. Sviluppare l'applicazione con la lingua predefinita e prepararlo per il passaggio di localizzazione senza prima creare un file di risorse predefinito. In alternativa, è possibile utilizzare l'approccio tradizionale e fornire una chiave per recuperare la stringa di lingua predefinita. Per molti sviluppatori nuovo flusso di lavoro di non avere una lingua predefinita *resx* file e semplicemente il wrapping i valori letterali stringa possono ridurre l'overhead di localizzazione di un'app. Come può rendere più facile lavorare con più valori letterali stringa e rendono più semplice aggiornare le stringhe localizzate, altri sviluppatori preferiranno il flusso di lavoro tradizionale.
 
-Utilizzare il `IHtmlLocalizer<T>` implementazione per le risorse che contengono HTML. `IHtmlLocalizer`HTML codifica argomenti in cui vengono utilizzati la stringa di risorsa, ma HTML non codificare la stringa risorsa stessa. Nell'esempio evidenziate, solo il valore di `name` parametro è codificato in formato HTML.
+Utilizzare il `IHtmlLocalizer<T>` implementazione per le risorse che contengono HTML. `IHtmlLocalizer`HTML codifica argomenti in cui vengono utilizzati la stringa di risorsa, ma non HTML codificare la stringa risorsa stessa. Nell'esempio evidenziate, solo il valore di `name` parametro è codificato in formato HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -152,7 +152,7 @@ In alternativa, è possibile ignorare questo errore. Ci auguriamo che risolvere 
 
 ## <a name="resource-file-naming"></a>La denominazione dei file di risorse
 
-Le risorse sono denominate per il nome completo del tipo della relativa classe di meno il nome dell'assembly. Ad esempio, una risorsa francese in un progetto dell'assembly principale è `LocalizationWebsite.Web.dll` per la classe `LocalizationWebsite.Web.Startup` verrebbe denominato *Startup.fr.resx*. Una risorsa per la classe `LocalizationWebsite.Web.Controllers.HomeController` verrebbe denominato *Controllers.HomeController.fr.resx*. Se lo spazio dei nomi della classe di destinazione non è identico al nome di assembly, è necessario il nome completo del tipo. Ad esempio, nell'esempio di una risorsa per il tipo di progetto `ExtraNamespace.Tools` verrebbe denominato *ExtraNamespace.Tools.fr.resx*.
+Le risorse sono denominate per il nome completo del tipo della relativa classe di meno il nome dell'assembly. Ad esempio, una risorsa francese in un progetto dell'assembly principale è `LocalizationWebsite.Web.dll` per la classe `LocalizationWebsite.Web.Startup` verrebbe denominato *Startup.fr.resx*. Una risorsa per la classe `LocalizationWebsite.Web.Controllers.HomeController` verrebbe denominato *Controllers.HomeController.fr.resx*. Se lo spazio dei nomi della classe di destinazione non corrisponde al nome dell'assembly è necessario il nome completo del tipo. Ad esempio, nell'esempio di una risorsa per il tipo di progetto `ExtraNamespace.Tools` verrebbe denominato *ExtraNamespace.Tools.fr.resx*.
 
 Nel progetto di esempio, il `ConfigureServices` metodo imposta la `ResourcesPath` in "Resources", pertanto il percorso relativo del progetto per il file di risorse francese del controller home è *Resources/Controllers.HomeController.fr.resx*. In alternativa, è possibile utilizzare cartelle per organizzare i file di risorse. Per il controller home, il percorso dovrebbe essere *Resources/Controllers/HomeController.fr.resx*. Se non si utilizza il `ResourcesPath` opzione, il *resx* verrebbero file nella directory di base del progetto. File di risorse per `HomeController` verrebbe denominato *Controllers.HomeController.fr.resx*. La scelta di utilizzare la convenzione di denominazione di punto o percorso dipende da come si desidera organizzare i file di risorse.
 
@@ -176,7 +176,7 @@ Ad esempio, se si rimuove l'identificatore delle impostazioni cultura "fr" e si 
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generare file di risorse con Visual Studio
 
-Se si crea un file di risorse in Visual Studio senza le impostazioni cultura nel nome del file (ad esempio, *Welcome.resx*), Visual Studio verrà creata una classe c# con una proprietà per ogni stringa. Che è in genere non si desidera con ASP.NET Core; in genere non è un valore predefinito *resx* file di risorse (A *resx* file senza il nome delle impostazioni cultura). Si consiglia creare il *resx* file con un nome di impostazioni cultura (ad esempio *Welcome.fr.resx*). Quando si crea un *resx* file con un nome di impostazioni cultura, Visual Studio non genererà il file di classe. Si prevede che molti sviluppatori **non** creare un file di risorse di lingua predefinita.
+Se si crea un file di risorse in Visual Studio senza le impostazioni cultura nel nome del file (ad esempio, *Welcome.resx*), Visual Studio verrà creata una classe c# con una proprietà per ogni stringa. Che è in genere non si desidera con ASP.NET Core; in genere non è un valore predefinito *resx* file di risorse (A *resx* file senza il nome delle impostazioni cultura). Si consiglia creare il *resx* file con un nome di impostazioni cultura (ad esempio *Welcome.fr.resx*). Quando si crea un *resx* file con un nome di impostazioni cultura, Visual Studio, non verrà generato il file di classe. Si prevede che molti sviluppatori **non** creare un file di risorse di lingua predefinita.
 
 ### <a name="add-other-cultures"></a>Aggiungere altre impostazioni cultura
 

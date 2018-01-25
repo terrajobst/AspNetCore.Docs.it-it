@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
-ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
-ms.translationtype: HT
+ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>Utilizzare il modello di progetto React (versione finale candidata)
 
 > [!NOTE]
-> Questa documentazione non è presente sul modello di progetto React rilasciato. **Questa documentazione è sulla versione finale candidata del modello React.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
+> Questa documentazione non è sul modello di progetto React rilasciato. **Questa documentazione è sulla versione finale candidata del modello React.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
 
 Il modello di progetto aggiornato React fornisce un punto di partenza ideale per ASP.NET Core App scritte in React e [creare app di reazione](https://github.com/facebookincubator/create-react-app) convenzioni (CRA) per implementare un'interfaccia utente avanzata, sul lato client (UI).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 68b82661b97434795e1c306b168033dfcde529bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="action-results-in-web-api-2"></a>Risultati dell'azione in Web API 2
 ====================
@@ -56,7 +56,7 @@ Risposta HTTP:
 
 ## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Se l'azione restituisce un [HttpResponseMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.aspx), API Web converte il valore restituito direttamente in un messaggio di risposta HTTP, utilizzando le proprietà del **HttpResponseMessage** oggetto per popolare il risposta.
+Se l'azione restituisce un [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), API Web converte il valore restituito direttamente in un messaggio di risposta HTTP, utilizzando le proprietà del **HttpResponseMessage** oggetto per popolare il risposta.
 
 Questa opzione offre un grande controllo sul messaggio di risposta. Ad esempio, l'azione del controller seguente imposta l'intestazione Cache-Control.
 
@@ -98,9 +98,9 @@ Risposta:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Più spesso, si utilizzerà il **IHttpActionResult** definite in implementazioni di  **[Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)**  dello spazio dei nomi. Il **ApiController** classe definisce i metodi helper che restituiscono i risultati dell'azione predefinita.
+Più spesso, si utilizzerà il **IHttpActionResult** definite in implementazioni di  **[Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  dello spazio dei nomi. Il **ApiController** classe definisce i metodi helper che restituiscono i risultati dell'azione predefinita.
 
-Nell'esempio seguente, se la richiesta non corrisponde a un ID prodotto esistente, il controller chiama [ApiController.NotFound](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.notfound.aspx) per creare una risposta 404 (non trovato). In caso contrario, il controller chiama [ApiController.OK](https://msdn.microsoft.com/en-us/library/dn314591.aspx), che consente di creare una risposta 200 (OK) che contiene il prodotto.
+Nell'esempio seguente, se la richiesta non corrisponde a un ID prodotto esistente, il controller chiama [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) per creare una risposta 404 (non trovato). In caso contrario, il controller chiama [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), che consente di creare una risposta 200 (OK) che contiene il prodotto.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 

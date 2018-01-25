@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: a17b9f26ec48b5410211d6dad6e4deec971642d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Parte 7: Creazione principale pagina
 ====================
@@ -116,8 +116,8 @@ In questa esercitazione è creata un'applicazione che usa Entity Framework per c
 
 Risorse aggiuntive:
 
-- [Mappa del contenuto di accesso ai dati ASP.NET](https://msdn.microsoft.com/en-us/library/6759sth4.aspx)
-- [Centro per sviluppatori di Entity Framework](https://msdn.microsoft.com/en-US/data/ef)
+- [Mappa del contenuto di accesso ai dati ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [Centro per sviluppatori di Entity Framework](https://msdn.microsoft.com/data/ef)
 
 >[!div class="step-by-step"]
 [Precedente](using-web-api-with-entity-framework-part-6.md)

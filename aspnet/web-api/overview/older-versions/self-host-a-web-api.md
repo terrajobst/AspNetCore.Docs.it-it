@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Self-hosting ASP.NET Web API 1 (c#)
 ====================
@@ -43,7 +43,7 @@ Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **V
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>Impostare il Framework di destinazione (Visual Studio 2010)
 
-Se si utilizza Visual Studio 2010, è possibile modificare il framework di destinazione in .NET Framework 4.0. (Per impostazione predefinita, le destinazioni di modello di progetto di [del profilo di .net Framework Client](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+Se si utilizza Visual Studio 2010, è possibile modificare il framework di destinazione in .NET Framework 4.0. (Per impostazione predefinita, le destinazioni di modello di progetto di [del profilo di .net Framework Client](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 In Esplora soluzioni, fare clic sul progetto e selezionare **proprietà**. Nel **framework di destinazione** elenco a discesa elenco, modificare il framework di destinazione in .NET Framework 4.0. Quando viene richiesto di applicare la modifica, fare clic su **Sì**.
 
@@ -101,8 +101,8 @@ Per ulteriori informazioni sul codice in questo controller, vedere il [Introduzi
 | URI | Descrizione |
 | --- | --- |
 | prodotti/api / | Ottenere un elenco di tutti i prodotti. |
-| /API/prodotti/*id* | Ottenere un prodotto in base all'ID. |
-| /API/prodotti /? categoria =*categoria* | Ottenere un elenco di prodotti per categoria. |
+| /api/products/*id* | Ottenere un prodotto in base all'ID. |
+| /api/products/?category=*category* | Ottenere un elenco di prodotti per categoria. |
 
 ## <a name="host-the-web-api"></a>L'API Web host
 

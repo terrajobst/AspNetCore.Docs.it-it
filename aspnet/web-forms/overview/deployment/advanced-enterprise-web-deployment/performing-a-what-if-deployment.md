@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62be7c9636fb74c40bec812e9ac76b360995da50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Esecuzione di una distribuzione "Cosa accade se"
 ====================
@@ -52,7 +52,7 @@ Se si utilizza MSDeploy.exe direttamente, è possibile eseguire una distribuzion
 Quando si è soddisfatti dei risultati della distribuzione di "cosa accade se", è possibile rimuovere il **– whatif** flag per eseguire una distribuzione in tempo reale.
 
 > [!NOTE]
-> Per ulteriori informazioni sulle opzioni della riga di comando di MSDeploy.exe, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+> Per ulteriori informazioni sulle opzioni della riga di comando di MSDeploy.exe, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 
 Se si usa il *. deploy* file, è possibile eseguire una distribuzione "cosa accade se" includendo il **/t** flag flag (modalità di valutazione) anziché il **/y** flag ("yes" o la modalità di aggiornamento) in il comando. Ad esempio, per valutare che cosa accadrebbe se è stato distribuito il pacchetto ContactManager.Mvc.zip eseguendo il *. deploy* file, il comando sarà analogo al seguente:
@@ -68,7 +68,7 @@ Quando si è soddisfatti dei risultati della distribuzione di "modalità di valu
 
 
 > [!NOTE]
-> Per ulteriori informazioni sulle opzioni della riga di comando per *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Se si esegue il *. deploy* file senza specificare alcun flag, il prompt dei comandi verrà visualizzato un elenco dei flag.
+> Per ulteriori informazioni sulle opzioni della riga di comando per *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx). Se si esegue il *. deploy* file senza specificare alcun flag, il prompt dei comandi verrà visualizzato un elenco dei flag.
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>Esecuzione di una distribuzione "Cosa accade se" per i database
@@ -142,7 +142,7 @@ In questo argomento viene descritto come eseguire le distribuzioni "cosa accade 
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sulla sintassi della riga di comando di distribuzione Web, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Per informazioni aggiuntive sulle opzioni della riga di comando quando si utilizza il *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Per ulteriori informazioni sulla sintassi della riga di comando VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+Per ulteriori informazioni sulla sintassi della riga di comando di distribuzione Web, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Per informazioni aggiuntive sulle opzioni della riga di comando quando si utilizza il *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx). Per ulteriori informazioni sulla sintassi della riga di comando VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](advanced-enterprise-web-deployment.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di un aggiornamento del codice
 ====================
@@ -79,7 +79,7 @@ La distribuzione nell'ambiente di testing è ora sufficiente in esecuzione un so
 
 È normalmente anche eseguire test di regressione (vale a dire il resto del sito per assicurarsi che la nuova modifica non è stato interrotto le funzionalità esistenti di test). Ma per questa esercitazione verrà ignorare tale passaggio e continuare a distribuire l'aggiornamento di gestione temporanea e produzione.
 
-Quando si ridistribuisce, solo copie modificare file nel server di distribuzione Web determina automaticamente quali file sono stati modificati. Per impostazione predefinita, distribuzione Web viene utilizzato Data ultima modifica su file per determinare quali sono stati modificati. Alcuni sistemi di controllo di origine modificare il file date anche quando non si modifica il contenuto del file. In tal caso, si potrebbe desidera configurare distribuzione Web per utilizzare i checksum di file per determinare quali file sono stati modificati. Per ulteriori informazioni, vedere [motivo per cui tutti i file ottenere ridistribuiti anche se non è stata modificarle?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) in domande frequenti sulla distribuzione di ASP.NET.
+Quando si ridistribuisce, solo copie modificare file nel server di distribuzione Web determina automaticamente quali file sono stati modificati. Per impostazione predefinita, distribuzione Web viene utilizzato Data ultima modifica su file per determinare quali sono stati modificati. Alcuni sistemi di controllo di origine modificare il file date anche quando non si modifica il contenuto del file. In tal caso, si potrebbe desidera configurare distribuzione Web per utilizzare i checksum di file per determinare quali file sono stati modificati. Per ulteriori informazioni, vedere [motivo per cui tutti i file ottenere ridistribuiti anche se non è stata modificarle?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) in domande frequenti sulla distribuzione di ASP.NET.
 
 ## <a name="take-the-application-offline-during-deployment"></a>Eseguire l'applicazione durante la distribuzione
 
@@ -188,7 +188,7 @@ Si supponga non come sfondo blu e ripristinare il colore originale. In questa se
 
     Verrà visualizzata una finestra per visualizzare le differenze tra il file locale e la versione nell'ambiente di destinazione.
 
-    ![Diff-contenuto/Site](deploying-a-code-update/_static/image13.png)
+    ![Diff-Content/Site.css](deploying-a-code-update/_static/image13.png)
 4. In **Esplora**, fare doppio clic su **Site.css** nuovamente e fare clic su **pubblicare Site**.
 
     Il **attività di pubblicazione Web** finestra mostra che il file sia stato pubblicato.

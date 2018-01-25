@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fcb791868e6af9eef1614d039d11ef5232b40af5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 384251e5d0d72c6d1cc014c929a5d504be11d1d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Tra cui un'opzione di caricamento di File quando si aggiunge un nuovo Record (c#)
 ====================
@@ -176,7 +176,7 @@ Se un utente carica un tipo di file non corretto, è necessario annullare l'inse
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>Passaggio 6: Salvataggio Brochure caricata nel File System di Web Server s
 
-Quando l'utente immette i valori per una nuova categoria e fa clic sul pulsante Inserisci, espande il flusso di lavoro di inserimento si verifica un postback. Innanzitutto, i dispositivi di DetailsView [ `ItemInserting` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) generato. Successivamente, s ObjectDataSource `Insert()` metodo viene richiamato, dando luogo a un nuovo record, l'aggiunta di `Categories` tabella. Dopo che i dispositivi di DetailsView [ `ItemInserted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) generato.
+Quando l'utente immette i valori per una nuova categoria e fa clic sul pulsante Inserisci, espande il flusso di lavoro di inserimento si verifica un postback. Innanzitutto, i dispositivi di DetailsView [ `ItemInserting` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) generato. Successivamente, s ObjectDataSource `Insert()` metodo viene richiamato, dando luogo a un nuovo record, l'aggiunta di `Categories` tabella. Dopo che i dispositivi di DetailsView [ `ItemInserted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) generato.
 
 Prima di s ObjectDataSource `Insert()` metodo viene richiamato, è necessario innanzitutto assicurarsi che i tipi di file appropriato sono stati caricati dall'utente e quindi salvare la brochure PDF nel file System s server web. Creare un gestore eventi per s DetailsView `ItemInserting` eventi e aggiungere il codice seguente:
 
@@ -191,7 +191,7 @@ Il gestore dell'evento viene avviato facendo riferimento al `BrochureUpload` con
 
 Come descritto nel [caricamento di file](uploading-files-cs.md) esercitazione, è necessario prestare attenzione durante il salvataggio dei file nel file System, in modo che il caricamento di un utente s non implica la sovrascrittura s un'altra. Per questa esercitazione si tenterà di utilizzare lo stesso nome del file caricato. Se esiste già un file di `~/Brochures` directory con lo stesso nome file, tuttavia, si sarà accodare un numero alla fine fino a quando non viene trovato un nome univoco. Ad esempio, se l'utente carica un file brochure denominato `Meats.pdf`, ma esiste già un file denominato `Meats.pdf` nel `~/Brochures` cartella, si modificherà il nome del file salvato per `Meats-1.pdf`. Se presenti, email `Meats-2.pdf`e così via, fino a quando non viene trovato un nome file univoco.
 
-Il codice seguente usa il [ `File.Exists(path)` metodo](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx) per determinare se esiste già un file con il nome file specificato. In questo caso, continuerà a tentare di nuovi nomi di file per brochure fino a quando non viene trovato alcun conflitto.
+Il codice seguente usa il [ `File.Exists(path)` metodo](https://msdn.microsoft.com/library/system.io.file.exists.aspx) per determinare se esiste già un file con il nome file specificato. In questo caso, continuerà a tentare di nuovi nomi di file per brochure fino a quando non viene trovato alcun conflitto.
 
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample7.cs)]

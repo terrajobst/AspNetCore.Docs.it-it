@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Applicazione a pagina singola: Modello Knockout.js
 ====================
@@ -117,7 +117,7 @@ Questo file contiene i modelli per l'appartenenza al sito. La `UserProfile` clas
 
 ## <a name="entity-framework"></a>Entity Framework
 
-Il modello SPA utilizza Entity Framework Code First. Nello sviluppo Code First, definire i modelli innanzitutto nel codice e quindi utilizza il modello di Entity Framework per creare il database. È inoltre possibile utilizzare EF con un database esistente ([Database First](https://msdn.microsoft.com/en-us/data/jj206878.aspx)).
+Il modello SPA utilizza Entity Framework Code First. Nello sviluppo Code First, definire i modelli innanzitutto nel codice e quindi utilizza il modello di Entity Framework per creare il database. È inoltre possibile utilizzare EF con un database esistente ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
 
 Il `TodoItemContext` classe nella cartella Models deriva da **DbContext**. Questa classe fornisce il "associazione" tra i modelli e di Entity Framework. Il `TodoItemContext` contiene un `ToDoItem` insieme e un `TodoList` insieme. Per eseguire query sul database, è sufficiente scrivere una query LINQ per queste raccolte. Ad esempio, ecco come è possibile selezionare tutti gli elenchi di attività da eseguire per l'utente "Alice":
 
@@ -223,13 +223,13 @@ Knockout fornisce una serie di tipi di associazione diversi. Di seguito sono rip
 - **valore**: utilizzato per popolare i valori del form.
 - **Fare clic su**: associa un evento click per una funzione nel modello di visualizzazione.
 
-## <a name="anti-csrf-protection"></a>Protezione anti-CSRF
+## <a name="anti-csrf-protection"></a>Anti-CSRF Protection
 
 Cross-Site richiesta Forgery (CSRF) è un attacco in cui un sito dannoso invia una richiesta a un sito vulnerabile in cui l'utente è connesso. Per impedire gli attacchi CSRF, MVC ASP.NET utilizza *i token antifalsificazione*, detta anche richiesta di token di verifica. L'idea è che il server viene inserito un token generato in modo casuale una pagina web. Quando il client invia dati al server, questo valore deve includere nel messaggio di richiesta.
 
 I token antifalsificazione funzionano perché la pagina non è possibile leggere i token dell'utente, a causa di criteri di origine stesso. (Criteri stessa origine impediscono documenti ospitati in due diversi siti di accedere a contenuto di un'altra).
 
-ASP.NET MVC fornisce supporto incorporato per i token antifalsificazione, tramite il [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx) classe e [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx) attributo. Attualmente, questa funzionalità non è incorporata nell'API Web. Tuttavia, il modello SPA include un'implementazione personalizzata per l'API Web. Questo codice è definito nel `ValidateHttpAntiForgeryTokenAttribute` (classe), che si trova nella cartella della soluzione di filtri. Per ulteriori informazioni sulla anti-CSRF nell'API Web, vedere [attacchi di prevenzione Cross-Site Request Forgery (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC fornisce supporto incorporato per i token antifalsificazione, tramite il [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) classe e [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) attributo. Attualmente, questa funzionalità non è incorporata nell'API Web. Tuttavia, il modello SPA include un'implementazione personalizzata per l'API Web. Questo codice è definito nel `ValidateHttpAntiForgeryTokenAttribute` (classe), che si trova nella cartella della soluzione di filtri. Per ulteriori informazioni sulla anti-CSRF nell'API Web, vedere [attacchi di prevenzione Cross-Site Request Forgery (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
 ## <a name="conclusion"></a>Conclusione
 

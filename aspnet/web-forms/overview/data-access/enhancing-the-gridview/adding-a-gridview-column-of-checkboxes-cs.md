@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4796d5d9fcf1f924e9baa9bc56424a9d719425c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f238b8ea8dfbde67dbad7a52d6b4851d67402a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>Aggiunta di una colonna di GridView di caselle di controllo (c#)
 ====================
@@ -100,7 +100,7 @@ Con il controllo casella di controllo Web e di TemplateField aggiunto, ogni riga
 
 A questo punto si dispone di una colonna di caselle di controllo ma non è possibile determinare quali caselle di controllo sono stati selezionati durante il postback. Quando si fa clic sul pulsante Elimina prodotti selezionati, tuttavia, è necessario conoscere quali caselle di controllo sono state controllate per eliminare i prodotti.
 
-S GridView [ `Rows` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx) fornisce l'accesso alle righe di dati in GridView. È possibile scorrere le righe, il controllo casella di controllo di accesso a livello di codice e quindi fare riferimento relativo `Checked` proprietà per determinare se è stata selezionata la casella di controllo.
+S GridView [ `Rows` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) fornisce l'accesso alle righe di dati in GridView. È possibile scorrere le righe, il controllo casella di controllo di accesso a livello di codice e quindi fare riferimento relativo `Checked` proprietà per determinare se è stata selezionata la casella di controllo.
 
 Creare un gestore eventi per il `DeleteSelectedProducts` controllo Web Button s `Click` eventi e aggiungere il codice seguente:
 

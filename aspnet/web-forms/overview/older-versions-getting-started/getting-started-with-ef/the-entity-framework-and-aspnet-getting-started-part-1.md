@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 5a852ec2301e63bde9a5ce99db80224dad7fb258
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 Web Form
 ====================
@@ -28,7 +28,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Prima di database
 > 
-> È possibile utilizzare i dati in Entity Framework in tre modi: *Database First*, *Model First*, e *Code First*. In questa esercitazione è per il primo Database. Per informazioni sulle differenze tra questi flussi di lavoro e indicazioni su come scegliere quello più adatto per lo scenario, vedere [flussi di lavoro di Entity Framework sviluppo](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> È possibile utilizzare i dati in Entity Framework in tre modi: *Database First*, *Model First*, e *Code First*. In questa esercitazione è per il primo Database. Per informazioni sulle differenze tra questi flussi di lavoro e indicazioni su come scegliere quello più adatto per lo scenario, vedere [flussi di lavoro di Entity Framework sviluppo](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Form
 > 
@@ -45,7 +45,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Domande
 > 
-> Nel caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework e LINQ to forum entità](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), o [ StackOverflow.com](http://stackoverflow.com/).
+> Nel caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework e LINQ to forum entità](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), o [ StackOverflow.com](http://stackoverflow.com/).
 
 
 ## <a name="overview"></a>Panoramica
@@ -96,7 +96,7 @@ Per queste esercitazioni, si utilizzerà Progettazione modelli di dati Entity Fr
 
 Per il metodo di database-first utilizzato in questa esercitazione, il passaggio successivo è per aggiungere un database per il sito. Il modo più semplice consiste innanzitutto scaricare il progetto da associare a questa esercitazione. Quindi il *App\_dati* cartella, selezionare **Aggiungi elemento esistente**e selezionare il *School. mdf* file di database dal progetto scaricato.
 
-In alternativa è possibile seguire le istruzioni in [la creazione di Database di esempio School](https://msdn.microsoft.com/en-us/library/bb399731.aspx). Se si scarica il database o crearla, copiare il *School. mdf* file dalla cartella dell'applicazione *App\_dati* cartella:
+In alternativa è possibile seguire le istruzioni in [la creazione di Database di esempio School](https://msdn.microsoft.com/library/bb399731.aspx). Se si scarica il database o crearla, copiare il *School. mdf* file dalla cartella dell'applicazione *App\_dati* cartella:
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 
@@ -215,4 +215,4 @@ Entity Framework Usa XML per archiviare le informazioni relative al database, il
 È stato creato un sito Web, un database e un modello di dati. Nella procedura dettagliata successiva verrà procedere con i dati utilizzando il modello di dati e ASP.NET `EntityDataSource` controllo.
 
 >[!div class="step-by-step"]
-[Successivo](the-entity-framework-and-aspnet-getting-started-part-2.md)
+[avanti](the-entity-framework-and-aspnet-getting-started-part-2.md)

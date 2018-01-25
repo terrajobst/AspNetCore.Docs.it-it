@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa0a0f1f80a407f8f68d5fe081b5b144e2945700
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce0daabf8d68614c530115cc37b4f088f75dba4d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>La memorizzazione nella cache di dati con ObjectDataSource (VB)
 ====================
@@ -44,7 +44,7 @@ La memorizzazione nella cache può migliorare notevolmente una s applicazione co
 
 Indipendentemente dai criteri di eliminazione specificati, potrebbe essere un elemento nella cache *scavenging* prima i criteri basati sul tempo o basato su dipendenza è stata soddisfatta. Se la cache ha raggiunto la capacità, è necessario rimuovere gli elementi esistenti prima di possono aggiungere quelli nuovi. Di conseguenza, quando a livello di codice l'uso di dati memorizzati nella cache s fondamentali che è sempre presupporre che i dati memorizzati nella cache non possono essere presenti. Verrà esaminato il criterio da utilizzare quando si accede ai dati dalla cache a livello di codice nell'esercitazione successiva, *memorizzazione dei dati nell'architettura*.
 
-La memorizzazione nella cache rappresenta un modo economico per stesso come concentrare prestazioni più elevate da un'applicazione. Come [Steven Smith](http://aspadvice.com/blogs/ssmith/) articulates nell'articolo [la memorizzazione nella cache di ASP.NET: tecniche e procedure consigliate](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+La memorizzazione nella cache rappresenta un modo economico per stesso come concentrare prestazioni più elevate da un'applicazione. Come [Steven Smith](http://aspadvice.com/blogs/ssmith/) articulates nell'articolo [la memorizzazione nella cache di ASP.NET: tecniche e procedure consigliate](https://msdn.microsoft.com/library/aa478965.aspx):
 
 La memorizzazione nella cache può essere un buon metodo per ottenere buone sufficiente prestazioni senza richiedere molto tempo e l'analisi. Memoria è basso, pertanto se è possibile ottenere le prestazioni, è necessario per la memorizzazione nella cache l'output per 30 secondi anziché un giorno o settimana tentare di ottimizzare un database o il codice di spesa, eseguire la soluzione di memorizzazione nella cache (presupponendo che 30 - precedenti secondo dati è accettabile) e passare. Infine, progettazione verrà probabilmente aggiornarsi, in modo naturalmente è necessario progettare correttamente le applicazioni. Ma se è sufficiente ottenere buone sufficiente prestazioni oggi, la memorizzazione nella cache può essere un eccellente [approccio], acquistare il tempo necessario per effettuare il refactoring dell'applicazione in un secondo momento quando si dispone il tempo necessario per eseguire questa operazione.
 
@@ -175,10 +175,10 @@ Può sembrare inutili recuperare i dati di database ogni volta che i dati del po
 
 Semplicemente impostando alcune proprietà ObjectDataSource può essere configurato per automaticamente nella cache i dati recuperati nella cache dei dati ASP.NET. Nell'elenco seguente vengono riepilogate le proprietà correlate alla cache di ObjectDataSource:
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) deve essere impostato su `True` per abilitare la memorizzazione nella cache. Il valore predefinito è `False`.
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) la quantità di tempo, espresso in secondi, che viene memorizzato nella cache i dati. Il valore predefinito è 0. ObjectDataSource solo memorizza nella cache dati se `EnableCaching` è `True` e `CacheDuration` è impostata su un valore maggiore di zero.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) può essere impostato su `Absolute` o `Sliding`. Se `Absolute`, ObjectDataSource memorizza nella cache i dati recuperati per `CacheDuration` secondi; se `Sliding`, i dati scadono solo dopo che è stato eseguito l'accesso per `CacheDuration` secondi. Il valore predefinito è `Absolute`.
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) utilizzare questa proprietà per associare le voci di cache s ObjectDataSource una dipendenza della cache esistente. Le voci di dati ObjectDataSource s possono essere rimossa in modo anomalo dalla cache impostando come scaduti associato `CacheKeyDependency`. Questa proprietà viene in genere utilizzata per associare una dipendenza della cache SQL con la cache s ObjectDataSource, un argomento si esamineranno in futuro [con dipendenze della Cache SQL](using-sql-cache-dependencies-vb.md) esercitazione.
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) deve essere impostato su `True` per abilitare la memorizzazione nella cache. Il valore predefinito è `False`.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) la quantità di tempo, espresso in secondi, che viene memorizzato nella cache i dati. Il valore predefinito è 0. ObjectDataSource solo memorizza nella cache dati se `EnableCaching` è `True` e `CacheDuration` è impostata su un valore maggiore di zero.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) può essere impostato su `Absolute` o `Sliding`. Se `Absolute`, ObjectDataSource memorizza nella cache i dati recuperati per `CacheDuration` secondi; se `Sliding`, i dati scadono solo dopo che è stato eseguito l'accesso per `CacheDuration` secondi. Il valore predefinito è `Absolute`.
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) utilizzare questa proprietà per associare le voci di cache s ObjectDataSource una dipendenza della cache esistente. Le voci di dati ObjectDataSource s possono essere rimossa in modo anomalo dalla cache impostando come scaduti associato `CacheKeyDependency`. Questa proprietà viene in genere utilizzata per associare una dipendenza della cache SQL con la cache s ObjectDataSource, un argomento si esamineranno in futuro [con dipendenze della Cache SQL](using-sql-cache-dependencies-vb.md) esercitazione.
 
 Configurare automaticamente s il `ProductsDataSource` ObjectDataSource per memorizzare nella cache i dati per 30 secondi in una scala assoluta. Impostare il s ObjectDataSource `EnableCaching` proprietà `True` e il relativo `CacheDuration` proprietà a 30. Lasciare il `CacheExpirationPolicy` impostata sul valore predefinito, `Absolute`.
 
@@ -206,7 +206,7 @@ Figura 12 illustra s ObjectDataSource la memorizzazione nella cache del flusso d
 
 Ogni applicazione ASP.NET ha la propria cache di dati di istanza che s condiviso tra tutte le pagine e i visitatori. Ciò significa che i dati memorizzati nella cache dei dati da ObjectDataSource in modo analogo sono condivisa tra tutti gli utenti, visitare la pagina. Per verificarlo, aprire il `ObjectDataSource.aspx` pagina in un browser. Durante la prima visita la pagina, verrà visualizzato il testo dell'evento viene generato se si seleziona (supponendo che i dati aggiunti alla cache per i test precedenti, a questo punto, eliminati). Aprire una seconda istanza del browser e copiare e incollare l'URL dalla prima istanza del browser al secondo. Nella seconda istanza del browser, il testo dell'evento viene generato se si seleziona non viene visualizzato perché il dati del primo memorizzati nella cache utilizzando lo stesso.
 
-Quando si inserisce i dati recuperati nella cache, ObjectDataSource utilizza un valore di chiave di cache che include: il `CacheDuration` e `CacheExpirationPolicy` i valori delle proprietà; il tipo dell'oggetto business sottostante utilizzato da ObjectDataSource, specificata tramite il [ `TypeName` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, in questo esempio); il valore della `SelectMethod` proprietà e il nome e i valori dei parametri in di `SelectParameters` insieme; e i valori delle relative `StartRowIndex`e `MaximumRows` proprietà, vengono utilizzate quando si implementa [il paging personalizzato](../paging-and-sorting/paging-and-sorting-report-data-vb.md).
+Quando si inserisce i dati recuperati nella cache, ObjectDataSource utilizza un valore di chiave di cache che include: il `CacheDuration` e `CacheExpirationPolicy` i valori delle proprietà; il tipo dell'oggetto business sottostante utilizzato da ObjectDataSource, specificata tramite il [ `TypeName` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, in questo esempio); il valore della `SelectMethod` proprietà e il nome e i valori dei parametri in di `SelectParameters` insieme; e i valori delle relative `StartRowIndex`e `MaximumRows` proprietà, vengono utilizzate quando si implementa [il paging personalizzato](../paging-and-sorting/paging-and-sorting-report-data-vb.md).
 
 Crea il valore della chiave della cache come una combinazione di queste proprietà garantisce una voce della cache univoco come questi valori vengono modificati. Ad esempio, nelle esercitazioni precedenti abbiamo ve descritto l'utilizzo di `ProductsBLL` classe s `GetProductsByCategoryID(categoryID)`, che restituisce tutti i prodotti per una categoria specificata. Potrebbe essere un utente bevande pagina e visualizzazione, che presenta un `CategoryID` pari a 1. Se ObjectDataSource memorizzato nella cache i risultati senza considerare il `SelectParameters` valori, quando un altro utente alla pagina per visualizzare i condimenti durante i prodotti di bibite nella cache, d vedono prodotti bevande memorizzati nella cache anziché condiments. Variando la chiave di cache mediante queste proprietà, che includono i valori del `SelectParameters`, ObjectDataSource mantiene una voce della cache separato per beverages e condimenti.
 
@@ -230,8 +230,8 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [La memorizzazione nella cache di ASP.NET: Le tecniche e procedure consigliate](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [Guida all'architettura di memorizzazione nella cache per le applicazioni .NET Framework](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [La memorizzazione nella cache di ASP.NET: Le tecniche e procedure consigliate](https://msdn.microsoft.com/library/aa478965.aspx)
+- [Guida all'architettura di memorizzazione nella cache per le applicazioni .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
 - [La cache di output in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Esecuzione di script di Windows PowerShell dai file di progetto MSBuild
 ====================
@@ -137,10 +137,10 @@ Quando si esegue questa destinazione come parte del processo di compilazione, Wi
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>L'esecuzione di uno Script di Windows PowerShell in un Computer remoto
 
-Windows PowerShell è in grado di eseguire gli script nei computer remoti tramite [gestione remota Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx) (WinRM). A tale scopo, è necessario utilizzare il [Invoke-Command](https://technet.microsoft.com/en-us/library/dd347578.aspx) cmdlet. Ciò consente di eseguire lo script su uno o più computer remoti senza dover copiare lo script per i computer remoti. I risultati vengono restituiti al computer locale da cui è stato eseguito lo script.
+Windows PowerShell è in grado di eseguire gli script nei computer remoti tramite [gestione remota Windows](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). A tale scopo, è necessario utilizzare il [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) cmdlet. Ciò consente di eseguire lo script su uno o più computer remoti senza dover copiare lo script per i computer remoti. I risultati vengono restituiti al computer locale da cui è stato eseguito lo script.
 
 > [!NOTE]
-> Prima di utilizzare il **Invoke-Command** cmdlet di Windows PowerShell di eseguire script in un computer remoto, è necessario configurare un listener WinRM per accettare i messaggi remoti. È possibile farlo eseguendo il comando **winrm quickconfig** nel computer remoto. Per ulteriori informazioni, vedere [installazione e configurazione per gestione remota Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Prima di utilizzare il **Invoke-Command** cmdlet di Windows PowerShell di eseguire script in un computer remoto, è necessario configurare un listener WinRM per accettare i messaggi remoti. È possibile farlo eseguendo il comando **winrm quickconfig** nel computer remoto. Per ulteriori informazioni, vedere [installazione e configurazione per gestione remota Windows](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
 
 Da una finestra di Windows PowerShell, utilizzare questa sintassi per l'esecuzione di **LogDeploy.ps1** script in un computer remoto:
@@ -179,7 +179,7 @@ In questo argomento viene descritto come eseguire uno script di Windows PowerShe
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per informazioni sulla firma degli script di Windows PowerShell e la gestione dei criteri di esecuzione, vedere [esecuzione di script di Windows PowerShell](https://technet.microsoft.com/en-us/library/ee176949.aspx). Per informazioni sull'esecuzione di comandi di Windows PowerShell da un computer remoto, vedere [esecuzione di comandi remoti](https://technet.microsoft.com/en-us/library/dd819505.aspx).
+Per informazioni sulla firma degli script di Windows PowerShell e la gestione dei criteri di esecuzione, vedere [esecuzione di script di Windows PowerShell](https://technet.microsoft.com/library/ee176949.aspx). Per informazioni sull'esecuzione di comandi di Windows PowerShell da un computer remoto, vedere [esecuzione di comandi remoti](https://technet.microsoft.com/library/dd819505.aspx).
 
 Per ulteriori informazioni sull'utilizzo dei file di progetto MSBuild personalizzati per controllare il processo di distribuzione, vedere [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) e [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 57ac8052223c1fd00bff8df1c3180db8bea8d38a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Specifica la pagina Master a livello di codice (c#)
 ====================
@@ -34,7 +34,7 @@ Dopo il primo esempio [ *la creazione di un Layout a livello di sito utilizzando
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample1.aspx)]
 
-Il [ `Page` classe](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx) nel `System.Web.UI` spazio dei nomi include un [ `MasterPageFile` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx) che restituisce il percorso per il contenuto della pagina master, ma è anche questa proprietà per l'impostazione è la `@Page` direttiva. Questa proprietà può essere utilizzata anche per specificare a livello di codice il contenuto della pagina master. Questo approccio è utile se si desidera assegnare in modo dinamico la pagina master in base a fattori esterni, ad esempio l'utente visita la pagina.
+Il [ `Page` classe](https://msdn.microsoft.com/library/system.web.ui.page.aspx) nel `System.Web.UI` spazio dei nomi include un [ `MasterPageFile` proprietà](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) che restituisce il percorso per il contenuto della pagina master, ma è anche questa proprietà per l'impostazione è la `@Page` direttiva. Questa proprietà può essere utilizzata anche per specificare a livello di codice il contenuto della pagina master. Questo approccio è utile se si desidera assegnare in modo dinamico la pagina master in base a fattori esterni, ad esempio l'utente visita la pagina.
 
 In questa esercitazione è aggiungere una seconda pagina master per il sito Web e decidere quale pagina master da utilizzare in fase di esecuzione.
 
@@ -54,7 +54,7 @@ La figura 1 illustra questo fusion. Passaggio 1 nella figura 1 mostra le gerarch
 
 La pagina master partakes in questo fusione dipende dal valore del `Page` dell'oggetto `MasterPageFile` proprietà. Impostazione di `MasterPageFile` attributo il `@Page` direttiva ha l'effetto dell'assegnazione il `Page`del `MasterPageFile` proprietà durante la fase di inizializzazione, che è la prima fase del ciclo di vita della pagina. In alternativa è possibile impostare questa proprietà a livello di codice. Tuttavia, è fondamentale che questa proprietà deve essere impostata prima che venga eseguita di fusione nella figura 1.
 
-All'inizio della fase PreInit il `Page` oggetto genera relativo [ `PreInit` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx) e chiama il relativo [ `OnPreInit` metodo](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx). Per impostare a livello di codice della pagina master, quindi, è possibile creare un gestore eventi per il `PreInit` evento o eseguire l'override di `OnPreInit` metodo. Diamo un'occhiata entrambi gli approcci.
+All'inizio della fase PreInit il `Page` oggetto genera relativo [ `PreInit` evento](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) e chiama il relativo [ `OnPreInit` metodo](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Per impostare a livello di codice della pagina master, quindi, è possibile creare un gestore eventi per il `PreInit` evento o eseguire l'override di `OnPreInit` metodo. Diamo un'occhiata entrambi gli approcci.
 
 Avvia aprendo `Default.aspx.cs`, il file di classe code-behind per la home page del sito. Aggiungere un gestore eventi per la pagina `PreInit` evento digitando il codice seguente:
 
@@ -275,8 +275,8 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Diagramma del ciclo di vita di pagina ASP.NET](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [Panoramica del ciclo di vita di pagina ASP.NET](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [Panoramica di interfacce e temi ASP.NET](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [Panoramica del ciclo di vita di pagina ASP.NET](https://msdn.microsoft.com/library/ms178472.aspx)
+- [Panoramica di interfacce e temi ASP.NET](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Pagine master: Suggerimenti, consigli e trap](http://www.odetocode.com/articles/450.aspx)
 - [Temi in ASP.NET](http://www.odetocode.com/articles/423.aspx)
 

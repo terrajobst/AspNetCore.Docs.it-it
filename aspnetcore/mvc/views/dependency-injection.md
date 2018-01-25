@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cade61b1ebdb2b845b07117384475638c0227f7f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1258dbe2e659f6c5149d15b37451810ec7d6601
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-views"></a>Inserimento di dipendenze nelle viste
 
@@ -41,7 +41,7 @@ Il `StatisticsService` esegue i calcoli sul set di `ToDoItem` istanze, a cui acc
 
 [!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
 
-Il repository di esempio utilizza una raccolta in memoria. L'implementazione illustrato in precedenza (che agisce su tutti i dati in memoria) non è consigliata per i set di dati di grandi dimensioni, a cui si accede in remoto.
+Il repository di esempio utilizza una raccolta in memoria. L'implementazione illustrato in precedenza (che agisce su tutti i dati in memoria) non è consigliato per i set di dati di grandi dimensioni, a cui si accede in remoto.
 
 Nell'esempio vengono visualizzati i dati del modello associato alla vista e il servizio inserito nella vista:
 

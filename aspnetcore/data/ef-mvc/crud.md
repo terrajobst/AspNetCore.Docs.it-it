@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Creare, leggere, aggiornare ed eliminare - EF Core con l'esercitazione di base di ASP.NET MVC (2 di 10)
 
@@ -46,7 +46,7 @@ In *Controllers/StudentsController.cs*, il metodo di azione per i dettagli visua
 
 Il `Include` e `ThenInclude` metodi che il contesto di caricamento di `Student.Enrollments` proprietà di navigazione e all'interno di ogni registrazione di `Enrollment.Course` proprietà di navigazione.  Si apprenderà ulteriori informazioni su questi metodi di [la lettura dei dati correlati](read-related-data.md) esercitazione.
 
-Il `AsNoTracking` metodo migliora le prestazioni negli scenari in cui le entità restituite non verranno aggiornate nel corso della durata del contesto corrente. Verranno fornite altre informazioni su `AsNoTracking` alla fine di questa esercitazione.
+Il `AsNoTracking` metodo migliora le prestazioni negli scenari in cui le entità restituite sarà aggiornate nel corso della durata del contesto corrente. Verranno fornite altre informazioni su `AsNoTracking` alla fine di questa esercitazione.
 
 ### <a name="route-data"></a>Dati sull'itinerario
 
@@ -118,7 +118,7 @@ In *StudentsController.cs*, modificare HttpPost `Create` metodo aggiunta di un b
 
 Questo codice aggiunge l'entità di studenti creato dal gestore di associazione di modelli ASP.NET MVC per l'entità di studenti set e quindi Salva le modifiche apportate al database. (Strumento di associazione fa riferimento alle funzionalità di ASP.NET MVC che rende più semplice da utilizzare con i dati inviati da un form, converte i valori del form inseriti a tipi CLR e li passa al metodo di azione nei parametri di un raccoglitore di modelli. In questo caso, il gestore di associazione del modello crea un'istanza di un'entità Student mediante i valori delle proprietà dalla raccolta di Form.)
 
-Si è rimosso `ID` dal `Bind` perché l'ID è il valore di chiave primaria che SQL Server verrà impostato automaticamente quando viene inserita la riga dell'attributo. Input dell'utente non viene impostato il valore ID.
+Si è rimosso `ID` dal `Bind` perché l'ID è il valore di chiave primaria che SQL Server verrà impostato automaticamente quando viene inserita la riga dell'attributo. Non impostare il valore ID di input da parte dell'utente.
 
 Diverso dal `Bind` attributo, il blocco try-catch è l'unica modifica apportate al codice di scaffolding. Se un'eccezione che deriva da `DbUpdateException` è rilevata durante il salvataggio delle modifiche, viene visualizzato un messaggio di errore generico. `DbUpdateException`eccezioni in alcuni casi sono causate da un elemento esterno per l'applicazione, anziché un errore di programmazione, pertanto l'utente è consigliabile ripetere l'operazione. Anche se non è implementato in questo esempio, un'applicazione di qualità di produzione l'accesso utilizzando l'eccezione. Per ulteriori informazioni, vedere il **Log per informazioni dettagliate** sezione [monitoraggio e telemetria (compilazione reali le app Cloud mediante Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 

@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introduzione a Dependency Injection in ASP.NET Core
 
@@ -30,7 +30,7 @@ ASP.NET Core è progettato da zero per supportare e sfruttare l'inserimento di d
 
 Inserimento di dipendenze (DI) è una tecnica per l'implementazione dell'accoppiamento debole tra oggetti e i collaboratori o dipendenze. Anziché creare direttamente un'istanza di collaboratori o utilizzando i riferimenti statici, per la classe in qualche modo sono disponibili gli oggetti di cui necessita di una classe per eseguire le azioni. In genere, le classi verranno dichiarare le relative dipendenze attraverso il relativo costruttore, consentendo loro di seguire il [principio dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/). Questo approccio è noto come "inserimento del costruttore".
 
-Quando le classi sono dotate DI ricordare, essi sono più loosely coupled perché non presentano dipendenze dirette, hardcoded i collaboratori. Questo concetto segue il [principio di inversione dipendenza](http://deviq.com/dependency-inversion-principle/), che indica che *"moduli di livello alti non devono dipendere moduli di livello bassi; entrambi dovrebbero dipendere astrazioni".* Anziché le implementazioni specifiche di riferimento, classi richiesta astrazioni (in genere `interfaces`) che vengono forniti a tali quando la classe viene costruita. L'estrazione delle dipendenze in interfacce fornendo implementazioni di queste interfacce come parametri rappresenta anche un esempio del [progettuale strategia](http://deviq.com/strategy-design-pattern/).
+Quando le classi sono dotate DI presente, si sta più regime perché non presentano dipendenze dirette, hardcoded i collaboratori. Questo concetto segue il [principio di inversione dipendenza](http://deviq.com/dependency-inversion-principle/), che indica che *"moduli di livello elevati non dipendono da moduli di livello bassi; entrambi dovrebbero dipendere astrazioni".* Anziché le implementazioni specifiche di riferimento, classi richiesta astrazioni (in genere `interfaces`) che vengono forniti a tali quando la classe viene costruita. L'estrazione delle dipendenze in interfacce fornendo implementazioni di queste interfacce come parametri rappresenta anche un esempio del [progettuale strategia](http://deviq.com/strategy-design-pattern/).
 
 Quando un sistema è basato sull'uso DI, con molte classi che richiede le relative dipendenze tramite i relativi costruttore (o proprietà), è utile creare una classe dedicata alla creazione di queste classi con le relative dipendenze. Queste classi sono definite come *contenitori*, più specificamente, [Inversion of Control (IoC)](http://deviq.com/inversion-of-control/) contenitori o contenitori Dependency Injection (DI). Un contenitore è essenzialmente una factory che è responsabile di fornire istanze di tipi che vengono richiesti da esso. Se un determinato tipo è dichiarato che dispone di dipendenze e il contenitore è stato configurato per fornire i tipi di relazione, verrà creato le dipendenze come parte della creazione dell'istanza richiesta. In questo modo, è possibile garantire grafici complessi delle dipendenze per le classi senza la necessità di costruzione qualsiasi oggetto a livello di codice. Oltre a creare gli oggetti con le relative dipendenze, contenitori in genere la gestione della durata degli oggetti all'interno dell'applicazione.
 
@@ -46,7 +46,7 @@ ASP.NET Core include un semplice contenitore predefinito (rappresentato dal `ISe
 
 Inserimento del costruttore richiede che il costruttore in questione sia *pubblica*. In caso contrario, l'applicazione genera un `InvalidOperationException`:
 
-> Non è possibile trova un costruttore adeguato per il tipo 'YourType'. Verificare il tipo è concreto e i servizi vengono registrati per tutti i parametri di un costruttore pubblico.
+> Un costruttore adeguato per il tipo 'YourType' non è stato trovato. Verificare il tipo è concreto e i servizi vengono registrati per tutti i parametri di un costruttore pubblico.
 
 
 Inserimento del costruttore necessario sia presente un solo costruttore applicabile. Sono supportati gli overload del costruttore, ma solo uno degli overload possono essere presenti tutti i cui argomenti possono essere soddisfatti dall'inserimento di dipendenze. Se esiste più di uno, l'applicazione genererà un `InvalidOperationException`:
@@ -112,7 +112,7 @@ Le funzionalità fornite da ASP.NET, ad esempio MVC, middleware seguono una conv
 
 Il `AddTransient` metodo viene utilizzato per eseguire il mapping di tipi astratti ai servizi concreti istanze vengono creati separatamente per ogni oggetto che lo richiede. Questo è noto come il servizio *durata*, e le opzioni di durata aggiuntive descritte di seguito. È importante scegliere una durata appropriata per ognuno dei servizi di che registrazione. Una nuova istanza del servizio deve essere fornita a ogni classe che lo richiede. Un'istanza da utilizzare in una richiesta web specificato. O una singola istanza deve essere utilizzata per la durata dell'applicazione?
 
-Nell'esempio di questo articolo, è un controller semplice che visualizza i nomi di caratteri, chiamati `CharactersController`. Il relativo `Index` metodo consente di visualizzare l'elenco corrente di caratteri che sono stati archiviati nell'applicazione e inizializza la raccolta con un numero limitato di caratteri se non esiste. Si noti che anche se questa applicazione usa Entity Framework Core e `ApplicationDbContext` classe per la persistenza, nessuno di questi obiettivi è evidente nel controller. Al contrario, il meccanismo di accesso ai dati specifici è stato indipendenti e possono essere protetti da un'interfaccia, `ICharacterRepository`, che segue il [modello di repository](http://deviq.com/repository-pattern/). Un'istanza di `ICharacterRepository` viene richiesto tramite il costruttore e assegnato a un campo privato, che viene quindi usato per accedere ai caratteri in base alle esigenze.
+Nell'esempio di questo articolo, è un controller semplice che visualizza i nomi di caratteri, chiamati `CharactersController`. Il relativo `Index` metodo consente di visualizzare l'elenco corrente di caratteri che sono stati archiviati nell'applicazione e inizializza la raccolta con un numero limitato di caratteri se non esiste. Si noti che anche se questa applicazione usa Entity Framework Core e `ApplicationDbContext` classe per la persistenza, nessuno dei che è evidente nel controller. Al contrario, il meccanismo di accesso ai dati specifici è stato indipendenti e possono essere protetti da un'interfaccia, `ICharacterRepository`, che segue il [modello di repository](http://deviq.com/repository-pattern/). Un'istanza di `ICharacterRepository` viene richiesto tramite il costruttore e assegnato a un campo privato, che viene quindi usato per accedere ai caratteri in base alle esigenze.
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -149,7 +149,7 @@ Servizi ASP.NET possono essere configurati con le durate seguenti:
 
 **Temporaneo**
 
-Servizi di durata temporanei vengono creati ogni volta che vengono richiesti. Questa durata è consigliata per i servizi senza stati leggeri.
+Servizi di durata temporanei vengono creati ogni volta che sono state richieste. Questa durata è consigliata per i servizi senza stati leggeri.
 
 **Ambito**
 
@@ -157,7 +157,7 @@ Servizi di durata con ambito vengono creati una volta per ogni richiesta.
 
 **Singleton**
 
-Servizi di durata singleton vengono creati la prima volta in cui vengono richiesti (o quando `ConfigureServices` viene eseguito se si specifica un'istanza non esiste), quindi tutte le richieste successive utilizzerà la stessa istanza. Se l'applicazione richiede un comportamento singleton, è consigliabile consentire il contenitore dei servizi gestire la durata del servizio anziché implementare il modello di progettazione singleton e gestire la durata dell'oggetto nella classe in prima persona.
+Servizi di durata singleton vengono creati la prima volta che sono state richieste (o quando `ConfigureServices` viene eseguito se si specifica un'istanza non esiste), quindi tutte le richieste successive utilizzerà la stessa istanza. Se l'applicazione richiede un comportamento singleton, è consigliabile consentire il contenitore dei servizi gestire la durata del servizio anziché implementare il modello di progettazione singleton e gestire la durata dell'oggetto nella classe in prima persona.
 
 I servizi possono essere registrati con il contenitore in diversi modi. Abbiamo già visto come registrare un'implementazione del servizio con un determinato tipo, specificando il tipo concreto da usare. Inoltre, una factory può essere specificato, che verrà quindi utilizzato per creare l'istanza su richiesta. Il terzo approccio consiste nello specificare direttamente l'istanza del tipo da utilizzare, in cui caso il contenitore non tenterà di creare un'istanza (né verrà dispose dell'istanza).
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> Nella versione 1.0, il contenitore chiamato dispose su *tutti* `IDisposable` oggetti, inclusi quelli non è stata creata.
+> Nella versione 1.0, il contenitore chiamato dispose su *tutti* `IDisposable` oggetti, inclusi quelli non è stato creato.
 
 ## <a name="replacing-the-default-services-container"></a>Sostituendo il contenitore dei servizi predefiniti
 

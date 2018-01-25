@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: aef8229f2920bd026e3dbf063afb57cffb9b21d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-projects"></a>Distribuzione di progetti di Database
 ====================
@@ -65,18 +65,18 @@ Esistono diversi approcci alla distribuzione di progetti di database. Tuttavia, 
 Esistono tre approcci principali, che è possibile utilizzare per distribuire un progetto di database:
 
 - È possibile utilizzare la funzionalità di distribuzione con il tipo di progetto di database in Visual Studio 2010. Quando si compila e distribuisce un progetto di database in Visual Studio 2010, il processo di distribuzione utilizza il manifesto di distribuzione per generare un file di distribuzione basato su SQL specifico per la configurazione della build. Il database verrà creata se non esiste o apportare le modifiche necessarie al database, se esiste già. È possibile utilizzare SQLCMD.exe per eseguire questo file nel server di destinazione oppure è possibile impostare Visual Studio per creare ed eseguire il file. Lo svantaggio di questo approccio è che sono limitate controllo sulle impostazioni di distribuzione. È spesso anche potrebbe essere necessario modificare il file di distribuzione di SQL per fornire i valori delle variabili specifiche dell'ambiente. È possibile utilizzare solo questo approccio da un computer con Visual Studio 2010 installato, e lo sviluppatore dovrebbe conoscere e specificare le stringhe di connessione e le credenziali per tutti gli ambienti di destinazione.
-- È possibile utilizzare lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) per [distribuire un database come parte di un progetto di applicazione web](https://msdn.microsoft.com/en-us/library/dd465343.aspx). Tuttavia, questo approccio è molto più complesso, se si desidera distribuire un progetto di database anziché semplicemente replicare un database locale esistente in un server di destinazione. È possibile configurare la distribuzione Web per eseguire lo script di distribuzione SQL che genera il progetto di database, ma questo scopo, è necessario creare un file di destinazioni WPP personalizzato per il progetto di applicazione web. Consente di aggiungere una quantità sostanziale di complessità del processo di distribuzione. Inoltre, distribuzione Web non supportano direttamente gli aggiornamenti incrementali per i database esistenti. Per ulteriori informazioni su questo approccio, vedere [la Pipeline di pubblicazione sul Web al progetto di database di pacchetto di estensione di file SQL distribuito](https://go.microsoft.com/?linkid=9805121).
+- È possibile utilizzare lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) per [distribuire un database come parte di un progetto di applicazione web](https://msdn.microsoft.com/library/dd465343.aspx). Tuttavia, questo approccio è molto più complesso, se si desidera distribuire un progetto di database anziché semplicemente replicare un database locale esistente in un server di destinazione. È possibile configurare la distribuzione Web per eseguire lo script di distribuzione SQL che genera il progetto di database, ma questo scopo, è necessario creare un file di destinazioni WPP personalizzato per il progetto di applicazione web. Consente di aggiungere una quantità sostanziale di complessità del processo di distribuzione. Inoltre, distribuzione Web non supportano direttamente gli aggiornamenti incrementali per i database esistenti. Per ulteriori informazioni su questo approccio, vedere [la Pipeline di pubblicazione sul Web al progetto di database di pacchetto di estensione di file SQL distribuito](https://go.microsoft.com/?linkid=9805121).
 - È possibile utilizzare l'utilità VSDBCMD per distribuire il database, utilizzando lo schema del database o il manifesto di distribuzione. È possibile chiamare VSDBCMD.exe da una destinazione di MSBuild, che consente di pubblicare database come parte di un processo di distribuzione tramite script. È possibile sostituire le variabili nel file sqlcmdvars e molte altre proprietà di database da un comando VSDBCMD, che consente di personalizzare la distribuzione per diversi ambienti senza creare più configurazioni di compilazione. VSDBCMD fornisce funzionalità di differenziazione, ovvero che apporterà solo le modifiche necessarie per l'allineamento di un database di destinazione con lo schema del database. VSDBCMD offre inoltre un'ampia gamma di opzioni della riga di comando, che consentono un controllo accurato sul processo di distribuzione.
 
 Da questa panoramica, si noterà che l'utilizzo di VSDBCMD con MSBuild è l'approccio più adatto per uno scenario di distribuzione tipici aziendali:
 
 |  | Visual Studio 2010 | Web Deploy 2.0 | VSDBCMD.exe |
 | --- | --- | --- | --- |
-| Supporta la distribuzione remota? | Sì | Sì | Sì |
-| Supporta gli aggiornamenti incrementali? | Sì | No | Sì |
-| Supporta gli script di pre o post-distribuzione? | Sì | Sì | Sì |
-| Supporta un multi-ambiente distribuzione? | Limitato | Limitato | Sì |
-| Supporta script di distribuzione? | Limitato | Sì | Sì |
+| Supporta la distribuzione remota? | Yes | Sì | Yes |
+| Supporta gli aggiornamenti incrementali? | Yes | No | Yes |
+| Supporta gli script di pre o post-distribuzione? | Yes | Sì | Yes |
+| Supporta un multi-ambiente distribuzione? | Limitato | Limitato | Yes |
+| Supporta script di distribuzione? | Limitato | Yes | Yes |
 
 Il resto di questo argomento viene descritto l'utilizzo di VSDBCMD con MSBuild per distribuire i progetti di database.
 
@@ -97,7 +97,7 @@ In questo caso:
 - Il **/dd+** (o **/DeployToDatabase+**) parametro indica che si desidera creare una distribuzione e distribuire in ambiente di destinazione. Se si specifica **/dd-**, omettere il parametro o VSDBCMD genera uno script di distribuzione ma non distribuirla nell'ambiente di destinazione. Questa opzione è spesso l'origine di confusione ed è illustrata più dettagliatamente nella sezione successiva.
 - Il **/script** (o **/DeploymentScriptFile**) consente di specificare dove si desidera generare lo script di distribuzione. Questo valore non influisce sul processo di distribuzione.
 
-Per ulteriori informazioni su VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) e [come: preparare un Database per la distribuzione da un prompt dei comandi tramite VSDBCMD. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx).
+Per ulteriori informazioni su VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx) e [come: preparare un Database per la distribuzione da un prompt dei comandi tramite VSDBCMD. EXE](https://msdn.microsoft.com/library/dd193258.aspx).
 
 Per un esempio di come è possibile utilizzare VSDBCMD da un file di progetto MSBuild, vedere [comprendere il processo di compilazione](understanding-the-build-process.md). Per esempi di come configurare le impostazioni di distribuzione di database per più ambienti, vedere [personalizzazione delle distribuzioni di Database per più ambienti](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md).
 
@@ -145,10 +145,10 @@ Per informazioni su come personalizzare le distribuzioni di database tramite la 
 
 Questi argomenti in MSDN includono linee guida più ampia e informazioni generali sui progetti di database di Visual Studio e il processo di distribuzione di database:
 
-- [Progetti di Database di Visual Studio 2010 SQL Server](https://msdn.microsoft.com/en-us/library/ff678491.aspx)
-- [Gestione delle modifiche di Database](https://msdn.microsoft.com/en-us/library/aa833404.aspx)
-- [Procedura: preparare un Database per la distribuzione da un prompt dei comandi tramite VSDBCMD. FILE EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx)
-- [Una panoramica di Database e di distribuzione](https://msdn.microsoft.com/en-us/library/aa833165.aspx)
+- [Progetti di Database di Visual Studio 2010 SQL Server](https://msdn.microsoft.com/library/ff678491.aspx)
+- [Gestione delle modifiche di Database](https://msdn.microsoft.com/library/aa833404.aspx)
+- [Procedura: preparare un Database per la distribuzione da un prompt dei comandi tramite VSDBCMD. FILE EXE](https://msdn.microsoft.com/library/dd193258.aspx)
+- [Una panoramica di Database e di distribuzione](https://msdn.microsoft.com/library/aa833165.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](deploying-web-packages.md)

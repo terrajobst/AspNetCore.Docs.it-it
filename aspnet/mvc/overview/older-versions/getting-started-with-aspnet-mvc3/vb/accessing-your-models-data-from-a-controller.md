@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: d0c6976519f4f4bae10fabf4cbf85401de4f58e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1a1db907aa1d0a62af9b363fabfc74ac11acc68
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller-vb"></a>Accesso ai dati del modello da un Controller (VB)
 ====================
@@ -89,7 +89,7 @@ In precedenza in questa esercitazione, si è visto come un controller può passa
 
 ASP.NET MVC fornisce inoltre la possibilità di passare fortemente tipizzata di dati o oggetti da un modello di visualizzazione. Questo approccio consente una migliore in fase di compilazione il controllo del codice e più completa IntelliSense nell'editor di Visual Web Developer è fortemente tipizzato. Si utilizza questo approccio che prevede il `MoviesController` classe e *Index.vbhtml* modello di visualizzazione.
 
-Si noti come il codice crea un [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) oggetto quando viene chiamata la `View` il metodo di supporto nel `Index` metodo di azione. Il codice passa quindi questo `Movies` elenco dal controller alla visualizzazione:
+Si noti come il codice crea un [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) oggetto quando viene chiamata la `View` il metodo di supporto nel `Index` metodo di azione. Il codice passa quindi questo `Movies` elenco dal controller alla visualizzazione:
 
 [!code-vb[Main](accessing-your-models-data-from-a-controller/samples/sample3.vb)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: e57f1200aaa207c9109f2832cbf88629ed385bb5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Novità di ASP.NET e lo sviluppo Web in Visual Studio 2012
 ====================
@@ -54,7 +54,7 @@ In questo laboratorio pratico, si apprenderà come:
 
 - [Microsoft Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superiore (lettura [appendice](#AppendixA) per istruzioni su come installarlo).
 - [Windows PowerShell](https://support.microsoft.com/kb/968930/) (per gli script di installazione - già installati in Windows 8 e Windows Server 2008 R2)
-- [Internet Explorer 10](https://windows.microsoft.com/en-US/internet-explorer/products/ie/home) - o un browser compatibile con HTML5
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) - o un browser compatibile con HTML5
 
 <a id="Exercises"></a>
 
@@ -202,7 +202,7 @@ In questa attività si apprenderà come usare i frammenti di codice CSS3 compati
     > [!NOTE]
     > Se si utilizza Internet Explorer 10 e non è possibile visualizzare le ombreggiature, verificare che sia impostata la modalità documento degli standard di Internet Explorer 10. Premere **F12** aprire Strumenti di sviluppo di Internet Explorer e fare clic su **modalità documento** per passare alla finestra standard di IE10.
 
-    ![sulle-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
+    ![about-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
 
 <a id="Exercise2"></a>
 

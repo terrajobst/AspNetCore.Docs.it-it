@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 83d1593d46761b1c00aa431cfdcde59cb3b28b65
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-multiple-environments"></a>Utilizzo di più ambienti
 
@@ -25,7 +25,7 @@ ASP.NET Core fornisce supporto per l'impostazione di comportamento dell'applicaz
 
 ## <a name="environments"></a>Ambienti
 
-ASP.NET Core legge la variabile di ambiente `ASPNETCORE_ENVIRONMENT` all'avvio dell'applicazione e archivia tale valore in [IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName). `ASPNETCORE_ENVIRONMENT`Impostare su qualsiasi valore, ma [tre valori](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname?view=aspnetcore-2.0) sono supportate dal framework: [sviluppo](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development?view=aspnetcore-2.0), [gestione temporanea](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging?view=aspnetcore-2.0), e [produzione](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production?view=aspnetcore-2.0). Se `ASPNETCORE_ENVIRONMENT` non è impostata, verrà aperta `Production`.
+ASP.NET Core legge la variabile di ambiente `ASPNETCORE_ENVIRONMENT` all'avvio dell'applicazione e archivia tale valore in [IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName). `ASPNETCORE_ENVIRONMENT`Impostare su qualsiasi valore, ma [tre valori](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname?view=aspnetcore-2.0) sono supportate dal framework: [sviluppo](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development?view=aspnetcore-2.0), [gestione temporanea](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging?view=aspnetcore-2.0), e [produzione](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production?view=aspnetcore-2.0). Se `ASPNETCORE_ENVIRONMENT` non è impostato, verrà aperta `Production`.
 
 [!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet)]
 
@@ -46,7 +46,7 @@ Nota: In Windows e Mac OS, valori e variabili di ambiente non sono tra maiuscole
 
 ### <a name="development"></a>Sviluppo
 
-L'ambiente di sviluppo è possibile abilitare le funzionalità che non devono essere esposti nell'ambiente di produzione. Ad esempio, i modelli ASP.NET Core abilitano il [pagina eccezione developer](xref:fundamentals/error-handling#the-developer-exception-page) nell'ambiente di sviluppo.
+L'ambiente di sviluppo è possibile abilitare le funzionalità che non devono essere esposte nell'ambiente di produzione. Ad esempio, i modelli ASP.NET Core abilitano il [pagina eccezione developer](xref:fundamentals/error-handling#the-developer-exception-page) nell'ambiente di sviluppo.
 
 L'ambiente per lo sviluppo di computer locale può essere impostata nella *Properties\launchSettings.json* file del progetto. Impostare i valori di ambiente in *launchSettings.json* sovrascrivono i valori impostati nell'ambiente di sistema.
 
@@ -83,7 +83,7 @@ Visual Studio **Debug** scheda fornisce un'interfaccia utente grafica per modifi
 Le modifiche apportate ai profili di progetto non abbiano effetto, è necessario riavviare il server web. È necessario riavviare kestrel rileverà le modifiche apportate al relativo ambiente.
 
 >[!WARNING]
-> *launchSettings.json* non devono essere archiviate informazioni riservate. Il [lo strumento Gestione segreto](xref:security/app-secrets) può essere utilizzato per archiviare i segreti per lo sviluppo locale.
+> *launchSettings.json* non deve archiviare i segreti. Il [lo strumento Gestione segreto](xref:security/app-secrets) può essere utilizzato per archiviare i segreti per lo sviluppo locale.
 
 ### <a name="production"></a>Produzione
 

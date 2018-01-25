@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 4c89ca004ad4c9d731868e868cf6723aa4ed625d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Novità di Entity Framework 4.0
 ====================
@@ -90,7 +90,7 @@ Eseguire il *Courses.aspx* pagina per visualizzare i dati modificati.
 
 (Se si desidera impostare il numero di crediti i relativi valori originali, in *UpdateCredits.aspx.cs* modificare `Credits * {0}` a `Credits / {0}` ed eseguire di nuovo la pagina, immettere 10 come divisore.)
 
-Per ulteriori informazioni sull'esecuzione di query definite nel codice, vedere [come: direttamente eseguire i comandi con l'origine dati](https://msdn.microsoft.com/en-us/library/ee358769.aspx).
+Per ulteriori informazioni sull'esecuzione di query definite nel codice, vedere [come: direttamente eseguire i comandi con l'origine dati](https://msdn.microsoft.com/library/ee358769.aspx).
 
 ## <a name="model-first-development"></a>Prima di modello di sviluppo
 
@@ -178,7 +178,7 @@ Eseguire la pagina.
 
 (Nota: questa pagina è incluso nel progetto scaricabile, ma per consentire il funzionamento è necessario creare il database nell'istanza locale di SQL Server Express, il database non è incluso come un *con estensione mdf* file nel *App\_ Dati* cartella.)
 
-Per ulteriori informazioni sull'utilizzo della funzionalità del modello-first di Entity Framework, vedere [Model-First in Entity Framework 4](https://msdn.microsoft.com/en-us/data/ff830362.aspx).
+Per ulteriori informazioni sull'utilizzo della funzionalità del modello-first di Entity Framework, vedere [Model-First in Entity Framework 4](https://msdn.microsoft.com/data/ff830362.aspx).
 
 ## <a name="poco-support"></a>Supporto POCO
 
@@ -188,7 +188,7 @@ Entity Framework 4 offre la possibilità di utilizzare le classi di entità che 
 
 Per ulteriori informazioni sull'utilizzo di POCOs in Entity Framework, vedere le risorse seguenti:
 
-- [Utilizzo di entità POCO](https://msdn.microsoft.com/en-us/library/dd456853.aspx). Si tratta di un documento MSDN che viene fornita una panoramica di POCOs, con collegamenti ad altri documenti che contengono informazioni più dettagliate.
+- [Utilizzo di entità POCO](https://msdn.microsoft.com/library/dd456853.aspx). Si tratta di un documento MSDN che viene fornita una panoramica di POCOs, con collegamenti ad altri documenti che contengono informazioni più dettagliate.
 - [Procedura dettagliata: POCO modello per Entity Framework](https://blogs.msdn.com/b/adonet/archive/2010/01/25/walkthrough-poco-template-for-the-entity-framework.aspx) si tratta di un post di blog dal team di sviluppo di Entity Framework, con collegamenti ad altri post di blog sulla POCOs.
 
 ## <a name="code-first-development"></a>Sviluppo Code First
@@ -209,7 +209,7 @@ Inoltre, una nuova esercitazione Code-First MVC che compila un'applicazione simi
 
 In questo passaggio si completa la panoramica per novità di Entity Framework e questa se si continua con la serie di esercitazioni di Entity Framework. Per ulteriori informazioni sulle nuove funzionalità di Entity Framework 4 non sono descritti in questo argomento, vedere le risorse seguenti:
 
-- [Novità in ADO.NET](https://msdn.microsoft.com/en-us/library/ex6y04yf.aspx) argomento MSDN sulle nuove funzionalità nella versione 4 di Entity Framework.
+- [Novità in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) argomento MSDN sulle nuove funzionalità nella versione 4 di Entity Framework.
 - [Annuncio del rilascio di Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) post di blog del team di sviluppo di Entity Framework sulle nuove funzionalità nella versione 4.
 
 >[!div class="step-by-step"]

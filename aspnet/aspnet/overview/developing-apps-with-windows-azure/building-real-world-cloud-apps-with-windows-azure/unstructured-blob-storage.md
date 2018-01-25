@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 6cb77e8ef301c2eeef7df3e391e14f4e2c0364e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Archiviazione di Blob non strutturati (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -33,7 +33,7 @@ Nel capitolo precedente abbiamo esaminato gli schemi di partizionamento e illust
 
 Il servizio Blob di archiviazione di Azure fornisce un modo per archiviare i file nel cloud. Il servizio Blob presenta numerosi vantaggi rispetto all'archiviazione di file in un file system di rete locale:
 
-- È altamente scalabile. Un singolo account di archiviazione è possibile archiviare [centinaia di terabyte](https://msdn.microsoft.com/en-us/library/windowsazure/dn249410.aspx), ed è possibile disporre di più account di archiviazione. Alcuni dei principali clienti Azure archiviare centinaia di petabyte. Microsoft SkyDrive utilizza l'archiviazione di blob.
+- È altamente scalabile. Un singolo account di archiviazione è possibile archiviare [centinaia di terabyte](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), ed è possibile disporre di più account di archiviazione. Alcuni dei principali clienti Azure archiviare centinaia di petabyte. Microsoft SkyDrive utilizza l'archiviazione di blob.
 - È durevole. Ogni file che archiviare nel servizio Blob viene automaticamente eseguito il backup.
 - Fornisce la disponibilità elevata. Il [contratto di servizio per l'archiviazione](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) promesse 99,9% o 99,99% tempo di attività, a seconda di quale opzione di ridondanza geografica scelta.
 - È una funzionalità di piattaforma come servizio (PaaS) di Azure, pertanto è sufficiente archiviare e recuperare i file, pagare solo la quantità effettiva di archiviazione da utilizzare, e Azure occupa automaticamente di impostare e gestire tutte le macchine virtuali e l'unità disco necessarie per il servizio.
@@ -146,7 +146,7 @@ Per ulteriori informazioni, vedere le risorse seguenti:
 - [Introduzione all'archiviazione BLOB di Azure](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Post di blog di legno Mike.
 - [Come utilizzare il servizio di archiviazione Blob di Azure in .NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Documentazione ufficiale sul sito MicrosoftAzure.com. Una breve introduzione all'archiviazione seguito da esempi di codice che illustra come connettersi all'archiviazione blob, blob creare contenitori, caricare e scaricare i BLOB e così via.
 - [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Per una descrizione del servizio di archiviazione di Azure e BLOB, vedere episodio 5 partendo da 35:13.
-- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Vedere Valet chiave modello.
+- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere Valet chiave modello.
 
 >[!div class="step-by-step"]
 [Precedente](data-partitioning-strategies.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f455c3656c9120f4d7e6fccdba8f705e0a1c7d35
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Lettura correlate a dati con Entity Framework in un'applicazione ASP.NET MVC (5 di 10)
 ====================
@@ -68,7 +68,7 @@ Classe del contesto di database esegue il caricamento lazy per impostazione pred
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Caricamento lazy in grado di mascherare il codice che causa problemi di prestazioni. Codice che non consente di specificare il caricamento eager o esplicito ma elabora un'elevata quantità di entità e utilizzate varie proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa dei numerosi round trip al database). Un'applicazione che esegue anche in fase di sviluppo utilizzando un server SQL locale può verificarsi dei problemi di prestazioni quando è stato spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. Profilatura delle query di database con un carico di test realistici consentirà di determinare se il caricamento lazy è appropriato. Per ulteriori informazioni vedere [Demistificazione delle strategie di Entity Framework: il caricamento di dati correlati](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) e [tramite Entity Framework per ridurre la latenza di rete a SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Caricamento lazy in grado di mascherare il codice che causa problemi di prestazioni. Codice che non consente di specificare il caricamento eager o esplicito ma elabora un'elevata quantità di entità e utilizzate varie proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa dei numerosi round trip al database). Un'applicazione che esegue anche in fase di sviluppo utilizzando un server SQL locale può verificarsi dei problemi di prestazioni quando è stato spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. Profilatura delle query di database con un carico di test realistici consentirà di determinare se il caricamento lazy è appropriato. Per ulteriori informazioni vedere [Demistificazione delle strategie di Entity Framework: il caricamento di dati correlati](https://msdn.microsoft.com/magazine/hh205756.aspx) e [tramite Entity Framework per ridurre la latenza di rete a SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ## <a name="create-a-courses-index-page-that-displays-department-name"></a>Creare il nome del reparto consente di visualizzare una pagina di indice corsi
 
@@ -155,9 +155,9 @@ Il metodo accetta i dati della route facoltativo (`id`) e un parametro di string
 > 
 > Dati di route sono presenti il gestore di associazione del modello in un segmento di URL specificato nella tabella di routing. Ad esempio, la route predefinita specifica `controller`, `action`, e `id` segmenti:
 > 
-> route. (MapRoute  
+> routes.MapRoute(  
 >  nome: "Default",  
->  URL: "{controller} / {action} / {id}",  
+>  url: "{controller}/{action}/{id}",  
 >  impostazioni predefinite: new {controller = "Home" action = "Index", id = UrlParameter.Optional}  
 > );
 > 
@@ -194,7 +194,7 @@ Se è stato selezionato un ID istruttore istruttore selezionato viene recuperato
 
 Il `Where` metodo restituisce una raccolta, ma in questo caso i criteri di passati al risultato in un solo metodo `Instructor` la restituzione di entità. Il `Single` metodo converte la raccolta in un unico `Instructor` entità, che consente di accedere a tale entità `Courses` proprietà.
 
-Utilizzare il [singolo](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) metodo in una raccolta quando si conosce la raccolta ha un solo elemento. Il `Single` metodo genera un'eccezione se la raccolta passata a esso è vuota o se è presente più di un elemento. In alternativa, è [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), che restituisce un valore predefinito (`null` in questo caso) se la raccolta è vuota. Tuttavia, in questo caso che ancora comporta un'eccezione (di tentare di trovare un `Courses` proprietà in un `null` riferimento), e il messaggio di eccezione meno chiaramente indica la causa del problema. Quando si chiama il `Single` (metodo), è inoltre possibile passare il `Where` condizione anziché chiamare il `Where` metodo separatamente:
+Utilizzare il [singolo](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metodo in una raccolta quando si conosce la raccolta ha un solo elemento. Il `Single` metodo genera un'eccezione se la raccolta passata a esso è vuota o se è presente più di un elemento. In alternativa, è [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), che restituisce un valore predefinito (`null` in questo caso) se la raccolta è vuota. Tuttavia, in questo caso che ancora comporta un'eccezione (di tentare di trovare un `Courses` proprietà in un `null` riferimento), e il messaggio di eccezione meno chiaramente indica la causa del problema. Quando si chiama il `Single` (metodo), è inoltre possibile passare il `Where` condizione anziché chiamare il `Where` metodo separatamente:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 

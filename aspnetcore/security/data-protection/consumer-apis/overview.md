@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 5ec11dce3ba485a84b6ce5f7ddaf16430162659c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2545226314ebf57d7a0d644d8edfb5354dcc6e5e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="consumer-apis-overview"></a>Panoramica di API di consumer
 
-Il `IDataProtectionProvider` e `IDataProtector` interfacce sono le interfacce di base tramite cui i consumer utilizzano il sistema di protezione dati. Si trovano nel [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) pacchetto.
+Il `IDataProtectionProvider` e `IDataProtector` interfacce sono le interfacce di base tramite cui i consumer utilizzano il sistema di protezione dati. E si trovano nel [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) pacchetto.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
@@ -25,13 +25,13 @@ L'interfaccia del provider rappresenta la radice del sistema di protezione dati.
 
 ## <a name="idataprotector"></a>IDataProtector
 
-L'interfaccia di protezione viene restituito da una chiamata a `CreateProtector`, ed è questa interfaccia che i consumer possono utilizzare per eseguire proteggere e annullare la protezione di operazioni.
+L'interfaccia di protezione viene restituito da una chiamata a `CreateProtector`e il consumer possono utilizzare per eseguire questa interfaccia proteggere e annullare la protezione di operazioni.
 
-Per proteggere una parte dei dati, passare i dati per il `Protect` metodo. L'interfaccia di base definisce un metodo che converte di byte [] -> byte [], ma è disponibile anche un overload (fornito come un metodo di estensione) che converte una stringa -> string. La sicurezza offerta da due metodi è identica. lo sviluppatore deve scegliere a seconda del valore overload è più semplice per il caso di utilizzo. Indipendentemente l'overload scelto, il valore restituito da Protect metodo ora protetto (crittografato e prova di manomissioni) e l'applicazione può inviare a un client non attendibile.
+Per proteggere una parte dei dati, passare i dati per il `Protect` metodo. L'interfaccia di base definisce un metodo che converte di byte [] -> byte [], ma è anche un overload (fornito come un metodo di estensione) che converte una stringa -> string. La sicurezza offerta da due metodi è identica. lo sviluppatore deve scegliere a seconda del valore overload è più semplice per il caso di utilizzo. Indipendentemente l'overload scelto, il valore restituito da Protect metodo ora protetto (crittografato e prova di manomissioni) e l'applicazione può inviare a un client non attendibile.
 
 Per rimuovere la protezione di un dato precedentemente protetto, passare i dati protetti per il `Unprotect` metodo. (Esistono byte []-overload in base e basato su stringa per praticità per sviluppatori.) Se il payload protetto è stato generato da una precedente chiamata a `Protect` questa stessa `IDataProtector`, `Unprotect` metodo restituirà il payload originale non protetto. Se il payload protetto è stato manomesso o è stato generato da un'altra `IDataProtector`, `Unprotect` metodo genererà CryptographicException.
 
-Il concetto di uguale e diversi `IDataProtector` ties nuovamente al concetto di scopo. Se due `IDataProtector` istanze generate dalla stessa radice `IDataProtectionProvider` ma tramite stringhe scopo diverso nella chiamata a `IDataProtectionProvider.CreateProtector`, quindi vengono considerati [protezioni diversi](purpose-strings.md), e uno non sarà in grado di rimuovere la protezione payload generati dagli altri.
+Il concetto di uguale e diversi `IDataProtector` ties nuovamente al concetto di scopo. Se due `IDataProtector` istanze generate dalla stessa radice `IDataProtectionProvider` ma tramite stringhe scopo diverso nella chiamata a `IDataProtectionProvider.CreateProtector`, è considerato [protezioni diversi](purpose-strings.md), e uno non sarà in grado di rimuovere la protezione payload generati dagli altri.
 
 ## <a name="consuming-these-interfaces"></a>Utilizzo di queste interfacce
 
@@ -55,4 +55,4 @@ Il pacchetto Microsoft.AspNetCore.DataProtection.Abstractions contiene un metodo
 [!code-csharp[Main](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
-> Le istanze di `IDataProtectionProvider` e `IDataProtector` sono thread-safe per più i chiamanti. È previsto che una volta che un componente ottiene un riferimento a un `IDataProtector` tramite una chiamata a `CreateProtector`, tale riferimento verrà utilizzato per più chiamate a `Protect` e `Unprotect`. Una chiamata a `Unprotect` genererà CryptographicException se il payload protetto può essere verificato o decifrato. Alcuni componenti preferibile ignorare gli errori durante rimuovere la protezione di operazioni. un componente che legge i cookie di autenticazione potrebbe gestire questo errore e gestire la richiesta, come se non contenesse alcun cookie affatto anziché rifiuteranno la richiesta di definitiva. Componenti che questo comportamento devono in particolare intercettare CryptographicException anziché integrare tutte le eccezioni.
+> Le istanze di `IDataProtectionProvider` e `IDataProtector` sono thread-safe per più i chiamanti. È destinata che una volta che un componente ottiene un riferimento a un `IDataProtector` tramite una chiamata a `CreateProtector`, tale riferimento verrà utilizzato per più chiamate a `Protect` e `Unprotect`. Una chiamata a `Unprotect` genererà CryptographicException se il payload protetto può essere verificato o decifrato. Alcuni componenti preferibile ignorare gli errori durante rimuovere la protezione di operazioni. un componente che legge i cookie di autenticazione potrebbe gestire questo errore e gestire la richiesta, come se non contenesse alcun cookie affatto anziché rifiuteranno la richiesta di definitiva. Componenti che questo comportamento devono in particolare intercettare CryptographicException anziché integrare tutte le eccezioni.

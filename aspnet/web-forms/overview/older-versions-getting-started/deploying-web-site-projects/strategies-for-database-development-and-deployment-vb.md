@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 title: Strategie per lo sviluppo del Database e la distribuzione (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Quando si distribuisce un'applicazione basati sui dati per la prima volta che è possibile copiare automaticamente il database nell'ambiente di sviluppo all'ambiente di produzione. B...."
+description: "Quando si distribuisce un'applicazione basati sui dati per la prima volta che è possibile copiare automaticamente il database nell'ambiente di sviluppo all'ambiente di produzione. B..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8632ed2fe5c1a296747a0206de1c6f5c5bb59dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Strategie per lo sviluppo del Database e la distribuzione (VB)
 ====================
@@ -79,7 +79,7 @@ Mantenere il registro delle modifiche nella prosa, è vero, non è molto più so
 
 Lo svantaggio principale di mantenere il registro delle modifiche nella prosa è la mancanza di automazione. In teoria, l'implementazione di modifiche del database al database di produzione in fase di distribuzione sarebbe sufficiente fare clic su un pulsante per eseguire uno script, anziché dover eseguire manualmente un elenco di istruzioni. Questo tipo di automazione è possibile tramite la gestione di un registro delle modifiche che contiene i comandi SQL utilizzati per modificare il modello di dati.
 
-La sintassi SQL include un numero di istruzioni per la creazione e modifica di diversi oggetti di database. Ad esempio, il [ *istruzione CREATE TABLE*](https://msdn.microsoft.com/en-us/library/ms174979.aspx), quando eseguita, crea una nuova tabella con le colonne specificate e i vincoli. Il [ *istruzione ALTER TABLE* ](https://msdn.microsoft.com/en-us/library/ms190273.aspx) modifica una tabella esistente, aggiungendo, rimuovendo o modificando le colonne o vincoli. Sono inoltre disponibili istruzioni per creare, modificare ed eliminare gli indici, viste, funzioni definite dall'utente, stored procedure, trigger e altri oggetti di database.
+La sintassi SQL include un numero di istruzioni per la creazione e modifica di diversi oggetti di database. Ad esempio, il [ *istruzione CREATE TABLE*](https://msdn.microsoft.com/library/ms174979.aspx), quando eseguita, crea una nuova tabella con le colonne specificate e i vincoli. Il [ *istruzione ALTER TABLE* ](https://msdn.microsoft.com/library/ms190273.aspx) modifica una tabella esistente, aggiungendo, rimuovendo o modificando le colonne o vincoli. Sono inoltre disponibili istruzioni per creare, modificare ed eliminare gli indici, viste, funzioni definite dall'utente, stored procedure, trigger e altri oggetti di database.
 
 Durante lo sviluppo di un'applicazione già distribuita si aggiunge una nuova colonna da restituire riprendendo l'esempio precedente, immagine che la `Employees` tabella, una colonna da rimuovere il `Orders` tabella e aggiungere una nuova tabella (`ProductCategories`). Tali azioni creerebbe un file di log di modifica con i comandi SQL seguenti:
 

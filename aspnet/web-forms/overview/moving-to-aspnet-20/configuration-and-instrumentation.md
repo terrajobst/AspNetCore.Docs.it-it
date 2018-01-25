@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: f8d378d3332669ae4606dad8ada06de37e7dfd20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuration-and-instrumentation"></a>Configurazione e la strumentazione
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Sono disponibili le principali modifiche alla configurazione e strumentazione di ASP.NET 2.0. La nuova API di configurazione di ASP.NET consente di apportare modifiche di configurazione da eseguire a livello di codice. Inoltre, molte nuove impostazioni di configurazione esistano Consenti per le nuove configurazioni e la strumentazione.
 
@@ -78,13 +78,13 @@ Numerosi metodi e classi di configurazione sono simili tra loro. La tabella segu
 
 | **Spazio dei nomi o classe di configurazione** | **Descrizione** |
 | --- | --- |
-| [System. Configuration](https://msdn.microsoft.com/en-us/library/system.configuration.aspx) dello spazio dei nomi | Contiene le classi di configurazione principale per tutte le applicazioni .NET Framework. Le classi dei gestori di sezione consentono di ottenere i dati di configurazione per una sezione da metodi quali GetSection e GetSectionGroup. Questi due metodi non sono statici. |
+| [System. Configuration](https://msdn.microsoft.com/library/system.configuration.aspx) dello spazio dei nomi | Contiene le classi di configurazione principale per tutte le applicazioni .NET Framework. Le classi dei gestori di sezione consentono di ottenere i dati di configurazione per una sezione da metodi quali GetSection e GetSectionGroup. Questi due metodi non sono statici. |
 | Classe System.Configuration.Configuration | Rappresenta un set di dati di configurazione per un computer, applicazioni, directory Web o un'altra risorsa. Questa classe contiene metodi, ad esempio GetSection e GetSectionGroup, utili per l'aggiornamento delle impostazioni di configurazione e per ottenere riferimenti a sezioni e gruppi. Questa classe è utilizzata come tipo restituito per i metodi che ottengono i dati di configurazione design-time, ad esempio i metodi delle classi WebConfigurationManager e ConfigurationManager. |
-| Spazio dei nomi System.Web.Configuration | Contiene le classi del gestore per le sezioni di configurazione di ASP.NET definiti [impostazioni di configurazione ASP.NET](https://msdn.microsoft.com/en-us/library/b5ysx397.aspx). Le classi dei gestori di sezione consentono di ottenere i dati di configurazione per una sezione da metodi quali GetSection e GetSectionGroup. |
+| Spazio dei nomi System.Web.Configuration | Contiene le classi del gestore per le sezioni di configurazione di ASP.NET definiti [impostazioni di configurazione ASP.NET](https://msdn.microsoft.com/library/b5ysx397.aspx). Le classi dei gestori di sezione consentono di ottenere i dati di configurazione per una sezione da metodi quali GetSection e GetSectionGroup. |
 | Classe System.Web.Configuration.WebConfigurationManager | Fornisce metodi utili per ottenere riferimenti a impostazioni di configurazione in fase di esecuzione e in fase di progettazione. Questi metodi usano la classe di System.Configuration.Configuration come un tipo restituito. È possibile utilizzare il metodo GetSection statico di questa classe o il metodo GetSection non statici della classe System.Configuration.ConfigurationManager in modo intercambiabile. Per le configurazioni di applicazioni Web, è consigliabile utilizzare la classe System.Web.Configuration.WebConfigurationManager anziché la classe System.Configuration.ConfigurationManager. |
-| [System.Configuration.Provider](https://msdn.microsoft.com/en-us/library/system.configuration.provider.aspx) dello spazio dei nomi | Consente di personalizzare ed estendere il provider di configurazione. Questa è la classe base per tutte le classi provider nel sistema di configurazione. |
-| [System.Web.Management](https://msdn.microsoft.com/en-us/library/system.web.management.aspx) dello spazio dei nomi | Contiene classi e interfacce per la gestione e monitoraggio dell'integrità delle applicazioni Web. In teoria, questo spazio dei nomi non viene considerato parte dell'API di configurazione. Traccia e la generazione di eventi, ad esempio, viene eseguito tramite le classi nello spazio dei nomi. |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/en-us/library/system.management.instrumentation.aspx) dello spazio dei nomi | Fornisce le classi necessarie per la strumentazione di applicazioni di esporre le informazioni di gestione e ai potenziali utenti eventi tramite Strumentazione gestione Windows (WMI). Il monitoraggio dello stato ASP.NET utilizza WMI per il recapito degli eventi. In teoria, questo spazio dei nomi non viene considerato parte dell'API di configurazione. |
+| [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) dello spazio dei nomi | Consente di personalizzare ed estendere il provider di configurazione. Questa è la classe base per tutte le classi provider nel sistema di configurazione. |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) dello spazio dei nomi | Contiene classi e interfacce per la gestione e monitoraggio dell'integrità delle applicazioni Web. In teoria, questo spazio dei nomi non viene considerato parte dell'API di configurazione. Traccia e la generazione di eventi, ad esempio, viene eseguito tramite le classi nello spazio dei nomi. |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) dello spazio dei nomi | Fornisce le classi necessarie per la strumentazione di applicazioni di esporre le informazioni di gestione e ai potenziali utenti eventi tramite Strumentazione gestione Windows (WMI). Il monitoraggio dello stato ASP.NET utilizza WMI per il recapito degli eventi. In teoria, questo spazio dei nomi non viene considerato parte dell'API di configurazione. |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>Lettura dal file di configurazione ASP.NET
 
@@ -148,11 +148,11 @@ Il &lt;healthMonitoring&gt; sezione del file Web. config globale sono disponibil
 
 Il &lt;healthMonitoring&gt; sezione del file Web. config globale contiene gli elementi seguenti:
 
-| **provider** | Contiene i provider impostato per il Visualizzatore eventi, WMI e SQL Server. |
+| **providers** | Contiene i provider impostato per il Visualizzatore eventi, WMI e SQL Server. |
 | --- | --- |
 | **eventMappings** | Contiene i mapping per le varie classi WebBase. È possibile estendere questo elenco se si genera la propria classe di evento. Generazione di una classe di evento offre una maggiore granularità tramite i provider a che inviare informazioni. Ad esempio, è possibile configurare le eccezioni non gestite da inviare al Server SQL, durante l'invio di eventi personalizzati per posta elettronica. |
 | **regole** | Collegamenti eventMappings al provider. |
-| **la memorizzazione nel buffer** | Utilizzato con i provider di posta elettronica e di SQL Server per determinare la frequenza con cui scaricare gli eventi per il provider. |
+| **buffering** | Utilizzato con i provider di posta elettronica e di SQL Server per determinare la frequenza con cui scaricare gli eventi per il provider. |
 
 Di seguito è riportato un esempio di codice dal file Web. config globale.
 
@@ -246,10 +246,10 @@ Gli strumenti da riga di comando seguenti sono disponibili:
 
 | **Strumento** | **Utilizzo** |
 | --- | --- |
-| **ASPNET\_regiis.exe** | Consente la registrazione di ASP.NET con IIS. Sono disponibili due versioni di questo strumenti forniti con ASP.NET 2.0, uno per i sistemi a 32 bit (nella cartella Framework) e uno per i sistemi a 64 bit (nella cartella Framework64.) La versione a 64 bit non verrà installata in un sistema operativo a 32 bit. |
-| **ASPNET\_regsql.exe** | Lo strumento di registrazione di ASP.NET SQL Server viene utilizzato per creare un database di Microsoft SQL Server da utilizzare dai provider di SQL Server in ASP.NET o per aggiungere o rimuovere opzioni da un database esistente. Aspnet\_regsql.exe file si trova in [cartella drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber sul server Web. |
-| **ASPNET\_regbrowsers.exe** | Lo strumento di registrazione del Browser ASP.NET consente di analizzare e compila tutte le definizioni del browser a livello di sistema in un assembly e installa l'assembly nella global assembly cache. Lo strumento utilizza i file di definizione del browser (. File del BROWSER) dalla sottodirectory browser di .NET Framework. Lo strumento è reperibile nella directory %SystemRoot%\Microsoft.NET\Framework\version\. |
-| **ASPNET\_compiler.exe** | Lo strumento di compilazione ASP.NET consente di compilare un'applicazione Web ASP.NET, sul posto o per la distribuzione in un percorso di destinazione, ad esempio un server di produzione. Compilazione sul posto consente le prestazioni dell'applicazione perché gli utenti finali non si rilevano un ritardo nella prima richiesta all'applicazione durante l'applicazione viene compilata. |
+| **aspnet\_regiis.exe** | Consente la registrazione di ASP.NET con IIS. Sono disponibili due versioni di questo strumenti forniti con ASP.NET 2.0, uno per i sistemi a 32 bit (nella cartella Framework) e uno per i sistemi a 64 bit (nella cartella Framework64.) La versione a 64 bit non verrà installata in un sistema operativo a 32 bit. |
+| **aspnet\_regsql.exe** | Lo strumento di registrazione di ASP.NET SQL Server viene utilizzato per creare un database di Microsoft SQL Server da utilizzare dai provider di SQL Server in ASP.NET o per aggiungere o rimuovere opzioni da un database esistente. Aspnet\_regsql.exe file si trova in [cartella drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber sul server Web. |
+| **aspnet\_regbrowsers.exe** | Lo strumento di registrazione del Browser ASP.NET consente di analizzare e compila tutte le definizioni del browser a livello di sistema in un assembly e installa l'assembly nella global assembly cache. Lo strumento utilizza i file di definizione del browser (. File del BROWSER) dalla sottodirectory browser di .NET Framework. Lo strumento è reperibile nella directory %SystemRoot%\Microsoft.NET\Framework\version\. |
+| **aspnet\_compiler.exe** | Lo strumento di compilazione ASP.NET consente di compilare un'applicazione Web ASP.NET, sul posto o per la distribuzione in un percorso di destinazione, ad esempio un server di produzione. Compilazione sul posto consente le prestazioni dell'applicazione perché gli utenti finali non si rilevano un ritardo nella prima richiesta all'applicazione durante l'applicazione viene compilata. |
 
 Poiché aspnet\_regiis.exe strumento non è una novità di ASP.NET 2.0, non si parlerà qui.
 
@@ -259,11 +259,11 @@ Poiché aspnet\_regiis.exe strumento non è una novità di ASP.NET 2.0, non si p
 
 Alcuni servizi applicativi ASP.NET si basano su un provider per gestire l'archiviazione e recupero di dati da un'origine dati. Ogni provider è specifico dell'origine dati. ASP.NET include un provider di SQL Server per le funzionalità ASP.NET seguenti:
 
-- Appartenenza (il [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) classe).
-- Gestione dei ruoli (il [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) classe).
-- Profilo (il [SqlProfileProvider](https://msdn.microsoft.com/en-us/library/system.web.profile.sqlprofileprovider.aspx) classe).
-- Personalizzazione di Web part (il [SqlPersonalizationProvider](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) classe).
-- Eventi Web (il [SqlWebEventProvider](https://msdn.microsoft.com/en-us/library/system.web.management.sqlwebeventprovider.aspx) classe).
+- Appartenenza (il [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) classe).
+- Gestione dei ruoli (il [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) classe).
+- Profilo (il [SqlProfileProvider](https://msdn.microsoft.com/library/system.web.profile.sqlprofileprovider.aspx) classe).
+- Personalizzazione di Web part (il [SqlPersonalizationProvider](https://msdn.microsoft.com/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) classe).
+- Eventi Web (il [SqlWebEventProvider](https://msdn.microsoft.com/library/system.web.management.sqlwebeventprovider.aspx) classe).
 
 Quando si installa ASP.NET, il file Machine. config per il server include gli elementi di configurazione che specificano i provider di SQL Server per ogni funzionalità di ASP.NET che si basano su un provider. Questi provider sono configurati per impostazione predefinita, per connettersi a un'istanza di un utente locale di SQL Server Express 2005. Se si modifica la stringa di connessione predefinita utilizzata dai provider, quindi prima di poter usare le funzionalità di ASP.NET configurato nella configurazione del computer, è necessario installare il database di SQL Server e gli elementi del database per la funzionalità scelta utilizzando Aspnet\_regsql.exe. Se il database specificati con lo strumento di registrazione SQL non esiste già (aspnetdb sarà il database predefinito se non è specificata nella riga di comando), quindi l'utente corrente deve disporre dei diritti per creare database in SQL Server, nonché e schema degli elementi procede all'interno di un database.
 
@@ -301,7 +301,7 @@ Le opzioni seguenti sono disponibili quando si esegue aspnet\_regbrowser.exe:
 
 Lo strumento di compilazione ASP.NET può essere utilizzato in due modi: per la compilazione sul posto e la compilazione per la distribuzione, in cui è specificata una directory di output di destinazione.
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[La compilazione di un'applicazione sul posto](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[La compilazione di un'applicazione sul posto](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Lo strumento di compilazione di ASP.NET è possibile compilare un'applicazione sul posto, vale a dire riproduce il comportamento di esecuzione di più richieste all'applicazione, causando la normale compilazione. Gli utenti di un sito precompilato non otterranno un ritardo causato dalla compilazione della pagina nella prima richiesta.
 
@@ -317,7 +317,7 @@ Quando si esegue la precompilazione di un sito, si applicano i seguenti elementi
 > Compilazione di un'applicazione che contiene un'applicazione annidata non viene compilato dell'applicazione annidata. L'applicazione nidificata deve essere compilata separatamente.
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[La compilazione di un'applicazione per la distribuzione](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[La compilazione di un'applicazione per la distribuzione](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Si compila un'applicazione per la distribuzione (compilazione in un percorso di destinazione), specificando il parametro targetDir. Può rappresentare la posizione finale per l'applicazione Web o l'applicazione compilata può essere distribuito ulteriormente. Utilizzo di **-u** opzione consente di compilare l'applicazione in modo che è possibile apportare modifiche a determinati file nell'applicazione compilata senza ricompilarla. ASPNET\_compiler.exe viene fatta distinzione tra tipi di file statici e dinamici e li gestisce in modo diverso durante la creazione dell'applicazione risultante.
 
@@ -330,8 +330,8 @@ La tabella seguente descrive come il compilazione ASP.NET strumento gestisce div
 
 | **Tipo di file** | **Azione del compilatore** |
 | --- | --- |
-| con estensione ascx, con estensione aspx, master | Questi file vengono suddivisi in markup e codice sorgente, che include i file code-behind e qualsiasi codice che è racchiuso tra parentesi &lt;script runat = "server"&gt; elementi. Codice sorgente viene compilato in assembly, con nomi che derivano da un algoritmo di hash e gli assembly vengono inseriti nella directory Bin. Qualsiasi codice inline, ovvero il codice racchiuso tra i  **&lt; %**  e  **% &gt;**  le parentesi quadre, incluso il markup e non viene compilato. Nuovo file con lo stesso nome dei file di origine vengono creati per contenere il codice e inseriti nella directory di output corrispondenti. |
-| . ashx, asmx | Questi file non vengono compilati e vengono spostati nella directory di output e non è stato compilato. Se si desidera che il codice del gestore di compilazione, inserire il codice nel file del codice sorgente nell'App\_directory del codice. |
+| .ascx, .aspx, .master | Questi file vengono suddivisi in markup e codice sorgente, che include i file code-behind e qualsiasi codice che è racchiuso tra parentesi &lt;script runat = "server"&gt; elementi. Codice sorgente viene compilato in assembly, con nomi che derivano da un algoritmo di hash e gli assembly vengono inseriti nella directory Bin. Qualsiasi codice inline, ovvero il codice racchiuso tra i  **&lt; %**  e  **% &gt;**  le parentesi quadre, incluso il markup e non viene compilato. Nuovo file con lo stesso nome dei file di origine vengono creati per contenere il codice e inseriti nella directory di output corrispondenti. |
+| .ashx, .asmx | Questi file non vengono compilati e vengono spostati nella directory di output e non è stato compilato. Se si desidera che il codice del gestore di compilazione, inserire il codice nel file del codice sorgente nell'App\_directory del codice. |
 | con estensione cs, vb, jsl, con estensione cpp (escluso il file code-behind per i tipi di file elencati in precedenza) | Questi file vengono compilati e inclusa come risorsa nell'assembly che vi fanno riferimento. File di origine non vengono copiati nella directory di output. Se un file di codice non viene fatto riferimento, non viene compilata. |
 | Tipi di file personalizzati | Questi file non vengono compilati. Questi file vengono copiati nelle directory di output corrispondente. |
 | File di codice nell'App di origine\_sottodirectory del codice | Questi file vengono compilati in assembly e inseriti nella directory Bin. |
@@ -344,23 +344,23 @@ La tabella seguente descrive come il compilazione ASP.NET strumento gestisce div
 
 | **Tipo di file** | **Azione del compilatore** |
 | --- | --- |
-| con estensione aspx, asmx,. ashx, master | Questi file vengono suddivisi in markup e codice sorgente, che include i file code-behind e qualsiasi codice che è racchiuso tra parentesi &lt;script runat = "server"&gt; elementi. Codice sorgente viene compilato in assembly, con nomi che derivano da un algoritmo di hash. Gli assembly risultanti vengono inseriti nella directory Bin. Qualsiasi codice inline, ovvero il codice racchiuso tra i  **&lt; %**  e  **% &gt;**  le parentesi quadre, incluso il markup e non viene compilato. Il compilatore crea nuovi file per contenere il codice con lo stesso nome dei file di origine. Questi file risultanti vengono inseriti nella directory Bin. Il compilatore crea anche i file con lo stesso nome dei file di origine, ma con l'estensione. COMPILED che contengono informazioni di mapping. Il file con estensione File compilati vengono inseriti nella directory di output corrispondente nel percorso originale dei file di origine. |
-| con estensione ascx | Questi file vengono suddivisi in markup e il codice sorgente. Codice sorgente viene compilato in assembly e inserito nella directory Bin, con nomi che derivano da un algoritmo di hash. Viene generato alcun file di markup. |
+| .aspx, .asmx, .ashx, .master | Questi file vengono suddivisi in markup e codice sorgente, che include i file code-behind e qualsiasi codice che è racchiuso tra parentesi &lt;script runat = "server"&gt; elementi. Codice sorgente viene compilato in assembly, con nomi che derivano da un algoritmo di hash. Gli assembly risultanti vengono inseriti nella directory Bin. Qualsiasi codice inline, ovvero il codice racchiuso tra i  **&lt; %**  e  **% &gt;**  le parentesi quadre, incluso il markup e non viene compilato. Il compilatore crea nuovi file per contenere il codice con lo stesso nome dei file di origine. Questi file risultanti vengono inseriti nella directory Bin. Il compilatore crea anche i file con lo stesso nome dei file di origine, ma con l'estensione. COMPILED che contengono informazioni di mapping. Il file con estensione File compilati vengono inseriti nella directory di output corrispondente nel percorso originale dei file di origine. |
+| .ascx | Questi file vengono suddivisi in markup e il codice sorgente. Codice sorgente viene compilato in assembly e inserito nella directory Bin, con nomi che derivano da un algoritmo di hash. Viene generato alcun file di markup. |
 | con estensione cs, vb, jsl, con estensione cpp (escluso il file code-behind per i tipi di file elencati in precedenza) | Codice sorgente che fa riferimento l'assembly generato dal file con estensione aspx,. ashx o ascx viene compilato in assembly e inserito nella directory Bin. Nessun file di origine vengono copiato. |
 | Tipi di file personalizzati | Questi file vengono compilati come file dinamici. A seconda del tipo di file su che sono basate, il compilatore può inserire file di mapping nella directory di output. |
 | I file nell'App\_sottodirectory del codice | File del codice sorgente nella sottodirectory vengono compilati in assembly e inseriti nella directory Bin. |
-| I file nell'App\_sottodirectory GlobalResources | Questi file vengono compilati in assembly e inseriti nella directory Bin. Nessuna App\_GlobalResources sottodirectory viene creato nella directory di output principale. Se il file di configurazione specifica appliesTo = "All", vengono copiati i file con estensione resx e. Resources nelle directory di output. Non vengono copiati se vi viene fatto riferimento da un [BuildProvider](https://msdn.microsoft.com/en-us/library/system.web.configuration.buildprovider.aspx). |
+| I file nell'App\_sottodirectory GlobalResources | Questi file vengono compilati in assembly e inseriti nella directory Bin. Nessuna App\_GlobalResources sottodirectory viene creato nella directory di output principale. Se il file di configurazione specifica appliesTo = "All", vengono copiati i file con estensione resx e. Resources nelle directory di output. Non vengono copiati se vi viene fatto riferimento da un [BuildProvider](https://msdn.microsoft.com/library/system.web.configuration.buildprovider.aspx). |
 | file con estensione resx e Resource nell'App\_sottodirectory LocalResources | Questi file vengono compilati in assembly con nomi univoci e inseriti nella directory Bin. Nessun file. resx o resources vengono copiato nelle directory di output. |
 | file con estensione skin nell'App\_sottodirectory di temi | Temi vengono compilati in assembly e inseriti nella directory Bin. File stub vengono creati per i file con estensione skin e inseriti nella directory di output corrispondente. File statici (CSS) vengono copiati nelle directory di output. |
 | Assembly già presente nella directory Bin di tipi di browser file Web. config statico | Questi file vengono copiati come directory di output. |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Nomi di Assembly fissa](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Nomi di Assembly fissa](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 Alcuni scenari, quali la distribuzione di un'applicazione Web tramite Windows Installer MSI, richiedono l'uso di nomi di file coerente e contenuto, nonché le strutture di directory coerente per identificare l'assembly o le impostazioni di configurazione per gli aggiornamenti. In questi casi, è possibile utilizzare il **- fixednames** opzione per specificare che lo strumento di compilazione ASP.NET deve compilare un assembly per ogni file di origine anziché utilizzare quello in più pagine vengono compilate in assembly. Questo può causare un numero elevato di assembly, se si è interessati alla scalabilità è necessario utilizzare questa opzione con cautela.
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Compilazione con nome sicuro](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Compilazione con nome sicuro](https://msdn.microsoft.com/library/ms229863.aspx##)
 
-Il **- aptca**, **- delaysign**, **- keycontainer** e **- keyfile** sono disponibili le opzioni in modo che è possibile utilizzare Aspnet\_ gli assembly con nome Compiler.exe fortemente creare senza utilizzare il [strumento nome sicuro (Sn.exe)](https://msdn.microsoft.com/en-us/library/k5b5tt23.aspx) separatamente. Queste opzioni corrispondono rispettivamente a **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**e  **AssemblyKeyFileAttribute**.
+Il **- aptca**, **- delaysign**, **- keycontainer** e **- keyfile** sono disponibili le opzioni in modo che è possibile utilizzare Aspnet\_ gli assembly con nome Compiler.exe fortemente creare senza utilizzare il [strumento nome sicuro (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) separatamente. Queste opzioni corrispondono rispettivamente a **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**e  **AssemblyKeyFileAttribute**.
 
 Descrizione di questi attributi è esterno all'ambito di questo corso.
 
@@ -447,4 +447,4 @@ In questo laboratorio si creerà il codice che consente di attivare o disattivar
 
 ## <a name="more-information"></a>Ulteriori informazioni:
 
-ASP.NET del 2.0 modello di Provider consente di creare i propri provider di strumentazione delle applicazioni non solo, ma molti altri scopi oltre ad esempio l'appartenenza, profili e così via. Per informazioni dettagliate sulla scrittura di un provider personalizzato per registrare gli eventi dell'applicazione in un file di testo, visitare [questo collegamento](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASPNETProvMod_Prt6.asp).
+ASP.NET del 2.0 modello di Provider consente di creare i propri provider di strumentazione delle applicazioni non solo, ma molti altri scopi oltre ad esempio l'appartenenza, profili e così via. Per informazioni dettagliate sulla scrittura di un provider personalizzato per registrare gli eventi dell'applicazione in un file di testo, visitare [questo collegamento](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp).

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1e9950619dc9d0c8aa2911eb05911cf008989e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Eseguire query sui dati con il controllo SqlDataSource (c#)
 ====================
@@ -33,7 +33,7 @@ Tutte le esercitazioni si ve esaminata finora è stata utilizzata un'architettur
 
 Mentre tutte le esercitazioni finora utilizzato l'architettura per lavorare con dati, è anche possibile accedere, inserire, aggiornare ed eliminare dati di database direttamente da una pagina ASP.NET, ignorando l'architettura. Questa operazione inserisce le query di database specifico e una logica di business direttamente nella pagina web. Per le applicazioni sufficientemente ampio e complesse, progettazione, l'implementazione e utilizzo di un'architettura a più livelli è di vitale importanza per l'esito positivo, l'aggiornabilità e manutenibilità dell'applicazione. Lo sviluppo di una solida architettura, tuttavia, potrebbe non essere necessario quando si creano applicazioni estremamente semplice, One-Off.
 
-ASP.NET 2.0 fornisce controlli origine dati incorporati cinque [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx), e [SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource consente di accedere e modificare i dati direttamente da un database relazionale, incluso Microsoft SQL Server, Microsoft Access, Oracle, MySQL e ad altri utenti. In questa esercitazione e i successivi tre, verrà esaminato come utilizzare il controllo SqlDataSource, esplorazione come eseguire una query e filtrare i dati di database, nonché come utilizzare SqlDataSource per inserire, aggiornare ed eliminare dati.
+ASP.NET 2.0 fornisce controlli origine dati incorporati cinque [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), e [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource consente di accedere e modificare i dati direttamente da un database relazionale, incluso Microsoft SQL Server, Microsoft Access, Oracle, MySQL e ad altri utenti. In questa esercitazione e i successivi tre, verrà esaminato come utilizzare il controllo SqlDataSource, esplorazione come eseguire una query e filtrare i dati di database, nonché come utilizzare SqlDataSource per inserire, aggiornare ed eliminare dati.
 
 
 ![ASP.NET 2.0 include cinque controlli origine dati incorporata](querying-data-with-the-sqldatasource-control-cs/_static/image1.gif)
@@ -144,12 +144,12 @@ Dopo aver configurato la procedura guidata per restituire il `ProductID`, `Produ
 
 Per completare la procedura guidata, fare clic su Fine.
 
-Come con ObjectDataSource, la procedura guidata s SqlDataSource si limita ad assegna valori alle proprietà del controllo s, vale a dire il [ `ConnectionString` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) e [ `SelectCommand` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) proprietà. Dopo aver completato la procedura guidata, markup dichiarativo s controllo SqlDataSource dovrebbe essere simile al seguente:
+Come con ObjectDataSource, la procedura guidata s SqlDataSource si limita ad assegna valori alle proprietà del controllo s, vale a dire il [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) e [ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) proprietà. Dopo aver completato la procedura guidata, markup dichiarativo s controllo SqlDataSource dovrebbe essere simile al seguente:
 
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample2.aspx)]
 
-Il `ConnectionString` proprietà fornisce informazioni su come connettersi al database. Questa proprietà può essere assegnata un valore di stringa di connessione completa a livello di codice oppure può puntare a una stringa di connessione in `Web.config`. Per fare riferimento a un valore di stringa di connessione in Web. config, usare la sintassi `<%$ expressionPrefix:expressionValue %>`. In genere, *expressionPrefix* è ConnectionStrings e *expressionValue* è il nome della stringa di connessione nel `Web.config` [ `<connectionStrings>` sezione](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). Tuttavia, è possibile utilizzare la sintassi per riferimento `<appSettings>` elementi o il contenuto dai file di risorse. Vedere [Cenni preliminari sulle espressioni ASP.NET](https://msdn.microsoft.com/en-us/library/d5bd1tad.aspx) per ulteriori informazioni su questa sintassi.
+Il `ConnectionString` proprietà fornisce informazioni su come connettersi al database. Questa proprietà può essere assegnata un valore di stringa di connessione completa a livello di codice oppure può puntare a una stringa di connessione in `Web.config`. Per fare riferimento a un valore di stringa di connessione in Web. config, usare la sintassi `<%$ expressionPrefix:expressionValue %>`. In genere, *expressionPrefix* è ConnectionStrings e *expressionValue* è il nome della stringa di connessione nel `Web.config` [ `<connectionStrings>` sezione](https://msdn.microsoft.com/library/bf7sd233.aspx). Tuttavia, è possibile utilizzare la sintassi per riferimento `<appSettings>` elementi o il contenuto dai file di risorse. Vedere [Cenni preliminari sulle espressioni ASP.NET](https://msdn.microsoft.com/library/d5bd1tad.aspx) per ulteriori informazioni su questa sintassi.
 
 Il `SelectCommand` proprietà specifica la stored procedure da eseguire per restituire i dati o l'istruzione SQL ad hoc.
 
@@ -190,7 +190,7 @@ Un altro abbastanza particolare con ordinamento e paging si verifica con SqlData
 
 Ordinamento e paging funziona perché SqlDataSource recupera i dati del database in un DataSet fortemente tipizzato. Che è possibile ottenere il numero totale di record restituiti dalla query un aspetto essenziale per implementare il paging del set di dati. Inoltre, è possibile ordinare i risultati di s set di dati tramite un oggetto DataView. Queste funzionalità vengono usate automaticamente da SqlDataSource quando le richieste di GridView del pool di paging o dati ordinati.
 
-SqlDataSource può essere configurati per restituire un oggetto DataReader anziché un set di dati modificando il relativo [ `DataSourceMode` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) da `DataSet` (predefinito) per `DataReader`. Tramite un oggetto DataReader potrebbe preferito nelle situazioni quando si passa i risultati di s SqlDataSource al codice esistente che prevede un DataReader. Inoltre, poiché DataReader sono oggetti notevolmente più semplici rispetto a set di dati, offrono prestazioni migliori. Se si apporta questa modifica, tuttavia, non è possibile ordinare il controllo Web dati né pagina poiché SqlDataSource non è possibile verificare il numero di record viene restituito dalla query e neppure DataReader offrono le tecniche per l'ordinamento dei dati restituiti.
+SqlDataSource può essere configurati per restituire un oggetto DataReader anziché un set di dati modificando il relativo [ `DataSourceMode` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) da `DataSet` (predefinito) per `DataReader`. Tramite un oggetto DataReader potrebbe preferito nelle situazioni quando si passa i risultati di s SqlDataSource al codice esistente che prevede un DataReader. Inoltre, poiché DataReader sono oggetti notevolmente più semplici rispetto a set di dati, offrono prestazioni migliori. Se si apporta questa modifica, tuttavia, non è possibile ordinare il controllo Web dati né pagina poiché SqlDataSource non è possibile verificare il numero di record viene restituito dalla query e neppure DataReader offrono le tecniche per l'ordinamento dei dati restituiti.
 
 ## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>Passaggio 4: Utilizzando un'istruzione SQL personalizzata o una Stored Procedure
 
@@ -249,9 +249,9 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [L'accesso ai dati di Database relazionale](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
-- [Cenni preliminari sul controllo SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w.aspx)
+- [Cenni preliminari sul controllo SqlDataSource](https://msdn.microsoft.com/library/dz12d98w.aspx)
 - [Esercitazioni delle Guide rapide di ASP.NET: Il controllo SqlDataSource](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Il file Web. config `<connectionStrings>` elemento](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Il file Web. config `<connectionStrings>` elemento](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [Riferimento di stringa di connessione database](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
@@ -263,4 +263,4 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Connery Susan Bernadette Leigh e David Suru. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Successivo](using-parameterized-queries-with-the-sqldatasource-cs.md)
+[avanti](using-parameterized-queries-with-the-sqldatasource-cs.md)

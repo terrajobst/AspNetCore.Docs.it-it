@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecde847841eb727a0440f0483c69d1df6757815
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Introduzione a Entity Framework 6 Database First con MVC 5
 ====================
@@ -37,7 +37,7 @@ Questo argomento illustra la situazione in cui si dispone di un database e si de
 
 Per un esempio introduttivo dello sviluppo Code First, vedere [Introduzione a ASP.NET MVC 5](../introduction/getting-started.md). Per un esempio più avanzato, vedere [creazione di un modello di dati di Entity Framework per applicazioni ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Per istruzioni sulla selezione l'approccio Entity Framework da utilizzare, vedere [approcci allo sviluppo con Entity Framework](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+Per istruzioni sulla selezione l'approccio Entity Framework da utilizzare, vedere [approcci allo sviluppo con Entity Framework](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,7 +49,7 @@ Per simulare l'ambiente di disporre di un database esistente, è prima di creare
 
 In questa esercitazione è stata sviluppata con LocalDB con Visual Studio 2013 o Visual Studio Express 2013 per Web. È possibile utilizzare un server di database esistente anziché LocalDB, ma a seconda della versione di Visual Studio e il tipo di database, tutti gli strumenti dati in Visual Studio potrebbe non essere supportati. Se gli strumenti non sono disponibili per il database, si potrebbe essere necessario eseguire alcuni passaggi specifici del database all'interno del gruppo di gestione per il database.
 
-Se si verifica un problema con gli strumenti di database nella versione di Visual Studio, assicurarsi che è stata installata la versione più recente degli strumenti di database. Per informazioni sull'aggiornamento o l'installazione di strumenti di database, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/hh297027).
+Se si verifica un problema con gli strumenti di database nella versione di Visual Studio, assicurarsi che è stata installata la versione più recente degli strumenti di database. Per informazioni sull'aggiornamento o l'installazione di strumenti di database, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 
 Avviare Visual Studio e creare un **il progetto di Database di SQL Server**. Denominare il progetto **ContosoUniversityData**.
 
@@ -112,4 +112,4 @@ Viene visualizzata una visualizzazione modificabile dei dati della tabella.
 Il database è ora configurato e popolato con dati. Nella prossima esercitazione, si creerà un'applicazione web per il database.
 
 >[!div class="step-by-step"]
-[Successivo](creating-the-web-application.md)
+[avanti](creating-the-web-application.md)

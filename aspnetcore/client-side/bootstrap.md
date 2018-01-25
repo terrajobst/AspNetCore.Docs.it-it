@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4332dce4c341cb8e5c241a67547048301ae9a8b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creazione di efficaci e reattive siti con Bootstrap
 
@@ -214,8 +214,8 @@ Controlli di navigazione sono un componente dell'interfaccia utente comune utili
 
 ## <a name="javascript-support"></a>Supporto di JavaScript
 
-Libreria JavaScript del bootstrap include il supporto di API per i componenti inclusi, che consente di controllare il comportamento a livello di codice all'interno dell'applicazione. Inoltre, *bootstrap.js* include decine plug-in personalizzato di jQuery, fornendo funzionalità aggiuntive come transizioni, finestre di dialogo modale, scorrere verso il rilevamento (aggiornamento degli stili in base a cui l'utente è stata fatta scorrere nel documento), comportamento di compressione, nastri e apposizione menu nella finestra in modo che non è possibile scorrere lo schermo. Non vi sia spazio sufficiente per coprire tutti i componenti aggiuntivi JavaScript incorporati Bootstrap: per ulteriori informazioni, visitare [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Libreria JavaScript del bootstrap include il supporto di API per i componenti inclusi, che consente di controllare il comportamento a livello di codice all'interno dell'applicazione. Inoltre, *bootstrap.js* include decine plug-in personalizzato di jQuery, fornendo funzionalità aggiuntive come transizioni, finestre di dialogo modale, scorrere verso il rilevamento (aggiornamento degli stili in base a cui l'utente è stata fatta scorrere nel documento), comportamento di compressione, nastri e apposizione menu nella finestra in modo che non scorrono fuori dallo schermo. Non vi sia spazio sufficiente per coprire tutti i componenti aggiuntivi JavaScript incorporati Bootstrap: per ulteriori informazioni, visitare [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Riepilogo
 
-Bootstrap fornisce un framework web che può essere utilizzato per produttivo e rapidamente il layout e applicare uno stile di una vasta gamma di applicazioni e siti Web. La funzionalità tipografiche di base e gli stili forniscono un piacevole aspetto che possono essere modificato facilmente tramite supporto dei temi personalizzati, che è possibile prevedere o acquistato in commercio. Supporta una serie di componenti web che in precedenza richiede controlli di terze parti costosi da eseguire, supportando gli standard web moderno e aprire.
+Bootstrap fornisce un framework web che può essere utilizzato per produttivo e rapidamente il layout e applicare uno stile di una vasta gamma di applicazioni e siti Web. La funzionalità tipografiche di base e gli stili forniscono un piacevole aspetto che possono essere modificato facilmente tramite supporto dei temi personalizzati, che è possibile prevedere o acquistato in commercio. Supporta una serie di componenti web che in precedenza sarebbe stato necessario costosa controlli di terze parti da eseguire, supportando gli standard web moderno e open.

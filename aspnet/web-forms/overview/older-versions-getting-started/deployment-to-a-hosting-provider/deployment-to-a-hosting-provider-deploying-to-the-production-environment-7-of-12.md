@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione nell'ambiente di produzione - 7 di 12
 ====================
@@ -246,7 +246,7 @@ Il *robots* file va inserito nella cartella del progetto e deve contenere il tes
 
 Il `User-agent` riga indica i motori di ricerca che le regole nel file si applicano a tutti di crawler motore ricerca (robot), e `Disallow` riga specifica che non le pagine del sito devono essere ricerca per indicizzazione.
 
-Si vorrà motori di ricerca per catalogo del sito di produzione, è necessario escludere questo file dalla distribuzione di produzione. A tale scopo, vedere **è escludere specifici file o cartelle dalla distribuzione?** in [domande frequenti sulla distribuzione di ASP.NET Web applicazione progetto](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Assicurarsi di specificare l'esclusione solo per la produzione di profilo di pubblicazione.
+Si vorrà motori di ricerca per catalogo del sito di produzione, è necessario escludere questo file dalla distribuzione di produzione. A tale scopo, vedere **è escludere specifici file o cartelle dalla distribuzione?** in [domande frequenti sulla distribuzione di ASP.NET Web applicazione progetto](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Assicurarsi di specificare l'esclusione solo per la produzione di profilo di pubblicazione.
 
 Creazione di un account di hosting secondo è un approccio per l'utilizzo di un ambiente di test che non è obbligatorio, ma potrebbe essere utile il costo aggiuntivo. Nelle esercitazioni seguenti, si procederà a utilizzare IIS come ambiente di test.
 

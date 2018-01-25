@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: df75a69644033cc76fee86b5a9692ab65beb4d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Utilizzare migrazioni Code First per il seeding del Database
 ====================
@@ -24,7 +24,7 @@ da [Mike Wasson](https://github.com/MikeWasson)
 
 [Scaricare il progetto completato](https://github.com/MikeWasson/BookService)
 
-In questa sezione, si utilizzerà [migrazioni Code First](https://msdn.microsoft.com/en-us/data/jj591621) in Entity Framework per il seeding del database con dati di test.
+In questa sezione, si utilizzerà [migrazioni Code First](https://msdn.microsoft.com/data/jj591621) in Entity Framework per il seeding del database con dati di test.
 
 Dal **strumenti** dal menu **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, immettere il comando seguente:
 
@@ -46,7 +46,7 @@ Nella finestra della Console di gestione pacchetti, digitare i comandi seguenti:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-Il primo comando genera codice che crea il database e il secondo comando esegue il codice. Il database viene creato localmente, utilizzando [LocalDB](https://msdn.microsoft.com/en-us/library/hh510202.aspx).
+Il primo comando genera codice che crea il database e il secondo comando esegue il codice. Il database viene creato localmente, utilizzando [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
 
 ![](part-3/_static/image2.png)
 
@@ -75,10 +75,10 @@ L'API consente le operazioni CRUD nel database. Di seguito viene riepilogata l'A
 | Documentazione |  |
 | --- | -- |
 | OTTENERE /api/books | Ottenere tutti i libri. |
-| OTTENERE /api documentazione / {id} | Ottenere un libro di ID. |
+| GET /api/books/{id} | Ottenere un libro di ID. |
 | REGISTRARE/api/documentazione | Creare una nuova rubrica. |
 | Inserire /api documentazione / {id} | Aggiornare un libro esistente. |
-| ELIMINARE /api documentazione / {id} | Eliminare un libro. |
+| DELETE /api/books/{id} | Eliminare un libro. |
 
 ## <a name="view-the-database-optional"></a>Visualizzare il Database (facoltativo)
 

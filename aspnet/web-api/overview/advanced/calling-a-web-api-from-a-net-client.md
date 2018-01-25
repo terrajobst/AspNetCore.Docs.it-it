@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 41f014e1d23d46ed28c8c1be5ee92f1a6d878ad9
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Chiamare un'API Web da un Client .NET (c#)
 ====================
@@ -23,16 +23,16 @@ da [Mike Wasson](https://github.com/MikeWasson) e [Rick Anderson](https://twitte
 
 [Scaricare il progetto completato](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-In questa esercitazione viene illustrato come chiamare un'API web da un'applicazione .NET, utilizzando [System.Net.Http.HttpClient.](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx)
+In questa esercitazione viene illustrato come chiamare un'API web da un'applicazione .NET, utilizzando [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 In questa esercitazione, un'app client è scritto che utilizza l'API web seguente:
 
-| Azione | Metodo HTTP | URI relativo |
+| Operazione | Metodo HTTP | URI relativo |
 | --- | --- | --- |
-| Ottenere un prodotto in base all'ID | GET | /API/prodotti/*id* |
+| Ottenere un prodotto in base all'ID | GET | /api/products/*id* |
 | Creare un nuovo prodotto | INSERISCI | prodotti/api / |
-| Aggiornamento di un prodotto | PUT | /API/prodotti/*id* |
-| Eliminare un prodotto | DELETE | /API/prodotti/*id* |
+| Aggiornamento di un prodotto | PUT | /api/products/*id* |
+| Eliminare un prodotto | DELETE | /api/products/*id* |
 
 Per informazioni su come implementare questa API con ASP.NET Web API, vedere [la creazione di un'API Web che supporta le operazioni CRUD](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 ).
@@ -63,8 +63,8 @@ Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** > **Console di G
 
 Il comando precedente consente di aggiungere i pacchetti NuGet seguenti al progetto:
 
-* Webapi
-* Newtonsoft. JSON
+* Microsoft.AspNet.WebApi.Client
+* Newtonsoft.Json
 
 Json.NET è un framework JSON ad alte prestazioni comune per .NET.
 
@@ -109,7 +109,7 @@ Il codice seguente viene inviata una richiesta GET per un prodotto:
 
 Il **GetAsync** metodo invia la richiesta HTTP GET. Al termine, il metodo restituisce un **HttpResponseMessage** contenente la risposta HTTP. Se il codice di stato nella risposta è un codice di esito positivo, il corpo della risposta contiene la rappresentazione JSON di un prodotto. Chiamare **ReadAsAsync** per deserializzare il payload JSON per un `Product` istanza. Il **ReadAsAsync** metodo è asincrono, perché il corpo della risposta può essere arbitrariamente grande.
 
-**HttpClient** non genera un'eccezione quando la risposta HTTP contiene un codice di errore. Al contrario, il **IsSuccessStatusCode** proprietà **false** se lo stato è un codice di errore. Se si preferisce gestire codici di errore HTTP come eccezioni, chiamare [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) nell'oggetto della risposta. `EnsureSuccessStatusCode`genera un'eccezione se il codice di stato non è compreso nell'intervallo di 200&ndash;299. Si noti che **HttpClient** possono essere generate eccezioni per altri motivi &mdash; ad esempio, se la richiesta scade.
+**HttpClient** non genera un'eccezione quando la risposta HTTP contiene un codice di errore. Al contrario, il **IsSuccessStatusCode** proprietà **false** se lo stato è un codice di errore. Se si preferisce gestire codici di errore HTTP come eccezioni, chiamare [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) nell'oggetto della risposta. `EnsureSuccessStatusCode`genera un'eccezione se il codice di stato non è compreso nell'intervallo di 200&ndash;299. Si noti che **HttpClient** possono essere generate eccezioni per altri motivi &mdash; ad esempio, se la richiesta scade.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Formattatori di Media Type da deserializzare
@@ -167,7 +167,7 @@ Ad esempio GET, una richiesta di eliminazione non dispone di un corpo della rich
 
 Per testare l'app client:
 
-1. [Scaricare](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ed eseguire l'applicazione server. [Istruzioni di download](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Verificare il che funzionamento dell'applicazione server. Per exaxmple, `http://localhost:64195/api/products` deve restituire un elenco di prodotti.
+1. [Scaricare](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ed eseguire l'applicazione server. [Istruzioni di download](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Verificare il che funzionamento dell'applicazione server. Per exaxmple, `http://localhost:64195/api/products` deve restituire un elenco di prodotti.
 2. Impostare l'URI di base per le richieste HTTP. Modificare il numero di porta per la porta utilizzata per l'applicazione server.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

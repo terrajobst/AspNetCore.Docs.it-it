@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: La memorizzazione nella cache | Documenti Microsoft
+title: Caching | Microsoft Docs
 author: microsoft
 description: "La comprensione della memorizzazione nella cache è importante per un'applicazione ASP.NET buone prestazioni. ASP.NET 1. x disponibili tre diverse opzioni per la memorizzazione nella cache; cache di output,..."
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: d3ef613f625d862314eb0bb60f083f60bb2317e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching"></a>Memorizzazione nella cache
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > La comprensione della memorizzazione nella cache è importante per un'applicazione ASP.NET buone prestazioni. ASP.NET 1. x disponibili tre diverse opzioni per la memorizzazione nella cache; la memorizzazione nella cache di output, la memorizzazione nella cache di frammento e l'API della cache.
 
@@ -102,7 +102,7 @@ Quando viene eseguito questo comando vengono apportate le seguenti modifiche al 
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Aggiorna la tabella delle notifiche mediante l'incremento di changeId per la tabella modificata. ASP.NET utilizza questo valore per determinare se i dati sono stati modificati. Come indicato di seguito, questa stored procedure viene eseguita dal trigger creato quando la tabella è abilitata. |
 
 
-- Un trigger di SQL Server denominato  ***tabella\_nome*\_AspNet\_SqlCacheNotification\_Trigger** viene creato per la tabella. Questo trigger venga eseguito AspNet\_SqlCacheUpdateChangeIdStoredProcedure quando viene eseguita un'istruzione INSERT, UPDATE o DELETE nella tabella.
+- Chiamata di un trigger di SQL Server ***tabella\_nome *\_AspNet\_SqlCacheNotification\_Trigger** viene creato per la tabella. Questo trigger venga eseguito AspNet\_SqlCacheUpdateChangeIdStoredProcedure quando viene eseguita un'istruzione INSERT, UPDATE o DELETE nella tabella.
 - Un ruolo del Server SQL denominato **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** viene aggiunto al database.
 
 Il **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** ruolo di SQL Server dispone di autorizzazioni EXEC per AspNet\_SqlCachePollingStoredProcedure. Affinché il modello di polling funzionare correttamente, è necessario aggiungere l'account di processo aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess ruolo. Aspnet\_regsql.exe strumento non verrà eseguita automaticamente.
@@ -144,7 +144,7 @@ Esempio di codice seguente viene illustrato come configurare correttamente la ge
 
 [!code-csharp[Main](caching/samples/sample11.cs)]
 
-Ulteriori informazioni: [https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx](https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx)
+Ulteriori informazioni: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
 
 ## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>Dipendenze della Cache SQL basato su query (solo SQL Server 2005)
 
@@ -188,7 +188,7 @@ Il controllo Substitution ASP.NET specifica una sezione di una pagina memorizzat
 
 ### <a name="substitution-api"></a>API di sostituzione
 
-Per creare contenuto dinamico per una pagina memorizzata nella cache a livello di codice, è possibile chiamare il [WriteSubstitution](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writesubstitution.aspx) metodo nel codice della pagina, passando il nome di un metodo come parametro. Il metodo che gestisce la creazione del contenuto dinamico accetta un singolo [HttpContext](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) parametro e restituisce una stringa. La stringa restituita è il contenuto che verrà sostituito nella posizione specificata. La chiamata al metodo WriteSubstitution anziché il controllo di sostituzione in modo dichiarativo un vantaggio è che è possibile chiamare un metodo di qualsiasi oggetto arbitrario, anziché chiamare un metodo statico della pagina o l'oggetto UserControl.
+Per creare contenuto dinamico per una pagina memorizzata nella cache a livello di codice, è possibile chiamare il [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx) metodo nel codice della pagina, passando il nome di un metodo come parametro. Il metodo che gestisce la creazione del contenuto dinamico accetta un singolo [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) parametro e restituisce una stringa. La stringa restituita è il contenuto che verrà sostituito nella posizione specificata. La chiamata al metodo WriteSubstitution anziché il controllo di sostituzione in modo dichiarativo un vantaggio è che è possibile chiamare un metodo di qualsiasi oggetto arbitrario, anziché chiamare un metodo statico della pagina o l'oggetto UserControl.
 
 La chiamata al metodo WriteSubstitution causa cache sul lato client per cache di server, in modo che la pagina non verrà memorizzata nel client. In questo modo si garantisce che le richieste successive di pagina di chiamare il metodo per generare il contenuto dinamico.
 
@@ -198,15 +198,15 @@ AdRotator controllo server implementa il supporto per la sostituzione post-cache
 
 ## <a name="controlcachepolicy-class"></a>Classe ControlCachePolicy
 
-La classe ControlCachePolicy consente di controllare a livello di codice del frammento di memorizzazione nella cache utilizzando i controlli utente. ASP.NET consente di incorporare controlli utente all'interno di un [BasePartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.aspx) istanza. La classe BasePartialCachingControl rappresenta un controllo utente è abilitata la cache di output.
+La classe ControlCachePolicy consente di controllare a livello di codice del frammento di memorizzazione nella cache utilizzando i controlli utente. ASP.NET consente di incorporare controlli utente all'interno di un [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx) istanza. La classe BasePartialCachingControl rappresenta un controllo utente è abilitata la cache di output.
 
-Quando si accede di [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) proprietà di un [PartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingcontrol.aspx) controllo, viene sempre restituito un oggetto ControlCachePolicy valido. Tuttavia, se si accede di [UserControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.cachepolicy.aspx) proprietà di un [UserControl](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.aspx) controllo, viene restituito un oggetto ControlCachePolicy valido solo se il controllo utente è già stato eseguito il wrapping un Controllo BasePartialCachingControl. Se non viene incluso, l'oggetto ControlCachePolicy restituito dalla proprietà genererà eccezioni quando si tenta di modificarlo perché non dispone di un BasePartialCachingControl associato. Per determinare se un'istanza di UserControl supporta la memorizzazione nella cache senza la generazione di eccezioni, controllare il [SupportsCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.controlcachepolicy.supportscaching.aspx) proprietà.
+Quando si accede di [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) proprietà di un [PartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.partialcachingcontrol.aspx) controllo, viene sempre restituito un oggetto ControlCachePolicy valido. Tuttavia, se si accede di [UserControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.usercontrol.cachepolicy.aspx) proprietà di un [UserControl](https://msdn.microsoft.com/library/system.web.ui.usercontrol.aspx) controllo, viene restituito un oggetto ControlCachePolicy valido solo se il controllo utente è già stato eseguito il wrapping un Controllo BasePartialCachingControl. Se non viene incluso, l'oggetto ControlCachePolicy restituito dalla proprietà genererà eccezioni quando si tenta di modificarlo perché non dispone di un BasePartialCachingControl associato. Per determinare se un'istanza di UserControl supporta la memorizzazione nella cache senza la generazione di eccezioni, controllare il [SupportsCaching](https://msdn.microsoft.com/library/system.web.ui.controlcachepolicy.supportscaching.aspx) proprietà.
 
 Utilizzo della classe ControlCachePolicy è uno dei modi diversi, che è possibile abilitare la memorizzazione nella cache di output. L'elenco seguente descrive i metodi che è possibile utilizzare per abilitare la memorizzazione nella cache di output:
 
-- Utilizzare il [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx) direttiva per abilitare la memorizzazione nella cache in scenari dichiarativi di output.
-- Utilizzare il [PartialCachingAttribute](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingattribute.aspx) attributo per abilitare la memorizzazione nella cache per un controllo utente in un file code-behind.
-- Utilizzare la classe ControlCachePolicy per specificare le impostazioni della cache in scenari a livello di codice in cui si lavora con BasePartialCachingControl istanze cache abilitata utilizzando uno dei metodi precedenti e caricata in modo dinamico mediante il [System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/en-us/library/system.web.ui.templatecontrol.loadcontrol.aspx) metodo.
+- Utilizzare il [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) direttiva per abilitare la memorizzazione nella cache in scenari dichiarativi di output.
+- Utilizzare il [PartialCachingAttribute](https://msdn.microsoft.com/library/system.web.ui.partialcachingattribute.aspx) attributo per abilitare la memorizzazione nella cache per un controllo utente in un file code-behind.
+- Utilizzare la classe ControlCachePolicy per specificare le impostazioni della cache in scenari a livello di codice in cui si lavora con BasePartialCachingControl istanze cache abilitata utilizzando uno dei metodi precedenti e caricata in modo dinamico mediante il [System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/library/system.web.ui.templatecontrol.loadcontrol.aspx) metodo.
 
 Un'istanza di ControlCachePolicy può essere modificata correttamente solo tra le fasi del ciclo di vita di controllo di Init e PreRender. Se si modifica un oggetto ControlCachePolicy dopo la fase PreRender, ASP.NET genera un'eccezione in quanto le modifiche apportate dopo il rendering del controllo non possono influire sulle impostazioni della cache (un controllo viene memorizzato nella cache durante la fase di rendering). Infine, un'istanza del controllo utente (e pertanto il relativo oggetto ControlCachePolicy) è disponibile solo per la modifica a livello di codice quando il rendering effettivo.
 
@@ -240,7 +240,7 @@ Gli attributi seguenti sono disponibili per il &lt;outputCache&gt; elemento.
 | **Attributo** | **Descrizione** |
 | --- | --- |
 | **enableOutputCache** | Parametro facoltativo **booleano** attributo. Abilita o disabilita la cache di output della pagina. Se disabilitato, non le pagine vengono memorizzati nella cache, indipendentemente dalle impostazioni a livello di codice o dichiarative. Valore predefinito è **true**. |
-| **enableFragmentCache** | Parametro facoltativo **booleano** attributo. Abilita o disabilita la cache dei frammenti di applicazione. Se disabilitato, non le pagine vengono memorizzati nella cache indipendentemente la [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx) direttiva o la memorizzazione nella cache del profilo utilizzato. Include un'intestazione cache-control che indica che i server proxy upstream, così come i client del browser non devono tentare di output delle pagine della cache. Valore predefinito è **false**. |
+| **enableFragmentCache** | Parametro facoltativo **booleano** attributo. Abilita o disabilita la cache dei frammenti di applicazione. Se disabilitato, non le pagine vengono memorizzati nella cache indipendentemente la [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) direttiva o la memorizzazione nella cache del profilo utilizzato. Include un'intestazione cache-control che indica che i server proxy upstream, così come i client del browser non devono tentare di output delle pagine della cache. Valore predefinito è **false**. |
 | **sendCacheControlHeader** | Parametro facoltativo **booleano** attributo. Ottiene o imposta un valore che indica se il **cache-controllo: private** intestazione viene inviata dal modulo di cache di output per impostazione predefinita. Valore predefinito è **false**. |
 | **omitVaryStar** | Parametro facoltativo **booleano** attributo. Abilita o disabilita l'invio di un Http "**Vary: \*** " intestazione nella risposta. Con l'impostazione predefinita false, un "**Vary: \*** " intestazione viene inviata per le pagine nella cache di output. Quando viene inviato l'intestazione Vary, consente di diversa versioni da memorizzare nella cache in base alle quali è specificato nell'intestazione Vary. Ad esempio, *Vary: utente-agenti* archivierà versioni diverse di una pagina in base all'agente utente invio della richiesta. Valore predefinito è **false**. |
 
@@ -254,7 +254,7 @@ Gli attributi seguenti sono disponibili per il &lt;sqlCacheDependency&gt; elemen
 
 | **Attributo** | **Descrizione** |
 | --- | --- |
-| **abilitato** | Richiesto **booleano** attributo. Indica se le modifiche sono viene eseguito il polling per. |
+| **enabled** | Richiesto **booleano** attributo. Indica se le modifiche sono viene eseguito il polling per. |
 | **pollTime** | Parametro facoltativo **Int32** attributo. Imposta la frequenza con cui SqlCacheDependency esegue il polling delle modifiche nella tabella di database. Questo valore corrisponde al numero di millisecondi tra due polling successivi. Non può essere impostata su minore di 500 millisecondi. Valore predefinito è 1 minuto. |
 
 ### <a name="more-information"></a>Altre informazioni

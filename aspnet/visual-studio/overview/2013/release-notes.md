@@ -12,20 +12,20 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET e strumenti Web per note sulla versione di Visual Studio 2013
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Questo documento descrive la versione di ASP.NET e strumenti Web per Visual Studio 2013.
 
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 - [Note sull'installazione](#TOC1)
 - [Documentazione](#TOC2)
@@ -36,11 +36,11 @@ da [Microsoft](https://github.com/microsoft)
 - [Uno di ASP.NET](#TOC6)
 - [Nuova esperienza di progetto Web](#newproj)
 - [Scaffolding di ASP.NET](#scaffold)
-- [Collegamento del browser](#browser-link)
+- [Browser Link](#browser-link)
 - [Miglioramenti di Editor di Visual Studio Web](#web-editor)
 - [Supporto di applicazioni Web di servizio App di Azure in Visual Studio](#waws)
 - [Miglioramenti di pubblicazione sul Web](#publish)
-- [2.7 NuGet](#nuget)
+- [NuGet 2.7](#nuget)
 - [Web Form ASP.NET](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
@@ -137,8 +137,8 @@ In Visual Studio 2013 con Azure SDK per .NET 2.2, è possibile utilizzare **Espl
 
 Per altre informazioni, vedere le seguenti risorse:
 
-- [Creare un'app web ASP.NET in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Risolvere i problemi relativi a un'app web nel servizio App di Azure con Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Creare un'app web ASP.NET in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Risolvere i problemi relativi a un'app web nel servizio App di Azure con Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Miglioramenti di pubblicazione sul Web
@@ -170,7 +170,7 @@ I modelli di progetto di Web Form si integrano perfettamente con l'esperienza di
 
 I modelli di progetto di Web Form supportano il nuovo framework di ASP.NET Identity. Inoltre, i modelli supportano ora la creazione di un progetto di Web Form intranet. Per ulteriori informazioni, vedere [metodi di autenticazione](creating-web-projects-in-visual-studio.md#auth) in **creazione di progetti Web ASP.NET in Visual Studio 2013**.
 
-### <a name="bootstrap"></a>bootstrap
+### <a name="bootstrap"></a>Bootstrap
 
 Utilizzano i modelli Web Form [Bootstrap](http://twitter.github.io/bootstrap/) per fornire un elegante e reattiva aspetto che è possibile personalizzare facilmente. Per ulteriori informazioni, vedere [Bootstrap nei modelli di progetto web di Visual Studio 2013](creating-web-projects-in-visual-studio.md#bootstrap).
 
@@ -185,9 +185,9 @@ Per informazioni sull'aggiornamento di progetti MVC 4 e 5 MVC, vedere [come aggi
 
 ### <a name="aspnet-identity"></a>Identità ASP.NET
 
-I modelli di progetto MVC sono stati aggiornati per l'utilizzo di ASP.NET Identity per l'autenticazione e la gestione delle identità. Un'esercitazione che presenta l'autenticazione di Facebook e Google e la nuova API di appartenenza è reperibile in [creare un'App di ASP.NET MVC 5 con Facebook, Google OAuth2 e OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) e [crea un'applicazione MVC ASP.NET con autenticazione e Database di SQL Server e distribuire in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+I modelli di progetto MVC sono stati aggiornati per l'utilizzo di ASP.NET Identity per l'autenticazione e la gestione delle identità. Un'esercitazione che presenta l'autenticazione di Facebook e Google e la nuova API di appartenenza è reperibile in [creare un'App di ASP.NET MVC 5 con Facebook, Google OAuth2 e OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) e [crea un'applicazione MVC ASP.NET con autenticazione e Database di SQL Server e distribuire in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
-### <a name="bootstrap"></a>bootstrap
+### <a name="bootstrap"></a>Bootstrap
 
 Il modello di progetto MVC è stato aggiornato per utilizzare [Bootstrap](http://getbootstrap.com/) per fornire un elegante e reattiva aspetto che è possibile personalizzare facilmente. Per ulteriori informazioni, vedere [Bootstrap nei modelli di progetto web di Visual Studio 2013](creating-web-projects-in-visual-studio.md#bootstrap).
 
@@ -303,7 +303,7 @@ ASP.NET Web API ora completamente supporta OWIN e può essere eseguito in qualsi
 Con l'integrazione di OWIN, è possibile self-ospitare API Web nel proprio processo insieme ad altro middleware OWIN, ad esempio SignalR. Per ulteriori informazioni, vedere [OWIN utilizzare Self-Host ASP.NET Web API](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="TOC13"></a>
-## <a name="aspnet-signalr-20"></a>SignalR ASP.NET 2.0
+## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
 Le sezioni seguenti descrivono le funzionalità di SignalR 2.0.
 
@@ -531,7 +531,7 @@ Per ulteriori informazioni su OWIN e Katana, vedere [novità di OWIN e Katana](.
 
 Con questa versione, i nuovi componenti sono stati aggiunti per abilitare scenari di host indipendente. Questi componenti includono i pacchetti NuGet seguenti:
 
-- **HttpListener**. Fornisce un server OWIN che utilizza **HttpListener** in ascolto per le richieste HTTP e l'utente nella pipeline OWIN.
+- **Microsoft.Owin.Host.HttpListener**. Fornisce un server OWIN che utilizza **HttpListener** in ascolto per le richieste HTTP e l'utente nella pipeline OWIN.
 - **Italiano** fornisce una libreria per gli sviluppatori che desiderano una pipeline OWIN in un processo personalizzato, ad esempio un'applicazione console o il servizio Windows di host indipendente.
 - **OwinHost**. Fornisce un file eseguibile autonomo che esegue il wrapping `Microsoft.Owin.Hosting` e consente di ospitare una pipeline OWIN in modo automatico senza dover scrivere un'applicazione host personalizzata.
 
@@ -553,13 +553,13 @@ Questa versione include anche il pacchetto italiano, che include middleware per 
 
 I componenti di autenticazione seguenti sono disponibili.
 
-- **ActiveDirectory**. Abilita l'autenticazione utilizzando i servizi directory in locale o basato su cloud.
+- **Microsoft.Owin.Security.ActiveDirectory**. Abilita l'autenticazione utilizzando i servizi directory in locale o basato su cloud.
 - **Cookies** Abilita l'autenticazione utilizzando i cookie. Questo pacchetto è stato in precedenza denominato `Microsoft.Owin.Security.Forms`.
 - **Italiano** Abilita l'autenticazione utilizzando servizio basato su OAuth di Facebook.
 - **Italiano** Abilita l'autenticazione utilizzando i servizi basati su OpenID di Google.
 - **Italiano** Abilita l'autenticazione con token JWT.
 - **MicrosoftAccount** Abilita l'autenticazione utilizzando l'account Microsoft.
-- **Owin**. Fornisce un server di autorizzazione OAuth nonché middleware per autenticare i token di connessione.
+- **Microsoft.Owin.Security.OAuth**. Fornisce un server di autorizzazione OAuth nonché middleware per autenticare i token di connessione.
 - **Italiano** Abilita l'autenticazione tramite il servizio basato su OAuth di Twitter.
 
 Questa versione include anche il `Microsoft.Owin.Cors` pacchetto che contiene il middleware per l'elaborazione delle richieste HTTP cross-origin.
@@ -666,7 +666,7 @@ In questa sezione vengono descritti problemi noti e modifiche di rilievo in ASP.
     A:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 non supporta più di attendibilità parziale. Progetti di collegare i file binari MVC o WebAPI devono rimuovere il [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx) attributo e [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx) attributo. Rimozione di questi attributi comporterà l'eliminazione di errori del compilatore, ad esempio le operazioni seguenti.
+4. ASP.NET MVC 5 non supporta più di attendibilità parziale. Progetti di collegare i file binari MVC o WebAPI devono rimuovere il [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) attributo e [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) attributo. Rimozione di questi attributi comporterà l'eliminazione di errori del compilatore, ad esempio le operazioni seguenti.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 
@@ -692,7 +692,7 @@ Per aggiungere MVC al progetto Web Form, aggiungere un nuovo elemento di scaffol
 
 Se si verifica un errore durante l'aggiunta di un elemento di scaffolding per un progetto, è possibile che il progetto verrà lasciato in uno stato incoerente. Alcune delle modifiche apportate lo scaffolding di essere eseguito il rollback, ma altre modifiche, ad esempio i pacchetti NuGet installati, non sarà possibile eseguire il rollback. Se le modifiche alla configurazione di routing rollback, gli utenti riceveranno un errore HTTP 404 quando passando a elementi di scaffolding.
 
-Soluzione temporanea:
+Soluzione alternativa:
 
 - Per correggere l'errore per MVC, aggiungere un nuovo elemento di scaffolding e selezionare le dipendenze di MVC 5 (minima o completa). Questo processo verrà aggiungere tutte le modifiche necessarie al progetto.
 - Per correggere l'errore per l'API Web:

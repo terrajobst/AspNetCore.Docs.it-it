@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 014fb9fe5fb9fc1a7fe56441bd70e65cfe05862d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 337765988cc6ec92384bec09a72fd00505d9a039
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a>Utilizzo di TemplateFields nel controllo GridView (VB)
 ====================
@@ -158,7 +158,7 @@ Per completare il primo passaggio, rimuovere il `LastName` BoundField e rinomina
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>Passaggio 3: Utilizzo del controllo di calendario per visualizzare il`HiredDate`campo
 
-Visualizzazione di un valore del campo dati come testo in un controllo GridView è semplice come utilizzare BoundField. Per alcuni scenari, tuttavia, i dati sono meglio espresso mediante un particolare controllo Web anziché solo il testo. Queste attività di personalizzazione della visualizzazione dei dati è possibile con TemplateFields. Ad esempio, invece di visualizzare la data di assunzione del dipendente come testo, è possibile visualizzare un calendario (utilizzando [il controllo di calendario](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) con data di assunzione evidenziato.
+Visualizzazione di un valore del campo dati come testo in un controllo GridView è semplice come utilizzare BoundField. Per alcuni scenari, tuttavia, i dati sono meglio espresso mediante un particolare controllo Web anziché solo il testo. Queste attività di personalizzazione della visualizzazione dei dati è possibile con TemplateFields. Ad esempio, invece di visualizzare la data di assunzione del dipendente come testo, è possibile visualizzare un calendario (utilizzando [il controllo di calendario](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) con data di assunzione evidenziato.
 
 A tale scopo, avviare convertendo il `HiredDate` BoundField in un TemplateField. È sufficiente passare a smart tag del controllo GridView e fare clic sul collegamento Modifica colonne, visualizzare la finestra di dialogo campi. Selezionare il `HiredDate` BoundField e fare clic su "Converti il campo in un TemplateField."
 
@@ -178,7 +178,7 @@ Per sostituire il testo con un controllo di calendario, modificare il modello ri
 **Figura 12**: aggiungere un controllo di calendario per la `HireDate` del TemplateField `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-gridview-control-vb/_static/image36.png))
 
 
-A questo punto, ogni riga in GridView conterrà un controllo calendario nel relativo `HiredDate` TemplateField. Tuttavia, il dipendente dell'effettivo `HiredDate` valore non è impostato in un punto qualsiasi nel controllo del calendario, ogni controllo di calendario per impostazione predefinita a mostrare la data e il mese corrente. Per risolvere questo problema, è necessario assegnare ogni dipendente `HiredDate` per il controllo di calendario [SelectedDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) e [VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) proprietà.
+A questo punto, ogni riga in GridView conterrà un controllo calendario nel relativo `HiredDate` TemplateField. Tuttavia, il dipendente dell'effettivo `HiredDate` valore non è impostato in un punto qualsiasi nel controllo del calendario, ogni controllo di calendario per impostazione predefinita a mostrare la data e il mese corrente. Per risolvere questo problema, è necessario assegnare ogni dipendente `HiredDate` per il controllo di calendario [SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) e [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) proprietà.
 
 Smart tag del controllo calendario, scegliere Modifica DataBindings. Successivamente, eseguire il binding sia `SelectedDate` e `VisibleDate` proprietà per il `HiredDate` campo dati.
 

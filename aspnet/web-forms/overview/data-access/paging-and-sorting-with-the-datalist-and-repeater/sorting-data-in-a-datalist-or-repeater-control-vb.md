@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f505e525fd5e701bb40dc3e6467b880bf75447
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Ordinamento dei dati in un controllo DataList o Repeater (VB)
 ====================
@@ -81,7 +81,7 @@ Figura 3 Mostra questa pagina quando viene visualizzato tramite un browser.
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>Passaggio 3: Istruzioni ObjectDataSource per ordinare i dati
 
-Per ordinare i dati visualizzati nel Repeater, è necessario informare ObjectDataSource dell'espressione di ordinamento con cui i dati devono essere ordinati. Prima di ObjectDataSource recupera i dati, viene generato prima di tutto il [ `Selecting` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), che consente di specificare un'espressione di ordinamento. Il `Selecting` gestore eventi viene passato un oggetto di tipo [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), che include una proprietà denominata [ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) di tipo [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx). Il `DataSourceSelectArguments` è progettato per passare le richieste correlate ai dati da un consumer di dati per il controllo origine dati, classe e include un [ `SortExpression` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Per ordinare i dati visualizzati nel Repeater, è necessario informare ObjectDataSource dell'espressione di ordinamento con cui i dati devono essere ordinati. Prima di ObjectDataSource recupera i dati, viene generato prima di tutto il [ `Selecting` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), che consente di specificare un'espressione di ordinamento. Il `Selecting` gestore eventi viene passato un oggetto di tipo [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), che include una proprietà denominata [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) di tipo [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). Il `DataSourceSelectArguments` è progettato per passare le richieste correlate ai dati da un consumer di dati per il controllo origine dati, classe e include un [ `SortExpression` proprietà](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
 
 Per passare informazioni sull'ordinamento dalla pagina ASP.NET per ObjectDataSource, creare un gestore eventi per il `Selecting` eventi e utilizzare il codice seguente:
 

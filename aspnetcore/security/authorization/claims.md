@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: dd8f42684f9e58b9329602aa9b70d2c0ab950892
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 870bdf79abc2c94745ab5da6997a37ed0e4ea4e2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="claims-based-authorization"></a>Autorizzazione basata sulle attestazioni
 
@@ -29,7 +29,7 @@ Un'identità può contenere più attestazioni con più valori e può contenere p
 
 Attestazione controlli di autorizzazione di base sono dichiarativi, lo sviluppatore li incorpora all'interno del codice, a fronte di un controller o un'azione all'interno di un controller, specificare le attestazioni che l'utente corrente deve possedere e, facoltativamente, il valore attestazione deve contenere per l'accesso di risorsa richiesta. Attestazioni requisiti sono basati su criteri, lo sviluppatore deve creare e registrare un criterio di esprimere i requisiti di attestazioni.
 
-Il tipo più semplice di criteri Cerca la presenza di un'attestazione di attestazione e non controlla il valore.
+Il tipo più semplice di criteri Cerca la presenza di un'attestazione di attestazione e non verifica il valore.
 
 Innanzitutto è necessario compilare e registrare i criteri. Il processo viene eseguito come parte della configurazione del servizio di autorizzazione, che in genere fa parte di `ConfigureServices()` nel *Startup.cs* file.
 

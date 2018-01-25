@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 65e369a393a8c5d2d1bba11b5c71347df8f9c69d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 794ab576d3c6600911f331bab7c335476e45a0c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Guida di ASP.NET SignalR hub API - Client JavaScript
 ====================
@@ -142,7 +142,7 @@ In un'applicazione Web Form ASP.NET, utilizzare `ResolveClientUrl` per il proxy 
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Come regola generale, usare lo stesso metodo per specificare l'URL di "signalr/hub" usata per i file CSS o JavaScript. Se si specifica un URL senza utilizzare una tilde, in alcuni scenari l'applicazione funzionerà correttamente quando si test in Visual Studio utilizzando IIS Express, ma avrà esito negativo con un errore 404, quando si distribuisce in IIS completo. Per ulteriori informazioni, vedere **la risoluzione dei riferimenti alle risorse di livello radice** in [server Web in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) nel sito MSDN.
+Come regola generale, usare lo stesso metodo per specificare l'URL di "signalr/hub" usata per i file CSS o JavaScript. Se si specifica un URL senza utilizzare una tilde, in alcuni scenari l'applicazione funzionerà correttamente quando si test in Visual Studio utilizzando IIS Express, ma avrà esito negativo con un errore 404, quando si distribuisce in IIS completo. Per ulteriori informazioni, vedere **la risoluzione dei riferimenti alle risorse di livello radice** in [server Web in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx) nel sito MSDN.
 
 Quando si esegue un progetto web in Visual Studio 2013 in modalità di debug e se si utilizza Internet Explorer come browser, è possibile visualizzare il file proxy in **Esplora** in **documenti Script**, come illustrato di figura seguente.
 

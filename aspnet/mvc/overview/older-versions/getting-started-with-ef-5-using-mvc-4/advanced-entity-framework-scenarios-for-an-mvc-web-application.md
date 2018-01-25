@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d58a745896b29317c1d1049e3bf1a5ec2e628820
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Scenari di avanzate di Entity Framework per un'applicazione Web MVC (10 di 10)
 ====================
@@ -55,7 +55,7 @@ L'API di Entity Framework codice prima include metodi che consentono di passare 
 
 - Utilizzare il `DbSet.SqlQuery` metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si disattiva rilevamento. (Vedere la sezione seguente `AsNoTracking` metodo.)
 - Utilizzare il `Database.SqlQuery` metodo per le query che restituiscono tipi non entità. I dati restituiti non sono rilevati dal contesto del database, anche se si utilizza questo metodo per recuperare i tipi di entità.
-- Utilizzare il [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456(v=vs.103).aspx) per i comandi non query.
+- Utilizzare il [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) per i comandi non query.
 
 Uno dei vantaggi dell'utilizzo di Entity Framework è che evita abbinata codice posizione troppo ravvicinata a un metodo particolare per l'archiviazione dei dati. Ciò avviene mediante la generazione di comandi e query SQL, che consente inoltre di dover scrivere manualmente. Esistono scenari eccezionali, quando è necessario eseguire query SQL specifiche che è stato creato manualmente, ma questi metodi consentono di gestire tali eccezioni.
 
@@ -255,17 +255,17 @@ Entity Framework determina come è stata modificata un'entità (e pertanto gli a
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Se si desidera tenere traccia di un numero elevato di entità e viene chiamato uno di questi metodi più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento delle modifiche automatico utilizzando il [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) proprietà. Per ulteriori informazioni, vedere [automaticamente il rilevamento modifiche](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
+Se si desidera tenere traccia di un numero elevato di entità e viene chiamato uno di questi metodi più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento delle modifiche automatico utilizzando il [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) proprietà. Per ulteriori informazioni, vedere [automaticamente il rilevamento modifiche](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
 
 ## <a name="disabling-validation-when-saving-changes"></a>Sulla disabilitazione della convalida durante il salvataggio di modifiche
 
-Quando si chiama il `SaveChanges` (metodo), per impostazione predefinita di Entity Framework convalida i dati in tutte le proprietà di tutte le entità modificate prima di aggiornare il database. Se è stato aggiornato un numero elevato di entità già stato convalidato i dati, questa operazione è necessaria e far sì che il processo di salvataggio le modifiche avranno meno tempo per disattivare temporaneamente la convalida. È possibile eseguire tale utilizzando il [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) proprietà. Per ulteriori informazioni, vedere [convalida](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
+Quando si chiama il `SaveChanges` (metodo), per impostazione predefinita di Entity Framework convalida i dati in tutte le proprietà di tutte le entità modificate prima di aggiornare il database. Se è stato aggiornato un numero elevato di entità già stato convalidato i dati, questa operazione è necessaria e far sì che il processo di salvataggio le modifiche avranno meno tempo per disattivare temporaneamente la convalida. È possibile eseguire tale utilizzando il [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) proprietà. Per ulteriori informazioni, vedere [convalida](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
 
 ## <a name="summary"></a>Riepilogo
 
 Questa serie di esercitazioni sull'uso di Entity Framework in un'applicazione MVC ASP.NET è stata completata. Collegamenti ad altre risorse di Entity Framework, vedere il [mappa del contenuto ASP.NET dati accesso](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Per ulteriori informazioni su come distribuire l'applicazione web dopo aver creato, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx) in MSDN Library.
+Per ulteriori informazioni su come distribuire l'applicazione web dopo aver creato, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx) in MSDN Library.
 
 Per informazioni su altri argomenti relativi a MVC, quali l'autenticazione e autorizzazione, vedere il [risorse consigliato MVC](../../getting-started/recommended-resources-for-mvc.md).
 

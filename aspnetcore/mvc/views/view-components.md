@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>Visualizza i componenti
 
@@ -23,7 +23,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="introducing-view-components"></a>Introduzione a componenti di visualizzazione
 
-Nuovo ad ASP.NET MVC di base, Visualizza i componenti sono simili alle visualizzazioni parziali, ma sono molto più potenti. Visualizza i componenti non utilizzare l'associazione di modelli e dipendono solo i dati forniti durante la chiamata al suo interno. Un componente di visualizzazione:
+Nuovo ad ASP.NET MVC di base, i componenti di visualizzazione sono simili alle viste parziale, ma molto più potenti. Visualizza i componenti non utilizzare l'associazione di modelli e dipendono solo i dati forniti durante la chiamata al suo interno. Un componente di visualizzazione:
 
 * Esegue il rendering di un blocco anziché un'intera risposta.
 * Include gli stesso la separazione di problemi e i vantaggi di testabilità trovati tra un controller e una visualizzazione
@@ -69,7 +69,7 @@ Un componente di visualizzazione definisce la logica in un `InvokeAsync` metodo 
 * Definire un `InvokeAsync` metodo che restituisce un`IViewComponentResult`
 * Inizializza un modello e la passa a una vista mediante la chiamata in genere il `ViewComponent` `View` (metodo)
 * Parametri provengono dal metodo di chiamata, non HTTP, non è disponibile alcuna associazione di modelli
-* Sono non raggiungibile direttamente come un endpoint HTTP, vengono richiamati dal codice (in genere in una vista). Un componente di visualizzazione mai gestisce una richiesta
+* Sono non raggiungibile direttamente come un endpoint HTTP, che sta richiamati dal codice (in genere in una vista). Un componente di visualizzazione mai gestisce una richiesta
 * La firma, anziché i dettagli della richiesta HTTP corrente sono sottoposti a overload
 
 ### <a name="view-search-path"></a>Percorso di ricerca di visualizzazione
@@ -152,7 +152,7 @@ Note sul codice:
 
 * Visualizzazione classi di componenti possono essere contenute in **qualsiasi** cartella nel progetto.
 * Poiché il nome della classe PriorityList**ViewComponent** termina con il suffisso **ViewComponent**, il runtime utilizza la stringa "PriorityList" quando si fa riferimento il componente della classe da una vista. Verrà illustrato che in modo più dettagliato più avanti.
-* Il `[ViewComponent]` attributo è possibile modificare il nome utilizzato per fare riferimento a un componente di visualizzazione. Ad esempio, è possibile avere denominato la classe `XYZ` e applicati i `ViewComponent` attributo:
+* Il `[ViewComponent]` attributo è possibile modificare il nome utilizzato per fare riferimento a un componente di visualizzazione. Ad esempio, è stato chiamato la classe `XYZ` e applicati i `ViewComponent` attributo:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
@@ -212,17 +212,17 @@ Eseguire l'app e verificare la visualizzazione PVC.
 
 ![Priorità del componente di visualizzazione](view-components/_static/pvc.png)
 
-Se non viene visualizzata la vista PVC, verificare che si sta chiamando il componente di visualizzazione con una priorità pari a 4 o versione successiva.
+Se non è eseguito il rendering della visualizzazione PVC, verificare che si sta chiamando il componente di visualizzazione con una priorità pari a 4 o versione successiva.
 
 ### <a name="examine-the-view-path"></a>Esaminare il percorso di visualizzazione
 
-* Modificare il parametro di priorità a tre o meno in modo non viene restituita la visualizzazione priority.
+* Modificare il parametro di priorità pari o inferiore a tre, pertanto la visualizzazione di priorità non viene restituita.
 * Rinominare temporaneamente il *Views/Todo/Components/PriorityList/Default.cshtml* a *1Default.cshtml*.
 * Testare l'app, si otterrà l'errore seguente:
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

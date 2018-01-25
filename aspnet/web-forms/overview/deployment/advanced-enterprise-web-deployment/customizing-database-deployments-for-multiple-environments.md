@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 449c448d1be237f3f95a437bb2c0415bd8ed0d99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Personalizzazione delle distribuzioni di Database per più ambienti
 ====================
@@ -74,15 +74,15 @@ Questa tabella mostra le impostazioni di distribuzione tipica per ambienti di de
 | **Regole di confronto di distribuzione** | Origine | destinazione | destinazione |
 | **Distribuisci proprietà database** | True | Solo la prima volta | Solo la prima volta |
 | **Ricrea sempre database** | True | False | False |
-| **Blocca distribuzione incrementale in caso di perdita di dati** | False | Forse | True |
+| **Blocca distribuzione incrementale in caso di perdita di dati** | False | Maybe | True |
 | **Esegui script di distribuzione in modalità utente singolo** | False | True | True |
-| **Eseguire il backup del database prima della distribuzione** | False | Forse | True |
+| **Eseguire il backup del database prima della distribuzione** | False | Maybe | True |
 | **Genera istruzioni DROP per oggetti contenuti nel database di destinazione, ma non nel progetto di database** | False | True | True |
 | **Non utilizzare le istruzioni ALTER ASSEMBLY per aggiornare tipi CLR** | False | False | False |
   
 
 > [!NOTE]
-> Per ulteriori informazioni sulle proprietà di distribuzione di database e considerazioni relative all'ambiente, vedere [una panoramica di Database impostazioni progetto](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx), [procedura: configurare le proprietà per informazioni dettagliate sulla distribuzione](https://msdn.microsoft.com/en-us/library/dd172125.aspx), [ Compilare e distribuire un Database in un ambiente di sviluppo isolato](https://msdn.microsoft.com/en-us/library/dd193409.aspx), e [di compilazione e distribuzione di database in un ambiente di produzione o gestione temporanea](https://msdn.microsoft.com/en-us/library/dd193413.aspx).
+> Per ulteriori informazioni sulle proprietà di distribuzione di database e considerazioni relative all'ambiente, vedere [una panoramica di Database impostazioni progetto](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [procedura: configurare le proprietà per informazioni dettagliate sulla distribuzione](https://msdn.microsoft.com/library/dd172125.aspx), [ Compilare e distribuire un Database in un ambiente di sviluppo isolato](https://msdn.microsoft.com/library/dd193409.aspx), e [di compilazione e distribuzione di database in un ambiente di produzione o gestione temporanea](https://msdn.microsoft.com/library/dd193413.aspx).
 
 
 Per supportare la distribuzione di un progetto di database a più destinazioni, è necessario creare un file di configurazione di distribuzione per ogni ambiente di destinazione.
@@ -94,7 +94,7 @@ Per supportare la distribuzione di un progetto di database a più destinazioni, 
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. Nel **nuovo File di configurazione di distribuzione** finestra di dialogo casella, assegnare al file un nome significativo (ad esempio, **TestEnvironment.sqldeployment**), quindi fare clic su **salvare**.
-4. Nel *[nomefile]***sqldeployment** pagina, impostare le proprietà di distribuzione per corrispondano ai requisiti dell'ambiente di destinazione e quindi salvare il file.
+4. Nel *[nomefile] * * *. sqldeployment** pagina, impostare le proprietà di distribuzione per corrispondano ai requisiti dell'ambiente di destinazione e quindi salvare il file.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Si noti che il nuovo file viene aggiunto alla cartella Properties del progetto di database.
@@ -141,10 +141,10 @@ Per ulteriori informazioni sulla distribuzione di progetti di database utilizzan
 
 Questi articoli su MSDN forniscono istruzioni generali sulla distribuzione di database:
 
-- [Una panoramica delle impostazioni di progetto di Database](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx)
-- [Procedura: configurare le proprietà per i dettagli di distribuzione](https://msdn.microsoft.com/en-us/library/dd172125.aspx)
-- [Compilazione e distribuzione di database in un ambiente di sviluppo isolato](https://msdn.microsoft.com/en-us/library/dd193409.aspx)
-- [Compilazione e distribuzione di database in un ambiente di produzione o gestione temporanea](https://msdn.microsoft.com/en-us/library/dd193413.aspx)
+- [Una panoramica delle impostazioni di progetto di Database](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Procedura: configurare le proprietà per i dettagli di distribuzione](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Compilazione e distribuzione di database in un ambiente di sviluppo isolato](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Compilazione e distribuzione di database in un ambiente di produzione o gestione temporanea](https://msdn.microsoft.com/library/dd193413.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](performing-a-what-if-deployment.md)

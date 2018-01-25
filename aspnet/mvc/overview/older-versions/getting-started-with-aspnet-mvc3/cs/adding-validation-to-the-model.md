@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: a1d6a6468a39f31c3af8779abbbced093288773c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6bce4a5d889f548cb1faec15842310703d7077b8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Aggiunta della convalida per il modello (c#)
 ====================
@@ -51,13 +51,13 @@ Vediamo come è possibile sfruttare il supporto della convalida nell'applicazion
 
 Iniziare con l'aggiunta di logica di convalida per il `Movie` classe.
 
-Aprire il file *Movie.cs*. Aggiungere un `using` istruzione all'inizio del file che fa riferimento il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi:
+Aprire il file *Movie.cs*. Aggiungere un `using` istruzione all'inizio del file che fa riferimento il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 Lo spazio dei nomi fa parte di .NET Framework. Fornisce un set predefinito di attributi di convalida che è possibile applicare in modo dichiarativo a qualsiasi classe o proprietà.
 
-A questo punto aggiornare il `Movie` classe per poter sfruttare predefinito [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), e [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) gli attributi di convalida . Utilizzare il codice seguente ad esempio in cui applicare gli attributi.
+A questo punto aggiornare il `Movie` classe per poter sfruttare predefinito [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), e [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) gli attributi di convalida . Utilizzare il codice seguente ad esempio in cui applicare gli attributi.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs)]
 
@@ -105,11 +105,11 @@ Se si desidera modificare la logica di convalida in un secondo momento, è possi
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Aggiunta di formattazione per il modello di film
 
-Aprire il file *Movie.cs*. Il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) spazio dei nomi fornisce gli attributi di formattazione oltre al set di attributi di convalida predefinito. Si applicherà il [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo e un [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) il valore di enumerazione per la data di rilascio e per i campi dei prezzi. Il codice seguente illustra il `ReleaseDate` e `Price` proprietà con l'appropriato [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo.
+Aprire il file *Movie.cs*. Il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) spazio dei nomi fornisce gli attributi di formattazione oltre al set di attributi di convalida predefinito. Si applicherà il [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo e un [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) il valore di enumerazione per la data di rilascio e per i campi dei prezzi. Il codice seguente illustra il `ReleaseDate` e `Price` proprietà con l'appropriato [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample7.cs)]
 
-In alternativa, è possibile impostare in modo esplicito un [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) valore. Il codice seguente viene illustrata la proprietà di data di rilascio con una stringa di formato data (vale a dire, "d"). Si utilizzerà per specificare che non si desidera ora come parte della data di rilascio.
+In alternativa, è possibile impostare in modo esplicito un [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) valore. Il codice seguente viene illustrata la proprietà di data di rilascio con una stringa di formato data (vale a dire, "d"). Si utilizzerà per specificare che non si desidera ora come parte della data di rilascio.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample8.cs)]
 

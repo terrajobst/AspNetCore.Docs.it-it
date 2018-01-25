@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013
 ====================
@@ -71,7 +71,7 @@ Le funzionalità di Web Form ASP.NET presentate in questa serie includono:
 - Il progetto di applicazione Web (non un progetto di sito Web)
 - Web Form
 - Pagine master, configurazione
-- bootstrap
+- Bootstrap
 - Entity Framework prima di tutto, codice del database locale
 - Convalida della richiesta
 - Fortemente tipizzato, i controlli di dati del modello di associazione, le annotazioni dei dati e il valore di provider
@@ -150,7 +150,7 @@ Dopo la restituzione da PayPal, è possibile esaminare e completare l'ordine.
 
 Prima di iniziare, assicurarsi di aver installato nel computer il software seguente:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework viene installato automaticamente.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework viene installato automaticamente.
 
 Questa serie di esercitazioni utilizza Microsoft Visual Studio Express 2013 per Web. Per completare questa serie di esercitazioni, è possibile utilizzare Microsoft Visual Studio Express 2013 per il Web o Microsoft Visual Studio 2013.
 
@@ -163,7 +163,7 @@ Se è già installata una versione di Visual Studio, il processo di installazion
 
 > [!NOTE] 
 > 
-> Questa procedura dettagliata si presuppone che sia selezionato il *lo sviluppo Web* raccolta di impostazioni la prima volta che viene avviato Visual Studio. Per ulteriori informazioni, vedere [come: Seleziona impostazioni ambiente di sviluppo Web](https://msdn.microsoft.com/en-us/library/ff521558.aspx).
+> Questa procedura dettagliata si presuppone che sia selezionato il *lo sviluppo Web* raccolta di impostazioni la prima volta che viene avviato Visual Studio. Per ulteriori informazioni, vedere [come: Seleziona impostazioni ambiente di sviluppo Web](https://msdn.microsoft.com/library/ff521558.aspx).
 
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
@@ -198,4 +198,4 @@ I commenti in questa serie di esercitazioni sono, e quando viene aggiornata la s
 Quando si verifica un errore durante lo sviluppo oppure se il sito Web non viene eseguito correttamente, i messaggi di errore possono fornire indicazioni complesse per l'origine del problema o non potrebbero spiegare come correggerlo. Per alcuni scenari comuni di problema, è inoltre possibile utilizzare il [forum ASP.NET](https://forums.asp.net/) o nella sezione delle domande e risposte incluso con il [Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) ( C#) esempio. Se viene visualizzato un messaggio di errore o non funzioni come eseguire le esercitazioni, assicurarsi di controllare nei percorsi indicati.
 
 >[!div class="step-by-step"]
-[Successivo](create-the-project.md)
+[avanti](create-the-project.md)

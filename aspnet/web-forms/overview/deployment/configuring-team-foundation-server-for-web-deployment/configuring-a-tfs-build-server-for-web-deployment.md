@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Configurazione di un Server di compilazione TFS per la distribuzione Web
 ====================
@@ -58,13 +58,13 @@ Quando si configura un server di compilazione, la prima attività è di installa
 - Creare un *controller di compilazione* e uno o più *gli agenti di compilazione*. Ogni controller di compilazione gestisce un set di agenti di compilazione. Quando si accoda una compilazione, il controller di compilazione assegna le attività di compilazione per un agente di compilazione disponibili. Ogni raccolta di progetti team in TFS è mappato a un solo controller di compilazione.
 - Configurare una cartella di ricezione per l'output di compilazione. Si tratta di una condivisione di rete. Qualsiasi compilazione output, ad esempio pacchetti di distribuzione web, vengono inviati alla cartella di ricezione.
 
-Il [amministrazione di Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx) capitolo in MSDN contiene tutte le risorse necessarie per eseguire queste attività:
+Il [amministrazione di Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx) capitolo in MSDN contiene tutte le risorse necessarie per eseguire queste attività:
 
-- Per una panoramica concettuale di Team Foundation Build, tra cui il servizio di compilazione, controller di compilazione e agenti di compilazione, vedere [la comprensione di Team Foundation Build System](https://msdn.microsoft.com/en-us/library/dd793166.aspx).
-- Per informazioni sull'installazione e configurazione del servizio di compilazione, vedere [configurare un computer di compilazione](https://msdn.microsoft.com/en-us/library/ms181712.aspx).
-- Per informazioni sulla creazione di controller di compilazione, vedere [creare e usare un Controller di compilazione](https://msdn.microsoft.com/en-us/library/ee330987.aspx).
-- Per informazioni sulla creazione di agenti di compilazione, vedere [creare e usare agenti di compilazione](https://msdn.microsoft.com/en-us/library/bb399135.aspx).
-- Per informazioni sulla creazione e configurazione di cartelle di ricezione, vedere [configurare cartelle di ricezione](https://msdn.microsoft.com/en-us/library/bb778394.aspx).
+- Per una panoramica concettuale di Team Foundation Build, tra cui il servizio di compilazione, controller di compilazione e agenti di compilazione, vedere [la comprensione di Team Foundation Build System](https://msdn.microsoft.com/library/dd793166.aspx).
+- Per informazioni sull'installazione e configurazione del servizio di compilazione, vedere [configurare un computer di compilazione](https://msdn.microsoft.com/library/ms181712.aspx).
+- Per informazioni sulla creazione di controller di compilazione, vedere [creare e usare un Controller di compilazione](https://msdn.microsoft.com/library/ee330987.aspx).
+- Per informazioni sulla creazione di agenti di compilazione, vedere [creare e usare agenti di compilazione](https://msdn.microsoft.com/library/bb399135.aspx).
+- Per informazioni sulla creazione e configurazione di cartelle di ricezione, vedere [configurare cartelle di ricezione](https://msdn.microsoft.com/library/bb778394.aspx).
 
 ## <a name="install-required-products-and-components"></a>Installare i componenti e i prodotti necessari
 
@@ -72,7 +72,7 @@ Per abilitare il server di compilazione compilare le soluzioni, è necessario in
 
 Il modo migliore per installare i componenti della piattaforma web comune è utilizzare il [installazione guidata piattaforma Web](https://go.microsoft.com/?linkid=9805118). Ciò garantisce che si sta installando la versione più recente di ogni prodotto e inoltre rileva e installa automaticamente tutti i prerequisiti per ogni prodotto. In caso del [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) soluzione, utilizzare l'installazione guidata piattaforma Web per installare questi prodotti e componenti:
 
-- **.NET framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
+- **.NET Framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
 - **2.1 o successivo dello strumento di distribuzione Web**. Questo modo vengono installati sul server di distribuzione Web (e il relativo file eseguibile sottostante, MSDeploy.exe). Come parte di questo processo, installa e avvia il servizio agente di distribuzione Web. Questo servizio consente di distribuire i pacchetti web da un computer remoto.
 - **ASP.NET MVC 3**. Consente di installare gli assembly che necessari per eseguire applicazioni ASP.NET MVC 3.
 
@@ -114,7 +114,7 @@ A questo punto, il server di compilazione è possibile avviare la creazione e la
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per istruzioni generali sull'uso di Team Build, vedere [amministrazione di Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx).
+Per istruzioni generali sull'uso di Team Build, vedere [amministrazione di Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](adding-content-to-source-control.md)

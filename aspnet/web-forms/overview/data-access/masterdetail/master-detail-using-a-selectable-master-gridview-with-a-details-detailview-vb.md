@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0db9bf25ce61c31dd8258aaebadf42e7738473ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eae9c07eff7780aab18346815ca410d687789d17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>Master-Details mediante Master GridView selezionabile con un DetailView dettagli (VB)
 ====================
@@ -39,7 +39,7 @@ Nel [esercitazione precedente](master-detail-filtering-across-two-pages-vb.md) �
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>Passaggio 1: Creazione di un oggetto selezionabile GridView
 
-Tenere presente che nei due pagine master/dettagli report che ogni record master è incluso un collegamento ipertestuale che, quando si fa clic, inviato l'utente alla pagina dei dettagli della riga selezionata passando `SupplierID` valore nella stringa di query. Tale collegamento è stato aggiunto a ogni riga GridView mediante un HyperLinkField. Per il report master/dettagli singola pagina, è necessario un pulsante per ogni controllo GridView di riga che, quando si fa clic, consente di visualizzare i dettagli. Il controllo GridView può essere configurato per includere un pulsante Seleziona per ogni riga che causa un postback e tale riga viene contrassegnata come di GridView [SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
+Tenere presente che nei due pagine master/dettagli report che ogni record master è incluso un collegamento ipertestuale che, quando si fa clic, inviato l'utente alla pagina dei dettagli della riga selezionata passando `SupplierID` valore nella stringa di query. Tale collegamento è stato aggiunto a ogni riga GridView mediante un HyperLinkField. Per il report master/dettagli singola pagina, è necessario un pulsante per ogni controllo GridView di riga che, quando si fa clic, consente di visualizzare i dettagli. Il controllo GridView può essere configurato per includere un pulsante Seleziona per ogni riga che causa un postback e tale riga viene contrassegnata come di GridView [SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
 
 Per iniziare, aggiungere un controllo GridView per il `DetailsBySelecting.aspx` nella pagina di `Filtering` cartella, l'impostazione relativa `ID` proprietà `ProductsGrid`. Successivamente, aggiungere un nuovo oggetto ObjectDataSource denominato `AllProductsDataSource` che richiama la `ProductsBLL` della classe `GetProducts()` metodo.
 
@@ -85,7 +85,7 @@ L'opzione di attivazione di selezione il controllo consente di aggiungere un Com
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/samples/sample2.aspx)]
 
-Quando si fa clic sul pulsante Seleziona di una riga controllo GridView viene utilizzata un postback e il controllo GridView `SelectedRow` proprietà viene aggiornata. Oltre al `SelectedRow` GridView proprietà, fornisce il [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), e [SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) proprietà. Il `SelectedIndex` proprietà restituisce l'indice della riga selezionata, mentre il `SelectedValue` e `SelectedDataKey` restituiscono valori in base al momento di GridView [proprietà DataKeyNames](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
+Quando si fa clic sul pulsante Seleziona di una riga controllo GridView viene utilizzata un postback e il controllo GridView `SelectedRow` proprietà viene aggiornata. Oltre al `SelectedRow` GridView proprietà, fornisce il [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), e [SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) proprietà. Il `SelectedIndex` proprietà restituisce l'indice della riga selezionata, mentre il `SelectedValue` e `SelectedDataKey` restituiscono valori in base al momento di GridView [proprietà DataKeyNames](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
 
 Il `DataKeyNames` proprietà viene utilizzata per associare uno o più campi di dati i valori con ogni riga e viene utilizzato comunemente per le informazioni di identificazione in modo univoco dai dati sottostanti con ogni riga GridView dell'attributo. Il `SelectedValue` proprietà restituisce il valore del primo `DataKeyNames` campo dei dati per la riga selezionata mentre il `SelectedDataKey` proprietà restituisce la riga selezionata `DataKey` oggetto che contiene tutti i valori per i campi chiave di dati specificato per tale riga.
 

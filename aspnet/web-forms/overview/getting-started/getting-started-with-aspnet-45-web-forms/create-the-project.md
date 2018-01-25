@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 2678342891a87d591476a07e418c118b2ae94d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-project"></a>Creare il progetto
 ====================
@@ -96,9 +96,9 @@ Visual Studio crea alcuni file per il progetto e le cartelle iniziali. I file pr
 | **File** | **Scopo** |
 | --- | --- |
 | *Default.aspx* | In genere la prima pagina visualizzata quando l'applicazione viene eseguita in un browser. |
-| *Site. master* | Una pagina che consente di creare un comportamento standard di layout e l'utilizzo coerente per le pagine dell'applicazione. |
-| *Global. asax* | Un file facoltativo che contiene il codice di risposta agli eventi a livello di applicazione e a livello di sessione generati da ASP.NET o moduli HTTP. |
-| *Web. config* | I dati di configurazione per un'applicazione. |
+| *Site.Master* | Una pagina che consente di creare un comportamento standard di layout e l'utilizzo coerente per le pagine dell'applicazione. |
+| *Global.asax* | Un file facoltativo che contiene il codice di risposta agli eventi a livello di applicazione e a livello di sessione generati da ASP.NET o moduli HTTP. |
+| *Web.config* | I dati di configurazione per un'applicazione. |
 
 ### <a name="running-the-default-web-application"></a>Esegue l'applicazione Web predefinita
 
@@ -114,7 +114,7 @@ Esistono tre pagine principale in questa applicazione Web predefinita: *Default.
 
 ## <a name="aspnet-web-forms-background"></a>Web Form ASP.NET in Background
 
-Web Form ASP.NET sono pagine che sono basate sulla tecnologia Microsoft ASP.NET, in cui il codice eseguito sul server in modo dinamico genera output delle pagine Web nel dispositivo client o browser. Una pagina Web Form ASP.NET esegue automaticamente il rendering dell'HTML conforme al browser corretto per funzionalità quali gli stili, layout e così via. Web Form sono compatibili con qualsiasi linguaggio supportato da .NET common language runtime, ad esempio Microsoft Visual Basic e Microsoft Visual c#. Inoltre, Web Form sono compilati sul [Microsoft .NET Framework](https://msdn.microsoft.com/en-US/vstudio/aa496123), che offre i vantaggi, ad esempio un ambiente gestito, indipendenza dai tipi e l'ereditarietà.
+Web Form ASP.NET sono pagine che sono basate sulla tecnologia Microsoft ASP.NET, in cui il codice eseguito sul server in modo dinamico genera output delle pagine Web nel dispositivo client o browser. Una pagina Web Form ASP.NET esegue automaticamente il rendering dell'HTML conforme al browser corretto per funzionalità quali gli stili, layout e così via. Web Form sono compatibili con qualsiasi linguaggio supportato da .NET common language runtime, ad esempio Microsoft Visual Basic e Microsoft Visual c#. Inoltre, Web Form sono compilati sul [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), che offre i vantaggi, ad esempio un ambiente gestito, indipendenza dai tipi e l'ereditarietà.
 
 Quando una pagina Web Form ASP.NET in esecuzione, la pagina passa attraverso un ciclo di vita in cui esegue una serie di passaggi di elaborazione. Tali passaggi includono l'inizializzazione, creazione di controlli, ripristino e mantenimento dello stato, l'esecuzione di codice del gestore eventi e il rendering. Dopo aver acquisito familiarità con la potenza di Web Form ASP.NET, è importante comprendere il [ciclo di vita della pagina ASP.NET](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) in modo che sia possibile scrivere codice fase del ciclo di vita appropriato per l'effetto desiderato.
 
@@ -128,7 +128,7 @@ Quando un server Web riceve una richiesta per una pagina, trova la pagina, viene
 > 
 > **Appartenenza**
 > 
-> [ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) identità archivia le credenziali degli utenti in un database creato dall'applicazione. Quando l'accesso, l'applicazione convalida le credenziali per la lettura del database. Il progetto *Account* cartella contenente i file che implementano le varie parti di appartenenza: la registrazione, accesso, la modifica di una password e autorizzare l'accesso. Inoltre, Web Form ASP.NET supporta OAuth e OpenID. Questi miglioramenti di autenticazione consentono agli utenti di accedere al sito utilizzando le credenziali esistenti, tali account come Facebook, Twitter, Windows Live e Google.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) identità archivia le credenziali degli utenti in un database creato dall'applicazione. Quando l'accesso, l'applicazione convalida le credenziali per la lettura del database. Il progetto *Account* cartella contenente i file che implementano le varie parti di appartenenza: la registrazione, accesso, la modifica di una password e autorizzare l'accesso. Inoltre, Web Form ASP.NET supporta OAuth e OpenID. Questi miglioramenti di autenticazione consentono agli utenti di accedere al sito utilizzando le credenziali esistenti, tali account come Facebook, Twitter, Windows Live e Google.
 > 
 > ![Creare il progetto - Esplora soluzioni (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
@@ -140,7 +140,7 @@ Quando un server Web riceve una richiesta per una pagina, trova la pagina, viene
 > 
 > **Pagine master**
 > 
-> Un [pagina master ASP.NET](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) definisce un aspetto coerenza e il comportamento per tutte le pagine dell'applicazione. Il layout della pagina master unisce con il contenuto da una singola pagina contenuto per produrre la pagina finale visualizzato all'utente. Nell'applicazione Wingtip Toys, modifica il *Site. master* pagina master, in modo che tutte le pagine nel sito Web Wingtip Toys condividono la barra stesso logo e navigazione distintivo.
+> Un [pagina master ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx) definisce un aspetto coerenza e il comportamento per tutte le pagine dell'applicazione. Il layout della pagina master unisce con il contenuto da una singola pagina contenuto per produrre la pagina finale visualizzato all'utente. Nell'applicazione Wingtip Toys, modifica il *Site. master* pagina master, in modo che tutte le pagine nel sito Web Wingtip Toys condividono la barra stesso logo e navigazione distintivo.
 > 
 > **HTML5**
 > 
@@ -192,8 +192,8 @@ In questa esercitazione sono creati esaminate e, eseguire l'applicazione Web For
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Scelta del modello di programmazione](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Progetti applicazione Web e progetti di siti Web](https://msdn.microsoft.com/en-us/library/dd547590.aspx)   
-[Form di ASP.NET Web Pages Overview](https://msdn.microsoft.com/en-us/library/428509ah.aspx)
+[Progetti applicazione Web e progetti di siti Web](https://msdn.microsoft.com/library/dd547590.aspx)   
+[Form di ASP.NET Web Pages Overview](https://msdn.microsoft.com/library/428509ah.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](introduction-and-overview.md)

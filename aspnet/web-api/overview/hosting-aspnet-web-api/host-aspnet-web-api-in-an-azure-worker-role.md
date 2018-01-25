@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 326c4a4e274dbc1aa6e09f1d07c4d135e4304484
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hosting ASP.NET Web API 2 a un ruolo di lavoro di Azure
 ====================
@@ -33,7 +33,7 @@ da [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
-> - [Azure SDK per .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK per .NET 2.3](https://azure.microsoft.com/downloads/)
 
 
 ## <a name="create-a-microsoft-azure-project"></a>Creare un progetto di Microsoft Azure
@@ -137,7 +137,7 @@ Individuare l'indirizzo IP in distribuzioni del servizio, la distribuzione [id],
 
 ## <a name="deploy-to-azure"></a>Distribuire in Azure
 
-Per questo passaggio, è necessario disporre di un account di Azure. Se non hai già uno, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+Per questo passaggio, è necessario disporre di un account di Azure. Se non hai già uno, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 In Esplora soluzioni, fare clic sul progetto AzureApp. Selezionare **Pubblica**.
 
@@ -165,5 +165,5 @@ La finestra Log attività di Azure Mostra lo stato di avanzamento della distribu
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Una panoramica del progetto Katana](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+- [Panoramica del progetto Katana](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 - [Progetto Katana su GitHub](https://github.com/aspnet/AspNetKatana)

@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: e660595d66d81069fa47b77387509e73b1ec834e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d47d8f61dc7af6e1dc5887338be862ea81d7bb17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funzionalità per dispositivi mobili ASP.NET MVC 4
 ====================
 Da [Rick Anderson](https://github.com/Rick-Anderson)
 
-> È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in [distribuire un'applicazione Web ASP.NET MVC 5 Mobile nei siti Web di Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
+> È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in [distribuire un'applicazione Web ASP.NET MVC 5 Mobile nei siti Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
 
-In questa esercitazione verrà fornite le nozioni di base lavorare con le funzionalità di dispositivi mobili in un'applicazione Web ASP.NET MVC 4. Per questa esercitazione, è possibile utilizzare [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) o Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer o VWD&quot;). Se si dispone già di, è possibile utilizzare la versione di Visual Studio professional.
+In questa esercitazione verrà fornite le nozioni di base lavorare con le funzionalità di dispositivi mobili in un'applicazione Web ASP.NET MVC 4. Per questa esercitazione, è possibile utilizzare [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) o Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer o VWD&quot;). Se si dispone già di, è possibile utilizzare la versione di Visual Studio professional.
 
 Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) (scelta consigliata) o Visual Studio Web Developer Express SP1. Visual Studio 2012 contiene ASP.NET MVC 4. Se si utilizza Visual Web Developer 2010, è necessario installare [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (scelta consigliata) o Visual Studio Web Developer Express SP1. Visual Studio 2012 contiene ASP.NET MVC 4. Se si utilizza Visual Web Developer 2010, è necessario installare [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 È necessario anche un emulatore del browser per dispositivi mobili. Verranno illustrate le seguenti:
 
-- [Emulatore Windows Phone 7 Windows](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). (Questo è l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
+- [Emulatore Windows Phone 7 Windows](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Questo è l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
 - Modificare la stringa agente utente per emulare un iPhone. Vedere [questo](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) post di blog.
 - [Opera Mobile emulatore](http://www.opera.com/developer/tools/mobile/)
 - [Apple Safari](http://www.apple.com/safari/download/) con l'agente utente impostato su iPhone. Per istruzioni su come impostare l'agente utente in Safari su "iPhone", vedere [descritto come consentire Safari fingono è IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) sul blog di David Alison.
@@ -45,7 +45,7 @@ Progetti di Visual Studio con codice sorgente c# sono disponibili a complemento 
 
 ### <a name="what-youll-build"></a>Cosa Compilerai
 
-Per questa esercitazione si aggiungerà mobili funzionalità all'applicazione conferenza elenco semplice fornito nel [progetto iniziale](https://go.microsoft.com/fwlink/?LinkId=228307). Nella schermata seguente mostra la pagina di tag dell'applicazione completata, come illustrato nel [emulatore di Windows Phone 7](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). Vedere [Mapping di tastiera per Windows Phone emulatore](https://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) per semplificare l'input da tastiera.
+Per questa esercitazione si aggiungerà mobili funzionalità all'applicazione conferenza elenco semplice fornito nel [progetto iniziale](https://go.microsoft.com/fwlink/?LinkId=228307). Nella schermata seguente mostra la pagina di tag dell'applicazione completata, come illustrato nel [emulatore di Windows Phone 7](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). Vedere [Mapping di tastiera per Windows Phone emulatore](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx) per semplificare l'input da tastiera.
 
 [![p1_Tags_CompletedProj](aspnet-mvc-4-mobile-features/_static/image2.png)](aspnet-mvc-4-mobile-features/_static/image1.png)
 
@@ -137,7 +137,7 @@ Copia il *Views\Home\AllTags.cshtml* file *Views\Home\AllTags.Mobile.cshtml*. Ap
 
 Passare alla pagina di tag, utilizzando un browser per desktop e l'utilizzo dell'emulatore di browser per dispositivi mobili. L'emulatore di browser per dispositivi mobili Mostra le due modifiche apportate.
 
-[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Al contrario, la visualizzazione del desktop non è stato modificato.
 
@@ -215,7 +215,7 @@ Nel codice seguente viene illustrato l'intero *Global. asax* file.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Se si utilizza Internet Explorer 9 e non viene visualizzato il `BundleMobileConfig` riga di sopra di evidenziazione di colore giallo, fare clic su di [pulsante visualizzazione compatibilità](https://windows.microsoft.com/en-US/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![immagine del pulsante visualizzazione compatibilità (disattivato)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Immagine del pulsante visualizzazione compatibilità (disattivato)") in Internet Explorer per modificare l'icona da una struttura ![immagine del pulsante visualizzazione compatibilità (disattivato)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "immagine del pulsante visualizzazione compatibilità (disattivato) ") un colore a tinta unita ![immagine del pulsante visualizzazione compatibilità (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "immagine del pulsante visualizzazione compatibilità (on)"). In alternativa è possibile visualizzare in questa esercitazione in FireFox o Chrome.
+> Se si utilizza Internet Explorer 9 e non viene visualizzato il `BundleMobileConfig` riga di sopra di evidenziazione di colore giallo, fare clic su di [pulsante visualizzazione compatibilità](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![immagine del pulsante visualizzazione compatibilità (disattivato)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Immagine del pulsante visualizzazione compatibilità (disattivato)") in Internet Explorer per modificare l'icona da una struttura ![immagine del pulsante visualizzazione compatibilità (disattivato)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "immagine del pulsante visualizzazione compatibilità (disattivato) ") un colore a tinta unita ![immagine del pulsante visualizzazione compatibilità (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "immagine del pulsante visualizzazione compatibilità (on)"). In alternativa è possibile visualizzare in questa esercitazione in FireFox o Chrome.
 
 
 Aprire il *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* file e aggiungere il markup seguente direttamente dopo il `Html.Partial` chiamare:
@@ -270,7 +270,7 @@ A livello globale, è possibile disabilitare una visualizzazione (non mobile) pr
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout per dispositivi mobili (*\_Layout.Mobile.cshtml*) viene utilizzato solo per le visualizzazioni mobili. (Il file è nel formato  ***ViewName**. Mobile.cshtml*.) È possibile impostare `RequireConsistentDisplayMode` per `true` se il layout per dispositivi mobili non funziona bene con le visualizzazioni non mobili. Nella schermata seguente viene illustrato come la *altoparlanti* pagina esegue il rendering quando `RequireConsistentDisplayMode` è impostato su `true`.
+Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout per dispositivi mobili (*\_Layout.Mobile.cshtml*) viene utilizzato solo per le visualizzazioni mobili. (Il file è nel formato ***ViewName**. Mobile.cshtml*). È possibile impostare `RequireConsistentDisplayMode` per `true` se il layout per dispositivi mobili non funziona bene con le visualizzazioni non mobili. Nella schermata seguente viene illustrato come la *altoparlanti* pagina esegue il rendering quando `RequireConsistentDisplayMode` è impostato su `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 

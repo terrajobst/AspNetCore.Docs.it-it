@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 21cffcd285879fdca81cb7d92d0f079d4bf7756c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 946d695c572379c3ebc2eda1569f186f25ab9bfc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Inserimento di dipendenze controller
 
@@ -87,7 +87,7 @@ In alcuni casi non è necessario un servizio per più di un'azione all'interno d
 
 ## <a name="accessing-settings-from-a-controller"></a>Accesso alle impostazioni da un Controller
 
-Accesso alle impostazioni dell'applicazione o di configurazione all'interno di un controller è un modello comune. Questo tipo di accesso deve utilizzare il modello di opzioni descritto [configurazione](xref:fundamentals/configuration/index). È in genere consigliabile non richiedere impostazioni direttamente dal controller di mediante l'inserimento di dipendenza. Un approccio migliore consiste nella richiesta un `IOptions<T>` istanza, in cui `T` è la classe di configurazione è necessario.
+Accesso alle impostazioni dell'applicazione o di configurazione all'interno di un controller è un modello comune. Questo tipo di accesso deve utilizzare il modello di opzioni descritto [configurazione](xref:fundamentals/configuration/index). È in genere non dovrebbe richiedere impostazioni direttamente dal controller di mediante l'inserimento di dipendenza. Un approccio migliore consiste nella richiesta un `IOptions<T>` istanza, in cui `T` è la classe di configurazione è necessario.
 
 Per utilizzare il modello di opzioni, è necessario creare una classe che rappresenta le opzioni, ad esempio questo:
 

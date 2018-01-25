@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003a22d4b0d9400f3e9effe0892d2d7e03704cde
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
 
@@ -22,7 +22,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Quali sono gli helper di Tag?
 
-Gli helper di tag consentono al codice lato server partecipare alla creazione e il rendering di elementi HTML in file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` possibile aggiungere un numero di versione per il nome dell'immagine. Ogni volta che cambia l'immagine, il server genera una nuova versione univoca per l'immagine, in modo i client sono garantiti per ottenere l'immagine corrente (anziché un'immagine memorizzati nella cache non aggiornata). Vi sono molti gli helper di Tag predefiniti per le attività comuni, ad esempio la creazione di moduli, collegamenti, asset durante il caricamento e più - e ancora più disponibili nel repository GitHub pubblici e come NuGet pacchetti. Vengono creati gli helper di tag in c# e di destinazione gli elementi HTML in base al nome di elemento, il nome dell'attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` possono avere come destinazione l'HTML `<label>` elemento quando il `LabelTagHelper` vengono applicati gli attributi. Se si ha familiarità con [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper di Tag ridurre le esplicita transizioni tra HTML e c# nelle visualizzazioni Razor. In molti casi, l'helper HTML forniscono un'alternativa a un Helper Tag specifici, ma è importante tenere presente che gli helper di Tag non sostituiscono l'helper HTML e non esiste un Helper di Tag per ogni HTML Helper. [Gli helper confrontati con l'helper HTML tag](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze nel modo più dettagliato.
+Gli helper di tag consentono al codice lato server partecipare alla creazione e il rendering di elementi HTML in file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` possibile aggiungere un numero di versione per il nome dell'immagine. Ogni volta che cambia l'immagine, il server genera una nuova versione univoca per l'immagine, in modo i client sono garantiti per ottenere l'immagine corrente (anziché un'immagine memorizzati nella cache non aggiornata). Vi sono molti gli helper di Tag predefiniti per le attività comuni, ad esempio la creazione di moduli, collegamenti, asset durante il caricamento e più - e ancora più disponibili nel repository GitHub pubblici e come NuGet pacchetti. Vengono creati gli helper di tag in c# e di destinazione gli elementi HTML in base al nome di elemento, il nome dell'attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` possono avere come destinazione l'HTML `<label>` elemento quando il `LabelTagHelper` vengono applicati gli attributi. Se si ha familiarità con [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper di Tag ridurre le esplicita transizioni tra HTML e c# nelle visualizzazioni Razor. In molti casi, l'helper HTML forniscono un'alternativa a un Helper Tag specifici, ma è importante tenere presente che gli helper di Tag non sostituisce l'helper HTML e non esiste un Helper di Tag per ogni HTML Helper. [Gli helper confrontati con l'helper HTML tag](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze nel modo più dettagliato.
 
 ## <a name="what-tag-helpers-provide"></a>Cosa fornisce gli helper di Tag
 

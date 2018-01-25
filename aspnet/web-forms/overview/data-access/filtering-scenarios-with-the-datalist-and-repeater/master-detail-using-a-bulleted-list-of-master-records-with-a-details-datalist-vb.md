@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 99d04c95b42402ae2bc72562a652b6edec5e9313
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master-Details con un elenco puntato dei record Master DataList dettagli (VB)
 ====================
@@ -243,9 +243,9 @@ Dopo aver completato la configurazione guidata origine dati, Visual Studio gener
 
 Attualmente, il `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  parametro non viene impostato in modo prodotti non vengono visualizzati quando si visualizza la pagina. È necessario è impostato il valore del parametro in base il `CategoryID` della categoria selezionata nel Repeater. Ciò introduce due sfide: in primo luogo, come Microsoft determina quando LinkButton nel Repeater s `ItemTemplate` è stato fatto clic; e il secondo, come è possibile determinare il `CategoryID` della categoria corrispondente il cui LinkButton selezionato?
 
-Sull'elemento LinkButton Analogamente ai controlli Button e ImageButton ha un `Click` evento e un [ `Command` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.command.aspx). Il `Click` evento è progettato per semplicemente si noti che è stato fatto clic con il LinkButton. In alcuni casi, tuttavia, oltre a notare che è stato fatto clic con il LinkButton è anche necessario passare alcune informazioni aggiuntive per il gestore dell'evento. In questo caso, s LinkButton [ `CommandName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) e [ `CommandArgument` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) proprietà possono essere assegnate a queste informazioni aggiuntive. Quindi, quando si fa clic sull'elemento LinkButton, relativo `Command` viene generato l'evento (invece che relativo `Click` eventi), il gestore dell'evento verrà passato i valori del `CommandName` e `CommandArgument` proprietà.
+Sull'elemento LinkButton Analogamente ai controlli Button e ImageButton ha un `Click` evento e un [ `Command` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). Il `Click` evento è progettato per semplicemente si noti che è stato fatto clic con il LinkButton. In alcuni casi, tuttavia, oltre a notare che è stato fatto clic con il LinkButton è anche necessario passare alcune informazioni aggiuntive per il gestore dell'evento. In questo caso, s LinkButton [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) e [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) proprietà possono essere assegnate a queste informazioni aggiuntive. Quindi, quando si fa clic sull'elemento LinkButton, relativo `Command` viene generato l'evento (invece che relativo `Click` eventi), il gestore dell'evento verrà passato i valori del `CommandName` e `CommandArgument` proprietà.
 
-Quando un `Command` evento viene generato dall'interno di un modello nel Repeater, s Ripetitore [ `ItemCommand` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) viene generato e viene passato il `CommandName` e `CommandArgument` i valori del controllo LinkButton selezionato (o un pulsante o ImageButton). Pertanto, per determinare quando è stata scelta una categoria LinkButton nel Repeater, è necessario eseguire le operazioni seguenti:
+Quando un `Command` evento viene generato dall'interno di un modello nel Repeater, s Ripetitore [ `ItemCommand` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) viene generato e viene passato il `CommandName` e `CommandArgument` i valori del controllo LinkButton selezionato (o un pulsante o ImageButton). Pertanto, per determinare quando è stata scelta una categoria LinkButton nel Repeater, è necessario eseguire le operazioni seguenti:
 
 1. Impostare il `CommandName` proprietà del controllo LinkButton nel Repeater s `ItemTemplate` su un valore (è già stato utilizzato ListProducts). Impostando questo `CommandName` valore s LinkButton `Command` evento viene generato quando si fa clic sull'elemento LinkButton.
 2. Impostare il s LinkButton `CommandArgument` sul valore dell'elemento corrente s `CategoryID`.

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 en-us /
 
@@ -57,13 +57,13 @@ Concorrenza ottimistica include le opzioni seguenti:
 
 * È possibile tenere traccia di quali proprietà di un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
 
- Nello scenario, non dati andrebbero persi. Diverse proprietà sono state aggiornate con i due utenti. La volta successiva che un utente che accede al dipartimento in lingua inglese, noteranno le modifiche di Jane sia di John. Questo metodo di aggiornamento può ridurre il numero di conflitti che potrebbero comportare la perdita di dati. Questo approccio: * non è possibile evitare la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà.
+ Nello scenario, non dati andrebbero persi. Diverse proprietà sono state aggiornate con i due utenti. La volta successiva che un utente che accede al dipartimento in lingua inglese, visualizzeranno le modifiche di Jane sia di John. Questo metodo di aggiornamento può ridurre il numero di conflitti che potrebbero comportare la perdita di dati. Questo approccio: * non è possibile evitare la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà.
         * È in genere non è pratico in un'app web. È necessario mantenere lo stato del significativo per tenere traccia di recupero di tutti i valori e i nuovi valori. Gestione di grandi quantità di stato può influiscono sulle prestazioni dell'applicazione.
         * È possibile aumentare la complessità delle app rispetto al rilevamento di concorrenza in un'entità.
 
 * È possibile consentire la modifica di John sovrascrivere la modifica di Jane.
 
- La volta successiva che un utente che accede al reparto in lingua inglese, verranno visualizzate 1/9/2013 e il valore di $350,000.00 recuperato. Questo approccio è definito un *prevalenza del Client* o *ultimo in Wins* scenario. (Tutti i valori dal client hanno la precedenza su ciò che si trova nell'archivio dati). Se non si configura questo codice per la gestione della concorrenza, prevalenza del Client viene eseguita automaticamente.
+ La volta successiva che un utente che accede al reparto in lingua inglese, essi visualizzeranno il 1/9/2013 e il valore di $350,000.00 recuperato. Questo approccio è definito un *prevalenza del Client* o *ultimo in Wins* scenario. (Tutti i valori dal client hanno la precedenza su ciò che si trova nell'archivio dati). Se non si configura questo codice per la gestione della concorrenza, prevalenza del Client viene eseguita automaticamente.
 
 * È possibile impedire la modifica di John vengano aggiornati nel database. In genere, l'app sarebbe: * visualizzare un messaggio di errore.
         * Indica lo stato corrente dei dati.
@@ -73,16 +73,16 @@ Concorrenza ottimistica include le opzioni seguenti:
 
 ## <a name="handling-concurrency"></a>La gestione della concorrenza 
 
-Quando una proprietà è configurata come un [token di concorrenza](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+Quando una proprietà è configurata come un [token di concorrenza](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* Core EF verifica che proprietà non è stata modificata dopo che è stata recuperata. Il controllo viene eseguito quando [SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) viene chiamato.
+* Core EF verifica che proprietà non è stata modificata dopo che è stata recuperata. Il controllo viene eseguito quando [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) viene chiamato.
 * Se la proprietà è stata modificata dopo che è stato recuperato, un [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) viene generata un'eccezione. 
 
 Il modello di database e dati deve essere configurato per supportare la generazione di `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Il rilevamento dei conflitti di concorrenza su una proprietà
 
-È possibile rilevare i conflitti di concorrenza a livello di proprietà con il [ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) attributo. L'attributo può essere applicato a più proprietà del modello. Per ulteriori informazioni, vedere [dati annotazioni-ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations).
+È possibile rilevare i conflitti di concorrenza a livello di proprietà con il [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) attributo. L'attributo può essere applicato a più proprietà del modello. Per ulteriori informazioni, vedere [dati annotazioni-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
 Il `[ConcurrencyCheck]` attributo non viene utilizzato in questa esercitazione.
 
@@ -127,7 +127,7 @@ Il codice evidenziato di seguito viene illustrato il T-SQL che consente di verif
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql) restituisce il numero di righe interessate dall'ultima istruzione. In nessun righe vengono aggiornate, EF Core genera una `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) restituisce il numero di righe interessate dall'ultima istruzione. In nessun righe vengono aggiornate, EF Core genera una `DbUpdateConcurrencyException`.
 
 È possibile visualizzare che il nucleo di EF T-SQL genera l'errore nella finestra di output di Visual Studio.
 
@@ -175,7 +175,7 @@ Compilare il progetto. La compilazione genera errori simile al seguente:
 
 ### <a name="update-the-departments-index-page"></a>Aggiornare la pagina di indice reparti
 
-Il motore di scaffolding creato un `RowVersion` colonna per la pagina di indice, ma tale campo non deve essere visualizzata. In questa esercitazione, l'ultimo byte del `RowVersion` viene visualizzato per comprendere la concorrenza. L'ultimo byte non deve necessariamente essere univoco. Non visualizzare una vera app `RowVersion` o l'ultimo byte della `RowVersion`.
+Il motore di scaffolding creato un `RowVersion` colonna per la pagina di indice, ma tale campo non deve essere visualizzata. In questa esercitazione, l'ultimo byte del `RowVersion` viene visualizzato per comprendere la concorrenza. L'ultimo byte non è garantita l'univocità. Non visualizzare una vera app `RowVersion` o l'ultimo byte della `RowVersion`.
 
 Aggiornare la pagina di indice:
 
@@ -250,7 +250,7 @@ Fare clic su **Salva**. Vengono visualizzati messaggi di errore per tutti i camp
 
 ![Messaggio di errore di pagina Modifica reparto](concurrency/_static/edit-error.png)
 
-Questa finestra del browser non si intende modificare il nome di campo. Copiare e incollare il valore corrente (lingue) nel campo nome. Scheda. La convalida lato client rimuove il messaggio di errore.
+Questa finestra del browser non si desidera modificare il nome di campo. Copiare e incollare il valore corrente (lingue) nel campo nome. Scheda. La convalida lato client rimuove il messaggio di errore.
 
 ![Messaggio di errore di pagina Modifica reparto](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ Vedere [ereditarietà](xref:data/ef-mvc/inheritance) su come ereditare un modell
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Token di concorrenza in EF Core](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [La gestione della concorrenza in EF Core](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [Token di concorrenza in EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [La gestione della concorrenza in EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Precedente](xref:data/ef-rp/update-related-data)

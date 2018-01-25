@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: 41f1f30d86406580ab9fc7278a94d9c291913f9a
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 25d1c1c9954baaca9ef91eff3dd3c853930a5893
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Creazione di una stringa di connessione e l'utilizzo di SQL Server LocalDB
 ====================
@@ -36,7 +36,7 @@ SQL Server Express non è consigliabile per le applicazioni web di produzione. L
 
 In Visual Studio 2017, LocalDB è installato per impostazione predefinita con Visual Studio.
 
-Per impostazione predefinita, Entity Framework Cerca una stringa di connessione lo stesso nome di classe del contesto di oggetto (`MovieDBContext` per questo progetto). Per ulteriori informazioni vedere [stringhe di connessione di SQL Server per le applicazioni Web ASP.NET](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Per impostazione predefinita, Entity Framework Cerca una stringa di connessione lo stesso nome di classe del contesto di oggetto (`MovieDBContext` per questo progetto). Per ulteriori informazioni vedere [stringhe di connessione di SQL Server per le applicazioni Web ASP.NET](https://msdn.microsoft.com/library/jj653752.aspx).
 
 Aprire la radice dell'applicazione *Web. config* file riportato di seguito. (Non il *Web. config* file nel *viste* cartella.)
 
@@ -56,11 +56,11 @@ Nell'esempio seguente viene mostrata una parte di *Web. config* file con la nuov
 
 Due stringhe di connessione sono molto simili. La prima stringa di connessione è denominata `DefaultConnection` e viene utilizzato per il database delle appartenenze per controllare chi può accedere all'applicazione. È stata aggiunta la stringa di connessione specifica un database LocalDB denominato *Movie.mdf* nella *App\_dati* cartella. È non utilizzare il database di appartenenza in questa esercitazione, per ulteriori informazioni sull'appartenenza, autenticazione e sicurezza, vedere l'esercitazione [creare un'applicazione MVC ASP.NET con autenticazione e il database di SQL Server e distribuire in Azure App Service](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-Il nome della stringa di connessione deve corrispondere al nome del [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx) classe.
+Il nome della stringa di connessione deve corrispondere al nome del [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) classe.
 
 [!code-csharp[Main](creating-a-connection-string/samples/sample3.cs?highlight=15)]
 
-Non è necessario aggiungere il `MovieDBContext` stringa di connessione. Se non si specifica una stringa di connessione, Entity Framework creerà un database LocalDB nella directory degli utenti con il nome completo del [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx) classe (in questo caso `MvcMovie.Models.MovieDBContext`). È possibile assegnare il database desiderato, purché abbia il *. MDF* suffisso. Ad esempio, è possibile assegnare un nome del database *MyFilms.mdf*.
+Non è necessario aggiungere il `MovieDBContext` stringa di connessione. Se non si specifica una stringa di connessione, Entity Framework creerà un database LocalDB nella directory degli utenti con il nome completo del [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) classe (in questo caso `MvcMovie.Models.MovieDBContext`). È possibile assegnare il database desiderato, purché abbia il *. MDF* suffisso. Ad esempio, è possibile assegnare un nome del database *MyFilms.mdf*.
 
 Successivamente, si creerà un nuovo `MoviesController` classe che è possibile utilizzare per visualizzare i dati dei film e consentire agli utenti di creare nuove voci di film.
 

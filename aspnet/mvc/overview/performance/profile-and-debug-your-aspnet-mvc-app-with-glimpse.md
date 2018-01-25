@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 98b21a54ba00a8c82c3be7ba4e39d44041ed42c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilo ed eseguire il debug dell'app ASP.NET MVC con sguardo rapido
 ====================
 Da [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Panoramica di è un che intraprendono e in continuo aumento famiglia di pacchetti NuGet open source che offre prestazioni dettagliati, debug e informazioni di diagnostica per App ASP.NET. È semplice da installare, leggere, ultra-veloce e visualizza le metriche di prestazioni chiave nella parte inferiore di ogni pagina. Consente di eseguire il drill down in app quando è necessario sapere cosa accade nel server. Sguardo rapido fornisce informazioni molto utili, che si consiglia di che usare in tutto il ciclo di sviluppo, tra cui l'ambiente di testing di Azure. Mentre [Fiddler](http://www.telerik.com/fiddler) e [gli strumenti di sviluppo F-12](https://msdn.microsoft.com/en-us/library/ie/gg589512(v=vs.85).aspx) forniscono un lato client, sguardo rapido fornisce una visualizzazione dettagliata dal server. In questa esercitazione sarà incentrata sull'uso di panoramica di ASP.NET MVC e dei pacchetti di Entity Framework, ma sono disponibili molti altri pacchetti. Dove possibile verrà collegare appropriati [osservare docs](http://getglimpse.com/Docs/) che consentono di gestire. Panoramica di è un progetto open source, è troppo possono contribuire al codice sorgente e i documenti.
+> Panoramica di è un che intraprendono e in continuo aumento famiglia di pacchetti NuGet open source che offre prestazioni dettagliati, debug e informazioni di diagnostica per App ASP.NET. È semplice da installare, leggere, ultra-veloce e visualizza le metriche di prestazioni chiave nella parte inferiore di ogni pagina. Consente di eseguire il drill down in app quando è necessario sapere cosa accade nel server. Sguardo rapido fornisce informazioni molto utili, che si consiglia di che usare in tutto il ciclo di sviluppo, tra cui l'ambiente di testing di Azure. Mentre [Fiddler](http://www.telerik.com/fiddler) e [gli strumenti di sviluppo F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) forniscono un lato client, sguardo rapido fornisce una visualizzazione dettagliata dal server. In questa esercitazione sarà incentrata sull'uso di panoramica di ASP.NET MVC e dei pacchetti di Entity Framework, ma sono disponibili molti altri pacchetti. Dove possibile verrà collegare appropriati [osservare docs](http://getglimpse.com/Docs/) che consentono di gestire. Panoramica di è un progetto open source, è troppo possono contribuire al codice sorgente e i documenti.
 
 
 - [Panoramica di installazione](#ig)
@@ -113,7 +113,7 @@ I criteri di sicurezza predefinito di panoramica consentono solo dati sguardo ra
 
 Con questa modifica da solo, qualsiasi utente può visualizzare i dati di sguardo rapido in un sito remoto. È possibile aggiungere il markup in precedenza per un profilo di pubblicazione in modo che ha distribuito solo un applicato quando si utilizza il profilo di pubblicazione (ad esempio, proifle il testing di Azure.) Per limitare i dati di panoramica, verrà aggiunto il `canViewGlimpseData` ruolo e consentire solo a utenti in questo ruolo per visualizzare i dati di panoramica.
 
-Rimuovere i commenti dal *GlimpseSecurityPolicy.cs* file e modificare il [IsInRole](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) chiamare da `Administrator` per il `canViewGlimpseData` ruolo:
+Rimuovere i commenti dal *GlimpseSecurityPolicy.cs* file e modificare il [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) chiamare da `Administrator` per il `canViewGlimpseData` ruolo:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
@@ -121,10 +121,10 @@ Rimuovere i commenti dal *GlimpseSecurityPolicy.cs* file e modificare il [IsInRo
 > Sicurezza - i dati dettagliati forniti da sguardo rapido potrebbe esporre la sicurezza dell'app. Microsoft non ha eseguito un controllo di sicurezza di Glimpse per l'utilizzo in applicazioni di produzione.
 
 
-Per informazioni sull'aggiunta di ruoli, vedere il [distribuire un'app web Secure ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL in Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) esercitazione.
+Per informazioni sull'aggiunta di ruoli, vedere il [distribuire un'app web Secure ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) esercitazione.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Distribuire un'app protetta ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL in Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Distribuire un'app protetta ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 - [Osservare il configurazione](http://getglimpse.com/Docs/Configuration) -pagina Doc sulla configurazione delle schede, i criteri di runtime, registrazione e altro ancora.

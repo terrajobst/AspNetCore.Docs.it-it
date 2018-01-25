@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Rilevare le modifiche apportate con i token di modifica principale di ASP.NET
 
@@ -135,7 +135,7 @@ Un pulsante Abilita e disabilita il monitoraggio:
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Quando `OnPostStartMonitoring` è attivato, il monitoraggio è abilitato, e lo stato corrente viene cancellato. Quando `OnPostStopMonitoring` è attivato, il monitoraggio è disabilitato e lo stato viene impostato in modo da riflettere che il monitoraggio non è in esecuzione.
+Quando `OnPostStartMonitoring` è attivato, il monitoraggio è abilitato, e lo stato corrente viene cancellato. Quando `OnPostStopMonitoring` è attivato, il monitoraggio è disabilitato e lo stato viene impostato in modo da riflettere che il monitoraggio non è in corso.
 
 ## <a name="monitoring-cached-file-changes"></a>Monitoraggio delle modifiche apportate alla file memorizzato nella cache
 
@@ -200,9 +200,9 @@ var compositeChangeToken =
 ## <a name="see-also"></a>Vedere anche
 
 * [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
-* [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
+* [Uso di una cache distribuita](xref:performance/caching/distributed)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-* [Helper di Tag della cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 6f93d6033b68773507d624125936f0a69777e2b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Utilizzo di Entity Framework 4.0 e il controllo ObjectDataSource, parte 1: introduzione
 ====================
@@ -30,7 +30,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Prima di database
 > 
-> È possibile utilizzare i dati in Entity Framework in tre modi: *Database First*, *Model First*, e *Code First*. In questa esercitazione è per il primo Database. Per informazioni sulle differenze tra questi flussi di lavoro e indicazioni su come scegliere quello più adatto per lo scenario, vedere [flussi di lavoro di Entity Framework sviluppo](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> È possibile utilizzare i dati in Entity Framework in tre modi: *Database First*, *Model First*, e *Code First*. In questa esercitazione è per il primo Database. Per informazioni sulle differenze tra questi flussi di lavoro e indicazioni su come scegliere quello più adatto per lo scenario, vedere [flussi di lavoro di Entity Framework sviluppo](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Form
 > 
@@ -47,7 +47,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Domande
 > 
-> Nel caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework e LINQ to forum entità](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), o [ StackOverflow.com](http://stackoverflow.com/).
+> Nel caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework e LINQ to forum entità](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), o [ StackOverflow.com](http://stackoverflow.com/).
 
 
 Il `EntityDataSource` controllo consente di creare un'applicazione molto rapidamente, ma di mantenere una quantità significativa di logica di business e logica di accesso ai dati in richiede in genere il *aspx* pagine. Se si prevede che l'applicazione per l'aumento della complessità e richiedono una manutenzione costante, di investire anticipo più tempo di sviluppo per creare un *livelli* o *a più livelli* la struttura dell'applicazione è quindi più gestibile. Per implementare questa architettura, si separa il livello di presentazione dal livello di logica di business (BLL) e il livello di accesso ai dati (DAL). Per implementare questa struttura è possibile utilizzare il `ObjectDataSource` controllo anziché il `EntityDataSource` controllo. Quando si utilizza il `ObjectDataSource` controllo, si implementa il proprio codice di accesso ai dati e quindi richiamarlo in *aspx* pagine utilizzando un controllo che ha molte delle stesse funzionalità degli altri controlli origine dati. Ciò consente di combinare i vantaggi di un approccio a più livelli con i vantaggi dell'utilizzo di un controllo Web Form per l'accesso ai dati.
@@ -60,7 +60,7 @@ Un `ObjectDataSource` controllo tramite la chiamata di una classe che viene crea
 
 Oltre alle operazioni CRUD di base, la classe creata per l'utilizzo con il `ObjectDataSource` controllo potrebbe essere necessario eseguire la logica di business quando il `ObjectDataSource` legge o aggiorna i dati. Quando si aggiorna un reparto, ad esempio, potrebbe essere necessario convalidare che altri reparti non hanno lo stesso di amministratore poiché una persona non può essere l'amministratore di più di un reparto.
 
-In alcuni `ObjectDataSource` documentazione, ad esempio il [Cenni preliminari sulla classe ObjectDataSource](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.aspx), il controllo chiama una classe definita come un *oggetto business* che include sia la logica di business e logica di accesso ai dati . In questa esercitazione si creerà classi separate per la logica di business e per la logica di accesso ai dati. La classe che incapsula la logica di accesso ai dati viene chiamata un *repository*. La classe di logica di business include i metodi di logica di business e i metodi di accesso ai dati, ma il repository per eseguire attività di accesso ai dati di chiamare i metodi di accesso ai dati.
+In alcuni `ObjectDataSource` documentazione, ad esempio il [Cenni preliminari sulla classe ObjectDataSource](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx), il controllo chiama una classe definita come un *oggetto business* che include sia la logica di business e logica di accesso ai dati . In questa esercitazione si creerà classi separate per la logica di business e per la logica di accesso ai dati. La classe che incapsula la logica di accesso ai dati viene chiamata un *repository*. La classe di logica di business include i metodi di logica di business e i metodi di accesso ai dati, ma il repository per eseguire attività di accesso ai dati di chiamare i metodi di accesso ai dati.
 
 Si creerà anche un livello di astrazione tra BLL DAL che facilita la unit test automatizzati e test di BLL. Questo livello di astrazione è implementato mediante la creazione di un'interfaccia e tramite l'interfaccia quando si crea un'istanza del repository nella classe della logica di business. In questo modo è possibile fornire la logica di business di classe con un riferimento a qualsiasi oggetto che implementa l'interfaccia del repository. Per il normale funzionamento, è fornire un oggetto del repository che funziona con Entity Framework. Per i test, è fornire un oggetto del repository che funziona con i dati archiviati in modo che è possibile modificare facilmente, ad esempio le variabili di classe definite come raccolte.
 
@@ -325,4 +325,4 @@ Modificare un valore del campo o selezionare un diverso per l'amministratore e f
 Introduzione all'uso è stata completata la `ObjectDataSource` controllo per CRUD di base (creare, leggere, aggiornare ed eliminare) operazioni con Entity Framework. Una volta compilato una semplice applicazione a più livelli, ma il livello di logica di business è ancora strettamente a livello di accesso ai dati, che rendono più complessa di unit test automatici. Nell'esercitazione seguente si noterà come implementare il modello di repository per facilitare gli unit test.
 
 >[!div class="step-by-step"]
-[Successivo](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+[avanti](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

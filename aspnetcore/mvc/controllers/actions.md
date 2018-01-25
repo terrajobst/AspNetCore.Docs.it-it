@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Richieste di gestione con i controller in ASP.NET MVC di base
 
@@ -42,7 +42,7 @@ All'interno di **M**enti -**V**ISTA -**C**ontroller, un controller è responsabi
 
 Il controller accetta i risultati dell'elaborazione del modello di (se presente) e restituisce la visualizzazione corretta e i dati di visualizzazione associata oppure il risultato della chiamata API. Altre informazioni, vedere [Panoramica di MVC ASP.NET Core](xref:mvc/overview) e [Guida introduttiva a Visual Studio e ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
 
-Il controller è un *a livello di interfaccia utente* astrazione. Le responsabilità sono per verificare che i dati di richiesta siano validi e di scegliere quale visualizzazione (o risultato di un'API) deve essere restituito. Nelle App corretto factoring, non direttamente include dati accesso o la regola business. Al contrario, il controller di delega per servizi per la gestione di tali responsabilità.
+Il controller è un *a livello di interfaccia utente* astrazione. Le responsabilità sono per verificare che i dati di richiesta siano validi e di scegliere quale visualizzazione (o risultato di un'API) deve essere restituito. Nelle App ben fornita direttamente non include dati accesso o la regola business. Al contrario, il controller di delega per servizi per la gestione di tali responsabilità.
 
 ## <a name="defining-actions"></a>Definizione di azioni
 
@@ -54,7 +54,7 @@ Azioni possono restituire alcun valore, ma spesso restituire un'istanza di `IAct
 
 ### <a name="controller-helper-methods"></a>Metodi di supporto del controller
 
-Controller è in genere ereditano da [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), anche se non è obbligatorio. Derivazione da `Controller` fornisce l'accesso a tre categorie di metodi di supporto:
+Controller è in genere ereditano da [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), anche se questo non è necessario. Derivazione da `Controller` fornisce l'accesso a tre categorie di metodi di supporto:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Metodi, creando un corpo della risposta vuota
 

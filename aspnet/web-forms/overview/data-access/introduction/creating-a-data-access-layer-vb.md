@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Creazione di un livello di accesso ai dati (VB)
 ====================
@@ -89,7 +89,7 @@ Il DataReader e il set di dati (per impostazione predefinita), ad esempio, sono 
 Per restituire oggetti fortemente tipizzati, gli sviluppatori possono creare propri oggetti di business personalizzata o utilizzano i dataset tipizzati. Un oggetto business viene implementato dallo sviluppatore come rappresenta una classe le cui proprietà riflettono in genere le colonne della tabella di database sottostante dell'oggetto business. Un set di dati tipizzato è una classe generata automaticamente da Visual Studio in base a uno schema di database e i cui membri sono fortemente tipizzati in base a questo schema. Il DataSet tipizzato stesso è costituito da classi che estendono le classi ADO.NET DataSet, DataTable e DataRow. Oltre a DataTable fortemente tipizzata, dataset tipizzati anche includono ora TableAdapter, che sono classi con metodi per il popolamento DataTable del set di dati e propagazione delle modifiche all'interno di DataTable nuovamente al database.
 
 > [!NOTE]
-> Per ulteriori informazioni sui vantaggi e gli svantaggi dell'uso di dataset tipizzati e oggetti business personalizzati, fare riferimento a [la progettazione di componenti di livello dati e il passaggio attraverso i livelli dati](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Per ulteriori informazioni sui vantaggi e gli svantaggi dell'uso di dataset tipizzati e oggetti business personalizzati, fare riferimento a [la progettazione di componenti di livello dati e il passaggio attraverso i livelli dati](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Verrà utilizzata per l'architettura di queste esercitazioni fortemente tipizzati. La figura 3 illustra il flusso di lavoro tra i diversi livelli di un'applicazione che utilizza i dataset tipizzati.
@@ -269,7 +269,7 @@ Queste query con parametri possono essere verificate direttamente dalla finestra
 
 Con il `GetProductsByCategoryID(categoryID)` nostri DAL metodo, è ora possibile creare una pagina ASP.NET che consente di visualizzare solo i prodotti in una categoria specificata. L'esempio seguente mostra tutti i prodotti della categoria Beverages, che hanno un `CategoryID` pari a 1.
 
-Beverages
+Beverages.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample4.aspx)]
 
@@ -293,7 +293,7 @@ Sono disponibili due modelli comunemente utilizzati per l'inserimento, aggiornam
 **Figura 21**: ogni Insert, Update e richiesta di eliminazione viene inviato al Database immediatamente ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-Altri modelli, che si farà riferimento come batch di aggiornare il modello, si aggiorna un intero set di dati, DataTable o raccolta di DataRow in una chiamata al metodo. Con questo modello di uno sviluppatore Elimina, inserimenti, modifica DataRows in un oggetto DataTable e quindi passa tali DataRows o DataTable in un metodo di aggiornamento. Questo metodo quindi enumera il DataRow passato, determina o meno è stati modificati, aggiunti o eliminati (tramite il DataRow [proprietà RowState](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) valore) e invia la richiesta di database appropriata per ogni record.
+Altri modelli, che si farà riferimento come batch di aggiornare il modello, si aggiorna un intero set di dati, DataTable o raccolta di DataRow in una chiamata al metodo. Con questo modello di uno sviluppatore Elimina, inserimenti, modifica DataRows in un oggetto DataTable e quindi passa tali DataRows o DataTable in un metodo di aggiornamento. Questo metodo quindi enumera il DataRow passato, determina o meno è stati modificati, aggiunti o eliminati (tramite il DataRow [proprietà RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) valore) e invia la richiesta di database appropriata per ogni record.
 
 
 [![Tutte le modifiche vengono sincronizzate con il Database quando viene richiamato il metodo di aggiornamento](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ Per creare un metodo personalizzato di questo tipo, tornare alla finestra di Pro
 **Figura 25**: creare un metodo per aggiungere una nuova riga per il `Products` tabella ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-Nella schermata successiva il `InsertCommand`del `CommandText` viene visualizzato. Aumentare la query aggiungendo `SELECT SCOPE_IDENTITY()` alla fine della query, che verrà restituito l'ultimo valore identity inserito in un `IDENTITY` colonna nello stesso ambito. (Vedere il [documentazione tecnica](https://msdn.microsoft.com/en-us/library/ms190315.aspx) per ulteriori informazioni su `SCOPE_IDENTITY()` e il motivo per cui è possibile [utilizzare ambito\_IDENTITY() anziché @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Assicurarsi di terminare la `INSERT` istruzione con un punto e virgola prima di aggiungere il `SELECT` istruzione.
+Nella schermata successiva il `InsertCommand`del `CommandText` viene visualizzato. Aumentare la query aggiungendo `SELECT SCOPE_IDENTITY()` alla fine della query, che verrà restituito l'ultimo valore identity inserito in un `IDENTITY` colonna nello stesso ambito. (Vedere il [documentazione tecnica](https://msdn.microsoft.com/library/ms190315.aspx) per ulteriori informazioni su `SCOPE_IDENTITY()` e il motivo per cui è possibile [utilizzare ambito\_IDENTITY() anziché @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Assicurarsi di terminare la `INSERT` istruzione con un punto e virgola prima di aggiungere il `SELECT` istruzione.
 
 
 [![Aumentare la Query per restituire il valore SCOPE_IDENTITY)](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -520,11 +520,11 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [La creazione di DAL utilizzando TableAdapter con fortemente tipizzati e DataTable in Visual Studio 2005 e ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [La progettazione di componenti di livello dati e il passaggio di dati tramite i livelli](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [La progettazione di componenti di livello dati e il passaggio di dati tramite i livelli](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Creare un livello di accesso ai dati con Progettazione DataSet di Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [La crittografia delle informazioni di configurazione in ASP.NET 2.0 applicazioni](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Panoramica degli oggetti TableAdapter](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Utilizzo di un DataSet tipizzato](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [Panoramica degli oggetti TableAdapter](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Utilizzo di un DataSet tipizzato](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Tramite l'accesso ai dati fortemente tipizzati in Visual Studio 2005 e ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Come estendere i metodi TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Il recupero di dati scalare da una Stored Procedure](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3a98ee93df9ef7c94b3d0da81c095cccedadf05f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8de1acada8713abf5f92c1f13fa82a5d4ccc18be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-vb"></a>Differenze di configurazione comuni tra lo sviluppo e produzione (VB)
 ====================
@@ -38,7 +38,7 @@ Quando si distribuisce un'applicazione web è importante che le informazioni di 
 
 Il `Web.config` file include un'ampia gamma di informazioni di configurazione per un'applicazione ASP.NET. Alcune di queste informazioni di configurazione è lo stesso indipendentemente dall'ambiente. Ad esempio, le impostazioni di autenticazione e regole di autorizzazione URL dichiarato nel `Web.config` file `<authentication>` e `<authorization>` gli elementi sono in genere lo stesso indipendentemente dall'ambiente. Ma altre informazioni di configurazione, ad esempio informazioni su risorse esterne, in genere è diverso a seconda dell'ambiente.
 
-Stringhe di connessione di database sono un esempio di informazioni di configurazione diverso in base all'ambiente. Quando un'applicazione web comunica con un server di database, innanzitutto necessario stabilire una connessione e questa operazione viene eseguita tramite un [stringa di connessione](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Sebbene sia possibile codificare la stringa di connessione di database direttamente in pagine web o il codice che si connette al database, è consigliabile inserirlo `Web.config`del [ `<connectionStrings>` elemento](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx) in modo che la stringa di connessione informazioni sono in una singola posizione centralizzata. Spesso viene utilizzato un database diverso durante lo sviluppo rispetto a quella utilizzata in produzione. di conseguenza, le informazioni sulla stringa di connessione deve essere univoci per ogni ambiente.
+Stringhe di connessione di database sono un esempio di informazioni di configurazione diverso in base all'ambiente. Quando un'applicazione web comunica con un server di database, innanzitutto necessario stabilire una connessione e questa operazione viene eseguita tramite un [stringa di connessione](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Sebbene sia possibile codificare la stringa di connessione di database direttamente in pagine web o il codice che si connette al database, è consigliabile inserirlo `Web.config`del [ `<connectionStrings>` elemento](https://msdn.microsoft.com/library/bf7sd233.aspx) in modo che la stringa di connessione informazioni sono in una singola posizione centralizzata. Spesso viene utilizzato un database diverso durante lo sviluppo rispetto a quella utilizzata in produzione. di conseguenza, le informazioni sulla stringa di connessione deve essere univoci per ogni ambiente.
 
 > [!NOTE]
 > Nelle esercitazioni successive esplorare la distribuzione di applicazioni guidate dai dati, a quel punto verranno esaminate le specifiche come stringhe di connessione di database vengono archiviati nel file di configurazione.
@@ -48,7 +48,7 @@ Il comportamento previsto di ambienti di sviluppo e produzione è sostanzialment
 
 ### <a name="configuration-settings-that-impact-performance"></a>Impostazioni di configurazione che influiscono sulle prestazioni
 
-Quando viene visitata una pagina ASP.NET per la prima volta (o la prima volta dopo che è stato modificato), il markup dichiarativo deve essere convertito in una classe e questa classe deve essere compilata. Se l'applicazione web utilizza la compilazione automatica classe code-behind della pagina deve essere compilato, troppo. È possibile configurare un'ampia gamma di opzioni di compilazione tramite la `Web.config` file [ `<compilation>` elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx).
+Quando viene visitata una pagina ASP.NET per la prima volta (o la prima volta dopo che è stato modificato), il markup dichiarativo deve essere convertito in una classe e questa classe deve essere compilata. Se l'applicazione web utilizza la compilazione automatica classe code-behind della pagina deve essere compilato, troppo. È possibile configurare un'ampia gamma di opzioni di compilazione tramite la `Web.config` file [ `<compilation>` elemento](https://msdn.microsoft.com/library/s10awwz0.aspx).
 
 L'attributo di debug è uno degli attributi più importanti nel `<compilation>` elemento. Se il `debug` attributo è impostato su "true", assembly compilati includere i simboli di debug, che sono necessari durante il debug di un'applicazione in Visual Studio. Tuttavia, i simboli di debug aumentare le dimensioni dell'assembly e impongano i requisiti di memoria aggiuntivi quando si esegue il codice. Inoltre, quando il `debug` attributo è impostato su "true" qualsiasi contenuto restituito dalla `WebResource.axd` non nella cache, vale a dire che ogni volta che un utente visita una pagina, dovranno scaricare nuovamente il contenuto statico restituito da `WebResource.axd`.
 
@@ -68,7 +68,7 @@ Quando si verifica un'eccezione non gestita in un'applicazione ASP.NET propagato
 - Viene visualizzato un messaggio di eccezione dettagli, che include informazioni sull'eccezione generata solo.
 - Verrà visualizzata una pagina di errore personalizzati, che è una pagina ASP.NET che crei che consente di visualizzare tutti i messaggi desiderati.
 
-Ciò che accade in caso di un'eccezione non gestita dipende il `Web.config` file [ `<customErrors>` sezione](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx).
+Ciò che accade in caso di un'eccezione non gestita dipende il `Web.config` file [ `<customErrors>` sezione](https://msdn.microsoft.com/library/h0hfz6fc.aspx).
 
 Per sviluppare e testare un'applicazione è utile per visualizzare i dettagli di qualsiasi eccezione nel browser. Tuttavia, visualizzare i dettagli dell'eccezione in un'applicazione in produzione è un potenziale rischio di sicurezza. Inoltre, è unflattering e rende il sito Web un aspetto poco professionale. In teoria, in caso di un'eccezione non gestita un'applicazione web nell'ambiente di sviluppo per visualizzare i dettagli dell'eccezione durante la stessa applicazione nell'ambiente di produzione verrà visualizzati una pagina di errore personalizzato.
 
@@ -76,7 +76,7 @@ Per sviluppare e testare un'applicazione è utile per visualizzare i dettagli di
 > Il valore predefinito `<customErrors>` impostazione della sezione mostra i dettagli dell'eccezione dei messaggi solo quando la pagina visitata tramite localhost e viene mostrata la pagina di errore di runtime generico in caso contrario. Questo non è ideale, ma è idoneo per sapere che il comportamento predefinito non rivela i dettagli dell'eccezione per i visitatori non locali. Un'esercitazione future esamina il `<customErrors>` sezione in modo più dettagliato e viene illustrato come utilizzare una pagina di errore personalizzati visualizzata quando si verifica un errore nell'ambiente di produzione.
 
 
-Un'altra funzionalità ASP.NET che è utile durante lo sviluppo è la traccia. La traccia, se abilitato, registra le informazioni relative a ogni richiesta in ingresso e fornisce una pagina web speciale, `Trace.axd`, per la visualizzazione dei dettagli della richiesta di recente. È possibile attivare e configurare la traccia tramite il [ `<trace>` elemento](https://msdn.microsoft.com/en-us/library/6915t83k.aspx) in `Web.config`.
+Un'altra funzionalità ASP.NET che è utile durante lo sviluppo è la traccia. La traccia, se abilitato, registra le informazioni relative a ogni richiesta in ingresso e fornisce una pagina web speciale, `Trace.axd`, per la visualizzazione dei dettagli della richiesta di recente. È possibile attivare e configurare la traccia tramite il [ `<trace>` elemento](https://msdn.microsoft.com/library/6915t83k.aspx) in `Web.config`.
 
 Se si abilita analisi assicurarsi che non è disabilitato nell'ambiente di produzione. Poiché le informazioni di traccia sono inclusi i cookie, i dati della sessione e altre informazioni riservate, è importante disabilitare la traccia nell'ambiente di produzione. Buone notizie sono che, per impostazione predefinita, la traccia è disabilitata e `Trace.axd` file è accessibile solo tramite localhost. Se si modificano queste impostazioni predefinite in fase di sviluppo assicurarsi che sono state disattivate nuovamente nell'ambiente di produzione.
 
@@ -110,7 +110,7 @@ informazioni di configurazione che viene copiate in questa directory nei modi se
 
 Per distribuire la compilazione di applicazione web il progetto di distribuzione Web e quindi copiare i file dalla cartella di output del progetto nell'ambiente di produzione.
 
-Per ulteriori informazioni sull'utilizzo di progetto di distribuzione Web estrarre [questo articolo i progetti di distribuzione Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx) dal numero di aprile 2007 di [MSDN Magazine](https://msdn.microsoft.com/en-us/magazine/default.aspx), o i collegamenti nella sezione a ulteriori informazioni, consultare il fine dell'esercitazione.
+Per ulteriori informazioni sull'utilizzo di progetto di distribuzione Web estrarre [questo articolo i progetti di distribuzione Web](https://msdn.microsoft.com/magazine/cc163448.aspx) dal numero di aprile 2007 di [MSDN Magazine](https://msdn.microsoft.com/magazine/default.aspx), o i collegamenti nella sezione a ulteriori informazioni, consultare il fine dell'esercitazione.
 
 > [!NOTE]
 > Poiché il progetto di distribuzione Web viene implementato come un Visual Studio aggiuntivo e Visual Studio Express Edition (inclusi Visual Web Developer) non supportano i componenti aggiuntivi, è possibile utilizzare il progetto di distribuzione Web con Visual Web Developer.
@@ -134,7 +134,7 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Impostazioni di configurazione della chiave durante la distribuzione di un Database](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Download di progetti di Visual Studio 2008 Web distribuzione](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [Download di progetti di Visual Studio 2005 Web distribuzione](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [Progetti di distribuzione Web di Visual Studio 2008](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [Visual Studio 2008 Web progetto supporto per la distribuzione rilasciato](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
-- [Progetti di distribuzione Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)
+- [Progetti di distribuzione Web](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](deploying-your-site-using-visual-studio-vb.md)

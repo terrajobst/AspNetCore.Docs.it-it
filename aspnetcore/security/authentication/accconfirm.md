@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 
@@ -89,7 +89,7 @@ Vedere [applicazione SSL](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Richiedi conferma tramite posta elettronica
 
-È consigliabile verificare il messaggio di posta elettronica di una nuova registrazione utente per verificare che non rappresentano un altro utente (vale a dire, è ancora stato registrato con un altro messaggio di posta elettronica). Si supponga che si dispone di un forum di discussione e si desidera impedire "yli@example.com"tramite la registrazione come"nolivetto@contoso.com." Senza conferma tramite posta elettronica, "nolivetto@contoso.com" Impossibile ricevere la posta elettronica indesiderato dall'app. Si supponga che l'utente registrato accidentalmente come "ylo@example.com" e non veniva rilevato l'errore di ortografia di "yli", sarebbe possibile usare il recupero della password, perché l'app non dispone di posta elettronica corretta. Conferma tramite posta elettronica fornisce a livello di protezione limitato da BOT e non offre protezione da spamming determinato che dispongono di molti alias di posta elettronica di lavoro che possono utilizzare per registrare.
+È consigliabile verificare il messaggio di posta elettronica di una nuova registrazione utente per verificare che non viene rappresentata un'altra persona (vale a dire, è ancora stato registrato con un altro messaggio di posta elettronica). Si supponga che si dispone di un forum di discussione e si desidera impedire "yli@example.com"tramite la registrazione come"nolivetto@contoso.com." Senza conferma tramite posta elettronica, "nolivetto@contoso.com" Impossibile ricevere la posta elettronica indesiderato dall'app. Si supponga che l'utente registrato accidentalmente come "ylo@example.com" e non veniva rilevato l'errore di ortografia di "yli", sarebbe possibile usare il recupero della password, perché l'app non dispone di posta elettronica corretta. Conferma tramite posta elettronica fornisce a livello di protezione limitato da BOT e non offre protezione da spamming determinato che dispongono di molti alias di posta elettronica di lavoro che possono utilizzare per registrare.
 
 In genere si desidera impedire agli utenti di nuovo di tutti i dati al sito web di registrazione prima che sia una conferma tramite posta elettronica. 
 
@@ -110,7 +110,7 @@ Aggiornamento `ConfigureServices` per richiedere una conferma tramite posta elet
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-La riga precedente impedisce registrati in corso la registrazione fino a quando non viene confermata la posta elettronica. Tuttavia, tale riga non impedire nuovi utenti viene effettuato l'accesso dopo cui registrare. Il codice predefinito l'accesso utente dopo che la registrazione. Dopo l'accesso, non sarà in grado di accedere di nuovo fino a quando non vengono registrati. Più avanti in questa esercitazione verranno modificate sono l'utente di codice in modo appena registrato **non** effettuato l'accesso.
+La riga precedente impedisce registrati in corso la registrazione fino a quando non viene confermata la posta elettronica. Tuttavia, tale riga non impedisca nuovi utenti viene effettuato l'accesso dopo cui registrare. Il codice predefinito l'accesso utente dopo che la registrazione. Dopo l'accesso, non sarà in grado di accedere di nuovo fino a quando non vengono registrati. Più avanti in questa esercitazione verranno modificate sono l'utente di codice in modo appena registrato **non** effettuato l'accesso.
 
 ### <a name="configure-email-provider"></a>Configurare i provider di posta elettronica
 
@@ -277,7 +277,7 @@ Se non è possibile ottenere l'utilizzo di posta elettronica:
 
 ## <a name="prevent-login-at-registration"></a>Impedire l'accesso al momento della registrazione
 
-Con i modelli di correnti, quando un utente ha completato il modulo di registrazione, vengono registrate nel (autenticato). In genere, è necessario confermare la posta elettronica prima di registrarle. Nella sezione seguente si modificherà il codice in modo da richiedere nuovi utenti dispongano di un messaggio di posta elettronica di conferma prima di vengono registrate nel. Aggiornamento di `[HttpPost] Login` azione nel *AccountController.cs* file con le seguenti modifiche evidenziate.
+Con i modelli di correnti, quando un utente ha completato il modulo di registrazione, si è connessi (autenticato). In genere, è necessario confermare la posta elettronica prima di registrarle. Nella sezione seguente si modificherà il codice in modo da richiedere nuovi utenti dispongano di un messaggio di posta elettronica di conferma prima che si è connessi. Aggiornamento di `[HttpPost] Login` azione nel *AccountController.cs* file con le seguenti modifiche evidenziate.
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 
@@ -302,4 +302,4 @@ Fare clic sul collegamento a un altro servizio di accesso e accettare le richies
 
 ![Gestire l'account di accesso esterni di visualizzazione elenco Facebook](accconfirm/_static/fb.png)
 
-I due account sono stati combinati. Sarà in grado di accedere con uno di questi account. Si consiglia agli utenti di aggiungere gli account locali nel caso in cui il log di social networking nel servizio di autenticazione è inattivo o più probabilmente è più possibile accedere al proprio account di social networking.
+I due account sono stati combinati. Sarà in grado di accedere con uno di questi account. Si consiglia agli utenti di aggiungere gli account locali nel caso in cui il log di social networking nel servizio di autenticazione non è attivo, o più probabile hai più accesso al proprio account di social networking.

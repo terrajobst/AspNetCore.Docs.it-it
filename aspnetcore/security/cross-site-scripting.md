@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Impedendo Cross-Site Scripting
 
@@ -56,7 +56,7 @@ Questa vista restituisce il contenuto del *untrustedInput* variabile. Questa var
    ```
 
 >[!WARNING]
-> Componenti di base ASP.NET MVC fornisce un `HtmlString` classe che non viene codificato automaticamente al momento di output. Non si devono mai utilizzato in combinazione con l'input non attendibile come questo esporrà una vulnerabilità XSS.
+> Componenti di base ASP.NET MVC fornisce un `HtmlString` classe che non è codificato automaticamente al momento di output. Non si devono mai utilizzato in combinazione con l'input non attendibile come questo esporrà una vulnerabilità XSS.
 
 ## <a name="javascript-encoding-using-razor"></a>JavaScript codifica utilizzando Razor
 
@@ -145,7 +145,7 @@ Questo verrà eseguito il rendering nel browser come segue:
 
 ## <a name="accessing-encoders-in-code"></a>L'accesso a codificatori nel codice
 
-I codificatori HTML, JavaScript e URL sono disponibili al codice in due modi diversi, è possibile inserire tramite [inserimento di dipendenze](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) o è possibile usare i codificatori predefinito contenuti nel `System.Text.Encodings.Web` dello spazio dei nomi. Se si utilizzano i codificatori predefiniti presenti applicati a intervalli di caratteri per essere considerato sicuro non avranno effetto: i codificatori predefinito utilizzano le regole di codifica più sicure possibile.
+I codificatori HTML, JavaScript e URL sono disponibili al codice in due modi diversi, è possibile inserire tramite [inserimento di dipendenze](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) o è possibile usare i codificatori predefinito contenuti nel `System.Text.Encodings.Web` dello spazio dei nomi. Se si utilizzano i codificatori predefinito qualsiasi applicati a intervalli di caratteri per essere considerato sicuro non avranno effetto: i codificatori predefinito utilizzano le regole di codifica più sicure possibile.
 
 Per usare i codificatori configurabili tramite devono richiedere i costruttori DI una *HtmlEncoder*, *JavaScriptEncoder* e *UrlEncoder* parametro come appropriato. Ad esempio;
 
@@ -179,7 +179,7 @@ var example = "\"Quoted Value with spaces and &\"";
 Dopo la codifica di encodedValue variabile conterrà `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Gli spazi, virgolette, segni di punteggiatura e altri caratteri non sicuri sarà percentuale con codifica in base al valore esadecimale, ad esempio un carattere di spazio diventerà % 20.
 
 >[!WARNING]
-> Non utilizzare come parte di un percorso URL di input non attendibile. Passare sempre l'input non attendibile come valore di stringa di query.
+> Non utilizzare l'input non attendibile come parte di un percorso URL. Passare sempre l'input non attendibile come valore di stringa di query.
 
 <a name="security-cross-site-scripting-customization"></a>
 
@@ -228,4 +228,4 @@ Generale accettato pratica è che la codifica viene eseguita al momento di outpu
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Convalida come tecnica di prevenzione XSS
 
-La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una semplice stringa numerica contenente solo i caratteri 0-9 non attiverà un attacco XSS. Convalida diventa più complessa se lo si desidera accettare HTML nell'input dell'utente, l'analisi di input HTML è difficile se non impossibile. MarkDown e altri formati di testo sarebbe un'opzione più sicura per l'input RTF. Mai affidamento sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente dal tipo di convalida è stata eseguita.
+La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una semplice stringa numerica contenente solo i caratteri 0-9 non verrà generato un attacco XSS. Convalida diventa più complessa se lo si desidera accettare HTML nell'input dell'utente, l'analisi di input HTML è difficile se non impossibile. MarkDown e altri formati di testo sarebbe un'opzione più sicura per l'input RTF. Mai affidamento sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente dal tipo di convalida è stata eseguita.

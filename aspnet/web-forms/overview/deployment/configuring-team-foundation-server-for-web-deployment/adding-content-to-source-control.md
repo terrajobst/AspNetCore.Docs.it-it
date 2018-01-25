@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>Aggiunta di contenuto al controllo del codice sorgente
 ====================
@@ -90,7 +90,7 @@ Per aggiungere soluzioni e progetti al controllo del codice sorgente, è innanzi
 1. Nella workstation di sviluppo, spostare i progetti e soluzioni in una posizione appropriata all'interno della struttura di cartella mappata per il progetto team.
 
     > [!NOTE]
-    > Molte organizzazioni disporrà di un approccio consigliato per come progetti e soluzioni devono essere organizzate nel controllo del codice sorgente. Per istruzioni su come strutturare delle cartelle, vedere [How To: struttura del controllo cartelle del codice sorgente in Team Foundation Server](https://msdn.microsoft.com/en-us/library/bb668992.aspx).
+    > Molte organizzazioni disporrà di un approccio consigliato per come progetti e soluzioni devono essere organizzate nel controllo del codice sorgente. Per istruzioni su come strutturare delle cartelle, vedere [How To: struttura del controllo cartelle del codice sorgente in Team Foundation Server](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Aprire la soluzione in Visual Studio 2010.
 3. Nel **Esplora** finestra rapida della soluzione e quindi fare clic su **Aggiungi soluzione al controllo del codice sorgente**.
 
@@ -149,13 +149,13 @@ A questo punto, è stato aggiunto le dipendenze esterne per la soluzione al cont
 
 ## <a name="conclusion"></a>Conclusione
 
-In questo argomento viene descritto come connettersi a un progetto team, eseguire il mapping di una struttura di cartelle e aggiungere contenuto al controllo del codice sorgente. Per ulteriori informazioni su come lavorare con gli elementi nel controllo del codice sorgente, vedere [uso del controllo della versione](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+In questo argomento viene descritto come connettersi a un progetto team, eseguire il mapping di una struttura di cartelle e aggiungere contenuto al controllo del codice sorgente. Per ulteriori informazioni su come lavorare con gli elementi nel controllo del codice sorgente, vedere [uso del controllo della versione](https://msdn.microsoft.com/library/ms181368.aspx).
 
 L'argomento successivo, [configurazione di un Server di compilazione TFS per la distribuzione Web](configuring-a-tfs-build-server-for-web-deployment.md), viene descritto come preparare un server TFS Team Build per compilare e distribuire la soluzione.
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sull'uso di controllo del codice sorgente in TFS, vedere [uso del controllo della versione](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Per ulteriori informazioni sull'uso di controllo del codice sorgente in TFS, vedere [uso del controllo della versione](https://msdn.microsoft.com/library/ms181368.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](creating-a-team-project-in-tfs.md)

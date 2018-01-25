@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fdd024aba399f26e9ef7d01a00078cd3d5750d94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f2b98d5e5ae677fdac32336d542202a40290e21
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>Utilizzo di ASP.NET MVC con versioni diverse di IIS (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In questa esercitazione imparare a usare ASP.NET MVC e Routing degli URL, con diverse versioni di Internet Information Services. Informazioni su diverse strategie per l'utilizzo di MVC ASP.NET con IIS 7.0 (modalità classica), IIS 6.0 e versioni precedenti di IIS.
 
@@ -33,7 +33,7 @@ Di seguito è riportato un riepilogo delle diverse versioni di IIS:
 - IIS 7.0 (modalità classica): È necessario eseguire la configurazione speciale per il routing ASP.NET.
 - IIS 6.0 o di seguito, è necessario eseguire la configurazione speciale per il routing ASP.NET.
 
-La versione più recente di IIS è versione 7.5 (Win7). IIS 7 di IIS è incluso con Windows Server 2008 e VISTA SP1 e versioni successive. È anche possibile installare IIS 7.0 in qualsiasi versione del sistema operativo Vista eccetto Home Basic (vedere [https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx)).
+La versione più recente di IIS è versione 7.5 (Win7). IIS 7 di IIS è incluso con Windows Server 2008 e VISTA SP1 e versioni successive. È anche possibile installare IIS 7.0 in qualsiasi versione del sistema operativo Vista eccetto Home Basic (vedere [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 supporta due modalità per l'elaborazione delle richieste. È possibile utilizzare la modalità integrata o in modalità classica. Non è necessario eseguire alcuna procedura di configurazione speciali quando si utilizza IIS 7.0 in modalità integrata. Tuttavia, è necessario quando si usa IIS 7.0 in modalità classica, eseguire una configurazione aggiuntiva.
 
@@ -87,7 +87,7 @@ Il modo più semplice per ottenere il Routing di ASP.NET per funzionare con le v
 
 La route predefinita configurata nel listato 1 consente di accedere agli URL di route che è simile al seguente:
 
-/ Home/Index
+/Home/Index
 
 / Prodotti/dettagli/3
 
@@ -121,11 +121,11 @@ Esistono due importanti modifiche al file Global. asax listato 2. Esistono due r
 
 L'aggiunta dell'estensione MVC modifica il tipo di file che intercetta il modulo di Routing di ASP.NET. Con questa modifica, l'applicazione ASP.NET MVC ora instrada le richieste simile al seguente:
 
-/Home.Mvc/index/
+/Home.mvc/Index/
 
-/Product.Mvc/Details/3
+/Product.mvc/Details/3
 
-/Product.Mvc/
+/Product.mvc/
 
 La seconda route, la route di radice, è una novità. Questo modello di URL per la route radice è una stringa vuota. La route è necessaria per la corrispondenza delle richieste effettuate per la radice dell'applicazione. Ad esempio, la route radice corrisponderà a una richiesta simile al seguente:
 
@@ -198,7 +198,7 @@ Dopo aver abilitato un mapping di script con caratteri jolly per IIS 7.0 o IIS 6
 
 /
 
-/ Home/Index
+/Home/Index
 
 / Prodotti/dettagli/3
 
@@ -213,4 +213,4 @@ La prima opzione richiede di modificare gli URL usati nell'applicazione ASP.NET 
 La seconda opzione consiste nel creare un mapping di script con caratteri jolly. Il vantaggio di questa seconda opzione è che non è necessario modificare gli URL. Lo svantaggio di questa seconda opzione consiste nel fatto che può compromettere le prestazioni dell'applicazione ASP.NET MVC.
 
 >[!div class="step-by-step"]
-[Successivo](using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+[avanti](using-asp-net-mvc-with-different-versions-of-iis-vb.md)

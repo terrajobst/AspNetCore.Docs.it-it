@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 1c24ccd220bf6df09a958d07b13077f004da0a03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Resilienza di connessione di ASP.NET Web Form e l'intercettazione di comando
 ====================
@@ -39,13 +39,13 @@ In questa esercitazione si modificherà l'applicazione di esempio Wingtip Toys p
 
 Prima di iniziare, assicurarsi di aver installato nel computer il software seguente:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework viene installato automaticamente.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework viene installato automaticamente.
 - Progetto di esempio Wingtip Toys in modo che è possibile implementare le funzionalità indicate in questa esercitazione all'interno del progetto Wingtip Toys. Il collegamento seguente fornisce dettagli sul download:
 
     - [Introduzione a ASP.NET 4.5.1 Web Form - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
 - Prima del completamento di questa esercitazione, è consigliabile rivedere l'esercitazione serie correlate, [Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md). La serie di esercitazioni consentono di acquisire familiarità con la **WingtipToys** codice e il progetto.
 
-## <a name="connection-resiliency"></a>Resilienza di connessione
+## <a name="connection-resiliency"></a>Resilienza della connessione
 
 Quando si prevede di distribuire un'applicazione in Windows Azure, si consiglia di provare la distribuzione di database da **Windows** **Database SQL di Azure**, un servizio di database cloud. Errori di connessione temporanei sono in genere più di frequenti quando ci si connette a un servizio di database cloud rispetto a quando il server web e il server di database vengono connessi direttamente insieme nello stesso data center. Anche se un server web di cloud e un servizio cloud di database sono ospitati nello stesso data center, sono presenti più connessioni di rete tra di essi che può avere problemi, ad esempio servizi di bilanciamento del carico.
 
@@ -81,7 +81,7 @@ Entity Framework esegue automaticamente il codice si trova in una classe che der
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-Aggiungendo il `RetryLimitExceededException` eccezione, è possibile fornire una migliore registrazione o visualizzare un messaggio di errore all'utente in cui è possibile scegliere di tentare nuovamente il processo. Rilevando il `RetryLimitExceededException` eccezione, solo gli errori potrebbe essere temporaneo verrà già hanno tentato e non è riuscito più volte. Ha restituito l'eccezione verrà incapsulato nel `RetryLimitExceededException` eccezione. È inoltre aggiunto un blocco catch generale. Per ulteriori informazioni sul `RetryLimitExceededException` eccezione, vedere [resilienza di connessione Entity Framework o logica di tentativi](https://msdn.microsoft.com/en-us/data/dn456835).
+Aggiungendo il `RetryLimitExceededException` eccezione, è possibile fornire una migliore registrazione o visualizzare un messaggio di errore all'utente in cui è possibile scegliere di tentare nuovamente il processo. Rilevando il `RetryLimitExceededException` eccezione, solo gli errori potrebbe essere temporaneo verrà già hanno tentato e non è riuscito più volte. Ha restituito l'eccezione verrà incapsulato nel `RetryLimitExceededException` eccezione. È inoltre aggiunto un blocco catch generale. Per ulteriori informazioni sul `RetryLimitExceededException` eccezione, vedere [resilienza di connessione Entity Framework o logica di tentativi](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="command-interception"></a>Intercettazione di comando
 

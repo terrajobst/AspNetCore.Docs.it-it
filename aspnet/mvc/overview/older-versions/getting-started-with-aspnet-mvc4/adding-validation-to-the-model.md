@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 73332d168e2f22621cb234a6591f3ce0eeed802f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model"></a>Aggiunta della convalida per il modello
 ====================
@@ -40,13 +40,13 @@ Vediamo come è possibile sfruttare il supporto della convalida nell'applicazion
 
 Iniziare con l'aggiunta di logica di convalida per il `Movie` classe.
 
-Aprire il file *Movie.cs*. Aggiungere un `using` istruzione all'inizio del file che fa riferimento il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi:
+Aprire il file *Movie.cs*. Aggiungere un `using` istruzione all'inizio del file che fa riferimento il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 Si noti lo spazio dei nomi non contiene `System.Web`. DataAnnotations fornisce un set predefinito di attributi di convalida che è possibile applicare in modo dichiarativo a qualsiasi classe o proprietà.
 
-A questo punto aggiornare il `Movie` classe per poter sfruttare predefinito [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), e [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) gli attributi di convalida . Utilizzare il codice seguente ad esempio in cui applicare gli attributi.
+A questo punto aggiornare il `Movie` classe per poter sfruttare predefinito [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), e [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) gli attributi di convalida . Utilizzare il codice seguente ad esempio in cui applicare gli attributi.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs?highlight=4,10,13,17)]
 
@@ -99,7 +99,7 @@ Un vantaggio è che non è necessario modificare una singola riga di codice nel 
 5. Rimuovere il testo.
 6. Scheda.
 
-La sequenza precedente verrà attivata la convalida richiesta senza dover fare clic sul pulsante Invia. Semplicemente premendo il pulsante di invio senza immettere uno dei campi verrà attivata la convalida lato client. I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile testare questo posizionando un punto di interruzione nel metodo HTTP Post o utilizzando il [strumento fiddler](http://fiddler2.com/fiddler2/) o Internet Explorer 9 [strumenti di sviluppo F12](https://msdn.microsoft.com/en-us/ie/aa740478).
+La sequenza precedente verrà attivata la convalida richiesta senza dover fare clic sul pulsante Invia. Semplicemente premendo il pulsante di invio senza immettere uno dei campi verrà attivata la convalida lato client. I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile testare questo posizionando un punto di interruzione nel metodo HTTP Post o utilizzando il [strumento fiddler](http://fiddler2.com/fiddler2/) o Internet Explorer 9 [strumenti di sviluppo F12](https://msdn.microsoft.com/ie/aa740478).
 
 ![](adding-validation-to-the-model/_static/image2.png)
 
@@ -137,17 +137,17 @@ Se si desidera modificare la logica di convalida in un secondo momento, è possi
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Aggiunta di formattazione per il modello di film
 
-Aprire il file *Movie.cs* ed esaminare la classe `Movie`. Il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) spazio dei nomi fornisce gli attributi di formattazione oltre al set di attributi di convalida predefinito. È già stato applicato un [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) il valore di enumerazione per la data di rilascio e per i campi dei prezzi. Il codice seguente illustra il `ReleaseDate` e `Price` proprietà con l'appropriato [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo.
+Aprire il file *Movie.cs* ed esaminare la classe `Movie`. Il [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) spazio dei nomi fornisce gli attributi di formattazione oltre al set di attributi di convalida predefinito. È già stato applicato un [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) il valore di enumerazione per la data di rilascio e per i campi dei prezzi. Il codice seguente illustra il `ReleaseDate` e `Price` proprietà con l'appropriato [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample9.cs)]
 
-Il [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) attributi non sono gli attributi di convalida, vengono usati per indicare il motore di visualizzazione come eseguire il rendering HTML. Nell'esempio precedente, il `DataType.Date` attributo consente di visualizzare le date di film come date solo, senza tempo. Ad esempio, [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) attributi non convalidare il formato dei dati:
+Il [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) attributi non sono gli attributi di convalida, vengono usati per indicare il motore di visualizzazione come eseguire il rendering HTML. Nell'esempio precedente, il `DataType.Date` attributo consente di visualizzare le date di film come date solo, senza tempo. Ad esempio, [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) attributi non convalidare il formato dei dati:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample10.cs)]
 
-Gli attributi elencati in precedenza solo di fornire suggerimenti per il motore di visualizzazione formattare i dati (e specificare gli attributi, ad esempio &lt;un&gt; per gli URL e &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; per la posta elettronica. È possibile utilizzare il [RegularExpression](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) attributo da convalidare il formato dei dati.
+Gli attributi elencati in precedenza solo di fornire suggerimenti per il motore di visualizzazione formattare i dati (e specificare gli attributi, ad esempio &lt;un&gt; per gli URL e &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; per la posta elettronica. È possibile utilizzare il [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) attributo da convalidare il formato dei dati.
 
-Un approccio alternativo all'utilizzo di `DataType` gli attributi, è possibile impostare in modo esplicito un [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) valore. Il codice seguente viene illustrata la proprietà di data di rilascio con una stringa di formato data (vale a dire, &quot;d&quot;). Si utilizzerà per specificare che non si desidera ora come parte della data di rilascio.
+Un approccio alternativo all'utilizzo di `DataType` gli attributi, è possibile impostare in modo esplicito un [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) valore. Il codice seguente viene illustrata la proprietà di data di rilascio con una stringa di formato data (vale a dire, &quot;d&quot;). Si utilizzerà per specificare che non si desidera ora come parte della data di rilascio.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample11.cs)]
 

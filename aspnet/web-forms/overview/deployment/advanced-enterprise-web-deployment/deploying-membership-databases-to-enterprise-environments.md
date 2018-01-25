@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Distribuzione di database di appartenenza per ambienti aziendali
 ====================
@@ -44,8 +44,8 @@ Sfortunatamente, i database di appartenenza ASP.NET introducono alcune problemat
 
 Utilizzare queste linee guida quando si sceglie come eseguire il provisioning di un database di appartenenza in un ambiente server aziendale:
 
-- Laddove possibile, non distribuire i database di appartenenza. In alternativa, creare manualmente i database delle appartenenze nel server di database di destinazione. Se lo schema del database di appartenenza non è stato personalizzato, è possibile semplicemente creare una nuova in situ di destinazione utilizzando il [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
-- Se non esiste nessuna opzione ma come distribuire un database delle appartenenze & #x 2014; ad esempio, se sono state apportate modifiche estese allo schema del database & #x 2014; eseguire una distribuzione solo allo schema del database delle appartenenze, per escludere i dati dell'account utente, e quindi eseguire uno script di post-distribuzione per aggiungere i dati di configurazione necessarie. È possibile trovare indicazioni generali su questi approcci in [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+- Laddove possibile, non distribuire i database di appartenenza. In alternativa, creare manualmente i database delle appartenenze nel server di database di destinazione. Se lo schema del database di appartenenza non è stato personalizzato, è possibile semplicemente creare una nuova in situ di destinazione utilizzando il [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
+- Se non esiste nessuna opzione ma come distribuire un database delle appartenenze & #x 2014; ad esempio, se sono state apportate modifiche estese allo schema del database & #x 2014; eseguire una distribuzione solo allo schema del database delle appartenenze, per escludere i dati dell'account utente, e quindi eseguire uno script di post-distribuzione per aggiungere i dati di configurazione necessarie. È possibile trovare indicazioni generali su questi approcci in [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 È importante ricordare che *lo schema del database di appartenenza è probabile che sia abbastanza statico*. Anche se è stato personalizzato il database delle appartenenze, è improbabile che è necessario aggiornare lo schema in un regolarmente & #x 2014; non verrà modificato con la stessa frequenza come il codice in un'applicazione web o un progetto di database. Non deve di conseguenza, è necessario includere il database delle appartenenze in tutti i processi di distribuzione automatica o passo-passo.
 
@@ -57,8 +57,8 @@ L'alternativa consiste nell'utilizzare l'utilità VSDBCMD per aggiornare lo sche
 
 È possibile utilizzare questi passaggi per aggiornare uno schema di database di appartenenza:
 
-1. Utilizzare lo strumento VSDBCMD **importazione** azione per generare un file con estensione dbschema per il database di appartenenza di origine. Questa procedura è descritta [procedura: importare uno Schema da un prompt dei comandi](https://msdn.microsoft.com/en-us/library/dd172135.aspx).
-2. Utilizzare lo strumento VSDBCMD **Distribuisci** azione per distribuire il file con estensione dbschema nel database di appartenenza di destinazione. Questa procedura è descritta [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+1. Utilizzare lo strumento VSDBCMD **importazione** azione per generare un file con estensione dbschema per il database di appartenenza di origine. Questa procedura è descritta [procedura: importare uno Schema da un prompt dei comandi](https://msdn.microsoft.com/library/dd172135.aspx).
+2. Utilizzare lo strumento VSDBCMD **Distribuisci** azione per distribuire il file con estensione dbschema nel database di appartenenza di destinazione. Questa procedura è descritta [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 ## <a name="conclusion"></a>Conclusione
 
@@ -66,7 +66,7 @@ In questo argomento descritte alcune delle problematiche potrebbero verificarsi 
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori istruzioni ed esempi di come utilizzare VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) e [procedura: importare uno Schema da un prompt dei comandi](https://msdn.microsoft.com/en-us/library/dd172135.aspx). Per ulteriori informazioni sull'utilizzo aspnet\_regsql.exe per creare il database di appartenenza, vedere [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx). Per istruzioni generali sulla distribuzione di database di appartenenza, vedere [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+Per ulteriori istruzioni ed esempi di come utilizzare VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx) e [procedura: importare uno Schema da un prompt dei comandi](https://msdn.microsoft.com/library/dd172135.aspx). Per ulteriori informazioni sull'utilizzo aspnet\_regsql.exe per creare il database di appartenenza, vedere [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Per istruzioni generali sulla distribuzione di database di appartenenza, vedere [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Precedente](deploying-database-role-memberships-to-test-environments.md)

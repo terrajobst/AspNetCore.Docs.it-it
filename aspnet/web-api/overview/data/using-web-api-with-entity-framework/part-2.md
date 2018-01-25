@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b75eae11fd99b60864256f79d4770a3007487964
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="add-models-and-controllers"></a>Aggiungere modelli e controller
 ====================
@@ -28,7 +28,7 @@ In questa sezione si aggiungerà le classi di modello che definiscono le entità
 
 ## <a name="add-model-classes"></a>Aggiungere le classi modello
 
-In questa esercitazione si creerà il database utilizzando l'approccio "Code First" per Entity Framework (EF). Code First, si scrivono in c# le classi che corrispondono alle tabelle di database ed EF crea il database. (Per ulteriori informazioni, vedere [approcci allo sviluppo con Entity Framework](https://msdn.microsoft.com/en-us/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
+In questa esercitazione si creerà il database utilizzando l'approccio "Code First" per Entity Framework (EF). Code First, si scrivono in c# le classi che corrispondono alle tabelle di database ed EF crea il database. (Per ulteriori informazioni, vedere [approcci allo sviluppo con Entity Framework](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
 
 Viene innanzitutto la definizione di oggetti di dominio come POCOs (oggetti CLR normale precedente). Verrà creata la POCOs seguenti:
 

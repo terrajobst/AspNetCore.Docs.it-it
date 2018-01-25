@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 3c5abe84a5c7cc399e0586e680a414fab7a26c1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Caricamento di file in ASP.NET Core
 
@@ -134,7 +134,7 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 Se le dimensioni o la frequenza di caricamento file provoca problemi di risorse per l'app, si consideri il caricamento del file di flusso, anziché memorizzarlo nella sua interezza, come illustrato in precedenza l'approccio di associazione del modello. Quando si utilizza `IFormFile` e associazione del modello è una quantità soluzione più semplice, streaming richiede un numero di passaggi per implementare correttamente.
 
 > [!NOTE]
-> Qualsiasi singolo file memorizzato nel buffer superiore a 64KB verrà spostati dalla memoria in un file temporaneo su disco nel server. Le risorse (disco, RAM) utilizzate dal caricamento di file dipendono dal numero e dimensione di caricamento di file simultanee. Il flusso non è tanto sulle prestazioni, è sulla scala. Se si tenta di caricamento di un numero eccessivo di buffer, del sito verrà arrestato in modo anomalo quando si esaurisce lo spazio di memoria o disco.
+> Qualsiasi singolo file memorizzato nel buffer superiore a 64KB verrà spostati dalla memoria in un file temporaneo su disco nel server. Le risorse (disco, RAM) utilizzate dal caricamento di file dipendono dal numero e dimensione di caricamento di file simultanee. Questo non è tanto sulle prestazioni, sulla scala. Se si tenta di caricamento di un numero eccessivo di buffer, del sito verrà arrestato in modo anomalo quando si esaurisce lo spazio di memoria o disco.
 
 Nell'esempio seguente viene illustrato l'utilizzo di JavaScript/angolare per lo streaming a un'azione del controller. Token non riproducibili del file viene generato utilizzando un attributo di filtro personalizzato e passato nelle intestazioni HTTP anziché nel corpo della richiesta. Poiché il metodo di azione elabora i dati caricati direttamente, l'associazione di modelli è disabilitata per un altro filtro. All'interno dell'azione, il contenuto del form viene letti utilizzando un `MultipartReader`, che legge ogni singolo `MultipartSection`, l'elaborazione del file o di archiviare il contenuto come appropriato. Dopo tutte le sezioni sono stati letti, l'azione esegue il proprio associazione del modello.
 
@@ -199,4 +199,4 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 ### <a name="null-reference-exception-with-iformfile"></a>Eccezione di riferimento null con IFormFile
 
-Se il controller è accettazione caricati i file usando `IFormFile` ma trovare che il valore è sempre null, verificare che il form HTML consiste nello specificare un `enctype` valore `multipart/form-data`. Se questo attributo non è impostato sul `<form>` elemento, il caricamento del file non verrà eseguito e qualsiasi associazione `IFormFile` argomenti è null.
+Se il controller è accettazione caricati i file usando `IFormFile` ma trovare che il valore è sempre null, verificare che il form HTML consiste nello specificare un `enctype` valore `multipart/form-data`. Se questo attributo non è impostato sul `<form>` elemento, non si verifica il caricamento del file e qualsiasi associazione `IFormFile` argomenti è null.

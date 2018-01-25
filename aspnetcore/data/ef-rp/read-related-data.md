@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lettura correlati dati - Core EF con pagine Razor (6 di 8)
 
@@ -99,7 +99,7 @@ Aggiornare il metodo `OnGetAsync` con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Il codice precedente aggiunge `AsNoTracking`. `AsNoTracking`migliora le prestazioni perché non vengono rilevate le entità restituite. Le entità non vengono rilevate perché non vengono aggiornate nel contesto corrente.
+Il codice precedente aggiunge `AsNoTracking`. `AsNoTracking`migliora le prestazioni perché non vengono rilevate le entità restituite. Le entità non vengono rilevate in quanto non verranno aggiornati nel contesto corrente.
 
 Aggiornamento *Views/Courses/Index.cshtml* con il markup evidenziato seguente:
 
@@ -108,7 +108,7 @@ Aggiornamento *Views/Courses/Index.cshtml* con il markup evidenziato seguente:
 Le seguenti modifiche sono state apportate al codice scaffolding:
 
 * Modificare il titolo dall'indice ai corsi.
-* Aggiungere un **numero** colonna che mostra il `CourseID` valore della proprietà. Per impostazione predefinita, le chiavi primarie non sono scaffolding perché in genere sono utilizzati per gli utenti finali. Tuttavia, in questo caso la chiave primaria è significativa.
+* Aggiungere un **numero** colonna che mostra il `CourseID` valore della proprietà. Per impostazione predefinita, le chiavi primarie non sono scaffolding perché in genere sono prive di significato per gli utenti finali. Tuttavia, in questo caso la chiave primaria è significativa.
 * Modificare il **reparto** colonna per visualizzare il nome di reparto. Consente di visualizzare il codice il `Name` proprietà del `Department` entità che viene caricato il `Department` proprietà di navigazione:
 
   ```html

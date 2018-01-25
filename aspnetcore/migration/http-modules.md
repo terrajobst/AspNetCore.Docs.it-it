@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core. 
 
@@ -51,7 +51,7 @@ Prima di procedere al middleware di ASP.NET Core, verrà innanzitutto riepilogo 
 
    1. Il [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx), ovvero gli eventi una serie viene generato da ASP.NET: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)e così via. Ogni modulo è possibile creare un gestore per uno o più eventi.
 
-   2. Per lo stesso evento, l'ordine in cui sono configurati in *Web. config*.
+   2. Per lo stesso evento, l'ordine in cui la configurazione di tali in *Web. config*.
 
 Oltre a moduli, è possibile aggiungere i gestori per gli eventi del ciclo di vita per il *Global.asax.cs* file. Questi gestori vengono eseguiti dopo i gestori di moduli configurati.
 
@@ -77,7 +77,7 @@ Oltre a moduli, è possibile aggiungere i gestori per gli eventi del ciclo di vi
 
 **Middleware e i moduli vengono elaborati in un ordine diverso:**
 
-   * Ordine di middleware è in base all'ordine in cui sono vengono inserite nella pipeline delle richieste, mentre l'ordine dei moduli si basa principalmente sulla [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx) eventi
+   * Ordine di middleware è in base all'ordine in cui viene inserito nella pipeline delle richieste, mentre l'ordine dei moduli si basa principalmente sulla [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx) eventi
 
    * Ordine del middleware per le risposte è l'opposto rispetto a quello per le richieste, mentre l'ordine dei moduli è lo stesso per le richieste e risposte
 
@@ -105,11 +105,11 @@ Il *MyMiddlewareExtensions* classe helper rende più semplice configurare il mid
 
 <a name="http-modules-shortcircuiting-middleware"></a>
 
-Il modulo potrebbe terminare una richiesta, ad esempio se l'utente non è autorizzato:
+Il modulo potrebbe terminare una richiesta, ad esempio, se l'utente non autorizzato:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Un tipo di middleware viene gestita tramite la chiamata non `Invoke` nel middleware successivo nella pipeline. Tenere presente che questo non viene completamente terminato la richiesta, in quanto middlewares precedente ancora da richiamare quando la risposta procede attraverso la pipeline.
+Un tipo di middleware viene gestita tramite la chiamata non `Invoke` nel middleware successivo nella pipeline. Tenere presente che questo non termina completamente la richiesta, in quanto middlewares precedente ancora da richiamare quando la risposta procede attraverso la pipeline.
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
@@ -319,7 +319,7 @@ Fornisce un id univoco per ogni richiesta. Molto utile da includere nei file reg
 >
 >È possibile leggere il corpo non elaborato, come illustrato in precedenza una sola volta per ogni richiesta. Tentativo di leggere il corpo dopo la prima lettura middleware leggerà un corpo vuoto.
 >
->Questa opzione non viene applicata alla lettura di un modulo come illustrato in precedenza, perché questa operazione viene effettuata da un buffer.
+>Questo non si applica alla lettura di un modulo come illustrato in precedenza, perché questa operazione viene effettuata da un buffer.
 
 ### <a name="httpcontextresponse"></a>HttpContext.Response
 

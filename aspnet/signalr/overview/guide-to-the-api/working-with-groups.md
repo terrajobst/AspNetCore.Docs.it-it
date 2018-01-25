@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 3befcdbbc735dc4f64c714ba583e026c0c19465d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f5be1ac4e74b692f0db3daac971a2c9d74a64c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-groups-in-signalr"></a>Utilizzo dei gruppi in SignalR
 ====================
@@ -64,7 +64,7 @@ Questo argomento include le sezioni seguenti:
 
 ## <a name="adding-and-removing-users"></a>Aggiunta e rimozione di utenti
 
-Per aggiungere o rimuovere utenti da un gruppo, si chiama il [Aggiungi](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) o [rimuovere](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metodi e passare l'id connessione dell'utente e il nome del gruppo come parametri. Non è necessario rimuovere manualmente un utente da un gruppo, al termine della connessione.
+Per aggiungere o rimuovere utenti da un gruppo, si chiama il [Aggiungi](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) o [rimuovere](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metodi e passare l'id connessione dell'utente e il nome del gruppo come parametri. Non è necessario rimuovere manualmente un utente da un gruppo, al termine della connessione.
 
 Nell'esempio seguente il `Groups.Add` e `Groups.Remove` metodi usati nei metodi dell'Hub.
 

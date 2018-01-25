@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: e6c940aa507d72928d71019070ded5197458a763
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52559a47f86e572f873d4eaaab50e87eb51722fd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET e strumenti Web 2012.2 note sulla versione
 ====================
@@ -152,7 +152,7 @@ Per ulteriori informazioni su ASP.NET Web API OData vedere [https://go.microsoft
 
 #### <a name="aspnet-web-api-tracing"></a>Traccia API Web ASP.NET
 
-Traccia di ASP.NET Web API si integra i dati di traccia dal web API con analisi .NET. È ora abilitata per impostazione predefinita nel modello di progetto API Web. Analisi dei dati per il web API viene inviata alla finestra di Output e vengono rese disponibili tramite IntelliTrace. ASP.NET Web API Tracing consente alle informazioni di traccia quando è ospitato in Windows Azure mediante l'integrazione con l'API di Web [diagnostica Windows Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx). È anche possibile installare e abilitare la traccia di ASP.NET Web API in qualsiasi applicazione che utilizza il pacchetto NuGet di traccia ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+Traccia di ASP.NET Web API si integra i dati di traccia dal web API con analisi .NET. È ora abilitata per impostazione predefinita nel modello di progetto API Web. Analisi dei dati per il web API viene inviata alla finestra di Output e vengono rese disponibili tramite IntelliTrace. ASP.NET Web API Tracing consente alle informazioni di traccia quando è ospitato in Windows Azure mediante l'integrazione con l'API di Web [diagnostica Windows Azure](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). È anche possibile installare e abilitare la traccia di ASP.NET Web API in qualsiasi applicazione che utilizza il pacchetto NuGet di traccia ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
 Per ulteriori informazioni sulla configurazione e l'utilizzo di ASP.NET Web API Tracing vedere [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
@@ -240,8 +240,8 @@ Il parser URI OData non riesce analizzare correttamente i valori letterali datet
 
 OData non supporta i nomi delle proprietà di distinzione tra maiuscole e le query OData e il percorso odata. Gli elementi di lavoro, vedere:
 
-- [http://aspnetwebstack.codeplex.com/WorkItem/366](http://aspnetwebstack.codeplex.com/workitem/366)
-- [http://aspnetwebstack.codeplex.com/WorkItem/704](http://aspnetwebstack.codeplex.com/workitem/704)
+- [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
+- [http://aspnetwebstack.codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
 
 Se gli utenti hanno maiuscole/minuscole sul lato server e client javascript, viene probabilmente verrà rilevato il problema. Questo problema è da progettazione nel protocollo odata. Tuttavia, molti utenti segnala il problema. Per risolvere questo problema, gli utenti devono correggere ai case nell'URL.
 
@@ -283,9 +283,9 @@ File todo.model.js
 
 funzione todoList.prototype.addTodo, aggiungere il seguente testo blacked:  
  **self.isSelected(true);**  
- self.newTodoTitle (&quot;&quot;);
+ self.newTodoTitle(&quot;&quot;);
 
 File cshtml, aggiungere il seguente testo blacked:  
- &lt;modulo associare =&quot;inviare: addTodo&quot;&gt;  
+ &lt;form data-bind=&quot;submit: addTodo&quot;&gt;  
  &lt;classe di input =&quot;addTodo&quot; tipo =&quot;testo&quot; associare =&quot;valore: newTodoTitle, segnaposto: 'Tipo aggiungere', blurOnEnter: true, **hasfocus: isSelected**, evento: {sfocatura: addTodo}&quot; /&gt;  
- &lt;/Form&gt;
+ &lt;/form&gt;

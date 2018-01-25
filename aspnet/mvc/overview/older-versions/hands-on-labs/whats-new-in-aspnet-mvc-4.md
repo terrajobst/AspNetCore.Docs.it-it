@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3de952224e23eed29f90ed0e8c662e4ee3f531ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-4"></a>Novità di ASP.NET MVC 4
 ====================
 da [categorie Web Team](https://twitter.com/webcamps)
 
-[Download Web categorie Kit di formazione](http://www.microsoft.com/en-us/download/29843)
+[Download Web categorie Kit di formazione](http://www.microsoft.com/download/29843)
 
 > ASP.NET MVC 4 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e le potenzialità di ASP.NET e .NET framework. Questa nuova, quarta versione di framework è incentrata su come rendere più semplice lo sviluppo di applicazioni web per dispositivi mobili.
 > 
@@ -30,7 +30,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > 
 > In questa esercitazione pratica, si inizierà con ASP.NET MVC 4 &quot;applicazione Internet&quot; modello di progetto per creare un'applicazione Raccolta foto. Si procederà al miglioramento progressivamente l'app usando jQuery Mobile e nuove funzionalità di ASP.NET MVC 4 per assicurarsi che sia compatibile con diversi dispositivi mobili e browser desktop. Si apprenderà inoltre nuove soluzioni di codice per la generazione di codice e come ASP.NET MVC 4 rende più semplice per la scrittura di metodi di azione asincroni grazie al supporto delle attività&lt;ActionResult&gt; tipi restituiti.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -56,7 +56,7 @@ In questa esercitazione pratica, si apprenderà come:
 
 - [Microsoft Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superiore (lettura [appendice B](#AppendixB) per istruzioni su come installarlo).
 - [ASP.NET MVC 4](../../../mvc4.md) (incluso nell'installazione di Microsoft Visual Studio 2012)
-- Emulatore Windows Phone (incluso nel [Windows Phone 7.1.1 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=29233))
+- Emulatore Windows Phone (incluso nel [Windows Phone 7.1.1 SDK](https://www.microsoft.com/download/details.aspx?id=29233))
 - Facoltativo: [WebMatrix 2](https://www.microsoft.com/web/webmatrix/) con **Electric Plum iPhone simulatore** estensione (solo per esercizio 3 consente di visualizzare l'applicazione web con un simulatore di iPhone)
 
 <a id="Setup"></a>
@@ -345,7 +345,7 @@ In questa attività si aggiornerà la Home page per visualizzare la raccolta fot
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-4. Aprire il **HomeController.cs** file dal **controller** cartella.
+4. Aprire il file **HomeController.cs** dalla cartella **Controller**.
 5. Aggiungere le istruzioni using seguenti.
 
     (- Frammento di codice *ASP.NET MVC 4 Lab - Ex02 - HomeController using*)
@@ -611,7 +611,7 @@ In questa attività si creerà un layout personalizzato per i dispositivi iPhone
 7. Premere **F5** per eseguire l'applicazione e selezionare il sito di **emulatore Windows Phone**.
 8. Aprire un **simulatore di iPhone** (vedere [appendice C](#AppendixC) per istruzioni su come installare e configurare un simulatore di iPhone) e passare al sito troppo. Si noti che ogni phone utilizza il modello specifico.
 
-    ![Using-Different-Views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Utilizzo di visualizzazioni diverse per ogni dispositivo mobile*
 
@@ -622,7 +622,7 @@ In questa attività si creerà un layout personalizzato per i dispositivi iPhone
 
 Microsoft .NET Framework 4.5 introduce nuove funzionalità del linguaggio in c# e Visual Basic per fornire una nuova base per la modalità asincrona nella programmazione .NET. Questo nuovo foundation rende la programmazione asincrona simile a - e circa semplice come quello - programmazione sincrona. Questo punto si è in grado di scrivere metodi di azione asincroni in ASP.NET MVC 4 con la **AsyncController** classe. È possibile utilizzare i metodi di azione asincroni per l'esecuzione prolungata non associate alla CPU richieste. Ciò evita che il server Web di esecuzione del lavoro durante l'elaborazione della richiesta di blocco. La classe AsyncController viene in genere utilizzata per le chiamate al servizio Web con esecuzione prolungata.
 
-Questo esercizio illustra i concetti fondamentali dell'operazione asincrona in ASP.NET MVC 4. Se si desidera un approfondimento, è possibile leggere l'articolo seguente: [ [https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)
+Questo esercizio illustra i concetti fondamentali dell'operazione asincrona in ASP.NET MVC 4. Se si desidera un approfondimento, è possibile leggere l'articolo seguente: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>Attività 1: implementazione di un Controller asincrono

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
 ====================
@@ -42,7 +42,7 @@ Dal **strumenti** menu, fare clic su **Gestione pacchetti NuGet** e quindi **Pac
 
 Nel **Package Manager Console** finestra il `PM>` prompt dei comandi immettere
 
-Enable-Migrations - ContextTypeName MvcMovie.Models.MovieDBContext
+Enable-Migrations -ContextTypeName MvcMovie.Models.MovieDBContext
 
 ![](adding-a-new-field/_static/image3.png)
 
@@ -66,13 +66,13 @@ In questo modo consente di aggiungere la seguente istruzione using:
 > 
 > Codice viene chiamato prima di migrazioni di `Seed` metodo dopo ogni migrazione (la chiamata al metodo **update-database** nella Console di gestione pacchetti), e questo metodo aggiorna le righe che sono già state inserite o li inserisce se sono non esistono ancora.
 > 
-> Il [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo nel codice seguente esegue un'operazione "upsert":
+> Il [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo nel codice seguente esegue un'operazione "upsert":
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
-> Poiché il [valore di inizializzazione](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) metodo viene eseguito con ogni tipo di migrazione, è possibile inserire solo dati, in quanto le righe che si sta tentando di aggiungere già sarà disponibile dopo la migrazione prima che crea il database. Il "[upsert](http://en.wikipedia.org/wiki/Upsert)" operazione impedisce gli errori che accadrebbe se si tenta di inserire una riga già esistente, ma esegue l'override di qualsiasi modifica ai dati apportate durante il test dell'applicazione. I dati di test in alcune tabelle è possibile evitare di raggiungere tale obiettivo: in alcuni casi quando si modificano i dati durante il test le proprie modifiche rimangano dopo gli aggiornamenti del database. In questo caso si desidera eseguire un'operazione di inserimento condizionale: inserire una riga solo se non esiste già.   
+> Poiché il [valore di inizializzazione](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) metodo viene eseguito con ogni tipo di migrazione, è possibile inserire solo dati, in quanto le righe che si sta tentando di aggiungere già sarà disponibile dopo la migrazione prima che crea il database. Il "[upsert](http://en.wikipedia.org/wiki/Upsert)" operazione impedisce gli errori che accadrebbe se si tenta di inserire una riga già esistente, ma esegue l'override di qualsiasi modifica ai dati apportate durante il test dell'applicazione. I dati di test in alcune tabelle è possibile evitare di raggiungere tale obiettivo: in alcuni casi quando si modificano i dati durante il test le proprie modifiche rimangano dopo gli aggiornamenti del database. In questo caso si desidera eseguire un'operazione di inserimento condizionale: inserire una riga solo se non esiste già.   
 >   
-> Il primo parametro passato per il [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo consente di specificare la proprietà da utilizzare per verificare se esiste già una riga. Per i dati di test filmato che si desidera fornire, il `Title` proprietà può essere utilizzata per questo scopo poiché ogni libro nell'elenco è univoco:
+> Il primo parametro passato per il [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo consente di specificare la proprietà da utilizzare per verificare se esiste già una riga. Per i dati di test filmato che si desidera fornire, il `Title` proprietà può essere utilizzata per questo scopo poiché ogni libro nell'elenco è univoco:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
@@ -80,7 +80,7 @@ In questo modo consente di aggiungere la seguente istruzione using:
 >   
 >  *La sequenza contiene più di un elemento*  
 >   
-> Per ulteriori informazioni sul [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo, vedere [prestare attenzione con EF 4.3 AddOrUpdate metodo](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
+> Per ulteriori informazioni sul [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo, vedere [prestare attenzione con EF 4.3 AddOrUpdate metodo](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
 **Premere CTRL-MAIUSC-B per compilare il progetto.** (La procedura seguente avrà esito negativo se a questo punto.)

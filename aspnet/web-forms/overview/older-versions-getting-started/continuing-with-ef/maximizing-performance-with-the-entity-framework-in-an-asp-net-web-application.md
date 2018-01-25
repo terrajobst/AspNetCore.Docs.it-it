@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9e257f5061f6bdf14ad0776ff6385fb526d6dcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Ottimizzazione delle prestazioni con Entity Framework 4.0 in un'applicazione Web 4 ASP.NET
 ====================
@@ -251,17 +251,17 @@ Visual Studio genera un file di codice che crea le visualizzazioni, denominato *
 
 Per ulteriori informazioni sulle viste generate in precedenza, vedere le risorse seguenti:
 
-- [Procedura: generare in anticipo le visualizzazioni per migliorare le prestazioni di Query](https://msdn.microsoft.com/en-us/library/bb896240.aspx) nel sito web MSDN. Viene illustrato come utilizzare il `EdmGen.exe` strumento da riga di comando per pregenerare le visualizzazioni.
+- [Procedura: generare in anticipo le visualizzazioni per migliorare le prestazioni di Query](https://msdn.microsoft.com/library/bb896240.aspx) nel sito web MSDN. Viene illustrato come utilizzare il `EdmGen.exe` strumento da riga di comando per pregenerare le visualizzazioni.
 - [L'isolamento delle prestazioni con viste a precompilata/Pre-generated in Entity Framework 4](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx) sul blog di Windows Server AppFabric Team di consulenza clienti.
 
 Introduzione a migliorare le prestazioni in un'applicazione web ASP.NET che usa Entity Framework è stata completata. Per altre informazioni, vedere le seguenti risorse:
 
-- [Considerazioni sulle prestazioni (Entity Framework)](https://msdn.microsoft.com/en-us/library/cc853327.aspx) nel sito web MSDN.
+- [Considerazioni sulle prestazioni (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) nel sito web MSDN.
 - [Post correlati alle prestazioni nel blog del Team di Entity Framework](https://blogs.msdn.com/b/adonet/archive/tags/performance/).
 - [EF opzioni di unione e query compilate](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx). Post di blog che spiega i comportamenti imprevisti delle query compilate e unione Opzioni, ad esempio `NoTracking`. Se si prevede di usare le query compilate o modificare le impostazioni di opzione di unione nell'applicazione, prima leggere.
 - [Entità correlate Framework post nel blog del Team di consulenza clienti di modellazione e dati](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/). Include i post su query compilate e tramite il Profiler di Visual Studio 2010 per individuare i problemi di prestazioni.
-- [Thread del forum Entity Framework con suggerimenti per migliorare le prestazioni delle query estremamente complesse](https://social.msdn.microsoft.com/Forums/en-US/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
-- [Suggerimenti per la gestione dello stato di ASP.NET](https://msdn.microsoft.com/en-us/library/z1hkazw7.aspx).
+- [Thread del forum Entity Framework con suggerimenti per migliorare le prestazioni delle query estremamente complesse](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
+- [Suggerimenti per la gestione dello stato di ASP.NET](https://msdn.microsoft.com/library/z1hkazw7.aspx).
 - [Utilizzo di Entity Framework e ObjectDataSource: il Paging personalizzato](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx). Post di blog che si basa sull'applicazione ContosoUniversity creati in queste esercitazioni viene illustrato come implementare il paging nel *Departments.aspx* pagina.
 
 L'esercitazione successiva esamina alcuni importanti miglioramenti apportati a Entity Framework introdotte nella versione 4.

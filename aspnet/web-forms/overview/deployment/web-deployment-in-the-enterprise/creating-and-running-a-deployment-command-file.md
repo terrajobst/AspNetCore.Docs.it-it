@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: 729b4fa4c461eedbd0447371102010451eb51586
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Creazione ed esecuzione di un File di comando di distribuzione
 ====================
@@ -116,7 +116,7 @@ Un file di comando per la pubblicazione in un ambiente di gestione temporanea pu
 > Per istruzioni su come personalizzare i file di progetto specifici dell'ambiente per ambienti server, vedere [configurare le proprietà di distribuzione per un ambiente di destinazione](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 
-È anche possibile personalizzare il processo di compilazione per ogni ambiente si esegue l'override di proprietà o impostando vari altri parametri nel comando di MSBuild. Per ulteriori informazioni, vedere [alla riga di comando di MSBuild](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+È anche possibile personalizzare il processo di compilazione per ogni ambiente si esegue l'override di proprietà o impostando vari altri parametri nel comando di MSBuild. Per ulteriori informazioni, vedere [alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](deploying-database-projects.md)

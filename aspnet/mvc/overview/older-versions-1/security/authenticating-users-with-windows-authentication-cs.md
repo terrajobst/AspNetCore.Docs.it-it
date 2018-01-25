@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 575fb382cc758efb101485bd5aece461bf995bfc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d52597e65272fa202ef4980924f669dcc4cec593
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>L'autenticazione degli utenti con l'autenticazione di Windows (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come utilizzare l'autenticazione di Windows nel contesto di un'applicazione MVC. Informazioni su come abilitare l'autenticazione di Windows all'interno di file di configurazione dell'applicazione web e come configurare l'autenticazione con IIS. Infine, è illustrato come utilizzare l'attributo [Authorize] per limitare l'accesso alle azioni del controller a gruppi o utenti specifici di Windows.
 
@@ -51,7 +51,7 @@ Per un'applicazione web di produzione, l'icona della mano, si utilizza IIS come 
 
 > [!NOTE] 
 > 
-> Per una panoramica più dettagliata di questi diversi tipi di autenticazione, vedere [https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).
+> Per una panoramica più dettagliata di questi diversi tipi di autenticazione, vedere [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Per abilitare un particolare tipo di autenticazione, è possibile utilizzare Gestione Internet Information Services. Tenere presente che tutti i tipi di autenticazione non sono disponibili nel caso di ogni sistema operativo. Inoltre, se si utilizza IIS 7.0 con Windows Vista, è necessario abilitare i diversi tipi di autenticazione di Windows prima che vengano visualizzati in Gestione Internet Information Services. Aprire **Pannello di controllo, programmi, programmi e funzionalità, delle funzionalità Windows attivare o disattivare**, espandere il nodo di Internet Information Services (vedere la figura 2).

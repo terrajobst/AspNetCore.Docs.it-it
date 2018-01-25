@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2b39a5105339beb416490db282d4cd8b83d08660
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
@@ -110,7 +110,7 @@ Il provider di compressione gzip per impostazione predefinita il livello di comp
 
 | Livello di compressione                | Descrizione                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | La compressione deve essere completata più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
+| `CompressionLevel.Fastest`       | La compressione deve essere completata più rapidamente possibile, anche se l'output risultante non compressi in modo ottimale. |
 | `CompressionLevel.NoCompression` | Non deve essere eseguita alcuna compressione.                                                                           |
 | `CompressionLevel.Optimal`       | Le risposte devono essere compressi in modo ottimale, anche se la compressione richiede più tempo per completare.                |
 

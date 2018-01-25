@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Con Page Inspector per Visual Studio 2012 in Web Form ASP.NET
 ====================
@@ -51,7 +51,7 @@ da Tim Ammann
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) o [Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) o [Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Per ottenere la versione più recente di controllo pagina, utilizzare [installazione guidata piattaforma Web](https://go.microsoft.com/fwlink/?LinkId=255386) per installare Azure SDK per .NET 2.0.
@@ -91,7 +91,7 @@ Se si disancorare la finestra di controllo pagina, è possibile inserirlo all'es
 
 ![Deselezionare la casella di windows mobile strumento per ALT + TAB tra Visual Studio e la finestra di controllo pagina non ancorata](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Nel riquadro superiore della finestra di controllo pagina Mostra la pagina corrente in una finestra del browser. Nel riquadro inferiore mostra la pagina nel markup HTML a sinistra e alcune schede a destra che consentono di controllare aspetti diversi della pagina. Il riquadro inferiore è simile al [strumenti di sviluppo F12](https://msdn.microsoft.com/en-us/ie/aa740478) in Internet Explorer. (Tuttavia, diversamente da strumenti di sviluppo, è possibile utilizzare il controllo pagina destra all'interno di Visual Studio.)
+Nel riquadro superiore della finestra di controllo pagina Mostra la pagina corrente in una finestra del browser. Nel riquadro inferiore mostra la pagina nel markup HTML a sinistra e alcune schede a destra che consentono di controllare aspetti diversi della pagina. Il riquadro inferiore è simile al [strumenti di sviluppo F12](https://msdn.microsoft.com/ie/aa740478) in Internet Explorer. (Tuttavia, diversamente da strumenti di sviluppo, è possibile utilizzare il controllo pagina destra all'interno di Visual Studio.)
 
 ![Controllo pagina](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 

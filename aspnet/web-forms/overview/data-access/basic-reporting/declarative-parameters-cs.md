@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3a4685741e0acab7a944e2822a5c43c5cf3e9cf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-c"></a>Parametri dichiarativi (c#)
 ====================
@@ -111,7 +111,7 @@ Poiché il `GetSuppliersByCountry(country)` metodo ha un parametro di input, la 
 **Figura 8**: impostare il valore del parametro di `CountryName` valore di controllo ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image24.png))
 
 
-Markup dichiarativo di ObjectDataSource differisce leggermente dal primo esempio, utilizzando un [ControlParameter](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx) anziché lo standard `Parameter` oggetto. Oggetto `ControlParameter` dispone di proprietà aggiuntive per specificare il `ID` del controllo Web e il valore della proprietà da utilizzare per il parametro (`PropertyName`). La configurazione guidata origine dati è stata abbastanza per determinare che, per una casella di testo è consisterà probabilmente nell'utilizzare il `Text` proprietà per il valore del parametro. Se, tuttavia, si desidera utilizzare un altro valore della proprietà dal controllo Web è possibile modificare il `PropertyName` valore qui o facendo clic sul collegamento "Mostra proprietà avanzate" della procedura guidata.
+Markup dichiarativo di ObjectDataSource differisce leggermente dal primo esempio, utilizzando un [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) anziché lo standard `Parameter` oggetto. Oggetto `ControlParameter` dispone di proprietà aggiuntive per specificare il `ID` del controllo Web e il valore della proprietà da utilizzare per il parametro (`PropertyName`). La configurazione guidata origine dati è stata abbastanza per determinare che, per una casella di testo è consisterà probabilmente nell'utilizzare il `Text` proprietà per il valore del parametro. Se, tuttavia, si desidera utilizzare un altro valore della proprietà dal controllo Web è possibile modificare il `PropertyName` valore qui o facendo clic sul collegamento "Mostra proprietà avanzate" della procedura guidata.
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample2.aspx)]
 

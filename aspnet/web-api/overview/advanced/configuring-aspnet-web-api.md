@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1c007c4c327b7cde6ff52c6b0022acdff3c9b137
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>Configurazione di ASP.NET Web API 2
 ====================
@@ -33,15 +33,15 @@ In questo argomento viene descritto come configurare l'API Web ASP.NET.
 <a id="settings"></a>
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
-Le impostazioni di configurazione Web API sono definite nel [HttpConfiguration](https://msdn.microsoft.com/en-us/library/system.web.http.httpconfiguration.aspx) classe.
+Le impostazioni di configurazione Web API sono definite nel [HttpConfiguration](https://msdn.microsoft.com/library/system.web.http.httpconfiguration.aspx) classe.
 
-| Membro | Descrizione |
+| Member | Descrizione |
 | --- | --- |
 | **DependencyResolver** | Consente l'inserimento di dipendenze per i controller. Vedere [mediante il Resolver di dipendenza di API Web](dependency-injection.md). |
 | **Filtri** | Filtri dell'azione. |
 | **Formattatori** | [Formattatori di Media type](../formats-and-model-binding/media-formatters.md). |
-| **IncludeErrorDetailPolicy** | Specifica se il server deve includere dettagli dell'errore, ad esempio i messaggi di eccezione e delle tracce dello stack, nei messaggi di risposta HTTP. Vedere [IncludeErrorDetailPolicy](https://msdn.microsoft.com/en-us/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
-| **Inizializzatore** | Una funzione che esegue l'inizializzazione finale del **HttpConfiguration**. |
+| **IncludeErrorDetailPolicy** | Specifica se il server deve includere dettagli dell'errore, ad esempio i messaggi di eccezione e delle tracce dello stack, nei messaggi di risposta HTTP. Vedere [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
+| **Initializer** | Una funzione che esegue l'inizializzazione finale del **HttpConfiguration**. |
 | **MessageHandlers** | [Gestori di messaggi HTTP](http-message-handlers.md). |
 | **ParameterBindingRules** | Raccolta di regole per l'associazione di parametri in azioni del controller. |
 | **Proprietà** | Un contenitore di proprietà generiche. |
@@ -56,7 +56,7 @@ Le impostazioni di configurazione Web API sono definite nel [HttpConfiguration](
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>Configurazione di API Web con Hosting ASP.NET
 
-In un'applicazione ASP.NET, configurare l'API Web chiamando [GlobalConfiguration.Configure](https://msdn.microsoft.com/en-us/library/system.web.http.globalconfiguration.configure.aspx) nel **applicazione\_avviare** metodo. Il **configura** metodo accetta un delegato con un solo parametro di tipo **HttpConfiguration**. Eseguire tutte le configurazione all'interno del delegato.
+In un'applicazione ASP.NET, configurare l'API Web chiamando [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) nel **applicazione\_avviare** metodo. Il **configura** metodo accetta un delegato con un solo parametro di tipo **HttpConfiguration**. Eseguire tutte le configurazione all'interno del delegato.
 
 Di seguito è riportato un esempio di utilizzo di un delegato anonimo:
 

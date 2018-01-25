@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 title: Lettura dei dati correlati con Entity Framework in un'applicazione MVC ASP.NET | Documenti Microsoft
 author: tdykstra
-description: /AJAX/tutorials/using-AJAX-Control-Toolkit-Controls-and-Control-extenders-vb
+description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lettura correlate a dati con Entity Framework in un'applicazione MVC ASP.NET
 ====================
@@ -45,7 +45,7 @@ Esistono diversi modi di Entity Framework può caricare i dati correlati alle pr
 - *Caricamento eager*. Durante la lettura di entità, i dati correlati vengono recuperati con essa. Ciò comporta in genere una query singola join che recupera tutti i dati necessari. Per specificare il caricamento non differito, utilizzare il `Include` metodo.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Caricamento esplicito*. È simile al caricamento lazy, ad eccezione del fatto che vengano recuperate in modo esplicito i dati correlati nel codice. non avviene automaticamente quando si accede a una proprietà di navigazione. Si caricare manualmente i dati correlati ottenendo la voce di gestione dello stato di oggetto per un'entità e la chiamata di [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx) metodo per le raccolte o [Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx) metodo per la proprietà che contengono un singola entità. (Nell'esempio seguente, se si desidera caricare la proprietà di navigazione di amministratore, sostituirà `Collection(x => x.Courses)` con `Reference(x => x.Administrator)`.) In genere si utilizza il caricamento esplicito solo dopo aver attivato disattivazione del caricamento lazy.
+- *Caricamento esplicito*. È simile al caricamento lazy, ad eccezione del fatto che vengano recuperate in modo esplicito i dati correlati nel codice. non avviene automaticamente quando si accede a una proprietà di navigazione. Si caricare manualmente i dati correlati ottenendo la voce di gestione dello stato di oggetto per un'entità e la chiamata di [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) metodo per le raccolte o [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) metodo per la proprietà che contengono un singola entità. (Nell'esempio seguente, se si desidera caricare la proprietà di navigazione di amministratore, sostituirà `Collection(x => x.Courses)` con `Reference(x => x.Administrator)`.) In genere si utilizza il caricamento esplicito solo dopo aver attivato disattivazione del caricamento lazy.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ Se si conosce che i dati correlati è necessario per tutte le entità recuperate
 
 D'altra parte, in alcuni scenari è più efficiente il caricamento lazy. Caricamento eager potrebbe causare un join molto complesso da generare, quale SQL Server in grado di elaborare in modo efficiente. O se si desidera accedere alle proprietà di navigazione di un'entità solo per un subset di un set di entità, si sta elaborando, il caricamento lazy potrebbe offrire prestazioni migliori perché il caricamento non differito dovrà recuperare più dati è necessario. Se le prestazioni sono essenziali, è consigliabile testare le prestazioni di entrambi i modi per adottare la scelta migliore.
 
-Caricamento lazy in grado di mascherare il codice che causa problemi di prestazioni. Codice che non consente di specificare il caricamento eager o esplicito ma elabora un'elevata quantità di entità e utilizzate varie proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa dei numerosi round trip al database). Un'applicazione che esegue anche in fase di sviluppo utilizzando un server SQL locale può verificarsi dei problemi di prestazioni quando è stato spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. Profilatura delle query di database con un carico di test realistici consentirà di determinare se il caricamento lazy è appropriato. Per ulteriori informazioni vedere [Demistificazione delle strategie di Entity Framework: il caricamento di dati correlati](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) e [tramite Entity Framework per ridurre la latenza di rete a SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Caricamento lazy in grado di mascherare il codice che causa problemi di prestazioni. Codice che non consente di specificare il caricamento eager o esplicito ma elabora un'elevata quantità di entità e utilizzate varie proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa dei numerosi round trip al database). Un'applicazione che esegue anche in fase di sviluppo utilizzando un server SQL locale può verificarsi dei problemi di prestazioni quando è stato spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. Profilatura delle query di database con un carico di test realistici consentirà di determinare se il caricamento lazy è appropriato. Per ulteriori informazioni vedere [Demistificazione delle strategie di Entity Framework: il caricamento di dati correlati](https://msdn.microsoft.com/magazine/hh205756.aspx) e [tramite Entity Framework per ridurre la latenza di rete a SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Disabilitare il caricamento lazy prima della serializzazione
 
@@ -67,9 +67,9 @@ Serializzazione può anche essere complicata dalle classi proxy che usa Entity F
 
 È di un modo per evitare problemi di serializzazione per serializzare oggetti di trasferimento di dati DTO anziché oggetti entità, come illustrato nel [tramite Web API with Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) esercitazione.
 
-Se non si utilizza DTO, è possibile disabilitare il caricamento lazy e per evitare problemi di proxy da [la disabilitazione di creazione del proxy](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
+Se non si utilizza DTO, è possibile disabilitare il caricamento lazy e per evitare problemi di proxy da [la disabilitazione di creazione del proxy](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Ecco un altro [modi per disabilitare il caricamento lazy](https://msdn.microsoft.com/en-US/data/jj574232):
+Ecco un altro [modi per disabilitare il caricamento lazy](https://msdn.microsoft.com/data/jj574232):
 
 - Per le proprietà di navigazione specifici, omettere il `virtual` (parola chiave) quando si dichiara la proprietà.
 - Per tutte le proprietà di navigazione, impostare `LazyLoadingEnabled` a `false`, inserire il codice seguente nel costruttore della classe di contesto: 
@@ -164,7 +164,7 @@ Se è stato selezionato un ID istruttore istruttore selezionato viene recuperato
 
 Il `Where` metodo restituisce una raccolta, ma in questo caso i criteri di passati al risultato in un solo metodo `Instructor` la restituzione di entità. Il `Single` metodo converte la raccolta in un unico `Instructor` entità, che consente di accedere a tale entità `Courses` proprietà.
 
-Utilizzare il [singolo](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) metodo in una raccolta quando si conosce la raccolta ha un solo elemento. Il `Single` metodo genera un'eccezione se la raccolta passata a esso è vuota o se è presente più di un elemento. In alternativa, è [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), che restituisce un valore predefinito (`null` in questo caso) se la raccolta è vuota. Tuttavia, in questo caso che ancora comporta un'eccezione (di tentare di trovare un `Courses` proprietà in un `null` riferimento), e il messaggio di eccezione meno chiaramente indica la causa del problema. Quando si chiama il `Single` (metodo), è inoltre possibile passare il `Where` condizione anziché chiamare il `Where` metodo separatamente:
+Utilizzare il [singolo](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metodo in una raccolta quando si conosce la raccolta ha un solo elemento. Il `Single` metodo genera un'eccezione se la raccolta passata a esso è vuota o se è presente più di un elemento. In alternativa, è [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), che restituisce un valore predefinito (`null` in questo caso) se la raccolta è vuota. Tuttavia, in questo caso che ancora comporta un'eccezione (di tentare di trovare un `Courses` proprietà in un `null` riferimento), e il messaggio di eccezione meno chiaramente indica la causa del problema. Quando si chiama il `Single` (metodo), è inoltre possibile passare il `Where` condizione anziché chiamare il `Where` metodo separatamente:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 

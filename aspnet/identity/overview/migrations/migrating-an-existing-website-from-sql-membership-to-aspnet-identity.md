@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: b88cd54040c02c977a83e20d7af7fda4fff969c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>La migrazione di un sito Web esistente dall'appartenenza SQL per ASP.NET Identity
 ====================
@@ -51,7 +51,7 @@ Per questa esercitazione, verrà usato un modello di applicazione web (Web Form)
 
 ### <a name="migrating-to-visual-studio-2013"></a>La migrazione a Visual Studio 2013
 
-1. Installare Visual Studio Express 2013 per Web o di Visual Studio 2013 con il [aggiornamenti più recenti](https://www.microsoft.com/en-us/download/details.aspx?id=44921).
+1. Installare Visual Studio Express 2013 per Web o di Visual Studio 2013 con il [aggiornamenti più recenti](https://www.microsoft.com/download/details.aspx?id=44921).
 2. Nella versione installata di Visual Studio, aprire il progetto precedente. Se SQL Server Express non è installato nel computer, viene visualizzato un prompt dei comandi quando si apre il progetto, poiché la stringa di connessione utilizza SQL Express. È possibile scegliere di installare SQL Express o come aggirare cambiare la stringa di connessione a LocalDb. Per questo articolo, verranno modificate in LocalDb.
 3. Aprire Web. config e modificare la stringa di connessione. SQLExpess a v 11.0 (LocalDb). Rimuovere ' User Instance = true' dalla stringa di connessione.
 
@@ -67,12 +67,12 @@ Per questa esercitazione, verrà usato un modello di applicazione web (Web Form)
 
 1. In Esplora soluzioni, fare clic sul progetto &gt; **Gestisci pacchetti NuGet**. Nella casella di ricerca, immettere "Asp.net Identity". Selezionare il pacchetto nell'elenco dei risultati e fare clic su Installa. Accettare il contratto di licenza facendo clic sul pulsante "Accetto". Si noti che questo pacchetto installerà i pacchetti di dipendenza: EntityFramework e Microsoft ASP.NET Identity Core. Analogamente, installare i pacchetti seguenti (se non si desidera abilitare Accedi OAuth, ignorare i pacchetti OWIN ultime 4):
 
-    - Italiano
-    - Systemweb
-    - Italiano
-    - Italiano
-    - MicrosoftAccount
-    - Italiano
+    - Microsoft.AspNet.Identity.Owin
+    - Microsoft.Owin.Host.SystemWeb
+    - Microsoft.Owin.Security.Facebook
+    - Microsoft.Owin.Security.Google
+    - Microsoft.Owin.Security.MicrosoftAccount
+    - Microsoft.Owin.Security.Twitter
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
@@ -88,26 +88,26 @@ Per le classi di ASP.NET Identity a funziona automaticamente con i dati degli ut
 
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Id | string | Id | RoleId | Provider | Id |
-| Nome utente | string | Nome | ID utente | ID utente | ClaimType |
-| PasswordHash | string |  |  | Viene restituito | ClaimValue |
-| SecurityStamp | string |  |  |  | Utente\_Id |
-| Posta elettronica | string |  |  |  |  |
+| Id | stringa | Id | RoleId | Provider | Id |
+| Nome utente | stringa | nome | UserId | UserId | ClaimType |
+| PasswordHash | stringa |  |  | LoginProvider | ClaimValue |
+| SecurityStamp | stringa |  |  |  | Utente\_Id |
+| Email | stringa |  |  |  |  |
 | EmailConfirmed | bool |  |  |  |  |
-| Numero di telefono | string |  |  |  |  |
+| Numero di telefono | stringa |  |  |  |  |
 | PhoneNumberConfirmed | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
-| Valore di AccessFailedCount | int |  |  |  |  |
+| AccessFailedCount | int |  |  |  |  |
 
-È necessario disporre di tabelle per ciascuno di questi modelli le cui colonne corrispondono alle proprietà. Il mapping tra le classi e le tabelle viene definito nel `OnModelCreating` metodo il `IdentityDBContext`. Questo è noto come il metodo API fluent della configurazione e altre informazioni sono reperibili [qui](https://msdn.microsoft.com/en-us/data/jj591617.aspx). La configurazione per le classi è come indicato di seguito
+È necessario disporre di tabelle per ciascuno di questi modelli le cui colonne corrispondono alle proprietà. Il mapping tra le classi e le tabelle viene definito nel `OnModelCreating` metodo il `IdentityDBContext`. Questo è noto come il metodo API fluent della configurazione e altre informazioni sono reperibili [qui](https://msdn.microsoft.com/data/jj591617.aspx). La configurazione per le classi è come indicato di seguito
 
 | **Classe** | **Tabella** | **Chiave primaria** | **Chiave esterna** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id |  |
 | IdentityRole | AspnetRoles | Id |  |
 | IdentityUserRole | AspnetUserRole | UserId + RoleId | Utente\_Id -&gt;AspnetUsers RoleId -&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserId + LoginProvider | UserId -&gt;AspnetUsers |
+| IdentityUserLogin | AspnetUserLogins | ProviderKey+UserId + LoginProvider | UserId-&gt;AspnetUsers |
 | IdentityUserClaim | AspnetUserClaims | Id | Utente\_Id -&gt;AspnetUsers |
 
 Con queste informazioni è possibile creare istruzioni SQL per creare nuove tabelle. È possibile scrivere ogni istruzione singolarmente o generare lo script utilizzando i comandi di EntityFramework PowerShell è quindi possibile modificare come richiesto. A tale scopo, in Visual Studio aprire il **Package Manager Console** dal **vista** o **strumenti** menu
@@ -122,7 +122,7 @@ Le informazioni sull'utente di appartenenza SQL ha altri proprietà oltre a quel
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample1.sql)]
 
-Successivamente, è necessario copiare le informazioni esistenti dal database delle appartenenze SQL alle tabelle appena aggiunte per l'identità. Copiare i dati direttamente da una tabella in un altro, questo può avvenire tramite SQL. Per aggiungere i dati nelle righe della tabella, viene usato il `INSERT INTO [Table]` costruire. Copiare da un'altra tabella, è possibile utilizzare il `INSERT INTO` istruzione con il `SELECT` istruzione. Per ottenere tutte le informazioni utente, è necessario eseguire una query il *aspnet\_utenti* e *aspnet\_appartenenza* tabelle e copiare i dati di *AspNetUsers*tabella. Utilizziamo la `INSERT INTO` e `SELECT` insieme a `JOIN` e `LEFT OUTER JOIN` istruzioni. Per ulteriori informazioni sull'esecuzione di query e la copia dei dati tra tabelle, fare riferimento a [questo](https://technet.microsoft.com/en-us/library/ms190750%28v=sql.105%29.aspx) collegamento. Inoltre le tabelle AspnetUserLogins e AspnetUserClaims sono vuote per iniziare poiché non sono disponibili informazioni di appartenenza di SQL che esegue il mapping a questo per impostazione predefinita. L'unica informazione copiato è per utenti e ruoli. Per il progetto creato nei passaggi precedenti, la query SQL per copiare le informazioni nella tabella gli utenti sarebbero
+Successivamente, è necessario copiare le informazioni esistenti dal database delle appartenenze SQL alle tabelle appena aggiunte per l'identità. Copiare i dati direttamente da una tabella in un altro, questo può avvenire tramite SQL. Per aggiungere i dati nelle righe della tabella, viene usato il `INSERT INTO [Table]` costruire. Copiare da un'altra tabella, è possibile utilizzare il `INSERT INTO` istruzione con il `SELECT` istruzione. Per ottenere tutte le informazioni utente, è necessario eseguire una query il *aspnet\_utenti* e *aspnet\_appartenenza* tabelle e copiare i dati di *AspNetUsers*tabella. Utilizziamo la `INSERT INTO` e `SELECT` insieme a `JOIN` e `LEFT OUTER JOIN` istruzioni. Per ulteriori informazioni sull'esecuzione di query e la copia dei dati tra tabelle, fare riferimento a [questo](https://technet.microsoft.com/library/ms190750%28v=sql.105%29.aspx) collegamento. Inoltre le tabelle AspnetUserLogins e AspnetUserClaims sono vuote per iniziare poiché non sono disponibili informazioni di appartenenza di SQL che esegue il mapping a questo per impostazione predefinita. L'unica informazione copiato è per utenti e ruoli. Per il progetto creato nei passaggi precedenti, la query SQL per copiare le informazioni nella tabella gli utenti sarebbero
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 

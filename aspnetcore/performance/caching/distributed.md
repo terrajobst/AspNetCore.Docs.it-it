@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Utilizzo di una cache distribuita in ASP.NET Core
 
@@ -25,7 +25,7 @@ Le cache distribuite possono migliorare le prestazioni e scalabilità delle appl
 
 ## <a name="what-is-a-distributed-cache"></a>Che cos'è una cache distribuita
 
-Una cache distribuita è condiviso da più server di app (vedere [nozioni fondamentali di memorizzazione nella cache](memory.md#caching-basics)). Le informazioni nella cache non vengono archiviate nella memoria del server web singole e i dati memorizzati nella cache sono disponibili a tutti i server dell'app. Ciò offre diversi vantaggi:
+Una cache distribuita è condiviso da più server di app (vedere [nozioni fondamentali di memorizzazione nella cache](memory.md#caching-basics)). Le informazioni nella cache non vengono memorizzate nella memoria del server web singole e i dati memorizzati nella cache sono disponibili a tutti i server dell'app. Ciò offre diversi vantaggi:
 
 1. Dati memorizzati nella cache sono coerenti in tutti i server web. Gli utenti non visualizzati risultati diversi a seconda di quale web server gestisce la richiesta
 
@@ -48,7 +48,7 @@ Il `IDistributedCache` interfaccia include metodi sincroni e asincroni. L'interf
 
 Accetta una chiave di stringa e recupera un elemento memorizzato nella cache come una `byte[]` se trovato nella cache.
 
-**Set di SetAsync**
+**Set, SetAsync**
 
 Aggiunge un elemento (come `byte[]`) alla cache utilizzando una chiave di stringa.
 
@@ -56,7 +56,7 @@ Aggiunge un elemento (come `byte[]`) alla cache utilizzando una chiave di string
 
 Aggiorna un elemento nella cache in base alla relativa chiave, reimpostare il timeout di scadenza scorrevole (se presente).
 
-**Rimuovere, RemoveAsync**
+**Remove, RemoveAsync**
 
 Rimuove una voce della cache in base alla relativa chiave.
 
@@ -142,5 +142,5 @@ Quando si decide quale implementazione di `IDistributedCache` diritto per l'app,
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-* [Helper di Tag della cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0af5f7e841bb43fa41fa0daa4ad8d59ee0596404
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Integrazione continua e il recapito continuo (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -37,7 +37,7 @@ In genere, si consiglia di effettuare la distribuzione continua per lo sviluppo 
 
 Nel seguente diagramma da [un Microsoft Patterns and Practices e-book sul recapito continuo](http://aka.ms/ReleasePipeline) viene illustrato un tipico flusso di lavoro. Clic sull'immagine per visualizzarla dimensioni completa nel relativo contesto originale.
 
-[![Flusso di lavoro di distribuzione continua](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/en-us/library/dn449955.aspx)
+[![Flusso di lavoro di distribuzione continua](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Come il cloud consente economiche CI e CD
 
@@ -65,13 +65,13 @@ I modelli di sviluppo prima di tre cloud stati su come implementare un processo 
 
 ## <a name="resources"></a>Risorse
 
-Per ulteriori informazioni, vedere [distribuire un'app web in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Per ulteriori informazioni, vedere [distribuire un'app web in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
 Vedere anche le risorse seguenti:
 
 - [La creazione di una Pipeline di rilascio con Team Foundation Server 2012](http://aka.ms/ReleasePipeline). Laboratori pratici E-book e codice di esempio da Microsoft Patterns and Practices, viene fornita un'introduzione approfondita per il recapito continuo. Viene illustrato l'utilizzo di Visual Studio Lab Management e Release Management per Visual Studio.
 - [Indicazioni e strumenti di ALM Rangers DevOps](https://aka.ms/vsarsolutions/). ALM Rangers introdotta la soluzione complementare di esempio Workbench di DevOps e istruzioni pratiche in collaborazione con i modelli &amp; libro consigliate *la creazione di una Pipeline di rilascio con TFS 2012*, come un ottimo modo per iniziare concetti di DevOps &amp; Release Management per TFS 2012 e per avviare il servizio. Le indicazioni fornite di seguito viene illustrato come compilare una sola volta e di distribuzione in più ambienti.
-- [Test per il recapito continuo con Visual Studio 2012](https://msdn.microsoft.com/en-us/library/jj159345.aspx). E-book Microsoft Patterns and Practices, verrà illustrato come integrare i test automatizzati con il recapito continuo.
+- [Test per il recapito continuo con Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). E-book Microsoft Patterns and Practices, verrà illustrato come integrare i test automatizzati con il recapito continuo.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Codice sorgente per uno strumento progettato per acquisire una compilazione da TFS (basato su un'etichetta), compilare, pacchetto, consentire ad altri utenti nel ruolo DevOps per configurare gli aspetti specifici di esso e inserirlo in Azure. Lo strumento registra il processo di distribuzione per consentire operazioni "rollback" a una versione precedentemente distribuita. Lo strumento non presenta dipendenze esterne e può funzionare autonomo usando le API di TFS e Azure SDK.
 - [Il recapito continuo: Software affidabile rilascia tramite l'automazione della distribuzione, compilazione e Test](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Rubrica tramite Jez modesto.
 - [Rilasciarlo! Progettare e distribuire il Software di ambiente di produzione](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Rubrica tramite Michael T. Nygard.

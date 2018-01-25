@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603aaa35a533fc8853ea72fc9be05ca82b213049
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 974ea50a0d12aae09107470815214b20068ea553
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>Implementazione della concorrenza ottimistica con SqlDataSource (VB)
 ====================
@@ -116,8 +116,8 @@ Analogamente, il `DeleteCommand` proprietà e `DeleteParameters` raccolta dovreb
 
 Oltre a aumento il `WHERE` clausole del `UpdateCommand` e `DeleteCommand` proprietà e aggiungere i parametri aggiuntivi per le raccolte di parametro corrispondente, selezionando l'utilizzo consente di regolare due altre opzione di concorrenza ottimistica proprietà:
 
-- Modifiche di [ `ConflictDetection` proprietà](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) da `OverwriteChanges` (predefinito) per`CompareAllValues`
-- Modifiche di [ `OldValuesParameterFormatString` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) da {0} (predefinito) originale\_{0}.
+- Modifiche di [ `ConflictDetection` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) da `OverwriteChanges` (predefinito) per`CompareAllValues`
+- Modifiche di [ `OldValuesParameterFormatString` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) da {0} (predefinito) originale\_{0}.
 
 Quando i dati di controllo Web richiama s SqlDataSource `Update()` o `Delete()` metodo passa i valori originali. Se i dispositivi SqlDataSource `ConflictDetection` è impostata su `CompareAllValues`, questi valori originali vengono aggiunti al comando. Il `OldValuesParameterFormatString` proprietà fornisce il modello di denominazione per questi parametri di valore originale. La configurazione guidata origine dati utilizza originale\_{0} e i nomi di ogni parametro originale il `UpdateCommand` e `DeleteCommand` proprietà e `UpdateParameters` e `DeleteParameters` raccolte di conseguenza.
 

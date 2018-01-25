@@ -12,20 +12,20 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4ee8eb4901305bf6a8c9c5b949dc4ee10290e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Note sulla versione di ASP.NET e strumenti Web 2013.1 per Visual Studio 2012
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Questo documento descrive la versione di ASP.NET e 2013.1 strumenti Web per Visual Studio 2012.
 
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 - [Note sull'installazione](#install)
 - [Requisiti software](#requirements)
@@ -40,7 +40,7 @@ da [Microsoft](https://github.com/microsoft)
     - [Entity Framework 6](#ef6)
     - [Scaffolding di ASP.NET](#scaffold)
     - [Editor Razor](#razor)
-    - [2.7 NuGet](#nuget)
+    - [NuGet 2.7](#nuget)
 - Problemi noti e modifiche di rilievo
 
     - [Scaffolding di ASP.NET](#issuescaffolding)
@@ -66,7 +66,7 @@ da [Microsoft](https://github.com/microsoft)
 ## <a name="new-features-in-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Nuove funzionalità di ASP.NET e strumenti Web 2013.1 per Visual Studio 2012
 
 <a id="bootstrap"></a>
-### <a name="bootstrap"></a>bootstrap
+### <a name="bootstrap"></a>Bootstrap
 
 Durante lo scaffolding controller MVC 5 e visualizzazioni, viene utilizzato il markup per le viste [Bootstrap](http://getbootstrap.com/).
 
@@ -190,7 +190,7 @@ Quando ASP.NET MVC progetti creati con Visual Studio 2012, Windows 8.1 o Windows
 
 ![Errore di configurazione](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-Questo errore viene visualizzato perché Visual Studio 2012 non abilita la funzionalità ASP.NET 4.5 quando viene installato in tali versioni di Windows. Per abilitare ASP.NET 4.5, eseguire i passaggi descritti in [o disattivazione delle funzionalità Windows attivare](https://windows.microsoft.com/en-us/windows-8/turn-windows-features-on-off).
+Questo errore viene visualizzato perché Visual Studio 2012 non abilita la funzionalità ASP.NET 4.5 quando viene installato in tali versioni di Windows. Per abilitare ASP.NET 4.5, eseguire i passaggi descritti in [o disattivazione delle funzionalità Windows attivare](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
 
 ![attivare o disattivare le funzionalità di Windows](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 

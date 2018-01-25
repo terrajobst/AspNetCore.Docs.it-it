@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>Novità di ASP.NET 4.5 e Visual Studio 2012
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
     - [Supporto per le richieste non convalidate](#_Toc318097381)
     - [Libreria AntiXSS](#_Toc318097382)
     - [Supporto per il protocollo WebSocket](#_Toc318097383)
-    - [Bundling and Minification](#_Toc318097384)
+    - [Creazione di bundle e minimizzazione](#_Toc318097384)
     - [Miglioramenti delle prestazioni per l'Hosting Web](#_Toc_perf)
 
         - [Fattori di prestazioni chiave](#_Toc_perf_1)
@@ -266,19 +266,19 @@ Inoltre, è possibile impostare l'abilitazione o disabilitazione di ottimizzazio
 
 Quando sono inclusi i file, questi vengono innanzitutto ordinati alfabeticamente (il modo in cui vengono visualizzati in **Esplora**). Quindi sono organizzati in modo che le librerie e le estensioni personalizzate (ad esempio jQuery MooTools e Dojo) vengono caricate per primi. Ad esempio, l'ordine finale per l'aggiunta della cartella di script, come illustrato in precedenza sarà:
 
-1. jQuery-1.6.2.js
-2. jQuery-ui.js
-3. jQuery.Tools.js
+1. jquery-1.6.2.js
+2. jquery-ui.js
+3. jquery.tools.js
 4. a.js
 
 File CSS sono anche ordinati in ordine alfabetico e quindi riorganizzati in modo che reset.css e normalize.css precedere qualsiasi altro file. L'ordinamento finale di aggregazione della cartella Styles illustrata in precedenza sarà questo:
 
-1. Reset.CSS
-2. Content.CSS
-3. Forms.CSS
-4. Globals.CSS
+1. reset.css
+2. content.css
+3. forms.css
+4. globals.css
 5. menu.CSS
-6. Styles. CSS
+6. styles.css
 
 <a id="_Toc_perf"></a>
 ### <a name="performance-improvements-for-web-hosting"></a>Miglioramenti delle prestazioni per l'Hosting Web
@@ -330,7 +330,7 @@ Per visualizzare tutte le opzioni, eseguire lo strumento senza argomenti.
 
 **Requisito**: .NET Framework 4.5
 
-Per l'avvio di un sito disattivo, non solo si gli assembly devono essere letti dal disco, ma il sito deve essere compilato tramite JIT. Per un sito complesso, si possono aggiungere ritardi significativi. Una tecnica generale di nuovo in .NET Framework 4.5 consente di ridurre questi ritardi suddividendo la compilazione JIT tra core di processori disponibili. Ciò è lo stesso e quanto prima possibile utilizzando le informazioni raccolte durante precedente Avvia del sito. Questa funzionalità implementata dal [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) metodo.
+Per l'avvio di un sito disattivo, non solo si gli assembly devono essere letti dal disco, ma il sito deve essere compilato tramite JIT. Per un sito complesso, si possono aggiungere ritardi significativi. Una tecnica generale di nuovo in .NET Framework 4.5 consente di ridurre questi ritardi suddividendo la compilazione JIT tra core di processori disponibili. Ciò è lo stesso e quanto prima possibile utilizzando le informazioni raccolte durante precedente Avvia del sito. Questa funzionalità implementata dal [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) metodo.
 
 Utilizzo di più core la compilazione JIT è abilitata per impostazione predefinita in ASP.NET, pertanto non è necessario eseguire alcuna operazione per sfruttare i vantaggi di questa funzionalità. Se si desidera disabilitare questa funzionalità, è possibile apportare la seguente impostazione nel file Web. config:
 

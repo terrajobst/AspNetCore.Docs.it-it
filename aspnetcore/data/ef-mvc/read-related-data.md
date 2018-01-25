@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lettura correlati dati - EF Core con l'esercitazione di base di ASP.NET MVC (6 di 10)
 
@@ -75,7 +75,7 @@ Le seguenti modifiche apportate al codice scaffolding:
 
 * Modificare il titolo dall'indice ai corsi.
 
-* Aggiungere un **numero** colonna che mostra il `CourseID` valore della proprietà. Per impostazione predefinita, le chiavi primarie non sono scaffolding perché in genere sono utilizzati per gli utenti finali. Tuttavia, in questo caso la chiave primaria è significativa e si desidera visualizzarlo.
+* Aggiungere un **numero** colonna che mostra il `CourseID` valore della proprietà. Per impostazione predefinita, le chiavi primarie non sono scaffolding perché in genere sono prive di significato per gli utenti finali. Tuttavia, in questo caso la chiave primaria è significativa e si desidera visualizzarlo.
 
 * Modificare il **reparto** colonna per visualizzare il nome di reparto. Il codice visualizza il `Name` proprietà dell'entità reparto che viene caricato il `Department` proprietà di navigazione:
 

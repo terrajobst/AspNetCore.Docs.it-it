@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Controllo del codice sorgente (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -137,9 +137,9 @@ Quando si esegue in locale nell'ambiente di sviluppo, l'app legge il file Web. c
 
 [GIT](http://git-scm.com/) è un DVCS che è diventata molto diffusa. Quando si usa Git per controllo del codice sorgente, è una copia completa del repository con tutta la sua cronologia sul computer locale. Molti utenti preferiscono tuttavia che poiché è più semplice per continuare a lavorare quando non si è connessi alla rete, è possibile continuare a eseguire il commit e rollback, creare e cambiare rami e così via. Anche quando si è connessi alla rete, è più semplice e rapido creare rami e cambiare rami quando tutto è locale. È anche possibile eseguire rollback e commit locale senza un impatto su altri sviluppatori. Ed è possibile raggruppare in batch commit prima di inviarli al server.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), precedentemente noto come Team Foundation Service, offre sia Git e [Team Foundation Version Control](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx) (TFVC; centralizzato di controllo del codice sorgente). Qui in Microsoft Azure gruppo alcune squadre di utilizzano controllo del codice sorgente centralizzato, utilizzato per scopi di distribuzione, e alcuni utilizzano una combinazione (centralizzata per alcuni progetti e distribuiti per altri progetti). Il servizio di Visual Studio Online è disponibile per gli utenti fino a 5. È possibile iscriversi per un piano gratuito [qui](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), precedentemente noto come Team Foundation Service, offre sia Git e [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; centralizzato di controllo del codice sorgente). Qui in Microsoft Azure gruppo alcune squadre di utilizzano controllo del codice sorgente centralizzato, utilizzato per scopi di distribuzione, e alcuni utilizzano una combinazione (centralizzata per alcuni progetti e distribuiti per altri progetti). Il servizio di Visual Studio Online è disponibile per gli utenti fino a 5. È possibile iscriversi per un piano gratuito [qui](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 include incorporato prima classe [supporto Git](https://msdn.microsoft.com/en-us/library/hh850437.aspx); Ecco una rapida dimostrazione di come funziona.
+Visual Studio 2013 include incorporato prima classe [supporto Git](https://msdn.microsoft.com/library/hh850437.aspx); Ecco una rapida dimostrazione di come funziona.
 
 Con un progetto aperto in Visual Studio 2013, fare doppio clic sulla soluzione in **Esplora**e scegliere **Aggiungi soluzione al controllo del codice sorgente**.
 
@@ -187,7 +187,7 @@ Se si passa nuovamente al master Crea un ramo, il contenuto del  *\_cshtml* file
 
 Questo un semplice esempio di come creare un ramo e rapidamente scorrere avanti e indietro tra branch. Questa funzionalità consente a un flusso di lavoro agile elevata utilizzando la struttura di rami e gli script di automazione presentati nel [automatizzare tutti gli elementi](automate-everything.md) capitolo. Ad esempio, si utilizza il ramo Development, creare un ramo correzione master, passare al nuovo ramo, apportare le modifiche, eseguirne il commit e quindi tornare al ramo Development e continuare le operazioni.
 
-Ciò che si è visto è l'utilizzo di un repository Git locale in Visual Studio. In un ambiente di team in genere anche push delle modifiche in un repository comune. Gli strumenti di Visual Studio consentono inoltre di scegliere un repository Git remoto. È possibile utilizzare GitHub.com a tale scopo oppure è possibile utilizzare [Git in Visual Studio Online](https://msdn.microsoft.com/en-us/library/hh850437.aspx) integrato con tutte le altre funzionalità Visual Studio Online, ad esempio l'elemento di lavoro e rilevamento dei bug.
+Ciò che si è visto è l'utilizzo di un repository Git locale in Visual Studio. In un ambiente di team in genere anche push delle modifiche in un repository comune. Gli strumenti di Visual Studio consentono inoltre di scegliere un repository Git remoto. È possibile utilizzare GitHub.com a tale scopo oppure è possibile utilizzare [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) integrato con tutte le altre funzionalità Visual Studio Online, ad esempio l'elemento di lavoro e rilevamento dei bug.
 
 Non è l'unico modo è possibile implementare una strategia di diramazione agile, ovviamente. È possibile abilitare il flusso di lavoro agile stesso utilizzando un repository di controllo del codice sorgente centralizzato.
 
@@ -202,14 +202,14 @@ Il [Visual Studio Online](https://www.visualstudio.com/) portale fornisce serviz
 
 Per ulteriori informazioni su TFVC (controllo della versione centralizzato) e Git (controllo della versione distribuita), vedere le risorse seguenti:
 
-- [Il sistema di controllo della versione è preferibile usare: TFVC o Git?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Documentazione di MSDN, include una tabella di riepilogo le differenze tra TFVC e Git.
+- [Il sistema di controllo della versione è preferibile usare: TFVC o Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Documentazione di MSDN, include una tabella di riepilogo le differenze tra TFVC e Git.
 - [In genere Team Foundation Server e desidero Git, ma che è preferibile?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Confronto tra Git e TFVC.
 
 Per ulteriori informazioni sulle strategie di diramazione, vedere le risorse seguenti:
 
-- [La creazione di una Pipeline di rilascio con Team Foundation Server 2012](https://msdn.microsoft.com/en-us/library/dn449957.aspx). Documentazione di Microsoft Patterns and Practices. Vedere il capitolo 6 per informazioni sulle strategie di diramazione. Funzionalità sostenitori attiva o disattiva su rami di funzionalità e se si utilizzano i branch per le funzionalità, sostiene mantenendoli breve durata (ore o giorni al massimo).
+- [La creazione di una Pipeline di rilascio con Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Documentazione di Microsoft Patterns and Practices. Vedere il capitolo 6 per informazioni sulle strategie di diramazione. Funzionalità sostenitori attiva o disattiva su rami di funzionalità e se si utilizzano i branch per le funzionalità, sostiene mantenendoli breve durata (ore o giorni al massimo).
 - [Versione controllo Guida](https://aka.ms/vsarsolutions). Guida alle strategie di diramazione da ALM Rangers. Nella scheda dei download, vedere Strategies.pdf diramazione.
-- [Sviluppo di software con attiva o Disattiva funzionalità](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx). Articolo di MSDN Magazine.
+- [Sviluppo di software con attiva o Disattiva funzionalità](https://msdn.microsoft.com/magazine/dn683796.aspx). Articolo di MSDN Magazine.
 - [Attivazione/disattivazione delle funzionalità](http://martinfowler.com/bliki/FeatureToggle.html). Introduzione alla funzionalità attiva o Disattiva / funzionalità flag sul blog di Martin Fowler.
 - [Funzionalità di vs attiva o disattiva la funzionalità rami](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Un altro post di blog su Attiva o disattiva la funzionalità, Dylan Smith.
 

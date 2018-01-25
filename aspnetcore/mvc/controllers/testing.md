@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Logica di controller di test in ASP.NET Core
 
@@ -40,7 +40,7 @@ Responsabilità tipiche controller:
 
 ## <a name="unit-testing"></a>Testing unità
 
-[Unit test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) prevede una parte di un'app di test in isolamento dalle relative dipendenze e l'infrastruttura. Quando è sottoposto a test unit test di logica di controller, solo il contenuto di una singola azione, non il comportamento delle dipendenze o di framework stesso. Come si esegue uno unit test le azioni del controller, assicurarsi di che concentrarsi solo il relativo funzionamento. Uno unit test controller evita elementi quali [filtri](filters.md), [routing](../../fundamentals/routing.md), o [associazione del modello](../models/model-binding.md). Per porre l'attenzione sul test solo una cosa, unit test sono in genere semplici da scrivere e rapido per l'esecuzione. È possibile eseguire un set ben scritto di unit test spesso senza quantità di overhead. Tuttavia, gli unit test non vengono rilevati problemi nell'interazione tra componenti, ovvero lo scopo di [test di integrazione](xref:mvc/controllers/testing#integration-testing).
+[Unit test](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) prevede una parte di un'app di test in isolamento dalle relative dipendenze e l'infrastruttura. Quando è sottoposto a test unit test di logica di controller, solo il contenuto di una singola azione, non il comportamento delle dipendenze o di framework stesso. Come si esegue uno unit test le azioni del controller, assicurarsi di che concentrarsi solo il relativo funzionamento. Uno unit test controller evita elementi quali [filtri](filters.md), [routing](../../fundamentals/routing.md), o [associazione del modello](../models/model-binding.md). Per porre l'attenzione sul test solo una cosa, unit test sono in genere semplici da scrivere e rapido per l'esecuzione. È possibile eseguire un set ben scritto di unit test spesso senza quantità di overhead. Tuttavia, gli unit test non rilevare problemi nell'interazione tra componenti, ovvero lo scopo di [test di integrazione](xref:mvc/controllers/testing#integration-testing).
 
 Se si sta scrivendo filtri personalizzati, route e così via, si consiglia di unit test di loro, ma non come parte dei test per un'azione del controller specifico. Essi devono essere testate in isolamento.
 
@@ -65,7 +65,7 @@ Stato del modello non valido può essere testato aggiungendo gli errori utilizza
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-Il primo test conferma quando `ModelState` non è valido, lo stesso `ViewResult` viene restituito come per un `GET` richiesta. Si noti che il test non tenta di passare in un modello non valido. Che non funzionerebbe comunque dall'associazione del modello non è in esecuzione (anche se un [test di integrazione](xref:mvc/controllers/testing#integration-testing) utilizzerebbe l'associazione di modelli esercizio). In questo caso, l'associazione di modelli non testato. Queste unità solo test operazioni eseguite dal codice nel metodo di azione.
+Il primo test conferma quando `ModelState` non è valido, lo stesso `ViewResult` viene restituito come per un `GET` richiesta. Si noti che il test non tenta di passare in un modello non valido. Che non funzionerebbe comunque dall'associazione del modello non è in esecuzione (anche se un [test di integrazione](xref:mvc/controllers/testing#integration-testing) utilizzerebbe l'associazione di modelli esercizio). In questo caso, non è sottoposto a test l'associazione di modelli. Queste unità solo test operazioni eseguite dal codice nel metodo di azione.
 
 Il secondo test verifica che, quando `ModelState` è valido, un nuovo `BrainstormSession` viene aggiunto (tramite il repository), e il metodo restituisce un `RedirectToActionResult` con le proprietà previsto. Chiamate simulate che non sono chiamate sono in genere ignorati, ma chiamante `Verifiable` al termine dell'installazione chiamata consente di verificare il test. Questa operazione viene eseguita con la chiamata a `mockRepo.Verify`, che avrà esito negativo del test se non è stato chiamato il metodo previsto.
 
@@ -121,7 +121,7 @@ Verrà visualizzato il `GetTestSession` metodo usata di frequente nei test di in
 Ogni classe di test di integrazione consente di configurare il `TestServer` che eseguirà l'app ASP.NET Core. Per impostazione predefinita, `TestServer` ospita l'app web nella cartella in cui è in esecuzione, in questo caso, la cartella di progetto di test. Pertanto, quando si tenta di verificare le azioni del controller che restituiscono `ViewResult`, potrebbe essere visualizzato questo errore:
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

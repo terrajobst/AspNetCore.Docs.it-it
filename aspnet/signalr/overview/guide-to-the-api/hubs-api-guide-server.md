@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd5569554c3fbd966ee5d55ad08a79b81af36de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2567d4d39a494daf77a23db5dff83c8fae4925d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guida di ASP.NET SignalR hub API - Server (c#)
 ====================
@@ -102,7 +102,7 @@ Sono disponibili in .NET 4.5 solo i componenti server di SignalR 2. Server che e
 
 ## <a name="how-to-register-signalr-middleware"></a>Come registrare il middleware di SignalR
 
-Per definire la route che i client utilizzeranno per connettersi all'Hub di, chiamare il `MapSignalR` metodo all'avvio dell'applicazione. `MapSignalR`è un [metodo di estensione](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx) per la `OwinExtensions` classe. Nell'esempio seguente viene illustrato come definire le route degli hub SignalR utilizzando una classe di avvio OWIN.
+Per definire la route che i client utilizzeranno per connettersi all'Hub di, chiamare il `MapSignalR` metodo all'avvio dell'applicazione. `MapSignalR`è un [metodo di estensione](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) per la `OwinExtensions` classe. Nell'esempio seguente viene illustrato come definire le route degli hub SignalR utilizzando una classe di avvio OWIN.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
@@ -156,7 +156,7 @@ Nell'esempio seguente viene illustrato come specificare l'URL di connessione Sig
 
 ## <a name="how-to-create-and-use-hub-classes"></a>Come creare e utilizzare le classi Hub
 
-Per creare un Hub, creare una classe che deriva da [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Nell'esempio seguente viene illustrata una classe semplice di Hub per un'applicazione di chat.
+Per creare un Hub, creare una classe che deriva da [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Nell'esempio seguente viene illustrata una classe semplice di Hub per un'applicazione di chat.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample7.cs)]
 
@@ -262,7 +262,7 @@ Se si desidera specificare un nome diverso per i client da utilizzare, aggiunger
 
 ### <a name="when-to-execute-asynchronously"></a>Quando è necessario eseguire in modo asincrono
 
-Se verrà essere a esecuzione prolungata o deve utilizzare il metodo che verrebbe implicano in attesa, ad esempio una ricerca nel database o una chiamata al servizio web, il metodo dell'Hub asincrona restituendo un [attività](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) (invece di `void` restituire) o [ Attività&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx) oggetto (invece di `T` tipo restituito). Quando viene restituito un `Task` oggetto dal metodo, SignalR attende la `Task` per completare, e quindi invia il risultato annullato il wrapping al client, pertanto non c'è alcuna differenza nella modalità in cui la chiamata al metodo nel client codice.
+Se verrà essere a esecuzione prolungata o deve utilizzare il metodo che verrebbe implicano in attesa, ad esempio una ricerca nel database o una chiamata al servizio web, il metodo dell'Hub asincrona restituendo un [attività](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (invece di `void` restituire) o [ Attività&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) oggetto (invece di `T` tipo restituito). Quando viene restituito un `Task` oggetto dal metodo, SignalR attende la `Task` per completare, e quindi invia il risultato annullato il wrapping al client, pertanto non c'è alcuna differenza nella modalità in cui la chiamata al metodo nel client codice.
 
 Effettua un metodo dell'Hub asincrona si evita di bloccare la connessione quando utilizza il trasporto WebSocket. Quando un metodo dell'Hub esegue in modo sincrono e il trasporto WebSocket, le successive chiamate dei metodi dell'hub dallo stesso client vengono bloccate fino al completamento del metodo dell'Hub.
 
@@ -272,7 +272,7 @@ L'esempio seguente viene illustrato lo stesso metodo codificate in modo da esegu
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample19.cs)]
 
-**Asincrona**
+**Asynchronous**
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample20.cs?highlight=1,7-8)]
 
@@ -331,7 +331,7 @@ Per chiamare i metodi client dal server, utilizzare il `Clients` proprietà in u
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>Selezionare i client che riceverà il RPC
 
-La proprietà restituisce ai client un [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) oggetto che fornisce diverse opzioni per specificare che i client riceveranno il RPC:
+La proprietà restituisce ai client un [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) oggetto che fornisce diverse opzioni per specificare che i client riceveranno il RPC:
 
 - Tutti i client connessi.
 
@@ -403,7 +403,7 @@ Se si utilizza `await` per l'attesa fino al completamento di un metodo client pr
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Come utilizzare una variabile di stringa come il nome del metodo
 
-Se si desidera richiamare un metodo client utilizzando una variabile di stringa come il nome del metodo, eseguire il cast `Clients.All` (o `Clients.Others`, `Clients.Caller`e così via) a `IClientProxy` e quindi chiamare [Invoke (NomeMetodo, args...) ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Se si desidera richiamare un metodo client utilizzando una variabile di stringa come il nome del metodo, eseguire il cast `Clients.All` (o `Clients.Others`, `Clients.Caller`e così via) a `IClientProxy` e quindi chiamare [Invoke (NomeMetodo, args...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample42.cs)]
 
@@ -413,7 +413,7 @@ Se si desidera richiamare un metodo client utilizzando una variabile di stringa 
 
 Gruppi di SignalR forniscono un metodo per la trasmissione di messaggi a un subset specificato di client connessi. Un gruppo può avere qualsiasi numero di client e un client può essere un membro di un numero qualsiasi di gruppi.
 
-Per gestire l'appartenenza al gruppo, utilizzare il [Aggiungi](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) e [rimuovere](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metodi forniti dal `Groups` proprietà della classe di Hub. Nell'esempio seguente il `Groups.Add` e `Groups.Remove` metodi usati nei metodi dell'Hub che vengono chiamati dal codice client, seguito dal codice client JavaScript che li chiama.
+Per gestire l'appartenenza al gruppo, utilizzare il [Aggiungi](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) e [rimuovere](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metodi forniti dal `Groups` proprietà della classe di Hub. Nell'esempio seguente il `Groups.Add` e `Groups.Remove` metodi usati nei metodi dell'Hub che vengono chiamati dal codice client, seguito dal codice client JavaScript che li chiama.
 
 **Server**
 
@@ -494,7 +494,7 @@ Vengono chiamati i metodi del gestore eventi Durata connessione dal server, il c
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Come ottenere informazioni sul client dalla proprietà di contesto
 
-Per ottenere informazioni sul client, utilizzare il `Context` proprietà della classe di Hub. Il `Context` proprietà restituisce un [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx) oggetto che fornisce l'accesso alle informazioni seguenti:
+Per ottenere informazioni sul client, utilizzare il `Context` proprietà della classe di Hub. Il `Context` proprietà restituisce un [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) oggetto che fornisce l'accesso alle informazioni seguenti:
 
 - L'ID di connessione del client chiamante.
 
@@ -578,7 +578,7 @@ In Visual Basic.NET o in un hub fortemente tipizzato, l'oggetto di stato del chi
 Per gestire gli errori che si verificano nei metodi di classe di Hub, utilizzare uno o più dei metodi seguenti:
 
 - Eseguire il wrapping del codice del metodo in blocchi try-catch e accedere all'oggetto eccezione. Ai fini del debug è possibile inviare l'eccezione al client, ma per la sicurezza non sono consigliabile motivi l'invio di informazioni dettagliate per i client nell'ambiente di produzione.
-- Creare un modulo di pipeline hub che gestisce il [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metodo. Nell'esempio seguente viene illustrato un modulo di pipeline che registra gli errori, seguiti dal codice in Startup.cs che inserisce il modulo nella pipeline di hub.
+- Creare un modulo di pipeline hub che gestisce il [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metodo. Nell'esempio seguente viene illustrato un modulo di pipeline che registra gli errori, seguiti dal codice in Startup.cs che inserisce il modulo nella pipeline di hub.
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample61.cs)]
 
@@ -674,4 +674,4 @@ Nell'esempio di codice il *Startup.cs* file registra il modulo per l'esecuzione 
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample77.cs?highlight=3)]
 
-Esistono diversi metodi che è possibile eseguire l'override. Per un elenco completo, vedere [HubPipelineModule metodi](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx).
+Esistono diversi metodi che è possibile eseguire l'override. Per un elenco completo, vedere [HubPipelineModule metodi](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

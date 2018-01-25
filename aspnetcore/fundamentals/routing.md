@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing di ASP.NET Core
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Questo modello corrisponderanno a un percorso URL come `/Products/Details/17` ed estrarre i valori della route `{ controller = Products, action = Details, id = 17 }`. I valori della route sono determinati da suddividere il percorso dell'URL in segmenti una e la corrispondenza di ogni segmento con il *parametro di route* nel modello di route. Sono denominati parametri di route. Vengono definiti da racchiudere il nome del parametro tra parentesi graffe `{ }`.
+Questo modello corrisponderanno a un percorso URL come `/Products/Details/17` ed estrarre i valori della route `{ controller = Products, action = Details, id = 17 }`. I valori della route sono determinati da suddividere il percorso dell'URL in segmenti una e la corrispondenza di ogni segmento con il *parametro di route* nel modello di route. Sono denominati parametri di route. Sono definiti da racchiudere il nome del parametro tra parentesi graffe `{ }`.
 
-Il modello può anche corrispondere il percorso URL `/` e potrebbe creare i valori `{ controller = Home, action = Index }`. Ciò accade perché il `{controller}` e `{action}` i parametri di route hanno valori predefiniti e `id` parametro di route è facoltativo. Uguale `=` sign seguita da un valore dopo il nome del parametro di route definisce un valore predefinito per il parametro. Un punto interrogativo `?` dopo il nome del parametro di route definisce il parametro come facoltativi. Parametri con un valore predefinito della route *sempre* producono un valore di route, se la route corrisponde, i parametri facoltativi non produrrà un valore di route se si è verificato alcun segmento di percorso URL corrispondente.
+Il modello può anche corrispondere il percorso URL `/` e potrebbe creare i valori `{ controller = Home, action = Index }`. Ciò accade perché il `{controller}` e `{action}` i parametri di route hanno valori predefiniti e `id` parametro di route è facoltativo. Uguale `=` sign seguita da un valore dopo il nome del parametro di route definisce un valore predefinito per il parametro. Un punto interrogativo `?` dopo il nome del parametro di route definisce il parametro come facoltativi. Parametri con un valore predefinito della route *sempre* producono un valore di route, se la route corrisponde, parametri facoltativi non producono un valore di route, se si è verificato alcun segmento di percorso URL corrispondente.
 
 Vedere [al riferimento di modello di route](#route-template-reference) per una descrizione completa della sintassi e le caratteristiche del modello di route.
 
@@ -255,7 +255,7 @@ Il `Map[Verb]` metodi utilizzano i vincoli per limitare la route per il verbo HT
 
 ## <a name="route-template-reference"></a>Riferimento del modello di route
 
-Token all'interno delle parentesi graffe (`{ }`) definire *parametri della route* che verrà associato se esiste una corrispondenza per la route. È possibile definire più di un parametro di route in un segmento di route, ma devono essere separati da un valore letterale. Ad esempio `{controller=Home}{action=Index}` non sarebbe una route valida, poiché è presente alcun valore letterale tra `{controller}` e `{action}`. Questi parametri di route devono avere un nome e possono avere attributi aggiuntivi specificato.
+Token all'interno delle parentesi graffe (`{ }`) definire *parametri della route* che verrà associato se esiste una corrispondenza per la route. È possibile definire più di un parametro di route in un segmento di route, ma devono essere separati da un valore letterale. Ad esempio `{controller=Home}{action=Index}` sarebbe una route valida, poiché è presente alcun valore letterale tra `{controller}` e `{action}`. Questi parametri di route devono avere un nome e possono avere attributi aggiuntivi specificato.
 
 Testo letterale diverso da parametri di route (ad esempio, `{id}`) e il separatore di percorso `/` deve corrispondere il testo nell'URL. Criteri di testo è in base alla rappresentazione del percorso URL decodificato con distinzione tra maiuscole e minuscole. In modo che corrisponda il delimitatore di parametro di route letterale `{` o `}`, ripetendo il carattere di escape (`{{` o `}}`).
 
@@ -317,7 +317,7 @@ Nella tabella seguente illustra alcuni vincoli della route e il relativo comport
 | `required`  | `{name:required}` | `Rick` |  Utilizzato per imporre che un valore di parametro non è presente durante la generazione di URL |
 
 >[!WARNING]
-> Vincoli della route per verificare l'URL possono essere convertiti in un tipo CLR (ad esempio `int` o `DateTime`) utilizzare sempre le impostazioni cultura invarianti, si presuppone l'URL è non localizzabile. I vincoli della route forniti dal framework non modificare i valori archiviati nei valori di route. Tutti i valori di route analizzati dall'URL vengono archiviati come stringhe. Ad esempio, il [il vincolo di route Float](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) tenterà di convertire il valore di route per un valore float, ma il valore convertito viene utilizzato solo per verificare che può essere convertito in un valore float.
+> Vincoli della route per verificare l'URL possono essere convertiti in un tipo CLR (ad esempio `int` o `DateTime`) utilizzare sempre le impostazioni cultura invarianti, si presuppone l'URL è non localizzabile. I vincoli della route forniti dal framework non modificano i valori archiviati nei valori di route. Tutti i valori di route analizzati dall'URL vengono archiviati come stringhe. Ad esempio, il [il vincolo di route Float](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) tenterà di convertire il valore di route per un valore float, ma il valore convertito viene utilizzato solo per verificare che può essere convertito in un valore float.
 
 ## <a name="regular-expressions"></a>Espressioni regolari 
 

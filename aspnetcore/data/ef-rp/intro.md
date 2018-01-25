@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: bea3b12ebe476c4b59abe117393b0ec8bb7f0306
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Introduzione a Entity Framework Core con Visual Studio (1 di 8) e di pagine Razor
 
@@ -179,7 +179,7 @@ La stringa di connessione precedente utilizza `ConnectRetryCount=0` per impedire
 
 ### <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
 
-La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine ed è destinato per lo sviluppo di app non uso in produzione. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file DB il `C:/Users/<user>` directory.
+La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine ed è destinato per lo sviluppo di app non uso in produzione. LocalDB viene avviato su richiesta e viene eseguito in modalità utente, pertanto non c'è alcuna configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file DB il `C:/Users/<user>` directory.
 
 ## <a name="add-code-to-initialize-the-db-with-test-data"></a>Aggiungere codice per inizializzare il database con dati di test
 

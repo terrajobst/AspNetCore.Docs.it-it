@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d6a9c6aef42d1f165567d1a1802bffa853a320e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>La visualizzazione di più record per ogni riga con il controllo DataList (VB)
 ====================
@@ -67,7 +67,7 @@ Richiedere qualche istante per visitare la pagina in un browser. Come illustrato
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Passaggio 2: Modificare la direzione del Layout s DataList
 
-Durante il comportamento predefinito per il controllo DataList è per disporre gli elementi verticalmente in una tabella a colonna singola, con più righe, questo comportamento può facilmente essere modificato tramite DataList s [ `RepeatDirection` proprietà](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx). Il `RepeatDirection` proprietà può accettare uno dei due valori possibili: `Horizontal` o `Vertical` (impostazione predefinita).
+Durante il comportamento predefinito per il controllo DataList è per disporre gli elementi verticalmente in una tabella a colonna singola, con più righe, questo comportamento può facilmente essere modificato tramite DataList s [ `RepeatDirection` proprietà](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). Il `RepeatDirection` proprietà può accettare uno dei due valori possibili: `Horizontal` o `Vertical` (impostazione predefinita).
 
 Modificando il `RepeatDirection` proprietà `Vertical` a `Horizontal`, DataList esegue il rendering i record in una singola riga, la creazione di una colonna per ogni elemento dell'origine dati. Per illustrare questo effetto, fare clic sul controllo DataList nella finestra di progettazione e quindi, dalla finestra delle proprietà, modificare il `RepeatDirection` proprietà `Vertical` a `Horiztonal`. Immediatamente in questo caso, la finestra di progettazione adatta DataList s, creazione di un'interfaccia a riga singola, a più colonne (vedere la figura 3).
 
@@ -87,7 +87,7 @@ La visualizzazione di piccole quantità di dati, una singola riga, a più colonn
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Passaggio 3: La visualizzazione dei dati in una tabella a più colonne, con più righe
 
-Per creare un controllo DataList a più colonne, con più righe, è necessario impostare il [ `RepeatColumns` proprietà](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) al numero di colonne da visualizzare. Per impostazione predefinita, il `RepeatColumns` è impostata su 0, che provoca il DataList visualizzare tutti gli elementi in una singola riga o una colonna (in base al valore di `RepeatDirection` proprietà).
+Per creare un controllo DataList a più colonne, con più righe, è necessario impostare il [ `RepeatColumns` proprietà](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) al numero di colonne da visualizzare. Per impostazione predefinita, il `RepeatColumns` è impostata su 0, che provoca il DataList visualizzare tutti gli elementi in una singola riga o una colonna (in base al valore di `RepeatDirection` proprietà).
 
 Per questo esempio, consentire s visualizzare tre prodotti per ogni riga della tabella. Pertanto, impostare il `RepeatColumns` proprietà su 3. Dopo aver apportato questa modifica, richiedere qualche istante per visualizzare i risultati in un browser. Come illustrato nella figura 5, i prodotti sono ora elencati in una tabella con più righe con tre colonne.
 

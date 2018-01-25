@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69f73085198c79c01988aab9e63f3ce9e7647034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Creazione di un Layout a livello di sito utilizzando le pagine Master (VB)
 ====================
@@ -60,7 +60,7 @@ Creazione di un sito Web con un layout di pagina a livello di sito coerente, è 
 
 Esistono diverse tecniche per la creazione di pagine web con un aspetto coerente. Un approccio naïve è semplicemente copiare e incollare il markup di layout comuni a tutte le pagine web, ma questo approccio presenta numerosi svantaggi. Per iniziare, ogni volta che viene creata una nuova pagina, è necessario ricordarsi di copiare e incollare il contenuto condiviso nella pagina. Tali copiando e incollando le operazioni sono particolarmente adatto per errore accidentalmente, è possibile copiare solo un subset del markup condiviso in una nuova pagina. E per primi, questo approccio rende sostituendo l'aspetto a livello di sito esistente con una nuova istanza di una reale sofferenza perché ogni singola pagina del sito deve essere modificata per utilizzare il nuovo aspetto.
 
-Prima di ASP.NET versione 2.0, pagina sviluppatori spesso inseriti markup comuni in [controlli utente](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx) e quindi aggiungere questi controlli utente a ogni pagina. Questo approccio è necessario che lo sviluppatore della pagina è necessario aggiungere manualmente i controlli utente a ogni nuova pagina, ma è consentita per le modifiche a livello di sito più semplice perché quando si aggiorna il markup comune solo i controlli utente devono essere modificate. Purtroppo, Visual Studio .NET 2002 e 2003 - le versioni di Visual Studio utilizzato per creare le applicazioni ASP.NET 1. x - eseguito il rendering di controlli utente nella visualizzazione progettazione come caselle di colore grigio. Di conseguenza, gli sviluppatori di pagina utilizzando questo approccio non gode di un ambiente in fase di progettazione WYSIWYG.
+Prima di ASP.NET versione 2.0, pagina sviluppatori spesso inseriti markup comuni in [controlli utente](https://msdn.microsoft.com/library/y6wb1a0e.aspx) e quindi aggiungere questi controlli utente a ogni pagina. Questo approccio è necessario che lo sviluppatore della pagina è necessario aggiungere manualmente i controlli utente a ogni nuova pagina, ma è consentita per le modifiche a livello di sito più semplice perché quando si aggiorna il markup comune solo i controlli utente devono essere modificate. Purtroppo, Visual Studio .NET 2002 e 2003 - le versioni di Visual Studio utilizzato per creare le applicazioni ASP.NET 1. x - eseguito il rendering di controlli utente nella visualizzazione progettazione come caselle di colore grigio. Di conseguenza, gli sviluppatori di pagina utilizzando questo approccio non gode di un ambiente in fase di progettazione WYSIWYG.
 
 Gli svantaggi dell'uso di controlli utente sono stati risolti in ASP.NET versione 2.0 e Visual Studio 2005 con l'introduzione di *pagine master*. Una pagina master è un tipo speciale di pagina ASP.NET che definisce i markup a livello di sito e *aree* dove associata *il contenuto di pagine* definire i tag personalizzati. Come verrà illustrato nel passaggio 1, queste aree sono definite dai controlli ContentPlaceHolder. Il controllo ContentPlaceHolder indica semplicemente una posizione nella gerarchia dei controlli della pagina master in cui il contenuto personalizzato può essere inserito da una pagina contenuta.
 
@@ -95,7 +95,7 @@ Ora che sono stati illustrati funzionamento delle pagine master, diamo un'occhia
 Prima di è possibile esplorare la creazione e utilizzo delle pagine master e di contenuto, è necessario innanzitutto un sito Web ASP.NET. Iniziare creando un nuovo file system basato su sito Web ASP.NET. A tale scopo, avviare Visual Web Developer e quindi passare al menu File e scegliere Nuovo sito Web, visualizzare la finestra di dialogo Nuovo sito Web (vedere la figura 4). Scegliere il modello di sito Web ASP.NET, impostare l'elenco di riepilogo a discesa percorso al File System, scegliere una cartella in cui inserire il sito web e impostare la lingua di Visual Basic. Verrà creato un nuovo sito web con un `Default.aspx` pagina ASP.NET, un `App_Data` cartella e un `Web.config` file.
 
 > [!NOTE]
-> Visual Studio supporta due modalità di gestione dei progetti: progetti di siti Web e progetti di applicazione Web. Progetti di sito Web non dispongono di un file di progetto, mentre i progetti di applicazione Web simulare l'architettura di progetto in Visual Studio .NET 2002/2003 - includono un file di progetto e compilare codice sorgente del progetto in un singolo assembly, che viene inserito nella `/bin` cartella. Visual Studio 2005 inizialmente solo supportati progetti di sito Web, sebbene il modello di progetto di applicazione Web è stato reintrodotto con Service Pack 1. Visual Studio 2008 offre entrambi i modelli di progetto. Visual Web Developer 2005 e 2008 edizioni, tuttavia, supportano solo progetti di siti Web. Usare il modello di progetto di sito Web per la demo in questa serie di esercitazioni. Se si utilizza un'edizione non Express e si desidera utilizzare il [modello di progetto di applicazione Web](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx) , invece, è possibile eseguire questa operazione, ma tenere presente che potrebbero esistere alcune discrepanze tra sullo schermo e i passaggi da eseguire e il le schermate visualizzate e alle istruzioni fornite in queste esercitazioni.
+> Visual Studio supporta due modalità di gestione dei progetti: progetti di siti Web e progetti di applicazione Web. Progetti di sito Web non dispongono di un file di progetto, mentre i progetti di applicazione Web simulare l'architettura di progetto in Visual Studio .NET 2002/2003 - includono un file di progetto e compilare codice sorgente del progetto in un singolo assembly, che viene inserito nella `/bin` cartella. Visual Studio 2005 inizialmente solo supportati progetti di sito Web, sebbene il modello di progetto di applicazione Web è stato reintrodotto con Service Pack 1. Visual Studio 2008 offre entrambi i modelli di progetto. Visual Web Developer 2005 e 2008 edizioni, tuttavia, supportano solo progetti di siti Web. Usare il modello di progetto di sito Web per la demo in questa serie di esercitazioni. Se si utilizza un'edizione non Express e si desidera utilizzare il [modello di progetto di applicazione Web](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) , invece, è possibile eseguire questa operazione, ma tenere presente che potrebbero esistere alcune discrepanze tra sullo schermo e i passaggi da eseguire e il le schermate visualizzate e alle istruzioni fornite in queste esercitazioni.
 
 
 [![Creare un nuovo sistema basato su sito Web di File](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
@@ -115,7 +115,7 @@ Aggiunta di un nuovo file pagina master tramite Visual Web Developer crea una pa
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-È la prima riga nel markup dichiarativo di [ `@Master` direttiva](https://msdn.microsoft.com/en-us/library/ms228176.aspx). Il `@Master` è simile alla direttiva di [ `@Page` direttiva](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx) che viene visualizzato nelle pagine ASP.NET. Definisce il linguaggio sul lato server (VB) e le informazioni relative alla posizione e l'ereditarietà di classe code-behind della pagina master.
+È la prima riga nel markup dichiarativo di [ `@Master` direttiva](https://msdn.microsoft.com/library/ms228176.aspx). Il `@Master` è simile alla direttiva di [ `@Page` direttiva](https://msdn.microsoft.com/library/ydy4x04a.aspx) che viene visualizzato nelle pagine ASP.NET. Definisce il linguaggio sul lato server (VB) e le informazioni relative alla posizione e l'ereditarietà di classe code-behind della pagina master.
 
 Il `DOCTYPE` e markup dichiarativo della pagina verrà visualizzata sotto il `@Master` direttiva. La pagina include HTML statico con quattro controlli sul lato server:
 
@@ -163,7 +163,7 @@ Nel corso degli anni ho creato un numero di applicazioni web ASP.NET per le azie
 Per fortuna, esistono innumerous siti Web che offrono modelli di progettazione HTML gratuiti - Google restituito più di sei milioni di risultati per il termine di ricerca "modelli di siti Web disponibile". Uno di quelli personali Preferiti è [OpenDesigns.org](http://opendesigns.org/). Dopo aver individuato un modello di sito Web che si desidera, aggiungere il file CSS e le immagini al progetto di sito Web e integrazione HTML del modello nella pagina master.
 
 > [!NOTE]
-> Microsoft offre inoltre una serie di [ASP.NET progettazione avvia Kit di modelli gratuiti](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx) che integrare la finestra di dialogo Nuovo sito Web in Visual Studio.
+> Microsoft offre inoltre una serie di [ASP.NET progettazione avvia Kit di modelli gratuiti](https://msdn.microsoft.com/asp.net/aa336613.aspx) che integrare la finestra di dialogo Nuovo sito Web in Visual Studio.
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>Passaggio 2: Creazione associata pagine di contenuto
@@ -272,8 +272,8 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [ASP.NET per le finestre di progettazione: libero di modelli di progettazione e informazioni aggiuntive sulla compilazione di siti Web ASP.NET utilizzando gli standard Web](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [Cenni preliminari sulle pagine Master ASP.NET](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET per le finestre di progettazione: libero di modelli di progettazione e informazioni aggiuntive sulla compilazione di siti Web ASP.NET utilizzando gli standard Web](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [Cenni preliminari sulle pagine Master ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Le esercitazioni di fogli di stile (CSS)](http://www.w3schools.com/css/default.asp)
 - [Impostazione in modo dinamico il titolo della pagina](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [Pagine master in ASP.NET](http://www.odetocode.com/articles/419.aspx)

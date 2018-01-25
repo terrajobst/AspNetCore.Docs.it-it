@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementare il Repository e l'unità di lavoro modelli in un'applicazione ASP.NET MVC (9 di 10)
 ====================
@@ -45,15 +45,15 @@ Nella figura seguente viene illustrato un modo per realizzare le relazioni tra i
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-Unit test non vengono creati in questa serie di esercitazioni. Per un'introduzione ai TDD con un'applicazione MVC che utilizza il modello di repository, vedere [procedura dettagliata: utilizzo TDD con ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ff847525.aspx). Per ulteriori informazioni sul modello di repository, vedere le risorse seguenti:
+Unit test non vengono creati in questa serie di esercitazioni. Per un'introduzione ai TDD con un'applicazione MVC che utilizza il modello di repository, vedere [procedura dettagliata: utilizzo TDD con ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Per ulteriori informazioni sul modello di repository, vedere le risorse seguenti:
 
-- [Il modello di Repository](https://msdn.microsoft.com/en-us/library/ff649690.aspx) su MSDN.
+- [Il modello di Repository](https://msdn.microsoft.com/library/ff649690.aspx) su MSDN.
 - [Utilizzo di modelli Repository e unità di lavoro con Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) nel blog del team di Entity Framework.
 - [Agile Entity Framework 4 Repository](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serie di post sul blog di Julie Lerman.
 - [La creazione di Account in un'applicazione HTML5/jQuery immediatamente](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) sul blog di Dan Wahlin.
 
 > [!NOTE]
-> Esistono diversi modi per implementare il repository e l'unità di lavoro modelli. È possibile utilizzare le classi del repository con o senza una classe di unità di lavoro. È possibile implementare un singolo repository per tutti i tipi di entità, o uno per ogni tipo. Se si implementa uno per ogni tipo, è possibile utilizzare classi separate, una classe base generica e le classi derivate, o una classe base e le classi derivate. È possibile includere la logica di business nel repository o applicare restrizioni a logica di accesso ai dati. È anche possibile compilare un livello di astrazione nella classe di contesto di database utilizzando [IDbSet](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx) sono interfacce anziché [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) tipi per i set di entità. L'approccio all'implementazione di un livello di astrazione illustrato in questa esercitazione è una delle opzioni da prendere in considerazione, non una raccomandazione per tutti gli ambienti e scenari.
+> Esistono diversi modi per implementare il repository e l'unità di lavoro modelli. È possibile utilizzare le classi del repository con o senza una classe di unità di lavoro. È possibile implementare un singolo repository per tutti i tipi di entità, o uno per ogni tipo. Se si implementa uno per ogni tipo, è possibile utilizzare classi separate, una classe base generica e le classi derivate, o una classe base e le classi derivate. È possibile includere la logica di business nel repository o applicare restrizioni a logica di accesso ai dati. È anche possibile compilare un livello di astrazione nella classe di contesto di database utilizzando [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) sono interfacce anziché [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) tipi per i set di entità. L'approccio all'implementazione di un livello di astrazione illustrato in questa esercitazione è una delle opzioni da prendere in considerazione, non una raccomandazione per tutti gli ambienti e scenari.
 
 
 ## <a name="creating-the-student-repository-class"></a>Creazione della classe di Repository per studenti
@@ -74,7 +74,7 @@ Il contesto di database viene definito in una variabile di classe e il costrutto
 
 È possibile creare un'istanza di un nuovo contesto nel repository, ma quindi se si utilizza più repository in un controller, ogni sarebbe necessario un contesto separato. In un secondo momento si userà più repository di `Course` controller, è possibile notare come un'unità di lavoro classe può garantire che tutti i repository utilizzano lo stesso contesto.
 
-Implementa il repository [IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx) ed elimina il contesto del database è stato illustrato in precedenza nel controller e i metodi CRUD effettuano chiamate nel contesto del database nell'analogo a quello illustrato in precedenza.
+Implementa il repository [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) ed elimina il contesto del database è stato illustrato in precedenza nel controller e i metodi CRUD effettuano chiamate nel contesto del database nell'analogo a quello illustrato in precedenza.
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>Modificare il Controller di studenti per usare il Repository
 
@@ -245,7 +245,7 @@ La pagina analizza e funziona allo stesso modo era prima che le modifiche e le a
 
 ## <a name="summary"></a>Riepilogo
 
-Sono state implementate del repository e l'unità di lavoro modelli. È stato utilizzato espressioni lambda come parametri del metodo nel repository generico. Per ulteriori informazioni su come usare queste espressioni con un `IQueryable` , vedere [IQueryable(T) interfaccia (LINQ)](https://msdn.microsoft.com/en-us/library/bb351562.aspx) in MSDN Library. Nella prossima esercitazione verrà illustrato come gestire alcune i scenari avanzati.
+Sono state implementate del repository e l'unità di lavoro modelli. È stato utilizzato espressioni lambda come parametri del metodo nel repository generico. Per ulteriori informazioni su come usare queste espressioni con un `IQueryable` , vedere [IQueryable(T) interfaccia (LINQ)](https://msdn.microsoft.com/library/bb351562.aspx) in MSDN Library. Nella prossima esercitazione verrà illustrato come gestire alcune i scenari avanzati.
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [mappa del contenuto ASP.NET dati accesso](../../../../whitepapers/aspnet-data-access-content-map.md).
 

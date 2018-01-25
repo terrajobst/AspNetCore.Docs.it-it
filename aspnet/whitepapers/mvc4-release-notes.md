@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc4-release-notes
-title: ASP.NET MVC 4 | Documenti Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: Questo documento descrive la versione di ASP.NET MVC 4.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
     - [Migrazioni di database](#_Toc303253818)
     - [Modello di progetto vuoto](#_Toc303253819)
     - [Aggiungi Controller a qualsiasi cartella del progetto](#_Toc303253820)
-    - [Bundling and Minification](#_Toc303253821)
+    - [Creazione di bundle e minimizzazione](#_Toc303253821)
     - [Abilitazione di account di accesso di Facebook e ad altri siti con OAuth e OpenID](#_Toc303253822)
 - [Aggiornamento di un progetto ASP.NET MVC 3 ad ASP.NET MVC 4](#_Toc303253806)
 - [Modifiche dalla versione finale candidata di ASP.NET MVC 4](#_Toc303253817)
@@ -61,7 +61,7 @@ ASP.NET MVC 4 può essere installato ed eseguito side-by-side con ASP.NET MVC 3.
 
 Documentazione per ASP.NET MVC è disponibile nel sito Web MSDN all'URL seguente:
 
-[https://go.microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Esercitazioni e altre informazioni su ASP.NET MVC sono disponibili nella pagina del sito Web ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -271,7 +271,7 @@ Le modifiche principali da ASP.NET MVC 4 Release Candidate in questa versione so
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Gestione pacchetti NuGet non viene installato durante l'installazione di ASP.NET MVC 4 per le installazioni affiancate di Visual Studio 2010 e Visual Web Developer 2010.** Per eseguire Visual Studio 2010 e Visual Web Developer 2010 in modo affiancato con ASP.NET MVC 4 è necessario installare ASP.NET MVC 4 dopo entrambe le versioni di Visual Studio sono già installate.
 - **La disinstallazione di ASP.NET MVC 4 ha esito negativo se i prerequisiti sono già stati disinstallati.** Per disinstallare correttamente ASP.NET MVC 4you necessario disinstallare ASP.NET MVC 4 prima di disinstallare Visual Studio.
-- **L'installazione di ASP.NET MVC 4 interrompe le applicazioni ASP.NET MVC 3 RTM.** Le applicazioni ASP.NET MVC 3 che sono state create con la versione RTM versione (non con il [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/en-us/download/details.aspx?id=1491) rilasciare) richiedono le seguenti modifiche per il funzionamento side-by-side con ASP.NET MVC 4. Compilazione del progetto senza apportare questi risultati gli aggiornamenti in errori di compilazione. 
+- **L'installazione di ASP.NET MVC 4 interrompe le applicazioni ASP.NET MVC 3 RTM.** Le applicazioni ASP.NET MVC 3 che sono state create con la versione RTM versione (non con il [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491) rilasciare) richiedono le seguenti modifiche per il funzionamento side-by-side con ASP.NET MVC 4. Compilazione del progetto senza apportare questi risultati gli aggiornamenti in errori di compilazione. 
 
     **Aggiornamenti necessari**
 

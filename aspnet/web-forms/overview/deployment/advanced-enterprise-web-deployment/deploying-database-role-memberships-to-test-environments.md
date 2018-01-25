@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: ac780c6cd522f9216cafe3b5f23772ef6ebf5d11
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Appartenenze al ruolo del Database di distribuzione per gli ambienti di Test
 ====================
@@ -87,7 +87,7 @@ Idealmente, è necessario eseguire qualsiasi script di Transact-SQL necessarie c
 
 
 > [!NOTE]
-> Per ulteriori informazioni sulle opzioni della riga di comando sqlcmd, vedere [utilità sqlcmd](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+> Per ulteriori informazioni sulle opzioni della riga di comando sqlcmd, vedere [utilità sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
 
 Prima di incorporare questo comando in una destinazione di MSBuild, è necessario determinare in quali condizioni in cui l'esecuzione dello script:
@@ -130,7 +130,7 @@ In questo argomento viene descritto un modo in cui è possibile aggiungere gli u
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sull'utilizzo VSDBCMD per distribuire i progetti di database, vedere [progetti di Database di distribuzione](../web-deployment-in-the-enterprise/deploying-database-projects.md). Per istruzioni sulla personalizzazione delle distribuzioni di database per gli ambienti di destinazione diverso, vedere [personalizzazione delle distribuzioni di Database per più ambienti](customizing-database-deployments-for-multiple-environments.md). Per ulteriori informazioni sull'utilizzo dei file di progetto MSBuild personalizzati per controllare il processo di distribuzione, vedere [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) e [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Per ulteriori informazioni sulle opzioni della riga di comando sqlcmd, vedere [utilità sqlcmd](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+Per ulteriori informazioni sull'utilizzo VSDBCMD per distribuire i progetti di database, vedere [progetti di Database di distribuzione](../web-deployment-in-the-enterprise/deploying-database-projects.md). Per istruzioni sulla personalizzazione delle distribuzioni di database per gli ambienti di destinazione diverso, vedere [personalizzazione delle distribuzioni di Database per più ambienti](customizing-database-deployments-for-multiple-environments.md). Per ulteriori informazioni sull'utilizzo dei file di progetto MSBuild personalizzati per controllare il processo di distribuzione, vedere [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) e [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Per ulteriori informazioni sulle opzioni della riga di comando sqlcmd, vedere [utilità sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](customizing-database-deployments-for-multiple-environments.md)

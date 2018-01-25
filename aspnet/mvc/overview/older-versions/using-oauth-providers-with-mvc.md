@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Utilizzo di provider OAuth con MVC 4
 ====================
@@ -148,7 +148,7 @@ Se si desidera abilitare l'autenticazione esterna, termine. Tuttavia, è possibi
 
 Come evidenziato nelle sezioni precedenti, non è necessario recuperare informazioni aggiuntive per la registrazione dell'account predefinito funzionare. Tuttavia, provider esterni più passare nuovamente ulteriori informazioni sull'utente. Nelle sezioni seguenti viene illustrato come mantenere tali informazioni e salvarlo in un database. In particolare, verranno mantenuti i valori per nome completo dell'utente, l'URI della pagina web personale dell'utente e un valore che indica se l'account ha verificato da Facebook.
 
-Si utilizzerà [migrazioni Code First](https://msdn.microsoft.com/en-us/data/jj591621) per aggiungere una tabella per archiviare informazioni utente aggiuntive. Si aggiunge la tabella a un database esistente, pertanto è necessario innanzitutto creare uno snapshot del database corrente. Creando uno snapshot del database corrente, è possibile creare in un secondo momento una migrazione che contiene solo la nuova tabella. Per creare uno snapshot del database corrente:
+Si utilizzerà [migrazioni Code First](https://msdn.microsoft.com/data/jj591621) per aggiungere una tabella per archiviare informazioni utente aggiuntive. Si aggiunge la tabella a un database esistente, pertanto è necessario innanzitutto creare uno snapshot del database corrente. Creando uno snapshot del database corrente, è possibile creare in un secondo momento una migrazione che contiene solo la nuova tabella. Per creare uno snapshot del database corrente:
 
 1. Aprire il **Console di gestione pacchetti**
 2. Eseguire il comando **enable-migrations**

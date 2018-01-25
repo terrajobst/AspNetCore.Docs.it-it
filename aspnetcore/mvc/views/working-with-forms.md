@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introduzione all'utilizzo di helper di tag nei form in ASP.NET Core
 
@@ -22,7 +22,7 @@ Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twi
 
 Questo documento viene illustrato l'utilizzo di moduli e gli elementi HTML comunemente usati in un Form. Il codice HTML [modulo](https://www.w3.org/TR/html401/interact/forms.html) elemento fornisce l'uso di App web meccanismo principale per inviare dati al server. La maggior parte di questo documento descrive [gli helper di Tag](tag-helpers/intro.md) e come consentono in modo produttivo creare form HTML affidabile. È consigliabile leggere [introduzione per gli helper di Tag](tag-helpers/intro.md) prima di leggere questo documento.
 
-In molti casi, l'helper HTML forniscono un'alternativa a un Helper Tag specifici, ma è importante tenere presente che gli helper di Tag non sostituiscono l'helper HTML e non esiste un Helper di Tag per ogni HTML Helper. Se esiste un'alternativa di HTML Helper, è già indicato.
+In molti casi, l'helper HTML forniscono un'alternativa a un Helper Tag specifici, ma è importante tenere presente che gli helper di Tag non sostituisce l'helper HTML e non esiste un Helper di Tag per ogni HTML Helper. Se esiste un'alternativa di HTML Helper, è già indicato.
 
 <a name="my-asp-route-param-ref-label"></a>
 
@@ -86,7 +86,7 @@ L'Helper di Tag di Input:
 
 * Imposta il codice HTML `type` valore in base al tipo di modello dell'attributo e [annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) gli attributi applicati per la proprietà del modello
 
-* Il codice HTML non comporta la sovrascrittura `type` quando è specificato un valore dell'attributo
+* Non sovrascrivere il codice HTML `type` quando è specificato un valore dell'attributo
 
 * Genera l'errore [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) gli attributi di convalida da [annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) gli attributi applicati alle proprietà del modello
 
@@ -159,7 +159,7 @@ Le annotazioni dei dati applicate al `Email` e `Password` proprietà generano me
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternative di HTML Helper per l'Helper di Tag di Input
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` e `Html.EditorFor` sovrapposti funzionalità con l'Helper di Tag di Input. L'Helper di Tag di Input verrà impostato automaticamente il `type` attributo; `Html.TextBox` e `Html.TextBoxFor` No. `Html.Editor`e `Html.EditorFor` gestire raccolte, gli oggetti complessi e i modelli; non l'Helper di Tag di Input. L'Helper di Tag di Input, `Html.EditorFor` e `Html.TextBoxFor` sono fortemente tipizzati (usano le espressioni lambda); `Html.TextBox` e `Html.Editor` non (utilizzano i nomi delle espressioni).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` e `Html.EditorFor` sovrapposti funzionalità con l'Helper di Tag di Input. L'Helper di Tag di Input verrà impostato automaticamente il `type` attributo; `Html.TextBox` e `Html.TextBoxFor` non. `Html.Editor`e `Html.EditorFor` gestire raccolte, gli oggetti complessi e i modelli; non l'Helper di Tag di Input. L'Helper di Tag di Input, `Html.EditorFor` e `Html.TextBoxFor` sono fortemente tipizzati (usano le espressioni lambda); `Html.TextBox` e `Html.Editor` non (utilizzano i nomi delle espressioni).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
@@ -436,7 +436,7 @@ Che genera il codice HTML seguente (con "CA" selezionata):
 ```
 
 > [!NOTE]
-> Non è consigliabile utilizzare `ViewBag` o `ViewData` con l'Helper di Tag selezionare. Un modello di visualizzazione è più affidabile di fornire metadati MVC e in genere meno problematici.
+> Non è consigliabile usare `ViewBag` o `ViewData` con l'Helper di Tag selezionare. Un modello di visualizzazione è più affidabile di fornire metadati MVC e in genere meno problematici.
 
 Il `asp-for` valore dell'attributo è un caso speciale e non richiede un `Model` prefisso, non altri attributi Helper di Tag (ad esempio `asp-items`)
 
@@ -549,7 +549,7 @@ Il *Views/Shared/EditorTemplates/CountryViewModel.cshtml* modello:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-Aggiunta di HTML [ \<opzione >](https://www.w3.org/wiki/HTML/Elements/option) elementi non è limitato al *Nessuna selezione* case. Ad esempio, il metodo di visualizzazione e l'azione seguente genererà HTML simile al codice precedente:
+Aggiunta di HTML [ \<opzione >](https://www.w3.org/wiki/HTML/Elements/option) non è limitata agli elementi di *alcuna selezione* case. Ad esempio, il metodo di visualizzazione e l'azione seguente genererà HTML simile al codice precedente:
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 

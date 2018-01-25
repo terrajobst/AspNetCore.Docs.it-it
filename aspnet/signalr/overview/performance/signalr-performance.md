@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>Prestazioni di SignalR
 ====================
@@ -87,7 +87,7 @@ Poiché i messaggi vengono archiviati nel bus di messaggi nella memoria del serv
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Ottimizzazione delle prestazioni del server di SignalR
 
-Le impostazioni di configurazione seguente consente di ottimizzare il server per migliorare le prestazioni in un'applicazione di SignalR. Per informazioni generali su come migliorare le prestazioni in un'applicazione ASP.NET, vedere [miglioramento delle prestazioni di ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Le impostazioni di configurazione seguente consente di ottimizzare il server per migliorare le prestazioni in un'applicazione di SignalR. Per informazioni generali su come migliorare le prestazioni in un'applicazione ASP.NET, vedere [miglioramento delle prestazioni di ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **Impostazioni di configurazione di SignalR**
 
@@ -104,7 +104,7 @@ Le impostazioni di configurazione seguente consente di ottimizzare il server per
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: il numero massimo di richieste HTTP. sys che inserisce in coda per il pool di applicazioni. Quando la coda è piena, le nuove richieste ricevono una risposta 503 "Servizio non disponibile". Il valore predefinito è 1000.
 
-    Ridurre la lunghezza della coda per il processo di lavoro nel pool di applicazioni che ospita l'applicazione verrà risparmiare risorse di memoria. Per ulteriori informazioni, vedere [gestione, ottimizzazione e la configurazione di pool di applicazioni](https://technet.microsoft.com/en-us/library/cc745955.aspx).
+    Ridurre la lunghezza della coda per il processo di lavoro nel pool di applicazioni che ospita l'applicazione verrà risparmiare risorse di memoria. Per ulteriori informazioni, vedere [gestione, ottimizzazione e la configurazione di pool di applicazioni](https://technet.microsoft.com/library/cc745955.aspx).
 
 **Impostazioni di configurazione ASP.NET**
 
@@ -215,7 +215,7 @@ Le metriche seguenti misurano gli errori generati dal traffico di messaggi Signa
 
 Le metriche seguenti misurano il traffico e gli errori generati dal provider di scalabilità orizzontale. Oggetto **flusso** in questo contesto è un'unità di scala utilizzata dal provider di scalabilità orizzontale; si tratta di una tabella se viene utilizzato SQL Server, un argomento se viene utilizzato il Bus di servizio e una sottoscrizione se viene usato Redis. Ogni flusso garantisce ordinato operazioni di lettura e scrittura; un singolo flusso è un potenziale collo di bottiglia scala, pertanto può essere aumentato il numero di flussi per ridurre il collo di bottiglia. Se si utilizzano più flussi, SignalR distribuirà automaticamente i messaggi (partizione) tra i flussi in modo da garantire che i messaggi inviati da qualsiasi connessione specifica sono in ordine.
 
-Il [MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) permette di controllare la lunghezza della coda di invio di scalabilità orizzontale gestita da SignalR. Verrà impostata su un valore maggiore di 0 inseriranno tutti i messaggi in una coda di trasmissione da inviare al backplane di messaggistica configurato uno alla volta. Se le dimensioni della coda sono superiore alla lunghezza configurata, le chiamate successive a inviare verrà non riescono immediatamente con un [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx) fino a quando il numero di messaggi nella coda è minore dell'impostazione nuovamente. Accodamento messaggi sono disattivata per impostazione predefinita perché i ripiani posteriori di implementato delle hanno in genere il proprio flusso di controllo o Accodamento messaggi sul posto. Nel caso di SQL Server, è il pool di connessioni in modo efficace limita il numero delle trasmissioni accade in qualsiasi momento.
+Il [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) permette di controllare la lunghezza della coda di invio di scalabilità orizzontale gestita da SignalR. Verrà impostata su un valore maggiore di 0 inseriranno tutti i messaggi in una coda di trasmissione da inviare al backplane di messaggistica configurato uno alla volta. Se le dimensioni della coda sono superiore alla lunghezza configurata, le chiamate successive a inviare verrà non riescono immediatamente con un [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) fino a quando il numero di messaggi nella coda è minore dell'impostazione nuovamente. Accodamento messaggi sono disattivata per impostazione predefinita perché i ripiani posteriori di implementato delle hanno in genere il proprio flusso di controllo o Accodamento messaggi sul posto. Nel caso di SQL Server, è il pool di connessioni in modo efficace limita il numero delle trasmissioni accade in qualsiasi momento.
 
 Per impostazione predefinita, viene utilizzato un solo flusso per SQL Server e di Redis, cinque flussi vengono utilizzati per il Bus di servizio e accodamento è disabilitata, ma queste impostazioni possono essere modificate tramite la configurazione sul Server SQL e Bus di servizio:
 
@@ -280,6 +280,6 @@ Contatori delle prestazioni seguenti possono essere utili per monitorare le pres
 
 Per ulteriori informazioni sul monitoraggio e ottimizzazione delle prestazioni di ASP.NET, vedere gli argomenti seguenti:
 
-- [Cenni preliminari sulle prestazioni di ASP.NET](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [Cenni preliminari sulle prestazioni di ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [ASP.NET Thread Usage on IIS 6.0, IIS 7.5 e IIS 7.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; elemento (impostazioni Web)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; elemento (impostazioni Web)](https://msdn.microsoft.com/library/dd560842.aspx)

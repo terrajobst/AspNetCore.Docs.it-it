@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 96d3b8b82f78d8f6da85012aac8a1411cf297e26
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Lab pratico: Le applicazioni Web in tempo reale con SignalR
 ====================
@@ -263,7 +263,7 @@ Esistono attualmente tre tipi dei ripiani posteriori per SignalR:
 - **SQL Server**. SQL Server backplane scrive i messaggi alle tabelle SQL. Backplane utilizza Service Broker per la messaggistica efficiente. Tuttavia, funziona anche se Service Broker non è abilitato.
 - **Redis**. Redis è un archivio chiave-valore in memoria. Redis supporta un modello di pubblicazione/sottoscrizione ("pubblicazione/sottoscrizione") per l'invio di messaggi.
 
-Ogni messaggio viene inviato tramite un bus di messaggi. Implementa un bus di messaggi di [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfaccia, che fornisce un'astrazione di pubblicazione/sottoscrizione. Sostituendo il valore predefinito di lavoro dei ripiani posteriori delle **IMessageBus** con un bus progettato per tale backplane.
+Ogni messaggio viene inviato tramite un bus di messaggi. Implementa un bus di messaggi di [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfaccia, che fornisce un'astrazione di pubblicazione/sottoscrizione. Sostituendo il valore predefinito di lavoro dei ripiani posteriori delle **IMessageBus** con un bus progettato per tale backplane.
 
 Ogni istanza del server si connette al backplane tramite il bus. Quando viene inviato un messaggio, passa al backplane e backplane invia ogni server. Quando un server riceve un messaggio dal backplane, archivia il messaggio nella propria cache locale. Il server recapita i messaggi per i client dalla cache locale.
 

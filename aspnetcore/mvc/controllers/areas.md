@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 666be2da6b38ffb538ae3888ea879a4104c8fd12
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 87bf2eaad1c13d21412051be769992411f685e2e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="areas"></a>Aree
 
@@ -99,7 +99,7 @@ services.Configure<RazorViewEngineOptions>(options =>
    });
    ```
 
-Si noti che sono la struttura del *viste* cartella è l'unico che è considerata importante qui e il contenuto della parte restante delle cartelle come *controller* e *modelli* does **non** è rilevante. Ad esempio, è necessario non è un *controller* e *modelli* cartella affatto. Questo procedimento funziona perché il contenuto di *controller* e *modelli* è solo il codice che viene compilato in una DLL in cui come contenuto del *viste* non è presente fino a quando una richiesta a quella visualizzazione è stata trovata.
+Si noti che sono la struttura del *viste* cartella è l'unico che è considerata importante qui e il contenuto della parte restante delle cartelle come *controller* e *modelli* does **non** è rilevante. Ad esempio, è necessario non è un *controller* e *modelli* cartella affatto. Questo procedimento funziona perché il contenuto di *controller* e *modelli* è solo il codice che viene compilato in una DLL in cui come contenuto del *viste* non fino a quando una richiesta a quella visualizzazione è stata trovata.
 
 Dopo aver definito la gerarchia di cartelle, è necessario che ogni controller è associata a un'area per MVC. A tale scopo, aggiungendo il nome del controller con la `[Area]` attributo.
 
@@ -153,7 +153,7 @@ La selezione di `http://<yourApp>/products`, `Index` il metodo di azione del `Ho
 
   Sintassi di helper tag:`<a asp-action="Index">Go to Product's Home Page</a>`
 
-  Si noti che non sia base fornire i valori "area" e "controller" di seguito sono già disponibili nel contesto della richiesta corrente. Questo tipo di valori denominati `ambient` valori.
+  Si noti che non sia base fornire i valori "area" e "controller" in questo caso, in quanto sono già disponibili nel contesto della richiesta corrente. Questo tipo di valori denominati `ambient` valori.
 
 * Generazione di collegamenti da un'azione all'interno di un'area in base a un'altra azione su un controller diverso controller di
 

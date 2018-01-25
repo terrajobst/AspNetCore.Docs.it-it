@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Resilienza di connessione e comando di intercettazione con Entity Framework in un'applicazione MVC ASP.NET
 ====================
@@ -49,14 +49,14 @@ La funzionalità di resilienza di connessione deve essere configurata correttame
 
 È possibile configurare queste impostazioni manualmente per un ambiente di database supportate da un provider di Entity Framework, ma i valori predefiniti che in genere funzionano anche per un'applicazione in linea che utilizza Database SQL di Azure sono già stati configurati, e Queste sono le impostazioni implementate per l'applicazione Contoso University.
 
-È necessario eseguire per abilitare la resilienza di connessione è creare una classe nell'assembly da cui deriva il [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx) e in tale classe impostare il Database SQL *strategia di esecuzione*, che in EF è un altro termine per *criteri di ripetizione*.
+È necessario eseguire per abilitare la resilienza di connessione è creare una classe nell'assembly da cui deriva il [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) e in tale classe impostare il Database SQL *strategia di esecuzione*, che in EF è un altro termine per *criteri di ripetizione*.
 
 1. Nella cartella di DAL, aggiungere un file di classe denominato *SchoolConfiguration.cs*.
 2. Sostituire il codice del modello con il codice seguente:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework esegue automaticamente il codice si trova in una classe che deriva da `DbConfiguration`. È possibile utilizzare il `DbConfiguration` classe per eseguire attività di configurazione nel codice che si procede in caso contrario il *Web. config* file. Per ulteriori informazioni, vedere [EntityFramework basato sul codice di configurazione](https://msdn.microsoft.com/en-us/data/jj680699).
+    Entity Framework esegue automaticamente il codice si trova in una classe che deriva da `DbConfiguration`. È possibile utilizzare il `DbConfiguration` classe per eseguire attività di configurazione nel codice che si procede in caso contrario il *Web. config* file. Per ulteriori informazioni, vedere [EntityFramework basato sul codice di configurazione](https://msdn.microsoft.com/data/jj680699).
 3. In *StudentController.cs*, aggiungere un `using` istruzione per `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ La funzionalità di resilienza di connessione deve essere configurata correttame
 
     Si utilizzassero `DataException` per tentare di identificare gli errori che potrebbero essere temporanei per fornire un messaggio descrittivo "riprovare". Ora che hai attivato in un criterio di ripetizione, solo gli errori potrebbe essere temporaneo verranno già è stati tentati non è riusciti più volte e ha restituito l'eccezione verrà incapsulato in, ma il `RetryLimitExceededException` eccezione.
 
-Per ulteriori informazioni, vedere [resilienza di connessione Entity Framework o logica di tentativi](https://msdn.microsoft.com/en-us/data/dn456835).
+Per ulteriori informazioni, vedere [resilienza di connessione Entity Framework o logica di tentativi](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="enable-command-interception"></a>Attiva l'intercettazione di comando
 
 Ora che hai attivato in un criterio di ripetizione, come test per verificare che funzioni come previsto? Non è così semplice forzare un errore temporaneo si verifica, in particolare quando si esegue in locale e sarebbe particolarmente difficile integrare gli errori temporanei effettivi in un test di unit test automatizzati. Per testare la funzionalità di resilienza di connessione, è necessario un modo per intercettare le query che Entity Framework Invia a SQL Server e sostituire la risposta di SQL Server con un tipo di eccezione che è in genere temporaneo.
 
-È inoltre possibile utilizzare l'intercettazione di query per implementare una procedura consigliata per le applicazioni cloud: [accedere la latenza e l'esito positivo o negativo di tutte le chiamate ai servizi esterni](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) , ad esempio servizi di database. EF6 fornisce un [dedicato API registrazione](https://msdn.microsoft.com/en-us/data/dn469464) che rendono più semplice eseguire la registrazione, ma in questa sezione dell'esercitazione verrà illustrato come utilizzare il Framework di entità [funzionalità di intercettazione](https://msdn.microsoft.com/en-us/data/dn469464) direttamente, sia per registrazione e per la simulazione di errori temporanei.
+È inoltre possibile utilizzare l'intercettazione di query per implementare una procedura consigliata per le applicazioni cloud: [accedere la latenza e l'esito positivo o negativo di tutte le chiamate ai servizi esterni](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) , ad esempio servizi di database. EF6 fornisce un [dedicato API registrazione](https://msdn.microsoft.com/data/dn469464) che rendono più semplice eseguire la registrazione, ma in questa sezione dell'esercitazione verrà illustrato come utilizzare il Framework di entità [funzionalità di intercettazione](https://msdn.microsoft.com/data/dn469464) direttamente, sia per registrazione e per la simulazione di errori temporanei.
 
 ### <a name="create-a-logging-interface-and-class"></a>Creare una classe e interfaccia di registrazione
 

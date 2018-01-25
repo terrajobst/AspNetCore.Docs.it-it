@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: c92aa070a307129afd91c432739625b5e0f8b29e
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: 71a8702b9f6e9a2b40f150026f1955450e0fa7a3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-react-with-redux-project-template-release-candidate"></a>Utilizzare il modello di progetto React-con-il ritorno (versione finale candidata)
 
 > [!NOTE]
-> Questa documentazione non è presente sul modello di progetto React-con-il ritorno rilasciato. **Questa documentazione è sulla versione finale candidata del modello React-con-il ritorno.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
+> Questa documentazione non è sul modello di progetto React-con-il ritorno rilasciato. **Questa documentazione è sulla versione finale candidata del modello React-con-il ritorno.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
 
 Il modello di progetto aggiornato React-con-Redux fornisce un punto di partenza ideale per le applicazioni ASP.NET Core utilizzando reagiscono, Redux, e [creare app di reazione](https://github.com/facebookincubator/create-react-app) convenzioni (CRA) per implementare un'interfaccia utente avanzata, sul lato client (UI).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: bf4bb5c6f9ad8339c3597b0d6666c7077ac476e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-models-and-data-access"></a>Accesso ai dati e i modelli ASP.NET MVC 4
 ====================
@@ -27,7 +27,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > 
 > Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 In **nozioni fondamentali su MVC ASP.NET** pratica, si hanno stato passando dati hardcoded verso i controller per i modelli di visualizzazione. Ma, per compilare un'applicazione Web reale, è possibile utilizzare un database reale.
@@ -235,7 +235,7 @@ In questa attività si aggiornerà la classe StoreController in modo che, invece
     > [!NOTE]
     > Si utilizza una funzionalità di .NET denominata **LINQ** (language integrated query) per scrivere espressioni di query fortemente tipizzata in base a queste raccolte - di cui eseguire il codice nel database e verranno restituiti gli oggetti che è possibile programmare nei confronti.
     > 
-    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/en-us/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
 3. Aggiornamento **indice** per recuperare tutti i generi i metodo di azione.
 
     (- Frammento di codice *modelli e l'accesso ai dati - indice archivio Ex1*)
@@ -351,7 +351,7 @@ Ora che già stato configurato la connessione al database, si procederà al coll
     > [!NOTE]
     > Per utilizzare le convenzioni di Code First, la classe Genre deve avere una proprietà di chiave primaria che verrà rilevata automaticamente.
     > 
-    > Altre informazioni sulle convenzioni prima del codice in questo [articolo msdn](https://msdn.microsoft.com/en-us/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+    > Altre informazioni sulle convenzioni prima del codice in questo [articolo msdn](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
 2. A questo punto, aprire la classe di modello POCO **Album** da **modelli** cartella del progetto e includere le chiavi esterne, creare proprietà con i nomi **GenreId** e  **ArtistId**. Questa classe dispone già di **GenreId** per la chiave primaria.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 codice primo Album*)
@@ -385,7 +385,7 @@ Ora che già stato configurato la connessione al database, si procederà al coll
     [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
     > [!NOTE]
-    > Con Entity Framework **DbContext** e **DBSet** sarà in grado di eseguire query sulla classe POCO genere. Estendendo **OnModelCreating** metodo, si specifica nel **codice** come genere verrà mappato a una tabella di database. È possibile trovare ulteriori informazioni su DBContext e DBSet in questo articolo di msdn: [collegamento](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)
+    > Con Entity Framework **DbContext** e **DBSet** sarà in grado di eseguire query sulla classe POCO genere. Estendendo **OnModelCreating** metodo, si specifica nel **codice** come genere verrà mappato a una tabella di database. È possibile trovare ulteriori informazioni su DBContext e DBSet in questo articolo di msdn: [collegamento](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -416,7 +416,7 @@ In questa attività si aggiornerà la classe StoreController in modo che, invece
     > [!NOTE]
     > Si utilizza una funzionalità di .NET denominata **LINQ** (language integrated query) per scrivere espressioni di query fortemente tipizzata in base a queste raccolte - di cui eseguire il codice nel database e verranno restituiti gli oggetti che è possibile programmare nei confronti.
     > 
-    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/en-us/library/bb397926(v=vs.110).aspx).
+    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
 3. Aggiornamento **indice** per recuperare tutti i generi i metodo di azione.
 
     (- Frammento di codice *modelli e l'accesso ai dati - indice archivio Ex2*)
@@ -457,7 +457,7 @@ In questa attività si verifica che la pagina di indice dell'archivio visualizze
 In questo esercizio, si apprenderà come eseguire query sul database utilizzando i parametri e come utilizzare la forma del risultato di Query, una funzionalità che riduce il numero database accede il recupero dei dati in modo più efficiente.
 
 > [!NOTE]
-> Per ulteriori informazioni sulla forma del risultato di Query, visitare il seguente [articolo msdn](https://msdn.microsoft.com/en-us/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
+> Per ulteriori informazioni sulla forma del risultato di Query, visitare il seguente [articolo msdn](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
 
 
 <a id="Ex3Task1"></a>

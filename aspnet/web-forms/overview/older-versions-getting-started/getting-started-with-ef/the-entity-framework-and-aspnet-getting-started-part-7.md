@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 7
 ====================
@@ -135,7 +135,7 @@ Sostituire con il codice seguente:
 
 La pagina utilizza ora la `GetCourses` stored procedure per recuperare l'elenco di tutti i corsi. Eseguire la pagina per verificarne il funzionamento di quello precedente.
 
-(Le proprietà di navigazione di entità recuperate da una stored procedure potrebbero non venire popolate automaticamente con i dati relativi a tali entità, a seconda `ObjectContext` impostazioni predefinite. Per ulteriori informazioni, vedere [durante il caricamento di oggetti correlati](https://msdn.microsoft.com/en-us/library/bb896272.aspx) in MSDN Library.)
+(Le proprietà di navigazione di entità recuperate da una stored procedure potrebbero non venire popolate automaticamente con i dati relativi a tali entità, a seconda `ObjectContext` impostazioni predefinite. Per ulteriori informazioni, vedere [durante il caricamento di oggetti correlati](https://msdn.microsoft.com/library/bb896272.aspx) in MSDN Library.)
 
 Nella prossima esercitazione, si apprenderà come usare la funzionalità di Dynamic Data per renderne più semplice programma e i test di convalida e formattazione regole dati. Anziché specificare le regole di ogni pagina web come stringhe di formato di dati e che sia o meno un campo obbligatorio, è possibile specificare regole di questo tipo nei metadati del modello di dati e vengono applicati automaticamente in ogni pagina.
 

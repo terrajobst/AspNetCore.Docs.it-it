@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introduzione alle applicazioni stile con meno, Sass e carattere straordinario in ASP.NET Core
 
@@ -97,7 +97,7 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`e l'altro @-prefixed gli elementi sono variabili. Ognuno di essi rappresenta un colore. Ad eccezione di `@base`, che sono stati impostati utilizzando le funzioni di colore: schiarire, viene resa più scura e ruotare. Rendere più chiari e più scuri eseguire praticamente alle aspettative; selezione consente di regolare la tonalità di un colore di un numero di gradi (circa il selettore di colore). Il minore processore è abbastanza per ignorare le variabili che non sono utilizzate per illustrare il funzionano di queste variabili, è necessario utilizzarle in un punto. Le classi `.baseColor`, e così via consentiranno di dimostrare i valori calcolati di ciascuna delle variabili nel file CSS che viene generato.
+`@base`e l'altro @-prefixed gli elementi sono variabili. Ognuno di essi rappresenta un colore. Ad eccezione di `@base`, si impostano utilizzando funzioni di colore: schiarire, viene resa più scura e ruotare. Rendere più chiari e più scuri eseguire praticamente alle aspettative; selezione consente di regolare la tonalità di un colore di un numero di gradi (circa il selettore di colore). Il minore processore è abbastanza per ignorare le variabili che non sono utilizzate per illustrare il funzionano di queste variabili, è necessario utilizzarle in un punto. Le classi `.baseColor`, e così via consentiranno di dimostrare i valori calcolati di ciascuna delle variabili nel file CSS che viene generato.
 
 ### <a name="getting-started"></a>Per iniziare
 
@@ -246,7 +246,7 @@ nav {
 }
 ```
 
-Si noti che in questo caso, tutti gli elementi subordinati di `nav` sono contenuti all'interno dell'ambito. Non è più il ripetersi degli elementi padre (`nav`, `li`, `a`), il numero totale di riga è eliminata anche (anche se alcune delle che è il risultato di inserire valori nelle stesse linee nel secondo esempio). Può essere molto utile, organizationally, per visualizzare tutte le regole per un determinato elemento dell'interfaccia utente all'interno di un ambito in modo esplicito limitato, in questo caso disattivare dal resto del file da parentesi graffe.
+Si noti che in questo caso, tutti gli elementi subordinati di `nav` sono contenuti all'interno dell'ambito. Non è più il ripetersi degli elementi padre (`nav`, `li`, `a`), e il conteggio delle righe totali è stato eliminato anche (anche se alcune delle che non è un risultato di inserimento di valori nelle stesse linee nel secondo esempio). Può essere molto utile, organizationally, per visualizzare tutte le regole per un determinato elemento dell'interfaccia utente all'interno di un ambito in modo esplicito limitato, in questo caso disattivare dal resto del file da parentesi graffe.
 
 Il `&` sintassi è una funzionalità meno selettore con & rappresenta l'oggetto padre selettore corrente. In questo caso, all'interno di un {...} blocco, `&` rappresenta un `a` tag e pertanto `&:link` equivale a `a:link`.
 
@@ -321,7 +321,7 @@ Minore fornisce una serie di funzionalità aggiuntive, ma questo deve fornire un
 
 ## <a name="sass"></a>Sass
 
-Sass è simile a un valore inferiore, che fornisce supporto per molte delle stesse funzionalità, ma con una sintassi leggermente diversa. Viene compilata utilizzando Ruby anziché JavaScript e pertanto dispone di requisiti di installazione diverso. La lingua Sass originale non si utilizza parentesi graffe o punti e virgola, ma invece definita ambito utilizzando lo spazio vuoto e il rientro. Una nuova sintassi introdotta nella versione 3 di Sass, **SCSS** "Sassy CSS ("). SCSS è simile a CSS, in quanto Ignora spazi vuoti e i livelli di rientro e si utilizza un punto e virgola e parentesi graffe.
+Sass è simile a un valore inferiore, che fornisce supporto per molte delle stesse funzionalità, ma con una sintassi leggermente diversa. Viene compilata utilizzando Ruby anziché JavaScript e pertanto dispone di requisiti di installazione diverso. La lingua Sass originale non utilizza le parentesi graffe o punti e virgola, ma invece definita ambito utilizzando lo spazio vuoto e il rientro. Una nuova sintassi introdotta nella versione 3 di Sass, **SCSS** "Sassy CSS ("). SCSS è simile a CSS, in quanto Ignora spazi vuoti e i livelli di rientro e si utilizza un punto e virgola e parentesi graffe.
 
 Per installare Sass, in genere si sarebbe installare Ruby (pre-installato su Mac) e quindi eseguire:
 

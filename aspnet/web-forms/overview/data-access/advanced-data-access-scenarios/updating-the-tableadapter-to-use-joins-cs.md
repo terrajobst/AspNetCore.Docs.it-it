@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 30bc92c5c5a54e8c43092c69d0b0707a96d6b331
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a24245a3c846d061a528d520f915b8eac3ff475
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>L'aggiornamento dell'oggetto TableAdapter per usare join (c#)
 ====================
@@ -54,7 +54,7 @@ In alternativa, un `JOIN` può essere utilizzato per restituire ogni nome di un 
 Oggetto `JOIN` unisce i record da una tabella con i record da un'altra tabella in base ad alcuni criteri specificati. Nella query precedente, ad esempio, il `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` indica a SQL Server per unire ogni record di prodotto con la categoria record il cui `CategoryID` valore corrisponda al prodotto s `CategoryID` valore. Risultati sottoposti a merge consentono di operare con i campi categoria corrispondente per ogni prodotto (ad esempio `CategoryName`).
 
 > [!NOTE]
-> `JOIN`s comunemente utilizzati per eseguire query sui dati dai database relazionali. Se si ha familiarità con il `JOIN` sintassi o necessità di rinfrescarti la memoria bit sul relativo utilizzo, d si consiglia di [esercitazione Join SQL](http://www.w3schools.com/sql/sql_join.asp) in [scuole W3](http://www.w3schools.com/). Anche la pena di lettura sono i [ `JOIN` nozioni di base](https://msdn.microsoft.com/en-us/library/ms191517.aspx) e [principi fondamentali di sottoquery](https://msdn.microsoft.com/en-us/library/ms189575.aspx) sezioni del [documentazione Online di SQL](https://msdn.microsoft.com/en-us/library/ms130214.aspx).
+> `JOIN`s comunemente utilizzati per eseguire query sui dati dai database relazionali. Se si ha familiarità con il `JOIN` sintassi o necessità di rinfrescarti la memoria bit sul relativo utilizzo, d si consiglia di [esercitazione Join SQL](http://www.w3schools.com/sql/sql_join.asp) in [scuole W3](http://www.w3schools.com/). Anche la pena di lettura sono i [ `JOIN` nozioni di base](https://msdn.microsoft.com/library/ms191517.aspx) e [principi fondamentali di sottoquery](https://msdn.microsoft.com/library/ms189575.aspx) sezioni del [documentazione Online di SQL](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Poiché `JOIN` s e sottoquery correlate possono essere utilizzate entrambe per recuperare i dati correlati da altre tabelle, molti sviluppatori restano eventuali graffi le intestazioni e chiedere l'approccio da utilizzare. Tutti i controbattono SQL si ve parlata per hanno affermato approssimativamente la stessa operazione, che t è importante inoltro come SQL Server genera i piani di esecuzione quasi identici. I consigli, sono quindi utilizzare la tecnica di utente e il team ha maggiore familiarità con. Opportuno notare che dopo d'imprimere questa raccomandazione questi esperti immediatamente express la preferenza di `JOIN` s sulle sottoquery correlate.

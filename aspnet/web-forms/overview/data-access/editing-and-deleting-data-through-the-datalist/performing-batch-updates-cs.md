@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 989bd80bf2d8b6548fd8e4abd492408a72104070
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46db3c5d733b9c8b6e749a9b8ff1aa9a061c36df
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-c"></a>Esecuzione di aggiornamenti Batch (c#)
 ====================
@@ -116,7 +116,7 @@ Figura 6 mostra la pagina dopo l'aggiornamento a tutti i pulsanti sono stati agg
 
 Con tutti gli elementi DataList s visualizzare l'interfaccia di modifica e l'aggiunta di aggiornare tutti i pulsanti, che rimane sta scrivendo il codice per eseguire l'aggiornamento batch. In particolare, è necessario scorrere gli elementi DataList s e chiamata di `SuppliersBLL` classe s `UpdateSupplierAddress` metodo per ognuno di essi.
 
-La raccolta di `DataListItem` istanze di tale struttura DataList saranno accessibili tramite DataList s [ `Items` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx). Con un riferimento a un `DataListItem`, è possibile acquisire corrispondente `SupplierID` dal `DataKeys` raccolta e a livello di programmazione TextBox Web controlli all'interno di riferimento di `ItemTemplate` come illustrato nel codice seguente:
+La raccolta di `DataListItem` istanze di tale struttura DataList saranno accessibili tramite DataList s [ `Items` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Con un riferimento a un `DataListItem`, è possibile acquisire corrispondente `SupplierID` dal `DataKeys` raccolta e a livello di programmazione TextBox Web controlli all'interno di riferimento di `ItemTemplate` come illustrato nel codice seguente:
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample4.cs)]
@@ -131,7 +131,7 @@ Quando l'utente fa clic su uno dei pulsanti, Aggiorna tutte le `UpdateAllSupplie
 
 L'algoritmo di aggiornamento batch utilizzato per le chiamate di questa esercitazione il `UpdateSupplierAddress` metodo per *ogni* fornitore in DataList, indipendentemente dal fatto che le relative informazioni di indirizzo sono state modificate. Mentre tale blind aggiornamenti non in genere un problema di prestazioni, se si stanno controllo modifica alla tabella di database può causare superflue dei record. Ad esempio, se si utilizzano trigger per registrare tutti `UPDATE` s per il `Suppliers` tabella a una tabella di controllo, ogni volta che un utente fa clic sul pulsante Aggiorna tutto verrà creato un nuovo record di controllo per ogni fornitore nel sistema, indipendentemente dal fatto se l'utente rese qualsiasi modifiche.
 
-Le classi DataTable di ADO.NET e DataAdapter sono progettate per supportare gli aggiornamenti di batch in cui i record di nuovi, eliminati e modificati solo comporta le comunicazioni di database. Ogni riga nella DataTable dispone un [ `RowState` proprietà](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) che indica se la riga è stata aggiunta alla tabella di dati eliminato da quest'ultimo, modifica, o non subisce modifiche. Quando un oggetto DataTable inizialmente è popolato, tutte le righe contrassegnate subisce modifiche. Modifica del valore di una o più colonne s riga la riga viene contrassegnata come modificata.
+Le classi DataTable di ADO.NET e DataAdapter sono progettate per supportare gli aggiornamenti di batch in cui i record di nuovi, eliminati e modificati solo comporta le comunicazioni di database. Ogni riga nella DataTable dispone un [ `RowState` proprietà](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) che indica se la riga è stata aggiunta alla tabella di dati eliminato da quest'ultimo, modifica, o non subisce modifiche. Quando un oggetto DataTable inizialmente è popolato, tutte le righe contrassegnate subisce modifiche. Modifica del valore di una o più colonne s riga la riga viene contrassegnata come modificata.
 
 Nel `SuppliersBLL` classe è aggiornare le informazioni sull'indirizzo specificato fornitore s mediante la lettura prima del record singolo fornitore in un `SuppliersDataTable` e quindi impostare il `Address`, `City`, e `Country` i valori di colonna utilizzando il codice seguente:
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06c7fc31e138e9009640d20202e4745a61b68eeb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iterazione #3: aggiunta della convalida del form (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-3-add-form-validation-cs/_static/contactmanager_3_cs1.zip)
 
@@ -44,7 +44,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -63,7 +63,7 @@ In questa iterazione, la logica di convalida è aggiungere direttamente per le a
 
 In questa iterazione, per semplicità, è scrivere tutto il codice di convalida manualmente. Invece di scrivere il codice di convalida effettuata, è possibile sfruttare i vantaggi di un framework di convalida. Ad esempio, è possibile utilizzare Microsoft Enterprise Library convalida applicazione blocco (VAB) per implementare la logica di convalida per l'applicazione ASP.NET MVC. Per ulteriori informazioni sul blocco di applicazione di convalida, vedere:
 
-[*http://msdn.microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>Aggiunta della convalida per la visualizzazione di creazione
 

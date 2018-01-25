@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 23e38416dc294a1a07cb320cf5ab328fa036d1e8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Novità di Web Form in ASP.NET 4.5
 ====================
@@ -562,7 +562,7 @@ In questa attività, aggiornare la pagina dei dettagli del prodotto per consenti
     (- Frammento di codice *Web Form Lab - Ex03 - UpdateProductImage chiamata*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Eseguire l'applicazione e provare a caricare un'immagine per un prodotto. Ad esempio, è possibile utilizzare l'URL dell'immagine seguente da Office Clip arte: [ [http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)
+7. Eseguire l'applicazione e provare a caricare un'immagine per un prodotto. Ad esempio, è possibile utilizzare l'URL dell'immagine seguente da Office Clip arte: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![L'impostazione di un'immagine per un prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "l'impostazione di un'immagine per un prodotto")
 

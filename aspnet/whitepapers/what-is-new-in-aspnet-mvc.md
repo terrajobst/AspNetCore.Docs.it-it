@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Novità di ASP.NET MVC 2
 ====================
@@ -66,7 +66,7 @@ Questa sezione vengono descritte le funzionalità che sono state introdotte nell
 
 Helper basati su modelli consentono di associare automaticamente gli elementi HTML per la modifica e visualizzare i tipi di dati. Ad esempio, quando i dati di tipo System. DateTime viene visualizzati in una vista, un elemento dell'interfaccia utente di selezione data possibile eseguire automaticamente il rendering. È simile alla modalità di funzionamento di modelli di campo in ASP.NET Dynamic Data. Per ulteriori informazioni, vedere [utilizzo di helper basati su modelli per visualizzare i dati](https://go.microsoft.com/fwlink/?LinkId=159062) nel sito Web MSDN.
 
-### <a id="_TOC3_2"></a>Aree
+### <a id="_TOC3_2"></a>  Areas
 
 Le aree consentono di organizzare un progetto di grandi dimensioni in più sezioni più piccole per poter gestire la complessità di un'applicazione Web di grandi dimensioni. Ogni sezione ("area") in genere rappresenta una sezione separata di un sito Web di grandi dimensioni e viene utilizzato per raggruppare set correlati di controller e visualizzazioni. Per ulteriori informazioni, vedere [procedura dettagliata: organizzazione di un'applicazione MVC ASP.NET da aree](https://go.microsoft.com/fwlink/?LinkId=158978) nel sito Web MSDN.
 
@@ -88,7 +88,7 @@ Se non si specifica lo spazio dei nomi nel metodo RegisterArea chiamando il cont
 
 ### <a id="_TOC3_3"></a>Supporto per i controller asincroni
 
-ASP.NET MVC 2 consente ora di controller elaborare le richieste in modo asincrono. Questo miglioramento delle prestazioni può causare, consentendo di server che chiama spesso operazioni di blocco (ad esempio, le richieste di rete) per chiamare invece controparti non bloccante. Per ulteriori informazioni, vedere il [utilizzando un Controller asincrono in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx) su MSDN.
+ASP.NET MVC 2 consente ora di controller elaborare le richieste in modo asincrono. Questo miglioramento delle prestazioni può causare, consentendo di server che chiama spesso operazioni di blocco (ad esempio, le richieste di rete) per chiamare invece controparti non bloccante. Per ulteriori informazioni, vedere il [utilizzando un Controller asincrono in ASP.NET MVC](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) su MSDN.
 
 ### <a id="_TOC3_4"></a>Supporto per DefaultValueAttribute nei parametri del metodo di azione
 
@@ -102,9 +102,9 @@ Si supponga inoltre che è definito il metodo di azione e del controller seguent
 
 Uno dei seguente richiesta URL richiameranno il metodo di azione di visualizzazione che è definito nell'esempio precedente.
 
-- / Articolo/visualizzazione/123
+- /Article/View/123
 - / Articolo/visualizzazione/123? pagina = 1 (in modo efficace la stessa nella richiesta precedente)
-- / Articolo/visualizzazione/123? pagina = 2
+- /Article/View/123?page=2
 
 Senza l'attributo DefaultValueAttribute, il primo URL dall'elenco precedente non funzionerà, perché l'argomento di pagina è un tipo di valore non nullable il cui valore non è stato specificato.
 
@@ -142,7 +142,7 @@ La classe ModelMetadataProvider fornisce un'astrazione per ottenere i metadati p
 
 La classe ViewDataDictionary espone un oggetto ModelMetadata che contiene i metadati estratti dalla classe ModelMetadataProvider dal modello. In questo modo gli helper basati su modelli utilizzare i metadati e modificare di conseguenza il relativo output.
 
-Per ulteriori informazioni, vedere la documentazione per il [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) e [ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) classi.
+Per ulteriori informazioni, vedere la documentazione per il [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) e [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) classi.
 
 ### <a id="_TOC3_7"></a>Supporto per gli attributi DataAnnotations
 
@@ -152,7 +152,7 @@ Per ulteriori informazioni, vedere [procedura: convalidare modello di dati utili
 
 ### <a id="_TOC3_8"></a>Provider di Validator del modello
 
-La classe di provider di convalida del modello rappresenta un'astrazione che fornisce la logica di convalida per il modello. ASP.NET MVC include un provider predefinito in base agli attributi di convalida che sono inclusi nello spazio dei nomi System.ComponentModel.DataAnnotations. È anche possibile creare i propri provider di convalida che definiscono le regole di convalida personalizzata e mapping personalizzati di regole di convalida per il modello. Per ulteriori informazioni, vedere la documentazione per il [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) classe.
+La classe di provider di convalida del modello rappresenta un'astrazione che fornisce la logica di convalida per il modello. ASP.NET MVC include un provider predefinito in base agli attributi di convalida che sono inclusi nello spazio dei nomi System.ComponentModel.DataAnnotations. È anche possibile creare i propri provider di convalida che definiscono le regole di convalida personalizzata e mapping personalizzati di regole di convalida per il modello. Per ulteriori informazioni, vedere la documentazione per il [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) classe.
 
 ### <a id="_TOC3_9"></a>Convalida lato client
 
@@ -289,7 +289,7 @@ La stringa "area" nei valori di Route ha ora un significato speciale in ASP.NET 
 Se si utilizza la funzionalità di aree, assicurarsi di non utilizzare {area} come parte dell'URL di route.
 
 
-## <a id="_TOC6"></a>Dichiarazione di non responsabilità
+## <a id="_TOC6"></a>  Disclaimer
 
 Il presente documento è una versione preliminare e può essere modificato in modo sostanziale prima della versione finale commerciale del software qui descritto.
 

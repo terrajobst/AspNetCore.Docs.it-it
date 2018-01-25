@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing e la selezione di azione in ASP.NET Web API
 ====================
@@ -80,13 +80,13 @@ Valore predefinito può avere il valore speciale **RouteParameter.Optional**. Se
 Per il percorso dell'URI "api/prodotti", conterrà il dizionario della route:
 
 - controller: "prodotti"
-- categoria: "tutto"
+- category: "all"
 
 Per "api/prodotti/toys/123", tuttavia, il dizionario della route conterrà:
 
 - controller: "prodotti"
-- categoria: "toys"
-- ID: "123"
+- category: "toys"
+- id: "123"
 
 Le impostazioni predefinite possono inoltre includere un valore che non viene visualizzata in qualsiasi punto nel modello di route. Se la route corrisponde, tale valore viene archiviato nel dizionario. Ad esempio:
 
@@ -95,7 +95,7 @@ Le impostazioni predefinite possono inoltre includere un valore che non viene vi
 Se il percorso dell'URI è "root/api/8", il dizionario contiene due valori:
 
 - controller: "customers"
-- ID: "8"
+- id: "8"
 
 ## <a name="selecting-a-controller"></a>La selezione di un Controller
 
@@ -121,7 +121,7 @@ L'implementazione predefinita viene eseguito il **ApiControllerActionSelector** 
 
 Prima di esaminare l'algoritmo di selezione, è necessario comprendere alcuni aspetti di azioni del controller.
 
-**I metodi sul controller sono considerati "azioni"?** Quando si seleziona un'azione, il framework esamina solo i metodi di istanza pubblici nel controller. Inoltre, sono esclusi ["nome speciale"](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname) metodi (costruttori, eventi, gli overload degli operatori e così via) e metodi ereditati dal **ApiController** classe.
+**I metodi sul controller sono considerati "azioni"?** Quando si seleziona un'azione, il framework esamina solo i metodi di istanza pubblici nel controller. Inoltre, sono esclusi ["nome speciale"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) metodi (costruttori, eventi, gli overload degli operatori e così via) e metodi ereditati dal **ApiController** classe.
 
 **Metodi HTTP.** Il framework sceglie solo le azioni che corrispondano al metodo HTTP della richiesta, determinata come segue:
 
@@ -134,7 +134,7 @@ Prima di esaminare l'algoritmo di selezione, è necessario comprendere alcuni as
 - Tipi semplici vengono eseguiti dall'URI.
 - Tipi complessi vengono estratti dal corpo della richiesta.
 
-I tipi semplici includono tutti il [tipi primitivi di .NET Framework](https://msdn.microsoft.com/en-us/library/system.type.isprimitive), oltre a **DateTime**, **decimale**, **Guid**, **stringa** , e **TimeSpan**. Per ogni azione, al massimo un parametro può leggere il corpo della richiesta.
+I tipi semplici includono tutti il [tipi primitivi di .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), oltre a **DateTime**, **decimale**, **Guid**, **stringa** , e **TimeSpan**. Per ogni azione, al massimo un parametro può leggere il corpo della richiesta.
 
 > [!NOTE]
 > È possibile ignorare le regole di associazione predefinito. Vedere [l'associazione di parametri WebAPI dietro le quinte](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
@@ -192,7 +192,7 @@ Richiesta HTTP:
 L'URI corrisponde alla route denominata "DefaultApi". Il dizionario della route contiene le voci seguenti:
 
 - controller: "prodotti"
-- ID: "1"
+- id: "1"
 
 Il dizionario della route non contiene parametri di stringa di query "version" e "Dettagli", ma questi verranno ancora considerati durante la selezione di azione.
 
@@ -206,9 +206,9 @@ La richiesta HTTP è una richiesta GET. Le azioni del controller che supportano 
 
 Successivamente, si tenta di corrispondere i nomi dei parametri per le azioni, esaminare solo le operazioni GET.
 
-| Azione | Parametri di corrispondenza |
+| Operazione | Parametri di corrispondenza |
 | --- | --- |
-| `GetAll` | nessuno |
+| `GetAll` | none |
 | `GetById` | "id" |
 | `FindProductsByName` | "nome" |
 
@@ -218,7 +218,7 @@ Il `GetAll` metodo corrisponde in modo semplice. Il `GetById` metodo inoltre cor
 
 Il `GetById` metodo wins, poiché corrisponde a un parametro, e nessun parametro per `GetAll`. Il metodo viene richiamato con i valori dei parametri seguenti:
 
-- *ID* = 1
+- *id* = 1
 - *versione* = 1.5
 
 Si noti che anche se *versione* non è stato utilizzato nell'algoritmo di selezione, il valore del parametro proviene dalla stringa di query URI.

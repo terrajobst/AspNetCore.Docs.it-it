@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d5d89a6a82c91b915d61ddc3c350ea0935511c07
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5ec43ac78be4a9452ebaa6495a6883506ac162f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-error-handling"></a>Gestione degli errori ASP.NET
 ====================
@@ -313,7 +313,7 @@ In questa esercitazione, si è appreso sulla gestione degli errori a livello di 
 
 ## <a name="tutorial-series-conclusion"></a>Serie di esercitazioni conclusione
 
-*Grazie per la seguente lungo. Spero di questa serie di esercitazioni utile acquisire familiarità con i Web Form ASP.NET. Se sono necessarie ulteriori informazioni sulle funzionalità di Web Form in ASP.NET 4.5 e Visual Studio 2013, vedere* [ *ASP.NET e strumenti Web per note sulla versione di Visual Studio 2013* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Inoltre, assicurarsi di esaminare l'esercitazione citata nel*   ***passaggi successivi * * * sezione e defintely provare il* [ *Azure versione di valutazione gratuita* ](https://azure.microsoft.com/pricing/free-trial/)*.*
+*Grazie per la seguente lungo. Spero di questa serie di esercitazioni utile acquisire familiarità con i Web Form ASP.NET. Se sono necessarie ulteriori informazioni sulle funzionalità di Web Form in ASP.NET 4.5 e Visual Studio 2013, vedere* [ *ASP.NET e strumenti Web per note sulla versione di Visual Studio 2013* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Inoltre, assicurarsi di esaminare l'esercitazione citata nel* ***passaggi successivi * * * sezione e defintely provare il* [ *Azure versione di valutazione gratuita* ](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![Grazie - Erik](aspnet-error-handling/_static/image10.png)  
 
@@ -335,12 +335,12 @@ Ulteriori informazioni sulla distribuzione dell'applicazione web in Microsoft Az
 
 Come è possibile grazie seguenti persone che hanno apportato contributi significativi per il contenuto di questa serie di esercitazioni:
 
-- [Alberto Poblacion, MVP &amp; MCT, (Spagna)](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, (Spagna)](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen, Paesi Bassi](http://blog.alexthissen.nl/) (twitter: [ @alexthissen ](http://twitter.com/alexthissen))
-- [Andre Tournier (USA)](http://andret503.wordpress.com/)
+- [Andre Tournier, USA](http://andret503.wordpress.com/)
 - Apurva Joshi, Microsoft
 - [Bojan Vrhovnik, Slovenia](http://twitter.com/bvrhovnik)
-- [Bruno Sonnino, Brasile](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
+- [Bruno Sonnino, Brazil](http://msmvps.com/blogs/bsonnino) (twitter: [@bsonnino](http://twitter.com/bsonnino))
 - [Dos Carlos Santos, Brasile](http://www.carloscds.net/)
 - [David Campbell, USA](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
 - [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
@@ -348,9 +348,9 @@ Come è possibile grazie seguenti persone che hanno apportato contributi signifi
 - Mike Pope
 - [I venditori Mitchel, USA](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
-- [Paolo Morgado, (Portogallo)](http://paulomorgado.net/)
+- [Paulo Morgado, Portugal](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
-- [TIM Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
+- [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## <a name="community-contributions"></a>Contributi della community

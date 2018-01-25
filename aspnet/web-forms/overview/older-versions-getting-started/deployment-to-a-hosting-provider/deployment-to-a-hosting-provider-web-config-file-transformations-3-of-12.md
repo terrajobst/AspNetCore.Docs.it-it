@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: trasformazioni File Web. config - 3 di 12
 ====================
@@ -37,7 +37,7 @@ Promemoria: Se viene visualizzato un messaggio di errore o non funzioni man mano
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>I parametri di distribuire le trasformazioni di Web. config e Web
 
-Esistono due modi per automatizzare il processo di modifica *Web. config* impostazioni del file: [trasformazioni di Web. config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) e [parametri distribuzione Web](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web. config* file di trasformazione contiene markup XML che specifica la modalità di modifica di *Web. config* file quando viene distribuito. È possibile specificare diverse modifiche per specifiche configurazioni di compilazione e profili di pubblicazione specifico. Le configurazioni di compilazione predefinite sono di Debug e rilascio ed è possibile creare configurazioni di compilazione personalizzata. Un profilo di pubblicazione è in genere corrisponde a un ambiente di destinazione. (Si apprenderà informazioni sulla pubblicazione dei profili nel [distribuzione in IIS come ambiente di Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) esercitazione.)
+Esistono due modi per automatizzare il processo di modifica *Web. config* impostazioni del file: [trasformazioni di Web. config](https://msdn.microsoft.com/library/dd465326.aspx) e [parametri distribuzione Web](https://msdn.microsoft.com/library/ff398068.aspx). A *Web. config* file di trasformazione contiene markup XML che specifica la modalità di modifica di *Web. config* file quando viene distribuito. È possibile specificare diverse modifiche per specifiche configurazioni di compilazione e profili di pubblicazione specifico. Le configurazioni di compilazione predefinite sono di Debug e rilascio ed è possibile creare configurazioni di compilazione personalizzata. Un profilo di pubblicazione è in genere corrisponde a un ambiente di destinazione. (Si apprenderà informazioni sulla pubblicazione dei profili nel [distribuzione in IIS come ambiente di Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) esercitazione.)
 
 Parametri di distribuzione Web consente di specificare diversi tipi di impostazioni che devono essere configurati durante la distribuzione, incluse le impostazioni che si trovano in *Web. config* file. Quando viene utilizzata per specificare *Web. config* modifiche al file, sono più complessi per impostare i parametri di distribuzione Web, ma sono utili quando non si conosce il valore da impostare finché non vengono distribuiti. In un ambiente aziendale, ad esempio, è possibile creare un *pacchetto di distribuzione* e assegnare a un utente del reparto IT per installare nell'ambiente di produzione e che l'utente deve essere in grado di immettere le stringhe di connessione o le password che non li conoscere.
 
@@ -146,7 +146,7 @@ Il `Transform` attributo specifica che verrà aggiunto a questa stringa di conne
 
 ## <a name="more-information"></a>Altre informazioni
 
-Per ulteriori informazioni sugli argomenti rientrano in questa esercitazione, vedere lo scenario di trasformazione Web. config in [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Per ulteriori informazioni sugli argomenti rientrano in questa esercitazione, vedere lo scenario di trasformazione Web. config in [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

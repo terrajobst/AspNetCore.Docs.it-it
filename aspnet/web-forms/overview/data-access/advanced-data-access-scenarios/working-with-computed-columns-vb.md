@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a6ff0df27e19d6feecde27a77d4b212d1e9bc45e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52fc0b89343236b70f8a2e013ad8a33431ae3d2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-vb"></a>Utilizzo delle colonne calcolate (VB)
 ====================
@@ -29,7 +29,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Introduzione
 
-Microsoft SQL Server consente di  *[le colonne calcolate](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*, che sono colonne i cui valori sono calcolati da un'espressione che in genere fa riferimento ai valori di altre colonne nella stessa tabella. Ad esempio, un modello di dati di rilevamento di tempo potrebbe creare una tabella denominata `ServiceLog` con colonne incluse `ServicePerformed`, `EmployeeID`, `Rate`, e `Duration`, tra gli altri. Mentre l'importo dovuto per ogni servizio elemento (la velocità di moltiplicato per la durata viene) può essere calcolato tramite una pagina web o un'altra interfaccia a livello di codice, potrebbe essere utile per includere una colonna di `ServiceLog` tabella denominata `AmountDue` che ha segnalato questo informazioni. Questa colonna può essere creata come una normale colonna, ma è necessario aggiornare in qualsiasi momento il `Rate` o `Duration` valori della colonna modificati. Un approccio migliore, è possibile rendere il `AmountDue` una colonna calcolata con l'espressione di colonna `Rate * Duration`. Questa operazione provocherebbe SQL Server calcolare automaticamente il `AmountDue` valore della colonna ogni volta che vi viene fatto riferimento in una query.
+Microsoft SQL Server consente di  *[le colonne calcolate](https://msdn.microsoft.com/library/ms191250.aspx)*, che sono colonne i cui valori sono calcolati da un'espressione che in genere fa riferimento ai valori di altre colonne nella stessa tabella. Ad esempio, un modello di dati di rilevamento di tempo potrebbe creare una tabella denominata `ServiceLog` con colonne incluse `ServicePerformed`, `EmployeeID`, `Rate`, e `Duration`, tra gli altri. Mentre l'importo dovuto per ogni servizio elemento (la velocità di moltiplicato per la durata viene) può essere calcolato tramite una pagina web o un'altra interfaccia a livello di codice, potrebbe essere utile per includere una colonna di `ServiceLog` tabella denominata `AmountDue` che ha segnalato questo informazioni. Questa colonna può essere creata come una normale colonna, ma è necessario aggiornare in qualsiasi momento il `Rate` o `Duration` valori della colonna modificati. Un approccio migliore, è possibile rendere il `AmountDue` una colonna calcolata con l'espressione di colonna `Rate * Duration`. Questa operazione provocherebbe SQL Server calcolare automaticamente il `AmountDue` valore della colonna ogni volta che vi viene fatto riferimento in una query.
 
 Poiché un valore della colonna calcolata s è determinato da un'espressione, tali colonne sono di sola lettura e pertanto non possono essere assegnati valori a essi in `INSERT` o `UPDATE` istruzioni. Tuttavia, quando le colonne calcolate sono parte della query principale per un oggetto TableAdapter che utilizza istruzioni SQL ad hoc, vengono incluse automaticamente nel generata automaticamente `INSERT` e `UPDATE` istruzioni. Di conseguenza, i TableAdapter `INSERT` e `UPDATE` query e `InsertCommand` e `UpdateCommand` proprietà devono essere aggiornate per rimuovere i riferimenti a tutte le colonne calcolate.
 
@@ -51,7 +51,7 @@ Aprire il `Suppliers` definizione tabella facendo clic su di `Suppliers` tabella
 Si noti che le stringhe possono essere concatenate in SQL utilizzando il `+` operatore. Il `CASE` istruzione può essere utilizzata come un'istruzione condizionale in un linguaggio di programmazione tradizionali. Nell'espressione di `CASE` istruzione può essere letto come: se `ContactTitle` non `NULL` quindi output il `ContactTitle` valore concatenato con una virgola, in caso contrario emit nulla. Per ulteriori informazioni sulle utilità del `CASE` istruzione, vedere [Power di SQL `CASE` istruzioni](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Anziché utilizzare un `CASE` istruzione qui avremmo potuto in alternativa utilizzare `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)Restituisce *checkExpression* se è non NULL, in caso contrario restituisce *replacementValue*. Durante uno `ISNULL` o `CASE` funzionerà in questo caso, vi sono più complessi scenari in cui la flessibilità del `CASE` istruzione non può corrispondere a `ISNULL`.
+> Anziché utilizzare un `CASE` istruzione qui avremmo potuto in alternativa utilizzare `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Restituisce *checkExpression* se è non NULL, in caso contrario restituisce *replacementValue*. Durante uno `ISNULL` o `CASE` funzionerà in questo caso, vi sono più complessi scenari in cui la flessibilità del `CASE` istruzione non può corrispondere a `ISNULL`.
 
 
 Dopo aver aggiunto la colonna calcolata la schermata dovrebbe essere simile all'immagine riportata nella figura 1.
@@ -69,10 +69,10 @@ Salvare la tabella è necessario aggiornare Esplora Server, inclusa la colonna a
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
-Per ulteriori informazioni su colonne calcolate in Microsoft SQL Server, consultare il [documentazione tecnica](https://msdn.microsoft.com/en-us/library/ms191250.aspx). Vedere anche il [procedura: specificare le colonne calcolate](https://msdn.microsoft.com/en-us/library/ms188300.aspx) per una descrizione dettagliata della creazione di colonne calcolate.
+Per ulteriori informazioni su colonne calcolate in Microsoft SQL Server, consultare il [documentazione tecnica](https://msdn.microsoft.com/library/ms191250.aspx). Vedere anche il [procedura: specificare le colonne calcolate](https://msdn.microsoft.com/library/ms188300.aspx) per una descrizione dettagliata della creazione di colonne calcolate.
 
 > [!NOTE]
-> Per impostazione predefinita, le colonne calcolate non sono archiviate fisicamente nella tabella, ma sono invece ricalcolate ogni volta che vi viene fatto riferimento in una query. Selezionando la casella di controllo è persistente, tuttavia, è possibile indicare di SQL Server per archiviare fisicamente la colonna calcolata nella tabella. In questo modo consente di creare la colonna calcolata, che consente di migliorare le prestazioni delle query che utilizzano il valore di colonna calcolata in un indice loro `WHERE` clausole. Vedere [la creazione di indici per colonne calcolate](https://msdn.microsoft.com/en-us/library/ms189292.aspx) per ulteriori informazioni.
+> Per impostazione predefinita, le colonne calcolate non sono archiviate fisicamente nella tabella, ma sono invece ricalcolate ogni volta che vi viene fatto riferimento in una query. Selezionando la casella di controllo è persistente, tuttavia, è possibile indicare di SQL Server per archiviare fisicamente la colonna calcolata nella tabella. In questo modo consente di creare la colonna calcolata, che consente di migliorare le prestazioni delle query che utilizzano il valore di colonna calcolata in un indice loro `WHERE` clausole. Vedere [la creazione di indici per colonne calcolate](https://msdn.microsoft.com/library/ms189292.aspx) per ulteriori informazioni.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>Passaggio 2: Visualizzare i valori di colonna calcolata s

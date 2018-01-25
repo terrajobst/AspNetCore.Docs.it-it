@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 783557b69486c284a6ed927e32e71cb602695080
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Il paging dati di Report in un controllo DataList o Repeater (c#)
 ====================
@@ -80,7 +80,7 @@ Poiché il paging predefinito richiede nuovamente tutti i record per ogni pagina
 
 *Il paging personalizzato* risolve i problemi di prestazioni del paging predefinito selezionandola solo il sottoinsieme preciso di record per visualizzare la pagina richiesta. Quando si implementa il paging personalizzato, è necessario scrivere la query SQL che restituisce solo il set corretto di record in modo efficiente. È stato illustrato come creare una query utilizzando SQL Server 2005 s nuovo [ `ROW_NUMBER()` (parola chiave)](http://www.4guysfromrolla.com/webtech/010406-1.shtml) nuovamente il [in modo efficiente il Paging tramite quantità di dati di grandi dimensioni](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) esercitazione.
 
-Per implementare il paging predefinito nei controlli del controllo DataList o Repeater, è possibile utilizzare il [ `PagedDataSource` classe](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx) come wrapper per il `ProductsDataTable` il cui contenuto è il paging. Il `PagedDataSource` classe dispone di un `DataSource` proprietà che possono essere assegnati a un oggetto enumerabile e [ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) e [ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) le proprietà che indicano il numero di record a visualizzare ogni pagina e l'indice della pagina corrente. Una volta queste proprietà sono state impostate, il `PagedDataSource` può essere utilizzato come origine dati di qualsiasi dato controllo Web. Il `PagedDataSource`, quando enumerata, verrà restituito solo il subset appropriato di record della relativa interna `DataSource` in base il `PageSize` e `CurrentPageIndex` proprietà. Figura 4 illustra le funzionalità del `PagedDataSource` classe.
+Per implementare il paging predefinito nei controlli del controllo DataList o Repeater, è possibile utilizzare il [ `PagedDataSource` classe](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) come wrapper per il `ProductsDataTable` il cui contenuto è il paging. Il `PagedDataSource` classe dispone di un `DataSource` proprietà che possono essere assegnati a un oggetto enumerabile e [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) e [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) le proprietà che indicano il numero di record a visualizzare ogni pagina e l'indice della pagina corrente. Una volta queste proprietà sono state impostate, il `PagedDataSource` può essere utilizzato come origine dati di qualsiasi dato controllo Web. Il `PagedDataSource`, quando enumerata, verrà restituito solo il subset appropriato di record della relativa interna `DataSource` in base il `PageSize` e `CurrentPageIndex` proprietà. Figura 4 illustra le funzionalità del `PagedDataSource` classe.
 
 
 ![Il PagedDataSource esegue il wrapping di un oggetto enumerabile con un'interfaccia di paging](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
@@ -204,7 +204,7 @@ Oltre a `TotalRowCount`, richiedere un minuto, per creare le proprietà a livell
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Determinazione del numero totale di record, il paging tramite
 
-Il `PagedDataSource` oggetto restituito da ObjectDataSource s `Select()` metodo presenta all'interno di esso *tutti* dei record di prodotto, anche se solo un sottoinsieme di essi vengono visualizzati in DataList. Il `PagedDataSource` s [ `Count` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx) restituisce solo il numero di elementi che verranno visualizzati in DataList; il [ `DataSourceCount` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) restituisce il numero totale di elementi all'interno di `PagedDataSource`. Pertanto, è necessario assegnare ASP.NET pagina s `TotalRowCount` il valore della proprietà del `PagedDataSource` s `DataSourceCount` proprietà.
+Il `PagedDataSource` oggetto restituito da ObjectDataSource s `Select()` metodo presenta all'interno di esso *tutti* dei record di prodotto, anche se solo un sottoinsieme di essi vengono visualizzati in DataList. Il `PagedDataSource` s [ `Count` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) restituisce solo il numero di elementi che verranno visualizzati in DataList; il [ `DataSourceCount` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) restituisce il numero totale di elementi all'interno di `PagedDataSource`. Pertanto, è necessario assegnare ASP.NET pagina s `TotalRowCount` il valore della proprietà del `PagedDataSource` s `DataSourceCount` proprietà.
 
 A tale scopo, creare un gestore eventi per ObjectDataSource s `Selected` evento. Nel `Selected` gestore eventi è disponibile l'accesso al valore restituito di s ObjectDataSource `Select()` metodo in questo caso, il `PagedDataSource`.
 
@@ -224,7 +224,7 @@ Con il `Click` completare i gestori eventi, i record di DataList s possono esser
 
 ## <a name="disabling-paging-interface-controls"></a>La disabilitazione di controlli dell'interfaccia di Paging
 
-Attualmente, tutti i quattro pulsanti sono abilitati indipendentemente dalla pagina che viene visualizzato. Tuttavia, è necessario disabilitare i pulsanti del primo e precedente, quando vengono visualizzate la prima pagina di dati e i pulsanti Avanti e ultimo quando l'ultima pagina. Il `PagedDataSource` oggetto restituito da ObjectDataSource s `Select()` metodo dispone di proprietà [ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) e [ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) che è possibile esaminare per determinare se viene visualizzato la prima o nell'ultima pagina di dati.
+Attualmente, tutti i quattro pulsanti sono abilitati indipendentemente dalla pagina che viene visualizzato. Tuttavia, è necessario disabilitare i pulsanti del primo e precedente, quando vengono visualizzate la prima pagina di dati e i pulsanti Avanti e ultimo quando l'ultima pagina. Il `PagedDataSource` oggetto restituito da ObjectDataSource s `Select()` metodo dispone di proprietà [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) e [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) che è possibile esaminare per determinare se viene visualizzato la prima o nell'ultima pagina di dati.
 
 Aggiungere quanto segue al s ObjectDataSource `Selected` gestore eventi:
 
@@ -282,4 +282,4 @@ Buona programmazione!
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Liz Shulok, Ken Pespisa e Bernadette Leigh. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Successivo](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+[avanti](sorting-data-in-a-datalist-or-repeater-control-cs.md)

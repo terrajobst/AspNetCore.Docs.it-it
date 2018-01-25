@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: 7aafe4823d3a6090fae4a63f1a66fb2670ecb025
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1fcaf70cc38d73da0a454764520197b97f34b26
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="json-and-xml-serialization-in-aspnet-web-api"></a>La serializzazione XML in ASP.NET Web API e JSON
 ====================
@@ -31,7 +31,7 @@ In ASP.NET Web API, un *formattatore di media type* è un oggetto che può esser
 
 API Web fornisce formattatori di media type per JSON e XML. Per impostazione predefinita, il framework inserisce questi formattatori nella pipeline. I client possono richiedere JSON o XML nell'intestazione Accept della richiesta HTTP.
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 - [Formattatore di Media Type JSON](#json_media_type_formatter)
 
@@ -89,7 +89,7 @@ Per impostazione predefinita, Json.NET mantiene il fuso orario. È possibile ign
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample5.cs)]
 
-Se si preferisce utilizzare [formato JSON Microsoft](https://msdn.microsoft.com/en-us/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) anziché ISO 8601, impostare il **DateFormatHandling** proprietà impostazioni del serializzatore:
+Se si preferisce utilizzare [formato JSON Microsoft](https://msdn.microsoft.com/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) anziché ISO 8601, impostare il **DateFormatHandling** proprietà impostazioni del serializzatore:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample6.cs)]
 

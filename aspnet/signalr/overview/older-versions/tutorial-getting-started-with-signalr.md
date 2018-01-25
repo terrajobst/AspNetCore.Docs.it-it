@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c61be6f7a64c000c8d9489f35eea520fd0bb32dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce4953a0abf64af28ef4dbc5a62bb2d989343d99
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Esercitazione: Introduzione a SignalR 1. x
 ====================
@@ -168,7 +168,7 @@ Il codice seguente viene illustrato come aprire una connessione con l'hub. Il co
 
 Si è appreso che SignalR è un framework per la creazione di applicazioni web in tempo reale. È stato inoltre diverse attività di sviluppo SignalR: come aggiungere SignalR a un'applicazione ASP.NET, come creare una classe di hub e come inviare e ricevere messaggi dall'hub.
 
-È possibile rendere l'applicazione di esempio in questa esercitazione o altre applicazioni SignalR disponibili su Internet distribuendole da un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web gratuito [account di valutazione di Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Per una procedura dettagliata su come distribuire l'applicazione di esempio SignalR, vedere [pubblicare il SignalR esempio della Guida introduttiva di un sito Web di Microsoft Azure](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Per informazioni dettagliate su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [si distribuisce un'applicazione ASP.NET a un sito Web di Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Nota: il trasporto WebSocket non è attualmente supportato per siti Web di Windows Azure. Trasporto WebSocket quando non è disponibile, SignalR utilizza gli altri trasporti disponibili come descritto nella sezione di trasporti di [Introduzione all'argomento SignalR](index.md).)
+È possibile rendere l'applicazione di esempio in questa esercitazione o altre applicazioni SignalR disponibili su Internet distribuendole da un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web gratuito [account di valutazione di Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Per una procedura dettagliata su come distribuire l'applicazione di esempio SignalR, vedere [pubblicare il SignalR esempio della Guida introduttiva di un sito Web di Microsoft Azure](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Per informazioni dettagliate su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [si distribuisce un'applicazione ASP.NET a un sito Web di Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Nota: il trasporto WebSocket non è attualmente supportato per siti Web di Windows Azure. Trasporto WebSocket quando non è disponibile, SignalR utilizza gli altri trasporti disponibili come descritto nella sezione di trasporti di [Introduzione all'argomento SignalR](index.md).)
 
 Per informazioni su concetti più avanzati di sviluppi SignalR, visitare i siti seguenti per il codice sorgente SignalR e risorse:
 

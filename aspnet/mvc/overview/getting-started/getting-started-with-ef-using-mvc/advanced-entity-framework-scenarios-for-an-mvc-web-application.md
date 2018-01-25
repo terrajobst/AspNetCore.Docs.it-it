@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 3d6cc52f7fa3089f30f1a6bbd76593f1eca95009
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85276377671b96e65406639c8584d9ebf8d77ff7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Avanzate di Entity Framework 6 scenari per un'applicazione Web 5 MVC (12 12)
 ====================
@@ -58,9 +58,9 @@ Per la maggior parte degli argomenti seguenti, si utilizzeranno le pagine che gi
 
 L'API di Entity Framework codice prima include metodi che consentono di passare i comandi SQL direttamente al database. Sono disponibili le seguenti opzioni:
 
-- Utilizzare il [DbSet.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.sqlquery.aspx) metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si disattiva rilevamento. (Vedere la sezione seguente [AsNoTracking](https://msdn.microsoft.com/en-us/library/system.data.entity.dbextensions.asnotracking.aspx) metodo.)
-- Utilizzare il [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery.aspx) metodo per le query che restituiscono tipi non entità. I dati restituiti non sono rilevati dal contesto del database, anche se si utilizza questo metodo per recuperare i tipi di entità.
-- Utilizzare il [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456.aspx) per i comandi non query.
+- Utilizzare il [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx) metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si disattiva rilevamento. (Vedere la sezione seguente [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx) metodo.)
+- Utilizzare il [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) metodo per le query che restituiscono tipi non entità. I dati restituiti non sono rilevati dal contesto del database, anche se si utilizza questo metodo per recuperare i tipi di entità.
+- Utilizzare il [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx) per i comandi non query.
 
 Uno dei vantaggi dell'utilizzo di Entity Framework è che evita abbinata codice posizione troppo ravvicinata a un metodo particolare per l'archiviazione dei dati. Ciò avviene mediante la generazione di comandi e query SQL, che consente inoltre di dover scrivere manualmente. Esistono scenari eccezionali, quando è necessario eseguire query SQL specifiche che è stato creato manualmente, ma questi metodi consentono di gestire tali eccezioni.
 
@@ -68,7 +68,7 @@ Come è sempre true per l'esecuzione di comandi SQL in un'applicazione web, è n
 
 ### <a name="calling-a-query-that-returns-entities"></a>La chiamata di una Query che restituisce le entità
 
-Il [DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/en-us/library/gg696460.aspx) classe fornisce un metodo che è possibile utilizzare per eseguire una query che restituisce un'entità di tipo `TEntity`. Per visualizzarne il funzionamento si modificherà il codice nel `Details` metodo il `Department` controller.
+Il [DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) classe fornisce un metodo che è possibile utilizzare per eseguire una query che restituisce un'entità di tipo `TEntity`. Per visualizzarne il funzionamento si modificherà il codice nel `Details` metodo il `Department` controller.
 
 In *DepartmentController.cs*nella `Details` (metodo), sostituire il `db.Departments.FindAsync` chiamata al metodo con un `db.Departments.SqlQuery` chiamata al metodo, come illustrato nel codice evidenziato seguente:
 
@@ -84,7 +84,7 @@ Per verificare che il nuovo codice funziona correttamente, selezionare il **repa
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
-Si supponga di che voler scrivere codice che recupera i dati direttamente in SQL anziché l'utilizzo di LINQ. Scopo che è necessario eseguire una query che restituisce un valore diverso da oggetti entità, vale a dire che è necessario utilizzare il [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery(v=VS.103).aspx) metodo.
+Si supponga di che voler scrivere codice che recupera i dati direttamente in SQL anziché l'utilizzo di LINQ. Scopo che è necessario eseguire una query che restituisce un valore diverso da oggetti entità, vale a dire che è necessario utilizzare il [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery(v=VS.103).aspx) metodo.
 
 In *HomeController.cs*, sostituire l'istruzione LINQ nel `About` (metodo) con un'istruzione SQL, come illustrato nel codice evidenziato seguente:
 
@@ -130,19 +130,19 @@ Fare clic su **elenco** per visualizzare l'elenco dei corsi con il numero di cre
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
-Per ulteriori informazioni sulle query SQL non elaborate, vedere [query SQL non elaborati](https://msdn.microsoft.com/en-us/data/jj592907) su MSDN.
+Per ulteriori informazioni sulle query SQL non elaborate, vedere [query SQL non elaborati](https://msdn.microsoft.com/data/jj592907) su MSDN.
 
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>Query di rilevamento di No
 
 Quando un contesto di database recupera le righe della tabella e crea gli oggetti di entità che li rappresentano, per impostazione predefinita consente di determinare se le entità in memoria sono sincronizzate con i dati del database. I dati in memoria funge da cache e viene utilizzati quando si aggiorna un'entità. La memorizzazione nella cache non è spesso necessario in un'applicazione web perché contesto istanze sono in genere breve durata (un nuovo uno viene creato o eliminato per ogni richiesta) e il contesto che legge un'entità viene in genere eliminata prima di tale entità viene usato di nuovo.
 
-È possibile disabilitare il rilevamento degli oggetti entità in memoria tramite il [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx) metodo. Scenari tipici in cui si desideri farlo che includono quanto segue:
+È possibile disabilitare il rilevamento degli oggetti entità in memoria tramite il [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) metodo. Scenari tipici in cui si desideri farlo che includono quanto segue:
 
 - Una query recupera un grosso volume di dati che potrebbero migliorare notevolmente le prestazioni di disattivazione del rilevamento.
 - Si desidera collegare un'entità per l'aggiornamento, ma è recuperato in precedenza la stessa entità per uno scopo diverso. Poiché l'entità è già rilevato dal contesto di database, è possibile collegare l'entità che si desidera modificare. Per gestire questa situazione è possibile utilizzare il `AsNoTracking` opzione con la query precedente.
 
-Per un esempio che illustra come usare il [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx) metodo, vedere [la versione precedente di questa esercitazione](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Questa versione dell'esercitazione non imposta il flag modificato su un'entità di modello dello strumento di associazione creato nel metodo di modifica, in modo che non sia `AsNoTracking`.
+Per un esempio che illustra come usare il [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) metodo, vedere [la versione precedente di questa esercitazione](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Questa versione dell'esercitazione non imposta il flag modificato su un'entità di modello dello strumento di associazione creato nel metodo di modifica, in modo che non sia `AsNoTracking`.
 
 <a id="sql"></a>
 ## <a name="examining-sql-sent-to-the-database"></a>Analisi SQL inviati al database
@@ -204,8 +204,8 @@ Molti sviluppatori di scrivono codice per implementare il repository e l'unità 
 Per ulteriori informazioni su come implementare il repository e l'unità di lavoro modelli, vedere [la versione di Entity Framework 5 di questa serie di esercitazioni](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md). Per informazioni sui modi per implementare TDD in Entity Framework 6, vedere le risorse seguenti:
 
 - [Come EF6 consente Mocking DbSets più facilmente](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
-- [Test con un framework di simulazione](https://msdn.microsoft.com/en-us/data/dn314429)
-- [Test con le proprie copie di test](https://msdn.microsoft.com/en-us/data/dn314431)
+- [Test con un framework di simulazione](https://msdn.microsoft.com/data/dn314429)
+- [Test con le proprie copie di test](https://msdn.microsoft.com/data/dn314431)
 
 <a id="proxies"></a>
 ## <a name="proxy-classes"></a>Classi proxy
@@ -220,11 +220,11 @@ Questa classe proxy esegue l'override di alcune proprietà dell'entità da inser
 
 La maggior parte dei casi non è necessario essere a conoscenza di questo utilizzo di proxy, ma esistono alcune eccezioni:
 
-- In alcuni scenari è consigliabile impedire la creazione di istanze di proxy di Entity Framework. Ad esempio, quando si sta serializzando l'entità desiderata in genere le classi POCO, non le classi proxy. È di un modo per evitare problemi di serializzazione per serializzare oggetti di trasferimento di dati DTO anziché oggetti entità, come illustrato nel [tramite Web API with Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) esercitazione. È inoltre possibile [disabilita la creazione di proxy](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
-- Quando si crea un'istanza una classe di entità mediante il `new` (operatore), non si ottiene un'istanza del proxy. Ciò significa che non si ottengono funzionalità, ad esempio rilevamento delle modifiche automatico e il caricamento lazy. Si tratta in genere OK; in genere non è necessario il caricamento lazy, perché si sta creando una nuova entità che non è nel database, e in genere non occorre rilevamento se si sta contrassegnare in modo esplicito l'entità come `Added`. Tuttavia, se è necessario il caricamento lazy ed è necessario il rilevamento delle modifiche, è possibile creare nuove istanze di entità con proxy utilizzando il [crea](https://msdn.microsoft.com/en-us/library/gg679504.aspx) metodo la `DbSet` classe.
-- È possibile ottenere un tipo di entità effettivo da un tipo proxy. È possibile utilizzare il [GetObjectType](https://msdn.microsoft.com/en-us/library/system.data.objects.objectcontext.getobjecttype.aspx) metodo la `ObjectContext` classe per ottenere il tipo di entità effettivo di un'istanza del tipo proxy.
+- In alcuni scenari è consigliabile impedire la creazione di istanze di proxy di Entity Framework. Ad esempio, quando si sta serializzando l'entità desiderata in genere le classi POCO, non le classi proxy. È di un modo per evitare problemi di serializzazione per serializzare oggetti di trasferimento di dati DTO anziché oggetti entità, come illustrato nel [tramite Web API with Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) esercitazione. È inoltre possibile [disabilita la creazione di proxy](https://msdn.microsoft.com/data/jj592886.aspx).
+- Quando si crea un'istanza una classe di entità mediante il `new` (operatore), non si ottiene un'istanza del proxy. Ciò significa che non si ottengono funzionalità, ad esempio rilevamento delle modifiche automatico e il caricamento lazy. Si tratta in genere OK; in genere non è necessario il caricamento lazy, perché si sta creando una nuova entità che non è nel database, e in genere non occorre rilevamento se si sta contrassegnare in modo esplicito l'entità come `Added`. Tuttavia, se è necessario il caricamento lazy ed è necessario il rilevamento delle modifiche, è possibile creare nuove istanze di entità con proxy utilizzando il [crea](https://msdn.microsoft.com/library/gg679504.aspx) metodo la `DbSet` classe.
+- È possibile ottenere un tipo di entità effettivo da un tipo proxy. È possibile utilizzare il [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) metodo la `ObjectContext` classe per ottenere il tipo di entità effettivo di un'istanza del tipo proxy.
 
-Per ulteriori informazioni, vedere [utilizzo di proxy](https://msdn.microsoft.com/en-us/data/JJ592886.aspx) su MSDN.
+Per ulteriori informazioni, vedere [utilizzo di proxy](https://msdn.microsoft.com/data/JJ592886.aspx) su MSDN.
 
 <a id="changedetection"></a>
 ## <a name="automatic-change-detection"></a>Rilevamento delle modifiche automatico
@@ -241,12 +241,12 @@ Entity Framework determina come è stata modificata un'entità (e pertanto gli a
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Se si desidera tenere traccia di un numero elevato di entità e viene chiamato uno di questi metodi più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento delle modifiche automatico utilizzando il [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) proprietà. Per ulteriori informazioni, vedere [automaticamente il rilevamento modifiche](https://msdn.microsoft.com/en-us/data/jj556205) su MSDN.
+Se si desidera tenere traccia di un numero elevato di entità e viene chiamato uno di questi metodi più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento delle modifiche automatico utilizzando il [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) proprietà. Per ulteriori informazioni, vedere [automaticamente il rilevamento modifiche](https://msdn.microsoft.com/data/jj556205) su MSDN.
 
 <a id="validation"></a>
 ## <a name="automatic-validation"></a>Convalida automatica
 
-Quando si chiama il `SaveChanges` (metodo), per impostazione predefinita di Entity Framework convalida i dati in tutte le proprietà di tutte le entità modificate prima di aggiornare il database. Se è stato aggiornato un numero elevato di entità già stato convalidato i dati, questa operazione è necessaria e far sì che il processo di salvataggio le modifiche avranno meno tempo per disattivare temporaneamente la convalida. È possibile eseguire tale utilizzando il [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) proprietà. Per ulteriori informazioni, vedere [convalida](https://msdn.microsoft.com/en-us/data/gg193959) su MSDN.
+Quando si chiama il `SaveChanges` (metodo), per impostazione predefinita di Entity Framework convalida i dati in tutte le proprietà di tutte le entità modificate prima di aggiornare il database. Se è stato aggiornato un numero elevato di entità già stato convalidato i dati, questa operazione è necessaria e far sì che il processo di salvataggio le modifiche avranno meno tempo per disattivare temporaneamente la convalida. È possibile eseguire tale utilizzando il [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) proprietà. Per ulteriori informazioni, vedere [convalida](https://msdn.microsoft.com/data/gg193959) su MSDN.
 
 <a id="tools"></a>
 ## <a name="entity-framework-power-tools"></a>Strumenti di Entity Framework Power
@@ -267,7 +267,7 @@ Anche se il codice sorgente è aperto, Entity Framework è completamente support
 <a id="summary"></a>
 ## <a name="summary"></a>Riepilogo
 
-Questa serie di esercitazioni sull'uso di Entity Framework in un'applicazione MVC ASP.NET è stata completata. Per ulteriori informazioni sull'utilizzo dei dati mediante Entity Framework, vedere il [pagina della documentazione di Entity Framework in MSDN](https://msdn.microsoft.com/en-us/data/ee712907) e [accesso ai dati ASP.NET - risorse](../../../../whitepapers/aspnet-data-access-content-map.md).
+Questa serie di esercitazioni sull'uso di Entity Framework in un'applicazione MVC ASP.NET è stata completata. Per ulteriori informazioni sull'utilizzo dei dati mediante Entity Framework, vedere il [pagina della documentazione di Entity Framework in MSDN](https://msdn.microsoft.com/data/ee712907) e [accesso ai dati ASP.NET - risorse](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 Per ulteriori informazioni su come distribuire l'applicazione web dopo aver creato, vedere [distribuzione Web di ASP.NET - risorse](../../../../whitepapers/aspnet-web-deployment-content-map.md) in MSDN Library.
 

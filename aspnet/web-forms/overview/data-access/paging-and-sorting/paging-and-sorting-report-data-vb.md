@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2ef1bb0b68a46535e3320834a0374b9a4f66182c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Il paging e l'ordinamento dei dati di Report (VB)
 ====================
@@ -101,7 +101,7 @@ Figura 6 mostra l'avanzamento finora quando viene visualizzato tramite un browse
 
 ## <a name="step-3-adding-paging-support"></a>Passaggio 3: Aggiunta del supporto di Paging
 
-Elenco *tutti* dei prodotti in un'unica schermata può causare il sovraccarico di informazioni per l'utente ad analizzare i dati. Per rendere più gestibili i risultati, è possibile suddividere i dati in pagine di dati di dimensioni ridotte e consentire all'utente di scorrere i dati una pagina alla volta. Per eseguire questo sufficiente selezionare la casella di controllo Abilita Paging dallo smart tag GridView s (imposta s GridView [ `AllowPaging` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) a `true`).
+Elenco *tutti* dei prodotti in un'unica schermata può causare il sovraccarico di informazioni per l'utente ad analizzare i dati. Per rendere più gestibili i risultati, è possibile suddividere i dati in pagine di dati di dimensioni ridotte e consentire all'utente di scorrere i dati una pagina alla volta. Per eseguire questo sufficiente selezionare la casella di controllo Abilita Paging dallo smart tag GridView s (imposta s GridView [ `AllowPaging` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) a `true`).
 
 
 [![Controllare la casella di controllo Abilita Paging per aggiungere il supporto di Paging](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
@@ -111,12 +111,12 @@ Elenco *tutti* dei prodotti in un'unica schermata può causare il sovraccarico d
 
 Abilitazione di paging limita il numero di record visualizzati per pagina e aggiunge un *interfaccia di paging* a GridView. L'interfaccia di paging predefinito, illustrato nella figura 7, è una serie di numeri di pagina, consentendo all'utente di spostarsi rapidamente da una pagina di dati a un altro. Questa interfaccia di paging dovrebbe essere familiare, qualora vi viene visualizzato quando si aggiunge il supporto di paging per i controlli DetailsView e FormView nelle esercitazioni precedenti.
 
-Controlli di DetailsView sia FormView mostrano solo un singolo record per ogni pagina. GridView, tuttavia, consulta la [ `PageSize` proprietà](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx) per determinare il numero di record in modo da visualizzare per pagina (impostazione predefinita questa proprietà su un valore pari a 10).
+Controlli di DetailsView sia FormView mostrano solo un singolo record per ogni pagina. GridView, tuttavia, consulta la [ `PageSize` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) per determinare il numero di record in modo da visualizzare per pagina (impostazione predefinita questa proprietà su un valore pari a 10).
 
 Questa interfaccia di paging GridView, DetailsView e FormView s può essere personalizzata tramite le proprietà seguenti:
 
 - `PagerStyle`indica le informazioni sullo stile per l'interfaccia di paging. può specificare le impostazioni come `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`e così via.
-- `PagerSettings`contiene un insieme di proprietà che è possibile personalizzare la funzionalità dell'interfaccia di paging. `PageButtonCount` indica il numero massimo di numeri di pagina numerici visualizzati nell'interfaccia di paging (il valore predefinito è 10); il [ `Mode` proprietà](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica come l'interfaccia di paging viene eseguita e può essere impostato su: 
+- `PagerSettings`contiene un insieme di proprietà che è possibile personalizzare la funzionalità dell'interfaccia di paging. `PageButtonCount` indica il numero massimo di numeri di pagina numerici visualizzati nell'interfaccia di paging (il valore predefinito è 10); il [ `Mode` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica come l'interfaccia di paging viene eseguita e può essere impostato su: 
 
     - `NextPrevious`Mostra i pulsanti Avanti e indietro, consentendo all'utente di passaggio avanti o indietro una pagina alla volta
     - `NextPreviousFirstLast`Oltre ai pulsanti successivo e precedente, primo e ultimo pulsanti sono inclusi anche, consentendo all'utente di passare rapidamente a prima o ultima pagina di dati
@@ -216,7 +216,7 @@ Come mostrato nella figura 11, semplicemente modificando il s GridView `PageInde
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>Passaggio 5: Aggiunta del supporto di ordinamento bidirezionale
 
-Aggiungendo il supporto dell'ordinamento bidirezionale è semplice come l'aggiunta del supporto di paging è sufficiente selezionare l'opzione Abilita ordinamento dallo smart tag GridView s (che imposta il s GridView [ `AllowSorting` proprietà](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) a `true`). Si esegue il rendering ognuna delle intestazioni dei campi s GridView come LinkButton che, quando si fa clic, provocare un postback e restituire i dati ordinati in base alla colonna selezionata in ordine crescente. Fare di nuovo la stessa intestazione LinkButton nuovamente Ordina i dati in ordine decrescente.
+Aggiungendo il supporto dell'ordinamento bidirezionale è semplice come l'aggiunta del supporto di paging è sufficiente selezionare l'opzione Abilita ordinamento dallo smart tag GridView s (che imposta il s GridView [ `AllowSorting` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) a `true`). Si esegue il rendering ognuna delle intestazioni dei campi s GridView come LinkButton che, quando si fa clic, provocare un postback e restituire i dati ordinati in base alla colonna selezionata in ordine crescente. Fare di nuovo la stessa intestazione LinkButton nuovamente Ordina i dati in ordine decrescente.
 
 > [!NOTE]
 > Se si utilizza un livello di accesso ai dati personalizzati anziché un DataSet tipizzato, non è possibile un'opzione Abilita ordinamento nello smart tag GridView s. Solo i GridView associati a origini dati che supportano in modo nativo l'ordinamento sono questa casella di controllo disponibile. Il DataSet tipizzato fornisce il supporto dell'ordinamento della casella poiché l'oggetto DataTable di ADO.NET fornisce un `Sort` metodo che, quando richiamata, Ordina gli oggetti DataTable DataRow tramite i criteri specificati.
@@ -243,11 +243,11 @@ Dopo l'aggiunta di CSS, visitando la pagina tramite un browser la schermata dovr
 
 GridView tutti i campi BoundField CheckBoxField, TemplateField e così via sono un `SortExpression` proprietà che indica l'espressione che deve essere utilizzato per ordinare i dati quando si fa clic s tale campo collegamento di intestazione di ordinamento. Dispone anche di GridView un `SortExpression` proprietà. Quando un'intestazione di ordinamento viene fatto clic su LinkButton GridView assegna che il campo s `SortExpression` valore relativo `SortExpression` proprietà. Successivamente, i dati vengono recuperati nuovamente da ObjectDataSource e ordinati in base ai dispositivi GridView `SortExpression` proprietà. Nell'elenco seguente illustra nel dettaglio la sequenza di passaggi che risulti quando un utente finale ordina i dati in un controllo GridView:
 
-1. S GridView [evento Sorting](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) generato
-2. S GridView [ `SortExpression` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) è impostato sul `SortExpression` del campo la cui intestazione ordinamento LinkButton selezionato
+1. S GridView [evento Sorting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) generato
+2. S GridView [ `SortExpression` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) è impostato sul `SortExpression` del campo la cui intestazione ordinamento LinkButton selezionato
 3. ObjectDataSource nuovamente recupera tutti i dati da BLL, quindi ordina i dati utilizzando i dispositivi di GridView`SortExpression`
 4. S GridView `PageIndex` proprietà viene reimpostata su 0, il che significa che durante l'ordinamento dell'utente viene restituito alla prima pagina di dati (presupponendo che sia stato implementato il supporto del paging)
-5. S GridView [ `Sorted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) generato
+5. S GridView [ `Sorted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) generato
 
 Come con paging predefinito, l'impostazione predefinita l'opzione di ordinamento recupera nuovamente *tutti* dei record di BLL. Quando si utilizza l'ordinamento senza paging o quando si utilizza l'ordinamento con non predefinito di paging, s esiste alcun modo per ovviare a questo oggetto prestazioni (se non si la memorizzazione nella cache i dati del database). Tuttavia, come vedremo in un'esercitazione in futura, è possibile ordinare in modo efficiente i dati quando si usa il paging personalizzato s.
 
@@ -274,7 +274,7 @@ Una volta il `SortExpression` proprietà è stata rimossa per il `UnitPrice` Bou
 
 ## <a name="programmatically-sorting-the-gridview"></a>Ordinamento a livello di codice il controllo GridView.
 
-È inoltre possibile ordinare il contenuto del controllo GridView. a livello di codice utilizzando il controllo GridView. [ `Sort` metodo](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx). Passare il `SortExpression` valore di ordinamento con il [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` o `Descending`), e i dati di GridView s sarà nuovamente ordinati.
+È inoltre possibile ordinare il contenuto del controllo GridView. a livello di codice utilizzando il controllo GridView. [ `Sort` metodo](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Passare il `SortExpression` valore di ordinamento con il [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` o `Descending`), e i dati di GridView s sarà nuovamente ordinati.
 
 Si supponga che il motivo è disattivata l'ordinamento in base il `UnitPrice` perché siamo teme che i clienti verrebbero semplicemente acquistare solo i prodotti di prezzo più basso. Tuttavia, si vuole incoraggiarli per acquistare i prodotti più costosi, in modo d vorremmo possano essere in grado di ordinare i prodotti in base al prezzo, ma solo dal prezzo più elevato per il minor.
 

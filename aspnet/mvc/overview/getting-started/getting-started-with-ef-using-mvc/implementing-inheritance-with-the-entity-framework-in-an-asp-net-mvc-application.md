@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Implementazione dell'ereditarietà con Entity Framework 6 in un'applicazione ASP.NET MVC 5 (11 12)
 ====================
@@ -43,13 +43,13 @@ Si supponga che si desidera eliminare il codice ridondante per le proprietà con
 
 Esistono diversi modi di che questa struttura di ereditarietà potrebbe essere rappresentata nel database. È possibile disporre di un `Person` tabella che include informazioni su studenti e insegnanti in un'unica tabella. Alcune delle colonne è stato possibile applicare solo per i docenti (`HireDate`), alcuni solo per gli studenti (`EnrollmentDate`), in alcune entrambe (`LastName`, `FirstName`). In genere, è necessario un *discriminatore* colonna per indicare quale tipo di ogni riga rappresenta. La colonna del discriminatore, ad esempio, potrebbe essere "Istruttore" per i docenti e "Student" per studenti.
 
-![Per ogni tabella-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Table-per-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 Questo modello di generazione di una struttura di ereditarietà di entità da una singola tabella di database è denominato *della tabella per gerarchia* ereditarietà della.
 
 In alternativa è possibile rendere il database più simile la struttura di ereditarietà. Ad esempio, si potrebbe avere solo i campi nome `Person` tabella e sono separate `Instructor` e `Student` le tabelle con i campi delle date.
 
-![Per ogni tabella-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+![Table-per-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 Questo modello di esecuzione di una tabella di database per ogni classe di entità viene denominata *tabella per tipo* ereditarietà (tabella per tipo).
 
@@ -57,7 +57,7 @@ Ancora un'altra opzione consiste nell'eseguire il mapping di tutti i tipi non as
 
 TPC e criteri di ereditarietà della tabella per gerarchia offrono in genere prestazioni migliori in Entity Framework di criteri di ereditarietà tabella per tipo, in quanto possono generare modelli di tabella per tipo query join complessi.
 
-In questa esercitazione viene illustrato come implementare Implementerà l'ereditarietà. Della tabella per gerarchia è il modello di ereditarietà predefinite in Entity Framework, pertanto sufficiente creare un `Person` classe, modificare il `Instructor` e `Student` classi da cui derivare `Person`, aggiungere la nuova classe per il `DbContext`e creare un migrazione. (Per informazioni su come implementare altri modelli di ereditarietà, vedere [Mapping dell'ereditarietà per ogni tipo di tabella (tabella per tipo)](https://msdn.microsoft.com/en-us/data/jj591617#2.5) e [Mapping dell'ereditarietà di classe per ogni tabella-Concrete (TPC)](https://msdn.microsoft.com/en-us/data/jj591617#2.6) in MSDN Documentazione del Framework entità.)
+In questa esercitazione viene illustrato come implementare Implementerà l'ereditarietà. Della tabella per gerarchia è il modello di ereditarietà predefinite in Entity Framework, pertanto sufficiente creare un `Person` classe, modificare il `Instructor` e `Student` classi da cui derivare `Person`, aggiungere la nuova classe per il `DbContext`e creare un migrazione. (Per informazioni su come implementare altri modelli di ereditarietà, vedere [Mapping dell'ereditarietà per ogni tipo di tabella (tabella per tipo)](https://msdn.microsoft.com/data/jj591617#2.5) e [Mapping dell'ereditarietà di classe per ogni tabella-Concrete (TPC)](https://msdn.microsoft.com/data/jj591617#2.6) in MSDN Documentazione del Framework entità.)
 
 ## <a name="create-the-person-class"></a>Creare la classe di persona
 
@@ -159,7 +159,7 @@ In questa sezione è necessario aver completato l'opzione facoltativa **distribu
 
 ## <a name="summary"></a>Riepilogo
 
-Tabella per gerarchia ereditarietà per aver implementato il `Person`, `Student`, e `Instructor` classi. Per ulteriori informazioni su questa e altre strutture di ereditarietà, vedere [il modello di ereditarietà tabella per tipo](https://msdn.microsoft.com/en-us/data/jj618293) e [il modello di ereditarietà della tabella per gerarchia](https://msdn.microsoft.com/en-us/data/jj618292) su MSDN. Nella prossima esercitazione verrà visualizzato come gestire un'ampia gamma di scenari di Entity Framework relativamente avanzati.
+Tabella per gerarchia ereditarietà per aver implementato il `Person`, `Student`, e `Instructor` classi. Per ulteriori informazioni su questa e altre strutture di ereditarietà, vedere [il modello di ereditarietà tabella per tipo](https://msdn.microsoft.com/data/jj618293) e [il modello di ereditarietà della tabella per gerarchia](https://msdn.microsoft.com/data/jj618292) su MSDN. Nella prossima esercitazione verrà visualizzato come gestire un'ampia gamma di scenari di Entity Framework relativamente avanzati.
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [accesso ai dati ASP.NET - risorse](../../../../whitepapers/aspnet-data-access-content-map.md).
 

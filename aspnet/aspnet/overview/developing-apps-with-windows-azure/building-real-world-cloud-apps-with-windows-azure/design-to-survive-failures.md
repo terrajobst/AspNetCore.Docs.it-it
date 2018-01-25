@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Progettazione di sopravvivenza errori (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -117,14 +117,14 @@ Per ulteriori informazioni, vedere capitoli più avanti in questo e-book e le ri
 
 Documentazione:
 
-- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
-- [Informazioni tecniche sulla continuità aziendale di Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx). White paper Patrick Wickline, Jason Roth.
-- [Ripristino di emergenza e disponibilità elevata per applicazioni Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx). White paper Michael McKeown Hanu Kommalapati, e Jason Roth.
-- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Vedere la Guida di distribuzione con più Data Center, modello di interruttore.
+- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
+- [Informazioni tecniche sulla continuità aziendale di Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). White paper Patrick Wickline, Jason Roth.
+- [Ripristino di emergenza e disponibilità elevata per applicazioni Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). White paper Michael McKeown Hanu Kommalapati, e Jason Roth.
+- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere la Guida di distribuzione con più Data Center, modello di interruttore.
 - [Supporto tecnico di Azure - contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
-- [Continuità aziendale nel Database SQL di Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx). Documentazione sulle funzionalità Ripristino emergenza e disponibilità elevata del Database SQL.
-- [Disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx).
+- [Continuità aziendale nel Database SQL di Azure](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Documentazione sulle funzionalità Ripristino emergenza e disponibilità elevata del Database SQL.
+- [Disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Video
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: d8b94f53954c5ab63ccf3aab4eb7a7a7dbea487b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-model-binding"></a>Associazione di modelli personalizzati
 
@@ -133,6 +133,6 @@ Aggiunta alla fine della raccolta di provider può comportare un raccoglitore di
 ## <a name="recommendations-and-best-practices"></a>Indicazioni e procedure consigliate
 
 Raccoglitori di modelli personalizzati:
-- Non tentare di impostare i codici di stato o restituire risultati (ad esempio 404 non trovato). Se si verifica un errore di associazione del modello, un [filtro azione](xref:mvc/controllers/filters) o logica all'interno del metodo di azione stesso deve gestire l'errore.
+- Non deve tentare di impostare i codici di stato o restituire risultati (ad esempio 404 non trovato). Se si verifica un errore di associazione del modello, un [filtro azione](xref:mvc/controllers/filters) o logica all'interno del metodo di azione stesso deve gestire l'errore.
 - Sono particolarmente utili per eliminare codice ripetitivo e problemi di montaggio incrociato da metodi di azione.
-- In genere non devono essere utilizzate per convertire una stringa in un tipo personalizzato, un [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) in genere è un'opzione migliore.
+- In genere non devono essere usate per convertire una stringa in un tipo personalizzato, un [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) in genere è un'opzione migliore.

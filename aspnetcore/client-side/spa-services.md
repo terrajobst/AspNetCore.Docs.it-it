@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Utilizzo di JavaScriptServices per la creazione di applicazioni a pagina singola con ASP.NET Core
 
@@ -200,7 +200,7 @@ Dopo il caricamento dell'app nel browser, scheda Console gli strumenti di svilup
 
 ## <a name="routing-helpers"></a>Helper di routing
 
-Nella maggior parte dei stabilimenti termali basato su ASP.NET Core, è opportuno routing sul lato client oltre al routing sul lato server. I sistemi di routing SPA e MVC possono lavorare in modo indipendente senza interferenze. È, tuttavia, un caso limite ponendo sfide: identificazione delle risposte HTTP 404.
+Nella maggior parte dei stabilimenti termali basato su ASP.NET Core, è opportuno routing sul lato client oltre al routing sul lato server. I sistemi di routing SPA e MVC possono lavorare in modo indipendente senza interferenze. Se è presente, tuttavia, un bordo case che presentano problemi trovano ad affrontare: identificazione delle risposte HTTP 404.
 
 Si consideri lo scenario in cui una route senza estensione di `/some/page` viene utilizzato. Si supponga che la richiesta non-corrispondenza una route sul lato server, ma il criterio di corrispondenza con una route sul lato client. Ora si consideri una richiesta in ingresso per `/images/user-512.png`, che in genere prevede di trovare un file di immagine nel server. Se il percorso della risorsa richiesta non corrisponde a qualsiasi route sul lato server o un file statico, è improbabile che l'applicazione sul lato client si gestisce, in genere si desidera restituire un codice di stato HTTP 404.
 

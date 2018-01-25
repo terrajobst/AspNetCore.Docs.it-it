@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b60913cef4b62745cf167e6074834bf7d0c228d1
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Accesso ai dati del modello da un Controller
 ====================
@@ -64,7 +64,7 @@ Selezionare il collegamento **Crea nuovo**. Immettere alcune informazioni dettag
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Potrebbe non essere in grado di immettere decimali o virgole nel campo Prezzo. Per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e * Cultures/globalize.Cultures.js* file (da [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Illustrato come eseguire questa operazione nella prossima esercitazione. Per il momento, immettere solo numeri interi come 10.
+> Potrebbe non essere in grado di immettere decimali o virgole nel campo Prezzo. Per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e  *Cultures/globalize.Cultures.js* file (da [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Illustrato come eseguire questa operazione nella prossima esercitazione. Per il momento, immettere solo numeri interi come 10.
 
 
 Fare clic su di **crea** pulsante fa sì che il modulo di essere inviata al server, in cui le informazioni di film vengono salvate nel database. Quindi si viene reindirizzati al */Movies* URL, in cui è possibile visualizzare il film appena creato nell'elenco.
@@ -87,7 +87,7 @@ Una richiesta per il `Movies` controller restituisce tutte le voci la `Movies` t
 
 In precedenza in questa esercitazione, si è visto come un controller può passare oggetti o dati a un modello di visualizzazione utilizzando il `ViewBag` oggetto. Il `ViewBag` è un oggetto dinamico che fornisce un modo pratico ad associazione tardiva per passare informazioni a una vista.
 
-MVC fornisce inoltre la possibilità di passare *fortemente* un modello di visualizzazione di oggetti tipizzati. Questo approccio fortemente tipizzato consente una migliore in fase di compilazione più ricco e controllo del codice [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx) nell'editor di Visual Studio. Il meccanismo di scaffolding in Visual Studio utilizzato questo approccio (vale a dire, passando un *fortemente* modello tipizzato) con il `MoviesController` modelli di classe e di visualizzazione quando creato i metodi e le visualizzazioni.
+MVC fornisce inoltre la possibilità di passare *fortemente* un modello di visualizzazione di oggetti tipizzati. Questo approccio fortemente tipizzato consente una migliore in fase di compilazione più ricco e controllo del codice [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) nell'editor di Visual Studio. Il meccanismo di scaffolding in Visual Studio utilizzato questo approccio (vale a dire, passando un *fortemente* modello tipizzato) con il `MoviesController` modelli di classe e di visualizzazione quando creato i metodi e le visualizzazioni.
 
 Nel *Controllers\MoviesController.cs* file esaminare generato `Details` metodo. Il `Details` metodo è illustrato di seguito.
 
@@ -109,9 +109,9 @@ Includendo un `@model` istruzione all'inizio del file di modello di visualizzazi
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-Questa direttiva `@model` consente di accedere al film passato dal controller alla vista usando un oggetto `Model` fortemente tipizzato. Ad esempio, nel *Details.cshtml* modello, il codice passa tutti i campi film il `DisplayNameFor` e [DisplayFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) helper HTML con l'oggetto fortemente tipizzato `Model` oggetto. Il `Create` e `Edit` metodi e i modelli di visualizzazione anche passano un oggetto modello film.
+Questa direttiva `@model` consente di accedere al film passato dal controller alla vista usando un oggetto `Model` fortemente tipizzato. Ad esempio, nel *Details.cshtml* modello, il codice passa tutti i campi film il `DisplayNameFor` e [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) helper HTML con l'oggetto fortemente tipizzato `Model` oggetto. Il `Create` e `Edit` metodi e i modelli di visualizzazione anche passano un oggetto modello film.
 
-Esaminare il *cshtml* modello di visualizzazione e la `Index` metodo il *MoviesController.cs* file. Si noti come il codice crea un [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) oggetto quando viene chiamata la `View` il metodo di supporto nel `Index` metodo di azione. Il codice passa quindi questo `Movies` elenco dal `Index` il metodo di azione alla visualizzazione:
+Esaminare il *cshtml* modello di visualizzazione e la `Index` metodo il *MoviesController.cs* file. Si noti come il codice crea un [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) oggetto quando viene chiamata la `View` il metodo di supporto nel `Index` metodo di azione. Il codice passa quindi questo `Movies` elenco dal `Index` il metodo di azione alla visualizzazione:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 

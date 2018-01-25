@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9c4d293355e26d8bf5ba1360b070a7b9809bfe56
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management"></a>Gestione delle chiavi
 
@@ -48,7 +48,7 @@ Si verifica un'eccezione. Se lo sviluppatore di applicazioni ha [disabilitata la
 
 ## <a name="key-expiration-and-rolling"></a>Scadenza della chiave e in sequenza
 
-Quando viene creata una chiave, viene automaticamente assegnato una data di attivazione di {now + 2 giorni} e una data di scadenza di {now + 90 giorni}. Il ritardo di 2 giorni prima dell'attivazione offre il tempo chiave per propagare nel sistema. Che consente di altre applicazioni verso l'archivio di backup osservare la chiave al loro successivo periodo di aggiornamento automatico, pertanto consente di massimizzare le probabilità che la chiave dell'anello fa diventano attive sono state propagate a tutte le applicazioni che potrebbe essere necessario usarlo.
+Quando viene creata una chiave, assegnato automaticamente una data di attivazione di {now + 2 giorni} e una data di scadenza di {now + 90 giorni}. Il ritardo di 2 giorni prima dell'attivazione offre il tempo chiave per propagare nel sistema. Che consente di altre applicazioni verso l'archivio di backup osservare la chiave al loro successivo periodo di aggiornamento automatico, pertanto consente di massimizzare le probabilità che la chiave dell'anello fa diventano attive sono state propagate a tutte le applicazioni che potrebbe essere necessario usarlo.
 
 Se la chiave predefinita scadrà entro 2 giorni e la gestione delle chiavi non dispone già di una chiave che sarà attiva dopo la scadenza della chiave predefinita, il sistema di protezione dati mantiene automaticamente una nuova chiave per la gestione delle chiavi. La nuova chiave ha una data di attivazione di {data di scadenza della chiave predefinita} e una data di scadenza di {now + 90 giorni}. Questo consente al sistema di eseguire automaticamente il rollback delle chiavi a intervalli regolari senza interruzione del servizio.
 

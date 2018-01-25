@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 965c32a4e2f2c9c4bd457d0c13ae99c1378c22c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2ef161f35e69ef4a754d2740199166ee48c3fbab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-scaleout-with-redis"></a>Scalabilità orizzontale SignalR con Redis
 ====================
@@ -67,8 +67,8 @@ Prima di passare all'esercitazione dettagliata, ecco una rapida panoramica delle
 1. Installare Redis e avviare il server Redis.
 2. Aggiungere questi pacchetti NuGet per l'applicazione: 
 
-    - [Microsoft. Aspnet](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Italiano](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+    - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
+    - [Microsoft.AspNet.SignalR.Redis](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
 3. Creare un'applicazione di SignalR.
 4. Aggiungere il codice seguente al Startup.cs configurare backplane: 
 
@@ -150,7 +150,7 @@ Includere anche il servizio di gestione (elencati in "Strumenti di gestione").
 
 Verificare che il servizio gestione Web è in esecuzione. In caso contrario, avviare il servizio. (Se il servizio di gestione Web non viene visualizzato nell'elenco dei servizi di Windows, assicurarsi che il servizio di gestione è installato quando si aggiunge il ruolo IIS.)
 
-Per impostazione predefinita, il servizio gestione Web è in ascolto sulla porta TCP 8172. In Windows Firewall, creare una nuova regola in entrata per consentire il traffico TCP sulla porta 8172. Per ulteriori informazioni, vedere [configurazione delle regole Firewall](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). (Se si ospita le macchine virtuali di Azure, è possibile farlo direttamente nel portale di Azure. Vedere [come configurare gli endpoint a una macchina virtuale](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).)
+Per impostazione predefinita, il servizio gestione Web è in ascolto sulla porta TCP 8172. In Windows Firewall, creare una nuova regola in entrata per consentire il traffico TCP sulla porta 8172. Per ulteriori informazioni, vedere [configurazione delle regole Firewall](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Se si ospita le macchine virtuali di Azure, è possibile farlo direttamente nel portale di Azure. Vedere [come configurare gli endpoint a una macchina virtuale](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
 A questo punto si è pronti per distribuire il progetto di Visual Studio dal computer di sviluppo al server. In Esplora soluzioni fare doppio clic la soluzione e fare clic su **pubblica**.
 

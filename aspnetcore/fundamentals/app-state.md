@@ -10,17 +10,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13b4d759ae574cdf9899ca148f0ffd3d9df6f9ae
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato sessione e dell'applicazione ASP.NET di base
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), e [Diana LaRose](https://github.com/DianaLaRose)
 
-HTTP è un protocollo senza stato. Un server web considera ogni richiesta HTTP come indipendente e non mantiene i valori utente delle richieste precedenti. In questo articolo vengono illustrati diversi modi per mantenere l'applicazione e lo stato della sessione tra le richieste. 
+HTTP è un protocollo senza stato. Un server web considera ogni richiesta HTTP come richiesta indipendente e non Mantieni i valori utente richieste precedenti. In questo articolo vengono illustrati diversi modi per mantenere l'applicazione e lo stato della sessione tra le richieste. 
 
 ## <a name="session-state"></a>Stato della sessione
 
@@ -38,7 +38,7 @@ Il provider della sessione in memoria archivia i dati di sessione nel server loc
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Questa proprietà archivia i dati finché non viene letta. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`è implementato dal provider TempData, ad esempio, utilizza i cookie o lo stato della sessione.
+ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Questa proprietà archivia i dati fino a quando non è di lettura. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`è implementato dal provider TempData, ad esempio, utilizza i cookie o lo stato della sessione.
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData provider
@@ -47,7 +47,7 @@ ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/dotnet/api/m
 
 In ASP.NET Core 2.0 e versioni successive, per impostazione predefinita viene utilizzato il provider di TempData basato su cookie per memorizzare TempData nei cookie.
 
-I dati del cookie sono codificati con la [Base64UrlTextEncoder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Perché il cookie viene crittografato e in blocchi, il cookie single dimensione limite di ASP.NET Core 1. x non è applicabile. I dati del cookie non viene compresso perché la compressione dei dati crittografati può comportare problemi di sicurezza, ad esempio il [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://wikipedia.org/wiki/BREACH_(security_exploit)) attacchi. Per ulteriori informazioni sul provider TempData basato su cookie, vedere [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+I dati del cookie sono codificati con la [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Perché il cookie viene crittografato e in blocchi, il cookie single dimensione limite di ASP.NET Core 1. x non è applicabile. I dati del cookie non viene compresso perché la compressione dei dati crittografati può comportare problemi di sicurezza, ad esempio il [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://wikipedia.org/wiki/BREACH_(security_exploit)) attacchi. Per ulteriori informazioni sul provider TempData basato su cookie, vedere [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -101,13 +101,13 @@ Dati possono essere salvati nei campi del form nascosto e inviati nuovamente la 
 
 I cookie consentono di archiviare dati specifici dell'utente nelle applicazioni web. Poiché i cookie vengono inviati con ogni richiesta, la dimensione deve essere mantenuta al minimo. Idealmente, solo un identificatore deve essere archiviato in un cookie con i dati effettivi archiviati nel server. La maggior parte dei browser limitare i cookie a 4096 byte. Inoltre, solo un numero limitato di cookie è disponibile per ogni dominio.  
 
-Poiché i cookie sono soggette alla manomissione, devono essere convalidati nel server. Sebbene la durata del cookie in un client è soggetto a scadenza e l'intervento dell'utente, sono in genere la forma più durevole di persistenza dei dati nel client.
+Poiché i cookie sono soggette alla manomissione, devono essere convalidati nel server. Anche se la durata del cookie in un client è soggetto a scadenza e l'intervento dell'utente, si tratta in genere la forma più durevole di persistenza dei dati nel client.
 
 I cookie vengono spesso utilizzati per la personalizzazione, in cui il contenuto viene personalizzato per un utente noto. Poiché l'utente viene identificato solo e non è stato autenticato nella maggior parte dei casi, è possibile proteggere in genere un cookie archiviando il nome utente, nome dell'account o un ID utente univoco (ad esempio un GUID) nel cookie. È quindi possibile utilizzare il cookie di accesso all'infrastruttura di personalizzazione utente di un sito.
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-Il `Items` raccolta è una buona posizione in cui archiviare i dati necessari solo durante l'elaborazione una particolare richiesta. Contenuto della raccolta viene eliminato dopo ogni richiesta. Il `Items` insieme è particolarmente utile come un modo per componenti o middleware per comunicare quando operano in momenti diversi durante una richiesta e in alcun modo diretto per passare i parametri. Per ulteriori informazioni, vedere [utilizzo HttpContext. Items](#working-with-httpcontextitems), più avanti in questo articolo.
+Il `Items` raccolta costituisce un'ottima posizione per archiviare i dati che sono necessario solo durante l'elaborazione di una determinata richiesta. Contenuto della raccolta viene eliminato dopo ogni richiesta. Il `Items` insieme è particolarmente utile come un modo per componenti o middleware per comunicare quando operano in momenti diversi durante una richiesta e in alcun modo diretto per passare i parametri. Per ulteriori informazioni, vedere [utilizzo HttpContext. Items](#working-with-httpcontextitems), più avanti in questo articolo.
 
 ## <a name="cache"></a>Cache
 
@@ -144,13 +144,13 @@ Se si tenta di creare un nuovo `Session` (vale a dire alcun cookie di sessione n
 
 ### <a name="loading-session-asynchronously"></a>Il caricamento asincrono di sessione 
 
-Il provider di sessione predefinito in ASP.NET Core carica il record di sessione sottostante [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) store in modo asincrono solo se il [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metodo viene chiamato in modo esplicito prima  il `TryGetValue`, `Set`, o `Remove` metodi. Se `LoadAsync` non viene chiamato prima di tutto, sottostante il record di sessione viene caricato in modo sincrono, che possono incidere sul possibilità dell'app di scala.
+Il provider di sessione predefinito in ASP.NET Core carica il record di sessione sottostante [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) store in modo asincrono solo se il [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metodo viene chiamato in modo esplicito prima  il `TryGetValue`, `Set`, o `Remove` metodi. Se `LoadAsync` non viene chiamato per primo, sottostante il record di sessione viene caricato in modo sincrono, che possono incidere sul possibilità dell'app di scala.
 
 Per applicare questo modello applicazioni, eseguire il wrapping di [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) e [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) implementazioni con le versioni che generano un'eccezione se il `LoadAsync` metodo non è chiamato prima `TryGetValue`, `Set`, o `Remove`. Registrare le versioni di cui effettua il wrapping nel contenitore di servizi.
 
 ### <a name="implementation-details"></a>Dettagli di implementazione
 
-Sessione utilizza un cookie per tenere traccia e identificare le richieste provenienti da un solo browser. Per impostazione predefinita, questo cookie denominato ". AspNet.Session"e utilizza un percorso di"/". Poiché il valore predefinito di cookie non viene specificato un dominio, non renderlo disponibile per lo script sul lato client nella pagina (perché `CookieHttpOnly` per impostazione predefinita `true`).
+Sessione utilizza un cookie per tenere traccia e identificare le richieste provenienti da un solo browser. Per impostazione predefinita, questo cookie denominato ". AspNet.Session"e utilizza un percorso di"/". Poiché il valore predefinito di cookie non specifica un dominio, non renderlo disponibile per lo script sul lato client nella pagina (perché `CookieHttpOnly` per impostazione predefinita `true`).
 
 Per eseguire l'override delle impostazioni predefinite di sessione, utilizzare `SessionOptions`:
 

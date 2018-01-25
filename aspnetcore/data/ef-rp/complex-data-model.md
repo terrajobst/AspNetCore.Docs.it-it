@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Creazione di un modello di dati complessi - Core EF esercitazione pagine Razor (5 di 8)
 
@@ -49,9 +49,9 @@ Il [DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataan
 * Il `mailto:` collegamento viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene fornito per `DataType.Date` nella maggior parte dei browser.
 
-Il `DataType` attributo genera HTML 5 `data-` attributi (si pronuncia dati dash) che utilizzano browser HTML 5. Il `DataType` attributi non forniscono la convalida.
+Il `DataType` attributo genera HTML 5 `data-` attributi (si pronuncia dati dash) che utilizzano browser HTML 5. Il `DataType` gli attributi non forniscono la convalida.
 
-`DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, viene visualizzato il campo Data in base ai formati predefiniti in base al server [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date`non specificare il formato della data che viene visualizzato. Per impostazione predefinita, viene visualizzato il campo Data in base ai formati predefiniti in base al server [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il formato della data:
 
@@ -284,7 +284,7 @@ Il `Course` entità dispone di una proprietà di chiave esterna (FK) `Department
 
 Core EF non richiede una proprietà di chiave esterna per un modello di dati quando il modello dispone di una proprietà di navigazione per un'entità correlata.
 
-Componenti di base di Entity Framework crea automaticamente chiavi esterne nel database ovunque siano necessarie. Crea Core EF [nascondere le proprietà](https://docs.microsoft.com/ef/core/modeling/shadow-properties) per chiavi esterne creati automaticamente. Con la chiave esterna nel modello di dati possono effettuare aggiornamenti più semplice ed efficiente. Si consideri ad esempio un modello in cui la proprietà di chiave esterna `DepartmentID` è *non* inclusi. Quando un'entità course viene recuperata da modificare:
+Componenti di base di Entity Framework crea automaticamente chiavi esterne nel database ogni volta che sono necessari. Crea Core EF [nascondere le proprietà](https://docs.microsoft.com/ef/core/modeling/shadow-properties) per chiavi esterne creati automaticamente. Con la chiave esterna nel modello di dati possono effettuare aggiornamenti più semplice ed efficiente. Si consideri ad esempio un modello in cui la proprietà di chiave esterna `DepartmentID` è *non* inclusi. Quando un'entità course viene recuperata da modificare:
 
 * Il `Department` entità è null se non viene caricato in modo non esplicito.
 * Per aggiornare l'entità course, il `Department` entità deve prima essere recuperato.
@@ -462,7 +462,7 @@ Chiave composta garantisce:
 
 * Per un corso sono consentite più righe.
 * Per un insegnante sono consentite più righe.
-* Più righe per lo stesso instructor e corso non è consentita.
+* Non sono consentite più righe per lo stesso instructor e course.
 
 Il `Enrollment` entità join definisce il proprio PK, i duplicati di questo tipo sono possibili. Per evitare tali duplicati:
 
@@ -638,7 +638,7 @@ Con le modifiche precedenti, esistente `Course` righe saranno correlate al repar
 Un'app di produzione è necessario:
 
 * Includere codice o script per aggiungere `Department` righe e le relative `Course` righe al nuovo `Department` righe.
-* Non utilizzare il reparto "Temp" o il valore predefinito per `Course.DepartmentID `.
+* Non utilizzare il reparto "Temp" o il valore predefinito per `Course.DepartmentID`.
 
 L'esercitazione successiva illustra i dati correlati.
 

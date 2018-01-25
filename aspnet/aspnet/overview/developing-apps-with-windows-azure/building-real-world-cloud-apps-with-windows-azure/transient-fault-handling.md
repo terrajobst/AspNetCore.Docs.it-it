@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Errori temporanei di gestione (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================
@@ -39,11 +39,11 @@ Anziché generare un'eccezione e la visualizzazione di una pagina di errore o no
 
 Esistono diversi modi, è possibile implementare logica di riesecuzione smart.
 
-- Microsoft Patterns &amp; gruppo di procedure consigliate ha un [Transient Fault Handling Application Block](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx) che non tutti gli elementi per l'utente se si utilizza ADO.NET per l'accesso al Database SQL (non tramite Entity Framework). È possibile impostare un criterio per i tentativi: il numero di volte per ripetere una query o di comando e il tempo di attesa tra tentativi: ed esegue il wrapping del database SQL di codice un *utilizzando* blocco.
+- Microsoft Patterns &amp; gruppo di procedure consigliate ha un [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) che non tutti gli elementi per l'utente se si utilizza ADO.NET per l'accesso al Database SQL (non tramite Entity Framework). È possibile impostare un criterio per i tentativi: il numero di volte per ripetere una query o di comando e il tempo di attesa tra tentativi: ed esegue il wrapping del database SQL di codice un *utilizzando* blocco.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    Supporta inoltre TFH [Cache nel ruolo di Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx) e [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
+    Supporta inoltre TFH [Cache nel ruolo di Azure](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) e [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 - Quando si utilizza Entity Framework in genere non sono in uso direttamente con le connessioni SQL, pertanto non è possibile utilizzare questo pacchetto Patterns and Practices, ma Entity Framework 6 si basa questo tipo di logica di riesecuzione direttamente nel framework. In modo analogo è specificare la strategia di tentativi e quindi EF utilizza questa strategia, ogni volta che accede al database.
 
     Per utilizzare questa funzionalità nell'app Correggi, è sufficiente è aggiungere una classe che deriva da *DbConfiguration* e attivare la logica di tentativi.
@@ -88,11 +88,11 @@ Per altre informazioni, vedere le seguenti risorse:
 
 Documentazione
 
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure. Vedere la sezione di dati di telemetria e diagnostica.
-- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
-- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Vedere tentativi criterio di ricerca, il modello dell'utilità di pianificazione agente supervisore.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure. Vedere la sezione di dati di telemetria e diagnostica.
+- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
+- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere tentativi criterio di ricerca, il modello dell'utilità di pianificazione agente supervisore.
 - [La tolleranza di errore nel Database SQL di Azure](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Post di blog di Tony Petrossian.
-- [Entity Framework - resilienza di connessione / la logica di riesecuzione](https://msdn.microsoft.com/en-us/data/dn456835). Come usare e personalizzare il funzionalità di Entity Framework 6 di gestione di errori temporanei.
+- [Entity Framework - resilienza di connessione / la logica di riesecuzione](https://msdn.microsoft.com/data/dn456835). Come usare e personalizzare il funzionalità di Entity Framework 6 di gestione di errori temporanei.
 - [Resilienza di connessione e comando di intercettazione con Entity Framework in un'applicazione MVC ASP.NET](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Quarto in una serie di esercitazioni nove parti, viene illustrato come impostare la funzionalità di resilienza di connessione Entity Framework 6 per il Database SQL.
 
 Video

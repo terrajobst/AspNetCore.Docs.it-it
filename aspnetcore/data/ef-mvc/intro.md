@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c30556368ba24fb38cf3347dd49f171b5246514c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introduzione a ASP.NET MVC di base e di Entity Framework Core con Visual Studio (1 di 10)
 
@@ -178,7 +178,7 @@ Nel *dati* cartella creare un nuovo file di classe denominato *SchoolContext.cs*
 
 Questo codice crea un `DbSet` proprietà per ogni set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database e un'entità corrisponde a una riga della tabella.
 
-È stato possibile stato omesso il `DbSet<Enrollment>` e `DbSet<Course>` istruzioni e funzionerà la stessa. Entity Framework sarebbe includerli in modo implicito perché il `Student` i riferimenti alle entità di `Enrollment` entità e il `Enrollment` i riferimenti alle entità di `Course` entità.
+Potrebbe aver omesso il `DbSet<Enrollment>` e `DbSet<Course>` istruzioni e funzionerà la stessa. Entity Framework sarebbe includerli in modo implicito perché il `Student` i riferimenti alle entità di `Enrollment` entità e il `Enrollment` i riferimenti alle entità di `Course` entità.
 
 Quando viene creato il database, EF crea le tabelle che presentano lo stesso come nomi di `DbSet` i nomi delle proprietà. I nomi delle proprietà per le raccolte sono in genere al plurale (studenti anziché studente), ma gli sviluppatori non d'accordo sul se i nomi di tabella devono essere pluralizzati o non. Per queste esercitazioni è sarà eseguire l'override del comportamento predefinito specificando i nomi di tabella singolare in DbContext. A tale scopo, aggiungere il codice evidenziato di seguito dopo l'ultima proprietà DbSet.
 
@@ -204,7 +204,7 @@ Aprire il *appSettings. JSON* file e aggiungere una stringa di connessione come 
 
 ### <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
 
-La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine e deve essere lo sviluppo di applicazioni, non uso in produzione. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file di database nel `C:/Users/<user>` directory.
+La stringa di connessione specifica un database LocalDB di SQL Server. LocalDB è una versione leggera di SQL Server Express Database Engine e deve essere lo sviluppo di applicazioni, non uso in produzione. LocalDB viene avviato su richiesta e viene eseguito in modalità utente, pertanto non c'è alcuna configurazione complessa. Per impostazione predefinita, crea LocalDB *con estensione mdf* file di database nel `C:/Users/<user>` directory.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Aggiungere il codice per inizializzare il database con dati di test
 

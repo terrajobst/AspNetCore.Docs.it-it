@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Configurazione dei parametri per la distribuzione di pacchetto Web
 ====================
@@ -88,7 +88,7 @@ Oltre a parametrizzazione l'URL dell'endpoint nel pacchetto di distribuzione, WP
 
 Se si installa manualmente il pacchetto di distribuzione, Gestione IIS verrà richiesto per l'indirizzo dell'endpoint servizio con le proprietà che sono stati sottoposta a parametrizzazione automatica. Se si installa il pacchetto di distribuzione eseguendo il *. deploy* file, è possibile modificare il *SetParameters* file per fornire un valore per l'indirizzo dell'endpoint servizio con i valori per il proprietà che sono stati sottoposta a parametrizzazione automatica.
 
-Per informazioni dettagliate su come creare un *Parameters. XML* file, vedere [procedura: utilizzare i parametri per configurare le impostazioni quando un pacchetto di distribuzione è installato](https://msdn.microsoft.com/en-us/library/ff398068.aspx). La procedura denominata **come utilizzare i parametri di distribuzione per le impostazioni del file Web. config** vengono fornite istruzioni dettagliate.
+Per informazioni dettagliate su come creare un *Parameters. XML* file, vedere [procedura: utilizzare i parametri per configurare le impostazioni quando un pacchetto di distribuzione è installato](https://msdn.microsoft.com/library/ff398068.aspx). La procedura denominata **come utilizzare i parametri di distribuzione per le impostazioni del file Web. config** vengono fornite istruzioni dettagliate.
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modificare il File SetParameters
 
@@ -144,7 +144,7 @@ L'argomento successivo, [distribuzione di pacchetti Web](deploying-web-packages.
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per informazioni su come creare pacchetti web, vedere [compilazione e creazione di pacchetti Web Application Projects](building-and-packaging-web-application-projects.md). Per istruzioni su come distribuire un pacchetto web, vedere [distribuzione di pacchetti Web](deploying-web-packages.md). Per istruzioni dettagliate su come creare un *Parameters. XML* file, vedere [procedura: utilizzare i parametri per configurare le impostazioni quando un pacchetto di distribuzione è installato](https://msdn.microsoft.com/en-us/library/ff398068.aspx).
+Per informazioni su come creare pacchetti web, vedere [compilazione e creazione di pacchetti Web Application Projects](building-and-packaging-web-application-projects.md). Per istruzioni su come distribuire un pacchetto web, vedere [distribuzione di pacchetti Web](deploying-web-packages.md). Per istruzioni dettagliate su come creare un *Parameters. XML* file, vedere [procedura: utilizzare i parametri per configurare le impostazioni quando un pacchetto di distribuzione è installato](https://msdn.microsoft.com/library/ff398068.aspx).
 
 Per ulteriori informazioni generali su parametrizzazione nella distribuzione Web, vedere [Web distribuire parametrizzazione nell'azione](https://go.microsoft.com/?linkid=9805119) (post di blog).
 

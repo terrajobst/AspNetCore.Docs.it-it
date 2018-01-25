@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 56b73820f8b770a5332cb39029ae25df4d5753dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>La distribuzione del sito utilizzando un Client FTP (VB)
 ====================
@@ -144,7 +144,7 @@ Come prevedibile, quando un'applicazione web che è necessario copiare i file nu
 > È necessario tenere in considerazione quando si utilizza la compilazione esplicita è che ogni volta che si aggiunge una nuova pagina ASP.NET al progetto o apportano modifiche relative al codice, è necessario ricompilare il progetto, che aggiorna l'assembly nel `Bin` cartella. Di conseguenza, è necessario copiare l'assembly aggiornato nell'ambiente di produzione quando si aggiorna un'applicazione web in produzione (insieme a altro contenuto nuovo e aggiornato).
 
 
-Inoltre comprendere che le modifiche apportate al `Web.config` o i file di `Bin` directory verrà arrestato e riavviato il Pool di applicazioni del sito Web. Se lo stato della sessione verrà archiviato utilizzando il `InProc` modalità (impostazione predefinita), quindi i visitatori del sito perderà lo stato di sessione ogni volta che vengono modificati i file di chiave. Per evitare questo inconveniente, è consigliabile archiviare sessione utilizzando il `StateServer` o `SQLServer` modalità. Per ulteriori informazioni su questo argomento, leggere [modalità stato sessione](https://msdn.microsoft.com/en-us/library/ms178586.aspx).
+Inoltre comprendere che le modifiche apportate al `Web.config` o i file di `Bin` directory verrà arrestato e riavviato il Pool di applicazioni del sito Web. Se lo stato della sessione verrà archiviato utilizzando il `InProc` modalità (impostazione predefinita), quindi i visitatori del sito perderà lo stato di sessione ogni volta che vengono modificati i file di chiave. Per evitare questo inconveniente, è consigliabile archiviare sessione utilizzando il `StateServer` o `SQLServer` modalità. Per ulteriori informazioni su questo argomento, leggere [modalità stato sessione](https://msdn.microsoft.com/library/ms178586.aspx).
 
 Infine, tenere presente che la distribuzione di un'applicazione può richiedere alcuni secondi a diversi minuti, a seconda del numero e dimensioni dei file che devono essere copiati nell'ambiente di produzione. Durante questo periodo gli utenti che visitano il sito potrebbero verificarsi errori o comportamenti anomali. È possibile "disattivare" l'intera applicazione mediante l'aggiunta di una pagina denominata `App_Offline.htm` directory radice dell'applicazione che spiega agli utenti che il sito è inattivo per manutenzione (o qualsiasi altro) e verrà possibile eseguire il backup a breve. Quando il `App_Offline.htm` file è presente, il runtime di ASP.NET reindirizza tutte le richieste in ingresso a questa pagina.
 
@@ -159,7 +159,7 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [App\_Offline.htm e risolvere la funzionalità "IE descrittivo errori"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
-- [Modalità stato sessione](https://msdn.microsoft.com/en-us/library/ms178586.aspx)
+- [Modalità stato sessione](https://msdn.microsoft.com/library/ms178586.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](determining-what-files-need-to-be-deployed-vb.md)

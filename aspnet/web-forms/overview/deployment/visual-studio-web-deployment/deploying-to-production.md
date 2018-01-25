@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell'ambiente di produzione
 ====================
@@ -150,7 +150,7 @@ Dopo avere creato un'app web e i database per l'ambiente di gestione temporanea,
     5. Chiudi il **Configura Aggiornamenti Database** la finestra di dialogo.
 10. In **SchoolContext** nel **database** selezionare **eseguire migrazioni Code First (esecuzione all'avvio dell'applicazione)**.
 
-    Visual Studio visualizza **eseguire le migrazioni Code First** anziché **aggiornamento Database** per `DbContext` classi. Se si desidera utilizzare il provider dbDacFx anziché le migrazioni per distribuire un database a cui accede tramite un `DbContext` classe, vedere [come distribuire un database senza migrazioni Code First?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) nelle domande frequenti di distribuzione Web per Visual Studio e ASP.NET su MSDN.
+    Visual Studio visualizza **eseguire le migrazioni Code First** anziché **aggiornamento Database** per `DbContext` classi. Se si desidera utilizzare il provider dbDacFx anziché le migrazioni per distribuire un database a cui accede tramite un `DbContext` classe, vedere [come distribuire un database senza migrazioni Code First?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) nelle domande frequenti di distribuzione Web per Visual Studio e ASP.NET su MSDN.
 
     Il **impostazioni** scheda avrà ora un aspetto analogo al seguente:
 
@@ -193,7 +193,7 @@ Una considerazione importante per l'applicazione di gestione temporanea è che v
 - Utilizzare un URL offuscato che sarà impossibile da indovinare.
 - Creare un *robots* file per garantire che i motori di ricerca verranno non ricerca per indicizzazione collegamenti app e i report di test a esso nei risultati della ricerca.
 
-Il primo di questi metodi è più efficace, ma non viene descritta in questa esercitazione, poiché richiede che viene distribuita a un servizio Cloud di Azure invece di servizio App di Azure. Per ulteriori informazioni sui servizi Cloud e le restrizioni IP in Azure, vedere [calcolo Hosting opzioni fornite da Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) e [blocco di indirizzi IP specifici di accedere a un ruolo Web](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx). Se si distribuisce in un provider di hosting di terze parti, contattare il provider per scoprire come implementare le restrizioni IP.
+Il primo di questi metodi è più efficace, ma non viene descritta in questa esercitazione, poiché richiede che viene distribuita a un servizio Cloud di Azure invece di servizio App di Azure. Per ulteriori informazioni sui servizi Cloud e le restrizioni IP in Azure, vedere [calcolo Hosting opzioni fornite da Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) e [blocco di indirizzi IP specifici di accedere a un ruolo Web](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Se si distribuisce in un provider di hosting di terze parti, contattare il provider per scoprire come implementare le restrizioni IP.
 
 Per questa esercitazione si creerà un *robots* file.
 
@@ -256,7 +256,7 @@ Per impostazione predefinita, *pubxml* file sono inclusi nel progetto quando si 
 
 Per ogni *pubxml* file è presente un *. pubxml.user* file. Il *. pubxml.user* file contiene la password crittografata se è stata selezionata la **Salva password** opzione e per impostazione predefinita esso viene escluso dal progetto.
 
-Oggetto *pubxml* file contiene le impostazioni che riguardano un profilo di pubblicazione specifico. Se si desidera configurare le impostazioni che si applicano a tutti i profili, è possibile creare un *. wpp.targets* file. Il processo di compilazione Importa questi file nel *csproj* o *vbproj* file di progetto, pertanto la maggior parte delle impostazioni che è possibile configurare nel file di progetto possono essere configurate in questi file. Per ulteriori informazioni su *pubxml* file e *. wpp.targets* file, vedere [come: modificare le impostazioni di distribuzione nei file di profilo di pubblicazione (con estensione pubxml) e. wpp.targets File in Visual Studio Progetti Web](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Oggetto *pubxml* file contiene le impostazioni che riguardano un profilo di pubblicazione specifico. Se si desidera configurare le impostazioni che si applicano a tutti i profili, è possibile creare un *. wpp.targets* file. Il processo di compilazione Importa questi file nel *csproj* o *vbproj* file di progetto, pertanto la maggior parte delle impostazioni che è possibile configurare nel file di progetto possono essere configurate in questi file. Per ulteriori informazioni su *pubxml* file e *. wpp.targets* file, vedere [come: modificare le impostazioni di distribuzione nei file di profilo di pubblicazione (con estensione pubxml) e. wpp.targets File in Visual Studio Progetti Web](https://msdn.microsoft.com/library/ff398069.aspx).
 
 1. In **Esplora**, espandere **proprietà** espandere **PublishProfiles**.
 2. Fare doppio clic su *Production.pubxml* e fare clic su **aprire**.
@@ -271,7 +271,7 @@ Oggetto *pubxml* file contiene le impostazioni che riguardano un profilo di pubb
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Per ulteriori informazioni su come escludere file e cartelle, vedere [è escludere specifici file o cartelle dalla distribuzione?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) nel **domande frequenti su distribuzione Web per Visual Studio e ASP.NET** su MSDN.
+    Per ulteriori informazioni su come escludere file e cartelle, vedere [è escludere specifici file o cartelle dalla distribuzione?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) nel **domande frequenti su distribuzione Web per Visual Studio e ASP.NET** su MSDN.
 
 ### <a name="deploy-to-production"></a>Distribuire nell'ambiente di produzione
 
@@ -295,7 +295,7 @@ Oggetto *pubxml* file contiene le impostazioni che riguardano un profilo di pubb
 Nella prossima esercitazione, verrà di aggiornare il codice dell'applicazione e distribuzione della modifica per gli ambienti di test, gestione temporanea e produzione.
 
 > [!NOTE]
-> Mentre l'applicazione è in uso nell'ambiente di produzione deve implementare un piano di ripristino. Deve essere periodicamente backup dei database da app di produzione in un percorso di archiviazione sicura e si devono mantenere diverse generazioni di tali backup. Quando si aggiorna il database, è necessario creare una copia di backup da immediatamente prima della modifica. Quindi, se si commette un errore e non individuarla solo dopo aver distribuito nell'ambiente di produzione, sarà comunque in grado di ripristinare il database allo stato che precedente danneggiamento. Per ulteriori informazioni, vedere [Database SQL di Azure Backup e ripristino](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx).
+> Mentre l'applicazione è in uso nell'ambiente di produzione deve implementare un piano di ripristino. Deve essere periodicamente backup dei database da app di produzione in un percorso di archiviazione sicura e si devono mantenere diverse generazioni di tali backup. Quando si aggiorna il database, è necessario creare una copia di backup da immediatamente prima della modifica. Quindi, se si commette un errore e non individuarla solo dopo aver distribuito nell'ambiente di produzione, sarà comunque in grado di ripristinare il database allo stato che precedente danneggiamento. Per ulteriori informazioni, vedere [Database SQL di Azure Backup e ripristino](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 
 
 > [!NOTE]

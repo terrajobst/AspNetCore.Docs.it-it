@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Appendice: per risolvere il problema applicazione di esempio (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================
@@ -62,10 +62,10 @@ Un amministratore deve essere in grado di modificare la proprietà delle attivit
 
 Messaggio della coda di elaborazione nell'app Correggi è stato progettato per essere semplice per illustrare il modello basate su coda di lavoro con una quantità minima di codice. Questo codice semplice non è sufficiente per un'applicazione di produzione effettivo.
 
-- Il codice non garantisce che ogni messaggio della coda verrà elaborato al massimo una volta. Quando viene visualizzato un messaggio dalla coda, si verifica un periodo di timeout durante il quale il messaggio è visibile in altri listener di coda. Se il timeout scade prima che il messaggio viene eliminato, il messaggio diventa nuovamente visibile. Pertanto, se un'istanza del ruolo worker impiega molto tempo l'elaborazione di un messaggio, è teoricamente possibile per lo stesso messaggio di elaborare due volte, risultante in un'attività duplicata nel database. Per ulteriori informazioni, vedere [mediante le code di archiviazione Azure](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).
-- La logica di polling della coda potrebbe essere più conveniente, suddividendo in batch il recupero dei messaggi. Ogni volta che si chiama [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), ha un costo delle transazioni. In alternativa, è possibile chiamare [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (si noti il plurale '), che ottiene più messaggi in una singola transazione. I costi di transazione per le code di archiviazione di Azure sono molto bassi, pertanto l'impatto sui costi non è significativo nella maggior parte degli scenari.
+- Il codice non garantisce che ogni messaggio della coda verrà elaborato al massimo una volta. Quando viene visualizzato un messaggio dalla coda, si verifica un periodo di timeout durante il quale il messaggio è visibile in altri listener di coda. Se il timeout scade prima che il messaggio viene eliminato, il messaggio diventa nuovamente visibile. Pertanto, se un'istanza del ruolo worker impiega molto tempo l'elaborazione di un messaggio, è teoricamente possibile per lo stesso messaggio di elaborare due volte, risultante in un'attività duplicata nel database. Per ulteriori informazioni, vedere [mediante le code di archiviazione Azure](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- La logica di polling della coda potrebbe essere più conveniente, suddividendo in batch il recupero dei messaggi. Ogni volta che si chiama [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), ha un costo delle transazioni. In alternativa, è possibile chiamare [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (si noti il plurale '), che ottiene più messaggi in una singola transazione. I costi di transazione per le code di archiviazione di Azure sono molto bassi, pertanto l'impatto sui costi non è significativo nella maggior parte degli scenari.
 - Una stretta ciclo nel codice di elaborazione dei messaggi della coda causa l'affinità di CPU, che non vengano utilizzate in modo efficiente le macchine virtuali multicore. Per eseguire diverse attività asincrone in parallelo una progettazione migliore utilizzerà parallelismo delle attività.
-- Elaborazione dei messaggi della coda è la gestione delle eccezioni solo rudimentali. Ad esempio, il codice di non gestire [messaggi non elaborabili](https://msdn.microsoft.com/en-us/library/ms789028.aspx). (Quando l'elaborazione del messaggio provoca un'eccezione, è necessario registrare l'errore ed eliminare il messaggio, o il ruolo di lavoro tenterà di nuovo l'elaborazione e il ciclo continua per un periodo illimitato.)
+- Elaborazione dei messaggi della coda è la gestione delle eccezioni solo rudimentali. Ad esempio, il codice di non gestire [messaggi non elaborabili](https://msdn.microsoft.com/library/ms789028.aspx). (Quando l'elaborazione del messaggio provoca un'eccezione, è necessario registrare l'errore ed eliminare il messaggio, o il ruolo di lavoro tenterà di nuovo l'elaborazione e il ciclo continua per un periodo illimitato.)
 
 ### <a name="sql-queries-are-unbounded"></a>Query SQL non sono associate
 
@@ -85,7 +85,7 @@ Gli script di automazione di PowerShell di esempio sono stati scritti solo per l
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>Gestione speciale per i codici HTML nell'input utente
 
-ASP.NET impedisce automaticamente molti modi in cui gli utenti malintenzionati potrebbero tentare attacchi cross-site scripting immettendo script nelle caselle di testo di input utente. E di MVC `DisplayFor` helper utilizzata per visualizzare l'attività titoli e rileva automaticamente i valori di codifica in HTML che viene inviato al browser. Ma in un'app di produzione è consigliabile adottare misure aggiuntive. Per ulteriori informazioni, vedere [richiesta di convalida in ASP.NET](https://msdn.microsoft.com/en-us/library/hh882339.aspx).
+ASP.NET impedisce automaticamente molti modi in cui gli utenti malintenzionati potrebbero tentare attacchi cross-site scripting immettendo script nelle caselle di testo di input utente. E di MVC `DisplayFor` helper utilizzata per visualizzare l'attività titoli e rileva automaticamente i valori di codifica in HTML che viene inviato al browser. Ma in un'app di produzione è consigliabile adottare misure aggiuntive. Per ulteriori informazioni, vedere [richiesta di convalida in ASP.NET](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Procedure consigliate
@@ -146,13 +146,13 @@ Per visualizzare il codice semplice, la versione originale dell'app Correggi non
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Contrassegnare i membri privati come di sola lettura quando essi non sono previste modifiche
 
-Ad esempio, nel `DashboardController` un'istanza della classe `FixItTaskRepository` viene creato e non è prevista la modifica, pertanto è definita come [readonly](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx).
+Ad esempio, nel `DashboardController` un'istanza della classe `FixItTaskRepository` viene creato e non è prevista la modifica, pertanto è definita come [readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx).
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>Utilizzare l'elenco. Any () invece di elenco. Count () &gt; 0
 
-Se si è rilevante se uno o più elementi in un elenco di adattare i criteri specificati, utilizzare il [qualsiasi](https://msdn.microsoft.com/en-us/library/bb534972.aspx) (metodo), poiché viene restituito non appena viene trovato un elemento che corrispondono ai criteri, mentre il `Count` metodo deve sempre eseguire l'iterazione tramite ogni elemento. Il Dashboard *cshtml* file di origine include il codice seguente:
+Se si è rilevante se uno o più elementi in un elenco di adattare i criteri specificati, utilizzare il [qualsiasi](https://msdn.microsoft.com/library/bb534972.aspx) (metodo), poiché viene restituito non appena viene trovato un elemento che corrispondono ai criteri, mentre il `Count` metodo deve sempre eseguire l'iterazione tramite ogni elemento. Il Dashboard *cshtml* file di origine include il codice seguente:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ Per il **crearla una correzione** pulsante nella home page, Correggi app rigido 
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Per i collegamenti di visualizzazione/azione simile al seguente si consiglia di utilizzare il [Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx) helper HTML, ad esempio:
+Per i collegamenti di visualizzazione/azione simile al seguente si consiglia di utilizzare il [Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) helper HTML, ad esempio:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Utilizzare Task.Delay anziché Sleep nel ruolo di lavoro
 
-Inserisce il nuovo progetto modello `Thread.Sleep` nell'esempio di codice per un ruolo di lavoro, ma a causa del thread può causare il pool di thread per generare il thread non necessari aggiuntivi. È possibile evitare che utilizzando [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx) invece.
+Inserisce il nuovo progetto modello `Thread.Sleep` nell'esempio di codice per un ruolo di lavoro, ma a causa del thread può causare il pool di thread per generare il thread non necessari aggiuntivi. È possibile evitare che utilizzando [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) invece.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ Questo esempio è tratto la `FixItQueueManager` classe:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-È consigliabile utilizzare `async void` solo per i gestori di eventi di primo livello. Se si definisce un metodo come `async void`, il chiamante non è possibile **await** il metodo o di intercettare le eccezioni, il metodo genera un'eccezione. Per ulteriori informazioni, vedere [procedure consigliate nella programmazione asincrona](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx). 
+È consigliabile utilizzare `async void` solo per i gestori di eventi di primo livello. Se si definisce un metodo come `async void`, il chiamante non è possibile **await** il metodo o di intercettare le eccezioni, il metodo genera un'eccezione. Per ulteriori informazioni, vedere [procedure consigliate nella programmazione asincrona](https://msdn.microsoft.com/magazine/jj991977.aspx). 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Utilizzare un token di annullamento per interrompere il ciclo di ruolo worker
 
-In genere, il **eseguire** metodo su un ruolo di lavoro contiene un ciclo infinito. Quando il ruolo di lavoro viene arrestato, la [Roleentrypoint](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metodo viene chiamato. Utilizzare questo metodo per annullare il lavoro che viene eseguito all'interno di **eseguire** (metodo) e uscita normalmente. In caso contrario, il processo potrebbe essere terminato all'interno di un'operazione.
+In genere, il **eseguire** metodo su un ruolo di lavoro contiene un ciclo infinito. Quando il ruolo di lavoro viene arrestato, la [Roleentrypoint](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metodo viene chiamato. Utilizzare questo metodo per annullare il lavoro che viene eseguito all'interno di **eseguire** (metodo) e uscita normalmente. In caso contrario, il processo potrebbe essere terminato all'interno di un'operazione.
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Rifiutare esplicitamente procedura analisi MIME automatica
 
@@ -219,7 +219,7 @@ Esistono due modi per eseguire l'app Fix:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Eseguire l'applicazione di base
 
-1. Installare [Visual Studio 2013 o Visual Studio 2013 Express per Web](https://www.visualstudio.com/en-us/downloads).
+1. Installare [Visual Studio 2013 o Visual Studio 2013 Express per Web](https://www.visualstudio.com/downloads).
 2. Installare il [Azure SDK per .NET per Visual Studio 2013.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. Scaricare il file con estensione zip di [MSDN Code Gallery](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. In Esplora File, fare clic con il file zip e fare clic su proprietà e nella finestra Proprietà fare clic su Annulla blocco.
@@ -228,7 +228,7 @@ Esistono due modi per eseguire l'app Fix:
 7. Dal menu Strumenti, fare clic su Gestione pacchetti libreria, quindi Console Gestione pacchetti.
 8. In Package Manager Console (PMC), fare clic su Ripristina.
 9. Uscire da Visual Studio.
-10. Avviare il [emulatore di archiviazione Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx).
+10. Avviare il [emulatore di archiviazione Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
 11. Riavviare Visual Studio, aprire il file di soluzione che è stata chiusa nel passaggio precedente.
 12. Verificare che il progetto FixIt è impostato come progetto di avvio e quindi premere CTRL + F5 per eseguire il progetto.
 
@@ -240,7 +240,7 @@ Esistono due modi per eseguire l'app Fix:
 3. Nell'applicazione *Web. config* file nel *MyFixIt* progetto (il progetto web), modificare il valore di `appSettings/UseQueues` su "true": 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Se il [emulatore di archiviazione Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx) non è ancora in esecuzione, avviarlo di nuovo.
+4. Se il [emulatore di archiviazione Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) non è ancora in esecuzione, avviarlo di nuovo.
 5. Eseguire il progetto web FixIt e il progetto MyFixItCloudService simultaneamente.
 
     Con Visual Studio 2013:
@@ -397,7 +397,7 @@ In MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, sostituire i segnaposto
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-A questo punto si è pronti per distribuire il servizio cloud. In Esplora soluzioni, fare clic sul progetto MyFixItCloudService e selezionare **pubblica**. Per ulteriori informazioni, vedere "[distribuire l'applicazione in Azure](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", che è in parte 2 di [questa esercitazione](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+A questo punto si è pronti per distribuire il servizio cloud. In Esplora soluzioni, fare clic sul progetto MyFixItCloudService e selezionare **pubblica**. Per ulteriori informazioni, vedere "[distribuire l'applicazione in Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", che è in parte 2 di [questa esercitazione](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
 >[!div class="step-by-step"]
 [Precedente](more-patterns-and-guidance.md)

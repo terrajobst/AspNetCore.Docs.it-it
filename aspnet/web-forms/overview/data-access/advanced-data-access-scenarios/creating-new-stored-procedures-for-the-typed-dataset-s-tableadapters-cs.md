@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e8b4e6a12c010b227ee9a236130cbfd26d75657
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 715f7e3fae89e773b686faa7c49522c587693eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Creazione di nuove Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)
 ====================
@@ -47,7 +47,7 @@ Le funzioni sono un costrutto comune a tutti i linguaggi di programmazione. Una 
 > Stored procedure sono spesso detta stored procedure o SP.
 
 
-Vengono create stored procedure utilizzando il [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) istruzione T-SQL. Ad esempio, lo script T-SQL seguente crea una stored procedure denominata `GetProductsByCategoryID` che accetta un singolo parametro denominato `@CategoryID` e restituisce il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` i campi di tali colonne nel `Products` tabella che dispone di un corrispondente `CategoryID` valore:
+Vengono create stored procedure utilizzando il [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) istruzione T-SQL. Ad esempio, lo script T-SQL seguente crea una stored procedure denominata `GetProductsByCategoryID` che accetta un singolo parametro denominato `@CategoryID` e restituisce il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` i campi di tali colonne nel `Products` tabella che dispone di un corrispondente `CategoryID` valore:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Creazione e gestione di Stored procedure](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Creazione e gestione di Stored procedure](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Il recupero di dati scalare da una Stored Procedure](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [Stored Procedure nozioni di base SQL Server](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Stored procedure: Una panoramica](http://www.sqlteam.com/item.asp?ItemID=563)
@@ -399,4 +399,4 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Geisenow Hilton. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Successivo](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+[avanti](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)

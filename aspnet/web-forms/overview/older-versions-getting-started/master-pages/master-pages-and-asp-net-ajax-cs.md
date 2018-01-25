@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Pagine master e ASP.NET AJAX (c#)
 ====================
@@ -31,7 +31,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Negli ultimi anni, stato costruito più sviluppatori [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-applicazioni web. Un sito Web con supporto AJAX utilizza un numero di tecnologie web correlati a offrire un'esperienza utente più reattiva. Creazione di applicazioni con supporto AJAX ASP.NET è incredibilmente semplice grazie a Microsoft [framework ASP.NET AJAX](../../../../ajax/index.md). ASP.NET AJAX è incorporato in ASP.NET 3.5 e Visual Studio 2008. è inoltre disponibile come download separato per le applicazioni ASP.NET 2.0.
 
-Quando si compila le pagine web AJAX con il framework ASP.NET AJAX, è necessario aggiungere esattamente un [controllo ScriptManager](https://msdn.microsoft.com/en-us/library/bb398863.aspx) per ogni pagina che utilizza il framework. Come suggerisce il nome, lo ScriptManager gestisce lo script sul lato client utilizzato in pagine web AJAX. Come minimo, ScriptManager genera codice HTML che indica al browser di scaricare i file JavaScript che la libreria Client AJAX ASP.NET di composizione. E può essere utilizzato anche per registrare i file JavaScript personalizzati, servizi web compatibili con script e funzionalità del servizio dell'applicazione personalizzata.
+Quando si compila le pagine web AJAX con il framework ASP.NET AJAX, è necessario aggiungere esattamente un [controllo ScriptManager](https://msdn.microsoft.com/library/bb398863.aspx) per ogni pagina che utilizza il framework. Come suggerisce il nome, lo ScriptManager gestisce lo script sul lato client utilizzato in pagine web AJAX. Come minimo, ScriptManager genera codice HTML che indica al browser di scaricare i file JavaScript che la libreria Client AJAX ASP.NET di composizione. E può essere utilizzato anche per registrare i file JavaScript personalizzati, servizi web compatibili con script e funzionalità del servizio dell'applicazione personalizzata.
 
 Se il master utilizza sito di pagine (come dovrebbe essere), non necessariamente devi aggiungere un controllo ScriptManager a ogni singola pagina contenuto. piuttosto, è possibile aggiungere un controllo ScriptManager della pagina master. In questa esercitazione viene illustrato come aggiungere il controllo ScriptManager della pagina master. Risulta inoltre descritto come utilizzare il controllo ScriptManagerProxy per registrare gli script personalizzati e i servizi di script in una pagina contenuta.
 
@@ -117,7 +117,7 @@ Configurare il controllo SqlDataSource per la connessione al database Northwind 
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-Il `TOP 1` parola chiave nel `SELECT` clausola restituisce solo il primo record restituito dalla query. Il [ `NEWID()` funzione](https://msdn.microsoft.com/en-us/library/ms190348.aspx) genera una nuova [il valore di identificatore univoco globale (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) e può essere usato in un `ORDER BY` clausola per restituire i record della tabella in ordine casuale.
+Il `TOP 1` parola chiave nel `SELECT` clausola restituisce solo il primo record restituito dalla query. Il [ `NEWID()` funzione](https://msdn.microsoft.com/library/ms190348.aspx) genera una nuova [il valore di identificatore univoco globale (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) e può essere usato in un `ORDER BY` clausola per restituire i record della tabella in ordine casuale.
 
 
 [![Configurare SqlDataSource per restituire un singolo Record selezionato in modo casuale](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58b76f0ac07051496c6f34be41dcf20154e34674
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)
 ====================
@@ -200,7 +200,7 @@ Questo modello può essere implementato nella sintassi T-SQL utilizzando il mode
 
 Il modello di avvio definendo un `TRY...CATCH` blocco, un costrutto di nuovo a SQL Server 2005. Come con `try...catch` blocchi in c#, l'istruzione SQL `TRY...CATCH` blocco esegue le istruzioni nel `TRY` blocco. Se qualsiasi istruzione genera un errore, il controllo viene trasferito a immediatamente il `CATCH` blocco.
 
-Se non sono presenti errori di esecuzione delle istruzioni SQL che composizione della transazione, il `COMMIT TRANSACTION` istruzione esegue il commit delle modifiche e completa la transazione. Se, tuttavia, una delle istruzioni genera un errore, il `ROLLBACK TRANSACTION` nel `CATCH` blocco restituisce il database allo stato precedente l'inizio della transazione. La stored procedure genera anche un errore usando il [comando RAISERROR](https://msdn.microsoft.com/en-us/library/ms178592.aspx), causando un `SqlException` per essere generati nell'applicazione.
+Se non sono presenti errori di esecuzione delle istruzioni SQL che composizione della transazione, il `COMMIT TRANSACTION` istruzione esegue il commit delle modifiche e completa la transazione. Se, tuttavia, una delle istruzioni genera un errore, il `ROLLBACK TRANSACTION` nel `CATCH` blocco restituisce il database allo stato precedente l'inizio della transazione. La stored procedure genera anche un errore usando il [comando RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx), causando un `SqlException` per essere generati nell'applicazione.
 
 > [!NOTE]
 > Poiché il `TRY...CATCH` blocco è una novità di SQL Server 2005, il modello riportato sopra non funziona se si utilizzano versioni precedenti di Microsoft SQL Server. Se non si utilizza SQL Server 2005, consultare [gestione delle transazioni in Stored procedure di SQL Server](http://www.4guysfromrolla.com/webtech/080305-1.shtml) per un modello che funzionerà con altre versioni di SQL Server.

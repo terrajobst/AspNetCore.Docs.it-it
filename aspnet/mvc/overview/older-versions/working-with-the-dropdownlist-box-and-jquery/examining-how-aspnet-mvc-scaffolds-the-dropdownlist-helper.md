@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: b5210f9a29f82fbadd0e6dd2d81bd85e7f23ae7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Esaminare la modalità ASP.NET MVC scaffolds del DropDownList Helper
 ====================
@@ -60,7 +60,7 @@ Il `Albums` tabella non memorizza il genere album e la descrizione, archivia una
 
 ### <a name="the-html-select-tag"></a>Il Tag HTML Select
 
-Il codice HTML `<select>` elemento (creato dal codice HTML [DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) helper) viene utilizzato per visualizzare un elenco completo dei valori (ad esempio l'elenco di generi). Per i moduli di modifica, quando il valore corrente è noto, l'elenco di selezione può visualizzare il valore corrente. È stato illustrato questo precedentemente quando si imposta il valore selezionato **comici**. Elenco di selezione è ideale per la visualizzazione di categoria o dati di chiave esterna. Il `<select>` elemento per la chiave esterna Genre viene visualizzato l'elenco di nomi di genere possibili, ma quando si salva il modulo la proprietà Genre viene aggiornata con Genre valore della chiave esterna, non il nome visualizzato genere. Nell'immagine seguente, il genere selezionato è **Disco** e artista **Donna Summer**.
+Il codice HTML `<select>` elemento (creato dal codice HTML [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) helper) viene utilizzato per visualizzare un elenco completo dei valori (ad esempio l'elenco di generi). Per i moduli di modifica, quando il valore corrente è noto, l'elenco di selezione può visualizzare il valore corrente. È stato illustrato questo precedentemente quando si imposta il valore selezionato **comici**. Elenco di selezione è ideale per la visualizzazione di categoria o dati di chiave esterna. Il `<select>` elemento per la chiave esterna Genre viene visualizzato l'elenco di nomi di genere possibili, ma quando si salva il modulo la proprietà Genre viene aggiornata con Genre valore della chiave esterna, non il nome visualizzato genere. Nell'immagine seguente, il genere selezionato è **Disco** e artista **Donna Summer**.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image4.png)
 
@@ -70,11 +70,11 @@ Aprire il *Controllers\StoreManagerController.cs* file e individuare il `HTTP GE
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample5.cs)]
 
-Il `Create` metodo aggiunge due [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist.aspx) oggetti per il `ViewBag`, uno per contenere le informazioni di genre e uno per contenere le informazioni artista. Il [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) overload del costruttore utilizzato in precedenza accetta tre argomenti:
+Il `Create` metodo aggiunge due [SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx) oggetti per il `ViewBag`, uno per contenere le informazioni di genre e uno per contenere le informazioni artista. Il [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) overload del costruttore utilizzato in precedenza accetta tre argomenti:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *elementi*: un [IEnumerable](https://msdn.microsoft.com/en-us/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di generi restituito dal `db.Genres`.
+1. *elementi*: un [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di generi restituito dal `db.Genres`.
 2. *dataValueField*: il nome della proprietà di **IEnumerable** elenco che contiene il valore della chiave. Nell'esempio precedente, `GenreId` e `ArtistId`.
 3. *dataTextField*: il nome della proprietà di **IEnumerable** elenco che contiene le informazioni da visualizzare. In entrambi artisti e la tabella genre il `name` campo viene usato.
 
@@ -84,7 +84,7 @@ Aprire il *Views\StoreManager\Create.cshtml* file ed esaminare il `Html.DropDown
 
 La prima riga indica che la visualizzazione di creazione accetta un `Album` modello. Nel `Create` metodo illustrato sopra, è stato passato alcun modello, in modo che la vista ottenga un **null** `Album` modello. A questo punto viene creato un nuovo album pertanto non `Album` dati.
 
-Il [Html.DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) overload illustrato in precedenza prende il nome del campo da associare al modello. Viene inoltre utilizzato il nome specificato per cercare un **ViewBag** oggetto che contiene un [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) oggetto. Utilizza questo overload, verrà richiesto di nome di **ViewBag SelectList** oggetto `GenreId`. Il secondo parametro (`String.Empty`) è il testo da visualizzare quando è selezionato alcun elemento. Questo è esattamente quello desiderato quando si crea un nuovo album. Se è possibile rimuovere il secondo parametro e utilizzato nel codice seguente:
+Il [Html.DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) overload illustrato in precedenza prende il nome del campo da associare al modello. Viene inoltre utilizzato il nome specificato per cercare un **ViewBag** oggetto che contiene un [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) oggetto. Utilizza questo overload, verrà richiesto di nome di **ViewBag SelectList** oggetto `GenreId`. Il secondo parametro (`String.Empty`) è il testo da visualizzare quando è selezionato alcun elemento. Questo è esattamente quello desiderato quando si crea un nuovo album. Se è possibile rimuovere il secondo parametro e utilizzato nel codice seguente:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample8.cshtml)]
 

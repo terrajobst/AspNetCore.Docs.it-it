@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Creazione di una definizione di compilazione che supporta la distribuzione
 ====================
@@ -42,7 +42,7 @@ Una definizione di compilazione è il meccanismo che consente di controllare com
 - Diversi altri parametri del processo di compilazione.
 
 > [!NOTE]
-> Per ulteriori informazioni sulle definizioni di compilazione, vedere [definire il processo di compilazione](https://msdn.microsoft.com/en-us/library/ms181715.aspx).
+> Per ulteriori informazioni sulle definizioni di compilazione, vedere [definire il processo di compilazione](https://msdn.microsoft.com/library/ms181715.aspx).
 
 
 Questo argomento viene illustrato come creare una definizione di compilazione che utilizza l'elemento di configurazione, in modo che una compilazione viene attivata quando uno sviluppatore archivia il nuovo contenuto. Se la compilazione ha esito positivo, il servizio di compilazione esegue un file di progetto personalizzati per distribuire la soluzione in un ambiente di test.
@@ -149,7 +149,7 @@ Da qui è possibile risolvere errori di compilazione. Se si fa doppio clic su un
 
 ## <a name="monitor-the-build-process"></a>Monitorare il processo di compilazione
 
-TFS fornisce un'ampia gamma di funzionalità che consentono di monitorare il processo di compilazione. Ad esempio, TFS può inviare un messaggio di posta elettronica o visualizzare gli avvisi nell'area di notifica della barra delle applicazioni quando è stata completata una compilazione. Per ulteriori informazioni, vedere [eseguire e monitorare le compilazioni](https://msdn.microsoft.com/en-us/library/ms181721.aspx).
+TFS fornisce un'ampia gamma di funzionalità che consentono di monitorare il processo di compilazione. Ad esempio, TFS può inviare un messaggio di posta elettronica o visualizzare gli avvisi nell'area di notifica della barra delle applicazioni quando è stata completata una compilazione. Per ulteriori informazioni, vedere [eseguire e monitorare le compilazioni](https://msdn.microsoft.com/library/ms181721.aspx).
 
 ## <a name="conclusion"></a>Conclusione
 
@@ -159,7 +159,7 @@ Affinché una distribuzione automatica abbia esito positivo come parte di un pro
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sulla creazione di definizioni di compilazione, vedere [creare una definizione di compilazione di base](https://msdn.microsoft.com/en-us/library/ms181716.aspx) e [definire il processo di compilazione](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Per informazioni aggiuntive nelle build di Accodamento messaggi, vedere [accodare una compilazione](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Per ulteriori informazioni sulla creazione di definizioni di compilazione, vedere [creare una definizione di compilazione di base](https://msdn.microsoft.com/library/ms181716.aspx) e [definire il processo di compilazione](https://msdn.microsoft.com/library/ms181715.aspx). Per informazioni aggiuntive nelle build di Accodamento messaggi, vedere [accodare una compilazione](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Precedente](configuring-a-tfs-build-server-for-web-deployment.md)

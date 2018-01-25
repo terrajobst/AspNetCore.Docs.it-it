@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>Filtri
 
@@ -207,9 +207,9 @@ System.InvalidOperationException: No service for type
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`è molto simile a `ServiceFilterAttribute` (e implementa anche `IFilterFactory`), ma il relativo tipo non viene risolto direttamente dal contenitore DI. Al contrario, viene creata un'istanza del tipo tramite `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
+`TypeFilterAttribute`è molto simile a `ServiceFilterAttribute` (e implementa anche `IFilterFactory`), ma il relativo tipo non risolto direttamente dal contenitore DI. Al contrario, viene creata un'istanza del tipo tramite `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
 
-A causa di questa differenza, tipi di cui viene fatto riferimento tramite il `TypeFilterAttribute` non è necessario essere registrati con il contenitore (ma hanno ancora le relative dipendenze soddisfatte dal contenitore). Inoltre, `TypeFilterAttribute` può facoltativamente accettare gli argomenti del costruttore per il tipo in questione. Nell'esempio riportato di seguito viene illustrato come passare argomenti a un tipo usando `TypeFilterAttribute`:
+A causa di questa differenza, tipi di cui viene fatto riferimento tramite il `TypeFilterAttribute` non debbano essere registrati con il contenitore (ma hanno ancora le relative dipendenze soddisfatte dal contenitore). Inoltre, `TypeFilterAttribute` può facoltativamente accettare gli argomenti del costruttore per il tipo in questione. Nell'esempio riportato di seguito viene illustrato come passare argomenti a un tipo usando `TypeFilterAttribute`:
 
 [!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
 
@@ -223,7 +223,7 @@ Questo filtro può essere applicato alle classi o metodi usando il `[SampleActio
 
 *Filtri di autorizzazione* controllare l'accesso ai metodi di azione e sono i filtri prima di essere eseguita all'interno della pipeline filtro. Hanno solo un prima di metodo, a differenza della maggior parte dei filtri che supportano la prima e dopo i metodi. È consigliabile scrivere solo un filtro di autorizzazione personalizzato se si sta scrivendo un proprio framework di autorizzazione. Scegliere la configurazione dei criteri di autorizzazione o la scrittura di un criterio di autorizzazione personalizzato rispetto alla scrittura di un filtro personalizzato. L'implementazione di filtro predefinito è solo responsabile della chiamata di sistema di autorizzazioni.
 
-Si noti che è non devono generare eccezioni all'interno di filtri di autorizzazione, poiché non gestirà l'eccezione (filtri di eccezioni non gestiscono). Invece, inviare una richiesta o individuare un altro modo.
+Si noti che è consigliabile generare eccezioni all'interno di filtri di autorizzazione, poiché non gestirà l'eccezione (filtri di eccezioni non gestiscono). Invece, inviare una richiesta o individuare un altro modo.
 
 Altre informazioni, vedere [autorizzazione](../../security/authorization/index.md).
 
@@ -252,7 +252,7 @@ Il [ActionExecutedContext](https://docs.microsoft.com/aspnet/core/api/microsoft.
 * `Canceled`-sarà true se l'esecuzione dell'azione è stata esegue un corto circuito da un altro filtro.
 * `Exception`-sarà non null se l'azione o un filtro azioni successive ha generato un'eccezione. Impostazione di questa proprietà su null in modo efficace 'handles' un'eccezione, e `Result` verrà eseguita come se sono stati restituito dal metodo di azione normalmente.
 
-Per un `IAsyncActionFilter`, una chiamata al `ActionExecutionDelegate` esegue qualsiasi filtro azioni successive e il metodo di azione, restituendo un `ActionExecutedContext`. Corto circuito, assegnare `ActionExecutingContext.Result` per un risultato dell'istanza e non si chiama il `ActionExecutionDelegate`.
+Per un `IAsyncActionFilter`, una chiamata al `ActionExecutionDelegate` esegue qualsiasi filtro azioni successive e il metodo di azione, restituendo un `ActionExecutedContext`. Corto circuito, assegnare `ActionExecutingContext.Result` per un risultato di istanza e non chiamare il `ActionExecutionDelegate`.
 
 Il framework fornisce una classe astratta `ActionFilterAttribute` che è possibile creare una sottoclasse. 
 
@@ -277,7 +277,7 @@ I filtri eccezioni gestiscono le eccezioni non gestite che si verificano nella c
 Per gestire un'eccezione, impostare il `ExceptionContext.ExceptionHandled` proprietà su true o scrivere una risposta. Questo modo si impedisce la propagazione dell'eccezione. Si noti che un filtro eccezioni non è possibile attivare un'eccezione in una "operazione completata". Solo un filtro azione possibile farlo.
 
 > [!NOTE]
-> In ASP.NET 1.1, se si imposta la risposta non viene inviata `ExceptionHandled` su true **e** scrivere una risposta. In questo scenario, versione 1.0 di ASP.NET Core invia la risposta e ASP.NET Core 1.1.2 restituirà al 1.0 comportamento. Per ulteriori informazioni, vedere [emettere &#5594;](https://github.com/aspnet/Mvc/issues/5594) nel repository GitHub. 
+> In ASP.NET 1.1, non viene inviata la risposta, se si imposta `ExceptionHandled` su true **e** scrivere una risposta. In questo scenario, versione 1.0 di ASP.NET Core invia la risposta e ASP.NET Core 1.1.2 restituirà al 1.0 comportamento. Per ulteriori informazioni, vedere [emettere &#5594;](https://github.com/aspnet/Mvc/issues/5594) nel repository GitHub. 
 
 I filtri eccezioni sono ideali per l'intercettazione delle eccezioni che si verificano all'interno di azioni di MVC, ma non sono quanto più flessibili middleware di gestione degli errori. Preferiti middleware nel caso generale e utilizzare i filtri in cui è necessario solo per eseguire la gestione degli errori *in modo diverso* in base a quale azione MVC è stato scelto. Ad esempio, l'app potrebbe avere metodi di azione per entrambi gli endpoint dell'API e per le viste o HTML. L'endpoint dell'API potrebbe restituire informazioni sull'errore come JSON, mentre le azioni basate su Vista potrebbe restituire un errore di pagina in formato HTML.
 
@@ -301,13 +301,13 @@ Quando il `OnResultExecuted` probabilmente è stato inviato al client di esecuzi
 
 `ResultExecutedContext.Exception`essere imposterà su un valore non null se il risultato dell'azione o un filtro dei risultati successivi ha generato un'eccezione. Impostazione `Exception` a null gestisce un'eccezione in modo efficace e impedisce la generazione dell'eccezione viene generata nuovamente da MVC in un secondo momento nella pipeline. Quando si sta gestendo un'eccezione in un filtro dei risultati, potrebbe non essere in grado di scrivere i dati alla risposta. Se il risultato dell'azione di genera un'eccezione durante un'esecuzione e le intestazioni sono già state scaricate nel client, non è presente alcun meccanismo affidabile per inviare un codice di errore.
 
-Per un `IAsyncResultFilter` una chiamata a `await next()` sul `ResultExecutionDelegate` esegue eventuali filtri dei risultati successivi e il risultato dell'azione. Corto circuito, impostare `ResultExecutingContext.Cancel` a true e non si chiama il `ResultExectionDelegate`.
+Per un `IAsyncResultFilter` una chiamata a `await next()` sul `ResultExecutionDelegate` esegue eventuali filtri dei risultati successivi e il risultato dell'azione. Corto circuito, impostare `ResultExecutingContext.Cancel` a true e non chiamare il `ResultExectionDelegate`.
 
 Il framework fornisce una classe astratta `ResultFilterAttribute` che è possibile creare una sottoclasse. Il [AddHeaderAttribute](#add-header-attribute) classe illustrato in precedenza è un esempio di un attributo di filtro del risultato.
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Utilizzo di middleware nella pipeline filtro
 
-Filtri delle risorse di lavoro come [middleware](../../fundamentals/middleware.md) in quanto essi racchiuso l'esecuzione di qualsiasi elemento incluso in un secondo momento nella pipeline. Ma filtri diversi dal middleware in quanto fanno parte di MVC, il che significa che hanno accesso al contesto MVC e costrutti.
+Filtri delle risorse di lavoro come [middleware](../../fundamentals/middleware.md) in quanto essi racchiuso l'esecuzione di qualsiasi elemento incluso in un secondo momento nella pipeline. Ma i filtri sono diverse dalle middleware in momento che fanno parte di MVC, il che significa che hanno accesso al contesto MVC e costrutti.
 
 In ASP.NET Core 1.1, è possibile utilizzare middleware nella pipeline di filtro. Si consiglia di effettuare che se si dispone di un componente del middleware che richiede l'accesso ai dati di route MVC, o che deve essere eseguito solo per determinati controller o azioni.
 

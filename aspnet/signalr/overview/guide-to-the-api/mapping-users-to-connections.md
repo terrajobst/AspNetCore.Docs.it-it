@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 9b50d8805beabbc48467e20331c7593de9bc4254
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c4f95a3b65c57dd7cb7c5c7f1ee09daa17fa9616
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mapping-signalr-users-to-connections"></a>Il mapping degli utenti di SignalR per le connessioni
 ====================
@@ -140,7 +140,7 @@ Dall'hub, quindi, è possibile rilevare lo stato di ogni connessione con il codi
 <a id="azure"></a>
 ### <a name="azure-table-storage"></a>Archiviazione tabelle di Azure
 
-Nell'esempio seguente viene archiviazione tabelle di Azure è simile all'esempio di database. Non include tutte le informazioni necessarie per iniziare a utilizzare il servizio di archiviazione tabelle di Azure. Per informazioni, vedere [come usare l'archiviazione di tabelle da .NET](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/).
+Nell'esempio seguente viene archiviazione tabelle di Azure è simile all'esempio di database. Non include tutte le informazioni necessarie per iniziare a utilizzare il servizio di archiviazione tabelle di Azure. Per informazioni, vedere [come usare l'archiviazione di tabelle da .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/).
 
 L'esempio seguente mostra un'entità di tabella per archiviare le informazioni di connessione. I dati vengono partizionati in base al nome utente e identifica ogni entità dall'id di connessione, in modo che un utente può avere più connessioni in qualsiasi momento.
 

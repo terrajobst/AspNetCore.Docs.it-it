@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: e5c8aac855a1f4ec4c6f08087dbe77f6820cc506
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5919c273de2a298c3e407f118ac478e6a6031332
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="partial-views"></a>Visualizzazioni parziali
 
@@ -37,7 +37,7 @@ Suggerimento: Seguire la [non ripetere manualmente principio](http://deviq.com/d
 
 ## <a name="declaring-partial-views"></a>Dichiarazione di visualizzazioni parziali
 
-Visualizzazioni parziali vengono create come qualsiasi altra visualizzazione: si crea un *. cshtml* file all'interno di *viste* cartella. Non c'è alcuna differenza semantica tra una visualizzazione parziale e una visualizzazione normale - vengono semplicemente visualizzati in modo diverso. È possibile creare una visualizzazione che viene restituita direttamente da un controller `ViewResult`, e la stessa vista può essere utilizzata come una visualizzazione parziale. La differenza principale tra le modalità di rendering di una vista e una visualizzazione parziale è che le visualizzazioni parziali non eseguano *viewstart* (mentre viste - altre informazioni, vedere *viewstart* in [Layout ](layout.md)).
+Visualizzazioni parziali vengono create come qualsiasi altra visualizzazione: si crea un *. cshtml* file all'interno di *viste* cartella. Non vi è alcuna differenza tra una visualizzazione parziale e una visualizzazione normale semantica: si è appena eseguito il rendering in modo diverso. È possibile creare una visualizzazione che viene restituita direttamente da un controller `ViewResult`, e la stessa vista può essere utilizzata come una visualizzazione parziale. La differenza principale tra le modalità di rendering di una vista e una visualizzazione parziale è che non vengono eseguite le visualizzazioni parziali *viewstart* (mentre viste - altre informazioni, vedere *viewstart* in [Layout ](layout.md)).
 
 ## <a name="referencing-a-partial-view"></a>Riferimento a una visualizzazione parziale
 

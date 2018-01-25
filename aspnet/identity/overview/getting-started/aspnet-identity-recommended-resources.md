@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8050d37cfea91701e1cae0413feb41ca9a68baff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity consigliato risorse
 ====================
@@ -27,7 +27,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 > Se si conosce un grande blog post, [stackoverflow](http://stackoverflow.com) thread o qualsiasi altro tipo di collegamento che può essere utile, [inviare un messaggio di posta elettronica](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) con il collegamento o semplicemente lasciare un messaggio nella parte inferiore della pagina.
 
 
-- [Introduzione a ASP.NET Identity](#gettingstarted)
+- [Guida introduttiva ad ASP.NET Identity](#gettingstarted)
 - [Nuovi articoli lettura necessario in primo piano](#feat)
 - [Intermedio ASP.NET Identity](#adv)
 - [Video](#video)
@@ -42,9 +42,9 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
 - [App di MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) in questa esercitazione viene illustrato come scrivere un'applicazione ASP.NET MVC 5 con autorizzazione di Facebook e Google OAuth 2. Viene inoltre illustrato come aggiungere ulteriori dati al database di identità.
 - [Distribuire un'app protetta ASP.NET MVC con appartenenza, OAuth e il Database SQL a un Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). In questa esercitazione aggiunge distribuzione di Azure, come proteggere le app con i ruoli, come utilizzare l'API di appartenenza per aggiungere utenti e ruoli e funzionalità di sicurezza aggiuntive.
-- [Introduzione all'identità di ASP.NET](introduction-to-aspnet-identity.md)
+- [Introduzione ad ASP.NET Identity](introduction-to-aspnet-identity.md)
 - [Creare un'app web di ASP.NET MVC 5 sicura con l'accesso, posta elettronica conferma e reimpostazione della password](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-- [App ASP.NET MVC 5 con SMS e l'autenticazione a due fattori di posta elettronica](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+- [App ASP.NET MVC 5 con autenticazione a due fattori tramite SMS e posta elettronica](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
 ## <a name="new-featured-must-read-articles"></a>Nuovi articoli lettura necessario in primo piano
@@ -59,11 +59,11 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="intermediate-aspnet-identity"></a>Intermedio ASP.NET Identity
 
 - [La conferma dell'account e Password di ripristino con identità di ASP.NET](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Autenticazione a due fattori tramite SMS e posta elettronica con identità di ASP.NET](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [La migrazione di un sito Web esistente dall'appartenenza SQL per ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Aggiunta di ASP.NET Identity a un Web esistente o vuoto form progetto](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- MSDN Magazine [autenticazione esterno con ASP.NET Identity](https://msdn.microsoft.com/en-us/magazine/dn745860.aspx) da Dino Esposito
-- MSDN Magazine[un primo sguardo a ASP.NET Identity](https://msdn.microsoft.com/en-us/magazine/dn605872.aspx) da Dino Esposito
+- [Autenticazione a due fattori tramite SMS e posta elettronica con ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Migrazione di un sito Web esistente dall'appartenenza SQL ad ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Aggiunta di ASP.NET Identity a un progetto Web Form vuoto o esistente](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- MSDN Magazine [autenticazione esterno con ASP.NET Identity](https://msdn.microsoft.com/magazine/dn745860.aspx) da Dino Esposito
+- MSDN Magazine[un primo sguardo a ASP.NET Identity](https://msdn.microsoft.com/magazine/dn605872.aspx) da Dino Esposito
 - [Identità di ASP.NET – blocco utente](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>

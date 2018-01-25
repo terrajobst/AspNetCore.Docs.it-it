@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Analisi in ASP.NET Web API 2
 ====================
@@ -29,7 +29,7 @@ da [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (funziona anche con Visual Studio 2015)
 > - Web API 2
-> - [Italiano](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
+> - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
 
 ## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Abilitare la traccia in Web API System. Diagnostics
@@ -58,7 +58,7 @@ Aprire il file WebApiConfig.cs nell'App\_cartella di avvio. Aggiungere il codice
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Questo codice aggiunge il [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) classe per la pipeline di Web API. Il **SystemDiagnosticsTraceWriter** classe scrive tracce a [Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace).
+Questo codice aggiunge il [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) classe per la pipeline di Web API. Il **SystemDiagnosticsTraceWriter** classe scrive tracce a [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
 Per visualizzare le tracce, eseguire l'applicazione nel debugger. Nel browser, passare a `/api/values`.
 
@@ -68,7 +68,7 @@ Le istruzioni di traccia vengono scritti nella finestra di Output in Visual Stud
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Poiché **SystemDiagnosticsTraceWriter** scrive tracce a **Trace**, è possibile registrare i listener di traccia aggiuntivi, ad esempio, per scrivere le tracce in un file di log. Per ulteriori informazioni sui writer di traccia, vedere il [listener di traccia](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) su MSDN.
+Poiché **SystemDiagnosticsTraceWriter** scrive tracce a **Trace**, è possibile registrare i listener di traccia aggiuntivi, ad esempio, per scrivere le tracce in un file di log. Per ulteriori informazioni sui writer di traccia, vedere il [listener di traccia](https://msdn.microsoft.com/library/4y5y10s7.aspx) su MSDN.
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>Configurazione SystemDiagnosticsTraceWriter
 
@@ -89,7 +89,7 @@ Aggiunta di un writer di traccia consente di accedere immediatamente per le trac
 
 Per ottenere il writer di traccia, chiamare **HttpConfiguration.Services.GetTraceWriter**. Da un controller, questo metodo è accessibile tramite il **ApiController.Configuration** proprietà.
 
-Per creare una traccia, è possibile chiamare il **ITraceWriter.Trace** metodo direttamente, ma la [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx) classe definisce alcuni metodi di estensione che sono più descrittivi. Ad esempio, il **Info** metodo illustrato in precedenza viene creata una traccia con livello di traccia **Info**.
+Per creare una traccia, è possibile chiamare il **ITraceWriter.Trace** metodo direttamente, ma la [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) classe definisce alcuni metodi di estensione che sono più descrittivi. Ad esempio, il **Info** metodo illustrato in precedenza viene creata una traccia con livello di traccia **Info**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Infrastruttura di analisi Web API
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>Utilizzo del modello di applicazione
 
@@ -53,7 +53,7 @@ Quindi (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> L'ordine in cui due provider con lo stesso valore per `Order` vengono chiamati è definito e pertanto non essere affidabile.
+> L'ordine in cui due provider con lo stesso valore per `Order` vengono chiamati è definito e pertanto non deve essere ritenuto affidabile.
 
 > [!NOTE]
 > `IApplicationModelProvider`è un concetto avanzato per gli autori di framework estendere. In generale, le app devono utilizzare le convenzioni e Framework devono utilizzare provider. La differenza principale è che i provider eseguiti sempre prima di convenzioni.
@@ -185,7 +185,7 @@ Le convenzioni dello shim vengono applicate solo alle parti dell'app che hanno a
 
 ### <a name="action-conventions"></a>Convenzioni di azione
 
-Il `UseWebApiActionConventionsAttribute` viene utilizzato per eseguire il mapping alle azioni in base al nome di metodo HTTP (ad esempio, `Get` consente il mapping a `HttpGet`). Si applica solo alle azioni che non utilizzano l'attributo di routing.
+Il `UseWebApiActionConventionsAttribute` viene utilizzato per eseguire il mapping alle azioni in base al nome di metodo HTTP (ad esempio, `Get` consente il mapping a `HttpGet`). Si applica solo alle azioni che non usano il routing di attributo.
 
 ### <a name="overloading"></a>Overload
 

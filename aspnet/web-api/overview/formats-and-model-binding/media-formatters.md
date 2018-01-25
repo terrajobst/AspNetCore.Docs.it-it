@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7d85b995cd577d0ff90fe96bce508c7fbdc6ebbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Formattatori di Media in ASP.NET Web API 2
 ====================
@@ -48,8 +48,8 @@ Il tipo di supporto determina come API Web serializza e deserializza il corpo de
 
 Per creare un formattatore di media, derivare da una di queste classi:
 
-- [MediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.mediatypeformatter.aspx). Questa classe viene utilizzata della lettura asincrona e metodi di scrittura.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Questa classe deriva da **MediaTypeFormatter** ma vengono utilizzati i metodi di lettura/scrittura sychronous.
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Questa classe viene utilizzata della lettura asincrona e metodi di scrittura.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Questa classe deriva da **MediaTypeFormatter** ma vengono utilizzati i metodi di lettura/scrittura sychronous.
 
 Derivazione da **BufferedMediaTypeFormatter** è più semplice, perché non è presente codice asincrono, ma significa inoltre possibile bloccare il thread chiamante durante il / o.
 
@@ -91,10 +91,10 @@ Per aggiungere un tipo di supporto del formattatore per la pipeline di Web API, 
 
 Facoltativamente, un formattatore di media può supportare più codifiche di caratteri, ad esempio UTF-8 o ISO 8859-1.
 
-Nel costruttore, aggiungere uno o più [Encoding](https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx) i tipi di **SupportedEncodings** insieme. Inserire il valore predefinito prima di codifica.
+Nel costruttore, aggiungere uno o più [Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) i tipi di **SupportedEncodings** insieme. Inserire il valore predefinito prima di codifica.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-Nel **WriteToStream** e **ReadFromStream** chiamare metodi, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/en-us/library/hh969054.aspx) per selezionare la codifica dei caratteri preferita. Questo metodo consente di ricercare le intestazioni della richiesta rispetto all'elenco di codifiche supportate. Utilizzare l'oggetto restituito **codifica** quando si leggere o scrivere dal flusso:
+Nel **WriteToStream** e **ReadFromStream** chiamare metodi, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) per selezionare la codifica dei caratteri preferita. Questo metodo consente di ricercare le intestazioni della richiesta rispetto all'elenco di codifiche supportate. Utilizzare l'oggetto restituito **codifica** quando si leggere o scrivere dal flusso:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

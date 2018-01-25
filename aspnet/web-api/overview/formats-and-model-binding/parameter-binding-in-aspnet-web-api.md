@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Parametro di associazione in ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Quando l'API Web chiama un metodo in un controller, è necessario impostare i va
 
 Per impostazione predefinita, l'API Web utilizza le regole seguenti per associare parametri:
 
-- Se il parametro è un tipo "semplice", l'API Web tenta di ottenere il valore dell'URI. I tipi semplici includono .NET [tipi primitivi](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx) (**int**, **bool**, **doppie**e così via), oltre a **TimeSpan**, **DateTime**, **Guid**, **decimale**, e **stringa**, *più* qualsiasi tipo con un convertitore di tipi che è possibile convertire una stringa. (Ulteriori informazioni sui convertitori di tipi in un secondo momento.)
+- Se il parametro è un tipo "semplice", l'API Web tenta di ottenere il valore dell'URI. I tipi semplici includono .NET [tipi primitivi](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **doppie**e così via), oltre a **TimeSpan**, **DateTime**, **Guid**, **decimale**, e **stringa**, *più* qualsiasi tipo con un convertitore di tipi che è possibile convertire una stringa. (Ulteriori informazioni sui convertitori di tipi in un secondo momento.)
 - Per tipi complessi, API Web tenta di leggere il valore dal corpo del messaggio, utilizzando un [formattatore di media type](media-formatters.md).
 
 Ad esempio, ecco un metodo del controller Web API tipico:
@@ -102,7 +102,7 @@ Un raccoglitore di modelli Ottiene i valori di input non elaborati da un *provid
 
 Il provider di valori predefiniti nell'API Web ottiene i valori di dati della route e la stringa di query. Ad esempio, se l'URI è `http://localhost/api/values/1?location=48,-122`, il provider di valori Crea le coppie chiave-valore seguente:
 
-- ID = &quot;1&quot;
+- id = &quot;1&quot;
 - percorso = &quot;48,122&quot;
 
 (Si suppone che il modello di route predefinito, ovvero &quot;api / {controller} / {id}&quot;.)
@@ -121,7 +121,7 @@ Esistono diversi modi per impostare un raccoglitore di modelli. In primo luogo, 
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-Infine, è possibile aggiungere un provider dello strumento di associazione del modello per il **HttpConfiguration**. Un provider dello strumento di associazione del modello è semplicemente una classe factory che crea un raccoglitore di modelli. È possibile creare un provider mediante derivazione da di [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx) classe. Tuttavia, se il gestore di associazione del modello gestisce un solo tipo, è più facile da utilizzare l'oggetto incorporato **SimpleModelBinderProvider**, che è progettato per questo scopo. A tale scopo, osservare il codice indicato di seguito.
+Infine, è possibile aggiungere un provider dello strumento di associazione del modello per il **HttpConfiguration**. Un provider dello strumento di associazione del modello è semplicemente una classe factory che crea un raccoglitore di modelli. È possibile creare un provider mediante derivazione da di [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx) classe. Tuttavia, se il gestore di associazione del modello gestisce un solo tipo, è più facile da utilizzare l'oggetto incorporato **SimpleModelBinderProvider**, che è progettato per questo scopo. A tale scopo, osservare il codice indicato di seguito.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

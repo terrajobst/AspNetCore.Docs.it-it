@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Globale gestione degli errori in ASP.NET Web API 2
 ====================
@@ -46,7 +46,7 @@ Oltre a [filtri eccezioni](exception-handling.md), [gestori di messaggi](../adva
 1. Sono supportati la registrazione, ma solo un solo gestore di eccezioni più logger di eccezioni.
 2. Logger di eccezioni sempre chiamato, anche se si sta per interrompere la connessione. Gestori di eccezioni ottengano chiamati solo quando si è ancora in grado di scegliere quale messaggio di risposta da inviare.
 
-Entrambi i servizi forniscono l'accesso a un contesto di eccezione che contiene informazioni rilevanti dal punto in cui è stata rilevata l'eccezione, in particolare il [HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), generata un'eccezione e l'origine dell'eccezione (dettagli riportati di seguito).
+Entrambi i servizi forniscono l'accesso a un contesto di eccezione che contiene informazioni rilevanti dal punto in cui è stata rilevata l'eccezione, in particolare il [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), generata un'eccezione e l'origine dell'eccezione (dettagli riportati di seguito).
 
 ### <a name="design-principles"></a>Principi di progettazione
 
@@ -97,7 +97,7 @@ In aggiuntive per il `ExceptionContext`, un gestore ottiene una proprietà di al
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Un gestore di eccezioni indica che è gestita un'eccezione impostando il `Result` proprietà al risultato di un'azione (ad esempio, un [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), o un risultato personalizzato). Se il `Result` proprietà è null, viene gestita l'eccezione e verrà generata l'eccezione originale.
+Un gestore di eccezioni indica che è gestita un'eccezione impostando il `Result` proprietà al risultato di un'azione (ad esempio, un [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), o un risultato personalizzato). Se il `Result` proprietà è null, viene gestita l'eccezione e verrà generata l'eccezione originale.
 
 Per le eccezioni nella parte superiore dello stack di chiamate, è richiesto un passaggio aggiuntivo per assicurare che la risposta è appropriata per i chiamanti di API. Se l'eccezione si propaga fino a host, il chiamante verrà visualizzata la schermata gialla di morte o un altro host fornito in risposta a cui è in genere in formato HTML e non viene in genere una risposta di errore API appropriata. In questi casi, eseguire il backup viene avviato il risultato non null e solo se un gestore di eccezioni personalizzato imposta in modo esplicito per `null` (non gestite) l'eccezione propagherà all'host. Impostazione `Result` a `null` in tali casi, può essere utile per due scenari:
 

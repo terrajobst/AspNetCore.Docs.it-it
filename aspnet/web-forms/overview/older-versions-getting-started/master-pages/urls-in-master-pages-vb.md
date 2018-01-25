@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603457655e2490e1685f53d2cec643cb9382a59d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8aa0ed2fbf385e4b8dbb7e7a3bdb152f1e016e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-vb"></a>URL nelle pagine Master (VB)
 ====================
@@ -108,7 +108,7 @@ Buone notizie sono che ASP.NET offre un metodo per la generazione di un URL rela
 
 Anziché a livello di codice un URL assoluto, ASP.NET consente agli sviluppatori di pagina da utilizzare il carattere tilde (`~`) per indicare la radice dell'applicazione web. Ad esempio, più indietro in questa esercitazione si usa la notazione `~/Admin/Default.aspx` nel testo per fare riferimento al `Default.aspx` nella pagina di `Admin` cartella. Il `~` indica che il `Admin` cartella è una sottocartella della radice dell'applicazione web.
 
-Il `Control` della classe [ `ResolveClientUrl` metodo](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx) acquisisce un URL e lo modifica a un URL relativo appropriato per la pagina web in cui si trova il controllo. Ad esempio, la chiamata `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` da `About.aspx` restituisce `Images/PoweredByASPNET.gif`. Viene chiamata da `~/Admin/Default.aspx`, tuttavia, viene restituito `../Images/PoweredByASPNET.gif`.
+Il `Control` della classe [ `ResolveClientUrl` metodo](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) acquisisce un URL e lo modifica a un URL relativo appropriato per la pagina web in cui si trova il controllo. Ad esempio, la chiamata `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` da `About.aspx` restituisce `Images/PoweredByASPNET.gif`. Viene chiamata da `~/Admin/Default.aspx`, tuttavia, viene restituito `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
 > Poiché tutti i controlli server ASP.NET derivano dal `Control` (classe), tutti i controlli server hanno accesso al `ResolveClientUrl` metodo. Anche il `Page` deriva dalla classe di `Control` (classe), vale a dire che è possibile utilizzare questo metodo direttamente dalle classi di codice delle pagine ASP.NET.
@@ -148,7 +148,7 @@ Rimuovere il `<a>` tag di elemento e aggiungere un controllo collegamento iperte
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample8.aspx)]
 
-Questo è tutto! A questo punto tutti gli URL in questa pagina master si basano correttamente sottoposta a rendering tramite una pagina contenuto indipendentemente dal fatto le cartelle della pagina master e una pagina di contenuto si trovano.
+La procedura è terminata. A questo punto tutti gli URL in questa pagina master si basano correttamente sottoposta a rendering tramite una pagina contenuto indipendentemente dal fatto le cartelle della pagina master e una pagina di contenuto si trovano.
 
 ### <a name="automatic-url-resolution-in-theheadsection"></a>Risoluzione automatica URL il`<head>`sezione
 

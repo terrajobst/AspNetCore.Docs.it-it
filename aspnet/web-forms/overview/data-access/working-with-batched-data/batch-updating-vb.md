@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 02df858a7ad2ccefce4717e9bb7b08fc4c8d6ace
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bcfdf734de0b4a4aa0a11f35bd6e40d6b97719cf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-vb"></a>Batch di aggiornamento (VB)
 ====================
@@ -47,7 +47,7 @@ Let s iniziare!
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Esaminare i passaggi per rendere modificabile tutte le righe di GridView
 
-Come descritto nel [una panoramica di inserimento, aggiornamento ed eliminazione di dati](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) esercitazione GridView offre supporto incorporato per la modifica i dati sottostanti per ogni riga. Internamente, GridView note può essere modificata tramite la riga relativa [ `EditIndex` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Controlla come viene associato il controllo GridView all'origine dati, ogni riga per vedere se l'indice della riga è uguale al valore di `EditIndex`. In questo caso, le interfacce s i campi vengono visualizzati utilizzando la loro modifica tale riga. Per BoundField, l'interfaccia di modifica è una casella di testo la cui `Text` proprietà viene assegnato il valore del campo di dati specificato da BoundField s `DataField` proprietà. Per TemplateFields, il `EditItemTemplate` è usato al posto di `ItemTemplate`.
+Come descritto nel [una panoramica di inserimento, aggiornamento ed eliminazione di dati](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) esercitazione GridView offre supporto incorporato per la modifica i dati sottostanti per ogni riga. Internamente, GridView note può essere modificata tramite la riga relativa [ `EditIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Controlla come viene associato il controllo GridView all'origine dati, ogni riga per vedere se l'indice della riga è uguale al valore di `EditIndex`. In questo caso, le interfacce s i campi vengono visualizzati utilizzando la loro modifica tale riga. Per BoundField, l'interfaccia di modifica è una casella di testo la cui `Text` proprietà viene assegnato il valore del campo di dati specificato da BoundField s `DataField` proprietà. Per TemplateFields, il `EditItemTemplate` è usato al posto di `ItemTemplate`.
 
 Tenere presente che il flusso di lavoro di modifica viene avviata quando un utente fa clic su un pulsante Modifica riga s. Ciò provoca un postback, imposta s GridView `EditIndex` proprietà per l'indice di riga si fa clic s e riassociazioni i dati alla griglia. Quando viene selezionato un pulsante Annulla riga s durante il postback di `EditIndex` è impostata su un valore di `-1` prima i dati alla griglia di riassociazione. Poiché le righe di GridView s avviare l'indicizzazione da zero, l'impostazione `EditIndex` a `-1` ha l'effetto di GridView viene visualizzata in modalità di sola lettura.
 
@@ -240,7 +240,7 @@ Creare un metodo denominato `BatchUpdate` in `BatchUpdate.aspx.vb` e aggiungere 
 
 [!code-vb[Main](batch-updating-vb/samples/sample5.vb)]
 
-Questo metodo inizia recuperando tutti i prodotti in un `ProductsDataTable` tramite una chiamata al livello Business LOGIC s `GetProducts` metodo. Enumera quindi il `ProductGrid` GridView s [ `Rows` raccolta](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Il `Rows` raccolta contiene un [ `GridViewRow` istanza](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx) per ogni riga visualizzata in GridView. Poiché viene mostrato al massimo dieci righe per pagina, i dispositivi di GridView `Rows` raccolta avrà elementi non più di dieci.
+Questo metodo inizia recuperando tutti i prodotti in un `ProductsDataTable` tramite una chiamata al livello Business LOGIC s `GetProducts` metodo. Enumera quindi il `ProductGrid` GridView s [ `Rows` raccolta](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). Il `Rows` raccolta contiene un [ `GridViewRow` istanza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) per ogni riga visualizzata in GridView. Poiché viene mostrato al massimo dieci righe per pagina, i dispositivi di GridView `Rows` raccolta avrà elementi non più di dieci.
 
 Per ogni riga il `ProductID` è afferrato dal `DataKeys` appropriata e raccolta `ProductsRow` sia selezionato il `ProductsDataTable`. I controlli di input TemplateField quattro fanno riferimento a livello di codice e i valori assegnati per il `ProductsRow` proprietà dell'istanza. Dopo ogni GridView sono stati utilizzati i valori di riga o le righe per aggiornare il `ProductsDataTable`, si s passato a s BLL `UpdateWithTransaction` metodo che, come illustrato nell'esercitazione precedente, chiama semplicemente verso il basso in oggetti DAL `UpdateWithTransaction` metodo.
 
@@ -257,7 +257,7 @@ Per completare questa esercitazione, è necessario che il `BatchUpdate` metodo r
 
 [!code-vb[Main](batch-updating-vb/samples/sample6.vb)]
 
-Innanzitutto viene eseguita una chiamata a `BatchUpdate`. Successivamente, il [ `ClientScript` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.page.clientscript(VS.80).aspx) viene utilizzato per inserire JavaScript che consente di visualizzare una finestra di messaggio che legge i prodotti sono stati aggiornati.
+Innanzitutto viene eseguita una chiamata a `BatchUpdate`. Successivamente, il [ `ClientScript` proprietà](https://msdn.microsoft.com/library/system.web.ui.page.clientscript(VS.80).aspx) viene utilizzato per inserire JavaScript che consente di visualizzare una finestra di messaggio che legge i prodotti sono stati aggiornati.
 
 Richiedere un minuto, per testare questo codice. Visitare `BatchUpdate.aspx` tramite un browser, modificare un numero di righe e fare clic su uno dei pulsanti i prodotti di aggiornamento. Supponendo che non siano presenti errori di convalida dell'input, verrà visualizzata una finestra di messaggio che legge che i prodotti sono stati aggiornati. Per verificare l'atomicità dell'aggiornamento, è possibile aggiungere un casuale `CHECK` vincolo, ad esempio uno che non consente `UnitPrice` 1234,56 ai valori. Quindi dal `BatchUpdate.aspx`, modificare un numero di record, assicurandosi di impostare uno dei prodotti s `UnitPrice` valore con il valore non consentito (1234,56). Verrà restituito un errore quando scegliendo i prodotti di aggiornamento con le altre modifiche durante tale operazione batch eseguito il rollback in base ai valori originali.
 
@@ -270,7 +270,7 @@ Per i tipi di situazioni, è consigliabile utilizzare le seguenti `BatchUpdateAl
 
 [!code-vb[Main](batch-updating-vb/samples/sample7.vb)]
 
-`BatchMethodAlternate`inizia creando un nuovo vuoto `ProductsDataTable` denominato `products`. Viene quindi i passaggi da a s GridView `Rows` insieme e per ogni riga Ottiene le informazioni di prodotto specifico con s BLL `GetProductByProductID(productID)` metodo. Recuperato `ProductsRow` istanza ha le proprietà aggiornate in modo identico a `BatchUpdate`, ma dopo aver aggiornato la riga viene importato nel `products` `ProductsDataTable` tramite gli oggetti DataTable [ `ImportRow(DataRow)` metodo](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate`inizia creando un nuovo vuoto `ProductsDataTable` denominato `products`. Viene quindi i passaggi da a s GridView `Rows` insieme e per ogni riga Ottiene le informazioni di prodotto specifico con s BLL `GetProductByProductID(productID)` metodo. Recuperato `ProductsRow` istanza ha le proprietà aggiornate in modo identico a `BatchUpdate`, ma dopo aver aggiornato la riga viene importato nel `products` `ProductsDataTable` tramite gli oggetti DataTable [ `ImportRow(DataRow)` metodo](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Dopo il `For Each` ciclo viene completato, `products` contiene uno `ProductsRow` istanza per ogni riga in GridView. Poiché ogni del `ProductsRow` istanze sono state aggiunte per la `products` (anziché aggiornato), se si passa a ciecamente il `UpdateWithTransaction` (metodo) il `ProductsTableAdatper` tenterà di inserire ogni record nel database. In alternativa, è necessario specificare che ognuna di queste righe è stata modificata (non aggiunto).
 

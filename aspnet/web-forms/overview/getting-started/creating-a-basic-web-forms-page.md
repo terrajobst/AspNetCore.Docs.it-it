@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 20e920ff63444c0d69cecb972619b07fe6d23097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Creazione di una base ASP.NET 4.5 pagina Web Form in Visual Studio 2013
 ====================
 Da [Erik Reitan](https://github.com/Erikre)
 
-Questa procedura dettagliata viene fornita un'introduzione all'ambiente di sviluppo Web in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) e [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). Questa procedura dettagliata viene illustrata la creazione di una semplice pagina Web Form ASP.NET e vengono illustrate le tecniche di base di creazione di una nuova pagina, aggiunta di controlli e la scrittura di codice.
+Questa procedura dettagliata viene fornita un'introduzione all'ambiente di sviluppo Web in [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) e [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). Questa procedura dettagliata viene illustrata la creazione di una semplice pagina Web Form ASP.NET e vengono illustrate le tecniche di base di creazione di una nuova pagina, aggiunta di controlli e la scrittura di codice.
 
 Le attività illustrate nella procedura dettagliata sono le seguenti:
 
@@ -38,7 +38,7 @@ Le attività illustrate nella procedura dettagliata sono le seguenti:
 
 Per completare questa procedura dettagliata, è necessario:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework viene installato automaticamente. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework viene installato automaticamente. 
 
     > [!NOTE] 
     > 

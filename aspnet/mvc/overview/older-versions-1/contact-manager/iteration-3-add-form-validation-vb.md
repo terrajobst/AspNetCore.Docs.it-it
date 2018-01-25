@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ffb502be3037e787d79bbd1e83b93cd0b34dca6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9ed182fb58addd8c5dadbe6e3d09c391840ca00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-vb"></a>Iterazione #3: aggiunta della convalida del form (Visual Basic)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-3-add-form-validation-vb/_static/contactmanager_3_vb1.zip)
 
@@ -63,7 +63,7 @@ In questa iterazione, la logica di convalida è aggiungere direttamente per le a
 
 In questa iterazione, per semplicità, è scrivere tutto il codice di convalida manualmente. Invece di scrivere il codice di convalida effettuata, è possibile sfruttare i vantaggi di un framework di convalida. Ad esempio, è possibile utilizzare Microsoft Enterprise Library convalida applicazione blocco (VAB) per implementare la logica di convalida per l'applicazione ASP.NET MVC. Per ulteriori informazioni sul blocco di applicazione di convalida, vedere:
 
-[*http://msdn.microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>Aggiunta della convalida per la visualizzazione di creazione
 

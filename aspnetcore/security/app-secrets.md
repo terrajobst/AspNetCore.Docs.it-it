@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: e2c11b768098b3d92ef702e0daad746963dc3856
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 94356cef7a0333f0faac6420b1b5425920b99deb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app durante lo sviluppo di ASP.NET Core
 
@@ -37,7 +37,7 @@ Ad esempio, se si crea una nuova app web ASP.NET Core con singoli account utente
 Lo strumento di gestione Secret archivia i dati sensibili per operazioni di sviluppo di fuori della struttura ad albero di progetto. Lo strumento di gestione di chiave privata è uno strumento di progetto che può essere utilizzato per archiviare informazioni riservate per un [.NET Core](https://www.microsoft.com/net/core) progetto durante lo sviluppo. Con lo strumento di gestione di chiave privata, è possibile associare i segreti dell'app a un progetto specifico e condividerli tra più progetti.
 
 >[!WARNING]
-> Lo strumento di gestione di chiave privata non consente di crittografare i segreti archiviati e non deve essere considerato un archivio attendibile. È solo a fini di sviluppo. Le chiavi e valori vengono archiviati in un file di configurazione JSON nella directory di profilo dell'utente.
+> Lo strumento di gestione di segreto non crittografa i segreti archiviati e non deve essere considerato come un archivio attendibile. È solo a fini di sviluppo. Le chiavi e valori vengono archiviati in un file di configurazione JSON nella directory di profilo dell'utente.
 
 ## <a name="installing-the-secret-manager-tool"></a>Installazione dello strumento di gestione segreto
 
@@ -122,7 +122,7 @@ Lo strumento di gestione di segreto estrae i dettagli di implementazione, ad ese
 
 Il valore di `userSecretsId` proviene dal valore specificato in *csproj* file.
 
-È consigliabile non scrivere codice che dipende il percorso o il formato dei dati salvati con lo strumento di gestione di chiave privata, come è potrebbero modificare questi dettagli di implementazione. Ad esempio, i valori secret sono attualmente *non* crittografati oggi, ma può essere un giorno.
+Non deve scrivere codice che dipende il percorso o il formato dei dati salvati con lo strumento di gestione di chiave privata, come è potrebbero modificare questi dettagli di implementazione. Ad esempio, i valori secret sono attualmente *non* crittografati oggi, ma può essere un giorno.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

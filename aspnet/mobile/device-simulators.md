@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 48145b15b4983d6a143a8c53c9e6e8b4639da91e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a8293a5bff9ed73f177be2d9928d8d686c4f311d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a>Simulare diffusi dispositivi mobili per i test
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 | Dispositivo o Browser | Emulatore o simulatore |
 | --- | --- |
 | BrowserStack ospitato virtualizzazione Browser ![BrowserStack ospitato virtualizzazione Browser](device-simulators/_static/image1.png) | [La virtualizzazione di Browser ospitato BrowserStack](http://browserstack.com) testare l'ambiente locale o di produzione in qualsiasi browser su qualsiasi piattaforma. È possibile creare un tunnel tra computer e la rete BrowserStack nella macchina virtuale ospitata. Assicurarsi di ottenere il [BrowserStack Visual Studio Extension](https://visualstudiogallery.msdn.microsoft.com/2dfa32b1-3c47-439d-b1c5-9e28be18b81c) per un'esperienza ancora più semplice. |
-| Windows Phone | [Download di Windows Phone SDK](https://dev.windowsphone.com/en-us/downloadsdk) di Windows Phone Software Development Kit (SDK) include tutti gli strumenti necessari allo sviluppo di App e giochi per Windows Phone |
+| Windows Phone | [Download di Windows Phone SDK](https://dev.windowsphone.com/downloadsdk) di Windows Phone Software Development Kit (SDK) include tutti gli strumenti necessari allo sviluppo di App e giochi per Windows Phone |
 | iPhone / iPod / iPad | [Electric Plum](http://www.electricplum.com/studio.aspx) iPhone e iPad simulatori per Windows, nonché un Responsive strumento di progettazione. Possibile integrare con l'opzione "Sfoglia con..." di Visual Studio 2012. |
 | Android | [Home page di Android SDK](https://developer.android.com/sdk) |
 | Opera Mobile / Opera Mini | Versioni più recenti: [gli strumenti di sviluppo Opera home](http://www.opera.com/developer/tools/) Opera Mini 4.2: [simulatore basati su Java Online](http://www.opera.com/mobile/demo/?ver=4) |

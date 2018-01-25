@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 9a0fb52a1d1a62bce3f11c7e0394c00b9d544ab3
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 7b0a3f73efd1d30b903b3258bea2082792eb6e8c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrazioni - Core EF esercitazione pagine Razor (4 di 8)
 
@@ -54,7 +54,7 @@ Nel *appSettings. JSON* file, modificare il nome del database nella stringa di c
 
 [!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Se si modifica il nome di database nella stringa di connessione, la migrazione prima di creare un nuovo database. Poiché non ne esiste uno con lo stesso nome, viene creato un nuovo database. Modifica la stringa di connessione non è necessaria per iniziare a usare le migrazioni.
+Se si modifica il nome di database nella stringa di connessione, la migrazione prima di creare un nuovo database. Poiché uno con tale nome non esiste, viene creato un nuovo database. Modifica la stringa di connessione non è necessaria per iniziare a usare le migrazioni.
 
 Un'alternativa alla modifica del nome di database sta eliminando il database. Utilizzare **Esplora oggetti di SQL Server** (sillaba SSOX) o `database drop` comando CLI:
 
@@ -130,7 +130,7 @@ Il file di snapshot deve essere sincronizzato con le migrazioni che li ha creati
 Per lo sviluppo iniziale, il `EnsureCreated` comando è stato utilizzato. In questa esercitazione viene utilizzato le migrazioni. `EnsureCreated`presenta le limitazioni seguenti:
 
 * Ignora le migrazioni e crea il database e lo schema.
-* Non crea una tabella delle migrazioni.
+* Non è possibile creare una tabella delle migrazioni.
 * Possibile *non* utilizzabile con le migrazioni.
 * È progettato per prototipi di test o rapida in cui il database viene eliminato e ricreato frequentemente.
 
@@ -210,7 +210,7 @@ In questa esercitazione viene illustrato come utilizzare l'interfaccia CLI, alcu
 
 I comandi di base di Entity Framework per PMC presenti il [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) pacchetto. Questo pacchetto è incluso nel [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) metapackage, pertanto non è necessario installarlo.
 
-**Importante:** non è il pacchetto stesso di quello in cui si installa per l'interfaccia CLI modificando il *csproj* file. Il nome di questo termina `Tools`, a differenza del nome di pacchetto CLI che termina in `Tools.DotNet`.
+**Importante:** questo non è il pacchetto stesso di quello in cui si installa per l'interfaccia CLI modificando il *csproj* file. Il nome di questo termina `Tools`, a differenza del nome di pacchetto CLI che termina in `Tools.DotNet`.
 
 Per ulteriori informazioni sui comandi CLI, vedere [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
 

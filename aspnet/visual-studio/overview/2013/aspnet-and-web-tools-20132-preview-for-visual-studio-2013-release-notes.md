@@ -12,15 +12,15 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET e strumenti Web 2013.2 delle note sulla versione di Visual Studio 2013
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 ## <a name="installation-notes"></a>Note sull'installazione
 
@@ -41,7 +41,7 @@ Nelle sezioni seguenti vengono descritte le funzionalità che sono state introdo
 - [Modelli di progetto ASP.NET](#oneaspnet)
 - [Supporta SSL durante l'avvio di applicazioni Web in IIS Express](#ssl)
 - [Miglioramenti di Editor di Visual Studio Web](#vswebeditor)
-- [Collegamento del browser](#browserlink)
+- [Browser Link](#browserlink)
 - [Supporto per le app Web di servizio App di Azure in Visual Studio](#waws)
 - [Creare risorse di Azure remote quando si crea un nuovo progetto Web](#AzureResources)
 - [Miglioramenti di pubblicazione sul Web](#webpublish)
@@ -52,7 +52,7 @@ Nelle sezioni seguenti vengono descritte le funzionalità che sono state introdo
 - [ASP.NET Web API 2.1.2](#webapi)
 - [3.1.2 le pagine Web ASP.NET](#webpages)
 - [Entity Framework 6.1](#ef)
-- [Identità ASP.NET 2.0.0](#identity)
+- [ASP.NET Identity 2.0.0](#identity)
 - [Componenti Microsoft OWIN](#owin)
 - [ASP.NET SignalR 2.0.2](#signalr)
 
@@ -99,7 +99,7 @@ Firefox Usa il proprio archivio certificati, quindi verrà visualizzato un avvis
 
     Supporta ora IntelliSense [Schema JSON](http://json-schema.org/) v3 e v4. È una casella combinata di schema per scegliere gli schemi esistenti, modificare il percorso di schema locali o trascinare semplicemente eliminare un file JSON di progetto in modo da ottenere il percorso relativo.
 
-    ![Intellisense JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![Editor schemi di JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
+    ![JSON Intellisense](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON Schema editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
 - **Nuovo editor Sass (SCSS)**: È stato aggiunto minore in VS2013 RTM ed è ora disponibile un editor e un elemento di progetto Sass. Gli strumenti dell'editor di sass funzionalità sono confrontabili con l'editor di meno e includono colorazione, la variabile e Mixins IntelliSense, rimuovere il commento/commento, informazioni rapide, formattazione, la convalida della sintassi, struttura, Vai a definizione, alla selezione dei colori, opzione impostazione e così via.
 
     ![Aggiungi nuovo elemento: Foglio di stile SCSS](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image9.png)    ![Editor di foglio di stile](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image10.png)
@@ -232,10 +232,10 @@ NuGet 2.8.1 che verrà rilasciata nel mese di aprile 2014 RTM. Di seguito sono i
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework è stato aggiornato alla versione 6.1 runtime e gli strumenti per. 6.1 Entity Framework (EF) è un aggiornamento secondario di Entity Framework 6 e include un numero di nuove funzionalità e correzioni di bug. Per informazioni dettagliate su EF6.1, inclusi i collegamenti alla documentazione per le nuove funzionalità, vedere [cronologia delle versioni di Entity Framework](https://msdn.microsoft.com/en-US/data/jj574253). Le nuove funzionalità in questa versione includono:
+Entity Framework è stato aggiornato alla versione 6.1 runtime e gli strumenti per. 6.1 Entity Framework (EF) è un aggiornamento secondario di Entity Framework 6 e include un numero di nuove funzionalità e correzioni di bug. Per informazioni dettagliate su EF6.1, inclusi i collegamenti alla documentazione per le nuove funzionalità, vedere [cronologia delle versioni di Entity Framework](https://msdn.microsoft.com/data/jj574253). Le nuove funzionalità in questa versione includono:
 
 - **Gli strumenti di consolidamento** consente di creare un nuovo modello di Entity Framework in modo coerenza. Questa funzionalità estende la procedura guidata di ADO.NET Entity Data Model per supportare la creazione di modelli Code First, tra cui la decompilazione da un database esistente. Queste funzionalità in precedenza erano disponibili in qualità di Beta negli strumenti Power di Entity Framework.
-- **La gestione degli errori di commit delle transazioni** fornisce la nuova [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) che usano il possibilità appena introdotte per intercettare le operazioni di transazioni. Il **CommitFailureHandler** consente il recupero automatico da errori di connessione durante l'esecuzione del commit di una transazione.
+- **La gestione degli errori di commit delle transazioni** fornisce la nuova [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) che usano il possibilità appena introdotte per intercettare le operazioni di transazioni. Il **CommitFailureHandler** consente il recupero automatico da errori di connessione durante l'esecuzione del commit di una transazione.
 - **IndexAttribute** consente indici specificare inserendo un attributo in una proprietà (o proprietà) nel modello Code First. Codice innanzitutto quindi creare un indice corrispondente nel database.
 - **L'API di mapping pubblica** fornisce l'accesso alle informazioni di Entity Framework è in modalità di mapping di proprietà e tipi a colonne e tabelle nel database. Nelle versioni precedenti questa API è interna.
 - **Possibilità di configurare gli intercettori tramite il file App/Web.config**(consentire gli intercettori da aggiungere senza ricompilare l'applicazione).
@@ -244,7 +244,7 @@ Entity Framework è stato aggiornato alla versione 6.1 runtime e gli strumenti p
 - **Miglioramenti delle prestazioni** incluse operazioni di database ridotto durante l'inizializzazione, le ottimizzazioni per il confronto di uguaglianza null nelle query LINQ, visualizzare generazione (creazione del modello) più velocemente in più scenari e più efficiente materializzazione di entità rilevate con più associazioni.
 
 <a id="identity"></a>
-### <a name="aspnet-identity-200"></a>Identità ASP.NET 2.0.0
+### <a name="aspnet-identity-200"></a>ASP.NET Identity 2.0.0
 
 - **Autenticazione a due fattori**: identità ASP.NET supporta ora l'autenticazione a due fattori. Autenticazione a due fattori fornisce un ulteriore livello di sicurezza per gli account utente nel caso in cui la password viene compromesso. È inoltre disponibile la protezione per gli attacchi di forza bruta contro i codici di autenticazione a due fattori.
 - **Il blocco degli account:** fornisce un modo per bloccare l'utente se l'utente immette la password o codici a due fattori in modo non corretto. Il numero di tentativi non validi e l'intervallo di tempo per gli utenti vengono bloccati può essere configurato. Uno sviluppatore può facoltativamente disattivare il blocco degli Account per determinati account utente in caso di.

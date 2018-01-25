@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Utilizzare il modello di progetto angolare (versione finale candidata)
 
 > [!NOTE]
-> Questa documentazione non è presente sul modello di progetto angolare rilasciato. **Questa documentazione è sulla versione finale candidata del modello angolare.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
+> Questa documentazione non è sul modello di progetto angolare rilasciato. **Questa documentazione è sulla versione finale candidata del modello angolare.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
 
 Il modello di progetto angolare aggiornato fornisce un punto di partenza ideale per ASP.NET Core App con 5 angolare e CLI angolare per implementare un'interfaccia utente avanzata, sul lato client (UI).
 
@@ -137,7 +137,7 @@ Nel *avvio* (classe), *dopo* la riga che configura `spa.Options.SourcePath`, e *
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-In modalità di sviluppo, il codice tenta di compilare il bundle SSR eseguendo lo script `build:ssr`, definito in *ClientApp\package.json*. Si compila un'app angolare denominata `ssr`, che non è ancora definito. 
+In modalità di sviluppo, il codice tenta di compilare il bundle SSR eseguendo lo script `build:ssr`, definito in *ClientApp\package.json*. Si compila un'app angolare denominata `ssr`, che non è ancora definita. 
 
 Alla fine del `apps` matrice *ClientApp/.angular-cli.json*, definire un'app aggiuntiva con nome `ssr`. Utilizzare le opzioni seguenti:
 
@@ -176,7 +176,7 @@ Durante SSR, si potrebbe decidere di passare dati per ogni richiesta dall'app AS
 ```csharp
 options.SupplyData = (context, data) =>
 {
-    // Creates a new value called isHttpsRequest that is passed to TypeScript code
+    // Creates a new value called isHttpsRequest that's passed to TypeScript code
     data["isHttpsRequest"] = context.Request.IsHttps;
 };
 ```

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e66f581d0ea07831ea6356a9c13d26ed6a19b81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69586ade54a40aabb55dd507731a6c2820774c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="uploading-files-vb"></a>Il caricamento di file (VB)
 ====================
@@ -99,7 +99,7 @@ In alternativa, dati binari possono essere archiviati direttamente in un databas
 Il vantaggio principale di archiviazione di dati binari direttamente nel database è la stretta integrazione tra i dati binari e il record del database. Questo semplifica notevolmente l'attività di amministrazione di database, ad esempio backup o lo spostamento del database in un server o un sito diverso. Inoltre, un record automaticamente se si elimina i dati binari corrispondenti. Esistono inoltre altre meno evidenti vantaggi offerti dall'archiviazione i dati binari nel database. Vedere [archiviazione binario file direttamente nel Database utilizzando ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) per una discussione più dettagliata.
 
 > [!NOTE]
-> In Microsoft SQL Server 2000 e versioni precedenti, il `varbinary` del tipo di dati sono un limite massimo di 8.000 byte. Per archiviare fino a 2 GB di dati binari di [ `image` tipo di dati](https://msdn.microsoft.com/en-us/library/ms187993.aspx) deve essere utilizzato. Con l'aggiunta di `MAX` in SQL Server 2005, tuttavia, il `image` tipo di dati è stato deprecato. È s ancora supportata per la compatibilità, ma Microsoft ha annunciato che la `image` il tipo di dati verrà rimossa in una versione futura di SQL Server.
+> In Microsoft SQL Server 2000 e versioni precedenti, il `varbinary` del tipo di dati sono un limite massimo di 8.000 byte. Per archiviare fino a 2 GB di dati binari di [ `image` tipo di dati](https://msdn.microsoft.com/library/ms187993.aspx) deve essere utilizzato. Con l'aggiunta di `MAX` in SQL Server 2005, tuttavia, il `image` tipo di dati è stato deprecato. È s ancora supportata per la compatibilità, ma Microsoft ha annunciato che la `image` il tipo di dati verrà rimossa in una versione futura di SQL Server.
 
 
 Se si sta usando un modello di dati precedente venga visualizzato il `image` tipo di dati. Il database Northwind s `Categories` tabella include un `Picture` colonna che può essere utilizzato per archiviare i dati binari di un file di immagine per la categoria. Poiché il database Northwind ha radici in Microsoft Access e le versioni precedenti di SQL Server, questa colonna è di tipo `image`.
@@ -210,7 +210,7 @@ Con DAL aggiornato, è comunque per aumentare il livello Business (LOGIC) per in
 
 Quando si raccolgono dati binari, spesso questi dati viene forniti da un utente finale. Per acquisire queste informazioni, l'utente deve essere in grado di caricare un file dal proprio computer al server web. I dati caricati devono quindi essere integrata con il modello di dati, che potrebbe impedire il salvataggio del file al file system s del server web e aggiunta di un percorso del file nel database o la scrittura del contenuto binario direttamente nel database. In questo passaggio verrà esaminato come consentire all'utente di caricare file dal proprio computer al server. Nella prossima esercitazione si verranno prese in esame l'integrazione del file caricato con modello di dati.
 
-ASP.NET 2.0 s nuovo [controllo Web FileUpload](https://msdn.microsoft.com/en-us/library/ms227677(VS.80).aspx) fornisce un meccanismo per gli utenti di inviare un file dal proprio computer al server web. Esegue il rendering del controllo FileUpload come un `<input>` elemento il cui `type` attributo è impostato su file, nei browser visualizzato come una casella di testo con un pulsante Sfoglia. Fare clic sul pulsante Sfoglia viene visualizzata una finestra di dialogo da cui l'utente può selezionare un file. Quando il form viene inviato nuovamente, il contenuto di file selezionato s viene inviato insieme il postback. Sul lato server, informazioni sul file caricato sono accessibile tramite la proprietà controllo FileUpload.
+ASP.NET 2.0 s nuovo [controllo Web FileUpload](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) fornisce un meccanismo per gli utenti di inviare un file dal proprio computer al server web. Esegue il rendering del controllo FileUpload come un `<input>` elemento il cui `type` attributo è impostato su file, nei browser visualizzato come una casella di testo con un pulsante Sfoglia. Fare clic sul pulsante Sfoglia viene visualizzata una finestra di dialogo da cui l'utente può selezionare un file. Quando il form viene inviato nuovamente, il contenuto di file selezionato s viene inviato insieme il postback. Sul lato server, informazioni sul file caricato sono accessibile tramite la proprietà controllo FileUpload.
 
 Per illustrare il caricamento di file, aprire il `FileUpload.aspx` nella pagina di `BinaryData` cartella, trascinare un controllo FileUpload dalla casella degli strumenti nella finestra di progettazione e impostare il controllo s `ID` proprietà `UploadTest`. Successivamente, aggiungere un'impostazione di controllo Web Button relativo `ID` e `Text` proprietà `UploadButton` e caricare il File selezionato, rispettivamente. Infine, inserire un controllo etichetta Web sotto il pulsante, cancellare il contenuto relativo `Text` proprietà e impostare il relativo `ID` proprietà `UploadDetails`.
 
@@ -233,13 +233,13 @@ Durante il postback, il file caricato può essere salvato nel file System o i da
 
 [!code-vb[Main](uploading-files-vb/samples/sample5.vb)]
 
-Il controllo FileUpload fornisce una serie di proprietà per l'utilizzo con i dati caricati. Ad esempio, il [ `HasFile` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) indica se un file è stato caricato dall'utente, mentre il [ `FileBytes` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) fornisce l'accesso ai dati binari caricati come una matrice di byte. Il `Click` gestore eventi viene avviato, verificare che sia stato caricato un file. Se è stato caricato un file, l'etichetta Visualizza il nome del file caricato, la dimensione in byte e il relativo tipo di contenuto.
+Il controllo FileUpload fornisce una serie di proprietà per l'utilizzo con i dati caricati. Ad esempio, il [ `HasFile` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) indica se un file è stato caricato dall'utente, mentre il [ `FileBytes` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) fornisce l'accesso ai dati binari caricati come una matrice di byte. Il `Click` gestore eventi viene avviato, verificare che sia stato caricato un file. Se è stato caricato un file, l'etichetta Visualizza il nome del file caricato, la dimensione in byte e il relativo tipo di contenuto.
 
 > [!NOTE]
 > Per garantire che l'utente carica un file è possibile controllare il `HasFile` proprietà e visualizzare un avviso se si s `False`, oppure è possibile utilizzare il [controllo RequiredFieldValidator](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) invece.
 
 
-FileUpload s `SaveAs(filePath)` Salva il file caricato specificato *filePath*. *filePath* deve essere un *percorso fisico* (`C:\Websites\Brochures\SomeFile.pdf`) anziché un *virtuale* *percorso* (`/Brochures/SomeFile.pdf`). Il [ `Server.MapPath(virtPath)` metodo](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.mappath.aspx) accetta un percorso virtuale e restituisce il percorso fisico corrispondente. In questo caso, il percorso virtuale è `~/Brochures/fileName`, dove *fileName* è il nome del file caricato. Vedere [utilizzando MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) per ulteriori informazioni su percorsi fisici e virtuali e l'uso `Server.MapPath`.
+FileUpload s `SaveAs(filePath)` Salva il file caricato specificato *filePath*. *filePath* deve essere un *percorso fisico* (`C:\Websites\Brochures\SomeFile.pdf`) anziché un *virtuale* *percorso* (`/Brochures/SomeFile.pdf`). Il [ `Server.MapPath(virtPath)` metodo](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) accetta un percorso virtuale e restituisce il percorso fisico corrispondente. In questo caso, il percorso virtuale è `~/Brochures/fileName`, dove *fileName* è il nome del file caricato. Vedere [utilizzando MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) per ulteriori informazioni su percorsi fisici e virtuali e l'uso `Server.MapPath`.
 
 Dopo aver completato il `Click` gestore eventi, è opportuno testare la pagina in un browser. Fare clic sul pulsante Sfoglia e selezionare un file dal disco rigido e quindi fare clic sul pulsante Carica File selezionato. Il contenuto del file selezionato invierà il postback al server web, che verranno quindi visualizzate le informazioni sul file prima di salvarla per la `~/Brochures` cartella. Dopo aver caricato il file, tornare a Visual Studio e fare clic sul pulsante di aggiornamento in Esplora soluzioni. Si dovrebbe essere visualizzato il file che appena caricato nella cartella ~/Brochures.
 
@@ -264,7 +264,7 @@ Esistono diverse tecniche per risolvere i conflitti di nome file. È possibile n
 
 ## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>Problemi relativi a grandi quantità di dati binari
 
-Queste esercitazioni si presuppongono che i dati binari acquisiti siano adeguati nella dimensione. Utilizzano grandi quantità di file di dati binari che sono diversi megabyte o maggiori implicazioni che esulano dall'ambito di queste esercitazioni. Ad esempio, per impostazione predefinita ASP.NET rifiuterà caricamenti di più di 4 MB, anche se ciò può essere configurato tramite il [ `<httpRuntime>` elemento](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) in `Web.config`. IIS impone delle limitazioni di dimensioni di caricamento file, troppo. Vedere [dimensioni File di caricamento IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) per ulteriori informazioni. Inoltre, il tempo impiegato per caricare file di grandi dimensioni potrebbe superare il valore predefinito 110 secondi che rimarrà in attesa di una richiesta ASP.NET. Sono disponibili anche i problemi di memoria e delle prestazioni che si verificano quando si lavora con file di grandi dimensioni.
+Queste esercitazioni si presuppongono che i dati binari acquisiti siano adeguati nella dimensione. Utilizzano grandi quantità di file di dati binari che sono diversi megabyte o maggiori implicazioni che esulano dall'ambito di queste esercitazioni. Ad esempio, per impostazione predefinita ASP.NET rifiuterà caricamenti di più di 4 MB, anche se ciò può essere configurato tramite il [ `<httpRuntime>` elemento](https://msdn.microsoft.com/library/e1f13641.aspx) in `Web.config`. IIS impone delle limitazioni di dimensioni di caricamento file, troppo. Vedere [dimensioni File di caricamento IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) per ulteriori informazioni. Inoltre, il tempo impiegato per caricare file di grandi dimensioni potrebbe superare il valore predefinito 110 secondi che rimarrà in attesa di una richiesta ASP.NET. Sono disponibili anche i problemi di memoria e delle prestazioni che si verificano quando si lavora con file di grandi dimensioni.
 
 Il controllo FileUpload risulta poco pratico per i caricamenti di file di grandi dimensioni. Come il contenuto del file s viene inviato al server, l'utente finale deve attendere pazientemente senza alcuna conferma che il caricamento è in corso. Questo non è così tanto un problema quando si lavora con i file più piccoli che possono essere caricati in pochi secondi, ma possono essere un problema quando si lavora con i file di dimensioni maggiori che potrebbero richiedere minuti da caricare. Sono disponibili i controlli di caricamento che sono più adatti per la gestione di grandi dimensioni caricamenti un'ampia gamma di file di terze parti e molti di questi fornitori forniscono gli indicatori di stato e ActiveX carica i gestori da presentano un'esperienza utente più elegante.
 
@@ -280,7 +280,7 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Utilizzo di tipi di dati di valori di grandi dimensioni](https://msdn.microsoft.com/en-us/library/ms178158.aspx)
+- [Utilizzo di tipi di dati di valori di grandi dimensioni](https://msdn.microsoft.com/library/ms178158.aspx)
 - [Guida introduttiva di controllo fileUpload](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
 - [Controllo Server ASP.NET 2.0 FileUpload](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [Il lato scuro di caricamenti di File](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)

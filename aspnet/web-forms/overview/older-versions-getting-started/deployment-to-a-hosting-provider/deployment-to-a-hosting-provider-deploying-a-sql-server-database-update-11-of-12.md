@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 898259885da8a089db296bd0f400ee8863877d08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeec69c7373a111d30e8f32a374a9f02fb4c080a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione di un aggiornamento di SQL Server Database - 11 12
 ====================
@@ -153,7 +153,7 @@ Ora aver distribuito un aggiornamento di un'applicazione che modifica un databas
 
 ## <a name="more-information"></a>Altre informazioni
 
-In questo passaggio si completa questa serie di esercitazioni sulla distribuzione di un'applicazione web ASP.NET in un provider di hosting di terze parti. Per ulteriori informazioni sugli argomenti trattati in queste esercitazioni, vedere il [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521(v=vs.110).aspx) nel sito web MSDN.
+In questo passaggio si completa questa serie di esercitazioni sulla distribuzione di un'applicazione web ASP.NET in un provider di hosting di terze parti. Per ulteriori informazioni sugli argomenti trattati in queste esercitazioni, vedere il [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) nel sito web MSDN.
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
@@ -161,7 +161,7 @@ Come è possibile grazie seguenti persone che hanno apportato contributi signifi
 
 - [Alberto Poblacion, MVP &amp; MCT, (Spagna)](https://mvp.support.microsoft.com/profile/Alberto)
 - Stati Uniti Jarod Ferguson, MVP di sviluppo della piattaforma di dati,
-- Difficili Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
 - [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft

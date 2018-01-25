@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Creazione di applicazioni Web Offline con Web distribuire
 ====================
@@ -74,7 +74,7 @@ Il passaggio successivo consiste nella modifica di una logica di distribuzione p
 > La procedura seguente si presuppone che si usi un file di progetto MSBuild personalizzato per controllare il processo di distribuzione, come descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Se si distribuisce direttamente da Visual Studio, è necessario usare un approccio diverso. Sayed Ibrahim Hashimi viene descritto un approccio in [come eseguire l'App non in linea durante la pubblicazione sul Web](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
 
-Per distribuire un *App\_offline* file a un sito Web IIS di destinazione, è necessario richiamare MSDeploy.exe mediante il [distribuzione Web **contentPath** provider](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx). Il **contentPath** provider supporta entrambi i percorsi di directory fisica e i percorsi del sito Web o un'applicazione IIS, che rende la soluzione ideale per la sincronizzazione di un file in una cartella di progetto di Visual Studio e un'applicazione web IIS. Per distribuire il file, il comando di MSDeploy sarà analogo al seguente:
+Per distribuire un *App\_offline* file a un sito Web IIS di destinazione, è necessario richiamare MSDeploy.exe mediante il [distribuzione Web **contentPath** provider](https://technet.microsoft.com/library/dd569034(WS.10).aspx). Il **contentPath** provider supporta entrambi i percorsi di directory fisica e i percorsi del sito Web o un'applicazione IIS, che rende la soluzione ideale per la sincronizzazione di un file in una cartella di progetto di Visual Studio e un'applicazione web IIS. Per distribuire il file, il comando di MSDeploy sarà analogo al seguente:
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ Per automatizzare questi comandi come parte di un processo di compilazione e dis
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. Il **SourceRoot** proprietà definita altrove nel *Publish.proj* file. Indica il percorso della cartella radice per il relativo il percorso corrente & #x 2014; in altre parole, relativo alla posizione del contenuto di origine di *Publish.proj* file.
-4. Il **contentPath** provider non accetterà i percorsi di file relativo, pertanto è necessario ottenere un percorso assoluto al file di origine prima di poterla distribuire. È possibile utilizzare il [ConvertToAbsolutePath](https://msdn.microsoft.com/en-us/library/bb882668.aspx) attività per eseguire questa operazione.
+4. Il **contentPath** provider non accetterà i percorsi di file relativo, pertanto è necessario ottenere un percorso assoluto al file di origine prima di poterla distribuire. È possibile utilizzare il [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) attività per eseguire questa operazione.
 5. Aggiungere un nuovo **destinazione** elemento denominato **GetAppOfflineAbsolutePath**. All'interno di questa destinazione, utilizzare il **ConvertToAbsolutePath** attività per ottenere un percorso assoluto per il *App\_offline modello* file nella cartella del progetto.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ La procedura successiva viene illustrato come aggiungere questo *. wpp.targets* 
 1. Aprire la soluzione in Visual Studio 2010.
 2. Nel **Esplora** finestra, fare doppio clic su un nodo di progetto applicazione web (ad esempio, **ContactManager.Mvc**), scegliere **Aggiungi**e quindi fare clic su **Nuovo elemento**.
 3. Nel **Aggiungi nuovo elemento** la finestra di dialogo, seleziona il **File XML** modello.
-4. Nel **nome** digitare *[nome progetto]***. wpp.targets** (ad esempio, **ContactManager.Mvc.wpp.targets**), quindi fare clic su  **Aggiungere**.
+4. Nel **nome** , digitare *[nome progetto] * * *.wpp.targets** (ad esempio, **ContactManager.Mvc.wpp.targets**), quindi fare clic su **Aggiungi**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

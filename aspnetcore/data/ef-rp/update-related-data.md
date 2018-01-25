@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>L'aggiornamento dei dati correlati - EF base Razor pagine (7 8)
 
@@ -103,7 +103,7 @@ Testare il codice aggiornato. Creare, modificare ed eliminare un corso.
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Aggiungere i dettagli di AsNoTracking ed eliminare i modelli di pagina
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) può migliorare le prestazioni quando il rilevamento non è necessario. Aggiungere `AsNoTracking` al modello di pagina di eliminazione e i dettagli. Il codice seguente viene illustrato il modello di pagina Delete aggiornato:
+[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) può migliorare le prestazioni durante la registrazione non è necessario. Aggiungere `AsNoTracking` al modello di pagina di eliminazione e i dettagli. Il codice seguente viene illustrato il modello di pagina Delete aggiornato:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -164,7 +164,7 @@ I docenti potrebbero indicare un numero qualsiasi di corsi. In questa sezione, a
 Caselle di controllo abilitare modifiche ai corsi assegnato a un docente. Una casella di controllo viene visualizzata per ogni corso nel database. Vengono controllati i corsi istruttore assegnato a. L'utente può selezionare o deselezionare le caselle di controllo per modificare le assegnazioni dei corsi. Se il numero di corsi è molto più elevato:
 
 * Utilizzare probabilmente un'interfaccia utente differente per visualizzare i corsi.
-* Il metodo di manipolazione di un'entità di join per creare o eliminare le relazioni non modificherebbe.
+* Evitare di modificare il metodo di manipolazione di un'entità per creare o eliminare relazioni di join.
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Aggiungere le classi per supportare creare e modificare pagine instructor
 

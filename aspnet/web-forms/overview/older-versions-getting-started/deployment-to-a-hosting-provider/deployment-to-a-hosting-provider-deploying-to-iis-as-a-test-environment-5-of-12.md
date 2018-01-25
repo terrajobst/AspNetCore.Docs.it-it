@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a5538744dfaff76f28c5f17d8f5d782ef3f6c118
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione in IIS come ambiente di Test - 5 di 12
 ====================
@@ -83,7 +83,7 @@ Nel **connessioni** riquadro espandere il nodo del server e selezionare **pool d
 
 Se viene visualizzata solo due pool di applicazioni e di entrambi gli elementi impostati per .NET Framework 2.0, è necessario installare ASP.NET 4 in IIS:
 
-- Aprire una finestra del prompt dei comandi facendo clic **prompt dei comandi** nelle finestre **avviare** menu e selezionando **Esegui come amministratore**. Eseguire quindi [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) per installare ASP.NET 4 in IIS, utilizzando i comandi seguenti. (In sistemi a 64 bit, sostituire "Framework" con "Framework64").
+- Aprire una finestra del prompt dei comandi facendo clic **prompt dei comandi** nelle finestre **avviare** menu e selezionando **Esegui come amministratore**. Eseguire quindi [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) per installare ASP.NET 4 in IIS, utilizzando i comandi seguenti. (In sistemi a 64 bit, sostituire "Framework" con "Framework64").
 
     [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample2.cmd)]
 
@@ -111,7 +111,7 @@ Esistono diversi modi, è possibile distribuire usando Visual Studio 2010 e dist
 - Creare un *pacchetto di distribuzione* e installarlo utilizzando la UI Gestione IIS. Il pacchetto di distribuzione è costituito un *zip* file che contiene tutti i file e i metadati necessari per installare un sito in IIS.
 - Creare un pacchetto di distribuzione e installarlo mediante la riga di comando.
 
-Il processo che è parlato nelle esercitazioni precedenti per configurare Visual Studio per automatizzare le attività di distribuzione si applica a tutti i tre metodi seguenti. In queste esercitazioni si utilizzerà il primo di questi metodi. Per informazioni sull'utilizzo di pacchetti di distribuzione, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Il processo che è parlato nelle esercitazioni precedenti per configurare Visual Studio per automatizzare le attività di distribuzione si applica a tutti i tre metodi seguenti. In queste esercitazioni si utilizzerà il primo di questi metodi. Per informazioni sull'utilizzo di pacchetti di distribuzione, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx).
 
 Prima della pubblicazione, assicurarsi che si esegue Visual Studio in modalità amministratore. (In Windows 7 **avviare** menu, fare clic sull'icona per la versione di Visual Studio in uso e selezionare **Esegui come amministratore**.) Modalità di amministratore è necessaria per la pubblicazione solo quando esegue la pubblicazione in IIS nel computer locale.
 
@@ -244,7 +244,7 @@ Per informazioni sull'esecuzione di IIS o IIS Express in Visual Studio, vedere l
 
 - [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) nel sito IIS.net.
 - [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) sul blog di Scott Guthrie.
-- [Procedura: specificare il Server Web per i progetti Web in Visual Studio](https://msdn.microsoft.com/en-us/library/ms178108.aspx).
+- [Procedura: specificare il Server Web per i progetti Web in Visual Studio](https://msdn.microsoft.com/library/ms178108.aspx).
 - [Principali differenze tra IIS e il Server di sviluppo ASP.NET](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) sul sito ASP.NET.
 - [Testare l'applicazione Web Form in IIS 7 o ASP.NET MVC in 30 secondi](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) sul blog di Rick Anderson. Questa voce vengono forniti esempi di perché il test con Visual Studio Development Server (Cassini) non è così affidabile come test in IIS Express e perché il test in IIS Express non è così affidabile come test in IIS.
 

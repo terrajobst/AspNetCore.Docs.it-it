@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: f054d574026ab6444cc59a126ef9dcdc323f7bff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor (c#)
 ====================
@@ -58,7 +58,7 @@ Il `@` carattere venga espressioni inline, blocchi di singola istruzione e blocc
 
 Si tratta di queste istruzioni aspetto analogo al seguente quando la pagina viene eseguita in un browser:
 
-![Razor Img1](introducing-razor-syntax-c/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ Oggetto *blocco di codice* include uno o più istruzioni del codice e viene racc
 
 Il risultato visualizzato in un browser:
 
-![Razor Img2](introducing-razor-syntax-c/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. All'interno di un blocco, termine di ogni istruzione del codice con un punto e virgola
 
@@ -95,7 +95,7 @@ All'interno di un blocco di codice, ogni istruzione di codice completo deve term
 
 Il risultato visualizzato in un browser:
 
-![Razor Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Racchiudere i valori letterali stringa tra virgolette doppie
@@ -114,7 +114,7 @@ Per incorporare le virgolette doppie, usare un valore letterale di stringa verba
 
 Di seguito è riportato il risultato dell'utilizzo di questi esempi in una pagina:
 
-![Razor Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
 > Si noti che il `@` carattere viene utilizzato per contrassegnare i valori letterali di stringa verbatim in c# e per contrassegnare il codice in pagine ASP.NET.
@@ -142,7 +142,7 @@ Spesso si utilizzerà il `Request` dell'oggetto, che fornisce informazioni quali
 
 Il risultato visualizzato in un browser:
 
-![Razor Img5](introducing-razor-syntax-c/_static/image5.jpg)
+![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. È possibile scrivere codice che prende decisioni
 
@@ -154,7 +154,7 @@ L'istruzione `if(IsPost)` è un modo abbreviato di scrittura `if(IsPost == true)
 
 Il risultato visualizzato in un browser (dopo aver fatto clic **Invia**):
 
-![Razor Img6](introducing-razor-syntax-c/_static/image6.jpg)
+![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
@@ -187,7 +187,7 @@ In questa procedura viene illustrato come creare una pagina che illustra le tecn
     - Il `<form>` tag include un `method="post"` attributo. Specifica che quando l'utente fa clic **Aggiungi**, la pagina verrà inviata al server utilizzando il metodo HTTP POST. Quando viene inviata la pagina, il `if(IsPost)` test restituisce true e condizionale viene eseguito, Visualizza il risultato dell'aggiunta di numeri di codice.
 3. Salvare la pagina ed eseguirlo in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.) Immettere due numeri interi, quindi scegliere il **Aggiungi** pulsante. 
 
-    ![Razor Img7](introducing-razor-syntax-c/_static/image7.jpg)
+    ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>Concetti relativi alla programmazione di base
 
@@ -209,7 +209,7 @@ La sintassi Razor è basata su una tecnologia Microsoft chiamato ASP.NET, che a 
 
 La sintassi Razor consente tutte le potenzialità di ASP.NET, ma utilizzando una sintassi semplificata che è più facile apprendere se principianti e che consente di aumentare la produttività se si è esperti. Anche se questa sintassi è semplice da usare, la relazione della famiglia con ASP.NET e .NET Framework significa che quando i siti Web sono più sofisticati, la potenza dei framework più grande disponibile.
 
-![Razor Img8](introducing-razor-syntax-c/_static/image8.jpg)
+![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
@@ -325,7 +325,7 @@ L'esempio seguente mostra alcuni utilizzi tipici di variabili in una pagina web:
 
 Se si combinano gli esempi precedenti in una pagina, viene visualizzato questo visualizzati in un browser:
 
-![Razor Img9](introducing-razor-syntax-c/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-c/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>La conversione e i tipi di dati di test
 
@@ -389,7 +389,7 @@ Di seguito è riportato un esempio che consentono di comprendere le differenze:
 | URL completo | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nome del server | *mycompanyserver* |
-| Percorso virtuale | */HumanResources/CompanyPolicy.htm* |
+| Percorso virtuale | */humanresources/CompanyPolicy.htm* |
 | Percorso fisico | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 La directory principale virtuale /, come la radice dell'unità c: unità \. (I percorsi delle cartelle virtuali sempre utilizzano le barre). Il percorso virtuale di una cartella non deve avere lo stesso nome della cartella fisica; può trattarsi di un alias. (Nei server di produzione, il percorso virtuale raramente corrisponde a un percorso fisico esatto)
@@ -451,7 +451,7 @@ Il valore da verificare è racchiuso tra parentesi (nell'esempio di `weekday` va
 
 Il risultato delle ultime due blocchi condizionali visualizzati in un browser:
 
-![Razor Img10](introducing-razor-syntax-c/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-c/_static/image10.jpg)
 
 ### <a name="looping-code"></a>Codice di ciclo
 
@@ -467,7 +467,7 @@ Il ciclo inizia con il `for` ogni parola chiave, seguita da tre istruzioni racch
 
 All'interno delle parentesi graffe è il codice che verrà eseguito in ogni iterazione del ciclo. Il codice crea un nuovo paragrafo (`<p>` elemento) ogni e aggiunge una riga all'output, la visualizzazione del valore di `i` (il contatore). Quando si esegue questa pagina, l'esempio crea 11 righe di visualizzazione dell'output, con il testo in ogni riga che indica il numero dell'elemento.
 
-![Razor Img11](introducing-razor-syntax-c/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-c/_static/image11.jpg)
 
 Se si lavora con una raccolta o una matrice, utilizzare spesso un `foreach` ciclo. Una raccolta è un gruppo di oggetti simili e `foreach` ciclo consente eseguire un'attività su ogni elemento nella raccolta. Questo tipo di ciclo è ideale per le raccolte, perché a differenza di un `for` ciclo, non è necessario incrementare il contatore o impostare un limite. Al contrario, il `foreach` codice ciclo continua semplicemente tramite la raccolta fino al termine.
 
@@ -477,7 +477,7 @@ Ad esempio, il codice seguente restituisce gli elementi di `Request.ServerVariab
 
 Il `foreach` parola chiave sia seguita dalle parentesi in cui si dichiara una variabile che rappresenta un singolo elemento della raccolta (nell'esempio `var item`), seguito dal `in` (parola chiave), seguito da una raccolta che si desidera scorrere in ciclo. Nel corpo del `foreach` ciclo, è possibile accedere all'elemento corrente utilizzando la variabile dichiarato in precedenza.
 
-![Razor Img12](introducing-razor-syntax-c/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-c/_static/image12.jpg)
 
 Per creare un ciclo più generico, utilizzare il `while` istruzione:
 
@@ -523,7 +523,7 @@ Con le matrici, si dichiara un tipo di dati specifici, ad esempio `string`, `int
 
 L'output del codice di matrice di stringa visualizzato in un browser:
 
-![Razor Img13](introducing-razor-syntax-c/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-c/_static/image13.jpg)
 
 Un dizionario è una raccolta di coppie chiave/valore, in cui fornire la chiave (o nome) per impostare o recuperare il valore corrispondente:
 
@@ -575,7 +575,7 @@ Come si può notare, i parametri vengono passati in un ordine diverso. Tuttavia,
 
 In termini di programmazione, vengono chiamate queste situazioni *eccezioni*. Se il codice rileva un'eccezione, (genera) genera un messaggio di errore che un indesiderate nel migliore dei casi, per gli utenti:
 
-![Razor Img14](introducing-razor-syntax-c/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-c/_static/image14.jpg)
 
 In situazioni in cui il codice che si verifichino eccezioni e per evitare messaggi di errore di questo tipo, è possibile utilizzare `try/catch` istruzioni. Nel `try` istruzione, eseguire il codice che si sta archiviando. In uno o più `catch` istruzioni, è possibile cercare specifici errori che potrebbero essersi verificati (tipi specifici di eccezioni). È possibile includere un numero `catch` istruzioni è necessario cercare gli errori che sono prevedendo.
 
@@ -600,6 +600,6 @@ Se il codice non gestisce l'eccezione, si vedrà una pagina di errore come scher
 **Documentazione di riferimento**
 
 
-[ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
+[ASP.NET 2.0](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[Linguaggio c#](https://msdn.microsoft.com/en-us/library/kx37x362.aspx)
+[Linguaggio c#](https://msdn.microsoft.com/library/kx37x362.aspx)

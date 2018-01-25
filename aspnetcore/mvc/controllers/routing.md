@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 7559fa270a012082d04161c1cccd1dc8151d0c1c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 497ce47fa567f163cb7b1eb891408f0100d15b8a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-to-controller-actions"></a>Routing di azioni del Controller
 
@@ -63,9 +63,9 @@ Il modello di route:
 
 * `{id?}`definisce `id` come facoltativi
 
-Impostazione predefinita e i parametri di route facoltativo non è necessario trovarsi nel percorso URL per trovare una corrispondenza. Vedere [riferimento del modello di Route](../../fundamentals/routing.md#route-template-reference) per una descrizione dettagliata della sintassi di modello di route.
+Impostazione predefinita e i parametri di route facoltativo non occorre essere presente nel percorso URL per trovare una corrispondenza. Vedere [riferimento del modello di Route](../../fundamentals/routing.md#route-template-reference) per una descrizione dettagliata della sintassi di modello di route.
 
-`"{controller=Home}/{action=Index}/{id?}"`può corrispondere al percorso di URL `/` e restituirà i valori della route `{ controller = Home, action = Index }`. I valori per `controller` e `action` rendere utilizzare i valori predefiniti, `id` non produce un valore perché è presente alcun segmento corrispondente nel percorso URL. MVC utilizzare questi valori di route per selezionare il `HomeController` e `Index` azione:
+`"{controller=Home}/{action=Index}/{id?}"`può corrispondere al percorso di URL `/` e restituirà i valori della route `{ controller = Home, action = Index }`. I valori per `controller` e `action` rendere utilizzare i valori predefiniti, `id` non produce alcun valore perché è presente alcun segmento corrispondente nel percorso URL. MVC utilizzare questi valori di route per selezionare il `HomeController` e `Index` azione:
 
 ```csharp
 public class HomeController : Controller
@@ -114,7 +114,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc`non definire direttamente le route, viene aggiunto un segnaposto per la raccolta di route per il `attribute` route. L'overload `UseMvc(Action<IRouteBuilder>)` consente di aggiungere route personalizzati e supporta anche l'attributo di routing.  `UseMvc`e le sue varianti viene aggiunto un segnaposto per la route di attributo: routing degli attributi è sempre disponibile indipendentemente dalla modalità di configurazione `UseMvc`. `UseMvcWithDefaultRoute`definisce una route predefinita e supporta il routing di attributo. Il [attributo Routing](#attribute-routing-ref-label) sono incluse ulteriori informazioni sul routing degli attributi.
+`UseMvc`non è possibile definire direttamente le route, viene aggiunto un segnaposto per la raccolta di route per il `attribute` route. L'overload `UseMvc(Action<IRouteBuilder>)` consente di aggiungere route personalizzati e supporta anche l'attributo di routing.  `UseMvc`e le sue varianti viene aggiunto un segnaposto per la route di attributo: routing degli attributi è sempre disponibile indipendentemente dalla modalità di configurazione `UseMvc`. `UseMvcWithDefaultRoute`definisce una route predefinita e supporta il routing di attributo. Il [attributo Routing](#attribute-routing-ref-label) sono incluse ulteriori informazioni sul routing degli attributi.
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -134,13 +134,13 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 * il terzo segmento viene utilizzato per un parametro facoltativo `id` utilizzato per eseguire il mapping a un'entità del modello
 
-Usando questa `default` route, il percorso URL `/Products/List` esegue il mapping al `ProductsController.List` action e `/Blog/Article/17` esegue il mapping a `BlogController.Article`. Questo mapping si basa sui nomi di azione e del controller **solo** e non si basa su spazi dei nomi, i percorsi dei file di origine o i parametri del metodo.
+Usando questa `default` route, il percorso URL `/Products/List` esegue il mapping al `ProductsController.List` action e `/Blog/Article/17` esegue il mapping a `BlogController.Article`. Questo mapping si basa sui nomi di azione e del controller **solo** e non agli spazi dei nomi, i percorsi dei file di origine o i parametri del metodo.
 
 > [!TIP]
 > Utilizzo convenzionale di routing con la route predefinita consente di compilare rapidamente l'applicazione senza che sia necessario ideare un nuovo modello di URL per ogni azione che si definisce. Per un'applicazione con azioni di stile CRUD, con verifica coerenza per gli URL tra i controller consente di semplificare il codice e rendere l'interfaccia utente più prevedibile.
 
 > [!WARNING]
-> Il `id` definiti come facoltativi per il modello di route, vale a dire che le azioni possono essere eseguiti senza l'ID fornito come parte dell'URL. In genere cosa succede se `id` viene omesso dall'URL che verrà impostato su `0` dall'associazione del modello e di conseguenza verrà rilevata alcuna entità nei database di ricerca `id == 0`. Routing degli attributi consente di visualizzare un controllo accurato per rendere l'ID obbligatorio per alcune azioni e non per altri utenti. Per convenzione includerà la documentazione di parametri facoltativi come `id` quando vengono maggiore probabilità di comparire in uso corretto.
+> Il `id` definiti come facoltativi per il modello di route, vale a dire che le azioni possono essere eseguiti senza l'ID fornito come parte dell'URL. In genere cosa succede se `id` viene omesso dall'URL che verrà impostato su `0` dall'associazione del modello e di conseguenza verrà rilevata alcuna entità nei database di ricerca `id == 0`. Routing degli attributi consente di visualizzare un controllo accurato per rendere l'ID obbligatorio per alcune azioni e non per altri utenti. Per convenzione includerà la documentazione di parametri facoltativi come `id` quando si è probabilmente sono in uso corretto.
 
 ## <a name="multiple-routes"></a>Più route
 
@@ -157,14 +157,14 @@ app.UseMvc(routes =>
 
 Il `blog` route qui è un *dedicato route convenzionale*, vale a dire che utilizza il sistema di routing tradizionale, ma è dedicato a un'azione specifica. Poiché `controller` e `action` non vengono visualizzati nel modello di route come parametri, possono avere solo i valori predefiniti e pertanto questa route verrà sempre eseguito il mapping all'azione `BlogController.Article`.
 
-Le route nella raccolta di route vengono ordinate e verranno elaborate nell'ordine in che cui vengono aggiunti. In tal caso, in questo esempio, il `blog` route verrà tentate prima il `default` route.
+Le route nella raccolta di route vengono ordinate e verranno elaborate nell'ordine che vengono aggiunte. In tal caso, in questo esempio, il `blog` route verrà tentate prima il `default` route.
 
 > [!NOTE]
 > *Dedicato route convenzionale* utilizzano spesso parametri di route catch-all come `{*article}` per acquisire la parte rimanente del percorso dell'URL. In questo modo una route 'troppo greedy' vale a dire che corrisponda agli URL che si deve essere accompagnato da altre route. Inserire le route "greedy" più avanti in questa tabella di route per risolvere il problema.
 
 ### <a name="fallback"></a>Fallback
 
-Come parte dell'elaborazione della richiesta, MVC verificherà i valori della route possono essere utilizzati per trovare un controller e l'azione nell'applicazione. Se i valori di route non corrispondano a un'azione quindi la route non viene considerata una corrispondenza e la successiva route verrà tentata. Si tratta di *fallback*, e è progettato per semplificare i casi in cui si sovrappongono route convenzionale.
+Come parte dell'elaborazione della richiesta, MVC verificherà i valori della route possono essere utilizzati per trovare un controller e l'azione nell'applicazione. Se i valori di route non corrispondano a un'azione la route non è considerata una corrispondenza e la successiva route verrà tentata. Si tratta di *fallback*, e è progettato per semplificare i casi in cui si sovrappongono route convenzionale.
 
 ### <a name="disambiguating-actions"></a>Per evitare ambiguità tra azioni
 
@@ -206,7 +206,7 @@ app.UseMvc(routes =>
 
 I nomi delle route dare la route un nome logico, in modo che la route denominata può essere utilizzata per la generazione di URL. Questo semplifica notevolmente la creazione di URL durante l'ordinamento delle route può rendere complessa la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
 
-I nomi di route non avere un impatto sull'URL corrispondente o la gestione di richieste. vengono utilizzati solo per la generazione di URL. [Routing](xref:fundamentals/routing) maggiori informazioni sulla generazione di URL incluso generazione URL helper MVC specifico.
+I nomi di route non avere un impatto sull'URL corrispondente o la gestione di richieste. utilizzati solo per la generazione di URL. [Routing](xref:fundamentals/routing) maggiori informazioni sulla generazione di URL incluso generazione URL helper MVC specifico.
 
 <a name="attribute-routing-ref-label"></a>
 
@@ -340,7 +340,7 @@ public class ProductsApiController : Controller
 }
 ```
 
-In questo esempio il percorso URL `/products` può corrispondere a `ProductsApi.ListProducts`e il percorso URL `/products/5` può corrispondere a `ProductsApi.GetProduct(int)`. Entrambe le azioni corrisponde solo HTTP `GET` perché sono contrassegnati con il `HttpGetAttribute`.
+In questo esempio il percorso URL `/products` può corrispondere a `ProductsApi.ListProducts`e il percorso URL `/products/5` può corrispondere a `ProductsApi.GetProduct(int)`. Entrambe le azioni corrisponde solo HTTP `GET` in quanto sta contrassegnati con il `HttpGetAttribute`.
 
 Distribuire modelli applicati a un'azione che iniziano con un `/` non combinare con i modelli di route applicati al controller. In questo esempio corrisponde a un set di percorsi URL simili a quelli di *route predefinita*.
 
@@ -350,7 +350,7 @@ public class HomeController : Controller
 {
     [Route("")]      // Combines to define the route template "Home"
     [Route("Index")] // Combines to define the route template "Home/Index"
-    [Route("/")]     // Does not combine, defines the route template ""
+    [Route("/")]     // Doesn't combine, defines the route template ""
     public IActionResult Index()
     {
         ViewData["Message"] = "Home index";
@@ -534,7 +534,7 @@ route template: {controller}/{action}/{id?}
 result: /UrlGeneration/Destination
 ```
 
-Ogni parametro di route nel modello di route ha valore sostituito da nomi corrispondenti con i valori e ambiente. Un parametro di route che non dispone di un valore è possibile utilizzare un valore predefinito se dispone di uno o essere ignorato se è facoltativo (come nel caso di `id` in questo esempio). Generazione URL avrà esito negativo se qualsiasi parametro di route richiesto non dispone di un valore corrispondente. Se la generazione di URL non riesce per una route, viene tentata la successiva route fino a quando non sono stati provati tutti i cicli o viene trovata una corrispondenza.
+Ogni parametro di route nel modello di route ha valore sostituito da nomi corrispondenti con i valori e ambiente. Un parametro di route che non hanno un valore è possibile utilizzare un valore predefinito se dispone di uno o essere ignorato se è facoltativo (come nel caso di `id` in questo esempio). Generazione URL avrà esito negativo se qualsiasi parametro di route richiesto non dispone di un valore corrispondente. Se la generazione di URL non riesce per una route, viene tentata la successiva route fino a quando non sono stati provati tutti i cicli o viene trovata una corrispondenza.
 
 Nell'esempio di `Url.Action` sopra presuppone il routing convenzionale, ma URL generazione funziona allo stesso modo con il routing di attributo, sebbene i concetti sono diversi. Con il routing convenzionale, i valori della route vengono utilizzati per estendere un modello e i valori di route per `controller` e `action` in genere vengono incluse nel modello - questo procedimento funziona perché l'URL corrispondente al routing rispettare un *convenzione*. Nel routing degli attributi, i valori della route per `controller` e `action` non potranno essere visualizzati nel modello, vengono invece utilizzati per cercare il modello da utilizzare.
 
@@ -640,7 +640,7 @@ In caso di corrispondenza di un percorso URL come `/Manage/Users/AddUser`, la pr
 `MapAreaRoute`Crea una route che utilizza un valore predefinito e vincolo per `area` utilizzando il nome dell'area specificata, in questo caso `Blog`. Il valore predefinito assicura che la route produce sempre `{ area = Blog, ... }`, che richiede il valore `{ area = Blog, ... }` per la generazione di URL.
 
 > [!TIP]
-> Il routing convenzionale è dipendente dall'ordinamento. In generale, le route delle aree devono trovarsi in precedenza nella tabella di routing come se fossero più specifiche rispetto alle route senza un'area.
+> Il routing convenzionale è dipendente dall'ordinamento. In generale, le route delle aree devono trovarsi in precedenza nella tabella di routing in quanto sono più specifiche rispetto alle route senza un'area.
 
 Utilizzando l'esempio precedente, i valori della route corrisponderebbe l'azione seguente:
 
@@ -729,7 +729,7 @@ public class CountrySpecificAttribute : Attribute, IActionConstraint
 }
 ```
 
-Si è responsabili dell'implementazione di `Accept` (metodo) e scegliendo un 'Order' per il vincolo da eseguire. In questo caso, il `Accept` restituisce `true` per indicare l'azione è una corrispondenza quando il `country` valore corrispondenze di route. Questo comportamento è diverso da un `RouteValueAttribute` nel senso che consente il fallback a un'azione senza attributi. L'esempio mostra che se si definisce un `en-US` azione quindi un codice paese, ad esempio `fr-FR` eseguirà il fallback a un controller più generico che non dispone di `[CountrySpecific(...)]` applicato.
+Si è responsabili dell'implementazione di `Accept` (metodo) e scegliendo un 'Order' per il vincolo da eseguire. In questo caso, il `Accept` restituisce `true` per indicare l'azione è una corrispondenza quando il `country` valore corrispondenze di route. Questo comportamento è diverso da un `RouteValueAttribute` nel senso che consente il fallback a un'azione senza attributi. L'esempio mostra che se si definisce un `en-US` azione quindi un codice paese, ad esempio `fr-FR` eseguirà il fallback a un controller più generico privo di `[CountrySpecific(...)]` applicato.
 
 Il `Order` proprietà decide quali *fase* il vincolo fa parte di. Vincoli relativi alle azioni eseguite in gruppi in base il `Order`. Ad esempio, tutti i framework forniti gli attributi del metodo HTTP utilizzano la stessa `Order` valore in modo che eseguano la stessa fase. È possibile avere altre fasi necessarie implementare i criteri desiderati.
 

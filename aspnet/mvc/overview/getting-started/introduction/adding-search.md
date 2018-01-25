@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="search"></a>Cerca
 ====================
@@ -34,7 +34,7 @@ Avviare aggiornando il `Index` il metodo di azione esistente `MoviesController` 
 
 [!code-csharp[Main](adding-search/samples/sample1.cs?highlight=1,6-9)]
 
-La prima riga del `Index` metodo vengono creati i seguenti [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) query per selezionare i film:
+La prima riga del `Index` metodo vengono creati i seguenti [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) query per selezionare i film:
 
 [!code-csharp[Main](adding-search/samples/sample2.cs)]
 
@@ -44,10 +44,10 @@ Se il `searchString` parametro contiene una stringa, viene modificata la query d
 
 [!code-csharp[Main](adding-search/samples/sample3.cs)]
 
-Il codice `s => s.Title` precedente è un'[espressione lambda](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Le espressioni lambda vengono utilizzate in base al metodo [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) esegue una query come argomenti dei metodi degli operatori query standard, ad esempio il [dove](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) utilizzato nel codice precedente. Le query LINQ non vengono eseguite quando vengono definite o quando vengono modificati chiamando un metodo, ad esempio `Where` o `OrderBy`. In alternativa, esecuzione della query è rinviata, il che significa che la valutazione di un'espressione viene ritardata fino a quando il relativo valore realizzato viene effettivamente eseguita un'iterazione o [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) metodo viene chiamato. Nel `Search` esempio, in cui viene eseguita la query di *cshtml* visualizzazione. Per altre informazioni sull'esecuzione posticipata di query, vedere [Esecuzione di query](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+Il codice `s => s.Title` precedente è un'[espressione lambda](https://msdn.microsoft.com/library/bb397687.aspx). Le espressioni lambda vengono utilizzate in base al metodo [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) esegue una query come argomenti dei metodi degli operatori query standard, ad esempio il [dove](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) utilizzato nel codice precedente. Le query LINQ non vengono eseguite quando vengono definite o quando vengono modificati chiamando un metodo, ad esempio `Where` o `OrderBy`. In alternativa, esecuzione della query è rinviata, il che significa che la valutazione di un'espressione viene ritardata fino a quando il relativo valore realizzato viene effettivamente eseguita un'iterazione o [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metodo viene chiamato. Nel `Search` esempio, in cui viene eseguita la query di *cshtml* visualizzazione. Per altre informazioni sull'esecuzione posticipata di query, vedere [Esecuzione di query](https://msdn.microsoft.com/library/bb738633.aspx).
 
 > [!NOTE]
-> Il [Contains](https://msdn.microsoft.com/en-us/library/bb155125.aspx) metodo viene eseguito sul database, non il codice c# sopra riportato. Il database, [Contains](https://msdn.microsoft.com/en-us/library/bb155125.aspx) esegue il mapping a [SQL come](https://msdn.microsoft.com/en-us/library/ms179859.aspx), che viene fatta distinzione tra maiuscole e minuscole.
+> Il [Contains](https://msdn.microsoft.com/library/bb155125.aspx) metodo viene eseguito sul database, non il codice c# sopra riportato. Il database, [Contains](https://msdn.microsoft.com/library/bb155125.aspx) esegue il mapping a [SQL come](https://msdn.microsoft.com/library/ms179859.aspx), che viene fatta distinzione tra maiuscole e minuscole.
 
 Ora è possibile aggiornare il `Index` visualizzazione che consente di visualizzare il form per l'utente.
 
@@ -123,7 +123,7 @@ Il codice seguente è una query LINQ che recupera tutti i generi dal database.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta da aggiungere all'elenco di tutti i generi distinti. (Senza il `Distinct` modificatore, generi duplicati verrebbero aggiunto, ad esempio, verrebbero aggiunto comici due volte nel nostro esempio). Il codice quindi archivia l'elenco di generi nel `ViewBag.MovieGenre` oggetto. L'archiviazione dei dati della categoria (del tali un genere) come un [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati di categoria in una casella di riepilogo a discesa è un approccio tipico per le applicazioni MVC.
+Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta da aggiungere all'elenco di tutti i generi distinti. (Senza il `Distinct` modificatore, generi duplicati verrebbero aggiunto, ad esempio, verrebbero aggiunto comici due volte nel nostro esempio). Il codice quindi archivia l'elenco di generi nel `ViewBag.MovieGenre` oggetto. L'archiviazione dei dati della categoria (del tali un genere) come un [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati di categoria in una casella di riepilogo a discesa è un approccio tipico per le applicazioni MVC.
 
 Il codice seguente viene illustrato come controllare il `movieGenre` parametro. Se non è vuota, ulteriormente il codice vincola la query di filmati per limitare i film selezionati per il genere specificato.
 

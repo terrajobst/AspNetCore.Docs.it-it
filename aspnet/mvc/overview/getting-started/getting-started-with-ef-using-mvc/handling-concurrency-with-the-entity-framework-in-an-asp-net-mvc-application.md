@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e7b79503a1d297d40c6824f8b2b7bbc1f42b9fca
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9df5b9c7e955b784bca7a4195b7c9cf3d2bca7a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>La gestione della concorrenza con Entity Framework 6 in un'applicazione ASP.NET MVC 5 (10 12)
 ====================
@@ -65,18 +65,18 @@ Seleziona John **salvare** first e vede sua modifica quando il browser torna all
 
 ### <a name="detecting-concurrency-conflicts"></a>Il rilevamento dei conflitti di concorrenza
 
-È possibile risolvere i conflitti gestendo [OptimisticConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.optimisticconcurrencyexception.aspx) eccezioni generate Entity Framework. Per sapere quando generano queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto, è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
+È possibile risolvere i conflitti gestendo [OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) eccezioni generate Entity Framework. Per sapere quando generano queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto, è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
 
 - Nella tabella di database, includere una colonna di rilevamento che può essere utilizzata per determinare quando è stata modificata una riga. È quindi possibile configurare Entity Framework per includere la colonna di `Where` clausola SQL `Update` o `Delete` comandi.
 
-    Il tipo di dati della colonna di rilevamento viene in genere [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx). Il [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) valore è un numero sequenziale che sia stato incrementato ogni volta che viene aggiornata la riga. In un `Update` o `Delete` comando, il `Where` clausola include il valore originale della colonna di rilevamento (la versione originale). Se la riga aggiornata è stata modificata da un altro utente, il valore di `rowversion` colonna è diverso dal valore originale, pertanto la `Update` o `Delete` istruzione non è possibile trovare la riga da aggiornare perché il `Where` clausola. Quando Entity Framework rileva che nessuna riga è stata aggiornata mediante la `Update` o `Delete` comando (ovvero, quando il numero di righe interessate è pari a zero), che interpreta come un conflitto di concorrenza.
+    Il tipo di dati della colonna di rilevamento viene in genere [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx). Il [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) valore è un numero sequenziale che sia stato incrementato ogni volta che viene aggiornata la riga. In un `Update` o `Delete` comando, il `Where` clausola include il valore originale della colonna di rilevamento (la versione originale). Se la riga aggiornata è stata modificata da un altro utente, il valore di `rowversion` colonna è diverso dal valore originale, pertanto la `Update` o `Delete` istruzione non è possibile trovare la riga da aggiornare perché il `Where` clausola. Quando Entity Framework rileva che nessuna riga è stata aggiornata mediante la `Update` o `Delete` comando (ovvero, quando il numero di righe interessate è pari a zero), che interpreta come un conflitto di concorrenza.
 - Configurare Entity Framework per includere i valori originali di ogni colonna nella tabella di `Where` clausola di `Update` e `Delete` comandi.
 
     Come prima opzione, qualsiasi elemento nella riga è stato modificato dopo la riga prima di tutto è stato letto, il `Where` clausola non restituisce una riga da aggiornare, che Entity Framework viene interpretato come un conflitto di concorrenza. Per le tabelle di database con molte colonne, questo approccio può comportare notevoli `Where` clausole e possono richiedere mantenere grandi quantità di stato. Come notato in precedenza, la gestione di grandi quantità di stato può sulle prestazioni dell'applicazione. Pertanto questo approccio è in genere sconsigliato, e non è il metodo utilizzato in questa esercitazione.
 
-    Se si desidera implementare questo approccio alla concorrenza, è necessario contrassegnare tutte le proprietà chiave non primaria dell'entità a cui si desidera tenere traccia di concorrenza per aggiungendo il [ConcurrencyCheck](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) attributo. Che modifica consente a Entity Framework includere tutte le colonne in SQL `WHERE` clausola di `UPDATE` istruzioni.
+    Se si desidera implementare questo approccio alla concorrenza, è necessario contrassegnare tutte le proprietà chiave non primaria dell'entità a cui si desidera tenere traccia di concorrenza per aggiungendo il [ConcurrencyCheck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) attributo. Che modifica consente a Entity Framework includere tutte le colonne in SQL `WHERE` clausola di `UPDATE` istruzioni.
 
-Nella parte restante di questa esercitazione si aggiungerà un [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) rilevamento proprietà per il `Department` entità, creazione di un controller e visualizzazioni e il test per verificare che tutto funzioni correttamente.
+Nella parte restante di questa esercitazione si aggiungerà un [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) rilevamento proprietà per il `Department` entità, creazione di un controller e visualizzazioni e il test per verificare che tutto funzioni correttamente.
 
 ## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Aggiungere una proprietà di concorrenza ottimistica all'entità reparto
 
@@ -84,9 +84,9 @@ In *Models\Department.cs*, aggiungere una proprietà di rilevamento denominata `
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=20-22)]
 
-Il [Timestamp](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) attributo specifica che questa colonna includerà il `Where` clausola di `Update` e `Delete` comandi inviati al database. L'attributo viene chiamato [Timestamp](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) perché le versioni precedenti di SQL Server utilizzato un database SQL [timestamp](https://msdn.microsoft.com/en-us/library/ms182776(v=SQL.90).aspx) il tipo di dati prima di SQL [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) sostituito. Il tipo .net per [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) è una matrice di byte.
+Il [Timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) attributo specifica che questa colonna includerà il `Where` clausola di `Update` e `Delete` comandi inviati al database. L'attributo viene chiamato [Timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) perché le versioni precedenti di SQL Server utilizzato un database SQL [timestamp](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) il tipo di dati prima di SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) sostituito. Il tipo .net per [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) è una matrice di byte.
 
-Se si preferisce utilizzare l'API fluent, è possibile utilizzare il [IsConcurrencyToken](https://msdn.microsoft.com/en-us/library/gg679501(v=VS.103).aspx) per specificare la proprietà di rilevamento, come illustrato nell'esempio seguente:
+Se si preferisce utilizzare l'API fluent, è possibile utilizzare il [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) per specificare la proprietà di rilevamento, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
@@ -232,7 +232,7 @@ Se si fa clic **eliminare** nuovamente, si viene reindirizzati alla pagina di in
 
 ## <a name="summary"></a>Riepilogo
 
-Introduzione alla gestione di conflitti di concorrenza è stata completata. Per informazioni su altri modi per gestire vari scenari di concorrenza, vedere [modelli di concorrenza ottimistica](https://msdn.microsoft.com/en-us/data/jj592904) e [si lavora con valori di proprietà](https://msdn.microsoft.com/en-us/data/jj592677) su MSDN. L'esercitazione successiva viene illustrato come implementare l'ereditarietà tabella per gerarchia per il `Instructor` e `Student` entità.
+Introduzione alla gestione di conflitti di concorrenza è stata completata. Per informazioni su altri modi per gestire vari scenari di concorrenza, vedere [modelli di concorrenza ottimistica](https://msdn.microsoft.com/data/jj592904) e [si lavora con valori di proprietà](https://msdn.microsoft.com/data/jj592677) su MSDN. L'esercitazione successiva viene illustrato come implementare l'ereditarietà tabella per gerarchia per il `Instructor` e `Student` entità.
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [accesso ai dati ASP.NET - risorse](../../../../whitepapers/aspnet-data-access-content-map.md).
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Nozioni fondamentali di Middleware di ASP.NET Core
 
@@ -63,7 +63,7 @@ Il primo [app. Eseguire](https://docs.microsoft.com/aspnet/core/api/microsoft.as
 
 ## <a name="ordering"></a>Ordinazioni
 
-L'ordine in cui vengono aggiunti i componenti middleware di `Configure` metodo definisce l'ordine in cui vengono richiamati per le richieste e l'ordine inverso per la risposta. Questo ordinamento è fondamentale per la sicurezza, prestazioni e funzionalità.
+L'ordine in cui vengono aggiunti i componenti middleware di `Configure` metodo definisce l'ordine in cui si sta richiamate su richieste e l'ordine inverso per la risposta. Questo ordinamento è fondamentale per la sicurezza, prestazioni e funzionalità.
 
 Il metodo Configure (mostrato sotto) consente di aggiungere i componenti middleware seguenti:
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Utilizzare, eseguire ed eseguire il mapping
 
-Configurare la pipeline HTTP usando `Use`, `Run`, e `Map`. Il `Use` metodo possibile di corto circuito la pipeline (ovvero, se non chiama un `next` delegato richiesta). `Run`è una convenzione e possono esporre alcuni componenti middleware `Run[Middleware]` metodi che eseguono alla fine della pipeline.
+Configurare la pipeline HTTP usando `Use`, `Run`, e `Map`. Il `Use` metodo possibile di corto circuito la pipeline (ovvero, se non si chiamerà un `next` delegato richiesta). `Run`è una convenzione e possono esporre alcuni componenti middleware `Run[Middleware]` metodi che eseguono alla fine della pipeline.
 
 `Map*`le estensioni vengono utilizzate come una convenzione per la diramazione la pipeline. [Mappa](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) branch, la pipeline di richieste in base alle corrispondenze del percorso di richiesta specificata. Se il percorso della richiesta inizia con il percorso specificato, viene eseguito il ramo.
 

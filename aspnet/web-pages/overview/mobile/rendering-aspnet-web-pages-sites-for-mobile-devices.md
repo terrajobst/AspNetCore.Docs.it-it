@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: 08b714eb2ffaefc7c7e2e5c9a7428106b231e5b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 899bbdef82d689be81cd77ea6805e0484fb614aa
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Il rendering di siti (Razor) le pagine Web ASP.NET per dispositivi mobili
 ====================
@@ -40,7 +40,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 
 Le pagine Web ASP.NET consente di creare visualizzazioni personalizzate per il rendering del contenuto su dispositivi mobili o altri dispositivi.
 
-Il modo più semplice per creare la pagina specifico del dispositivo in un sito ASP.NET Web Pages è utilizzando un modello di denominazione dei file simile al seguente: *FileName.* *Mobile**. cshtml*. È possibile creare due versioni di una pagina (ad esempio, uno denominato *MyFile.cshtml* e uno denominato *MyFile.Mobile.cshtml*). In fase di esecuzione, quando un dispositivo mobile richiede *MyFile.cshtml*, ASP.NET esegue il rendering del contenuto dalla *MyFile.Mobile.cshtml*. In caso contrario, *MyFile.cshtml* viene eseguito il rendering.
+Il modo più semplice per creare la pagina specifico del dispositivo in un sito ASP.NET Web Pages è utilizzando un modello di denominazione dei file simile al seguente: *FileName. **Mobile**. cshtml*. È possibile creare due versioni di una pagina (ad esempio, uno denominato *MyFile.cshtml* e uno denominato *MyFile.Mobile.cshtml*). In fase di esecuzione, quando un dispositivo mobile richiede *MyFile.cshtml*, ASP.NET esegue il rendering del contenuto dalla *MyFile.Mobile.cshtml*. In caso contrario, *MyFile.cshtml* viene eseguito il rendering.
 
 Nell'esempio seguente viene illustrato come attivare il rendering di dispositivi mobili mediante l'aggiunta di una pagina contenuto per i dispositivi mobili. *Page1.cshtml* contiene contenuto più di una barra laterale di navigazione. *Page1.Mobile.cshtml* contiene lo stesso contenuto, ma omette l'intestazione laterale.
 
@@ -56,11 +56,11 @@ Nell'esempio seguente viene illustrato come attivare il rendering di dispositivi
     ![mobilesites-2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)
 
 > [!NOTE]
-> Per testare pagine per dispositivi mobili, è possibile utilizzare un simulatore di dispositivi mobili che viene eseguito in un computer desktop. Questo strumento consente di testare le pagine web come appaiono nei dispositivi mobili (ovvero, in genere con molto piccola Visualizza area). È un esempio di un simulatore di [componente aggiuntivo di selezione dell'agente utente](http://addons.mozilla.org/en-us/firefox/addon/user-agent-switcher/) per Mozilla Firefox, che consente di emulare diversi browser per dispositivi mobili da una versione desktop di Firefox.
+> Per testare pagine per dispositivi mobili, è possibile utilizzare un simulatore di dispositivi mobili che viene eseguito in un computer desktop. Questo strumento consente di testare le pagine web come appaiono nei dispositivi mobili (ovvero, in genere con molto piccola Visualizza area). È un esempio di un simulatore di [componente aggiuntivo di selezione dell'agente utente](http://addons.mozilla.org/firefox/addon/user-agent-switcher/) per Mozilla Firefox, che consente di emulare diversi browser per dispositivi mobili da una versione desktop di Firefox.
 
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 
-[Emulatore Windows Phone](https://msdn.microsoft.com/en-us/library/ff402563(v=VS.92).aspx)
+[Emulatore Windows Phone](https://msdn.microsoft.com/library/ff402563(v=VS.92).aspx)

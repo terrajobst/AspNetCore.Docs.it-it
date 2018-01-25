@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2127a98a0abf2c94e32b907d945c9b4d36fb2360
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Configurazione di un Server Web per il Web la pubblicazione di distribuzione (gestore distribuzione Web)
 ====================
@@ -67,7 +67,7 @@ Questo argomento viene illustrato come eseguire ognuna di queste procedure. Le a
 - Il server ha un indirizzo IP statico.
 
 > [!NOTE]
-> Per ulteriori informazioni sull'aggiunta di computer a un dominio, vedere [aggiunta di computer al dominio e registrazione](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Per ulteriori informazioni sulla configurazione di indirizzi IP statici, vedere [configurare un indirizzo IP statico](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Per ulteriori informazioni sull'aggiunta di computer a un dominio, vedere [aggiunta di computer al dominio e registrazione](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Per ulteriori informazioni sulla configurazione di indirizzi IP statici, vedere [configurare un indirizzo IP statico](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="install-products-and-components"></a>Installare i prodotti e componenti
@@ -80,7 +80,7 @@ In questo caso, è necessario installare quanto segue:
 - **IIS: Servizio di gestione**. Il servizio di gestione Web (WMSvc) vengono installati in IIS. Questo servizio consente la gestione remota dei siti Web IIS ed espone l'endpoint di gestore distribuzione Web ai client.
 - **IIS: L'autenticazione di base**. Consente di installare il modulo di autenticazione di base di IIS. Il servizio di gestione Web (WMSvc) Questo consente di autenticare le credenziali specificate.
 - **2.1 o successivo dello strumento di distribuzione Web**. Questo modo vengono installati sul server di distribuzione Web (e il relativo file eseguibile sottostante, MSDeploy.exe). Come parte di questo processo, il gestore di distribuzione Web installa e si integra con il servizio di gestione Web.
-- **.NET framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
+- **.NET Framework 4.0**. Ciò è necessario per eseguire applicazioni che sono state compilate in questa versione di .NET Framework.
 - **ASP.NET MVC 3**. Consente di installare gli assembly che necessari per eseguire applicazioni MVC 3.
 
 > [!NOTE]
@@ -114,7 +114,7 @@ In questo caso, è necessario installare quanto segue:
 13. Esaminare le condizioni di licenza e, se accettano le condizioni, fare clic su **accetto**.
 14. Una volta completato l'installazione, fare clic su **fine**, quindi chiudere il **installazione guidata piattaforma Web 3.0** finestra.
 
-Se è installato .NET Framework 4.0 prima di installare IIS, è necessario eseguire il [strumento di registrazione ASP.NET IIS](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) per registrare la versione più recente di ASP.NET con IIS. Se non eseguire questa operazione, sono disponibili che IIS verrà contenuto statico (ad esempio file HTML) senza problemi, ma restituirà **404.0 Errore HTTP: non trovato** quando si tenta di passare al contenuto ASP.NET. È possibile utilizzare la procedura seguente per verificare che sia registrato ASP.NET 4.0.
+Se è installato .NET Framework 4.0 prima di installare IIS, è necessario eseguire il [strumento di registrazione ASP.NET IIS](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) per registrare la versione più recente di ASP.NET con IIS. Se non eseguire questa operazione, sono disponibili che IIS verrà contenuto statico (ad esempio file HTML) senza problemi, ma restituirà **404.0 Errore HTTP: non trovato** quando si tenta di passare al contenuto ASP.NET. È possibile utilizzare la procedura seguente per verificare che sia registrato ASP.NET 4.0.
 
 **Per registrare ASP.NET 4.0 con IIS**
 
@@ -210,7 +210,7 @@ Anche se non c'è niente di arresto dalla distribuzione del contenuto per il sit
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > In un ambiente di produzione sarà sicuramente si desidera ospitare il sito Web sulla porta 80 e configurare un'intestazione host, con i record DNS corrispondenti. Per ulteriori informazioni sulla configurazione di IIS 7 intestazioni host, vedere [configurare un'intestazione Host per un sito Web (IIS 7)](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Per ulteriori informazioni sul ruolo Server DNS in Windows Server 2008 R2, vedere [Panoramica del Server DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) e [Server DNS](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > In un ambiente di produzione sarà sicuramente si desidera ospitare il sito Web sulla porta 80 e configurare un'intestazione host, con i record DNS corrispondenti. Per ulteriori informazioni sulla configurazione di IIS 7 intestazioni host, vedere [configurare un'intestazione Host per un sito Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Per ulteriori informazioni sul ruolo Server DNS in Windows Server 2008 R2, vedere [Panoramica del Server DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) e [Server DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. Nel riquadro **Azioni** sotto **Modifica sito**, fare clic su **Binding**.
 10. Nel **binding sito** la finestra di dialogo, fare clic su **Aggiungi**.
 
@@ -254,8 +254,8 @@ L'approccio più comune consiste nell'assegnare autorizzazioni a locale **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. Nel **Seleziona utenti o gruppi** della finestra di dialogo tipo **IIS\_IUSRS**, fare clic su **Controlla nomi**, quindi fare clic su **OK**.
-6. Nel **le autorizzazioni per***[nome cartella]* la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il **lettura &amp; eseguire**, **visualizzazione contenuto cartella contenuto**, e **lettura** le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su **OK**.
-7. Fare clic su **OK** per chiudere la *[nome cartella]***proprietà** la finestra di dialogo.
+6. Nel **le autorizzazioni per * * * [nome cartella]* la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il **lettura &amp; eseguire**, **visualizzazione contenuto cartella**, e **Lettura** le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su **OK**.
+7. Fare clic su **OK** per chiudere la *[nome cartella] * * * proprietà** la finestra di dialogo.
 
 Come attività finale, è necessario concedere le autorizzazioni appropriate per l'utente non amministratore, le cui credenziali da usare per distribuire il contenuto. L'utente richiede le autorizzazioni per distribuire contenuto in remoto al sito Web.
 
@@ -288,7 +288,7 @@ Per impostazione predefinita, il servizio di gestione Web di IIS è in ascolto s
 | In uscita | 8172 | Qualsiasi | TCP |
   
 
-Per ulteriori informazioni sulla configurazione di regole in Windows Firewall, vedere [configurazione delle regole Firewall](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). Per i firewall di terze parti, consultare la documentazione del prodotto.
+Per ulteriori informazioni sulla configurazione di regole in Windows Firewall, vedere [configurazione delle regole Firewall](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Per i firewall di terze parti, consultare la documentazione del prodotto.
 
 ## <a name="conclusion"></a>Conclusione
 

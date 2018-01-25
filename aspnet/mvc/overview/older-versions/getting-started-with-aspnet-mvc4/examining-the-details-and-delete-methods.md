@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 213626147424e08d10d6442034ec450174200b09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>Esaminare i dettagli e i metodi di eliminazione
 ====================
@@ -66,7 +66,7 @@ Ora è un'applicazione ASP.NET MVC completa che archivia i dati in un database d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver compilato e testato un'applicazione web, il passaggio successivo è per renderlo disponibile ad altri utenti per l'utilizzo su Internet. A tale scopo, è necessario distribuirla in un provider di hosting web. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un [senza account di valutazione di Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). È consigliabile quindi seguire l'esercitazione [distribuire un'app di ASP.NET MVC Secure con appartenenza, OAuth e il Database SQL a un sito Web di Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un'ottima esercitazione è di livello intermedio di Tom Dykstra [la creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) e [forum di ASP.NET MVC](https://forums.asp.net/1146.aspx) sono inserisce un'eccellente per porre domande. Seguire [me](https://twitter.com/RickAndMSFT) su twitter, pertanto è possibile ottenere gli aggiornamenti in my esercitazioni più recente.
+Dopo aver compilato e testato un'applicazione web, il passaggio successivo è per renderlo disponibile ad altri utenti per l'utilizzo su Internet. A tale scopo, è necessario distribuirla in un provider di hosting web. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un [senza account di valutazione di Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). È consigliabile quindi seguire l'esercitazione [distribuire un'app di ASP.NET MVC Secure con appartenenza, OAuth e il Database SQL a un sito Web di Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un'ottima esercitazione è di livello intermedio di Tom Dykstra [la creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) e [forum di ASP.NET MVC](https://forums.asp.net/1146.aspx) sono inserisce un'eccellente per porre domande. Seguire [me](https://twitter.com/RickAndMSFT) su twitter, pertanto è possibile ottenere gli aggiornamenti in my esercitazioni più recente.
 
 Commenti e suggerimenti sono ben accetti.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17157d595e8283628371ff6ad39fe71879e96a56
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Gestione delle eccezioni BLL e DAL livello in una pagina ASP.NET (c#)
 ====================
@@ -101,9 +101,9 @@ A questo punto si dispone di un elenco di tutti i prodotti `ProductName`, `Quant
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Passaggio 2: Normalmente la gestione delle eccezioni di livello DAL
 
-Durante il GridView modificabile estesamente quando gli utenti immettere i valori validi per nome modificato del prodotto, prezzo e unità in magazzino, immettere i valori non validi genera un'eccezione. Ad esempio, omettendo il `ProductName` valore, un [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) generata dal `ProductName` proprietà nel `ProdcutsRow` classe dispone di relativo `AllowDBNull` proprietà impostata su `false`; se il database non è attivo, un `SqlException` verrà generato dal TableAdapter quando si tenta di connettersi al database. Senza eseguire alcuna operazione, queste eccezioni propagata dal livello di accesso ai dati per il livello di logica di Business, quindi nella pagina ASP.NET e infine al runtime di ASP.NET.
+Durante il GridView modificabile estesamente quando gli utenti immettere i valori validi per nome modificato del prodotto, prezzo e unità in magazzino, immettere i valori non validi genera un'eccezione. Ad esempio, omettendo il `ProductName` valore, un [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) generata dal `ProductName` proprietà nel `ProdcutsRow` classe dispone di relativo `AllowDBNull` proprietà impostata su `false`; se il database non è attivo, un `SqlException` verrà generato dal TableAdapter quando si tenta di connettersi al database. Senza eseguire alcuna operazione, queste eccezioni propagata dal livello di accesso ai dati per il livello di logica di Business, quindi nella pagina ASP.NET e infine al runtime di ASP.NET.
 
-A seconda della configurazione dell'applicazione web e se si sta visitando l'applicazione da `localhost`, può causare un'eccezione non gestita in una pagina di errore server generico, un report di errore dettagliati o una semplice pagina web. Vedere [Error Handling applicazione Web in ASP.NET](http://www.15seconds.com/issue/030102.htm) e [elemento customErrors](https://msdn.microsoft.com/en-US/library/h0hfz6fc(VS.80).aspx) per ulteriori informazioni su come il runtime ASP.NET risponde a un'eccezione non rilevata.
+A seconda della configurazione dell'applicazione web e se si sta visitando l'applicazione da `localhost`, può causare un'eccezione non gestita in una pagina di errore server generico, un report di errore dettagliati o una semplice pagina web. Vedere [Error Handling applicazione Web in ASP.NET](http://www.15seconds.com/issue/030102.htm) e [elemento customErrors](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) per ulteriori informazioni su come il runtime ASP.NET risponde a un'eccezione non rilevata.
 
 La figura 6 mostra una schermata durante il tentativo di aggiornare un prodotto senza specificare il `ProductName` valore. L'impostazione predefinita il report di errore dettagliato visualizzato quando tramite `localhost`.
 
@@ -153,7 +153,7 @@ Creazione di questo gestore eventi aggiungerà il codice seguente in una classe 
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample4.cs)]
 
-Secondo parametro di input del gestore di questo evento è un oggetto di tipo [GridViewUpdatedEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), che dispone di tre proprietà di interesse per la gestione delle eccezioni:
+Secondo parametro di input del gestore di questo evento è un oggetto di tipo [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), che dispone di tre proprietà di interesse per la gestione delle eccezioni:
 
 - `Exception`un riferimento all'eccezione generata. Se è non stata generata alcuna eccezione, questa proprietà sarà assegnato un valore di`null`
 - `ExceptionHandled`un valore booleano che indica se l'eccezione è stata gestita nel `RowUpdated` gestore; se `false` (impostazione predefinita), l'eccezione viene generata nuovamente, percolating al runtime ASP.NET

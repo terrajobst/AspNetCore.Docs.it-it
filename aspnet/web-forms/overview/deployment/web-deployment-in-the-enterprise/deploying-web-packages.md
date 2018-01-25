@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Distribuzione di pacchetti Web
 ====================
@@ -68,15 +68,15 @@ Il *. deploy* file supporta diverse opzioni della riga di comando. Quando si ese
 | **/M** | Specifica il server di destinazione nome o URL del servizio. Per ulteriori informazioni sui valori è possibile fornire qui, vedere il **considerazioni Endpoint** in questo argomento. Se si omette il **/M** flag, il pacchetto verrà distribuito nel computer locale. |
 | **/A** | Specifica il tipo di autenticazione che MSDeploy.exe deve utilizzare per eseguire la distribuzione. I valori possibili sono **NTLM** e **base**. Se si omette il **/A** flag, per impostazione predefinita il tipo di autenticazione **NTLM** per la distribuzione per il servizio agente remoto di distribuzione Web e a **base** per la distribuzione per la distribuzione Web Gestore. |
 | **/U** | Specifica il nome utente. Si applica solo se si utilizza l'autenticazione di base. |
-| **/ P** | Modifica la password. Si applica solo se si utilizza l'autenticazione di base. |
+| **/P** | Modifica la password. Si applica solo se si utilizza l'autenticazione di base. |
 | **/L** | Indica che è necessario distribuire il pacchetto per l'istanza locale di IIS Express. |
-| **/G** | Specifica che il pacchetto viene distribuito con il [del provider tempAgent](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx). Se si omette il **/G** flag, il valore predefinito è **false**. |
+| **/G** | Specifica che il pacchetto viene distribuito con il [del provider tempAgent](https://technet.microsoft.com/library/ee517345(WS.10).aspx). Se si omette il **/G** flag, il valore predefinito è **false**. |
 
 > [!NOTE]
 > Ogni volta che il processo di compilazione crea un pacchetto web, crea anche un file denominato *[nome progetto] deploy-file Readme. txt* che illustra queste opzioni di distribuzione.
 
 
-Oltre a questi flag, è possibile specificare le impostazioni di operazione di distribuzione Web come aggiuntive *. deploy* parametri. Eventuali impostazioni aggiuntive specificate vengono semplicemente passati al comando di MSDeploy.exe sottostante. Per ulteriori informazioni su queste impostazioni, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+Oltre a questi flag, è possibile specificare le impostazioni di operazione di distribuzione Web come aggiuntive *. deploy* parametri. Eventuali impostazioni aggiuntive specificate vengono semplicemente passati al comando di MSDeploy.exe sottostante. Per ulteriori informazioni su queste impostazioni, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 Si supponga che si desidera distribuire il progetto di applicazione web ContactManager.Mvc all'ambiente di test eseguendo il *. deploy* file. L'ambiente di test è configurato per utilizzare il servizio agente remoto di distribuzione Web, come descritto in [configurare un Server Web per distribuire pubblicazione sul Web (agente remoto)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Per distribuire l'applicazione web, è necessario completare i passaggi successivi.
 
@@ -101,7 +101,7 @@ Per illustrare come l'utilizzo di *. deploy* file semplifica il processo di dist
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Per ulteriori informazioni sull'utilizzo di *. deploy* file per distribuire un pacchetto web, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Per ulteriori informazioni sull'utilizzo di *. deploy* file per distribuire un pacchetto web, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx).
 
 ## <a name="using-msdeployexe"></a>Utilizzo di MSDeploy.exe
 
@@ -115,21 +115,21 @@ Quando si utilizza MSDeploy.exe, è necessario fornire tre tipi principali di in
 
 - Oggetto **: origine** parametro che indica la provenienza dei dati.
 - Oggetto **-dest** parametro che indica dove verrà i dati.
-- Oggetto **– verbo** parametro che indica il [operazione](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx) si desidera eseguire.
+- Oggetto **– verbo** parametro che indica il [operazione](https://technet.microsoft.com/library/dd568989(WS.10).aspx) si desidera eseguire.
 
-MSDeploy.exe si basa su [i provider di distribuzione Web](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx) per elaborare i dati di origine e di destinazione. Distribuzione Web sono inclusi numerosi provider di rappresentare la gamma di applicazioni e le origini dati consente l'utilizzo di & #x 2014; ad esempio, esistono provider per i database di SQL Server, server web IIS, certificati, gli assembly cache (GAC) di assembly globale, vari file di configurazione diverso e molti altri tipi di dati. Entrambi i **: origine** parametro e **-dest** parametro deve specificare un provider, nel formato **: origine**: [*providerName*] = [*percorso*]. Quando si distribuisce un pacchetto web in un sito Web IIS, è consigliabile utilizzare questi valori:
+MSDeploy.exe si basa su [i provider di distribuzione Web](https://technet.microsoft.com/library/dd569040(WS.10).aspx) per elaborare i dati di origine e di destinazione. Distribuzione Web sono inclusi numerosi provider di rappresentare la gamma di applicazioni e le origini dati consente l'utilizzo di & #x 2014; ad esempio, esistono provider per i database di SQL Server, server web IIS, certificati, gli assembly cache (GAC) di assembly globale, vari file di configurazione diverso e molti altri tipi di dati. Entrambi i **: origine** parametro e **-dest** parametro deve specificare un provider, nel formato **: origine**: [*providerName*] = [*percorso*]. Quando si distribuisce un pacchetto web in un sito Web IIS, è consigliabile utilizzare questi valori:
 
-- Il **: origine** è sempre [pacchetto](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx). Ad esempio:
+- Il **: origine** è sempre [pacchetto](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Ad esempio:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- Il **-dest** è sempre [auto](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx). Ad esempio:
+- Il **-dest** è sempre [auto](https://technet.microsoft.com/library/dd569016(WS.10).aspx). Ad esempio:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - Il **– verbo** è sempre **sincronizzazione**.
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Inoltre, è necessario specificare varie altre [impostazioni specifiche del provider](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx) e generali [impostazioni operazione](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Si supponga, ad esempio, che si desidera distribuire l'applicazione web ContactManager.Mvc in un ambiente di gestione temporanea. La distribuzione verrà associato il gestore di distribuzione Web e utilizza l'autenticazione di base. Per distribuire l'applicazione web, è necessario completare i passaggi successivi.
+Inoltre, è necessario specificare varie altre [impostazioni specifiche del provider](https://technet.microsoft.com/library/dd569001(WS.10).aspx) e generali [impostazioni operazione](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Si supponga, ad esempio, che si desidera distribuire l'applicazione web ContactManager.Mvc in un ambiente di gestione temporanea. La distribuzione verrà associato il gestore di distribuzione Web e utilizza l'autenticazione di base. Per distribuire l'applicazione web, è necessario completare i passaggi successivi.
 
 **Per distribuire un'applicazione web tramite MSDeploy.exe**
 
@@ -145,7 +145,7 @@ In questo esempio:
 - Il **: origine** parametro specifica il **pacchetto** provider e indica la posizione del pacchetto web.
 - Il **-dest** parametro specifica il **auto** provider. Il **computerName** impostazione fornisce l'URL del servizio del gestore distribuzione Web nel server di destinazione. Il **authtype** impostazione indica che si desidera utilizzare l'autenticazione di base e di conseguenza è necessario fornire un **username** e **password**. Infine, il **includeAcls = "False"** impostazione indica che non si desidera copiare gli elenchi di controllo di accesso (ACL) dei file nell'applicazione web di origine al server di destinazione.
 - Il **– verbo: sincronizzazione** argomento indica che si desidera replicare il contenuto di origine nel server di destinazione.
-- Il **– disableLink** gli argomenti indicano che non si desidera replicare i pool di applicazioni, configurazione della directory virtuale o certificati Secure Sockets Layer (SSL) nel server di destinazione. Per ulteriori informazioni, vedere [Web distribuire le estensioni del collegamento](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx).
+- Il **– disableLink** gli argomenti indicano che non si desidera replicare i pool di applicazioni, configurazione della directory virtuale o certificati Secure Sockets Layer (SSL) nel server di destinazione. Per ulteriori informazioni, vedere [Web distribuire le estensioni del collegamento](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
 - Il **– setParamFile** parametro fornisce la posizione del *SetParameters* file.
 - Il **-allowUntrusted** parametro indica che la distribuzione Web accetta i certificati SSL che non sono stati rilasciati da un'autorità di certificazione attendibile. Se si distribuisce al gestore distribuzione Web e si utilizza un certificato autofirmato per proteggere l'URL del servizio, è necessario includere questo parametro.
 

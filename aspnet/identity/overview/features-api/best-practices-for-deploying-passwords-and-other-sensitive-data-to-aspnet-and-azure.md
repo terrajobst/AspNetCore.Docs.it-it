@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Procedure consigliate per la distribuzione delle password e altri dati sensibili per ASP.NET e servizio App di Azure
 ====================
@@ -54,7 +54,7 @@ Il codice nel file esterno (*AppSettingsSecrets.config* in questo esempio), è l
 Il runtime di ASP.NET unisce il contenuto del file esterno con il markup in &lt;appSettings&gt; elemento. L'attributo di file viene ignorato se non viene trovato il file specificato.
 
 > [!WARNING]
-> Sicurezza: non si aggiunge il *config segreti* file al progetto o archiviarla nel controllo del codice sorgente. Per impostazione predefinita, Visual Studio imposta la `Build Action` a `Content`, ovvero il file viene distribuito. Per ulteriori informazioni vedere [perché non tutti i file nella cartella di progetto vengono distribuiti?](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Sebbene sia possibile usare qualsiasi estensione per il *config segreti* file, è consigliabile mantenere *config*, come i file di configurazione non vengono gestiti da IIS. Si noti inoltre che il *AppSettingsSecrets.config* file è di due livelli di directory superiore dal *Web. config* file, pertanto è completamente fuori della directory della soluzione. Spostando il file dalla directory della soluzione, &quot;git aggiungere \* &quot; non verranno aggiunte al repository.
+> Sicurezza: non si aggiunge il *config segreti* file al progetto o archiviarla nel controllo del codice sorgente. Per impostazione predefinita, Visual Studio imposta la `Build Action` a `Content`, ovvero il file viene distribuito. Per ulteriori informazioni vedere [perché non tutti i file nella cartella di progetto vengono distribuiti?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Sebbene sia possibile usare qualsiasi estensione per il *config segreti* file, è consigliabile mantenere *config*, come i file di configurazione non vengono gestiti da IIS. Si noti inoltre che il *AppSettingsSecrets.config* file è di due livelli di directory superiore dal *Web. config* file, pertanto è completamente fuori della directory della soluzione. Spostando il file dalla directory della soluzione, &quot;git aggiungere \* &quot; non verranno aggiunte al repository.
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Quando si distribuisce l'app web in Azure, il *AppSettingsSecrets.config* file n
 
 Il **impostazioni app** e **stringa di connessione** valori override le impostazioni del *Web. config* file. In questo esempio, si distribuzione non è riuscita queste impostazioni in Azure, ma se queste chiavi sono stati nel *Web. config* file, le impostazioni sul portale avrebbe la precedenza.
 
-Una procedura consigliata consiste nel seguire un [flusso di lavoro DevOps](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) e utilizzare [Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (o un altro framework, ad esempio [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) per automatizzare l'impostazione di questi valori in Azure. Il seguente script di PowerShell Usa [Export-CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) per esportare i segreti crittografati su disco:
+Una procedura consigliata consiste nel seguire un [flusso di lavoro DevOps](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) e utilizzare [Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (o un altro framework, ad esempio [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) per automatizzare l'impostazione di questi valori in Azure. Il seguente script di PowerShell Usa [Export-CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) per esportare i segreti crittografati su disco:
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ Nello script, 'Name' è il nome della chiave privata, ad esempio '&quot;FB\_AppS
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> Sicurezza: non includere password o altri segreti nello script di PowerShell, eseguire vanifica in questo caso lo scopo di utilizzo di uno script di PowerShell per distribuire i dati sensibili. Il [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx) cmdlet fornisce un meccanismo protetto per ottenere una password. Uso di una richiesta dell'interfaccia utente può impedire la perdita di una password.
+> Sicurezza: non includere password o altri segreti nello script di PowerShell, eseguire vanifica in questo caso lo scopo di utilizzo di uno script di PowerShell per distribuire i dati sensibili. Il [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet fornisce un meccanismo protetto per ottenere una password. Uso di una richiesta dell'interfaccia utente può impedire la perdita di una password.
 
 
 ### <a name="deploying-db-connection-strings"></a>Le stringhe di connessione di database di distribuzione
@@ -119,7 +119,7 @@ Poiché le coppie chiave-valore per entrambi **impostazioni app** e **le stringh
 
 ## <a name="notes-for-on-premises-servers"></a>Note per i server locali
 
-Se si distribuiscono server web locale, ti consente di segreti protetti da [crittografare sezioni di configurazione di file di configurazione](https://msdn.microsoft.com/en-us/library/ff647398.aspx). In alternativa, è possibile utilizzare lo stesso approccio consigliato per siti Web di Azure: mantenere le impostazioni di sviluppo nei file di configurazione e utilizzare i valori di variabile di ambiente per le impostazioni di produzione. In questo caso, tuttavia, è necessario scrivere codice dell'applicazione per la funzionalità è automatica in siti Web di Azure: recuperare le impostazioni dalle variabili di ambiente e utilizzare tali valori al posto delle impostazioni del file di configurazione oppure le impostazioni di file di configurazione quando variabili di ambiente non vengono trovate.
+Se si distribuiscono server web locale, ti consente di segreti protetti da [crittografare sezioni di configurazione di file di configurazione](https://msdn.microsoft.com/library/ff647398.aspx). In alternativa, è possibile utilizzare lo stesso approccio consigliato per siti Web di Azure: mantenere le impostazioni di sviluppo nei file di configurazione e utilizzare i valori di variabile di ambiente per le impostazioni di produzione. In questo caso, tuttavia, è necessario scrivere codice dell'applicazione per la funzionalità è automatica in siti Web di Azure: recuperare le impostazioni dalle variabili di ambiente e utilizzare tali valori al posto delle impostazioni del file di configurazione oppure le impostazioni di file di configurazione quando variabili di ambiente non vengono trovate.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive

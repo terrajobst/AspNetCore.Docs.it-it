@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e99b74030104bf17d4d79cd7670cf903270fa51f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Configurazione dell'applicazione Web di produzione per usare il Database di produzione (c#)
 ====================
@@ -37,7 +37,7 @@ Non è insolito per informazioni sulla configurazione di differenze tra gli ambi
 
 ## <a name="examining-the-connection-string-information"></a>Esaminare le informazioni sulla stringa di connessione
 
-La stringa di connessione utilizzata dall'applicazione web recensioni viene archiviata nel file di configurazione dell'applicazione s, `Web.config`. `Web.config`include una sezione speciale per l'archiviazione delle stringhe di connessione, il nome appropriato [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). Il `Web.config` file per il sito Web recensioni dispone di una stringa di connessione definita in questa sezione denominata `ReviewsConnectionString`:
+La stringa di connessione utilizzata dall'applicazione web recensioni viene archiviata nel file di configurazione dell'applicazione s, `Web.config`. `Web.config`include una sezione speciale per l'archiviazione delle stringhe di connessione, il nome appropriato [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Il `Web.config` file per il sito Web recensioni dispone di una stringa di connessione definita in questa sezione denominata `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ La stringa di connessione - origine dati =. \SQLEXPRESS; AttachDbFilename = | Si
 - `Data Source`-Specifica il percorso del server di database e il nome istanza server di database (se presente). Il valore, `.\SQLEXPRESS`, è riportato un esempio in cui è presente un server di database e un nome di istanza. Il periodo di specifica che il server di database è nello stesso computer come applicazione. il nome dell'istanza è `SQLEXPRESS`.
 - `AttachDbFilename`-Specifica il percorso del file di database. Il valore contiene il segnaposto `|DataDirectory|`, che viene risolto il percorso completo di s applicazione `App_Data` cartella in fase di esecuzione.
 - `Integrated Security`-un valore booleano che indica se utilizzare un nome utente/password specificata durante la connessione al database (false) o di Windows corrente, le credenziali dell'account (true).
-- `User Instance`-un'opzione di configurazione specifica per SQL Server Express Edition che indica se consentire agli utenti senza privilegi di amministratore nel computer locale, collegarsi e connettono a un database di SQL Server Express Edition. Vedere [le istanze di SQL Server Express utente](https://msdn.microsoft.com/en-us/library/ms254504.aspx) per ulteriori informazioni su questa impostazione.
+- `User Instance`-un'opzione di configurazione specifica per SQL Server Express Edition che indica se consentire agli utenti senza privilegi di amministratore nel computer locale, collegarsi e connettono a un database di SQL Server Express Edition. Vedere [le istanze di SQL Server Express utente](https://msdn.microsoft.com/library/ms254504.aspx) per ulteriori informazioni su questa impostazione.
   
 
 Le opzioni di stringa di connessione consentite dipendono dal database a cui a che ci si connette e il provider di database ADO.NET in uso. Ad esempio, la stringa di connessione per la connessione a Microsoft SQL Server database è diverso da usare per connettersi a un database Oracle. Analogamente, la connessione a un database di Microsoft SQL Server tramite il provider SqlClient utilizza una stringa di connessione diversa rispetto all'utilizzo del provider OLE DB.
@@ -71,7 +71,7 @@ Successivamente, specificare le varie informazioni di connessione del database (
 
 Il database di ambiente di produzione dovrebbe ora essere elencato in Esplora Server. Selezionare il database da Esplora Server e passare alla finestra Proprietà. Non esiste, si noterà una proprietà denominata stringa di connessione con la stringa di connessione di database s. Presupponendo che si utilizza un database di Microsoft SQL Server di produzione e il provider SqlClient la stringa di connessione dovrebbe essere simile al seguente:
 
-**Origine dati =*serverName*; Catalogo iniziale =*databaseName*; Persist Security Info = True; ID utente =*username*; Password =*password***
+**Origine dati =*serverName*; Catalogo iniziale =*databaseName*; Persist Security Info = True; ID utente =*username*; Password = * password***
 
 Dove *serverName*, *databaseName*, *username*, e *password* sono con i valori per il nome del server di database, il database nome e il nome utente e la password è fornito dall'azienda host web.
 
@@ -147,10 +147,10 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Stringhe di connessione e i file di configurazione](https://msdn.microsoft.com/en-us/library/ms254494.aspx)
+- [Stringhe di connessione e file di configurazione](https://msdn.microsoft.com/library/ms254494.aspx)
 - [Informazioni @ ConnectionStrings.com le stringhe di configurazione del database](http://www.connectionstrings.com/)
 - [Spostare le impostazioni dal File Web. config](http://www.asp101.com/tips/index.asp?id=154)
-- [Documentazione tecnica per il &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Documentazione tecnica per il &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](deploying-a-database-cs.md)

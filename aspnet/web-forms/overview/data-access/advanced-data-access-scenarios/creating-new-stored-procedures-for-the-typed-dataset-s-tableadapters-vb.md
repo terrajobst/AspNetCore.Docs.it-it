@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d250a7fb868d712e8039e65f7219f80ccaa780c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b2262df1a56ffa88a22d9dc8000bd0c300fea72e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Creazione di nuove Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (VB)
 ====================
@@ -47,7 +47,7 @@ Le funzioni sono un costrutto comune a tutti i linguaggi di programmazione. Una 
 > Stored procedure sono spesso detta stored procedure o SP.
 
 
-Vengono create stored procedure utilizzando il [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) istruzione T-SQL. Ad esempio, lo script T-SQL seguente crea una stored procedure denominata `GetProductsByCategoryID` che accetta un singolo parametro denominato `@CategoryID` e restituisce il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` i campi di tali colonne nel `Products` tabella che dispone di un corrispondente `CategoryID` valore:
+Vengono create stored procedure utilizzando il [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) istruzione T-SQL. Ad esempio, lo script T-SQL seguente crea una stored procedure denominata `GetProductsByCategoryID` che accetta un singolo parametro denominato `@CategoryID` e restituisce il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` i campi di tali colonne nel `Products` tabella che dispone di un corrispondente `CategoryID` valore:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Creazione e gestione di Stored procedure](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Creazione e gestione di Stored procedure](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Il recupero di dati scalare da una Stored Procedure](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [Stored Procedure nozioni di base SQL Server](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Stored procedure: Una panoramica](http://www.sqlteam.com/item.asp?ItemID=563)

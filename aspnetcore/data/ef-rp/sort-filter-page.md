@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con pagine Razor (3 di 8)
 
@@ -71,7 +71,7 @@ Il metodo Usa LINQ to Entities per specificare la colonna da ordinare. Il codice
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
 
- Quando un`IQueryable` viene creata o modificata, non viene inviata alcuna query al database. La query non viene eseguita finché il `IQueryable` oggetto viene convertito in una raccolta. `IQueryable`vengono convertiti in una raccolta chiamando un metodo, ad esempio `ToListAsync`. Pertanto, il `IQueryable` codice risultati in una singola query che non viene eseguito fino a quando l'istruzione seguente:
+ Quando un`IQueryable` viene creata o modificata, non viene inviata alcuna query al database. Fino a quando non viene eseguita la query di `IQueryable` oggetto viene convertito in una raccolta. `IQueryable`vengono convertiti in una raccolta chiamando un metodo, ad esempio `ToListAsync`. Pertanto, il `IQueryable` codice risultati in una singola query che non viene eseguito fino a quando l'istruzione seguente:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
@@ -139,7 +139,7 @@ In *Views/Student/Index.cshtml*, aggiungere il codice evidenziato di seguito per
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-Il codice precedente utilizza il `<form>` [helper di tag](xref:mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST del form. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene utilizzato HTTP GET, i dati del form viene passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di segnalibro l'URL. Il [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consiglia che GET deve essere utilizzato quando l'azione non comporta un aggiornamento.
+Il codice precedente utilizza il `<form>` [helper di tag](xref:mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST del form. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene utilizzato HTTP GET, i dati del form viene passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di segnalibro l'URL. Il [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consiglia che GET deve essere utilizzato quando il risultato dell'azione non un aggiornamento.
 
 Eseguire il test dell'app:
 

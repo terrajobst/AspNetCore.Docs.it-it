@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 659976d40f6109422f222d794b54d837faeb0764
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 284f3bebcd07c9cc70b3a7d645f353f5797889a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>Gestione delle eccezioni BLL e DAL livello (c#)
 ====================
@@ -101,7 +101,7 @@ Quando si verifica un errore, è necessario solo l'etichetta da visualizzare una
 
 Quando viene generata un'eccezione, si verranno assegnato i dettagli dell'eccezione per il `ExceptionDetails` s controllo etichetta `Text` proprietà. Poiché lo stato di visualizzazione è disabilitato, nei postback successivi il `Text` modifiche a livello di codice di proprietà s andranno perse, eseguendo il ripristino di testo predefinita (una stringa vuota), quindi nascondendo il messaggio di avviso.
 
-Per determinare se è stato generato un errore per visualizzare un messaggio utile nella pagina, è necessario aggiungere un `Try ... Catch` blocco per il `UpdateCommand` gestore dell'evento. Il `Try` parte contiene codice che può causare un'eccezione, mentre il `Catch` blocco contiene il codice che viene eseguito in caso di un'eccezione. Estrarre il [nozioni fondamentali sulla gestione delle eccezioni](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx) sezione nella documentazione di .NET Framework per altre informazioni di `Try ... Catch` blocco.
+Per determinare se è stato generato un errore per visualizzare un messaggio utile nella pagina, è necessario aggiungere un `Try ... Catch` blocco per il `UpdateCommand` gestore dell'evento. Il `Try` parte contiene codice che può causare un'eccezione, mentre il `Catch` blocco contiene il codice che viene eseguito in caso di un'eccezione. Estrarre il [nozioni fondamentali sulla gestione delle eccezioni](https://msdn.microsoft.com/library/2w8f0bss.aspx) sezione nella documentazione di .NET Framework per altre informazioni di `Try ... Catch` blocco.
 
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
@@ -142,7 +142,7 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Linee guida di progettazione per le eccezioni](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [Linee guida di progettazione delle eccezioni](https://msdn.microsoft.com/library/ms298399.aspx)
 - [Gestori (ELMAH) e i moduli di registrazione errore](http://workspaces.gotdotnet.com/elmah) (una libreria open source per la registrazione degli errori)
 - [Enterprise Library per .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (include il blocco applicazione di gestione eccezioni)
 

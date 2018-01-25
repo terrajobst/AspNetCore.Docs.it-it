@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 2
 ====================
@@ -35,7 +35,7 @@ Nell'esercitazione precedente è stato creato un sito web, un database e un mode
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Si noti che in questa applicazione è non verrà aggiunta la convalida dell'input alle pagine in cui aggiornano il database e tra la gestione degli errori non sarà così solido come potrebbe essere necessario eseguire in un'applicazione di produzione. Che mantiene l'esercitazione con stato attivo su Entity Framework e ne troppo lunga. Per informazioni dettagliate su come aggiungere queste funzionalità a un'applicazione, vedere [convalida dell'Input utente in ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/7kh55542.aspx) e [gestione degli errori nelle pagine ASP.NET e applicazioni](https://msdn.microsoft.com/en-us/library/w16865z6.aspx).
+Si noti che in questa applicazione è non verrà aggiunta la convalida dell'input alle pagine in cui aggiornano il database e tra la gestione degli errori non sarà così solido come potrebbe essere necessario eseguire in un'applicazione di produzione. Che mantiene l'esercitazione con stato attivo su Entity Framework e ne troppo lunga. Per informazioni dettagliate su come aggiungere queste funzionalità a un'applicazione, vedere [convalida dell'Input utente in ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) e [gestione degli errori nelle pagine ASP.NET e applicazioni](https://msdn.microsoft.com/library/w16865z6.aspx).
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>Aggiunta e configurazione del controllo EntityDataSource
 
@@ -157,13 +157,13 @@ Nel markup di `EntityDataSource` di controllo, rimuovere il `ConnectionString` e
 
 - Prestazioni migliori. Quando il `EntityDataSource` controllo Inizializza il modello di dati tramite il `ConnectionString` e `DefaultContainerName` gli attributi, esegue ulteriori operazioni per caricare i metadati per ogni richiesta. Questo non è necessario se si specificano le `ContextTypeName` attributo.
 - Caricamento lazy è attivato per impostazione predefinita nelle classi di oggetti generati contesto (ad esempio `SchoolEntities` in questa esercitazione) in Entity Framework 4.0. Ciò significa che le proprietà di navigazione vengono caricate con i dati correlati automaticamente destra quando è necessario. Caricamento lazy è illustrato più dettagliatamente più avanti in questa esercitazione.
-- Tutte le personalizzazioni applicate alla classe contesto di oggetto (in questo caso, il `SchoolEntities` classe) sarà disponibile per i controlli che utilizzano il `EntityDataSource` controllo. Personalizzazione della classe di contesto di oggetto è un argomento avanzato che non viene descritta in questa serie di esercitazioni. Per ulteriori informazioni, vedere [tipi generati di estensione Entity Framework](https://msdn.microsoft.com/en-us/library/dd456844.aspx).
+- Tutte le personalizzazioni applicate alla classe contesto di oggetto (in questo caso, il `SchoolEntities` classe) sarà disponibile per i controlli che utilizzano il `EntityDataSource` controllo. Personalizzazione della classe di contesto di oggetto è un argomento avanzato che non viene descritta in questa serie di esercitazioni. Per ulteriori informazioni, vedere [tipi generati di estensione Entity Framework](https://msdn.microsoft.com/library/dd456844.aspx).
 
 Il markup sarà ora simile nell'esempio seguente (l'ordine delle proprietà potrà essere diverso):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-Il `EnableFlattening` attributo fa riferimento a una funzionalità che è stata necessaria nelle versioni precedenti di Entity Framework, in quanto le colonne chiave esterna non sono stati esposti come proprietà dell'entità. La versione corrente consente di utilizzare *associazioni di chiavi esterne*, ovvero una proprietà di chiave esterna vengono esposte per le associazioni di tutto tranne molti-a-molti. Se l'entità dispone di proprietà di chiave esterna e nessun [tipi complessi](https://msdn.microsoft.com/en-us/library/bb738472.aspx), è possibile lasciare questo attributo è impostato su `False`. Non rimuovere l'attributo dal markup, poiché il valore predefinito è `True`. Per ulteriori informazioni, vedere [bidimensionalità degli oggetti (EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx).
+Il `EnableFlattening` attributo fa riferimento a una funzionalità che è stata necessaria nelle versioni precedenti di Entity Framework, in quanto le colonne chiave esterna non sono stati esposti come proprietà dell'entità. La versione corrente consente di utilizzare *associazioni di chiavi esterne*, ovvero una proprietà di chiave esterna vengono esposte per le associazioni di tutto tranne molti-a-molti. Se l'entità dispone di proprietà di chiave esterna e nessun [tipi complessi](https://msdn.microsoft.com/library/bb738472.aspx), è possibile lasciare questo attributo è impostato su `False`. Non rimuovere l'attributo dal markup, poiché il valore predefinito è `True`. Per ulteriori informazioni, vedere [bidimensionalità degli oggetti (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
 Eseguire la pagina e viene visualizzato un elenco di studenti e dipendenti (si filtreranno per studenti soli nella prossima esercitazione). Vengono visualizzati insieme al nome e cognome.
 

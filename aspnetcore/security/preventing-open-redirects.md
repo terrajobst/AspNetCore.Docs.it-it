@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: e57ae429e9af54ade74485361ba591cb75c16752
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6ecf2440ac7073bdad098f6fe48f6c788ba7795a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Prevenzione degli attacchi di reindirizzamento aperto in un'applicazione ASP.NET di base
 
@@ -23,7 +23,7 @@ Ogni volta che la logica dell'applicazione reindirizza a un URL specificato, è 
 
 ## <a name="what-is-an-open-redirect-attack"></a>Che cos'è un attacco di reindirizzamento aprire?
 
-Applicazioni Web spesso reindirizzare gli utenti a una pagina di accesso quando accedono alle risorse che richiedono l'autenticazione. Il reindirizzamento typlically include un `returnUrl` parametro querystring in modo che l'utente può essere restituito all'URL richiesto originariamente dopo che hanno effettuato correttamente l'accesso. Dopo aver autenticato l'utente, viene reindirizzato all'URL richiesto originariamente.
+Applicazioni Web spesso reindirizzare gli utenti a una pagina di accesso quando accedono alle risorse che richiedono l'autenticazione. Il reindirizzamento typlically include un `returnUrl` parametro querystring in modo che l'utente può essere restituito all'URL richiesto originariamente dopo che hanno effettuato correttamente l'accesso. Dopo aver autenticato l'utente, viene indirizzato all'URL richiesto originariamente.
 
 Poiché l'URL di destinazione è specificato nella stringa di query della richiesta, un utente malintenzionato può manomettere il parametro querystring. Una stringa di query manomessi potrebbe consentire al sito di reindirizzare l'utente a un sito esterno, dannoso. Questa tecnica viene chiamata un attacco di reindirizzamento (o di reindirizzamento) aperto.
 
@@ -36,7 +36,7 @@ Un utente malintenzionato potrebbe sviluppare un attacco che consente l'accesso 
 3. L'utente viene reindirizzato (per il sito) ``http://nerddiner.com/Account/LogOn`` (sito dannoso simile sito reale).
 4. L'utente accede nuovamente (dando dannoso le proprie credenziali del sito) e viene reindirizzato al sito effettivo.
 
-L'utente verrà probabilmente ritiene che il primo tentativo di accedere non è riuscita e il secondo è stata eseguita correttamente. Sarà probabilmente rimangono anche senza conoscere le credenziali sono stati compromessi.
+L'utente verrà probabilmente ritiene che il primo tentativo di accedere non è riuscita e il secondo è stata eseguita correttamente. Molto probabilmente rimarrà anche senza conoscere le credenziali sono stati compromessi.
 
 ![Processo di attacchi di reindirizzamento aperto](preventing-open-redirects/_static/open-redirection-attack-process.png)
 

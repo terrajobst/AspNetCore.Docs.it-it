@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -50,7 +50,7 @@ Le visualizzazioni sono responsabili per la presentazione di contenuto tramite l
 I controller sono i componenti che gestiscono l'interazione dell'utente, utilizzano il modello e selezionano infine una visualizzazione per il rendering. In un'applicazione MVC, Visualizza solo informazioni; il controller gestisce e risponde all'input dell'utente e l'interazione. Nel modello MVC, è il punto di ingresso iniziale, il controller ed è responsabile per selezionare il modello di tipi da utilizzare e la visualizzazione per il rendering (pertanto il relativo nome - controlla la modalità dell'app risponde a una determinata richiesta).
 
 > [!NOTE]
-> Controller dovrebbero non essere eccessivamente complessa da un numero eccessivo di responsabilità. Per mantenere la logica di controller di diventare eccessivamente complessa, utilizzare il [singolo responsabilità principio](http://deviq.com/single-responsibility-principle/) alla logica di business di push fuori il controller e nel modello di dominio.
+> Controller non devono essere eccessivamente complessa da un numero eccessivo di responsabilità. Per mantenere la logica di controller di diventare eccessivamente complessa, utilizzare il [singolo responsabilità principio](http://deviq.com/single-responsibility-principle/) alla logica di business di push fuori il controller e nel modello di dominio.
 
 >[!TIP]
 > Se si ritiene che le azioni del controller eseguono frequentemente gli stessi tipi di azioni, è possibile seguire il [non ripetere manualmente principio](http://deviq.com/don-t-repeat-yourself/) spostando queste azioni comuni in [filtri](#filters).

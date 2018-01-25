@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 50de8473d1fd77de4b221f0c96fc7f184621d4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: risoluzione dei problemi (12 12)
 ====================
@@ -164,7 +164,7 @@ Aggiornate il *Web. config* file la stringa di connessione in modo che punti a u
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Il nome del *con estensione mdf* file non può corrispondere al nome di qualsiasi database di SQL Server Express che è stata presente nel computer, anche se è stato eliminato il *con estensione mdf* file del database esistente in precedenza. Modificare il nome del *con estensione mdf* file a un nome che non sia mai stato utilizzato come un nome di database e modificare il *Web. config* file da utilizzare il nuovo nome. In alternativa, è possibile utilizzare [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) eliminare già SQL Server Express database.
+Il nome del *con estensione mdf* file non può corrispondere al nome di qualsiasi database di SQL Server Express che è stata presente nel computer, anche se è stato eliminato il *con estensione mdf* file del database esistente in precedenza. Modificare il nome del *con estensione mdf* file a un nome che non sia mai stato utilizzato come un nome di database e modificare il *Web. config* file da utilizzare il nuovo nome. In alternativa, è possibile utilizzare [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) eliminare già SQL Server Express database.
 
 ## <a name="model-compatibility-cannot-be-checked"></a>Compatibilità di modello non selezionata
 
@@ -176,7 +176,7 @@ Aggiornamento di *Web. config* file la stringa di connessione in modo che punti 
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Se il nome del database viene inserito nel file Web. config è stato utilizzato prima che il computer, potrebbe esistere già un database con alcune tabelle in essa contenuti. Selezionare un nuovo nome che non è stato utilizzato nel computer prima di e modifica di *Web. config* file in modo da puntare per utilizzare il nome del nuovo database. In alternativa, è possibile utilizzare [SQL Server Express utilità](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990) o [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) per eliminare il database esistente.
+Se il nome del database viene inserito nel file Web. config è stato utilizzato prima che il computer, potrebbe esistere già un database con alcune tabelle in essa contenuti. Selezionare un nuovo nome che non è stato utilizzato nel computer prima di e modifica di *Web. config* file in modo da puntare per utilizzare il nome del nuovo database. In alternativa, è possibile utilizzare [SQL Server Express utilità](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) o [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) per eliminare il database esistente.
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>Errore SQL quando uno Script tenta di creare utenti o ruoli
 
@@ -194,7 +194,7 @@ L'account utente utilizzato per eseguire la distribuzione non dispone dell'autor
 
 [!code-console[Main](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12/samples/sample17.cmd)]
 
-Per informazioni su come modificare il `PreSource` elemento nel file di progetto, vedere [procedura: modificare le impostazioni di distribuzione nel File di progetto](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx). Se gli utenti o ruoli nel database di sviluppo devono essere nel database di destinazione, contattare il provider di hosting per assistenza.
+Per informazioni su come modificare il `PreSource` elemento nel file di progetto, vedere [procedura: modificare le impostazioni di distribuzione nel File di progetto](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Se gli utenti o ruoli nel database di sviluppo devono essere nel database di destinazione, contattare il provider di hosting per assistenza.
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>Errore di Timeout SQL Server durante l'esecuzione di script personalizzati durante la distribuzione
 
@@ -204,7 +204,7 @@ Per informazioni su come modificare il `PreSource` elemento nel file di progetto
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Esecuzione di più script che dispongono di modalità di transazione diversi può causare errori di timeout. Per impostazione predefinita, eseguire gli script generati automaticamente in una transazione, ma non gli script personalizzati. Se si seleziona il **Pull dei dati e/o schema da un database esistente** opzione il **pubblicazione/creazione pacchetto SQL** scheda, e se si aggiunge uno script SQL personalizzato, è necessario modificare le impostazioni delle transazioni su alcuni script in modo che tutti gli script utilizzano le stesse impostazioni di transazione. Per ulteriori informazioni, vedere [procedura: distribuire un Database con un progetto di applicazione Web](https://msdn.microsoft.com/en-us/library/dd465343.aspx).
+Esecuzione di più script che dispongono di modalità di transazione diversi può causare errori di timeout. Per impostazione predefinita, eseguire gli script generati automaticamente in una transazione, ma non gli script personalizzati. Se si seleziona il **Pull dei dati e/o schema da un database esistente** opzione il **pubblicazione/creazione pacchetto SQL** scheda, e se si aggiunge uno script SQL personalizzato, è necessario modificare le impostazioni delle transazioni su alcuni script in modo che tutti gli script utilizzano le stesse impostazioni di transazione. Per ulteriori informazioni, vedere [procedura: distribuire un Database con un progetto di applicazione Web](https://msdn.microsoft.com/library/dd465343.aspx).
 
 Se si riceve ancora questo errore aver configurato le impostazioni delle transazioni in modo che tutti sono uguali, una possibile soluzione consiste nell'eseguire gli script separatamente. Nel **degli script di Database** griglia il **pubblicazione/creazione pacchetto** scheda SQL, deseleziona il **Include** casella di controllo per lo script che provoca l'errore di timeout, quindi pubblicare il progetto. Quindi passare nuovamente il **degli script di Database** griglia, selezionare lo script **Include** casella di controllo e deselezionare il **Include** caselle di controllo per gli altri script. Pubblicare nuovamente il progetto. Questa volta quando si pubblica, che viene eseguito solo lo script personalizzato selezionato.
 
@@ -290,7 +290,7 @@ Pubblicazione ha esito negativo con un errore indicante che è non dispone di au
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se è noto che le autorizzazioni predefinite per le cartelle sito siano corrette e non è necessario impostare, è possibile disattivare questo comportamento aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx). 
+Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se è noto che le autorizzazioni predefinite per le cartelle sito siano corrette e non è necessario impostare, è possibile disattivare questo comportamento aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Errori di accesso negato quando l'applicazione tenta di scrivere in una cartella dell'applicazione
 
@@ -300,7 +300,7 @@ Gli errori dell'applicazione quando si tenta di creare o modificare un file in u
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se l'applicazione necessita di accesso in scrittura a una sottocartella, è possibile impostare le autorizzazioni per tale cartella come illustrato nel [impostazione delle autorizzazioni di cartella](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) e [distribuzione nell'ambiente di produzione](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) esercitazioni. Se l'applicazione necessita di accesso in scrittura alla cartella radice del sito, è necessario impedirne l'impostazione di accesso in sola lettura nella cartella radice aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx). <a id="aspnet45error"></a>
+Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se l'applicazione necessita di accesso in scrittura a una sottocartella, è possibile impostare le autorizzazioni per tale cartella come illustrato nel [impostazione delle autorizzazioni di cartella](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) e [distribuzione nell'ambiente di produzione](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) esercitazioni. Se l'applicazione necessita di accesso in scrittura alla cartella radice del sito, è necessario impedirne l'impostazione di accesso in sola lettura nella cartella radice aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Errore di configurazione - attributo targetFramework fa riferimento a una versione successiva rispetto alla versione installata di .NET Framework
 
@@ -318,7 +318,7 @@ Finestra di errore dell'origine della pagina di errore evidenzia la riga seguent
 
 Il server non supporta ASP.NET 4.5. Contattare il provider di hosting per determinare quando e se può essere aggiunto il supporto per ASP.NET 4.5. Se l'aggiornamento del server non è un'opzione, è necessario distribuire un progetto web destinato a 4 o versioni precedenti di ASP.NET invece. Se si distribuisce un progetto web precedenti ASP.NET 4 per la stessa destinazione, selezionare il **Rimuovi file aggiuntivi nella destinazione** casella di controllo di **impostazioni** scheda della finestra il **pubblica sul Web**procedura guidata. Se non si seleziona **Rimuovi file aggiuntivi nella destinazione**, si continuerà a ottenere la pagina di errore di configurazione.
 
-Il progetto **proprietà** windows include un elenco di riepilogo a discesa dei framework di destinazione, ma è possibile risolvere questo problema modificando solo da **.NET Framework 4.5** a **di.NETFramework4**. Se si modifica il framework di destinazione a una versione precedente di framework, il progetto sarà ancora disponibili riferimenti agli assembly della versione di framework successive e non verrà eseguito. È necessario modificare tali riferimenti manualmente o creare un nuovo progetto destinato a .NET Framework 4 o versioni precedenti. Per ulteriori informazioni, vedere [.NET Framework come destinazione per i siti Web](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx).
+Il progetto **proprietà** windows include un elenco di riepilogo a discesa dei framework di destinazione, ma è possibile risolvere questo problema modificando solo da **.NET Framework 4.5** a **di.NETFramework4**. Se si modifica il framework di destinazione a una versione precedente di framework, il progetto sarà ancora disponibili riferimenti agli assembly della versione di framework successive e non verrà eseguito. È necessario modificare tali riferimenti manualmente o creare un nuovo progetto destinato a .NET Framework 4 o versioni precedenti. Per ulteriori informazioni, vedere [.NET Framework come destinazione per i siti Web](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Precedente](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

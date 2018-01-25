@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e1e77dde4602350b18508bf5d71dbcd953f8961c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-vb"></a>Batch di inserimento (VB)
 ====================
@@ -96,7 +96,7 @@ Avvio mediante il trascinamento di un pannello dalla casella degli strumenti nel
 Successivamente, è necessario creare l'interfaccia di inserimento che è stato illustrato nella figura 1. Questa interfaccia può essere creata tramite varie tecniche HTML, ma verrà utilizzata una semplice: una tabella di sette righe e quattro colonne.
 
 > [!NOTE]
-> Quando si immettono markup per HTML `<table>` elementi, è preferibile utilizzare la vista di origine. Mentre in Visual Studio sono strumenti per l'aggiunta di `<table>` elementi tramite la finestra di progettazione, sembra tutti troppo disposto a inserire la finestra di progettazione non richiesto non desiderato per `style` impostazioni nel markup. Dopo aver creato il `<table>` markup, in genere visualizzare nella finestra di progettazione per aggiungere i controlli Web e impostare le relative proprietà. Durante la creazione di tabelle con colonne predeterminate e righe preferisce utilizzare HTML statico invece di [controllo Web Table](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) perché tutti i controlli Web inseriti all'interno di un controllo tabella Web è possibile accedere solo tramite il `FindControl("controlID")` modello. , Tuttavia, usare i controlli Web di tabella per le tabelle di dimensioni in modo dinamico (quelli il cui righe o colonne si basano su alcuni database o i criteri specificati dall'utente), dal Web tabella controllo può essere costruito a livello di codice.
+> Quando si immettono markup per HTML `<table>` elementi, è preferibile utilizzare la vista di origine. Mentre in Visual Studio sono strumenti per l'aggiunta di `<table>` elementi tramite la finestra di progettazione, sembra tutti troppo disposto a inserire la finestra di progettazione non richiesto non desiderato per `style` impostazioni nel markup. Dopo aver creato il `<table>` markup, in genere visualizzare nella finestra di progettazione per aggiungere i controlli Web e impostare le relative proprietà. Durante la creazione di tabelle con colonne predeterminate e righe preferisce utilizzare HTML statico invece di [controllo Web Table](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) perché tutti i controlli Web inseriti all'interno di un controllo tabella Web è possibile accedere solo tramite il `FindControl("controlID")` modello. , Tuttavia, usare i controlli Web di tabella per le tabelle di dimensioni in modo dinamico (quelli il cui righe o colonne si basano su alcuni database o i criteri specificati dall'utente), dal Web tabella controllo può essere costruito a livello di codice.
 
 
 Immettere il seguente codice all'interno di `<asp:Panel>` tag del `InsertingInterface` pannello:

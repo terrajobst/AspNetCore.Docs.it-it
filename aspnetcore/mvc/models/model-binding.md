@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
@@ -56,7 +56,7 @@ Nota: Modulo valori, i dati di route e query tutte le stringhe vengono archiviat
 
 Poiché l'associazione del modello richiesto per una chiave denominata `id` Nessun elemento denominato `id` nei valori del form, spostato per i valori della route per tale chiave. In questo esempio, è una corrispondenza. Si verifichi l'associazione e il valore viene convertito all'intero 2. La stessa richiesta mediante modifica (id di stringa) potrebbe convertire la stringa "2".
 
-Nell'esempio viene utilizzato finora tipi semplici. In MVC tipi semplici sono qualsiasi tipo primitivo .NET o con un convertitore di tipi di stringa. Se il parametro del metodo di azione fosse una classe, ad esempio il `Movie` tipo, che contiene i tipi semplici e complessi come proprietà, modello associazione continuerà del MVC gestire correttamente. Usa la reflection e la ricorsione per attraversare le proprietà di ricerca di corrispondenze di tipi complessi. Esegue la ricerca per il modello di associazione di modelli *parameter_name.property_name* per associare i valori alle proprietà. Se i valori corrispondenti del modulo non viene trovato, verrà effettuato un tentativo di eseguire il binding utilizzando solo il nome della proprietà. Per i tipi, ad esempio `Collection` , tipi di associazione del modello esegue la ricerca di corrispondenze da *parameter_name [index]* o semplicemente *[index]*. Modello di associazione considera `Dictionary` tipi in modo analogo, che richiede il *parameter_name [key]* o semplicemente *[key]*, purché le chiavi sono tipi semplici. Le chiavi supportate corrispondono ai nomi di campo HTML e gli helper di tag generati per lo stesso tipo di modello. In questo modo i valori di andata e ritorno in modo che i campi modulo rimangano riempiti con l'input dell'utente per i motivi di praticità, ad esempio, quando i dati associati dalla creazione o modifica non ha superato la convalida.
+Nell'esempio viene utilizzato finora tipi semplici. In MVC tipi semplici sono qualsiasi tipo primitivo .NET o con un convertitore di tipi di stringa. Se il parametro del metodo di azione fosse una classe, ad esempio il `Movie` tipo, che contiene i tipi semplici e complessi come proprietà, modello associazione continuerà del MVC gestire correttamente. Usa la reflection e la ricorsione per attraversare le proprietà di ricerca di corrispondenze di tipi complessi. Esegue la ricerca per il modello di associazione di modelli *parameter_name.property_name* per associare i valori alle proprietà. Se i valori corrispondenti del modulo non viene trovato, verrà effettuato un tentativo di eseguire il binding utilizzando solo il nome della proprietà. Per i tipi, ad esempio `Collection` , tipi di associazione del modello esegue la ricerca di corrispondenze da *parameter_name [index]* o semplicemente *[index]*. Modello di associazione considera `Dictionary` tipi in modo analogo, che richiede il *parameter_name [key]* o semplicemente *[key]*, purché le chiavi sono tipi semplici. Le chiavi supportate corrispondono ai nomi di campo HTML e gli helper di tag generati per lo stesso tipo di modello. In questo modo i valori di andata e ritorno in modo che i campi modulo rimangano riempiti con l'input dell'utente per i motivi di praticità, ad esempio, quando i dati associati dalla creazione o modifica non superano la convalida.
 
 In ordine di associazione consente di eseguire la classe deve avere un costruttore predefinito pubblico e membro sia associato deve essere pubblica proprietà accessibile in scrittura. Quando si verifica l'associazione di modelli che della classe sarà possibile creare istanze solo utilizzando il costruttore predefinito pubblico, è possono impostare le proprietà.
 
@@ -70,7 +70,7 @@ Quando è associato un parametro, l'associazione di modelli arresta cercando val
 
 * Tipi di valore: I tipi di valore Non nullable di tipo `T` sono impostate su `default(T)`. Ad esempio, l'associazione di modelli verrà impostato un parametro `int id` su 0. Si consideri usando la convalida del modello o un tipo nullable anziché basarsi sui valori predefiniti.
 
-Se l'associazione non riesce, MVC genera un errore. Ogni azione che accetta l'input dell'utente deve controllare il `ModelState.IsValid` proprietà.
+Se l'associazione non riesce, MVC non genera un errore. Ogni azione che accetta l'input dell'utente deve controllare il `ModelState.IsValid` proprietà.
 
 Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors` proprietà. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid`.
 

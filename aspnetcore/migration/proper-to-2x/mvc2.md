@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc2
-ms.openlocfilehash: f9845449659960e82afd4f51d64084b7f55f68d4
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 95bedf9299b4ff65c2f520358136174c4d2c4623
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>La migrazione da ASP.NET per ASP.NET 2.0 Core
 
@@ -38,11 +38,11 @@ La scelta di .NET Core come destinazione consente di eliminare numerosi riferime
 </ItemGroup>
 ```
 
-Quando si usa il metapacchetto, con l'app non viene distribuito alcun pacchetto a cui si fa riferimento nel metapacchetto. L'archivio di runtime di .NET Core include questi asset, che vengono precompilati per migliorare le prestazioni. Vedere le informazioni sul [metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2. x](xref:fundamentals/metapackage) per maggiori dettagli.
+Quando si usa il metapacchetto, con l'app non viene distribuito alcun pacchetto a cui si fa riferimento nel metapacchetto. L'archivio di Runtime .NET Core include queste risorse sono è precompilati per migliorare le prestazioni. Vedere le informazioni sul [metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2. x](xref:fundamentals/metapackage) per maggiori dettagli.
 
 ## <a name="project-structure-differences"></a>Differenze di struttura del progetto
 Il formato di file *CSPROJ* è stato semplificato in ASP.NET Core. Alcune modifiche importanti includono:
-- L'inclusione esplicita dei file non è necessaria affinché i file vengano considerati parte del progetto. In questo modo si riduce il rischio di conflitti di merge XML quando si lavora con team di grandi dimensioni.
+- Inclusione esplicita dei file non è necessaria affinché possano essere considerati parte del progetto. In questo modo si riduce il rischio di conflitti di merge XML quando si lavora con team di grandi dimensioni.
 - Non sono presenti riferimenti basati su GUID ad altri progetti e questo migliora la leggibilità dei file.
 - Il file può essere modificato senza scaricarlo in Visual Studio:
 
@@ -53,13 +53,13 @@ In ASP.NET Core è stato introdotto un nuovo meccanismo per l'avvio automatico d
 
 [!code-csharp[Main](samples/globalasax-sample.cs)]
 
-Con questo approccio l'applicazione e il server a cui viene distribuita vengono accoppiati in un modo che interferisce con l'implementazione. Al fine di disaccoppiare gli elementi, è stata introdotta la funzionalità [OWIN](http://owin.org/) che offre un modo più semplice di usare più framework insieme. OWIN offre una pipeline per aggiungere solo i moduli necessari. L'ambiente host accetta una funzione di [avvio](xref:fundamentals/startup) per configurare i servizi e la pipeline delle richieste dell'applicazione. `Startup` registra un set di middleware con l'applicazione. Per ogni richiesta, l'applicazione chiama ognuno dei componenti middleware con il puntatore iniziale di un elenco collegato a un set esistente di gestori. Ogni componente middleware può aggiungere uno o più gestori alla pipeline di gestione delle richieste. Questa operazione viene eseguita restituendo un riferimento al gestore che rappresenta il nuovo inizio dell'elenco. Ogni gestore è responsabile della memorizzazione e della chiamata del gestore successivo nell'elenco. Con ASP.NET Core, il punto di ingresso a un'applicazione è `Startup` e non esiste più una dipendenza da *Global.asax*. Quando si usa OWIN con .NET Framework, usare una pipeline simile alla seguente:
+Con questo approccio l'applicazione e il server a cui viene distribuita vengono accoppiati in un modo che interferisce con l'implementazione. Al fine di disaccoppiare gli elementi, è stata introdotta la funzionalità [OWIN](http://owin.org/) che offre un modo più semplice di usare più framework insieme. OWIN offre una pipeline per aggiungere solo i moduli necessari. L'ambiente host accetta una funzione di [avvio](xref:fundamentals/startup) per configurare i servizi e la pipeline delle richieste dell'applicazione. `Startup` registra un set di middleware con l'applicazione. Per ogni richiesta, l'applicazione chiama ognuno dei componenti middleware con il puntatore iniziale di un elenco collegato a un set esistente di gestori. Ogni componente middleware può aggiungere uno o più gestori alla pipeline di gestione delle richieste. Questa operazione viene eseguita tramite la restituzione di un riferimento al gestore che è il nuovo inizio dell'elenco. Ogni gestore è responsabile della memorizzazione e della chiamata del gestore successivo nell'elenco. Con ASP.NET Core, il punto di ingresso a un'applicazione è `Startup` e non esiste più una dipendenza da *Global.asax*. Quando si usa OWIN con .NET Framework, usare una pipeline simile alla seguente:
 
 [!code-csharp[Main](samples/webapi-owin.cs)]
 
 Ciò consente di configurare le route predefinite e impostare come predefinito XmlSerialization per Json. Aggiungere altro middleware a questa pipeline in base alle esigenze, ad esempio caricamento di servizi, impostazioni di configurazione, file statici e così via.
 
-ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce. L'operazione viene invece eseguita usando il metodo *Program.cs* `Main` (simile alle applicazioni console) e `Startup` viene caricato da tale posizione.
+ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce. Invece, che viene eseguita tramite il *Program.cs* `Main` metodo (simile alle applicazioni console) e `Startup` viene caricato tramite tale posizione.
 
 [!code-csharp[Main](samples/program.cs)]
 
@@ -108,7 +108,7 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 **Nota:** per informazioni più dettagliate sulla configurazione di ASP.NET Core, vedere l'articolo sulla [configurazione in ASP.NET Core](xref:fundamentals/configuration/index).
 
 ## <a name="native-dependency-injection"></a>Inserimento delle dipendenze nativo
-Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune che consente di raggiungerlo ed è un componente nativo di ASP.NET Core.
+Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. [Inserimento di dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune per raggiungere questo obiettivo, ed è un componente nativo di ASP.NET Core.
 
 Nelle applicazioni ASP.NET, gli sviluppatori si affidano a una libreria di terze parti per implementare l'inserimento delle dipendenze. Una di queste librerie è [Unity](https://github.com/unitycontainer/unity) e fa parte di Modelli e procedure Microsoft. 
 

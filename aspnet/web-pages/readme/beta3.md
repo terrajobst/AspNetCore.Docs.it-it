@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5fad4b659dafe5470aeb84d320ff711b8840d1e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Una matrice e file Leggimi versione Beta 3 di Web ASP.NET (Razor) pagine Web
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 9 novembre 2010
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 - [Panoramica](#Overview)
 - [Installazione](#Installation_Notes)
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 > Quando si installa SQL Server Compact 4.0 in un computer a 64 bit e il computer dispone solo di .NET Framework 3.5 SP1 Client Profile installato, gli assembly gestiti per SQL Server Compact 4.0 non vengono inseriti in global assembly cache (GAC). Gli assembly gestiti che non sono installati nella Global Assembly Cache sono:
 > 
 > - *SqlServerCe* (provider ADO.NET)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Soluzione alternativa**  
 > Disinstallare SQL Server Compact 4.0. Scaricare e installare la versione completa di .NET Framework 3.5 SP1 dal percorso seguente:  
@@ -162,9 +162,9 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > Si noti che il `@{ }` caratteri intorno al codice iniziale nell'helper non viene più utilizzato. Questo avviene perché il contenuto degli helper viene considerato come un blocco di codice per impostazione predefinita. L'helper esegue il rendering di markup, che inizia con l'apertura `<a>` tag. Se l'helper necessario eseguire il rendering in testo normale o tag che non includono un tag di chiusura (ad esempio, `<meta>` tag), il contenuto da sottoporre a rendering deve essere `<text></text>` tag.
 
 
-#### <a name="change-webpagecontexthttpcontext-removed"></a>Modifica: Rimuovere "WebPageContext.HttpContext"
+#### <a name="change-webpagecontexthttpcontext-removed"></a>Change: "WebPageContext.HttpContext" removed
 
-> Il `WebPageContext.HttpContext` proprietà è stata rimossa. In alternativa, usare `HttpContext.Current` . (Il `WebPageContext.HttpContext` proprietà semplicemente incapsulati.)
+> Il `WebPageContext.HttpContext` proprietà è stata rimossa. In alternativa, usare `HttpContext.Current`. (Il `WebPageContext.HttpContext` proprietà semplicemente incapsulati.)
 
 
 #### <a name="change-facebook-helper-moved-to-new-package"></a>Modifica: Supporto "Facebook" spostato di nuovo pacchetto
@@ -265,7 +265,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> Per ulteriori informazioni sulla configurazione di un server proxy, vedere [ &lt;proxy&gt; elemento (impostazioni di rete)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) nel sito Web MSDN.
+> Per ulteriori informazioni sulla configurazione di un server proxy, vedere [ &lt;proxy&gt; elemento (impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx) nel sito Web MSDN.
 
 
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Problema: Errore "Impossibile caricare Microsoft.Web.Infrastructure.dll"
@@ -549,8 +549,8 @@ Per ulteriori informazioni su WebMatrix Beta 3, vedere i siti Web seguenti:
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET 2.0](https://asp.net/webmatrix)
-- [Microsoft.com](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
 * * *
 
-© 2010 Microsoft Corporation. Tutti i diritti riservati. [Condizioni di utilizzo](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2010 Microsoft Corporation. Tutti i diritti riservati. [Condizioni di utilizzo](https://msdn.microsoft.cos/cc300389.aspx).

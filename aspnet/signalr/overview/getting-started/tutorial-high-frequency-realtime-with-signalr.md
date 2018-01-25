@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5af7289392c18d58de11249c75e539c9e08954be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ab051b2ab85d1aac1e7179f342f22f470b1d1cc7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Esercitazione: In tempo reale ad alta frequenza con SignalR 2
 ====================
@@ -226,4 +226,4 @@ Per ulteriori informazioni sui concetti di sviluppo SignalR, visitare i siti seg
 - [SignalR Github ed esempi](https://github.com/SignalR/SignalR)
 - [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
 
-Per una procedura dettagliata su come distribuire un'applicazione di SignalR in Azure, vedere [utilizzando SignalR con le app Web in Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Per informazioni dettagliate su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [creare un'app web ASP.NET in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Per una procedura dettagliata su come distribuire un'applicazione di SignalR in Azure, vedere [utilizzando SignalR con le app Web in Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Per informazioni dettagliate su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [creare un'app web ASP.NET in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

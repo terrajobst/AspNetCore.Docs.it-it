@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 12d3982ce1abf74a575dae5362b037bd4ecc3d0f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>Memorizzazione nella cache in ASP.NET Core
 
@@ -98,9 +98,9 @@ Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Utilizzo di una cache distribuita](xref:performance/caching/distributed)
+* [Uso di una cache distribuita](xref:performance/caching/distributed)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-* [Helper di Tag della cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper di Tag Cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

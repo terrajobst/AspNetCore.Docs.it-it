@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccf22f9e72777242ca0239aee69045ab03d56960
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>Memorizzazione nella cache i dati all'avvio dell'applicazione (c#)
 ====================
@@ -36,7 +36,7 @@ Le due esercitazioni precedenti esaminato la memorizzazione nella cache di dati 
 Un altro tipo di caricamento proattivo e il tipo che è sarà esplorazione in questa esercitazione, il caricamento dei dati nella cache all'avvio dell'applicazione. Questo approccio è particolarmente utile per la memorizzazione nella cache i dati statici, ad esempio i record nelle tabelle di ricerca del database.
 
 > [!NOTE]
-> Per un approfondimento le differenze tra caricamento attivo e reattivo, nonché gli elenchi di vantaggi e svantaggi consigli di implementazione, vedere il [la gestione del contenuto di una Cache](https://msdn.microsoft.com/en-us/library/ms978503.aspx) sezione la [ Guida all'architettura di applicazioni per .NET Framework di memorizzazione nella cache](https://msdn.microsoft.com/en-us/library/ms978498.aspx).
+> Per un approfondimento le differenze tra caricamento attivo e reattivo, nonché gli elenchi di vantaggi e svantaggi consigli di implementazione, vedere il [la gestione del contenuto di una Cache](https://msdn.microsoft.com/library/ms978503.aspx) sezione la [ Guida all'architettura di applicazioni per .NET Framework di memorizzazione nella cache](https://msdn.microsoft.com/library/ms978498.aspx).
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>Passaggio 1: Determinare quali dati da memorizzare nella Cache all'avvio dell'applicazione
@@ -68,7 +68,7 @@ Quando si utilizza una classe, in genere la classe deve essere creata un'istanza
 
 Prima di è possibile richiamare *SomeMethod* o funzionano con *SomeProperty*, è innanzitutto necessario creare un'istanza della classe utilizzando il `new` (parola chiave). *SomeMethod* e *SomeProperty* sono associati a una particolare istanza. La durata di questi membri è legata alla durata dell'oggetto associato. *I membri statici*, d'altra parte, sono variabili, proprietà e metodi che vengono condivisi tra *tutti* istanze della classe e, di conseguenza, hanno una durata, purché la classe. I membri statici sono contrassegnati dalla parola chiave `static`.
 
-Oltre ai membri statici, dati possono essere memorizzati nella cache dello stato dell'applicazione. Ogni applicazione ASP.NET gestisce una raccolta nome/valore che s condiviso tra tutti gli utenti e pagine dell'applicazione. Questa raccolta è possibile accedere tramite il [ `HttpContext` classe](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) s [ `Application` proprietà](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx)e utilizzati da una classe code-behind di pagine ASP.NET come illustrato di seguito:
+Oltre ai membri statici, dati possono essere memorizzati nella cache dello stato dell'applicazione. Ogni applicazione ASP.NET gestisce una raccolta nome/valore che s condiviso tra tutti gli utenti e pagine dell'applicazione. Questa raccolta è possibile accedere tramite il [ `HttpContext` classe](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` proprietà](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)e utilizzati da una classe code-behind di pagine ASP.NET come illustrato di seguito:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
@@ -135,7 +135,7 @@ Il valore predefinito `Global.asax` file modello include cinque metodi all'inter
 - **`Session_Start`**viene eseguito quando viene creata una nuova sessione
 - **`Session_End`**viene eseguito quando una sessione è scaduta o abbandonata
 
-Il `Application_Start` gestore eventi viene chiamato una sola volta durante un ciclo di vita dell'applicazione s. L'applicazione viene avviata la prima volta che il problema può verificarsi modificando il contenuto di una risorsa ASP.NET è richiesto dall'applicazione e continua l'esecuzione fino al riavvio dell'applicazione, il `/Bin` cartella, modifica `Global.asax`, modifica il contenuto nel `App_Code` cartella o la modifica di `Web.config` file, fra le altre cause. Fare riferimento a [ciclo di vita delle applicazioni ASP.NET](https://msdn.microsoft.com/en-us/library/ms178473.aspx) per informazioni più dettagliate sul ciclo di vita dell'applicazione.
+Il `Application_Start` gestore eventi viene chiamato una sola volta durante un ciclo di vita dell'applicazione s. L'applicazione viene avviata la prima volta che il problema può verificarsi modificando il contenuto di una risorsa ASP.NET è richiesto dall'applicazione e continua l'esecuzione fino al riavvio dell'applicazione, il `/Bin` cartella, modifica `Global.asax`, modifica il contenuto nel `App_Code` cartella o la modifica di `Web.config` file, fra le altre cause. Fare riferimento a [ciclo di vita delle applicazioni ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) per informazioni più dettagliate sul ciclo di vita dell'applicazione.
 
 Per queste esercitazioni è solo necessario aggiungere il codice di `Application_Start` metodo, pertanto è possibile rimuovere le altre. In `Application_Start`, chiamare semplicemente il `StaticCache` classe s `LoadStaticCache()` metodo, che verrà caricato e memorizzare nella cache le informazioni del fornitore:
 

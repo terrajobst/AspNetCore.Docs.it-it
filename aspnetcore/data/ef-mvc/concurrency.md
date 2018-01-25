@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: eee84fe0fbec6ed772342d09931986994903906a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - EF Core con l'esercitazione di base di ASP.NET MVC (8 di 10)
 
@@ -59,11 +59,11 @@ Alcune opzioni includono:
 
 * È possibile tenere traccia di quali proprietà di un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
 
-     Nello scenario di esempio, non dati andrebbero persi, perché sono state aggiornate diverse proprietà per i due utenti. La volta successiva che un utente che accede al dipartimento in lingua inglese, noteranno le modifiche di Jane sia di John - una data di inizio del 1/9/2013 e un budget di zero dollari. Questo metodo di aggiornamento può ridurre il numero di conflitti che potrebbero comportare la perdita di dati, ma è possibile evitare la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà di un'entità. Se Entity Framework funziona allo stesso modo dipende dalla modalità di implementazione del codice di aggiornamento. È spesso poco pratico in un'applicazione web, perché possono essere necessarie gestire grandi quantità di stato per tenere traccia di tutti i valori originali di proprietà per un'entità, nonché i nuovi valori. Gestione di grandi quantità di stato in termini di prestazioni dell'applicazione perché richiede risorse di server o deve essere incluso nella pagina web stessa (ad esempio, nei campi nascosti) o in un cookie.
+     Nello scenario di esempio, non dati andrebbero persi, perché sono state aggiornate diverse proprietà per i due utenti. La volta successiva che un utente che accede al dipartimento in lingua inglese, visualizzeranno le modifiche di Jane sia di John - una data di inizio del 1/9/2013 e un budget di zero dollari. Questo metodo di aggiornamento può ridurre il numero di conflitti che potrebbero comportare la perdita di dati, ma è possibile evitare la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà di un'entità. Se Entity Framework funziona allo stesso modo dipende dalla modalità di implementazione del codice di aggiornamento. È spesso poco pratico in un'applicazione web, perché possono essere necessarie gestire grandi quantità di stato per tenere traccia di tutti i valori originali di proprietà per un'entità, nonché i nuovi valori. Gestione di grandi quantità di stato in termini di prestazioni dell'applicazione perché richiede risorse di server o deve essere incluso nella pagina web stessa (ad esempio, nei campi nascosti) o in un cookie.
 
 * È possibile consentire la modifica di John sovrascrivere la modifica di Jane.
 
-     La volta successiva che un utente che accede al reparto in lingua inglese, verranno visualizzate 1/9/2013 e il valore di $350,000.00 ripristinato. Si tratta di un *prevalenza del Client* o *ultimo in Wins* scenario. (Tutti i valori dal client hanno la precedenza su ciò che si trova nell'archivio dati). Come accennato nell'introduzione di questa sezione, se non si configura questo codice per la gestione della concorrenza, verrà eseguita automaticamente.
+     La volta successiva che un utente che accede al reparto in lingua inglese, essi visualizzeranno il 1/9/2013 e il valore di $350,000.00 ripristinato. Si tratta di un *prevalenza del Client* o *ultimo in Wins* scenario. (Tutti i valori dal client hanno la precedenza su ciò che si trova nell'archivio dati). Come accennato nell'introduzione di questa sezione, se non si configura questo codice per la gestione della concorrenza, verrà eseguita automaticamente.
 
 * È possibile impedire la modifica di John vengano aggiornati nel database.
 

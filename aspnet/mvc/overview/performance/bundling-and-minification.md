@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: e83be2446ef1e3ff1275d06d5b743fb5b9444a6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="bundling-and-minification"></a>Bundling and Minification
 ====================
@@ -55,10 +55,10 @@ Dopo la minimizzazione, la funzione viene ridotto al seguente:
 
 Oltre a rimuovere i commenti e gli spazi vuoti non necessari, i seguenti parametri e i nomi delle variabili sono stati rinominati (abbreviato) come indicato di seguito:
 
-| **Originale** | **Rinominato** |
+| **Original** | **Rinominato** |
 | --- | --- |
 | imageTagAndImageID | n |
-| imageContext | u |
+| imageContext | t |
 | imageElement | i |
 
 ## <a name="impact-of-bundling-and-minification"></a>Impatto di Bundling and Minification
@@ -76,7 +76,7 @@ I byte inviati aveva una significativa riduzione con aggregazione come browser s
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debug in bundle e minimizzare JavaScript
 
-È possibile eseguire il debug di JavaScript in un ambiente di sviluppo (in cui il [elemento compilation](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) nel *Web. config* file è impostato su `debug="true"` ) perché non sono inclusi i file JavaScript o minimizzare. È anche possibile eseguire il debug di una build di rilascio in cui i file JavaScript sono collegati e minimizzare. Utilizzando gli strumenti di sviluppo F12 di Internet Explorer, si esegue il debug una funzione JavaScript inclusa in un bundle minimizzato utilizzando l'approccio seguente:
+È possibile eseguire il debug di JavaScript in un ambiente di sviluppo (in cui il [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file è impostato su `debug="true"` ) perché non sono inclusi i file JavaScript o minimizzare. È anche possibile eseguire il debug di una build di rilascio in cui i file JavaScript sono collegati e minimizzare. Utilizzando gli strumenti di sviluppo F12 di Internet Explorer, si esegue il debug una funzione JavaScript inclusa in un bundle minimizzato utilizzando l'approccio seguente:
 
 1. Selezionare il **Script** e quindi selezionare il **avviare il debug** pulsante.
 2. Selezionare il pacchetto che contiene la funzione JavaScript che si desidera eseguire il debug utilizzando il pulsante di asset.  
@@ -85,11 +85,11 @@ I byte inviati aveva una significativa riduzione con aggregazione come browser s
 4. Nel **ricerca scripting** casella di input di t, selezionare il nome della funzione per eseguire il debug. Nella figura seguente, **AddAltToImg** è stato immesso il **ricerca scripting** casella di input t.  
     ![](bundling-and-minification/_static/image6.png)
 
-Per ulteriori informazioni sul debug con gli strumenti di sviluppo F12, vedere l'articolo MSDN [utilizzando gli strumenti di sviluppo F12 per eseguire il Debug di errori JavaScript](https://msdn.microsoft.com/en-us/library/ie/gg699336(v=vs.85).aspx).
+Per ulteriori informazioni sul debug con gli strumenti di sviluppo F12, vedere l'articolo MSDN [utilizzando gli strumenti di sviluppo F12 per eseguire il Debug di errori JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
 
 ## <a name="controlling-bundling-and-minification"></a>Controllo Bundling and Minification
 
-Come aggregare e riduzione è abilitato o disabilitato impostando il valore dell'attributo debug il [elemento compilation](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) nel *Web. config* file. Il codice XML seguente, `debug` è impostato su true, aggregazione e riduzione è disabilitata.
+Come aggregare e riduzione è abilitato o disabilitato impostando il valore dell'attributo debug il [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file. Il codice XML seguente, `debug` è impostato su true, aggregazione e riduzione è disabilitata.
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
@@ -98,7 +98,7 @@ Per abilitare l'aggregazione e riduzione, impostare il `debug` valore su "false"
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> A meno che non `EnableOptimizations` è `true` o l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) nel *Web. config* file è impostato su `false`, i file non verranno inseriti o minimizzare. Inoltre, non verrà utilizzata la versione .min dei file, verranno selezionate le versioni di debug complete. `EnableOptimizations`sostituisce l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) nel *Web. config* file
+> A meno che non `EnableOptimizations` è `true` o l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file è impostato su `false`, i file non verranno inseriti o minimizzare. Inoltre, non verrà utilizzata la versione .min dei file, verranno selezionate le versioni di debug complete. `EnableOptimizations`sostituisce l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Utilizzando Bundling and Minification con Web Form ASP.NET e pagine Web
@@ -137,11 +137,11 @@ Nel codice precedente, verrà richiesta jQuery dalla rete CDN mentre nella versi
 
 ## <a name="creating-a-bundle"></a>Creazione di un pacchetto
 
-Il [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) classe `Include` metodo accetta una matrice di stringhe, in cui ogni stringa è un percorso virtuale alla risorsa. Il codice riportato di seguito dal metodo RegisterBundles il *App\_Start\BundleConfig.cs* file viene illustrato come più file vengono aggiunti a un bundle:
+Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) classe `Include` metodo accetta una matrice di stringhe, in cui ogni stringa è un percorso virtuale alla risorsa. Il codice riportato di seguito dal metodo RegisterBundles il *App\_Start\BundleConfig.cs* file viene illustrato come più file vengono aggiunti a un bundle:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-Il [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) classe `IncludeDirectory` metodo è fornito per aggiungere tutti i file in una directory (e, facoltativamente, tutte le sottodirectory) che corrispondono a un criterio di ricerca. Il [Bundle](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) classe `IncludeDirectory` API è illustrato di seguito:
+Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) classe `IncludeDirectory` metodo è fornito per aggiungere tutti i file in una directory (e, facoltativamente, tutte le sottodirectory) che corrispondono a un criterio di ricerca. Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) classe `IncludeDirectory` API è illustrato di seguito:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
@@ -170,17 +170,17 @@ La tabella seguente illustra i file aggiunti a un bundle utilizzando il caratter
 
 | **Call** | **Aggiungere file o eccezione** |
 | --- | --- |
-| Includere ("~/Scripts/Common/\*. js") | *ToggleImg.js AddAltToImg.js, ToggleDiv.js,* |
-| Includere ("~/Scripts/Common/T\*. js") | Eccezione di modello non valido. Il carattere jolly è consentito solo nel prefisso o suffisso. |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | Eccezione di modello non valido. Il carattere jolly è consentito solo nel prefisso o suffisso. |
 | Includere ("~/Scripts/Common/\*og.\*") | Eccezione di modello non valido. È consentito un solo carattere jolly. |
-| "Includono (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
+| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
 | "Includono (" ~/Scripts/Common/\*") | Eccezione di modello non valido. Un segmento con carattere jolly pure non è valido. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleLinks.js ToggleDiv.js, ToggleImg.js,* |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
+| IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Aggiunta di ogni file in modo esplicito a un bundle è generalmente preferite tramite caricamento con caratteri jolly di file per i motivi seguenti:
 
-- Aggiunta di script per impostazione predefinita con caratteri jolly per caricarli in ordine alfabetico, che è in genere non si desidera. File CSS e JavaScript spesso devono essere aggiunti in un ordine specifico (non alfabetici). È possibile ridurre questo rischio mediante l'aggiunta di un oggetto personalizzato [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementazione, ma in modo esplicito l'aggiunta di ogni file è meno soggetto a errori. Ad esempio, è possibile aggiungere nuove attività in una cartella in futuro potrebbe essere necessario modificare il [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementazione.
+- Aggiunta di script per impostazione predefinita con caratteri jolly per caricarli in ordine alfabetico, che è in genere non si desidera. File CSS e JavaScript spesso devono essere aggiunti in un ordine specifico (non alfabetici). È possibile ridurre questo rischio mediante l'aggiunta di un oggetto personalizzato [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementazione, ma in modo esplicito l'aggiunta di ogni file è meno soggetto a errori. Ad esempio, è possibile aggiungere nuove attività in una cartella in futuro potrebbe essere necessario modificare il [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementazione.
 - Visualizza file specifici aggiunti a una directory tramite il caricamento di carattere jolly possono essere incluso in tutte le viste che fanno riferimento a tale bundle. Se lo script di visualizzazione specifico viene aggiunto a un bundle, si potrebbe visualizzare un errore di JavaScript in altre visualizzazioni che fa riferimento il pacchetto.
 - File CSS che importano altri file di generare i file importati caricati due volte. Ad esempio, il codice seguente crea un bundle con la maggior parte dei file jQuery UI tema CSS caricati due volte. 
 
@@ -209,10 +209,10 @@ Il framework di aggregazione e minimizzazione fornisce un meccanismo per l'elabo
 1. Creare una cartella per il contenuto meno. L'esempio seguente usa il *Content\MyLess* cartella.
 2. Aggiungere il [.less](http://www.dotlesscss.org/) pacchetto NuGet **punto** al progetto.  
     ![Installazione senza punti NuGet](bundling-and-minification/_static/image9.png)
-3. Aggiungere una classe che implementa il [IBundleTransform](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaccia. Per la trasformazione .less, aggiungere il codice seguente al progetto.
+3. Aggiungere una classe che implementa il [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaccia. Per la trasformazione .less, aggiungere il codice seguente al progetto.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Creare un bundle di meno i file con il `LessTransform` e [CssMinify](https://msdn.microsoft.com/en-us/library/system.web.optimization.cssminify(VS.110).aspx) trasformare. Aggiungere il codice seguente per il `RegisterBundles` metodo il *App\_Start\BundleConfig.cs* file.
+4. Creare un bundle di meno i file con il `LessTransform` e [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) trasformare. Aggiungere il codice seguente per il `RegisterBundles` metodo il *App\_Start\BundleConfig.cs* file.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Aggiungere il codice seguente a visualizzazioni che fa riferimento il pacchetto di minore.

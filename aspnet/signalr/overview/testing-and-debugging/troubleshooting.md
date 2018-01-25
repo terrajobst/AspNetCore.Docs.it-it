@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>Risoluzione dei problemi di SignalR
 ====================
@@ -192,7 +192,7 @@ Esistono diverse cause per questo problema. Verificare che tutti gli elementi se
 
 - **Riferimento di indirizzo proxy hub non è formattato correttamente:** questo errore si verifica solitamente se il riferimento all'indirizzo proxy generato hub non è formattato correttamente. Verificare che il riferimento all'indirizzo hub viene effettuato correttamente. Vedere [come fanno riferimento al proxy generato dinamicamente](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) per informazioni dettagliate.
 - **Aggiunta di route per l'applicazione prima di aggiungere la route dell'hub:** se l'applicazione utilizza altre route, verificare che la route prima di aggiungere la chiamata a `MapSignalR`.
-- **Utilizzo di IIS 7 o 7.5 senza l'aggiornamento di URL senza estensione:** utilizzando IIS 7 o 7.5 richiede un aggiornamento per URL senza estensione in modo che il server può fornire accesso alle definizioni di hub in `/signalr/hubs`. L'aggiornamento è reperibile [qui](https://support.microsoft.com/kb/980368/en-us).
+- **Utilizzo di IIS 7 o 7.5 senza l'aggiornamento di URL senza estensione:** utilizzando IIS 7 o 7.5 richiede un aggiornamento per URL senza estensione in modo che il server può fornire accesso alle definizioni di hub in `/signalr/hubs`. L'aggiornamento è reperibile [qui](https://support.microsoft.com/kb/980368).
 - **IIS di memorizzare nella cache non aggiornata o danneggiato:** per verificare che il contenuto della cache non è non aggiornato, immettere il comando seguente in una finestra di PowerShell per cancellare la cache:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: le trasformazioni di File Web. config
 ====================
@@ -35,7 +35,7 @@ Promemoria: Se viene visualizzato un messaggio di errore o non funzioni man mano
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Trasformazioni di Web. config e i parametri di distribuzione Web
 
-Esistono due modi per automatizzare il processo di modifica *Web. config* impostazioni del file: [trasformazioni di Web. config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) e [parametri distribuzione Web](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web. config* file di trasformazione contiene markup XML che specifica la modalità di modifica di *Web. config* file quando viene distribuito. È possibile specificare diverse modifiche per specifiche configurazioni di compilazione e profili di pubblicazione specifico. Le configurazioni di compilazione predefinite sono di Debug e rilascio ed è possibile creare configurazioni di compilazione personalizzata. Un profilo di pubblicazione è in genere corrisponde a un ambiente di destinazione. (Si apprenderà informazioni sulla pubblicazione dei profili nel [distribuzione in IIS come ambiente di Test](deploying-to-iis.md) esercitazione.)
+Esistono due modi per automatizzare il processo di modifica *Web. config* impostazioni del file: [trasformazioni di Web. config](https://msdn.microsoft.com/library/dd465326.aspx) e [parametri distribuzione Web](https://msdn.microsoft.com/library/ff398068.aspx). A *Web. config* file di trasformazione contiene markup XML che specifica la modalità di modifica di *Web. config* file quando viene distribuito. È possibile specificare diverse modifiche per specifiche configurazioni di compilazione e profili di pubblicazione specifico. Le configurazioni di compilazione predefinite sono di Debug e rilascio ed è possibile creare configurazioni di compilazione personalizzata. Un profilo di pubblicazione è in genere corrisponde a un ambiente di destinazione. (Si apprenderà informazioni sulla pubblicazione dei profili nel [distribuzione in IIS come ambiente di Test](deploying-to-iis.md) esercitazione.)
 
 Parametri di distribuzione Web consente di specificare diversi tipi di impostazioni che devono essere configurati durante la distribuzione, incluse le impostazioni che si trovano in *Web. config* file. Quando viene utilizzata per specificare *Web. config* modifiche al file, sono più complessi per impostare i parametri di distribuzione Web, ma sono utili quando non si conosce il valore da impostare finché non vengono distribuiti. In un ambiente aziendale, ad esempio, è possibile creare un *pacchetto di distribuzione* e assegnare a un utente del reparto IT per installare nell'ambiente di produzione e che l'utente deve essere in grado di immettere le stringhe di connessione o le password che non li conoscere.
 

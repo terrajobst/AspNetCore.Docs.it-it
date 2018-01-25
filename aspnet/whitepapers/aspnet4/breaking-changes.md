@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>Modifiche di rilievo 4 ASP.NET
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 <a id="0.1__Toc256768952"></a><a id="0.1__Toc256770056"></a>
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 [L'impostazione ControlRenderingCompatibilityVersion nel File Web. config](#0.1__Toc256770141 "_Toc256770141")  
 [Le modifiche ClientIDMode](#0.1__Toc256770142 "_Toc256770142")  
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [Tipi di System.Web.Security per Passport sono Obsolete](#0.1__Toc256770158 "_Toc256770158")  
 [La proprietà MenuItem.PopOutImageUrl non riesce a eseguire il rendering di un'immagine in ASP.NET 4](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl e non è riuscita per il rendering delle immagini quando i percorsi contenere barre rovesciate Menu.DynamicPopOutImageUrl](#0.1__Toc256770160 "_Toc256770160")  
-[Dichiarazione di non responsabilità](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -272,15 +272,15 @@ Le versioni precedenti di ASP.NET incluso un **PathInfo** valore nel valore rest
 
 Nelle versioni precedenti di ASP.NET, **HttpRequest** proprietà valori sono i seguenti:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
 **HttpRequest.PathInfo**: (vuoto)
 
 In ASP.NET 4, **HttpRequest** proprietà invece valori sono i seguenti:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
-**HttpRequest.PathInfo**:`SomeAction`
+**HttpRequest.PathInfo**: `SomeAction`
 
 <a id="0.1__Toc252995493"></a><a id="0.1__Toc255587642"></a><a id="0.1__Toc256770153"></a><a id="0.1__Toc245724861"></a>
 
@@ -385,7 +385,7 @@ Di seguito è riportato un riepilogo generale delle modifiche per l'implementazi
 - Assembly compilato dinamicamente creati dai provider di compilazione ASP.NET sono stati aggiornati per contrassegnare in modo esplicito gli assembly come trasparente.
 - Tutti gli assembly ASP.NET sono ora contrassegnati in modo che l'attributo APTCA viene rispettato solo in ambienti di hosting Web. Ambienti di hosting Web non parzialmente attendibili come ClickOnce non sarà in grado di eseguire chiamate nell'assembly ASP.NET.
 
-Per ulteriori informazioni sul nuovo modello di sicurezza dall'accesso codice di ASP.NET 4, vedere [utilizzo della protezione di accesso di codice nelle applicazioni ASP.NET](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx) nel sito Web MSDN.
+Per ulteriori informazioni sul nuovo modello di sicurezza dall'accesso codice di ASP.NET 4, vedere [utilizzo della protezione di accesso di codice nelle applicazioni ASP.NET](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx) nel sito Web MSDN.
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 
@@ -412,7 +412,7 @@ Nell'elenco seguente viene illustrata la *System.Web.Security* tipi che sono sta
 
 - *System.Web.Security.MembershipCreateStatus*
 - *System.Web.Security.Membership.CreateUserException*
-- *MembershipPasswordException*
+- *System.Web.Security.MembershipPasswordException*
 - *System.Web.Security.MembershipPasswordFormat*
 - *System.Web.Security.MembershipProvider*
 - *System.Web.Security.MembershipProviderCollection*

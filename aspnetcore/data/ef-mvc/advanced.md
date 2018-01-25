@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
-ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
+ms.openlocfilehash: 4ee12cae0220825c81bd8b178dea3ac777f97bb6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - EF Core con l'esercitazione di base di ASP.NET MVC (10 di 10)
 
@@ -27,7 +27,7 @@ Nell'esercitazione precedente, l'implementazione è ereditarietà tabella per ge
 
 Uno dei vantaggi dell'utilizzo di Entity Framework è che evita abbinata codice posizione troppo ravvicinata a un metodo particolare per l'archiviazione dei dati. Ciò avviene mediante la generazione di comandi e query SQL, che consente inoltre di dover scrivere manualmente. Ma esistono scenari eccezionali, quando è necessario eseguire query SQL specifiche che è stato creato manualmente. Per questi scenari, l'API di Entity Framework codice prima include metodi che consentono di passare i comandi SQL direttamente al database. Sono disponibili le opzioni seguenti in EF Core 1.0:
 
-* Utilizzare il `DbSet.FromSql` metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si [Disattiva rilevamento](crud.md#no-tracking-queries).
+* Utilizzare il `DbSet.FromSql` metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e si rilevate automaticamente dal contesto di database a meno che non si [Disattiva rilevamento](crud.md#no-tracking-queries).
 
 * Utilizzare il `Database.ExecuteSqlCommand` per i comandi non query.
 

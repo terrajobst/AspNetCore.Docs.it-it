@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 97910940f9de26ca71b111b945581d2de6650b02
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di Test
 ====================
@@ -40,7 +40,7 @@ Quando si sviluppa un'applicazione, verifica in genere eseguendolo in Visual Stu
 
 Opzione 2 è il modo più affidabile per eseguire il test, e se a tale scopo, non è necessariamente necessario all'opzione 1. Tuttavia, se si distribuisce in un'opzione di provider hosting terze parti 2 potrebbe non essere fattibile o potrebbe essere costosa, pertanto questa serie di esercitazioni Mostra entrambi i metodi. Cui vengono fornite istruzioni per l'opzione 2 di [distribuzione nell'ambiente di produzione](deploying-to-production.md) esercitazione.
 
-Per ulteriori informazioni sull'utilizzo di server web in Visual Studio, vedere [server Web in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+Per ulteriori informazioni sull'utilizzo di server web in Visual Studio, vedere [server Web in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 
 Promemoria: Se viene visualizzato un messaggio di errore o non funzioni man mano che Leggi l'esercitazione, assicurarsi di controllare il [risoluzione dei problemi di pagina](troubleshooting.md).
 
@@ -73,7 +73,7 @@ Dopo aver installato IIS, eseguire **Gestione IIS** per assicurarsi che .NET Fra
     [![Inetmgr_showing_4.0_app_pools](deploying-to-iis/_static/image3.png)](deploying-to-iis/_static/image2.png)
 4. Se viene visualizzata solo due pool di applicazioni e di entrambi gli elementi impostati per .NET Framework 2.0, è necessario installare ASP.NET 4 in IIS.
 
-    Per Windows 8, vedere le istruzioni nella precedente sezione per assicurarsi che ASP.NET 4.5 è installato, o [questo articolo della Knowledge Base](https://support.microsoft.com/kb/2736284). Per Windows 7, aprire una finestra del prompt dei comandi facendo clic **prompt dei comandi** nelle finestre **avviare** menu e selezionando **Esegui come amministratore**. Eseguire quindi [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) per installare ASP.NET 4 in IIS, utilizzando i comandi seguenti. (In sistemi a 32 bit, sostituire "Framework64" con "Framework").
+    Per Windows 8, vedere le istruzioni nella precedente sezione per assicurarsi che ASP.NET 4.5 è installato, o [questo articolo della Knowledge Base](https://support.microsoft.com/kb/2736284). Per Windows 7, aprire una finestra del prompt dei comandi facendo clic **prompt dei comandi** nelle finestre **avviare** menu e selezionando **Esegui come amministratore**. Eseguire quindi [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) per installare ASP.NET 4 in IIS, utilizzando i comandi seguenti. (In sistemi a 32 bit, sostituire "Framework64" con "Framework").
 
     [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
@@ -94,9 +94,9 @@ IIS è ora pronto per poter pubblicare un'applicazione web, ma prima di poter es
 
 LocalDB non è progettato per funzionare in IIS, pertanto per l'ambiente di test è necessario avere installato SQL Server Express. Se si utilizza Visual Studio 2010 SQL Server Express è già installato per impostazione predefinita. Se si utilizza Visual Studio 2012, è necessario installarlo.
 
-Per installare SQL Server Express, installarlo da [area Download: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) facendo [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) o [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Se si scegliere quello corretto per il sistema non riuscirà installare e sarà possibile provare l'altro.
+Per installare SQL Server Express, installarlo da [area Download: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) facendo [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) o [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Se si scegliere quello corretto per il sistema non riuscirà installare e sarà possibile provare l'altro.
 
-Nella prima pagina di Centro installazione SQL Server, fare clic su **nuova installazione SQL Server autonomo o aggiungere funzionalità a un'installazione esistente**e seguire le istruzioni, accettando i valori predefiniti. Nell'installazione guidata di accettare le impostazioni predefinite. Per ulteriori informazioni sulle opzioni di installazione, vedere [installare SQL Server 2012 dall'installazione guidata (programma di installazione)](https://msdn.microsoft.com/en-us/library/ms143219.aspx).
+Nella prima pagina di Centro installazione SQL Server, fare clic su **nuova installazione SQL Server autonomo o aggiungere funzionalità a un'installazione esistente**e seguire le istruzioni, accettando i valori predefiniti. Nell'installazione guidata di accettare le impostazioni predefinite. Per ulteriori informazioni sulle opzioni di installazione, vedere [installare SQL Server 2012 dall'installazione guidata (programma di installazione)](https://msdn.microsoft.com/library/ms143219.aspx).
 
 ## <a name="create-sql-server-express-databases-for-the-test-environment"></a>Creare i database di SQL Server Express per l'ambiente di test
 
@@ -233,7 +233,7 @@ I passaggi seguenti si applicano le **DefaultConnection** database il **database
 
 Quando Visual Studio rileva un Entity Framework `DbContext` (classe), viene creata una voce nel **database** sezione che presenta un **eseguire le migrazioni Code First** casella di controllo anziché un  **Aggiornare Database** casella di controllo. Per questa esercitazione si userà la casella di controllo per specificare la distribuzione di migrazioni Code First.
 
-In alcuni scenari, è possibile utilizzare un `DbContext` database ma si desidera utilizzare il provider dbDacFx anziché le migrazioni per distribuire il database. In tal caso, vedere [come distribuire un database senza migrazioni Code First?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) in domande frequenti su distribuzione Web ASP.NET su MSDN.
+In alcuni scenari, è possibile utilizzare un `DbContext` database ma si desidera utilizzare il provider dbDacFx anziché le migrazioni per distribuire il database. In tal caso, vedere [come distribuire un database senza migrazioni Code First?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) in domande frequenti su distribuzione Web ASP.NET su MSDN.
 
 I passaggi seguenti si applicano le **SchoolContext** database il **database** sezione della finestra di dialogo.
 
@@ -332,7 +332,7 @@ Per informazioni sull'esecuzione di IIS o IIS Express in Visual Studio, vedere l
 
 - [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) nel sito IIS.net.
 - [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) sul blog di Scott Guthrie.
-- [Web server in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+- [Web server in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 - [Principali differenze tra IIS e il Server di sviluppo ASP.NET](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) sul sito ASP.NET.
 
 Per informazioni su quali problemi possono verificarsi durante l'applicazione viene eseguita in attendibilità media, vedere [Hosting di applicazioni ASP.NET in attendibilità media](http://www.4guysfromrolla.com/articles/100307-1.aspx) sugli Guy dal sito Rolla 4.

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatizzare tutti gli elementi (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================
@@ -45,7 +45,7 @@ Il periodo di tempo tra quando si ha un'idea per una funzionalità e quando i cl
 
 Nel [Introduzione a questo e-book](introduction.md), si è visto la console basata sul web, il portale di gestione di Azure. Il portale di gestione consente di monitorare e gestire tutte le risorse che è stato distribuito in Azure. È un modo semplice di creare ed eliminare servizi, ad esempio le applicazioni web e macchine virtuali, configurare i servizi, monitorare l'operazione del servizio e così via. È un ottimo strumento, ma rappresenta una un processo manuale. Se si intende sviluppare un'applicazione di produzione di qualsiasi dimensione, e in particolare in un ambiente di team, è consigliabile accedere al portale dell'interfaccia utente per ulteriori informazioni ed esplorare Azure e quindi automatizzare i processi che si saranno eseguendo ripetutamente.
 
-Quasi tutto ciò che è possibile eseguire manualmente nel portale di gestione o da Visual Studio può essere eseguita anche chiamando l'API di gestione di REST. È possibile scrivere gli script utilizzando [Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx), oppure è possibile utilizzare un framework open source, ad esempio [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet). È inoltre possibile utilizzare lo strumento da riga di comando Bash in un ambiente Mac o Linux. Azure offre API per i diversi ambienti di scripting e ha un [API di gestione .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) nel caso in cui si desidera scrivere codice invece di script.
+Quasi tutto ciò che è possibile eseguire manualmente nel portale di gestione o da Visual Studio può essere eseguita anche chiamando l'API di gestione di REST. È possibile scrivere gli script utilizzando [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), oppure è possibile utilizzare un framework open source, ad esempio [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet). È inoltre possibile utilizzare lo strumento da riga di comando Bash in un ambiente Mac o Linux. Azure offre API per i diversi ambienti di scripting e ha un [API di gestione .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) nel caso in cui si desidera scrivere codice invece di script.
 
 Per l'app Correggi abbiamo creato alcuni script di Windows PowerShell che consentono di automatizzare i processi di creazione di un ambiente di test e la distribuzione del progetto a un ambiente e verrà esaminato il contenuto di tali script.
 

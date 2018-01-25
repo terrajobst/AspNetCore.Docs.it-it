@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: d5574ee353ff41205e9029e4aa5d139a5aa0e959
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Scenario: Configurazione di un ambiente di produzione per la distribuzione Web
 ====================
@@ -35,7 +35,7 @@ L'ambiente di produzione è la destinazione finale per un'applicazione web o un 
 - Modifiche alle applicazioni vengono distribuite in una frequenza inferiore rispetto a test o le distribuzioni di gestione temporanea.
 
 > [!NOTE]
-> Scalabilità orizzontale di una distribuzione di database tra più server non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni su un'area, consultare [la documentazione Online di SQL Server](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Scalabilità orizzontale di una distribuzione di database tra più server non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni su un'area, consultare [la documentazione Online di SQL Server](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Ad esempio, nel nostro [scenario dell'esercitazione](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), un server Team Build include definizioni di compilazione che consentono di compilare la soluzione di gestione di contatto e averlo distribuito in un ambiente di gestione temporanea in un unico passaggio. Quando l'applicazione è pronta per essere distribuita nell'ambiente di produzione, a causa di vincoli imposti i requisiti di sicurezza e l'infrastruttura di rete, l'amministratore di ambiente di produzione è necessario copiare il pacchetto web in un server web di produzione e importare manualmente esso tramite Gestione Internet Information Services (IIS).

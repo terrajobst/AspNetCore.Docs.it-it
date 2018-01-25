@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f7f6e7e4bc3a8cc7e70911bc22a28d385f762af0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b78469858483a9501a0f73d1c894e29ae0a99122
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Recupero e modifica delle password (VB)
 ====================
@@ -83,7 +83,7 @@ Quando un utente visita questa pagina e verrà immettere il proprio nome utente 
 
 Prima di testare questa pagina, è una parte finale della configurazione da tendono a: è necessario specificare le impostazioni di recapito di posta elettronica in `Web.config`. Il controllo PasswordRecovery si basa su queste impostazioni per l'invio di posta elettronica.
 
-La configurazione di recapito di posta elettronica viene specificata tramite il [ `<system.net>` elemento](https://msdn.microsoft.com/en-us/library/6484zdc1.aspx)del [ `<mailSettings>` elemento](https://msdn.microsoft.com/en-us/library/w355a94k.aspx). Utilizzare il [ `<smtp>` elemento](https://msdn.microsoft.com/en-us/library/ms164240.aspx) per indicare il metodo di recapito e il valore predefinito dall'indirizzo. Il markup seguente configura le impostazioni di posta elettronica per l'utilizzo di un server SMTP di rete denominato `smtp.example.com` sulla porta 25 e con le credenziali di nome utente e password del nome utente e password.
+La configurazione di recapito di posta elettronica viene specificata tramite il [ `<system.net>` elemento](https://msdn.microsoft.com/library/6484zdc1.aspx)del [ `<mailSettings>` elemento](https://msdn.microsoft.com/library/w355a94k.aspx). Utilizzare il [ `<smtp>` elemento](https://msdn.microsoft.com/library/ms164240.aspx) per indicare il metodo di recapito e il valore predefinito dall'indirizzo. Il markup seguente configura le impostazioni di posta elettronica per l'utilizzo di un server SMTP di rete denominato `smtp.example.com` sulla porta 25 e con le credenziali di nome utente e password del nome utente e password.
 
 > [!NOTE]
 > `<system.net>`è un elemento figlio della radice `<configuration>` elemento e pari livello `<system.web>`. Pertanto, non inserire il `<system.net>` elemento all'interno di `<system.web>` elemento; invece inserirlo allo stesso livello.
@@ -93,7 +93,7 @@ La configurazione di recapito di posta elettronica viene specificata tramite il 
 
 Oltre a utilizzare un server SMTP nella rete, è possibile specificare una directory di prelievo in cui devono essere depositati messaggi di posta elettronica da inviare.
 
-Dopo aver configurato le impostazioni SMTP, visitare il `RecoverPassword.aspx` pagina tramite un browser. Provare a immettere un nome utente che non esiste nell'archivio dell'utente. Come illustrato nella figura 2, il controllo PasswordRecovery Visualizza un messaggio che indica che le informazioni utente non è accessibile. Il testo del messaggio può essere personalizzato tramite il controllo [ `UserNameFailureText` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
+Dopo aver configurato le impostazioni SMTP, visitare il `RecoverPassword.aspx` pagina tramite un browser. Provare a immettere un nome utente che non esiste nell'archivio dell'utente. Come illustrato nella figura 2, il controllo PasswordRecovery Visualizza un messaggio che indica che le informazioni utente non è accessibile. Il testo del messaggio può essere personalizzato tramite il controllo [ `UserNameFailureText` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
 
 
 [![Viene visualizzato un messaggio di errore se viene immesso un nome utente non valido](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
@@ -101,7 +101,7 @@ Dopo aver configurato le impostazioni SMTP, visitare il `RecoverPassword.aspx` p
 **Figura 2**: viene visualizzato un messaggio di errore se viene immesso un nome utente non valido ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image6.png))
 
 
-Immettere un nome utente. Utilizzare il nome utente di un account nel sistema con un indirizzo di posta elettronica che è possibile accedere e rispondere a cui sicurezza è noto. Dopo aver immesso il nome utente e facendo clic su Invia, il controllo PasswordRecovery consente di visualizzare la visualizzazione della domanda. Come con la visualizzazione del nome utente, se si immette un'implementazione non corretta risponde il controllo PasswordRecovery Visualizza un messaggio di errore (vedere la figura 3). Utilizzare il [ `QuestionFailureText` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) per personalizzare questo messaggio di errore.
+Immettere un nome utente. Utilizzare il nome utente di un account nel sistema con un indirizzo di posta elettronica che è possibile accedere e rispondere a cui sicurezza è noto. Dopo aver immesso il nome utente e facendo clic su Invia, il controllo PasswordRecovery consente di visualizzare la visualizzazione della domanda. Come con la visualizzazione del nome utente, se si immette un'implementazione non corretta risponde il controllo PasswordRecovery Visualizza un messaggio di errore (vedere la figura 3). Utilizzare il [ `QuestionFailureText` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) per personalizzare questo messaggio di errore.
 
 
 [![Se l'utente immette una risposta di sicurezza non valida, viene visualizzato un messaggio di errore](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
@@ -125,17 +125,17 @@ Tornare al sito e accedere con le informazioni seguenti.
 
 Nome utente: *nome utente*
 
-password: *password*
+Password: *password*
 
-Questo messaggio può essere personalizzato a livello di codice tramite un gestore eventi per il controllo PasswordRecovery [ `SendingMail` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx), o in modo dichiarativo mediante la [ `MailDefinition` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx). Vediamo entrambe queste opzioni.
+Questo messaggio può essere personalizzato a livello di codice tramite un gestore eventi per il controllo PasswordRecovery [ `SendingMail` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx), o in modo dichiarativo mediante la [ `MailDefinition` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx). Vediamo entrambe queste opzioni.
 
-Il `SendingMail` evento viene generato immediatamente prima il messaggio di posta elettronica viene inviato ed è l'ultima possibilità di modificare a livello di codice il messaggio di posta elettronica. Quando viene generato questo evento, il gestore dell'evento viene passato un oggetto di tipo [ `MailMessageEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.mailmessageeventargs.aspx), il cui `Message` proprietà contiene un riferimento al messaggio di posta elettronica per essere inviato.
+Il `SendingMail` evento viene generato immediatamente prima il messaggio di posta elettronica viene inviato ed è l'ultima possibilità di modificare a livello di codice il messaggio di posta elettronica. Quando viene generato questo evento, il gestore dell'evento viene passato un oggetto di tipo [ `MailMessageEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.mailmessageeventargs.aspx), il cui `Message` proprietà contiene un riferimento al messaggio di posta elettronica per essere inviato.
 
 Creare un gestore eventi per il `SendingMail` eventi e aggiungere il codice seguente, che a livello di codice aggiunge `webmaster@example.com` all'elenco di CC.
 
 [!code-vb[Main](recovering-and-changing-passwords-vb/samples/sample2.vb)]
 
-Messaggio di posta elettronica può inoltre essere configurato tramite dichiarativi. Il PasswordRecovery `MailDefinition` proprietà è un oggetto di tipo [ `MailDefinition` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.maildefinition.aspx). Il `MailDefinition` classe offre una serie di proprietà correlate al messaggio di posta elettronica, tra cui `From`, `CC`, `Priority`, `Subject`, `IsBodyHtml`, `BodyFileName`e altri. Per iniziare, impostare il [ `Subject` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.maildefinition.subject.aspx) per renderlo più descrittivo rispetto a quello utilizzato per impostazione predefinita (Password), ad esempio la password è stata reimpostata...
+Messaggio di posta elettronica può inoltre essere configurato tramite dichiarativi. Il PasswordRecovery `MailDefinition` proprietà è un oggetto di tipo [ `MailDefinition` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.aspx). Il `MailDefinition` classe offre una serie di proprietà correlate al messaggio di posta elettronica, tra cui `From`, `CC`, `Priority`, `Subject`, `IsBodyHtml`, `BodyFileName`e altri. Per iniziare, impostare il [ `Subject` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.subject.aspx) per renderlo più descrittivo rispetto a quello utilizzato per impostazione predefinita (Password), ad esempio la password è stata reimpostata...
 
 Per personalizzare il corpo del messaggio di posta elettronica, che è necessario creare un file di modello di posta elettronica separato che il contenuto del corpo. Iniziare creando una nuova cartella nel sito Web denominato `EmailTemplates`. Successivamente, aggiungere un nuovo file di testo in questa cartella denominata `PasswordRecovery.txt` e aggiungere il seguente contenuto:
 
@@ -143,7 +143,7 @@ Per personalizzare il corpo del messaggio di posta elettronica, che è necessari
 
 Si noti l'utilizzo dei segnaposto `<%UserName%>` e `<%Password%>`. Il controllo PasswordRecovery sostituisce automaticamente questi due segnaposto con nome utente e password recuperate prima dell'invio messaggio di posta elettronica dell'utente.
 
-Infine, scegliere il `MailDefinition`del [ `BodyFileName` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx) al modello di posta elettronica appena creato (`~/EmailTemplates/PasswordRecovery.txt`).
+Infine, scegliere il `MailDefinition`del [ `BodyFileName` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx) al modello di posta elettronica appena creato (`~/EmailTemplates/PasswordRecovery.txt`).
 
 Dopo avere apportare queste modifiche rivedere il `RecoverPassword.aspx` pagina e immettere la risposta di nome utente e la sicurezza. Viene visualizzato un messaggio di posta elettronica simile a quello in figura 5 deve. Si noti che `webmaster@example.com` è stata CC sarebbe e che l'oggetto e corpo sono state aggiornate.
 
@@ -153,7 +153,7 @@ Dopo avere apportare queste modifiche rivedere il `RecoverPassword.aspx` pagina 
 **Figura 5**: del soggetto, corpo e CC elenco sono state aggiornate ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image15.png))
 
 
-Per inviare un messaggio di posta elettronica in formato HTML impostare [ `IsBodyHtml` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) su True (il valore predefinito è False) e il modello di posta elettronica di aggiornamento per includere HTML.
+Per inviare un messaggio di posta elettronica in formato HTML impostare [ `IsBodyHtml` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) su True (il valore predefinito è False) e il modello di posta elettronica di aggiornamento per includere HTML.
 
 Il `MailDefinition` proprietà non è univoca per la classe PasswordRecovery. Come verrà illustrato nel passaggio 2, il controllo ChangePassword offre inoltre un `MailDefinition` proprietà. Inoltre, il controllo CreateUserWizard include tale proprietà che è possibile configurare per l'invio automatico di un messaggio di posta elettronica di benvenuto ai nuovi utenti.
 
@@ -163,10 +163,10 @@ Il `MailDefinition` proprietà non è univoca per la classe PasswordRecovery. Co
 
 ### <a name="programmatically-resetting-a-users-password"></a>A livello di codice di reimpostazione Password di un utente
 
-Reimpostazione password di un utente PasswordRecovery quando il controllo di chiamate di `MembershipUser` dell'oggetto [ `ResetPassword` metodo](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.resetpassword.aspx). Questo metodo dispone di due overload:
+Reimpostazione password di un utente PasswordRecovery quando il controllo di chiamate di `MembershipUser` dell'oggetto [ `ResetPassword` metodo](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Questo metodo dispone di due overload:
 
-- **[`ResetPassword`](https://msdn.microsoft.com/en-us/library/d94bdzz2.aspx)**-Reimposta una password. Utilizzare questo overload se `RequiresQuestionAndAnswer` è False.
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/en-us/library/d90zte4w.aspx)**-Reimposta fornito se solo la password di un utente *securityAnswer* sia corretto. Utilizzare questo overload se `RequiresQuestionAndAnswer` è True.
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-Reimposta una password. Utilizzare questo overload se `RequiresQuestionAndAnswer` è False.
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-Reimposta fornito se solo la password di un utente *securityAnswer* sia corretto. Utilizzare questo overload se `RequiresQuestionAndAnswer` è True.
 
 Entrambi gli overload restituiscono la nuova password generata casualmente.
 
@@ -179,7 +179,7 @@ Un paio di note di implementazione di basso livello:
 
 ### <a name="a-word-on-how-the-random-passwords-are-generated"></a>Una parola in modo la password casuali generati
 
-Le password generata casualmente visualizzate nei messaggi di posta elettronica nelle figure 4 e 5 vengono create la classe di appartenenza [ `GeneratePassword` metodo](https://msdn.microsoft.com/en-us/library/system.web.security.membership.generatepassword.aspx). Questo metodo accetta due parametri di input di integer - *lunghezza* e *numberOfNonAlphanumericCharacters* - e restituisce una stringa almeno *lunghezza* alla long con caratteri almeno *numberOfNonAlphanumericCharacters* numero di caratteri non alfanumerici. Quando questo metodo viene chiamato da classi di appartenenza o controlli Web relative all'accesso, i valori per questi due parametri vengono determinati tramite la configurazione di appartenenza `MinRequiredPasswordLength` e `MinRequiredNonalphanumericCharacters` le proprietà che è impostati su 7 e 1, rispettivamente.
+Le password generata casualmente visualizzate nei messaggi di posta elettronica nelle figure 4 e 5 vengono create la classe di appartenenza [ `GeneratePassword` metodo](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx). Questo metodo accetta due parametri di input di integer - *lunghezza* e *numberOfNonAlphanumericCharacters* - e restituisce una stringa almeno *lunghezza* alla long con caratteri almeno *numberOfNonAlphanumericCharacters* numero di caratteri non alfanumerici. Quando questo metodo viene chiamato da classi di appartenenza o controlli Web relative all'accesso, i valori per questi due parametri vengono determinati tramite la configurazione di appartenenza `MinRequiredPasswordLength` e `MinRequiredNonalphanumericCharacters` le proprietà che è impostati su 7 e 1, rispettivamente.
 
 Il `GeneratePassword` metodo utilizza un generatore di numeri casuali di crittografia avanzato per verificare che non sia presente alcun distorsione in quali caratteri casuali vengono selezionate. Inoltre, `GeneratePassword` è `Public`, vale a dire che è possibile utilizzarlo direttamente dall'applicazione ASP.NET se è necessario generare stringhe casuali o password.
 
@@ -194,7 +194,7 @@ Le password generata casualmente sono difficili da ricordare. Prendere in consid
 Utilizzare il controllo ChangePassword per creare un'interfaccia per un utente di modificare la password. Molto simile al controllo PasswordRecovery, controllo ChangePassword costituito da due visualizzazioni: modifica della Password e il completamento. La visualizzazione Cambia Password richiede all'utente per le password precedenti e nuove. Al momento di fornire la vecchia password corretta e una nuova password che soddisfi i requisiti di carattere non alfanumerico e la lunghezza minima, il controllo ChangePassword Aggiorna la password dell'utente e la visualizzazione di esito positivo.
 
 > [!NOTE]
-> Il controllo ChangePassword modifica la password dell'utente richiamando il `MembershipUser` dell'oggetto [ `ChangePassword` metodo](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.changepassword.aspx). Il metodo ChangePassword accetta due `String` - parametri di input *oldPassword* e *newPassword*- e aggiorna l'account dell'utente con il *newPassword*, Supponendo che il parametro fornito *oldPassword* sia corretto.
+> Il controllo ChangePassword modifica la password dell'utente richiamando il `MembershipUser` dell'oggetto [ `ChangePassword` metodo](https://msdn.microsoft.com/library/system.web.security.membershipuser.changepassword.aspx). Il metodo ChangePassword accetta due `String` - parametri di input *oldPassword* e *newPassword*- e aggiorna l'account dell'utente con il *newPassword*, Supponendo che il parametro fornito *oldPassword* sia corretto.
 
 
 Aprire il `ChangePassword.aspx` pagina e aggiungere un controllo ChangePassword alla pagina, denominarla `ChangePwd`. A questo punto, l'area di progettazione deve visualizzare la modifica di Password (vedere la figura 6). Ad esempio con il controllo PasswordRecovery, è possibile passare tra le visualizzazioni tramite Smart Tag del controllo. Inoltre, gli aspetti di queste visualizzazioni sono personalizzabili tramite le proprietà di stile diverse o convertendole in un modello di.
@@ -207,7 +207,7 @@ Aprire il `ChangePassword.aspx` pagina e aggiungere un controllo ChangePassword 
 
 Il controllo ChangePassword può aggiornare la password dell'utente attualmente connesso *o* la password di un altro utente specificato. Come illustrato nella figura 6, la visualizzazione di modifica della Password predefinita esegue il rendering solo tre controlli TextBox: uno per la vecchia password e due per la nuova password. Questa interfaccia predefinita viene utilizzata per aggiornare la password dell'utente attualmente connesso.
 
-Per utilizzare il controllo ChangePassword per aggiornare la password dell'utente, impostare il controllo [ `DisplayUserName` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.changepassword.displayusername.aspx) su True. Questa operazione aggiunge una quarta casella di testo alla pagina, richiedere il nome utente dell'utente di cui modificare la password.
+Per utilizzare il controllo ChangePassword per aggiornare la password dell'utente, impostare il controllo [ `DisplayUserName` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.changepassword.displayusername.aspx) su True. Questa operazione aggiunge una quarta casella di testo alla pagina, richiedere il nome utente dell'utente di cui modificare la password.
 
 Impostazione `DisplayUserName` a True è utile se si desidera che un utente connesso out di modificare la password senza dover accedere. Personalmente, ritengo che non c'è niente di problemi che richiedono un utente all'account di accesso prima di consentire di modificare la password. Pertanto, lasciare `DisplayUserName` impostato su False (predefinito). Prendere tale decisione, tuttavia, è essenzialmente stiamo impedendo agli utenti anonimi di accedere a questa pagina. Aggiornare le regole di autorizzazione URL del sito in modo da negare agli utenti anonimi da visitare `ChangePassword.aspx`. Se è necessario aggiornare la memoria nella sintassi delle regole di autorizzazione URL, fare riferimento in futuro il <a id="_msoanchor_4"> </a> [ *autorizzazione basata sull'utente* ](../membership/user-based-authorization-vb.md) esercitazione.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b02ef9121e50ab9d9f24032d32f1e65fe73049c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-data-protection"></a>Introduzione alla protezione dei dati
 
@@ -31,7 +31,7 @@ Poiché lo stato persistente è considerato attendibile dal server, si prevede c
 
 Infine, poiché sono componenti applicazioni moderne, abbiamo visto è che singoli componenti verranno possa sfruttare i vantaggi di questo sistema senza tenere in considerazione altri componenti nel sistema. Ad esempio, se un componente di token di connessione, viene utilizzato questo stack, devono operare senza interferenze da un meccanismo di anti-CSRF che potrebbe anche usare lo stesso stack. In questo modo il requisito finale: isolamento.
 
-È possibile fornire ulteriori vincoli per limitare l'ambito dei requisiti. Si presuppone che tutti i servizi operando all'interno di sistema di crittografia sono ugualmente attendibili e che i dati non debbano essere generato o utilizzato all'esterno di servizi sotto il controllo diretto. Inoltre, è necessario che le operazioni sono più rapidamente possibile poiché ogni richiesta al servizio web può passare attraverso il sistema di crittografia una o più volte. In questo modo la soluzione ideale per questo scenario la crittografia simmetrica ed è possibile sconto crittografia asimmetrica fino ad una volta che è necessario.
+È possibile fornire ulteriori vincoli per limitare l'ambito dei requisiti. Si presuppone che tutti i servizi operando all'interno di sistema di crittografia sono ugualmente attendibili e che i dati non devono essere generato o utilizzato all'esterno di servizi sotto il controllo diretto. Inoltre, è necessario che le operazioni sono più rapidamente possibile poiché ogni richiesta al servizio web può passare attraverso il sistema di crittografia una o più volte. In questo modo la soluzione ideale per questo scenario la crittografia simmetrica ed è possibile sconto crittografia asimmetrica fino ad una volta che è necessario.
 
 ## <a name="design-philosophy"></a>Filosofia di progettazione
 
@@ -41,7 +41,7 @@ Abbiamo iniziato identificando i problemi con lo stack di esistente. Una volta c
 
 * Offre una semplice API per consumatori. Le API devono essere facile da utilizzare in modo corretto e difficile da usare in modo non corretto.
 
-* Gli sviluppatori non imparare principi di gestione delle chiavi. Il sistema deve gestire selezione algoritmo e la durata di chiave per conto dello sviluppatore. Idealmente lo sviluppatore non è nemmeno dovrebbe disporre di accesso al materiale della chiave non elaborato.
+* Gli sviluppatori non devono informazioni principi di gestione delle chiavi. Il sistema deve gestire selezione algoritmo e la durata di chiave per conto dello sviluppatore. Idealmente lo sviluppatore non è nemmeno dovrebbe disporre di accesso al materiale della chiave non elaborato.
 
 * Le chiavi devono essere protetti inattivi quando possibile. Il sistema deve individuare un meccanismo di protezione predefinito appropriato e applicarlo automaticamente.
 

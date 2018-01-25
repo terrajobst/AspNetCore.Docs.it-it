@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Modello basate su coda di lavoro (creazione di applicazioni Cloud reale in Azure)
 ====================
@@ -91,7 +91,7 @@ Per implementare il modello di coda, è necessario apportare due modifiche all'a
 - Quando un utente invia una nuova Correggi attività, inserire l'attività in coda, anziché la scrittura nel database.
 - Creare un servizio back-end che elabora i messaggi nella coda.
 
-Per la coda, verrà usato il [servizio di archiviazione di Azure coda](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/). Un'altra opzione consiste nell'utilizzare [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Per la coda, verrà usato il [servizio di archiviazione di Azure coda](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Un'altra opzione consiste nell'utilizzare [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 Per decidere quale servizio di Accodamento da usare, considerare come l'app deve inviare e ricevere i messaggi in coda:
 
@@ -106,10 +106,10 @@ Un'altra considerazione riguarda la disponibilità dell'applicazione. Il servizi
 
 Per inserire un'attività di correzione nella coda, il front-end web esegue i passaggi seguenti:
 
-1. Creare un [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) istanza. Il `CloudQueueClient` istanza viene utilizzata per eseguire le richieste nel servizio di Accodamento.
+1. Creare un [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) istanza. Il `CloudQueueClient` istanza viene utilizzata per eseguire le richieste nel servizio di Accodamento.
 2. Creare la coda, se non esiste ancora.
 3. L'attività di correzione della serializzazione.
-4. Chiamare [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) per inserire il messaggio nella coda.
+4. Chiamare [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) per inserire il messaggio nella coda.
 
 È possibile eseguire questa operazione nel costruttore e `SendMessageAsync` metodo di un nuovo `FixItQueueManager` classe.
 
@@ -117,7 +117,7 @@ Per inserire un'attività di correzione nella coda, il front-end web esegue i pa
 
 Di seguito viene usato il [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) libreria per serializzare il fixit in formato JSON. È possibile utilizzare qualsiasi approccio di serializzazione desiderato. JSON ha il vantaggio di essere leggibile, pur essendo meno dettagliati rispetto ai dati XML.
 
-Codice di produzione potrebbe aggiungere logica di gestione degli errori, sospendere se il database è diventato non disponibile, gestire più pulite ripristino, creare la coda all'avvio dell'applicazione e gestire "[non elaborabile" messaggi](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx). (Un messaggio non elaborabile è un messaggio che non può essere elaborato per qualche motivo. Per evitare che i messaggi non elaborabili per cui si trovano nella coda, in cui il ruolo di lavoro continuamente tenta di elaborarle, esito negativo, ripetere l'operazione, esito negativo e così via.)
+Codice di produzione potrebbe aggiungere logica di gestione degli errori, sospendere se il database è diventato non disponibile, gestire più pulite ripristino, creare la coda all'avvio dell'applicazione e gestire "[non elaborabile" messaggi](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Un messaggio non elaborabile è un messaggio che non può essere elaborato per qualche motivo. Per evitare che i messaggi non elaborabili per cui si trovano nella coda, in cui il ruolo di lavoro continuamente tenta di elaborarle, esito negativo, ripetere l'operazione, esito negativo e così via.)
 
 Nell'applicazione MVC front-end, è necessario aggiornare il codice che crea una nuova attività. Anziché inserire l'attività nel repository, chiamare il `SendMessageAsync` metodo illustrato in precedenza.
 
@@ -156,7 +156,7 @@ Fare clic su **OK** per completare la finestra di dialogo. Aggiunge due progetti
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Per ulteriori informazioni, vedere [creazione di un progetto Azure con Visual Studio.](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+Per ulteriori informazioni, vedere [creazione di un progetto Azure con Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 All'interno del ruolo di lavoro, si esegue il polling per i messaggi chiamando il `ProcessMessageAsync` metodo la `FixItQueueManager` classe che è stato illustrato in precedenza.
 
@@ -168,7 +168,7 @@ Il `ProcessMessagesAsync` metodo controlla se è in attesa di un messaggio. Se �
 
 Il polling per i messaggi in coda comporta una transazione di piccole dimensioni addebito, pertanto quando sono presenti messaggi in attesa di essere elaborato, il ruolo di lavoro `RunAsync` metodo attende un secondo prima di polling nuovamente chiamando `Task.Delay(1000)`.
 
-In un progetto web, aggiunta di codice asincrono automaticamente migliorare le prestazioni poiché IIS gestisce un pool di thread limitato. Non è che nel caso di un progetto di ruolo di lavoro. Per migliorare la scalabilità del ruolo di lavoro, è possibile scrivere il codice a thread multipli o utilizzare codice asincrono per implementare [programmazione parallela](https://msdn.microsoft.com/en-us/library/ff963553.aspx). L'esempio viene illustrato come eseguire il codice asincrono, è possibile implementare la programmazione parallela ma che non implementa la programmazione parallela.
+In un progetto web, aggiunta di codice asincrono automaticamente migliorare le prestazioni poiché IIS gestisce un pool di thread limitato. Non è che nel caso di un progetto di ruolo di lavoro. Per migliorare la scalabilità del ruolo di lavoro, è possibile scrivere il codice a thread multipli o utilizzare codice asincrono per implementare [programmazione parallela](https://msdn.microsoft.com/library/ff963553.aspx). L'esempio viene illustrato come eseguire il codice asincrono, è possibile implementare la programmazione parallela ma che non implementa la programmazione parallela.
 
 ## <a name="summary"></a>Riepilogo
 
@@ -184,11 +184,11 @@ Per ulteriori informazioni sulle code, vedere le risorse seguenti.
 Documentazione:
 
 - [Microsoft Azure Storage code parte 1: Introduzione](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Articolo di Schacherl romano.
-- [L'esecuzione di attività in Background](https://msdn.microsoft.com/en-us/library/ff803365.aspx), capitolo 5 di [spostamento di applicazioni Cloud, 3rd Edition](https://msdn.microsoft.com/en-us/library/ff728592.aspx) da Microsoft Patterns and Practices. (In particolare, la sezione ["Utilizzo delle code di archiviazione Azure"](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).)
-- [Procedure consigliate per ottimizzare la scalabilità e la convenienza delle soluzioni di messaggistica basata su coda in Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx). White paper per Valery Mizonov.
-- [Confronto tra le code di Azure e code del Bus di servizio](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx). Articolo di MSDN Magazine, fornisce informazioni aggiuntive che consentono di scegliere quale servizio di Accodamento da utilizzare. L'articolo viene indicato che il Bus di servizio sia dipendente da ACS per l'autenticazione, che indica che le code di Service bus sarebbe disponibile quando ACS non è disponibile. Tuttavia, poiché l'articolo è stato scritto, Service bus è stato modificato per consentono di utilizzare [token SAS](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx) un'alternativa ad ACS.
-- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Introduzione alla messaggistica asincrona, modello di pipe e filtri, il modello di compensazione delle transazioni, modello consumer concorrenti, modello CQRS, vedere.
-- [CQRS viaggio](https://msdn.microsoft.com/en-us/library/jj554200). E-book su CQRS Microsoft Patterns and Practices.
+- [L'esecuzione di attività in Background](https://msdn.microsoft.com/library/ff803365.aspx), capitolo 5 di [spostamento di applicazioni Cloud, 3rd Edition](https://msdn.microsoft.com/library/ff728592.aspx) da Microsoft Patterns and Practices. (In particolare, la sezione ["Utilizzo delle code di archiviazione Azure"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Procedure consigliate per ottimizzare la scalabilità e la convenienza delle soluzioni di messaggistica basata su coda in Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). White paper per Valery Mizonov.
+- [Confronto tra le code di Azure e code del Bus di servizio](https://msdn.microsoft.com/magazine/jj159884.aspx). Articolo di MSDN Magazine, fornisce informazioni aggiuntive che consentono di scegliere quale servizio di Accodamento da utilizzare. L'articolo viene indicato che il Bus di servizio sia dipendente da ACS per l'autenticazione, che indica che le code di Service bus sarebbe disponibile quando ACS non è disponibile. Tuttavia, poiché l'articolo è stato scritto, Service bus è stato modificato per consentono di utilizzare [token SAS](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) un'alternativa ad ACS.
+- [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Introduzione alla messaggistica asincrona, modello di pipe e filtri, il modello di compensazione delle transazioni, modello consumer concorrenti, modello CQRS, vedere.
+- [CQRS viaggio](https://msdn.microsoft.com/library/jj554200). E-book su CQRS Microsoft Patterns and Practices.
 
 Video:
 

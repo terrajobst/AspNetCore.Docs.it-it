@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a802e4fed81fadca195c8aa83c37c7100ac5cbec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Visualizzazione di mappe in un sito Web di ASP.NET di pagine (Razor)
 ====================
@@ -103,15 +103,15 @@ In questo esempio viene illustrato come creare una mappa in base alle coordinate
 2. Sostituire `your-key-here` con la chiave di Bing Maps generato in precedenza.
 3. Eseguire il *MapCoordinates.cshtml* immettere coordinate di latitudine e longitudine e quindi fare clic su di **Map It!** immagini (...). (Se non si conoscono tutte le coordinate, procedere come segue. Questo è un percorso nel campus Microsoft Redmond.)
 
-    - Latitudine: 47.6781005859375
+    - Latitude: 47.6781005859375
     - Longitudine:-122.158317565918
 
     Verrà visualizzata la pagina in base alle coordinate specificate.
 
-    ![mapping di 3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 
-[Riferimento all'API Microsoft.Maps](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Riferimento all'API Microsoft.Maps](https://msdn.microsoft.com/library/gg427611.aspx)

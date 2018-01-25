@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 7c03453e64cfc065d9f424702cc5af373e9bf536
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio: Introduzione - 1 di 12
 ====================
@@ -63,7 +63,7 @@ Il provider di hosting utilizzato per questa esercitazione, Cytanium.com, è uno
 
 ## <a name="deploying-web-site-projects"></a>Distribuzione di progetti di sito Web
 
-University Contoso è un progetto di applicazione web di Visual Studio. La maggior parte dei metodi di distribuzione e gli strumenti illustrati in questa esercitazione non si applicano a [progetti di sito Web](https://msdn.microsoft.com/en-us/library/dd547590.aspx). Per informazioni su come distribuire i progetti di siti web, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx#deployment_for_web_site_projects).
+University Contoso è un progetto di applicazione web di Visual Studio. La maggior parte dei metodi di distribuzione e gli strumenti illustrati in questa esercitazione non si applicano a [progetti di sito Web](https://msdn.microsoft.com/library/dd547590.aspx). Per informazioni su come distribuire i progetti di siti web, vedere [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
 ## <a name="deploying-aspnet-mvc-projects"></a>Distribuzione di progetti ASP.NET MVC
 
@@ -110,7 +110,7 @@ Per preparare i passaggi dell'esercitazione, salvare ContosoUniversity Begin in 
 
 Avviare Visual Studio, aprire il progetto e premere CTRL + F5 per eseguirla.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Pagine dei siti Web sono accessibili dalla barra dei menu e consentono di eseguire le funzioni seguenti:
 
@@ -143,4 +143,4 @@ Le seguenti funzionalità dell'applicazione influisce su come distribuire o ciò
 In questa esercitazione prima della serie, aver scaricato il progetto di Visual Studio e rivedere le funzionalità del sito che influiscono sulla modalità di distribuzione dell'applicazione. Nelle esercitazioni seguenti, ci si prepara per la distribuzione mediante l'impostazione di alcuni di questi elementi devono essere gestiti automaticamente. Altri occuperà di manualmente.
 
 >[!div class="step-by-step"]
-[Successivo](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+[avanti](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

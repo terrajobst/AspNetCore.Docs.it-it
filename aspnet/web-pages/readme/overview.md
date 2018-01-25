@@ -12,17 +12,17 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 90f24550d2bb50147bab6be545be63c1838f312a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="webmatrix-readme"></a>File Leggimi di WebMatrix
 ====================
 13 gennaio 2011
 
-## <a name="contents"></a>Contenuto
+## <a name="contents"></a>Sommario
 
 > [!NOTE]
 > Questo file Leggimi si applica alla 1.0 versione di WebMatrix.
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/10/2017
 > Quando si installa SQL Server Compact 4.0 in un computer a 64 bit e il computer dispone solo di .NET Framework 3.5 SP1 Client Profile installato, gli assembly gestiti per SQL Server Compact 4.0 non vengono inseriti in global assembly cache (GAC). Gli assembly gestiti che non sono installati nella Global Assembly Cache sono:
 > 
 > - *SqlServerCe* (provider ADO.NET)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Soluzione alternativa**  
 > Disinstallare SQL Server Compact 4.0. Scaricare e installare la versione completa di .NET Framework 3.5 SP1 dal percorso seguente:  
@@ -218,7 +218,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> Per ulteriori informazioni sulla configurazione di un server proxy, vedere [ &lt;proxy&gt; elemento (impostazioni di rete)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) nel sito Web MSDN.
+> Per ulteriori informazioni sulla configurazione di un server proxy, vedere [ &lt;proxy&gt; elemento (impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx) nel sito Web MSDN.
 
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Problema: Disinstallazione di .NET Framework versione 4 Disabilita ASP.NET Web Pages con sintassi Razor
@@ -258,9 +258,9 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 1. Copiare gli assembly del motore di database per il *Bin* (cartelle e sottocartelle) dell'applicazione nel computer di destinazione:  
 > 
 >     - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **per** *\bin.*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * per***\Bin\x86*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **a***\Bin\amd64*
+>         **to** *\Bin*
+>     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * a * * * \Bin\x86*
+>     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **a * * * \Bin\amd64*
 > 2. Nella cartella radice del sito Web, creare o aprire un *Web. config* file. (In WebMatrix 1.0, è disponibile se si fa clic su questo tipo di file **tutti** nel **scegliere un tipo di File** la finestra di dialogo.)
 > 3. Aggiungere il seguente elemento come figlio del `<configuration>` elemento (non all'interno di `<system.web>` elemento):
 > 
@@ -400,7 +400,7 @@ In questa sezione del documento vengono descritti i problemi noti per l'ambiente
 
 IIS Express è il proprio file Leggimi, che è disponibile all'URL seguente:
 
-[https://go.microsoft.com/fwlink/?LinkId=207675&amp;clcid = 0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -408,7 +408,7 @@ IIS Express è il proprio file Leggimi, che è disponibile all'URL seguente:
 
 SQL Server Compact è il proprio file Leggimi, che è disponibile all'URL seguente:
 
-[https://go.microsoft.com/fwlink/?LinkId=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
 Per informazioni sui problemi che comportano l'installazione di SQL Server Compact come parte di WebMatrix, vedere [problemi di installazione di WebMatrix](#Known_Issues_Installation) più indietro in questo documento.
 
@@ -561,6 +561,6 @@ Per ulteriori informazioni su WebMatrix 1.0, vedere i siti Web seguenti:
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET 2.0](https://asp.net/webmatrix)
-- [Microsoft.com](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. Tutti i diritti riservati. [Condizioni di utilizzo](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2011 Microsoft Corporation. Tutti i diritti riservati. [Condizioni di utilizzo](https://msdn.microsoft.cos/cc300389.aspx).

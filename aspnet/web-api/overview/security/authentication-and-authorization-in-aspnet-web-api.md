@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 137ac45166be03ae3c4864f41666d2acd1a37dc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Autenticazione e autorizzazione in ASP.NET Web API
 ====================
@@ -37,7 +37,7 @@ Il primo articolo nella serie offre una panoramica generale di autenticazione e 
 
 API Web si presuppone che l'autenticazione avviene nell'host. Per l'hosting web, l'host è IIS che usa i moduli HTTP per l'autenticazione. È possibile configurare il progetto per utilizzare uno dei moduli di autenticazione integrati in IIS o ASP.NET o scrivere un modulo HTTP personalizzato per eseguire l'autenticazione personalizzata.
 
-Quando l'host autentica l'utente, viene creato un *principale*, ovvero un [IPrincipal](https://msdn.microsoft.com/en-us/library/System.Security.Principal.IPrincipal.aspx) oggetto che rappresenta il contesto di sicurezza in cui viene eseguito il codice. L'host collega l'entità per il thread corrente impostando **CurrentPrincipal**. Contiene un oggetto associato all'entità **identità** oggetto che contiene informazioni sull'utente. Se l'utente è autenticato, il **Identity.IsAuthenticated** restituisce proprietà **true**. Per le richieste anonime, **IsAuthenticated** restituisce **false**. Per ulteriori informazioni sulle entità, vedere [basata sui ruoli di sicurezza](https://msdn.microsoft.com/en-us/library/shz8h065.aspx).
+Quando l'host autentica l'utente, viene creato un *principale*, ovvero un [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) oggetto che rappresenta il contesto di sicurezza in cui viene eseguito il codice. L'host collega l'entità per il thread corrente impostando **CurrentPrincipal**. Contiene un oggetto associato all'entità **identità** oggetto che contiene informazioni sull'utente. Se l'utente è autenticato, il **Identity.IsAuthenticated** restituisce proprietà **true**. Per le richieste anonime, **IsAuthenticated** restituisce **false**. Per ulteriori informazioni sulle entità, vedere [basata sui ruoli di sicurezza](https://msdn.microsoft.com/library/shz8h065.aspx).
 
 ### <a name="http-message-handlers-for-authentication"></a>Gestori di messaggi HTTP per l'autenticazione
 
@@ -57,8 +57,8 @@ In genere, se non è necessario il supporto self-hosting, un modulo HTTP è un'o
 
 Se l'applicazione esegua qualsiasi logica di autenticazione personalizzata, è necessario impostare l'entità in due posizioni:
 
-- **Thread. CurrentPrincipal**. Questa proprietà è la modalità standard di set di entità del thread in .NET.
-- **HttpContext**. Questa proprietà è specifica di ASP.NET.
+- **Thread.CurrentPrincipal**. Questa proprietà è la modalità standard di set di entità del thread in .NET.
+- **HttpContext.Current.User**. Questa proprietà è specifica di ASP.NET.
 
 Il codice seguente viene illustrato come impostare l'entità:
 
@@ -78,7 +78,7 @@ Si verifica l'autorizzazione in un secondo momento nella pipeline, più vicino a
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Utilizzando il [autorizzare] attributo
 
-API Web fornisce un filtro di autorizzazione predefiniti, [AuthorizeAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.authorizeattribute.aspx). Questo filtro controlla se l'utente è autenticato. In caso contrario, restituisce il codice di stato HTTP 401 (Unauthorized), senza richiamare l'azione.
+API Web fornisce un filtro di autorizzazione predefiniti, [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Questo filtro controlla se l'utente è autenticato. In caso contrario, restituisce il codice di stato HTTP 401 (Unauthorized), senza richiamare l'azione.
 
 È possibile applicare il filtro a livello globale, a livello di controller o al livello di inidivual azioni.
 

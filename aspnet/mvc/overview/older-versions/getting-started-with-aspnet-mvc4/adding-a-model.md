@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1d066e4bab866a2195647f43aa886279fee941db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 304c428b0d787e902f30c1989471c476f54d3b39
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-model"></a>Aggiunta di un modello
 ====================
@@ -28,7 +28,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
 In questa sezione si aggiungeranno alcune classi per la gestione di filmati in un database. Queste classi sarà il &quot;modello&quot; parte dell'applicazione ASP.NET MVC.
 
-Si utilizzerà una tecnologia di accesso ai dati di .NET Framework nota come il [Entity Framework](https://msdn.microsoft.com/en-us/library/bb399572(VS.110).aspx) per definire e utilizzare queste classi di modello. Entity Framework (noto anche come EF) supporta un paradigma di sviluppo denominato *Code First*. Codice, innanzitutto, consente di creare gli oggetti del modello mediante la scrittura di classi semplici. (Sono anche noti come classi POCO, da &quot;oggetti CLR normale precedente.&quot;) È il database creato al momento dalle classi, che consente a un flusso di lavoro di sviluppo molto pulito e rapido.
+Si utilizzerà una tecnologia di accesso ai dati di .NET Framework nota come il [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) per definire e utilizzare queste classi di modello. Entity Framework (noto anche come EF) supporta un paradigma di sviluppo denominato *Code First*. Codice, innanzitutto, consente di creare gli oggetti del modello mediante la scrittura di classi semplici. (Sono anche noti come classi POCO, da &quot;oggetti CLR normale precedente.&quot;) È il database creato al momento dalle classi, che consente a un flusso di lavoro di sviluppo molto pulito e rapido.
 
 ## <a name="adding-model-classes"></a>Aggiunta di classi modello
 

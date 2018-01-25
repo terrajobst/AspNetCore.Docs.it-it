@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 181d2ae85f38051ea12c7b7ac79198ec05f36bec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="purpose-strings"></a>Scopo stringhe
 
@@ -34,12 +34,12 @@ La stringa scopo non deve necessariamente essere segreto. Semplicemente deve ess
 >
 >Un componente creato Contoso che è responsabile per minting i token di connessione può usare Contoso.Security.BearerToken come stringa il relativo scopo. O, ancora meglio, utilizzare la Contoso.Security.BearerToken.v1 sotto forma di stringa relativo scopo. Aggiungendo il numero di versione consente a una versione futura di utilizzare Contoso.Security.BearerToken.v2 come scopo e le diverse versioni sarebbe completamente isolate una da altra come payload go.
 
-Poiché il parametro scopi `CreateProtector` è una matrice di stringhe, il precedente stato sono stati invece specificati come `[ "Contoso.Security.BearerToken", "v1" ]`. In questo modo la definizione di una gerarchia di scopi e offre la possibilità di scenari multi-tenancy con il sistema di protezione dati.
+Poiché il parametro scopi `CreateProtector` è una matrice di stringhe, il precedente potrebbe invece specificate come `[ "Contoso.Security.BearerToken", "v1" ]`. In questo modo la definizione di una gerarchia di scopi e offre la possibilità di scenari multi-tenancy con il sistema di protezione dati.
 
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> I componenti non devono consentire input utente non attendibile per essere l'unica fonte di input per la catena di scopi.
+> Componenti di consentire l'input utente non attendibile per essere l'unica fonte di input per la catena di scopi.
 >
 >Si consideri ad esempio un componente Contoso.Messaging.SecureMessage che è responsabile per l'archiviazione di messaggi protetti. Se il componente di messaggistica protetto deve chiamare `CreateProtector([ username ])`, un utente malintenzionato potrebbe creare un account con il nome utente "Contoso.Security.BearerToken" nel tentativo di ottenere il componente di chiamare `CreateProtector([ "Contoso.Security.BearerToken" ])`, causando inavvertitamente la messaggistica protetta sistema di payload menta che potrebbe essere interpretati come i token di autenticazione.
 >
@@ -53,9 +53,9 @@ L'isolamento fornito dai e i comportamenti delle `IDataProtectionProvider`, `IDa
 
 * Gli argomenti di due funzioni sono equivalenti se e solo se contengono le stesse stringhe (tramite un confronto ordinale) nello stesso ordine. Un argomento unico scopo è equivalente alla matrice a elemento singolo scopi corrispondente.
 
-* Due `IDataProtector` oggetti sono equivalenti se e solo se vengono creati da equivalente `IDataProtectionProvider` oggetti con parametri scopi equivalente.
+* Due `IDataProtector` oggetti sono equivalenti se e solo se vengono creati dalla equivalente `IDataProtectionProvider` oggetti con parametri scopi equivalente.
 
 * Per un determinato `IDataProtector` oggetto, una chiamata a `Unprotect(protectedData)` restituirà originale `unprotectedData` se e solo se `protectedData := Protect(unprotectedData)` per un equivalente `IDataProtector` oggetto.
 
 > [!NOTE]
-> Non si sta esaminando il caso in cui alcuni componenti sceglie intenzionalmente una stringa scopo che è noto in conflitto con un altro componente. Tale componente essenzialmente ritenuto dannoso e il sistema non è previsto per fornire le garanzie di sicurezza nel caso in cui il codice dannoso è già in esecuzione all'interno del processo di lavoro.
+> Non si sta esaminando il caso in cui alcuni componenti sceglie intenzionalmente una stringa scopo che è noto in conflitto con un altro componente. Tale componente essenzialmente ritenuto dannoso e il sistema non è lo scopo di fornire le garanzie di sicurezza nel caso in cui il codice dannoso è già in esecuzione all'interno del processo di lavoro.

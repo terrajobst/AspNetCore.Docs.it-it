@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Helper di Tag autore in ASP.NET di base, una procedura dettagliata con esempi
 
@@ -214,7 +214,7 @@ Quando più attributi vengono aggiunti alla stessa istruzione, il runtime li ges
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * Gli elementi che sono a chiusura automatica non abbiano contenuto. Per questo esempio, il markup Razor utilizzerà un tag di chiusura automatica, ma l'helper di tag creeranno un [sezione](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (che non è chiusura automatica e si scrive il contenuto all'interno di `section` elemento). Pertanto, è necessario impostare `TagMode` a `StartTagAndEndTag` per scrivere l'output. In alternativa, è possibile impostare come commento la riga che imposta `TagMode` e la scrittura di markup con un tag di chiusura. (Più avanti in questa esercitazione viene fornito codice di esempio).
+    * Gli elementi che sono a chiusura automatica non abbiano contenuto. Per questo esempio, il markup Razor utilizzerà un tag di chiusura automatica, ma l'helper di tag creeranno un [sezione](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (che non a chiusura automatica e si scrive il contenuto all'interno di `section` elemento). Pertanto, è necessario impostare `TagMode` a `StartTagAndEndTag` per scrivere l'output. In alternativa, è possibile impostare come commento la riga che imposta `TagMode` e la scrittura di markup con un tag di chiusura. (Più avanti in questa esercitazione viene fornito codice di esempio).
     
     * Il `$` (segno di dollaro) nella riga seguente viene utilizzato un [interpolati stringa](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
@@ -274,7 +274,7 @@ L'helper di tag di condizione esegue il rendering di output quando viene passato
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  Eseguire l'app e passare alla home page. Il markup in condizionale `div` non vengono visualizzati. Aggiungere la stringa di query `?approved=true` all'URL (ad esempio, `http://localhost:1235/Home/Index?approved=true`). `approved`è impostato su true e condizionale markup verrà visualizzato.
+4.  Eseguire l'app e passare alla home page. Il markup in condizionale `div` non è possibile eseguire il rendering. Aggiungere la stringa di query `?approved=true` all'URL (ad esempio, `http://localhost:1235/Home/Index?approved=true`). `approved`è impostato su true e condizionale markup verrà visualizzato.
 
 >[!NOTE]
 >Utilizzare il [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatore per specificare l'attributo di destinazione, anziché specificare una stringa, come avviene per l'helper di tag in grassetto:
@@ -306,7 +306,7 @@ Poiché questi due helper sono strettamente correlati e potrebbero refactoring i
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Eseguire l'app. Si noti il testo www viene visualizzato come collegamento ma non è il testo HTTP. Se si inserisce un punto di interruzione in entrambe le classi, si noterà che la classe helper di tag HTTP viene eseguito per prima. Il problema è che viene memorizzato nella cache l'output di helper di tag e, quando viene eseguito l'helper di tag WWW, sovrascrive l'output memorizzato nella cache l'helper di tag HTTP. Più avanti nell'esercitazione vedremo come controllare l'ordine in cui eseguire gli helper di tag in. Il codice, è possibile risolvere con gli elementi seguenti:
+5.  Eseguire l'app. Si noti il testo sul Web sono sottoposto a rendering come un collegamento, ma non il testo HTTP. Se si inserisce un punto di interruzione in entrambe le classi, si noterà che la classe helper di tag HTTP viene eseguito per prima. Il problema è che viene memorizzato nella cache l'output di helper di tag e, quando viene eseguito l'helper di tag WWW, sovrascrive l'output memorizzato nella cache l'helper di tag HTTP. Più avanti nell'esercitazione vedremo come controllare l'ordine in cui eseguire gli helper di tag in. Il codice, è possibile risolvere con gli elementi seguenti:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -333,8 +333,8 @@ Gli helper di tag forniscono diverse proprietà per recuperare il contenuto.
 
 -  Il risultato di `GetChildContentAsync` può essere aggiunta alla fine `output.Content`.
 -  È possibile controllare il risultato di `GetChildContentAsync` con `GetContent`.
--  Se si modifica `output.Content`, non verrà eseguito o visualizzato a meno che si chiama il corpo di helper tag `GetChildContentAsync` come esempio automatica linker:
+-  Se si modifica `output.Content`, il corpo di helper tag non verrà eseguito o visualizzato a meno che si chiama `GetChildContentAsync` come esempio automatica linker:
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Più chiamate al metodo `GetChildContentAsync` restituirà lo stesso valore e non verrà eseguita nuovamente la `TagHelper` corpo a meno che non viene passato un parametro false che indica di non utilizzare il risultato memorizzato nella cache.
+-  Più chiamate al metodo `GetChildContentAsync` restituisce lo stesso valore e non eseguire nuovamente il `TagHelper` corpo a meno che non viene passato un parametro false che indica di non per utilizzare il risultato memorizzato nella cache.

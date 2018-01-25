@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: f75b7192b4d97c88fcbcb4ad7fef88c83157c902
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Sito MVC Database prima di pubblicare in Azure
 ====================
@@ -31,8 +31,8 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 
 È necessario un account Azure per completare questa esercitazione:
 
-- È possibile [aprire un account Azure, gratuitamente](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) -si ottiene crediti è possibile utilizzare per provare i servizi di Azure a pagamento e anche dopo l'uso massimo è possibile mantenere l'account e utilizzare senza servizi di Azure.
-- È possibile [attivare i benefici per sottoscrittori MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -Your sottoscrizione MSDN offre crediti ogni mese in cui è possibile utilizzare per i servizi di Azure a pagamento.
+- È possibile [aprire un account Azure, gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) -si ottiene crediti è possibile utilizzare per provare i servizi di Azure a pagamento e anche dopo l'uso massimo è possibile mantenere l'account e utilizzare senza servizi di Azure.
+- È possibile [attivare i benefici per sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -Your sottoscrizione MSDN offre crediti ogni mese in cui è possibile utilizzare per i servizi di Azure a pagamento.
 
 Per pubblicare l'app web, fare clic sul progetto e selezionare **pubblica**.
 
@@ -99,7 +99,7 @@ Selezionare il nuovo database e selezionare **Gestisci**.
 
 È probabile che l'indirizzo IP che è stato aggiunto nel passaggio precedente non è il solo indirizzo IP che è necessario configurare per le connessioni. È possibile tentare di eseguire l'accesso al database per vedere se le connessioni sono state configurate correttamente. Specificare la password creata in precedenza e l'utente.
 
-![Account di accesso](publish-to-azure/_static/image12.png)
+![Accesso](publish-to-azure/_static/image12.png)
 
 Se si riceve un messaggio di errore, è necessario aggiungere un altro indirizzo IP. Fare clic sul messaggio di errore per visualizzare ulteriori dettagli sull'errore. Nei dettagli verrà visualizzato l'indirizzo IP che si desidera aggiungere. Si noti l'indirizzo IP.
 

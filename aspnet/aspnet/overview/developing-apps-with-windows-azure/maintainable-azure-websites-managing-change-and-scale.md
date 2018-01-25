@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Un laboratorio pratico: gestibile siti Web di Azure: gestione del cambiamento e scala
 ====================
@@ -28,7 +28,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > 
 > Azure offre sicuro e flessibile sviluppo, distribuzione e scalabilità e le opzioni per qualsiasi applicazione web di dimensioni. Usare gli strumenti esistenti per creare e distribuire applicazioni senza dover gestire l'infrastruttura.
 > 
-> Eseguire il provisioning di un'applicazione web di produzione manualmente in minuti facilmente la distribuzione di contenuti creati utilizzando lo strumento di sviluppo preferito. È possibile distribuire un sito esistente direttamente dal controllo del codice sorgente con il supporto per **Git**, **GitHub**, **Bitbucket**, **TFS**e anche ** DropBox**. Distribuire direttamente l'IDE preferito o dagli script utilizzando **PowerShell** in Windows o **CLI** strumenti in esecuzione in qualsiasi sistema operativo. Una volta distribuito, aggiornare i siti costantemente con il supporto per la distribuzione continua.
+> Eseguire il provisioning di un'applicazione web di produzione manualmente in minuti facilmente la distribuzione di contenuti creati utilizzando lo strumento di sviluppo preferito. È possibile distribuire un sito esistente direttamente dal controllo del codice sorgente con il supporto per **Git**, **GitHub**, **Bitbucket**, **TFS**e anche  **DropBox**. Distribuire direttamente l'IDE preferito o dagli script utilizzando **PowerShell** in Windows o **CLI** strumenti in esecuzione in qualsiasi sistema operativo. Una volta distribuito, aggiornare i siti costantemente con il supporto per la distribuzione continua.
 > 
 > Azure offre soluzioni di ripristino, backup e archiviazione cloud scalabile e durevole per i dati, grande o piccola. Quando si distribuiscono applicazioni per un ambiente di produzione, i servizi di archiviazione, ad esempio tabelle, BLOB e database SQL, che consentono di ridimensionare l'applicazione nel cloud.
 > 
@@ -170,7 +170,7 @@ In questa attività si passerà tramite la procedura di abilitazione **migrazion
     ![Apri in Esplora oggetti SQL Server](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "Apri in Esplora oggetti SQL Server")
 
     *Apri in Esplora oggetti SQL Server*
-9. Nel **Esplora oggetti di SQL Server** finestra, connettersi all'istanza di LocalDB facendo clic con il **SQL Server** nodo e selezionando **aggiungere SQL Server... ** opzione.
+9. Nel **Esplora oggetti di SQL Server** finestra, connettersi all'istanza di LocalDB facendo clic con il **SQL Server** nodo e selezionando **aggiungere SQL Server...**  opzione.
 
     ![Aggiunta di un'istanza del Server SQL](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "aggiunta di un'istanza SQL Server")
 
@@ -251,7 +251,7 @@ In questa attività, si utilizzerà **migrazioni di Entity Framework Code First*
 In questo esercizio, si distribuirà il **appassionato Quiz** applicazione nell'ambiente di gestione temporanea dell'applicazione web tramite controllo del codice sorgente Git. A tale scopo, verrà creare l'app web e i componenti necessari nel portale di gestione di eseguire il provisioning, configurare un **Git** repository e push dell'applicazione nel codice sorgente dal computer locale per lo slot di gestione temporanea. Anche se si aggiornerà il database di produzione con la **migrazioni Code First** creato nell'esercizio precedente. Verrà quindi eseguita l'applicazione nell'ambiente di test per verificare l'operazione. Dopo avere effettuato tale funzionamento in base alle proprie aspettative, alzare di livello l'applicazione nell'ambiente di produzione.
 
 > [!NOTE]
-> Per abilitare la pubblicazione di gestione temporanea, l'app web deve essere **modalità Standard**. Si noti che sarà necessario sostenere costi aggiuntivi se si modifica l'app web in modalità Standard. Per ulteriori informazioni sui prezzi, vedere [prezzi del servizio App](https://azure.microsoft.com/en-us/pricing/details/app-service/).
+> Per abilitare la pubblicazione di gestione temporanea, l'app web deve essere **modalità Standard**. Si noti che sarà necessario sostenere costi aggiuntivi se si modifica l'app web in modalità Standard. Per ulteriori informazioni sui prezzi, vedere [prezzi del servizio App](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
@@ -426,10 +426,10 @@ In questa attività verrà abilitata la pubblicazione di gestione temporanea nel
     *Inserimento di Azure*
 
     > [!NOTE]
-    > Quando si distribuisce il contenuto nell'host FTP o nell'archivio GIT di un'app web, è necessario eseguire l'autenticazione utilizzando il **le credenziali di distribuzione** che è stato creato da dell'app web **avvio rapido** o **Dashboard ** pagine di gestione. Se non si conoscono le credenziali di distribuzione è possibile reimpostare facilmente tramite il portale di gestione. Aprire l'app web **Dashboard** pagina e fare clic su di **reimpostare le credenziali di distribuzione** collegamento. Fornire una nuova password e fare clic su **OK**. Le credenziali di distribuzione sono valide per l'utilizzo con tutte le app web associate alla sottoscrizione.
+    > Quando si distribuisce il contenuto nell'host FTP o nell'archivio GIT di un'app web, è necessario eseguire l'autenticazione utilizzando il **le credenziali di distribuzione** che è stato creato da dell'app web **avvio rapido** o **Dashboard**  pagine di gestione. Se non si conoscono le credenziali di distribuzione è possibile reimpostare facilmente tramite il portale di gestione. Aprire l'app web **Dashboard** pagina e fare clic su di **reimpostare le credenziali di distribuzione** collegamento. Fornire una nuova password e fare clic su **OK**. Le credenziali di distribuzione sono valide per l'utilizzo con tutte le app web associate alla sottoscrizione.
 10. Per verificare l'app web è stato inserito correttamente in Azure, tornare al portale di gestione e fare clic su **siti Web**.
 11. Individuare l'app web ed espandere la voce per visualizzare lo slot del sito di gestione temporanea. Fare clic su relativo **nome** per passare alla pagina di gestione.
-12. Fare clic su **distribuzioni** per visualizzare il **cronologia della distribuzione**. Verificare che sia presente un **distribuzione attiva** con il * &quot;Commit iniziale&quot;*.
+12. Fare clic su **distribuzioni** per visualizzare il **cronologia della distribuzione**. Verificare che sia presente un **distribuzione attiva** con il  *&quot;Commit iniziale&quot;*.
 
     ![Distribuzione attiva](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
 
@@ -505,7 +505,7 @@ In questa attività eseguire il refactoring una piccola parte di codice del **Tr
     ![Se si seleziona il codice](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
 
     *Se si seleziona il codice*
-4. Fare doppio clic sul codice selezionato, espandere il **refactoring** dal menu **Estrai metodo... **.
+4. Fare doppio clic sul codice selezionato, espandere il **refactoring** dal menu **Estrai metodo...** .
 
     ![Estrarre il codice come un nuovo metodo](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
 
@@ -624,18 +624,18 @@ In questa attività, si utilizzerà la finestra di Esplora Server da Visual Stud
 
 1. Passare all'istanza di Visual Studio con il **GeekQuiz** soluzione esercizio precedente.
 2. Dalla barra dei menu, selezionare **vista** e quindi fare clic su **Esplora Server**.
-3. In **Esplora Server**, fare doppio clic su di **Azure** nodo e selezionare **Connetti a Azure... **. Accedere utilizzando l'account Microsoft associato alla sottoscrizione.
+3. In **Esplora Server**, fare doppio clic su di **Azure** nodo e selezionare **Connetti a Azure...** . Accedere utilizzando l'account Microsoft associato alla sottoscrizione.
 
     ![Connettersi a Windows Azure](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
     *Connettersi a Azure*
-4. Espandere il **Azure** nodo, fare doppio clic su **archiviazione** e selezionare **collega archiviazione esterna... **.
+4. Espandere il **Azure** nodo, fare doppio clic su **archiviazione** e selezionare **collega archiviazione esterna...** .
 5. Nel **aggiungere di nuovo Account di archiviazione** finestra di dialogo immettere il **nome Account** e **chiave dell'Account** ottenuti nell'attività precedente e fare clic su **OK**.
 
     ![Aggiungere la finestra di dialogo Nuovo Account di archiviazione](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
 
     *Aggiungere la finestra di dialogo Nuovo Account di archiviazione*
-6. L'account di archiviazione dovrebbe essere visualizzato sotto il **archiviazione** nodo. Espandere l'account di archiviazione, fare doppio clic su **BLOB** e selezionare **crea contenitore Blob... **.
+6. L'account di archiviazione dovrebbe essere visualizzato sotto il **archiviazione** nodo. Espandere l'account di archiviazione, fare doppio clic su **BLOB** e selezionare **crea contenitore Blob...** .
 
     ![Crea contenitore Blob](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "crea contenitore Blob")
 
@@ -687,7 +687,7 @@ In questa attività, si utilizzerà la finestra di Esplora Server da Visual Stud
 
 In questa attività si configurerà il **GeekQuiz** soluzione per utilizzare l'immagine caricata archiviazione Blob di Azure (anziché l'immagine si trova nell'app web) tramite l'aggiunta di una regola di riscrittura degli URL di ASP.NET nel **Web. config**file.
 
-1. In Visual Studio, aprire il **Web. config** file all'interno di **GeekQuiz** del progetto e individuare il ** &lt;System. webServer&gt; ** elemento.
+1. In Visual Studio, aprire il **Web. config** file all'interno di **GeekQuiz** del progetto e individuare il  **&lt;System. webServer&gt;**  elemento.
 2. Aggiungere il codice seguente per aggiungere un URL rewrite regola, l'aggiornamento il segnaposto con il nome di account di archiviazione.
 
     (- Frammento di codice *UrlRewriteRule WebSitesInProduction - Ex4 -*)
@@ -695,7 +695,7 @@ In questa attività si configurerà il **GeekQuiz** soluzione per utilizzare l'i
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > La riscrittura URL è il processo di intercettazione di una richiesta Web in ingresso e reindirizzando la richiesta a una risorsa diversa. Regole di riscrittura URL indica al motore di riscrittura quando una richiesta deve essere reindirizzato e in cui si viene reindirizzati. Una regola di riscrittura è costituita da due stringhe: il modello da cercare nell'URL richiesto, in genere, utilizzando espressioni regolari, e la stringa con cui sostituire il modello, se trovata. Per ulteriori informazioni, vedere [la riscrittura URL in ASP.NET](https://msdn.microsoft.com/en-us/library/ms972974.aspx).
+    > La riscrittura URL è il processo di intercettazione di una richiesta Web in ingresso e reindirizzando la richiesta a una risorsa diversa. Regole di riscrittura URL indica al motore di riscrittura quando una richiesta deve essere reindirizzato e in cui si viene reindirizzati. Una regola di riscrittura è costituita da due stringhe: il modello da cercare nell'URL richiesto, in genere, utilizzando espressioni regolari, e la stringa con cui sostituire il modello, se trovata. Per ulteriori informazioni, vedere [la riscrittura URL in ASP.NET](https://msdn.microsoft.com/library/ms972974.aspx).
 3. Premere **CTRL + S** per salvare le modifiche.
 4. Aprire una nuova **Git Bash** console per distribuire l'applicazione di servizio App di Azure aggiornata.
 5. Eseguire i comandi seguenti per riflettere le modifiche in Azure. Aggiornamento di *[percorso applicazione YOUR]* segnaposto con il percorso di **GeekQuiz** soluzione. Verrà richiesto di specificare la password di distribuzione.
@@ -770,7 +770,7 @@ In questa attività si utilizzerà il portale di gestione di Azure per abilitare
 
 Ora che **scalabilità automatica** è stato configurato, si creerà un **progetto di Test di carico e prestazioni Web** in Visual Studio per generare un carico della CPU dell'app web.
 
-1. Aprire **Visual Studio Ultimate 2013** e selezionare **File | New | Progetto... ** per avviare una nuova soluzione.
+1. Aprire **Visual Studio Ultimate 2013** e selezionare **File | New | Progetto...**  per avviare una nuova soluzione.
 
     ![Crea un nuovo progetto](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "creando un nuovo progetto")
 
@@ -785,12 +785,12 @@ Ora che **scalabilità automatica** è stato configurato, si creerà un **proget
     ![Aggiunta di una richiesta a WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "aggiunta di una richiesta a WebTest1")
 
     *Aggiunta di una richiesta a WebTest1*
-4. Nel **proprietà** finestra del nuovo nodo di richiesta, aggiornare il **Url** proprietà in modo che punti all'URL dell'app web (ad esempio * [http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/) *).
+4. Nel **proprietà** finestra del nuovo nodo di richiesta, aggiornare il **Url** proprietà in modo che punti all'URL dell'app web (ad esempio  *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* ).
 
     ![La modifica della proprietà Url](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "la modifica della proprietà Url")
 
     *La modifica della proprietà Url*
-5. Nel **WebTest1. webtest** finestra, fare doppio clic su **WebTest1** e fare clic su **aggiungere ciclo... **.
+5. Nel **WebTest1. webtest** finestra, fare doppio clic su **WebTest1** e fare clic su **aggiungere ciclo...** .
 
     ![Aggiunta di un ciclo per WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "aggiunta di un ciclo per WebTest1")
 
@@ -809,7 +809,7 @@ Ora che **scalabilità automatica** è stato configurato, si creerà un **proget
     ![Selezionare il primo e l'ultimo elemento per il ciclo](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "selezionando il primo e l'ultimo elemento per il ciclo")
 
     *Selezionare il primo e l'ultimo elemento per il ciclo*
-8. In **Esplora**, fare doppio clic su di **WebAndLoadTestProject** del progetto, espandere il **Aggiungi** dal menu **Test di carico... **.
+8. In **Esplora**, fare doppio clic su di **WebAndLoadTestProject** del progetto, espandere il **Aggiungi** dal menu **Test di carico...** .
 
     ![Aggiunta di un Test di carico al progetto WebAndLoadTestProject](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "aggiunta di un Test di carico al progetto WebAndLoadTestProject")
 
@@ -834,7 +834,7 @@ Ora che **scalabilità automatica** è stato configurato, si creerà un **proget
     ![Selezionare il modello di combinazione di test](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "selezionando il modello di combinazione di test")
 
     *Selezionare il modello di combinazione di test*
-13. Nel **il modello di combinazione di Test** pagina, fare clic su **Aggiungi... ** per aggiungere test alla combinazione.
+13. Nel **il modello di combinazione di Test** pagina, fare clic su **Aggiungi...**  per aggiungere test alla combinazione.
 
     ![Aggiunta di un test alla combinazione di test](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "aggiunta di un test alla combinazione di test")
 
@@ -910,7 +910,7 @@ Verrà ora eseguire il test di carico che è stato creato nell'attività precede
     > 
     > - Aumentare la durata del test di carico (ad esempio, per **10 minuti**)
     > - I valori minimi e massimo di ridurre il **CPU destinazione** intervallo nella configurazione di scalabilità automatica dell'app web
-    > - Eseguire il test di carico nel cloud con **Visual Studio Online**. Altre informazioni [qui](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - Eseguire il test di carico nel cloud con **Visual Studio Online**. Altre informazioni [qui](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 

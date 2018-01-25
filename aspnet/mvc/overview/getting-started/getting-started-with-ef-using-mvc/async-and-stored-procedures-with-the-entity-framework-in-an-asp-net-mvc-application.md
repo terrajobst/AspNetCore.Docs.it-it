@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4904037838441942ea266ce71d735642d0a717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async e Stored procedure con Entity Framework in un'applicazione MVC ASP.NET
 ====================
@@ -128,11 +128,11 @@ Alcuni sviluppatori e amministratori preferiscono utilizzare stored procedure pe
 
     ![Reparto Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Codice crea prima i nomi delle procedure predefinito archiviato. Se si utilizza un database esistente, si potrebbe essere necessario personalizzare i nomi di stored procedure per utilizzare le stored procedure già definite nel database. Per informazioni su come eseguire questa operazione, vedere [Entity Framework prima Insert/Update/Delete Stored procedure codice](https://msdn.microsoft.com/en-us/data/dn468673).
+Codice crea prima i nomi delle procedure predefinito archiviato. Se si utilizza un database esistente, si potrebbe essere necessario personalizzare i nomi di stored procedure per utilizzare le stored procedure già definite nel database. Per informazioni su come eseguire questa operazione, vedere [Entity Framework prima Insert/Update/Delete Stored procedure codice](https://msdn.microsoft.com/data/dn468673).
 
 Se si desidera personalizzare cosa generati eseguire stored procedure, è possibile modificare il codice di supporto temporaneo per le migrazioni `Up` metodo che crea la stored procedure. In questo modo le modifiche verranno riflesse ogni volta che la migrazione viene eseguita e verrà applicata al database di produzione durante le migrazioni viene eseguito automaticamente nell'ambiente di produzione dopo la distribuzione.
 
-Se si desidera modificare una stored procedure esistente creato in una migrazione precedente, è possibile utilizzare il comando Add-Migration per generare una migrazione vuota e quindi scrivere manualmente il codice che chiama il [AlterStoredProcedure](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) (metodo) .
+Se si desidera modificare una stored procedure esistente creato in una migrazione precedente, è possibile utilizzare il comando Add-Migration per generare una migrazione vuota e quindi scrivere manualmente il codice che chiama il [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) (metodo) .
 
 ## <a name="deploy-to-azure"></a>Distribuire in Azure
 

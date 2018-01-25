@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware OWIN della pipeline integrata di IIS
 ====================
@@ -36,9 +36,9 @@ Ciò significa che tutti i framework dell'applicazione, anche quelli che non son
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>Modalità di esecuzione di Middleware OWIN in Pipeline integrata di IIS
 
-Per le applicazioni console OWIN, la pipeline dell'applicazione creati utilizzando il [configurazione di avvio](owin-startup-class-detection.md) è impostata in base all'ordine dei componenti vengono aggiunti utilizzando la `IAppBuilder.Use` metodo. Ovvero, la pipeline OWIN nel [Katana](an-overview-of-project-katana.md) runtime elaborerà OMCs nell'ordine in cui sono stati registrati utilizzando `IAppBuilder.Use`. Nella pipeline integrata di IIS la pipeline della richiesta è costituita [HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx) sottoscrivere un set predefinito di eventi della pipeline, ad esempio [BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx)e così via.
+Per le applicazioni console OWIN, la pipeline dell'applicazione creati utilizzando il [configurazione di avvio](owin-startup-class-detection.md) è impostata in base all'ordine dei componenti vengono aggiunti utilizzando la `IAppBuilder.Use` metodo. Ovvero, la pipeline OWIN nel [Katana](an-overview-of-project-katana.md) runtime elaborerà OMCs nell'ordine in cui sono stati registrati utilizzando `IAppBuilder.Use`. Nella pipeline integrata di IIS la pipeline della richiesta è costituita [HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx) sottoscrivere un set predefinito di eventi della pipeline, ad esempio [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)e così via.
 
-Se si confronta un OMC a quello di un [HttpModule](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx) nel mondo ASP.NET, un OMC deve essere registrato per l'evento corretto pipeline predefinite. Ad esempio, HttpModule `MyModule` verrà richiamato quando arriva una richiesta il [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) fase della pipeline:
+Se si confronta un OMC a quello di un [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx) nel mondo ASP.NET, un OMC deve essere registrato per l'evento corretto pipeline predefinite. Ad esempio, HttpModule `MyModule` verrà richiamato quando arriva una richiesta il [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) fase della pipeline:
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ La configurazione di avvio impostato una pipeline con middleware tre componenti,
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Il runtime Katana eseguito il mapping di ogni componente middleware OWIN per [PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) per impostazione predefinita, che corrisponde all'evento di pipeline IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
+Il runtime Katana eseguito il mapping di ogni componente middleware OWIN per [PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) per impostazione predefinita, che corrisponde all'evento di pipeline IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
 
 ## <a name="stage-markers"></a>Fase marcatori
 
@@ -65,7 +65,7 @@ Il runtime Katana eseguito il mapping di ogni componente middleware OWIN per [Pr
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-Il `app.UseStageMarker(PipelineStage.Authenticate)` chiamata consente di configurare tutti i componenti middleware registrato in precedenza (in questo caso, i due componenti diagnostica) per l'esecuzione in fase di autenticazione della pipeline. L'ultimo componente middleware (che consente di visualizzare la diagnostica e risponde alle richieste) verrà eseguito il `ResolveCache` fase (il [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx) evento).
+Il `app.UseStageMarker(PipelineStage.Authenticate)` chiamata consente di configurare tutti i componenti middleware registrato in precedenza (in questo caso, i due componenti diagnostica) per l'esecuzione in fase di autenticazione della pipeline. L'ultimo componente middleware (che consente di visualizzare la diagnostica e risponde alle richieste) verrà eseguito il `ResolveCache` fase (il [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx) evento).
 
 Premere F5 per eseguire l'app. La finestra di output viene illustrato quanto segue:
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: f225e2a93edfc552961f9f16294bc0ace6eb0002
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: e268f045e39188e9cc1e759ff7e6c553662dd669
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="layout"></a>Layout
 
@@ -33,7 +33,7 @@ Per convenzione, il layout predefinito per un'app ASP.NET denominato `_Layout.cs
 
 ![cartella Views in Esplora soluzioni](layout/_static/web-project-views.png)
 
-Questo layout definisce un modello di livello superiore per le viste nell'app. App non richiedono un layout e le applicazioni è possono definire più di un layout, con diverse visualizzazioni specificare layout diversi.
+Questo layout definisce un modello di livello superiore per le viste nell'app. Le app non richiedono un layout e le applicazioni è possono definire più di un layout, con diverse visualizzazioni specificare layout diversi.
 
 Un esempio `_Layout.cshtml`:
 

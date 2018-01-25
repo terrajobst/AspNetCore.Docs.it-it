@@ -12,15 +12,15 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: 15daa5fa94094fb50971514a152312fd81a749a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>La visualizzazione dei dati in un grafico con le pagine Web ASP.NET (Razor)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In questo articolo viene illustrato come utilizzare un grafico per visualizzare i dati in un sito Web ASP.NET Web Pages (Razor) utilizzando il `Chart` helper.
 > 
@@ -296,4 +296,4 @@ Infine, è possibile salvare un grafico come file XML nel server. Un vantaggio d
 
 - [Introduzione all'uso di un Database in ASP.NET Web Pages siti](https://go.microsoft.com/fwlink/?LinkId=202893)
 - [Tramite la memorizzazione nella cache in ASP.NET Web Pages siti per migliorare le prestazioni](https://go.microsoft.com/fwlink/?LinkId=202903)
-- [Classe grafico](https://msdn.microsoft.com/en-us/library/system.web.helpers.chart(v=vs.99)) (riferimenti alle API di pagine Web ASP.NET su MSDN)
+- [Classe grafico](https://msdn.microsoft.com/library/system.web.helpers.chart(v=vs.99)) (riferimenti alle API di pagine Web ASP.NET su MSDN)

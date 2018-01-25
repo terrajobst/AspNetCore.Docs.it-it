@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 086084b63cceca1c2d4e0bd4e5b654aaad6637a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-fundamentals"></a>Nozioni fondamentali su ASP.NET MVC 4
 ====================
@@ -32,7 +32,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > > Questa pratica, si presuppone che lo sviluppatore ha esperienza nelle tecnologie di sviluppo Web, ad esempio HTML e JavaScript.
 > 
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="The_Music_Store_application"></a>
@@ -319,7 +319,7 @@ In questa attività, si utilizzerà il **querystring** per l'invio di parametri 
     > [!NOTE]
     > Si utilizza il **HttpUtility** il metodo di utilità per impedisce agli utenti di inserire Javascript nella vista con un collegamento come **archivio/Sfoglia? Genre =&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
     > 
-    > Per ulteriori informazioni, visitare [questo articolo di msdn](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=VS.80).aspx).
+    > Per ulteriori informazioni, visitare [questo articolo di msdn](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -594,7 +594,7 @@ In questa attività si creerà un modello di visualizzazione che verrà utilizza
 
     ![Aggiunta di una vista](aspnet-mvc-4-fundamentals/_static/image23.png "aggiunta di una vista")
 
-    *Aggiunta di una vista*
+    *Aggiunta di una visualizzazione*
 3. Poiché il **finestra di dialogo Aggiungi visualizzazione** da cui è stato richiamato il **StoreController**, verranno aggiunti il modello di visualizzazione per impostazione predefinita in un **\Views\Store\Index.cshtml** file. Controllare il **creare una fortemente tipizzato-visualizzazione** casella di controllo e quindi selezionare **StoreIndexViewModel** come il **classe modello**. Inoltre, assicurarsi che il motore di visualizzazione selezionato sia **Razor**. Fare clic su **Aggiungi**.
 
     ![Visualizza finestra di dialogo Aggiungi](aspnet-mvc-4-fundamentals/_static/image24.png "Visualizza finestra di dialogo Aggiungi")
@@ -964,7 +964,7 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
         *SimpleMembership inclusi nella soluzione*
 
         > [!NOTE]
-        > Ulteriori informazioni su [OAuthWebSecurity](https://msdn.microsoft.com/en-us/library/jj158393(v=vs.111).aspx) in MSDN.
+        > Ulteriori informazioni su [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
 
 > [!NOTE]
 > Inoltre, è possibile distribuire l'applicazione per siti Web di Azure seguenti [pubblicazione appendice b: un'applicazione ASP.NET MVC 4 con distribuzione Web](#AppendixB).

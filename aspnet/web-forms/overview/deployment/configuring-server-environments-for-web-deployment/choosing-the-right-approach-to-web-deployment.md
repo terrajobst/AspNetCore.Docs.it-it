@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Scelta dell'approccio corretto per la distribuzione Web
 ====================
@@ -38,7 +38,7 @@ Questa tabella mostra i principali vantaggi e svantaggi di ogni approccio di dis
 
 | Approccio | Vantaggi | Svantaggi | Scenari tipici |
 | --- | --- | --- | --- |
-| Agente remoto | È semplice da configurare. È adatto per gli aggiornamenti regolari alle applicazioni web e il contenuto. | L'utente deve essere un amministratore nel server di destinazione. non è possibile specificare credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
+| Agente remoto | È semplice da configurare. È adatto per gli aggiornamenti regolari alle applicazioni web e il contenuto. | L'utente deve essere un amministratore nel server di destinazione. Non è possibile specificare credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
 | Agente TEMP | Non è necessario per installare distribuzione Web nel computer di destinazione. La versione più recente di distribuzione Web viene utilizzata automaticamente. | L'utente deve essere un amministratore nel server di destinazione. Non è possibile specificare credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
 | Gestore distribuzione Web | Gli utenti non amministratori possono distribuire il contenuto. È adatto per gli aggiornamenti regolari alle applicazioni web e il contenuto. | È molto più complessa da impostare. | Ambienti di staging. Ambienti di produzione Intranet. Ambienti ospitati. |
 | Distribuzione non in linea | È molto semplice da configurare. È adatto per ambienti isolati. | L'amministratore del server deve copiare e importare il pacchetto web ogni volta manualmente. | Ambienti di produzione con connessione Internet. Ambienti con isolamento rete. |
@@ -69,7 +69,7 @@ In effetti, il file eseguibile di distribuzione Web può dedurre l'indirizzo del
 
 
 > [!NOTE]
-> Per ulteriori informazioni sulla sintassi della riga di comando di distribuzione Web e *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Per ulteriori informazioni sulla sintassi della riga di comando di distribuzione Web e *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 L'agente remoto offre un modo semplice per distribuire il contenuto da una postazione remota e questo approccio può funzionare bene con la distribuzione automatica o di un solo clic. Tuttavia, l'utente che esegue il comando di distribuzione deve essere un amministratore di dominio o un membro del gruppo administrators locale nel server di destinazione. Inoltre, l'agente remoto non supporta l'autenticazione di base, non è possibile passare credenziali alternative nella riga di comando.
@@ -94,7 +94,7 @@ Se si desidera utilizzare l'impostazione del provider agente temporanea, aggiung
 
 Il vantaggio di questo approccio è che non è necessario gestire le installazioni di distribuzione Web sui server di destinazione. Inoltre, non è necessario assicurarsi che il computer di origine e destinazione siano in esecuzione la stessa versione di distribuzione Web. Tuttavia, questo approccio presenta le stesse limitazioni dell'entità come l'approccio di agente remoto, vale a dire che è necessario essere un amministratore locale nel server di destinazione per distribuire il contenuto è supportato solo l'autenticazione NTLM. L'approccio temp agente richiede anche la configurazione iniziale molto più dell'ambiente di destinazione.
 
-Per ulteriori informazioni sull'utilizzo dell'agente temporaneo, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx) e [distribuzione Web su richiesta](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Per ulteriori informazioni sull'utilizzo dell'agente temporaneo, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx) e [distribuzione Web su richiesta](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 ## <a name="using-the-web-deploy-handler"></a>Tramite il Web distribuire gestore
 
@@ -125,7 +125,7 @@ Si supponga, ad esempio, che un processo di compilazione è configurato per dist
 
 
 > [!NOTE]
-> Per ulteriori informazioni sulla sintassi e le operazioni da riga di comando di distribuzione Web, vedere [riferimento della riga di comando di distribuzione Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Per ulteriori informazioni sull'utilizzo di *. deploy* file, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Per ulteriori informazioni sulla sintassi e le operazioni da riga di comando di distribuzione Web, vedere [riferimento della riga di comando di distribuzione Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Per ulteriori informazioni sull'utilizzo di *. deploy* file, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Il gestore di distribuzione Web fornisce un approccio utile per la distribuzione in ambienti di produzione basato sulla intranet, in cui l'accesso remoto al server è disponibile ma non sono credenziali di amministratore, ambienti host e gli ambienti di gestione temporanea.
@@ -146,9 +146,9 @@ Per un esempio end-to-end di uno scenario che utilizza l'approccio di distribuzi
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sulla sintassi e le operazioni da riga di comando di distribuzione Web, vedere [riferimento della riga di comando di distribuzione Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Per ulteriori informazioni sull'utilizzo di *. deploy* file, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Per ulteriori informazioni sulla sintassi e le operazioni da riga di comando di distribuzione Web, vedere [riferimento della riga di comando di distribuzione Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Per ulteriori informazioni sull'utilizzo di *. deploy* file, vedere [come: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx).
 
-Per istruzioni generali sulle diverse modalità in cui è possibile distribuire i pacchetti web da un computer remoto, vedere [tramite distribuzione Web in remoto](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx). Per ulteriori informazioni sull'utilizzo di distribuzione Web su richiesta, vedere [distribuzione Web su richiesta](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Per istruzioni generali sulle diverse modalità in cui è possibile distribuire i pacchetti web da un computer remoto, vedere [tramite distribuzione Web in remoto](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Per ulteriori informazioni sull'utilizzo di distribuzione Web su richiesta, vedere [distribuzione Web su richiesta](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 >[!div class="step-by-step"]
 [Precedente](configuring-server-environments-for-web-deployment.md)

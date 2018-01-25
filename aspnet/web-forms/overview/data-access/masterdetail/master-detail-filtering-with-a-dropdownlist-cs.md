@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4632d3939204a954ed4fac88a04b0fea9bb15c83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Master-Details filtri con un controllo DropDownList (c#)
 ====================
@@ -31,7 +31,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Un tipo comune di report è il *master-details report*, in cui inizia il report tramite la visualizzazione di un set di record "master". L'utente può quindi drill-down in uno dei record master, in tal modo la visualizzazione "i dettagli." del record master Master-Details report è la scelta ideale per la visualizzazione delle relazioni uno-a-molti, ad esempio un report che mostra tutte le categorie e quindi consentire all'utente di selezionare una categoria specifica e visualizzare i prodotti associati. Master-details report sono inoltre utili per la visualizzazione di informazioni dettagliate dalle tabelle particolarmente "wide" (quelli che dispone di numerose colonne). Ad esempio, il livello di un report master-details "master" potrebbe mostrare solo il prodotto nome e il prezzo unitario dei prodotti del database e il drill-down in un determinato prodotto permetterebbe di visualizzare i campi prodotto aggiuntive (categoria, fornitore, la quantità per unità, e così via).
 
-Esistono molti modi con cui può essere implementata una relazione master-details. In questa e le esercitazioni successive tre esamineremo una varietà di report master-details. In questa esercitazione si vedrà come visualizzare i record master in un [controllo DropDownList](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx) e i dettagli dell'elemento di elenco selezionato in un controllo GridView. Relazione master-details dell'esercitazione, in particolare, le informazioni di category e product.
+Esistono molti modi con cui può essere implementata una relazione master-details. In questa e le esercitazioni successive tre esamineremo una varietà di report master-details. In questa esercitazione si vedrà come visualizzare i record master in un [controllo DropDownList](https://msdn.microsoft.com/library/dtx91y0z.aspx) e i dettagli dell'elemento di elenco selezionato in un controllo GridView. Relazione master-details dell'esercitazione, in particolare, le informazioni di category e product.
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>Passaggio 1: Visualizzare le categorie in un controllo DropDownList
 
@@ -97,7 +97,7 @@ Dopo aver scelto questo metodo, la procedura guidata ObjectDataSource richiede u
 
 Richiedere qualche istante per l'estrazione di stato di avanzamento in un browser. Durante la prima visita la pagina, tali prodotti appartengono alla categoria selezionata (bibite) vengono visualizzate (come illustrato nella figura 9), ma modifica DropDownList non aggiorna i dati. Infatti, deve verificarsi un postback per il controllo GridView aggiornare. A tale scopo che sono disponibili due opzioni (nessuna delle quali è necessario scrivere codice):
 
-- **Impostare le categorie DropDownList**[proprietà di un postback automatico](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**su True.** (È possibile eseguire questo selezionando l'opzione di attivare un postback automatico smart tag del DropDownList.) Che attiverà un postback ogni volta che il controllo DropDownList selezionata elemento è stato modificato dall'utente. Pertanto, quando l'utente seleziona una nuova categoria da DropDownList verrà insorgere un postback e GridView verrà aggiornato con i prodotti per la categoria selezionata. (Questo è l'approccio che ho utilizzato in questa esercitazione).
+- **Impostare le categorie DropDownList**[proprietà di un postback automatico](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**su True.** (È possibile eseguire questo selezionando l'opzione di attivare un postback automatico smart tag del DropDownList.) Che attiverà un postback ogni volta che il controllo DropDownList selezionata elemento è stato modificato dall'utente. Pertanto, quando l'utente seleziona una nuova categoria da DropDownList verrà insorgere un postback e GridView verrà aggiornato con i prodotti per la categoria selezionata. (Questo è l'approccio che ho utilizzato in questa esercitazione).
 - **Aggiungere un controllo pulsante Web accanto DropDownList.** Impostare il relativo `Text` proprietà per l'aggiornamento o un attributo simile. Con questo approccio, l'utente sarà necessario selezionare una nuova categoria e quindi fare clic sul pulsante. Fare clic sul pulsante causerà un postback e aggiorna il GridView per elencare i prodotti della categoria selezionata.
 
 Figure 9 e 10 viene illustrato il report master/dettaglio in azione.
@@ -172,4 +172,4 @@ Buona programmazione!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Successivo](master-detail-filtering-with-two-dropdownlists-cs.md)
+[avanti](master-detail-filtering-with-two-dropdownlists-cs.md)

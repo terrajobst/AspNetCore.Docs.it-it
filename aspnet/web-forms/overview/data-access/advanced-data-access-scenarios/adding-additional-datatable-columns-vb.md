@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2668a685389938979fc4b0a1e1701a90cef5dc1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Aggiunta di colonne aggiuntive DataTable (VB)
 ====================
@@ -90,12 +90,12 @@ Successivamente vengono richieste per il `SELECT` query. Nella procedura guidata
 
 [!code-sql[Main](adding-additional-datatable-columns-vb/samples/sample1.sql)]
 
-La query precedente utilizza SQL Server 2005 s nuovo [ `NTILE` funzione](https://msdn.microsoft.com/en-us/library/ms175126.aspx) per dividere i risultati in quattro gruppi in cui i gruppi sono determinati dal `UnitPrice` valori ordinati in ordine decrescente.
+La query precedente utilizza SQL Server 2005 s nuovo [ `NTILE` funzione](https://msdn.microsoft.com/library/ms175126.aspx) per dividere i risultati in quattro gruppi in cui i gruppi sono determinati dal `UnitPrice` valori ordinati in ordine decrescente.
 
 Sfortunatamente, il generatore di Query non è in grado di analizzare il `OVER` (parola chiave) e verrà visualizzato un errore durante l'analisi di query sopra indicata. Pertanto, è possibile immettere la query sopra indicata direttamente nella casella di testo della procedura guidata senza utilizzare il generatore delle Query.
 
 > [!NOTE]
-> Per ulteriori informazioni su NTILE e SQL Server 2005 s altre funzioni di rango, vedere [restituzione di risultati classificati con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) e [sezione funzioni di rango](https://msdn.microsoft.com/en-us/library/ms189798.aspx) dal [SQL Documentazione Online di Server 2005](https://msdn.microsoft.com/en-us/library/ms189798.aspx).
+> Per ulteriori informazioni su NTILE e SQL Server 2005 s altre funzioni di rango, vedere [restituzione di risultati classificati con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) e [sezione funzioni di rango](https://msdn.microsoft.com/library/ms189798.aspx) dal [SQL Documentazione Online di Server 2005](https://msdn.microsoft.com/library/ms189798.aspx).
 
 
 Dopo aver immesso il `SELECT` query e fare clic su Avanti, la procedura guidata chiede di specificare un nome per la stored procedure verrà creato. Denominare la nuova stored procedure `Products_SelectWithPriceQuartile` e fare clic su Avanti.

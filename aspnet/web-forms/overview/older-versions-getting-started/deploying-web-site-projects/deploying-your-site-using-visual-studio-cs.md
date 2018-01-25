@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d3d2c70346abad5addab5c29d4af9f238b39da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c0c32c3dd24be5edfea3e17695753973f3fad30a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>La distribuzione del sito utilizzando Visual Studio (c#)
 ====================
@@ -33,7 +33,7 @@ L'esercitazione precedente esaminato come distribuire una semplice applicazione 
 
 
 > [!NOTE]
-> Altri strumenti correlati alla distribuzione di offerte da Visual Studio includono [progetti di installazione Web](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx) e [progetti di distribuzione Web](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) aggiuntivo. Progetti di installazione Web pacchetto di contenuto di un sito Web e le informazioni di configurazione in un unico file MSI. Questa opzione è particolarmente utile per i siti Web distribuiti all'interno di una rete intranet o per le aziende che vendono un'applicazione web sotto forma di pacchetto che installano nei server web. Il Web distribuzione progetti di componente aggiuntivo è che un Visual Studio componente aggiuntivo che facilita le differenze di configurazione specificando tra compilazioni per ambienti di sviluppo e di ambienti di produzione. Progetti di installazione Web non vengono trattati in questa serie di esercitazioni; Progetti di distribuzione Web sono riepilogati nella [ *comuni configurazione differenze tra lo sviluppo e produzione* ](common-configuration-differences-between-development-and-production-cs.md) esercitazione.
+> Altri strumenti correlati alla distribuzione di offerte da Visual Studio includono [progetti di installazione Web](https://msdn.microsoft.com/library/wx3b589t.aspx) e [progetti di distribuzione Web](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) aggiuntivo. Progetti di installazione Web pacchetto di contenuto di un sito Web e le informazioni di configurazione in un unico file MSI. Questa opzione è particolarmente utile per i siti Web distribuiti all'interno di una rete intranet o per le aziende che vendono un'applicazione web sotto forma di pacchetto che installano nei server web. Il Web distribuzione progetti di componente aggiuntivo è che un Visual Studio componente aggiuntivo che facilita le differenze di configurazione specificando tra compilazioni per ambienti di sviluppo e di ambienti di produzione. Progetti di installazione Web non vengono trattati in questa serie di esercitazioni; Progetti di distribuzione Web sono riepilogati nella [ *comuni configurazione differenze tra lo sviluppo e produzione* ](common-configuration-differences-between-development-and-production-cs.md) esercitazione.
 
 
 ## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>La distribuzione del sito utilizzando lo strumento Copia sito Web
@@ -149,11 +149,11 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Copia sito Web con lo strumento Copia sito Web](https://msdn.microsoft.com/en-us/library/1cc82atw.aspx)
+- [Copia sito Web con lo strumento Copia sito Web](https://msdn.microsoft.com/library/1cc82atw.aspx)
 - [Come ricerca per categorie: distribuire un sito Web tramite lo strumento Copia sito Web](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
-- [Procedura: Pubblicare progetti di applicazione Web](https://msdn.microsoft.com/en-us/library/aa983453.aspx)
-- [Procedura: Pubblicazione di siti Web](https://msdn.microsoft.com/en-us/library/20yh9f1b.aspx)
-- [Il programma di installazione e distribuzione di progetti in Visual Studio](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)
+- [Procedura: Pubblicare progetti di applicazione Web](https://msdn.microsoft.com/library/aa983453.aspx)
+- [Procedura: Pubblicazione di siti Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Il programma di installazione e distribuzione di progetti in Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 >[!div class="step-by-step"]
 [Precedente](deploying-your-site-using-an-ftp-client-cs.md)

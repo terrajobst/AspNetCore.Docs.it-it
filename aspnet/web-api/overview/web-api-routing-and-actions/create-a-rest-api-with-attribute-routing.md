@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creare un'API REST con attributo Routing in ASP.NET Web API 2
 ====================
@@ -24,14 +24,14 @@ da [Mike Wasson](https://github.com/MikeWasson)
 
 Web API 2 supporta un nuovo tipo di routing, denominata *attributo routing*. Per una panoramica generale di routing degli attributi, vedere [Routing degli attributi in Web API 2](attribute-routing-in-web-api-2.md). In questa esercitazione si utilizzerà il routing di attributo per creare un'API REST per una raccolta di documentazione. L'API offrirà supporto per le azioni seguenti:
 
-| Azione | URI di esempio |
+| Operazione | URI di esempio |
 | --- | --- |
-| Ottenere un elenco di tutti i libri. | documentazione/api / |
-| Ottenere un libro di ID. | /API/books/1 |
-| Ottenere i dettagli di un libro. | /API/books/1/Details |
-| Ottenere un elenco di libri per genere. | /API/books/fantasy |
+| Ottenere un elenco di tutti i libri. | /api/books |
+| Ottenere un libro di ID. | /api/books/1 |
+| Ottenere i dettagli di un libro. | /api/books/1/details |
+| Ottenere un elenco di libri per genere. | /api/books/fantasy |
 | Ottenere un elenco di libri per data di pubblicazione. | /API/books/date/2013-02-16 /api/books/date/2013/02/16 (modulo alternativo) |
-| Ottenere un elenco di libri da un particolare autore. | /API/authors/1/books |
+| Ottenere un elenco di libri da un particolare autore. | /api/authors/1/books |
 
 Tutti i metodi sono di sola lettura (richieste HTTP GET).
 
@@ -141,7 +141,7 @@ Aggiungere un'altra classe denominata `BookDetailDto`.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-Aggiornare quindi il `BooksController` classe per restituire `BookDto` istanze. Si userà il [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx) metodo progetto `Book` istanze per `BookDto` istanze. Di seguito è riportato il codice aggiornato per la classe controller.
+Aggiornare quindi il `BooksController` classe per restituire `BookDto` istanze. Si userà il [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx) metodo progetto `Book` istanze per `BookDto` istanze. Di seguito è riportato il codice aggiornato per la classe controller.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 
@@ -168,7 +168,7 @@ Il modello di route per ogni metodo del controller è il prefisso più la string
 | Metodo | Modello di route | URI di esempio |
 | --- | --- | --- |
 | `GetBooks` | "documentazione/api" | `http://localhost/api/books` |
-| `GetBook` | "api/documentazione / {id: int}" | `http://localhost/api/books/5` |
+| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Ottenere i dettagli della Rubrica
 

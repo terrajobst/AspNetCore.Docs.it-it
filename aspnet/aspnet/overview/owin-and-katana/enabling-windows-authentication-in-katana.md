@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: cc23a053fb1ba60ea84eca59e99f0e375fefc4cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a26d356f7abafba021199761f9a49dcb81765c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Abilitazione dell'autenticazione di Windows in Katana
 ====================
@@ -33,8 +33,8 @@ Katana è l'implementazione Microsoft di [OWIN](http://owin.org/), l'interfaccia
 
 Katana offre attualmente due server, che supportano entrambi l'autenticazione integrata di Windows:
 
-- **Systemweb**. Usa IIS con la pipeline ASP.NET.
-- **HttpListener**. Usa [System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx). Il server è l'opzione predefinita quando self-hosting Katana.
+- **Microsoft.Owin.Host.SystemWeb**. Usa IIS con la pipeline ASP.NET.
+- **Microsoft.Owin.Host.HttpListener**. Usa [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx). Il server è l'opzione predefinita quando self-hosting Katana.
 
 > [!NOTE]
 > Katana non attualmente fornisce middleware OWIN per l'autenticazione di Windows, perché questa funzionalità è già disponibile nel server.
@@ -98,8 +98,8 @@ All'interno di `Main` di funzione, avviare la pipeline OWIN:
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-[Una panoramica del progetto Katana](an-overview-of-project-katana.md)
+[Panoramica del progetto Katana](an-overview-of-project-katana.md)
 
-[System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)
+[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
 [Informazioni sui OWIN autenticazione basata su form in MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)

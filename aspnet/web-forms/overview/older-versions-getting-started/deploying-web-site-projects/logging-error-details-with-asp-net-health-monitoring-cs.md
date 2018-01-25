@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06f8b57c8973fff5c07e82100cd43f6757d454f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>I dettagli dell'errore di registrazione con ASP.NET di monitoraggio (c#)
 ====================
@@ -43,13 +43,13 @@ Gli eventi di log di sistema di monitoraggio dello stato, con le origini di log 
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Esplorazione di configurazione del sistema di monitoraggio dello stato
 
-Il comportamento del sistema di monitoraggio dello stato è definito per le informazioni di configurazione, che si trovano nella [ `<healthMonitoring>` elemento](https://msdn.microsoft.com/en-us/library/2fwh2ss9.aspx) in `Web.config`. Questa sezione di configurazione definisce i seguenti tre importanti tipi di informazioni:
+Il comportamento del sistema di monitoraggio dello stato è definito per le informazioni di configurazione, che si trovano nella [ `<healthMonitoring>` elemento](https://msdn.microsoft.com/library/2fwh2ss9.aspx) in `Web.config`. Questa sezione di configurazione definisce i seguenti tre importanti tipi di informazioni:
 
 1. Il monitoraggio di eventi dello stato che, quando generato, devono essere registrate,
 2. Le origini di log, e
 3. Modalità di mapping di ogni evento definito in (1) sul monitoraggio dello stato per le origini di log definiti nel (2).
 
-Queste informazioni vengono specificate tramite gli elementi di configurazione di tre elementi figlio: [ `<eventMappings>` ](https://msdn.microsoft.com/en-us/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/en-us/library/zaa41kz1.aspx), e [ `<rules>` ](https://msdn.microsoft.com/en-us/library/fe5wyxa0.aspx), rispettivamente.
+Queste informazioni vengono specificate tramite gli elementi di configurazione di tre elementi figlio: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), e [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx), rispettivamente.
 
 Informazioni di configurazione di sistema di monitoraggio dello stato predefinito, vedere il `Web.config` file `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` cartella. Queste informazioni di configurazione predefinite, con alcuni tag rimosso per ragioni di brevità, sono illustrate di seguito:
 
@@ -114,7 +114,7 @@ Consente di aggiornare le recensioni di configurazione del sito Web in modo che 
 2. Registrare il provider di origine di log di posta elettronica nel `<providers>` elemento, e
 3. Aggiungere una voce per il `<rules>` elemento che esegue il mapping al provider di origine di log aggiunto nel passaggio (2) l'evento di "Tutti gli errori".
 
-Il sistema di monitoraggio dello stato include due classi di provider dell'origine di log tramite posta elettronica: `SimpleMailWebEventProvider` e `TemplatedMailWebEventProvider`. Il [ `SimpleMailWebEventProvider` classe](https://msdn.microsoft.com/en-us/library/system.web.management.simplemailwebeventprovider.aspx) invia un messaggio di posta elettronica con testo normale che l'evento include i dettagli e fornisce poche operazioni di personalizzazione del corpo del messaggio di posta elettronica. Con il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) è specificare una pagina ASP.NET con markup sottoposto a rendering viene utilizzato come corpo del messaggio di posta elettronica. Il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) offre maggiore controllo sul contenuto e formato del messaggio di posta elettronica, ma richiede un po' più lavoro iniziale, è necessario creare la pagina ASP.NET che genera il corpo del messaggio di posta elettronica. In questa esercitazione viene illustrato l'utilizzo di `SimpleMailWebEventProvider` classe.
+Il sistema di monitoraggio dello stato include due classi di provider dell'origine di log tramite posta elettronica: `SimpleMailWebEventProvider` e `TemplatedMailWebEventProvider`. Il [ `SimpleMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) invia un messaggio di posta elettronica con testo normale che l'evento include i dettagli e fornisce poche operazioni di personalizzazione del corpo del messaggio di posta elettronica. Con il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) è specificare una pagina ASP.NET con markup sottoposto a rendering viene utilizzato come corpo del messaggio di posta elettronica. Il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) offre maggiore controllo sul contenuto e formato del messaggio di posta elettronica, ma richiede un po' più lavoro iniziale, è necessario creare la pagina ASP.NET che genera il corpo del messaggio di posta elettronica. In questa esercitazione viene illustrato l'utilizzo di `SimpleMailWebEventProvider` classe.
 
 Aggiornare lo stato sistema di monitoraggio `<providers>` elemento il `Web.config` file da includere un'origine di log per il `SimpleMailWebEventProvider` classe:
 
@@ -139,7 +139,7 @@ Il `<rules>` sezione include ora due regole. Il primo, denominato "Tutti gli err
 
 Il sistema di monitoraggio dello stato ASP.NET è progettato per consentire agli amministratori di monitorare l'integrità di un'applicazione web distribuita. Gli eventi di monitoraggio di stato vengono generati quando si svolgano determinate azioni, ad esempio quando si arresta l'applicazione, quando un utente accede al sito o quando si verifica un'eccezione non gestita. Questi eventi possono essere registrati in qualsiasi numero di origini di log. In questa esercitazione viene illustrato come registrare i dettagli dell'eccezione non gestita a un database e tramite un messaggio di posta elettronica.
 
-In questa esercitazione è incentrata sull'utilizzo di monitoraggio per registrare le eccezioni non gestite, ma tenere presente che il monitoraggio dello stato è progettato per misurare l'integrità complessiva di un'applicazione ASP.NET distribuita e include una vasta gamma di eventi di monitoraggio dello stato e le origini del log non sono stati illustrati qui. In particolare, è possibile creare la propria integrità monitoraggio gli eventi e origini di log, in caso di necessità si verificano. Se si desidera ottenere ulteriori informazioni sul monitoraggio dello stato, un buon primo passaggio consiste nel leggere [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)del [domande frequenti sul monitoraggio dello stato](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Successivamente, consultare [How To: il monitoraggio dell'integrità di utilizzo di ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998306.aspx).
+In questa esercitazione è incentrata sull'utilizzo di monitoraggio per registrare le eccezioni non gestite, ma tenere presente che il monitoraggio dello stato è progettato per misurare l'integrità complessiva di un'applicazione ASP.NET distribuita e include una vasta gamma di eventi di monitoraggio dello stato e le origini del log non sono stati illustrati qui. In particolare, è possibile creare la propria integrità monitoraggio gli eventi e origini di log, in caso di necessità si verificano. Se si desidera ottenere ulteriori informazioni sul monitoraggio dello stato, un buon primo passaggio consiste nel leggere [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)del [domande frequenti sul monitoraggio dello stato](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Successivamente, consultare [How To: il monitoraggio dell'integrità di utilizzo di ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx).
 
 Buona programmazione!
 
@@ -147,11 +147,11 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Cenni preliminari sul monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/en-us/library/bb398933.aspx)
+- [Cenni preliminari sul monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Configurare e personalizzare il sistema di ASP.NET di monitoraggio dello stato](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [Domande frequenti - monitoraggio dell'integrità in ASP.NET 2.0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Procedura: Inviare posta elettronica per le notifiche di monitoraggio dello stato](https://msdn.microsoft.com/en-us/library/ms227553.aspx)
-- [Procedura: Utilizzare il monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+- [Procedura: Inviare posta elettronica per le notifiche di monitoraggio dello stato](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Procedura: Utilizzare il monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Monitoraggio dell'integrità in ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 >[!div class="step-by-step"]

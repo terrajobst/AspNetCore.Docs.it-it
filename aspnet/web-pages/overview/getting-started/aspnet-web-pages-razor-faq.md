@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 7f6dc3b56a33bcbe3e1e4086681ca1ba76d7d153
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60cc4ca364923cb131d5e91cd7b6307b1e68644b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Pages domande frequenti (Razor)
 ====================
@@ -99,7 +99,7 @@ Per informazioni su IIS Express opzioni della riga di comando, immettere `iisexp
 <a id="Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page"></a>
 ## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>È possibile utilizzare i controlli Web Form ASP.NET in una pagina di pagine Web?
 
-No. Controlli Web Form come il [casella di controllo](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.checkbox) (controllo), il [i controlli di convalida](https://msdn.microsoft.com/en-us/library/bwd43d0x)e [GridView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview) controllano solo il lavoro in pagine Web Form (*aspx* file). Questi controlli richiedono il framework della pagina Web Form.
+No. Controlli Web Form come il [casella di controllo](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox) (controllo), il [i controlli di convalida](https://msdn.microsoft.com/library/bwd43d0x)e [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) controllano solo il lavoro in pagine Web Form (*aspx* file). Questi controlli richiedono il framework della pagina Web Form.
 
 <a id="Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix"></a>
 ## <a name="can-i-deploy-an-aspnet-web-pages-site-without-using-webmatrix"></a>È possibile distribuire un sito ASP.NET Web Pages senza utilizzare WebMatrix?
@@ -135,6 +135,6 @@ Ecco alcuni post di blog che illustrano le modalità di utilizzo con ASP.NET Web
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 
-[Pagine Web ASP.NET (Razor) Troubleshooting Guide](https://go.microsoft.com/fwlink/?LinkId=253001)
+[Guida alla risoluzione dei problemi delle pagine Web ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
 
 [ASP.NET Web Pages e WebMatrix forum](https://forums.asp.net/1224.aspx/1?WebMatrix) nel sito Web ASP.NET

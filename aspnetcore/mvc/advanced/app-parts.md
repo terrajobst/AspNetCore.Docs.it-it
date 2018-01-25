@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 
@@ -40,9 +40,9 @@ services.AddMvc()
 
 Per impostazione predefinita, MVC verrà ricerca l'albero delle dipendenze e individuare i controller (anche in altri assembly). Per caricare un assembly arbitrario (ad esempio, da un plug-in che non fa riferimento in fase di compilazione), è possibile utilizzare una parte dell'applicazione.
 
-È possibile utilizzare parti dell'applicazione per *evitare* cercando controller in un particolare assembly o un percorso. È possibile controllare quali parti o gli assembly sono disponibili per l'applicazione modificando il `ApplicationParts` insieme il `ApplicationPartManager`. L'ordine delle voci di `ApplicationParts` raccolta non è importante. È importante configurare completamente il `ApplicationPartManager` prima di utilizzarlo per configurare i servizi nel contenitore. Ad esempio, è necessario configurare completamente il `ApplicationPartManager` prima di richiamare `AddControllersAsServices`. In caso contrario, significa che i controller di parti dell'applicazione aggiunti dopo che chiamata al metodo non sarà interessata (non viene registrato come servizi) che potrebbe essere bevavior non corretto dell'applicazione.
+È possibile utilizzare parti dell'applicazione per *evitare* cercando controller in un particolare assembly o un percorso. È possibile controllare quali parti o gli assembly sono disponibili per l'applicazione modificando il `ApplicationParts` insieme il `ApplicationPartManager`. L'ordine delle voci di `ApplicationParts` raccolta non è importante. È importante configurare completamente il `ApplicationPartManager` prima di utilizzarlo per configurare i servizi nel contenitore. Ad esempio, è necessario configurare completamente il `ApplicationPartManager` prima di richiamare `AddControllersAsServices`. In caso contrario, significa che i controller di parti dell'applicazione aggiunti dopo che non saranno interessata chiamata al metodo (non viene registrato come servizi) che potrebbe essere bevavior non corretto dell'applicazione.
 
-Se si dispone di un assembly che contiene i controller non si desidera utilizzare, rimuoverlo dal `ApplicationPartManager`:
+Se si dispone di un assembly che contiene i controller che non si desidera utilizzare, rimuoverlo dal `ApplicationPartManager`:
 
 ```csharp
 services.AddMvc()

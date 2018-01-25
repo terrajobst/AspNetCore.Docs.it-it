@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: f95322c208d323c052295959e39f945700b7ec57
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d7cbb4786be0acf9679f43466460c3833f1db6fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-storage-providers"></a>Provider di archiviazione chiavi
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 Per impostazione predefinita il sistema di protezione dati [utilizza un approccio euristico](xref:security/data-protection/configuration/default-settings) per determinare dove deve essere mantenuti chiavi crittografiche. Lo sviluppatore può eseguire l'override l'euristica e specificare manualmente il percorso.
 
 > [!NOTE]
-> Se si specifica un percorso esplicito persistenza chiave, il sistema di protezione dati verrà annullare la registrazione alla crittografia della chiave predefinita al meccanismo di rest che ha fornito l'approccio euristico, pertanto non è più chiavi verranno crittografate a riposo. È consigliabile che si inoltre [specifica un meccanismo di crittografia della chiave esplicita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) per applicazioni di produzione.
+> Se si specifica un percorso esplicito persistenza chiave, il sistema di protezione dati verrà annullare la registrazione alla crittografia della chiave predefinita al meccanismo di rest che ha fornito l'approccio euristico, pertanto non è più chiavi verranno crittografate a riposo. Si consiglia di che è inoltre [specifica un meccanismo di crittografia della chiave esplicita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) per applicazioni di produzione.
 
 Il sistema di protezione dati viene fornito con diversi provider di archiviazione della chiave nella casella.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Aggiunta della protezione e l'appartenenza al sito Web ASP.NET (Razor) pagine
 ====================
@@ -212,7 +212,7 @@ Il sistema di appartenenze ASP.NET è configurare per supportare i ruoli. Tuttav
 
 Pagina di accesso non comporta l'arresto programmi automatizzati (talvolta detto *web robot* o *BOT*) tramite la registrazione con il sito Web. Questa procedura viene descritto come consentire a un test di ReCaptcha per la pagina di registrazione.
 
-![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
 1. Registrare il sito Web all'indirizzo ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Dopo aver completato la registrazione, si otterrà una chiave pubblica e una chiave privata.
 2. Aggiungere il sito Web ASP.NET Web Helpers Library come descritto in [helper per l'installazione in un sito di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=252372), se hai già fatto.
@@ -230,7 +230,7 @@ Pagina di accesso non comporta l'arresto programmi automatizzati (talvolta detto
 1. Eseguire *cshtml* in un browser. Se si è connessi al sito, fare clic su di **Logout** collegamento.
 2. Fare clic su di **registrare** collegamento e i test la registrazione tramite il test CAPTCHA.
 
-    ![sicurezza-appartenenza-10](16-adding-security-and-membership/_static/image9.png)
+    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 Per ulteriori informazioni sul `ReCaptcha` supporto, vedere [utilizzando un CATPCHA per evitare che programmi automatizzata (Bot) da utilizzando il sito Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251967).
 
@@ -254,20 +254,20 @@ La procedura più indietro in questo articolo si basa sull'utilizzo di **Starter
 
 Il processo di base è descritto nel post di blog [il modo più semplice per implementare la sicurezza ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). La maggior parte delle operazioni viene eseguita utilizzando i seguenti metodi e proprietà del `WebSecurity` helper:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Questi metodi consentono di determinare se un utente è già registrato e per registrarli.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Questa proprietà consente di determinare se l'utente corrente è connesso. Ciò è utile per reindirizzare gli utenti a una pagina di accesso se non è ancora effettuato l'accesso.
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Questi metodi di accesso di un utente in o out.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Questa proprietà è utile per la visualizzazione connesso nome dell'utente corrente (se l'utente è connesso).
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx). Questo metodo è utile se è impostata una conferma tramite posta elettronica per la registrazione. (I dettagli sono descritti nel post di blog [utilizzando la funzionalità di conferma per la sicurezza ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Questi metodi consentono di determinare se un utente è già registrato e per registrarli.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Questa proprietà consente di determinare se l'utente corrente è connesso. Ciò è utile per reindirizzare gli utenti a una pagina di accesso se non è ancora effettuato l'accesso.
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Questi metodi di accesso di un utente in o out.
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Questa proprietà è utile per la visualizzazione connesso nome dell'utente corrente (se l'utente è connesso).
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Questo metodo è utile se è impostata una conferma tramite posta elettronica per la registrazione. (I dettagli sono descritti nel post di blog [utilizzando la funzionalità di conferma per la sicurezza ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Per gestire i ruoli, è possibile utilizzare il [ruoli](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx) e [appartenenza](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx) classi, come descritto nel post di blog.
+Per gestire i ruoli, è possibile utilizzare il [ruoli](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) e [appartenenza](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) classi, come descritto nel post di blog.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Personalizzazione del comportamento a livello di sito](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Protezione delle comunicazioni Web: I certificati SSL e https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [IL modo più semplice per implementare la sicurezza ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) e [utilizzando la funzionalità di conferma per la sicurezza ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Si tratta di post di blog che descrivono come implementare la funzionalità di appartenenza ASP.NET senza utilizzare il **Starter Site** modello.
-- [Abilitazione di account di accesso da siti esterni in un sito di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [Riferimento all'API di classe WebSecurity](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [Riferimento all'API di classe SimpleRoleProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [Riferimento all'API di classe SimpleMembershipProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [Abilitazione dell'accesso da siti esterni in un sito con pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [Riferimento all'API di classe WebSecurity](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
+- [Riferimento all'API di classe SimpleRoleProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [Riferimento all'API di classe SimpleMembershipProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

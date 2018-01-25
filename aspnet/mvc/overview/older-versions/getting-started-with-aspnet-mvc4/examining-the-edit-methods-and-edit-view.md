@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: fb20c98283bfd46e62d56252bbec4f4b4b08b1c3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a20693f3e83053dd99499d486412b66777189f1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -36,9 +36,9 @@ Il **modifica** collegamento è stato generato dal `Html.ActionLink` metodo il *
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample1.cshtml)]
 
-![HTML. ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
+![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-Il `Html` oggetto è un helper che viene esposta utilizzando una proprietà sul [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx) classe di base. Il `ActionLink` metodo dell'helper semplifica la generazione dinamica di collegamenti ipertestuali HTML che si collegano a metodi di azione nel controller. Il primo argomento per il `ActionLink` metodo è il testo del collegamento per eseguire il rendering (ad esempio, `<a>Edit Me</a>`). Il secondo argomento è il nome del metodo di azione da richiamare. L'argomento finale è un [oggetto anonimo](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) che genera i dati della route (in questo caso, l'ID di 4).
+Il `Html` oggetto è un helper che viene esposta utilizzando una proprietà sul [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx) classe di base. Il `ActionLink` metodo dell'helper semplifica la generazione dinamica di collegamenti ipertestuali HTML che si collegano a metodi di azione nel controller. Il primo argomento per il `ActionLink` metodo è il testo del collegamento per eseguire il rendering (ad esempio, `<a>Edit Me</a>`). Il secondo argomento è il nome del metodo di azione da richiamare. L'argomento finale è un [oggetto anonimo](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) che genera i dati della route (in questo caso, l'ID di 4).
 
 Il collegamento generato illustrato nella figura precedente è `http://localhost:xxxxx/Movies/Edit/4`. La route predefinita (stabilita *App\_Start\RouteConfig.cs*) utilizza il modello di URL `{controller}/{action}/{id}`. Pertanto, ASP.NET traduce `http://localhost:xxxxx/Movies/Edit/4` in una richiesta per il `Edit` metodo di azione del `Movies` controller con il parametro `ID` uguale a 4. Esaminare il codice seguente dal *App\_Start\RouteConfig.cs* file.
 
@@ -54,13 +54,13 @@ Aprire il `Movies` controller. I due `Edit` metodi di azione vengono mostrati di
 
 Si noti che il secondo metodo di azione `Edit` è preceduto dall'attributo `HttpPost`. Questo attributo specifica, che eseguire l'overload di `Edit` metodo può essere richiamato solo per le richieste POST. È possibile applicare il `HttpGet` attributo per il primo metodo di modifica, ma che non è necessario perché è il valore predefinito. (Si farà riferimento ai metodi di azione che vengono assegnati in modo implicito il `HttpGet` attributo `HttpGet` metodi.)
 
-Il `HttpGet` `Edit` metodo accetta il parametro ID film, Cerca il film tramite Entity Framework `Find` (metodo) e restituisce il filmato selezionato per la visualizzazione di modifica. Specifica il parametro ID un [il valore predefinito](https://msdn.microsoft.com/en-us/library/dd264739.aspx) di zero se la `Edit` metodo viene chiamato senza un parametro. Se non viene trovato un filmato, [HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx) viene restituito. Quando il sistema di scaffolding ha creato la vista Edit, ha esaminato la classe `Movie` e il codice creato per eseguire il rendering degli elementi `<label>` e `<input>` per ogni proprietà della classe. Nell'esempio seguente viene illustrata la visualizzazione di modifica che è stata generata:
+Il `HttpGet` `Edit` metodo accetta il parametro ID film, Cerca il film tramite Entity Framework `Find` (metodo) e restituisce il filmato selezionato per la visualizzazione di modifica. Specifica il parametro ID un [il valore predefinito](https://msdn.microsoft.com/library/dd264739.aspx) di zero se la `Edit` metodo viene chiamato senza un parametro. Se non viene trovato un filmato, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) viene restituito. Quando il sistema di scaffolding ha creato la vista Edit, ha esaminato la classe `Movie` e il codice creato per eseguire il rendering degli elementi `<label>` e `<input>` per ogni proprietà della classe. Nell'esempio seguente viene illustrata la visualizzazione di modifica che è stata generata:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cshtml)]
 
 Si noti come il modello di visualizzazione è un `@model MvcMovie.Models.Movie` istruzione all'inizio del file: Specifica che la vista prevede che il modello per il modello di visualizzazione di tipo `Movie`.
 
-Il codice di scaffolding vengono utilizzati diversi *metodi helper* per semplificare il markup HTML. Il [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) helper Visualizza il nome del campo (&quot;titolo&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, o &quot;prezzo &quot;). Il [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) helper esegue il rendering HTML `<input>` elemento. Il [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) helper Visualizza gli eventuali messaggi di convalida associati alla proprietà.
+Il codice di scaffolding vengono utilizzati diversi *metodi helper* per semplificare il markup HTML. Il [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) helper Visualizza il nome del campo (&quot;titolo&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, o &quot;prezzo &quot;). Il [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) helper esegue il rendering HTML `<input>` elemento. Il [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) helper Visualizza gli eventuali messaggi di convalida associati alla proprietà.
 
 Eseguire l'applicazione e passare il */Movies* URL. Fare clic su un collegamento **Edit** (Modifica). Nel browser visualizzare l'origine per la pagina. Il codice HTML dell'elemento di formato è illustrato di seguito.
 
@@ -74,7 +74,7 @@ Nell'elenco seguente viene indicata la versione `HttpPost` del metodo di azione 
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cs)]
 
-Il [Raccoglitore di modelli di MVC ASP.NET](https://msdn.microsoft.com/en-us/magazine/hh781022.aspx) accetta i valori del form inseriti e crea un `Movie` oggetto passato come il `movie` parametro. Il metodo `ModelState.IsValid` verifica che i dati inviati nel formato possano essere usati per cambiare (modificare o aggiornare) un oggetto `Movie`. Se i dati non validi, i dati del film viene salvati il `Movies` insieme il `db(MovieDBContext` istanza). I nuovi dati film viene salvati nel database chiamando il `SaveChanges` metodo `MovieDBContext`. Dopo aver salvato i dati, il codice reindirizza l'utente per il `Index` metodo di azione della `MoviesController` classe, che consente di visualizzare della raccolta di film, incluse le modifiche appena apportate.
+Il [Raccoglitore di modelli di MVC ASP.NET](https://msdn.microsoft.com/magazine/hh781022.aspx) accetta i valori del form inseriti e crea un `Movie` oggetto passato come il `movie` parametro. Il metodo `ModelState.IsValid` verifica che i dati inviati nel formato possano essere usati per cambiare (modificare o aggiornare) un oggetto `Movie`. Se i dati non validi, i dati del film viene salvati il `Movies` insieme il `db(MovieDBContext` istanza). I nuovi dati film viene salvati nel database chiamando il `SaveChanges` metodo `MovieDBContext`. Dopo aver salvato i dati, il codice reindirizza l'utente per il `Index` metodo di azione della `MoviesController` classe, che consente di visualizzare della raccolta di film, incluse le modifiche appena apportate.
 
 Se i valori registrati non sono validi, essi verranno nuovamente visualizzati nel form. Il `Html.ValidationMessageFor` helper nel *Edit.cshtml* vista modello si occuperà di visualizzazione dei messaggi di errore appropriato.
 
@@ -102,7 +102,7 @@ Per iniziare, aggiungere un `SearchIndex` il metodo di azione esistente `MoviesC
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-La prima riga del `SearchIndex` metodo vengono creati i seguenti [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) query per selezionare i film:
+La prima riga del `SearchIndex` metodo vengono creati i seguenti [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) query per selezionare i film:
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cs)]
 
@@ -112,7 +112,7 @@ Se il `searchString` parametro contiene una stringa, viene modificata la query d
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample11.cs)]
 
-Il codice `s => s.Title` precedente è un'[espressione lambda](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Le espressioni lambda vengono utilizzate in base al metodo [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) esegue una query come argomenti dei metodi degli operatori query standard, ad esempio il [dove](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) utilizzato nel codice precedente. Le query LINQ non vengono eseguite quando vengono definite o quando vengono modificati chiamando un metodo, ad esempio `Where` o `OrderBy`. In alternativa, esecuzione della query è rinviata, il che significa che la valutazione di un'espressione viene ritardata fino a quando il relativo valore realizzato viene effettivamente eseguita un'iterazione o [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) metodo viene chiamato. Nel `SearchIndex` esempio, viene eseguita la query nella vista SearchIndex. Per altre informazioni sull'esecuzione posticipata di query, vedere [Esecuzione di query](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+Il codice `s => s.Title` precedente è un'[espressione lambda](https://msdn.microsoft.com/library/bb397687.aspx). Le espressioni lambda vengono utilizzate in base al metodo [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) esegue una query come argomenti dei metodi degli operatori query standard, ad esempio il [dove](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) utilizzato nel codice precedente. Le query LINQ non vengono eseguite quando vengono definite o quando vengono modificati chiamando un metodo, ad esempio `Where` o `OrderBy`. In alternativa, esecuzione della query è rinviata, il che significa che la valutazione di un'espressione viene ritardata fino a quando il relativo valore realizzato viene effettivamente eseguita un'iterazione o [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metodo viene chiamato. Nel `SearchIndex` esempio, viene eseguita la query nella vista SearchIndex. Per altre informazioni sull'esecuzione posticipata di query, vedere [Esecuzione di query](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Ora è possibile implementare il `SearchIndex` visualizzazione che consente di visualizzare il form per l'utente. Fare doppio clic all'interno di `SearchIndex` (metodo) e quindi fare clic su **Aggiungi visualizzazione**. Nel **Aggiungi visualizzazione** finestra di dialogo, specificare che si desidera passare un `Movie` oggetto per il modello di visualizzazione della relativa classe di modello. Nel **modello di scaffolding** scegliere **elenco**, quindi fare clic su **Aggiungi**.
 

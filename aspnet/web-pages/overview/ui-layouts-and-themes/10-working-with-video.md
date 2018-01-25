@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 0e1849fb780908b55520d8108e2227d046759987
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Visualizzazione di Video in un sito Web di ASP.NET di pagine (Razor)
 ====================
@@ -118,7 +118,7 @@ In questa procedura viene illustrato come riprodurre un video dimostrativo denom
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Eseguire la pagina in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.) Verrà visualizzata la pagina e il video viene riprodotto automaticamente. 
 
-    ![[immagine] ] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 È possibile impostare il `quality` parametro per un video dimostrativo per `low`, `autolow`, `autohigh`, `medium`, `high`, e `best`:
 
@@ -148,7 +148,7 @@ La procedura seguente viene illustrato come riprodurre un video Media finestra d
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Eseguire la pagina in un browser. Nel video viene caricato e viene eseguito automaticamente. 
 
-    ![[immagine] ] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 È possibile impostare `playCount` in un intero che indica il numero di volte per riprodurre il video automaticamente:
 
@@ -178,14 +178,14 @@ Questa procedura viene illustrato come riprodurre video contenuto Silverlight *X
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Eseguire la pagina in un browser. 
 
-    ![[immagine] ] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 
-[Panoramica di Silverlight](https://msdn.microsoft.com/en-us/library/bb404700(VS.95).aspx)
+[Panoramica di Silverlight](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
 [Flash gli attributi di tag di oggetto e INCORPORAMENTO](http://kb2.adobe.com/cps/127/tn_12701.html)
 
-[I tag PARAM SDK di Windows Media Player 11](https://msdn.microsoft.com/en-us/library/aa392321(VS.85).aspx)
+[I tag PARAM SDK di Windows Media Player 11](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

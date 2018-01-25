@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introduzione al debug ASP.NET Web Pages siti (Razor)
 ====================
@@ -71,7 +71,7 @@ Il `ServerInfo` helper è uno strumento di diagnostica che fornisce una panorami
     - Informazioni di HTTP Runtime. Questa sezione vengono fornite informazioni dettagliate su che la versione di Microsoft .NET Framework in esecuzione con la pagina web, percorso, i dettagli relativi alla cache e così via. (Come descritto in [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages utilizzando Razor sintassi si basano sulla tecnologia Microsoft per ASP.NET web server, che a sua volta è basato su un software completo libreria di sviluppo denominato .NET Framework).
     - Variabili di ambiente. In questa sezione fornisce un elenco di tutte le variabili di ambiente locale e i relativi valori nel server web.
 
-    Una descrizione completa di tutte le informazioni di richiesta e server non rientra nell'ambito di questo articolo, ma è possibile vedere che il `ServerInfo` helper restituisce molte delle informazioni di diagnostica. Per ulteriori informazioni sui valori che `ServerInfo` restituisce un valore, vedere [riconosciuto le variabili di ambiente](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) nel sito Web Microsoft TechNet e [variabili del Server IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) nel sito Web MSDN.
+    Una descrizione completa di tutte le informazioni di richiesta e server non rientra nell'ambito di questo articolo, ma è possibile vedere che il `ServerInfo` helper restituisce molte delle informazioni di diagnostica. Per ulteriori informazioni sui valori che `ServerInfo` restituisce un valore, vedere [riconosciuto le variabili di ambiente](https://technet.microsoft.com/library/dd560744(WS.10).aspx) nel sito Web Microsoft TechNet e [variabili del Server IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) nel sito Web MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Incorporare le espressioni di Output per visualizzare i valori di pagina
 
@@ -93,7 +93,7 @@ Un altro modo per scoprire cosa avviene nel codice consiste nell'incorporare le 
 
     Nella pagina vengono visualizzati il giorno della settimana reale prima di tutto, quindi il giorno della settimana aggiornato che deriva dall'aggiunta di un giorno, quindi il messaggio risultante dal `switch` istruzione. L'output da due espressioni di variabile (`@weekday`) non contenga spazi tra i giorni perché non sono state aggiunte a qualsiasi codice HTML `<p>` tag per l'output; le espressioni sono solo per i test.
 
-    ![Debug-2](introduction-to-debugging/_static/image2.jpg)
+    ![Debugging-2](introduction-to-debugging/_static/image2.jpg)
 
     Ora è possibile visualizzare in cui è l'errore. Quando si visualizza inizialmente la `weekday` variabile nel codice viene illustrato il giorno corretto. Quando si visualizza la seconda volta, dopo il `if` blocco nel codice, il giorno è disattivata per uno. Per sapere che tra il primo e secondo aspetto della variabile del giorno della settimana è avvenuto qualcosa. Se si trattasse di un bug reale, questo tipo di approccio sarebbe consentono di limitare la posizione del codice che causa il problema.
 6. Correggere il codice nella pagina rimuovendo le espressioni di due output che è stato aggiunto e rimosso il codice che modifica il giorno della settimana. Il blocco rimanente, completo di codice è simile alla seguente:
@@ -111,7 +111,7 @@ Il `ObjectInfo` helper Visualizza il tipo e il valore di ciascun oggetto passato
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
 3. Salvare ed eseguire la pagina in un browser.
 
-    ![Debug-4](introduction-to-debugging/_static/image3.jpg)
+    ![Debugging-4](introduction-to-debugging/_static/image3.jpg)
 
     In questo esempio, il `ObjectInfo` helper Visualizza due elementi:
 
@@ -139,5 +139,5 @@ Per informazioni sull'utilizzo di debugger integrato in Visual Studio per il deb
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Programmazione di pagine Web ASP.NET (Razor) utilizzando Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [Le variabili del Server IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) (MSDN)
-- [Le variabili di ambiente riconosciuto](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) (TechNet)
+- [Le variabili del Server IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Le variabili di ambiente riconosciuto](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

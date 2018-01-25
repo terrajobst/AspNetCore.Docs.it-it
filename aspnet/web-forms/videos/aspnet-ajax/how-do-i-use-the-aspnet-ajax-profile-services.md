@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-profile-services
 msc.type: video
-ms.openlocfilehash: 33c3e8db8ed481d3d65eca1792edb965c16e3876
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 508ce4d3f3419737a54484e7dcd18dd5ac88353d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[Eseguire la ricerca per categorie:] Utilizzare i servizi di profilo ASP.NET AJAX?
 ====================
 da [Chris PEL](https://twitter.com/chrispels)
 
-ASP.NET 2.0 ha introdotto [proprietà del profilo](https://msdn.microsoft.com/en-us/library/at64shx3.aspx) con cui è possibile archiviare i dettagli per ogni utente dell'applicazione Web ASP.NET. Servizi di profilo ASP.NET AJAX consente l'interfaccia Web sul lato client recuperare una proprietà del profilo utente dall'applicazione Web sul lato server. In questo video viene illustrato come un sito di esempio con supporto AJAX viaggio può archiviare le informazioni sulla richiesta di spostamento di un utente in modo che i dettagli possono essere recuperati quando successivamente visita il sito.
+ASP.NET 2.0 ha introdotto [proprietà del profilo](https://msdn.microsoft.com/library/at64shx3.aspx) con cui è possibile archiviare i dettagli per ogni utente dell'applicazione Web ASP.NET. Servizi di profilo ASP.NET AJAX consente l'interfaccia Web sul lato client recuperare una proprietà del profilo utente dall'applicazione Web sul lato server. In questo video viene illustrato come un sito di esempio con supporto AJAX viaggio può archiviare le informazioni sulla richiesta di spostamento di un utente in modo che i dettagli possono essere recuperati quando successivamente visita il sito.
 
 [&#9654; Guardare video (minuti 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-profile-services)
 

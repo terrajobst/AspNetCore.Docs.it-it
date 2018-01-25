@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b5f223f59a8b222f4f01322d228cf7434e3dfc14
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Scenario: Configurazione di un ambiente di gestione temporanea per la distribuzione Web
 ====================
@@ -35,7 +35,7 @@ Molte organizzazioni usano gli ambienti di gestione temporanea per visualizzare 
 - Modifiche alle applicazioni vengono distribuite regolarmente, quindi l'ambiente deve supportare singolo passaggio o distribuzione automatizzata.
 
 > [!NOTE]
-> Scalabilità orizzontale di una distribuzione di database tra più server non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni su un'area, consultare [la documentazione Online di SQL Server](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Scalabilità orizzontale di una distribuzione di database tra più server non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni su un'area, consultare [la documentazione Online di SQL Server](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Ad esempio, nel nostro [scenario dell'esercitazione](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) consente di gestire la soluzione di gestione di contatto. L'amministratore TFS, Rob Walters, ha creato una definizione di compilazione che consente agli sviluppatori di attivare una distribuzione all'ambiente di gestione temporanea in base alle esigenze.

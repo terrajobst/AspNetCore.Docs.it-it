@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Creare, leggere, aggiornare ed eliminare - Core EF con pagine Razor (2 di 8)
 
@@ -86,7 +86,7 @@ Non modificare globalmente `@page` a `@page "{id:int}"`, in questo modo viene in
 
 ### <a name="add-related-data"></a>Aggiungere i dati correlati
 
-Il codice per la pagina di indice di studenti scaffolding non include il `Enrollments` proprietà. In questa sezione, il contenuto del `Enrollments` raccolta viene visualizzata nella pagina dei dettagli.
+Non include il codice per la pagina di indice di studenti scaffolding di `Enrollments` proprietà. In questa sezione, il contenuto del `Enrollments` raccolta viene visualizzata nella pagina dei dettagli.
 
 Il `OnGetAsync` metodo *Pages/Students/Details.cshtml.cs* utilizza il `FirstOrDefaultAsync` metodo per recuperare un singolo `Student` entità. Aggiungere il codice evidenziato di seguito:
 
@@ -132,7 +132,7 @@ Nell'esempio precedente:
 <a id="overpost"></a>
 ### <a name="overposting"></a>Overposting
 
-Utilizzando `TryUpdateModel` per aggiornare i campi con valori pubblicati è una protezione ottimale, perché impedisce overposting. Ad esempio, si supponga che l'entità Student includa un `Secret` proprietà di questa pagina web non devono aggiornare o aggiungere:
+Utilizzando `TryUpdateModel` per aggiornare i campi con valori pubblicati è una protezione ottimale, perché impedisce overposting. Ad esempio, si supponga che l'entità Student includa un `Secret` proprietà che non devono aggiungere o aggiornare la pagina web:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 

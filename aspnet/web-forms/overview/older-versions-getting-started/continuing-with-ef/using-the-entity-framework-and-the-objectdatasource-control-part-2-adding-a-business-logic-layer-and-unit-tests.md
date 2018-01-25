@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Utilizzo di Entity Framework 4.0 e il controllo ObjectDataSource, parte 2: aggiunta di un livello di logica di Business e gli Unit test
 ====================
@@ -74,7 +74,7 @@ La variabile di classe che contiene un riferimento alla classe del repository è
 I metodi CRUD che chiamano la classe di repository e i due costruttori consentono di utilizzare la classe di logica di business con qualsiasi archivio dati back-end prescelto. La classe di logica di business non è necessario essere a conoscenza di come la classe che viene chiamata rende persistenti i dati. (Si tratta spesso *mancato riconoscimento della persistenza*.) Ciò facilita l'esecuzione di unit test, perché la classe di logica di business è possibile connettersi all'implementazione di un repository che vengono utilizzati come semplice come in memoria `List` raccolte per archiviare i dati.
 
 > [!NOTE]
-> Tecnicamente, gli oggetti entità sono ancora non persistenza, perché si è creata un'istanza da classi che ereditano da Entity Framework `EntityObject` classe. Mancato riconoscimento della persistenza completa, è possibile utilizzare *plain old CLR Object*, o *POCOs*, al posto di oggetti da cui ereditare la `EntityObject` classe. Utilizzando POCOs non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni, vedere [testabilità ed Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) nel sito Web MSDN.)
+> Tecnicamente, gli oggetti entità sono ancora non persistenza, perché si è creata un'istanza da classi che ereditano da Entity Framework `EntityObject` classe. Mancato riconoscimento della persistenza completa, è possibile utilizzare *plain old CLR Object*, o *POCOs*, al posto di oggetti da cui ereditare la `EntityObject` classe. Utilizzando POCOs non rientra nell'ambito di questa esercitazione. Per ulteriori informazioni, vedere [testabilità ed Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) nel sito Web MSDN.)
 
 
 Ora è possibile connettere il `ObjectDataSource` controlli per la logica di business classe invece che al repository e verificare che tutto funzioni come in precedenza.
@@ -221,7 +221,7 @@ Aggiungere il seguente gestore eventi:
 
 È ora possibile testare il *DepartmentsAdd.aspx.cs* pagina per verificare che gestisce anche correttamente tenta di rendere l'amministratore del più reparto di una persona.
 
-Questo completa l'introduzione di implementazione del modello di repository per l'utilizzo di `ObjectDataSource` controllo con Entity Framework. Per ulteriori informazioni sul modello di repository e testabilità, vedere il white paper MSDN [testabilità ed Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx).
+Questo completa l'introduzione di implementazione del modello di repository per l'utilizzo di `ObjectDataSource` controllo con Entity Framework. Per ulteriori informazioni sul modello di repository e testabilità, vedere il white paper MSDN [testabilità ed Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
 Nell'esercitazione seguente si noterà come aggiungere l'ordinamento e filtro funzionalità all'applicazione.
 

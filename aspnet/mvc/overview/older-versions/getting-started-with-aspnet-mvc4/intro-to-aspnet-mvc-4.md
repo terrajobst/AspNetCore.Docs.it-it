@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Introduzione a ASP.NET MVC 4
 ====================
@@ -24,7 +24,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Una versione aggiornata se è disponibile in questa esercitazione [qui](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti introdotti in questa esercitazione.
 > 
-> In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web ASP.NET MVC 4 tramite Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) o Visual Web Developer 2010 Express Service Pack 1. È consigliabile Visual Studio 2012, non dovrai installare nulla per completare l'esercitazione. Se si utilizza Visual Studio 2010 è necessario installare i componenti seguenti. È possibile installare tutti gli elementi facendo clic sui collegamenti seguenti:
+> In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web ASP.NET MVC 4 tramite Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) o Visual Web Developer 2010 Express Service Pack 1. È consigliabile Visual Studio 2012, non dovrai installare nulla per completare l'esercitazione. Se si utilizza Visual Studio 2010 è necessario installare i componenti seguenti. È possibile installare tutti gli elementi facendo clic sui collegamenti seguenti:
 > 
 > - [Prerequisiti di Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [Programma di installazione WPI per ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
@@ -35,7 +35,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 > 
 > Un progetto di Visual Web Developer con il codice sorgente c# è disponibile a complemento di questo argomento. [Scaricare la versione c#](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
-> Nell'esercitazione si esegue l'applicazione in Visual Studio. È inoltre possibile rendere l'applicazione disponibile su Internet mediante la distribuzione di un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un [senza account di valutazione di Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Per informazioni su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [creare e distribuire un sito web ASP.NET e il Database SQL con Visual Studio](https://docs.microsoft.com/dotnet/azure/). Inoltre, tale esercitazione viene illustrato come utilizzare le migrazioni di Entity Framework Code First per distribuire il database di SQL Server in Database SQL di Azure (precedentemente denominato SQL Azure).
+> Nell'esercitazione si esegue l'applicazione in Visual Studio. È inoltre possibile rendere l'applicazione disponibile su Internet mediante la distribuzione di un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un [senza account di valutazione di Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Per informazioni su come distribuire un progetto web di Visual Studio a un sito Web di Windows Azure, vedere [creare e distribuire un sito web ASP.NET e il Database SQL con Visual Studio](https://docs.microsoft.com/dotnet/azure/). Inoltre, tale esercitazione viene illustrato come utilizzare le migrazioni di Entity Framework Code First per distribuire il database di SQL Server in Database SQL di Azure (precedentemente denominato SQL Azure).
 > 
 > In questa esercitazione è stato scritto dal Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
@@ -89,4 +89,4 @@ F5 fa sì che Visual Studio avviare IIS Express ed eseguire l'applicazione web. 
 Subito tale modello predefinito consente principale, contatti e sulle pagine. Inoltre fornisce il supporto per registrare e accedere e collegamenti a Facebook e Twitter. Il passaggio successivo consiste nella modifica il funzionamento di questa applicazione e un po' informazioni su ASP.NET MVC. Chiudere il browser e modificare il codice.
 
 >[!div class="step-by-step"]
-[Successivo](adding-a-controller.md)
+[avanti](adding-a-controller.md)

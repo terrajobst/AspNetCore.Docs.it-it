@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Utilizzo di Grunt in ASP.NET Core 
 
@@ -101,7 +101,7 @@ Configurare quindi NPM per scaricare grunt e grunt-attività.
     > [!NOTE]
     > Usa NPM [controllo delle versioni semantico](http://semver.org/) per organizzare le dipendenze. Controllo delle versioni semantico, noto anche come SemVer, identifica i pacchetti con lo schema di numerazione <major>.<minor>. <patch>. IntelliSense semplifica il controllo delle versioni semantico mostrando solo alcune opzioni comuni. Il primo elemento nell'elenco di Intellisense (0.4.5 nell'esempio precedente) viene considerato l'ultima versione stabile del pacchetto. Il simbolo di accento circonflesso (^) corrisponda alla versione principale più recente e la tilde (~) corrisponda alla versione secondaria più recente. Vedere il [riferimento parser versione NPM semver](https://www.npmjs.com/package/semver) come guida per l'espressività completa che fornisce SemVer.
 
-3. Aggiungere altre dipendenze di caricare grunt-pensionistici -\* pacchetti per *pulita*, *jshint*, *concat*, *uglify*e *espressioni di controllo* come illustrato nell'esempio riportato di seguito. Le versioni non è necessario affinché corrisponda all'esempio.
+3. Aggiungere altre dipendenze di caricare grunt-pensionistici -\* pacchetti per *pulita*, *jshint*, *concat*, *uglify*e *espressioni di controllo* come illustrato nell'esempio riportato di seguito. Le versioni non necessario in base all'esempio.
 
     ```json
     "devDependencies": {

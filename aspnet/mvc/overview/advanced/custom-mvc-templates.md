@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: a1fe1844e582f402a1eed9ddf10ee249e856b083
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-mvc-template"></a>Modello MVC personalizzato
 ====================
@@ -26,7 +26,7 @@ La versione di MVC 3 Tools Update per Visual Studio 2010 è stato introdotto una
 
 Aggiunta di modelli personalizzati: un processo complesso per basato sull'utilizzo del Registro di sistema per rendere visibile per la creazione guidata progetto MVC nuovi modelli. L'autore di un nuovo modello doveva eseguirne il wrapping in un file MSI per garantire che le voci del Registro di sistema necessarie verrebbero create al momento dell'installazione. L'alternativa consiste nel creare un file ZIP contenente il modello è disponibile in modo che l'utente finale creare manualmente le voci del Registro di sistema.
 
-Nessuno dei metodi menzionati in precedenza è ideale in modo si è deciso di sfruttare alcune dell'infrastruttura esistente fornita da [VSIX](https://msdn.microsoft.com/en-us/library/ff363239.aspx) estensioni per renderne più semplice di creare, distribuire e installare i modelli MVC personalizzati a partire da MVC 4 per Visual Studio 2012. Alcuni dei vantaggi forniti da questo approccio sono:
+Nessuno dei metodi menzionati in precedenza è ideale in modo si è deciso di sfruttare alcune dell'infrastruttura esistente fornita da [VSIX](https://msdn.microsoft.com/library/ff363239.aspx) estensioni per renderne più semplice di creare, distribuire e installare i modelli MVC personalizzati a partire da MVC 4 per Visual Studio 2012. Alcuni dei vantaggi forniti da questo approccio sono:
 
 - Un'estensione VSIX può contenere più modelli che supportano le diverse lingue (c# e Visual Basic) e più motori di visualizzazione (ASPX e Razor).
 - Un'estensione VSIX possono essere destinati a più SKU di Visual Studio inclusi SKU di Express.
@@ -63,15 +63,15 @@ Se si prevede di supportare tutte le SKU Professional e versioni successive (Pro
 
 Il **asset** scheda viene usata per aggiungere tutti i file di contenuto per il progetto VSIX. Poiché MVC richiede metadati personalizzati si desidera modificare il XML non elaborato del file manifesto VSIX anziché il **asset** scheda per aggiungere contenuto. Per iniziare, aggiungere il contenuto del modello per il progetto VSIX. È importante che la struttura della cartella e il contenuto rispecchia il layout del progetto. Nell'esempio seguente contiene quattro modelli di progetto che derivano dal modello di progetto MVC di base. Assicurarsi che tutti i file che costituiscono il modello di progetto (tutti gli elementi sotto la cartella ProjectTemplates) vengono aggiunti per il **contenuto** itemgroup nel progetto VSIX del progetto che contiene ogni elemento e il file di  **CopyToOutputDirectory** e **IncludeInVsix** metadati impostati come illustrato nell'esempio riportato di seguito.
 
-&lt;Includere contenuto =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;sempre&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
 
 &lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
-&lt;/ Content&gt;
+&lt;/Content&gt;
 
-In caso contrario, l'IDE tenterà di compilare il contenuto del modello quando si compila il progetto VSIX e verrà visualizzato un errore. File di codice nei modelli contengono spesso speciali [parametri di modello](https://msdn.microsoft.com/en-us/library/eehb4faa(v=vs.110).aspx) utilizzato da Visual Studio quando il modello di progetto viene creata un'istanza e pertanto non può essere compilato nell'IDE.
+In caso contrario, l'IDE tenterà di compilare il contenuto del modello quando si compila il progetto VSIX e verrà visualizzato un errore. File di codice nei modelli contengono spesso speciali [parametri di modello](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) utilizzato da Visual Studio quando il modello di progetto viene creata un'istanza e pertanto non può essere compilato nell'IDE.
 
 ![Esplora soluzioni](custom-mvc-templates/_static/image6.jpg)
 
@@ -83,21 +83,21 @@ Creare un  **&lt;asset&gt;**  elemento e aggiungere un  **&lt;Asset&gt;**  eleme
 
 Aggiungere solo i file per l'estensione VSIX non è sufficiente per registrare i modelli con la procedura guidata MVC. È necessario fornire informazioni quali il nome del modello, descrizione, motori di visualizzazione supportate e linguaggio di programmazione per la procedura guidata MVC. Queste informazioni sono portate in attributi personalizzati associati il  **&lt;Asset&gt;**  per ogni elemento **vstemplate** file.
 
-&lt;Asset d:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
-Tipo =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
 d:Source =&quot;File&quot;
 
-Percorso =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
+Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-ProjectType =&quot;MVC&quot;
+ProjectType=&quot;MVC&quot;
 
-Language =&quot;c#&quot;
+Language=&quot;C#&quot;
 
-ViewEngine =&quot;Aspx&quot;
+ViewEngine=&quot;Aspx&quot;
 
-TemplateId =&quot;MyMvcApplication&quot;
+TemplateId=&quot;MyMvcApplication&quot;
 
 Titolo =&quot;applicazione Web di base personalizzata&quot;
 

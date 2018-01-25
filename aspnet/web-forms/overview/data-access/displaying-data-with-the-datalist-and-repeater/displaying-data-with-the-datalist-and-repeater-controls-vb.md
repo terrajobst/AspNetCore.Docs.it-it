@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b6e71470ae2888ac4332f896c34f666618a425e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>Visualizzazione di dati con il DataList e Repeater (VB)
 ====================
@@ -163,7 +163,7 @@ Oltre al `ItemTemplate`, DataList supporta sei altri modelli facoltativi:
 
 - `HeaderTemplate`Se fornito, aggiunge all'output una riga di intestazione e viene utilizzato per eseguire il rendering di questa riga
 - `AlternatingItemTemplate`usato per il rendering di elementi alternativi
-- `SelectedItemTemplate`utilizzato per il rendering dell'elemento selezionato; l'elemento selezionato è l'elemento il cui indice corrisponde a DataList s [ `SelectedIndex` proprietà](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`utilizzato per il rendering dell'elemento selezionato; l'elemento selezionato è l'elemento il cui indice corrisponde a DataList s [ `SelectedIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`utilizzato per il rendering dell'elemento da modificare
 - `SeparatorTemplate`Se fornito, aggiunge un separatore tra ogni elemento e viene utilizzato per eseguire il rendering di questo tipo di separatore
 - `FooterTemplate`-Se fornito, aggiunge all'output una riga di piè di pagina e viene utilizzato per eseguire il rendering di questa riga
@@ -222,7 +222,7 @@ In ASP.NET 1. x, Ripetitore controllo usate per visualizzare un elenco puntato i
 - In `SectionLevelTutorialListing.ascx`, un ripetitore utilizzato per visualizzare un elenco puntato delle sezioni della sezione corrente della mappa del sito figlio
 
 > [!NOTE]
-> ASP.NET 2.0 viene introdotta la nuova [controllo BulletedList](https://msdn.microsoft.com/en-us/library/ms228101.aspx), che può essere associato a un controllo origine dati per visualizzare un elenco puntato semplice. Con il controllo di BulletedList non è necessario specificare uno qualsiasi del codice HTML relativo all'elenco. al contrario, si indica semplicemente il campo dei dati da visualizzare come il testo per ogni elemento nell'elenco.
+> ASP.NET 2.0 viene introdotta la nuova [controllo BulletedList](https://msdn.microsoft.com/library/ms228101.aspx), che può essere associato a un controllo origine dati per visualizzare un elenco puntato semplice. Con il controllo di BulletedList non è necessario specificare uno qualsiasi del codice HTML relativo all'elenco. al contrario, si indica semplicemente il campo dei dati da visualizzare come il testo per ogni elemento nell'elenco.
 
 
 Ripetitore funge da un blocco catch tutti i dati di controllo Web. Se non è un controllo esistente che genera il markup necessario, è possibile utilizzare il controllo Repeater. Per illustrare l'utilizzo di Repeater, consentire s dispone dell'elenco delle categorie visualizzato di sopra di DataList informazioni prodotto creato nel passaggio 2. In particolare, consentono di s hanno le categorie visualizzate in HTML un sola riga `<table>` con ogni categoria visualizzato come una colonna nella tabella.

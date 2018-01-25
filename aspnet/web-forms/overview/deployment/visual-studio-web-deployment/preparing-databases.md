@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 1f19d54a5f2679f790575d520b28472d4ff3233f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: preparazione per la distribuzione di Database
 ====================
@@ -52,7 +52,7 @@ Per ulteriori informazioni sulle edizioni di SQL Server, tra cui LocalDB, vedere
 Per l'accesso al database, l'applicazione Contoso University richiede il seguente software che deve essere distribuito con l'applicazione perché non è incluso in .NET Framework:
 
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (consente il sistema di appartenenze ASP.NET di utilizzare il Database di SQL Azure)
-- [Entity Framework](https://msdn.microsoft.com/en-us/library/gg696172.aspx)
+- [Entity Framework](https://msdn.microsoft.com/library/gg696172.aspx)
 
 Poiché questo software è incluso in pacchetti NuGet, il progetto è già configurato in modo che gli assembly necessari vengono distribuiti con il progetto. (I collegamenti puntano alle versioni correnti di questi pacchetti, che potrebbero essere più recenti rispetto a ciò che viene installato nel progetto di avvio che per questa esercitazione è stato scaricato).
 
@@ -171,12 +171,12 @@ Di seguito, in genere non si desidera gli stessi dati nell'ambiente di produzion
 Gli utenti di sviluppo verrà distribuita per l'ambiente di test e gli utenti di produzione di gestione temporanea e produzione. A tale scopo si creeranno due script SQL in questa esercitazione, uno per lo sviluppo e uno per la produzione e nelle esercitazioni successive si configurerà il processo di pubblicazione per eseguirli.
 
 > [!NOTE]
-> Il database delle appartenenze archivia un hash della password dell'account. Per distribuire gli account da un computer a un altro, è necessario assicurarsi che la routine hash non generano hash diverso nel server di destinazione rispetto a nel computer di origine. Gli hash stesso verrà generato quando si utilizza ASP.NET Universal Providers, purché non modificare l'algoritmo predefinito. L'algoritmo predefinito è HMACSHA256 e viene specificato nella **convalida** attributo del  **[machineKey](https://msdn.microsoft.com/en-us/library/system.web.configuration.machinekeysection.aspx)**  elemento nel file Web. config.
+> Il database delle appartenenze archivia un hash della password dell'account. Per distribuire gli account da un computer a un altro, è necessario assicurarsi che la routine hash non generano hash diverso nel server di destinazione rispetto a nel computer di origine. Gli hash stesso verrà generato quando si utilizza ASP.NET Universal Providers, purché non modificare l'algoritmo predefinito. L'algoritmo predefinito è HMACSHA256 e viene specificato nella **convalida** attributo del  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  elemento nel file Web. config.
 
 
 È possibile creare script di distribuzione di dati manualmente, utilizzando SQL Server Management Studio (SSMS) o tramite uno strumento di terze parti. Il resto di questa esercitazione viene illustrato come eseguire questa operazione in SQL Server Management Studio, ma se non si desidera installare e utilizzare SQL Server Management Studio è possibile richiamare gli script dalla versione completata del progetto e passare alla sezione in cui vengono archiviati nella cartella della soluzione.
 
-Per installare SQL Server Management Studio, installarlo da [area Download: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) facendo [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) o [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Se si scegliere quello corretto per il sistema non riuscirà installare e sarà possibile provare l'altro.
+Per installare SQL Server Management Studio, installarlo da [area Download: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) facendo [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) o [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Se si scegliere quello corretto per il sistema non riuscirà installare e sarà possibile provare l'altro.
 
 (Si noti che questo è un download di 600 MB. Potrebbe richiedere molto tempo per installare e sarà necessario un riavvio del computer in uso.)
 
@@ -231,7 +231,7 @@ Nell'esercitazione seguente configurare le impostazioni di progetto che influisc
 
 ## <a name="more-information"></a>Altre informazioni
 
-Per ulteriori informazioni su NuGet, vedere [gestire raccolte di progetto con NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) e [documentazione di NuGet](http://docs.nuget.org/docs/start-here/overview). Se non si desidera usare NuGet, è necessario apprendere come analizzare un pacchetto NuGet per determinare cosa accade quando viene installato. (Ad esempio, è possibile configurare *Web. config* trasformazioni, configurare gli script di PowerShell da eseguire in fase di compilazione e così via.) Per ulteriori informazioni sull'uso di NuGet, vedere [la creazione e pubblicazione di un pacchetto](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) e [File di configurazione e le trasformazioni di codice sorgente](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Per ulteriori informazioni su NuGet, vedere [gestire raccolte di progetto con NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) e [documentazione di NuGet](http://docs.nuget.org/docs/start-here/overview). Se non si desidera usare NuGet, è necessario apprendere come analizzare un pacchetto NuGet per determinare cosa accade quando viene installato. (Ad esempio, è possibile configurare *Web. config* trasformazioni, configurare gli script di PowerShell da eseguire in fase di compilazione e così via.) Per ulteriori informazioni sull'uso di NuGet, vedere [la creazione e pubblicazione di un pacchetto](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) e [File di configurazione e le trasformazioni di codice sorgente](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Precedente](introduction.md)

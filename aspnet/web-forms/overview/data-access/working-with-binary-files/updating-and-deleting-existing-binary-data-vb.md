@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e14b19f99e9f41c5a296d73ba689095a686794db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Aggiornamento ed eliminazione di dati binari esistenti (VB)
 ====================
@@ -150,7 +150,7 @@ Mentre il flusso di lavoro di eliminazione è stato rimosso il record di categor
 
 Uno degli svantaggi di archiviare i dati binari esterni al database è che è necessario eseguire passaggi aggiuntivi per pulire i file quando viene eliminato il record di database associato. GridView e ObjectDataSource forniscono gli eventi che vengono generati prima e dopo aver eseguito il comando di eliminazione. In realtà, è necessario creare gestori eventi per entrambi gli eventi di pre e post-azione. Prima di `Categories` viene eliminato è necessario determinare il percorso del file s PDF, ma non abbiamo t desidera eliminare il file PDF, prima che la categoria viene eliminata nel caso in cui alcune eccezione e la categoria non viene eliminata.
 
-S GridView [ `RowDeleting` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) generato durante la prima è stato richiamato il comando di eliminazione ObjectDataSource s, il relativo [ `RowDeleted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) viene generato dopo. Creare gestori per questi due eventi utilizzando il codice seguente:
+S GridView [ `RowDeleting` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) generato durante la prima è stato richiamato il comando di eliminazione ObjectDataSource s, il relativo [ `RowDeleted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) viene generato dopo. Creare gestori per questi due eventi utilizzando il codice seguente:
 
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]

@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crea un'applicazione ASP.NET di base con i dati dell'utente protetti dall'autorizzazione
 
@@ -163,7 +163,7 @@ Deve essere registrata con Entity Framework Core Services [inserimento di dipend
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
-`ContactAdministratorsAuthorizationHandler`e `ContactManagerAuthorizationHandler` vengono aggiunti come singleton. Perché non usano Entity Framework e tutte le informazioni necessarie sono singleton di `Context` parametro del `HandleRequirementAsync` (metodo).
+`ContactAdministratorsAuthorizationHandler`e `ContactManagerAuthorizationHandler` vengono aggiunti come singleton. Perché non usano Entity Framework e tutte le informazioni necessarie, ma sono singleton di `Context` parametro del `HandleRequirementAsync` (metodo).
 
 L'intero `ConfigureServices`:
 
@@ -221,11 +221,11 @@ Aggiornamento di *Views/Contacts/Index.cshtml* visualizzazione Razor solo visual
 
 Aggiungere`@using ContactManager.Authorization;`
 
-Aggiornamento di `Edit` e `Delete` collega in modo da essere sottoposti a rendering solo per gli utenti con autorizzazione modificare ed eliminare il contatto.
+Aggiornamento di `Edit` e `Delete` collega in modo vengono sottoposti a rendering solo per gli utenti con autorizzazione modificare ed eliminare il contatto.
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-Avviso: Nascondere i collegamenti da utenti che non dispone dell'autorizzazione per modificare o eliminare i dati non è possibile proteggere l'applicazione. Nascondere i collegamenti rende l'app utente più descrittivo visualizzando i collegamenti sono validi. Gli utenti possono hack gli URL generati per richiamare modifica ed eliminazione di operazioni sui dati che non possiedono.  Il controller è necessario ripetere che controlla l'accesso per essere protetti.
+Avviso: Nascondere i collegamenti da utenti che non dispone dell'autorizzazione per modificare o eliminare i dati non proteggere l'applicazione. Nascondere i collegamenti rende l'app utente più descrittivo visualizzando i collegamenti sono validi. Gli utenti possono hack gli URL generati per richiamare modifica ed eliminazione di operazioni sui dati che non possiedono.  Il controller è necessario ripetere che controlla l'accesso per essere protetti.
 
 ### <a name="update-the-details-view"></a>Aggiornare la visualizzazione dei dettagli
 

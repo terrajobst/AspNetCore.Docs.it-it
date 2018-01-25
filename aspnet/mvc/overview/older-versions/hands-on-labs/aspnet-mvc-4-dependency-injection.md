@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: af4967f642ba4615f3392c0c404d2ec62edaaae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-dependency-injection"></a>Inserimento di dipendenze di ASP.NET MVC 4
 ====================
@@ -25,7 +25,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > [!NOTE]
 > Questa pratica presuppone avere conoscenze di base **ASP.NET MVC** e **filtri ASP.NET MVC 4**. Se non è stato utilizzato **filtri ASP.NET MVC 4** in precedenza, è consigliabile esaminare **filtri azione personalizzati di ASP.NET MVC** le esercitazioni pratiche.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 In **oggetto orientato alla programmazione** paradigma di interazione tra gli oggetti in un modello di collaborazione in cui sono presenti i collaboratori e i consumer. Naturalmente, questo modello di comunicazione genera dipendenze tra oggetti e componenti, diventare difficile da gestire quando si aumenta la complessità.
@@ -474,7 +474,7 @@ In questa attività, eseguire l'applicazione e i test verranno che il filtro azi
 
     ![Negozio](aspnet-mvc-4-dependency-injection/_static/image11.png "Negozio")
 
-    *Negozio*
+    *Music Store*
 3. Passare a **/Trace.axd** per visualizzare la traccia dell'applicazione di pagina e quindi fare clic su **Visualizza dettagli**.
 
     ![Log di analisi](aspnet-mvc-4-dependency-injection/_static/image12.png "Log di analisi")

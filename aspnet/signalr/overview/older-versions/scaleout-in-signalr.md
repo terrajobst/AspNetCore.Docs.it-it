@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: e6230d4d65adb8c9a064545ad761898ca53562bf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee3384046bf8a0f363aa6801d7a46f68b2bf125a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Introduzione alla scalabilità orizzontale in SignalR 1. x
 ====================
@@ -45,13 +45,13 @@ Se si distribuisce l'applicazione in Azure, utilizzare backplane Azure Service B
 
 Gli argomenti seguenti contengono esercitazioni dettagliate per ogni backplane:
 
-- [Scalabilità orizzontale SignalR con il Bus di servizio di Azure](scaleout-with-windows-azure-service-bus.md)
-- [Scalabilità orizzontale SignalR con Redis](scaleout-with-redis.md)
-- [Scalabilità orizzontale SignalR con SQL Server](scaleout-with-sql-server.md)
+- [Scalabilità orizzontale di SignalR con il bus di servizio di Azure](scaleout-with-windows-azure-service-bus.md)
+- [Scalabilità orizzontale di SignalR con Redis](scaleout-with-redis.md)
+- [Scalabilità orizzontale di SignalR con SQL Server](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>Implementazione
 
-In SignalR, ogni messaggio viene inviato tramite un bus di messaggi. Implementa un bus di messaggi di [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfaccia, che fornisce un'astrazione di pubblicazione/sottoscrizione. Sostituendo il valore predefinito di lavoro dei ripiani posteriori delle **IMessageBus** con un bus progettato per tale backplane. Ad esempio, il bus di messaggi per Redis è [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), e utilizza Redis [pub/sub](http://redis.io/topics/pubsub) meccanismo per inviare e ricevere messaggi.
+In SignalR, ogni messaggio viene inviato tramite un bus di messaggi. Implementa un bus di messaggi di [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfaccia, che fornisce un'astrazione di pubblicazione/sottoscrizione. Sostituendo il valore predefinito di lavoro dei ripiani posteriori delle **IMessageBus** con un bus progettato per tale backplane. Ad esempio, il bus di messaggi per Redis è [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), e utilizza Redis [pub/sub](http://redis.io/topics/pubsub) meccanismo per inviare e ricevere messaggi.
 
 Ogni istanza del server si connette al backplane tramite il bus. Quando viene inviato un messaggio, passa al backplane e backplane invia ogni server. Quando un server riceve un messaggio da backplane, inserisce il messaggio nella propria cache locale. Il server recapita i messaggi per i client dalla cache locale.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: introduzione
 ====================
@@ -53,7 +53,7 @@ Le esercitazioni sono rivolte agli sviluppatori ASP.NET che operano in ambienti 
 Distribuzione da [controllo del codice sorgente](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) utilizzando un [il recapito continuo](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) non viene descritto in queste esercitazioni, ad eccezione di un'esercitazione che illustra come eseguire la distribuzione da riga di comando. Per informazioni sulla distribuzione continua, vedere le risorse seguenti:
 
 - [Integrazione continua e il recapito continuo (creazione di applicazioni Cloud del mondo reale con Windows Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Distribuire un'app web nel servizio App di Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Distribuire un'app web nel servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [Distribuzione di applicazioni Web in scenari aziendali](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (un set più vecchio di esercitazioni scritto per Visual Studio 2010 che dispone ancora di informazioni utili per gli ambienti aziendali.)
 
 ## <a name="using-a-third-party-hosting-provider"></a>Utilizzando un provider di hosting di terze parti
@@ -130,7 +130,7 @@ Se si utilizza Visual Studio 2010 SP1, installare il software seguente:
 
 - [Azure SDK per Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Data Tools](https://msdn.microsoft.com/en-us/library/hh500335.aspx).
+- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx).
 
 A seconda di quanti delle dipendenze SDK già presenti nel computer, installare il SDK di Azure potrebbe richiedere molto tempo, da alcuni minuti a mezz'ora o più. Azure SDK è necessario anche se si prevede di pubblicare un provider di hosting di terze parti anziché in Azure, poiché il SDK include gli aggiornamenti più recenti sul web di Visual Studio le funzionalità di pubblicazione.
 
@@ -203,4 +203,4 @@ Le seguenti funzionalità dell'applicazione influisce su come distribuire o ciò
 In questa esercitazione prima della serie, aver scaricato il progetto di Visual Studio e rivedere le funzionalità del sito che influiscono sulla modalità di distribuzione dell'applicazione. Nelle esercitazioni seguenti, ci si prepara per la distribuzione mediante l'impostazione di alcuni di questi elementi devono essere gestiti automaticamente. Altri occuperà di manualmente.
 
 >[!div class="step-by-step"]
-[Successivo](preparing-databases.md)
+[avanti](preparing-databases.md)

@@ -1,6 +1,6 @@
 ---
 uid: mvc/mvc3
-title: ASP.NET MVC 3 | Documenti Microsoft
+title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
 description: "(aprile 2011 include strumenti di aggiornamento) ASP.NET MVC 3 è un framework per la creazione di applicazioni web scalabili e basate su standard usando il modello di struttura consolidati..."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -132,7 +132,7 @@ Alcune nuove funzionalità Razor includono:
 - `@* *@`sintassi di commento.
 - La possibilità di specificare le impostazioni predefinite (ad esempio `layoutpage`) una volta per un intero sito.
 - Il `Html.Raw` metodo per la visualizzazione di testo senza codifica HTML è.
-- Supporto per la condivisione del codice tra più visualizzazioni (*\_viewstart.cshtml* o * \_viewstart.vbhtml* file).
+- Supporto per la condivisione del codice tra più visualizzazioni (*\_viewstart.cshtml* o  *\_viewstart.vbhtml* file).
 
 Razor include anche nuovi helper HTML, ad esempio le operazioni seguenti:
 
@@ -165,7 +165,7 @@ Il **Aggiungi visualizzazione** la finestra di dialogo in ASP.NET MVC 3 consente
 Talvolta si desidera eseguire la logica prima dell'esecuzione di un metodo di azione o dopo l'esecuzione di un metodo di azione. A tale scopo, ASP.NET MVC 2 fornito filtri dell'azione. Filtri azione sono attributi personalizzati che forniscono strumenti dichiarativi per aggiungere un comportamento pre-azione e post-azione ai metodi di azione di un controller specifico. Tuttavia, in alcuni casi è consigliabile specificare il comportamento di pre- azione di o post-azione che si applica a tutti i metodi di azione. MVC 3 consente di specificare i filtri globali vengono aggiunte al `GlobalFilters` insieme. Per ulteriori informazioni sui filtri azione globali, vedere le risorse seguenti:
 
 - [Blog di Scott Guthrie sull'anteprima in MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [Applicazione di filtri in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [Applicazione di filtri in ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Nuova proprietà "ViewBag"
 
@@ -175,9 +175,9 @@ Supporto di controller MVC 2 un `ViewData` proprietà che consente di passare da
 
 Le operazioni seguenti `ActionResult` tipi e metodi di supporto corrispondente sono nuove o migliorate in MVC 3:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Restituisce un codice di stato HTTP 404 al client.
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx). Restituisce un reindirizzamento temporaneo (codice di stato HTTP 302) o un reindirizzamento permanente (codice di stato HTTP 301), a seconda di un parametro booleano. In combinazione con questa modifica, il [Controller](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx) dispone ora di tre metodi per l'esecuzione di reindirizzamenti permanenti: `RedirectPermanent`, `RedirectToRoutePermanent`, e `RedirectToActionPermanent`. Questi metodi restituiscono un'istanza di `RedirectResult` con il `Permanent` proprietà impostata su `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Restituisce un codice di stato HTTP specificato dall'utente.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Restituisce un codice di stato HTTP 404 al client.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Restituisce un reindirizzamento temporaneo (codice di stato HTTP 302) o un reindirizzamento permanente (codice di stato HTTP 301), a seconda di un parametro booleano. In combinazione con questa modifica, il [Controller](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) dispone ora di tre metodi per l'esecuzione di reindirizzamenti permanenti: `RedirectPermanent`, `RedirectToRoutePermanent`, e `RedirectToActionPermanent`. Questi metodi restituiscono un'istanza di `RedirectResult` con il `Permanent` proprietà impostata su `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Restituisce un codice di stato HTTP specificato dall'utente.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ Affinché la convalida lato client funzionare, è necessario fare riferimento ap
 
 ### <a name="remote-validator"></a>Convalida remota
 
-ASP.NET MVC 3 supporta il nuovo [RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx) classe che consente di sfruttare la convalida jQuery plug-del supporto di convalida remota. In questo modo la libreria di convalida lato client chiamare automaticamente un metodo personalizzato che definisce sul server per eseguire la logica di convalida che può essere eseguita solo sul lato server.
+ASP.NET MVC 3 supporta il nuovo [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) classe che consente di sfruttare la convalida jQuery plug-del supporto di convalida remota. In questo modo la libreria di convalida lato client chiamare automaticamente un metodo personalizzato che definisce sul server per eseguire la logica di convalida che può essere eseguita solo sul lato server.
 
 Nell'esempio seguente, il `Remote` attributo specifica che la convalida del client verrà richiamata un'azione denominata `UserNameAvailable` sul `UsersController` classe per convalidare il `UserName` campo.
 
@@ -209,7 +209,7 @@ Nell'esempio seguente viene illustrato il corrispondente controller.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Per ulteriori informazioni sull'utilizzo di `Remote` attributo, vedere [procedura: implementare la convalida remota in ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx) in MSDN library.
+Per ulteriori informazioni sull'utilizzo di `Remote` attributo, vedere [procedura: implementare la convalida remota in ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) in MSDN library.
 
 ### <a name="json-binding-support"></a>Supporto di associazione di JSON
 
@@ -231,9 +231,9 @@ Il `ValidationAttribute` classe è stata migliorata in .NET Framework 4 per supp
 
 ### <a name="validation-interfaces"></a>Interfacce di convalida
 
-Il [IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) interfaccia consente di eseguire la convalida a livello di modello e consente di fornire la convalida dei messaggi di errore specifiche per lo stato del modello generale o tra due proprietà all'interno del modello . MVC 3 ora recupera gli errori di `IValidatableObject` durante l'associazione di modelli e automaticamente i flag di o evidenzia interessate campi all'interno di una vista utilizzando l'helper per form HTML incorporato.
+Il [IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) interfaccia consente di eseguire la convalida a livello di modello e consente di fornire la convalida dei messaggi di errore specifiche per lo stato del modello generale o tra due proprietà all'interno del modello . MVC 3 ora recupera gli errori di `IValidatableObject` durante l'associazione di modelli e automaticamente i flag di o evidenzia interessate campi all'interno di una vista utilizzando l'helper per form HTML incorporato.
 
-Il [IClientValidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfaccia consente a ASP.NET MVC di individuare in fase di esecuzione se un validator dispone del supporto per la convalida del client. Questa interfaccia è stata progettata in modo che può essere integrata con un'ampia gamma di Framework di convalida.
+Il [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfaccia consente a ASP.NET MVC di individuare in fase di esecuzione se un validator dispone del supporto per la convalida del client. Questa interfaccia è stata progettata in modo che può essere integrata con un'ampia gamma di Framework di convalida.
 
 Per ulteriori informazioni sulle interfacce di convalida, vedere il **miglioramenti di convalida del modello** sezione [post di blog di Scott Guthrie anteprima di MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Si noti tuttavia che il riferimento a "IValidateObject" nel blog di deve essere "IValidatableObject".)
 
@@ -278,7 +278,7 @@ ASP.NET MVC è supportata la cache di output di risposta pagina intera fin dalla
 
 ### <a name="granular-control-over-request-validation"></a>Controllo granulare convalida della richiesta
 
-ASP.NET MVC è la convalida delle richieste predefinito che automaticamente aiuta a proteggersi da attacchi intrusivi nel codice HTML e CSS. Tuttavia, talvolta si desidera esplicitamente disattiva la convalida della richiesta, ad esempio se si desidera consentire agli utenti di registrare contenuto (ad esempio in post di blog o contenuto CMS) HTML. È ora possibile aggiungere un [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) attributo ai modelli o visualizzare i modelli per disabilitare la convalida della richiesta su una base per ogni proprietà durante l'associazione del modello. Per ulteriori informazioni sulla convalida richiesta, vedere le risorse seguenti:
+ASP.NET MVC è la convalida delle richieste predefinito che automaticamente aiuta a proteggersi da attacchi intrusivi nel codice HTML e CSS. Tuttavia, talvolta si desidera esplicitamente disattiva la convalida della richiesta, ad esempio se si desidera consentire agli utenti di registrare contenuto (ad esempio in post di blog o contenuto CMS) HTML. È ora possibile aggiungere un [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) attributo ai modelli o visualizzare i modelli per disabilitare la convalida della richiesta su una base per ogni proprietà durante l'associazione del modello. Per ulteriori informazioni sulla convalida richiesta, vedere le risorse seguenti:
 
 - Il **convalida e JavaScript non intrusivo** sezione [post di blog di Scott Guthrie su MVC 3 release candidate](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
 - [Note sulla versione di MVC 3](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ In ASP.NET MVC 3 è possibile indicare se si desidera che una classe controller 
 
 ### <a name="new-additionalmetadataattribute-class"></a>Nuova classe "AdditionalMetadataAttribute"
 
-È possibile utilizzare il [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) attributi per popolare il `ModelMetadata.AdditionalValues` dizionario per una proprietà del modello. Se, ad esempio, un modello di visualizzazione dispone di una proprietà che deve essere visualizzata solo a un amministratore, è possibile annotare tale proprietà come illustrato nell'esempio seguente:
+È possibile utilizzare il [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) attributi per popolare il `ModelMetadata.AdditionalValues` dizionario per una proprietà del modello. Se, ad esempio, un modello di visualizzazione dispone di una proprietà che deve essere visualizzata solo a un amministratore, è possibile annotare tale proprietà come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

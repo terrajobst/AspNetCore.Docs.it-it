@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 551e31a7a2d0a4e6259f74977c2f8e21cb694e42
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-the-build-process"></a>Informazioni sul processo di compilazione
 ====================
@@ -77,7 +77,7 @@ Per distribuire la soluzione di gestione di contatto in un ambiente di test per 
 
 
 > [!NOTE]
-> Il **/fl** passare (abbreviazione di **/fileLogger**) registra l'output di compilazione in un file denominato *msbuild.log* nella directory corrente. Per ulteriori informazioni, vedere il [alla riga di comando di MSBuild](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+> Il **/fl** passare (abbreviazione di **/fileLogger**) registra l'output di compilazione in un file denominato *msbuild.log* nella directory corrente. Per ulteriori informazioni, vedere il [alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
 A questo punto, MSBuild viene avviata l'esecuzione, carica il *Publish.proj* file e inizierà a elaborare le istruzioni all'interno di esso. La prima istruzione indica a MSBuild di importare il progetto di file che il **TargetEnvPropsFile** parametro specifica.
@@ -178,7 +178,7 @@ Gli elementi non vengono utilizzati all'interno di questa destinazione & #x 2014
 Il **DbPublishPackages** elemento conterrà un singolo valore, il percorso di *ContactManager.Database.deploymanifest* file.
 
 > [!NOTE]
-> Quando si compila un progetto di database e viene utilizzato lo stesso schema come un file di progetto MSBuild, viene generato un file con estensione deploymanifest. Contiene tutte le informazioni necessarie per distribuire un database, compreso il percorso dello schema del database (dbschema) e i dettagli di qualsiasi script di pre-distribuzione e post-distribuzione. Per ulteriori informazioni, vedere [An Overview of Database Build e la distribuzione](https://msdn.microsoft.com/en-us/library/aa833165.aspx).
+> Quando si compila un progetto di database e viene utilizzato lo stesso schema come un file di progetto MSBuild, viene generato un file con estensione deploymanifest. Contiene tutte le informazioni necessarie per distribuire un database, compreso il percorso dello schema del database (dbschema) e i dettagli di qualsiasi script di pre-distribuzione e post-distribuzione. Per ulteriori informazioni, vedere [An Overview of Database Build e la distribuzione](https://msdn.microsoft.com/library/aa833165.aspx).
 
 
 Si apprenderà ulteriori informazioni su come pacchetti di distribuzione e i manifesti di distribuzione di database vengono creati e utilizzati [compilazione e creazione di pacchetti Web Application Projects](building-and-packaging-web-application-projects.md) e [progetti di Database di distribuzione](deploying-database-projects.md).
@@ -193,13 +193,13 @@ In primo luogo, si noti che il tag di apertura include un **output** attributo.
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-Questo è un esempio di *destinazioni*. Nei file di progetto MSBuild, il batch è una tecnica per l'iterazione delle raccolte. Il valore della **output** attributo, **"% (DbPublishPackages.Identity)"**, fa riferimento al **identità** proprietà dei metadati di **DbPublishPackages**  elenco di elementi. Questa notazione, **output = %***(ItemList.ItemMetadataName)*, viene convertito come:
+Questo è un esempio di *destinazioni*. Nei file di progetto MSBuild, il batch è una tecnica per l'iterazione delle raccolte. Il valore della **output** attributo, **"% (DbPublishPackages.Identity)"**, fa riferimento al **identità** proprietà dei metadati di **DbPublishPackages**  elenco di elementi. Questa notazione, **Outputs=%***(ItemList.ItemMetadataName)*, viene convertito come:
 
 - Suddividere gli elementi in **DbPublishPackages** in batch di elementi che contengono gli stessi **identità** valore dei metadati.
 - Eseguire la destinazione di una volta per ogni batch.
 
 > [!NOTE]
-> **Identità** è uno del [i valori predefiniti dei metadati](https://msdn.microsoft.com/en-us/library/ms164313.aspx) assegnato a ogni elemento al momento della creazione. Fa riferimento al valore del **Include** attributo la **elemento** elemento & #x 2014; in altre parole, il percorso e il nome dell'elemento.
+> **Identità** è uno del [i valori predefiniti dei metadati](https://msdn.microsoft.com/library/ms164313.aspx) assegnato a ogni elemento al momento della creazione. Fa riferimento al valore del **Include** attributo la **elemento** elemento & #x 2014; in altre parole, il percorso e il nome dell'elemento.
 
 
 In questo caso, perché non sono mai più di un elemento con lo stesso percorso e nome file, essenzialmente stiamo lavorando con dimensioni di batch di uno. La destinazione viene eseguita una volta per ogni pacchetto di database.
@@ -219,7 +219,7 @@ In questo caso, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublish
 In seguito a questa notazione, il **Exec** attività verrà creata in base alle combinazioni univoche di batch di **DatabaseConnectionString**, **TargetDatabase**e **FullPath** i valori dei metadati e l'attività verrà eseguita una volta per ogni batch. Questo è un esempio di *batch di attività*. Tuttavia, poiché il batch a livello di destinazione è già diviso la raccolta di elementi in batch di singoli elementi, il **Exec** attività verrà eseguita una sola volta per ogni iterazione di destinazione. In altre parole, questa attività richiama l'utilità VSDBCMD una volta per ogni pacchetto di database nella soluzione.
 
 > [!NOTE]
-> Per ulteriori informazioni sulla destinazione e l'invio in batch di attività, vedere MSBuild [batch](https://msdn.microsoft.com/en-us/library/ms171473.aspx), [metadati dell'elemento nel batch di destinazione](https://msdn.microsoft.com/en-US/library/ms228229.aspx), e [metadati dell'elemento nel batch di attività](https://msdn.microsoft.com/en-us/library/ms171474.aspx).
+> Per ulteriori informazioni sulla destinazione e l'invio in batch di attività, vedere MSBuild [batch](https://msdn.microsoft.com/library/ms171473.aspx), [metadati dell'elemento nel batch di destinazione](https://msdn.microsoft.com/library/ms228229.aspx), e [metadati dell'elemento nel batch di attività](https://msdn.microsoft.com/library/ms171474.aspx).
 
 
 ### <a name="the-publishwebpackages-target"></a>La destinazione PublishWebPackages

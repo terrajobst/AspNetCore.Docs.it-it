@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a66e2a80668dbf291b9cc34f205b546b72d92bcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>Introduzione all'identità di ASP.NET
 ====================
@@ -31,7 +31,7 @@ da [Jon Galloway](https://github.com/jongalloway), [Pranav Rastogi](https://gith
 
 ### <a name="aspnet-membership"></a>Appartenenza ASP.NET
 
-[L'appartenenza ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy(v=VS.100).aspx) è stato progettato per soddisfare i requisiti di appartenenza sito comuni nel 2005, tra cui comportano autenticazione basata su form e un database di SQL Server per i nomi utente, password e i dati di profilo. Oggi è una matrice di dimensioni molto più ampia di opzioni di archiviazione di dati per le applicazioni web e la maggior parte degli sviluppatori desiderano abilitare i siti di utilizzare il provider di identità di social networking per la funzionalità di autenticazione e autorizzazione. Le limitazioni di progettazione dell'appartenenza ASP.NET rendono difficile la transizione:
+[L'appartenenza ASP.NET](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx) è stato progettato per soddisfare i requisiti di appartenenza sito comuni nel 2005, tra cui comportano autenticazione basata su form e un database di SQL Server per i nomi utente, password e i dati di profilo. Oggi è una matrice di dimensioni molto più ampia di opzioni di archiviazione di dati per le applicazioni web e la maggior parte degli sviluppatori desiderano abilitare i siti di utilizzare il provider di identità di social networking per la funzionalità di autenticazione e autorizzazione. Le limitazioni di progettazione dell'appartenenza ASP.NET rendono difficile la transizione:
 
 - Lo schema del database è stato progettato per SQL Server e non è possibile modificare. È possibile aggiungere informazioni sul profilo, ma i dati aggiuntivi vengono compressi in una tabella diversa, che rende difficile per l'accesso con qualsiasi mezzo, ad eccezione tramite l'API del Provider di profilo.
 - Il sistema del provider consente di modificare l'archivio dati sottostante, ma il sistema viene progettato attorno a presupposti appropriati per un database relazionale. È possibile scrivere un provider per archiviare le informazioni di appartenenza in un meccanismo di archiviazione non relazionali, ad esempio tabelle di archiviazione di Azure, ma è necessario risolvere la struttura relazionale mediante la scrittura di una grande quantità di codice e molte `System.NotImplementedException` eccezioni per i metodi che non applicare ai database NoSQL.
@@ -47,7 +47,7 @@ Appartenenza semplice rendere più semplice personalizzare le informazioni utent
 - È possibile utilizzarlo con OWIN.
 - Non funziona correttamente con il provider di appartenenze ASP.NET esistenti e non è estendibile.
 
-### <a name="aspnet-universal-providers"></a>ASP.NET Universal Providers
+### <a name="aspnet-universal-providers"></a>Provider universali di ASP.NET
 
 [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) sono stati sviluppati per consentire di rendere persistenti le informazioni di appartenenza in Microsoft Azure SQL Database e funzionano anche con SQL Server Compact. I provider universali sono stati compilati su Entity Framework Code First, che significa che i provider universali possono essere usati per rendere persistenti i dati in qualsiasi archivio supportata da Entity Framework. Con i provider universali, sono stato eliminato numerose anche lo schema del database.
 
@@ -132,7 +132,7 @@ ASP.NET Identity viene implementata utilizzando la procedura seguente. Lo scopo 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- Nel codice evidenziato sopra il `SignInAsync` metodo genera un [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). Poiché ASP.NET Identity e OWIN Cookie di autenticazione è basata sulle attestazioni di sistema, il framework richiede che l'app per generare un oggetto ClaimsIdentity per l'utente. ClaimsIdentity dispone di informazioni su tutte le attestazioni per l'utente, ad esempio i ruoli a cui appartiene l'utente. È anche possibile aggiungere ulteriori attestazioni per l'utente in questa fase.  
+ Nel codice evidenziato sopra il `SignInAsync` metodo genera un [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Poiché ASP.NET Identity e OWIN Cookie di autenticazione è basata sulle attestazioni di sistema, il framework richiede che l'app per generare un oggetto ClaimsIdentity per l'utente. ClaimsIdentity dispone di informazioni su tutte le attestazioni per l'utente, ad esempio i ruoli a cui appartiene l'utente. È anche possibile aggiungere ulteriori attestazioni per l'utente in questa fase.  
   
  Nel codice evidenziato di seguito il `SignInAsync` metodo accede l'utente tramite AuthenticationManager da OWIN e chiamare il metodo `SignIn` e passando l'oggetto ClaimsIdentity.  
 
@@ -142,7 +142,7 @@ ASP.NET Identity viene implementata utilizzando la procedura seguente. Lo scopo 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- Codice evidenziata precedente OWIN `AuthenticationManager.SignOut` metodo. Questo comportamento è analogo a [FormsAuthentication. SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx) utilizzato dal metodo di [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) modulo nel Web Form.
+ Codice evidenziata precedente OWIN `AuthenticationManager.SignOut` metodo. Questo comportamento è analogo a [FormsAuthentication. SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) utilizzato dal metodo di [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modulo nel Web Form.
 
 ## <a name="components-of-aspnet-identity"></a>Componenti di ASP.NET Identity
 
@@ -152,7 +152,7 @@ Nel diagramma seguente vengono illustrati i componenti del sistema di identità 
 
 Di seguito è fornita una breve descrizione dei pacchetti NuGet non indicato in precedenza:
 
-- [Cookies](http://www.nuget.org/packages/Microsoft.Owin.Security.Cookies/)  
+- [Microsoft.Owin.Security.Cookies](http://www.nuget.org/packages/Microsoft.Owin.Security.Cookies/)  
  L'autenticazione, simile a ASP basata su middleware che consente a un'applicazione può utilizzare i cookie. Autenticazione basata su form del NET.
 - [EntityFramework](http://www.nuget.org/packages/EntityFramework/)  
  Entity Framework è una tecnologia di accesso ai dati consigliati di Microsoft per i database relazionali.

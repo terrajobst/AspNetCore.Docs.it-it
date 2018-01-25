@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0953ad5d9f1bfa92ecc5169d9a211ce6b8cda8f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzato per ASP.NET Identity Core
 
@@ -78,9 +78,9 @@ Gruppi di autorizzazioni per il sito. Include il nome di ruolo e l'Id del ruolo 
 
 ## <a name="the-data-access-layer"></a>Il livello di accesso ai dati
 
-In questo argomento si presuppone che si ha familiarità con il meccanismo di persistenza che si desidera utilizzare e come creare le entità per tale meccanismo. In questo argomento non vengono forniti dettagli su come creare il repository o classi di accesso ai dati. vengono forniti alcuni suggerimenti sulle decisioni di progettazione quando si lavora con ASP.NET Identity Core.
+In questo argomento si presuppone che si ha familiarità con il meccanismo di persistenza che si desidera utilizzare e come creare le entità per tale meccanismo. In questo argomento non fornisce informazioni dettagliate su come creare il repository o classi di accesso ai dati. vengono forniti alcuni suggerimenti sulle decisioni di progettazione quando si lavora con ASP.NET Identity Core.
 
-Sono presenti molti di libertà quando si progetta il livello di accesso ai dati per un provider di archivio personalizzato. È sufficiente creare meccanismi di persistenza per le funzionalità che si intendono utilizzare nell'applicazione. Ad esempio, se non si utilizzano ruoli nell'applicazione, non è necessario creare l'archivio per i ruoli o le associazioni di ruolo utente. La tecnologia e l'infrastruttura esistente potrebbe richiedere una struttura che è molto diversa dall'implementazione predefinita di ASP.NET Identity Core. Nel livello di accesso ai dati, fornire la logica per il funzionamento con la struttura dell'implementazione di archiviazione.
+Sono presenti molti di libertà quando si progetta il livello di accesso ai dati per un provider di archivio personalizzato. È sufficiente creare meccanismi di persistenza per le funzionalità che si intendono utilizzare nell'applicazione. Ad esempio, se non si utilizzano ruoli nell'applicazione, non occorre creare spazio di archiviazione per i ruoli o le associazioni di ruolo utente. La tecnologia e l'infrastruttura esistente potrebbe richiedere una struttura che è molto diversa dall'implementazione predefinita di ASP.NET Identity Core. Nel livello di accesso ai dati, fornire la logica per il funzionamento con la struttura dell'implementazione di archiviazione.
 
 Il livello di accesso ai dati fornisce la logica per salvare i dati di ASP.NET Identity Core a un'origine dati. Il livello di accesso ai dati per il provider di archiviazione personalizzato potrebbe includere le seguenti classi per archiviare le informazioni utente e il ruolo.
 

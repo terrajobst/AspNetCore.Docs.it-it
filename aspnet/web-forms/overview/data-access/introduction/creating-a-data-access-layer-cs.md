@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c610f84cfb82f38f9c67b757aa341c7a1497369c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Creazione di un livello di accesso ai dati (c#)
 ====================
@@ -79,17 +79,17 @@ Tutto il codice specifico per l'origine dati sottostante, ad esempio la creazion
 
 - **GetCategories(),** che restituirà informazioni su tutte le categorie
 - **GetProducts()**, che restituirà informazioni su tutti i prodotti
-- **GetProductsByCategoryID (*categoryID*) * *, che restituirà tutti i prodotti che appartengono a una categoria specificata
-- **GetProductByProductID (*productID*) * *, che restituisce informazioni su un prodotto specifico
+- **GetProductsByCategoryID (*categoryID*)**, che restituirà tutti i prodotti che appartengono a una categoria specificata
+- **GetProductByProductID (*productID*)**, che restituisce informazioni su un prodotto specifico
 
 Questi metodi, quando richiamata, verranno connettersi al database, eseguire la query appropriata e restituire i risultati. Come restituiamo questi risultati è importante. Questi metodi può semplicemente restituire un set di dati o DataReader popolata dalla query sul database, ma idealmente devono essere restituiti i risultati utilizzando *oggetti fortemente tipizzati*. Un oggetto fortemente tipizzato è quello il cui schema è rigidamente definito in fase di compilazione, mentre il contrario, un oggetto fortemente tipizzato, è uno cui schema non è noto fino al runtime.
 
-Il DataReader e il set di dati (per impostazione predefinita), ad esempio, sono oggetti fortemente tipizzato poiché lo schema è definito per le colonne restituite dalla query sul database utilizzata per popolare le. Accedere a una particolare colonna da un DataTable fortemente tipizzato, è necessario utilizzare una sintassi simile:   ***DataTable*. Righe [*indice*] ["*columnName*"]**. Il DataTable tipizzazione in questo esempio viene esposto dal fatto che è necessario accedere al nome di colonna utilizzando una stringa o l'indice ordinale. Un oggetto DataTable fortemente tipizzata, d'altra parte, sarà necessario ciascuna delle relative colonne implementati come proprietà, risultante in codice simile al:   ***DataTable*. Righe [*indice*].* Nome colonna** *.
+Il DataReader e il set di dati (per impostazione predefinita), ad esempio, sono oggetti fortemente tipizzato poiché lo schema è definito per le colonne restituite dalla query sul database utilizzata per popolare le. Accedere a una particolare colonna da un DataTable fortemente tipizzato, è necessario utilizzare una sintassi simile: ***DataTable*. Righe [*indice*] ["*columnName *"]**. Il DataTable tipizzazione in questo esempio viene esposto dal fatto che è necessario accedere al nome di colonna utilizzando una stringa o l'indice ordinale. Un oggetto DataTable fortemente tipizzata, d'altra parte, sarà necessario ciascuna delle relative colonne implementati come proprietà, risultante in codice simile al: ***DataTable*. Righe [*indice*].* Nome colonna***.
 
 Per restituire oggetti fortemente tipizzati, gli sviluppatori possono creare propri oggetti di business personalizzata o utilizzano i dataset tipizzati. Un oggetto business viene implementato dallo sviluppatore come rappresenta una classe le cui proprietà riflettono in genere le colonne della tabella di database sottostante dell'oggetto business. Un set di dati tipizzato è una classe generata automaticamente da Visual Studio in base a uno schema di database e i cui membri sono fortemente tipizzati in base a questo schema. Il DataSet tipizzato stesso è costituito da classi che estendono le classi ADO.NET DataSet, DataTable e DataRow. Oltre a DataTable fortemente tipizzata, dataset tipizzati anche includono ora TableAdapter, che sono classi con metodi per il popolamento DataTable del set di dati e propagazione delle modifiche all'interno di DataTable nuovamente al database.
 
 > [!NOTE]
-> Per ulteriori informazioni sui vantaggi e gli svantaggi dell'uso di dataset tipizzati e oggetti business personalizzati, fare riferimento a [la progettazione di componenti di livello dati e il passaggio attraverso i livelli dati](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Per ulteriori informazioni sui vantaggi e gli svantaggi dell'uso di dataset tipizzati e oggetti business personalizzati, fare riferimento a [la progettazione di componenti di livello dati e il passaggio attraverso i livelli dati](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Verrà utilizzata per l'architettura di queste esercitazioni fortemente tipizzati. La figura 3 illustra il flusso di lavoro tra i diversi livelli di un'applicazione che utilizza i dataset tipizzati.
@@ -114,7 +114,7 @@ Dopo aver facendo clic su Aggiungi, quando viene richiesto di aggiungere il set 
 
 Un set di dati tipizzato funge da una raccolta fortemente tipizzata di dati. composti da istanze DataTable fortemente tipizzata, ognuno dei quali a sua volta è costituito da istanze di DataRow fortemente tipizzata. Verrà creata una tabella di dati fortemente tipizzati per ognuna delle tabelle di database sottostanti che è necessario utilizzare in questa serie di esercitazioni. Iniziamo con la creazione di un oggetto DataTable per la **prodotti** tabella.
 
-Tenere presente che DataTable fortemente tipizzate non includono le informazioni su come accedere ai dati dalla tabella di database sottostante. Per poter recuperare i dati per compilare il DataTable, si utilizza una classe TableAdapter, che funziona come il livello di accesso ai dati. Per il nostro **prodotti** DataTable, TableAdapter conterrà i metodi **GetProducts()**,  **GetProductByCategoryID (*categoryID*) * * e così via che è possibile richiamare dal livello di presentazione. Ruolo del DataTable è come utilizzati per passare dati tra i livelli di oggetti fortemente tipizzati.
+Tenere presente che DataTable fortemente tipizzate non includono le informazioni su come accedere ai dati dalla tabella di database sottostante. Per poter recuperare i dati per compilare il DataTable, si utilizza una classe TableAdapter, che funziona come il livello di accesso ai dati. Per il nostro **prodotti** DataTable, TableAdapter conterrà i metodi **GetProducts()**, **GetProductByCategoryID (*categoryID*)**e così via che è possibile richiamare dal livello di presentazione. Ruolo del DataTable è come utilizzati per passare dati tra i livelli di oggetti fortemente tipizzati.
 
 La configurazione guidata TableAdapter inizia da cui viene richiesto di selezionare il database da utilizzare. L'elenco di riepilogo a discesa Mostra i database in Esplora Server. Se non è stato aggiunto il database Northwind in Esplora Server, è possibile fare clic sul pulsante nuova connessione al momento eseguire questa operazione.
 
@@ -217,7 +217,7 @@ Mentre in questo esempio viene richiesto che tre righe di codice è scrivere in 
 
 A questo punto il nostro **ProductsTableAdapter** classe include un metodo, **GetProducts()**, che restituisce tutti i prodotti nel database. Mentre è in grado di funzionare con tutti i prodotti è sicuramente utile, vi sono casi quando si desidera recuperare informazioni su un prodotto specifico o tutti i prodotti che appartengono a una categoria specifica. Per aggiungere tale funzionalità per il livello di accesso ai dati è possibile aggiungere all'oggetto TableAdapter con i metodi con parametri.
 
-Aggiungere il  **GetProductsByCategoryID (*categoryID*) * * metodo. Per aggiungere un nuovo metodo di DAL, torna alla finestra di progettazione set di dati, fare clic del mouse il **ProductsTableAdapter** sezione e scegliere Aggiungi Query.
+Aggiungere il **GetProductsByCategoryID (*categoryID*)** metodo. Per aggiungere un nuovo metodo di DAL, torna alla finestra di progettazione set di dati, fare clic del mouse il **ProductsTableAdapter** sezione e scegliere Aggiungi Query.
 
 
 ![Fare clic sul TableAdapter e scegliere Aggiungi Query](creating-a-data-access-layer-cs/_static/image38.png)
@@ -241,7 +241,7 @@ Il passaggio successivo consiste nel definire la query SQL utilizzata per accede
 **Figura 16**: immettere una Query per restituire solo i prodotti in una categoria specificata ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-Nel passaggio finale che è possibile scegliere quale modelli da utilizzare, nonché di personalizzare i nomi dei metodi generati di accesso ai dati. Per il motivo di riempimento, modificare il nome da **FillByCategoryID** e per il valore restituito un oggetto DataTable restituito modello (il  **ottenere*X** * metodi), è possibile utilizzare  **GetProductsByCategoryID**.
+Nel passaggio finale che è possibile scegliere quale modelli da utilizzare, nonché di personalizzare i nomi dei metodi generati di accesso ai dati. Per il motivo di riempimento, modificare il nome da **FillByCategoryID** e per il valore restituito un oggetto DataTable restituito modello (il **ottenere * X*** metodi), è possibile utilizzare **GetProductsByCategoryID**.
 
 
 [![Scegliere i nomi per i metodi TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -257,7 +257,7 @@ Dopo aver completato la procedura guidata, la finestra di progettazione del set 
 **Figura 18**: di prodotti può ora eseguire una query per categoria
 
 
-È opportuno aggiungere una  **GetProductByProductID (*productID*) * * metodo utilizzando la stessa tecnica.
+È opportuno aggiungere una **GetProductByProductID (*productID*)** metodo utilizzando la stessa tecnica.
 
 Queste query con parametri possono essere verificate direttamente dalla finestra di Progettazione DataSet. Fare clic sul metodo nell'oggetto TableAdapter e scegliere l'anteprima dei dati. Quindi, immettere i valori da utilizzare per i parametri e fare clic su Anteprima.
 
@@ -267,9 +267,9 @@ Queste query con parametri possono essere verificate direttamente dalla finestra
 **Figura 19**: vengono visualizzati quelli prodotti appartenenti alla categoria Beverages ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image51.png))
 
 
-Con il  **GetProductsByCategoryID (*categoryID*) * * il nostro DAL metodo, è ora possibile creare una pagina ASP.NET che consente di visualizzare solo i prodotti in una categoria specificata. L'esempio seguente mostra tutti i prodotti della categoria Beverages, che hanno un **CategoryID** pari a 1.
+Con il **GetProductsByCategoryID (*categoryID*)** nostri DAL metodo, è ora possibile creare una pagina ASP.NET che consente di visualizzare solo i prodotti in una categoria specificata. L'esempio seguente mostra tutti i prodotti della categoria Beverages, che hanno un **CategoryID** pari a 1.
 
-Beverages.ASP
+Beverages.asp
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample4.aspx)]
 
@@ -293,7 +293,7 @@ Sono disponibili due modelli comunemente utilizzati per l'inserimento, aggiornam
 **Figura 21**: ogni Insert, Update e richiesta di eliminazione viene inviato al Database immediatamente ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image57.png))
 
 
-Altri modelli, che si farà riferimento come batch di aggiornare il modello, si aggiorna un intero set di dati, DataTable o raccolta di DataRow in una chiamata al metodo. Con questo modello di uno sviluppatore Elimina, inserimenti, modifica DataRows in un oggetto DataTable e quindi passa tali DataRows o DataTable in un metodo di aggiornamento. Questo metodo quindi enumera il DataRow passato, determina o meno è stati modificati, aggiunti o eliminati (tramite il DataRow [proprietà RowState](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) valore) e invia la richiesta di database appropriata per ogni record.
+Altri modelli, che si farà riferimento come batch di aggiornare il modello, si aggiorna un intero set di dati, DataTable o raccolta di DataRow in una chiamata al metodo. Con questo modello di uno sviluppatore Elimina, inserimenti, modifica DataRows in un oggetto DataTable e quindi passa tali DataRows o DataTable in un metodo di aggiornamento. Questo metodo quindi enumera il DataRow passato, determina o meno è stati modificati, aggiunti o eliminati (tramite il DataRow [proprietà RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) valore) e invia la richiesta di database appropriata per ogni record.
 
 
 [![Tutte le modifiche vengono sincronizzate con il Database quando viene richiamato il metodo di aggiornamento](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
@@ -339,7 +339,7 @@ Per creare un metodo personalizzato di questo tipo, tornare alla finestra di Pro
 **Figura 25**: creare un metodo per aggiungere una nuova riga per il **prodotti** tabella ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image69.png))
 
 
-Nella schermata successiva il **InsertCommand**del **CommandText** viene visualizzato. Aumentare la query aggiungendo **selezionare ambito\_IDENTITY()** alla fine della query, che verrà restituito l'ultimo valore identity inserito in un **identità** colonna nello stesso ambito. (Vedere il [documentazione tecnica](https://msdn.microsoft.com/en-us/library/ms190315.aspx) per ulteriori informazioni su **ambito\_IDENTITY()** e il motivo per cui è possibile [utilizzare ambito\_IDENTITY() anziché @ @IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Assicurarsi di terminare la **inserire** istruzione con un punto e virgola prima di aggiungere il **selezionare** istruzione.
+Nella schermata successiva il **InsertCommand**del **CommandText** viene visualizzato. Aumentare la query aggiungendo **selezionare ambito\_IDENTITY()** alla fine della query, che verrà restituito l'ultimo valore identity inserito in un **identità** colonna nello stesso ambito. (Vedere il [documentazione tecnica](https://msdn.microsoft.com/library/ms190315.aspx) per ulteriori informazioni su **ambito\_IDENTITY()** e il motivo per cui è possibile [utilizzare ambito\_IDENTITY() anziché @ @IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Assicurarsi di terminare la **inserire** istruzione con un punto e virgola prima di aggiungere il **selezionare** istruzione.
 
 
 [![Aumentare la Query per restituire il valore SCOPE_IDENTITY)](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
@@ -391,7 +391,7 @@ Dopo aver aggiornato il **GetProducts()** metodo da usare questa nuova query Dat
 **Figura 30**: il **prodotti** DataTable dispone di due nuove colonne
 
 
-È opportuno aggiornare il **selezionare** clausola il  **GetProductsByCategoryID (*categoryID*) * * anche metodo.
+È opportuno aggiornare il **selezionare** clausola il **GetProductsByCategoryID (*categoryID*)** anche metodo.
 
 Se si aggiorna il **GetProducts()** **selezionare** utilizzando **JOIN** sintassi Progettazione DataSet non saranno in grado di generare automaticamente i metodi per l'inserimento, aggiornamento ed eliminazione dati del database utilizzando il modello diretto DB. In alternativa, è necessario crearle manualmente molto come abbiamo visto con il **InsertProduct** metodo precedentemente in questa esercitazione. Inoltre, manualmente è necessario fornire il **InsertCommand**, **UpdateCommand**, e **DeleteCommand** se si desidera utilizzare il modello di aggiornamento in blocco i valori delle proprietà.
 
@@ -399,7 +399,7 @@ Se si aggiorna il **GetProducts()** **selezionare** utilizzando **JOIN** sintass
 
 Fino a questo punto, abbiamo esaminato solo l'utilizzo di un solo oggetto TableAdapter per una singola tabella di database. Tuttavia, il database di Northwind contiene più tabelle correlate che è necessario utilizzare nell'applicazione web. Un set di dati tipizzato può contenere più di DataTable correlati. Per completare il di conseguenza, è necessario aggiungere DataTable per le altre tabelle che verrà usato in queste esercitazioni. Per aggiungere un nuovo TableAdapter a un DataSet tipizzato, aprire la finestra di progettazione del set di dati, fare doppio clic nella finestra di progettazione e scegliere Aggiungi / TableAdapter. Questo crea un nuovo DataTable e TableAdapter e consentono di eseguire la procedura guidata che sono state esaminate in precedenza in questa esercitazione.
 
-Richiedere alcuni minuti per creare i seguenti oggetti TableAdapter e metodi utilizzando le query seguenti. Si noti che le query nel **ProductsTableAdapter** includono una sottoquery per acquisire i nomi di categoria e il fornitore del prodotto. Inoltre, se ci ha seguito, è già stato aggiunto il **ProductsTableAdapter** della classe **GetProducts()** e  **GetProductsByCategoryID (*categoryID*) * * metodi.
+Richiedere alcuni minuti per creare i seguenti oggetti TableAdapter e metodi utilizzando le query seguenti. Si noti che le query nel **ProductsTableAdapter** includono una sottoquery per acquisire i nomi di categoria e il fornitore del prodotto. Inoltre, se ci ha seguito, è già stato aggiunto il **ProductsTableAdapter** della classe **GetProducts()** e **GetProductsByCategoryID (*categoryID* )** metodi.
 
 - **ProductsTableAdapter**
 
@@ -520,11 +520,11 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [La creazione di DAL utilizzando TableAdapter con fortemente tipizzati e DataTable in Visual Studio 2005 e ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [La progettazione di componenti di livello dati e il passaggio di dati tramite i livelli](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [La progettazione di componenti di livello dati e il passaggio di dati tramite i livelli](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Creare un livello di accesso ai dati con Progettazione DataSet di Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [La crittografia delle informazioni di configurazione in ASP.NET 2.0 applicazioni](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Panoramica degli oggetti TableAdapter](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Utilizzo di un DataSet tipizzato](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [Panoramica degli oggetti TableAdapter](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Utilizzo di un DataSet tipizzato](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Tramite l'accesso ai dati fortemente tipizzati in Visual Studio 2005 e ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Come estendere i metodi TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Il recupero di dati scalare da una Stored Procedure](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
@@ -544,4 +544,4 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Ron Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, etichetta Gomez e Santos Carlos. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Successivo](creating-a-business-logic-layer-cs.md)
+[avanti](creating-a-business-logic-layer-cs.md)

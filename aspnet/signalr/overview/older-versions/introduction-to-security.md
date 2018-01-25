@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 04487614b219f8f6f8f0524c3b5f1aa42480c4d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>Introduzione alla sicurezza SignalR (SignalR 1. x)
 ====================
@@ -54,7 +54,7 @@ Questo documento contiene le seguenti sezioni:
 
 SignalR è progettato per integrare la struttura di autenticazione per un'applicazione esistente. Non fornisce alcuna funzionalità per l'autenticazione degli utenti. Invece autenticare gli utenti come si farebbe normalmente nell'applicazione e quindi utilizzare i risultati dell'autenticazione nel codice SignalR. Ad esempio, è possibile autenticare gli utenti con autenticazione basata su form ASP.NET e quindi applicare gli utenti che nell'hub, o i ruoli sono autorizzati a chiamare un metodo. Nell'hub, è anche possibile passare le informazioni di autenticazione, ad esempio nome utente o se un utente appartiene a un ruolo, al client.
 
-SignalR fornisce il [Authorize](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) attributo per specificare quali utenti hanno accesso a un hub o un metodo. Si applica l'attributo Authorize a un hub o metodi particolari in un hub. Senza l'attributo Authorize, tutti i metodi pubblici dell'hub sono disponibili per un client che si è connessi all'hub. Per ulteriori informazioni sugli hub, vedere [autenticazione e autorizzazione per gli hub SignalR](../security/hub-authorization.md).
+SignalR fornisce il [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) attributo per specificare quali utenti hanno accesso a un hub o un metodo. Si applica l'attributo Authorize a un hub o metodi particolari in un hub. Senza l'attributo Authorize, tutti i metodi pubblici dell'hub sono disponibili per un client che si è connessi all'hub. Per ulteriori informazioni sugli hub, vedere [autenticazione e autorizzazione per gli hub SignalR](../security/hub-authorization.md).
 
 Il `Authorize` attributo viene utilizzato solo con gli hub. Per applicare le regole di autorizzazione quando si utilizza un `PersistentConnection` è necessario eseguire l'override di `AuthorizeRequest` metodo. Per ulteriori informazioni sulle connessioni permanenti, vedere [autenticazione e autorizzazione per le connessioni persistenti SignalR](../security/persistent-connection-authorization.md).
 

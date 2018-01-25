@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="anchor-tag-helper"></a>Helper di Tag di ancoraggio
 
@@ -44,7 +44,7 @@ Il markup generato sarà:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Se il `asp-controller` specificato e `asp-action` non lo è, il valore predefinito `asp-action` sarà metodo controller predefinito per la visualizzazione attualmente in esecuzione. Che nell'esempio precedente, se viene `asp-action` viene lasciata fuori, e viene generato questo Helper di Tag di ancoraggio da *HomeController*del `Index` vista (**/Home**), il markup generato sarà:
+Se il `asp-controller` specificato e `asp-action` non è, il valore predefinito `asp-action` sarà metodo controller predefinito per la visualizzazione attualmente in esecuzione. Che nell'esempio precedente, se viene `asp-action` viene lasciata fuori, e viene generato questo Helper di Tag di ancoraggio da *HomeController*del `Index` vista (**/Home**), il markup generato sarà:
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -99,7 +99,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 
 ### <a name="asp-route-value"></a>asp-route-{value}
 
-`asp-route-`è un prefisso di route con caratteri jolly. Qualsiasi valore inserito dopo il trattino finale verrà interpretato come un parametro di route possibili. Se una route predefinita non viene trovata, verrà aggiunto il prefisso della route per href generato come valore di parametro di richiesta e. In caso contrario verrà sostituito nel modello di route.
+`asp-route-`è un prefisso di route con caratteri jolly. Qualsiasi valore inserito dopo il trattino finale verrà interpretato come un parametro di route possibili. Se non viene trovata una route predefinita, per href generato come valore di parametro di richiesta e verrà aggiunto il prefisso della route. In caso contrario verrà sostituito nel modello di route.
 
 Presupponendo che sia un metodo del controller definiti come segue:
 
@@ -142,7 +142,7 @@ Il codice HTML generato verrà quindi modificato come segue perché **id** è st
 <a href='/Speaker/Detail/12'>SpeakerId: 12</a>
 ```
 
-Se il prefisso di route non fa parte di trovare il modello di routing, che si verifica con i seguenti **cshtml** file:
+Se il prefisso di route non fa parte del modello di routing trovato, che si verifica con i seguenti **cshtml** file:
 
 ```cshtml
 @model SpeakerData
@@ -164,7 +164,7 @@ Se il valore `asp-controller` o `asp-action` non vengono specificati, viene segu
 
 `asp-route`fornisce un modo per creare un URL che colleghi direttamente a una route denominata. Gli attributi di routing una route può essere denominata come illustrato nel `SpeakerController` e utilizzato nel relativo `Evaluations` metodo.
 
-`Name = "speakerevals"`indica l'Helper di Tag di ancoraggio per generare una route direttamente a tale metodo controller utilizzando l'URL `/Speaker/Evaluations`. Se `asp-controller` o `asp-action` è specificato in aggiunta al `asp-route`, la route generata potrebbe non essere quello previsto. `asp-route`non deve essere utilizzato con uno degli attributi `asp-controller` o `asp-action` per evitare un conflitto di route.
+`Name = "speakerevals"`indica l'Helper di Tag di ancoraggio per generare una route direttamente a tale metodo controller utilizzando l'URL `/Speaker/Evaluations`. Se `asp-controller` o `asp-action` è specificato in aggiunta al `asp-route`, la route generata potrebbe non essere quello previsto. `asp-route`non devono essere usate con uno degli attributi `asp-controller` o `asp-action` per evitare un conflitto di route.
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 

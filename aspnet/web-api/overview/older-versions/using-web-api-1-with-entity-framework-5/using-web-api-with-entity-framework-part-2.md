@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Parte 2: Creazione dei modelli di dominio
 ====================
@@ -32,9 +32,9 @@ Esistono tre modi per l'approccio Entity Framework:
 - Model-first: iniziare con un modello visivo ed Entity Framework genera il codice sia il database.
 - Prima di codice: si inizia con il codice ed Entity Framework genera il database.
 
-Viene usato l'approccio incentrato codice, in modo da iniziare definendo gli oggetti di dominio come POCOs (oggetti CLR normale precedente). Con l'approccio incentrato codice, gli oggetti di dominio non necessario codice aggiuntivo per supportare il livello di database, ad esempio le transazioni o di persistenza. (In particolare, non è necessario ereditare la [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) classe.) È comunque possibile utilizzare le annotazioni dei dati per controllare come Entity Framework crea lo schema del database.
+Viene usato l'approccio incentrato codice, in modo da iniziare definendo gli oggetti di dominio come POCOs (oggetti CLR normale precedente). Con l'approccio incentrato codice, gli oggetti di dominio non necessario codice aggiuntivo per supportare il livello di database, ad esempio le transazioni o di persistenza. (In particolare, non è necessario ereditare la [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) classe.) È comunque possibile utilizzare le annotazioni dei dati per controllare come Entity Framework crea lo schema del database.
 
-Poiché non sono dotati di qualsiasi proprietà aggiuntive che descrivono POCOs [stato del database](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), può facilmente essere serializzati in JSON o XML. Tuttavia, non implica che è sempre opportuno esporre i modelli di Entity Framework direttamente al client, come vedremo più avanti nell'esercitazione.
+Poiché non sono dotati di qualsiasi proprietà aggiuntive che descrivono POCOs [stato del database](https://msdn.microsoft.com/library/system.data.entitystate.aspx), può facilmente essere serializzati in JSON o XML. Tuttavia, non implica che è sempre opportuno esporre i modelli di Entity Framework direttamente al client, come vedremo più avanti nell'esercitazione.
 
 Verrà creata la POCOs seguenti:
 

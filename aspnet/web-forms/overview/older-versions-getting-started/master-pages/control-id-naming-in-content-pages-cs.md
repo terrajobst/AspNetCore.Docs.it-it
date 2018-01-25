@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82dc6900d3603a97340633fe8dfb2d3e63b2fd4b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>ID di controllo di denominazione nelle pagine di contenuto (c#)
 ====================
@@ -34,7 +34,7 @@ Tutti i controlli server ASP.NET includono un `ID` proprietà che identifica il 
 Per gestire tali scenari, ASP.NET consente determinati controlli essere indicata come contenitori di denominazione. Un contenitore di denominazione viene utilizzato come un nuovo `ID` dello spazio dei nomi. Qualsiasi controllo server che vengono visualizzati all'interno del contenitore di denominazione è loro visualizzabile `id` valore preceduti il `ID` del controllo del contenitore di denominazione. Ad esempio, il `GridView` e `GridViewRow` classi sono entrambe contenitori di denominazione. Di conseguenza, un controllo etichetta definito in un GridView TemplateField con `ID` ProductName viene sottoposto a rendering `id` valore `GridViewID_GridViewRowID_ProductName`. Poiché *GridViewRowID* è univoco per ogni riga GridView, il valore risultante `id` valori siano univoci.
 
 > [!NOTE]
-> Il [ `INamingContainer` interfaccia](https://msdn.microsoft.com/en-us/library/system.web.ui.inamingcontainer.aspx) viene utilizzato per indicare che un determinato controllo server ASP.NET deve funzionare come un contenitore di denominazione. Il `INamingContainer` interfaccia ortografico non i metodi di qualsiasi tipo che deve implementare il controllo del server; invece, viene utilizzato un marcatore. Per generare il markup sottoposto a rendering, se un controllo implementa questa interfaccia quindi il motore ASP.NET automaticamente i prefissi relativi `ID` valore per i relativi discendenti sottoposto a rendering `id` i valori di attributo. Questo processo è descritto in dettaglio nel passaggio 2.
+> Il [ `INamingContainer` interfaccia](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) viene utilizzato per indicare che un determinato controllo server ASP.NET deve funzionare come un contenitore di denominazione. Il `INamingContainer` interfaccia ortografico non i metodi di qualsiasi tipo che deve implementare il controllo del server; invece, viene utilizzato un marcatore. Per generare il markup sottoposto a rendering, se un controllo implementa questa interfaccia quindi il motore ASP.NET automaticamente i prefissi relativi `ID` valore per i relativi discendenti sottoposto a rendering `id` i valori di attributo. Questo processo è descritto in dettaglio nel passaggio 2.
 
 
 Denominazione dei contenitori non solo modificare il rendering `id` valore dell'attributo, ma anche influiscono su come il controllo può fare riferimento a livello di codice dalla classe code-behind della pagina ASP.NET. Il `FindControl("controlID")` metodo viene in genere utilizzato per fare riferimento a livello di codice a un controllo Web. Tuttavia, `FindControl` non penetrare tramite contenitori di denominazione. Di conseguenza, non è possibile utilizzare direttamente la `Page.FindControl` metodo per fare riferimento a controlli all'interno di un controllo GridView o altro contenitore di denominazione.
@@ -121,7 +121,7 @@ Si noti che il `id` attributo include entrambi della pagina master `ID` valore (
 
 Ogni controllo server ASP.NET include un `FindControl("controlID")` metodo che cerca i discendenti del controllo per un controllo denominato *controlID*. Se ad esempio un controllo viene trovato, viene restituito; Se non viene trovato alcun controllo corrispondente, `FindControl` restituisce `null`.
 
-`FindControl`è utile negli scenari in cui è necessario un controllo di accesso ma non è un riferimento diretto a esso. Quando si lavora con dati Web controlli quali GridView, ad esempio, una volta definiti i controlli all'interno dei campi del controllo GridView nella sintassi dichiarativa, ma in fase di esecuzione viene creata un'istanza del controllo per ogni riga GridView. Di conseguenza, i controlli generati in fase di esecuzione esistono, ma non è un riferimento diretto disponibile dalla classe code-behind. Di conseguenza è necessario utilizzare `FindControl` a livello di codice con un controllo specifico all'interno dei campi del controllo GridView. (Per ulteriori informazioni sull'utilizzo `FindControl` per accedere ai controlli all'interno di modelli del controllo Web di dati, vedere [formattazione basato su dati personalizzati](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Questo stesso scenario si verifica quando l'aggiunta di controlli Web in modo dinamico a un Web Form, un argomento trattato in [la creazione di interfacce utente di immissione dati dinamico](https://msdn.microsoft.com/en-us/library/aa479330.aspx).
+`FindControl`è utile negli scenari in cui è necessario un controllo di accesso ma non è un riferimento diretto a esso. Quando si lavora con dati Web controlli quali GridView, ad esempio, una volta definiti i controlli all'interno dei campi del controllo GridView nella sintassi dichiarativa, ma in fase di esecuzione viene creata un'istanza del controllo per ogni riga GridView. Di conseguenza, i controlli generati in fase di esecuzione esistono, ma non è un riferimento diretto disponibile dalla classe code-behind. Di conseguenza è necessario utilizzare `FindControl` a livello di codice con un controllo specifico all'interno dei campi del controllo GridView. (Per ulteriori informazioni sull'utilizzo `FindControl` per accedere ai controlli all'interno di modelli del controllo Web di dati, vedere [formattazione basato su dati personalizzati](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Questo stesso scenario si verifica quando l'aggiunta di controlli Web in modo dinamico a un Web Form, un argomento trattato in [la creazione di interfacce utente di immissione dati dinamico](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Per illustrare l'utilizzo di `FindControl` metodo per la ricerca per i controlli all'interno di una pagina di contenuto, creare un gestore eventi per il `SubmitButton`del `Click` evento. Nel gestore eventi, aggiungere il codice seguente, che a livello di codice fa riferimento il `Age` casella di testo e `Results` etichetta utilizzando il `FindControl` (metodo) e quindi viene visualizzato un messaggio in `Results` in base all'input dell'utente.
 
@@ -228,7 +228,7 @@ Tenere presente che, in ASP.NET, pagine che non includono un contenitore di deno
 
 Il problema con questo approccio è che quando si utilizzano pagine master (o altri controlli contenitore di denominazione), il codice HTML `id` non è un sinonimo del controllo Web `ID` proprietà. Potrebbe essere la prima scelta per visitare la pagina tramite un browser e visualizzare l'origine per determinare l'effettiva `id` attributo. Quando si conosce il rendering `id` valore, è possibile incollarlo nella chiamata a `getElementById` per accedere all'elemento HTML è necessario utilizzare lo script sul lato client. Questo approccio è minore di ideale perché alcune modifiche apportate alla pagina gerarchia dei controllano o modifiche al `ID` implica la modifica delle proprietà dei controlli di denominazione risultante `id` attributo, violando il codice JavaScript.
 
-Buone notizie consiste nel fatto che il `id` valore dell'attributo che viene eseguito il rendering è accessibile nel codice sul lato server tramite il controllo Web [ `ClientID` proprietà](https://msdn.microsoft.com/en-us/library/system.web.ui.control.clientid.aspx). È consigliabile utilizzare questa proprietà per determinare il `id` valore utilizzato nello script sul lato client dell'attributo. Ad esempio, per aggiungere una funzione JavaScript alla pagina che, quando viene chiamato, viene visualizzato il valore della `Age` casella di testo in una finestra di messaggio modale, aggiungere il codice seguente per il `Page_Load` gestore eventi:
+Buone notizie consiste nel fatto che il `id` valore dell'attributo che viene eseguito il rendering è accessibile nel codice sul lato server tramite il controllo Web [ `ClientID` proprietà](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). È consigliabile utilizzare questa proprietà per determinare il `id` valore utilizzato nello script sul lato client dell'attributo. Ad esempio, per aggiungere una funzione JavaScript alla pagina che, quando viene chiamato, viene visualizzato il valore della `Age` casella di testo in una finestra di messaggio modale, aggiungere il codice seguente per il `Page_Load` gestore eventi:
 
 
 [!code-javascript[Main](control-id-naming-in-content-pages-cs/samples/sample15.js)]
@@ -241,7 +241,7 @@ Il codice sopra riportato inserisce il valore di `Age` proprietà ClientID della
 Si noti come il corretto `id` valore dell'attributo, `ctl00_MainContent_Age`, viene visualizzato all'interno della chiamata a `getElementById`. Dal momento che questo valore viene calcolato in fase di esecuzione, funziona indipendentemente dalle modifiche successive alla gerarchia di controllo della pagina.
 
 > [!NOTE]
-> In questo esempio di JavaScript viene semplicemente come aggiungere una funzione JavaScript che contiene riferimenti corretti all'elemento HTML visualizzato da un controllo server. Per utilizzare questa funzione è necessario creare JavaScript aggiuntive per chiamare la funzione quando il documento viene caricato o quando un'azione utente specifico di seguito. Per ulteriori informazioni su questi argomenti correlati, leggere e [lavorando con Script lato Client](https://msdn.microsoft.com/en-us/library/aa479302.aspx).
+> In questo esempio di JavaScript viene semplicemente come aggiungere una funzione JavaScript che contiene riferimenti corretti all'elemento HTML visualizzato da un controllo server. Per utilizzare questa funzione è necessario creare JavaScript aggiuntive per chiamare la funzione quando il documento viene caricato o quando un'azione utente specifico di seguito. Per ulteriori informazioni su questi argomenti correlati, leggere e [lavorando con Script lato Client](https://msdn.microsoft.com/library/aa479302.aspx).
 
 
 ## <a name="summary"></a>Riepilogo
@@ -257,11 +257,11 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Pagine Master ASP.NET e`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Creazione di interfacce utente di immissione dati dinamici](https://msdn.microsoft.com/en-us/library/aa479330.aspx)
+- [Creazione di interfacce utente di immissione dati dinamici](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Estensione delle funzionalità di tipo di Base con i metodi di estensione](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Procedura: Fare riferimento a contenuto della pagina Master ASP.NET](https://msdn.microsoft.com/en-us/library/xxwa0ff0.aspx)
+- [Procedura: Fare riferimento a contenuto della pagina Master ASP.NET](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [Pagine master: Suggerimenti, consigli e trap](http://www.odetocode.com/articles/450.aspx)
-- [Utilizzo di Script sul lato Client](https://msdn.microsoft.com/en-us/library/aa479302.aspx)
+- [Utilizzo di Script sul lato Client](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
