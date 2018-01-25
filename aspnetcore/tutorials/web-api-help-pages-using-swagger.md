@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 630378510f4182034735cb4c306dfc5a761543ab
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 08503b724aaea64ad2d32eaa710378ec77b9a1fe
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="aspnet-core-web-api-help-pages-using-swagger"></a>Pagine della Guida dell'API Web ASP.NET Core con Swagger
 
@@ -227,6 +227,8 @@ Aggiungere manualmente il frammento di codice seguente al file *csproj*:
 Vedere Visual Studio Code.
 
 ---
+
+Abilitando i commenti XML, viene eseguito il debug delle informazioni per membri e tipi pubblici non documentati. I tipi e i membri non documentati sono specificati nel messaggio di avviso: *Manca il commento XML per il tipo o il membro visibile pubblicamente*.
 
 Configurare Swagger in modo che usi il file XML generato. Per Linux o sistemi operativi diversi da Windows, i percorsi e i nomi di file possono fare distinzione tra maiuscole e minuscole. Ad esempio, un file *ToDoApi.XML* potrebbe trovarsi in Windows ma non in CentOS.
 
