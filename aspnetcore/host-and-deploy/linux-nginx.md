@@ -1,0 +1,311 @@
+---
+title: Hosting di ASP.NET Core in Linux con Nginx
+description: Viene descritto come configurare Nginx come un proxy inverso in Ubuntu 16.04 per inoltrare il traffico HTTP a un'app web ASP.NET Core in esecuzione su Kestrel.
+author: rick-anderson
+ms.author: riande
+manager: wpickett
+ms.custom: mvc
+ms.date: 08/21/2017
+ms.topic: article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: host-and-deploy/linux-nginx
+ms.openlocfilehash: 465f1391ef4ff9492d9aed48cb32da0659ceda41
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/24/2018
+---
+# <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
+
+Di [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+
+Questa guida spiega come configurare un ambiente ASP.NET Core pronto per la produzione in un server Ubuntu 16.04.
+
+**Nota:** per Ubuntu 14.04, *supervisord* è consigliabile come soluzione per il monitoraggio del processo Kestrel. *systemd* non è disponibile in Ubuntu 14.04. [Vedere la versione precedente di questo documento](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)
+
+In questa guida:
+
+* Inserisce un'app di ASP.NET Core esistente con un server proxy inverso.
+* Imposta backup del server proxy inverso per inoltrare le richieste al server web Kestrel.
+* Assicura che l'app web viene eseguito all'avvio come daemon.
+* Consente di configurare uno strumento di gestione del processo per riavviare l'app web.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+1. Accesso a un server Ubuntu 16.04 con un account utente standard con privilegio sudo
+1. Un'app di ASP.NET Core esistente
+
+## <a name="copy-over-the-app"></a>Copiare l'app
+
+Eseguire `dotnet publish` dall'ambiente di sviluppo per creare un pacchetto per un'applicazione in una directory indipendente che può essere eseguita sul server.
+
+Copia l'app ASP.NET Core per il server utilizzando qualsiasi strumento integra nel flusso di lavoro dell'organizzazione (ad esempio, SCP, FTP). Testare l'applicazione, ad esempio:
+
+* Dalla riga di comando, eseguire `dotnet <app_assembly>.dll`.
+* In un browser passare a `http://<serveraddress>:<port>` per verificare se l'applicazione funziona in Linux. 
+ 
+## <a name="configure-a-reverse-proxy-server"></a>Configurare un server proxy inverso
+
+Un proxy inverso è una configurazione comune per la gestione delle applicazioni web dinamiche. Un proxy inverso termina la richiesta HTTP e lo inoltra all'applicazione ASP.NET Core.
+
+### <a name="why-use-a-reverse-proxy-server"></a>Perché usare un server proxy inverso?
+
+Kestrel funziona perfettamente per la gestione del contenuto dinamico da ASP.NET Core, tuttavia le parti relative al Web non sono così ricche di funzionalità come i server IIS, Apache o Nginx. Un server proxy inverso è in grado di eseguire l'offload di attività come la gestione del contenuto statico, le richieste di memorizzazione nella cache, la compressione delle richieste e la terminazione SSL dal server HTTP. Un server proxy inverso può risiedere in un computer dedicato o essere distribuito insieme a un server HTTP.
+
+Ai fini di questa guida viene usata una singola istanza di Nginx. Viene eseguito sullo stesso server, insieme al server HTTP. In base ai requisiti, un'impostazione diversa potrebbe essere scelto.
+
+Poiché le richieste vengono inoltrate dal proxy inverso, usare il middleware `ForwardedHeaders` dal pacchetto `Microsoft.AspNetCore.HttpOverrides`. Questo middleware aggiorna `Request.Scheme` usando l'intestazione `X-Forwarded-Proto`, in modo che gli URI di reindirizzamento e altri criteri di sicurezza funzionino correttamente.
+
+Quando si configura un server proxy inverso, il middleware di autenticazione richiede `UseForwardedHeaders` per essere eseguito per primo. Questo ordine garantisce che il middleware di autenticazione sia in grado di usare i valori interessati e di generare gli URI di reindirizzamento corretti.
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+Richiamare il metodo `UseForwardedHeaders` (nel metodo `Configure` di *Startup.cs*) prima di chiamare `UseAuthentication` o un middleware con schema di autenticazione simile:
+
+```csharp
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseAuthentication();
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Richiamare il metodo `UseForwardedHeaders` (nel metodo `Configure` di *Startup.cs*) prima di chiamare `UseIdentity` e `UseFacebookAuthentication` o un middleware con schema di autenticazione simile:
+
+```csharp
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseIdentity();
+app.UseFacebookAuthentication(new FacebookOptions()
+{
+    AppId = Configuration["Authentication:Facebook:AppId"],
+    AppSecret = Configuration["Authentication:Facebook:AppSecret"]
+});
+```
+
+---
+
+### <a name="install-nginx"></a>Installare Nginx
+
+```bash
+sudo apt-get install nginx
+```
+
+> [!NOTE]
+> Se non saranno installati i moduli Nginx facoltativi, potrebbe essere necessario compilazione Nginx dall'origine.
+
+Usare `apt-get` per installare Nginx. Il programma di installazione crea uno script di inizializzazione System V che esegue Nginx come daemon all'avvio del sistema. Poiché Nginx è stato installato per la prima volta, avviarlo in modo esplicito eseguendo:
+
+```bash
+sudo service nginx start
+```
+
+Verificare che un browser visualizzi la pagina di destinazione predefinita per Nginx.
+
+### <a name="configure-nginx"></a>Configurare Nginx
+
+Per configurare come un proxy inverso per inoltrare le richieste per l'app ASP.NET Core Nginx modificare `/etc/nginx/sites-available/default`. Aprirlo in un editor di testo e sostituire il contenuto con quanto segue:
+
+```
+server {
+    listen 80;
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection keep-alive;
+        proxy_set_header Host $http_host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+Questo file di configurazione Nginx inoltra il traffico pubblico in ingresso dalla porta `80` alla porta `5000`.
+
+Una volta stabilita la configurazione di Nginx, eseguire `sudo nginx -t` per verificare la sintassi dei file di configurazione. Se il test di file di configurazione ha esito positivo, forzare Nginx per rendere effettive le modifiche eseguendo `sudo nginx -s reload`.
+
+## <a name="monitoring-the-app"></a>Monitoraggio dell'app
+
+Il server è configurato per inoltrare le richieste effettuate a `http://<serveraddress>:80` al ASP.NET Core in esecuzione l'app in Kestrel in `http://127.0.0.1:5000`. Tuttavia, Nginx perché non è configurato per gestire il processo Kestrel. *systemd* può essere utilizzato per creare un file del servizio per avviare e monitorare l'app web sottostante. *systemd* è un sistema di inizializzazione che offre molte funzionalità potenti per l'avvio, l'arresto e la gestione dei processi. 
+
+### <a name="create-the-service-file"></a>Creare il file del servizio
+
+Creare il file di definizione del servizio:
+
+```bash
+sudo nano /etc/systemd/system/kestrel-hellomvc.service
+```
+
+Di seguito è un esempio di file per l'applicazione del servizio:
+
+```ini
+[Unit]
+Description=Example .NET Web API App running on Ubuntu
+
+[Service]
+WorkingDirectory=/var/aspnetcore/hellomvc
+ExecStart=/usr/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
+Restart=always
+RestartSec=10  # Restart service after 10 seconds if dotnet service crashes
+SyslogIdentifier=dotnet-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
+```
+
+**Nota:** se l'utente *www dati* non viene usata dalla configurazione, è necessario creare innanzitutto l'utente definito qui e ha le proprietà appropriate per i file.
+**Nota:** Linux è un sistema di file tra maiuscole e minuscole. L'impostazione di ASPNETCORE_ENVIRONMENT su "Produzione" produce la ricerca del file di configurazione *appsettings. Production.JSON*, non *appsettings.production.json*.
+
+Salvare il file e abilitare il servizio.
+
+```bash
+systemctl enable kestrel-hellomvc.service
+```
+
+Avviare il servizio e verificare che sia in esecuzione.
+
+```
+systemctl start kestrel-hellomvc.service
+systemctl status kestrel-hellomvc.service
+
+● kestrel-hellomvc.service - Example .NET Web API App running on Ubuntu
+    Loaded: loaded (/etc/systemd/system/kestrel-hellomvc.service; enabled)
+    Active: active (running) since Thu 2016-10-18 04:09:35 NZDT; 35s ago
+Main PID: 9021 (dotnet)
+    CGroup: /system.slice/kestrel-hellomvc.service
+            └─9021 /usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
+```
+
+Con il proxy inverso configurate e gestite tramite systemd Kestrel, l'app web è completamente configurato ed è possibile accedervi da un browser del computer locale in `http://localhost`. È inoltre possibile accedere da un computer remoto, impedendo qualsiasi firewall che potrebbe essere bloccato. Esaminare le intestazioni di risposta, il `Server` intestazione Mostra l'app ASP.NET Core servito dal Kestrel.
+
+```text
+HTTP/1.1 200 OK
+Date: Tue, 11 Oct 2016 16:22:23 GMT
+Server: Kestrel
+Keep-Alive: timeout=5, max=98
+Connection: Keep-Alive
+Transfer-Encoding: chunked
+```
+
+### <a name="viewing-logs"></a>Vista dei log
+
+Poiché l'app web utilizzando Kestrel viene gestita mediante `systemd`, tutti gli eventi e i processi vengono registrati in una registrazione centralizzata. Tuttavia, questo giornale include tutte le voci per tutti i servizi e i processi gestiti da `systemd`. Per visualizzare le voci specifiche di `kestrel-hellomvc.service`, usare il comando seguente:
+
+```bash
+sudo journalctl -fu kestrel-hellomvc.service
+```
+
+Per filtrare ulteriormente, opzioni come `--since today`, `--until 1 hour ago` o una combinazione delle stesse consentono di ridurre la quantità di voci restituite.
+
+```bash
+sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
+```
+
+## <a name="securing-the-app"></a>Protezione dell'app
+
+### <a name="enable-apparmor"></a>Abilitare AppArmor
+
+I moduli di protezione Linux (LSM) è un framework che fa parte del kernel Linux dal 2.6 Linux. LSM supporta diverse implementazioni di moduli di protezione. [AppArmor](https://wiki.ubuntu.com/AppArmor) è un modulo LSM che implementa un sistema di controllo di accesso obbligatorio che consente di circoscrivere il programma a un set limitato di risorse. Verificare che AppArmor sia abilitato e configurato correttamente.
+
+### <a name="configuring-the-firewall"></a>Configurazione del firewall
+
+Chiudere tutte le porte esterne che non sono in uso. Il firewall UFW (Uncomplicated Firewall) offre un front-end per `iptables` attraverso un'interfaccia della riga di comando per la configurazione del firewall. Verificare che `ufw` è configurato per consentire il traffico su tutte le porte necessita.
+
+```bash
+sudo apt-get install ufw
+sudo ufw enable
+
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+```
+
+### <a name="securing-nginx"></a>Protezione di Nginx
+
+La distribuzione predefinita di Nginx non abilita SSL. Per abilitare ulteriori funzionalità di sicurezza, compilarle dal codice sorgente.
+
+#### <a name="download-the-source-and-install-the-build-dependencies"></a>Scaricare il codice sorgente e installare le dipendenze di compilazione
+
+```bash
+# Install the build dependencies
+sudo apt-get update
+sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
+
+# Download Nginx 1.10.0 or latest
+wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
+tar zxf nginx-1.10.0.tar.gz
+```
+
+#### <a name="change-the-nginx-response-name"></a>Modificare il nome di risposta Nginx
+
+Modificare *src/http/ngx_http_header_filter_module.c*:
+
+```c
+static char ngx_http_server_string[] = "Server: Web Server" CRLF;
+static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
+```
+
+#### <a name="configure-the-options-and-build"></a>Configurare le opzioni e compilare
+
+La libreria PCRE è obbligatoria per le espressioni regolari. Le espressioni regolari sono usate nella direttiva ubicazione per ngx_http_rewrite_module. http_ssl_module aggiunge il supporto del protocollo HTTPS.
+
+È consigliabile utilizzare un firewall, app web come *ModSecurity* per finalizzare l'app.
+
+```bash
+./configure
+--with-pcre=../pcre-8.38
+--with-zlib=../zlib-1.2.8
+--with-http_ssl_module
+--with-stream
+--with-mail=dynamic
+```
+
+#### <a name="configure-ssl"></a>Configurare SSL
+
+* Configurare il server per ascoltare il traffico HTTPS sulla porta `443` specificando un certificato valido emesso da un'autorità di certificati attendibili (CA).
+
+* Rafforzare la sicurezza mediante l'utilizzo di alcune delle procedure di cui è illustrate nell'esempio seguente */etc/nginx/nginx.conf* file. Gli esempi includono la scelta di una crittografia più complessa e il reindirizzamento di tutto il traffico su HTTP a HTTPS.
+
+* L'aggiunta di un'intestazione `HTTP Strict-Transport-Security` (HSTS) garantisce che tutte le richieste successive vengano effettuate dal esclusivamente via HTTPS.
+
+* Non aggiungere l'intestazione di sicurezza-trasporto-Strict o scelto un appropriato `max-age` se SSL verrà disabilitata in futuro.
+
+Aggiungere il file di configurazione */etc/nginx/proxy.conf*:
+
+[!code-nginx[Main](linux-nginx/proxy.conf)]
+
+Aggiungere il file di configurazione */etc/nginx/proxy.conf*. L'esempio contiene entrambe le sezioni `http` e `server` in un unico file di configurazione.
+
+[!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
+
+#### <a name="secure-nginx-from-clickjacking"></a>Proteggere Nginx dal clickjacking
+Il clickjacking è una tecnica fraudolenta con cui i clic di un utente vengono "catturati" e reindirizzati a un oggetto in un sito infetto. Utilizzare X-FRAME-OPTIONS per proteggere il sito.
+
+Modificare il file *nginx.conf*:
+
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+
+Aggiungere la riga `add_header X-Frame-Options "SAMEORIGIN";` e salvare il file, quindi riavviare Nginx.
+
+#### <a name="mime-type-sniffing"></a>Analisi del tipo MIME
+
+Questa intestazione impedisce alla maggior parte dei browser di dedurre dall'analisi del tipo MIME un tipo di contenuto diverso da quello dichiarato, poiché l'intestazione indica al browser di non eseguire l'override del tipo di contenuto della risposta. Con l'opzione `nosniff`, se il server indica che il contenuto è "text/html", il browser ne esegue il rendering come "text/html".
+
+Modificare il file *nginx.conf*:
+
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+
+Aggiungere la riga `add_header X-Content-Type-Options "nosniff";` e salvare il file, quindi riavviare Nginx.

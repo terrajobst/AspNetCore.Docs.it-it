@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 271c244ab0b9e2524a33ea6ff4d41893ce22472f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69fbaa7761c97895ffee770f6feb9ce6b745d186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>Utilizzo di HTML5 e jQuery UI Datepicker Popup Calendar with ASP.NET MVC - parte 2
 ====================
@@ -27,15 +27,15 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
 ## <a name="adding-an-automatic-datetime-template"></a>Aggiunta di un modello di data/ora automatica
 
-Nella prima parte di questa esercitazione, è stato illustrato come è possibile aggiungere attributi al modello per specificare in modo esplicito di formattazione, e come è possibile specificare in modo esplicito il modello utilizzato per eseguire il rendering del modello. Ad esempio, il [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo esplicitamente il codice seguente specifica la formattazione per il `ReleaseDate` proprietà.
+Nella prima parte di questa esercitazione, è stato illustrato come è possibile aggiungere attributi al modello per specificare in modo esplicito di formattazione, e come è possibile specificare in modo esplicito il modello utilizzato per eseguire il rendering del modello. Ad esempio, il [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) attributo esplicitamente il codice seguente specifica la formattazione per il `ReleaseDate` proprietà.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
-Nell'esempio seguente, il [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) attributo, mediante il `Date` enumerazione, specifica che il modello di data da utilizzare per il rendering del modello. Se è presente alcun modello di data nel progetto, viene utilizzato il modello di data predefinito.
+Nell'esempio seguente, il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) attributo, mediante il `Date` enumerazione, specifica che il modello di data da utilizzare per il rendering del modello. Se è presente alcun modello di data nel progetto, viene utilizzato il modello di data predefinito.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample2.cs)]
 
-Tuttavia, ASP. MVC è possibile eseguire usando la convenzione-over-configurazione, mediante la ricerca di un modello che corrisponde al nome di un tipo di corrispondenza del tipo. Ciò consente di creare un modello che formatta automaticamente i dati senza usare affatto attributi o codice. Per questa parte dell'esercitazione, si creerà un modello che viene applicato automaticamente alle proprietà del modello di tipo [DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx). Non è necessario utilizzare un attributo o altre operazioni di configurazione per specificare che il modello deve essere utilizzato per eseguire il rendering di tutte le proprietà di modello di tipo [DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx).
+Tuttavia, ASP. MVC è possibile eseguire usando la convenzione-over-configurazione, mediante la ricerca di un modello che corrisponde al nome di un tipo di corrispondenza del tipo. Ciò consente di creare un modello che formatta automaticamente i dati senza usare affatto attributi o codice. Per questa parte dell'esercitazione, si creerà un modello che viene applicato automaticamente alle proprietà del modello di tipo [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Non è necessario utilizzare un attributo o altre operazioni di configurazione per specificare che il modello deve essere utilizzato per eseguire il rendering di tutte le proprietà di modello di tipo [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx).
 
 Si apprenderà inoltre un modo per personalizzare la visualizzazione delle singole proprietà o persino singoli campi.
 
@@ -83,7 +83,7 @@ La figura seguente mostra il *viste* cartella **Esplora** dopo il `DateTime` edi
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image3.png)
 
-Aprire il *Views\Shared\DisplayTemplates\DateTime.cshtml* file e aggiungere il markup seguente, che utilizza il [String. Format](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) metodo per formattare la proprietà come una data senza l'ora. (Il `{0:d}` formato specifica il formato di data breve.)
+Aprire il *Views\Shared\DisplayTemplates\DateTime.cshtml* file e aggiungere il markup seguente, che utilizza il [String. Format](https://msdn.microsoft.com/library/system.string.format.aspx) metodo per formattare la proprietà come una data senza l'ora. (Il `{0:d}` formato specifica il formato di data breve.)
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample5.cs)]
 
@@ -113,7 +113,7 @@ Per esaminare: a questo punto, il `ReleaseDate` campo viene visualizzato utilizz
 
 ### <a name="using-uihint-to-specify-a-display-template"></a>Utilizzo di UIHint per specificare un modello di visualizzazione
 
-Se l'applicazione web dispone di molti `DateTime` campi e per impostazione predefinita, si desidera visualizzare tutte o la maggior parte di essi in formato data-only, di *DateTime.cshtml* modello è un buon approccio. Ma cosa accade se si dispone alcune date in cui si desidera visualizzare la data e ora complete? Nessun problema. È possibile creare un modello aggiuntivo e utilizzare il [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo per specificare la formattazione per la data e ora complete. Quindi è possibile applicare tale modello in modo selettivo. È possibile utilizzare il [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo al livello del modello oppure è possibile specificare il modello all'interno di una vista. In questa sezione si vedrà come utilizzare il `UIHint` attributo da modificare in modo selettivo la formattazione ad alcune istanze di campi di data e ora.
+Se l'applicazione web dispone di molti `DateTime` campi e per impostazione predefinita, si desidera visualizzare tutte o la maggior parte di essi in formato data-only, di *DateTime.cshtml* modello è un buon approccio. Ma cosa accade se si dispone alcune date in cui si desidera visualizzare la data e ora complete? Nessun problema. È possibile creare un modello aggiuntivo e utilizzare il [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo per specificare la formattazione per la data e ora complete. Quindi è possibile applicare tale modello in modo selettivo. È possibile utilizzare il [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo al livello del modello oppure è possibile specificare il modello all'interno di una vista. In questa sezione si vedrà come utilizzare il `UIHint` attributo da modificare in modo selettivo la formattazione ad alcune istanze di campi di data e ora.
 
 Aprire il *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* file e sostituire il codice esistente con il seguente:
 
@@ -121,7 +121,7 @@ Aprire il *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* file e sostituire 
 
 In questo modo la data e ora complete da visualizzare e aggiunge la classe CSS che rende il testo, verde e grandi dimensioni.
 
-Aprire il *Movie.cs* file e aggiungere il [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo la `ReleaseDate` proprietà, come illustrato nell'esempio seguente:
+Aprire il *Movie.cs* file e aggiungere il [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) attributo la `ReleaseDate` proprietà, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample8.cs)]
 
@@ -133,7 +133,7 @@ Si noti che il `ReleaseDate` proprietà Visualizza ora la data e ora in caratter
 
 Restituito per il `UIHint` attributo il *Movie.cs* file e impostarlo come commento il *LoudDateTime.cshtml* modello non può essere utilizzato. Eseguire di nuovo l'applicazione. La data di rilascio non viene visualizzata grandi e verde. Verifica che il *Views\Shared\DisplayTemplates\DateTime.cshtml* modello viene utilizzato nelle visualizzazioni dei dettagli e di indice.
 
-Come accennato in precedenza, è inoltre possibile applicare un modello in una vista, che consente di applicare il modello a una singola istanza di alcuni dati. Aprire il *Views\Movies\Details.cshtml* visualizzazione. Aggiungere `"LoudDateTime"` come secondo parametro del [HTML. DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx) chiamata per il `ReleaseDate` campo. Il codice completo è simile al seguente:
+Come accennato in precedenza, è inoltre possibile applicare un modello in una vista, che consente di applicare il modello a una singola istanza di alcuni dati. Aprire il *Views\Movies\Details.cshtml* visualizzazione. Aggiungere `"LoudDateTime"` come secondo parametro del [HTML. DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) chiamata per il `ReleaseDate` campo. Il codice completo è simile al seguente:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample9.cshtml)]
 
