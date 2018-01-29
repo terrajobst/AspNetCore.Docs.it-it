@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 653c8303691de28b7619c30e773473ffb37f2a61
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be3e3d61a6567da3c2cd696c01661146f2da7131
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (c#)
 ====================
@@ -33,12 +33,12 @@ Utilizzano di database, come s di Microsoft SQL Server 2005 il [Transact-Structu
 
 In sostanza, SQL è progettato per l'utilizzo di set di dati. Il `SELECT`, `UPDATE`, e `DELETE` intrinsecamente istruzioni si applicano a tutti i record della tabella corrispondente e sono limitate solo dalle loro `WHERE` clausole. Ancora sono disponibili molte funzionalità progettate per l'utilizzo di un record alla volta e per la modifica di dati scalare. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) consentono un set di record di ciclo tramite uno alla volta. Funzioni di manipolazione come stringa `LEFT`, `CHARINDEX`, e `PATINDEX` funzionano con dati scalari. SQL include inoltre istruzioni del flusso di controllo come `IF` e `WHILE`.
 
-Prima di Microsoft SQL Server 2005, stored procedure e funzioni definite dall'utente può essere definita solo come una raccolta di istruzioni T-SQL. SQL Server 2005, tuttavia, è stato progettato per fornire l'integrazione con il [Common Language Runtime (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), ovvero il runtime utilizzato da tutti gli assembly .NET. Di conseguenza, le stored procedure e funzioni definite dall'utente in un database di SQL Server 2005 possono essere creati utilizzando codice gestito. È possibile creare una stored procedure o funzione definita dall'utente, ovvero come un metodo in una classe c#. In questo modo le stored procedure e funzioni definite dall'utente per usare la funzionalità di .NET Framework e dalle classi personalizzate.
+Prima di Microsoft SQL Server 2005, stored procedure e funzioni definite dall'utente può essere definita solo come una raccolta di istruzioni T-SQL. SQL Server 2005, tuttavia, è stato progettato per fornire l'integrazione con il [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), ovvero il runtime utilizzato da tutti gli assembly .NET. Di conseguenza, le stored procedure e funzioni definite dall'utente in un database di SQL Server 2005 possono essere creati utilizzando codice gestito. È possibile creare una stored procedure o funzione definita dall'utente, ovvero come un metodo in una classe c#. In questo modo le stored procedure e funzioni definite dall'utente per usare la funzionalità di .NET Framework e dalle classi personalizzate.
 
 In questa esercitazione che verrà esaminato come creare gestito stored procedure e funzioni definite dall'utente e come integrare li al database Northwind. Let s iniziare!
 
 > [!NOTE]
-> Oggetti di database gestiti offrono alcuni vantaggi rispetto alla controparte SQL. Ricchezza del linguaggio e conoscenza e la capacità di riutilizzare la logica e il codice esistente sono i principali vantaggi correlati. Oggetti di database gestiti ma potrebbero essere meno efficiente quando si lavora con set di dati che non coinvolgono quantità logica procedurale. Per una descrizione più dettagliata sui vantaggi dell'utilizzo di codice gestito e T-SQL, consultare il [vantaggi dell'utilizzo di codice gestito per creare oggetti di Database](https://msdn.microsoft.com/en-us/library/k2e1fb36(VS.80).aspx).
+> Oggetti di database gestiti offrono alcuni vantaggi rispetto alla controparte SQL. Ricchezza del linguaggio e conoscenza e la capacità di riutilizzare la logica e il codice esistente sono i principali vantaggi correlati. Oggetti di database gestiti ma potrebbero essere meno efficiente quando si lavora con set di dati che non coinvolgono quantità logica procedurale. Per una descrizione più dettagliata sui vantaggi dell'utilizzo di codice gestito e T-SQL, consultare il [vantaggi dell'utilizzo di codice gestito per creare oggetti di Database](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
 
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>Passaggio 1: Spostare il Database Northwind di`App_Data`
@@ -81,7 +81,7 @@ Fare clic sul pulsante OK per collegare il database. La finestra di dialogo Coll
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>Passaggio 2: Creazione di una nuova soluzione e progetto di SQL Server in Visual Studio
 
-Per creare stored procedure gestite o funzioni definite dall'utente in SQL Server 2005 si scriverà la stored procedure e la logica definita dall'utente come codice c# in una classe. Dopo il codice è stata scritta, è necessario compilare questa classe in un assembly (un `.dll` file), registrare l'assembly con il database di SQL Server e quindi creare una stored procedure o un oggetto funzione definita dall'utente nel database che punta al metodo corrispondente in l'assembly. Questi passaggi possono tutti essere eseguiti manualmente. È possibile creare il codice in qualsiasi testo editor, compilarlo dalla riga di comando utilizzando il compilatore c# ([`csc.exe`](https://msdn.microsoft.com/en-us/library/ms379563(vs.80).aspx)), registrarlo con il database utilizzando il [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/en-us/library/ms189524.aspx) comando o dalla gestione Studio e aggiungere la stored procedure o un oggetto funzione definita dall'utente in modo analogo. Fortunatamente, le versioni di sistemi Professional e Team di Visual Studio includono un tipo di progetto di SQL Server che consente di automatizzare le attività. In questa esercitazione verrà descritto utilizzando il tipo di progetto di SQL Server per creare una stored procedure gestita e funzioni definite dall'utente.
+Per creare stored procedure gestite o funzioni definite dall'utente in SQL Server 2005 si scriverà la stored procedure e la logica definita dall'utente come codice c# in una classe. Dopo il codice è stata scritta, è necessario compilare questa classe in un assembly (un `.dll` file), registrare l'assembly con il database di SQL Server e quindi creare una stored procedure o un oggetto funzione definita dall'utente nel database che punta al metodo corrispondente in l'assembly. Questi passaggi possono tutti essere eseguiti manualmente. È possibile creare il codice in qualsiasi testo editor, compilarlo dalla riga di comando utilizzando il compilatore c# ([`csc.exe`](https://msdn.microsoft.com/library/ms379563(vs.80).aspx)), registrarlo con il database utilizzando il [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/library/ms189524.aspx) comando o dalla gestione Studio e aggiungere la stored procedure o un oggetto funzione definita dall'utente in modo analogo. Fortunatamente, le versioni di sistemi Professional e Team di Visual Studio includono un tipo di progetto di SQL Server che consente di automatizzare le attività. In questa esercitazione verrà descritto utilizzando il tipo di progetto di SQL Server per creare una stored procedure gestita e funzioni definite dall'utente.
 
 > [!NOTE]
 > Se si utilizza l'edizione Standard di Visual Studio o di Visual Web Developer, sarà necessario utilizzare invece l'approccio manuale. Passaggio 13 vengono fornite istruzioni dettagliate per l'esecuzione di questi passaggi manualmente. Consiglia di leggere i passaggi da 2 a 12 prima di leggere passaggio 13, poiché tali passaggi includono importanti istruzioni di configurazione di SQL Server che devono essere applicate indipendentemente dalla versione di Visual Studio in uso.
@@ -156,7 +156,7 @@ Il codice seguente crea un `SqlCommand` oggetto e imposta il relativo `CommandTe
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample3.cs)]
 
-Tutti gli oggetti di database gestiti hanno accesso a un [ `SqlContext` oggetto](https://msdn.microsoft.com/en-us/library/ms131108.aspx) che rappresenta il contesto del chiamante. Il `SqlContext` fornisce l'accesso a un [ `SqlPipe` oggetto](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.aspx) tramite il relativo [ `Pipe` proprietà](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Questo `SqlPipe` oggetto viene utilizzato per condurre informazioni tra il database di SQL Server e l'applicazione chiamante. Come suggerisce il nome, il [ `ExecuteAndSend` metodo](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) esegue una passata di `SqlCommand` oggetto e invia i risultati nuovamente all'applicazione client.
+Tutti gli oggetti di database gestiti hanno accesso a un [ `SqlContext` oggetto](https://msdn.microsoft.com/library/ms131108.aspx) che rappresenta il contesto del chiamante. Il `SqlContext` fornisce l'accesso a un [ `SqlPipe` oggetto](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) tramite il relativo [ `Pipe` proprietà](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Questo `SqlPipe` oggetto viene utilizzato per condurre informazioni tra il database di SQL Server e l'applicazione chiamante. Come suggerisce il nome, il [ `ExecuteAndSend` metodo](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) esegue una passata di `SqlCommand` oggetto e invia i risultati nuovamente all'applicazione client.
 
 > [!NOTE]
 > Oggetti di database gestiti sono più adatti per la stored procedure e funzioni definite dall'utente che usano la logica procedurale anziché logica basata su set. Logica procedurale prevede l'utilizzo di set di dati in base a una riga per riga o l'utilizzo di dati scalare. Il `GetDiscontinuedProducts` metodo appena creato, tuttavia, non prevede alcuna logica procedura. Pertanto, sarebbe idealmente essere implementato come una T-stored procedure SQL. Viene implementato come una stored procedure gestita per illustrare i passaggi necessari per la creazione e distribuzione gestita stored procedure.
@@ -214,7 +214,7 @@ Si noti che ogni impostazione di configurazione nella figura 12 ha quattro valor
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample5.sql)]
 
-Se si esegue nuovamente la `exec sp_configure` si noterà che l'istruzione precedente aggiornato il valore di configurazione clr abilitato impostazione s su 1, ma che il valore di esecuzione è ancora impostato su 0. Per la modifica della configurazione abbiano effetto è necessario eseguire il [ `RECONFIGURE` comando](https://msdn.microsoft.com/en-us/library/ms176069.aspx), che imposterà il valore di esecuzione per il valore di configurazione corrente. È sufficiente immettere `RECONFIGURE` nella finestra query e fare clic sull'icona Esegui sulla barra degli strumenti. Se si esegue `exec sp_configure` ora è consigliabile vedere il valore 1 per la configurazione dell'impostazione di clr abilitato s ed eseguire i valori.
+Se si esegue nuovamente la `exec sp_configure` si noterà che l'istruzione precedente aggiornato il valore di configurazione clr abilitato impostazione s su 1, ma che il valore di esecuzione è ancora impostato su 0. Per la modifica della configurazione abbiano effetto è necessario eseguire il [ `RECONFIGURE` comando](https://msdn.microsoft.com/library/ms176069.aspx), che imposterà il valore di esecuzione per il valore di configurazione corrente. È sufficiente immettere `RECONFIGURE` nella finestra query e fare clic sull'icona Esegui sulla barra degli strumenti. Se si esegue `exec sp_configure` ora è consigliabile vedere il valore 1 per la configurazione dell'impostazione di clr abilitato s ed eseguire i valori.
 
 Completato la configurazione di clr abilitato, si è pronti per l'esecuzione gestita `GetDiscontinuedProducts` stored procedure. Nella finestra query immettere ed eseguire il comando `exec` `GetDiscontinuedProducts`. Richiama la stored procedure fa sì che il codice gestito corrispondente nel `GetDiscontinuedProducts` metodo da eseguire. Questo codice genera un `SELECT` query per restituire tutti i prodotti che non sono più disponibili e restituisce i dati all'applicazione chiamante, ovvero SQL Server Management Studio in questa istanza. Management Studio riceve i risultati e li visualizza nella finestra dei risultati.
 
@@ -232,7 +232,7 @@ Per creare una stored procedure gestita che accetta parametri di input, è suffi
 
 Per aggiungere una nuova stored procedure per il progetto, fare clic su di `ManagedDatabaseConstructs` nome del progetto e scegliere di aggiungere una nuova stored procedure. Denominare il file `GetProductsWithPriceLessThan.cs`. Come illustrato nel passaggio 3, si creerà un nuovo file di classe c# con un metodo denominato `GetProductsWithPriceLessThan` inserito all'interno di `partial` classe `StoredProcedures`.
 
-Aggiornamento di `GetProductsWithPriceLessThan` la definizione di metodo s in modo che accetti un [ `SqlMoney` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.aspx) parametro di input denominato `price` e scrivere il codice per eseguire e restituire i risultati della query:
+Aggiornamento di `GetProductsWithPriceLessThan` la definizione di metodo s in modo che accetti un [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) parametro di input denominato `price` e scrivere il codice per eseguire e restituire i risultati della query:
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample6.cs)]
@@ -400,19 +400,19 @@ Per aggiungere una funzione definita dall'utente gestito per il `ManagedDatabase
 **Figura 25**: aggiungere un nuovo gestito funzione definita dall'utente per il `ManagedDatabaseConstructs` progetto ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
 
 
-Il modello di funzione definita dall'utente crea un `partial` classe denominata `UserDefinedFunctions` con un metodo il cui nome è lo stesso nome di file s della classe (`udf_ComputeInventoryValue_Managed`, in questa istanza). Questo metodo è decorato con il [ `SqlFunction` attributo](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), che contrassegna il metodo come una funzione definita dall'utente gestito.
+Il modello di funzione definita dall'utente crea un `partial` classe denominata `UserDefinedFunctions` con un metodo il cui nome è lo stesso nome di file s della classe (`udf_ComputeInventoryValue_Managed`, in questa istanza). Questo metodo è decorato con il [ `SqlFunction` attributo](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), che contrassegna il metodo come una funzione definita dall'utente gestito.
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample13.cs)]
 
-Il `udf_ComputeInventoryValue` attualmente restituisce un [ `SqlString` oggetto](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlstring.aspx) e non accetta i parametri di input. È necessario aggiornare la definizione del metodo in modo che accetti tre - parametri di input `UnitPrice`, `UnitsInStock`, e `Discontinued` - e restituisce un `SqlMoney` oggetto. La logica per il calcolo del valore di magazzino è identica a quello in T-SQL `udf_ComputeInventoryValue` funzione definita dall'utente.
+Il `udf_ComputeInventoryValue` attualmente restituisce un [ `SqlString` oggetto](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) e non accetta i parametri di input. È necessario aggiornare la definizione del metodo in modo che accetti tre - parametri di input `UnitPrice`, `UnitsInStock`, e `Discontinued` - e restituisce un `SqlMoney` oggetto. La logica per il calcolo del valore di magazzino è identica a quello in T-SQL `udf_ComputeInventoryValue` funzione definita dall'utente.
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample14.cs)]
 
-Si noti che i parametri di input del metodo s funzione definita dall'utente sono dei tipi SQL corrispondenti: `SqlMoney` per il `UnitPrice` campo [ `SqlInt16` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlint16.aspx) per `UnitsInStock`, e [ `SqlBoolean` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlboolean.aspx) per `Discontinued`. Questi tipi di dati riflettono i tipi definiti nel `Products` tabella: la `UnitPrice` colonna è di tipo `money`, `UnitsInStock` colonna di tipo `smallint`e `Discontinued` colonna di tipo `bit`.
+Si noti che i parametri di input del metodo s funzione definita dall'utente sono dei tipi SQL corrispondenti: `SqlMoney` per il `UnitPrice` campo [ `SqlInt16` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx) per `UnitsInStock`, e [ `SqlBoolean` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx) per `Discontinued`. Questi tipi di dati riflettono i tipi definiti nel `Products` tabella: la `UnitPrice` colonna è di tipo `money`, `UnitsInStock` colonna di tipo `smallint`e `Discontinued` colonna di tipo `bit`.
 
-Il codice inizia creando un `SqlMoney` istanza denominata `inventoryValue` che viene assegnato un valore pari a 0. Il `Products` consente di tabella per il database `NULL` i valori di `UnitsInPrice` e `UnitsInStock` colonne. Pertanto, è necessario verificare innanzitutto per vedere se tali valori contengono `NULL` s, come in questo caso tramite il `SqlMoney` oggetto s [ `IsNull` proprietà](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.isnull.aspx). Se entrambi `UnitPrice` e `UnitsInStock` contengono non`NULL` valori, quindi verrà eseguito il calcolo di `inventoryValue` per il prodotto dei due. Quindi, se `Discontinued` è true, è dimezzare il valore.
+Il codice inizia creando un `SqlMoney` istanza denominata `inventoryValue` che viene assegnato un valore pari a 0. Il `Products` consente di tabella per il database `NULL` i valori di `UnitsInPrice` e `UnitsInStock` colonne. Pertanto, è necessario verificare innanzitutto per vedere se tali valori contengono `NULL` s, come in questo caso tramite il `SqlMoney` oggetto s [ `IsNull` proprietà](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx). Se entrambi `UnitPrice` e `UnitsInStock` contengono non`NULL` valori, quindi verrà eseguito il calcolo di `inventoryValue` per il prodotto dei due. Quindi, se `Discontinued` è true, è dimezzare il valore.
 
 > [!NOTE]
 > Il `SqlMoney` oggetto consente solo di due `SqlMoney` istanze di essere moltiplicati insieme. Non consente un `SqlMoney` istanza venga moltiplicato per un numero a virgola mobile del valore letterale. Pertanto, a dimezzare `inventoryValue` è moltiplicarlo per un nuovo `SqlMoney` istanza con il valore 0,5.
@@ -559,13 +559,13 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Vantaggi e svantaggi delle funzioni definite dall'utente](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
 - [Creazione di oggetti di SQL Server 2005 nel codice gestito](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [Creazione di trigger, utilizzare il codice gestito in SQL Server 2005](http://www.15seconds.com/issue/041006.htm)
-- [Procedura: Creare ed eseguire un CLR di SQL Server Stored Procedure](https://msdn.microsoft.com/en-us/library/5czye81z(VS.80).aspx)
-- [Procedura: Creare ed eseguire una funzione definita dall'utente di CLR di SQL Server](https://msdn.microsoft.com/en-us/library/w2kae45k(VS.80).aspx)
-- [Procedura: Modificare il `Test.sql` Script per eseguire oggetti SQL](https://msdn.microsoft.com/en-us/library/ms233682(VS.80).aspx)
+- [Procedura: Creare ed eseguire un CLR di SQL Server Stored Procedure](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
+- [Procedura: Creare ed eseguire una funzione definita dall'utente di CLR di SQL Server](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
+- [Procedura: Modificare il `Test.sql` Script per eseguire oggetti SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [Funzioni definite dall'introduzione all'utente](http://www.sqlteam.com/item.asp?ItemID=1955)
 - [Il codice gestito e SQL Server 2005 (Video)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Riferimento a Transact-SQL](https://msdn.microsoft.com/en-us/library/aa299742(SQL.80).aspx)
-- [Procedura dettagliata: Creazione di una Stored Procedure nel codice gestito](https://msdn.microsoft.com/en-us/library/zxsa8hkf(VS.80).aspx)
+- [Riferimento a Transact-SQL](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
+- [Procedura dettagliata: Creazione di una Stored Procedure nel codice gestito](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 

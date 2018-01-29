@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6561fec9ccffbc421dd6a542dcd421acd0af6052
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0339578291c536a474f1c7314b28668a6519c8c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Creazione di un'interfaccia per selezionare un Account utente da molti (Visual Basic)
 ====================
@@ -134,13 +134,13 @@ La figura 5 mostra il `ManageUsers.aspx` pagina quando viene visualizzato tramit
 > I nomi utente possono iniziare con qualsiasi carattere, inclusi i numeri e segni di punteggiatura. Per visualizzare questi account, l'amministratore dovrà utilizzare l'opzione tutti LinkButton. In alternativa, è possibile aggiungere un controllo LinkButton per restituire tutti gli account utente che iniziano con un numero. Lasciare questo campo come esercizio per il lettore.
 
 
-Fare clic su qualsiasi LinkButton il filtro provoca un postback e genera il Ripetitore `ItemCommand` evento, ma non è stata modificata nella griglia perché è stata ancora per scrivere codice per filtrare i risultati. Il `Membership` classe include un [ `FindUsersByName` metodo](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx) che restituisce gli account utente il cui nome utente corrisponde a un criterio di ricerca specificati. È possibile utilizzare questo metodo per recuperare solo gli account utente i cui nomi utente iniziano con la lettera specificata dal `CommandName` del controllo LinkButton filtrati che è stato fatto clic.
+Fare clic su qualsiasi LinkButton il filtro provoca un postback e genera il Ripetitore `ItemCommand` evento, ma non è stata modificata nella griglia perché è stata ancora per scrivere codice per filtrare i risultati. Il `Membership` classe include un [ `FindUsersByName` metodo](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) che restituisce gli account utente il cui nome utente corrisponde a un criterio di ricerca specificati. È possibile utilizzare questo metodo per recuperare solo gli account utente i cui nomi utente iniziano con la lettera specificata dal `CommandName` del controllo LinkButton filtrati che è stato fatto clic.
 
 Avviare aggiornando il `ManageUser.aspx` codice della pagina classe in modo che includa una proprietà denominata `UsernameToMatch` questa proprietà viene mantenuta la stringa di filtro di nome utente durante i postback:
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample8.vb)]
 
-Il `UsernameToMatch` proprietà archivia il valore viene assegnato nel `ViewState` raccolta utilizzando la chiave UsernameToMatch. Quando viene letto il valore di questa proprietà, viene verificato se esiste un valore nel `ViewState` raccolta; in caso contrario, viene restituito il valore predefinito, una stringa vuota. Il `UsernameToMatch` proprietà presenta un modello comune, vale a dire il mantenimento di un valore per lo stato di visualizzazione in modo che tutte le modifiche alla proprietà vengono rese persistenti tra i postback. Per altre informazioni su questo modello, vedere [informazioni sullo stato di visualizzazione ASP.NET](https://msdn.microsoft.com/en-us/library/ms972976.aspx).
+Il `UsernameToMatch` proprietà archivia il valore viene assegnato nel `ViewState` raccolta utilizzando la chiave UsernameToMatch. Quando viene letto il valore di questa proprietà, viene verificato se esiste un valore nel `ViewState` raccolta; in caso contrario, viene restituito il valore predefinito, una stringa vuota. Il `UsernameToMatch` proprietà presenta un modello comune, vale a dire il mantenimento di un valore per lo stato di visualizzazione in modo che tutte le modifiche alla proprietà vengono rese persistenti tra i postback. Per altre informazioni su questo modello, vedere [informazioni sullo stato di visualizzazione ASP.NET](https://msdn.microsoftn-us/library/ms972976.aspx).
 
 Aggiornare quindi il `BindUserAccounts` metodo in modo che anziché chiamare `Membership.GetAllUsers`, chiama `Membership.FindUsersByName`, passando il valore della `UsernameToMatch` proprietà aggiunta con il carattere jolly SQL, %.
 
@@ -177,7 +177,7 @@ La differenza nelle prestazioni tra l'impostazione predefinita e il paging perso
 
 Per implementare il paging personalizzato è necessario innanzitutto un meccanismo dal quale recuperare il subset di record visualizzato dal controllo GridView preciso. Buone notizie consiste nel fatto che il `Membership` della classe `FindUsersByName` metodo presenta un overload che consente di specificare l'indice della pagina e le dimensioni di pagina e restituisce solo gli account utente che si trovano all'interno dell'intervallo di record.
 
-In particolare, questo overload ha la firma seguente: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx).
+In particolare, questo overload ha la firma seguente: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
 Il *pageIndex* parametro specifica la pagina dell'account utente da restituire. *pageSize* indica il numero di record da visualizzare per pagina. Il *totalRecords* parametro è un `ByRef` parametro che restituisce il numero di account utente totale nell'archivio dell'utente.
 

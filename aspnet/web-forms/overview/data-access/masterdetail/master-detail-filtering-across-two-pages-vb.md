@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c34476f89677fb51abc17bd64602c41dfea8f9c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8d43475ae2f05d83d51c53d76de4f07db70ca7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Master-Details filtri tra due pagine (VB)
 ====================
@@ -71,7 +71,7 @@ Con il `SupplierListMaster.aspx` e `ProductsForSupplierDetails.aspx` pagine crea
 
 È necessario includere un collegamento denominato Visualizza i prodotti in ogni riga GridView che, quando si fa clic, richiede all'utente di `ProductsForSupplierDetails.aspx` passando la riga selezionata `SupplierID` valore tramite la stringa di query. Ad esempio, se l'utente fa clic sul collegamento Visualizza i prodotti per il fornitore Tokyo Traders (che presenta un `SupplierID` valore pari a 4), devono essere inviati a `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
-A tale scopo, aggiungere un [HyperLinkField](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx) a GridView, che aggiunge un collegamento ipertestuale per ogni riga GridView. Avviare facendo clic sul collegamento Modifica colonne smart tag del controllo GridView. Successivamente, selezionare il HyperLinkField dall'elenco in alto a sinistra e fare clic su Aggiungi per includere il HyperLinkField nell'elenco di campi del controllo GridView.
+A tale scopo, aggiungere un [HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) a GridView, che aggiunge un collegamento ipertestuale per ogni riga GridView. Avviare facendo clic sul collegamento Modifica colonne smart tag del controllo GridView. Successivamente, selezionare il HyperLinkField dall'elenco in alto a sinistra e fare clic su Aggiungi per includere il HyperLinkField nell'elenco di campi del controllo GridView.
 
 
 [![Aggiungere un HyperLinkField al controllo GridView.](master-detail-filtering-across-two-pages-vb/_static/image9.png)](master-detail-filtering-across-two-pages-vb/_static/image8.png)
