@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: f40189796d3e25e9c337768cf04fdbfa293cdc2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1ac7fb62767d61c97fe00338bc0f5087f4863b5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="data-source-controls"></a>Controlli origine dati
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Il controllo DataGrid in ASP.NET 1. x contrassegnato un notevole miglioramento di accesso ai dati nelle applicazioni Web. Tuttavia, non è stato semplice da utilizzare come potrebbe. È necessario comunque una notevole quantità di codice per ottenere funzionalità più utili da esso. Ad esempio è il modello in tutti i dati l'accesso a tal fine in 1. x.
 
@@ -179,7 +179,7 @@ Si noti che l'oggetto XmlDataSource utilizza una proprietà XPath di *persone/pe
 
 Mentre il controllo XmlDataSource viene utilizzato principalmente per associare dati ai dati XML di sola lettura, è possibile modificare il file di dati XML. Si noti che in questi casi, dall'inserimento automatico, aggiornamento ed eliminazione delle informazioni nel file XML non viene eseguita automaticamente a quanto accade con altri controlli origine dati. In alternativa, è necessario scrivere codice per modificare manualmente i dati del controllo XmlDataSource nei modi seguenti.
 
-### <a name="getxmldocument"></a>Metodi GetXmlDocument
+### <a name="getxmldocument"></a>GetXmlDocument
 
 Recupera un oggetto XmlDocument contenente il codice XML recuperato dal controllo XmlDataSource.
 

@@ -2,22 +2,25 @@
 title: La memorizzazione nella cache di risposta in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come utilizzare la memorizzazione nella cache per i requisiti di larghezza di banda inferiore di risposta e migliorare le prestazioni delle applicazioni ASP.NET Core.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
 Da [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), e [Luke Latham](https://github.com/guardrex)
 
+> [!NOTE]
+> La memorizzazione nella cache di risposta [non è supportata nelle pagine Razor con ASP.NET 2.0 Core](https://github.com/aspnet/Mvc/issues/6437). Questa funzionalità sarà supportata nella [versione 2.1 di ASP.NET Core](https://github.com/aspnet/Home/wiki/Roadmap).
+  
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 Risposta di memorizzazione nella cache riduce il numero di richieste di che un client o proxy consente a un server web. La memorizzazione nella cache di risposta consente inoltre di ridurre la quantità di lavoro del server web esegue per generare una risposta. La memorizzazione nella cache di risposta è controllata dalle intestazioni che specificano la modalità client, proxy e middleware per memorizzare risposte.

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="bundling-and-minification"></a>Come aggregare e riduzione
 
@@ -27,7 +27,7 @@ Questo articolo illustra i vantaggi dell'applicazione come aggregare e minimizza
 
 Creazione di bundle e minimizzazione sono due le ottimizzazioni delle prestazioni di distinct che è possibile applicare in un'app web. Utilizzati insieme, aggregazione e minimizzazione migliorare le prestazioni riducendo il numero di richieste di server e ridurre le dimensioni delle risorse statiche richieste.
 
-Come aggregare e minimizzazione principalmente migliorare il tempo di caricamento di prima pagina richiesta. Una volta che una pagina web è stato richiesto, il browser memorizza nella cache le risorse statiche (JavaScript, CSS e immagini). Di conseguenza, aggregazione e riduzione non migliorare le prestazioni quando si richiede la stessa pagina, o le pagine, nello stesso sito richiede le stesse risorse. Se non si imposta la scadenza testata correttamente le risorse, e se non si utilizza come aggregare e riduzione, euristica di aggiornamento del browser contrassegna le risorse non aggiornati dopo alcuni giorni. Inoltre, il browser richiede una richiesta di convalida per ogni asset. In questo caso, aggregazione e minimizzazione forniscono un miglioramento delle prestazioni anche dopo la prima richiesta di pagina.
+Come aggregare e minimizzazione principalmente migliorare il tempo di caricamento di prima pagina richiesta. Una volta che una pagina web è stato richiesto, il browser memorizza nella cache le risorse statiche (JavaScript, CSS e immagini). Di conseguenza, aggregazione e riduzione non migliorare le prestazioni quando si richiede la stessa pagina, o le pagine, nello stesso sito richiede le stesse risorse. Se la scadenza di intestazione non è impostata correttamente le risorse in e se non viene usata l'aggregazione e riduzione, approccio euristico di aggiornamento del browser contrassegna le risorse non aggiornati dopo alcuni giorni. Inoltre, il browser richiede una richiesta di convalida per ogni asset. In questo caso, aggregazione e minimizzazione forniscono un miglioramento delle prestazioni anche dopo la prima richiesta di pagina.
 
 ### <a name="bundling"></a>Creazione di bundle
 
@@ -77,7 +77,7 @@ I modelli di progetto MVC e pagine Razor forniscono un *bundleconfig.json* file 
 
 Opzioni di configurazione includono:
 
-* `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **Obbligatorio**
+* `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **required**
 * `inputFiles`: Una matrice di file da raggruppare. Questi sono i percorsi relativi al file di configurazione. **parametro facoltativo**, * comporta un valore vuoto in un file di output vuoto. [il glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
 * `minify`: Le opzioni di riduzione per il tipo di output. **parametro facoltativo**, *impostazione predefinita:`minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.

@@ -2,19 +2,19 @@
 title: "Unità di pagine Razor e integrazione test in ASP.NET Core"
 author: guardrex
 description: Informazioni su come creare unit test e integrazione test per App pagine Razor.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unità di pagine Razor e integrazione test in ASP.NET Core
 
@@ -172,7 +172,7 @@ Il `OnGetAsync_PopulatesThePageModel_WithAListOfMessages` test Mostra come `GetM
 
 Quando il `OnGetAsync` metodo viene eseguito nel passaggio Act, chiama il modello di pagina `GetMessagesAsync` metodo.
 
-Passaggio di Act di unit test (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs*):
+Unit test Act step (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 

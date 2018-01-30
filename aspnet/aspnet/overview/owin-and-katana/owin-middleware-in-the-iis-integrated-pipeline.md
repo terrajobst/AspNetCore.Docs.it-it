@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware OWIN della pipeline integrata di IIS
 ====================
@@ -78,7 +78,7 @@ Componenti di middleware Owin (OMC) possono essere configurati per eseguire gli 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
 1. Per impostazione predefinita, OMCs eseguite in corrispondenza dell'ultimo evento (`PreHandlerExecute`). Ecco perché il primo codice di esempio visualizzato "PreExecuteRequestHandler".
-2. È possibile utilizzare l'un `pp.UseStageMarker` metodo per registrare un OMC eseguire versioni precedenti, in qualsiasi fase della pipeline OWIN elencati nel `PipelineStage` enum.
+2. È possibile utilizzare l'un `app.UseStageMarker` metodo per registrare un OMC eseguire versioni precedenti, in qualsiasi fase della pipeline OWIN elencati nel `PipelineStage` enum.
 3. La pipeline OWIN e la pipeline IIS è ordinato, pertanto le chiamate a `app.UseStageMarker` deve essere in ordine. Non è possibile impostare il gestore dell'evento a un evento che precede l'ultimo evento registrato con `app.UseStageMarker`. Ad esempio, *dopo* chiamata:
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]

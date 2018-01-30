@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eeb1210038f4982d80352322842733c0e96300a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 26d40d17447b3b03d17265f291b8ac246a449966
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>Dettagli di errore di registrazione con ELMAH (c#)
 ====================
@@ -29,7 +29,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Introduzione
 
-Il [esercitazione precedente](logging-error-details-with-asp-net-health-monitoring-cs.md) esaminate ASP. Monitoraggio del sistema, che offre un timeout della libreria di casella per la registrazione di un'ampia gamma di eventi Web dello stato della rete. Molti sviluppatori di utilizzano per accedere e posta elettronica i dettagli dell'eccezione non gestita di monitoraggio dello stato. Tuttavia, esistono alcuni punti deboli con questo sistema. Prima di tutto è la mancanza di qualsiasi tipo di interfaccia utente per visualizzare informazioni sugli eventi registrati. Se si desidera visualizzare un riepilogo degli ultimi 10 errori o visualizzare i dettagli di un errore che si è verificato l'ultima settimana, è necessario che entrambi poke tramite il database, analisi tramite posta elettronica o creare una pagina web che visualizza informazioni dal `aspnet_WebEvent_Events` tabella.
+Il [esercitazione precedente](logging-error-details-with-asp-net-health-monitoring-cs.md) esaminate ASP. Monitoraggio del sistema, che offre un timeout della libreria di casella per la registrazione di un'ampia gamma di eventi Web dello stato della rete. Molti sviluppatori di utilizzano per accedere e inviare tramite posta elettronica i dettagli dell'eccezione non gestita di monitoraggio dello stato. Tuttavia, esistono alcuni punti deboli con questo sistema. Prima di tutto è la mancanza di qualsiasi tipo di interfaccia utente per visualizzare informazioni sugli eventi registrati. Se si desidera visualizzare un riepilogo degli ultimi 10 errori o visualizzare i dettagli di un errore che si è verificato l'ultima settimana, è necessario che entrambi poke tramite il database, analizzare il messaggio di posta elettronica in arrivo o creare una pagina web che visualizza informazioni dal `aspnet_WebEvent_Events` tabella.
 
 Un altro punto debole coinvolge dalla complessità del monitoraggio dell'integrità. Poiché il monitoraggio dello stato può essere utilizzato per registrare eventi diversi numerosissime e perché esistono numerose opzioni per indicare come e quando vengono registrati gli eventi, la corretta configurazione di sistema di monitoraggio dello stato può essere un'attività onerosa. Infine, sono presenti problemi di compatibilità. Poiché il monitoraggio dello stato è stata prima aggiunta a .NET Framework versione 2.0, non è disponibile per le applicazioni web meno recenti create con la versione ASP.NET 1. x. Inoltre, il `SqlWebEventProvider` (classe), che è utilizzati nell'esercitazione precedente per i dettagli di errore registri per un database, funziona solo con i database di Microsoft SQL Server. È necessario creare una classe di provider di log personalizzato, è necessario registrare gli errori in un archivio di dati alternativi, ad esempio un file XML o di un database Oracle.
 
@@ -199,23 +199,23 @@ Il log degli errori nell'ambiente di produzione può ora essere visualizzato dag
 
 Del ELMAH `ErrorLogModule` modulo HTTP registra automaticamente le eccezioni non gestite per l'origine di log specificato. In alternativa, è possibile registrare un errore senza dover generare un'eccezione non gestita utilizzando il `ErrorSignal` classe e il relativo `Raise` metodo. Il `Raise` viene passato un `Exception` dell'oggetto e lo registra come se l'eccezione è stata generata e ha raggiunto il runtime di ASP.NET senza essere stato gestito. La differenza, tuttavia, è che la richiesta continua l'esecuzione in genere dopo la `Raise` metodo è stato chiamato, mentre viene generata un'eccezione non gestita interrompe l'esecuzione normale della richiesta, il runtime ASP.NET visualizzare l'applicazione configurata pagina di errore.
 
-La `ErrorSignal` classe è utile nelle situazioni in cui è presente un'azione che potrebbe non riuscire, ma il relativo tipo di errore non irreversibile per l'intera operazione viene eseguita. Ad esempio, un sito Web può contenere un form che accetta l'input dell'utente, viene memorizzato in un database e quindi Invia messaggio di posta elettronica informa l'utente che è state elaborate informazioni. L'azione da eseguire se le informazioni vengono salvate correttamente al database, ma si verifica un errore durante l'invio del messaggio di posta elettronica? Un'opzione, è possibile generare un'eccezione e invia l'utente alla pagina di errore. Tuttavia, ciò potrebbe confondere l'utente in modo che le informazioni che utente ha immesso non è state salvate. Un altro approccio sarebbe per registrare l'errore relativi alla posta elettronica, ma non modificare l'esperienza dell'utente in alcun modo. Questa opzione è quando la `ErrorSignal` classe è utile.
+La `ErrorSignal` classe è utile nelle situazioni in cui è presente un'azione che potrebbe non riuscire, ma il relativo tipo di errore non irreversibile per l'intera operazione viene eseguita. Ad esempio, un sito Web può contenere un form che accetta l'input dell'utente, viene memorizzato in un database e quindi invia un messaggio di posta elettronica informa l'utente che è state elaborate informazioni. L'azione da eseguire se le informazioni vengono salvate correttamente al database, ma si verifica un errore durante l'invio del messaggio di posta elettronica? Un'opzione, è possibile generare un'eccezione e invia l'utente alla pagina di errore. Tuttavia, ciò potrebbe confondere l'utente in modo che le informazioni che utente ha immesso non è state salvate. Un altro approccio sarebbe per registrare l'errore relativo alla posta elettronica, ma non modificare l'esperienza dell'utente in alcun modo. Questa opzione è quando la `ErrorSignal` classe è utile.
 
 [!code-csharp[Main](logging-error-details-with-elmah-cs/samples/sample6.cs)]
 
-## <a name="error-notification-via-e-mail"></a>Errore di notifica tramite posta elettronica
+## <a name="error-notification-via-email"></a>Errore di notifica tramite posta elettronica
 
-Insieme agli errori di registrazione a un database, ELMAH può anche essere configurato per i dettagli dell'errore a un destinatario specifico di posta elettronica. Questa funzionalità viene fornita per il `ErrorMailModule` modulo HTTP; pertanto, è necessario registrare il modulo HTTP in `Web.config` per inviare i dettagli dell'errore tramite posta elettronica.
+Insieme agli errori di registrazione a un database, ELMAH può essere configurato anche per i dettagli dell'errore di posta elettronica a un destinatario specificato. Questa funzionalità viene fornita per il `ErrorMailModule` modulo HTTP; pertanto, è necessario registrare il modulo HTTP in `Web.config` per inviare i dettagli dell'errore tramite posta elettronica.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample7.xml)]
 
-Successivamente, specificare informazioni di errore di posta elettronica nel `<elmah>` dell'elemento `<errorMail>` sezione, che indica della posta elettronica mittente e destinatario, oggetto, e se il messaggio di posta elettronica viene inviato in modo asincrono.
+Successivamente, specificare le informazioni sul messaggio di posta elettronica errore nel `<elmah>` dell'elemento `<errorMail>` sezione, che indica il messaggio di posta elettronica mittente e destinatario, oggetto, e se il messaggio di posta elettronica viene inviato in modo asincrono.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample8.xml)]
 
-Con le impostazioni sopra riportate sul posto, ogni volta che un errore di runtime si verifica ELMAH Invia messaggio di posta elettronica a support@example.com con i dettagli dell'errore. Posta elettronica di errori del ELMAH include le stesse informazioni mostrate in errore dettagli pagina web, vale a dire il messaggio di errore, la traccia dello stack e le variabili del server (fare riferimento al **4 cifre** e **5**). Il messaggio di errore include anche il contenuto di eccezione dettagli giallo schermata di morte come un allegato (`YSOD.html`).
+Con le impostazioni sopra riportate sul posto, ogni volta che un errore di runtime si verifica ELMAH invia un messaggio di posta support@example.com con i dettagli dell'errore. Messaggio di posta elettronica dell'ELMAH errore include le stesse informazioni mostrate in errore dettagli pagina web, vale a dire il messaggio di errore, la traccia dello stack e le variabili del server (fare riferimento al **4 cifre** e **5**). Il messaggio di errore include anche il contenuto di eccezione dettagli giallo schermata di morte come un allegato (`YSOD.html`).
 
-**Figura 8** Mostra errore messaggio di posta elettronica dell'ELMAH generato visitando `Genre.aspx?ID=foo`. Mentre **figura 8** Mostra solo l'errore messaggio e traccia dello stack, variabili server sono incluse ulteriormente verso il basso nel corpo del messaggio e-mail.
+**Figura 8** Mostra errore messaggio di posta elettronica dell'ELMAH generato visitando `Genre.aspx?ID=foo`. Mentre **figura 8** Mostra solo l'errore messaggio e traccia dello stack, variabili server sono incluse ulteriormente verso il basso nel corpo del messaggio di posta elettronica.
 
 [![](logging-error-details-with-elmah-cs/_static/image21.png)](logging-error-details-with-elmah-cs/_static/image20.png)
 

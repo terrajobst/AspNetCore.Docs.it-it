@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5bbba0e4e8660dbc60b9f9ad220c923274144b89
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>I dettagli dell'errore di registrazione con ASP.NET di monitoraggio (c#)
 ====================
@@ -104,7 +104,7 @@ Se si crea una pagina, accertarsi di eseguire i passaggi per consentire solo agl
 > L'esercitazione successiva viene illustrato un sistema di registrazione e la notifica di errore alternativo denominato ELMAH. ELMAH include un meccanismo predefinito per visualizzare il log degli errori da entrambi una pagina web e come un feed RSS.
 
 
-## <a name="logging-events-to-e-mail"></a>Registrazione di eventi di posta elettronica
+## <a name="logging-events-to-email"></a>Registrazione di eventi di posta elettronica
 
 L'integrità di sistema di monitoraggio include un provider di origine di log che "Registra" un evento di un messaggio di posta elettronica. L'origine di log include le stesse informazioni che sono connesso al database nel corpo del messaggio di posta elettronica. È possibile utilizzare questa origine di log per segnalare un sviluppatore quando si verifica un determinato evento di monitoraggio di integrità.
 
@@ -114,7 +114,7 @@ Consente di aggiornare le recensioni di configurazione del sito Web in modo che 
 2. Registrare il provider di origine di log di posta elettronica nel `<providers>` elemento, e
 3. Aggiungere una voce per il `<rules>` elemento che esegue il mapping al provider di origine di log aggiunto nel passaggio (2) l'evento di "Tutti gli errori".
 
-Il sistema di monitoraggio dello stato include due classi di provider dell'origine di log tramite posta elettronica: `SimpleMailWebEventProvider` e `TemplatedMailWebEventProvider`. Il [ `SimpleMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) invia un messaggio di posta elettronica con testo normale che l'evento include i dettagli e fornisce poche operazioni di personalizzazione del corpo del messaggio di posta elettronica. Con il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) è specificare una pagina ASP.NET con markup sottoposto a rendering viene utilizzato come corpo del messaggio di posta elettronica. Il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) offre maggiore controllo sul contenuto e formato del messaggio di posta elettronica, ma richiede un po' più lavoro iniziale, è necessario creare la pagina ASP.NET che genera il corpo del messaggio di posta elettronica. In questa esercitazione viene illustrato l'utilizzo di `SimpleMailWebEventProvider` classe.
+Il sistema di monitoraggio dello stato include due classi di provider dell'origine di log posta elettronica: `SimpleMailWebEventProvider` e `TemplatedMailWebEventProvider`. Il [ `SimpleMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) invia un messaggio di posta elettronica di testo che include l'evento dettagli e fornisce poche operazioni di personalizzazione del corpo del messaggio di posta elettronica. Con il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) è specificare una pagina ASP.NET con markup sottoposto a rendering viene utilizzato come corpo del messaggio di posta elettronica. Il [ `TemplatedMailWebEventProvider` classe](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) offre maggiore controllo sul contenuto e formato del messaggio di posta elettronica, ma richiede un po' più lavoro iniziale, è necessario creare la pagina ASP.NET che genera il corpo del messaggio di posta elettronica. In questa esercitazione viene illustrato l'utilizzo di `SimpleMailWebEventProvider` classe.
 
 Aggiornare lo stato sistema di monitoraggio `<providers>` elemento il `Web.config` file da includere un'origine di log per il `SimpleMailWebEventProvider` classe:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f2c7b1324e75584a80530620eea94d4ecd7a7044
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5a4d2e3468c9b7db5d3acf9f59fc13a6b791497
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>L'elaborazione delle eccezioni non gestite (VB)
 ====================
@@ -96,18 +96,18 @@ Le classi .NET Framework nel [ `System.Net.Mail` dello spazio dei nomi](https://
 > Il `<system.net>` elemento contiene le impostazioni del server SMTP utilizzate dalla `SmtpClient` classe quando si invia un messaggio di posta elettronica. Probabilmente società di hosting web dispone di un server SMTP che è possibile utilizzare per inviare posta elettronica dall'applicazione. Per informazioni sulle impostazioni del server SMTP, che è consigliabile utilizzare nell'applicazione web, consultare la sezione di supporto dell'host web.
 
 
-Aggiungere il codice seguente per il `Application_Error` gestore dell'evento per inviare uno sviluppatore di messaggio di posta elettronica quando si verifica un errore:
+Aggiungere il codice seguente per il `Application_Error` gestore eventi per l'invio di uno sviluppatore di un messaggio di posta elettronica quando si verifica un errore:
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample4.vb)]
 
-Mentre il codice sopra riportato è piuttosto lungo, la maggior parte di esso crea il codice HTML visualizzato nel messaggio di posta elettronica inviato allo sviluppatore. Il codice di avvio facendo riferimento al `HttpException` restituito dal `GetLastError` metodo (`lastErrorWrapper`). L'eccezione che è stato generato dalla richiesta è stato recuperato tramite `lastErrorWrapper.InnerException` e viene assegnato alla variabile `lastError`. Il tipo di un messaggio e stack di informazioni di traccia vengono recuperate dal `lastError` e archiviati in tre variabili stringa.
+Mentre il codice sopra riportato è piuttosto lungo, la maggior parte di esso crea il codice HTML visualizzato il messaggio di posta elettronica per gli sviluppatori. Il codice di avvio facendo riferimento al `HttpException` restituito dal `GetLastError` metodo (`lastErrorWrapper`). L'eccezione che è stato generato dalla richiesta è stato recuperato tramite `lastErrorWrapper.InnerException` e viene assegnato alla variabile `lastError`. Il tipo di un messaggio e stack di informazioni di traccia vengono recuperate dal `lastError` e archiviati in tre variabili stringa.
 
-Successivamente, un `MailMessage` oggetto denominato `mm` viene creato. Corpo del messaggio è in formato HTML e visualizza l'URL della pagina richiesta, il nome dell'utente attualmente connesso e informazioni sull'eccezione (il tipo di messaggio e traccia dello stack). Una delle caratteristiche più interessanti di `HttpException` classe è che è possibile generare il codice HTML utilizzato per creare l'eccezione dettagli giallo schermata di morte (YSOD) chiamando il [GetHtmlErrorMessage metodo](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx). Questo metodo è usato per recuperare il codice di eccezione dettagli YSOD e aggiungerlo al messaggio di posta elettronica come allegato. Attenzione: se l'eccezione che ha attivato il `Error` evento è verificata un'eccezione basata su HTTP (ad esempio una richiesta per una pagina inesistente) il `GetHtmlErrorMessage` metodo restituirà `null`.
+Successivamente, un `MailMessage` oggetto denominato `mm` viene creato. Il corpo del messaggio di posta elettronica è in formato HTML e visualizza l'URL della pagina richiesta, il nome dell'utente attualmente connesso e informazioni sull'eccezione (il tipo di messaggio e traccia dello stack). Una delle caratteristiche più interessanti di `HttpException` classe è che è possibile generare il codice HTML utilizzato per creare l'eccezione dettagli giallo schermata di morte (YSOD) chiamando il [GetHtmlErrorMessage metodo](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx). Questo metodo è usato per recuperare il codice di eccezione dettagli YSOD e aggiungerlo al messaggio di posta elettronica come allegato. Attenzione: se l'eccezione che ha attivato il `Error` evento è verificata un'eccezione basata su HTTP (ad esempio una richiesta per una pagina inesistente) il `GetHtmlErrorMessage` metodo restituirà `null`.
 
 Il passaggio finale consiste nella trasmissione di `MailMessage`. Questa operazione viene eseguita creando un nuovo `SmtpClient` metodo e chiamando il relativo `Send` metodo.
 
 > [!NOTE]
-> Prima di utilizzare questo codice nell'applicazione web è opportuno modificare i valori di `ToAddress` e `FromAddress` costanti support@example.com a qualsiasi indirizzo di posta elettronica deve essere inviato il messaggio di notifica di errore e provengono da. È inoltre necessario specificare le impostazioni del server SMTP nel `<system.net>` sezione `Web.config`. Consultare il provider di hosting web per determinare le impostazioni del server SMTP da utilizzare.
+> Prima di utilizzare questo codice nell'applicazione web è opportuno modificare i valori di `ToAddress` e `FromAddress` costanti support@example.com per posta elettronica indirizzo di posta elettronica di notifica di errore devono essere inviati a e provengono da. È inoltre necessario specificare le impostazioni del server SMTP nel `<system.net>` sezione `Web.config`. Consultare il provider di hosting web per determinare le impostazioni del server SMTP da utilizzare.
 
 
 Con questo codice nella posizione ogni volta che si verifica un errore lo sviluppatore viene inviato un messaggio di posta elettronica che riepiloga l'errore e include il YSOD. Nell'esercitazione precedente è illustrato un errore di runtime visita Genre.aspx e passando un oggetto non valido `ID` valore tramite la stringa di query, ad esempio `Genre.aspx?ID=foo`. Visitare la pagina con il `Global.asax` file sul posto genera la stessa esperienza utente, come nell'esercitazione precedente - nell'ambiente di sviluppo si procederà vedere l'eccezione dettagli giallo schermata di morte, mentre nell'ambiente di produzione, sarà necessario vedere la pagina di errore personalizzato. Oltre a questo comportamento esistente, lo sviluppatore viene inviato un messaggio di posta elettronica.
@@ -121,7 +121,7 @@ Con questo codice nella posizione ogni volta che si verifica un errore lo svilup
 
 [![](processing-unhandled-exceptions-vb/_static/image8.png)](processing-unhandled-exceptions-vb/_static/image7.png)
 
-**Figura 3**: notifica di posta elettronica include i dettagli dell'eccezione YSOD come allegato  
+**Figura 3**: la notifica di posta elettronica include i dettagli dell'eccezione YSOD come allegato  
  ([Fare clic per visualizzare l'immagine ingrandita](processing-unhandled-exceptions-vb/_static/image9.png))
 
 ## <a name="what-about-using-the-custom-error-page"></a>Cosa succede utilizzando la pagina di errore personalizzati?
@@ -147,7 +147,7 @@ A questo punto quando si verifica un'eccezione non gestita di `Application_Error
 
 ## <a name="summary"></a>Riepilogo
 
-Quando si verifica un'eccezione non gestita in un'applicazione web ASP.NET il runtime ASP.NET genera il `Error` evento e viene visualizzata la pagina di errore configurate. È possibile ricevere lo sviluppatore dell'errore, effettuare i dettagli o elaborarlo in qualche modo, tramite la creazione di un gestore eventi per l'evento di errore. Esistono due modi per creare un gestore eventi per `HttpApplication` eventi come `Error`: nel `Global.asax` file o da un modulo HTTP. In questa esercitazione viene illustrato come creare un `Error` nel gestore dell'evento di `Global.asax` file che gli sviluppatori di un errore di notifica tramite messaggio di posta elettronica.
+Quando si verifica un'eccezione non gestita in un'applicazione web ASP.NET il runtime ASP.NET genera il `Error` evento e viene visualizzata la pagina di errore configurate. È possibile ricevere lo sviluppatore dell'errore, effettuare i dettagli o elaborarlo in qualche modo, tramite la creazione di un gestore eventi per l'evento di errore. Esistono due modi per creare un gestore eventi per `HttpApplication` eventi come `Error`: nel `Global.asax` file o da un modulo HTTP. In questa esercitazione viene illustrato come creare un `Error` nel gestore dell'evento di `Global.asax` file che gli sviluppatori di un errore di notifica tramite un messaggio di posta elettronica.
 
 Creazione di un `Error` gestore eventi è utile se è necessario elaborare le eccezioni non gestite in modo esclusivo o personalizzato. Tuttavia, la creazione di propri `Error` gestore eventi per registrare l'eccezione o per notificare a uno sviluppatore non è l'utilizzo più efficiente del tempo perché esistono già le librerie di registrazione errore gratuito e facile da utilizzare che sono possibile configurare in pochi minuti. Le due esercitazioni esaminare due tali librerie.
 

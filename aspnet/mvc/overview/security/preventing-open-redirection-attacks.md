@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 97e0aacbf21914bf95f01019cf4dcc9e7ca1c4be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Prevenzione degli attacchi di reindirizzamento aprire (c#)
 ====================
@@ -43,11 +43,11 @@ Poiché il parametro querystring ReturnUrl non viene convalidato, un utente mali
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Un attacco di reindirizzamento aprire più complessi
 
-Gli attacchi di reindirizzamento aprire sono particolarmente pericolosi poiché un utente malintenzionato a conoscenza che si sta tentando di accedere a un sito Web specifico, rendendo ci vulnerabile a un [attacco di phishing](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Ad esempio, un utente malintenzionato potrebbe inviare messaggi di posta elettronica dannoso agli utenti del sito Web nel tentativo di acquisire le password. Si esaminerà questo funzionamento nel sito NerdDinner. Si noti che il sito NerdDinner in tempo reale è stato aggiornato per proteggersi da attacchi di reindirizzamento aperto.
+Gli attacchi di reindirizzamento aprire sono particolarmente pericolosi poiché un utente malintenzionato a conoscenza che si sta tentando di accedere a un sito Web specifico, rendendo ci vulnerabile a un [attacco di phishing](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Ad esempio, un utente malintenzionato potrebbe inviare messaggi di posta elettronica agli utenti del sito Web nel tentativo di acquisire le proprie password. Si esaminerà questo funzionamento nel sito NerdDinner. Si noti che il sito NerdDinner in tempo reale è stato aggiornato per proteggersi da attacchi di reindirizzamento aperto.
 
 Prima di tutto, un utente malintenzionato invia a un collegamento alla pagina di accesso su NerdDinner che include un reindirizzamento alla pagina contraffatta:
 
-[http://nerddinner.com/account/Logon?returnUrl=http://nerddiner.com/account/Logon](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
+[http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
 
 Si noti che l'URL restituito punta a nerddiner.com, che non contiene una "n" da dinner di word. In questo esempio, si tratta di un dominio che controlla l'autore dell'attacco. Quando si accede al collegamento riportato sopra, si verrà visualizzate la pagina di account di accesso NerdDinner.com legittima.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7792891aed6f0c5e952018dacb36a1d267cb6ae0
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>La distribuzione del sito utilizzando un Client FTP (VB)
 ====================
@@ -48,7 +48,7 @@ Tenere presente che sono disponibili due versioni dell'applicazione web recensio
 
 Avviare il progetto BookReviewsWAP passando al `BookReviewsWAP` cartella e fare doppio clic su di `BookReviewsWAP.sln` file. Prima di distribuire il progetto è importante compilare in modo da garantire che tutte le modifiche al codice sorgente sono inclusi nell'assembly compilato. Per compilare il progetto dal menu di compilazione e scegliere l'opzione del menu Compila BookReviewsWAP. Il codice sorgente nel progetto verrà compilato in un unico assembly `BookReviewsWAP.dll`, che viene inserito nella `Bin` cartella.
 
-Ci sono pronti per distribuire i file necessari. Avviare il client FTP e connettersi al server web del provider host web. (Quando effettua l'iscrizione con una società di hosting web verrà inviato un messaggio informazioni su come connettersi al server FTP, ciò include l'indirizzo del server FTP, nonché un nome utente e password).
+Ci sono pronti per distribuire i file necessari. Avviare il client FTP e connettersi al server web del provider host web. (Quando effettua l'iscrizione con una società di hosting web invierà posta elettronica le informazioni su come connettersi al server FTP, ciò include l'indirizzo del server FTP, nonché un nome utente e password).
 
 Copiare i file seguenti dal desktop alla cartella radice del sito Web del provider di hosting web. Quando si FTP nel server web in web ospita provider in genere che nella directory principale del sito Web. Tuttavia, alcuni provider host web dispone di una sottocartella denominata `www` o `wwwroot` che serve come la cartella radice per i file del sito. Infine, quando FTPing i file potrebbe essere necessario creare la struttura di cartelle corrispondenti nell'ambiente di produzione - il `Bin` cartella, il `Fiction` cartella, il `Images` cartella e così via.
 

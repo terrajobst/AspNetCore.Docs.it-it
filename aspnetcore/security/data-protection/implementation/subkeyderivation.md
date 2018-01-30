@@ -2,18 +2,18 @@
 title: Derivazione della sottochiave e la crittografia autenticata
 author: rick-anderson
 description: Questo documento illustra i dettagli di implementazione della protezione dei dati di ASP.NET Core sottochiave derivazione e autenticato di crittografia.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 7db0bb7cd641512e7e5850e1765ad5b3e54e3aca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4b905bbc7bb064b6ba1741557bd694c8c67ccfa8
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivazione della sottochiave e la crittografia autenticata
 

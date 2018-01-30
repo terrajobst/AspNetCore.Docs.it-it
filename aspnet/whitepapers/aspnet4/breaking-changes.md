@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>Modifiche di rilievo 4 ASP.NET
 ====================
@@ -501,7 +501,7 @@ Il rispetto di tutte le leggi applicabili in materia di copyright è a esclusivo
 
 Microsoft può essere titolare di brevetti, domande di brevetto, marchi, copyright o altri diritti di proprietà intellettuale relativi all'oggetto del presente documento. Salvo quanto espressamente previsto in un contratto scritto di licenza Microsoft, la consegna del presente documento non implica la concessione di alcuna licenza su tali brevetti, marchi, copyright o altra proprietà intellettuale.
 
-Se non specificato diversamente, ogni riferimento a società, organizzazioni, prodotti, nomi di domini, indirizzi di posta elettronica, logo, persone, luoghi ed eventi citati nel presente documento è puramente casuale e ha il solo scopo di illustrare l'uso del prodotto Microsoft.
+Se non diversamente specificato, la società, organizzazioni, prodotti, nomi di dominio, indirizzi di posta elettronica, logo, persone, luoghi ed eventi citati in questo documento sono fittizio e nessuna associazione società, organizzazione, prodotto, nome di dominio, posta elettronica indirizzo, logo, persona, luogo o evento è intenzionale o può essere presupposta.
 
 © 2010 Microsoft Corporation. Tutti i diritti sono riservati.
 

@@ -2,18 +2,18 @@
 title: Abilitare le richieste tra le origini (CORS)
 author: rick-anderson
 description: Questo documento introduce CORS come standard per consentire o rifiutare le richieste cross-origin in un'applicazione ASP.NET Core.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 05/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Abilitare le richieste tra le origini (CORS)
 
@@ -209,7 +209,7 @@ Ora la risposta HTTP includerà un'intestazione controllo-Consenti-le credenzial
 
 Se il browser invia le credenziali, ma la risposta non include un'intestazione controllo-Consenti-le credenziali di accesso valida, il browser non esporre la risposta all'applicazione e la richiesta AJAX non riesce.
 
-Prestare molta attenzione su come consentire tra le origini credenziali, in quanto significa che un sito Web in un altro dominio può inviare le credenziali dell'utente connesso all'applicazione per conto dell'utente, senza che l'utente viene presa in considerazione. CORS della specifica anche gli stati di origine di impostazione da "*" (tutte le origini) non è valido se l'intestazione controllo-Consenti-le credenziali di accesso è presente.
+Prestare attenzione quando si utilizza le credenziali di cross-origin. Un sito Web in un altro dominio può inviare le credenziali dell'utente connesso all'app per conto dell'utente senza il consenso dell'utente. La specifica di CORS indica anche tale impostazione origine da "*" (tutte le origini) non è valido se il `Access-Control-Allow-Credentials` intestazione è presente.
 
 ### <a name="set-the-preflight-expiration-time"></a>Impostare l'ora di scadenza preliminare
 
@@ -221,11 +221,11 @@ L'intestazione di controllo accesso-Max-Age specifica quanto tempo può essere m
 
 ## <a name="how-cors-works"></a>Funzionamento di CORS
 
-In questa sezione descrive cosa accade in una richiesta CORS, a livello dei messaggi HTTP. È importante comprendere come funziona la condivisione CORS, in modo che è possibile configurare il criterio CORS correttamente e risolvere i problemi se ciò non funziona come previsto.
+In questa sezione descrive cosa accade in una richiesta CORS al livello di messaggi HTTP. È importante comprendere come funziona la condivisione CORS in modo che il criterio CORS può essere configurato correttamente e risolverli verificarsi comportamenti imprevisti.
 
-La specifica CORS introduce diverse nuove intestazioni HTTP che consentono di richieste cross-origin. Se un browser supporta la condivisione CORS, imposta le intestazioni automaticamente per le richieste di cross-origin. non è necessario eseguire alcuna operazione speciali nel codice JavaScript.
+La specifica CORS introduce diverse nuove intestazioni HTTP che consentono di richieste cross-origin. Se un browser supporta la condivisione CORS, imposta le intestazioni automaticamente per le richieste cross-origin. Il codice JavaScript personalizzato non è necessario abilitare CORS.
 
-Di seguito è riportato un esempio di una richiesta multiorigine. L'intestazione "Origin" fornisce il dominio del sito che effettua la richiesta:
+Di seguito è riportato un esempio di una richiesta multiorigine. Il `Origin` intestazione fornisce il dominio del sito che effettua la richiesta:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1

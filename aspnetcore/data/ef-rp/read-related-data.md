@@ -2,18 +2,18 @@
 title: Pagine Razor con Entity Framework Core - leggere i dati correlati - 6 di 8
 author: rick-anderson
 description: "In questa esercitazione si leggere e visualizzare i dati correlati, ovvero i dati di Entity Framework carica le proprietà di navigazione."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/05/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lettura correlati dati - Core EF con pagine Razor (6 di 8)
 

@@ -2,19 +2,19 @@
 title: Uso di Gulp in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come utilizzare Gulp in ASP.NET Core.
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 Il codice sopra riportato specifica i moduli di nodo sono necessari. Il `require` ogni modulo importazioni di funzioni in modo che le attività dipendenti possono utilizzare le funzionalità incluse. Ciascuno dei moduli importati viene assegnato a una variabile. I moduli possono essere situati in base al nome o percorso. In questo esempio, i moduli denominato `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, e `gulp-uglify` vengono recuperati in base al nome. Inoltre, una serie di percorsi vengono creati in modo che i percorsi di file CSS e JavaScript possono essere riutilizzati e a cui fa riferimento all'interno delle attività. Nella tabella seguente vengono fornite le descrizioni dei moduli inclusi in *gulpfile.js*.
 
-|Nome modulo|Descrizione|
-|---|---|
-|gulp|Il sistema di compilazione flusso Gulp. Per ulteriori informazioni, vedere [gulp](https://www.npmjs.com/package/gulp).|
-|rimraf|Un modulo di eliminazione del nodo. Per ulteriori informazioni, vedere [rimraf](https://www.npmjs.com/package/rimraf).|
-|gulp concat|Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per ulteriori informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp-cssmin|Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
-|uglify gulp|Un modulo che minimizza *. js* file. Per ulteriori informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify).|
+| Nome modulo | Descrizione |
+| ----------- | ----------- |
+| gulp        | Il sistema di compilazione flusso Gulp. Per ulteriori informazioni, vedere [gulp](https://www.npmjs.com/package/gulp). |
+| rimraf      | Un modulo di eliminazione del nodo. Per ulteriori informazioni, vedere [rimraf](https://www.npmjs.com/package/rimraf). |
+| gulp concat | Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per ulteriori informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp-cssmin | Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| uglify gulp | Un modulo che minimizza *. js* file. Per ulteriori informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
 
 Dopo aver importati i moduli necessari, è possibile specificare le attività. Di seguito sono riportate le sei attività registrato, rappresentato dal codice seguente:
 

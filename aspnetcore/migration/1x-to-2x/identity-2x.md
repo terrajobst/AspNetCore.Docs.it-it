@@ -2,18 +2,18 @@
 title: "La migrazione di autenticazione e identità per i componenti di base di ASP.NET 2.0"
 author: scottaddie
 description: "Questo articolo vengono illustrati i passaggi più comuni per la migrazione ASP.NET Core 1. x autenticazione e identità per ASP.NET 2.0 Core."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: dd48b2b027d22b570aa182e748ca91738e935f49
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>La migrazione di autenticazione e identità per i componenti di base di ASP.NET 2.0
 
@@ -23,7 +23,7 @@ Componenti di base di ASP.NET 2.0 è un nuovo modello per l'autenticazione e [id
 
 <a name="auth-middleware"></a>
 
-## <a name="authentication-middleware-and-services"></a>Servizi e middleware di autenticazione.
+## <a name="authentication-middleware-and-services"></a>Middleware di autenticazione e i servizi
 In progetti di 1. x, è configurata l'autenticazione tramite il middleware. Viene richiamato un metodo di middleware per ogni schema di autenticazione che si desidera supportare.
 
 Nell'esempio seguente di 1. x viene configurata l'autenticazione di Facebook con identità nella *Startup.cs*:
@@ -136,7 +136,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
 
     Questo frammento di codice non usa l'identità, pertanto lo schema predefinito deve essere impostato passando `JwtBearerDefaults.AuthenticationScheme` per il `AddAuthentication` metodo.
 
-### <a name="openid-connect-oidc-authentication"></a>OpenID Connect (OIDC) autenticazione
+### <a name="openid-connect-oidc-authentication"></a>Autenticazione di OpenID Connect (OIDC)
 Apportare le modifiche seguenti in *Startup.cs*:
 
 - Sostituire il `UseOpenIdConnectAuthentication` chiamata al metodo di `Configure` metodo con `UseAuthentication`:
@@ -161,7 +161,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
     });
     ```
 
-### <a name="facebook-authentication"></a>Autenticazione di Facebook
+### <a name="facebook-authentication"></a>autenticazione di Facebook
 Apportare le modifiche seguenti in *Startup.cs*:
 - Sostituire il `UseFacebookAuthentication` chiamata al metodo di `Configure` metodo con `UseAuthentication`:
  
@@ -237,7 +237,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
             });
     ```
 
-### <a name="setting-default-authentication-schemes"></a>L'impostazione predefinita gli schemi di autenticazione
+### <a name="setting-default-authentication-schemes"></a>L'impostazione di schemi di autenticazione predefinito
 In 1. x, il `AutomaticAuthenticate` e `AutomaticChallenge` le proprietà del [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) sono stati deve essere impostata su uno schema di autenticazione singola classe di base. Si è verificato non è possibile applicare questo comportamento.
 
 In 2.0 sono state rimosse queste due proprietà come proprietà per il singolo `AuthenticationOptions` istanza. Può essere configurati nel `AddAuthentication` chiamata al metodo all'interno di `ConfigureServices` metodo *Startup.cs*:
@@ -313,7 +313,7 @@ Il `IdentityConstants.ExternalScheme` costante può essere utilizzata direttamen
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>Aggiungere le proprietà di navigazione POCO IdentityUser
+## <a name="add-identityuser-poco-navigation-properties"></a>Aggiungere le proprietà di navigazione IdentityUser POCO
 Le proprietà di navigazione di base di Entity Framework (EF) della base `IdentityUser` sono state rimosse POCO (Plain precedente CLR Object). Se il progetto di 1. x utilizza queste proprietà, aggiungerle manualmente al progetto 2.0:
 
 ```csharp

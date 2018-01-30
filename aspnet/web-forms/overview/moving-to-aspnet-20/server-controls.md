@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>Controlli server
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > ASP.NET 2.0 consente di ottimizzare i controlli server in molti modi. In questo modulo verranno descritte alcune delle modifiche dell'architettura per la modalità di ASP.NET 2.0 e Visual Studio 2005 riguarda i controlli server.
 
@@ -202,7 +202,7 @@ In ASP.NET 2.0, l'attributo dell'elemento httpRuntime requestLengthDiskThreshold
 | Inizia | Il primo passaggio, spesso usato per presentare un'istruzione introduttiva. |
 | Passaggio | Un passaggio normale. |
 | Fine | Il passaggio finale, in genere utilizzato per presentare un pulsante per terminare la procedura guidata. |
-| Operazione completata | Visualizza un messaggio di comunicazione esito positivo o negativo. |
+| Completa | Visualizza un messaggio di comunicazione esito positivo o negativo. |
 
 > [!NOTE]
 > Controllo della procedura guidata tiene traccia del relativo stato mediante lo stato del controllo ASP.NET. Pertanto, è possibile impostare la proprietà EnableViewState su false, senza alcun dannosa.
@@ -224,7 +224,7 @@ Il controllo Localize è simile a un controllo Literal. Tuttavia, il controllo L
 | **Modalità** | **Spiegazione** |
 | --- | --- |
 | Transform | Markup viene trasformato in base al protocollo del browser che effettua la richiesta. |
-| Pass-through | Viene eseguito il rendering di markup come-è. |
+| PassThrough | Viene eseguito il rendering di markup come-è. |
 | Codificare | Codice che viene aggiunto al controllo viene codificato tramite HtmlEncode. |
 
 ## <a name="multiview-and-view-controls"></a>MultiView e controlli di visualizzazione
@@ -263,7 +263,7 @@ Il controllo AccessDataSource viene utilizzato per associare i dati un database 
 
 Il controllo ObjectDataSource viene utilizzato per supportare un'architettura a tre livelli in modo che controlli possono essere associato a un oggetto business di livello intermedio anziché un modello a due livelli in cui i controlli vengono associati direttamente all'origine dati. Verrà illustrata in dettaglio in un modulo successivo.
 
-## <a name="xmldatasource-control"></a>Controllo XmlDataSource
+## <a name="xmldatasource-control"></a>XmlDataSource Control
 
 Il controllo XmlDataSource viene utilizzato per associare dati a un'origine dati XML. È incluso in modo più dettagliato in un modulo successivo.
 
@@ -271,7 +271,7 @@ Il controllo XmlDataSource viene utilizzato per associare dati a un'origine dati
 
 Il controllo SiteMapDataSource fornisce un'associazione di dati per i controlli di navigazione del sito in base a una mappa del sito. Verrà illustrata in dettaglio in un modulo successivo.
 
-## <a name="sitemappath-control"></a>Controllo SiteMapPath
+## <a name="sitemappath-control"></a>SiteMapPath Control
 
 Visualizza una serie di collegamenti di navigazione, comunemente noti come controlli di navigazione. È incluso in modo più dettagliato in un modulo successivo.
 

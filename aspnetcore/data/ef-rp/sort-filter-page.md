@@ -4,15 +4,15 @@ author: rick-anderson
 description: "In questa esercitazione si aggiungeranno ordinamento, filtro e paging funzionalità alla pagina utilizzando ASP.NET Core e componenti di base di Entity Framework."
 ms.author: riande
 ms.date: 10/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con pagine Razor (3 di 8)
 
@@ -107,7 +107,7 @@ Eseguire il debugger.
 Per aggiungere filtri alla pagina di indice di studenti:
 
 * Una casella di testo e un pulsante di invio viene aggiunto alla pagina Razor. La casella di testo fornisce una stringa di ricerca sul nome del primo o ultimo.
-* Il file code-behind viene aggiornato per utilizzare il valore della casella di testo.
+* Il modello di pagina viene aggiornato per utilizzare il valore della casella di testo.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Aggiungere funzionalità di filtro per il metodo di Index
 
@@ -245,7 +245,7 @@ Eseguire il debugger.
 In questo passaggio, *Pages/About.cshtml* viene aggiornato per visualizzare il numero di studenti sono registrati per ciascuna data di registrazione. L'aggiornamento viene utilizzato il raggruppamento e include i passaggi seguenti:
 
 * Creare una classe di modello di visualizzazione per i dati utilizzati dal **su** pagina.
-* Modificare il file code-behind e sulla pagina Razor.
+* Modificare il modello di pagina e sulla pagina Razor.
 
 ### <a name="create-the-view-model"></a>Creare il modello di visualizzazione
 
@@ -255,7 +255,7 @@ Nel *SchoolViewModels* cartella, aggiungere un *EnrollmentDateGroup.cs* con il c
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-code-behind-page"></a>Aggiornare la pagina code-behind di informazioni su
+### <a name="update-the-about-page-model"></a>Aggiornare il modello di pagina di informazioni su
 
 Aggiornamento di *Pages/About.cshtml.cs* file con il codice seguente:
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 61a96b75fdc29bdd1510ed689ee0356ef30e03fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="request-validation---preventing-script-attacks"></a>Richiedere la convalida - prevenzione degli attacchi di Script
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 Convalida della richiesta, una funzionalità di ASP.NET versione 1.1, impedisce il server di accettare contenuto HTML non codificato che lo contiene. Questa funzionalità è progettata per aiutare a evitare alcuni attacchi script injection, in base al quale il codice di script client o HTML può essere involontario inviati a un server, archiviati e quindi presentato ad altri utenti. È comunque consigliabile che la convalida dei dati di tutti gli input e la codifica HTML quando appropriato.
 
-Ad esempio, si crea una pagina Web che richiede un indirizzo di posta elettronica e quindi archivia tale indirizzo di posta elettronica in un database. Se l'utente immette &lt;SCRIPT&gt;avviso ("hello dallo script")&lt;/SCRIPT&gt; anziché un indirizzo di posta elettronica valido, quando i dati viene presentati, questo script può essere eseguito se il contenuto non è stato codificato correttamente. La funzionalità di convalida richiesta di ASP.NET consente di evitare questo inconveniente.
+Ad esempio, si crea una pagina Web che richiede l'indirizzo di posta elettronica dell'utente e, successivamente, archiviarlo che posta elettronica in un database. Se l'utente immette &lt;SCRIPT&gt;avviso ("hello dallo script")&lt;/SCRIPT&gt; anziché un indirizzo di posta elettronica valido, quando i dati viene presentati, questo script può essere eseguito se il contenuto non è stato codificato correttamente. La funzionalità di convalida richiesta di ASP.NET consente di evitare questo inconveniente.
 
 ## <a name="why-this-feature-is-useful"></a>Perché questa funzionalità è utile
 

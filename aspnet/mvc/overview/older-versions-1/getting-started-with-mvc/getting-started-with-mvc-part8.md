@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 title: Aggiunta di una colonna al modello | Documenti Microsoft
 author: shanselman
-description: "Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà un'applicazione web semplice la lettura e scrittura da un database."
+description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4fc144dcbed8ad14411332df7acccc032ddf46
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Aggiunta di una colonna al modello
 ====================
@@ -79,7 +79,7 @@ In questa esercitazione di base ottenuto è iniziato le controller, associarli a
 
 Si consiglia per continuare con l'esercitazione di livello intermedio ora "[negozio MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" nonché numerosi video e risorse in [https://asp.net/mvc](https://asp.net/mvc) per ulteriori informazioni su ASP.NET MVC.
 
-Usufruisci!
+Buona lettura.
 
 - Scott Hanselman - [http://hanselman.com](http://hanselman.com) e [ @shanselman ](http://twitter.com/shanselman) su Twitter.
 

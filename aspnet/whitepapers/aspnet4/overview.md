@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Cenni preliminari sullo sviluppo di Visual Studio 2010 Web e di ASP.NET 4
 ====================
@@ -1218,7 +1218,7 @@ I nuovi modelli di entità vengono visualizzati in una pagina utilizzando il nuo
 
 <a id="0.2__Toc224729045"></a><a id="0.2__Toc253429282"></a><a id="0.2__Toc243304653"></a>
 
-### <a name="new-field-templates-for-urls-and-e-mail-addresses"></a>Nuovi modelli di campo per URL e indirizzi di posta elettronica
+### <a name="new-field-templates-for-urls-and-email-addresses"></a>Nuovi modelli di campo per URL e indirizzi di posta elettronica
 
 In ASP.NET 4 vengono presentati due nuovi modelli di campo predefiniti, `EmailAddress.ascx` e `Url.ascx`. Questi modelli vengono utilizzati per i campi contrassegnati come *EmailAddress* o *Url* con il *DataType* attributo. Per *EmailAddress* oggetti, il campo viene visualizzato come collegamento ipertestuale che viene creato utilizzando il *mailto:* protocollo. Quando gli utenti fanno clic sul collegamento, apre il client di posta elettronica dell'utente e crea una struttura di un messaggio. Gli oggetti digitati come *Url* vengono visualizzati come collegamenti ipertestuali comuni.
 
@@ -1382,7 +1382,7 @@ Il rispetto di tutte le leggi applicabili in materia di copyright è a esclusivo
 
 Microsoft può essere titolare di brevetti, domande di brevetto, marchi, copyright o altri diritti di proprietà intellettuale relativi all'oggetto del presente documento. Salvo quanto espressamente previsto in un contratto scritto di licenza Microsoft, la consegna del presente documento non implica la concessione di alcuna licenza su tali brevetti, marchi, copyright o altra proprietà intellettuale.
 
-Se non specificato diversamente, ogni riferimento a società, organizzazioni, prodotti, nomi di domini, indirizzi di posta elettronica, logo, persone, luoghi ed eventi citati nel presente documento è puramente casuale e ha il solo scopo di illustrare l'uso del prodotto Microsoft.
+Se non diversamente specificato, la società, organizzazioni, prodotti, nomi di dominio, indirizzi di posta elettronica, logo, persone, luoghi ed eventi citati in questo documento sono fittizio e nessuna associazione società, organizzazione, prodotto, nome di dominio, posta elettronica indirizzo, logo, persona, luogo o evento è intenzionale o può essere presupposta.
 
 © 2009 Microsoft Corporation. Tutti i diritti sono riservati.
 

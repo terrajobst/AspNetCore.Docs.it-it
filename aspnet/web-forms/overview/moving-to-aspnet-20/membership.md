@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>Appartenenza
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Appartenenza ASP.NET si basa sul successo del modello di autenticazione form da ASP.NET 1. x. Autenticazione basata su form ASP.NET fornisce un modo pratico per incorporare un form di accesso nell'applicazione ASP.NET e convalidare gli utenti in un database o l'altro archivio dati.
 
@@ -120,7 +120,7 @@ Il controllo LoginView è un controllo basato su modelli che sono disponibili du
 
 ## <a name="passwordrecovery-control"></a>Controllo PasswordRecovery
 
-Il controllo PasswordRecovery consente agli utenti di ricevere un messaggio di posta elettronica con la propria password corrente o reimpostare la propria password. Essere ripristinate e inviati tramite posta elettronica agli utenti come testo non crittografato e le password crittografate. Se viene eseguito l'hashing della password, non può essere recuperato. L'utente sarà invece necessario per eseguire una reimpostazione della password.
+Il controllo PasswordRecovery consente agli utenti di ricevere un messaggio di posta elettronica con la propria password corrente o reimpostare la propria password. Essere ripristinate e inviato tramite posta elettronica agli utenti come testo non crittografato e le password crittografate. Se viene eseguito l'hashing della password, non può essere recuperato. L'utente sarà invece necessario per eseguire una reimpostazione della password.
 
 ## <a name="loginstatus-control"></a>Controllo LoginStatus
 

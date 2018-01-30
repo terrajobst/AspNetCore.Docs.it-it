@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>Configurazione e la strumentazione
 ====================
@@ -134,11 +134,11 @@ L'operazione di registrazione viene eseguita mediante la definizione di una rego
 | **WebRequestEvent** | Classe di base per tutti gli eventi informativi richiesta. |
 | **WebBaseErrorEvent** | Classe di base per tutti gli eventi che indica le condizioni di errore. |
 
-I tipi di provider disponibili consentono di inviare l'output di eventi in Visualizzatore eventi, SQL Server, Strumentazione gestione Windows (WMI) e posta elettronica. I mapping di evento e il preconfigurati provider ridurre la quantità di lavoro necessaria per ottenere l'output dell'evento registrato.
+I tipi di provider disponibili consentono di inviare l'output di eventi in Visualizzatore eventi, SQL Server, Strumentazione gestione Windows (WMI) e messaggio di posta elettronica. I mapping di evento e il preconfigurati provider ridurre la quantità di lavoro necessaria per ottenere l'output dell'evento registrato.
 
 ASP.NET 2.0 utilizza il registro eventi provider out-of-the-box per registrare gli eventi in base al dominio di applicazione, avvio e arresto, nonché la registrazione di eventuali eccezioni non gestite. Ciò consente di coprire alcuni degli scenari di base. Ad esempio, si supponga che l'applicazione genera un'eccezione, ma l'utente non viene salvato l'errore e non è possibile riprodurre. Con la regola predefinita del registro eventi è in grado di raccogliere le informazioni di eccezione e lo stack per farsi un'idea del tipo di errore si è verificato. Un altro esempio si applica se l'applicazione sta per perdere lo stato della sessione. In tal caso, è possibile esaminare nel registro eventi per determinare se il riciclo del dominio applicazione e la causa dell'arresto in primo luogo il dominio dell'applicazione.
 
-Inoltre, l'integrità di sistema di monitoraggio è estensibile. Ad esempio, è possibile definire eventi personalizzati di Web attivarli all'interno dell'applicazione e quindi definire una regola per inviare le informazioni sull'evento a un provider, ad esempio la posta elettronica. Ciò consente di associare facilmente la strumentazione per il provider di monitoraggio dello stato. Ad esempio, è possibile generare un evento ogni volta che un ordine viene elaborato e impostare una regola che ogni evento viene inviato al database di SQL Server. È anche possibile generare un evento quando un utente non riesce ad accedere più volte in una riga e impostare l'evento di utilizzare i provider di posta elettronica.
+Inoltre, l'integrità di sistema di monitoraggio è estensibile. Ad esempio, è possibile definire eventi personalizzati di Web attivarli all'interno dell'applicazione e quindi definire una regola per inviare le informazioni sull'evento a un provider, ad esempio la posta elettronica. Ciò consente di associare facilmente la strumentazione per il provider di monitoraggio dello stato. Ad esempio, è possibile generare un evento ogni volta che un ordine viene elaborato e impostare una regola che ogni evento viene inviato al database di SQL Server. È anche possibile generare un evento quando un utente non riesce ad accedere più volte in una riga e impostare l'evento da utilizzare i provider di posta elettronica.
 
 La configurazione per gli eventi e i provider predefiniti viene archiviata nel file Web. config globale. Il file Web. config globale memorizza tutte le impostazioni basate sul Web che sono state archiviate nel file Machine. config in ASP.NET 1 x. Il file Web. config globale si trova nella directory seguente:
 
@@ -196,7 +196,7 @@ Esempio di codice seguente aggiunge una regola per inoltrare gli eventi a WMI:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>Come inoltrare gli eventi di posta elettronica
+## <a name="how-to-forward-events-to-email"></a>Come inoltrare gli eventi di posta elettronica
 
 È anche possibile inoltrare gli eventi di posta elettronica. Prestare attenzione le regole quali eventi si esegue il mapping al provider di posta elettronica, come è possibile involontariamente inviare manualmente numerose informazioni che potrebbero essere più adatto per SQL Server o il registro eventi. Sono disponibili due provider di posta elettronica; SimpleMailWebEventProvider e TemplatedMailWebEventProvider. Ognuno ha gli stessi attributi di configurazione, fatta eccezione per gli attributi "modello" e "detailedTemplateErrors", che sono disponibili solo nel TemplatedMailWebEventProvider.
 
@@ -204,11 +204,11 @@ Esempio di codice seguente aggiunge una regola per inoltrare gli eventi a WMI:
 > Nessuno di questi provider di posta elettronica viene configurato automaticamente. È necessario aggiungerli al file Web. config.
 
 
-La differenza principale tra questi provider di posta elettronica delle due è che SimpleMailWebEventProvider invia messaggi di posta elettronica in un modello generico che non può essere modificato. Il file Web. config di esempio aggiunge il provider di posta elettronica all'elenco di provider configurati tramite la regola seguente:
+La differenza principale tra questi provider di posta due elettronica è che SimpleMailWebEventProvider invia messaggi di posta elettronica in un modello generico che non può essere modificato. Il file Web. config di esempio aggiunge il provider di posta elettronica all'elenco di provider configurati tramite la regola seguente:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample11.xml)]
 
-La regola seguente viene aggiunto anche associare il provider di posta elettronica per il **tutti gli eventi** mappa eventi:
+La regola seguente viene aggiunto anche per collegare il provider di posta elettronica per il **tutti gli eventi** mappa eventi:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample12.xml)]
 

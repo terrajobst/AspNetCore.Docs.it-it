@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 title: Introduzione a ASP.NET MVC | Documenti Microsoft
 author: shanselman
-description: "Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà un'applicazione web semplice la lettura e scrittura da un database."
+description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: b884c3c535929038f047e2c4ceedf9e7ca543292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 08c30f4aab77bff64ed3ab874d13cc5dc863fc99
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Introduzione a ASP.NET MVC
 ====================
@@ -85,4 +85,4 @@ In questo modo Visual Web Developer avviare un server web di sviluppo ed eseguir
 All'esterno della casella tale modello predefinito offre è due pagine da visitare e una pagina di accesso di base. Si modifica il funzionamento di questa applicazione e un po' informazioni su MVC ASP.NET nel processo. Chiudere il browser e consente di modificare il codice.
 
 >[!div class="step-by-step"]
-[Successivo](getting-started-with-mvc-part2.md)
+[avanti](getting-started-with-mvc-part2.md)

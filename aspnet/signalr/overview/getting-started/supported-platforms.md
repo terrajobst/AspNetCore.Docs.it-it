@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 7f41017a2a8c058c01fe6f89a2503eb5fa77048e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="supported-platforms"></a>Piattaforme supportate
 ====================
@@ -41,6 +41,7 @@ Il componente server di SignalR può essere ospitato nei seguenti sistemi operat
 
 - Windows Server 2012
 - Windows Server 2008 r2
+- Windows 10
 - Windows 8
 - Windows 7
 - Windows Azure
@@ -113,8 +114,8 @@ Oltre del sistema operativo e i requisiti di .NET framework, i trasporti disponi
 | --- | --- | --- |
 | Web socket | Windows 8 e versioni successive e .NET 4.5 + | N/D |
 | Forever Frame | N/D | N/D |
-| Eventi inviati al server | .NET 4 + | 5+ |
-| Polling lungo | .NET 4 + | 5+ |
+| Eventi inviati al server | .NET 4+ | 5+ |
+| Polling lungo | .NET 4+ | 5+ |
 
 <a id="android"></a>
 
@@ -124,12 +125,12 @@ SignalR può essere utilizzato nelle applicazioni Windows Store e Windows Phone 
 
 **Windows Store e requisiti di trasporto di Windows Phone**
 
-| Trasporto | Windows Store / .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / .NET |
+| Trasporto | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone/ .NET |
 | --- | --- | --- | --- | --- |
-| Oggetti WebSocket | N/D | Win8 + | 8+ | N/D |
-| Forever Frame | N/D | Win8 + | 7.5+ | N/D |
-| Eventi inviati al server | Win8 + | N/D | N/D | 8+ |
-| Polling lungo | Win8 + | Win8 + | 7.5+ | 8+ |
+| Oggetti WebSocket | N/D | Win8+ | 8+ | N/D |
+| Forever Frame | N/D | Win8+ | 7.5+ | N/D |
+| Eventi inviati al server | Win8+ | N/D | N/D | 8+ |
+| Polling lungo | Win8+ | Win8+ | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

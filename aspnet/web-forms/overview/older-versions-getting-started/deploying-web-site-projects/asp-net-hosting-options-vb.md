@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6ca92737b506265d5dda66243fe684d2e57833fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>Opzioni di Hosting ASP.NET (VB)
 ====================
@@ -56,7 +56,7 @@ In breve, la distribuzione di un'applicazione ASP.NET implica i tre passaggi seg
 2. Sincronizzare le pagine ASP.NET, i file di codice, gli assembly di `Bin` cartelle e file di supporto HTML correlati come file CSS e JavaScript.
 3. Eseguire la sincronizzazione dello schema del database e/o dati.
 
-Le informazioni di configurazione per un'applicazione web in genere si trovano nella `Web.config` file e include le stringhe di connessione di database, gestione di criteri, regole di riscrittura URL, errori e informazioni sul server di posta elettronica. Spesso queste informazioni sono diverse per un'applicazione in fase di sviluppo e la stessa applicazione nell'ambiente di produzione. Ad esempio, quando si sviluppa un'applicazione è consigliabile utilizzare un database di sviluppo in modo che non si sta testando nel database di produzione. Di conseguenza, le stringhe di connessione di database è in genere variano tra le applicazioni di sviluppo e produzione. A causa di tali differenze, parte della distribuzione prevede di apportare modifiche alle informazioni di configurazione dell'applicazione web.
+Le informazioni di configurazione per un'applicazione web in genere si trovano nella `Web.config` file e include le stringhe di connessione di database, i criteri di gestione degli errori, URL riscrittura regole e informazioni sul server di posta elettronica. Spesso queste informazioni sono diverse per un'applicazione in fase di sviluppo e la stessa applicazione nell'ambiente di produzione. Ad esempio, quando si sviluppa un'applicazione è consigliabile utilizzare un database di sviluppo in modo che non si sta testando nel database di produzione. Di conseguenza, le stringhe di connessione di database è in genere variano tra le applicazioni di sviluppo e produzione. A causa di tali differenze, parte della distribuzione prevede di apportare modifiche alle informazioni di configurazione dell'applicazione web.
 
 Oltre alle modifiche di configurazione dell'applicazione web, passaggio 1 inoltre può comportare una configurazione per il server web e il database. Ad esempio, se una pagina ASP.NET crea o Elimina i file da una directory nel server web quindi il server web deve essere configurato per consentire le modifiche al sistema questi file. Analogamente, potrebbero essere presenti impostazioni di autenticazione o autorizzazione che devono essere apportate al database.
 
@@ -77,7 +77,7 @@ Prima di poter distribuire il sito per un provider di hosting web, è innanzitut
 
 Società di hosting Web in genere offrono servizi di hosting condivisi e dedicati piani di hosting. Con host condivisi un singolo server host decine se non centinaia di siti Web diversi. Con hosting dedicato lease di un computer dell'azienda che serve il sito e il sito. Un piano di hosting condiviso potrebbe includere il supporto per le pagine ASP.NET, la possibilità di lavorare con i database di Microsoft Access, 5 GB di spazio su disco e 100 GB di traffico mensile in larghezza di banda per $9.95 al mese. Un altro piano di hosting condiviso potrebbe includono il supporto per le pagine ASP.NET, l'accesso al server di database Microsoft SQL Server 2008, 10 GB di spazio su disco e 250 GB del traffico mensile in larghezza di banda per $19,95 al mese. I piani di hosting dedicato vengono in genere molto più costosi, determinazione costi centinaia dollari diversi per ogni mese, ma offrono prestazioni migliori e maggiore controllo rispetto a condiviso opzioni di hosting. Il piano scelto dipende il budget, la quantità di traffico del sito Web riceve e le funzionalità che si prevede che è necessario.
 
-Due considerazioni importanti quando si sceglie un provider di hosting web sono servizio clienti e qualità del servizio. Se si dispone di una domanda o un problema di configurazione, come tempo di inoltrare il problema al supporto tecnico dell'host web fino a ottenere una risposta? L'affidabilità sono servizi della società? Spesso sono interruzioni database? La frequenza con cui venga portato offline il server di posta elettronica? È sempre possibile porre una società per fornire informazioni dettagliate sul tempo di attività e richiedere informazioni sui criteri di servizio clienti, ma un modo più surefire consiste nel richiedere commenti dei clienti correnti e precedenti, è possibile eseguire tramite posta elettronica, newsgroup e forum in linea Consiglio.
+Due considerazioni importanti quando si sceglie un provider di hosting web sono servizio clienti e qualità del servizio. Se si dispone di una domanda o un problema di configurazione, come tempo di inoltrare il problema al supporto tecnico dell'host web fino a ottenere una risposta? L'affidabilità sono servizi della società? Spesso sono interruzioni database? La frequenza con cui venga portato offline il server di posta elettronica? È sempre possibile porre una società per fornire informazioni dettagliate sul tempo di attività e richiedere informazioni sui criteri di servizio clienti, ma un modo più surefire consiste nel richiedere commenti dei clienti correnti e precedenti, è possibile eseguire tramite il Consiglio di posta elettronica, newsgroup e forum in linea .
 
 > [!NOTE]
 > Alcune società di hosting web loro attività aziendali di concentrarsi in uno stack di tecnologie particolari, ad esempio .NET o [LAMP](http://en.wikipedia.org/wiki/LAMP_stack) (**L** inux, **A** pache, **M** ySQL, e **P** HP), quindi assicurarsi che la società si seleziona ospita applicazioni ASP.NET. Verificare inoltre che supportano la versione di ASP.NET in uso per compilare l'applicazione. E, se si compila un'applicazione basata sui dati, assicurarsi che l'host web offre nello stesso server di database e la stessa versione in uso.

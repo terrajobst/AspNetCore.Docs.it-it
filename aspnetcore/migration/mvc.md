@@ -1,19 +1,19 @@
 ---
 title: Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 author: ardalis
-description: 
-ms.author: riande
+description: Informazioni su come iniziare a eseguire la migrazione di un progetto MVC ASP.NET ad ASP.NET MVC di base.
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrazione da MVC ASP.NET ad ASP.NET MVC di base
 
@@ -94,7 +94,7 @@ Eseguire l'app.
 
 ![Applicazione Web aperto in Microsoft Edge](mvc/_static/hello-world.png)
 
-Vedere [controller](../mvc/controllers/index.md) e [viste](../mvc/views/index.md) per ulteriori informazioni.
+Vedere [controller](xref:mvc/controllers/actions) e [viste](xref:mvc/views/overview) per ulteriori informazioni.
 
 Ora che è disponibile un progetto ASP.NET Core lavoro minimo, è possibile avviare la migrazione di funzionalità dal progetto ASP.NET MVC. È necessario spostare le operazioni seguenti:
 
@@ -156,7 +156,7 @@ Vedere [Gestisci pacchetti sul lato Client con Bower](../client-side/bower.md) p
 
 * Creare un *Views/Shared* cartella.
 
-* *Facoltativo:* copia *viewimports. cshtml* dal *FullAspNetCore* del progetto MVC *viste* nella cartella del progetto ASP.NET Core *Viste* cartella. Rimuovere le dichiarazioni dello spazio dei nomi nella *viewimports. cshtml* file. Il *viewimports. cshtml* fornisce gli spazi dei nomi per tutti i file di visualizzazione e la porta file [gli helper di Tag](../mvc/views/tag-helpers/index.md). Gli helper di tag vengono utilizzati nel nuovo file di layout. Il *viewimports. cshtml* file è una novità di ASP.NET Core.
+* *Facoltativo:* copia *viewimports. cshtml* dal *FullAspNetCore* del progetto MVC *viste* nella cartella del progetto ASP.NET Core *Viste* cartella. Rimuovere le dichiarazioni dello spazio dei nomi nella *viewimports. cshtml* file. Il *viewimports. cshtml* fornisce gli spazi dei nomi per tutti i file di visualizzazione e la porta file [gli helper di Tag](xref:mvc/views/tag-helpers/intro). Gli helper di tag vengono utilizzati nel nuovo file di layout. Il *viewimports. cshtml* file è una novità di ASP.NET Core.
 
 * Copia il *layout. cshtml* file dal progetto ASP.NET MVC precedente *Views/Shared* nella cartella del progetto ASP.NET Core *Views/Shared* cartella.
 
@@ -191,9 +191,9 @@ L'aggiornamento *layout. cshtml* file è illustrato di seguito:
 
 Visualizzare il sito nel browser. Ora debba caricare correttamente, con gli stili previsto sul posto.
 
-* *Facoltativo:* è possibile provare a usare il nuovo file di layout. Per questo progetto è possibile copiare il file di layout dal *FullAspNetCore* progetto. Il nuovo file di layout Usa [gli helper di Tag](../mvc/views/tag-helpers/index.md) e dispone di altri miglioramenti.
+* *Facoltativo:* è possibile provare a usare il nuovo file di layout. Per questo progetto è possibile copiare il file di layout dal *FullAspNetCore* progetto. Il nuovo file di layout Usa [gli helper di Tag](xref:mvc/views/tag-helpers/intro) e dispone di altri miglioramenti.
 
-## <a name="configure-bundling--minification"></a>Configurare l'aggregazione & minimizzazione
+## <a name="configure-bundling-and-minification"></a>Configurare l'aggregazione e riduzione
 
 Per informazioni su come configurare l'aggregazione e riduzione, vedere [Bundling and Minification](../client-side/bundling-and-minification.md).
 
@@ -224,6 +224,5 @@ Vedere **utilizzando la pagina di eccezione Developer** in [Error Handling](../f
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Sviluppo lato client](../client-side/index.md)
-
-* [Helper tag](../mvc/views/tag-helpers/index.md)
+* [Sviluppo lato client](xref:client-side/index)
+* [Helper tag](xref:mvc/views/tag-helpers/intro)

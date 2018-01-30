@@ -2,18 +2,18 @@
 title: Pagine Razor con Entity Framework Core - CRUD - 2 di 8
 author: rick-anderson
 description: Viene illustrato come creare, leggere, aggiornare ed eliminare con Entity Framework di base
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Creare, leggere, aggiornare ed eliminare - Core EF con pagine Razor (2 di 8)
 
@@ -23,7 +23,7 @@ Da [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com
 
 In questa esercitazione, lo scaffolding CRUD (create, leggere, aggiornare ed eliminare) codice viene esaminato e personalizzati.
 
-Nota: Per ridurre la complessità e mantenere queste esercitazioni con stato attivo in Entity Framework Core, il codice di Entity Framework Core viene utilizzato nei file di codice Razor pagine. Alcuni sviluppatori utilizzano un modello di repository o livello di servizio in per creare un livello di astrazione tra l'interfaccia utente (pagine Razor) e il livello di accesso ai dati.
+Nota: Per ridurre la complessità e mantenere queste esercitazioni con stato attivo in Entity Framework Core, il codice di Entity Framework Core viene utilizzato nei modelli di pagina pagine Razor. Alcuni sviluppatori utilizzano un modello di repository o livello di servizio in per creare un livello di astrazione tra l'interfaccia utente (pagine Razor) e il livello di accesso ai dati.
 
 In questa esercitazione, crea, modifica, eliminazione e pagine Razor dettagli di *Student* cartella vengono modificati.
 
@@ -147,7 +147,7 @@ Il valore "OverPost" viene aggiunto al `Secret` proprietà della riga inserita. 
 <a name="vm"></a>
 ### <a name="view-model"></a>Modello di visualizzazione
 
-In genere, un modello di visualizzazione contiene un subset delle proprietà incluse nel modello utilizzato dall'applicazione. Il modello di applicazione è spesso definito il modello di dominio. Il modello di dominio in genere contiene tutte le proprietà necessarie per l'entità corrispondente nel database. Il modello di visualizzazione contiene solo le proprietà necessarie per il livello di interfaccia utente (ad esempio, la pagina Crea). Oltre al modello di visualizzazione, alcune applicazioni di utilizzano un modello di associazione o il modello di input per passare dati tra la classe code-behind pagine Razor e il browser. Tenere presente quanto segue `Student` modello di visualizzazione:
+In genere, un modello di visualizzazione contiene un subset delle proprietà incluse nel modello utilizzato dall'applicazione. Il modello di applicazione è spesso definito il modello di dominio. Il modello di dominio in genere contiene tutte le proprietà necessarie per l'entità corrispondente nel database. Il modello di visualizzazione contiene solo le proprietà necessarie per il livello di interfaccia utente (ad esempio, la pagina Crea). Oltre al modello di visualizzazione, alcune applicazioni di utilizzano un modello di associazione o il modello di input per passare dati tra la classe modello pagine Razor delle pagine e il browser. Tenere presente quanto segue `Student` modello di visualizzazione:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ Nelle pagine Razor, la `PageModel` classe derivata è il modello di visualizzazi
 
 ## <a name="update-the-edit-page"></a>Aggiornare la pagina di modifica
 
-Aggiornare il file code-behind pagina Modifica:
+Aggiornare il modello di pagina per la pagina di modifica:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 
