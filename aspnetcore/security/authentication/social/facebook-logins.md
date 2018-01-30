@@ -2,77 +2,77 @@
 title: Configurazione di account di accesso esterno Facebook in ASP.NET Core
 author: rick-anderson
 description: Questa esercitazione illustra l'integrazione dell'autenticazione di Facebook account utente in un'applicazione ASP.NET di base esistente.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/01/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: cd86e089e4bbe0d4a18e49a9384753f4d2cd0c38
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 283de1df68c45fa1b41ed75710fe9eb7925f815f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="configuring-facebook-authentication"></a><span data-ttu-id="b2eb9-103">Configurazione dell'autenticazione di Facebook</span><span class="sxs-lookup"><span data-stu-id="b2eb9-103">Configuring Facebook authentication</span></span>
+# <a name="configuring-facebook-authentication"></a><span data-ttu-id="ae3e8-103">Configurazione dell'autenticazione di Facebook</span><span class="sxs-lookup"><span data-stu-id="ae3e8-103">Configuring Facebook authentication</span></span>
 
-<span data-ttu-id="b2eb9-104">Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="b2eb9-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="ae3e8-104">Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="ae3e8-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="b2eb9-105">In questa esercitazione viene illustrato come consentire agli utenti di accedere con il proprio account Facebook tramite un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](index.md).</span><span class="sxs-lookup"><span data-stu-id="b2eb9-105">This tutorial shows you how to enable your users to sign in with their Facebook account using a sample ASP.NET Core 2.0 project created on the [previous page](index.md).</span></span> <span data-ttu-id="b2eb9-106">Viene innanzitutto creato un ID App Facebook seguendo il [passaggi ufficiali](https://developers.facebook.com).</span><span class="sxs-lookup"><span data-stu-id="b2eb9-106">We start by creating a Facebook App ID by following the [official steps](https://developers.facebook.com).</span></span>
+<span data-ttu-id="ae3e8-105">In questa esercitazione viene illustrato come consentire agli utenti di accedere con il proprio account Facebook tramite un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](index.md).</span><span class="sxs-lookup"><span data-stu-id="ae3e8-105">This tutorial shows you how to enable your users to sign in with their Facebook account using a sample ASP.NET Core 2.0 project created on the [previous page](index.md).</span></span> <span data-ttu-id="ae3e8-106">Viene innanzitutto creato un ID App Facebook seguendo il [passaggi ufficiali](https://developers.facebook.com).</span><span class="sxs-lookup"><span data-stu-id="ae3e8-106">We start by creating a Facebook App ID by following the [official steps](https://developers.facebook.com).</span></span>
 
-## <a name="create-the-app-in-facebook"></a><span data-ttu-id="b2eb9-107">Creare l'app in Facebook</span><span class="sxs-lookup"><span data-stu-id="b2eb9-107">Create the app in Facebook</span></span>
+## <a name="create-the-app-in-facebook"></a><span data-ttu-id="ae3e8-107">Creare l'app in Facebook</span><span class="sxs-lookup"><span data-stu-id="ae3e8-107">Create the app in Facebook</span></span>
 
-*  <span data-ttu-id="b2eb9-108">Passare il [sviluppatori Facebook app](https://developers.facebook.com/apps/) pagina ed eseguire l'accesso.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-108">Navigate to the [Facebook Developers app](https://developers.facebook.com/apps/) page and sign in.</span></span> <span data-ttu-id="b2eb9-109">Se si dispone già di un account Facebook, utilizzare il **iscriversi a Facebook** collegamento nella pagina di accesso per crearne uno.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-109">If you don't already have a Facebook account, use the **Sign up for Facebook** link on the login page to create one.</span></span>
+*  <span data-ttu-id="ae3e8-108">Passare il [sviluppatori Facebook app](https://developers.facebook.com/apps/) pagina ed eseguire l'accesso.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-108">Navigate to the [Facebook Developers app](https://developers.facebook.com/apps/) page and sign in.</span></span> <span data-ttu-id="ae3e8-109">Se si dispone già di un account Facebook, utilizzare il **iscriversi a Facebook** collegamento nella pagina di accesso per crearne uno.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-109">If you don't already have a Facebook account, use the **Sign up for Facebook** link on the login page to create one.</span></span>
 
-* <span data-ttu-id="b2eb9-110">Toccare il **aggiungere una nuova App** pulsante nell'angolo superiore destro per creare un nuovo ID di App.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-110">Tap the **Add a New App** button in the upper right corner to create a new App ID.</span></span>
+* <span data-ttu-id="ae3e8-110">Toccare il **aggiungere una nuova App** pulsante nell'angolo superiore destro per creare un nuovo ID di App.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-110">Tap the **Add a New App** button in the upper right corner to create a new App ID.</span></span>
 
    ![Facebook per portale sviluppatori aprire in Microsoft Edge](index/_static/FBMyApps.png)
 
-* <span data-ttu-id="b2eb9-112">Compilare il modulo e toccare il **Crea ID App** pulsante.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-112">Fill out the form and tap the **Create App ID** button.</span></span>
+* <span data-ttu-id="ae3e8-112">Compilare il modulo e toccare il **Crea ID App** pulsante.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-112">Fill out the form and tap the **Create App ID** button.</span></span>
 
    ![Creare un nuovo ID di App](index/_static/FBNewAppId.png)
 
-* <span data-ttu-id="b2eb9-114">Nel **selezionare un prodotto** pagina, fare clic su **Set Up** sul **account Facebook** scheda.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-114">On the **Select a product** page, click **Set Up** on the **Facebook Login** card.</span></span>
+* <span data-ttu-id="ae3e8-114">Nel **selezionare un prodotto** pagina, fare clic su **Set Up** sul **account Facebook** scheda.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-114">On the **Select a product** page, click **Set Up** on the **Facebook Login** card.</span></span>
 
    ![Pagina di installazione del prodotto](index/_static/FBProductSetup.png)
   
-* <span data-ttu-id="b2eb9-116">Il **delle Guide rapide** guidata consentirà di avviare con **scegliere una piattaforma** come la prima pagina.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-116">The **Quickstart** wizard will launch with **Choose a Platform** as the first page.</span></span> <span data-ttu-id="b2eb9-117">Fare clic su ignorare la procedura guidata per il momento di **impostazioni** collegamento nel menu a sinistra:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-117">Bypass the wizard for now by clicking the **Settings** link in the menu on the left:</span></span>
+* <span data-ttu-id="ae3e8-116">Il **delle Guide rapide** guidata consentirà di avviare con **scegliere una piattaforma** come la prima pagina.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-116">The **Quickstart** wizard will launch with **Choose a Platform** as the first page.</span></span> <span data-ttu-id="ae3e8-117">Fare clic su ignorare la procedura guidata per il momento di **impostazioni** collegamento nel menu a sinistra:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-117">Bypass the wizard for now by clicking the **Settings** link in the menu on the left:</span></span>
 
    ![Guida introduttiva a Skip](index/_static/FBSkipQuickStart.png)
 
-* <span data-ttu-id="b2eb9-119">Viene visualizzata la **impostazioni OAuth Client** pagina:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-119">You are presented with the **Client OAuth Settings** page:</span></span>
+* <span data-ttu-id="ae3e8-119">Viene visualizzata la **impostazioni OAuth Client** pagina:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-119">You are presented with the **Client OAuth Settings** page:</span></span>
 
 ![Pagina Impostazioni OAuth client](index/_static/FBOAuthSetup.png)
 
-* <span data-ttu-id="b2eb9-121">Immettere l'URI di sviluppo con */signin-facebook* aggiunti al **URI di reindirizzamento di OAuth validi** campo (ad esempio: `https://localhost:44320/signin-facebook`).</span><span class="sxs-lookup"><span data-stu-id="b2eb9-121">Enter your development URI with */signin-facebook* appended into the **Valid OAuth Redirect URIs** field (for example: `https://localhost:44320/signin-facebook`).</span></span> <span data-ttu-id="b2eb9-122">L'autenticazione di Facebook configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel */signin-facebook* route per implementare il flusso di OAuth.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-122">The Facebook authentication configured later in this tutorial will automatically handle requests at */signin-facebook* route to implement the OAuth flow.</span></span>
+* <span data-ttu-id="ae3e8-121">Immettere l'URI di sviluppo con */signin-facebook* aggiunti al **URI di reindirizzamento di OAuth validi** campo (ad esempio: `https://localhost:44320/signin-facebook`).</span><span class="sxs-lookup"><span data-stu-id="ae3e8-121">Enter your development URI with */signin-facebook* appended into the **Valid OAuth Redirect URIs** field (for example: `https://localhost:44320/signin-facebook`).</span></span> <span data-ttu-id="ae3e8-122">L'autenticazione di Facebook configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel */signin-facebook* route per implementare il flusso di OAuth.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-122">The Facebook authentication configured later in this tutorial will automatically handle requests at */signin-facebook* route to implement the OAuth flow.</span></span>
 
-* <span data-ttu-id="b2eb9-123">Fare clic su **salvare modifiche**.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-123">Click **Save Changes**.</span></span>
+* <span data-ttu-id="ae3e8-123">Fare clic su **salvare modifiche**.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-123">Click **Save Changes**.</span></span>
 
-* <span data-ttu-id="b2eb9-124">Fare clic su di **Dashboard** collegamento nel riquadro di spostamento a sinistra.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-124">Click the **Dashboard** link in the left navigation.</span></span> 
+* <span data-ttu-id="ae3e8-124">Fare clic su di **Dashboard** collegamento nel riquadro di spostamento a sinistra.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-124">Click the **Dashboard** link in the left navigation.</span></span> 
 
-    <span data-ttu-id="b2eb9-125">In questa pagina, annotare il `App ID` e `App Secret`.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-125">On this page, make a note of your `App ID` and your `App Secret`.</span></span> <span data-ttu-id="b2eb9-126">Nella sezione successiva verranno aggiunti entrambi nell'applicazione ASP.NET di base:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-126">You will add both into your ASP.NET Core application in the next section:</span></span>
+    <span data-ttu-id="ae3e8-125">In questa pagina, annotare il `App ID` e `App Secret`.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-125">On this page, make a note of your `App ID` and your `App Secret`.</span></span> <span data-ttu-id="ae3e8-126">Nella sezione successiva verranno aggiunti entrambi nell'applicazione ASP.NET di base:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-126">You will add both into your ASP.NET Core application in the next section:</span></span>
 
    ![Dashboard dello sviluppatore di Facebook](index/_static/FBDashboard.png)
 
-* <span data-ttu-id="b2eb9-128">Quando si distribuisce il sito è necessario rivedere il **account Facebook** pagina di installazione e registrare un nuovo URI pubblico.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-128">When deploying the site you need to revisit the **Facebook Login** setup page and register a new public URI.</span></span>
+* <span data-ttu-id="ae3e8-128">Quando si distribuisce il sito è necessario rivedere il **account Facebook** pagina di installazione e registrare un nuovo URI pubblico.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-128">When deploying the site you need to revisit the **Facebook Login** setup page and register a new public URI.</span></span>
 
-## <a name="store-facebook-app-id-and-app-secret"></a><span data-ttu-id="b2eb9-129">Archiviare ID App Facebook e segreto dell'applicazione</span><span class="sxs-lookup"><span data-stu-id="b2eb9-129">Store Facebook App ID and App Secret</span></span>
+## <a name="store-facebook-app-id-and-app-secret"></a><span data-ttu-id="ae3e8-129">Archiviare ID App Facebook e segreto dell'applicazione</span><span class="sxs-lookup"><span data-stu-id="ae3e8-129">Store Facebook App ID and App Secret</span></span>
 
-<span data-ttu-id="b2eb9-130">Collegare le impostazioni sensibili, ad esempio Facebook `App ID` e `App Secret` all'applicazione mediante configurazione di [Manager segreto](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="b2eb9-130">Link sensitive settings like Facebook `App ID` and `App Secret` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="b2eb9-131">Ai fini di questa esercitazione, denominare il token `Authentication:Facebook:AppId` e `Authentication:Facebook:AppSecret`.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-131">For the purposes of this tutorial, name the tokens `Authentication:Facebook:AppId` and `Authentication:Facebook:AppSecret`.</span></span>
+<span data-ttu-id="ae3e8-130">Collegare le impostazioni sensibili, ad esempio Facebook `App ID` e `App Secret` all'applicazione mediante configurazione di [Manager segreto](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="ae3e8-130">Link sensitive settings like Facebook `App ID` and `App Secret` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="ae3e8-131">Ai fini di questa esercitazione, denominare il token `Authentication:Facebook:AppId` e `Authentication:Facebook:AppSecret`.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-131">For the purposes of this tutorial, name the tokens `Authentication:Facebook:AppId` and `Authentication:Facebook:AppSecret`.</span></span>
 
-<span data-ttu-id="b2eb9-132">Eseguire i comandi seguenti per archiviare in modo sicuro `App ID` e `App Secret` utilizzando Gestione segreto:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-132">Execute the following commands to securely store `App ID` and `App Secret` using Secret Manager:</span></span>
+<span data-ttu-id="ae3e8-132">Eseguire i comandi seguenti per archiviare in modo sicuro `App ID` e `App Secret` utilizzando Gestione segreto:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-132">Execute the following commands to securely store `App ID` and `App Secret` using Secret Manager:</span></span>
 
 ```console
 dotnet user-secrets set Authentication:Facebook:AppId <app-id>
 dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 ```
 
-## <a name="configure-facebook-authentication"></a><span data-ttu-id="b2eb9-133">Configurare l'autenticazione di Facebook</span><span class="sxs-lookup"><span data-stu-id="b2eb9-133">Configure Facebook Authentication</span></span>
+## <a name="configure-facebook-authentication"></a><span data-ttu-id="ae3e8-133">Configurare l'autenticazione di Facebook</span><span class="sxs-lookup"><span data-stu-id="ae3e8-133">Configure Facebook Authentication</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="b2eb9-134">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="b2eb9-134">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="ae3e8-134">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="ae3e8-134">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="b2eb9-135">Aggiungere il servizio di Facebook nel `ConfigureServices` metodo il *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-135">Add the Facebook service in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
+<span data-ttu-id="ae3e8-135">Aggiungere il servizio di Facebook nel `ConfigureServices` metodo il *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-135">Add the Facebook service in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
 
 ```csharp
 services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -88,16 +88,16 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="b2eb9-136">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="b2eb9-136">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="ae3e8-136">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="ae3e8-136">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="b2eb9-137">Installare il [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pacchetto.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-137">Install the [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) package.</span></span>
+<span data-ttu-id="ae3e8-137">Installare il [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pacchetto.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-137">Install the [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) package.</span></span>
 
-* <span data-ttu-id="b2eb9-138">Per installare il pacchetto con Visual Studio 2017, fare clic sul progetto e scegliere **Gestisci pacchetti NuGet**.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-138">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
-* <span data-ttu-id="b2eb9-139">Per installare con .NET Core CLI, eseguire le operazioni seguenti nella directory del progetto:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-139">To install with .NET Core CLI, execute the following in your project directory:</span></span>
+* <span data-ttu-id="ae3e8-138">Per installare il pacchetto con Visual Studio 2017, fare clic sul progetto e scegliere **Gestisci pacchetti NuGet**.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-138">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
+* <span data-ttu-id="ae3e8-139">Per installare con .NET Core CLI, eseguire le operazioni seguenti nella directory del progetto:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-139">To install with .NET Core CLI, execute the following in your project directory:</span></span>
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
-<span data-ttu-id="b2eb9-140">Aggiungere il middleware di Facebook nel `Configure` metodo *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-140">Add the Facebook middleware in the `Configure` method in *Startup.cs* file:</span></span>
+<span data-ttu-id="ae3e8-140">Aggiungere il middleware di Facebook nel `Configure` metodo *Startup.cs* file:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-140">Add the Facebook middleware in the `Configure` method in *Startup.cs* file:</span></span>
 
 ```csharp
 app.UseFacebookAuthentication(new FacebookOptions()
@@ -109,40 +109,40 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ---
 
-<span data-ttu-id="b2eb9-141">Vedere il [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) riferimento API per altre informazioni sulle opzioni di configurazione supportati dall'autenticazione di Facebook.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-141">See the [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) API reference for more information on configuration options supported by Facebook authentication.</span></span> <span data-ttu-id="b2eb9-142">Opzioni di configurazione possono essere utilizzate per:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-142">Configuration options can be used to:</span></span>
+<span data-ttu-id="ae3e8-141">Vedere il [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) riferimento API per altre informazioni sulle opzioni di configurazione supportati dall'autenticazione di Facebook.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-141">See the [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) API reference for more information on configuration options supported by Facebook authentication.</span></span> <span data-ttu-id="ae3e8-142">Opzioni di configurazione possono essere utilizzate per:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-142">Configuration options can be used to:</span></span>
 
-* <span data-ttu-id="b2eb9-143">Richiedere informazioni diverse relative all'utente.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-143">Request different information about the user.</span></span>
-* <span data-ttu-id="b2eb9-144">Aggiungere gli argomenti di stringa di query per personalizzare l'esperienza di accesso.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-144">Add query string arguments to customize the login experience.</span></span>
+* <span data-ttu-id="ae3e8-143">Richiedere informazioni diverse relative all'utente.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-143">Request different information about the user.</span></span>
+* <span data-ttu-id="ae3e8-144">Aggiungere gli argomenti di stringa di query per personalizzare l'esperienza di accesso.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-144">Add query string arguments to customize the login experience.</span></span>
 
-## <a name="sign-in-with-facebook"></a><span data-ttu-id="b2eb9-145">Accedere con Facebook</span><span class="sxs-lookup"><span data-stu-id="b2eb9-145">Sign in with Facebook</span></span>
+## <a name="sign-in-with-facebook"></a><span data-ttu-id="ae3e8-145">Accedere con Facebook</span><span class="sxs-lookup"><span data-stu-id="ae3e8-145">Sign in with Facebook</span></span>
 
-<span data-ttu-id="b2eb9-146">Eseguire l'applicazione e fare clic su **Accedi**.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-146">Run your application and click **Log in**.</span></span> <span data-ttu-id="b2eb9-147">Viene visualizzata un'opzione per accedere con Facebook.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-147">You see an option to sign in with Facebook.</span></span>
+<span data-ttu-id="ae3e8-146">Eseguire l'applicazione e fare clic su **Accedi**.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-146">Run your application and click **Log in**.</span></span> <span data-ttu-id="ae3e8-147">Viene visualizzata un'opzione per accedere con Facebook.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-147">You see an option to sign in with Facebook.</span></span>
 
 ![Applicazione Web: utente non autenticato](index/_static/DoneFacebook.png)
 
-<span data-ttu-id="b2eb9-149">Facendo clic sul **Facebook**, si verrà reindirizzati a Facebook per l'autenticazione:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-149">When you click on **Facebook**, you are redirected to Facebook for authentication:</span></span>
+<span data-ttu-id="ae3e8-149">Facendo clic sul **Facebook**, si verrà reindirizzati a Facebook per l'autenticazione:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-149">When you click on **Facebook**, you are redirected to Facebook for authentication:</span></span>
 
 ![Pagina di autenticazione di Facebook](index/_static/FBLogin.png)
 
-<span data-ttu-id="b2eb9-151">Indirizzo di posta elettronica e profilo pubblico le richieste di autenticazione di Facebook per impostazione predefinita:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-151">Facebook authentication requests public profile and email address by default:</span></span>
+<span data-ttu-id="ae3e8-151">Indirizzo di posta elettronica e profilo pubblico le richieste di autenticazione di Facebook per impostazione predefinita:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-151">Facebook authentication requests public profile and email address by default:</span></span>
 
 ![Pagina di autenticazione di Facebook](index/_static/FBLoginDone.png)
 
-<span data-ttu-id="b2eb9-153">Dopo aver immesso le credenziali di Facebook, che si verrà reindirizzati al sito in cui è possibile impostare la posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-153">Once you enter your Facebook credentials you are redirected back to your site where you can set your email.</span></span>
+<span data-ttu-id="ae3e8-153">Dopo aver immesso le credenziali di Facebook, che si verrà reindirizzati al sito in cui è possibile impostare la posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-153">Once you enter your Facebook credentials you are redirected back to your site where you can set your email.</span></span>
 
-<span data-ttu-id="b2eb9-154">A questo punto si è connessi utilizzando le credenziali di Facebook:</span><span class="sxs-lookup"><span data-stu-id="b2eb9-154">You are now logged in using your Facebook credentials:</span></span>
+<span data-ttu-id="ae3e8-154">A questo punto si è connessi utilizzando le credenziali di Facebook:</span><span class="sxs-lookup"><span data-stu-id="ae3e8-154">You are now logged in using your Facebook credentials:</span></span>
 
 ![Applicazione Web: utente autenticato](index/_static/Done.png)
 
-## <a name="troubleshooting"></a><span data-ttu-id="b2eb9-156">Risoluzione dei problemi</span><span class="sxs-lookup"><span data-stu-id="b2eb9-156">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="ae3e8-156">Risoluzione dei problemi</span><span class="sxs-lookup"><span data-stu-id="ae3e8-156">Troubleshooting</span></span>
 
-* <span data-ttu-id="b2eb9-157">**ASP.NET Core solo 2. x:** identità se non è configurata tramite la chiamata `services.AddIdentity` in `ConfigureServices`, il tentativo di autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'*.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-157">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="b2eb9-158">Il modello di progetto utilizzato in questa esercitazione garantisce che questa operazione viene eseguita.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-158">The project template used in this tutorial ensures that this is done.</span></span>
-* <span data-ttu-id="b2eb9-159">Se il database del sito non è stato creato applicando la migrazione iniziale, è possibile ottenere *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-159">If the site database has not been created by applying the initial migration, you get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="b2eb9-160">Toccare **applicare le migrazioni** per creare il database e dell'aggiornamento per ignorare l'errore.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-160">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+* <span data-ttu-id="ae3e8-157">**ASP.NET Core solo 2. x:** identità se non è configurata tramite la chiamata `services.AddIdentity` in `ConfigureServices`, il tentativo di autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'*.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-157">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="ae3e8-158">Il modello di progetto utilizzato in questa esercitazione garantisce che questa operazione viene eseguita.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-158">The project template used in this tutorial ensures that this is done.</span></span>
+* <span data-ttu-id="ae3e8-159">Se il database del sito non è stato creato applicando la migrazione iniziale, è possibile ottenere *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-159">If the site database has not been created by applying the initial migration, you get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="ae3e8-160">Toccare **applicare le migrazioni** per creare il database e dell'aggiornamento per ignorare l'errore.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-160">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="b2eb9-161">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="b2eb9-161">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="ae3e8-161">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="ae3e8-161">Next steps</span></span>
 
-* <span data-ttu-id="b2eb9-162">In questo articolo è stato illustrato come è possibile eseguire l'autenticazione con Facebook.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-162">This article showed how you can authenticate with Facebook.</span></span> <span data-ttu-id="b2eb9-163">È possibile seguire un approccio simile per l'autenticazione con altri provider elencati nella [pagina precedente](index.md).</span><span class="sxs-lookup"><span data-stu-id="b2eb9-163">You can follow a similar approach to authenticate with other providers listed on the [previous page](index.md).</span></span>
+* <span data-ttu-id="ae3e8-162">In questo articolo è stato illustrato come è possibile eseguire l'autenticazione con Facebook.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-162">This article showed how you can authenticate with Facebook.</span></span> <span data-ttu-id="ae3e8-163">È possibile seguire un approccio simile per l'autenticazione con altri provider elencati nella [pagina precedente](index.md).</span><span class="sxs-lookup"><span data-stu-id="ae3e8-163">You can follow a similar approach to authenticate with other providers listed on the [previous page](index.md).</span></span>
 
-* <span data-ttu-id="b2eb9-164">Quando si pubblica il sito web all'app web di Azure, è consigliabile reimpostare il `AppSecret` nel portale per sviluppatori di Facebook.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-164">Once you publish your web site to Azure web app, you should reset the `AppSecret` in the Facebook developer portal.</span></span>
+* <span data-ttu-id="ae3e8-164">Quando si pubblica il sito web all'app web di Azure, è consigliabile reimpostare il `AppSecret` nel portale per sviluppatori di Facebook.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-164">Once you publish your web site to Azure web app, you should reset the `AppSecret` in the Facebook developer portal.</span></span>
 
-* <span data-ttu-id="b2eb9-165">Impostare il `Authentication:Facebook:AppId` e `Authentication:Facebook:AppSecret` come impostazioni dell'applicazione nel portale di Azure.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-165">Set the `Authentication:Facebook:AppId` and `Authentication:Facebook:AppSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="b2eb9-166">Il sistema di configurazione è impostare lettura delle chiavi dalle variabili di ambiente.</span><span class="sxs-lookup"><span data-stu-id="b2eb9-166">The configuration system is set up to read keys from environment variables.</span></span>
+* <span data-ttu-id="ae3e8-165">Impostare il `Authentication:Facebook:AppId` e `Authentication:Facebook:AppSecret` come impostazioni dell'applicazione nel portale di Azure.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-165">Set the `Authentication:Facebook:AppId` and `Authentication:Facebook:AppSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="ae3e8-166">Il sistema di configurazione è impostare lettura delle chiavi dalle variabili di ambiente.</span><span class="sxs-lookup"><span data-stu-id="ae3e8-166">The configuration system is set up to read keys from environment variables.</span></span>
