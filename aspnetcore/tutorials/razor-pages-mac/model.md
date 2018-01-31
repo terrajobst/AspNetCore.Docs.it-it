@@ -2,18 +2,18 @@
 title: Aggiunta di un modello a un'app di pagine Razor con Visual Studio per Mac
 author: rick-anderson
 description: Aggiunta di un modello a un'app di pagine Razor in ASP.NET Core con Visual Studio per Mac
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/27/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: f4fb4fc3402c866fa9f956341c06be34ca9f4763
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: b8e5d65e195f9824602ec15d05dc013faa2a8dc9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Aggiunta di un modello a un'app di pagine Razor in ASP.NET Core con Visual Studio per Mac
 
@@ -75,4 +75,4 @@ L'esercitazione successiva illustra i file creati tramite scaffolding.
 
 >[!div class="step-by-step"]
 [Indietro: Introduzione](xref:tutorials/razor-pages-mac/razor-pages-start)
-[Avanti: pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
+[Avanti: pagine Razor create tramite scaffolding](xref:tutorials/razor-pages-mac/page)
