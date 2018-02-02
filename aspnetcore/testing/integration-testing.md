@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Integrazione di test in ASP.NET Core
 
@@ -127,7 +127,7 @@ Questo codice funziona, ma è lontano dal come implementare questo tipo di funzi
 
 Aggiunta di un'opzione per considerare [MVC](xref:mvc/overview) all'applicazione e creazione di un controller per gestire il controllo principale. Tuttavia, presupponendo che non attualmente necessario qualunque altra funzionalità MVC, che è un po' eccessivo.
 
-È possibile, tuttavia, sfruttare ASP.NET Core [middleware](xref:fundamentals/middleware), che consente di incapsulare i primi logica nella propria classe di controllo e di ottenere le migliori [separazione delle problematiche](http://deviq.com/separation-of-concerns/) nel `Configure` metodo.
+È possibile, tuttavia, sfruttare ASP.NET Core [middleware](xref:fundamentals/middleware/index), che consente di incapsulare i primi logica nella propria classe di controllo e di ottenere le migliori [separazione delle problematiche](http://deviq.com/separation-of-concerns/) nel `Configure` metodo.
 
 Per consentire il percorso in cui il middleware utilizza per essere specificato come parametro, pertanto la classe middleware prevede un `RequestDelegate` e `PrimeCheckerOptions` istanza nel relativo costruttore. Se il percorso della richiesta non corrisponde al contenuto questo middleware configurato in modo da prevedere, semplicemente chiamerà il middleware successivo nella catena di e non eseguire alcuna azione ulteriore. Il resto del codice di implementazione che è stato in `Configure` è il `Invoke` metodo.
 
@@ -150,5 +150,5 @@ Seguendo questo refactoring, si è certi che l'applicazione web continui a funzi
 ## <a name="resources"></a>Risorse
 
 * [Testing unità](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Middleware](xref:fundamentals/middleware)
+* [Middleware](xref:fundamentals/middleware/index)
 * [Test dei controller](xref:mvc/controllers/testing)

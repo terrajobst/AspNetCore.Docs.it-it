@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 1b5391c113ca0b980eb3c47bcce0717d4a4739ed
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b7c81f2851a932cd12553af4a2655eb9f1f7bc64
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso di moduli IIS con ASP.NET Core
 
@@ -44,8 +44,8 @@ Modulo | .NET core attivo | Opzione di ASP.NET Core
 **Reindirizzamento HTTP**<br>`HttpRedirectionModule` | Yes | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting)
 **Autenticazione Mapping certificati Client IIS**<br>`IISCertificateMappingAuthenticationModule` | Yes | 
 **Restrizioni per IP e domini**<br>`IpRestrictionModule` | Yes | 
-**Filtri ISAPI**<br>`IsapiFilterModule` | Yes | [Middleware](xref:fundamentals/middleware)
-**ISAPI**<br>`IsapiModule` | Yes | [Middleware](xref:fundamentals/middleware)
+**Filtri ISAPI**<br>`IsapiFilterModule` | Yes | [Middleware](xref:fundamentals/middleware/index)
+**ISAPI**<br>`IsapiModule` | Yes | [Middleware](xref:fundamentals/middleware/index)
 **Supporto del protocollo**<br>`ProtocolSupportModule` | Yes | 
 **Filtro richieste**<br>`RequestFilteringModule` | Yes | [Middleware di riscrittura URL`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **Monitoraggio richieste**<br>`RequestMonitorModule` | Yes | 

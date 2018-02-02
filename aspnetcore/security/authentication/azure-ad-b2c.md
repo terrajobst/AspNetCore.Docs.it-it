@@ -9,11 +9,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: d60698b5798e837a5946dbe158a647aae9e149d4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4815155ad238c31316e00471cf87beb3dd262613
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Autenticazione cloud con Azure Active Directory B2C
 
@@ -139,5 +139,5 @@ Ora che l'applicazione ASP.NET di base è configurato per usare Azure Active Dir
 * [Abilitare multi-factor authentication](/azure/active-directory-b2c/active-directory-b2c-reference-mfa).
 * Configurare i provider di identità aggiuntive, ad esempio [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [Twitter ](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)e altri.
 * [Usare l'API di Azure AD Graph](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) per recuperare le informazioni utente aggiuntive, ad esempio l'appartenenza al gruppo, il tenant di Azure Active Directory B2C.
-* [Proteggere un Core di ASP.NET web API con Azure Active Directory B2C](xref:security/authentication/azure-ad-b2c-api).
+* [Proteggere un Core di ASP.NET web API con Azure Active Directory B2C](xref:security/authentication/azure-ad-b2c-webapi).
 * [Chiamare un'API web di .NET da un'app web .NET usando Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).

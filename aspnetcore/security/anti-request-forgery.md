@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Impedire attacchi di tipo Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 
@@ -345,7 +345,7 @@ Attacchi CSRF si basano sul comportamento di invio di cookie associati a un domi
 
 ### <a name="cookie-based-authentication"></a>Autenticazione basata su cookie
 
-Una volta che un utente è autenticato tramite nome utente e password, si sta rilasciati un token che può essere utilizzato per identificare in modo sicuro e convalidare che sono stati autenticati. Il token viene memorizzato come rende un cookie associato a ogni richiesta client. Generazione e convalida il cookie viene eseguita dal middleware di autenticazione del cookie. ASP.NET Core fornisce il cookie [middleware](../fundamentals/middleware.md) che serializza un'entità utente in un cookie crittografato e nelle richieste successive convalida quindi il cookie, ricrea l'entità e assegna al `User` proprietà `HttpContext`.
+Una volta che un utente è autenticato tramite nome utente e password, si sta rilasciati un token che può essere utilizzato per identificare in modo sicuro e convalidare che sono stati autenticati. Il token viene memorizzato come rende un cookie associato a ogni richiesta client. Generazione e convalida il cookie viene eseguita dal middleware di autenticazione del cookie. ASP.NET Core fornisce il cookie [middleware](xref:fundamentals/middleware/index) che serializza un'entità utente in un cookie crittografato e nelle richieste successive convalida quindi il cookie, ricrea l'entità e assegna al `User` proprietà `HttpContext`.
 
 Quando viene utilizzato un cookie, il cookie di autenticazione è semplicemente un contenitore per il ticket di autenticazione form. Il ticket viene passato come valore del cookie di autenticazione form, con ogni richiesta e viene utilizzato dall'autenticazione basata su form, nel server, per identificare un utente autenticato.
 
