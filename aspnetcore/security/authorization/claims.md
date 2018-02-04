@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: 76b6566df4a427836eb5060f7d80e1039e479884
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 608aaa469c5ca20fab8250025804e28e7808122d
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="claims-based-authorization"></a>Autorizzazione basata sulle attestazioni
 
 <a name="security-authorization-claims-based"></a>
 
-Quando viene creata un'identità è possibile assegnare una o più attestazioni emesso da un'entità attendibile. Un'attestazione è il valore di nome coppia che rappresenta il soggetto è, non quali l'oggetto è possibile farlo. Ad esempio, è possibile di Guida patente, emesso da un'autorità di licenza Guida locale. Di Guida la patente presenta la data di nascita. In questo caso il nome di attestazione sarebbe `DateOfBirth`, il valore dell'attestazione sarebbe ad esempio la data di nascita, `8th June 1970` e l'autorità emittente sarebbe l'autorità di licenza determinante. Nella forma più semplice, l'autorizzazione basata sulle attestazioni, controlla il valore di un'attestazione e consente l'accesso a una risorsa in base al valore. Per esempio, se si desidera che l'accesso a un'associazione di notte il processo di autorizzazione potrebbe essere:
+Quando viene creata un'identità è possibile assegnare una o più attestazioni emesso da un'entità attendibile. Un'attestazione è una coppia nome / valore che rappresenta il soggetto è, non quali l'oggetto è possibile farlo. Ad esempio, è possibile di Guida patente, emesso da un'autorità di licenza Guida locale. Di Guida la patente presenta la data di nascita. In questo caso il nome di attestazione sarebbe `DateOfBirth`, il valore dell'attestazione sarebbe ad esempio la data di nascita, `8th June 1970` e l'autorità emittente sarebbe l'autorità di licenza determinante. Nella forma più semplice, l'autorizzazione basata sulle attestazioni, controlla il valore di un'attestazione e consente l'accesso a una risorsa in base al valore. Per esempio, se si desidera che l'accesso a un'associazione di notte il processo di autorizzazione potrebbe essere:
 
 Responsabile della sicurezza della porta restituirà il valore della tua data di nascita attestazione e se devono considerare attendibili l'autorità emittente (l'autorità licenza determinante) prima che concede che l'accesso.
 
