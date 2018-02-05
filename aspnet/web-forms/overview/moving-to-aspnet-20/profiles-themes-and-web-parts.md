@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: c9fe97dbd5fe10cbde25b9daf5ddd35b2d7eaab5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>I profili, temi e Web part
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Sono disponibili le principali modifiche alla configurazione e strumentazione di ASP.NET 2.0. La nuova API di configurazione di ASP.NET consente di apportare modifiche di configurazione da eseguire a livello di codice. Inoltre, molte nuove impostazioni di configurazione esistano Consenti per le nuove configurazioni e la strumentazione.
 
@@ -139,14 +139,14 @@ Il percorso in cui sono archiviati i temi varia in base al proprio ambito. Temi 
 
 `C:\WINDOWS\Microsoft.NET\Framework\v2.x.xxxxx\ASP.NETClientFiles\Themes\<Theme_Name>`
 
-Un tema specifico per una particolare applicazione verrà archiviato in un'App\_temi\&lt; Tema\_nome&gt; directory nella radice del sito Web.
+Un tema specifico per una particolare applicazione verrà archiviato in un `App\_Themes\<Theme\_Name>` directory nella radice del sito Web.
 
 > [!NOTE]
 > Un file di interfaccia debba modificare solo le proprietà di controllo server che influiscono sull'aspetto.
 
 Un tema globale è un tema che può essere applicato a qualsiasi applicazione o un sito Web in esecuzione nel server Web. I temi vengono archiviati per impostazione predefinita nella directory ASP.NETClientfiles\Themes all'interno della directory v2.x.xxxxx. In alternativa, è possibile spostare i file di tema in aspnet\_sistema client/\_web / /Themes/ [versione] [tema\_nome] cartella nella radice del sito Web.
 
-Temi specifici dell'applicazione è applicabile solo per l'applicazione in cui si trovano i file. Questi file vengono archiviati nell'App\_temi /&lt;tema\_nome&gt; directory nella radice del sito Web.
+Temi specifici dell'applicazione è applicabile solo per l'applicazione in cui si trovano i file. Questi file vengono archiviati nel `App\_Themes/<theme\_name>` directory nella radice del sito Web.
 
 ## <a name="the-components-of-a-theme"></a>I componenti di un tema
 
@@ -258,7 +258,7 @@ Finora, abbiamo parlato solo l'applicazione di temi mediante la proprietà del t
 
 Se si desidera essere in grado di eseguire l'override di proprietà definite nel file di interfaccia del tema con le proprietà specificate nella finestra di progettazione, è possibile utilizzare il **StyleSheetTheme** proprietà anziché la proprietà del tema. La proprietà StyleSheetTheme è identica alla proprietà di tema ad eccezione del fatto che non esegue l'override di tutte le impostazioni di proprietà espliciti come la proprietà del tema.
 
-Per vedere un esempio pratico, aprire il file Web. config dal progetto nell'esercizio 1 e modificare il &lt;pagine&gt; elemento per le operazioni seguenti:
+Per vedere un esempio pratico, aprire il file Web. config dal progetto nell'esercizio 1 e modificare il `<pages>` elemento per le operazioni seguenti:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample19.xml)]
 
@@ -338,11 +338,11 @@ In questa parte della procedura dettagliata, si crea una pagina che utilizza i c
 1. Chiudere la pagina predefinita e aggiungere una nuova pagina per il sito denominato WebPartsDemo.
 2. Passare a **progettazione** visualizzazione.
 3. Dal **vista** menu, verificare che il **controlli Non visivi** e **dettagli** le opzioni sono selezionate in modo da visualizzare il tag di layout e i controlli che non dispongono di un'interfaccia utente.
-4. Posizionare il cursore prima di  **&lt;div&gt;**  tag nella superficie di progettazione e premere INVIO per aggiungere una nuova riga. Posizionare il cursore prima del carattere di nuova riga, fare clic su di **formato blocco** dal menu di controllo elenco a discesa e selezionare il **titolo 1** opzione. Nell'intestazione, aggiungere il testo **pagina Web part dimostrazione**.
-5. Dal **WebParts** della casella degli strumenti, trascinare un **WebPartManager** controllo nella pagina, posizionarla subito dopo il carattere di nuova riga e prima di  **&lt;div&gt;**  tag.   
+4. Posizionare il cursore prima di `<div>` tag nella superficie di progettazione e premere INVIO per aggiungere una nuova riga. Posizionare il cursore prima del carattere di nuova riga, fare clic su di **formato blocco** dal menu di controllo elenco a discesa e selezionare il **titolo 1** opzione. Nell'intestazione, aggiungere il testo **pagina Web part dimostrazione**.
+5. Dal **WebParts** della casella degli strumenti, trascinare un **WebPartManager** controllo nella pagina, posizionarla subito dopo il carattere di nuova riga e prima di `<div>`tag.   
   
  Il **WebPartManager** controllo non eseguire il rendering di alcun output, viene visualizzato come casella grigia nell'area di progettazione.
-6. Posizionare il cursore all'interno di  **&lt;div&gt;**  tag.
+6. Posizionare il cursore all'interno di `<div>` tag.
 7. Nel **Layout** menu, fare clic su **Inserisci tabella**e creare una nuova tabella con una riga e tre colonne. Fare clic su di **proprietà delle celle** pulsante, selezionare **top** dal **allineamento verticale** elenco a discesa, fare clic su **OK**, fare clic su **OK** nuovamente per creare la tabella.
 8. Trascinare un controllo WebPartZone nella colonna della tabella a sinistra. Fare doppio clic su di **WebPartZone** di controllo, scegliere **proprietà**e impostare le proprietà seguenti:   
   
@@ -358,13 +358,13 @@ In questa parte della procedura dettagliata, si crea una pagina che utilizza i c
 
 La pagina presenta ora due aree distinte che è possibile controllare separatamente. Tuttavia, nessuna delle due nella zona. qualsiasi contenuto, pertanto la creazione di contenuto è il passaggio successivo Questa procedura dettagliata, si utilizzano i controlli Web part che visualizzano solo contenuto statico.
 
-Il layout di una zona Web part è specificata da un  **&lt;zonetemplate&gt;**  elemento. All'interno del modello di area, è possibile aggiungere qualsiasi controllo ASP.NET, se si tratta di un controllo personalizzato di Web part, un controllo utente o un controllo server esistente. Si noti che si sta utilizzando il controllo etichetta, e che si sta aggiungendo semplicemente un testo statico. Quando si inserisce un controllo server regolare in un **WebPartZone** zona, ASP.NET considera il controllo come controllo Web part in fase di esecuzione che abilita le funzionalità Web part nel controllo.
+Il layout di una zona Web part è specificata da un &lt;zonetemplate&gt; elemento. All'interno del modello di area, è possibile aggiungere qualsiasi controllo ASP.NET, se si tratta di un controllo personalizzato di Web part, un controllo utente o un controllo server esistente. Si noti che si sta utilizzando il controllo etichetta, e che si sta aggiungendo semplicemente un testo statico. Quando si inserisce un controllo server regolare in un **WebPartZone** zona, ASP.NET considera il controllo come controllo Web part in fase di esecuzione che abilita le funzionalità Web part nel controllo.
 
 **Per creare contenuto per l'area principale**
 
 1. In **progettazione** visualizzare, trascinare un **etichetta** controllo il **Standard** della casella degli strumenti nell'area di contenuto dell'area di cui **ID** proprietà è impostato su MainZone.
-2. Passare a **origine** visualizzazione. Si noti che un  **&lt;zonetemplate&gt;**  elemento è stato aggiunto per eseguire il wrapping di **etichetta** controllo in MainZone.
-3. Aggiungere un attributo denominato **titolo** per il  **&lt;asp: label&gt;**  elemento e impostarne il valore al contenuto. Rimuovere il testo = attributo "Label" di  **&lt;asp: label&gt;**  elemento. Tra i tag di apertura e chiusura del  **&lt;asp: label&gt;**  elemento, aggiungere un testo, ad esempio **iniziale per la Home Page** all'interno di una coppia di  **&lt;h2 &gt;**  tag dell'elemento. Il codice dovrebbe apparire come segue. 
+2. Passare a **origine** visualizzazione. Si noti che un &lt;zonetemplate&gt; elemento è stato aggiunto per eseguire il wrapping di **etichetta** controllo in MainZone.
+3. Aggiungere un attributo denominato **titolo** per il &lt;asp: label&gt; elemento e impostarne il valore al contenuto. Rimuovere il testo = attributo "Label" di &lt;asp: label&gt; elemento. Tra i tag di apertura e chiusura del &lt;asp: label&gt; elemento, aggiungere un testo, ad esempio **iniziale per la Home Page** all'interno di una coppia di &lt;h2&gt; tag dell'elemento. Il codice dovrebbe apparire come segue. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample21.aspx)]
 4. Salvare il file.
@@ -396,7 +396,7 @@ In fase di esecuzione, il set di controlli Web part esegue il wrapping di entram
 3. Trascinare la pagina controllo utente è stato creato, SearchUserControl, da **Esplora** nell'area di cui **ID** proprietà è impostata su SidebarZone e rilascio non esiste.
 4. Salvare la pagina WebPartsDemo.
 5. Passare a **origine** visualizzazione.
-6. All'interno di  **&lt;asp: webpartzone&gt;**  elemento per SidebarZone, appena sopra il riferimento al controllo utente, aggiungere un  **&lt;asp: label&gt;**  elemento con i collegamenti contenuti, come illustrato nell'esempio seguente. Inoltre, aggiungere un **titolo** tag del controllo utente, con un valore di attributo **ricerca**, come illustrato. 
+6. All'interno di &lt;asp: webpartzone&gt; elemento per SidebarZone, appena sopra il riferimento al controllo utente, aggiungere un &lt;asp: label&gt; elemento con contenuto collegamenti, come illustrato nell'esempio seguente. Inoltre, aggiungere un **titolo** tag del controllo utente, con un valore di attributo **ricerca**, come illustrato. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample23.aspx)]
 7. Salvare e chiudere il file.
@@ -417,7 +417,7 @@ Nel titolo della barra di ogni controllo è una freccia verso il basso che forni
 
 Web part consente agli utenti di modificare il layout dei controlli Web part trascinandoli da un'area a altra. Oltre a consentire agli utenti di spostare **WebPart** controlli da una zona in un altro, è possibile consentire agli utenti di modificare diverse caratteristiche dei controlli, inclusi i relativi aspetto, layout e il comportamento. Il set di controlli Web part forniscono funzionalità di modifica per **WebPart** controlli. Sebbene non verrà effettuato in questa procedura dettagliata, è anche possibile creare controlli editor personalizzati che consentono agli utenti di modificare le funzionalità di **WebPart** controlli. Come con la modifica del percorso di un **WebPart** controllo, la modifica delle proprietà di un controllo si basa sulla personalizzazione di ASP.NET per salvare le modifiche apportate dall'utente.
 
-In questa parte della procedura dettagliata, aggiungere la possibilità agli utenti di modificare le caratteristiche di qualsiasi **WebPart** controllo nella pagina. Per abilitare queste funzionalità, aggiungere un altro controllo utente personalizzato per la pagina, insieme a un  **&lt;asp: editorzone&gt;**  elemento e due controlli di modifica.
+In questa parte della procedura dettagliata, aggiungere la possibilità agli utenti di modificare le caratteristiche di qualsiasi **WebPart** controllo nella pagina. Per abilitare queste funzionalità, aggiungere un altro controllo utente personalizzato per la pagina, insieme a un &lt;asp: editorzone&gt; elemento e due controlli di modifica.
 
 ### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Per creare un controllo utente che consente la modifica di layout di pagina
 
@@ -501,7 +501,7 @@ In questa parte della procedura dettagliata, aggiungere la possibilità agli ute
 4. Dal **WebParts** sezione della casella degli strumenti, trascinare un controllo DeclarativeCatalogPart nell'area di contenuto di **CatalogZone** controllo.
 5. Fare clic sulla freccia nell'angolo superiore destro del **DeclarativeCatalogPart** per esporre il relativo menu attività di controllo e quindi selezionare **modifica modelli**.
 6. Dal **Standard** sezione della casella degli strumenti, trascinare un **FileUpload** controllo e un **calendario** controllare nel **WebPartsTemplate** sezione di **DeclarativeCatalogPart** controllo.
-7. Passare a **origine** visualizzazione. Esaminare il codice sorgente del  **&lt;asp: catalogzone&gt;**  elemento. Si noti che il **DeclarativeCatalogPart** controllo contiene un  **&lt;webpartstemplate&gt;**  elemento con i due controlli server racchiusi che sarà in grado di aggiungere alla pagina dal catalogo.
+7. Passare a **origine** visualizzazione. Esaminare il codice sorgente del &lt;asp: catalogzone&gt; elemento. Si noti che il **DeclarativeCatalogPart** controllo contiene un &lt;webpartstemplate&gt; elemento con i due controlli server racchiusi che sarà in grado di aggiungere alla pagina dal catalogo.
 8. Aggiungere un **titolo** proprietà per ognuno dei controlli aggiunti al catalogo, utilizzando il valore stringa visualizzato per ogni titolo nell'esempio di codice riportato di seguito. Anche se il titolo non è una proprietà in genere è possibile impostare su questi due controlli server in fase di progettazione, quando un utente aggiunge questi controlli a un **WebPartZone** zona dal catalogo in fase di esecuzione, questi sono ognuno incluso con un  **GenericWebPart** controllo. Ciò consente loro di agire come controlli Web part, pertanto saranno in grado di visualizzare i titoli.   
   
  Il codice per i due controlli contenuti nel **DeclarativeCatalogPart** controllo dovrebbe apparire come segue. 

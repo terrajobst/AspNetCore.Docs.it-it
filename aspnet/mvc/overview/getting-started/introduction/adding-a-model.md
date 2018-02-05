@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 13aab58e86829a8d4accd1d304420dcb34ffa472
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="adding-a-model"></a>Aggiunta di un modello
 ====================
@@ -58,7 +58,7 @@ Per poter fare riferimento a `DbContext` e `DbSet`, è necessario aggiungere il 
 
 ![](adding-a-model/_static/image2.png)
 
-Nota: Alcuni inutilizzati `using` istruzioni sono state rimosse. Visual Studio Visualizza dipendenze non utilizzate in grigio. È possibile rimuovere le dipendenze unnused posiziona le dipendenze grigio, fare clic su `Show potential fixes` e fare clic su **Rimuovi using inutilizzate.**
+Nota: Alcuni inutilizzati `using` istruzioni sono state rimosse. Visual Studio Visualizza dipendenze non utilizzate in grigio. È possibile rimuovere dipendenze non utilizzate passando sopra le dipendenze grigio, fare clic su `Show potential fixes` e fare clic su **Rimuovi using inutilizzate.**
 
 ![](adding-a-model/_static/image3.png)
 

@@ -13,11 +13,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 0d2717eb318d282e21e9aa8622a205f556e3a4ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2f6c6feb030fc17f95e7862c39029569f3d8c5dc
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Utilizzo di contatori delle prestazioni di SignalR in un ruolo Web Azure
 
@@ -35,13 +35,13 @@ I contatori delle prestazioni di SignalR vengono utilizzati per monitorare le pr
 
 1. Aprire Visual Studio 2015.
 
-2. In Visual Studio 2015, selezionare **File &gt; New &gt; progetto**.
+2. In Visual Studio 2015, selezionare **File** > **New** > **progetto**.
 
 3. Nel **modelli** riquadro del **nuovo progetto** finestra di sotto di **Visual c#** nodo, seleziona il **Cloud** nodo e selezionare il **Servizio Cloud di azure** modello. Denominare l'app **SignalRPerfCounters** e selezionare **OK**.
 
    ![Nuova applicazione Cloud](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
     
-4. Nel **nuovo servizio Cloud di Microsoft Azure** finestra di dialogo Seleziona **ruolo Web ASP.NET** e selezionare il  **&gt;**  pulsante per aggiungere il ruolo al progetto. Scegliere **OK**.
+4. Nel **nuovo servizio Cloud di Microsoft Azure** finestra di dialogo Seleziona **ruolo Web ASP.NET** e selezionare il > pulsante per aggiungere il ruolo al progetto. Scegliere **OK**.
 
    ![Aggiungere il ruolo Web ASP.NET](using-signalr-performance-counters-in-an-azure-web-role/_static/image2.png)
     
@@ -57,21 +57,21 @@ I contatori delle prestazioni di SignalR vengono utilizzati per monitorare le pr
 
    [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample1.xml)]
     
-8. Aprire il **Console di gestione pacchetti** da **strumenti &gt; Gestione pacchetti NuGet**. Immettere i comandi seguenti per installare la versione più recente di SignalR e il pacchetto di utilità SignalR:
+8. Aprire il **Console di gestione pacchetti** da **strumenti** > **Gestione pacchetti NuGet**. Immettere i comandi seguenti per installare la versione più recente di SignalR e il pacchetto di utilità SignalR:
 
    [!code-powershell[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample2.ps1)]
     
-9. Configura l'applicazione per installare i contatori delle prestazioni di SignalR nell'istanza del ruolo quando avviato o viene riciclato. In **Esplora**, fare clic su di **WebRole1** del progetto e selezionare **Aggiungi &gt; nuova cartella**. Denominare la nuova cartella *avvio*.
+9. Configura l'applicazione per installare i contatori delle prestazioni di SignalR nell'istanza del ruolo quando avviato o viene riciclato. In **Esplora**, fare clic su di **WebRole1** del progetto e selezionare **Aggiungi** > **nuova cartella**. Denominare la nuova cartella *avvio*.
 
    ![Aggiungere la cartella di avvio](using-signalr-performance-counters-in-an-azure-web-role/_static/image5.png)
     
-10. Copia il *signalr.exe* file (aggiunta con il **Microsoft.AspNet.SignalR.Utils** pacchetto) da  **&lt;cartella progetto&gt;\SignalRPerfCounters\packages\ Microsoft.AspNet.SignalR.Utils. &lt;versione&gt;\tools** per il *avvio* cartella creata nel passaggio precedente.
+10. Copia il *signalr.exe* file (aggiunta con il **Microsoft.AspNet.SignalR.Utils** pacchetto) da \<cartella del progetto > / SignalRPerfCounters/packages/Microsoft.AspNet.SignalR.Utils.\< versione > / strumenti per la *avvio* cartella creata nel passaggio precedente.
 
-11. In **Esplora**, fare doppio clic su di *avvio* cartella e selezionare **Aggiungi &gt; elemento esistente**. Nella finestra di dialogo visualizzata selezionare *signalr.exe* e selezionare **Aggiungi**.
+11. In **Esplora**, fare doppio clic su di *avvio* cartella e selezionare **Aggiungi** > **elemento esistente**. Nella finestra di dialogo visualizzata selezionare *signalr.exe* e selezionare **Aggiungi**.
 
     ![Aggiungere signalr.exe al progetto](using-signalr-performance-counters-in-an-azure-web-role/_static/image6.png)
     
-12. Fare clic su di *avvio* cartella creata. Selezionare **aggiungere &gt; nuovo elemento**. Selezionare il **generale** nodo, seleziona **File di testo**e assegnare al nuovo elemento *SignalRPerfCounterInstall.cmd*. Questo file di comando installerà i contatori delle prestazioni di SignalR al ruolo web.
+12. Fare clic su di *avvio* cartella creata. Selezionare **Aggiungi** > **Nuovo elemento**. Selezionare il **generale** nodo, seleziona **File di testo**e assegnare al nuovo elemento *SignalRPerfCounterInstall.cmd*. Questo file di comando installerà i contatori delle prestazioni di SignalR al ruolo web.
 
     ![Creare file batch di installazione contatori delle prestazioni di SignalR](using-signalr-performance-counters-in-an-azure-web-role/_static/image7.png)
      
@@ -106,7 +106,7 @@ I contatori delle prestazioni di SignalR vengono utilizzati per monitorare le pr
 
     [!code-cshtml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample6.cshtml)]
     
-21. Creare una nuova cartella nel **WebRole1** progetto denominato *hub*. Fare doppio clic sul *hub* cartella **Esplora**selezionare **Web &gt; SignalR**e selezionare **classe Hub SignalR (v2)**. Nome del nuovo hub *MyHub.cs* e selezionare **Aggiungi**.
+21. Creare una nuova cartella nel **WebRole1** progetto denominato *hub*. Fare doppio clic sul *hub* cartella **Esplora**selezionare **Web** > **SignalR**e selezionare  **Classe Hub SignalR (v2)**. Nome del nuovo hub *MyHub.cs* e selezionare **Aggiungi**.
 
     ![Classe Hub SignalR aggiunta alla cartella hub nella finestra di dialogo Aggiungi nuovo elemento](using-signalr-performance-counters-in-an-azure-web-role/_static/image13.png)
 
@@ -114,7 +114,7 @@ I contatori delle prestazioni di SignalR vengono utilizzati per monitorare le pr
 
     [!code-csharp[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample7.cs)]
     
-23. *[Crank.exe](signalr-connection-density-testing-with-crank.md)*  densità connessione test dello strumento fornito con la codebase SignalR. Poiché il perno richiede una connessione permanente, si aggiungerne uno al sito per l'utilizzo durante il test. Aggiungere una nuova cartella per il **WebRole1** progetto denominato *PersistentConnections*. Questa cartella e scegliere **Aggiungi &gt; classe**. Denominare il nuovo file di classe *MyPersistentConnections.cs* e selezionare **Aggiungi**.
+23. *[Crank.exe](signalr-connection-density-testing-with-crank.md)*  densità connessione test dello strumento fornito con la codebase SignalR. Poiché il perno richiede una connessione permanente, si aggiungerne uno al sito per l'utilizzo durante il test. Aggiungere una nuova cartella per il **WebRole1** progetto denominato *PersistentConnections*. Questa cartella e scegliere **Aggiungi** > **classe**. Denominare il nuovo file di classe *MyPersistentConnections.cs* e selezionare **Aggiungi**.
 
 24. Visual Studio verrà aperto il *MyPersistentConnections.cs* file nella finestra principale. Sostituire il contenuto con il codice seguente, quindi salvare e chiudere il file:
 
@@ -133,7 +133,7 @@ I contatori delle prestazioni di SignalR vengono utilizzati per monitorare le pr
 
     [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample12.xml?highlight=3,7)]
     
-27. Attendere circa un minuto. Aprire la finestra degli strumenti Cloud Explorer in Visual Studio (**vista &gt; Cloud Explorer**) ed espandere il percorso `(Local)\Storage Accounts\(Development)\Tables`. Fare doppio clic su **WADPerformanceCountersTable**. Dovrebbe essere contatori SignalR nei dati della tabella. Se non viene visualizzato nella tabella, devi immettere nuovamente le credenziali di archiviazione di Azure. È necessario selezionare il **aggiornare** pulsante per visualizzare la tabella in **Cloud Explorer** o selezionare il **aggiornamento** pulsante nella finestra Apri tabella per visualizzare i dati nella tabella.
+27. Attendere circa un minuto. Aprire la finestra degli strumenti Cloud Explorer in Visual Studio (**vista** > **Cloud Explorer**) ed espandere il percorso `(Local)/Storage Accounts/(Development)/Tables`. Fare doppio clic su **WADPerformanceCountersTable**. Dovrebbe essere contatori SignalR nei dati della tabella. Se non viene visualizzato nella tabella, devi immettere nuovamente le credenziali di archiviazione di Azure. È necessario selezionare il **aggiornare** pulsante per visualizzare la tabella in **Cloud Explorer** o selezionare il **aggiornamento** pulsante nella finestra Apri tabella per visualizzare i dati nella tabella.
 
     ![Selezionando la tabella di contatori delle prestazioni di WAD in Visual Studio Cloud Explorer](using-signalr-performance-counters-in-an-azure-web-role/_static/image11.png)
 

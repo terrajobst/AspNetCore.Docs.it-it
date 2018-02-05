@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 8256240b46873d53bf1a6f6616ea5b520cfadf2e
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 7c6d629ea94dd7c79a2f4e24fd4d0ff797f7e516
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>Memorizzazione nella cache in ASP.NET Core
 
@@ -30,7 +30,7 @@ ASP.NET Core supporta diverse cache diverse. Dipende dalla cache più semplice l
 
 Le sessioni permanenti con non in una web farm richiedono un [cache distribuita](distributed.md) per evitare problemi di coerenza della cache. Per alcune App, una cache distribuita può supportare maggiore scalabilità rispetto a una cache in memoria. Una cache distribuita consente di scaricare la memoria cache per un processo esterno. 
 
-Il `IMemoryCache` cache rimuove le voci della cache in memoria, a meno che il [cache priorità](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) è impostato su `CacheItemPriority.NeverRemove`. È possibile impostare il `CacheItemPriority` per regolare la priorità della cache rimuove gli elementi eccessivo della memoria.
+Il `IMemoryCache` cache rimuove le voci della cache in memoria, a meno che il [cache priorità](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) è impostato su `CacheItemPriority.NeverRemove`. È possibile impostare il `CacheItemPriority` per regolare la priorità con cui la cache rimuove gli elementi in memoria.
 
 La cache in memoria è possibile archiviare qualsiasi oggetto. l'interfaccia cache distribuita è limitato a `byte[]`.
 
