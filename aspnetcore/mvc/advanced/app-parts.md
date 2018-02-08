@@ -1,29 +1,29 @@
 ---
 title: Parti dell'applicazione in ASP.NET Core
 author: ardalis
-description: "Informazioni sull'utilizzo di parti dell'applicazione, che sono abstrations sulle risorse di un'app, configurare l'app per individuare o evitare di caricare le funzionalità da un assembly."
-ms.author: riande
+description: "Informazioni sull'uso delle parti dell'applicazione, che sono astrazioni relative alle risorse di un'app, per configurare l'app in modo che rilevi o eviti di caricare funzionalità da un assembly."
 manager: wpickett
+ms.author: riande
 ms.date: 01/04/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 6b855f8725dacc89a7e0607224ef3c19ab9f5676
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-Un *parte dell'applicazione* è un'astrazione sulle risorse di un'applicazione, da cui MVC funzionalità quali controller, i componenti di visualizzazione, o gli helper di tag possono essere individuati. Un esempio di una parte dell'applicazione è un AssemblyPart, che incapsula un riferimento all'assembly ed espone i tipi e i riferimenti di compilazione. *Funzionalità provider* funzionano con parti dell'applicazione per popolare le funzionalità di un'applicazione ASP.NET MVC di base. Nel caso di utilizzo principale di parti dell'applicazione è consentire di configurare l'app per individuare (o evitare di caricamento) funzionalità MVC da un assembly.
+Una *parte dell'applicazione* è un'astrazione relativa alle risorse di un'applicazione che consente il rilevamento di funzionalità MVC quali controller, componenti della visualizzazione o helper tag. Un esempio di parte dell'applicazione è AssemblyPart, che incapsula un riferimento all'assembly ed espone tipi e riferimenti di compilazione. I *provider di funzionalità* vengono eseguiti con le parti dell'applicazione per popolare le funzionalità di un'app ASP.NET Core MVC. Il caso d'uso principale delle parti dell'applicazione è la configurazione dell'app in modo che rilevi (o eviti di caricare) funzionalità MVC da un assembly.
 
-## <a name="introducing-application-parts"></a>Introduzione a parti dell'applicazione
+## <a name="introducing-application-parts"></a>Introduzione alle parti dell'applicazione
 
-Le applicazioni MVC caricare le funzionalità da [parti dell'applicazione](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). In particolare, il [AssemblyPart](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) classe rappresenta una parte di applicazione che è supportata da un assembly. È possibile utilizzare queste classi per individuare e caricare le funzionalità di MVC, ad esempio controller, Visualizza i componenti, gli helper di tag e origini di compilazione razor. Il [ApplicationPartManager](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) responsabile della gestione di parti dell'applicazione e un provider di funzionalità disponibili per l'applicazione MVC. È possibile interagire con il `ApplicationPartManager` in `Startup` quando si configura MVC:
+Le app MVC caricano le loro funzionalità dalle [parti dell'applicazione](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). In particolare la classe [AssemblyPart](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) rappresenta una parte dell'applicazione supportata da un assembly. Queste classi consentono di trovare e caricare funzionalità di MVC quali controller, componenti di visualizzazione, helper tag e origini di compilazione Razor. [ApplicationPartManager](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) gestisce il rilevamento delle parti dell'applicazione e dei provider di funzionalità disponibili per l'app MVC. È possibile interagire con `ApplicationPartManager` in `Startup` quando si configura MVC:
 
 ```csharp
 // create an assembly part from a class's assembly
@@ -38,11 +38,11 @@ services.AddMvc()
     .ConfigureApplicationPartManager(apm => p.ApplicationParts.Add(part));
 ```
 
-Per impostazione predefinita, MVC verrà ricerca l'albero delle dipendenze e individuare i controller (anche in altri assembly). Per caricare un assembly arbitrario (ad esempio, da un plug-in che non fa riferimento in fase di compilazione), è possibile utilizzare una parte dell'applicazione.
+Per impostazione predefinita MVC esegue la ricerca nell'albero dipendenze e rileva i controller (anche in altri assembly). Per caricare un assembly arbitrario (ad esempio da un plug-in a cui non si fa riferimento in fase di compilazione), è possibile usare una parte dell'applicazione.
 
-È possibile utilizzare parti dell'applicazione per *evitare* cercando controller in un particolare assembly o un percorso. È possibile controllare quali parti o gli assembly sono disponibili per l'applicazione modificando il `ApplicationParts` insieme il `ApplicationPartManager`. L'ordine delle voci di `ApplicationParts` raccolta non è importante. È importante configurare completamente il `ApplicationPartManager` prima di utilizzarlo per configurare i servizi nel contenitore. Ad esempio, è necessario configurare completamente il `ApplicationPartManager` prima di richiamare `AddControllersAsServices`. In caso contrario, significa che i controller di parti dell'applicazione aggiunti dopo che non saranno interessata chiamata al metodo (non viene registrato come servizi) che potrebbe essere bevavior non corretto dell'applicazione.
+Le parti dell'applicazione possono essere usate per *evitare* la ricerca di controller in un assembly o un percorso specifico. È possibile controllare quali parti o assembly sono disponibili per l'app modificando la raccolta `ApplicationParts` di `ApplicationPartManager`. L'ordine delle voci nella raccolta `ApplicationParts` non è importante. È invece importante configurare completamente `ApplicationPartManager` prima di usarlo per configurare i servizi nel contenitore. Ad esempio, è necessario configurare completamente `ApplicationPartManager` prima di chiamare `AddControllersAsServices`. In caso contrario, i controller inclusi in parti dell'applicazione aggiunte dopo questa chiamata al metodo vengono ignorati (non vengono registrati come servizi) e questo può determinare errori di funzionamento dell'applicazione.
 
-Se si dispone di un assembly che contiene i controller che non si desidera utilizzare, rimuoverlo dal `ApplicationPartManager`:
+Se è presente un assembly contenente controller che non si vuole usare, rimuoverlo da `ApplicationPartManager`:
 
 ```csharp
 services.AddMvc()
@@ -58,30 +58,30 @@ services.AddMvc()
     })
 ```
 
-Oltre agli assembly del progetto e i relativi assembly dipendenti, la `ApplicationPartManager` includerà parti per `Microsoft.AspNetCore.Mvc.TagHelpers` e `Microsoft.AspNetCore.Mvc.Razor` per impostazione predefinita.
+Oltre all'assembly del progetto e agli assembly dipendenti, per impostazione predefinita `ApplicationPartManager` include parti per `Microsoft.AspNetCore.Mvc.TagHelpers` e `Microsoft.AspNetCore.Mvc.Razor`.
 
 ## <a name="application-feature-providers"></a>Provider di funzionalità dell'applicazione
 
-Provider di funzionalità dell'applicazione esaminare parti dell'applicazione e forniscono funzionalità per tali parti. Sono disponibili provider di funzionalità predefinite per le seguenti funzionalità MVC:
+I provider di funzionalità dell'applicazione esaminano le parti dell'applicazione e offrono funzionalità per tali parti. Sono disponibili provider di funzionalità predefiniti per le seguenti funzionalità MVC:
 
 * [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
 * [Riferimento ai metadati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
 * [Helper tag](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
-* [Visualizza i componenti](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
+* [Componenti di visualizzazione](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
-Provider di funzionalità ereditare `IApplicationFeatureProvider<T>`, dove `T` è il tipo della funzionalità. È possibile implementare la propria funzionalità i provider per uno qualsiasi dei tipi di funzionalità del MVC elencati in precedenza. L'ordine dei provider di funzionalità di `ApplicationPartManager.FeatureProviders` raccolta può essere importante, poiché i provider successive possano rispondere alle azioni eseguite dal provider precedenti.
+I provider di funzionalità ereditano da `IApplicationFeatureProvider<T>`, dove `T` è il tipo della funzionalità. È possibile implementare provider di funzionalità personalizzati per i tipi di funzionalità MVC elencati in precedenza. L'ordine dei provider di funzionalità nella raccolta `ApplicationPartManager.FeatureProviders` può essere importante, perché i provider in un determinato punto della raccolta possono rispondere alle azioni eseguite dai provider che li precedono.
 
 ### <a name="sample-generic-controller-feature"></a>Esempio: Funzionalità controller generico
 
-Per impostazione predefinita, componenti di base di ASP.NET MVC Ignora controller generico (ad esempio, `SomeController<T>`). In questo esempio utilizza un provider di funzionalità di controller che viene eseguita quando il provider predefinito e aggiunge istanze controller generico per un elenco specificato di tipi (definito in `EntityTypes.Types`):
+Per impostazione predefinita, ASP.NET Core MVC ignora i controller generici (ad esempio `SomeController<T>`). Questo esempio usa come provider di funzionalità un controller che viene eseguito dopo il provider predefinito e aggiunge istanze controller generico per un elenco di tipi specificato (definito in `EntityTypes.Types`):
 
 [!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
 
-I tipi di entità:
+Tipi di entità:
 
 [!code-csharp[Main](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
 
-Il provider di funzionalità viene aggiunta in `Startup`:
+Il provider di funzionalità viene aggiunto in `Startup`:
 
 ```csharp
 services.AddMvc()
@@ -89,24 +89,24 @@ services.AddMvc()
         p.FeatureProviders.Add(new GenericControllerFeatureProvider()));
 ```
 
-Per impostazione predefinita, i nomi di controller generico utilizzati per il routing sarà nel formato *GenericController'1 [Widget]* anziché *Widget*. L'attributo seguente viene utilizzato per modificare il nome in modo che corrisponda al tipo generico utilizzato dal controller:
+Per impostazione predefinita i nomi di controller generico usati per il routing hanno il formato *GenericController`1[Widget]* anziché il formato *Widget*. L'attributo seguente viene usato per modificare il nome, in modo che corrisponda al tipo generico usato dal controller:
 
 [!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
 
-La `GenericController` classe:
+La classe `GenericController`:
 
 [!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
 
-Di conseguenza, quando viene richiesta una route corrispondente:
+Risultato quando viene richiesta una route corrispondente:
 
-![Esempio di output dall'app di esempio legge, 'Hello da un controller Sproket generico'.](app-parts/_static/generic-controller.png)
+![Esempio di output dell'app: "Hello from a generic Sprocket controller".](app-parts/_static/generic-controller.png)
 
-### <a name="sample-display-available-features"></a>Esempio: Le funzionalità disponibili visualizzazione
+### <a name="sample-display-available-features"></a>Esempio: Visualizzare funzionalità disponibili
 
-È possibile scorrere le funzionalità popolate disponibili per l'app richiedendo un `ApplicationPartManager` tramite [inserimento di dipendenze](../../fundamentals/dependency-injection.md) e utilizzarlo per popolare le istanze delle funzionalità appropriate:
+È possibile eseguire l'iterazione tra le funzionalità popolate disponibili per l'app richiedendo `ApplicationPartManager` mediante l'[inserimento di dipendenze](../../fundamentals/dependency-injection.md) e usando tale elemento per popolare istanze delle funzionalità appropriate:
 
 [!code-csharp[Main](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
 Output di esempio:
 
-![Output di esempio di app di esempio](app-parts/_static/available-features.png)
+![Output di esempio dall'app di esempio](app-parts/_static/available-features.png)

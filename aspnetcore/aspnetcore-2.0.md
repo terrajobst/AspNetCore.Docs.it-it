@@ -2,18 +2,18 @@
 title: "Novità di ASP.NET Core 2.0"
 author: rick-anderson
 description: "Novità di ASP.NET Core 2.0"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -82,7 +82,7 @@ Sono disponibili modelli di progetto di applicazione a pagina singola, o SPA (Si
 
 ## <a name="kestrel-improvements"></a>Miglioramenti di Kestrel
 
-Il server Web Kestrel include nuove funzionalità che lo rendono più adatto all'uso come server con connessione Internet. Sono state aggiunte diverse opzioni di configurazione dei vincoli in una nuova proprietà della classe `KestrelServerOptions`, `Limits`. È ora possibile aggiungere limiti per gli elementi seguenti:
+Il server Web Kestrel include nuove funzionalità che lo rendono più adatto all'uso come server con connessione Internet. Sono state aggiunte diverse opzioni di configurazione dei vincoli in una nuova proprietà della classe `KestrelServerOptions`, `Limits`. Aggiungere limiti per gli elementi seguenti:
 
 - Numero massimo di connessioni client
 - Dimensione massima del corpo della richiesta
@@ -158,4 +158,4 @@ Per indicazioni su come eseguire la migrazione delle applicazioni ASP.NET Core 1
 
 Per l'elenco completo delle modifiche, vedere le [note sulla versione di ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-Per essere aggiornati sull'avanzamento del lavoro e sui piani dei team di sviluppo di ASP.NET Core, partecipare alle riunioni settimanali in [ASP.NET Community Standup](https://live.asp.net/).
+Per essere aggiornati sull'avanzamento del lavoro e sui piani dei team di sviluppo di ASP.NET Core, partecipare alle riunioni in [ASP.NET Community Standup](https://live.asp.net/).

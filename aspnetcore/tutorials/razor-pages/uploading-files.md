@@ -2,18 +2,18 @@
 title: Caricamento di file in una pagina Razor in ASP.NET Core
 author: guardrex
 description: Informazioni su come caricare i file in una pagina Razor.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: a29043ac5d28ae8efcbbd6919e73e3774ba22699
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Caricamento di file in una pagina Razor in ASP.NET Core
 
@@ -76,9 +76,9 @@ Ogni gruppo di moduli include un oggetto **\<label>** ovvero un'etichetta che vi
 
 Ogni gruppo di moduli include una convalida **\<span>**. Se l'input dell'utente non soddisfa gli attributi della proprietà impostati nella classe `FileUpload` o se uno dei controlli della convalida file del metodo `ProcessFormFile` ha esito negativo, il modello non viene convalidato. Quando il modello non viene convalidato, viene eseguito il rendering di un messaggio di convalida utile per l'utente. Ad esempio, la proprietà `Title` viene annotata con `[Required]` e `[StringLength(60, MinimumLength = 3)]`. Se l'utente non specifica un titolo, riceve un messaggio che indica che è necessario specificare un valore. Se l'utente immette un valore inferiore a tre caratteri o superiore a sessanta, riceve un messaggio che indica che il valore ha una lunghezza non corretta. Se viene specificato un file che non presenta alcun contenuto, viene visualizzato un messaggio che indica che il file è vuoto.
 
-## <a name="add-the-code-behind-file"></a>Aggiungere il file code-behind
+## <a name="add-the-page-model"></a>Aggiungere il modello di pagina
 
-Aggiungere il file code-behind, *Index.cshtml.cs*, nella cartella *Schedules*:
+Aggiungere il modello di pagina *Index.cshtml.cs* nella cartella *Schedules*:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
@@ -110,7 +110,7 @@ Quando l'utente fa clic per eliminare una pianificazione, è necessario che abbi
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-Il file code-behind, *Delete.cshtml.cs*, carica una singola pianificazione identificata da `id` nei dati della route della richiesta. Aggiungere il file *Delete.cshtml.cs* nella cartella *Schedules*:
+Il modello di pagina *Delete.cshtml.cs* carica una singola pianificazione identificata da `id` nei dati della route della richiesta. Aggiungere il file *Delete.cshtml.cs* nella cartella *Schedules*:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 

@@ -1,70 +1,70 @@
 ---
-title: Helper di tag in ASP.NET Core
+title: Helper tag in ASP.NET Core
 author: rick-anderson
-description: Informazioni su cosa sono gli helper di tag e sul loro utilizzo in ASP.NET Core.
-ms.author: riande
+description: Informazioni sugli helper tag e su come usarli in ASP.NET Core.
 manager: wpickett
-ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/tag-helpers/intro
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 7/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/intro
+ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper di Tag in ASP.NET Core 
+# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introduzione agli helper tag in ASP.NET Core 
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>Quali sono gli helper di Tag?
+## <a name="what-are-tag-helpers"></a>Descrizione di helper tag
 
-Gli helper di tag consentono al codice lato server partecipare alla creazione e il rendering di elementi HTML in file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` possibile aggiungere un numero di versione per il nome dell'immagine. Ogni volta che cambia l'immagine, il server genera una nuova versione univoca per l'immagine, in modo i client sono garantiti per ottenere l'immagine corrente (anziché un'immagine memorizzati nella cache non aggiornata). Vi sono molti gli helper di Tag predefiniti per le attività comuni, ad esempio la creazione di moduli, collegamenti, asset durante il caricamento e più - e ancora più disponibili nel repository GitHub pubblici e come NuGet pacchetti. Vengono creati gli helper di tag in c# e di destinazione gli elementi HTML in base al nome di elemento, il nome dell'attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` possono avere come destinazione l'HTML `<label>` elemento quando il `LabelTagHelper` vengono applicati gli attributi. Se si ha familiarità con [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper di Tag ridurre le esplicita transizioni tra HTML e c# nelle visualizzazioni Razor. In molti casi, l'helper HTML forniscono un'alternativa a un Helper Tag specifici, ma è importante tenere presente che gli helper di Tag non sostituisce l'helper HTML e non esiste un Helper di Tag per ogni HTML Helper. [Gli helper confrontati con l'helper HTML tag](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze nel modo più dettagliato.
+Gli helper tag consentono al codice sul lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` può aggiungere un numero di versione al nome dell'immagine. Quando l'immagine viene modificata, il server genera una nuova versione univoca per l'immagine, in modo da garantire che i client ricevano sempre l'immagine corrente (anziché un'immagine non aggiornata memorizzata nella cache). Esistono molti helper tag predefiniti per le attività comuni, ad esempio la creazione di moduli e collegamenti, il caricamento di asset e così via, e altri ancora sono disponibili nei repository GitHub pubblici e come pacchetti NuGet. Gli helper tag vengono creati in C# e hanno come destinazione gli elementi HTML in base al nome di elemento, nome di attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` può avere come destinazione l'elemento HTML `<label>` quando vengono applicati gli attributi di `LabelTagHelper`. Se si ha familiarità con gli [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper tag riducono le transizioni esplicite tra HTML e C# nelle visualizzazioni Razor. In molti casi, gli helper HTML offrono un approccio alternativo a un helper tag specifico, ma è importante tenere presente che gli helper tag non sostituiscono gli helper HTML e che non esiste un helper tag per ogni helper HTML. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato.
 
-## <a name="what-tag-helpers-provide"></a>Cosa fornisce gli helper di Tag
+## <a name="what-tag-helpers-provide"></a>Vantaggi degli helper tag
 
-**Un'esperienza di sviluppo orientato HTML** per nella maggior parte, markup Razor utilizzando l'helper di Tag è simile a HTML standard. Finestre di progettazione front-end familiarità con HTML/CSS/JavaScript è possibile modificare Razor senza conoscere la sintassi di c# Razor.
+**Esperienza di sviluppo HTML semplificata**: nella maggior parte dei casi, il markup Razor in cui vengono usati gli helper tag ha l'aspetto del markup HTML standard. I progettisti all'avanguardia esperti di HTML/CSS/JavaScript possono modificare Razor senza conoscere la sintassi Razor per C#.
 
-**Un ambiente completo di IntelliSense per la creazione di markup HTML e Razor** in contrasto per l'helper HTML, l'approccio precedente per la creazione di markup in visualizzazioni Razor sul lato server. [Gli helper confrontati con l'helper HTML tag](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze nel modo più dettagliato. [Il supporto IntelliSense per gli helper di Tag](#intellisense-support-for-tag-helpers) viene illustrato l'ambiente di IntelliSense. Anche gli sviluppatori esperti con sintassi Razor c# sono più produttivi usando gli helper di Tag rispetto alla scrittura di codice c# Razor.
+**Ambiente IntelliSense avanzato per la creazione di markup HTML e Razor**: in netto contrasto con gli helper HTML, il precedente approccio alla creazione sul lato server del markup nelle visualizzazioni Razor. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato. Nella sezione [Supporto IntelliSense per gli helper tag](#intellisense-support-for-tag-helpers) viene illustrato l'ambiente IntelliSense. Anche gli sviluppatori esperti della sintassi C# per Razor aumentano la produttività usando gli helper tag invece di scrivere il markup Razor per C#.
 
-**Un modo per verificare più produttivo e in grado di produrre più efficiente, affidabile e codice di facile manutenibilità con informazioni è disponibile solo nel server** , ad esempio, in passato è stato il motto sull'aggiornamento di immagini per modificare il nome dell'immagine quando si modifica l'immagine. Le immagini devono essere in modo aggressivo memorizzati nella cache per motivi di prestazioni e, a meno che non si modifica il nome di un'immagine, si rischia di client di ottenere una copia non aggiornata. In passato, dopo la modifica di un'immagine, il nome deve essere modificato e ogni riferimento a un'immagine nell'app web deve essere aggiornato. Non solo è molto lavoro che con utilizzo intensivo, è anche errori (potrebbe mancare un riferimento, accidentalmente immettere la stringa non corretto e così via.) L'elemento predefinito `ImageTagHelper` per questo scopo è automaticamente. Il `ImageTagHelper` possibile aggiungere una versione numero per il nome dell'immagine, pertanto ogni volta che cambia l'immagine, il server genera automaticamente una nuova versione univoca per l'immagine. I client sono garantiti per ottenere l'immagine corrente. Il risparmio di affidabilità e manodopera proviene essenzialmente disponibile tramite il `ImageTagHelper`.
+**Possibilità di aumentare la produttività e la capacità di produrre codice più solido, affidabile e gestibile usando le informazioni disponibili solo nel server**: storicamente il mantra a proposito dell'aggiornamento delle immagini, ad esempio, era quello di cambiare il nome dell'immagine quando l'immagine veniva modificata. Per motivi di prestazioni, le immagini devono essere memorizzate nella cache e, a meno che il nome dell'immagine non venga cambiato, si rischia che i client ricevano una copia non aggiornata. Dopo che un'immagine era stata modificata, il nome doveva essere sempre cambiato e ogni riferimento all'immagine nell'app Web doveva essere aggiornato. Questa operazione non solo richiede un impegno notevole, ma è anche soggetta a errori (si può tralasciare un riferimento, immettere accidentalmente la stringa errata e così via). L'elemento predefinito `ImageTagHelper` esegue automaticamente questa operazione. `ImageTagHelper` è in grado di aggiungere un numero di versione al nome dell'immagine in modo che quando l'immagine viene modificata il server generi automaticamente una nuova versione univoca dell'immagine. I client riceveranno sicuramente l'immagine corrente. Grazie all'uso di `ImageTagHelper`, efficienza e risparmio di energie sono essenzialmente gratuiti.
 
-La maggior parte degli helper Tag predefiniti come destinazione gli elementi HTML esistenti e fornire attributi sul lato server per l'elemento. Ad esempio, il `<input>` elemento utilizzato in molte delle visualizzazioni del *viste/Account* cartella contiene il `asp-for` attributo, che estrae il nome della proprietà del modello specificato in codice HTML visualizzabile. Il markup Razor seguente:
+La maggior parte degli helper tag predefiniti hanno come destinazione elementi HTML esistenti e forniscono attributi sul lato server per l'elemento. Ad esempio, l'elemento `<input>` usato in molte visualizzazioni nella cartella *Views/Account* contiene l'attributo `asp-for` che estrae il nome della proprietà del modello specificato nel codice HTML sottoposto a rendering. Il markup Razor seguente:
 
 ```cshtml
 <label asp-for="Email"></label>
 ```
 
-Genera il codice HTML seguente:
+genera il codice HTML seguente:
 
 ```cshtml
 <label for="Email">Email</label>
 ```
 
-Il `asp-for` attributo è reso disponibile per il `For` proprietà il `LabelTagHelper`. Vedere [creazione gli helper di Tag](authoring.md) per ulteriori informazioni.
+L'attributo `asp-for` viene reso disponibile dalla proprietà `For` in `LabelTagHelper`. Per altre informazioni, vedere [Creazione di helper tag](authoring.md).
 
-## <a name="managing-tag-helper-scope"></a>La gestione di ambito Helper Tag
+## <a name="managing-tag-helper-scope"></a>Gestione dell'ambito dell'helper tag
 
-Ambito di helper di tag è controllata da una combinazione di `@addTagHelper`, `@removeTagHelper`e "!" rinuncia carattere.
+L'ambito degli helper tag è controllato da una combinazione di `@addTagHelper`, `@removeTagHelper` e del carattere di esclusione "!".
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`rende disponibili gli helper di Tag
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` rende disponibili gli helper tag
 
-Se si crea una nuova app web ASP.NET Core denominata *AuthoringTagHelpers* (con nessuna autenticazione), le operazioni seguenti *Views/_ViewImports.cshtml* file verrà aggiunto al progetto:
+Se si crea una nuova app Web ASP.NET Core denominata *AuthoringTagHelpers* (senza autenticazione), al progetto verrà aggiunto il file *Views/_ViewImports.cshtml* seguente:
 
 [!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-Il `@addTagHelper` direttiva rende disponibile per la visualizzazione gli helper di Tag. In questo caso, il file della visualizzazione è *Views/_ViewImports.cshtml*, che per impostazione predefinita viene ereditata da tutti i file di visualizzazione di *viste* cartella e le sottodirectory; rendere disponibili gli helper di Tag. Il codice precedente utilizza la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper di Tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) sarà disponibile per tutti i file nella visualizzazione di *viste* directory o sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper di Tag da caricare (usiamo "\*" per tutti gli helper di Tag), e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" Specifica l'assembly contenente gli helper di Tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper di Tag predefiniti di ASP.NET Core.
+La direttiva `@addTagHelper` rende gli helper tag disponibili per la visualizzazione. In questo caso, il file di visualizzazione è *Views/_ViewImports.cshtml* che per impostazione predefinita viene ereditato da tutti i file di visualizzazione nella cartella *Views* e nelle sottodirectory, rendendo disponibili gli helper tag. Il codice riportato sopra usa la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) saranno disponibili per tutti i file di visualizzazione nella directory *Views* o nelle sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper tag da caricare (viene usato "\*" per tutti gli helper tag) e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" specifica l'assembly contenente gli helper tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper tag predefiniti di ASP.NET Core.
 
-Per esporre tutti gli helper di Tag in questo progetto (che consente di creare un assembly denominato *AuthoringTagHelpers*), è necessario utilizzare la seguente:
+Per esporre tutti gli helper tag di questo progetto, che crea un assembly denominato *AuthoringTagHelpers*, usare il codice seguente:
 
 [!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
-Se il progetto contiene un `EmailTagHelper` con spazio dei nomi predefinito (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), è possibile fornire il nome completo (FQN) dell'Helper di Tag:
+Se il progetto contiene un `EmailTagHelper` con lo spazio dei nomi predefinito (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), è possibile fornire il nome completo dell'helper tag:
 
 ```cshtml
 @using AuthoringTagHelpers
@@ -72,190 +72,187 @@ Se il progetto contiene un `EmailTagHelper` con spazio dei nomi predefinito (`Au
 @addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
 ```
 
-Per aggiungere un Helper Tag a una vista utilizzando un FQN, aggiungere innanzitutto i FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il nome dell'assembly (*AuthoringTagHelpers*). La maggior parte degli sviluppatori preferiscono utilizzare il "\*" sintassi dei caratteri jolly. La sintassi con caratteri jolly consente di inserire il carattere jolly "\*" come suffisso in un FQN. Ad esempio, una delle seguenti direttive fornirà `EmailTagHelper`:
+Per aggiungere un helper tag a una visualizzazione usando un nome completo, aggiungere prima il nome completo (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il nome dell'assembly (*AuthoringTagHelpers*). La maggior parte degli sviluppatori preferisce usare la sintassi con caratteri jolly "\*". La sintassi con caratteri jolly consente di inserire il carattere jolly "\*" come suffisso di un nome completo. Le direttive seguenti, ad esempio, aggiungeranno `EmailTagHelper`:
 
 ```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Come indicato in precedenza, l'aggiunta di `@addTagHelper` direttiva per il *Views/_ViewImports.cshtml* file rende disponibili a tutti i file di visualizzazione dell'Helper di Tag di *viste* directory e sottodirectory. È possibile utilizzare il `@addTagHelper` direttiva nei file di visualizzazione specifico se si desidera registrarsi per esporre l'Helper di Tag solo tali viste.
+Come indicato in precedenza, l'aggiunta della direttiva `@addTagHelper` al file *Views/_ViewImports.cshtml* rende l'helper tag disponibile per tutti i file di visualizzazione nella directory *Views* e nelle sottodirectory. È possibile usare la direttiva `@addTagHelper` in file di visualizzazione specifici se si vuole acconsentire esplicitamente a esporre l'helper tag solo a queste visualizzazioni.
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Rimuove gli helper di Tag
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` rimuove gli helper tag
 
-Il `@removeTagHelper` ha gli stessi due parametri di `@addTagHelper`, e viene rimosso un Helper Tag che è stato aggiunto in precedenza. Ad esempio, `@removeTagHelper` applicati per rimuovere una visualizzazione specifica l'Helper di Tag specificato dalla vista. Utilizzando `@removeTagHelper` in un *Views/Folder/_ViewImports.cshtml* file rimuove l'Helper di Tag da tutte le viste in *cartella*.
+`@removeTagHelper` contiene gli stessi due parametri di `@addTagHelper` e rimuove un helper tag che era stato precedentemente aggiunto. Se ad esempio si applica `@removeTagHelper` a una visualizzazione specifica, l'helper tag specificato viene rimosso dalla visualizzazione. L'uso di `@removeTagHelper` in un file *Views/Folder/_ViewImports.cshtml* comporta la rimozione dell'helper tag specificato da tutte le visualizzazioni in *Folder*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controllo dell'ambito di Helper di Tag con il *viewimports. cshtml* file
+### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controllo dell'ambito dell'helper tag con il file *_ViewImports.cshtml*
 
-È possibile aggiungere un *viewimports. cshtml* per qualsiasi cartella di visualizzazione e la visualizzazione motore applica le direttive da tale file di entrambi e *Views/_ViewImports.cshtml* file. Se è stato aggiunto un oggetto vuoto *Views/Home/_ViewImports.cshtml* file per il *Home* visualizzazioni, non vi sarà alcuna modifica perché il *viewimports. cshtml* file additivo. Qualsiasi `@addTagHelper` aggiungere le direttive di *Views/Home/_ViewImports.cshtml* file (che non sono presenti il valore predefinito *Views/_ViewImports.cshtml* file) consente di esporre tali gli helper di Tag alle viste solo nel *Home* cartella.
+È possibile aggiungere un file *_ViewImports.cshtml* a una cartella di visualizzazione qualsiasi e il motore di visualizzazione applicherà le direttive di questo file e del file *Views/_ViewImports.cshtml*. L'aggiunta di un file *Views/Home/_ViewImports.cshtml* vuoto per le visualizzazioni *Home* non comporta modifiche perché il file *_ViewImports.cshtml* è additivo. Le direttive `@addTagHelper` aggiunte al file *Views/Home/_ViewImports.cshtml* (non presenti nel file *Views/_ViewImports.cshtml* predefinito) espongono questi helper tag alle visualizzazioni solo nella cartella *Home*.
 
 <a name="opt-out"></a>
 
-### <a name="opting-out-of-individual-elements"></a>Rifiuto esplicito singoli elementi
+### <a name="opting-out-of-individual-elements"></a>Esclusione di singoli elementi
 
-È possibile disabilitare un Helper Tag a livello di elemento con il carattere di rinuncia Helper di Tag ("!"). Ad esempio, `Email` convalida è disabilitata nel `<span>` con il carattere di rinuncia Helper di Tag:
+È possibile disabilitare un helper tag a livello di elemento con il carattere di esclusione ("!") dell'helper tag. La convalida `Email` viene ad esempio disabilitata in `<span>` con il carattere di esclusione dell'helper tag:
 
 ```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
-È necessario applicare il carattere di rinuncia Helper di Tag per il tag di apertura e chiusura. (Editor di Visual Studio aggiunge automaticamente il carattere di aderire al tag di chiusura quando si aggiunge uno al tag di apertura). Dopo aver aggiunto il carattere di rifiuto esplicito, l'elemento e gli attributi di Helper di Tag non sono più visualizzati in un unico tipo di carattere.
+È necessario applicare il carattere di esclusione dell'helper tag ai tag di apertura e chiusura. L'editor di Visual Studio aggiunge automaticamente il carattere di esclusione al tag di chiusura se ne è stato aggiunto uno al tag di apertura. Dopo che il carattere di esclusione è stato aggiunto, l'elemento e gli attributi dell'helper tag non verranno più visualizzati in un tipo di carattere distintivo.
 
 <a name="prefix-razor-directives-label"></a>
 
-### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Utilizzando `@tagHelperPrefix` rendere esplicito l'utilizzo di Helper Tag
+### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Uso di `@tagHelperPrefix` per rendere esplicito l'uso dell'helper tag
 
-Il `@tagHelperPrefix` direttiva consente di specificare una stringa di prefisso di tag per abilitare il supporto di Helper di Tag e rendere esplicito l'utilizzo di Helper di Tag. Ad esempio, è possibile aggiungere il markup seguente per il *Views/_ViewImports.cshtml* file:
+La direttiva `@tagHelperPrefix` consente di specificare una stringa di prefisso del tag per abilitare il supporto dell'helper tag e renderne esplicito l'uso. È possibile, ad esempio, aggiungere il markup seguente al file *Views/_ViewImports.cshtml*:
 
 ```cshtml
 @tagHelperPrefix th:
 ```
-Nell'immagine di codice seguente, il prefisso di Tag Helper è impostato su `th:`, in modo che solo gli elementi utilizzando il prefisso `th:` supportano gli helper di Tag (abilitato Helper di Tag di elementi di un carattere distintivo). Il `<label>` e `<input>` elementi dispongono del prefisso dell'Helper di Tag e sono abilitati per il supporto di Tag, durante il `<span>` non elemento.
+Nell'immagine di codice seguente, il prefisso dell'helper tag è impostato su `th:`. Pertanto, solo gli elementi che usano il prefisso `th:` supportano gli helper tag. Gli elementi abilitati per gli helper tag hanno un tipo di carattere distintivo. Gli elementi `<label>` e `<input>` includono il prefisso dell'helper tag e sono abilitati per gli helper tag, mentre l'elemento `<span>` non lo è.
 
 ![immagine](intro/_static/thp.png)
 
-Le stesse regole di gerarchia che si applicano a `@addTagHelper` si applicano anche alle `@tagHelperPrefix`.
+Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anche per `@tagHelperPrefix`.
 
-## <a name="intellisense-support-for-tag-helpers"></a>Supporto IntelliSense per gli helper di Tag
+## <a name="intellisense-support-for-tag-helpers"></a>Supporto IntelliSense per gli helper tag
 
-Quando si crea una nuova app web ASP.NET in Visual Studio, aggiunge il pacchetto NuGet "Microsoft.AspNetCore.Razor.Tools". Questo è il pacchetto che aggiunge gli strumenti di supporto di Tag.
+Quando si crea una nuova app Web ASP.NET in Visual Studio, viene aggiunto il pacchetto NuGet "Microsoft.AspNetCore.Razor.Tools", ovvero il pacchetto che aggiunge gli strumenti dell'helper tag.
 
-Si consiglia di scrivere l'HTML `<label>` elemento. Non appena immette `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
+Si supponga di scrivere un elemento `<label>` HTML. Non appena si inizia a digitare `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
 ![immagine](intro/_static/label.png)
 
-Non solo ottenere della Guida HTML, ma l'icona (il "@" symbol with "<>" sotto di esso).
+Oltre alla guida HTML verrà visualizzata anche l'icona (il "@" symbol with "<>" sotto di essa).
 
 ![immagine](intro/_static/tagSym.png)
 
-Identifica l'elemento come destinazione gli helper di Tag. Gli elementi HTML puri (ad esempio il `fieldset`) l'icona di "<>".
+che identifica l'elemento come destinazione degli helper tag. Gli elementi HTML puri (ad esempio, `fieldset`) visualizzano l'icona "<>".
 
-Un HTML puro `<label>` tag viene visualizzato il tag HTML (con il tema colori di Visual Studio predefinito) in un tipo di carattere marrone, gli attributi in rosso, e i valori di attributo in blu.
+Un tag `<label>` HTML puro visualizza il tag HTML (con il tema colori di Visual Studio predefinito) con un tipo di carattere marrone, gli attributi in rosso e i valori degli attributi in blu.
 
 ![immagine](intro/_static/LableHtmlTag.png)
 
-Dopo avere immesso `<label`, IntelliSense Elenca gli attributi HTML/CSS disponibili e gli attributi di Helper di Tag di destinazione:
+Dopo avere immesso `<label`, IntelliSense elenca gli attributi HTML/CSS disponibili e gli attributi di destinazione dell'helper tag:
 
 ![immagine](intro/_static/labelattr.png)
 
-Completamento delle istruzioni IntelliSense consente di immettere il tasto tab per completare l'istruzione con il valore selezionato:
+Il completamento istruzioni di IntelliSense consente di usare il tasto TAB per completare l'istruzione con il valore selezionato:
 
 ![immagine](intro/_static/stmtcomplete.png)
 
-Non appena viene immesso un attributo Helper di Tag, modificare i tipi di carattere tag e attributi. Usa il tema colori "Light" o predefinito Visual Studio "Blue", il carattere è in grassetto viola. Se si usa il tema "Scuro" il carattere è in grassetto verde acqua. Le immagini in questo documento sono state eseguite utilizzando il tema predefinito.
+Non appena un attributo dell'helper tag viene immesso, i tipi di carattere del tag e dell'attributo cambiano. Con il tema colori predefinito "Blu" o "Chiaro" di Visual Studio, il tipo di carattere è in grassetto viola. Se si usa il tema colori "Scuro", il tipo di carattere è in grassetto verde acqua. Nelle immagini acquisite per questo documento è stato usato il tema predefinito.
 
 ![immagine](intro/_static/labelaspfor2.png)
 
-È possibile immettere Visual Studio *CompleteWord* scelta rapida (Ctrl + barra spaziatrice è il [predefinito](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) all'interno delle virgolette doppie (""), ed è ora in c#, esattamente come sarebbe in una classe c#. IntelliSense consente di visualizzare tutti i metodi e proprietà sul modello di pagina. I metodi e proprietà sono disponibili perché il tipo della proprietà è `ModelExpression`. Nell'immagine seguente, si modifica il `Register` vista, pertanto la `RegisterViewModel` è disponibile.
+È possibile usare il tasto di scelta rapida *Completa parola* di Visual Studio (CTRL+BARRA SPAZIATRICE è la combinazione [predefinita](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) all'interno delle virgolette doppie ("") per passare a C#, proprio come se ci si trovasse in una classe C#. IntelliSense visualizza tutti i metodi e le proprietà nel modello di pagina. I metodi e le proprietà sono disponibili perché il tipo di proprietà è `ModelExpression`. Nell'immagine seguente viene modificata la visualizzazione `Register`, quindi è disponibile il modello `RegisterViewModel`.
 
 ![immagine](intro/_static/intellemail.png)
 
-IntelliSense Elenca le proprietà e i metodi disponibili per il modello nella pagina. L'ambiente completo di IntelliSense consente di selezionare la classe CSS:
+IntelliSense elenca le proprietà e i metodi disponibili per il modello nella pagina. L'ambiente avanzato di IntelliSense consente di selezionare la classe CSS:
 
 ![immagine](intro/_static/iclass.png)
 
 ![immagine](intro/_static/intel3.png)
 
-## <a name="tag-helpers-compared-to-html-helpers"></a>Helper di tag rispetto a helper HTML
+## <a name="tag-helpers-compared-to-html-helpers"></a>Helper tag e helper HTML a confronto
 
-Collegare gli helper di tag agli elementi HTML in visualizzazioni Razor, mentre [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) vengono chiamati come metodi frammisto HTML in visualizzazioni Razor. Si consideri il seguente markup Razor, che consente di creare un'etichetta HTML con la classe CSS "titolo":
+Gli helper tag sono associati agli elementi HTML nelle visualizzazioni Razor, mentre gli [helper HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) vengono richiamati come metodi frammisti a codice HTML nelle visualizzazioni Razor. Si osservi il markup Razor seguente che crea un'etichetta HTML con la classe CSS "caption":
 
 ```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-L'in (`@`) simbolo indica Razor, si tratta dell'inizio del codice. I due parametri successivi ("FirstName" e "nome:") sono stringhe, pertanto [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) non consente di. L'ultimo argomento:
+Il simbolo `@` indica a Razor l'inizio del codice. I due parametri successivi ("FirstName" e "First Name:") sono stringhe, quindi [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) non risulta utile. L'ultimo argomento:
 
 ```cshtml
 new {@class="caption"}
 ```
 
-Un oggetto anonimo viene utilizzato per rappresentare gli attributi. Poiché **classe** è una parola chiave riservata in c#, utilizzare il `@` simbolo per forzare in c# per interpretare "@class=" come simbolo (nome della proprietà). Per una finestra di progettazione front-end (un utente hanno dimestichezza con HTML/CSS/JavaScript e altre tecnologie client, ma non hanno familiarità con c# e Razor), la maggior parte della riga è esterno. L'intera riga deve essere creata con alcuna informazione della Guida da IntelliSense.
+è un oggetto anonimo usato per rappresentare gli attributi. Poiché **class** è una parola chiave riservata in C#, usare il simbolo `@` per imporre a C# di interpretare "@class=" come un simbolo (nome di proprietà). Per un progettista all'avanguardia che abbia familiarità con HTML/CSS/JavaScript e altre tecnologie client, ma non con C# e Razor, la maggior parte della riga è sconosciuta. L'intera riga deve essere creata senza alcun aiuto da parte di IntelliSense.
 
-Utilizzo di `LabelTagHelper`, gli stessi tag possono essere scritti come:
+Usando `LabelTagHelper`, è possibile scrivere lo stesso markup nel modo seguente:
 
 ![immagine](intro/_static/label2.png)
 
-Con la versione dell'Helper di Tag, non appena immette `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
+Con la versione helper tag, non appena si digita `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
 ![immagine](intro/_static/label.png)
 
-IntelliSense consente di scrivere l'intera riga. Il `LabelTagHelper` anche per impostazione predefinita il contenuto dell'impostazione di `asp-for` valore ("FirstName") dell'attributo "Nome"; Proprietà maiuscole/minuscole camel converte in una frase composta dal nome di proprietà con uno spazio in cui si verifica ogni nuova lettera maiuscola. Nel codice seguente:
+IntelliSense aiuta a scrivere l'intera riga. Per impostazione predefinita, `LabelTagHelper` imposta inoltre il contenuto del valore dell'attributo `asp-for` ("FirstName") su "First Name". Converte le proprietà scritte con le maiuscole/minuscole camel in una frase composta dal nome della proprietà con uno spazio in corrispondenza di ogni nuova lettera maiuscola. Nel markup seguente:
 
 ![immagine](intro/_static/label2.png)
 
-Genera l'errore:
+genera:
 
 ```cshtml
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-Le maiuscole/minuscole camel al contenuto in base alla frase non viene usata se si aggiunge contenuto per il `<label>`. Ad esempio:
+Il contenuto convertito da maiuscole/minuscole camel in frase non viene usato se viene aggiunto contenuto a `<label>`. Ad esempio:
 
 ![immagine](intro/_static/1stName.png)
 
-Genera l'errore:
+genera:
 
 ```cshtml
 <label class="caption" for="FirstName">Name First</label>
 ```
 
-L'immagine di codice seguente mostra la parte di *Views/Account/Register.cshtml* visualizzazione Razor generata dal legacy ASP.NET 4.5.x MVC modello incluso con Visual Studio 2015.
+L'immagine di codice seguente illustra la porzione Form della visualizzazione Razor *Views/Account/Register.cshtml* generata dal modello MVC legacy di ASP.NET 4.5.x incluso in Visual Studio 2015.
 
 ![immagine](intro/_static/regCS.png)
 
-Editor di Visual Studio consente di visualizzare il codice c# con uno sfondo grigio. Ad esempio, il `AntiForgeryToken` HTML Helper:
+Nell'editor di Visual Studio il codice C# viene visualizzato con uno sfondo grigio. Ad esempio, l'helper HTML `AntiForgeryToken`:
 
 ```cshtml
 @Html.AntiForgeryToken()
 ```
 
-viene visualizzato con uno sfondo grigio. La maggior parte del markup nella visualizzazione registro è c#. Stabilire un confronto con l'approccio equivalente utilizzando l'helper di Tag:
+viene visualizzato con uno sfondo grigio. La maggior parte del markup nella visualizzazione Register è C#. Confrontarlo con l'approccio equivalente usando gli helper tag:
 
 ![immagine](intro/_static/regTH.png)
 
-Il markup è molto più semplice e più facile da leggere, modificare e gestire rispetto a quella di helper HTML. Il codice c# è ridotto al minimo, che il server deve conoscere. L'editor di Visual Studio Visualizza markup di destinazione di un Helper di Tag in un unico tipo di carattere.
+Rispetto all'approccio con gli helper HTML, il markup è molto più chiaro e facile da leggere, modificare e gestire. Il codice C# è ridotto al numero minimo di elementi che il server deve conoscere. Nell'editor di Visual Studio il markup di destinazione di un helper tag viene visualizzato in un tipo di carattere distintivo.
 
-Si consideri il *posta elettronica* gruppo:
+Si osservi il gruppo *Email*:
 
 [!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
 
-Gli attributi "asp-" ha un valore di "Email" e "Email" non è una stringa. In questo contesto, "Email" è la proprietà expression di modello c# per il `RegisterViewModel`.
+Ogni attributo "asp-" ha il valore "Email", ma "Email" non è una stringa. In questo contesto "Email" è la proprietà di espressione del modello C# per `RegisterViewModel`.
 
-Editor di Visual Studio consente di scrivere **tutti** del markup nell'approccio Helper di Tag del modulo di registrazione, mentre Visual Studio non fornisce alcuna informazione della Guida per la maggior parte del codice nell'approccio helper HTML. [Il supporto IntelliSense per gli helper di Tag](#intellisense-support-for-tag-helpers) entra dettagli sull'utilizzo di helper di Tag nell'editor di Visual Studio.
+L'editor di Visual Studio agevola la scrittura di **tutto** il markup nell'approccio con l'helper tag del modulo di registrazione, mentre Visual Studio non offre alcun aiuto per la maggior parte del codice nell'approccio con gli helper HTML. Nella sezione [Supporto IntelliSense per gli helper tag](#intellisense-support-for-tag-helpers) viene illustrato in modo dettagliato l'uso degli helper tag nell'editor di Visual Studio.
 
-## <a name="tag-helpers-compared-to-web-server-controls"></a>Helper di tag rispetto ai controlli Server Web
+## <a name="tag-helpers-compared-to-web-server-controls"></a>Helper tag e controlli server Web a confronto
 
-* Gli helper di tag non proprietari dell'elemento che sono associate; fanno parte semplicemente il rendering dell'elemento e il contenuto. ASP.NET [controlli Server Web](https://msdn.microsoft.com/library/7698y1f0.aspx) vengono dichiarati e richiamato in una pagina.
+* Gli helper tag non sono i proprietari dell'elemento a cui sono associati, ma partecipano semplicemente al rendering dell'elemento e del contenuto. I [controlli server Web](https://msdn.microsoft.com/library/7698y1f0.aspx) di ASP.NET vengono dichiarati e richiamati in una pagina.
 
-* [Controlli Server Web](https://msdn.microsoft.com/library/zsyt68f1.aspx) hanno un ciclo di vita non semplice che può rendere difficile lo sviluppo e debug.
+* I [controlli server Web](https://msdn.microsoft.com/library/zsyt68f1.aspx) hanno un ciclo di vita non semplice che può rendere difficili le attività di sviluppo e debug.
 
-* I controlli Server Web consentono di aggiungere funzionalità per gli elementi del modello DOM (Document Object) client tramite un controllo client. Gli helper di tag non dispone di alcun DOM.
+* I controlli server Web consentono di aggiungere funzionalità agli elementi DOM (Document Object Model) del client tramite un controllo client. Gli helper tag non includono DOM.
 
-* Controlli Server Web includono rilevamento automatico del browser. Gli helper di tag non sono a conoscenza del browser.
+* I controlli server Web includono il rilevamento automatico del browser. Gli helper tag non hanno conoscenza del browser.
 
-* Gli helper di Tag più può fungere da sullo stesso elemento (vedere [conflitti evitando Helper Tag](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts) ) mentre è in genere non è possibile comporre i controlli Server Web.
+* Più helper tag possono agire sullo stesso elemento, vedere [Avoiding Tag Helper conflicts](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts) (Evitare i conflitti degli helper tag), mentre non è possibile in genere comporre i controlli server Web.
 
-* Gli helper di tag è possono modificare il tag e il contenuto degli elementi HTML che sta ambiti, ma non modificare direttamente qualsiasi altra in una pagina. I controlli Server Web hanno un ambito specifico meno e possono eseguire azioni che influiscono su altre parti della pagina; abilitazione di effetti collaterali imprevisti.
+* Gli helper tag possono modificare il tag e il contenuto degli elementi HTML che rientrano nel proprio ambito, ma non modificano altro in modo diretto in una pagina. I controlli server Web hanno un ambito meno specifico e possono eseguire azioni che influiscono su altre parti della pagina, provocando effetti collaterali imprevisti.
 
-* Controlli Server Web utilizzano i convertitori di tipi per convertire le stringhe in oggetti. Gli helper di Tag, si lavora in modo nativo in c#, pertanto non è necessario al tipo di conversione.
+* I controlli server Web usano i convertitori di tipi per convertire le stringhe in oggetti. Gli helper tag consentono di lavorare in modo nativo in C#, quindi la conversione dei tipi non è necessaria.
 
-* Utilizzare i controlli Server Web [System. ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) per implementare il comportamento in fase di esecuzione e in fase di progettazione di componenti e controlli. `System.ComponentModel`include le classi base e interfacce per l'implementazione di convertitori di tipi e gli attributi, associazioni a origini dati e componenti della licenza. Invece che per gli helper di Tag, che in genere derivano da `TagHelper`e `TagHelper` classe di base espone due metodi, `Process` e `ProcessAsync`.
+* I controlli server Web usano [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) per implementare il comportamento di componenti e controlli in fase di esecuzione e in fase di progettazione. `System.ComponentModel` include le classi e le interfacce di base per l'implementazione di attributi e convertitori, l'associazione a origini dati e le licenze per i componenti. Gli helper tag invece derivano in genere da `TagHelper` e la classe di base `TagHelper` espone solo due metodi, `Process` e `ProcessAsync`.
 
-## <a name="customizing-the-tag-helper-element-font"></a>Il tipo di carattere elemento Helper di Tag di personalizzazione
+## <a name="customizing-the-tag-helper-element-font"></a>Personalizzazione del tipo di carattere dell'elemento helper tag
 
-È possibile personalizzare il tipo di carattere e la colorazione da **strumenti** > **opzioni** > **ambiente** > **tipi di carattere e i colori**:
+È possibile personalizzare il tipo di carattere e la colorazione in **Strumenti** > **Opzioni** > **Ambiente** > **Tipi di carattere e colori**:
 
 ![immagine](intro/_static/fontoptions2.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Creazione e modifica di helper tag](authoring.md)
-* [Utilizzo dei moduli](../working-with-forms.md)
-* [TagHelperSamples su GitHub](https://github.com/dpaquette/TagHelperSamples) sono inclusi esempi di Helper di Tag per l'utilizzo di [Bootstrap](http://getbootstrap.com/).
-
-<!--
-* [Working with Forms ](xref:mvc/views/working-with-forms)
--->
+* [Creazione e modifica di helper tag](xref:mvc/views/tag-helpers/authoring)
+* [Uso dei moduli ](xref:mvc/views/working-with-forms)
+* [TagHelperSamples in GitHub](https://github.com/dpaquette/TagHelperSamples) contiene esempi di helper tag per l'uso di [Bootstrap](http://getbootstrap.com/).
+* [Uso dei moduli ](xref:mvc/views/working-with-forms)

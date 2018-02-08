@@ -1,107 +1,107 @@
 ---
-title: Visualizza i componenti
+title: Componenti di visualizzazione
 author: rick-anderson
-description: Visualizza i componenti sono destinati in qualsiasi punto che si dispone di logica di rendering riutilizzabili.
-ms.author: riande
+description: I componenti di visualizzazione possono essere impiegati in un punto qualsiasi della logica di rendering riutilizzabile.
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="view-components"></a>Visualizza i componenti
+# <a name="view-components"></a>Componenti di visualizzazione
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Introduzione a componenti di visualizzazione
+## <a name="introducing-view-components"></a>Introduzione ai componenti di visualizzazione
 
-Nuovo ad ASP.NET MVC di base, i componenti di visualizzazione sono simili alle viste parziale, ma molto più potenti. Visualizza i componenti non utilizzare l'associazione di modelli e dipendono solo i dati forniti durante la chiamata al suo interno. Un componente di visualizzazione:
+I componenti di visualizzazione sono una nuova funzionalità di ASP.NET Core MVC, hanno aspetti comuni con le visualizzazioni parziali, ma sono molto più efficienti. I componenti di visualizzazione non usano l'associazione di modelli. Dipendono soltanto dai dati specificati in fase di chiamata. Un componente di visualizzazione:
 
-* Esegue il rendering di un blocco anziché un'intera risposta.
-* Include gli stesso la separazione di problemi e i vantaggi di testabilità trovati tra un controller e una visualizzazione
-* Può avere parametri e logica di business
-* In genere viene richiamato da una pagina di layout
+* Esegue il rendering di un blocco anziché di un'intera risposta.
+* Include la stessa separazione dei concetti e gli stessi vantaggi per i test individuati nel controller e nella visualizzazione.
+* Può contenere parametri e logica di business.
+* In genere viene richiamato da una pagina di layout.
 
-Visualizza i componenti sono destinati in qualsiasi punto che si dispone di logica di rendering riutilizzabile che è troppo complessa per una visualizzazione parziale, ad esempio:
+I componenti di visualizzazione possono essere impiegati in un punto qualsiasi della logica di rendering riutilizzabile che risulta troppo complessa per una visualizzazione parziale, ad esempio:
 
-* Menu di navigazione dinamica
-* Cloud tag (in cui viene eseguita una query del database)
+* Menu di spostamento dinamici
+* Tag cloud (nel quale viene eseguita una query del database)
 * Pannello di accesso
 * Carrello acquisti
-* Articoli pubblicati di recente
-* Contenuto dell'intestazione laterale in un tipico blog
-* Un pannello di accesso che verrebbe eseguito in ogni pagina e visualizza entrambi i collegamenti per effettuare la disconnessione o di log, a seconda di log nello stato dell'utente
+* Articoli recentemente pubblicati
+* Contenuto dell'intestazione laterale in un blog tradizionale
+* Pannello di accesso che viene eseguito in ogni pagina e che visualizza il collegamento di accesso o di disconnessione, a seconda dello stato di accesso dell'utente
 
-Un componente di visualizzazione è costituito da due parti: la classe (in genere derivato da [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituisce (in genere una vista). Ad esempio controller, un componente di visualizzazione può essere un POCO, ma desidera sfruttare i metodi e le proprietà disponibili derivandolo dalla maggior parte degli sviluppatori `ViewComponent`.
+Un componente di visualizzazione è costituito da due parti: la classe (in genere derivata da [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituito (in genere una visualizzazione). Come per i controller, un componente di visualizzazione può essere un oggetto POCO. Molti sviluppatori preferiscono tuttavia sfruttare i metodi e le proprietà disponibili derivando da `ViewComponent`.
 
 ## <a name="creating-a-view-component"></a>Creazione di un componente di visualizzazione
 
-In questa sezione contiene i requisiti di alto livello per creare un componente di visualizzazione. In un secondo momento nell'articolo, viene esaminare in dettaglio ogni passaggio e creare un componente di visualizzazione.
+Questa sezione contiene i requisiti principali per creare un componente di visualizzazione. Più avanti in questo articolo, vengono esaminati nel dettaglio tutti i passaggi e viene creato un componente di visualizzazione.
 
-### <a name="the-view-component-class"></a>La classe di componente di visualizzazione
+### <a name="the-view-component-class"></a>Classe del componente di visualizzazione
 
-È possibile creare una classe di componente di visualizzazione da una delle seguenti:
+È possibile creare una classe del componente di visualizzazione in uno dei modi seguenti:
 
-* Derivazione da *ViewComponent*
-* La decorazione di una classe con il `[ViewComponent]` attributo o deriva da una classe con il `[ViewComponent]` attributo
-* Creazione di una classe il cui nome termina con il suffisso *ViewComponent*
+* Derivando da *ViewComponent*
+* Assegnando a una classe con l'attributo `[ViewComponent]` o derivando da una classe con l'attributo `[ViewComponent]`
+* Creando una classe in cui il nome termina con il suffisso *ViewComponent*
 
-Ad esempio controller, Visualizza i componenti devono essere classi di pubbliche, non annidata e non astratta. Il nome del componente di visualizzazione è il nome di classe con il suffisso "ViewComponent" rimosso. È possibile inoltre specificare in modo esplicito utilizzando il `ViewComponentAttribute.Name` proprietà.
+Come i controller, i componenti di visualizzazione devono essere classi pubbliche, non devono essere classi annidate e astratte. Il nome del componente di visualizzazione corrisponde al nome della classe privato del suffisso "ViewComponent". È anche possibile specificarlo in modo esplicito usando la proprietà `ViewComponentAttribute.Name`.
 
-Una classe di componente di visualizzazione:
+Una classe del componente di visualizzazione:
 
-* Supporta completamente costruttore [inserimento di dipendenze](../../fundamentals/dependency-injection.md)
+* Supporta pienamente l'[inserimento delle dipendenze ](../../fundamentals/dependency-injection.md) del costruttore
 
-* Non prendere parte del ciclo di vita di controller, ovvero non è possibile utilizzare [filtri](../controllers/filters.md) in un componente di visualizzazione
+* Non partecipa al ciclo di vita del controller, non è quindi possibile usare i [filtri](../controllers/filters.md) in un componente di visualizzazione
 
 ### <a name="view-component-methods"></a>Metodi del componente di visualizzazione
 
-Un componente di visualizzazione definisce la logica in un `InvokeAsync` metodo che restituisce un `IViewComponentResult`. I parametri che provengano direttamente dalla chiamata di un componente di visualizzazione, non dall'associazione del modello. Un componente di visualizzazione mai direttamente gestisce una richiesta. In genere, Inizializza un modello e la passa a una visualizzazione chiamando un componente di visualizzazione di `View` metodo. In sintesi, visualizzare i metodi del componente:
+Un componente di visualizzazione definisce la propria logica in un metodo `InvokeAsync` che restituisce `IViewComponentResult`. I parametri vengono rilevati direttamente dalla chiamata del componente di visualizzazione e non dall'associazione di modelli. Un componente di visualizzazione non gestisce mai direttamente una richiesta. In genere, inizializza un modello e lo passa a una visualizzazione chiamando il metodo `View`. Riepilogando, i metodi del componente di visualizzazione:
 
-* Definire un `InvokeAsync` metodo che restituisce un`IViewComponentResult`
-* Inizializza un modello e la passa a una vista mediante la chiamata in genere il `ViewComponent` `View` (metodo)
-* Parametri provengono dal metodo di chiamata, non HTTP, non è disponibile alcuna associazione di modelli
-* Sono non raggiungibile direttamente come un endpoint HTTP, che sta richiamati dal codice (in genere in una vista). Un componente di visualizzazione mai gestisce una richiesta
-* La firma, anziché i dettagli della richiesta HTTP corrente sono sottoposti a overload
+* Definiscono un metodo `InvokeAsync` che restituisce `IViewComponentResult`
+* In genere, inizializzano un modello e lo passano a una visualizzazione chiamando il metodo `ViewComponent` `View`
+* I parametri vengono rilevati dal metodo di chiamata, non da HTTP e non esiste un'associazione di modelli
+* Non sono raggiungibili direttamente come endpoint HTTP. Sono richiamati dal codice, solitamente in una visualizzazione. Un componente di visualizzazione non gestisce mai una richiesta
+* Sono sottoposti a overload sulla firma e non sui dettagli dalla richiesta HHTP corrente
 
-### <a name="view-search-path"></a>Percorso di ricerca di visualizzazione
+### <a name="view-search-path"></a>Percorso di ricerca della visualizzazione
 
-Il runtime esegue la ricerca per la visualizzazione nei percorsi seguenti:
+Il runtime esegue la ricerca della visualizzazione nei percorsi seguenti:
 
-   * Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
-   * Componenti/Shared/visualizzazioni/\<view_component_name > /\<view_name >
+   * Views/\<nome_controller>/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
+   * Views/Shared/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
 
-Il nome di visualizzazione predefinito per un componente di visualizzazione è *predefinito*, ovvero il file di visualizzazione in genere è denominato *cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato di componente di visualizzazione o quando si chiama il `View` metodo.
+Il nome di visualizzazione predefinito per un componente di visualizzazione è *Default*, quindi il file della visualizzazione viene solitamente denominato *Default.cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato del componente di visualizzazione o quando si chiama il metodo `View`.
 
-Si consiglia denominare il file di visualizzazione *cshtml* e utilizzare il *componenti/Shared/visualizzazioni/\<view_component_name > /\<view_name >* percorso. Il `PriorityList` del componente di visualizzazione utilizzato in questo esempio Usa *Views/Shared/Components/PriorityList/Default.cshtml* per la vista del componente di visualizzazione.
+Si consiglia di denominare il file di visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/\<nome_ccomponente_visualizzazione>/\<nome_visualizzazione>*. Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
 
-## <a name="invoking-a-view-component"></a>Richiamo di un componente di visualizzazione
+## <a name="invoking-a-view-component"></a>Chiamata di un componente di visualizzazione
 
-Per utilizzare il componente di visualizzazione, chiamare le operazioni seguenti all'interno di una vista:
+Per usare il componente di visualizzazione, chiamare il codice seguente all'interno di una visualizzazione:
 
 ```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
-I parametri verranno passati al `InvokeAsync` metodo. Il `PriorityList` sviluppato nell'articolo del componente di visualizzazione viene richiamato dal *Views/Todo/Index.cshtml* file della vista. Nell'esempio seguente, il `InvokeAsync` metodo viene chiamato con due parametri:
+I parametri saranno passati al metodo `InvokeAsync`. Il componente di visualizzazione `PriorityList` sviluppato nell'articolo viene richiamato dal file di visualizzazione *Views/Todo/Index.cshtml*. Nell'esempio seguente il metodo `InvokeAsync` viene chiamato con due parametri:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-## <a name="invoking-a-view-component-as-a-tag-helper"></a>Richiamo di un componente di visualizzazione come un Helper Tag
+## <a name="invoking-a-view-component-as-a-tag-helper"></a>Chiamata di un componente di visualizzazione come helper tag
 
-Per ASP.NET Core 1.1 e versioni successive, è possibile richiamare un componente di visualizzazione come una [Helper di Tag](xref:mvc/views/tag-helpers/intro):
+Per ASP.NET Core 1.1 e versioni successive, è possibile richiamare un componente di visualizzazione come [helper tag](xref:mvc/views/tag-helpers/intro):
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Base alla convezione Pascal classe e metodo parametri per gli helper di Tag vengono convertiti in loro [inferiore case kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Utilizza l'Helper di Tag per richiamare un componente di visualizzazione di `<vc></vc>` elemento. Il componente di visualizzazione viene specificato come segue:
+La classe scritta usando la convenzione Pascal e i parametri del metodo per gli helper tag vengono convertiti nel formato corrispondente [kebab case minuscolo](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Per richiamare un componente di visualizzazione, l'helper tag usa l'elemento `<vc></vc>`. Il componente di visualizzazione viene specificato nel modo seguente:
 
 ```cshtml
 <vc:[view-component-name]
@@ -110,99 +110,99 @@ Base alla convezione Pascal classe e metodo parametri per gli helper di Tag veng
 </vc:[view-component-name]>
 ```
 
-Nota: Per utilizzare un componente di visualizzazione come un Helper Tag, è necessario registrare l'assembly contenente il componente di visualizzazione utilizzando il `@addTagHelper` direttiva. Ad esempio, se il componente di visualizzazione si trova in un assembly denominato "MyWebApp", aggiungere la seguente direttiva per il `_ViewImports.cshtml` file:
+Nota: per usare un componente di visualizzazione come helper tag, è necessario registrare l'assembly contenente il componente di visualizzazione usando la direttiva `@addTagHelper`. Ad esempio, se il componente di visualizzazione si trova in un assembly denominato "MyWebApp", aggiungere la direttiva seguente al file `_ViewImports.cshtml`:
 
 ```cshtml
 @addTagHelper *, MyWebApp
 ```
 
-È possibile registrare un componente di visualizzazione come un Helper Tag a qualsiasi file che fa riferimento il componente di visualizzazione. Vedere [Gestione ambito Helper di Tag](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) per ulteriori informazioni su come registrare gli helper di Tag.
+È possibile registrare un componente di visualizzazione come helper tag per qualsiasi file che fa riferimento al componente di visualizzazione. Vedere [Gestione dell'ambito dell'helper tag](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) per altre informazioni su come registrare gli helper tag.
 
-Il `InvokeAsync` metodo utilizzato in questa esercitazione:
+Il metodo `InvokeAsync` usato in questa esercitazione:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-Nel markup di Helper di Tag:
+Nel markup dell'helper tag:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Nell'esempio precedente, il `PriorityList` del componente di visualizzazione diventa `priority-list`. I parametri per il componente di visualizzazione vengono passati come attributi in lettere minuscole kebab.
+Nell'esempio precedente il componente di visualizzazione `PriorityList` diventa `priority-list`. I parametri per il componente di visualizzazione vengono passati come attributi nel formato kebab case minuscolo.
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Richiamo di un componente di visualizzazione direttamente da un controller
 
-Visualizza i componenti vengono in genere richiamati da una vista, ma è possibile richiamare tali direttamente da un metodo del controller. Mentre i componenti di visualizzazione non definiscono endpoint come controller, è possibile implementare un'azione del controller che restituisce il contenuto di un `ViewComponentResult`.
+I componenti di visualizzazione sono solitamente richiamati da una visualizzazione, ma possono essere richiamati direttamente da un metodo del controller. A differenza dei controller i componenti di visualizzazione non definiscono endpoint. È tuttavia possibile implementare semplicemente un'azione del controller in modo che venga restituito il contenuto di un oggetto `ViewComponentResult`.
 
-In questo esempio, il componente di visualizzazione viene chiamato direttamente dal controller:
+In questo esempio il componente di visualizzazione viene chiamato direttamente dal controller:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: Creazione di un componente di visualizzazione semplice
+## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: creazione di un componente di visualizzazione semplice
 
-[Scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un `Todo` controller che visualizza un elenco di *Todo* elementi.
+[Scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `Todo` che visualizza un elenco di elementi *Todo*.
 
-![Elenco di ToDos](view-components/_static/2dos.png)
+![Elenco di elementi ToDo](view-components/_static/2dos.png)
 
 ### <a name="add-a-viewcomponent-class"></a>Aggiungere una classe ViewComponent
 
-Creare un *ViewComponents* cartella e aggiungere le seguenti `PriorityListViewComponent` classe:
+Creare una cartella *ViewComponents* e aggiungere la classe `PriorityListViewComponent` seguente:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
-Note sul codice:
+Note riguardanti il codice:
 
-* Visualizzazione classi di componenti possono essere contenute in **qualsiasi** cartella nel progetto.
-* Poiché il nome della classe PriorityList**ViewComponent** termina con il suffisso **ViewComponent**, il runtime utilizza la stringa "PriorityList" quando si fa riferimento il componente della classe da una vista. Verrà illustrato che in modo più dettagliato più avanti.
-* Il `[ViewComponent]` attributo è possibile modificare il nome utilizzato per fare riferimento a un componente di visualizzazione. Ad esempio, è stato chiamato la classe `XYZ` e applicati i `ViewComponent` attributo:
+* Le classi del componente di visualizzazione possono essere contenute in **qualsiasi** cartella del progetto.
+* Poiché il nome della classe PriorityList**ViewComponent** termina con il suffisso **ViewComponent**, il runtime usa la stringa "PriorityList" per fare riferimento al componente della classe da una visualizzazione. Questo aspetto viene poi spiegato in modo più dettagliato.
+* L'attributo `[ViewComponent]` può modificare il nome usato per fare riferimento a un componente di visualizzazione. Ad esempio, sarebbe stato possibile denominare la classe `XYZ` e applicare l'attributo `ViewComponent`:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
      public class XYZ : ViewComponent
      ```
 
-* Il `[ViewComponent]` attributo indica il selettore di componente di visualizzazione per utilizzare il nome `PriorityList` durante la ricerca per le visualizzazioni associate, il componente e di utilizzare la stringa "PriorityList" quando si fa riferimento il componente della classe da una vista. Verrà illustrato che in modo più dettagliato più avanti.
-* Il componente utilizza [inserimento di dipendenze](../../fundamentals/dependency-injection.md) a disposizione il contesto dei dati.
-* `InvokeAsync`espone un metodo che può essere chiamato da una vista e può accettare un numero arbitrario di argomenti.
-* Il `InvokeAsync` il metodo restituisce il set di `ToDo` gli elementi che soddisfano il `isDone` e `maxPriority` parametri.
+* L'attributo `[ViewComponent]` precedente indica al selettore del componente di visualizzazione di usare il nome `PriorityList` per eseguire la ricerca delle visualizzazioni associate al componente e di usare la stringa "PriorityList" per fare riferimento al componente della classe da una visualizzazione. Questo aspetto viene poi spiegato in modo più dettagliato.
+* Il componente usa l'[inserimento delle dipendenze](../../fundamentals/dependency-injection.md) per rendere disponibile il contesto dei dati.
+* `InvokeAsync` espone un metodo che può essere chiamato da una visualizzazione e può accettare un numero arbitrario di argomenti.
+* Il metodo `InvokeAsync` restituisce il set di elementi `ToDo` che soddisfano i parametri `isDone` e `maxPriority`.
 
-### <a name="create-the-view-component-razor-view"></a>Creare la visualizzazione Razor componente di visualizzazione
+### <a name="create-the-view-component-razor-view"></a>Creare la visualizzazione Razor del componente di visualizzazione
 
-* Creare il *componenti/Shared/visualizzazioni* cartella. Questa cartella **deve** denominato *componenti*.
+* Creare la cartella *Views/Shared/Components*. Il nome di questa cartella **deve** essere *Components*.
 
-* Creare il *viste/Shared/componenti/PriorityList* cartella. Il nome della cartella deve corrispondere il nome della classe di componente di visualizzazione, o il nome della classe meno il suffisso (se è seguito convenzione e utilizzata la *ViewComponent* suffisso nel nome della classe). Se è stata utilizzata la `ViewComponent` attributo, il nome della classe dovrà corrispondere la designazione di attributo.
+* Creare la cartella *Views/Shared/Components/PriorityList*. Il nome di questa cartella deve corrispondere al nome della classe del componente di visualizzazione oppure al nome della classe privato del suffisso (se è stata adottata la convenzione ed è stato usato il suffisso *ViewComponent* nel nome della classe). Se è stato usato l'attributo `ViewComponent`, il nome della classe dovrà corrispondere alla designazione dell'attributo.
 
-* Creare un *Views/Shared/Components/PriorityList/Default.cshtml* visualizzazione Razor:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Creare una visualizzazione Razor *Views/Shared/Components/PriorityList/Default.cshtml*:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
-   La visualizzazione Razor accetta un elenco di `TodoItem` e li visualizza. Se il componente di visualizzazione `InvokeAsync` metodo non passa il nome della visualizzazione (come in questo esempio), *predefinito* per convenzione viene utilizzato per il nome della vista. Più avanti nell'esercitazione verrà illustrato come passare il nome della vista. Per ignorare lo stile predefinito per un controller specifico, aggiungere una visualizzazione nella cartella di visualizzazione controller specifico (ad esempio *Views/Todo/Components/PriorityList/Default.cshtml)*.
+   La visualizzazione Razor accetta un elenco di oggetti `TodoItem` e li visualizza. Se il metodo `InvokeAsync` del componente di visualizzazione non passa il nome della visualizzazione (come in questo esempio), per convenzione viene usato *Default* come nome della visualizzazione. Più avanti nell'esercitazione viene illustrato come passare il nome della visualizzazione. Per sostituire lo stile predefinito per un controller specifico, aggiungere una visualizzazione alla cartella di visualizzazione specifica del controller, ad esempio *Views/Todo/Components/PriorityList/Default.cshtml*.
     
-    Se il componente di visualizzazione è specifici dei controller, è possibile aggiungere alla cartella controller specifico (*Views/Todo/Components/PriorityList/Default.cshtml*).
+    Se il componente di visualizzazione è specifico del controller, è possibile aggiungerlo alla cartella specifica del controller (*Views/Todo/Components/PriorityList/Default.cshtml*).
 
-* Aggiungere un `div` che contiene una chiamata per il componente alla fine dell'elenco di priorità il *Views/Todo/index.cshtml* file:
+* Aggiungere un oggetto `div` contenente una chiamata al componente dell'elenco priorità alla fine del file *Views/Todo/index.cshtml*:
 
     [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-Il markup `@await Component.InvokeAsync` viene illustrata la sintassi per chiamare i componenti di visualizzazione. Il primo argomento è il nome del componente di cui che si desidera richiamare o chiamare. I parametri successivi vengono passati al componente. `InvokeAsync`può richiedere un numero arbitrario di argomenti.
+Il markup `@await Component.InvokeAsync` illustra la sintassi per chiamare i componenti di visualizzazione. Il primo argomento corrisponde al nome del componente che si vuole richiamare o chiamare. I parametri successivi vengono passati al componente. `InvokeAsync` può accettare un numero arbitrario di argomenti.
 
-Testare l'app. La figura seguente mostra l'elenco di attività e gli elementi con priorità:
+Eseguire il test dell'app. La figura seguente illustra l'elenco ToDo e gli elementi con priorità:
 
-![elementi di elenco e priorità attività](view-components/_static/pi.png)
+![elenco todo ed elementi con priorità](view-components/_static/pi.png)
 
-È inoltre possibile chiamare il componente di visualizzazione direttamente dal controller:
+È anche possibile chiamare il componente di visualizzazione direttamente dal controller:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ![elementi con priorità dall'azione IndexVC](view-components/_static/indexvc.png)
 
-### <a name="specifying-a-view-name"></a>Specificare un nome di visualizzazione
+### <a name="specifying-a-view-name"></a>Impostazione di un nome di visualizzazione
 
-Un componente di visualizzazione complesso potrebbe essere necessario specificare una vista non predefinita in alcune condizioni. Il codice seguente viene illustrato come specificare la vista "PVC" dal `InvokeAsync` metodo. Aggiornamento di `InvokeAsync` metodo la `PriorityListViewComponent` classe.
+Per un componente di visualizzazione, in alcune condizioni è possibile dover specificare una visualizzazione non predefinita. Il codice seguente illustra come specificare la visualizzazione "PVC" dal metodo `InvokeAsync`. Aggiornare il metodo `InvokeAsync` nella classe `PriorityListViewComponent`.
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
-Copia il *Views/Shared/Components/PriorityList/Default.cshtml* file da una vista denominata *Views/Shared/Components/PriorityList/PVC.cshtml*. Aggiungere un'intestazione per indicare che la vista PVC è in uso.
+Copia il file *Views/Shared/Components/PriorityList/Default.cshtml* in una visualizzazione denominata *Views/Shared/Components/PriorityList/PVC.cshtml*. Aggiungere un'intestazione per indicare che viene usata una visualizzazione PVC.
 
 [!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
-Aggiornamento *Views/TodoList/Index.cshtml*:
+Aggiornare *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
@@ -210,15 +210,15 @@ Aggiornamento *Views/TodoList/Index.cshtml*:
 
 Eseguire l'app e verificare la visualizzazione PVC.
 
-![Priorità del componente di visualizzazione](view-components/_static/pvc.png)
+![Componente di visualizzazione con priorità](view-components/_static/pvc.png)
 
-Se non è eseguito il rendering della visualizzazione PVC, verificare che si sta chiamando il componente di visualizzazione con una priorità pari a 4 o versione successiva.
+Se non viene eseguito il rendering della visualizzazione PVC, verificare che si stia chiamando il componente di visualizzazione con priorità pari a 4 o superiore.
 
 ### <a name="examine-the-view-path"></a>Esaminare il percorso di visualizzazione
 
-* Modificare il parametro di priorità pari o inferiore a tre, pertanto la visualizzazione di priorità non viene restituita.
-* Rinominare temporaneamente il *Views/Todo/Components/PriorityList/Default.cshtml* a *1Default.cshtml*.
-* Testare l'app, si otterrà l'errore seguente:
+* Modificare il parametro relativo alla priorità impostandolo su tre o priorità inferiore perché la visualizzazione con priorità non venga restituita.
+* Rinominare temporaneamente la cartella *Views/Todo/Components/PriorityList/Default.cshtml* in *1Default.cshtml*.
+* Testare l'app. Verrà visualizzato il messaggio seguente:
 
    ```
    An unhandled exception occurred while processing the request.
@@ -228,22 +228,22 @@ Se non è eseguito il rendering della visualizzazione PVC, verificare che si sta
    EnsureSuccessful
    ```
 
-* Copia *Views/Todo/Components/PriorityList/1Default.cshtml* a *Views/Shared/Components/PriorityList/Default.cshtml*.
-* Aggiungere codice per il *Shared* Todo visualizzazione componente per indicare la vista è dal *Shared* cartella.
-* Test di **Shared** vista del componente.
+* Copiare *Views/Todo/Components/PriorityList/1Default.cshtml* in *Views/Shared/Components/PriorityList/Default.cshtml*.
+* Aggiungere alcuni markup alla visualizzazione del componente di visualizzazione Todo in *Shared* per indicare che la visualizzazione è presente nella cartella *Shared*.
+* Testare la visualizzazione del componente **Shared**.
 
-![Output di attività con vista del componente condiviso](view-components/_static/shared.png)
+![Output di ToDo con visualizzazione del componente Shared](view-components/_static/shared.png)
 
-### <a name="avoiding-magic-strings"></a>Evitare stringhe chiave
+### <a name="avoiding-magic-strings"></a>Esclusione di "stringhe magiche"
 
-Se si desidera compilare la sicurezza di tempo, è possibile sostituire il nome del componente di visualizzazione a livello di codice con il nome della classe. Creare il componente di visualizzazione senza il suffisso "ViewComponent":
+Per garantire la sicurezza in fase di compilazione, è possibile sostituire il nome del componente di compilazione hardcoded con il nome della classe. Creare il componente di visualizzazione senza il suffisso "ViewComponent":
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
-Aggiungere un `using` istruzione per il Razor consente di visualizzare file e utilizzare il `nameof` operatore:
+Aggiungere un'istruzione `using` al file di visualizzazione Razor e usare l'operatore `nameof`:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Inserimento di dipendenze in visualizzazioni](dependency-injection.md)
+* [Inserimento di dipendenze in visualizzazioni](xref:mvc/views/dependency-injection)

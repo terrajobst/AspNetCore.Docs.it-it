@@ -1,130 +1,130 @@
 ---
-title: Stato di sessione e dell'applicazione in ASP.NET Core
+title: Stato di sessione e applicazione in ASP.NET Core
 author: rick-anderson
-description: Approcci per la conservazione di applicazione e lo stato utente (sessione) tra le richieste.
-ms.author: riande
+description: Approcci per il mantenimento dello stato dell'applicazione e dell'utente (sessione) tra le richieste.
 manager: wpickett
-ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/app-state
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 11/27/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/app-state
+ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato sessione e dell'applicazione ASP.NET di base
+# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato della sessione e dell'applicazione in ASP.NET Core
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), e [Diana LaRose](https://github.com/DianaLaRose)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/) e [Diana LaRose](https://github.com/DianaLaRose)
 
-HTTP è un protocollo senza stato. Un server web considera ogni richiesta HTTP come richiesta indipendente e non Mantieni i valori utente richieste precedenti. In questo articolo vengono illustrati diversi modi per mantenere l'applicazione e lo stato della sessione tra le richieste. 
+HTTP è un protocollo senza stato. Un server Web considera ogni richiesta HTTP come richiesta indipendente e non mantiene i valori utente delle richieste precedenti. In questo articolo vengono illustrati diversi modi per mantenere lo stato applicazione e lo stato sessione tra le richieste. 
 
-## <a name="session-state"></a>Stato della sessione
+## <a name="session-state"></a>Stato sessione
 
-Lo stato della sessione è una funzionalità di ASP.NET Core che è possibile usare per salvare e archiviare i dati utente mentre l'utente visualizza l'app Web. È costituito da una tabella hash o dizionario sul server, lo stato della sessione mantiene i dati in tutte le richieste da un browser. I dati della sessione sono supportati da una cache.
+Lo stato della sessione è una funzionalità di ASP.NET Core che è possibile usare per salvare e archiviare i dati utente mentre l'utente visualizza l'app Web. Lo stato sessione è costituito da un dizionario o una tabella hash sul server e mantiene i dati tra le diverse richieste effettuate da un browser. I dati della sessione sono supportati da una cache.
 
-ASP.NET Core mantiene lo stato della sessione, assegnando al client un cookie che contiene l'ID di sessione, che viene inviato al server con ogni richiesta. Il server utilizza l'ID di sessione per recuperare i dati di sessione. Poiché il cookie di sessione specifico del browser, è possibile condividere le sessioni tra browser. I cookie di sessione vengono eliminati solo al termine della sessione del browser. Se un cookie viene ricevuto per una sessione scaduta, viene creata una nuova sessione che usa lo stesso cookie di sessione. 
+ASP.NET Core gestisce lo stato della sessione assegnando al client un cookie che contiene l'ID sessione. Tale ID viene inviato al server con ogni richiesta. Il server usa l'ID sessione per recuperare i dati della sessione. Dato che il cookie di sessione è specifico per il browser, non è possibile condividere le sessioni tra browser diversi. I cookie di sessione vengono eliminati solo al termine della sessione del browser. Se viene ricevuto un cookie per una sessione scaduta, viene creata una nuova sessione che usa lo stesso cookie di sessione. 
 
-Il server mantiene una sessione per un periodo di tempo limitato dopo l'ultima richiesta. È possibile impostare il timeout della sessione o usare il valore predefinito di 20 minuti. Lo stato della sessione è ideale per archiviare i dati utente che sono specifico per una determinata sessione, ma non devono essere mantenute in modo permanente. Dati vengono eliminati dall'archivio di backup, sia quando si chiama `Session.Clear` o scadenza della sessione nell'archivio dati. Il server non riconosce quando il browser viene chiuso o quando viene eliminato il cookie di sessione.
+Il server mantiene una sessione per un periodo di tempo limitato dopo l'ultima richiesta. È possibile impostare il timeout della sessione o usare il valore predefinito, pari a 20 minuti. Lo stato sessione è ideale per archiviare dati utente che sono specifici per una determinata sessione, ma non vanno salvati in modo permanente. I dati vengono eliminati dall'archivio di backup quando viene chiamata `Session.Clear` o alla scadenza della sessione nell'archivio dati. Il server non rileva la chiusura del browser o l'eliminazione del cookie di sessione.
 
 > [!WARNING]
-> Non archiviare i dati sensibili nella sessione. Il client potrebbe non chiudere il browser e deselezionare il cookie di sessione (e alcuni browser mantenere attivi i cookie di sessione in windows). Inoltre, una sessione potrebbe non essere limitata a un utente singolo; l'utente successivo potrebbe continuare con la stessa sessione.
+> Evitare di archiviare dati sensibili nella sessione. Il client potrebbe non chiudere il browser ed eliminare il cookie di sessione (alcuni browser salvano anche i cookie di sessione tra finestre diverse). Una sessione può anche non essere limitata a un utente singolo; in tal caso l'utente successivo potrebbe continuare con la stessa sessione.
 
-Il provider della sessione in memoria archivia i dati di sessione nel server locale. Se si prevede di eseguire l'app web in una server farm, è necessario utilizzare le sessioni permanenti per associare ogni sessione in un server specifico. La piattaforma di siti Web di Azure per impostazione predefinita le sessioni permanenti (Application Request Routing o ARR). Tuttavia, le sessioni permanenti possono influire sulla scalabilità e complicare gli aggiornamenti delle app web. Un'opzione migliore consiste nell'usare Redis o distribuite di SQL Server memorizza nella cache, che non richiede le sessioni permanenti. Per ulteriori informazioni, vedere [utilizzano una Cache distribuita](xref:performance/caching/distributed). Per informazioni dettagliate sulla configurazione di provider di servizi, vedere [la configurazione di sessione](#configuring-session) più avanti in questo articolo.
+Il provider di sessione in memoria archivia i dati della sessione nel server locale. Se si prevede di eseguire l'app Web in una server farm, è necessario usare sessioni permanenti per associare ogni sessione a un server specifico. La piattaforma Siti Web di Windows Azure usa per impostazione predefinita le sessioni permanenti (Application Request Routing o ARR). Tuttavia le sessioni permanenti possono compromettere la scalabilità e complicare gli aggiornamenti delle app Web. Un'opzione migliore è l'uso delle cache distribuite Redis o SQL Server, che non richiedono sessioni permanenti. Per altre informazioni, vedere [Uso di una cache distribuita](xref:performance/caching/distributed). Per informazioni dettagliate sulla configurazione di provider di servizi, vedere [Configurazione della sessione](#configuring-session) più avanti in questo articolo.
 
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-ASP.NET MVC di base espone il [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) proprietà in un [controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Questa proprietà archivia i dati fino a quando non è di lettura. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData`è particolarmente utile per il reindirizzamento, quando sono necessari dati per più di una singola richiesta. `TempData`è implementato dal provider TempData, ad esempio, utilizza i cookie o lo stato della sessione.
+ASP.NET Core MVC espone la proprietà [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) per un [controller](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Questa proprietà archivia i dati finché non viene letta. I metodi `Keep` e `Peek` possono essere usati per esaminare i dati senza eliminazione. `TempData` è particolarmente utile per il reindirizzamento quando i dati sono necessari per più di una richiesta singola. Ad esempio la proprietà `TempData` viene implementata dai provider TempData mediante i cookie o lo stato sessione.
 
 <a name="tempdata-providers"></a>
-### <a name="tempdata-providers"></a>TempData provider
+### <a name="tempdata-providers"></a>Provider TempData
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-In ASP.NET Core 2.0 e versioni successive, per impostazione predefinita viene utilizzato il provider di TempData basato su cookie per memorizzare TempData nei cookie.
+In ASP.NET Core 2.0 e versioni successive il provider TempData basato su cookie viene usato per impostazione predefinita per memorizzare TempData nei cookie.
 
-I dati del cookie sono codificati con la [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Perché il cookie viene crittografato e in blocchi, il cookie single dimensione limite di ASP.NET Core 1. x non è applicabile. I dati del cookie non viene compresso perché la compressione dei dati crittografati può comportare problemi di sicurezza, ad esempio il [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://wikipedia.org/wiki/BREACH_(security_exploit)) attacchi. Per ulteriori informazioni sul provider TempData basato su cookie, vedere [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+I dati del cookie sono codificati con [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Dato che il cookie è crittografato e suddiviso in blocchi, il limite di dimensione per un singolo cookie di ASP.NET Core 1.x non è applicabile. I dati del cookie non vengono compressi perché la compressione di dati crittografati può comportare problemi di sicurezza, ad esempio con attacchi [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [BREACH](https://wikipedia.org/wiki/BREACH_(security_exploit)). Per altre informazioni sul provider TempData basato sui cookie, vedere [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-In ASP.NET Core 1.0 e 1.1, il provider di TempData dello stato sessione è il valore predefinito.
+In ASP.NET Core 1.0 e 1.1 il provider TempData con stato sessione è il valore predefinito.
 
 --------------
 
 <a name="choose-temp"></a>
 ### <a name="choosing-a-tempdata-provider"></a>Scelta di un provider TempData
 
-Scelta di un provider TempData prevede alcune considerazioni, ad esempio:
+La scelta di un provider TempData implica diverse considerazioni, tra cui:
 
-1. L'applicazione ha già utilizza lo stato della sessione per altri scopi? In questo caso, tramite il provider di TempData dello stato sessione non è senza alcun costo aggiuntivo per l'applicazione (a parte la dimensione dei dati).
-2. L'applicazione utilizza TempData solo quando strettamente necessario, per relativamente piccole quantità di dati (fino a 500 byte)? Se in tal caso, il provider di TempData cookie aggiungerà un costo di piccole dimensioni a ogni richiesta che trasmette TempData. In caso contrario, il provider di TempData dello stato di sessione può essere utile evitare round trip una grande quantità di dati in ogni richiesta fino a quando non viene utilizzato il TempData.
-3. L'applicazione viene eseguita in una web farm (più server)? In questo caso, non vi è alcuna configurazione aggiuntiva per utilizzare il provider di TempData cookie.
+1. L'applicazione usa già lo stato sessione per altri scopi? Se sì, l'uso del provider TempData con stato sessione non comporta un carico aggiuntivo per l'applicazione (indipendentemente dalla dimensione dei dati).
+2. L'applicazione usa TempData solo quando necessario e per quantità di dati relativamente piccole (fino a 500 byte)? Se sì, il provider TempData con cookie aggiungerà un piccolo carico di lavoro a ogni richiesta che include TempData. Se no, il provider TempData con stato sessione può essere utile per evitare sequenze di andata e ritorno di grandi quantità di dati in ogni richiesta fino a quando il contenuto TempData non viene consumato.
+3. L'applicazione viene eseguita in una Web farm (costituita da più server)? Se sì, non sono necessari elementi di configurazione aggiuntivi per l'uso del provider TempData con cookie.
 
 > [!NOTE]
-> La maggior parte dei client web (ad esempio i browser web) imporre limiti alla dimensione massima di ciascun cookie, il numero totale di cookie o entrambi. Pertanto, quando si utilizza il provider di TempData cookie, verificare che l'app non supera questi limiti. Prendere in considerazione le dimensioni totali dei dati, tenendo conto dei sovraccarichi di crittografia e la suddivisione in blocchi.
+> La maggior parte dei client Web (ad esempio i Web browser) impone limiti per la dimensione massima di ogni cookie, il numero totale di cookie o entrambe le impostazioni. Pertanto se si usa il provider TempData con cookie, verificare che l'app non superi tali limiti. Considerare le dimensioni totali dei dati, tenendo conto dei sovraccarichi rappresentati dalla crittografia e dalla divisione in blocchi.
 
 <a name="config-temp"></a>
 ### <a name="configure-the-tempdata-provider"></a>Configurare il provider TempData
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Il provider di TempData basato su cookie è abilitato per impostazione predefinita. Le operazioni seguenti `Startup` codice della classe consente di configurare il provider di TempData basato sulla sessione:
+Il provider TempData basato su cookie è abilitato per impostazione predefinita. Il codice classe `Startup` seguente configura il provider TempData basato sulla sessione:
 
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,6,11)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Le operazioni seguenti `Startup` codice della classe consente di configurare il provider di TempData basato sulla sessione:
+Il codice classe `Startup` seguente configura il provider TempData basato sulla sessione:
 
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,9)]
 
 ---
 
-L'ordine è critico per i componenti middleware. Nell'esempio precedente, un'eccezione di tipo `InvalidOperationException` si verifica quando `UseSession` viene richiamato dopo `UseMvcWithDefaultRoute`. Vedere [Middleware ordinamento](xref:fundamentals/middleware#ordering) per ulteriori dettagli.
+L'ordine è essenziale per i componenti middleware. Nell'esempio precedente si verifica un'eccezione di tipo `InvalidOperationException` se `UseSession` viene chiamata dopo `UseMvcWithDefaultRoute`. Per altri dettagli, vedere [Middleware Ordering](xref:fundamentals/middleware#ordering) (Ordine del middleware).
 
 > [!IMPORTANT]
-> Se è destinato a .NET Framework e utilizzando il provider basato sulla sessione, aggiungere il [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) pacchetto NuGet al progetto.
+> Se la destinazione è .NET Framework e si usa il provider basato sulla sessione, aggiungere il pacchetto NuGet [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) al progetto.
 
 ## <a name="query-strings"></a>Stringhe di query
 
-È possibile passare una quantità limitata di dati da una richiesta a un altro, aggiungerlo alla stringa di query della nuova richiesta. Ciò è utile per l'acquisizione dello stato in modo persistente che consente i collegamenti con stato incorporato da condividere tramite posta elettronica o social network. Tuttavia, per questo motivo, non utilizzare le stringhe di query per i dati sensibili. Oltre a facilmente condiviso, inclusi i dati nelle stringhe di query possono creare le opportunità di [Cross-Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) attacchi, che possono indurre gli utenti a siti dannosi mentre autenticato. Gli utenti malintenzionati possono quindi intercettare i dati utente dall'app o richiedere azioni dannose per conto dell'utente. Qualsiasi stato mantenuto application o session necessario proteggere da attacchi CSRF. Per ulteriori informazioni sugli attacchi CSRF, vedere [attacchi di prevenzione Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core](../security/anti-request-forgery.md).
+È possibile passare una quantità limitata di dati da una richiesta a un'altra aggiungendo i dati alla stringa di query della nuova richiesta. Questo è utile per l'acquisizione dello stato con una modalità persistente, che consente la condivisione dei collegamenti con stato incorporato tramite posta elettronica o social network. Tuttavia, per lo stesso motivo, le stringhe di query non vanno mai usate per i dati sensibili. OItre a essere facilmente condivisibili, i dati presenti nelle stringhe di query possono essere oggetto di attacchi di [falsificazione della richiesta tra siti (CSRF, Cross-Site Request Forgery)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)), che ingannano gli utenti autenticati invitandoli a visitare siti pericolosi. Gli utenti malintenzionati possono quindi sottrarre dati utente dall'app o eseguire azioni dannose per conto dell'utente. Qualsiasi stato dell'applicazione o della sessione mantenuto deve garantire la protezione dagli attacchi CSRF. Per altre informazioni sugli attacchi CSRF, vedere [Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core](../security/anti-request-forgery.md) (Prevenzione degli attacchi di falsificazione della richiesta tra siti (XSRF/CSRF) in ASP.NET Core).
 
-## <a name="post-data-and-hidden-fields"></a>Dati post e campi nascosti
+## <a name="post-data-and-hidden-fields"></a>Pubblicazione di dati e campi nascosti
 
-Dati possono essere salvati nei campi del form nascosto e inviati nuovamente la richiesta successiva. Ciò accade spesso nei moduli a più pagine. Tuttavia, poiché il client può potenzialmente manomettere i dati, il server deve sempre sottoporlo. 
+I dati possono essere salvati in campi modulo nascosti e pubblicati di nuovo nella richiesta successiva. Questo si verifica spesso nei moduli a più pagine. Tuttavia, dato che il client potrebbe alterare i dati, il server deve sempre ripeterne la convalida. 
 
 ## <a name="cookies"></a>Cookie
 
-I cookie consentono di archiviare dati specifici dell'utente nelle applicazioni web. Poiché i cookie vengono inviati con ogni richiesta, la dimensione deve essere mantenuta al minimo. Idealmente, solo un identificatore deve essere archiviato in un cookie con i dati effettivi archiviati nel server. La maggior parte dei browser limitare i cookie a 4096 byte. Inoltre, solo un numero limitato di cookie è disponibile per ogni dominio.  
+I cookie consentono di archiviare dati specifici dell'utente nelle applicazioni Web. Poiché i cookie vengono inviati con ogni richiesta, la loro dimensione deve essere mantenuta al minimo. Idealmente, in un cookie deve essere archiviato solo un identificatore con i dati effettivi archiviati nel server. La maggior parte dei browser limita la dimensione dei cookie a 4096 byte. Tenere anche presente che per ogni dominio è disponibile solo un numero di cookie limitato.  
 
-Poiché i cookie sono soggette alla manomissione, devono essere convalidati nel server. Anche se la durata del cookie in un client è soggetto a scadenza e l'intervento dell'utente, si tratta in genere la forma più durevole di persistenza dei dati nel client.
+Dato che i cookie possono essere manomessi, devono essere convalidati nel server. Anche se la durabilità del cookie in un client è soggetta all'intervento dell'utente e provvista di scadenza, a livello generale i cookie sono la forma più durevole di persistenza dei dati nel client.
 
-I cookie vengono spesso utilizzati per la personalizzazione, in cui il contenuto viene personalizzato per un utente noto. Poiché l'utente viene identificato solo e non è stato autenticato nella maggior parte dei casi, è possibile proteggere in genere un cookie archiviando il nome utente, nome dell'account o un ID utente univoco (ad esempio un GUID) nel cookie. È quindi possibile utilizzare il cookie di accesso all'infrastruttura di personalizzazione utente di un sito.
+I cookie vengono spesso usati per la personalizzazione, ovvero il contenuto viene personalizzato per un utente noto. Dato che nella maggior parte dei casi l'utente è solo identificato ma non autenticato, generalmente è possibile proteggere un cookie archiviando al suo interno il nome utente, il nome account o un ID utente univoco, come un identificatore univoco globale (GUID). È quindi possibile usare il cookie per accedere all'infrastruttura di personalizzazione utente di un sito.
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-Il `Items` raccolta costituisce un'ottima posizione per archiviare i dati che sono necessario solo durante l'elaborazione di una determinata richiesta. Contenuto della raccolta viene eliminato dopo ogni richiesta. Il `Items` insieme è particolarmente utile come un modo per componenti o middleware per comunicare quando operano in momenti diversi durante una richiesta e in alcun modo diretto per passare i parametri. Per ulteriori informazioni, vedere [utilizzo HttpContext. Items](#working-with-httpcontextitems), più avanti in questo articolo.
+La raccolta `Items` è una posizione ideale per archiviare dati che sono necessari solo durante l'elaborazione di una determinata richiesta. Il contenuto della raccolta viene rimosso dopo ogni richiesta. La raccolta `Items` è particolarmente utile come strumento di comunicazione per componenti o middleware che operano in momenti diversi durante una richiesta e non dispongono di un metodo diretto per passare i parametri. Per altre informazioni, vedere [Uso di HttpContext.Items](#working-with-httpcontextitems) più avanti in questo articolo.
 
 ## <a name="cache"></a>Cache
 
-La memorizzazione nella cache è un modo efficiente per archiviare e recuperare dati. È possibile controllare la durata di elementi memorizzati nella cache in base al tempo e altre considerazioni. Altre informazioni, vedere [la memorizzazione nella cache](../performance/caching/index.md).
+La memorizzazione nella cache è un modo efficiente per archiviare e recuperare dati. È possibile controllare la durata degli elementi memorizzati nella cache in base al tempo e ad altre considerazioni. Altre informazioni sulla [memorizzazione nella cache](../performance/caching/index.md).
 
 <a name="session"></a>
-## <a name="working-with-session-state"></a>Utilizzo con lo stato della sessione
+## <a name="working-with-session-state"></a>Uso dello stato sessione
 
 ### <a name="configuring-session"></a>Configurazione della sessione
 
-Il `Microsoft.AspNetCore.Session` pacchetto fornisce il middleware per la gestione dello stato sessione. Per abilitare il middleware di sessione, `Startup` deve contenere:
+Il pacchetto `Microsoft.AspNetCore.Session` offre il middleware per la gestione dello stato sessione. Per abilitare il middleware della sessione, `Startup` deve contenere:
 
-- Uno del [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) cache in memoria. Il `IDistributedCache` implementazione viene utilizzata come archivio di backup per sessione.
-- [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) chiama, che richiede il pacchetto NuGet "Microsoft.AspNetCore.Session".
-- [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) chiamare.
+- Una delle cache di memoria [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache). L'implementazione `IDistributedCache` viene usata come archivio di backup per la sessione.
+- Una chiamata [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_), che richiede il pacchetto NuGet "Microsoft.AspNetCore.Session".
+- Una chiamata [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_).
 
-Il codice seguente viene illustrato come configurare il provider della sessione in memoria.
+Il codice seguente visualizza come configurare il provider della sessione in memoria.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -136,23 +136,23 @@ Il codice seguente viene illustrato come configurare il provider della sessione 
 
 ---
 
-È possibile fare riferimento a una sessione da `HttpContext` una volta installato e configurato.
+È possibile fare riferimento a Session da `HttpContext` una volta installato e configurato.
 
-Se si tenta di accedere a `Session` prima `UseSession` è stato chiamato, l'eccezione `InvalidOperationException: Session has not been configured for this application or request` viene generata un'eccezione.
+Se si prova ad accedere a `Session` prima della chiamata di `UseSession` viene generata un'eccezione `InvalidOperationException: Session has not been configured for this application or request`.
 
-Se si tenta di creare un nuovo `Session` (vale a dire alcun cookie di sessione non creato) dopo che si è già iniziato la scrittura di `Response` flusso, l'eccezione `InvalidOperationException: The session cannot be established after the response has started` viene generata un'eccezione. L'eccezione è reperibile nel log di server web. non verrà visualizzata nel browser.
+Se si prova a creare un nuovo elemento `Session` (ovvero se non è stato creato nessun cookie di sessione) dopo che è già iniziata la scrittura nel flusso `Response`, viene generata l'eccezione `InvalidOperationException: The session cannot be established after the response has started`. L'eccezione è disponibile nel log del server Web ma non viene visualizzata nel browser.
 
-### <a name="loading-session-asynchronously"></a>Il caricamento asincrono di sessione 
+### <a name="loading-session-asynchronously"></a>Caricamento di Session in modalità asincrona 
 
-Il provider di sessione predefinito in ASP.NET Core carica il record di sessione sottostante [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) store in modo asincrono solo se il [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metodo viene chiamato in modo esplicito prima  il `TryGetValue`, `Set`, o `Remove` metodi. Se `LoadAsync` non viene chiamato per primo, sottostante il record di sessione viene caricato in modo sincrono, che possono incidere sul possibilità dell'app di scala.
+Il provider di sessione predefinito in ASP.NET Core carica in modo asincrono il record di sessione dall'archivio [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) sottostante solo se il metodo [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) viene chiamato in modo esplicito prima dei metodi `TryGetValue`, `Set` o `Remove`. Se `LoadAsync` non viene chiamato per primo, il record di sessione sottostante viene caricato in modo sincrono e ciò può compromettere la capacità di ridimensionamento dell'app.
 
-Per applicare questo modello applicazioni, eseguire il wrapping di [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) e [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) implementazioni con le versioni che generano un'eccezione se il `LoadAsync` metodo non è chiamato prima `TryGetValue`, `Set`, o `Remove`. Registrare le versioni di cui effettua il wrapping nel contenitore di servizi.
+Per fare in modo che le applicazioni implementino questo criterio, eseguire il wrapping delle implementazioni [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) e [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) con versioni che generano un'eccezione se il metodo `LoadAsync` non viene chiamato prima di `TryGetValue`, `Set` o `Remove`. Registrare le versioni con wrapping nel contenitore di servizi.
 
-### <a name="implementation-details"></a>Dettagli di implementazione
+### <a name="implementation-details"></a>Dettagli sull'implementazione
 
-Sessione utilizza un cookie per tenere traccia e identificare le richieste provenienti da un solo browser. Per impostazione predefinita, questo cookie denominato ". AspNet.Session"e utilizza un percorso di"/". Poiché il valore predefinito di cookie non specifica un dominio, non renderlo disponibile per lo script sul lato client nella pagina (perché `CookieHttpOnly` per impostazione predefinita `true`).
+Session usa un cookie per tenere traccia e identificare le richieste provenienti da un solo browser. Per impostazione predefinita, questo cookie è denominato ".AspNet.Session"e usa il percorso "/". Dato che il cookie predefinito non specifica un dominio, non viene reso disponibile allo script lato client nella pagina (perché `CookieHttpOnly` assume il valore `true`).
 
-Per eseguire l'override delle impostazioni predefinite di sessione, utilizzare `SessionOptions`:
+Per eseguire l'override delle impostazioni predefinite di sessione, usare `SessionOptions`:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -164,32 +164,32 @@ Per eseguire l'override delle impostazioni predefinite di sessione, utilizzare `
 
 ---
 
-Il server utilizza il `IdleTimeout` proprietà per determinare quanto tempo una sessione può rimanere inattiva prima che il relativo contenuto viene abbandonato. Questa proprietà è indipendente dalla scadenza del cookie. Ogni richiesta che passa attraverso il middleware di sessione (leggere o scrivere) Reimposta il timeout.
+Il server usa la proprietà `IdleTimeout` per determinare quanto tempo una sessione può rimanere inattiva prima che il relativo contenuto venga abbandonato. Questa proprietà è indipendente dalla scadenza del cookie. Ogni richiesta che passa attraverso il middleware Session (come richiesta letta o scritta) reimposta il timeout.
 
-Poiché `Session` è *non blocca il thread*, se due richieste tentano di modificare il contenuto della sessione, l'ultima prevale sulla prima. `Session`viene implementato come un *sessione coerente*, il che significa che tutto il contenuto viene archiviato insieme. Due richieste che modificano parti diverse della sessione (chiavi diverse) potrebbero comunque avere un'influenza reciproca.
+Dato che `Session` *non applica un blocco*, se due richieste provano a modificare il contenuto della sessione, l'ultima esegue l'override della prima. `Session` viene implementata come *sessione coerente*, ovvero tutto il contenuto viene archiviato insieme. Due richieste che modificano parti diverse della sessione (chiavi diverse) potrebbero comunque influire l'una sull'altra.
 
-### <a name="setting-and-getting-session-values"></a>Impostazione e recupero di valori di sessione
+### <a name="setting-and-getting-session-values"></a>Impostazione e recupero di valori di Session
 
-Sessione avviene tramite il `Session` proprietà `HttpContext`. Questa proprietà è un [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession) implementazione.
+È possibile accedere a Session attraverso la proprietà `Session` in `HttpContext`. Questa proprietà è un'implementazione di [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession).
 
-L'esempio seguente mostra l'impostazione e recupero di un tipo int e una stringa:
+L'esempio seguente visualizza l'impostazione e il recupero di un valore int e una stringa:
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
-Se si aggiungono i seguenti metodi di estensione, è possibile impostare e ottenere gli oggetti serializzabili alla sessione:
+Se si aggiungono i seguenti metodi di estensione è possibile impostare e ottenere oggetti serializzabili in Session:
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
 
-Nell'esempio seguente viene illustrato come impostare e ottenere un oggetto serializzabile:
+L'esempio seguente illustra come impostare e ottenere un oggetto serializzabile:
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
 
 
-## <a name="working-with-httpcontextitems"></a>Utilizzo di HttpContext. Items
+## <a name="working-with-httpcontextitems"></a>Uso di HttpContext.Items
 
-Il `HttpContext` astrazione fornisce supporto per una raccolta di dizionario di tipo `IDictionary<object, object>`, denominato `Items`. Questa raccolta è disponibile dall'inizio di un *HttpRequest* e vengono eliminati alla fine di ogni richiesta. È possibile accedervi tramite l'assegnazione di un valore a una voce con chiave, o richiedendo il valore per una chiave specifica.
+L'astrazione `HttpContext` offre supporto per una raccolta dizionario di tipo `IDictionary<object, object>` denominata `Items`. Questa raccolta è disponibile dall'inizio di una richiesta *HttpRequest* e viene rimossa alla fine di ogni richiesta. È possibile accedervi assegnando un valore a una voce con chiave o richiedendo il valore per una chiave specifica.
 
-Nell'esempio seguente, [Middleware](middleware.md) aggiunge `isVerified` per il `Items` insieme.
+Nell'esempio seguente [Middleware](middleware.md) aggiunge `isVerified` all'insieme `Items`.
 
 ```csharp
 app.Use(async (context, next) =>
@@ -200,7 +200,7 @@ app.Use(async (context, next) =>
 });
 ```
 
-In un secondo momento nella pipeline, un altro middleware Impossibile accedervi:
+In punto successivo della pipeline, un altro middleware potrà accedere all'elemento:
 
 ```csharp
 app.Run(async (context) =>
@@ -210,7 +210,7 @@ app.Run(async (context) =>
 });
 ```
 
-Per middleware che verrà utilizzato solo da una singola app `string` chiavi sono accettabili. Tuttavia, middleware che verrà condivisi tra le applicazioni debba utilizzare chiavi dell'oggetto univoco per evitare qualsiasi rischio di conflitti di chiave. Se si sta sviluppando middleware che devono essere utilizzati in più applicazioni, utilizzare una chiave oggetto univoco definita nella classe middleware come illustrato di seguito:
+Per il middleware che viene usato da un'unica app sono accettabili le chiavi `string`. Il middleware condiviso tra più applicazioni deve invece usare chiavi oggetto univoche, per evitare qualsiasi rischio di conflitti di chiavi. Se si sta sviluppando middleware che dovrà funzionare con più applicazioni, usare una chiave oggetto univoca definita nella classe middleware come illustrato di seguito:
 
 ```csharp
 public class SampleMiddleware
@@ -225,7 +225,7 @@ public class SampleMiddleware
 }
 ```
 
-Altro codice può accedere al valore archiviato in `HttpContext.Items` utilizzando la chiave esposta dalla classe middleware:
+Altri elementi di codice possono accedere al valore archiviato in `HttpContext.Items` usando la chiave esposta dalla classe middleware:
 
 ```csharp
 public class HomeController : Controller
@@ -237,15 +237,15 @@ public class HomeController : Controller
 }
 ```
 
-Questo approccio presenta inoltre il vantaggio di eliminare la ripetizione di stringhe"magiche" in più posizioni nel codice.
+Questo approccio ha anche il vantaggio di eliminare la ripetizione di "stringhe magiche" in più posizioni nel codice.
 
 <a name="appstate-errors"></a>
 
-## <a name="application-state-data"></a>Dati di stato dell'applicazione
+## <a name="application-state-data"></a>Dati dello stato applicazione
 
-Utilizzare [Dependency Injection](xref:fundamentals/dependency-injection) per rendere i dati disponibili a tutti gli utenti:
+Usare [Dependency Injection](xref:fundamentals/dependency-injection) (Inserimento di dipendenze) per rendere i dati disponibili a tutti gli utenti:
 
-1. Definire un servizio che contiene i dati (ad esempio, una classe denominata `MyAppData`).
+1. Definire un servizio contenente i dati (ad esempio una classe denominata `MyAppData`).
 
 ```csharp
 public class MyAppData
@@ -253,8 +253,8 @@ public class MyAppData
     // Declare properties/methods/etc.
 } 
 ```
-2. Aggiungere la classe di servizio per `ConfigureServices` (ad esempio `services.AddSingleton<MyAppData>();`).
-3. Utilizzare la classe di servizio dati in ogni controller:
+2. Aggiungere la classe del servizio a `ConfigureServices` (ad esempio `services.AddSingleton<MyAppData>();`).
+3. Usare la classe del servizio dati in ogni controller:
 
 ```csharp
 public class MyController : Controller
@@ -267,23 +267,21 @@ public class MyController : Controller
 } 
 ```
 
-## <a name="common-errors-when-working-with-session"></a>Errori comuni quando si lavora con sessione
+## <a name="common-errors-when-working-with-session"></a>Errori comuni quando si lavora con Session
 
-* "Impossibile risolvere il servizio per il tipo 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' durante il tentativo di attivazione 'Microsoft.AspNetCore.Session.DistributedSessionStore'".
+* "Unable to resolve service for type 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' while attempting to activate 'Microsoft.AspNetCore.Session.DistributedSessionStore'." (Risoluzione servizio non riuscita per il tipo 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' durante il tentativo di attivazione di 'Microsoft.AspNetCore.Session.DistributedSessionStore').
 
-  Questo è generalmente causato dal mancato configurare almeno un `IDistributedCache` implementazione. Per ulteriori informazioni, vedere [utilizzano una Cache distribuita](xref:performance/caching/distributed) e [In memoria la memorizzazione nella cache](xref:performance/caching/memory).
+  Questo errore dipende in genere dal fatto che almeno un'implementazione `IDistributedCache` non è stata configurata. Per altre informazioni, vedere [Uso di una cache distribuita](xref:performance/caching/distributed) e [Cache In memory](xref:performance/caching/memory).
 
-* Nel caso che la sessione di middleware non riesce a mantenere una sessione (ad esempio: se il database non è disponibile), registra l'eccezione ed elimina il. La richiesta verrà quindi continuare normalmente, determinando un comportamento imprevedibile molto.
+* Se il middleware Session non riesce a mantenere una sessione (ad esempio se il database non è disponibile), registra l'eccezione e la assorbe. La richiesta continua quindi normalmente, determinando un comportamento di difficile previsione.
 
-Un esempio tipico:
+Ecco un esempio tipico:
 
-Un utente archivia un carrello acquisti nella sessione. L'utente aggiunge un elemento, ma il commit ha esito negativo. L'app non riconosce l'errore in modo che i report il messaggio "l'elemento è stato aggiunto", che non è true.
+Un utente archivia un carrello acquisti nella sessione. L'utente aggiunge un elemento, ma il commit ha esito negativo. L'app non riconosce l'errore e restituisce il messaggio "L'elemento è stato aggiunto", ma ciò non è vero.
 
-Il metodo consigliato per verificare la presenza di tali errori consiste nel chiamare `await feature.Session.CommitAsync();` dal codice dell'app dopo averli scrittura alla sessione. È quindi possibile eseguire ad esempio con l'errore. Funziona esattamente come quando si chiama `LoadAsync`.
-
+Il metodo consigliato per verificare la presenza di tali errori è la chiamata di `await feature.Session.CommitAsync();` dal codice dell'app dopo il completamento della scrittura nella sessione. Quindi sarà possibile gestire l'errore nel modo desiderato. Il funzionamento è identico quando si chiama `LoadAsync`.
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
-
-* [ASP.NET Core 1. x: esempio di codice usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
-* [ASP.NET Core 2. x: esempio di codice usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)
+* [ASP.NET Core 1.x: Codice di esempio usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 2.x: Codice di esempio usato in questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

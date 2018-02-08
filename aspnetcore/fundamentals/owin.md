@@ -1,42 +1,42 @@
 ---
 title: Open Web Interface for .NET (OWIN)
 author: ardalis
-description: Scoprire come ASP.NET Core supporta l'interfaccia Web aperta per .NET (OWIN), che consente alle App web di essere scollegata dal server web.
-ms.author: riande
+description: Informazioni su come ASP.NET Core supporta Open Web Interface for .NET (OWIN) che consente ai server Web di disaccoppiare le app Web.
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/owin
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/owin
+ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="introduction-to-open-web-interface-for-net-owin"></a>Introduzione per aprire interfaccia Web per .NET (OWIN)
+# <a name="introduction-to-open-web-interface-for-net-owin"></a>Introduzione a Open Web Interface for .NET (OWIN)
 
-Da [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core supporta Open Web Interface for .NET (OWIN). OWIN consente alle app Web di essere disaccoppiate dai server Web. Definisce un modo standard dei middleware per essere utilizzata in una pipeline per gestire le richieste e risposte associate. Middleware e delle applicazioni ASP.NET Core possono interagire con middleware, server e applicazioni basate su OWIN.
+ASP.NET Core supporta Open Web Interface for .NET (OWIN). OWIN consente alle app Web di essere disaccoppiate dai server Web. Definisce un modo standard per usare il middleware in una pipeline per gestire le richieste e le risposte associate. Le applicazioni ASP.NET Core e il middleware possono interagire con middleware, server e applicazioni basati su OWIN.
 
-OWIN fornisce un livello di separazione che consente di due modelli con modelli a oggetti diversi da utilizzare insieme. Il `Microsoft.AspNetCore.Owin` pacchetto fornisce due implementazioni dell'adattatore:
-- ASP.NET Core per OWIN 
-- OWIN per ASP.NET Core
+OWIN specifica un livello di disaccoppiamento che consente di usare contemporaneamente due framework con modelli a oggetti diversi. Il pacchetto `Microsoft.AspNetCore.Owin` offre due implementazioni dell'adattatore:
+- Da ASP.NET Core a OWIN 
+- Da OWIN a ASP.NET Core
 
-In questo modo ASP.NET di base deve essere ospitato su un OWIN compatibile/host server o per altri componenti compatibile OWIN da eseguire su ASP.NET Core.
+In questo modo ASP.NET Core può essere ospitato in un server/host compatibile con OWIN, o altri componenti compatibili con OWIN possono essere eseguiti su ASP.NET Core.
 
-Nota: L'uso di questi adapter comporta con una riduzione delle prestazioni. Applicazioni che usano solo i componenti di base di ASP.NET è consigliabile utilizzare il pacchetto Owin o schede.
+Nota: l'uso di questi adattatori comporta una riduzione delle prestazioni. Le applicazioni che usano solo componenti di ASP.NET Core non devono usare il pacchetto o gli adattatori OWIN.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>Middleware OWIN in esecuzione nella pipeline ASP.NET
+## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>Esecuzione del middleware OWIN nella pipeline ASP.NET
 
-Supporto OWIN del ASP.NET di base viene distribuito come parte di `Microsoft.AspNetCore.Owin` pacchetto. Per importare supporto OWIN nel progetto di installazione del pacchetto.
+Il supporto di OWIN per ASP.NET Core viene distribuito come parte del pacchetto `Microsoft.AspNetCore.Owin`. Per importare il supporto OWIN nel progetto è necessario installare il pacchetto.
 
-Middleware OWIN conforme al [specifica OWIN](http://owin.org/spec/spec/owin-1.0.0.html), che richiede un `Func<IDictionary<string, object>, Task>` impostare interfaccia e chiavi specifiche (ad esempio `owin.ResponseBody`). Middleware OWIN semplice seguente visualizza "Hello World":
+Il middleware OWIN è conforme alle [specifiche OWIN](http://owin.org/spec/spec/owin-1.0.0.html), che richiedono l'interfaccia `Func<IDictionary<string, object>, Task>` e che siano impostate chiavi specifiche, come ad esempio `owin.ResponseBody`. Il semplice middleware OWIN illustrato di seguito visualizza "Hello World":
 
 ```csharp
 public Task OwinHello(IDictionary<string, object> environment)
@@ -55,9 +55,9 @@ public Task OwinHello(IDictionary<string, object> environment)
 }
 ```
 
-La firma di esempio restituisce un `Task` e accetta un `IDictionary<string, object>` come richiesto da OWIN.
+La firma di esempio restituisce un oggetto `Task` e accetta un oggetto `IDictionary<string, object>` come richiesto da OWIN.
 
-Il codice seguente viene illustrato come aggiungere il `OwinHello` middleware (illustrato in precedenza) per la pipeline ASP.NET con il `UseOwin` metodo di estensione.
+Il codice seguente illustra come aggiungere il middleware `OwinHello`, illustrato in precedenza, alla pipeline ASP.NET con il metodo di estensione `UseOwin`.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -69,13 +69,13 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-È possibile configurare altre azioni da intraprendere sul posto all'interno della pipeline OWIN.
+È possibile configurare altre azioni da eseguire all'interno della pipeline OWIN.
 
 > [!NOTE]
-> Le intestazioni di risposta devono essere modificate solo prima la prima scrittura nel flusso di risposta.
+> Le intestazioni di risposta devono essere modificate solo prima della prima scrittura nel flusso di risposta.
 
 > [!NOTE]
-> Più chiamate al metodo `UseOwin` è sconsigliato per motivi di prestazioni. Componenti OWIN funzionerà meglio se raggruppati insieme.
+> Le chiamate multiple al metodo `UseOwin` sono sconsigliate per non compromettere le prestazioni. I componenti OWIN funzionano meglio se raggruppati insieme.
 
 ```csharp
 app.UseOwin(pipeline =>
@@ -91,17 +91,17 @@ app.UseOwin(pipeline =>
 
 <a name="hosting-on-owin"></a>
 
-## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Tramite l'Hosting ASP.NET in un server basato su OWIN
+## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Uso dell'hosting di ASP.NET in un server basato su OWIN
 
-Server basati su OWIN può ospitare applicazioni ASP.NET. Un server di questo tipo è [Nowin](https://github.com/Bobris/Nowin), un server web di OWIN .NET. Nell'esempio di questo articolo, ho incluso un progetto che fa riferimento a Nowin e viene utilizzato per creare un `IServer` in grado di self-hosting ASP.NET Core.
+I server basati su OWIN possono ospitare applicazioni ASP.NET. Un server di questo tipo è [Nowin](https://github.com/Bobris/Nowin), un server Web OWIN per .NET. Nell'esempio di questo articolo è stato incluso un progetto che fa riferimento a Nowin e lo usa per creare un oggetto `IServer` in grado di eseguire l'hosting automatico di ASP.NET Core.
 
 [!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
-`IServer`è un'interfaccia che richiede un `Features` proprietà e un `Start` metodo.
+`IServer` è un'interfaccia che richiede una proprietà `Features` e un metodo `Start`.
 
-`Start`è responsabile della configurazione e avvio del server, che in questo caso viene eseguito tramite una serie di chiamate API fluent impostare indirizzi analizzati il IServerAddressesFeature. Si noti che la configurazione di Microsoft Office fluent di `_builder` variabile specifica che le richieste verranno gestite dal `appFunc` definito in precedenza nel metodo. Questo `Func` viene chiamato su ogni richiesta per elaborare le richieste in ingresso.
+`Start` è responsabile della configurazione e dell'avvio del server, che in questo caso avvengono tramite una serie di chiamate API Fluent che impostano gli indirizzi analizzati da IServerAddressesFeature. Si noti che la configurazione Fluent della variabile `_builder` specifica che le richieste vengano gestite dall'oggetto `appFunc` definito in precedenza nel metodo. L'oggetto `Func` viene chiamato su ogni richiesta per elaborare le richieste in ingresso.
 
-Verrà inoltre aggiunto un `IWebHostBuilder` estensione rendono più semplice aggiungere e configurare il server Nowin.
+Verrà aggiunta anche un'estensione `IWebHostBuilder` per semplificare l'aggiunta e la configurazione del server Nowin.
 
 ```csharp
 using System;
@@ -134,7 +134,7 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-A questo punto, tutto ciò che è necessario per eseguire un'applicazione ASP.NET utilizzando questo server personalizzato per chiamare l'estensione in *Program.cs*:
+A questo punto, per eseguire un'applicazione ASP.NET usando questo server personalizzato, sarà necessario chiamare l'estensione in *Program.cs*:
 
 ```csharp
 
@@ -165,11 +165,11 @@ namespace NowinSample
 
 ```
 
-Ulteriori informazioni su ASP.NET [server](servers/index.md).
+Altre informazioni sui [server](servers/index.md) ASP.NET.
 
-## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>Eseguire ASP.NET Core in un server basato su OWIN e utilizzare il supporto di WebSocket
+## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>Eseguire ASP.NET Core in un server basato su OWIN e usare il supporto di WebSocket
 
-Un altro esempio di funzionalità dei server basati su OWIN può essere utilizzato da ASP.NET Core è l'accesso a funzionalità quali WebSocket. Il server web di OWIN .NET utilizzato nell'esempio precedente è il supporto per i socket Web incorporato, che può essere utilizzato da un'applicazione ASP.NET Core. L'esempio seguente mostra un'app web semplici che supporta i WebSocket e di restituisce tutti gli elementi inviati al server tramite WebSockets.
+Un altro esempio di funzionalità dei server basati su OWIN che può essere sfruttata da ASP.NET Core è l'accesso a funzionalità quali i WebSocket. Il server Web OWIN per .NET usato nell'esempio precedente ha il supporto per i WebSocket incorporato che può essere usato da un'applicazione ASP.NET Core. L'esempio seguente illustra una semplice app Web che supporta i WebSocket e restituisce tutto quanto inviato al server tramite WebSocket.
 
 ```csharp
 public class Startup
@@ -217,13 +217,13 @@ public class Startup
 }
 ```
 
-Questo [esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) viene configurata utilizzando lo stesso `NowinServer` a quello precedente, l'unica differenza è in modalità con cui l'applicazione è configurata nel relativo `Configure` (metodo). Un test utilizzando [un client websocket semplice](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) illustra l'applicazione:
+L'[esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) viene configurato usando lo stesso `NowinServer` del precedente, l'unica differenza è la modalità con cui l'applicazione viene configurata nel relativo metodo `Configure`. Un test che usa [un semplice client WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) illustra l'applicazione:
 
-![Client di Test Web Socket](owin/_static/websocket-test.png)
+![Client di test WebSocket](owin/_static/websocket-test.png)
 
 ## <a name="owin-environment"></a>Ambiente OWIN
 
-È possibile creare un ambiente OWIN tramite il `HttpContext`.
+È possibile creare un ambiente OWIN tramite `HttpContext`.
 
 ```csharp
 
@@ -233,9 +233,9 @@ Questo [esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundament
 
 ## <a name="owin-keys"></a>Chiavi OWIN
 
-Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazioni attraverso uno scambio di richiesta/risposta HTTP. ASP.NET Core implementa le chiavi elencate di seguito. Vedere il [specifica primario, estensioni](http://owin.org/#spec), e [chiavi comuni e le linee guida chiave OWIN](http://owin.org/spec/spec/CommonKeys.html).
+OWIN dipende da un oggetto `IDictionary<string,object>` per comunicare informazioni attraverso uno scambio di richiesta/risposta HTTP. ASP.NET Core implementa le chiavi elencate di seguito. Vedere le [specifiche principali e le estensioni](http://owin.org/#spec), nonché la pagina [OWIN Key Guidelines and Common Keys](http://owin.org/spec/spec/CommonKeys.html) (Linee guida sulle chiavi OWIN e chiavi comuni).
 
-### <a name="request-data-owin-v100"></a>Dati della richiesta (versione 1.0.0 OWIN)
+### <a name="request-data-owin-v100"></a>Dati della richiesta (OWIN versione 1.0.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
@@ -248,13 +248,13 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 | owin.RequestHeaders | `IDictionary<string,string[]>`  | |
 | owin.RequestBody | `Stream`  | |
 
-### <a name="request-data-owin-v110"></a>Dati della richiesta (OWIN v1.1.0)
+### <a name="request-data-owin-v110"></a>Dati della richiesta (OWIN versione 1.1.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
 | owin.RequestId | `String` | Facoltativo |
 
-### <a name="response-data-owin-v100"></a>Dati di risposta (versione 1.0.0 OWIN)
+### <a name="response-data-owin-v100"></a>Dati della risposta (OWIN versione 1.0.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
@@ -264,7 +264,7 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 | owin.ResponseBody | `Stream`  | |
 
 
-### <a name="other-data-owin-v100"></a>Altri dati (versione 1.0.0 OWIN)
+### <a name="other-data-owin-v100"></a>Altri dati (OWIN versione 1.0.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
@@ -290,7 +290,7 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| sendfile.SendAsync | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | Per ogni richiesta |
+| sendfile.SendAsync | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato) | Per richiesta |
 
 
 ### <a name="opaque-v030"></a>Opaque v0.3.0
@@ -298,7 +298,7 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
 | opaque.Version | `String` |  |
-| opaque.Upgrade | `OpaqueUpgrade` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| opaque.Upgrade | `OpaqueUpgrade` | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato) |
 | opaque.Stream | `Stream` |  |
 | opaque.CallCancelled | `CancellationToken` |  |
 
@@ -308,19 +308,17 @@ Dipende da OWIN un `IDictionary<string,object>` oggetto per comunicare informazi
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
 | websocket.Version | `String` |  |
-| websocket.Accept | `WebSocketAccept` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| websocket.AcceptAlt |  | Non-spec |
+| websocket.Accept | `WebSocketAccept` | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato) |
+| websocket.AcceptAlt |  | Non specificata |
 | websocket.SubProtocol | `String` | Vedere [RFC6455 sezione 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) passaggio 5.5 |
-| websocket.SendAsync | `WebSocketSendAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.CloseAsync | `WebSocketCloseAsync` | Vedere [firma del delegato](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.SendAsync | `WebSocketSendAsync` | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | Vedere [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato)  |
 | websocket.CallCancelled | `CancellationToken` |  |
 | websocket.ClientCloseStatus | `int` | Facoltativo |
 | websocket.ClientCloseDescription | `String` | Facoltativo |
 
-
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Middleware](middleware.md)
-
-* [Server](servers/index.md)
+* [Middleware](xref:fundamentals/middleware/index)
+* [Server](xref:fundamentals/servers/index)

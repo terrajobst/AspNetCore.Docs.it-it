@@ -4,11 +4,11 @@ Questa esercitazione consente di creare l'API seguente:
 
 |API | Descrizione | Corpo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/todo | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|GET /api/todo/{id} | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|GET /api/todo | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
+|GET /api/todo/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
 |POST /api/todo | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/todo/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|DELETE /api/todo/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | Nessuno | Nessuno|
+|PUT /api/todo/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
+|DELETE /api/todo/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuno | nessuno|
 
 <br>
 

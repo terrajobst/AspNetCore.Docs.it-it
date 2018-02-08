@@ -1,31 +1,31 @@
 ---
 title: Caricamento di file in ASP.NET Core
 author: ardalis
-description: Come utilizzare l'associazione del modello e lo streaming per caricare i file in ASP.NET MVC di base.
-ms.author: riande
+description: Come usare l'associazione del modello e lo streaming per caricare i file in ASP.NET Core MVC.
 manager: wpickett
+ms.author: riande
 ms.date: 07/05/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Caricamento di file in ASP.NET Core
 
-Da [Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
-Azioni di ASP.NET MVC supportano il caricamento di uno o più file utilizzando un modello semplice di associazione per i file più piccoli o di flusso per i file di dimensioni maggiori.
+Le azioni di ASP.NET MVC supportano il caricamento di uno o più file tramite un'associazione di modelli semplice per i file di dimensioni inferiori o tramite streaming per i file di dimensioni maggiori.
 
-[Consente di visualizzare o scaricare l'esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Visualizzare o scaricare l'esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
-## <a name="uploading-small-files-with-model-binding"></a>Il caricamento di file di piccole dimensioni con l'associazione di modelli
+## <a name="uploading-small-files-with-model-binding"></a>Caricamento di file di piccole dimensioni tramite associazione di modelli
 
-Per caricare file di piccole dimensioni, è possibile utilizzare un modulo HTML più parte o creare una richiesta POST con JavaScript. Un modulo di esempio utilizzando Razor, che supporta più i file caricati, è illustrato di seguito:
+Per caricare file di piccole dimensioni, è possibile usare un form HTML multiparte o costruire una richiesta POST con JavaScript. Di seguito è illustrato un form di esempio con Razor, che supporta più file caricati:
 
 ```html
 <form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
@@ -43,11 +43,11 @@ Per caricare file di piccole dimensioni, è possibile utilizzare un modulo HTML 
 </form>
 ```
 
-Per supportare il caricamento di file, è necessario specificare moduli HTML un `enctype` di `multipart/form-data`. Il `files` elemento input illustrato in precedenza supporta il caricamento di più file. Omettere il `multiple` attributo per questo elemento di input per consentire solo un singolo file da caricare. Il codice precedente viene eseguito il rendering in un browser come:
+Per supportare il caricamento di file, i form HTML devono specificare un `enctype` corrispondente a `multipart/form-data`. L'elemento input `files` illustrato in precedenza supporta il caricamento di più file. Omettere l'attributo `multiple` dell'elemento di input per consentire il caricamento di un unico file. Il rendering del markup sopra riportato corrisponde a:
 
-![Modulo di caricamento file](file-uploads/_static/upload-form.png)
+![Form di caricamento di file](file-uploads/_static/upload-form.png)
 
-I singoli file caricati nel server sono accessibili tramite [associazione di modelli](xref:mvc/models/model-binding) utilizzando il [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) interfaccia. `IFormFile`presenta la struttura seguente:
+I singoli file caricati nel server sono accessibili tramite [associazione di modelli](xref:mvc/models/model-binding) attraverso l'interfaccia [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile). `IFormFile` ha la struttura seguente:
 
 ```csharp
 public interface IFormFile
@@ -65,17 +65,17 @@ public interface IFormFile
 ```
 
 > [!WARNING]
-> Non si basano su o considerare attendibile il `FileName` proprietà senza convalida. Il `FileName` proprietà deve essere utilizzata solo per scopi di visualizzazione.
+> Non basarsi sulla proprietà `FileName` né considerarla attendibile senza convalida. La proprietà `FileName` deve essere usata solo per scopi di visualizzazione.
 
-Durante il caricamento di file utilizzando l'associazione di modelli e `IFormFile` interfaccia, il metodo di azione può accettare un singolo `IFormFile` o `IEnumerable<IFormFile>` (o `List<IFormFile>`) che rappresenta i diversi file. Nell'esempio seguente esegue il ciclo di uno o più file caricati, li salva nel file system locale e restituisce il numero totale e le dimensioni dei file caricati.
+Durante il caricamento di file tramite l'associazione di modelli e l'interfaccia `IFormFile`, il metodo di azione può accettare una singola `IFormFile` oppure una `IEnumerable<IFormFile>` (o una `List<IFormFile>`) che rappresenta diversi file. L'esempio seguente esegue il ciclo attraverso uno o più file caricati, li salva nel file system locale e restituisce il numero totale e le dimensioni dei file caricati.
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-I file caricati utilizzando il `IFormFile` tecnica vengono memorizzati nel buffer in memoria o su disco nel server web prima di essere elaborato. All'interno del metodo di azione, il `IFormFile` contenuto è accessibile come flusso. Oltre ai file system locale, file possono essere trasmesso a [archiviazione Blob di Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) o [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Prima di essere elaborati, i file caricati tramite la tecnica `IFormFile` vengono memorizzati nel buffer in memoria o nel disco del server Web. All'interno del metodo di azione, il contenuto di `IFormFile` è accessibile come flusso. Oltre al file system locale, i file possono essere trasmessi ad [Archiviazione BLOB di Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) o a [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
-Per archiviare i dati di file binario in un database tramite Entity Framework, definire una proprietà di tipo `byte[]` nell'entità:
+Per archiviare i dati di file binari in un database tramite Entity Framework, definire una proprietà di tipo `byte[]` nell'entità:
 
 ```csharp
 public class ApplicationUser : IdentityUser
@@ -96,9 +96,9 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile`può essere utilizzato direttamente come un parametro di metodo di azione o una proprietà viewmodel, come illustrato in precedenza.
+> L'interfaccia `IFormFile` può essere usata direttamente come parametro di metodo di azione o come proprietà viewmodel, come illustrato in precedenza.
 
-Copia il `IFormFile` in un flusso e salvarlo nella matrice di byte:
+Copiare `IFormFile` in un flusso e salvare quest'ultimo nella matrice di byte:
 
 ```csharp
 // POST: /Account/Register
@@ -127,18 +127,18 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 ```
 
 > [!NOTE]
-> Prestare attenzione quando si archiviano dati binari in database relazionali, come può influire negativamente sulle prestazioni.
+> Quando si archiviano dati binari all'interno di database relazionali, è necessario prestare attenzione, perché l'operazione può influire negativamente sulle prestazioni.
 
-## <a name="uploading-large-files-with-streaming"></a>Caricamento di file di grandi dimensioni con il flusso
+## <a name="uploading-large-files-with-streaming"></a>Caricamento di file di grandi dimensioni tramite streaming
 
-Se le dimensioni o la frequenza di caricamento file provoca problemi di risorse per l'app, si consideri il caricamento del file di flusso, anziché memorizzarlo nella sua interezza, come illustrato in precedenza l'approccio di associazione del modello. Quando si utilizza `IFormFile` e associazione del modello è una quantità soluzione più semplice, streaming richiede un numero di passaggi per implementare correttamente.
+Se le dimensioni o la frequenza del caricamento dei file causa problemi di risorse per l'app, è consigliabile caricare i file tramite streaming, anziché memorizzarli interamente nel buffer, come avviene con l'approccio di associazione di modelli illustrato in precedenza. L'uso di `IFormFile` e dell'associazione di modelli rappresenta una soluzione più semplice, mentre l'implementazione corretta dello streaming richiede un certo numero di passaggi.
 
 > [!NOTE]
-> Qualsiasi singolo file memorizzato nel buffer superiore a 64KB verrà spostati dalla memoria in un file temporaneo su disco nel server. Le risorse (disco, RAM) utilizzate dal caricamento di file dipendono dal numero e dimensione di caricamento di file simultanee. Questo non è tanto sulle prestazioni, sulla scala. Se si tenta di caricamento di un numero eccessivo di buffer, del sito verrà arrestato in modo anomalo quando si esaurisce lo spazio di memoria o disco.
+> Ogni file memorizzato nel buffer superiore a 64 KB viene spostato dalla RAM in un file temporaneo in un disco nel server. Le risorse (disco, RAM) usate dall'operazione di caricamento di file dipendono dal numero e dalle dimensioni dei file caricati simultaneamente. Con lo streaming, il problema non è rappresentato dalle prestazioni ma dalla scalabilità. Se si tenta di caricare nel buffer un numero eccessivo di file, quando la memoria o lo spazio su disco si esaurisce il sito si arresterà in modo anomalo.
 
-Nell'esempio seguente viene illustrato l'utilizzo di JavaScript/angolare per lo streaming a un'azione del controller. Token non riproducibili del file viene generato utilizzando un attributo di filtro personalizzato e passato nelle intestazioni HTTP anziché nel corpo della richiesta. Poiché il metodo di azione elabora i dati caricati direttamente, l'associazione di modelli è disabilitata per un altro filtro. All'interno dell'azione, il contenuto del form viene letti utilizzando un `MultipartReader`, che legge ogni singolo `MultipartSection`, l'elaborazione del file o di archiviare il contenuto come appropriato. Dopo tutte le sezioni sono stati letti, l'azione esegue il proprio associazione del modello.
+L'esempio seguente illustra l'uso di JavaScript/Angular per eseguire lo streaming in un'azione del controller. Il token anti falsificazione del file viene generato tramite un attributo di filtro personalizzato e passato in intestazioni HTTP anziché nel corpo della richiesta. Poiché il metodo di azione elabora i dati caricati direttamente, l'associazione di modelli viene disabilitata da un altro filtro. All'interno dell'azione, il contenuto del form viene letto tramite un `MultipartReader`, che legge ogni singola `MultipartSection`, elaborando il file o archiviandone il contenuto, come appropriato. Dopo che tutte le sezioni sono state lette, l'azione esegue la propria associazione di modelli.
 
-L'azione iniziale carica il form e consente di salvare un token non riproducibili in un cookie (tramite il `GenerateAntiforgeryTokenCookieForAjax` attributo):
+L'azione iniziale carica il form e salva un token anti falsificazione in un cookie tramite l'attributo `GenerateAntiforgeryTokenCookieForAjax`:
 
 ```csharp
 [HttpGet]
@@ -149,21 +149,21 @@ public IActionResult Index()
 }
 ```
 
-L'attributo utilizza predefinito di ASP.NET Core [Antiforgery](xref:security/anti-request-forgery) il supporto per impostare un cookie con un token di richiesta:
+L'attributo usa il supporto [anti falsificazione](xref:security/anti-request-forgery) incorporato di ASP.NET Core per impostare un cookie con un token della richiesta:
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
-Angolare passa automaticamente un token non riproducibili in un'intestazione di richiesta denominata `X-XSRF-TOKEN`. L'app ASP.NET MVC di base è configurato per fare riferimento a questa intestazione nella sua configurazione *Startup.cs*:
+Angular passa automaticamente un token anti falsificazione in un'intestazione di richiesta denominata `X-XSRF-TOKEN`. Nel file di configurazione *Startup.cs* l'app ASP.NET Core MVC è configurata per fare riferimento a questa intestazione:
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
-Il `DisableFormValueModelBinding` attributo, illustrato di seguito, viene utilizzato per l'associazione di modelli per disabilitare il `Upload` metodo di azione.
+L'attributo `DisableFormValueModelBinding`, illustrato di seguito, viene usato per disabilitare l'associazione di modelli per il metodo di azione `Upload`.
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
-Poiché l'associazione del modello è disattivato, la `Upload` metodo di azione non accetta parametri. Interagisce direttamente con il `Request` proprietà `ControllerBase`. Oggetto `MultipartReader` viene utilizzato per leggere ogni sezione. Il file viene salvato con un nome di file GUID e i dati di chiave/valore vengono archiviati un `KeyValueAccumulator`. Una volta tutte le sezioni sono stati letti, il contenuto del `KeyValueAccumulator` vengono utilizzati per associare i dati del form a un tipo di modello.
+Poiché l'associazione di modelli è disabilitata, il metodo di azione `Upload` non accetta parametri ma usa direttamente la proprietà `Request` di `ControllerBase`. Per leggere ogni sezione, viene usato un `MultipartReader`. Il file viene salvato con un nome di file GUID e i dati di chiave/valore vengono archiviati in un `KeyValueAccumulator`. Dopo che tutte le sezioni sono state lette, il contenuto del `KeyValueAccumulator` viene usato per associare i dati del form a un tipo di modello.
 
-L'intero `Upload` metodo è illustrato di seguito:
+Il metodo `Upload` è illustrato di seguito:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
@@ -171,18 +171,18 @@ L'intero `Upload` metodo è illustrato di seguito:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Ecco alcuni problemi comuni riscontrati quando si lavora con il caricamento di file e le relative soluzioni possibili.
+Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 
-### <a name="unexpected-not-found-error-with-iis"></a>Errore imprevisto non trovato con IIS
+### <a name="unexpected-not-found-error-with-iis"></a>Errore imprevisto Non trovato con IIS
 
-L'errore seguente indica il caricamento del file supera il server configurato `maxAllowedContentLength`:
+L'errore seguente indica che il caricamento di file supera il valore di `maxAllowedContentLength` configurato per il server:
 
 ```
 HTTP 404.13 - Not Found
 The request filtering module is configured to deny a request that exceeds the request content length.
 ```
 
-L'impostazione predefinita è `30000000`, ovvero circa 28,6 MB. Il valore può essere personalizzato modificando *Web. config*:
+L'impostazione predefinita è `30000000`, ovvero circa 28,6 MB. Il valore può essere personalizzato modificando *web.config*:
 
 ```xml
 <system.webServer>
@@ -195,8 +195,8 @@ L'impostazione predefinita è `30000000`, ovvero circa 28,6 MB. Il valore può e
 </system.webServer>
 ```
 
-Questa impostazione si applica solo a IIS. Il comportamento non si verifica per impostazione predefinita, quando si ospita sul Kestrel. Per ulteriori informazioni, vedere [limiti richiesta \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+Questa impostazione si applica solo a IIS. Il comportamento non si verifica per impostazione predefinita con l'hosting in Kestrel. Per altre informazioni, vedere [Request Limits \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/) (Limiti delle richieste <requestLimits>).
 
-### <a name="null-reference-exception-with-iformfile"></a>Eccezione di riferimento null con IFormFile
+### <a name="null-reference-exception-with-iformfile"></a>Eccezione per riferimento Null con IFormFile
 
-Se il controller è accettazione caricati i file usando `IFormFile` ma trovare che il valore è sempre null, verificare che il form HTML consiste nello specificare un `enctype` valore `multipart/form-data`. Se questo attributo non è impostato sul `<form>` elemento, non si verifica il caricamento del file e qualsiasi associazione `IFormFile` argomenti è null.
+Se il controller accetta file caricati tramite `IFormFile` ma si rileva che il valore è sempre Null, verificare che il form HTML specifichi un valore `enctype` corrispondente a `multipart/form-data`. Se questo attributo non è impostato per l'elemento `<form>`, il caricamento di file non si verifica e qualsiasi argomento `IFormFile` associato è Null.

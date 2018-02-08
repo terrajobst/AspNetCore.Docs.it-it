@@ -1,25 +1,25 @@
 ---
 title: Creare un'API Web con ASP.NET Core e Visual Studio Code
-description: Compilare un'API Web in macOS, Linux o Windows con ASP.NET Core MVC e Visual Studio Code
 author: rick-anderson
+description: Compilare un'API Web in macOS, Linux o Windows con ASP.NET Core MVC e Visual Studio Code
+manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
-ms.topic: get-started-article
 ms.prod: asp.net-core
 ms.technology: aspnet
-manager: wpickett
+ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 9fec8904cf05fc486160c0641731c6336fe2766a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Creare un'API Web con ASP.NET Core MVC e Visual Studio Code in Linux, macOS e Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
-In questa esercitazione si creerà un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente.
+Questa esercitazione consente di creare un'API Web per la gestione di un elenco di elementi di tipo "attività". Non è stata costruita un'interfaccia utente.
 
 Sono disponibili 3 versioni dell'esercitazione:
 

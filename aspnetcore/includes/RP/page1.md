@@ -105,9 +105,9 @@ L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helper
 
 Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. Visualizzare il file [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) in GitHub.
 
-### <a name="the-create-code-behind-page"></a>Pagina di creazione code-behind
+### <a name="the-create-page-model"></a>Modello di pagina di creazione
 
-Esaminare il file code-behind *Pages/Movies/Create.cshtml.cs*:
+Esaminare il modello di pagina *Pages/Movies/Create.cshtml.cs*:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

@@ -1,50 +1,50 @@
 ---
 title: Associazione di modelli
 author: rachelappel
-description: Informazioni sull'associazione del modello in ASP.NET MVC di base
-ms.author: rachelap
+description: Informazioni sull'associazione di modelli in ASP.NET Core MVC
 manager: wpickett
-ms.date: 01/22/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
+ms.author: rachelap
+ms.date: 01/22/2018
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/model-binding
-ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: d64d2792d7c682f9112133be1b9d129b2fc8a048
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="model-binding"></a>Associazione di modelli
 
-Da [Rachel Appel](https://github.com/rachelappel)
+Di [Rachel Appel](https://github.com/rachelappel)
 
-## <a name="introduction-to-model-binding"></a>Introduzione al modello di associazione
+## <a name="introduction-to-model-binding"></a>Introduzione all'associazione di modelli
 
-Associazione di modelli in ASP.NET MVC di base esegue il mapping dei dati dalle richieste HTTP ai parametri di metodo di azione. I parametri possono essere tipi semplici, ad esempio stringhe, interi o valori float o possono essere tipi complessi. In questo modo una grande funzionalità di MVC mapping di dati in ingresso a un equivalente è uno scenario spesso ripetuto, indipendentemente dalla dimensione o della complessità dei dati. MVC risolve questo problema, astrarre associazione in modo gli sviluppatori non sono necessario mantenere la riscrittura di una versione leggermente diversa di tale codice stesso in tutte le applicazioni. Scrittura del testo per digitare il codice del convertitore risulta difficile e soggetta a errori.
+L'associazione di modelli in ASP.NET Core MVC esegue il mapping dei dati dalle richieste HTTP ai parametri dei metodi di azione. I parametri possono essere di tipo semplice, ad esempio stringa, integer o float, o di tipo complesso. Questa è una funzionalità di MVC eccezionale, poiché il mapping di dati in ingresso con una controparte è uno scenario che si ripete spesso, indipendentemente dalle dimensioni o dalla complessità dei dati. MVC risolve questo problema astraendo l'associazione. Gli sviluppatori non devono quindi continuare a scrivere una versione leggermente diversa dello stesso codice in ogni app. Scrivere testo personalizzato all'interno di codice convertitore di tipi è tedioso e soggetto a errori.
 
-## <a name="how-model-binding-works"></a>Funzionamento di associazione del modello
+## <a name="how-model-binding-works"></a>Funzionamento dell'associazione di modelli
 
-Quando MVC riceve una richiesta HTTP, viene instradato a un metodo di azione specifica di un controller. Determina il metodo di azione da eseguire in base alle quali è nei dati di route, quindi associa i valori dalla richiesta HTTP per i parametri del metodo di azione. Si consideri ad esempio l'URL seguente:
+Quando MVC riceve una richiesta HTTP, la instrada a un metodo di azione specifico di un controller. Determina il metodo di azione da eseguire in base al contenuto dei dati della route e quindi associa i valori dalla richiesta HTTP ai parametri del metodo di azione stesso. Si consideri ad esempio l'URL seguente:
 
 `http://contoso.com/movies/edit/2`
 
-Poiché il modello di route è simile al seguente, `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` instrada il `Movies` controller e il relativo `Edit` metodo di azione. Tale metodo accetta inoltre un parametro facoltativo denominato `id`. Il codice per il metodo di azione dovrebbe essere simile al seguente:
+Poiché il modello di route è simile a `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` esegue l'instradamento al controller `Movies` e al relativo metodo di azione `Edit`. Accetta anche un parametro facoltativo denominato `id`. Il codice per il metodo di azione dovrebbe essere simile al seguente:
 
 ```csharp
 public IActionResult Edit(int? id)
    ```
 
-Nota: Le stringhe della route dell'URL non sono tra maiuscole e minuscole.
+Nota: le stringhe nella route dell'URL non fanno distinzione tra maiuscole e minuscole.
 
-MVC tenterà di associare i dati di richiesta per i parametri dell'azione in base al nome. MVC cercherà i valori per ogni parametro utilizzando il nome di parametro e i nomi delle proprietà impostabili pubbliche. Nell'esempio precedente, il parametro sola azione è denominato `id`, MVC associa il valore con lo stesso nome nei valori di route. Oltre ai valori di route MVC assocerà dati da varie parti della richiesta ed esegue l'operazione in un determinato ordine. Di seguito è riportato un elenco delle origini dati nell'ordine in cui li esamina l'associazione di modelli:
+MVC tenta di associare i dati della richiesta ai parametri dell'azione in base al nome. MVC cerca i valori per ogni parametro usando il nome del parametro e i nomi delle proprietà impostabili pubbliche. Nell'esempio precedente, l'unico parametro di azione, denominato `id`, viene associato da MVC al valore con lo stesso nome nei valori di route. Oltre ai valori di route, MVC associa dati da varie parti della richiesta ed esegue l'operazione in un ordine stabilito. Di seguito è riportato un elenco delle origini dati nell'ordine in cui vengono esaminate dall'associazione di modelli:
 
-1. `Form values`: Si tratta di valori del form che nella richiesta HTTP con il metodo POST. (incluse le richieste POST jQuery).
+1. `Form values`: si tratta di valori di form inseriti nella richiesta HTTP con il metodo POST, incluse le richieste POST jQuery.
 
-2. `Route values`: Il set di valori di route disponibili in [Routing](xref:fundamentals/routing)
+2. `Route values`: set di valori di route resi disponibili dal [routing](xref:fundamentals/routing)
 
-3. `Query strings`: La parte di stringa di query dell'URI.
+3. `Query strings`: parte della stringa di query dell'URI.
 
 <!-- DocFX BUG
 The link works but generates an error when building with DocFX
@@ -52,67 +52,67 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-Nota: Modulo valori, i dati di route e query tutte le stringhe vengono archiviate come coppie nome-valore.
+Nota: i valori di form, i dati di route e le stringhe di query vengono tutti archiviati come coppie nome-valore.
 
-Poiché l'associazione del modello richiesto per una chiave denominata `id` Nessun elemento denominato `id` nei valori del form, spostato per i valori della route per tale chiave. In questo esempio, è una corrispondenza. Si verifichi l'associazione e il valore viene convertito all'intero 2. La stessa richiesta mediante modifica (id di stringa) potrebbe convertire la stringa "2".
+Poiché l'associazione di modelli ha richiesto una chiave denominata `id` e nei valori del form nessun elemento è denominato `id`, l'associazione di modelli cerca tale chiave passando ai valori della route. In questo esempio, esiste una corrispondenza. L'associazione viene eseguita e il valore viene convertito nell'integer 2. Se nella stessa richiesta fosse usata l'espressione Edit(string id), il risultato della conversione sarebbe la stringa "2".
 
-Nell'esempio viene utilizzato finora tipi semplici. In MVC tipi semplici sono qualsiasi tipo primitivo .NET o con un convertitore di tipi di stringa. Se il parametro del metodo di azione fosse una classe, ad esempio il `Movie` tipo, che contiene i tipi semplici e complessi come proprietà, modello associazione continuerà del MVC gestire correttamente. Usa la reflection e la ricorsione per attraversare le proprietà di ricerca di corrispondenze di tipi complessi. Esegue la ricerca per il modello di associazione di modelli *parameter_name.property_name* per associare i valori alle proprietà. Se i valori corrispondenti del modulo non viene trovato, verrà effettuato un tentativo di eseguire il binding utilizzando solo il nome della proprietà. Per i tipi, ad esempio `Collection` , tipi di associazione del modello esegue la ricerca di corrispondenze da *parameter_name [index]* o semplicemente *[index]*. Modello di associazione considera `Dictionary` tipi in modo analogo, che richiede il *parameter_name [key]* o semplicemente *[key]*, purché le chiavi sono tipi semplici. Le chiavi supportate corrispondono ai nomi di campo HTML e gli helper di tag generati per lo stesso tipo di modello. In questo modo i valori di andata e ritorno in modo che i campi modulo rimangano riempiti con l'input dell'utente per i motivi di praticità, ad esempio, quando i dati associati dalla creazione o modifica non superano la convalida.
+Finora l'esempio ha usato tipi semplici. In MVC sono considerati tipi semplici tutti i tipi primitivi .NET o i tipi con un convertitore di tipo stringa. Se il parametro del metodo di azione fosse una classe, ad esempio il tipo `Movie`, contenente sia tipi semplici che tipi complessi come proprietà, l'associazione di modelli di MVC sarebbe comunque in grado di gestirlo correttamente, usando la reflection e la ricorsione per cercare corrispondenze attraverso le proprietà corrispondenti ai tipi complessi. Per associare i valori alle proprietà, l'associazione di modelli cerca il modello *nome_parametro.nome_proprietà*. Se non trova valori corrispondenti nel form, tenta di eseguire l'associazione usando solo il nome della proprietà. Per i tipi quali `Collection`, l'associazione di modelli cerca le corrispondenze in base a *nome_parametro[indice]* o semplicemente *[indice]*. L'associazione di modelli considera i tipi `Dictionary` in modo analogo, richiedendo *nome_parametro[chiave]* o semplicemente *[chiave]*, purché le chiavi siano di tipo semplice. Le chiavi supportate corrispondono ai nomi di campo HTML e agli helper tag generati per lo stesso tipo di modello. Ciò consente l'uso di valori di andata e ritorno, in modo che i campi modulo rimangano compilati con l'input dell'utente per praticità, ad esempio quando i dati associati provenienti da un'istruzione di creazione o modifica non superano la convalida.
 
-In ordine di associazione consente di eseguire la classe deve avere un costruttore predefinito pubblico e membro sia associato deve essere pubblica proprietà accessibile in scrittura. Quando si verifica l'associazione di modelli che della classe sarà possibile creare istanze solo utilizzando il costruttore predefinito pubblico, è possono impostare le proprietà.
+Perché l'associazione possa verificarsi, la classe deve avere un costruttore predefinito pubblico e i membri da associare devono essere proprietà scrivibili pubbliche. Quando si verifica l'associazione di modelli, sarà possibile creare istanze della classe solo usando il costruttore predefinito pubblico. Sarà quindi possibile impostare le proprietà.
 
-Quando è associato un parametro, l'associazione di modelli arresta cercando valori con lo stesso nome e lo sposta associare il parametro successivo. In caso contrario, il comportamento di associazione del modello predefinito imposta parametri i valori predefiniti in base al tipo:
+Quando un parametro viene associato, l'associazione di modelli interrompe la ricerca di valori con quel nome e passa ad associare il parametro successivo. In caso contrario, il comportamento predefinito dell'associazione di modelli imposta i parametri sui valori predefiniti di questi a seconda del loro tipo:
 
-* `T[]`: Con l'eccezione di matrici di tipo `byte[]`, associazione imposta i parametri di tipo `T[]` a `Array.Empty<T>()`. Le matrici di tipo `byte[]` sono impostate su `null`.
+* `T[]`: con l'eccezione di matrici di tipo `byte[]`, l'associazione imposta i parametri di tipo `T[]` su `Array.Empty<T>()`. Le matrici di tipo `byte[]` vengono impostate su `null`.
 
-* I tipi di riferimento: Associazione crea un'istanza di una classe con il costruttore predefinito senza l'impostazione delle proprietà. Tuttavia, modello di binding imposta `string` parametri `null`.
+* Tipi riferimento: l'associazione crea un'istanza di una classe con il costruttore predefinito senza impostare proprietà. L'associazione di modelli, tuttavia, imposta i parametri `string` su `null`.
 
-* Tipi nullable: Tipi Nullable sono impostati su `null`. Nell'esempio precedente, il set di associazione del modello `id` a `null` perché è di tipo `int?`.
+* Tipi nullable: i tipi nullable vengono impostati su `null`. Nell'esempio precedente, l'associazione di modelli imposta `id` su `null`, perché è di tipo `int?`.
 
-* Tipi di valore: I tipi di valore Non nullable di tipo `T` sono impostate su `default(T)`. Ad esempio, l'associazione di modelli verrà impostato un parametro `int id` su 0. Si consideri usando la convalida del modello o un tipo nullable anziché basarsi sui valori predefiniti.
+* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Anziché basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
 
-Se l'associazione non riesce, MVC non genera un errore. Ogni azione che accetta l'input dell'utente deve controllare il `ModelState.IsValid` proprietà.
+Se l'associazione non riesce, MVC non genera un errore. Tutte le azioni che accettano input utente devono controllare la proprietà `ModelState.IsValid`.
 
-Nota: Ogni voce del controller `ModelState` proprietà è un `ModelStateEntry` contenente un `Errors` proprietà. È raramente la necessità di eseguire query in questa raccolta manualmente. In alternativa, usare `ModelState.IsValid`.
+Nota: ogni voce della proprietà `ModelState` del controller è una `ModelStateEntry` contenente una proprietà `Errors`. È raro che sia necessario eseguire query in questa raccolta personalmente. In alternativa, usare `ModelState.IsValid`.
 
-Esistono inoltre alcuni tipi di dati speciale che deve prendere in considerazione quando si esegue l'associazione del modello MVC:
+Esistono anche alcuni tipi di dati speciali che MVC deve prendere in considerazione quando esegue l'associazione di modelli:
 
-* `IFormFile`, `IEnumerable<IFormFile>`: Uno o più file caricati che fanno parte della richiesta HTTP.
+* `IFormFile`, `IEnumerable<IFormFile>`: uno o più file caricati che fanno parte della richiesta HTTP.
 
-* `CancellationToken`: Usato per annullare l'attività in un controller asincrono.
+* `CancellationToken`: usato per annullare l'attività nei controller asincroni.
 
-Questi tipi possono essere associati ai parametri di azione o alle proprietà a un tipo di classe.
+Questi tipi possono essere associati a parametri di azione o a proprietà per un tipo classe.
 
-Dopo aver completato l'associazione di modelli [convalida](validation.md) si verifica. Associazione di modelli predefinito prestazioni ottimali per la maggior parte degli scenari di sviluppo. È inoltre estendibile in modo se si hanno esigenze specifiche, è possibile personalizzare il comportamento predefinito.
+Quando l'associazione di modelli è completata viene eseguita la [convalida](validation.md). L'associazione di modelli predefinita è perfetta per la grande maggioranza degli scenari di sviluppo. È anche estendibile. In caso di esigenze molto particolari, quindi, è possibile personalizzare il comportamento predefinito.
 
-## <a name="customize-model-binding-behavior-with-attributes"></a>Personalizzare il comportamento di associazione del modello con gli attributi
+## <a name="customize-model-binding-behavior-with-attributes"></a>Personalizzare il comportamento dell'associazione di modelli con attributi
 
-MVC contiene numerosi attributi che è possibile utilizzare per indirizzare il comportamento di associazione del modello predefinito per un'origine diversa. Ad esempio, è possibile specificare se l'associazione è obbligatoria per una proprietà o se non deve mai accadere in qualsiasi tramite il `[BindRequired]` o `[BindNever]` attributi. In alternativa, è possibile sostituire l'origine dati predefinita e quindi specificare l'origine dati del gestore di associazione del modello. Di seguito è un elenco di attributi di associazione del modello:
+MVC contiene diversi attributi che è possibile usare per indirizzare il comportamento predefinito dell'associazione di modelli verso un'origine diversa. È ad esempio possibile specificare se per una proprietà l'associazione è obbligatoria o se non deve mai essere eseguita tramite l'attributo `[BindRequired]` o `[BindNever]`, rispettivamente. In alternativa, è possibile eseguire l'override dell'origine dati predefinita e specificare l'origine dati dello strumento di associazione di modelli. Di seguito è riportato un elenco di attributi di associazione di modelli:
 
-* `[BindRequired]`: Questo attributo viene aggiunto un errore di stato del modello se è Impossibile eseguire l'associazione.
+* `[BindRequired]`: se non è possibile eseguire l'associazione, questo attributo aggiunge un errore dello stato del modello.
 
-* `[BindNever]`: Indica il raccoglitore di modelli per non associare a questo parametro.
+* `[BindNever]`: indica allo strumento di associazione di modelli di non eseguire mai associazioni al parametro in questione.
 
-* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Utilizzarli per specificare l'origine di associazione esatto si desidera applicare.
+* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: usare questi attributi per specificare l'origine di associazione precisa che si vuole applicare.
 
-* `[FromServices]`: Questo attributo utilizza [inserimento di dipendenze](../../fundamentals/dependency-injection.md) per associare i parametri di servizi.
+* `[FromServices]`: questo attributo usa l'[inserimento di dipendenze](../../fundamentals/dependency-injection.md) per associare parametri da servizi.
 
-* `[FromBody]`: Utilizzare i formattatori configurati per associare i dati dal corpo della richiesta. Il formattatore è selezionato in base al tipo di contenuto della richiesta.
+* `[FromBody]`: usare i formattatori configurati per associare dati dal corpo della richiesta. Il formattatore viene selezionato in base al tipo di contenuto della richiesta.
 
-* `[ModelBinder]`: Usato per sostituire il gestore di associazione del modello predefinito, origine dell'associazione e il nome.
+* `[ModelBinder]`: usato per eseguire l'override dello strumento di associazione di modelli, dell'origine di associazione e del nome predefiniti.
 
-Gli attributi sono strumenti molto utili quando è necessario eseguire l'override del comportamento predefinito di associazione del modello.
+Gli attributi sono strumenti molto utili quando è necessario eseguire l'override del comportamento predefinito dell'associazione di modelli.
 
-## <a name="bind-formatted-data-from-the-request-body"></a>Associare i dati formattati dal corpo della richiesta
+## <a name="bind-formatted-data-from-the-request-body"></a>Associare dati formattati dal corpo della richiesta
 
-Dati della richiesta sono disponibili in un'ampia gamma di formati quali JSON, XML e molti altri. Quando si utilizza l'attributo [FromBody] per indicare che si desidera associare un parametro per i dati nel corpo della richiesta, MVC utilizza un set di formattatori di cui è stato configurato per gestire i dati della richiesta in base al tipo di contenuto. Per impostazione predefinita, MVC include un `JsonInputFormatter` classe per la gestione di dati JSON, ma è possibile aggiungere altri formattatori per la gestione di XML e altri formati personalizzati.
-
-> [!NOTE]
-> Può esistere al massimo un parametro per ogni azione decorati con `[FromBody]`. Runtime di ASP.NET MVC Core delega la responsabilità di lettura del flusso di richiesta al formattatore. Una volta il flusso di richiesta è di lettura per un parametro, non è in genere possibile leggere il flusso di richiesta nuovamente per l'associazione altri `[FromBody]` parametri.
+I dati delle richieste possono avere un'ampia gamma di formati, ad esempio JSON, XML e molti altri. Quando si usa l'attributo [FromBody] per indicare che si vuole associare un parametro ai dati nel corpo della richiesta, MVC usa un set di formattatori configurato per gestire i dati della richiesta in base al tipo di contenuto di questa. Per impostazione predefinita, MVC include una classe `JsonInputFormatter` per la gestione dei dati JSON, ma è possibile aggiungere altri formattatori per la gestione del formato XML e di altri formati personalizzati.
 
 > [!NOTE]
-> Il `JsonInputFormatter` è il formattatore predefinito e si basa su [Json.NET](https://www.newtonsoft.com/json).
+> Un solo parametro per ogni azione al massimo può essere decorato con `[FromBody]`. Il runtime di ASP.NET Core MVC delega la responsabilità della lettura del flusso di richiesta al formattatore. Dopo che il flusso di richiesta è stato letto per un parametro, non è in genere possibile leggerlo nuovamente per l'associazione di altri parametri `[FromBody]`.
 
-Formattatori di input in base a viene selezionato il [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) intestazione e il tipo del parametro, a meno che non vi è un attributo applicato alla funzione che specifica in caso contrario. Se si desidera utilizzare il codice XML o un altro formato, è necessario configurare nel *Startup.cs* file, ma è prima necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe essere simile al seguente:
+> [!NOTE]
+> `JsonInputFormatter`, il formattatore predefinito, si basa su [Json.NET](https://www.newtonsoft.com/json).
+
+ASP.NET seleziona i formattatori di input in base all'intestazione [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) e al tipo del parametro, a meno che un attributo applicato ad esso non specifichi altrimenti. Se si vuole usare codice XML o in un altro formato, è necessario eseguire la configurazione corrispondente nel file *Startup.cs*, ma prima può essere necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe apparire come segue:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -122,8 +122,8 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Codice il *Startup.cs* file contiene un `ConfigureServices` metodo con un `services` argomento è possibile utilizzare per compilare i servizi per l'applicazione ASP.NET. Nell'esempio, si aggiungono un formattatore XML come un servizio che fornisce per questa applicazione MVC. Il `options` argomento passato il `AddMvc` metodo consente di aggiungere e gestire i filtri, i formattatori e altre opzioni di sistema da MVC dopo l'avvio delle app. Quindi applicare il `Consumes` attributo alle classi controller o ai metodi di azione per lavorare con il formato desiderato.
+Il codice nel file *Startup.cs* contiene un metodo `ConfigureServices` con un argomento `services` che è possibile usare per compilare i servizi per l'app ASP.NET. Nell'esempio viene aggiunto un formattatore XML come servizio offerto da MVC per questa app. L'argomento `options` passato al metodo `AddMvc` consente di aggiungere e gestire filtri, formattatori e altre opzioni di sistema da MVC dopo l'avvio dell'app. Applicare quindi l'attributo `Consumes` alle classi controller o ai metodi di azione per usare il formato voluto.
 
-### <a name="custom-model-binding"></a>Associazione di modelli personalizzati
+### <a name="custom-model-binding"></a>Associazione di modelli personalizzata
 
-Scrivere la propria raccoglitori di modelli personalizzati, è possibile estendere l'associazione di modelli. Altre informazioni, vedere [l'associazione di modelli personalizzati](../advanced/custom-model-binding.md).
+È possibile estendere l'associazione di modelli scrivendo strumenti di associazione di modelli personalizzati. Altre informazioni sull'[associazione di modelli personalizzata](../advanced/custom-model-binding.md).

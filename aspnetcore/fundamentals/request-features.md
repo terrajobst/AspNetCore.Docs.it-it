@@ -1,79 +1,77 @@
 ---
-title: "Funzionalità di richiesta ASP.NET Core"
+title: "Funzionalità di richiesta in ASP.NET Core"
 author: ardalis
-description: Informazioni sui dettagli di implementazione di server web relativi a richieste HTTP e le risposte che sono definite nelle interfacce per ASP.NET Core.
-ms.author: riande
+description: Dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP definiti nelle interfacce per ASP.NET Core.
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 11644dc646f2c0e749f0f64e80ee00ea8b671302
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="request-features-in-aspnet-core"></a>Funzionalità di richiesta ASP.NET Core
+# <a name="request-features-in-aspnet-core"></a>Funzionalità di richiesta in ASP.NET Core
 
-Da [Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
-I dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP vengono definiti nelle interfacce. Queste interfacce sono usate da implementazioni del server e del middleware per creare e modificare pipeline hosting dell'applicazione.
+I dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP vengono definiti nelle interfacce. Le interfacce vengono usate dalle implementazioni del server e dal middleware per creare e modificare la pipeline di hosting dell'applicazione.
 
 ## <a name="feature-interfaces"></a>Interfacce di funzionalità
 
-ASP.NET Core definisce un numero di interfacce di funzionalità HTTP in `Microsoft.AspNetCore.Http.Features` che sono usati dal server per identificare le caratteristiche supportate. Le interfacce di funzionalità seguenti di gestiscono le richieste e restituiscono risposte:
+ASP.NET Core definisce diverse interfacce di funzionalità HTTP in `Microsoft.AspNetCore.Http.Features` che vengono usate dai server per identificare le funzionalità supportate. Le interfacce di funzionalità seguenti gestiscono le richieste e restituiscono le risposte:
 
-`IHttpRequestFeature`Definisce la struttura di una richiesta HTTP, inclusi il protocollo, percorso, la stringa di query, le intestazioni e corpo.
+`IHttpRequestFeature` Definisce la struttura di una richiesta HTTP, inclusi protocollo, percorso, stringa di query, intestazioni e corpo.
 
-`IHttpResponseFeature`Definisce la struttura di una risposta HTTP, tra cui il codice di stato, intestazioni e corpo della risposta.
+`IHttpResponseFeature` Definisce la struttura di una risposta HTTP, inclusi codice di stato, intestazioni e corpo della risposta.
 
-`IHttpAuthenticationFeature`Definisce il supporto per identificare gli utenti in base a un `ClaimsPrincipal` e specificando un gestore di autenticazione.
+`IHttpAuthenticationFeature` Definisce il supporto per identificare gli utenti in base a un oggetto `ClaimsPrincipal` e specificare un gestore di autenticazione.
 
-`IHttpUpgradeFeature`Definisce il supporto per [aggiornamenti HTTP](https://tools.ietf.org/html/rfc2616.html#section-14.42), che consente al client di specificare ulteriori protocolli si desidera utilizzare se il server si desidera passare protocolli.
+`IHttpUpgradeFeature` Definisce il supporto per gli [aggiornamenti HTTP](https://tools.ietf.org/html/rfc2616.html#section-14.42), che consentono al client di specificare protocolli aggiuntivi da usare se il server vuole cambiare i protocolli.
 
-`IHttpBufferingFeature`Definisce metodi per la disattivazione del buffer di richieste e/o risposte.
+`IHttpBufferingFeature` Definisce metodi per la disattivazione del buffering di richieste e/o risposte.
 
-`IHttpConnectionFeature`Definisce le proprietà per le porte e indirizzi locali e remoti.
+`IHttpConnectionFeature` Definisce le proprietà per porte e indirizzi locali e remoti.
 
-`IHttpRequestLifetimeFeature`Definisce il supporto per l'interruzione delle connessioni o rilevare se una richiesta è stata terminata in modo anomalo, ad esempio come da una disconnessione del client.
+`IHttpRequestLifetimeFeature` Definisce il supporto per l'interruzione delle connessioni o per rilevare se una richiesta è stata terminata in modo anomalo, ad esempio da una disconnessione del client.
 
-`IHttpSendFileFeature`Definisce un metodo per l'invio di file in modo asincrono.
+`IHttpSendFileFeature` Definisce un metodo per l'invio di file in modo asincrono.
 
-`IHttpWebSocketFeature`Definisce un'API per il supporto di WebSocket.
+`IHttpWebSocketFeature` Definisce un'API per il supporto di WebSocket.
 
-`IHttpRequestIdentifierFeature`Aggiunge una proprietà che può essere implementata per identificare in modo univoco le richieste.
+`IHttpRequestIdentifierFeature` Aggiunge una proprietà che può essere implementata per identificare le richieste in modo univoco.
 
-`ISessionFeature`Definisce `ISessionFactory` e `ISession` astrazioni per supportare le sessioni utente.
+`ISessionFeature` Definisce le astrazioni `ISessionFactory` e `ISession` per supportare le sessioni utente.
 
-`ITlsConnectionFeature`Definisce un'API per il recupero dei certificati client.
+`ITlsConnectionFeature` Definisce un'API per il recupero dei certificati client.
 
-`ITlsTokenBindingFeature`Definisce i metodi per l'utilizzo di parametri di associazione dei token TLS.
+`ITlsTokenBindingFeature` Definisce i metodi per l'uso di parametri di associazione dei token TLS.
 
 > [!NOTE]
-> `ISessionFeature`non è una funzionalità server, ma viene implementato dal `SessionMiddleware` (vedere [lo stato dell'applicazione di gestione](app-state.md)).
+> `ISessionFeature` non è una funzionalità server, ma viene implementato da `SessionMiddleware`. Vedere [Stato di sessioni e app](app-state.md).
 
 ## <a name="feature-collections"></a>Raccolte di funzionalità
 
-Il `Features` proprietà `HttpContext` fornisce un'interfaccia per ottenere e impostare le funzionalità HTTP disponibili per la richiesta corrente. Poiché l'insieme di funzionalità è modificabile anche all'interno del contesto di una richiesta, middleware consente di modificare la raccolta e aggiungere il supporto per funzionalità aggiuntive.
+La proprietà `Features` di `HttpContext` specifica un'interfaccia per ottenere e impostare le funzionalità HTTP disponibili per la richiesta corrente. Poiché l'insieme di funzionalità è modificabile anche all'interno del contesto di una richiesta, è possibile usare il middleware per modificare la raccolta e aggiungere il supporto di altre funzionalità.
 
-## <a name="middleware-and-request-features"></a>Funzionalità middleware e richiesta
+## <a name="middleware-and-request-features"></a>Middleware e funzionalità di richiesta
 
-Anche se i server sono responsabili della creazione dell'insieme di funzionalità, middleware sia possibile aggiungere a questa raccolta e usano funzionalità dalla raccolta. Ad esempio, il `StaticFileMiddleware` accede il `IHttpSendFileFeature` funzionalità. Se la funzionalità è presente, utilizzato per inviare il file statico richiesto dal relativo percorso fisico. In caso contrario, un metodo alternativo più lento viene utilizzato per inviare il file. Quando è disponibile, il `IHttpSendFileFeature` consente al sistema operativo aprire il file ed eseguire una copia della modalità kernel diretto alla scheda di rete.
+Anche se sono i server a creare la raccolta di funzionalità, il middleware può sia aggiungere che togliere funzionalità alla raccolta. Ad esempio, l'elemento `StaticFileMiddleware` accede alla funzionalità `IHttpSendFileFeature`. Se la funzionalità è presente, viene usata per inviare il file statico richiesto dal percorso fisico relativo. In caso contrario, per inviare il file viene usato un metodo alternativo più lento. Quando è disponibile, `IHttpSendFileFeature` consente al sistema operativo di aprire il file ed eseguire una copia in modalità kernel diretta alla scheda di rete.
 
-Middleware è inoltre possibile aggiungere alla raccolta funzionalità stabilita dal server. Le funzionalità esistenti possono anche essere sostituite da middleware, consentendo il middleware di incrementare le funzionalità del server. Funzionalità aggiunte alla raccolta sono disponibili immediatamente a altro middleware o dell'applicazione sottostante in un secondo momento nella pipeline delle richieste.
+Il middleware può anche eseguire aggiunte alla raccolta di funzionalità impostata dal server. Il middleware può anche sostituire funzionalità esistenti, aumentando così la funzionalità del server. Le funzionalità aggiunte alla raccolta sono disponibili immediatamente per un altro middleware o per l'applicazione sottostante in un secondo momento nella pipeline della richiesta.
 
-Combinando le implementazioni personalizzate per il server e i miglioramenti specifico middleware del preciso set di funzionalità che richiede un'applicazione può essere costruito. In questo modo mancanti funzionalità da aggiungere senza richiedere una modifica nel server e assicura che vengono esposti solo la quantità minima di funzionalità, limitando in tal modo l'attacco area di superficie e migliorare le prestazioni.
+Combinando implementazioni server personalizzate e miglioramenti specifici del middleware, è possibile costruire il set di funzionalità preciso richiesto da un'applicazione. In questo modo è possibile aggiungere le funzionalità mancanti senza che siano necessarie modifiche nel server e garantire che venga esposta solo una quantità minima di funzionalità, limitando in tal modo la superficie di attacco e migliorando le prestazioni.
 
 ## <a name="summary"></a>Riepilogo
 
-Le interfacce di funzionalità definire funzionalità specifiche di HTTP che può supportare una determinata richiesta. Server di definiscono le raccolte delle funzionalità e il set iniziale di funzionalità supportate dal server, ma middleware può essere utilizzato per migliorare le funzionalità.
+Le interfacce di funzionalità definiscono funzionalità HTTP specifiche supportate da una data richiesta. I server definiscono le raccolte di funzionalità e il set iniziale di funzionalità supportato dal server, ma è possibile usare il middleware per migliorare tali funzionalità.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Server](servers/index.md)
-
-* [Middleware](middleware.md)
-
-* [Aprire l'interfaccia Web per .NET (OWIN)](owin.md)
+* [Server](xref:fundamentals/servers/index)
+* [Middleware](xref:fundamentals/middleware)
+* [Aprire l'interfaccia Web per .NET (OWIN)](xref:fundamentals/owin)

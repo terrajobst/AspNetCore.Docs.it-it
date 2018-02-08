@@ -1,65 +1,65 @@
 ---
-title: "Razor pagine route e app convenzione le funzionalità ASP.NET Core"
+title: "Funzionalità di convenzione di route e app per Razor Pages in ASP.NET Core"
 author: guardrex
-description: Individuare la route e app modello provider convenzione che consentono di routing di controllo pagina, l'individuazione e l'elaborazione.
-ms.author: riande
+description: "Informazioni su come le funzionalità di convenzione di route e del provider di modello di app consentono di controllare routing, rilevamento ed elaborazione delle pagine."
 manager: wpickett
+ms.author: riande
 ms.date: 10/23/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor pagine route e app convenzione le funzionalità ASP.NET Core
+# <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Funzionalità di convenzione di route e app per Razor Pages in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Informazioni su come usare pagina route e app provider convenzione funzionalità di modello per controllare la pagina routing, l'individuazione e l'elaborazione in App pagine Razor. Quando è necessario configurare le route di una pagina personalizzata per le singole pagine, configurare il routing alle pagine con il [AddPageRoute convenzione](#configure-a-page-route) descritto più avanti in questo argomento.
+Informazioni su come usare le funzionalità di convenzione di route e del provider di modello di app delle pagine per controllare routing, rilevamento ed elaborazione nelle app Razor Pages. Quando è necessario configurare la route di una pagina personalizzata per le singole pagine, configurare il routing alle pagine con la [convenzione AddPageRoute](#configure-a-page-route) descritta più avanti in questo argomento.
 
-Utilizzare il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)) per esplorare le funzionalità descritte in questo argomento.
+Usare l'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample)) per esplorare le funzionalità descritte in questo argomento.
 
-| Funzionalità | Di seguito viene illustrato il codice di esempio... |
+| Funzionalità | L'esempio illustra come eseguire le seguenti operazioni: |
 | -------- | --------------------------- |
-| [Convenzioni di modello di route e app](#add-route-and-app-model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | Aggiunta di un modello di route e l'intestazione per le pagine di un'app. |
-| [Convenzioni di azione route di pagina](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Aggiunta di un modello di route per le pagine in una cartella e a una singola pagina. |
-| [Convenzioni della pagina modello azione](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (classe di filtro, espressione lambda o filtro factory)</li></ul> | Aggiunta di un'intestazione per le pagine in una cartella, aggiungere un'intestazione a pagina singola e la configurazione un [factory filtro](xref:mvc/controllers/filters#ifilterfactory) per aggiungere un'intestazione per le pagine di un'app. |
-| [Provider del modello app pagina predefinito](#replace-the-default-page-app-model-provider) | Sostituire il provider del modello di pagina predefinito per modificare le convenzioni di denominazione di gestore. |
+| [Convenzioni di route e modello di app](#add-route-and-app-model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | Aggiunta di un modello e di un'intestazione di route alle pagine di un'app. |
+| [Convenzioni per le azioni di route di pagina](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Aggiunta di un modello di route alle pagine in una cartella e a una pagina singola. |
+| [Convenzioni per le azioni del modello di pagina](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (classe di filtro, espressione lambda o factory di filtro)</li></ul> | Aggiunta di un'intestazione alle pagine in una cartella, aggiunta di un'intestazione a una pagina singola e configurazione di una [factory di filtro](xref:mvc/controllers/filters#ifilterfactory) per aggiungere un'intestazione alle pagine di un'app. |
+| [Provider di modello di app della pagina predefinito](#replace-the-default-page-app-model-provider) | Sostituzione del provider di modello di pagina predefinito per modificare le convenzioni di denominazione del gestore. |
 
-## <a name="add-route-and-app-model-conventions"></a>Aggiungere le convenzioni di modello di route e app
+## <a name="add-route-and-app-model-conventions"></a>Aggiungere convenzioni di route e modello di app
 
-Aggiungere un delegato per [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) per aggiungere le convenzioni modello di route e app che si applicano alle pagine Razor.
+Aggiungere un delegato per [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) per aggiungere le convenzioni di route e del modello di app che si applicano a Razor Pages.
 
-**Aggiungere una convenzione del modello di route per tutte le pagine**
+**Aggiungere una convenzione del modello di route a tutte le pagine**
 
-Utilizzare [convenzioni](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) per creare e aggiungere un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) alla raccolta di [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) istanze che vengono applicate durante il modello di route e di pagina costruzione.
+Usare la proprietà [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) per creare e aggiungere un'interfaccia [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) alla raccolta di istanze [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) che vengono applicate durante la costruzione del modello di route e di pagina.
 
-L'app di esempio aggiunge un `{globalTemplate?}` modello di route per tutte le pagine nell'app:
+L'app di esempio aggiunge un modello di route `{globalTemplate?}` a tutte le pagine nell'app:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
-> Il `Order` proprietà per il `AttributeRouteModel` è impostato su `0` (zero). In questo modo si garantisce che il modello viene assegnato priorità per la prima posizione del valore di dati route quando viene fornito un valore singolo di route. Ad esempio, l'esempio aggiunge un `{aboutTemplate?}` modello di route, più avanti in questo argomento. Il `{aboutTemplate?}` modello viene assegnato un `Order` di `1`. Quando la pagina di informazioni su è richiesta in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione di `Order` proprietà.
+> La proprietà `Order` per l'elemento `AttributeRouteModel` è impostata su `0` (zero). In questo modo si garantisce che al modello venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route. Ad esempio, l'esempio aggiunge un modello di route `{aboutTemplate?}` più avanti in questo argomento. Al modello `{aboutTemplate?}` viene assegnato un `Order` di `1`. Quando viene richiesta la pagina di informazioni in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non in `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
 
 *Startup.cs*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
-Richiesta sulla pagina dell'esempio `localhost:5000/About/GlobalRouteValue` ed esaminare il risultato:
+Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About/GlobalRouteValue` ed esaminare il risultato:
 
-![La pagina di informazioni su è richiesta con un segmento di route di GlobalRouteValue. La pagina mostra che il valore di dati di route viene acquisito nel metodo OnGet della pagina.](razor-pages-convention-features/_static/about-page-global-template.png)
+![La pagina di informazioni viene richiesta con un segmento di route di GlobalRouteValue. La pagina sottoposta a rendering indica che il valore di dati della route viene acquisito nel metodo OnGet della pagina.](razor-pages-convention-features/_static/about-page-global-template.png)
 
-**Aggiungere una convenzione del modello di applicazione a tutte le pagine**
+**Aggiungere una convenzione del modello di app a tutte le pagine**
 
-Utilizzare [convenzioni](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) per creare e aggiungere un [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) alla raccolta di [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) istanze che vengono applicate durante la route e di pagina costruzione del modello.
+Usare la proprietà [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) per creare e aggiungere un'interfaccia [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) alla raccolta di istanze [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) che vengono applicate durante la costruzione del modello di route e di pagina.
 
-Per dimostrare questo e altri convenzioni più avanti in questo argomento, l'app di esempio include un `AddHeaderAttribute` classe. Il costruttore della classe accetta un `name` stringa e un `values` matrice di stringhe. Questi valori vengono utilizzati nel relativo `OnResultExecuting` per impostare un'intestazione di risposta. La classe completa è illustrata nella [pagina convenzioni azione modello](#page-model-action-conventions) sezione più avanti in questo argomento.
+Per dimostrare questa e altre convenzioni più avanti in questo argomento, l'app di esempio include una classe `AddHeaderAttribute`. Il costruttore della classe accetta una stringa `name` e una matrice di stringhe `values`. Questi valori vengono usati nel relativo metodo `OnResultExecuting` per impostare un'intestazione di risposta. La classe completa è illustrata nella sezione [Convenzioni per le azioni del modello di pagina](#page-model-action-conventions) più avanti in questo argomento.
 
-L'applicazione di esempio utilizza il `AddHeaderAttribute` classe per aggiungere un'intestazione, `GlobalHeader`, per tutte le pagine nell'app:
+L'app di esempio usa la classe `AddHeaderAttribute` per aggiungere un'intestazione, `GlobalHeader`, a tutte le pagine nell'app:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
@@ -67,121 +67,121 @@ L'applicazione di esempio utilizza il `AddHeaderAttribute` classe per aggiungere
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
 
-Richiesta sulla pagina dell'esempio `localhost:5000/About` ed esaminare le intestazioni per visualizzare i risultati:
+Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About` ed esaminare le intestazioni per visualizzare il risultato:
 
-![Intestazioni di risposta della pagina informazioni su mostrano che è stato aggiunto il GlobalHeader.](razor-pages-convention-features/_static/about-page-global-header.png)
+![Le intestazioni di risposta della pagina di informazioni indicano che è stato aggiunto l'elemento GlobalHeader.](razor-pages-convention-features/_static/about-page-global-header.png)
 
-## <a name="page-route-action-conventions"></a>Convenzioni di azione route di pagina
+## <a name="page-route-action-conventions"></a>Convenzioni per le azioni di route di pagina
 
-Il provider del modello di route predefinito che deriva da [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) richiama le convenzioni sono progettate per fornire punti di estendibilità per la configurazione delle route di pagina.
+Il provider di modello di route predefinito che deriva da [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) chiama le convenzioni progettate per offrire punti di estendibilità per la configurazione delle route di pagina.
 
-**Convenzione del modello di route cartella**
+**Convenzione per il modello di route cartella**
 
-Utilizzare [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) per creare e aggiungere un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) che richiama un'azione sul [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) per tutte le pagine nel cartella specificata.
+Usare il metodo [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) per creare e aggiungere un'interfaccia [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) che chiama un'azione sulla classe [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) per tutte le pagine nella cartella specificata.
 
-L'applicazione di esempio utilizza `AddFolderRouteModelConvention` per aggiungere un `{otherPagesTemplate?}` il modello di route per le pagine di *OtherPages* cartella:
+L'app di esempio usa `AddFolderRouteModelConvention` per aggiungere un modello di route `{otherPagesTemplate?}` alle pagine nella cartella *OtherPages*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
-> Il `Order` proprietà per il `AttributeRouteModel` è impostato su `1`. Ciò garantisce che il modello per `{globalTemplate?}` (set di precedenza in questo argomento) è la priorità per i dati della route primo valore di posizione quando viene fornito un valore singolo di route. Se la pagina Page1 viene richiesto a `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) a causa dell'impostazione di `Order` proprietà.
+> La proprietà `Order` per `AttributeRouteModel` è impostata su `1`. In questo modo si garantisce che al modello per `{globalTemplate?}` (impostato in precedenza in questo argomento) venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route. Se viene richiesta la pagina Page1 in `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non in `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
 
-Richiesta di pagina Page1 dell'esempio `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ed esaminare il risultato:
+Richiedere la pagina Page1 dell'esempio in `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ed esaminare il risultato:
 
-![È richiesto un segmento di route di GlobalRouteValue e OtherPagesRouteValue Page1 nella cartella OtherPages. La pagina mostra che i valori di dati della route vengono acquisiti nel metodo OnGet della pagina.](razor-pages-convention-features/_static/otherpages-page1-global-and-otherpages-templates.png)
+![La pagina Page1 nella cartella OtherPages viene richiesta con un segmento di route di GlobalRouteValue e OtherPagesRouteValue. La pagina sottoposta a rendering indica che i valori di dati della route vengono acquisiti nel metodo OnGet della pagina.](razor-pages-convention-features/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**Convenzione del modello di route pagina**
+**Convenzione per il modello di route pagina**
 
-Utilizzare [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) per creare e aggiungere un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) che richiama un'azione sul [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) per la pagina con l'oggetto specificato nome.
+Usare il metodo [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) per creare e aggiungere un'interfaccia [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) che chiama un'azione sulla classe [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) per la pagine con il nome specificato.
 
-L'applicazione di esempio utilizza `AddPageRouteModelConvention` per aggiungere un `{aboutTemplate?}` modello di route per la pagina informazioni su:
+L'app di esempio usa `AddPageRouteModelConvention` per aggiungere un modello di route `{aboutTemplate?}` alla pagina di informazioni:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
-> Il `Order` proprietà per il `AttributeRouteModel` è impostato su `1`. Ciò garantisce che il modello per `{globalTemplate?}` (set di precedenza in questo argomento) è la priorità per i dati della route primo valore di posizione quando viene fornito un valore singolo di route. Se la pagina di informazioni su è richiesta in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione di `Order` proprietà.
+> La proprietà `Order` per `AttributeRouteModel` è impostata su `1`. In questo modo si garantisce che al modello per `{globalTemplate?}` (impostato in precedenza in questo argomento) venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route. Se viene richiesta la pagina di informazioni in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 0`) e non in `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
 
-Richiesta sulla pagina dell'esempio `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ed esaminare il risultato:
+Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ed esaminare il risultato:
 
-![Informazioni sulla pagina viene richiesta con segmenti di route per GlobalRouteValue e AboutRouteValue. La pagina mostra che i valori di dati della route vengono acquisiti nel metodo OnGet della pagina.](razor-pages-convention-features/_static/about-page-global-and-about-templates.png)
+![La pagina di informazioni viene richiesta con segmenti di route per GlobalRouteValue e AboutRouteValue. La pagina sottoposta a rendering indica che i valori di dati della route vengono acquisiti nel metodo OnGet della pagina.](razor-pages-convention-features/_static/about-page-global-and-about-templates.png)
 
 ## <a name="configure-a-page-route"></a>Configurare una route di pagina
 
-Utilizzare [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) per configurare una route a una pagina in corrispondenza del percorso della pagina specificata. Collegamenti generati alla pagina di utilizzano la route specificata. `AddPageRoute`Usa `AddPageRouteModelConvention` per stabilire la route.
+Usare il metodo [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) per configurare una route a una pagina in corrispondenza del percorso della pagina specificato. I collegamenti generati alla pagina usano la route specificata. `AddPageRoute` usa `AddPageRouteModelConvention` per stabilire la route.
 
-L'app di esempio viene creata una route per `/TheContactPage` per *Contact.cshtml*:
+L'app di esempio crea una route a `/TheContactPage` per *Contact.cshtml*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
 
-La pagina di contatto può anche essere raggiunto al `/Contact` tramite la route predefinita.
+La pagina di contatto può anche essere raggiunta in corrispondenza di `/Contact` tramite la route predefinita.
 
-Consente di route personalizzato dell'applicazione di esempio per la pagina di contatto per un parametro facoltativo `text` segmento route (`{text?}`). La pagina include inoltre il segmento facoltativo nel relativo `@page` direttiva nel caso in cui il visitatore accede alla pagina nel relativo `/Contact` route:
+La route personalizzata dell'app di esempio alla pagina di contatto consente un segmento di route `text` facoltativo (`{text?}`). La pagina include anche tale segmento facoltativo nella relativa istruzione `@page` nel caso in cui il visitatore acceda alla pagina in corrispondenza della relativa route `/Contact`:
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
 
-Si noti che l'URL generato per il **contatto** collegamento nella pagina sottoposta a rendering riflette la route aggiornata:
+Si noti che l'URL generato per il collegamento **Contatto** nella pagina sottoposta a rendering riflette la route aggiornata:
 
-![Collegamento di contatto di app di esempio nella barra di spostamento](razor-pages-convention-features/_static/contact-link.png)
+![Collegamento alla pagina di contatto dell'app di esempio nella barra di spostamento](razor-pages-convention-features/_static/contact-link.png)
 
-![Esaminare il collegamento di contatto nell'HTML indica che href è impostata su ' / TheContactPage'](razor-pages-convention-features/_static/contact-link-source.png)
+![L'esame del collegamento alla pagina di contatto nell'HTML sottoposto a rendering indica che href è impostato su '/TheContactPage'](razor-pages-convention-features/_static/contact-link-source.png)
 
-Visitare la pagina di contatto nel relativo route normale, `/Contact`, o le route personalizzata `/TheContactPage`. Se si fornisce un ulteriore `text` segmento di route, la pagina viene illustrato il segmento codificata in formato HTML che forniscono:
+Visitare la pagina di contatto nella route normale, `/Contact`, o nella route personalizzata `/TheContactPage`. Se si specifica un segmento di route `text` aggiuntivo, la pagina visualizza il segmento codificato in formato HTML specificato dall'utente:
 
-![Esempio di browser Edge consentono di fornire un segmento di route facoltativo 'text' di 'Testo' nell'URL. La pagina viene illustrato il valore del segmento 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![Esempio di browser Edge in cui viene specificato un segmento di route facoltativo 'text' corrispondente a 'TextValue' nell'URL. La pagina sottoposta a rendering visualizza il valore del segmento 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
-## <a name="page-model-action-conventions"></a>Convenzioni della pagina modello azione
+## <a name="page-model-action-conventions"></a>Convenzioni per le azioni del modello di pagina
 
-Il provider del modello di pagina predefinito che implementa [IPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelprovider) richiama le convenzioni sono progettate per fornire punti di estendibilità per la configurazione di modelli di pagina. Queste convenzioni sono utili quando la creazione e modifica di individuazione di pagina e le caratteristiche di elaborazione.
+Il provider di modello di pagina predefinito che implementa [IPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelprovider) chiama le convenzioni progettate per offrire punti di estendibilità per la configurazione dei modelli di pagina. Queste convenzioni sono utili durante la compilazione e la modifica delle funzionalità di individuazione e rilevamento delle pagine.
 
-Per esempi di questa sezione, l'app di esempio utilizza un `AddHeaderAttribute` (classe), ovvero un [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute), che applica un'intestazione di risposta:
+Per gli esempi di questa sezione, l'app di esempio usa una classe `AddHeaderAttribute`, ovvero una classe [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute), che applica un'intestazione di risposta:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
 
-Utilizza le convenzioni, nell'esempio viene illustrato come applicare l'attributo a tutte le pagine in una cartella e a una singola pagina.
+Tramite le convenzioni, nell'esempio viene illustrato come applicare l'attributo a tutte le pagine in una cartella e a una singola pagina.
 
-**Convenzione del modello di cartella app**
+**Convenzione per il modello di app cartella**
 
-Utilizzare [AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderapplicationmodelconvention) per creare e aggiungere un [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) che richiama un'azione su [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) nelle istanze di tutte le pagine nella cartella specificata.
+Usare il metodo [AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderapplicationmodelconvention) per creare e aggiungere un'interfaccia [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) che chiama un'azione sulle istanze [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) per tutte le pagine nella cartella specificata.
 
-Nell'esempio viene illustrato l'utilizzo di `AddFolderApplicationModelConvention` aggiungendo un'intestazione, `OtherPagesHeader`, alle pagine all'interno di *OtherPages* cartella dell'app:
+Nell'esempio viene illustrato l'uso di `AddFolderApplicationModelConvention` aggiungendo un'intestazione, `OtherPagesHeader`, alle pagine all'interno della cartella *OtherPages* dell'app:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
 
-Richiesta di pagina Page1 dell'esempio `localhost:5000/OtherPages/Page1` ed esaminare le intestazioni per visualizzare i risultati:
+Richiedere la pagina Page1 dell'esempio in `localhost:5000/OtherPages/Page1` ed esaminare le intestazioni per visualizzare il risultato:
 
-![Intestazioni di risposta della pagina OtherPages/Page1 mostrano che è stato aggiunto il OtherPagesHeader.](razor-pages-convention-features/_static/page1-otherpages-header.png)
+![Le intestazioni di risposta della pagina OtherPages/Page1 indicano che è stato aggiunto l'elemento OtherPagesHeader.](razor-pages-convention-features/_static/page1-otherpages-header.png)
 
-**Convenzione del modello di app di pagina**
+**Convenzione per il modello di app cartella**
 
-Utilizzare [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageapplicationmodelconvention) per creare e aggiungere un [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) che richiama un'azione sul [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) per la pagina con il nome speciifed.
+Usare il metodo [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageapplicationmodelconvention) per creare e aggiungere un'interfaccia [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) che chiama un'azione sulla classe [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) per la pagina con il nome specificato.
 
-Nell'esempio viene illustrato l'utilizzo di `AddPageApplicationModelConvention` aggiungendo un'intestazione, `AboutHeader`, alla pagina di informazioni su:
+Nell'esempio viene illustrato l'uso di `AddPageApplicationModelConvention` aggiungendo un'intestazione, `AboutHeader`, alla pagina di informazioni:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
 
-Richiesta sulla pagina dell'esempio `localhost:5000/About` ed esaminare le intestazioni per visualizzare i risultati:
+Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About` ed esaminare le intestazioni per visualizzare il risultato:
 
-![Intestazioni di risposta della pagina informazioni su mostrano che è stato aggiunto il AboutHeader.](razor-pages-convention-features/_static/about-page-about-header.png)
+![Le intestazioni di risposta della pagina di informazioni indicano che è stato aggiunto l'elemento AboutHeader.](razor-pages-convention-features/_static/about-page-about-header.png)
 
 **Configurare un filtro**
 
-[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter) Configura applicare il filtro specificato. È possibile implementare una classe di filtro, ma l'app di esempio viene illustrato come implementare un filtro in un'espressione lambda, che viene implementata background come una factory che restituisce un filtro:
+Il metodo [ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter) configura il filtro specificato per l'applicazione. È possibile implementare una classe di filtro, ma l'app di esempio illustra come implementare un filtro in un'espressione lambda, che viene implementata in background come una factory che restituisce un filtro:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
 
-Viene utilizzato il modello di app di pagina per verificare il percorso relativo per i segmenti che portano alla pagina Pagina2 il *OtherPages* cartella. Se la condizione viene superato, viene aggiunta un'intestazione. In caso contrario, il `EmptyFilter` viene applicato.
+Viene usato il modello di app della pagina per verificare il percorso relativo per i segmenti che portano alla pagina Page2 nella cartella *OtherPages*. Se la condizione viene superata, viene aggiunta un'intestazione. In caso contrario, viene applicato `EmptyFilter`.
 
-`EmptyFilter`è un [filtro azione](xref:mvc/controllers/filters#action-filters). Poiché i filtri azione vengono ignorati da pagine Razor, il `EmptyFilter` ops no come previsto se il percorso non contiene `OtherPages/Page2`.
+`EmptyFilter` è un [filtro azione](xref:mvc/controllers/filters#action-filters). Poiché i filtri azione vengono ignorati da Razor Pages, `EmptyFilter` non esegue nessuna operazione come previsto se il percorso non contiene `OtherPages/Page2`.
 
-Richiesta di pagina Pagina2 dell'esempio `localhost:5000/OtherPages/Page2` ed esaminare le intestazioni per visualizzare i risultati:
+Richiedere la pagina Page2 dell'esempio in `localhost:5000/OtherPages/Page2` ed esaminare le intestazioni per visualizzare il risultato:
 
-![Il OtherPagesPage2Header viene aggiunto alla risposta per Page2.](razor-pages-convention-features/_static/page2-filter-header.png)
+![L'elemento OtherPagesPage2Header viene aggiunto alla risposta per Page2.](razor-pages-convention-features/_static/page2-filter-header.png)
 
 **Configurare una factory di filtro**
 
-[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_ConfigureFilter_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_Func_Microsoft_AspNetCore_Mvc_ApplicationModels_PageApplicationModel_Microsoft_AspNetCore_Mvc_Filters_IFilterMetadata__) configura la factory specificata per applicare [filtri](xref:mvc/controllers/filters) a tutte le pagine Razor.
+[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_ConfigureFilter_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_Func_Microsoft_AspNetCore_Mvc_ApplicationModels_PageApplicationModel_Microsoft_AspNetCore_Mvc_Filters_IFilterMetadata__) configura la factory specificata per applicare [filtri](xref:mvc/controllers/filters) all'intera Razor Pages.
 
-L'app di esempio viene fornito un esempio dell'utilizzo di un [factory filtro](xref:mvc/controllers/filters#ifilterfactory) aggiungendo un'intestazione, `FilterFactoryHeader`, con due valori per le pagine dell'app:
+L'app di esempio illustra un esempio dell'uso di una [factory di filtro](xref:mvc/controllers/filters#ifilterfactory) aggiungendo un'intestazione, `FilterFactoryHeader`, con due valori per le pagine dell'app:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
 
@@ -189,110 +189,110 @@ L'app di esempio viene fornito un esempio dell'utilizzo di un [factory filtro](x
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
-Richiesta sulla pagina dell'esempio `localhost:5000/About` ed esaminare le intestazioni per visualizzare i risultati:
+Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About` ed esaminare le intestazioni per visualizzare il risultato:
 
-![Intestazioni di risposta della pagina informazioni su mostrano che sono stati aggiunti due intestazioni FilterFactoryHeader.](razor-pages-convention-features/_static/about-page-filter-factory-header.png)
+![Le intestazioni di risposta della pagina informazioni indicano che sono state aggiunte due intestazioni FilterFactoryHeader.](razor-pages-convention-features/_static/about-page-filter-factory-header.png)
 
-## <a name="replace-the-default-page-app-model-provider"></a>Sostituire il provider del modello di app pagina predefinito
+## <a name="replace-the-default-page-app-model-provider"></a>Sostituire il provider di modello di app della pagina predefinito
 
-Pagine Razor utilizza il `IPageApplicationModelProvider` interfaccia per creare un [DefaultPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider). È possibile ereditare dal provider di modello predefinito per la logica di implementazione per l'elaborazione e l'individuazione di gestore. L'implementazione predefinita ([origine riferimento](https://github.com/aspnet/Mvc/blob/rel/2.0.1/src/Microsoft.AspNetCore.Mvc.RazorPages/Internal/DefaultPageApplicationModelProvider.cs)) stabilisce le convenzioni per *senza nome* e *denominato* gestore di denominazione, come descritto di seguito.
+Razor Pages usa l'interfaccia `IPageApplicationModelProvider` per creare una classe [DefaultPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider). È possibile ereditare dal provider di modello predefinito per offrire la propria logica di implementazione per l'individuazione e l'elaborazione del gestore. L'implementazione predefinita ([origine riferimento](https://github.com/aspnet/Mvc/blob/rel/2.0.1/src/Microsoft.AspNetCore.Mvc.RazorPages/Internal/DefaultPageApplicationModelProvider.cs)) stabilisce le convenzioni per la denominazione del gestore *senza nome* e *denominato*, come descritto di seguito.
 
-**Valore predefinito senza nome metodi del gestore**
+**Metodi del gestore senza nome predefinito**
 
-I metodi del gestore per i verbi HTTP (i metodi del gestore "senza nome") seguono una convenzione: `On<HTTP verb>[Async]` (aggiunta `Async` è facoltativo ma consigliato per i metodi asincroni).
+I metodi del gestore per i verbi HTTP (metodi del gestore "senza nome") seguono una convenzione: `On<HTTP verb>[Async]` (l'aggiunta di `Async` è facoltativa ma consigliata per i metodi asincroni).
 
 | Metodo del gestore senza nome     | Operazione                      |
 | -------------------------- | ------------------------------ |
 | `OnGet`/`OnGetAsync`       | Inizializzare lo stato della pagina.     |
 | `OnPost`/`OnPostAsync`     | Gestire le richieste POST.          |
-| `OnDelete`/`OnDeleteAsync` | Handle DELETE requests&#8224;. |
-| `OnPut`/`OnPutAsync`       | Gestire le richieste PUT &#8224;.    |
-| `OnPatch`/`OnPatchAsync`   | Gestire le richieste PATCH &#8224;.  |
+| `OnDelete`/`OnDeleteAsync` | Gestire le richieste DELETE&#8224;. |
+| `OnPut`/`OnPutAsync`       | Gestire le richieste PUT&#8224;.    |
+| `OnPatch`/`OnPatchAsync`   | Gestire le richieste PATCH&#8224;.  |
 
-&#8224; Utilizzato per le chiamate API per la pagina.
+&#8224;Usato per le chiamate API alla pagina.
 
-**I metodi del gestore denominato predefinito**
+**Metodi del gestore denominato predefinito**
 
-I metodi del gestore forniti dallo sviluppatore ("denominato" i metodi del gestore) seguono una convenzione simile. Il nome del gestore viene visualizzato dopo il verbo HTTP o tra il verbo HTTP e `Async`: `On<HTTP verb><handler name>[Async]` (aggiunta `Async` è facoltativo ma consigliato per i metodi asincroni). Ad esempio, i metodi che elaborano i messaggi potrebbero richiedere la denominazione nella tabella seguente.
+I metodi del gestore specificati dallo sviluppatore (metodi del gestore "denominati") seguono una convenzione simile. Il nome del gestore viene visualizzato dopo il verbo HTTP o tra il verbo HTTP e `Async`: `On<HTTP verb><handler name>[Async]` (l'aggiunta di `Async` è facoltativa ma consigliata per i metodi asincroni). Ad esempio, i metodi che elaborano i messaggi potrebbero assumere la denominazione indicata nella tabella seguente.
 
-| Esempio denominato metodo del gestore             | Operazione di esempio        |
+| Metodo del gestore denominato di esempio             | Operazione di esempio        |
 | ---------------------------------------- | ------------------------ |
 | `OnGetMessage`/`OnGetMessageAsync`       | Ottenere un messaggio.        |
-| `OnPostMessage`/`OnPostMessageAsync`     | INVIARE un messaggio.          |
-| `OnDeleteMessage`/`OnDeleteMessageAsync` | ELIMINARE un messaggio di &#8224;. |
-| `OnPutMessage`/`OnPutMessageAsync`       | Inserire un messaggio di &#8224;.    |
-| `OnPatchMessage`/`OnPatchMessageAsync`   | PATCH di un messaggio di &#8224;.  |
+| `OnPostMessage`/`OnPostMessageAsync`     | POST per un messaggio.          |
+| `OnDeleteMessage`/`OnDeleteMessageAsync` | DELETE per un messaggio&#8224;. |
+| `OnPutMessage`/`OnPutMessageAsync`       | PUT per un messaggio&#8224;.    |
+| `OnPatchMessage`/`OnPatchMessageAsync`   | PATCH per un messaggio&#8224;.  |
 
-&#8224; Utilizzato per le chiamate API per la pagina.
+&#8224;Usato per le chiamate API alla pagina.
 
-**Personalizzare i nomi di gestori (metodo)**
+**Personalizzare i nomi dei metodi dei gestori**
 
-Si supponga che si vuole modificare il modo in cui sono denominati metodi denominati e non del gestore. Uno schema di denominazione alternativo è evitare di avviare i nomi di metodo con "On" e utilizzare il primo segmento di word per determinare il verbo HTTP. È possibile apportare altre modifiche, ad esempio la conversione i verbi da eliminare, inserire e applicare PATCH ai POST. Tale sistema fornisce i nomi di metodo illustrati nella tabella seguente.
+Si supponga di voler modificare il modo in cui vengono denominati i metodi con e senza nome gestore. Uno schema di denominazione alternativo consiste nell'evitare che i nomi di metodo inizino con"On" e nell'usare il primo segmento della parola per determinare il verbo HTTP. È possibile apportare altre modifiche, ad esempio convertire i verbi per DELETE, PUT, e PATCH in POST. Questo sistema offre i nomi di metodo illustrati nella tabella seguente.
 
-| Metodo del gestore                       | Operazione                      |
+| Metodo gestore                       | Operazione                      |
 | ------------------------------------ | ------------------------------ |
 | `Get`                                | Inizializzare lo stato della pagina.     |
 | `Post`/`PostAsync`                   | Gestire le richieste POST.          |
-| `Delete`/`DeleteAsync`               | Handle DELETE requests&#8224;. |
-| `Put`/`PutAsync`                     | Gestire le richieste PUT &#8224;.    |
-| `Patch`/`PatchAsync`                 | Gestire le richieste PATCH &#8224;.  |
+| `Delete`/`DeleteAsync`               | Gestire le richieste DELETE&#8224;. |
+| `Put`/`PutAsync`                     | Gestire le richieste PUT&#8224;.    |
+| `Patch`/`PatchAsync`                 | Gestire le richieste PATCH&#8224;.  |
 | `GetMessage`                         | Ottenere un messaggio.              |
-| `PostMessage`/`PostMessageAsync`     | INVIARE un messaggio.                |
-| `DeleteMessage`/`DeleteMessageAsync` | INVIARE un messaggio da eliminare.      |
-| `PutMessage`/`PutMessageAsync`       | INVIARE un messaggio da inserire.         |
-| `PatchMessage`/`PatchMessageAsync`   | INVIARE un messaggio alla patch.       |
+| `PostMessage`/`PostMessageAsync`     | POST per un messaggio.                |
+| `DeleteMessage`/`DeleteMessageAsync` | POST per un messaggio da eliminare.      |
+| `PutMessage`/`PutMessageAsync`       | POST per un messaggio da inserire.         |
+| `PatchMessage`/`PatchMessageAsync`   | POST per un messaggio a cui applicare la patch.       |
 
-&#8224; Utilizzato per le chiamate API per la pagina.
+&#8224;Usato per le chiamate API alla pagina.
 
-Per stabilire questo schema, ereditare il `DefaultPageApplicationModelProvider` classe ed eseguire l'override di [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) metodo per fornire la logica personalizzata per la risoluzione [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) i nomi dei gestori. L'app di esempio viene illustrato come questa operazione viene eseguita relativo `CustomPageApplicationModelProvider` classe:
+Per stabilire questo schema, ereditare dalla classe `DefaultPageApplicationModelProvider` ed eseguire l'override del metodo [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) per specificare la logica personalizzata per risolvere i nomi del gestore della classe [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel). L'app di esempio illustra come questa operazione viene eseguita nella relativa classe `CustomPageApplicationModelProvider`:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
 
-Caratteristiche della classe:
+Le caratteristiche della classe sono le seguenti:
 
 * La classe eredita da `DefaultPageApplicationModelProvider`.
-* Il `TryParseHandlerMethod` elabora un gestore per determinare il verbo HTTP (`httpMethod`) e nome del gestore denominata (`handlerName`) quando si crea il `PageHandlerModel`.
-  * Un `Async` suffisso viene ignorato, se presente.
-  * Maiuscole e minuscole viene usata per analizzare il verbo HTTP dal nome del metodo.
-  * Quando il nome del metodo (senza `Async`) è uguale al nome del verbo HTTP, non vi è alcun gestore denominata. Il `handlerName` è impostato su `null`, ed è il nome del metodo `Get`, `Post`, `Delete`, `Put`, o `Patch`.
-  * Quando il nome del metodo (senza `Async`) è più lungo rispetto al nome del verbo HTTP, non vi è un gestore denominato. `handlerName` viene impostato su `<method name (less 'Async', if present)>`. Ad esempio, un nome di gestore di "GetMessage" rendimento sia "GetMessage" e "GetMessageAsync".
-  * Verbi PATCH HTTP, PUT e DELETE vengono convertiti in POST.
+* L'elemento `TryParseHandlerMethod` elabora un gestore per determinare il verbo HTTP (`httpMethod`) il nome del gestore denominato (`handlerName`) quando si crea l'elemento `PageHandlerModel`.
+  * Se presente, l'eventuale suffisso `Async` viene ignorato.
+  * Viene applicata la distinzione tra maiuscole e minuscole per analizzare il verbo HTTP dal nome del metodo.
+  * Quando il nome del metodo (senza `Async`) è uguale al nome del verbo HTTP, non vi è alcun gestore denominato. L'elemento `handlerName` è impostato su `null` e il nome del metodo è `Get`, `Post`, `Delete`, `Put` o `Patch`.
+  * Quando il nome del metodo (senza `Async`) è più lungo del nome del verbo HTTP, è presente un gestore denominato. `handlerName` viene impostato su `<method name (less 'Async', if present)>`. Ad esempio, sia "GetMessage" che "GetMessageAsync" generano un nome gestore di "GetMessage".
+  * I verbi HTTP DELETE, PUT e PATCH vengono convertiti in POST.
 
-Registrare il `CustomPageApplicationModelProvider` nel `Startup` classe:
+Registrare l'elemento `CustomPageApplicationModelProvider` nella classe `Startup`:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
-Il file code-behind *Index.cshtml.cs* viene illustrato come le convenzioni di denominazione del metodo normale gestore vengono modificate per le pagine nell'app. Le normali "On" denominazione di prefisso utilizzata con pagine Razor viene rimosso. Il metodo che inizializza lo stato della pagina è ora denominato `Get`. È possibile visualizzare questa convenzione utilizzata nell'intera app se si apre un file code-behind per una delle pagine.
+Il modello di pagina in *Index.cshtml.cs* illustra come le convenzioni di denominazione del metodo del gestore normale vengono modificate per le pagine nell'app. La denominazione di prefisso "On" normale usata con Razor Pages viene rimossa. Il metodo che inizializza lo stato della pagina è ora denominato `Get`. L'uso di questa convenzione può essere visualizzato nell'intera app se si apre qualsiasi modello di pagina per qualsiasi pagina.
 
-Ognuno degli altri metodi iniziare con il verbo HTTP che descrive l'elaborazione. I due metodi che iniziano con `Delete` normalmente verrebbe considerato come verbi HTTP DELETE, ma la logica `TryParseHandlerMethod` imposta in modo esplicito il verbo POST per entrambi i gestori.
+Ognuno degli altri metodi inizia con il verbo HTTP che ne descrive l'elaborazione. I due metodi che iniziano con `Delete` normalmente verrebbero considerati come verbi HTTP DELETE, ma la logica in `TryParseHandlerMethod` imposta in modo esplicito il verbo POST per entrambi i gestori.
 
-Si noti che `Async` è facoltativo tra `DeleteAllMessages` e `DeleteMessageAsync`. In entrambi i metodi asincroni, ma è possibile scegliere di utilizzare il `Async` o non in forma suffissa; si consiglia di procedere. `DeleteAllMessages`è qui usato a scopo dimostrativo, ma è consigliabile assegnare un nome tale metodo `DeleteAllMessagesAsync`. Non influisce l'elaborazione di implementazione dell'esempio ma utilizza il `Async` alle chiamate il fatto che è un metodo asincrono in forma suffissa.
+Si noti che `Async` è facoltativo tra `DeleteAllMessages` e `DeleteMessageAsync`. Entrambi i metodi sono asincroni, ma è possibile scegliere di usare o meno il suffisso `Async`; è consigliabile usarlo. `DeleteAllMessages` è qui usato a scopo dimostrativo, ma è consigliabile denominare tale metodo `DeleteAllMessagesAsync`. Non influisce sull'elaborazione di implementazione dell'esempio, ma l'uso del suffisso `Async` indica che si tratta di un metodo asincrono.
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
-Notare i nomi dei gestori forniti in *cshtml* corrisponde la `DeleteAllMessages` e `DeleteMessageAsync` i metodi del gestore:
+Si noti che i nomi dei gestori specificati in *cshtml* corrispondono ai metodi del gestore `DeleteAllMessages` e `DeleteMessageAsync`:
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
-`Async`nel nome del metodo di gestore `DeleteMessageAsync` sono inseriti la disconnessione dal `TryParseHandlerMethod` per la corrispondenza della richiesta POST al metodo del gestore. Il `asp-page-handler` nome di `DeleteMessage` corrisponde al metodo del gestore `DeleteMessageAsync`.
+`Async` nel nome del metodo del gestore `DeleteMessageAsync` è stato escluso dall'elemento `TryParseHandlerMethod` per la corrispondenza della richiesta POST al metodo del gestore. Il nome `asp-page-handler` di `DeleteMessage` corrisponde al metodo del gestore `DeleteMessageAsync`.
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtri MVC e il filtro di pagina (IPageFilter)
 
-MVC [filtri azione](xref:mvc/controllers/filters#action-filters) vengono ignorate da pagine Razor, poiché le pagine Razor utilizzare i metodi del gestore. Sono disponibili per l'utilizzo di altri tipi di filtri MVC: [autorizzazione](xref:mvc/controllers/filters#authorization-filters), [eccezione](xref:mvc/controllers/filters#exception-filters), [risorse](xref:mvc/controllers/filters#resource-filters), e [risultato](xref:mvc/controllers/filters#result-filters). Per ulteriori informazioni, vedere il [filtri](xref:mvc/controllers/filters) argomento.
+I [filtri azione](xref:mvc/controllers/filters#action-filters) MVC vengono ignorati da Razor Pages, poiché vengono usati i metodi del gestore. Sono disponibili altri tipi di filtri MVC: [autorizzazione](xref:mvc/controllers/filters#authorization-filters), [eccezione](xref:mvc/controllers/filters#exception-filters), [risorse](xref:mvc/controllers/filters#resource-filters) e [risultati](xref:mvc/controllers/filters#result-filters). Per altre informazioni, vedere l'argomento [Filtri](xref:mvc/controllers/filters).
 
-Il filtro di pagina ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) è un filtro che si applica a pagine Razor. Racchiuso tra l'esecuzione di un metodo del gestore di pagina. Consente di elaborare il codice personalizzato nelle fasi di esecuzione del metodo di gestore di pagina. Di seguito è riportato un esempio delle app di esempio:
+Il filtro di pagina ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) è un filtro che si applica a Razor Pages. Racchiude l'esecuzione di un metodo del gestore di pagina. Consente di elaborare il codice personalizzato nelle fasi di esecuzione del metodo del gestore di pagina. Di seguito è riportato un esempio tratto dall'app di esempio:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
 
-Questo filtro verifica la presenza di un `globalTemplate` distribuire "ReplacementValue" valore di "TriggerValue" e lo scambio.
+Questo filtro verifica la presenza di un valore di route `globalTemplate` corrispondente a "TriggerValue" e lo cambia in "ReplacementValue".
 
-Il `ReplaceRouteValueFilter` attributo può essere applicato direttamente a un `PageModel` nel code-behind:
+L'attributo `ReplaceRouteValueFilter` può essere applicato direttamente a `PageModel`:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 
-Richiedere la pagina Page3 dall'applicazione di esempio con in `localhost:5000/OtherPages/Page3/TriggerValue`. Si noti come il filtro sostituisce il valore di route:
+Richiedere la pagina Page3 dall'applicazione di esempio con `localhost:5000/OtherPages/Page3/TriggerValue`. Si noti come il filtro sostituisce il valore di route:
 
-![La richiesta di OtherPages/Page3 ottenendo un TriggerValue route segmento nel filtro sostituendo il valore di route con ReplacementValue.](razor-pages-convention-features/_static/otherpages-page3-filter-replacement-value.png)
+![La richiesta di OtherPages/Page3 con un segmento di route TriggerValue fa sì che il filtro sostituisca il valore di route con ReplacementValue.](razor-pages-convention-features/_static/otherpages-page3-filter-replacement-value.png)
 
 ## <a name="see-also"></a>Vedere anche
 
