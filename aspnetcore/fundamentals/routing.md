@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -36,7 +36,7 @@ Il routing usa le *route* (implementazioni di [IRouter](https://docs.microsoft.c
 
 In genere, un'app ha un'unica raccolta di route. Quando arriva una richiesta, la raccolta di route viene elaborata in ordine. La richiesta in ingresso cerca una route corrispondente all'URL di richiesta chiamando il metodo `RouteAsync` per ogni route disponibile nella raccolta di route. Al contrario, una risposta può usare il routing per generare URL, ad esempio per il reindirizzamento o i collegamenti, in base alle informazioni sulla route e in questo modo si evita di impostare gli URL come hardcoded ottimizzando la manutenibilità.
 
-Il routing è connesso alla pipeline [middleware](middleware.md) per mezzo della classe `RouterMiddleware`. [ASP.NET MVC](../mvc/overview.md) aggiunge il routing alla pipeline middleware come parte della propria configurazione. Per informazioni sull'uso del routing come componente autonomo, vedere [Uso del middleware di routing](#using-routing-middleware).
+Il routing è connesso alla pipeline [middleware](xref:fundamentals/middleware/index) per mezzo della classe `RouterMiddleware`. [ASP.NET Core MVC](xref:mvc/overview) aggiunge il routing alla pipeline middleware come parte della configurazione. Per informazioni sull'uso del routing come componente autonomo, vedere [Uso del middleware di routing](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 

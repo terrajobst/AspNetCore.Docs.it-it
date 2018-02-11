@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introduzione allo stato della sessione e dell'applicazione in ASP.NET Core
 
@@ -84,7 +84,7 @@ Il codice classe `Startup` seguente configura il provider TempData basato sulla 
 
 ---
 
-L'ordine è essenziale per i componenti middleware. Nell'esempio precedente si verifica un'eccezione di tipo `InvalidOperationException` se `UseSession` viene chiamata dopo `UseMvcWithDefaultRoute`. Per altri dettagli, vedere [Middleware Ordering](xref:fundamentals/middleware#ordering) (Ordine del middleware).
+L'ordine è essenziale per i componenti middleware. Nell'esempio precedente si verifica un'eccezione di tipo `InvalidOperationException` se `UseSession` viene chiamata dopo `UseMvcWithDefaultRoute`. Per altri dettagli, vedere [Middleware Ordering](xref:fundamentals/middleware/index#ordering) (Ordine del middleware).
 
 > [!IMPORTANT]
 > Se la destinazione è .NET Framework e si usa il provider basato sulla sessione, aggiungere il pacchetto NuGet [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) al progetto.
@@ -189,7 +189,7 @@ L'esempio seguente illustra come impostare e ottenere un oggetto serializzabile:
 
 L'astrazione `HttpContext` offre supporto per una raccolta dizionario di tipo `IDictionary<object, object>` denominata `Items`. Questa raccolta è disponibile dall'inizio di una richiesta *HttpRequest* e viene rimossa alla fine di ogni richiesta. È possibile accedervi assegnando un valore a una voce con chiave o richiedendo il valore per una chiave specifica.
 
-Nell'esempio seguente [Middleware](middleware.md) aggiunge `isVerified` all'insieme `Items`.
+Nell'esempio seguente [Middleware](xref:fundamentals/middleware/index) aggiunge `isVerified` alla raccolta `Items`.
 
 ```csharp
 app.Use(async (context, next) =>
