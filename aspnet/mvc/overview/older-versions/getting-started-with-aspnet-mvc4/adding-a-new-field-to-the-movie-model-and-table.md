@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0c094c4d4c99702a5b513717126872a254ca3e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Aggiunta di un nuovo campo al modello di film e di tabella
 ====================
@@ -81,7 +81,7 @@ Nel **Package Manager Console** finestra, immettere il comando "migrazione aggiu
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Migrazioni Code First consente di creare un altro file di classe di *migrazioni* cartella (con il nome *{DateStamp}\_Initial.cs* ), e questa classe contiene codice che crea lo schema del database. Il nome del file di migrazione è pre-fissa con un timestamp per agevolare l'ordinamento. Esaminare il *{DateStamp}\_Initial.cs* file, contiene le istruzioni per creare la tabella di filmati per il database di film. Quando si aggiorna il database nelle istruzioni seguenti, *{DateStamp}\_Initial.cs* file verrà eseguito e creare il lo schema di database. Il **valore di inizializzazione** metodo verrà eseguito per popolare il database con dati di test.
+Migrazioni Code First consente di creare un altro file di classe di *migrazioni* cartella (con il nome *{DateStamp}\_Initial.cs* ), e questa classe contiene codice che crea lo schema del database. Il nome del file di migrazione è pre-fissa con un timestamp per agevolare l'ordinamento. Esaminare il *{DateStamp}\_Initial.cs* file, contiene le istruzioni per creare la tabella di filmati per il database di film. Quando si aggiorna il database nelle istruzioni seguenti, *{DateStamp}\_Initial.cs* file verrà eseguito e creare lo schema di database. Il **valore di inizializzazione** metodo verrà eseguito per popolare il database con dati di test.
 
 Nel **Package Manager Console**, immettere il comando "update-database" per creare il database ed eseguire il **valore di inizializzazione** metodo.
 

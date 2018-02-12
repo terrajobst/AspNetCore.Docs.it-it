@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Provider di configurazione Azure insieme di credenziali chiave
 
@@ -77,7 +77,7 @@ Quando si esegue l'app, una pagina Web Mostra i valori caricati segreti:
 `AddAzureKeyVault`fornisce anche un overload che accetta un'implementazione di `IKeyVaultSecretManager`, che consente di controllare i segreti dell'insieme di credenziali chiave vengono convertiti in chiavi di configurazione. Ad esempio, è possibile implementare l'interfaccia per caricare i valori dei segreti basati su un valore di prefisso che è fornire all'avvio dell'app. Questo consente, ad esempio, per caricare i segreti in base alla versione dell'app.
 
 > [!WARNING]
-> Non utilizzare i prefissi su segreti dell'insieme di credenziali chiave inserire stesso insieme di credenziali chiave di segreti per più applicazioni o di posizionare i segreti dell'ambiente (ad esempio, *sviluppo* verus *produzione* segreti) nella stessa insieme di credenziali. È consigliabile che diverse App e gli ambienti di sviluppo/produzione usare gli insiemi di credenziali chiave separati per isolare gli ambienti di app per il massimo livello di sicurezza.
+> Non utilizzare i prefissi su segreti dell'insieme di credenziali chiave inserire stesso insieme di credenziali chiave di segreti per più applicazioni o di posizionare i segreti dell'ambiente (ad esempio, *sviluppo* e *produzione* segreti) nella stessa insieme di credenziali. È consigliabile che diverse App e gli ambienti di sviluppo/produzione usare gli insiemi di credenziali chiave separati per isolare gli ambienti di app per il massimo livello di sicurezza.
 
 Utilizza la seconda applicazione di esempio, creare un segreto nell'insieme di credenziali chiave per `5000-AppSecret` (periodi non sono consentiti nei nomi di insieme di credenziali chiave privata) che rappresenta un segreto dell'app per la versione 5.0.0.0 dell'app. Per un'altra versione, 5.1.0.0, si crea una chiave privata per `5100-AppSecret`. Ogni versione di app carica il proprio valore segreto nella relativa configurazione come `AppSecret`, stripping la versione durante il caricamento del segreto. Implementazione dell'esempio è illustrato di seguito:
 

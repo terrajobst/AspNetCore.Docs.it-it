@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 0205eb34ac7f8b10720b0aa3a19bbdc3a74b545b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Gestire i pacchetti sul lato client con Bower in ASP.NET Core
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [riso Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), e [Scott Addie](https://scottaddie.com) 
 
 > [!IMPORTANT]
-> Mentre viene mantenuto Bower, si consiglia di utilizzare una soluzione diversa. Yarn con Webpack è una diffusa alternativa per il quale [istruzioni relative alla migrazione](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) sono disponibili.
+> Mentre viene mantenuto Bower, i relativi gestori consiglia di utilizzare una soluzione diversa. Yarn con Webpack è una diffusa alternativa per il quale [istruzioni relative alla migrazione](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) sono disponibili.
 
 [Bower](https://bower.io/) chiama se stessa "Gestione pacchetti per il web". All'interno dell'ecosistema di .NET, questa si riempie il vuoto lasciato dall'impossibilità di NuGet per recapitare i file di contenuto statico. Per i progetti ASP.NET Core, i file statici vengono svolte da librerie sul lato client come [jQuery](http://jquery.com/) e [Bootstrap](http://getbootstrap.com/). Per le librerie .NET, è comunque usare [NuGet](https://www.nuget.org/) Gestione pacchetti.
 

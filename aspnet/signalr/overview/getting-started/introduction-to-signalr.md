@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>Introduzione a SignalR
 ====================
@@ -35,7 +35,7 @@ ASP.NET SignalR è una libreria per sviluppatori ASP.NET che semplifica il proce
 
 SignalR può essere utilizzato per aggiungere una sorta di funzionalità web "in tempo reale" per l'applicazione ASP.NET. Mentre chat viene spesso utilizzata come esempio, è possibile eseguire più tanto. Ogni volta che un utente aggiorna una pagina web per visualizzare i nuovi dati o la pagina implementa [polling lungo](http://en.wikipedia.org/wiki/Push_technology#Long_polling) per recuperare nuovi dati, è un candidato per l'utilizzo di SignalR. Esempi includono i dashboard e monitoraggio delle applicazioni, applicazioni di collaborazione (ad esempio la modifica simultanea di documenti), gli aggiornamenti di stato di avanzamento e il form in tempo reale.
 
-SignalR consente inoltre di completamente nuovi tipi di applicazioni web che richiedono aggiornamenti ad alta frequenza dal server, ad esempio, giochi in tempo reale. Per un ottimo esempio di questo, vedere il [ShootR gioco.](http://shootr.signalr.net/)
+SignalR consente inoltre di completamente nuovi tipi di applicazioni web che richiedono aggiornamenti ad alta frequenza dal server, ad esempio, giochi in tempo reale.
 
 SignalR fornisce un'API semplice per la creazione di chiamate di server a client di procedura remota (RPC) che chiamano funzioni JavaScript nel client browser (e altre piattaforme client) dal codice .NET sul lato server. SignalR include inoltre API per la gestione connessione (ad esempio, connettere e disconnettere eventi) e il raggruppamento delle connessioni.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 65717c1605c7f55bfd836110072772fe3dcdeb76
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aa06200c6983f2c09a7271c8e8ce4b38f54163ad
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrazione da ASP.NET ad ASP.NET Core 2.0
 
@@ -107,7 +107,7 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 
 **Nota:** per informazioni più dettagliate sulla configurazione di ASP.NET Core, vedere l'articolo sulla [configurazione in ASP.NET Core](xref:fundamentals/configuration/index).
 
-## <a name="native-dependency-injection"></a>Inserimento di dipendenze nativo
+## <a name="native-dependency-injection"></a>Inserimento delle dipendenze nativo
 Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune che consente di raggiungerlo ed è un componente nativo di ASP.NET Core.
 
 Nelle applicazioni ASP.NET, gli sviluppatori si affidano a una libreria di terze parti per implementare l'inserimento delle dipendenze. Una di queste librerie è [Unity](https://github.com/unitycontainer/unity) e fa parte di Modelli e procedure Microsoft. 
