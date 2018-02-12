@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: af08039de2d810948b9ab64974111b0346c7fa0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Aggiornamenti finali allo spostamento e la struttura del sito, conclusione
 ====================
@@ -135,7 +135,7 @@ A questo punto quando si esegue l'applicazione, verranno esaminati aggiornato ho
 
 ## <a name="conclusion"></a>Conclusione
 
-Abbiamo visto che tale ASP.NET MVC rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente. Probabilmente questa esercitazione riceve gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate ASP.NET MVC.
+Abbiamo visto che ASP.NET MVC rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente. Probabilmente questa esercitazione riceve gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate ASP.NET MVC.
 
 
 >[!div class="step-by-step"]

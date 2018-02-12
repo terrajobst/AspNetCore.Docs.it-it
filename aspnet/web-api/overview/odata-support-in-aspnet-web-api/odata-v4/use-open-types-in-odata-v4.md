@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: c2d7454534ff0e9e0a80365793800ab7c45d3b6e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe67b9a11a82b55d5f3e0e5f1b0cee10a58833d2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>Aprire i tipi in OData v4 con ASP.NET Web API
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In OData v4, un *aprire tipo* è un tipo stuctured che contiene le proprietà dinamiche, oltre a tutte le proprietà che vengono dichiarate nella definizione del tipo. I tipi aperti consentono di aggiungere la flessibilità per i modelli di data. In questa esercitazione viene illustrato come utilizzare i tipi aperti in ASP.NET Web API OData.
 > 
@@ -100,11 +100,11 @@ Nel documento di metadati, è possibile vedere che:
 
 - Per il `Book` e `Press` tipi, il valore di `OpenType` attributo è true. Il `Customer` e `Address` tipi non dispongono di questo attributo.
 - Il `Book` tipo di entità include tre proprietà dichiarate: ISBN, titolo e premere. I metadati di OData non include il `Book.Properties` proprietà dalla classe CLR.
-- Analogamente, il `Press` tipo complesso ha solo due proprietà dichiarate: nome e la categoria. I metadati non dispone di `Press.DynamicProperties` proprietà dalla classe CLR.
+- Analogamente, il `Press` tipo complesso ha solo due proprietà dichiarate: nome e la categoria. I metadati includono la `Press.DynamicProperties` proprietà dalla classe CLR.
 
 ## <a name="query-an-entity"></a>Query un'entità
 
-Per ottenere il libro con codice ISBN uguale a "978-0-7356-7942-9", trasmissione inviare una richiesta GET al `~/Books('978-0-7356-7942-9')`. Il corpo della risposta sarà simile al seguente. (Rientrati per rendere più leggibili).
+Per ottenere il libro con codice ISBN uguale a "978-0-7356-7942-9", inviare una richiesta GET al `~/Books('978-0-7356-7942-9')`. Il corpo della risposta sarà simile al seguente. (Rientrati per rendere più leggibili).
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 

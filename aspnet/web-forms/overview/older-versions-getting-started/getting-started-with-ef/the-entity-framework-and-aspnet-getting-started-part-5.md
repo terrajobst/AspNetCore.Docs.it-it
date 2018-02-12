@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7200899d54585cd09e0a648e3aaaf839db2649e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 5
 ====================
@@ -77,7 +77,7 @@ Eseguire il *Courses.aspx* pagina e selezionare per visualizzare il nuovo corso 
 
 ## <a name="working-with-many-to-many-relationships"></a>Utilizzo delle relazioni molti-a-molti
 
-La relazione tra il `Courses` set di entità e `People` set di entità è una relazione molti-a-molti. Oggetto `Course` entità dispone di una proprietà di navigazione denominata `People` che può contenere zero, uno o più correlate `Person` entità (che rappresentano i docenti assegnati gli quel corso). E un `Person` entità dispone di una proprietà di navigazione denominata `Courses` che può contenere zero, uno o più correlate `Course` entità (che rappresentano corsi assegnato a indicare che istruttore). Un insegnante potrebbe indicare più corsi e un corso può dedicare da istruttori più. In questa sezione della procedura dettagliata, aggiungerai e rimuovere le relazioni tra `Person` e `Course` entità aggiornando le proprietà di navigazione di entità correlate.
+La relazione tra il `Courses` set di entità e `People` set di entità è una relazione molti-a-molti. Oggetto `Course` entità dispone di una proprietà di navigazione denominata `People` che può contenere zero, uno o più correlate `Person` entità (che rappresentano i docenti assegnati gli quel corso). E un `Person` entità dispone di una proprietà di navigazione denominata `Courses` che può contenere zero, uno o più correlate `Course` entità (che rappresentano i corsi che istruttore viene assegnato a illustrare). Un insegnante potrebbe indicare più corsi e un corso può dedicare da istruttori più. In questa sezione della procedura dettagliata, aggiungerai e rimuovere le relazioni tra `Person` e `Course` entità aggiornando le proprietà di navigazione di entità correlate.
 
 Creare una nuova pagina web denominata *InstructorsCourses.aspx* che utilizza il *Site. master* pagina master e aggiungere il markup seguente per il `Content` controllo denominato `Content2`:
 
@@ -123,7 +123,7 @@ Eseguire la pagina.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Selezionare un docente. Il **assegnare un corso** elenco a discesa Visualizza i corsi istruttore non spiega, e **rimuovere un corso** elenco a discesa Visualizza i corsi istruttore è già assegnato a. Nel **assegnare un corso** sezione, selezionare un corso e quindi fare clic su **assegnare**. Sposta la linea di **rimuovere un corso** elenco a discesa. Selezionare un corso nel **rimuovere un corso** sezione e fare clic su **rimuovere***.* Sposta la linea di **assegnare un corso** elenco a discesa.
+Selezionare un docente. Il **assegnare un corso** elenco a discesa Visualizza i corsi istruttore non spiega, e **rimuovere un corso** elenco a discesa Visualizza i corsi istruttore è già assegnato a. Nel **assegnare un corso** sezione, selezionare un corso e quindi fare clic su **assegnare**. Sposta la linea di **rimuovere un corso** elenco a discesa. Selezionare un corso nel **rimuovere un corso** sezione e fare clic su **Remove * * *.* Sposta la linea di **assegnare un corso** elenco a discesa.
 
 Sono stati analizzati alcuni altri modi per lavorare con i dati correlati. Nell'esercitazione seguente, si apprenderà come usare l'ereditarietà nel modello di dati per migliorare la manutenibilità dell'applicazione.
 

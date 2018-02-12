@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8f28116f88f3cf5143d3d5c9821519d62c4e5452
-ms.sourcegitcommit: 6541c8b11001dd617adf5eb04c814cda165070b9
+ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="an-overview-of-project-katana"></a>Una panoramica del progetto Katana
 ====================
@@ -29,7 +29,7 @@ da [Howard Dierking](https://github.com/howarddierking)
 
  Indipendentemente dal fatto che uno è illustrato un prodotto per sviluppatori di framework o l'utente finale, è importante comprendere le motivazioni sottostante per la creazione del prodotto: e la parte che include sapendo che il prodotto è stato creato per. ASP.NET è stato originariamente creato con due clienti presente.   
   
-**Il primo gruppo di clienti è stato sviluppatori ASP classici.** Al momento, ASP è una delle tecnologie per la creazione dinamica, basati sui dati applicazioni e siti Web tramite incrocio markup e lo script sul lato server primarie. Il runtime ASP fornito script sul lato server con un set di oggetti estratti gli aspetti principali del protocollo HTTP sottostante e del server Web e fornito l'accesso a ulteriori servizi di tale gestione dello stato sessione e dell'applicazione, memorizzare nella cache e così via. Mentre potente, le applicazioni ASP classiche è diventato difficile gestire come vengono aumentate le dimensioni e complessità. Questo è in gran parte a causa della mancanza di struttura rilevata negli ambienti associati la duplicazione del codice risultanti da interfoliazione di codice e codice di script. Per sfruttare appieno le potenzialità di ASP classico durante la risoluzione di alcuni dei relativi problemi, ASP.NET volevano dell'organizzazione codice fornita dai linguaggi orientata agli oggetti di .NET Framework mantenendo anche il modello di programmazione sul lato server per quali ASP classico è stata estesa gli sviluppatori abituati.
+**Il primo gruppo di clienti è stato sviluppatori ASP classici.** Al momento, ASP è una delle tecnologie per la creazione dinamica, basati sui dati applicazioni e siti Web tramite incrocio markup e lo script sul lato server primarie. Il runtime ASP fornito script sul lato server con un set di oggetti estratti gli aspetti principali del protocollo HTTP sottostante e del server Web e fornito l'accesso a ulteriori servizi di tale gestione dello stato sessione e dell'applicazione, memorizzare nella cache e così via. Mentre potente, le applicazioni ASP classiche è diventato difficile gestire come vengono aumentate le dimensioni e complessità. Questo è in gran parte a causa della mancanza di struttura presente negli ambienti associati la duplicazione del codice risultanti da interfoliazione di codice e codice di script. Per sfruttare appieno le potenzialità di ASP classico durante la risoluzione di alcuni dei relativi problemi, ASP.NET volevano dell'organizzazione codice fornita dai linguaggi orientata agli oggetti di .NET Framework mantenendo anche il modello di programmazione sul lato server per quali ASP classico è stata estesa gli sviluppatori abituati.
 
 **Il secondo gruppo di clienti di destinazione per ASP.NET è stata gli sviluppatori di applicazioni di business di Windows.** A differenza degli sviluppatori ASP classici, che sono abituati alla scrittura di markup HTML e il codice per generare il markup HTML più, gli sviluppatori di Windows Form (ad esempio, gli sviluppatori VB6 precedute) abituati a una fase di progettazione che include un'area di disegno e un set completo di utente controlli dell'interfaccia. La prima versione di ASP.NET, noto anche come "Web Form" fornito un simile fase di progettazione insieme a un modello di eventi sul lato server per i componenti dell'interfaccia utente e un set di funzionalità dell'infrastruttura (ad esempio ViewState) per creare un'esperienza di sviluppo tra client e programmazione sul lato server. Web form nascosto in modo efficace l'assenza del sito Web in un modello di eventi con stato che è stato già noto agli sviluppatori di Windows Form.
 

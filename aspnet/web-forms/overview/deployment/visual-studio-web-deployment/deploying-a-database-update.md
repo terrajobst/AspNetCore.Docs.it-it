@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: aggiornamento di un Database di distribuzione
 ====================
@@ -90,7 +90,7 @@ In questa sezione, si aggiunge una colonna di data di nascita per il `Person` cl
 6. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic su di **produzione** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**.
 7. Eseguire il **i docenti** pagina nell'ambiente di produzione per verificare che l'aggiornamento è stato distribuito correttamente.
 
-    Per un un aggiornamento dell'applicazione di produzione reali che include una modifica al database è inoltre in genere richiederebbe l'applicazione durante la distribuzione tramite *app\_offline.htm*, come visto nell'esercitazione precedente.
+    Per un aggiornamento dell'applicazione di produzione reali che include una modifica al database anche in genere si procederà quindi l'applicazione durante la distribuzione tramite *app\_offline.htm*, come visto nell'esercitazione precedente.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Distribuire un aggiornamento del database tramite il provider dbDacFx
 

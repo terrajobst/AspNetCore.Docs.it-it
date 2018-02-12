@@ -9,17 +9,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 4815155ad238c31316e00471cf87beb3dd262613
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Autenticazione cloud con Azure Active Directory B2C
 
 Di [Cam Soper](https://twitter.com/camsoper)
 
-[Azure B2C Directory attiva](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) è una soluzione di gestione di identità cloud per App per dispositivi mobili e web. Il servizio fornisce l'autenticazione per le applicazioni ospitate nel cloud e locali. Tipi di autenticazione includono includono singoli account, account di social network e federated account dell'organizzazione. Inoltre, Azure AD B2C può fornire l'autenticazione a più fattori con la configurazione minima.
+[Azure B2C Directory attiva](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) è una soluzione di gestione di identità cloud per App per dispositivi mobili e web. Il servizio fornisce l'autenticazione per le applicazioni ospitate nel cloud e locali. Tipi di autenticazione includono singoli account, account di social network e federated account dell'organizzazione. Inoltre, Azure AD B2C può fornire l'autenticazione a più fattori con la configurazione minima.
 
 > [!TIP]
 > Azure Active Directory (Azure AD) Azure Active Directory B2C sono offerte di prodotti separato. Un tenant di Azure AD rappresenta un'organizzazione, mentre un tenant di Azure Active Directory B2C rappresenta una raccolta delle identità da utilizzare con le applicazioni relying party. Per ulteriori informazioni, vedere [Azure Active Directory B2C: domande frequenti (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).

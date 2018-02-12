@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8d0b3665e9bac6856a3fe1b50b05215f2747e354
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Utilizzo della classe TagBuilder per compilare l'helper HTML (VB)
 ====================
@@ -59,7 +59,7 @@ Ad esempio, listato 1 contiene un helper HTML di immagine. L'helper di immagine 
 
 Il modulo nel listato 1 contiene due metodi di overload denominati Image(). Quando si chiama il metodo Image(), è possibile passare un oggetto che rappresenta un set di attributi HTML o meno.
 
-Si noti come il metodo di TagBuilder.MergeAttribute() viene utilizzato per aggiungere singoli attributi, ad esempio l'attributo src di TagBuilder. Si noti, inoltre, come il metodo di TagBuilder.MergeAttributes() viene utilizzato per aggiungere una raccolta di attributi per il TagBuilder. Il metodo MergeAttributes() accetta un dizionario&lt;stringa, oggetto&gt; parametro. La classe di RouteValueDictionary viene usata per convertire l'oggetto che rappresenta la raccolta di attributi in un dizionario&lt;stringa, oggetto&gt;.
+Si noti come il metodo di TagBuilder.MergeAttribute() viene utilizzato per aggiungere singoli attributi, ad esempio l'attributo src di TagBuilder. Si noti, inoltre, come il metodo di TagBuilder.MergeAttributes() viene utilizzato per aggiungere una raccolta di attributi per il TagBuilder. Il metodo MergeAttributes() accetta un dizionario&lt;stringa, oggetto&gt; parametro. La classe RouteValueDictionary viene usata per convertire l'oggetto che rappresenta la raccolta di attributi in un dizionario&lt;stringa, oggetto&gt;.
 
 Dopo aver creato il supporto di immagine, è possibile utilizzare l'helper in visualizzazioni MVC ASP.NET come uno degli altri helper HTML standard. La visualizzazione nel listato 2 utilizza l'helper di immagine da visualizzare due volte la stessa immagine di Xbox (vedere la figura 1). L'helper Image() viene chiamato con e senza una raccolta di attributi HTML.
 

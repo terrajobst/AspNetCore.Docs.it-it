@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Servizi di autenticazione esterno con ASP.NET Web API (c#)
 ====================
@@ -243,8 +243,8 @@ Una volta ottenuta la chiave di consumer e un segreto del cliente, attenersi all
 
 Per ulteriori informazioni sulla creazione di applicazioni che utilizzano OAuth e OpenID, vedere i seguenti URL:
 
-- [https://go.microsoft.com/fwlink/?LinkId=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
-- [https://go.microsoft.com/fwlink/?LinkId=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
+- [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
+- [https://go.microsoft.com/fwlink/?LinkID=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
 
 <a id="COMBINE"></a>
 ### <a name="combining-external-authentication-services"></a>La combinazione di servizi di autenticazione esterni
@@ -263,7 +263,7 @@ Alcuni provider di autenticazione esterno non supportano il test dell'applicazio
     1. Aprire un prompt dei comandi con privilegi elevati in Windows.
     2. Digitare il comando seguente:
 
-        <kbd>il blocco note %WinDir%\system32\drivers\etc\hosts</kbd>
+        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
     3. Aggiungere una voce simile alla seguente al file HOSTS:
 
         <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -281,7 +281,7 @@ Alcuni provider di autenticazione esterno non supportano il test dell'applicazio
         <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. Digitare il comando seguente per aggiungere il nome FQDN nell'applicazione:
 
-        <kbd>impostare la configurazione di appcmd.exe-section:system.applicationHost/sites / +&quot;[nome = 'WebApplication1'] .bindings. [ protocollo = 'http' bindingInformation ='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
+        <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
  Dove **WebApplication1** è il nome del progetto e **bindingInformation** contiene il numero di porta e il nome di dominio completo che si desidera utilizzare per il test.
 
@@ -303,7 +303,7 @@ Il collegamento di un'applicazione a Windows Live per Microsoft Authentication �
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Facoltativo: Disabilitare la registrazione locale
 
-La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il  *\_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante deve essere simile a come esempio di codice seguente:
+La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il  *\_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante dovrebbe essere come nell'esempio di codice seguente:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

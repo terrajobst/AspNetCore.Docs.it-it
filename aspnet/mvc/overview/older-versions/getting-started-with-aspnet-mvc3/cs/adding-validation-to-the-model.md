@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6bce4a5d889f548cb1faec15842310703d7077b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Aggiunta della convalida per il modello (c#)
 ====================
@@ -101,7 +101,7 @@ Si noti che il codice utilizza un `Html.EditorFor` helper per l'output di `<inpu
 
 Che cos'è davvero utili su questo approccio è che il controller né il modello di visualizzazione crea sappia alcuna operazione sulle regole di convalida effettiva imposizione o sui messaggi di errore specifico visualizzati. Le regole di convalida e le stringhe di errore vengono specificate solo nella classe `Movie`.
 
-Se si desidera modificare la logica di convalida in un secondo momento, è possibile farlo in esattamente un'unica posizione. Non è necessario preoccuparsi dell'incoerenza delle diverse parti dell'applicazione con la modalità di applicazione delle regole perché tutta la logica di convalida verrà definita in un'unica posizione e usata ovunque. In questo modo il codice rimane molto pulito e facile da gestire e sviluppare. E significa che sarà completamente rispettando la distinzione tra il principio secco.
+Se si desidera modificare la logica di convalida in un secondo momento, è possibile farlo in esattamente un'unica posizione. Non è necessario preoccuparsi dell'incoerenza delle diverse parti dell'applicazione con la modalità di applicazione delle regole perché tutta la logica di convalida verrà definita in un'unica posizione e usata ovunque. In questo modo il codice rimane molto pulito e facile da gestire e sviluppare. Il principio DRY sarà ampiamente rispettato.
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Aggiunta di formattazione per il modello di film
 

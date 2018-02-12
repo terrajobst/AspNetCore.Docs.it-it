@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 71f87043be064d24bdfb203380fb6cf651527e30
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1caf836f8c92cbc9ab95e0aa990f81493e577a27
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-9-registration-and-checkout"></a>Parte 9: Estrazione e registrazione
 ====================
@@ -119,7 +119,7 @@ Il codice CheckoutController completo è il seguente:
 
 ## <a name="adding-the-addressandpayment-view"></a>Aggiunta della visualizzazione AddressAndPayment
 
-A questo punto, creare la vista AddressAndPayment. Fare clic su uno delle azioni del controller di AddressAndPayment e aggiungere una visualizzazione denominata AddressAndPayment è fortemente tipizzata come un ordine che utilizza il modello di modifica, come illustrato di seguito.
+A questo punto, creare la vista AddressAndPayment. Fare clic su una delle azioni AddressAndPayment controller e aggiungere una visualizzazione denominata AddressAndPayment è fortemente tipizzata come un ordine che utilizza il modello di modifica, come illustrato di seguito.
 
 ![](mvc-music-store-part-9/_static/image6.png)
 

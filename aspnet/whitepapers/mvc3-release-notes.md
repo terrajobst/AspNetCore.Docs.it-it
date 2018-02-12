@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -255,7 +255,7 @@ L'elenco modello di progetto include un nuovo modello applicazione Intranet. Que
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Modelli di progetto sono ora abilitati per HTML5
 
-Nella finestra di dialogo Nuovo progetto contiene ora un'opzione per aggiungere funzionalità specifiche di HTML5 per i modelli di progetto. Se si seleziona l'opzione, le visualizzazioni generate che contengono la nuova HTML5 `<header>`, `<footer>`, e `<navigation>` elementi. elementi.
+Nella finestra di dialogo Nuovo progetto contiene ora un'opzione per aggiungere funzionalità specifiche di HTML5 per i modelli di progetto. Se si seleziona l'opzione, le visualizzazioni generate che contengono la nuova HTML5 `<header>`, `<footer>`, e `<navigation>` elementi.
 
 Si noti che le versioni precedenti dei browser non supportano i tag specifici di HTML5. Per risolvere questa limitazione, i modelli di progetto HTML5 includono un riferimento alla libreria Modernizr. (Vedere la sezione successiva).
 
@@ -608,7 +608,7 @@ Per disattivare la convalida della richiesta per tutte le proprietà del modello
 ## <a name="breaking-changes"></a>Modifiche di interruzione
 
 - L'ordine di esecuzione per i filtri eccezioni è stato modificato per i filtri eccezioni con lo stesso *ordine* valore. In ASP.NET MVC 2 e versioni precedenti, i filtri eccezioni il controller che ha lo stesso *ordine* come quelli di un metodo di azione venivano eseguiti prima dei filtri eccezioni del metodo di azione. Questo potrebbe essere in genere quando i filtri eccezioni vengono applicati senza un oggetto specificato *ordine* valore. In ASP.NET MVC 3 questo ordine è stato invertito in modo che venga eseguito per primo il gestore di eccezioni più specifico. Come nelle versioni precedenti, se il *ordine* proprietà viene specificata in modo esplicito, i filtri vengono eseguiti nell'ordine specificato.
-- Aggiungere una nuova proprietà denominata *FileExtensions* per il *VirtualPathProviderViewEngine* classe di base. Durante la ricerca di una vista dal percorso (e non per nome), solo le viste con un'estensione di file contenuti in viene considerato l'elenco specificato da questa nuova proprietà. Si tratta di una modifica di rilievo per coloro che registra un oggetto personalizzato compilare provider per abilitare un'estensione di file personalizzato per le visualizzazioni di web form ed e fanno riferimento a tali viste utilizzando un percorso completo anziché un nome. La soluzione alternativa consiste nel modificare il valore di *FileExtensions* proprietà da includere l'estensione di file personalizzato.
+- Aggiungere una nuova proprietà denominata *FileExtensions* per il *VirtualPathProviderViewEngine* classe di base. Durante la ricerca di una vista dal percorso (e non per nome), solo le viste con un'estensione di file contenuti in viene considerato l'elenco specificato da questa nuova proprietà. Si tratta di una modifica per gli utenti di registrare un provider di compilazione personalizzata per abilitare un'estensione di file personalizzato per le visualizzazioni di web form e fanno riferimento a tali viste utilizzando un percorso completo anziché un nome. La soluzione alternativa consiste nel modificare il valore di *FileExtensions* proprietà da includere l'estensione di file personalizzato.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Problemi noti

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3f78da3898d44cc2cf1db6623ebcaf6a73ebbf3e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Utilizzo di DynamicPopulate con un controllo utente e JavaScript (c#)
 ====================
@@ -67,7 +67,7 @@ Infine, aggiungere il controllo utente alla pagina. È necessario impostare il r
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
-L'operazione è ora completata. La pagina si comporti come previsto: un utente fa clic su dei pulsanti di opzione, il controllo in Toolkit chiama il servizio web e Visualizza la data corrente nel formato desiderato.
+L'operazione è ora completata. La pagina si comporti come previsto: un utente fa clic su uno dei pulsanti di opzione, il controllo in Toolkit chiama il servizio web e Visualizza la data corrente nel formato desiderato.
 
 
 [![I pulsanti di opzione si trovano in un controllo utente](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)

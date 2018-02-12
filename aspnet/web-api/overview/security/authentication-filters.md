@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 7c704cc351876b49ec143a49b25cc0ca83876e06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16e451f52799625983368bc938091eff47019b52
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtri di autenticazione in ASP.NET Web API 2
 ====================
@@ -160,7 +160,7 @@ Nota: L'esempio di autenticazione di base astrae questa logica, inserendolo in u
 
 "Autenticazione a livello di host" è l'autenticazione eseguita dall'host (ad esempio IIS), prima di framework raggiunge l'API Web di richiesta.
 
-Spesso, si desideri per abilitare l'autenticazione a livello di host per il resto dell'applicazione, ma è disabilitata per i controller API Web. Ad esempio, uno scenario tipico è per abilitare l'autenticazione basata su form a livello di host, ma usa l'autenticazione basata su token per l'API Web.
+Spesso, si desidera abilitare l'autenticazione a livello di host per il resto dell'applicazione, ma è disabilitata per i controller API Web. Ad esempio, uno scenario tipico è per abilitare l'autenticazione basata su form a livello di host, ma usa l'autenticazione basata su token per l'API Web.
 
 Per disabilitare l'autenticazione a livello di host all'interno della pipeline di Web API, chiamare `config.SuppressHostPrincipal()` nella configurazione. In questo modo, l'API Web rimuovere il **IPrincipal** da qualsiasi richiesta in entrata la pipeline di Web API. È in effetti, &quot;annullare-autentica&quot; la richiesta.
 
