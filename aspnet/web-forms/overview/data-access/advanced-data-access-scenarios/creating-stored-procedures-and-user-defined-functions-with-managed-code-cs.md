@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be3e3d61a6567da3c2cd696c01661146f2da7131
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (c#)
 ====================
@@ -420,7 +420,7 @@ Il codice inizia creando un `SqlMoney` istanza denominata `inventoryValue` che v
 
 ## <a name="step-11-deploying-the-managed-udf"></a>Passaggio 11: Distribuisce la funzione definita dall'utente gestito
 
-Dopo che è stata creata la funzione definita dall'utente gestito, si è pronti per distribuire il database Northwind. Come illustrato nel passaggio 4, vengono distribuiti gli oggetti gestiti in un progetto SQL Server facendo clic sul nome del progetto in Esplora soluzioni e scegliendo Distribuisci dal menu di scelta rapida.
+Ora che è stata creata la funzione definita dall'utente gestito, è pronti distribuire il database Northwind. Come illustrato nel passaggio 4, vengono distribuiti gli oggetti gestiti in un progetto SQL Server facendo clic sul nome del progetto in Esplora soluzioni e scegliendo Distribuisci dal menu di scelta rapida.
 
 Dopo avere distribuito il progetto, tornare a SQL Server Management Studio e aggiornare la cartella di funzioni a valori scalari. È ora necessario visualizzate due voci:
 
