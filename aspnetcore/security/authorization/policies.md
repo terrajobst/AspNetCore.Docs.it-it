@@ -1,7 +1,7 @@
 ---
-title: Autorizzazione personalizzata basata su criteri in ASP.NET Core
+title: Autorizzazione basata su criteri in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come creare e utilizzare i gestori di criteri di autorizzazione personalizzato per applicare i requisiti di autorizzazione in un'applicazione ASP.NET Core.
+description: Informazioni su come creare e utilizzare i gestori di criteri di autorizzazione per applicare i requisiti di autorizzazione in un'applicazione ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,21 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: 0eb5451828a51771d9388c2db610ede6231ced51
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
+ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="custom-policy-based-authorization"></a>Autorizzazione personalizzata basata su criteri
+# <a name="policy-based-authorization"></a>Autorizzazione basata su criteri
 
 Nel sistema il [autorizzazione basata sui ruoli](xref:security/authorization/roles) e [autorizzazione basata sulle attestazioni](xref:security/authorization/claims) utilizzano un requisito, un gestore del requisito e un criterio configurato in precedenza. Questi blocchi predefiniti supportano l'espressione di valutazioni di autorizzazione nel codice. Il risultato è una struttura di autorizzazioni complete, riutilizzabili e testabili.
 
-Un criterio di autorizzazione è costituito da uno o più requisiti. È registrato come parte della configurazione del servizio di autorizzazione, nel `ConfigureServices` metodo la `Startup` classe:
+Un criterio di autorizzazione è costituito da uno o più requisiti. È registrato come parte della configurazione del servizio di autorizzazione, il `Startup.ConfigureServices` metodo:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
 
-Nell'esempio precedente, viene creato un criterio di "AtLeast21". Ha un requisito singolo, che di una durata minima, che viene fornito come parametro al requisito.
+Nell'esempio precedente, viene creato un criterio di "AtLeast21". Ha un unico requisito&mdash;che di una durata minima, che viene fornita come parametro al requisito.
 
 I criteri vengono applicati tramite il `[Authorize]` attributo con il nome del criterio. Ad esempio:
 
@@ -32,7 +32,7 @@ I criteri vengono applicati tramite il `[Authorize]` attributo con il nome del c
 
 ## <a name="requirements"></a>Requisiti
 
-Un requisito di autorizzazione è una raccolta di parametri dei dati che un criterio è possibile utilizzare per valutare l'entità utente corrente. In questo criterio "AtLeast21", il requisito è un singolo parametro&mdash;la data minima. Implementa un requisito `IAuthorizationRequirement`, che è un'interfaccia marcatore vuoto. Un requisito di età minima con parametri potrebbe essere implementato come indicato di seguito:
+Un requisito di autorizzazione è una raccolta di parametri dei dati che un criterio è possibile utilizzare per valutare l'entità utente corrente. In questo criterio "AtLeast21", il requisito è un singolo parametro&mdash;la data minima. Implementa un requisito [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), che è un'interfaccia marcatore vuoto. Un requisito di età minima con parametri potrebbe essere implementato come indicato di seguito:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
@@ -43,15 +43,27 @@ Un requisito di autorizzazione è una raccolta di parametri dei dati che un crit
 
 ## <a name="authorization-handlers"></a>Gestori di autorizzazione
 
-Un gestore di autorizzazione è responsabile per la valutazione delle proprietà di un requisito. Il gestore autorizzazioni valuta i requisiti in un oggetto fornito `AuthorizationHandlerContext` per determinare se è consentito l'accesso. Può avere un requisito [più gestori](#security-authorization-policies-based-multiple-handlers). I gestori di ereditano `AuthorizationHandler<T>`, dove `T` è il requisito deve essere gestito.
+Un gestore di autorizzazione è responsabile per la valutazione delle proprietà di un requisito. Il gestore autorizzazioni valuta i requisiti in un oggetto fornito [AuthorizationHandlerContext](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext) per determinare se è consentito l'accesso.
+
+Può avere un requisito [più gestori](#security-authorization-policies-based-multiple-handlers). Può ereditare un gestore [AuthorizationHandler\<TRequirement >](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandler-1), dove `TRequirement` è il requisito deve essere gestito. In alternativa, è possibile implementare un gestore [IAuthorizationHandler](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationhandler) per gestire più di un tipo di requisito.
+
+### <a name="use-a-handler-for-one-requirement"></a>Utilizzare un gestore per un requisito
 
 <a name="security-authorization-handler-example"></a>
 
-Il gestore di età minima potrebbe essere simile al seguente:
+Di seguito è riportato un esempio di una relazione uno a uno in cui un gestore della durata minima prevede l'utilizzo di un unico requisito:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-Il codice precedente determina se l'entità utente corrente dispone di una data di nascita di attestazioni che è stata eseguita da un'autorità emittente attendibile e nota. Autorizzazione non può verificarsi quando la richiesta è manca, nel qual caso viene restituita un'attività completata. Quando un'attestazione è presente, viene calcolato l'età dell'utente. Se l'utente soddisfi il periodo di memorizzazione minimo definito dai requisiti, autorizzazione viene considerata riuscita. Quando l'autorizzazione ha esito positivo, `context.Succeed` viene richiamato con il requisito soddisfatto come parametro.
+Il codice precedente determina se l'entità utente corrente dispone di una data di nascita di attestazioni che è stata eseguita da un'autorità emittente attendibile e nota. Autorizzazione non può verificarsi quando la richiesta è manca, nel qual caso viene restituita un'attività completata. Quando un'attestazione è presente, viene calcolato l'età dell'utente. Se l'utente soddisfi il periodo di memorizzazione minimo definito dai requisiti, autorizzazione viene considerata riuscita. Quando l'autorizzazione ha esito positivo, `context.Succeed` viene richiamato con il requisito come unico parametro soddisfatto.
+
+### <a name="use-a-handler-for-multiple-requirements"></a>Utilizzare un gestore per i requisiti di più
+
+Di seguito è riportato un esempio di una relazione uno-a-molti in cui un gestore autorizzazioni utilizza tre requisiti:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/PermissionHandler.cs?name=snippet_PermissionHandlerClass)]
+
+Consente di scorrere il codice precedente [PendingRequirements](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.pendingrequirements#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_PendingRequirements)&mdash;una proprietà che contiene i requisiti non contrassegnato come esito positivo. Se l'utente dispone dell'autorizzazione di lettura, che deve essere un proprietario o sponsor per accedere alla risorsa richiesta. Se l'utente dispone di modifica o Elimina autorizzazione, che deve essere un proprietario per accedere alla risorsa richiesta. Quando l'autorizzazione ha esito positivo, `context.Succeed` viene richiamato con il requisito come unico parametro soddisfatto.
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
@@ -73,7 +85,7 @@ Si noti che il `Handle` metodo il [esempio gestore](#security-authorization-hand
 
 * Errore, anche se altri gestori di requisiti di esito positivo, chiamare `context.Fail`.
 
-Indipendentemente dal fatto ciò che è definito all'interno del gestore, tutti i gestori per un requisito verranno chiamati quando un criterio richiede il requisito. In questo modo i requisiti di effetti collaterali, ad esempio la registrazione, che verrà sempre eseguita anche se `context.Fail()` è stato chiamato in un altro gestore.
+Se impostato su `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) proprietà (disponibile in ASP.NET Core 1.1 e versioni successive) provoca un corto circuito l'esecuzione di gestori quando `context.Fail` viene chiamato. `InvokeHandlersAfterFailure` Per impostazione predefinita `true`, nel qual caso tutti i gestori vengono chiamati. In questo modo i requisiti per produrre effetti collaterali, ad esempio la registrazione, che hanno luogo anche se `context.Fail` è stato chiamato in un altro gestore.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 
