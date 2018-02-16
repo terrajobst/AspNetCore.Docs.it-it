@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unità di pagine Razor e integrazione test in ASP.NET Core
 
@@ -71,7 +71,7 @@ L'applicazione di test è un'applicazione console all'interno di *tests/RazorPag
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs* contiene i test di integrazione per la pagina di indice.</li><li>*TestFixture.cs* crea l'host di test per testare l'app del messaggio.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* contiene unit test per DAL.</li><li>*IndexPageTest.cs* contiene unit test per il modello di pagina di indice.</li></ul> |
-| *Utilità*        | *Utilities.cs* contiene il:<ul><li>`TestingDbContextOptions`metodo utilizzato per creare le opzioni di contesto per ogni unit test DAL nuovo database in modo che il database viene reimpostato per la condizione della linea di base per ogni test.</li><li>`GetRequestContentAsync`metodo utilizzato per preparare il `HttpClient` e contenuto per le richieste inviate all'app messaggio durante il test di integrazione.</li></ul>
+| *Utilità*        | *Utilities.cs* contiene il:<ul><li>`TestingDbContextOptions` metodo utilizzato per creare le opzioni di contesto per ogni unit test DAL nuovo database in modo che il database viene reimpostato per la condizione della linea di base per ogni test.</li><li>`GetRequestContentAsync` metodo utilizzato per preparare il `HttpClient` e contenuto per le richieste inviate all'app messaggio durante il test di integrazione.</li></ul>
 
 Il framework di test è [xUnit](https://xunit.github.io/). L'oggetto tali framework è [Moq](https://github.com/moq/moq4). Test di integrazione vengono effettuate con il [Host di Test ASP.NET Core](xref:testing/integration-testing#the-test-host).
 
@@ -102,7 +102,7 @@ Il problema con questo approccio è che ogni test riceve il database in qualsias
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-Utilizzo di `DbContextOptions` nell'unità di DAL test consente a ogni test da eseguire in modo atomico con un un'istanza aggiornata del database:
+Utilizzo di `DbContextOptions` nell'unità di DAL test consente a ogni test da eseguire in modo atomico con un'istanza del database aggiornato:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ Unit test Act step (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`modello di pagina `OnGetAsync` metodo (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
+`IndexPage` modello di pagina `OnGetAsync` metodo (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
@@ -212,7 +212,7 @@ Il `Post_AddMessageHandler_ReturnsRedirectToRoot` metodo di test:
 * Effettua una richiesta POST all'app.
 * Controlla che la risposta è un reindirizzamento alla pagina di indice.
 
-`Post_AddMessageHandler_ReturnsRedirectToRoot `metodo (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
+`Post_AddMessageHandler_ReturnsRedirectToRoot ` metodo (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
