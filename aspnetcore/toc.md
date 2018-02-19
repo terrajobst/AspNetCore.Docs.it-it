@@ -233,7 +233,7 @@
 ## [Profili di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Struttura di directory](xref:host-and-deploy/directory-structure)
 ## [Errori comuni di Azure App Service e IIS](xref:host-and-deploy/azure-iis-errors-reference)
-## [Aggiungere le funzionalità dell'app da un assembly esterno con IHostingStartup](xref:host-and-deploy/ihostingstartup)
+## [Aggiungere le funzionalità dell'app tramite una configurazione specifica della piattaforma](xref:host-and-deploy/platform-specific-configuration)
 
 # [Sicurezza](xref:security/index)
 ## [Autenticazione](xref:security/authentication/index)
