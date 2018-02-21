@@ -1,7 +1,7 @@
 ---
 title: Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 author: shirhatti
-description: Informazioni sul supporto del debug di applicazioni ASP.NET Core durante l'esecuzione dietro IIS in Windows Server.
+description: Individuare il supporto per il debug di applicazioni ASP.NET Core durante l'esecuzione di base IIS in Windows Server.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
 Di [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-L'articolo descrive il supporto del debug di applicazioni ASP.NET Core in [Visual Studio](https://www.visualstudio.com/vs/) durante l'esecuzione dietro IIS in Windows Server. Questo argomento vengono illustrati l'abilitazione di questa funzionalità e l'impostazione di un progetto.
+Questo articolo descrive [Visual Studio](https://www.visualstudio.com/vs/) supporto per il debug di App di ASP.NET Core in esecuzione dietro IIS su Windows Server. Questo argomento vengono illustrati l'abilitazione di questa funzionalità e l'impostazione di un progetto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Se l'installazione di IIS richiede un riavvio, riavviare il sistema.
 
 ## <a name="enable-development-time-iis-support"></a>Abilitare il supporto IIS in fase di sviluppo
 
-Dopo aver installato IIS, è possibile avviare il programma di installazione di Visual Studio per modificare l'installazione esistente di Visual Studio. Nel programma di installazione selezionare il componente **Supporto IIS in fase di sviluppo** . Il componente è elencato come componente facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Viene installato il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core.
+Avviare il programma di installazione di Visual Studio. Selezionare il **fase di sviluppo IIS supporta** componente. Il componente è elencato come facoltativi nel **riepilogo** pannello per il **sviluppo web ASP.NET e** carico di lavoro. Questo modo vengono installati il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module), ovvero un modulo nativo di IIS necessario per eseguire app di ASP.NET Core.
 
 ![Modifica delle funzionalità di Visual Studio: la scheda Carichi di lavoro è selezionata. Nella sezione Web e Cloud è selezionato il pannello Sviluppo ASP.NET e Web. A destra nell'area del pannello riepilogo facoltativo, è una casella di controllo per la fase di sviluppo che supportano IIS.](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ In alternativa, aggiungere manualmente un profilo di avvio per il [launchSetting
 ```
 
 Visual Studio potrebbe richiedere un riavvio, se non è in esecuzione come amministratore. In tal caso riavviare Visual Studio.
-
-La procedura è stata completata. A questo punto, il progetto è configurato per il supporto in fase di sviluppo IIS. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
