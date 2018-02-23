@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 85d3eaf033eafbd24c71110ccd7f21ffcc8b0c82
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -180,6 +180,12 @@ Per altre informazioni, vedere [Globalizzazione e localizzazione](xref:fundament
 I dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP vengono definiti nelle interfacce. Le interfacce vengono usate dalle implementazioni del server e dal middleware per creare e modificare la pipeline di hosting dell'app.
 
 Per altre informazioni, vedere [Funzionalità di richiesta](xref:fundamentals/request-features).
+
+## <a name="background-tasks"></a>Attività in background
+
+Le attività in background vengono implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice).
+
+Per altre informazioni, vedere [Attività in background con servizi ospitati](xref:fundamentals/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 
