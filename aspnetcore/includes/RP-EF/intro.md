@@ -1,1 +1,1 @@
-L'app web di Contoso University viene illustrato come creare pagine Razor web App con componenti di base di Entity Framework e Visual Studio. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione](xref:data/ef-rp/intro).
+Nell'app Web di Contoso University viene illustrato come creare app Web Razor Pages usando Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione](xref:data/ef-rp/intro).

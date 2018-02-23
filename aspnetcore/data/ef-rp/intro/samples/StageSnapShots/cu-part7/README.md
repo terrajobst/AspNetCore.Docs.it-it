@@ -1,5 +1,5 @@
-La versione finale... /Cu e... /cuFinal contiene più codice completato.
+La versione finale... /cu e... /cuFinal contengono una percentuale maggiore di codice completato.
 
-Copiare wwwroot da... /Cu/ o da un nuovo progetto di pagine Razor.
+Copiare wwwroot da... /cu/ o da un nuovo progetto Razor Pages.
 
 Eseguire `dotnet ef database update`

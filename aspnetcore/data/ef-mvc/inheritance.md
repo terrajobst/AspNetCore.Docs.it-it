@@ -1,7 +1,7 @@
 ---
-title: "Core di ASP.NET MVC con Entity Framework Core - ereditarietà - 9 di 10"
+title: "ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10"
 author: tdykstra
-description: "In questa esercitazione viene illustrato come implementare l'ereditarietà nel modello di dati, l'utilizzo di Entity Framework Core in un'applicazione ASP.NET Core."
+description: "Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,75 +10,75 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
 ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Ereditarietà - EF Core con l'esercitazione di base di ASP.NET MVC (9 di 10)
+# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Ereditarietà - Esercitazione di EF Core con ASP.NET Core MVC (9 di 10)
 
-Da [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni web ASP.NET MVC di base con Entity Framework Core e Visual Studio. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](intro.md).
+L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
 
-Nell'esercitazione precedente, si gestite le eccezioni di concorrenza. In questa esercitazione viene illustrato come implementare l'ereditarietà nel modello di dati.
+Nell'esercitazione precedente sono state presentate le eccezioni di concorrenza. In questa esercitazione viene illustrato come implementare l'ereditarietà nel modello di dati.
 
-Nella programmazione orientata agli oggetti, è possibile utilizzare l'ereditarietà per facilitare il riutilizzo del codice. In questa esercitazione si modificherà il `Instructor` e `Student` classi in modo che derivano da un `Person` classe che contiene, ad esempio proprietà di base `LastName` che sono comuni a entrambi i docenti e studenti. Non aggiungere o cambiare tutte le pagine web, ma si modificherà parte del codice e le modifiche verranno riflesse automaticamente nel database.
+Nella programmazione orientata a oggetti è possibile usare l'ereditarietà per facilitare il riutilizzo del codice. In questa esercitazione verranno modificate le classi `Instructor` e `Student` in modo che derivino da una classe di base `Person` contenente proprietà quali `LastName` comuni a docenti e studenti. Non verranno aggiunte o modificate pagine Web, ma si modificherà parte del codice e le modifiche verranno automaticamente riflesse nel database.
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>Opzioni per il mapping di ereditarietà alle tabelle di database
+## <a name="options-for-mapping-inheritance-to-database-tables"></a>Opzioni per il mapping dell'ereditarietà alle tabelle di database
 
-Il `Instructor` e `Student` classi nel modello di dati dell'istituto di istruzione di sono associate diverse proprietà che sono identiche:
+Le classi `Instructor` e `Student` nel modello di dati School presentano molte proprietà identiche:
 
-![Classi di Student e Instructor](inheritance/_static/no-inheritance.png)
+![Classi Student e Instructor](inheritance/_static/no-inheritance.png)
 
-Si supponga che si desidera eliminare il codice ridondante per le proprietà condivise dal `Instructor` e `Student` entità. O si desidera scrivere un servizio che è possibile formattare i nomi senza caring se il nome proviene da un docente o uno studente. È possibile creare un `Person` classe base che contiene solo le proprietà condivise, quindi rendere la `Instructor` e `Student` le classi ereditano da tale classe di base, come illustrato nella figura seguente:
+Si supponga di voler eliminare il codice ridondante per le proprietà condivise dalle entità `Instructor` e `Student`. Oppure che si desideri scrivere un servizio in grado di formattare i nomi senza sapere se il nome appartiene a un docente o a uno studente. È possibile creare una classe di base `Person` che contiene solo le proprietà condivise e quindi fare in modo che le classi `Instructor` e `Student` ereditino da questa classe di base, come illustrato nella figura seguente:
 
-![Student e Instructor le classi che derivano dalla classe di persona](inheritance/_static/inheritance.png)
+![Classi Student e Instructor derivanti dalla classe Person](inheritance/_static/inheritance.png)
 
-Esistono diversi modi di che questa struttura di ereditarietà potrebbe essere rappresentata nel database. È possibile usare una tabella di persona che include informazioni su studenti e insegnanti in un'unica tabella. Alcune delle colonne è stato possibile applicare solo per i docenti (HireDate), alcuni solo per gli studenti (EnrollmentDate), alcune su entrambi (LastName, FirstName). In genere è una colonna del discriminatore per indicare che ogni riga rappresenta un tipo. La colonna del discriminatore, ad esempio, potrebbe essere "Istruttore" per i docenti e "Student" per studenti.
+Questa struttura di ereditarietà può essere rappresentata nel database in diversi modi. È possibile usare una tabella Person che includa le informazioni relative a studenti e docenti in un'unica tabella. Alcune colonne possono riguardare solo i docenti (HireDate), altre solo gli studenti (EnrollmentDate) e altre ancora entrambi (LastName, FirstName). Per indicare il tipo rappresentato da ogni riga viene in genere usata una colonna discriminante. La colonna discriminante può ad esempio indicare "Instructor" per i docenti e "Student" per gli studenti.
 
 ![Esempio di tabella per gerarchia](inheritance/_static/tph.png)
 
-Questo modello di generazione di una struttura di ereditarietà di entità da una singola tabella di database è denominato tabella per gerarchia ereditarietà della.
+Questo criterio di generazione di una struttura di ereditarietà delle entità da una singola tabella di database è denominato ereditarietà tabella per gerarchia.
 
-In alternativa è possibile rendere il database più simile la struttura di ereditarietà. Ad esempio, è possibile avere solo i campi del nome della tabella Person e dispongono di tabelle di corsi e studenti separate con i campi delle date.
+Un'alternativa consiste nel rendere il database più simile alla struttura di ereditarietà. È possibile, ad esempio, includere nella tabella Person solo i campi del nome e usare tabelle Instructor e Student separate con i campi della data.
 
 ![Ereditarietà tabella per tipo](inheritance/_static/tpt.png)
 
-Questo modello di una tabella di database per ogni classe di entità è denominato tabella per l'ereditarietà di tipo.
+Questo criterio di creazione di una tabella di database per ogni classe di entità è denominato ereditarietà tabella per tipo.
 
-Ancora un'altra opzione consiste nell'eseguire il mapping di tutti i tipi non astratta per le singole tabelle. Tutte le proprietà di una classe, incluse le proprietà ereditate, eseguire il mapping alle colonne della tabella corrispondente. Questo modello viene denominato ereditarietà della classe per ogni tabella-Concrete (TPC). Se è implementato ereditarietà TPC per le classi di persona, Student e Instructor come illustrato in precedenza, le tabelle Student e Instructor avrà un aspetto non è diverse dopo l'implementazione dell'ereditarietà rispetto a quello precedente.
+Un'altra opzione consiste nell'eseguire il mapping di tutti i tipi non astratti a singole tabelle. Tutte le proprietà di una classe, incluse le proprietà ereditate, eseguono il mapping alle colonne della tabella corrispondente. Questo criterio è denominato ereditarietà della classe tabella per tipo concreto. Se per le classi Person, Student e Instructor è stata implementata l'ereditarietà tabella per tipo concreto come illustrato in precedenza, l'aspetto delle tabelle Student e Instructor dopo l'implementazione dell'ereditarietà non sarà diverso da quello precedente.
 
-TPC e Implementerà i criteri di ereditarietà offrono in genere prestazioni migliori rispetto a criteri di ereditarietà tabella per tipo, in quanto possono generare modelli di tabella per tipo query join complessi.
+I criteri tabella per tipo concreto e tabella per gerarchia offrono in genere prestazioni migliori rispetto ai criteri tabella per tipo perché questi ultimi possono generare query join complesse.
 
-In questa esercitazione viene illustrato come implementare Implementerà l'ereditarietà. Della tabella per gerarchia è il modello di ereditarietà solo che supporta il nucleo di Entity Framework.  È possibile eseguire è creare un `Person` classe, modificare il `Instructor` e `Student` classi da cui derivare `Person`, aggiungere la nuova classe per il `DbContext`e creare una migrazione.
+Questa esercitazione illustra come implementare l'ereditarietà tabella per gerarchia. Il criterio di ereditarietà tabella per gerarchia è l'unico supportato da Entity Framework Core.  Verranno eseguite le operazioni di creazione di una classe `Person`, modifica delle classi `Instructor` e `Student` in modo che derivino da `Person`, aggiunta della nuova classe a `DbContext` e creazione di una migrazione.
 
 > [!TIP] 
-> Si consiglia di salvare una copia del progetto prima di apportare le modifiche seguenti.  Se si verificano problemi ed è necessario ricominciare, sarà più facile iniziare dal progetto salvato anziché inversione passaggi da eseguire per questa esercitazione o a partire dall'inizio della serie intera.
+> È consigliabile salvare una copia del progetto prima di apportare le modifiche seguenti.  In caso di problemi e se fosse necessario ricominciare da capo, sarà più facile iniziare dal progetto salvato invece di annullare i passaggi eseguiti per questa esercitazione o tornare all'inizio dell'intera serie.
 
-## <a name="create-the-person-class"></a>Creare la classe di persona
+## <a name="create-the-person-class"></a>Creare la classe Person
 
-Nella cartella Models, creare Person e sostituire il codice del modello con il codice seguente:
+Nella cartella Models creare Person.cs e sostituire il codice del modello con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Creazione delle classi Student e Instructor ereditare da una persona
+## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Modificare le classi Student e Instructor in modo da stabilire l'ereditarietà da Person
 
-In *Instructor.cs*, derivare la classe istruttore dalla classe di persona e rimuovere i campi chiavi e il nome. Il codice sarà analogo al seguente:
+In *Instructor.cs* derivare la classe Instructor dalla classe Person e rimuovere i campi chiave e nome. Il codice sarà simile all'esempio seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
-Apportare le stesse modifiche nel *Student.cs*.
+Apportare le stesse modifiche in *Student.cs*.
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
-## <a name="add-the-person-entity-type-to-the-data-model"></a>Aggiungere il tipo di entità utente per il modello di dati
+## <a name="add-the-person-entity-type-to-the-data-model"></a>Aggiungere il tipo di entità Person al modello di dati
 
-Aggiungere il tipo di entità utente per *SchoolContext.cs*. Le nuove righe vengono evidenziate.
+Aggiungere il tipo di entità Person a *SchoolContext.cs*. Le nuove righe sono evidenziate.
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
-Questo è tutto ciò che necessita di Entity Framework per configurare l'ereditarietà tabella per gerarchia. Come si vedrà, quando il database viene aggiornato, si otterrà una tabella Person invece le tabelle Student e Instructor.
+L'ereditarietà tabella per gerarchia in Entity Framework è stata configurata. Come si vedrà, quando il database verrà aggiornato conterrà una tabella Person invece delle tabelle Student e Instructor.
 
 ## <a name="create-and-customize-migration-code"></a>Creare e personalizzare il codice di migrazione
 
@@ -88,60 +88,60 @@ Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di coman
 dotnet ef migrations add Inheritance
 ```
 
-Non vengono eseguiti il `database update` ancora di comando. Tale comando causerà perdita di dati perché elimina la tabella Instructor e rinominare la tabella di studenti alla persona. È necessario fornire codice personalizzato per mantenere i dati esistenti.
+Non eseguire ancora il comando `database update`. Questo comando determinerà la perdita di dati poiché eliminerà la tabella Instructor e rinominerà la tabella Student in Person. Per mantenere i dati esistenti è necessario specificare codice personalizzato.
 
-Aprire *migrazioni /\<timestamp > _Inheritance.cs* e sostituire il `Up` (metodo) con il codice seguente:
+Aprire *Migrations/\<timestamp>_Inheritance.cs* e sostituire il metodo `Up` con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
-Questo codice si occupa delle attività di aggiornamento di database seguenti:
+Questo codice esegue le attività di aggiornamento del database seguenti:
 
-* Rimuove i vincoli foreign key e gli indici che fanno riferimento alla tabella di studenti.
+* Rimuove i vincoli di chiave esterna e gli indici che puntano alla tabella Student.
 
-* Rinomina la tabella Instructor come persona e apporta modifiche necessarie archiviare i dati di Student:
+* Rinomina la tabella Instructor in Person e apporta le modifiche necessarie perché sia in grado di archiviare i dati Student:
 
-* Aggiunge EnrollmentDate ammette valori null per studenti.
+* Aggiunge un elemento EnrollmentDate che ammette i valori Null per gli studenti.
 
-* Aggiunge una colonna del discriminatore per indicare se una riga è per uno studente o un docente.
+* Aggiunge una colonna discriminante che indica se una riga è per uno studente o un docente.
 
-* Poiché le righe di student avrà date di assunzione, rende HireDate ammette valori null.
+* Modifica HireDate in modo che ammetta i valori Null poiché le righe degli studenti non includono date di assunzione.
 
-* Aggiunge un campo temporaneo che verrà utilizzato per aggiornare le chiavi esterne che puntano a studenti. Quando si copia studenti nella tabella Person otterranno nuovi valori di chiave primari.
+* Aggiunge un campo temporaneo che sarà usato per aggiornare le chiavi esterne che puntano agli studenti. Quando si copiano studenti nella tabella Person, questi otterranno nuovi valori di chiave primaria.
 
-* Copia i dati della tabella di studenti nella tabella Person. In questo modo gli studenti a vengano assegnati nuovi valori di chiave primari.
+* Copia i dati dalla tabella Student alla tabella Person. Ciò comporta l'assegnazione di nuovi valori di chiave primaria agli studenti.
 
-* Consente di correggere i valori di chiave esterna che fanno riferimento a studenti.
+* Corregge i valori di chiave esterna che puntano agli studenti.
 
-* Consente di ricreare i vincoli di chiave esterni e gli indici, ora puntarli alla tabella Person.
+* Ricrea i vincoli di chiave esterna e gli indici che ora puntano alla tabella Person.
 
-(Se è stato usato GUID anziché l'intero come tipo di chiave primario, non sarebbe necessario modificare i valori di chiave primaria di studenti e alcuni di questi passaggi Impossibile sono stati omessi.)
+Se come tipo di chiave primaria fosse stato usato GUID anziché Integer, non sarebbe necessario modificare i valori di chiave primaria degli studenti e molti di questi passaggi avrebbero potuto essere omessi.
 
-Eseguire il `database update` comando:
+Eseguire il comando `database update`:
 
 ```console
 dotnet ef database update
 ```
 
-(In un sistema di produzione apportate le modifiche corrispondenti al `Down` metodo nel caso qualora fosse necessario usarla per tornare alla versione del database precedente. Per questa esercitazione non è possibile utilizzare il `Down` metodo.)
+In un sistema di produzione verrebbero apportate modifiche corrispondenti al metodo `Down` nel caso fosse necessario usarlo per tornare alla versione precedente del database. Per questa esercitazione, il metodo `Down` non verrà usato.
 
 > [!NOTE] 
-> È possibile ottenere altri errori quando si apportano modifiche allo schema in un database che contiene dati esistenti. Se si verificano errori di migrazione che è possibile risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Con un nuovo database, non sono presenti dati per eseguire la migrazione e il comando update-database è più probabile che completata senza errori. Per eliminare il database, utilizzare sillaba SSOX o eseguire il `database drop` comando CLI.
+> Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori. Per eliminare il database, usare SSOX o eseguire il comando dell’interfaccia della riga di comando `database drop`.
 
-## <a name="test-with-inheritance-implemented"></a>Eseguire il test con ereditarietà implementato
+## <a name="test-with-inheritance-implemented"></a>Eseguire il test con l'ereditarietà implementata
 
-Eseguire l'app e provare diverse pagine. Tutto ciò che funziona come in precedenza.
+Eseguire l'app e provare diverse pagine. Tutto funziona come in precedenza.
 
-In **Esplora oggetti di SQL Server**, espandere **connessioni dati/SchoolContext** e quindi **tabelle**, noterai che le tabelle Student e Instructor sono state sostituite da un Tabella Person. Aprire Progettazione tabelle Person e si noterà che contiene tutte le colonne utilizzate per le tabelle Student e Instructor.
+In **Esplora oggetti di SQL Server** espandere **Connessioni dati/SchoolContext** e quindi **Tabelle**. Si osserverà che le tabelle Student e Instructor sono state sostituite da una tabella Person. Dopo aver aperto la tabella Person in Progettazione tabelle si noterà che contiene tutte le colonne che in precedenza erano presenti nelle tabelle Student e Instructor.
 
-![Tabella Person in sillaba SSOX](inheritance/_static/ssox-person-table.png)
+![Tabella Person in SSOX](inheritance/_static/ssox-person-table.png)
 
-Il pulsante destro della tabella Person e quindi fare clic su **Mostra dati tabella** per visualizzare la colonna del discriminatore.
+Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mostra dati tabella** per vedere la colonna discriminante.
 
-![Tabella Person in sillaba SSOX - i dati della tabella](inheritance/_static/ssox-person-data.png)
+![Tabella Person in SSOX, dati della tabella](inheritance/_static/ssox-person-data.png)
 
 ## <a name="summary"></a>Riepilogo
 
-Tabella per gerarchia ereditarietà per aver implementato il `Person`, `Student`, e `Instructor` classi. Per ulteriori informazioni sull'ereditarietà in Entity Framework Core, vedere [ereditarietà](https://docs.microsoft.com/ef/core/modeling/inheritance). Nella prossima esercitazione verrà visualizzato come gestire un'ampia gamma di scenari di Entity Framework relativamente avanzati.
+È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](https://docs.microsoft.com/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
 
 >[!div class="step-by-step"]
 [Precedente](concurrency.md)

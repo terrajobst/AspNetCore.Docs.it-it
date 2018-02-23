@@ -1,7 +1,7 @@
 ---
-title: Core di ASP.NET MVC con Entity Framework Core - ordinamento, filtro, Paging - 3 di 10
+title: ASP.NET Core MVC con EF Core - Ordinamento, filtro, suddivisione in pagine - 3 di 10
 author: tdykstra
-description: "In questa esercitazione si aggiungeranno ordinamento, filtro e paging funzionalità alla pagina utilizzando ASP.NET Core e componenti di base di Entity Framework."
+description: "In questa esercitazione viene spiegato come aggiungere alla pagina le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core e Entity Framework."
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
@@ -9,94 +9,94 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
 ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordinamento, filtro, paging e raggruppamento: EF Core con l'esercitazione di base di ASP.NET MVC (3 di 10)
+# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordinamento, filtro, suddivisione in pagine e raggruppamento - Esercitazione su EF Core con ASP.NET Core MVC (3 di 10)
 
-Da [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni web ASP.NET MVC di base con Entity Framework Core e Visual Studio. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](intro.md).
+L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
 
-Nell'esercitazione precedente, l'implementazione è un set di pagine web per operazioni CRUD di base per le entità di studenti. In questa esercitazione si aggiungerà ordinamento, filtro e la funzionalità di paging alla pagina di indice di studenti. Si creeranno inoltre una pagina che esegue il raggruppamento semplice.
+Nell'esercitazione precedente è stato implementato un set di pagine Web per operazioni CRUD di base per le entità Student. In questa esercitazione si aggiungeranno le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Student Index (Indice degli studenti). Verrà anche creata una pagina che esegue il raggruppamento semplice.
 
-Nella figura seguente viene illustrato l'aspetto di pagina al termine. Le intestazioni di colonna sono link che l'utente può fare clic per ordinare in base alla colonna. Fare clic su una colonna con intestazione ripetutamente passa alternativamente da crescente e decrescente.
+La figura seguente illustra l'aspetto della pagina al termine dell'operazione. Le intestazioni di colonna sono collegamenti su cui l'utente può fare clic per eseguire l'ordinamento in base alla colonna. Facendo clic più volte su un'intestazione di colonna è possibile passare dall'ordinamento crescente a quello decrescente e viceversa.
 
-![Pagina di indice di studenti](sort-filter-page/_static/paging.png)
+![Pagina Student Index (Indice degli studenti)](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Aggiungere collegamenti di ordinamento di colonna per la pagina di indice di studenti
+## <a name="add-column-sort-links-to-the-students-index-page"></a>Aggiungere collegamenti per l'ordinamento di colonna alla pagina Student Index (Indice degli studenti)
 
-Per aggiungere l'ordinamento alla pagina di indice di studenti, sarà necessario impostare il `Index` metodo del controller di studenti e aggiungere codice per la visualizzazione dell'indice di studenti.
+Per aggiungere l'ordinamento alla pagina Student Index (Indice degli studenti), sarà necessario modificare il metodo `Index` del controller Students e aggiungere codice alla visualizzazione Student Index (Indice degli studenti).
 
-### <a name="add-sorting-functionality-to-the-index-method"></a>Aggiunta della funzionalità di ordinamento per il metodo di Index
+### <a name="add-sorting-functionality-to-the-index-method"></a>Aggiungere la funzionalità di ordinamento al metodo Index
 
-In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente:
+In *StudentsController.cs* sostituire il metodo `Index` con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
-Questo codice riceve un `sortOrder` parametro dalla stringa di query nell'URL. Il valore di stringa di query viene fornito da ASP.NET MVC di base come parametro al metodo di azione. Il parametro sarà una stringa che è "Name" o "Date", seguito facoltativamente da un carattere di sottolineatura e la stringa "desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
+Questo codice riceve un parametro `sortOrder` dalla stringa di query nell'URL. Il valore della stringa di query viene inviato da ASP.NET Core MVC come parametro al metodo di azione. Il parametro sarà una stringa "Name" o "Date", seguito facoltativamente da un carattere di sottolineatura e dalla stringa "desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
 
-La prima volta che viene richiesta la pagina di indice, viene individuata alcuna stringa di query. Gli studenti vengono visualizzati in ordine crescente in base al cognome, il valore predefinito è definito dall'istruzione case nel `switch` istruzione. Quando l'utente fa clic hyperlink intestazione di colonna, appropriata `sortOrder` valore viene fornito nella stringa di query.
+La prima volta che viene richiesta la pagina di indice, non è presente alcuna stringa di query. Gli studenti vengono visualizzati in ordine crescente in base al cognome, che è il valore predefinito determinato dal caso di fallthrough nell'istruzione `switch`. Quando l'utente fa clic sul collegamento ipertestuale di un'intestazione di colonna, nella stringa di query viene specificato il valore `sortOrder` appropriato.
 
-I due `ViewData` elementi (NameSortParm e DateSortParm) vengono utilizzati dalla vista per configurare i collegamenti ipertestuali sull'intestazione di colonna con i valori di stringa di query appropriata.
+I due elementi `ViewData` (NameSortParm e DateSortParm) vengono usati dalla visualizzazione per configurare i collegamenti ipertestuali dell'intestazione di colonna con i valori della stringa di query appropriata.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Si tratta di istruzioni ternarie. Il primo specifica che se il `sortOrder` parametro è null o vuoto, NameSortParm deve essere impostato su "name_desc"; in caso contrario, deve essere impostato su una stringa vuota. Le due istruzioni seguenti consentono la visualizzazione impostare la colonna collegamenti ipertestuali di intestazione come indicato di seguito:
+Si tratta di istruzioni ternarie. La prima specifica che, se il parametro `sortOrder` è Null o vuoto, NameSortParm deve essere impostato su "name_desc"; in caso contrario, deve essere impostato su una stringa vuota. Queste due istruzioni consentono alla visualizzazione di impostare i collegamenti ipertestuali dell'intestazione di colonna come indicato di seguito:
 
-|  Ordinamento corrente  | Collegamento ipertestuale cognome | Collegamento ipertestuale Data |
+|  Ordinamento corrente  | Collegamento ipertestuale cognome | Collegamento ipertestuale data |
 |:--------------------:|:-------------------:|:--------------:|
-| Ultimo nome (crescente)  | descending          | ascending      |
-| Ultimo nome (decrescente) | ascending           | ascending      |
-| Data ordine crescente       | ascending           | descending     |
-| Data ordine decrescente      | ascending           | ascending      |
+| Cognome in ordine crescente  | descending          | ascending      |
+| Cognome in ordine decrescente | ascending           | ascending      |
+| Data in ordine crescente       | ascending           | descending     |
+| Data in ordine decrescente      | ascending           | ascending      |
 
-Il metodo Usa LINQ to Entities per specificare la colonna da ordinare. Il codice crea un `IQueryable` variabile prima dell'istruzione switch, modificarla nell'istruzione switch e chiama il `ToListAsync` metodo dopo il `switch` istruzione. Quando si crea e modifica `IQueryable` variabili, nessuna query viene inviata al database. La query non viene eseguita fino alla conversione di `IQueryable` oggetto in una raccolta chiamando un metodo, ad esempio `ToListAsync`. Pertanto, questo codice genera una singola query che non viene eseguita finché il `return View` istruzione.
+Il metodo usa LINQ to Entities per specificare la colonna in base alla quale eseguire l'ordinamento. Il codice crea una variabile `IQueryable` prima dell'istruzione switch, la modifica nell'istruzione switch e chiama il metodo `ToListAsync` dopo l'istruzione `switch`. Quando si creano e modificano variabili `IQueryable`, nessuna query viene inviata al database. La query non viene eseguita finché l'oggetto `IQueryable` non viene convertito in una raccolta chiamando un metodo, ad esempio `ToListAsync`. Questo codice genera pertanto una singola query che non viene eseguita fino all'istruzione `return View`.
 
-Questo codice è stato possibile ottenere dettagliato con un numero elevato di colonne. [Dell'ultima esercitazione di questa serie](advanced.md#dynamic-linq) viene illustrato come scrivere codice che consente di passare il nome di `OrderBy` colonna in una variabile di stringa.
+Questo codice può essere reso dettagliato con un numero elevato di colonne. Nell'[ultima esercitazione di questa serie](advanced.md#dynamic-linq) viene illustrato come scrivere codice che consente di passare il nome della colonna `OrderBy` in una variabile di stringa.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Aggiungere collegamenti ipertestuali sull'intestazione di colonna per la visualizzazione dell'indice di Student
+### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Aggiungere collegamenti ipertestuali delle intestazioni di colonna alla visualizzazione Student Index (Indice degli studenti)
 
-Sostituire il codice in *Views/Students/Index.cshtml*, con il codice seguente per aggiungere collegamenti ipertestuali di intestazione di colonna. Le righe modificate vengono evidenziate.
+Sostituire il codice in *Views/Students/Index.cshtml* con il codice seguente per aggiungere collegamenti ipertestuali delle intestazioni di colonna. Le righe modificate sono evidenziate.
 
 [!code-html[](intro/samples/cu/Views/Students/Index2.cshtml?highlight=16,22)]
 
-Questo codice Usa le informazioni contenute in `ViewData` valori di stringa di proprietà per impostare i collegamenti ipertestuali con la query appropriato.
+Questo codice usa le informazioni contenute nelle proprietà `ViewData` per impostare i collegamenti ipertestuali con i valori della stringa di query appropriati.
 
-Eseguire l'app, selezionare il **studenti** scheda, quindi scegliere il **Last Name** e **data di registrazione** funziona intestazioni di colonna per verificare che l'ordinamento.
+Eseguire l'app, selezionare la scheda **Students** (Studenti) e fare clic sulle intestazioni di colonna **Last Name** (Cognome) e **Enrollment Date** (Data di iscrizione) per verificare che l'ordinamento funzioni correttamente.
 
-![Pagina di indice di studenti nell'ordine dei nomi](sort-filter-page/_static/name-order.png)
+![Pagina Student Index (Indice degli studenti) in ordine di nome](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Aggiungere una casella di ricerca alla pagina di indice di studenti
+## <a name="add-a-search-box-to-the-students-index-page"></a>Aggiungere una casella di ricerca alla pagina Students Index (Indice degli studenti)
 
-Per aggiungere filtri alla pagina di indice di studenti, aggiungerai un pulsante di invio e di una casella di testo per la visualizzazione e apportare le modifiche corrispondenti nel `Index` metodo. La casella di testo consente di immettere una stringa da cercare nel nome e cognome.
+Per aggiungere filtri alla pagina Student Index (Indice degli studenti), è necessario aggiungere alla visualizzazione una casella di testo e un pulsante di invio e apportare le modifiche corrispondenti nel metodo `Index`. La casella di testo consente di immettere una stringa per eseguire la ricerca nei campi di nome e cognome.
 
-### <a name="add-filtering-functionality-to-the-index-method"></a>Aggiungere funzionalità di filtro per il metodo di Index
+### <a name="add-filtering-functionality-to-the-index-method"></a>Aggiungere la funzionalità di filtro al metodo Index
 
-In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente (sono evidenziate le modifiche).
+In *StudentsController.cs* sostituire il metodo `Index` con il codice seguente (le modifiche sono evidenziate).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
-È stato aggiunto un `searchString` parametro per il `Index` (metodo). Il valore di stringa di ricerca viene ricevuto da una casella di testo che verrà aggiunto per la visualizzazione dell'indice. Inoltre aggiunti all'istruzione LINQ una clausola where clausola che seleziona solo gli studenti il cui nome o cognome contengono la stringa di ricerca. L'istruzione che aggiunge where clausola viene eseguita solo se è presente un valore per la ricerca.
+È stato aggiunto un parametro `searchString` al metodo `Index`. Il valore della stringa di ricerca viene ricevuto da una casella di testo che verrà aggiunta alla visualizzazione Index (Indice). È stata anche aggiunta all'istruzione LINQ una clausola where che seleziona solo gli studenti il cui nome o cognome contiene la stringa di ricerca. L'istruzione che aggiunge la clausola where viene eseguita solo se è presente un valore per la ricerca.
 
 > [!NOTE]
-> Qui si chiama il `Where` metodo su un `IQueryable` oggetto e il filtro verrà elaborato nel server. In alcuni scenari potrebbe essere chiamata la `Where` metodo come metodo di estensione per una raccolta in memoria. (Ad esempio, si supponga che si modifica il riferimento a `_context.Students` in modo che anziché un EF `DbSet` fa riferimento a un metodo di repository che restituisce un `IEnumerable` insieme.) Il risultato sarebbe normalmente la stessa, ma in alcuni casi potrebbe essere diverso.
+> In questo esempio si chiama il metodo `Where` su un oggetto `IQueryable` e il filtro verrà elaborato nel server. In alcuni scenari potrebbe essere chiamato il metodo `Where` come metodo di estensione per una raccolta in memoria. Si supponga ad esempio di modificare il riferimento a `_context.Students` in modo che faccia riferimento a un metodo di repository che restituisce una raccolta `IEnumerable` anziché a un elemento `DbSet` EF. Il risultato sarebbe in genere lo stesso, ma in alcuni casi potrebbe essere diverso.
 >
->Ad esempio, l'implementazione di .NET Framework del `Contains` metodo esegue un confronto tra maiuscole e minuscole per impostazione predefinita, ma in SQL Server tale autorizzazione è determinata dall'impostazione delle regole di confronto dell'istanza di SQL Server. Tale impostazione predefinita a tra maiuscole e minuscole. È possibile chiamare il `ToUpper` metodo per eseguire il test in modo esplicito tra maiuscole e minuscole: *in (s = > s.LastName.ToUpper(). Contains(searchString.ToUpper())*. Assicurarsi che che risultati rimangono invariati se si modifica il codice in un secondo momento per usare un repository che restituisce un `IEnumerable` raccolta invece di un `IQueryable` oggetto. (Quando si chiama il `Contains` metodo su un `IEnumerable` raccolta, si ottiene l'implementazione di .NET Framework; quando si chiama su un `IQueryable` dell'oggetto, si ottiene l'implementazione del provider di database.) È tuttavia una riduzione delle prestazioni per questa soluzione. Il `ToUpper` codice dovrà inserire una funzione nella clausola WHERE dell'istruzione SELECT TSQL. Utilizzo di un indice che impedirebbe l'utilità di ottimizzazione. Dato che SQL viene installato per lo più come tra maiuscole e minuscole, è consigliabile evitare di `ToUpper` codice fino a quando non si esegue la migrazione a un archivio dati tra maiuscole e minuscole.
+>Ad esempio, l'implementazione di .NET Framework del metodo `Contains` esegue un confronto con la distinzione tra maiuscole e minuscole per impostazione predefinita, ma in SQL Server questo è determinato dall'impostazione delle regole di confronto dell'istanza di SQL Server. Questa impostazione usa come valore predefinito la non applicazione della distinzione tra maiuscole e minuscole. È possibile chiamare il metodo `ToUpper` per fare in modo che il test non applichi in modo esplicito la distinzione tra maiuscole e minuscole: *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Questo fa sì che i risultati rimangano invariati se si modifica il codice in un secondo momento per usare un repository che restituisce una raccolta `IEnumerable` invece di un oggetto `IQueryable`. Quando il metodo `Contains` viene chiamato su una raccolta `IEnumerable`, si ottiene l'implementazione di .NET Framework; quando viene chiamato su un oggetto `IQueryable`, si ottiene l'implementazione del provider di database. Con questa soluzione si verifica tuttavia una riduzione delle prestazioni. Il codice `ToUpper` dovrà inserire una funzione nella clausola WHERE dell'istruzione TSQL SELECT. In questo modo si evita che l'ottimizzazione usi un indice. Dato che SQL viene installato per lo più con l'impostazione senza distinzione tra maiuscole e minuscole, è consigliabile evitare il codice `ToUpper` fino a quando non si esegue la migrazione a un archivio con distinzione tra maiuscole e minuscole.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Aggiungere una casella di ricerca per la visualizzazione dell'indice per studenti
+### <a name="add-a-search-box-to-the-student-index-view"></a>Aggiungere una casella di ricerca alla visualizzazione Student Index (Indice degli studenti)
 
-In *Views/Student/Index.cshtml*, aggiungere il codice evidenziato immediatamente prima dell'apertura tag di tabella per creare una didascalia, una casella di testo e un **ricerca** pulsante.
+In *Views/Student/Index.cshtml*, aggiungere il codice evidenziato immediatamente prima del tag tabella di apertura per creare una barra del titolo, una casella di testo e un pulsante **Search** (Ricerca).
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Questo codice Usa il `<form>` [helper di tag](xref:mvc/views/tag-helpers/intro) per aggiungere la casella di testo di ricerca e un pulsante. Per impostazione predefinita, il `<form>` helper di tag invia dati con un POST, il che significa che i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL come stringhe di query. Quando si specifica di HTTP GET, i dati del form viene passati nell'URL come stringhe di query, che consente agli utenti di segnalibro l'URL. Ricevi preferibile W3C linee guida che è necessario utilizzare il risultato dell'azione non un aggiornamento.
+Questo codice usa l'[helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con una richiesta POST, il che significa che i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL come stringhe di query. Quando si specifica HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query, il che consente agli utenti di inserire l'URL tra i segnalibri. Le linee guida W3C consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
 
-Eseguire l'app, selezionare il **studenti** scheda, immettere una stringa di ricerca e fare clic su Cerca per verificare che il filtro sia funzionante.
+Eseguire l'app, selezionare la scheda **Students** (Studenti), immettere una stringa di ricerca e fare clic su Search (Ricerca) per verificare che il filtro funzioni.
 
-![Pagina di indice di studenti di filtro](sort-filter-page/_static/filtering.png)
+![Pagina Student Index (Indice degli studenti) con filtro](sort-filter-page/_static/filtering.png)
 
 Si noti che l'URL contiene la stringa di ricerca.
 
@@ -104,31 +104,31 @@ Si noti che l'URL contiene la stringa di ricerca.
 http://localhost:5813/Students?SearchString=an
 ```
 
-Se questa pagina, quando si utilizza il segnalibro viene visualizzato l'elenco filtrato. Aggiunta di `method="get"` per il `form` tag è ciò che ha determinato la stringa di query da generare.
+Se questa pagina viene inserita tra i segnalibri, quando si usa il segnalibro viene visualizzato l'elenco filtrato. L'aggiunta di `method="get"` al tag `form` è l'elemento che ha determinato la generazione della stringa di query.
 
-In questa fase, se si fa clic su un collegamento di ordinamento di intestazione di colonna si perderanno il valore del filtro immesso nel **ricerca** casella. Che potrà essere corretto nella sezione successiva.
+In questa fase, se si fa clic sul collegamento di ordinamento di un'intestazione di colonna si perderà il valore del filtro immesso nella casella **Search** (Ricerca). Nella sezione successiva verrà spiegato come correggere il problema.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Aggiungere funzionalità di paging alla pagina di indice di studenti
+## <a name="add-paging-functionality-to-the-students-index-page"></a>Aggiungere la funzionalità di suddivisione in pagine alla pagina Student Index (Indice degli studenti)
 
-Per aggiungere il paging per la pagina di indice di studenti, si creerà un `PaginatedList` classe che utilizza `Skip` e `Take` istruzioni per filtrare i dati sul server invece di recuperare sempre tutte le righe della tabella. Quindi è possibile apportare ulteriori modifiche nel `Index` (metodo) e aggiungere i pulsanti di spostamento per la `Index` visualizzazione. Nella figura seguente mostra i pulsanti di spostamento.
+Per aggiungere la suddivisione in pagine alla pagina Student Index (Indice degli studenti), creare una classe `PaginatedList` che usa le istruzioni `Skip` e `Take` per filtrare i dati sul server invece di recuperare sempre tutte le righe della tabella. È quindi possibile apportare altre modifiche nel metodo `Index` e aggiungere i pulsanti di suddivisione in pagine alla visualizzazione `Index`. Nella figura seguente vengono illustrati i pulsanti di suddivisione in pagine.
 
-![Gli studenti indice pagina con collegamenti di spostamento](sort-filter-page/_static/paging.png)
+![Pagina Student Index (Indice degli studenti) con collegamenti di suddivisione in pagine](sort-filter-page/_static/paging.png)
 
-Nella cartella del progetto, creare `PaginatedList.cs`, quindi sostituire il codice del modello con il codice seguente.
+Nella cartella del progetto, creare `PaginatedList.cs` e quindi sostituire il codice del modello con il codice seguente.
 
 [!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
-Il `CreateAsync` metodo in questo codice ha dimensioni di pagina e il numero di pagina e applica appropriata `Skip` e `Take` istruzioni per la `IQueryable`. Quando `ToListAsync` viene chiamato sul `IQueryable`, verrà restituito un elenco contenente solo la pagina richiesta. Le proprietà `HasPreviousPage` e `HasNextPage` può essere utilizzato per abilitare o disabilitare **precedente** e **Avanti** pulsanti di spostamento.
+Il metodo `CreateAsync` in questo codice accetta le dimensioni di pagina e il numero delle pagine e applica le istruzioni `Skip` e `Take` appropriate a `IQueryable`. Quando `ToListAsync` viene chiamato su `IQueryable`, restituisce un elenco contenente solo la pagina richiesta. Le proprietà `HasPreviousPage` e `HasNextPage` possono essere usate per abilitare o disabilitare i pulsanti di suddivisione in pagine **Previous** (Indietro) e **Next** (Avanti).
 
-Oggetto `CreateAsync` metodo viene utilizzato invece di un costruttore per creare il `PaginatedList<T>` dell'oggetto poiché i costruttori non possono eseguire codice asincrono.
+Viene usato un metodo `CreateAsync` invece di un costruttore per creare l'oggetto `PaginatedList<T>` poiché i costruttori non possono eseguire codice asincrono.
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Aggiungere funzionalità di paging per il metodo di Index
+## <a name="add-paging-functionality-to-the-index-method"></a>Aggiungere la funzionalità di suddivisione in pagine al metodo Index
 
-In *StudentsController.cs*, sostituire il `Index` (metodo) con il codice seguente.
+In *StudentsController.cs* sostituire il metodo `Index` con il codice seguente.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
-Questo codice aggiunge un parametro di numeri di pagina, un parametro di ordine di ordinamento corrente e un parametro di filtro corrente per la firma del metodo.
+Questo codice aggiunge un parametro di numeri di pagina, un parametro di ordinamento corrente e un parametro di filtro corrente alla firma del metodo.
 
 ```csharp
 public async Task<IActionResult> Index(
@@ -138,13 +138,13 @@ public async Task<IActionResult> Index(
     int? page)
 ```
 
-La prima volta che viene visualizzata la pagina o se l'utente non è stato selezionato un paging o ordinamento di collegamento, tutti i parametri è null.  Se si seleziona un collegamento di paging, la variabile di pagina conterrà il numero di pagina da visualizzare.
+La prima volta che viene visualizzata la pagina o se l'utente non ha selezionato un collegamento di suddivisione in pagine o di ordinamento, tutti i parametri saranno Null.  Se si seleziona un collegamento di suddivisione in pagine, la variabile di pagina conterrà il numero della pagina da visualizzare.
 
-Il `ViewData` elemento denominato CurrentSort fornisce la visualizzazione con ordinamento corrente, in quanto ciò deve essere inclusi i collegamenti di spostamento per mantenere la stessa durante il paging dell'ordinamento.
+L'elemento `ViewData` denominato CurrentSort offre la visualizzazione con l'ordinamento corrente, in quanto esso deve essere incluso nei collegamenti di suddivisione in pagine per mantenere l'ordinamento durante la suddivisione in pagine.
 
-Il `ViewData` elemento denominato CurrentFilter fornisce la visualizzazione con la stringa di filtro corrente. Questo valore deve essere incluso nei collegamenti di spostamento per mantenere le impostazioni di filtro durante il paging, e devono essere ripristinato nella casella di testo quando la pagina viene visualizzata.
+L'elemento `ViewData` denominato CurrentFilter offre la visualizzazione con la stringa di filtro corrente. Questo valore deve essere incluso nei collegamenti di suddivisione in pagine per mantenere le impostazioni di filtro nella suddivisione in pagine e deve essere ripristinato nella casella di testo quando la pagina viene nuovamente visualizzata.
 
-Se la stringa di ricerca viene modificata durante il paging, la pagina deve essere reimpostato su 1, in quanto può comportare dati diversi per visualizzare il nuovo filtro. La stringa di ricerca viene modificata quando viene immesso un valore nella casella di testo e viene premuto il pulsante Invia. In tal caso, il `searchString` parametro non è null.
+Se la stringa di ricerca viene modificata nella suddivisione in pagine, la pagina deve essere reimpostata su 1, poiché il nuovo filtro può comportare la visualizzazione di dati diversi. La stringa di ricerca viene modificata quando si immette un valore nella casella di testo e si preme il pulsante Invia. In tal caso, il parametro `searchString` non è Null.
 
 ```csharp
 if (searchString != null)
@@ -157,29 +157,29 @@ else
 }
 ```
 
-Alla fine del `Index` (metodo), il `PaginatedList.CreateAsync` metodo converte la query di studenti in una singola pagina degli studenti iscritti a un tipo di insieme che supporta il paging. Pagina singola di studenti viene quindi passato alla visualizzazione.
+Alla fine del metodo `Index`, il metodo `PaginatedList.CreateAsync` converte la query degli studenti in una pagina singola di studenti in un tipo di raccolta che supporta la suddivisione in pagine. La pagina singola di studenti viene quindi passata alla visualizzazione.
 
 ```csharp
 return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
 ```
 
-Il `PaginatedList.CreateAsync` metodo accetta un numero di pagina. Due punti interrogativi rappresenta l'operatore null-coalescing. L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. l'espressione `(page ?? 1)` significa restituisca il valore di `page` se ha un valore oppure restituiscono 1 se `page` è null.
+Il metodo `PaginatedList.CreateAsync` accetta un numero di pagina. I due punti interrogativi rappresentano l'operatore null-coalescing. L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(page ?? 1)` significa restituzione del valore di `page` se ha un valore oppure restituzione di 1 se `page` è Null.
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Aggiungere collegamenti di spostamento per la visualizzazione dell'indice per studenti
+## <a name="add-paging-links-to-the-student-index-view"></a>Aggiungere collegamenti di suddivisione in pagine per la visualizzazione Student Index (Indice degli studenti)
 
-In *Views/Students/Index.cshtml*, sostituire il codice esistente con il codice seguente. Le modifiche sono evidenziate.
+In *Views/Students/Index.cshtml* sostituire il codice esistente con il codice seguente. Le modifiche sono evidenziate.
 
 [!code-html[](intro/samples/cu/Views/Students/Index.cshtml?highlight=1,27,30,33,61-79)]
 
-Il `@model` istruzione nella parte superiore della pagina specifica che la vista Ottiene ora un `PaginatedList<T>` oggetto anziché un `List<T>` oggetto.
+L'istruzione `@model` nella parte superiore della pagina specifica che la vista ottiene ora un oggetto `PaginatedList<T>` anziché un oggetto `List<T>`.
 
-I collegamenti di intestazione di colonna utilizzano la stringa di query per passare la stringa di ricerca corrente al controller in modo che l'utente può ordinare all'interno dei risultati di filtro:
+I collegamenti delle intestazioni di colonna usano la stringa di query per passare la stringa di ricerca corrente al controller in modo che l'utente possa procedere all'ordinamento all'interno dei risultati di filtro:
 
 ```html
 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter ="@ViewData["CurrentFilter"]">Enrollment Date</a>
 ```
 
-Per gli helper di tag vengono visualizzati i pulsanti di paging:
+I pulsanti di suddivisione in pagine vengono visualizzati dagli helper tag:
 
 ```html
 <a asp-action="Index"
@@ -191,33 +191,33 @@ Per gli helper di tag vengono visualizzati i pulsanti di paging:
 </a>
 ```
 
-Eseguire l'app e passare alla pagina di studenti.
+Eseguire l'app e passare alla pagina Students (Studenti).
 
-![Gli studenti indice pagina con collegamenti di spostamento](sort-filter-page/_static/paging.png)
+![Pagina Student Index (Indice degli studenti) con collegamenti di suddivisione in pagine](sort-filter-page/_static/paging.png)
 
-Fare clic sui collegamenti di spostamento in diversi tipi di ordinamento per assicurarsi che funziona di paging. Quindi immettere una stringa di ricerca e tentare di paging per verificare che il paging funziona inoltre correttamente con ordinamento e filtro.
+Fare clic sui collegamenti di suddivisione in pagine in diversi tipi di ordinamento per verificare che la suddivisione in pagine funzioni. Immettere quindi una stringa di ricerca e provare nuovamente la suddivisione in pagine per verificare che funzioni correttamente anche con l'ordinamento e il filtro.
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Creare una pagina di informazioni che vengono visualizzate le statistiche di Student
+## <a name="create-an-about-page-that-shows-student-statistics"></a>Creare una pagina About (Informazioni) che visualizza le statistiche degli studenti
 
-Per il sito Web Contoso University **su** pagina verranno visualizzati il numero di studenti sono registrati per ciascuna data di registrazione. Questa operazione richiede i calcoli di raggruppamento e semplici ai gruppi. A tale scopo, verranno eseguite le operazioni seguenti:
+Per la pagina **About** (Informazioni) del sito Web Contoso University verrà visualizzato il numero di studenti iscritti per ogni data di iscrizione. Questa operazione richiede calcoli di raggruppamento e semplici sui gruppi. Per completare questa procedura, è necessario eseguire le operazioni seguenti:
 
-* Creare una classe di modello di visualizzazione per i dati che è necessario passare alla visualizzazione.
+* Creare una classe modello di visualizzazione per i dati che è necessario passare alla visualizzazione.
 
-* Modificare il metodo di informazioni del controller Home.
+* Modificare il metodo About nel controller Home.
 
-* Modificare la visualizzazione di informazioni.
+* Modificare la visualizzazione About (Informazioni).
 
 ### <a name="create-the-view-model"></a>Creare il modello di visualizzazione
 
-Creare un *SchoolViewModels* cartella la *modelli* cartella.
+Creare una cartella *SchoolViewModels* nella cartella *Models*.
 
-Nella nuova cartella, aggiungere un file di classe *EnrollmentDateGroup.cs* e sostituire il codice del modello con il codice seguente:
+Nella nuova cartella aggiungere un file di classe *EnrollmentDateGroup.cs* e sostituire il codice del modello con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="modify-the-home-controller"></a>Modificare il Controller Home
+### <a name="modify-the-home-controller"></a>Modificare il controller Home
 
-In *HomeController.cs*, aggiungere le seguenti istruzioni using all'inizio del file:
+In *HomeController.cs* aggiungere le seguenti istruzioni all'inizio del file:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
@@ -229,23 +229,23 @@ Sostituire il metodo `About` con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
-Raggruppa le entità di studenti per data di registrazione dell'istruzione LINQ, calcola il numero di entità in ciascun gruppo e archivia i risultati in una raccolta di `EnrollmentDateGroup` consente di visualizzare gli oggetti del modello.
+L'istruzione LINQ raggruppa le entità di studenti per data di registrazione, calcola il numero di entità in ogni gruppo e archivia i risultati in una raccolta di oggetti di modello della visualizzazione `EnrollmentDateGroup`.
 > [!NOTE] 
-> Nella 1.0 versione di Entity Framework Core, l'intero set di risultati viene restituito al client e il raggruppamento avviene sul client. In alcuni scenari si potrebbero creare problemi di prestazioni. Assicurarsi di testare le prestazioni con volumi di produzione di dati e se necessario, utilizzare SQL non elaborato per eseguire il raggruppamento nel server. Per informazioni sull'utilizzo di SQL non elaborati, vedere [dell'ultima esercitazione di questa serie](advanced.md).
+> Nella versione 1.0 di Entity Framework Core, l'intero set di risultati viene restituito al client e il raggruppamento avviene sul client. In alcuni scenari questo potrebbe creare problemi di prestazioni. Testare le prestazioni con volumi di produzione di dati e, se necessario, usare SQL non elaborato per eseguire il raggruppamento nel server. Per informazioni sull'uso di SQL non elaborato, vedere l'[ultima esercitazione di questa serie](advanced.md).
 
-### <a name="modify-the-about-view"></a>Modificare le informazioni sulla visualizzazione
+### <a name="modify-the-about-view"></a>Modificare la visualizzazione della pagina About (Informazioni)
 
-Sostituire il codice di *Views/Home/About.cshtml* file con il codice seguente:
+Sostituire il codice nel file *Views/Home/About.cshtml* con il codice seguente:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Eseguire l'app e passare alla pagina di informazioni. Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
+Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
-![Informazioni sulla pagina](sort-filter-page/_static/about.png)
+![Pagina About (Informazioni)](sort-filter-page/_static/about.png)
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione è stato spiegato come eseguire l'ordinamento, filtro, paging e raggruppamento. Nella prossima esercitazione, si apprenderà come gestire le modifiche al modello di dati utilizzando le migrazioni.
+In questa esercitazione è stato spiegato come eseguire ordinamento, filtro, suddivisione in pagine e raggruppamento. Nella prossima esercitazione, si apprenderà come gestire le modifiche al modello di dati tramite le migrazioni.
 
 >[!div class="step-by-step"]
 [Precedente](crud.md)

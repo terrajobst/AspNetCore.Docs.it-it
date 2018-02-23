@@ -1,7 +1,7 @@
 ---
-title: Core di ASP.NET MVC con Entity Framework Core - modello di dati - 5 di 10
+title: ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
 author: tdykstra
-description: "In questa esercitazione aggiungere altre entità e relazioni e personalizzare il modello di dati specificando le regole di mapping del database, convalida e formattazione."
+description: "In questa esercitazione si aggiungono altre entità e relazioni e si personalizza il modello di dati specificando regole di formattazione, convalida e mapping del database."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,38 +10,38 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
 ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Creazione di un modello di dati complessi - EF Core con l'esercitazione di base di ASP.NET MVC (5 di 10)
+# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Creazione di un modello di dati complesso - Esercitazione EF Core con ASP.NET Core MVC (5 di 10)
 
-Da [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni web ASP.NET MVC di base con Entity Framework Core e Visual Studio. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](intro.md).
+L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
 
-Nelle esercitazioni precedenti, si è lavorato con un modello di dati semplici che è stato composto da tre entità. In questa esercitazione si aggiungeranno ulteriori entità e relazioni e verrà personalizzato il modello di dati specificando le regole di mapping del database, convalida e formattazione.
+Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. In questa esercitazione si aggiungeranno altre entità e relazioni e si personalizzerà il modello di dati specificando regole di formattazione, convalida e mapping del database.
 
-Al termine dell'operazione, le classi di entità verranno costituiscono il modello di dati completato che è illustrato nella figura seguente:
+Al termine dell'operazione le classi di entità verranno incluse nel modello di dati completato, illustrato nella figura seguente:
 
-![Diagramma di entità](complex-data-model/_static/diagram.png)
+![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>Personalizzare il modello di dati utilizzando gli attributi
+## <a name="customize-the-data-model-by-using-attributes"></a>Personalizzare il modello di dati usando gli attributi
 
-In questa sezione si noterà come personalizzare il modello di dati utilizzando gli attributi che specificano la formattazione, convalida e regole di mapping del database. Quindi in diversi nelle sezioni seguenti che verrà creato il modello di dati completo dell'istituto di istruzione aggiungendo attributi alle classi è già stato creato e la creazione di nuove classi per i tipi di entità rimanenti nel modello.
+In questa sezione si apprenderà come personalizzare il modello di dati usando attributi che specificano regole di formattazione, convalida e mapping del database. Quindi nelle sezioni seguenti si creerà il modello di dati School (Istituto scolastico) completo, aggiungendo attributi alle classi già create e creando nuove classi per i tipi di entità rimanenti nel modello.
 
-### <a name="the-datatype-attribute"></a>L'attributo di tipo di dati
+### <a name="the-datatype-attribute"></a>Attributo DataType
 
-Per le date di registrazione studenti, tutte le pagine web attualmente Visualizza il tempo insieme alla data, anche se tutto è rilevante per questo campo è la data. Utilizzando gli attributi di annotazione dei dati, è possibile apportare una modifica che in ogni visualizzazione che mostra i dati per correggere il formato di visualizzazione del codice. Per vedere un esempio di come eseguire l'operazione, verrà aggiunto un attributo di `EnrollmentDate` proprietà la `Student` classe.
+Per le date di iscrizione degli studenti, tutte le pagine Web attualmente visualizzano l'ora oltre alla data, anche se l'unico elemento rilevante di questo campo è la data. Mediante gli attributi di annotazione dei dati è possibile modificare il codice per correggere il formato di visualizzazione in tutte le visualizzazioni che visualizzano i dati. Per un esempio di come eseguire questa operazione si aggiunge un attributo alla proprietà `EnrollmentDate` nella classe `Student`.
 
-In *Models/Student.cs*, aggiungere un `using` istruzione per il `System.ComponentModel.DataAnnotations` dello spazio dei nomi e aggiungere `DataType` e `DisplayFormat` gli attributi di `EnrollmentDate` proprietà, come illustrato nell'esempio seguente:
+In *Models/Student.cs* aggiungere un'istruzione `using` per lo spazio dei nomi `System.ComponentModel.DataAnnotations` e aggiungere gli attributi `DataType` e `DisplayFormat` alla proprietà `EnrollmentDate` come indicato nell'esempio seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-Il `DataType` attributo viene utilizzato per specificare un tipo di dati che è più specifico di tipo intrinseco del database. In questo caso si vuole inserire solo tenere traccia delle date, non la data e ora. Il `DataType` enumerazione fornisce per molti tipi di dati, ad esempio Date, Time, PhoneNumber, valuta, EmailAddress e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Il `DataType` attributo genera HTML 5 `data-` attributi (si pronuncia dati dash) in grado di comprendere i browser HTML 5. Il `DataType` gli attributi non forniscono alcuna convalida.
+L'attributo `DataType` viene usato per specificare un tipo di dati che è più specifico del tipo intrinseco del database. In questo caso si vuole tenere traccia solo della data e non di data e ora. L'enumerazione `DataType` include molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. L'attributo `DataType` produce attributi HTML5 `data-` supportati dai browser HTML5. Gli attributi `DataType` non garantiscono alcuna convalida.
 
-`DataType.Date`non specificare il formato della data che viene visualizzato. Per impostazione predefinita, viene visualizzato il campo dei dati in base ai formati predefiniti in base a CultureInfo del server.
+`DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita il campo dati viene visualizzato in base ai formati predefiniti derivanti dal valore CultureInfo del server.
 
 L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il formato della data:
 
@@ -49,39 +49,39 @@ L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il for
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-L'impostazione `ApplyFormatInEditMode` specifica che la formattazione deve essere applicata anche quando il valore viene visualizzato in una casella di testo per la modifica. (Non è possibile che per alcuni campi, ad esempio, per i valori di valuta, occorre evitare il simbolo di valuta nella casella di testo per la modifica.)
+L'impostazione `ApplyFormatInEditMode` specifica che la formattazione deve essere applicata anche quando il valore viene visualizzato in una casella di testo per la modifica. Per determinati campi questa scelta non è consigliabile. Ad esempio per i valori di valuta può non risultare opportuno che il simbolo di valuta sia incluso nella casella di testo per la modifica.
 
-È possibile utilizzare il `DisplayFormat` attributo da se stesso, ma in genere è consigliabile utilizzare il `DataType` anche l'attributo. Il `DataType` attributo fornisce la semantica dei dati anziché come eseguirne il rendering in una schermata e fornisce i seguenti vantaggi che non si ottengono con `DisplayFormat`:
+È possibile usare l'attributo `DisplayFormat` da solo, ma in genere è consigliabile usare anche l'attributo `DataType`. L'attributo `DataType` esprime la semantica dei dati anziché la modalità di rendering dei dati in una schermata e offre i seguenti vantaggi che non si ottengono con `DisplayFormat`:
 
-* Il browser è possibile abilitare le funzionalità di HTML5 (ad esempio per visualizzare un controllo di calendario, il simbolo di valuta delle impostazioni locali appropriata, i collegamenti di posta elettronica, alcuni client-side input convalida e così via).
+* Il browser può abilitare le funzionalità HTML5, ad esempio per visualizzare un controllo di calendario, il simbolo della valuta appropriato per le impostazioni locali, i collegamenti alla posta elettronica, alcune istanze di convalida lato client e così via.
 
 * Per impostazione predefinita, il browser eseguirà il rendering dei dati usando il formato corretto in base alle impostazioni locali del sistema.
 
-Per ulteriori informazioni, vedere il [ \<input > tag di documentazione di supporto](../../mvc/views/working-with-forms.md#the-input-tag-helper).
+Per altre informazioni, vedere la [documentazione dell'helper tag \<input>](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
-Eseguire l'app, passare alla pagina di indice di studenti e notare che volte non vengono più visualizzate per le date di registrazione. Lo stesso sarà true per qualsiasi vista che utilizza il modello di studenti.
+Eseguire l'app, passare alla pagina Students Index (Indice studenti) e verificare che l'ora non viene più visualizzata nelle date di iscrizione. Lo stesso vale per tutte le viste che usano il modello Student (Studente).
 
-![Pagina di indice di studenti con date senza tempi di](complex-data-model/_static/dates-no-times.png)
+![Pagina Students Index (Indice studenti) con date e senza ore](complex-data-model/_static/dates-no-times.png)
 
-### <a name="the-stringlength-attribute"></a>L'attributo StringLength
+### <a name="the-stringlength-attribute"></a>Attributo StringLength
 
-È inoltre possibile specificare regole di convalida dei dati e i messaggi di errore di convalida utilizzando gli attributi. Il `StringLength` attributo imposta la lunghezza massima del database e fornisce lato client e lato server della convalida di ASP.NET MVC. È inoltre possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun impatto sullo schema di database.
+È anche possibile specificare regole di convalida dei dati e messaggi di errore di convalida mediante gli attributi. L'attributo `StringLength` imposta la lunghezza massima nel database e offre la convalida lato client e lato server per ASP.NET MVC. È anche possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun effetto sullo schema del database.
 
-Si supponga che si desidera garantire che gli utenti non immettere più di 50 caratteri per un nome. Per aggiungere questa limitazione, è necessario `StringLength` gli attributi di `LastName` e `FirstMidName` proprietà, come illustrato nell'esempio seguente:
+Ad esempio si supponga di voler limitare a 50 il numero massimo di caratteri che gli utenti possono immettere per un nome. Per aggiungere questa limitazione aggiungere attributi `StringLength` alle proprietà `LastName` e `FirstMidName`, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Il `StringLength` attributo non impedisce a un utente di immettere lo spazio vuoto per un nome. È possibile utilizzare il `RegularExpression` attributo per applicare restrizioni per l'input. Ad esempio, il codice seguente richiede il primo carattere da maiuscolo e i caratteri rimanenti alfabetico:
+L'attributo `StringLength` non impedisce a un utente di immettere spazi vuoti per un nome. È possibile usare l'attributo `RegularExpression` per applicare restrizioni all'input. Ad esempio il codice seguente richiede che il primo carattere sia maiuscolo e i caratteri rimanenti siano caratteri alfabetici:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-Il `MaxLength` attributo fornisce funzionalità simili a quelle di `StringLength` attributo ma non è disponibile sul lato client convalida.
+L'attributo `MaxLength` offre funzionalità simili a quelle dell'attributo `StringLength` ma non offre la convalida lato client.
 
-Il modello di database è stata modificata in modo che richiede una modifica nello schema del database. Utilizzare le migrazioni per aggiornare lo schema senza perdere i dati che possono essere aggiunti al database tramite l'interfaccia utente dell'applicazione.
+La modifica apportata al modello di database ora richiede un aggiornamento dello schema del database. Si userà migrations per aggiornare lo schema senza perdere i dati eventualmente aggiunti al database tramite l'interfaccia utente dell'applicazione.
 
-Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di comando nella cartella del progetto e immettere i comandi seguenti:
+Salvare le modifiche e compilare il progetto. Quindi aprire una finestra dei comandi nella cartella di progetto ed eseguire i comandi seguenti:
 
 ```console
 dotnet ef migrations add MaxLengthOnNames
@@ -91,27 +91,27 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-Il `migrations add` comando genera un avviso che potrebbe verificarsi una perdita di dati, in quanto la modifica rende la lunghezza massima più breve per due colonne.  Le migrazioni crea un file denominato  *\<timeStamp > _MaxLengthOnNames.cs*. Questo file contiene codice di `Up` metodo che aggiornerà il database in base al modello di dati corrente. Il `database update` comando è stato eseguito il codice.
+Il comando `migrations add` segnala che può verificarsi la perdita di dati, perché la modifica riduce la lunghezza massima per due colonne.  L'istruzione migrations crea un file con nome *\<timestamp>_MaxLengthOnNames.cs*. Il metodo `Up` di questo file contiene codice che aggiorna il database per adattarlo al modello di dati corrente. Il comando `database update` ha eseguito tale codice.
 
-Il timestamp come preceduto al nome del file migrazioni utilizzato da Entity Framework per ordinare le migrazioni. È possibile creare più migrazioni prima di eseguire il comando update-database, e quindi tutte le migrazioni sono applicate nell'ordine in cui sono stati creati.
+Il timestamp che precede il nome del file delle migrazioni viene usato da Entity Framework per ordinare le migrazioni. È possibile creare più migrazioni prima di eseguire il comando update-database, dopodiché tutte le migrazioni vengono applicate nell'ordine in cui sono state create.
 
-Eseguire l'app, selezionare il **studenti** scheda, fare clic su **Crea nuovo**e immettere il nome di più di 50 caratteri. Quando fa clic su **crea**, la convalida lato client verrà visualizzato un messaggio di errore.
+Eseguire l'app, selezionare la scheda **Students** (Studenti), fare clic su **Crea nuovo** e immettere un nome con più di 50 caratteri. Quando si fa clic su **Crea** la convalida lato client visualizza un messaggio di errore.
 
-![Gli studenti indice pagina la visualizzazione di errori di lunghezza stringa](complex-data-model/_static/string-length-errors.png)
+![Pagina Students Index (Indice studenti) con errori di lunghezza stringa](complex-data-model/_static/string-length-errors.png)
 
-### <a name="the-column-attribute"></a>L'attributo di colonna
+### <a name="the-column-attribute"></a>Attributo Column
 
-Inoltre, è possibile utilizzare gli attributi per controllare il mapping tra le classi e le proprietà per il database. Si supponga che sia stato usato il nome `FirstMidName` per il nome del primo campo perché il campo può contenere anche un cognome. Ma si desidera che la colonna di database sia denominato `FirstName`, perché gli utenti che scrittura di query ad hoc sul database sono abituati a tale nome. Per rendere questo mapping, è possibile utilizzare il `Column` attributo.
+È possibile usare gli attributi anche per controllare il mapping delle classi e delle proprietà nel database. Si supponga di aver usato il nome `FirstMidName` per il campo first-name (Nome) perché il campo potrebbe contenere anche un secondo nome. Tuttavia si vuole che la colonna di database sia denominata `FirstName`, perché gli utenti che scrivono query ad hoc per il database sono abituati a tale nome. Per eseguire questo mapping è possibile usare l'attributo `Column`.
 
-Il `Column` attributo specifica che quando viene creato il database, la colonna del `Student` tabella in cui viene eseguito il mapping per il `FirstMidName` proprietà verrà denominata `FirstName`. In altre parole, quando il codice fa riferimento a `Student.FirstMidName`, i dati provengono dal o aggiornati nel `FirstName` colonna del `Student` tabella. Se non si specificano nomi di colonna, assegnati lo stesso nome come nome della proprietà.
+L'attributo `Column` specifica che quando viene creato il database, la colonna della tabella `Student` mappata sulla proprietà `FirstMidName` verrà denominata `FirstName`. In altri termini, quando il codice fa riferimento a `Student.FirstMidName` i dati provengono dalla colonna `FirstName` della tabella `Student` o vengono aggiornati in tale colonna. Se non si specificano nomi di colonna, le colonne avranno lo stesso nome della proprietà.
 
-Nel *Student.cs* file, aggiungere un `using` istruzione per `System.ComponentModel.DataAnnotations.Schema` e aggiungere l'attributo del nome di colonna per il `FirstMidName` proprietà, come illustrato nel codice evidenziato seguente:
+Nel file *Student.cs* aggiungere un'istruzione `using` per `System.ComponentModel.DataAnnotations.Schema` e aggiungere l'attributo del nome colonna alla proprietà `FirstMidName`, come illustrato nel codice evidenziato seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
-L'aggiunta del `Column` attributo modifica il supporto del modello di `SchoolContext`, in modo che non corrisponda al database.
+L'aggiunta dell'attributo `Column` modifica il modello che supporta `SchoolContext` e che pertanto non corrisponderà al database.
 
-Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di comando nella cartella del progetto e immettere i comandi seguenti per creare un'altra migrazione:
+Salvare le modifiche e compilare il progetto. Quindi aprire una finestra dei comandi nella cartella di progetto ed eseguire i comandi seguenti per creare un'altra migrazione:
 
 ```console
 dotnet ef migrations add ColumnFirstName
@@ -121,28 +121,28 @@ dotnet ef migrations add ColumnFirstName
 dotnet ef database update
 ```
 
-In **Esplora oggetti di SQL Server**, aprire Progettazione tabelle Student facendo doppio clic il **Student** tabella.
+In **Esplora oggetti di SQL Server** aprire il designer della tabella **Student** (Studente) facendo doppio clic sulla tabella.
 
-![Tabella di studenti in sillaba SSOX dopo le migrazioni](complex-data-model/_static/ssox-after-migration.png)
+![Tabella Students (Studenti) in SSOX dopo le migrazioni](complex-data-model/_static/ssox-after-migration.png)
 
-Prima dell'applicazione le prime due migrazioni, le colonne nome sono di tipo nvarchar (max). Vengono infatti ora nvarchar (50) e il nome della colonna è cambiato da FirstMidName a FirstName.
+Prima dell'applicazione delle prime due migrazioni, le colonne del nome erano di tipo nvarchar(MAX). Ora sono di tipo nvarchar(50) e il nome colonna è cambiato da FirstMidName a FirstName.
 
 > [!Note]
-> Se si tenta di compilare prima del completamento della creazione di tutte le classi di entità nelle sezioni seguenti, si potrebbero verificare errori di compilazione.
+> Se si prova a compilare prima di aver creato tutte le classi di entità delle sezioni seguenti, possono verificarsi errori di compilazione.
 
-## <a name="final-changes-to-the-student-entity"></a>Modifiche finali per l'entità di Student
+## <a name="final-changes-to-the-student-entity"></a>Modifiche finali all'entità Student
 
 ![Entità Student](complex-data-model/_static/student-entity.png)
 
-In *Models/Student.cs*, sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
+In *Models/Student.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
-### <a name="the-required-attribute"></a>L'attributo obbligatorio
+### <a name="the-required-attribute"></a>Attributo Required
 
-Il `Required` attributo rende i campi obbligatori di nome proprietà. Il `Required` attributo non è necessaria per i tipi non nullable, ad esempio i tipi di valore (DateTime, int, double, float, ecc.). Tipi che non possono essere null vengono considerati automaticamente come i campi obbligatori.
+L'attributo `Required` rende obbligatori i campi delle proprietà del nome. L'attributo `Required` non è necessario per i tipi non nullable quali i tipi del valore (DateTime, int, double, float e così via). I tipi che non possono essere null vengono considerati automaticamente come campi obbligatori.
 
-È possibile rimuovere il `Required` attributo e sostituirlo con un parametro di lunghezza minima per il `StringLength` attributo:
+È possibile rimuovere l'attributo `Required` e sostituirlo con un parametro di lunghezza minima per l'attributo `StringLength`:
 
 ```csharp
 [Display(Name = "Last Name")]
@@ -150,45 +150,45 @@ Il `Required` attributo rende i campi obbligatori di nome proprietà. Il `Requir
 public string LastName { get; set; }
 ```
 
-### <a name="the-display-attribute"></a>L'attributo di visualizzazione
+### <a name="the-display-attribute"></a>Attributo Display
 
-Il `Display` attributo specifica che la didascalia per le caselle di testo deve essere "Nome", "Last Name", "Nome" e "Data di registrazione" anziché il nome della proprietà in ogni istanza (che non dispone di spazio dividendo le parole).
+L'attributo `Display` specifica che la didascalia delle caselle di testo deve essere "First Name" (Nome), "Last Name" (Cognome), "Full Name" (Nome e cognome) ed "Enrollment Date" (Data di iscrizione) anziché il nome della proprietà (senza spazi tra le parole) in ogni istanza.
 
-### <a name="the-fullname-calculated-property"></a>La proprietà FullName calcolato
+### <a name="the-fullname-calculated-property"></a>Proprietà calcolata FullName
 
-`FullName`è una proprietà calcolata che restituisce un valore che viene creato concatenando due altre proprietà. Di conseguenza ha solo una funzione di accesso get e nessun `FullName` colonna verrà generata nel database.
+`FullName` è una proprietà calcolata che restituisce un valore creato concatenando altre due proprietà. Di conseguenza ha una sola funzione di accesso get e nel database non viene generata nessuna colonna `FullName`.
 
 ## <a name="create-the-instructor-entity"></a>Creare l'entità Instructor
 
 ![Entità Instructor](complex-data-model/_static/instructor-entity.png)
 
-Creare *Models/Instructor.cs*, sostituendo il codice del modello con il codice seguente:
+Creare *Models/Instructor.cs* sostituendo il codice del modello con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
-Si noti che molte proprietà sono uguali nelle entità Student e Instructor. Nel [implementazione ereditarietà](inheritance.md) esercitazione più avanti in questa serie, sarà il refactoring questo codice per eliminare la ridondanza.
+Si noti che molte proprietà sono uguali nelle entità Student e Instructor. Nell'esercitazione [Implementing Inheritance](inheritance.md) (Implementazione dell'ereditarietà) più avanti in questa serie si effettuerà il refactoring di questo codice per eliminare la ridondanza.
 
-È possibile inserire più attributi su una riga, pertanto è possibile anche scrivere la `HireDate` attributi come indicato di seguito:
+È possibile posizionare più attributi su una riga, pertanto è anche possibile scrivere gli attributi `HireDate` come indicato di seguito:
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Le proprietà di navigazione CourseAssignments e OfficeAssignment
+### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a>Proprietà di navigazione CourseAssignments e OfficeAssignment
 
-Il `CourseAssignments` e `OfficeAssignment` sono proprietà di navigazione.
+Le proprietà `CourseAssignments` e `OfficeAssignment` sono proprietà di navigazione.
 
-Un docente può indicare un numero qualsiasi di corsi, pertanto `CourseAssignments` è definito come una raccolta.
+Un insegnante può tenere un numero qualsiasi di corsi, pertanto `CourseAssignments` è definita come raccolta.
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Se una proprietà di navigazione può contenere più entità, il tipo deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate.  È possibile specificare `ICollection<T>` o un tipo, ad esempio `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, EF crea un `HashSet<T>` insieme per impostazione predefinita.
+Se una proprietà di navigazione può contenere più entità, il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate.  È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita EF crea una raccolta `HashSet<T>`.
 
-Il motivo per cui sono `CourseAssignment` entità vengono illustrati di seguito nella sezione sulle relazioni molti-a-molti.
+Il motivo per cui queste sono entità `CourseAssignment` viene illustrato più avanti nella sezione relativa alle relazioni molti-a-molti.
 
-Regole di business Contoso University stato che un docente può solo avere al massimo un ufficio, pertanto la `OfficeAssignment` proprietà contiene una singola entità OfficeAssignment (che può essere null se non viene assegnato).
+Le regole business di Contoso University specificano che un insegnante non può avere più di un ufficio, pertanto la proprietà `OfficeAssignment` contiene un'unica entità OfficeAssignment (che può essere null se non è assegnato alcun ufficio).
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
@@ -202,40 +202,40 @@ Creare *Models/OfficeAssignment.cs* con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
 
-### <a name="the-key-attribute"></a>L'attributo chiave
+### <a name="the-key-attribute"></a>Attributo Key
 
-È una relazione uno-a-zero-o-uno tra istruttore e le entità OfficeAssignment. L'assegnazione dell'ufficio esiste solo in relazione a istruttore a che viene assegnato, e pertanto la chiave primaria è anche la chiave esterna per l'entità Instructor. Ma Entity Framework non riconoscono automaticamente InstructorID come chiave primaria dell'entità perché il nome non rispetta la convenzione di denominazione ID o classnameID. Pertanto, il `Key` attributo viene utilizzato per identificare come la chiave:
+Esiste una relazione uno-a-zero-o-uno tra le entità Instructor e OfficeAssignment. L'assegnazione dell'ufficio esiste solo in relazione all'insegnante al quale viene assegnato l'ufficio, pertanto la chiave primaria dell'assegnazione è anche la chiave esterna per l'entità Instructor. Tuttavia Entity Framework non riconosce automaticamente InstructorID come chiave primaria di questa entità, perché il nome non rispetta la convenzione di denominazione ID o classnameID. Per identificare l'entità come chiave viene usato l'attributo `Key`:
 
 ```csharp
 [Key]
 public int InstructorID { get; set; }
 ```
 
-È inoltre possibile utilizzare il `Key` attributo se l'entità dispone di chiave primaria ma si desidera attribuire un nome di proprietà diverso da classnameID o ID.
+È anche possibile usare l'attributo `Key` se l'entità dispone di una chiave primaria propria ma si vuole assegnare alla proprietà un nome diverso da classnameID o ID.
 
-Per impostazione predefinita, la chiave EF considera come non generati dal database perché la colonna è la relazione di identificazione.
+Per impostazione predefinita, EF considera la chiave come non generata dal database, perché la colonna è destinata a una relazione di identificazione.
 
-### <a name="the-instructor-navigation-property"></a>La proprietà di navigazione Instructor
+### <a name="the-instructor-navigation-property"></a>Proprietà di navigazione Instructor
 
-Entità Instructor è nullable `OfficeAssignment` proprietà di navigazione (perché un docente potrebbe non disporre di un'assegnazione di office), e l'entità OfficeAssignment ha non-nullable `Instructor` proprietà di navigazione (perché non è un'assegnazione di office esistere senza un docente - `InstructorID` non ammette valori null). Quando un'entità Instructor dispone di un'entità correlata di OfficeAssignment, ogni entità saranno necessario un riferimento a altro nella relativa proprietà di navigazione.
+L'entità Instructor dispone di una proprietà di navigazione `OfficeAssignment` nullable (perché un docente potrebbe non avere un ufficio assegnato) e l'entità OfficeAssignment dispone di una proprietà di navigazione `Instructor` non nullable (perché un'assegnazione di ufficio non può esistere senza un insegnante: `InstructorID` è non nullable). Quando un'entità Instructor dispone di un'entità OfficeAssignment correlata, ogni entità include un riferimento all'altra entità nella relativa proprietà di navigazione.
 
-È possibile inserire un `[Required]` attributo sulla proprietà di navigazione istruttore per specificare che deve essere presente un insegnante correlati, ma non è necessario eseguire questa operazione perché il `InstructorID` chiave esterna (che è anche la chiave per questa tabella) è di tipo non nullable.
+È possibile inserire un attributo `[Required]` nella proprietà di navigazione Instructor per specificare che deve essere presente un insegnante correlato, ma questa operazione non è necessaria perché la chiave esterna `InstructorID` (che è anche la chiave per questa tabella) è di tipo non nullable.
 
 ## <a name="modify-the-course-entity"></a>Modificare l'entità Course
 
 ![Entità Course](complex-data-model/_static/course-entity.png)
 
-In *Models/Course.cs*, sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
+In *Models/Course.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
 
 [!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-L'entità corso ha una proprietà di chiave esterna `DepartmentID` che fa riferimento a entità reparto correlata che ha un `Department` proprietà di navigazione.
+L'entità Course ha una proprietà di chiave esterna `DepartmentID` che fa riferimento all'entità Department correlata e include una proprietà di navigazione `Department`.
 
-Entity Framework non è necessario aggiungere una proprietà di chiave esterna per il modello di dati quando si dispone di una proprietà di navigazione per un'entità correlata.  EF crea chiavi esterne nel database ogni volta che sono necessari e crea automaticamente [nascondere le proprietà](https://docs.microsoft.com/ef/core/modeling/shadow-properties) per loro. Ma con la chiave esterna nel modello di dati è possibile eseguire gli aggiornamenti più semplice ed efficiente. Ad esempio, quando si recupera un'entità del corso di modifica, l'entità Department è null se non si caricarlo, pertanto, quando si aggiorna l'entità course, è necessario prima recuperare l'entità Department. Quando la proprietà di chiave esterna `DepartmentID` viene incluso nel modello di dati, non è necessario recuperare l'entità Department prima di aggiornare.
+In Entity Framework non è necessario aggiungere una proprietà di chiave esterna al modello di dati se è disponibile una proprietà di navigazione per un'entità correlata.  EF crea automaticamente chiavi esterne nel database ogni volta che sono necessarie e crea [proprietà nascoste](https://docs.microsoft.com/ef/core/modeling/shadow-properties) per tali chiavi. Tuttavia il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Quando ad esempio si recupera un'entità Course per la modifica, l'entità Department è null se non viene caricata, pertanto prima di aggiornare l'entità Course è necessario recuperare l'entità Department. Quando la proprietà di chiave esterna `DepartmentID` viene inclusa nel modello di dati, non è necessario recuperare l'entità Department prima di eseguire l'aggiornamento.
 
-### <a name="the-databasegenerated-attribute"></a>L'attributo DatabaseGenerated
+### <a name="the-databasegenerated-attribute"></a>Attributo DatabaseGenerated
 
-Il `DatabaseGenerated` attributo con il `None` parametro il `CourseID` proprietà specifica che i valori di chiave primaria vengono forniti dall'utente anziché generati dal database.
+L'attributo `DatabaseGenerated` con il parametro `None` per la proprietà `CourseID` indica che i valori di chiave primaria vengono specificati dall'utente anziché essere generati dal database.
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -243,72 +243,72 @@ Il `DatabaseGenerated` attributo con il `None` parametro il `CourseID` propriet�
 public int CourseID { get; set; }
 ```
 
-Per impostazione predefinita, Entity Framework si presuppone che i valori di chiave primaria vengono generati dal database. Che è quello desiderato nella maggior parte degli scenari. Tuttavia, per le entità Course, verrà usare un numero di corso specificato dall'utente, ad esempio una serie di 1000 per reparto, una serie di 2000 per un altro reparto e così via.
+Per impostazione predefinita, Entity Framework presuppone che i valori di chiave primaria vengano generati dal database. Questa è la condizione ottimale nella maggior parte degli scenari. Tuttavia per le entità Course si userà un numero di corso specificato dall'utente, ad esempio il numero di serie 1000 per un reparto, il numero di serie 2000 per un altro reparto e così via.
 
-Il `DatabaseGenerated` attributo può essere utilizzato anche per generare i valori predefiniti, come nel caso di colonne di database utilizzate per registrare la data è stata creata o aggiornata una riga.  Per ulteriori informazioni, vedere [generato proprietà](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+Anche l'attributo `DatabaseGenerated` può essere usato anche per generare valori predefiniti, come nel caso delle colonne di database usate per registrare la data di creazione o aggiornamento di una riga.  Per altre informazioni, vedere [Generated Properties](https://docs.microsoft.com/ef/core/modeling/generated-properties) (Proprietà generate).
 
-### <a name="foreign-key-and-navigation-properties"></a>Proprietà di chiave e la navigazione esterna
+### <a name="foreign-key-and-navigation-properties"></a>Proprietà chiave esterna e di navigazione
 
-La proprietà di chiave esterna e le proprietà di navigazione nell'entità Course rifletteranno le relazioni seguenti:
+La proprietà di chiave esterna e le proprietà di navigazione nell'entità Course riflettono le relazioni seguenti:
 
-Un corso viene assegnato a un reparto, pertanto non c'è un `DepartmentID` chiave esterna e un `Department` proprietà di navigazione per i motivi indicati in precedenza.
+Un corso viene assegnato a un solo reparto, pertanto sono presenti una chiave esterna `DepartmentID` e una proprietà di navigazione `Department` per i motivi indicati in precedenza.
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-Un corso può avere qualsiasi numero di studenti, pertanto la `Enrollments` proprietà di navigazione è una raccolta:
+Un corso può avere un numero qualsiasi di studenti iscritti, pertanto la proprietà di navigazione `Enrollments` è una raccolta:
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
 ```
 
-Un corso può dedicare da istruttori più, pertanto la `CourseAssignments` proprietà di navigazione è una raccolta (il tipo `CourseAssignment` è illustrato [in un secondo momento](#many-to-many-relationships)):
+Un corso può essere impartito da più insegnanti, pertanto la proprietà di navigazione `CourseAssignments` è una raccolta (il tipo `CourseAssignment` è illustrato [più avanti](#many-to-many-relationships)):
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Creare l'entità di reparto
+## <a name="create-the-department-entity"></a>Creare l'entità Department
 
-![Entità reparto](complex-data-model/_static/department-entity.png)
+![Entità Department](complex-data-model/_static/department-entity.png)
 
 
 Creare *Models/Department.cs* con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
-### <a name="the-column-attribute"></a>L'attributo di colonna
+### <a name="the-column-attribute"></a>Attributo Column
 
-In precedenza è stato utilizzato il `Column` attributo per modificare il mapping di nomi di colonna. Nel codice per l'entità Department, il `Column` dell'attributo utilizzato per modificare SQL mapping dei tipi in modo che la colonna verrà definita utilizzando il tipo money di SQL Server nel database:
+In precedenza l'attributo `Column` è stato usato per modificare il mapping del nome di colonna. Nel codice dell'entità Department l'attributo `Column` viene usato per modificare il mapping del tipo di dati SQL e per far sì che la colonna venga definita usando il tipo SQL Server money nel database:
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-Mapping della colonna in genere non è necessario perché il tipo di dati di SQL Server appropriato in base al tipo CLR definito per la proprietà di sceglie Entity Framework. CLR `decimal` mapping a un Server SQL del tipo `decimal` tipo. Ma in questo caso si sa che la colonna sarà possibile che contenga gli importi in valuta e il tipo di dati money è più appropriato a tale scopo.
+In genere il mapping della colonna non è necessario, perché Entity Framework sceglie il tipo di dati SQL Server appropriato in base al tipo CLR definito per la proprietà. Il tipo CLR `decimal` esegue il mapping a un tipo SQL Server `decimal`. In questo caso tuttavia si sa che la colonna includerà importi in valuta, pertanto il tipo di dati money è più appropriato.
 
-### <a name="foreign-key-and-navigation-properties"></a>Proprietà di chiave e la navigazione esterna
+### <a name="foreign-key-and-navigation-properties"></a>Proprietà chiave esterna e di navigazione
 
-Le proprietà di navigazione e di chiave esterne rifletteranno le relazioni seguenti:
+Le proprietà di chiave esterna e le proprietà di navigazione riflettono le relazioni seguenti:
 
-Un reparto può non avere o un amministratore e un amministratore è sempre un docente. Pertanto il `InstructorID` proprietà è inclusa come chiave esterna per l'entità Instructor e viene aggiunto un punto interrogativo dopo il `int` digitare designazione per contrassegnare la proprietà come nullable. La proprietà di navigazione denominata `Administrator` ma contiene un'entità Instructor:
+Un reparto può avere o meno un amministratore e un amministratore è sempre un insegnante. Di conseguenza la proprietà `InstructorID` è inclusa come chiave esterna per l'entità Instructor e dopo l'indicazione del tipo `int` viene aggiunto un punto interrogativo, per contrassegnare la proprietà come nullable. La proprietà di navigazione è denominata `Administrator` ma contiene un'entità Instructor:
 
 ```csharp
 public int? InstructorID { get; set; }
 public Instructor Administrator { get; set; }
 ```
 
-Un reparto può avere molti corsi, pertanto non c'è una proprietà di navigazione corsi:
+Un reparto può avere molti corsi, pertanto è disponibile una proprietà di navigazione Courses:
 
 ```csharp
 public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Per convenzione, Entity Framework consente l'eliminazione a catena per chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può comportare le regole delete cascade circolare, verrà generata un'eccezione quando si tenta di aggiungere una migrazione. Ad esempio, se la proprietà Department.InstructorID non è stato definito come nullable, EF sarebbe configurare una regola di delete cascade per eliminare istruttore quando si elimina il reparto, che non si desidera accada. Se le regole di business è necessario il `InstructorID` proprietà sia non nullable, è necessario utilizzare la seguente istruzione di Microsoft Office fluent API per disattivare eliminazione a catena della relazione:
+> Per convenzione, Entity Framework consente l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può determinare regole di eliminazione a catena circolari, che generano un'eccezione quando si prova ad aggiungere una migrazione. Se ad esempio la proprietà Department.InstructorID non è stata definita come nullable, EF configura una regola di eliminazione a catena per eliminare l'insegnante quando si elimina il reparto, un risultato indesiderato. Se le regole business richiedono che la proprietà `InstructorID` sia non nullable, è necessario usare la seguente istruzione API Fluent per disattivare l'eliminazione a catena nella relazione:
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -316,26 +316,26 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Modificare l'entità di registrazione
+## <a name="modify-the-enrollment-entity"></a>Modificare l'entità Enrollment
 
-![Entità di registrazione](complex-data-model/_static/enrollment-entity.png)
+![Entità Enrollment](complex-data-model/_static/enrollment-entity.png)
 
-In *Models/Enrollment.cs*, sostituire il codice aggiunto in precedenza con il codice seguente:
+In *Models/Enrollment.cs* sostituire il codice aggiunto in precedenza con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
-### <a name="foreign-key-and-navigation-properties"></a>Proprietà di chiave e la navigazione esterna
+### <a name="foreign-key-and-navigation-properties"></a>Proprietà chiave esterna e di navigazione
 
-La proprietà di chiave esterna e le proprietà di navigazione rifletteranno le relazioni seguenti:
+Le proprietà di chiave esterna e le proprietà di navigazione riflettono le relazioni seguenti:
 
-È un record di registrazione per un singolo corso, pertanto non c'è un `CourseID` proprietà di chiave esterna e un `Course` proprietà di navigazione:
+Un record di iscrizione è relativo a un singolo corso, pertanto sono presenti una proprietà di chiave esterna `CourseID` e una proprietà di navigazione `Course`:
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-È un record di registrazione per un singolo studente, pertanto non c'è un `StudentID` proprietà di chiave esterna e un `Student` proprietà di navigazione:
+Un record di iscrizione è relativo a un singolo studente, pertanto sono presenti una proprietà di chiave esterna `StudentID` e una proprietà di navigazione `Student`:
 
 ```csharp
 public int StudentID { get; set; }
@@ -344,19 +344,19 @@ public Student Student { get; set; }
 
 ## <a name="many-to-many-relationships"></a>Relazioni molti-a-molti
 
-Vi è una relazione molti-a-molti tra le entità Student e Course e l'entità di registrazione funziona come una tabella di join molti-a-molti *con payload* nel database. "Con payload" significa che la tabella di registrazione contiene dati aggiuntivi oltre a chiavi esterne per le tabelle unite in join (in questo caso, una chiave primaria e una proprietà di livello).
+È presente una relazione molti-a-molti tra le entità Student e Course e l'entità Enrollment funziona come una tabella di join molti-a-molti *con payload* nel database. "Con payload" significa che la tabella Enrollment contiene dati aggiuntivi oltre alle chiavi esterne delle tabelle di join (in questo caso una chiave primaria e una proprietà Grade).
 
-Nella figura seguente viene illustrato l'aspetto queste relazioni in un diagramma di entità. (Questo diagramma è stato generato utilizzando gli strumenti di Entity Framework Power per Entity Framework 6. x; si crea il diagramma non fa parte dell'esercitazione, appena viene utilizzato come un'illustrazione.)
+La figura seguente illustra l'aspetto di queste relazioni in un diagramma di entità. Il diagramma è stato generato con Entity Framework Power Tools per EF 6.x. La creazione del diagramma non fa parte dell'esercitazione e il diagramma viene visualizzato solo come esempio.
 
-![Corso di studenti molti-a-molti relazione](complex-data-model/_static/student-course.png)
+![Relazione molti-a-molti Student-Course (Studente-Corso)](complex-data-model/_static/student-course.png)
 
-Ogni linea della relazione dispone di un 1 al fine di uno e un asterisco (*) a altra, per indicare una relazione uno-a-molti.
+Ogni riga della relazione inizia con un 1 e termina con un asterisco (*), per indicare una relazione uno-a-molti.
 
-Se la tabella di registrazione non include informazioni di livello, sarebbe sufficiente contenere le due chiavi esterne CourseID e StudentID. In tal caso, sarebbe una tabella di join molti-a-molti senza payload (o una tabella di join pure) del database. Le entità Instructor e corso dispongono di questo tipo di relazione molti-a-molti e il passaggio successivo consiste nel creare una classe di entità per fungere da una tabella di join senza payload.
+Se la tabella Enrollment (Iscrizione) non include informazioni sul livello è sufficiente che contenga le due chiavi esterne CourseID e StudentID. In questo caso sarebbe una tabella di join molti-a-molti senza payload (o tabella di join pura) del database. Le entità Instructor e Course dispongono di questo tipo di relazione molti-a-molti e il passaggio successivo consiste nel creare una classe di entità che faccia da tabella di join senza payload.
 
-(Supporta Entity Framework 6. x tabelle join implicito per le relazioni molti-a-molti, ma Core EF non. Per ulteriori informazioni, vedere il [discussione nel repository GitHub Core EF](https://github.com/aspnet/EntityFramework/issues/1368).) 
+Le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x, ma non in EF Core. Per altre informazioni, vedere l'[approfondimento nel repository EF Core di GitHub repository](https://github.com/aspnet/EntityFramework/issues/1368). 
 
-## <a name="the-courseassignment-entity"></a>L'entità CourseAssignment
+## <a name="the-courseassignment-entity"></a>Entità CourseAssignment
 
 ![Entità CourseAssignment](complex-data-model/_static/courseassignment-entity.png)
 
@@ -364,27 +364,27 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
 
-### <a name="join-entity-names"></a>Aggiungere i nomi delle entità
+### <a name="join-entity-names"></a>Nomi delle entità di join
 
-È necessaria una tabella di join del database per la relazione molti-a-molti per istruttore-corsi e deve essere rappresentato da un set di entità. È comune per assegnare un nome di un'entità di join `EntityName1EntityName2`, che in questo caso sarebbe `CourseInstructor`. Tuttavia, è consigliabile scegliere un nome che descrive la relazione. I modelli di dati inizia semplice e aumento delle dimensioni, con join no payload spesso recupero payload più tardi. Se si inizia con un nome descrittivo di entità, non è necessario modificare il nome in un secondo momento. Idealmente, l'entità di join avrebbe il nome del relativo naturale (possibilmente singola parola) nel dominio aziendale. Documentazione e i clienti, ad esempio, potrebbero essere collegati tramite classificazioni. Per questa relazione, `CourseAssignment` è una soluzione migliore rispetto alla `CourseInstructor`.
+È necessaria una tabella di join del database per la relazione molti-a-molti Instructor-Courses e tale relazione deve essere rappresentata da un set di entità. È pratica comune assegnare a un'entità di join il nome `EntityName1EntityName2`, che in questo caso sarebbe `CourseInstructor`. È tuttavia consigliabile scegliere un nome che descrive la relazione. I modelli di dati sono inizialmente semplici, quindi crescono e diventano più complessi. In molti casi ai join senza payload vengono assegnati payload in un secondo momento. Se si inizia con un nome di entità descrittivo, non sarà necessario modificarlo successivamente. Idealmente l'entità di join dovrebbe avere il proprio nome naturale (se possibile composto da un'unica parola) nel dominio di business. Ad esempio Books (Documentazione) e Customers (Clienti) potrebbero essere collegati mediante Ratings (Valutazioni). Per questa relazione `CourseAssignment` è una soluzione migliore rispetto a `CourseInstructor`.
 
 ### <a name="composite-key"></a>Chiave composta
 
-Poiché le chiavi esterne non sono nullable e insieme in modo univoco ogni riga della tabella, non è necessario per una chiave primaria separata. Il *InstructorID* e *CourseID* proprietà dovrebbero funzionare come una chiave primaria composta. È l'unico modo per identificare le chiavi primarie composte per Entity Framework utilizzando la *API fluent* (non può essere eseguita con gli attributi). Si noterà come configurare la chiave primaria composta nella sezione successiva.
+Dato che le chiavi esterne non sono nullable e insieme identificano in modo univoco ogni riga della tabella, non è necessario avere una chiave primaria separata. Le proprietà *InstructorID* e *CourseID* funzionano come una chiave primaria composta. L'unico modo per identificare le chiavi primarie composte in Entity Framework è l'uso di *API Fluent* (l'operazione non può essere eseguita con gli attributi). Nella sezione successiva si vedrà come configurare la chiave primaria composta.
 
-Chiave composta assicura che possono essere presenti più righe per un corso e più righe per un insegnante, non può avere più righe per la stessa instructor e corso. Il `Enrollment` join entità definisce la propria chiave primaria, sono possibili i duplicati di questo tipo. Per evitare tali duplicati, è possibile aggiungere un indice univoco per i campi di chiave esterni o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per ulteriori informazioni, vedere [indici](https://docs.microsoft.com/ef/core/modeling/indexes).
+La chiave composta garantisce che anche se è possibile avere più righe per un corso e più righe per un insegnante, non è possibile avere più righe per lo stesso insegnante e lo stesso corso. L'entità di join `Enrollment` definisce la propria chiave primaria, pertanto sono possibili i duplicati di questo tipo. Per evitare tali duplicati è possibile aggiungere un indice univoco ai campi chiave esterna o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per altre informazioni, vedere [Indexes](https://docs.microsoft.com/ef/core/modeling/indexes) (Indici).
 
-## <a name="update-the-database-context"></a>Aggiornare il contesto del database
+## <a name="update-the-database-context"></a>Aggiornare il contesto di database
 
-Aggiungere il codice evidenziato di seguito per il *Data/SchoolContext.cs* file:
+Aggiungere il codice evidenziato di seguito al file *Data/SchoolContext.cs*:
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
-Questo codice aggiunge le nuove entità e configura chiave primaria composta CourseAssignment dell'entità.
+Questo codice aggiunge le nuove entità e configura la chiave primaria composta dell'entità CourseAssignment.
 
-## <a name="fluent-api-alternative-to-attributes"></a>In alternativa Fluent API per gli attributi
+## <a name="fluent-api-alternative-to-attributes"></a>Alternativa API Fluent agli attributi
 
-Il codice nel `OnModelCreating` metodo il `DbContext` utilizzato dalla classe il *fluent API* per configurare il comportamento di Entity Framework. L'API viene denominata "Microsoft Office fluent" perché viene usata spesso mettendo una serie di chiamate di metodo insieme in una singola istruzione, come in questo esempio dal [documentazione principale di EF](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -395,31 +395,31 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-In questa esercitazione, si utilizza l'API fluent solo per mapping del database che si può fare con gli attributi. Tuttavia, è possibile utilizzare anche l'API fluent per specificare la maggior parte della formattazione, convalida e regole di mapping che è possibile eseguire utilizzando gli attributi. Alcuni attributi, ad esempio `MinimumLength` non può essere applicata con l'API fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, si applica solo una regola di convalida sul lato client e server.
+In questa esercitazione si usa l'API Fluent solo per operazioni di mapping del database non eseguibili con gli attributi. È tuttavia possibile usare l'API Fluent anche per specificare la maggior parte delle regole di formattazione, convalida e mapping specificabili tramite gli attributi. Alcuni attributi quali `MinimumLength` non possono essere applicati con l'API Fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, ma si limita ad applicare una regola di convalida lato client e lato server.
 
-Alcuni sviluppatori preferiscono utilizzare l'API fluent esclusivamente in modo che mantengano le classi di entità "pulito". È possibile combinare gli attributi e l'API fluent se si desidera, e sono disponibili alcune personalizzazioni che è possono solo tramite l'API fluent, ma in genere di è consigliabile scegliere uno di questi due approcci e usare in che modo coerente il più possibile. Se si utilizzano entrambi, si noti che ogni volta che si verifica un conflitto, Microsoft Office Fluent API esegue l'override di attributi.
+Alcuni sviluppatori preferiscono usare solo l'API Fluent, per dare un aspetto "ordinato" alle classi di entità. È possibile usare un misto di attributi e API Fluent e alcune personalizzazioni sono eseguibili solo mediante l'API Fluent, ma in generale è consigliabile scegliere uno dei due approcci e usarlo in modo il più possibile coerente. Se si usano entrambi gli approcci, tenere presente che ogni volta che si verifica un conflitto l'API Fluent esegue l'override degli attributi.
 
-Per ulteriori informazioni sugli attributi e Microsoft Office fluent API, vedere [metodi di configurazione](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Per altre informazioni sul confronto tra attributi e API Fluent, vedere [Metodi di configurazione](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
 
-## <a name="entity-diagram-showing-relationships"></a>Entità diagramma che illustra le relazioni
+## <a name="entity-diagram-showing-relationships"></a>Diagramma dell'entità che visualizza le relazioni
 
-Nella figura seguente viene illustrato il diagramma che strumenti di Entity Framework Power creare per il modello School completato.
+La figura seguente visualizza il diagramma creato da Entity Framework Power Tools per il modello School completato.
 
-![Diagramma di entità](complex-data-model/_static/diagram.png)
+![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-Oltre alle linee di relazione uno-a-molti (da 1 a \*), sarà possibile visualizzare la linea della relazione uno-a-zero-o-uno (da 1 a 0.1) tra le entità Instructor e OfficeAssignment e la riga zero-o-relazione uno-a-molti (0.1 a *) tra il Entità Instructor e Department.
+Oltre alle linee delle relazioni uno-a-molti (da 1 a \*) è possibile visualizzare la linea della relazione uno-a-zero-o-uno (da 1 a 0..1) tra le entità Instructor e OfficeAssignment e la linea della relazione zero-o-uno-a-molti (da 0..1 a *) tra le entità Instructor e Department.
 
-## <a name="seed-the-database-with-test-data"></a>Valore di inizializzazione del Database con dati di Test
+## <a name="seed-the-database-with-test-data"></a>Assegnare valori di inizializzazione al database con dati di test
 
-Sostituire il codice di *Data/DbInitializer.cs* file con il codice seguente per fornire i dati iniziali per le nuove entità creata.
+Sostituire il codice nel file *Data/DbInitializer.cs* con il codice seguente per includere dati di inizializzazione per le nuove entità create.
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
-Come osservato nella prima esercitazione, la maggior parte di questo codice crea nuovi oggetti entità e carica i dati di esempio nella proprietà come necessario per i test. Si noti la modalità di gestione delle relazioni molti-a-molti: il codice crea relazioni tramite la creazione di entità di `Enrollments` e `CourseAssignment` aggiungere set di entità.
+Come si è visto nella prima esercitazione, la maggior parte di questo codice crea semplicemente nuovi oggetti entità e carica i dati di esempio nelle proprietà in base alle esigenze di test. Osservare la modalità di gestione delle relazioni molti-a-molti: il codice crea relazioni tramite la creazione di entità nei set di entità di join `Enrollments` e `CourseAssignment`.
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 
-Salvare le modifiche e compilare il progetto. Aprire la finestra di comando nella cartella del progetto, quindi immettere il `migrations add` comando (non eseguire il comando update-database ancora):
+Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di comando nella cartella del progetto e immettere il comando `migrations add` (non eseguire ancora il comando update-database):
 
 ```console
 dotnet ef migrations add ComplexDataModel
@@ -432,31 +432,31 @@ An operation was scaffolded that may result in the loss of data. Please review t
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-Se si è tentato di eseguire il `database update` comando a questo punto (non ancora), si otterrebbe il seguente errore:
+Se si prova a eseguire il comando `database update` in questa fase (evitare di farlo), si ottiene il seguente errore:
 
-> L'istruzione ALTER TABLE è in conflitto con il vincolo FOREIGN KEY "FK_dbo. Course_dbo. Department_DepartmentID". Si è verificato il conflitto in una tabella del database "ContosoUniversity", "dbo. Reparto", colonna 'DepartmentID'.
+> The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Course_dbo.Department_DepartmentID". The conflict occurred in database "ContosoUniversity", table "dbo.Department", column 'DepartmentID' (L'istruzione ALTER TABLE è in conflitto con il vincolo FOREIGN KEY "FK_dbo.Course_dbo.Department_DepartmentID". Il conflitto si è verificato nella colonna 'DepartmentID' della tabella "dbo.Department"del database "ContosoUniversity").
 
-A volte quando si esegue con dati esistenti, è necessario inserire dati stub nel database per soddisfare i vincoli di chiave esterna. Il codice generato nei componenti di `Up` metodo aggiunge una chiave esterna a DepartmentID non ammette valori null nella tabella Course. Se sono già presenti righe nella tabella Course quando viene eseguito il codice, il `AddColumn` operazione non riesce perché SQL Server non riconosce il valore da inserire nella colonna che non può essere null. Per questa esercitazione viene eseguita la migrazione in un nuovo database, ma in un'applicazione di produzione è necessario effettuare la migrazione di gestire i dati esistenti, pertanto le indicazioni riportate di seguito viene illustrato un esempio di come eseguire questa operazione.
+In determinati casi, quando si eseguono migrazioni con dati esistenti è necessario inserire dati stub nel database per soddisfare i vincoli di chiave esterna. Il codice generato nel metodo `Up` aggiunge una chiave esterna DepartmentID alla tabella Course. Se sono già presenti righe nella tabella Course quando viene eseguito il codice, l'operazione `AddColumn` non riesce perché SQL Server non determina il valore da inserire nella colonna, che non può essere null. In questa esercitazione si esegue la migrazione in un nuovo database, ma in un'applicazione di produzione è necessario che la migrazione gestisca i dati esistenti. Le istruzioni che seguono visualizzano un esempio di esecuzione di questa operazione.
 
-Per rendere questa migrazione lavorare con i dati esistenti, che è necessario modificare il codice per fornire la nuova colonna un valore predefinito e creare un reparto stipendi denominata "Temp" come il reparto predefinito. Di conseguenza, esistente righe corso saranno tutti correlati al reparto "Temp" dopo il `Up` esecuzione del metodo.
+Per fare in modo che questa migrazione funzioni con i dati esistenti, è necessario modificare il codice per dare alla nuova colonna un valore predefinito e creare un reparto stub denominato "Temp" che svolga la funzione di reparto predefinito. Di conseguenza, dopo l'esecuzione del metodo `Up` tutte le righe Course esistenti saranno correlate al reparto "Temp".
 
-* Aprire il *{timestamp}_ComplexDataModel.cs* file. 
+* Aprire il file *{timestamp}_ComplexDataModel.cs*. 
 
-* Impostare come commento la riga di codice che aggiunge la colonna DepartmentID è presente nella tabella Course.
+* Impostare come commento la riga di codice che aggiunge la colonna DepartmentID alla tabella Course.
 
   [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-* Dopo il codice che crea la tabella di reparto, aggiungere il codice evidenziato di seguito:
+* Aggiungere il codice evidenziato seguente dopo il codice che crea la tabella Department:
 
   [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-In un'applicazione di produzione, è necessario scrivere codice o script per aggiungere righe di reparto e correlare righe corso per le nuove righe di reparto. È quindi non è più necessario il reparto "Temp" o il valore predefinito nella colonna Course.DepartmentID.
+In un'applicazione di produzione è necessario creare codice o script per aggiungere righe Department e associare le righe Course alle nuove righe Department. In tal modo il reparto "Temp" o il valore predefinito nella colonna Course.DepartmentID non saranno più necessari.
 
 Salvare le modifiche e compilare il progetto.
 
 ## <a name="change-the-connection-string-and-update-the-database"></a>Modificare la stringa di connessione e aggiornare il database
 
-Ora è nuovo codice `DbInitializer` classe che aggiunge i dati iniziali per le nuove entità a un database vuoto. Per creare un nuovo database vuoto EF, modificare il nome del database nella stringa di connessione in *appSettings. JSON* ContosoUniversity3 o un altro nome che non è stato utilizzato nel computer in uso.
+Ora la classe `DbInitializer` include nuovo codice che aggiunge dati di inizializzazione per le nuove entità a un database vuoto. Per fare in modo che EF crei un nuovo database vuoto, cambiare il nome del database nella stringa di connessione *appsettings.json* digitando ContosoUniversity3 o un altro nome non ancora adottato nel computer in uso.
 
 ```json
 {
@@ -465,35 +465,35 @@ Ora è nuovo codice `DbInitializer` classe che aggiunge i dati iniziali per le n
   },
 ```
 
-Salvare le modifiche apportate ai *appSettings. JSON*.
+Salvare le modifiche apportate ad *appsettings.json*.
 
 > [!NOTE]
-> Come alternativa alla modifica del nome di database, è possibile eliminare il database. Utilizzare **Esplora oggetti di SQL Server** (sillaba SSOX) o `database drop` comando CLI:
+> In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** (SSOX) o il comando CLI `database drop`:
 > ```console
 > dotnet ef database drop
 > ```
 
-Dopo aver modificato il nome del database o eliminare il database, eseguire il `database update` comando nella finestra di comando per eseguire la migrazione.
+Dopo aver modificato il nome del database o eliminato il database, eseguire il comando `database update` nella finestra di comando per eseguire le migrazioni.
 
 ```console
 dotnet ef database update
 ```
 
-Eseguire l'app affinché i `DbInitializer.Initialize` metodo per eseguire e popolare il nuovo database.
+Eseguire l'app per far sì che il metodo `DbInitializer.Initialize` venga eseguito e popoli il nuovo database.
 
-Aprire il database in sillaba SSOX come fatto in precedenza ed espandere il **tabelle** nodo per visualizzare tutte le tabelle che sono state create. (Se è ancora aperto sillaba SSOX dal momento precedente, fare clic su di **aggiornamento** pulsante.)
+Aprire il database in SSOX come in precedenza, quindi espandere il nodo **Tabelle** per visualizzare tutte le tabelle che sono state create. Se SSOX è ancora aperto dall'operazione precedente, fare clic sul pulsante **Aggiorna**.
 
-![Tabelle in sillaba SSOX](complex-data-model/_static/ssox-tables.png)
+![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
 
-Eseguire l'app per attivare il codice di inizializzatore che esegue il seeding del database.
+Eseguire l'app per attivare il codice inizializzatore che esegue l'inizializzazione del database.
 
-Fare doppio clic su di **CourseAssignment** tabella e selezionare **Visualizza dati** per verificare che disponga di dati in essa contenuti.
+Fare clic con il pulsante destro del mouse sulla tabella **CourseAssignment** e selezionare **Visualizza dati** per verificare che la tabella contenga dati.
 
-![Dati CourseAssignment sillaba SSOX](complex-data-model/_static/ssox-ci-data.png)
+![Dati CourseAssignment in SSOX](complex-data-model/_static/ssox-ci-data.png)
 
 ## <a name="summary"></a>Riepilogo
 
-È ora disponibile un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente, si apprenderà ulteriori informazioni su come accedere ai dati correlati.
+Ora sono presenti un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente si apprenderanno tecniche per l'accesso ai dati correlati.
 
 >[!div class="step-by-step"]
 [Precedente](migrations.md)

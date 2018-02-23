@@ -1,12 +1,12 @@
-# <a name="aspnet-core-model-providers-sample"></a>Esempio di modello di provider ASP.NET di base
+# <a name="aspnet-core-model-providers-sample"></a>Esempio di un provider di modello di ASP.NET Core
 
-Questo esempio viene illustrato l'utilizzo di provider modello route e di pagina personalizzato pagine Razor. In questo esempio illustra le funzionalità descritte nel [pagine Razor route app convenzione funzionalità](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features) argomento.
+Questo esempio illustra l'uso della route personalizzata e del provider di modelli di Razor Pages. In questo esempio vengono illustrate le funzionalità descritte nell'argomento relativo alle [funzionalità di convenzione di route e app per Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features).
 
-## <a name="examples-in-this-sample"></a>Negli esempi contenuti in questo esempio
+## <a name="examples-in-this-sample"></a>Esempi
 
 | Funzionalità | Demo di esempio |
 | -------- | ----------- |
-| [Aggiungere le convenzioni di modello di route e app](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | Aggiungere un attributo della route e l'intestazione per le pagine dell'applicazione. |
-| [Utilizzare AddPageRoute per aggiungere una route di pagina](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Aggiunge la route specificata per la pagina con la pagina specificata. |
-| [Convenzioni della pagina modello azione](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Aggiungere un'intestazione di pagine in una cartella, aggiungere un'intestazione per una singola pagina e configurare una factory di filtro per aggiungere un'intestazione per le pagine dell'applicazione. |
-| [Sostituire il provider del modello di app pagina predefinito](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Modificare le convenzioni di denominazione di gestore. |
+| [Aggiungere convenzioni di route e del modello di app](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | Aggiungere un attributo della route e l'intestazione nelle pagine dell'applicazione. |
+| [Usare AddPageRoute per aggiungere una route di pagina](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Aggiunge la route specifica per la pagina alla pagina specifica. |
+| [Convenzioni per le azioni del modello di pagina](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Aggiungere un'intestazione alle pagine in una cartella, aggiungere un'intestazione a una pagina singola e configurare una factory di filtro per aggiungere un'intestazione alle pagine dell'app. |
+| [Sostituire il provider di modello di app della pagina predefinito](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Modificare le convenzioni di denominazione del gestore. |

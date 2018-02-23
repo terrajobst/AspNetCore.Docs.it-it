@@ -1,7 +1,7 @@
 ---
-title: Core di ASP.NET MVC con Entity Framework Core, 8 - concorrenza - 10
+title: ASP.NET Core MVC con EF Core - Concorrenza - 8 di 10
 author: tdykstra
-description: "In questa esercitazione viene illustrato come gestire i conflitti quando più utenti aggiornano la stessa entità nello stesso momento."
+description: "Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,99 +10,99 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
 ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - EF Core con l'esercitazione di base di ASP.NET MVC (8 di 10)
+# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - Esercitazione di EF Core con ASP.NET Core MVC (8 di 10)
 
-Da [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni web ASP.NET MVC di base con Entity Framework Core e Visual Studio. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](intro.md).
+L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
 
-Nelle esercitazioni precedenti, è stato descritto come aggiornare i dati. In questa esercitazione viene illustrato come gestire i conflitti quando più utenti aggiornano la stessa entità nello stesso momento.
+Nelle esercitazioni precedenti è stato descritto come aggiornare i dati. Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 
-Si creeranno le pagine web che utilizzano l'entità Department e gestire gli errori di concorrenza. Le illustrazioni seguenti mostrano le pagine di modifica e l'eliminazione, inclusi alcuni messaggi che vengono visualizzati se si verifica un conflitto di concorrenza.
+Si creano pagine Web che funzionano con l'entità Department (Reparto) e si gestiscono gli errori di concorrenza. Le illustrazioni seguenti visualizzano le pagine Edit (Modifica) e Delete (Elimina) e includono alcuni messaggi che vengono visualizzati se si verifica un conflitto di concorrenza.
 
-![Pagina Modifica reparto](concurrency/_static/edit-error.png)
+![Pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error.png)
 
-![Pagina di eliminazione di reparto](concurrency/_static/delete-error.png)
+![Pagina Department Delete (Elimina - Reparto)](concurrency/_static/delete-error.png)
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
-Un conflitto di concorrenza si verifica quando un utente visualizza dati di un'entità per modificarlo, mentre un altro utente aggiorna i dati dell'entità stessa prima che la modifica del primo utente venga scritto nel database. Se non si abilita il rilevamento dei conflitti, ultimo utente che aggiorna il database sovrascrive le modifiche dell'utente. In molte applicazioni, questo rischio è accettabile: se sono presenti alcuni utenti o alcuni aggiornamenti o se non è realmente critico se alcune modifiche vengono sovrascritte, il costo di programmazione per la concorrenza potrebbe annullare il vantaggio. In tal caso, non è necessario configurare l'applicazione per gestire i conflitti di concorrenza.
+Un conflitto di concorrenza si verifica quando un utente visualizza i dati di un'entità per modificarli mentre un altro utente aggiorna i dati della stessa entità prima che la modifica del primo utente venga scritta nel database. Se non si abilita il rilevamento di questi conflitti, l'ultimo utente che aggiorna il database sovrascrive le modifiche apportate dall'altro utente. In molte applicazioni questo rischio è accettabile: se il numero di utenti è ridotto o se l'eventuale sovrascrittura di alcune modifiche non è un aspetto critico, i costi della programmazione per la concorrenza possono superare i vantaggi. In tal caso non è necessario configurare l'applicazione per la gestione dei conflitti di concorrenza.
 
 ### <a name="pessimistic-concurrency-locking"></a>Concorrenza pessimistica (blocco)
 
-Se l'applicazione è necessario evitare la perdita accidentale dei dati in scenari di concorrenza, un modo per eseguire questa operazione è necessario utilizzare blocchi di database. Si tratta della concorrenza pessimistica. Ad esempio, prima di leggere una riga da un database, si richiedono il blocco di sola lettura o per l'accesso per l'aggiornamento. Se si blocca una riga per l'accesso per l'aggiornamento, altri utenti non sono consentiti per bloccare la riga di sola lettura o aggiornare l'accesso, poiché si potrebbe ottenere una copia dei dati che sono in corso di modifica. Se si blocca una riga per l'accesso in sola lettura, altri utenti anche possibile bloccarla per l'accesso in sola lettura, ma non per l'aggiornamento.
+Se è importante che l'applicazione eviti la perdita accidentale di dati in scenari di concorrenza, un metodo per garantire che ciò accada è l'uso dei blocchi di database. Questo approccio è denominato concorrenza pessimistica. Ad esempio, prima di leggere una riga da un database si richiede un blocco per l'accesso di sola lettura o per l'accesso in modalità aggiornamento. Se si blocca una riga per l'accesso di aggiornamento, nessun altro utente può bloccare la riga per l'accesso di sola lettura o di aggiornamento, perché riceverebbe una copia di dati dei quali è in corso la modifica. Se si blocca una riga per l'accesso in sola lettura, anche altri utenti possono bloccarla per l'accesso in sola lettura, ma non per l'aggiornamento.
 
-La gestione dei blocchi presenta gli svantaggi. Può risultare difficile al programma. Richiede risorse di gestione di database significativa, e può causare problemi di prestazioni come il numero di utenti di un'applicazione aumenta. Per questi motivi, non tutti i sistemi di gestione di database supportano la concorrenza pessimistica. Entity Framework Core non fornisce alcun supporto predefinito per il e questa esercitazione non mostra come implementarlo.
+La gestione dei blocchi presenta svantaggi. La sua programmazione può risultare complicata. Richiede molte risorse di gestione del database e può causare problemi di prestazioni quando il numero di utenti di un'applicazione aumenta. Per questi motivi non tutti i sistemi di gestione di database supportano la concorrenza pessimistica. Entity Framework Core non offre supporto predefinito per questa modalità e la presente esercitazione non indica come implementarla.
 
 ### <a name="optimistic-concurrency"></a>Concorrenza ottimistica
 
-L'alternativa alla concorrenza pessimistica è della concorrenza ottimistica. Concorrenza ottimistica significa consentire i conflitti di concorrenza consente di eseguire e quindi reazione in modo appropriato in questo caso. Ad esempio, Jane visita la pagina Modifica reparto e l'importo di Budget per il reparto inglese 350,000.00 $ diventa $0,00.
+L'alternativa alla concorrenza pessimistica è la concorrenza ottimistica. Nella concorrenza ottimistica si consente che i conflitti di concorrenza si verifichino, quindi si reagisce con le modalità appropriate. Ad esempio Jane visita la pagina Department Edit (Modifica - Reparto) e cambia l'importo di Budget per il reparto English (Inglese) da $ 350.000,00 a $ 0,00.
 
-![La modifica di budget per 0](concurrency/_static/change-budget.png)
+![Impostazione del budget su 0](concurrency/_static/change-budget.png)
 
-Prima di Jane seleziona **salvare**, John visita la pagina stessa e il campo Data di inizio da 1/9/2007 a 1/9/2013.
+Prima che Jane faccia clic su **Salva** John visita la stessa pagina e cambia il valore del campo Start Date (Data inizio) da 9/1/2007 a 9/1/2013.
 
-![Modifica la data di inizio a 2013](concurrency/_static/change-date.png)
+![Impostazione della data di inizio su 2013](concurrency/_static/change-date.png)
 
-Jane seleziona **salvare** prima e vede utente modifica quando il browser torna alla pagina di indice.
+Jane fa clic su **Salva** per prima e vede la sua modifica quando il browser torna alla pagina di indice.
 
-![Budget modificato a zero](concurrency/_static/budget-zero.png)
+![Budget impostato su zero](concurrency/_static/budget-zero.png)
 
-Quindi seleziona John **salvare** in una pagina di modifica che mostra ancora un budget di $350,000.00. Le operazioni successive è determinata dalla modalità di gestione i conflitti di concorrenza.
+Quindi John fa clic su **Salva** in una pagina Edit (Modifica) che visualizza ancora un budget pari a $ 350.000,00. Le operazioni successive dipendono da come si decide di gestire i conflitti di concorrenza.
 
-Alcune opzioni includono:
+Di seguito sono elencate alcune opzioni:
 
-* È possibile tenere traccia di quali proprietà di un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
+* È possibile tenere traccia della proprietà che un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
 
-     Nello scenario di esempio, non dati andrebbero persi, perché sono state aggiornate diverse proprietà per i due utenti. La volta successiva che un utente che accede al dipartimento in lingua inglese, visualizzeranno le modifiche di Jane sia di John - una data di inizio del 1/9/2013 e un budget di zero dollari. Questo metodo di aggiornamento può ridurre il numero di conflitti che potrebbero comportare la perdita di dati, ma è possibile evitare la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà di un'entità. Se Entity Framework funziona allo stesso modo dipende dalla modalità di implementazione del codice di aggiornamento. È spesso poco pratico in un'applicazione web, perché possono essere necessarie gestire grandi quantità di stato per tenere traccia di tutti i valori originali di proprietà per un'entità, nonché i nuovi valori. Gestione di grandi quantità di stato in termini di prestazioni dell'applicazione perché richiede risorse di server o deve essere incluso nella pagina web stessa (ad esempio, nei campi nascosti) o in un cookie.
+     Nello scenario dell'esempio non si perde nessun dato, perché i due utenti hanno aggiornato proprietà diverse. Quando un utente torna a visualizzare il reparto English (Inglese), visualizza sia le modifiche di Jane sia quelle di John: la data di inizio 9/1/2013 e un budget di zero dollari. Questo metodo di aggiornamento può ridurre il numero di conflitti che causano la perdita di dati, ma non può evitare la perdita di dati se vengono apportate modifiche in competizione tra loro alla stessa proprietà di un'entità. Questo funzionamento di Entity Framework dipende dalla modalità di implementazione del codice di aggiornamento. In molti casi in un'app Web questo approccio risulta poco pratico, perché richiede la gestione di grandi quantità di codice statico per tenere traccia di tutti i valori di proprietà originali per un'entità, nonché dei nuovi valori. La gestione di grandi quantità di codice statico può influire sulle prestazioni dell'applicazione, perché richiede risorse di server o deve essere inclusa nella pagina Web stessa (ad esempio in campi nascosti) o in un cookie.
 
-* È possibile consentire la modifica di John sovrascrivere la modifica di Jane.
+* È possibile consentire che la modifica di John sovrascriva la modifica di Jane.
 
-     La volta successiva che un utente che accede al reparto in lingua inglese, essi visualizzeranno il 1/9/2013 e il valore di $350,000.00 ripristinato. Si tratta di un *prevalenza del Client* o *ultimo in Wins* scenario. (Tutti i valori dal client hanno la precedenza su ciò che si trova nell'archivio dati). Come accennato nell'introduzione di questa sezione, se non si configura questo codice per la gestione della concorrenza, verrà eseguita automaticamente.
+     Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 ripristinato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Come accennato nell'introduzione di questa sezione, se non si crea codice per la gestione della concorrenza questo scenario si verifica automaticamente.
 
-* È possibile impedire la modifica di John vengano aggiornati nel database.
+* È possibile impedire l'aggiornamento del database con la modifica di John.
 
-     In genere, verrà visualizzato un messaggio di errore, quest'ultimo Mostra lo stato corrente dei dati e consentirgli di riapplicare le modifiche se Alessandro desidera renderli. Si tratta di un *archivio Wins* scenario. (I valori dell'archivio dati hanno la precedenza sui valori inviati dal client). Lo scenario Wins archivio viene implementato in questa esercitazione. Questo metodo assicura che modifiche non vengono sovrascritti senza un utente da ricevere un avviso se ciò che accade.
+     In genere viene visualizzato un messaggio di errore e lo stato corrente dei dati e si consente all'utente di riapplicare le modifiche se lo desidera. Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
 
-### <a name="detecting-concurrency-conflicts"></a>Il rilevamento dei conflitti di concorrenza
+### <a name="detecting-concurrency-conflicts"></a>Rilevamento dei conflitti di concorrenza
 
-È possibile risolvere i conflitti gestendo `DbConcurrencyException` eccezioni generate Entity Framework. Per sapere quando generano queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto, è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
+È possibile risolvere i conflitti gestendo le eccezioni `DbConcurrencyException` generate da Entity Framework. Per determinare quando generare queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
 
-* Nella tabella di database, includere una colonna di rilevamento che può essere utilizzata per determinare quando è stata modificata una riga. È quindi possibile configurare Entity Framework per includere tale colonna nel Where clausola di aggiornamento di SQL o comandi Delete.
+* Nella tabella del database, includere una colonna di rilevamento che può essere usata per determinare quando è stata modificata una riga. Quindi è possibile configurare Entity Framework per includere tale colonna nella clausola Where dei comandi SQL Update o Delete.
 
-     Il tipo di dati della colonna di rilevamento viene in genere `rowversion`. Il `rowversion` valore è un numero sequenziale che sia stato incrementato ogni volta che viene aggiornata la riga. In un comando Update o Delete, Where clausola include il valore originale della colonna di rilevamento (la versione originale). Se la riga aggiornata è stata modificata da un altro utente, il valore di `rowversion` colonna è diverso dal valore originale, pertanto l'istruzione Update o Delete non è possibile trovare la riga da aggiornare a causa di Where clausola. Quando trova Entity Framework che nessuna riga è stata aggiornata mediante l'aggiornamento o eliminazione di comando (ovvero, quando il numero di righe interessate è pari a zero), che vengono interpretati come un conflitto di concorrenza.
+     Il tipo di dati della colonna di rilevamento è in genere `rowversion`. Il valore `rowversion` è un numero sequenziale che viene incrementato ogni volta che la riga viene aggiornata. In un comando Update o Delete, la clausola Where include il valore originale della colonna di rilevamento (la versione originale della riga). Se la riga in corso di aggiornamento è stata modificata da un altro utente, il valore della colonna `rowversion` è diverso dal valore originale, pertanto l'istruzione Update o Delete non trova la riga da aggiornare a causa della clausola Where. Quando Entity Framework rileva che nessuna riga è stata aggiornata dal comando Update o Delete (ovvero quando il numero di righe interessate è pari a zero), interpreta questo fatto come un conflitto di concorrenza.
 
-* Configurare Entity Framework per includere i valori originali di ogni colonna nella tabella Where clausola di comandi Update e Delete.
+* Configurare Entity Framework in modo che includa i valori originali di ogni colonna della tabella nella clausola Where dei comandi Update e Delete.
 
-     Come prima opzione, qualsiasi elemento nella riga è stato modificato dopo la riga prima di tutto è stato letto, Where clausola non restituisce una riga da aggiornare, che Entity Framework viene interpretato come un conflitto di concorrenza. Per le tabelle di database con molte colonne, questo approccio può comportare grandi Where, clausole e possono richiedere mantenere grandi quantità di stato. Come notato in precedenza, la gestione di grandi quantità di stato può sulle prestazioni dell'applicazione. Pertanto questo approccio è in genere sconsigliato, e non è il metodo utilizzato in questa esercitazione.
+     Come nella prima opzione, se è stata apportata qualsiasi modifica dopo la lettura iniziale della riga, la clausola Where non restituisce una riga a Update ed Entity Framework interpreta questo fatto come un conflitto di concorrenza. Per le tabelle di database con molte colonne, questo approccio può risultare in clausole Where molto grandi e richiedere grandi quantità di stato. Come notato in precedenza, la gestione di grandi quantità di codice statico può ridurre le prestazioni dell'applicazione. Pertanto questo approccio è in genere sconsigliato e non è il metodo usato in questa esercitazione.
 
-     Se si desidera implementare questo approccio alla concorrenza, è necessario contrassegnare tutte le proprietà chiave non primaria dell'entità a cui si desidera tenere traccia di concorrenza per aggiungendo il `ConcurrencyCheck` attributo. Tale modifica consente a Entity Framework includere tutte le colonne nella clausola SQL Where delle istruzioni Update e Delete.
+     Se si vuole comunque implementare questo approccio alla concorrenza, è necessario contrassegnare con l'aggiunta dell'attributo `ConcurrencyCheck` tutte le proprietà dell'entità che non sono chiavi primarie e per le quali si vuole tenere traccia della concorrenza. Grazie a questa modifica, Entity Framework include tutte le colonne nella clausola SQL Where delle istruzioni Update e Delete.
 
-Nella parte restante di questa esercitazione si aggiungerà un `rowversion` proprietà di rilevamento per l'entità Department, creare un controller e visualizzazioni e test per verificare che tutto funzioni correttamente.
+Nella parte restante di questa esercitazione si aggiunge una proprietà di rilevamento `rowversion` all'entità Department (Reparto), si crea un controller e delle visualizzazioni e si esegue un test per verificare che tutto funzioni correttamente.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Aggiungere una proprietà di rilevamento all'entità reparto
+## <a name="add-a-tracking-property-to-the-department-entity"></a>Aggiungere una proprietà di rilevamento all'entità Department
 
-In *Models/Department.cs*, aggiungere una proprietà di rilevamento denominata RowVersion:
+In *Models/Department.cs* aggiungere una proprietà di rilevamento denominata RowVersion:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-Il `Timestamp` attributo specifica che questa colonna sarà inclusa nelle Where clausola dei comandi di aggiornamento ed eliminazione inviate al database. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server utilizzato un database SQL `timestamp` il tipo di dati prima di SQL `rowversion` sostituito. Il tipo .NET per `rowversion` è una matrice di byte.
+L'attributo `Timestamp` specifica che questa colonna viene inclusa nella clausola Where dei comandi Update e Delete inviati al database. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server usavano un tipo di dati SQL `timestamp` prima che questo fosse sostituito dalla notazione SQL `rowversion`. Il tipo .NET per `rowversion` è una matrice di byte.
 
-Se si preferisce utilizzare l'API fluent, è possibile utilizzare il `IsConcurrencyToken` metodo (in *Data/SchoolContext.cs*) per specificare la proprietà di rilevamento, come illustrato nell'esempio seguente:
+Se si preferisce usare l'API Fluent, è possibile usare il metodo `IsConcurrencyToken` (in *Data/SchoolContext.cs*) per specificare la proprietà di rilevamento, come illustrato nell'esempio seguente:
 
 ```csharp
 modelBuilder.Entity<Department>()
     .Property(p => p.RowVersion).IsConcurrencyToken();
 ```
 
-Tramite l'aggiunta di una proprietà è stato modificato il modello di database, pertanto è necessario eseguire la migrazione di un altro.
+In seguito all'aggiunta di una proprietà il modello di database è stato modificato, pertanto è necessario eseguire una nuova migrazione.
 
-Salvare le modifiche e compilare il progetto e quindi immettere i comandi seguenti nella finestra di comando:
+Salvare le modifiche e compilare il progetto, quindi immettere i comandi seguenti nella finestra di comando:
 
 ```console
 dotnet ef migrations add RowVersion
@@ -112,172 +112,172 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Creare un controller di reparti e viste
+## <a name="create-a-departments-controller-and-views"></a>Creare un controller Departments e le relative visualizzazioni
 
-Eseguire lo scaffolding di un controller di reparti e le visualizzazioni come fatto in precedenza per i docenti, corsi e studenti.
+Eseguire lo scaffolding di un controller e di visualizzazioni Departments come già fatto in precedenza per Students, Courses e Instructors.
 
-![Lo scaffolding reparto](concurrency/_static/add-departments-controller.png)
+![Scaffolding di Department](concurrency/_static/add-departments-controller.png)
 
-Nel *DepartmentsController.cs* file, modificare tutte le occorrenze di "FirstMidName" in "FullName" in modo che gli elenchi di riepilogo a discesa amministratore reparto conterrà il nome completo del istruttore anziché solo l'ultimo nome.
+Nel file *DepartmentsController.cs*, convertire tutte e quattro le ricorrenze di "FirstMidName" in "FullName" in modo che gli elenchi a discesa degli amministratori di reparto contengano il nome completo dell'insegnante anziché solo il cognome.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Aggiornare la visualizzazione dell'indice reparti
+## <a name="update-the-departments-index-view"></a>Aggiornare la visualizzazione Departments Index (Indice reparti)
 
-Il motore di scaffolding creata una colonna RowVersion nella vista dell'indice, ma il campo non deve essere visualizzato.
+Il motore di scaffolding crea una colonna RowVersion nella vista Index, ma questo campo non deve essere visualizzato.
 
-Sostituire il codice in *Views/Departments/Index.cshtml* con il codice seguente.
+Sostituire il codice in *Views/Departments/Index.cshtml* con il codice seguente:
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
-Questo viene modificato il titolo "Servizi", Elimina la colonna RowVersion e Mostra il nome completo anziché il nome per l'amministratore.
+Questo codice imposta come intestazione "Departments" (Reparti), elimina la colonna RowVersion e visualizza il nome completo anziché solo il cognome dell'amministratore.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>I metodi di modifica nel controller i reparti di aggiornamento
+## <a name="update-the-edit-methods-in-the-departments-controller"></a>Aggiornare i metodi Edit nel controller Departments
 
-In entrambi i HttpGet `Edit` (metodo) e `Details` metodo, aggiungere `AsNoTracking`. Nel HttpGet `Edit` metodo, aggiungere il caricamento immediato per l'amministratore.
+Sia nel metodo HttpGet `Edit` che nel metodo `Details`, aggiungere `AsNoTracking`. Nel metodo HttpGet `Edit` aggiungere il caricamento eager per Administrator.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
-Sostituire il codice esistente per HttpPost `Edit` metodo con il codice seguente:
+Sostituire il codice esistente del metodo HttpPost `Edit` con il codice seguente.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-Il codice inizia la lettura del reparto da aggiornare. Se il `SingleOrDefaultAsync` metodo restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice Usa i valori di modulo registrato per creare un'entità di reparto, in modo che la pagina di modifica può essere visualizzata con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità department se si visualizza un messaggio di errore senza rivisualizzazione i campi di reparto.
+Il codice inizia con la lettura del reparto da aggiornare. Se il metodo `SingleOrDefaultAsync` restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice usa i valori del modulo registrato per creare un'entità reparto, in modo che la pagina di modifica possa essere visualizzata nuovamente con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità del reparto se si visualizza solo un messaggio di errore senza visualizzare di nuovo i campi del reparto.
 
-La vista archivia originale `RowVersion` valore in un campo nascosto e questo metodo riceve il valore nel `rowVersion` parametro. Prima di chiamare `SaveChanges`, è necessario inserire che originale `RowVersion` nel valore della proprietà di `OriginalValues` raccolta per l'entità.
+La visualizzazione archivia il valore `RowVersion` originale in un campo nascosto e questo metodo riceve il valore nel parametro `rowVersion`. Prima della chiamata di `SaveChanges` è necessario inserire il valore originale della proprietà `RowVersion` nella raccolta `OriginalValues` dell'entità.
 
 ```csharp
 _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVersion;
 ```
 
-Quando Entity Framework viene creato un comando SQL UPDATE, il comando, includerà una clausola WHERE che esegue la ricerca di una riga con l'originale `RowVersion` valore. Se nessuna riga è interessata dal comando di aggiornamento (righe di non avere originale `RowVersion` valore), Entity Framework genera un `DbUpdateConcurrencyException` eccezione.
+Quando in seguito Entity Framework crea un comando SQL UPDATE, il comando includerà una clausola WHERE che cerca una riga con il valore `RowVersion` originale. Se nessuna riga è interessata dal comando UPDATE (nessuna riga presenta il valore `RowVersion` originale), Entity Framework genera un'eccezione `DbUpdateConcurrencyException`.
 
-Il codice nel blocco catch per tale eccezione Ottiene l'entità Department interessato con i valori aggiornati dal `Entries` proprietà per l'oggetto eccezione.
+Il codice del blocco catch di tale eccezione ottiene l'entità Department interessata con i valori aggiornati dalla proprietà `Entries` nell'oggetto eccezione.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
-Il `Entries` raccolta avrà uno `EntityEntry` oggetto.  È possibile utilizzare tale oggetto per ottenere i nuovi valori immessi dall'utente e i valori del database corrente.
+La raccolta `Entries` ha un solo oggetto `EntityEntry`.  È possibile usare tale oggetto per ottenere i nuovi valori immessi dall'utente e i valori del database corrente.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
-Il codice aggiunge un messaggio di errore personalizzato per ogni colonna con valori di database diversi da quali immessi dall'utente dal menu Modifica pagina (un solo campo è riportato per brevità).
+Il codice aggiunge un messaggio di errore personalizzato per ogni colonna che ha valori di database diversi da ciò che l'utente ha immesso nella pagina Edit (per brevità qui viene riportato un solo campo).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
-Infine, il codice imposta il `RowVersion` valore il `departmentToUpdate` per il nuovo valore recuperato dal database. Questa nuova `RowVersion` valore verrà archiviato nel campo nascosto quando la modifica di pagina viene visualizzata e la successiva ora l'utente fa clic **salvare**, solo gli errori di concorrenza che si verificano dopo la visualizzazione della pagina di modifica verrà rilevata.
+Infine il codice imposta il valore `RowVersion` di `departmentToUpdate` sul nuovo valore recuperato dal database. Questo nuovo valore `RowVersion` viene archiviato nel campo nascosto quando viene visualizzata nuovamente la pagina Edit (Modifica). Quando l'utente torna a fare clic su **Salva** vengono rilevati solo gli errori di concorrenza che si verificano dopo la nuova visualizzazione della pagina Edit (Modifica).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
-Il `ModelState.Remove` istruzione è necessaria perché `ModelState` è il vecchio `RowVersion` valore. Nella visualizzazione, il `ModelState` valore per un campo ha la precedenza sui valori di proprietà del modello quando sono presenti entrambe.
+L'istruzione `ModelState.Remove` è necessaria perché `ModelState` presenta il valore obsoleto `RowVersion`. Nella visualizzazione, il valore `ModelState` di un campo ha la precedenza sui valori di proprietà del modello quando entrambi gli elementi sono presenti.
 
-## <a name="update-the-department-edit-view"></a>Aggiornare la visualizzazione di modifica di reparto
+## <a name="update-the-department-edit-view"></a>Aggiornare la visualizzazione Department Edit (Modifica - Reparto)
 
-In *Views/Departments/Edit.cshtml*, apportare le modifiche seguenti:
+In *Views/Departments/Edit.cshtml* apportare le modifiche seguenti:
 
-* Aggiungere un campo nascosto per salvare il `RowVersion` valore della proprietà, subito dopo il campo nascosto per il `DepartmentID` proprietà.
+* Aggiungere un campo nascosto per salvare il valore della proprietà `RowVersion` subito dopo il campo nascosto della proprietà `DepartmentID`.
 
-* Aggiungere un'opzione "Selezionare amministratore" per l'elenco a discesa.
+* Aggiungere un'opzione "Select Administrator" (Seleziona amministratore) all'elenco a discesa.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Verificare i conflitti di concorrenza presente nella pagina di modifica
+## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Eseguire il test dei conflitti di concorrenza presente nella pagina Edit
 
-Eseguire l'app e passare alla pagina di indice reparti. Fare doppio clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, quindi fare clic su di **modifica** collegamento ipertestuale per il reparto in lingua inglese. Le schede del due browser ora visualizzano le stesse informazioni.
+Eseguire l'app e passare alla pagina Departments Index (Indice reparti). Fare clic con il pulsante destro del mouse sul collegamento ipertestuale **Edit**  (Modifica) per il reparto English (Inglese) e selezionare **Apri link in nuova scheda**, quindi fare clic sul collegamento ipertestuale **Edit** (Modifica) per il reparto English (Inglese). Le due schede del browser ora visualizzano le stesse informazioni.
 
-Modificare un campo nella prima scheda del browser e fare clic su **salvare**.
+Modificare un campo nella prima scheda del browser e fare clic su **Salva**.
 
-![Reparto Modifica pagina 1 dopo la modifica](concurrency/_static/edit-after-change-1.png)
+![Pagina Department Edit (Modifica - Reparto) 1 dopo la modifica](concurrency/_static/edit-after-change-1.png)
 
-Il browser viene mostrata la pagina di indice con il valore modificato.
+Il browser visualizza la pagina Index con il valore modificato.
 
 Modificare un campo nella seconda scheda del browser.
 
-![Reparto Modifica pagina 2 dopo la modifica](concurrency/_static/edit-after-change-2.png)
+![Pagina Department Edit (Modifica - Reparto) 2 dopo la modifica](concurrency/_static/edit-after-change-2.png)
 
 Fare clic su **Salva**. Viene visualizzato un messaggio di errore:
 
-![Messaggio di errore di pagina Modifica reparto](concurrency/_static/edit-error.png)
+![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error.png)
 
-Fare clic su **salvare** nuovamente. Il valore che immesso nella seconda scheda browser viene salvato. Vengono visualizzati i valori salvati quando viene visualizzata la pagina di indice.
+Fare di nuovo clic su **Salva**. Il valore immesso nella seconda scheda del browser viene salvato. I valori salvati vengono visualizzati nella pagina Index.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina di eliminazione
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
 
-Per la pagina di eliminazione, Entity Framework rileva i conflitti di concorrenza causati da un utente in caso contrario la modifica del reparto in modo simile. Quando il HttpGet `Delete` metodo visualizza la conferma, la visualizzazione include originale `RowVersion` valore in un campo nascosto. Valore ottenuto viene quindi disponibili per il HttpPost `Delete` metodo che viene chiamato quando l'utente conferma l'eliminazione. Quando Entity Framework viene creato il comando SQL DELETE, include una clausola WHERE con originale `RowVersion` valore. Se i risultati del comando in zero righe interessato (che indica la riga è stata modificata dopo che è stata visualizzata la pagina di conferma eliminazione), viene generata un'eccezione di concorrenza e il HttpGet `Delete` metodo viene chiamato con un errore flag è impostato su true per visualizzare nuovamente il pagina di conferma con un messaggio di errore. È anche possibile che siano stati interessati zero righe, perché la riga è stata eliminata da un altro utente, pertanto in questo caso non viene visualizzato alcun messaggio di errore.
+Per la pagina Delete (Elimina), Entity Framework rileva conflitti di concorrenza causati da un altro utente che ha modificato il reparto con modalità simili. Quando il metodo HttpGet `Delete` visualizza la conferma, la visualizzazione include il valore `RowVersion` originale in un campo nascosto. Questo valore viene quindi reso disponibile al metodo HttpPost `Delete` che viene chiamato quando l'utente conferma l'eliminazione. Quando Entity Framework crea il comando SQL DELETE, include una clausola WHERE con il valore `RowVersion` originale. Se il comando non ha effetto su nessuna riga (ovvero se la riga è stata modificata dopo la visualizzazione della pagina di conferma Delete) viene attivata un'eccezione di concorrenza e viene chiamato il metodo HttpGet `Delete` con un flag di errore impostato su true, per tornare a visualizzare la pagina di conferma con un messaggio di errore. È anche possibile che il comando non abbia effetto su nessuna riga perché la riga è stata eliminata da un altro utente. In questo caso non viene visualizzato nessun messaggio di errore.
 
-### <a name="update-the-delete-methods-in-the-departments-controller"></a>I metodi di eliminazione nel controller i reparti di aggiornamento
+### <a name="update-the-delete-methods-in-the-departments-controller"></a>Aggiornare i metodi Delete nel controller Departments
 
-In *DepartmentsController.cs*, sostituire il HttpGet `Delete` metodo con il codice seguente:
+In *DepartmentsController.cs*, sostituire il metodo HttpGet `Delete` con il codice seguente:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
-Il metodo accetta un parametro facoltativo che indica se la pagina viene nuovamente visualizzata dopo un errore di concorrenza. Se questo flag è true e il reparto specificato non esiste, è stata eliminata da un altro utente. In tal caso, il codice reindirizza alla pagina di indice.  Se questo flag è true e il reparto esiste, è stato modificato da un altro utente. In tal caso, il codice invia un messaggio di errore per la visualizzazione con `ViewData`.  
+Il metodo accetta un parametro facoltativo che indica se la pagina viene nuovamente visualizzata dopo un errore di concorrenza. Se questo flag è true e il reparto specificato non esiste più significa che è stato eliminato da un altro utente. In questo caso, il codice esegue il reindirizzamento alla pagina Index.  Se questo flag è true e il reparto esiste, è stato modificato da un altro utente. In questo caso il codice invia un messaggio di errore alla vista usando `ViewData`.  
 
-Sostituire il codice in HttpPost `Delete` metodo (denominato `DeleteConfirmed`) con il codice seguente:
+Sostituire il codice nel metodo HttpPost `Delete` (denominato `DeleteConfirmed`) con il codice seguente.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
-Nel codice scaffolding che è stato sostituito solo, questo metodo è accettato solo un ID di record:
+Nel codice sottoposto a scaffolding appena sostituito, questo metodo accettava solo un ID record:
 
 
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
 
-Questo parametro è stato modificato a un'istanza di entità reparto creata dal gestore di associazione del modello. Ciò consente di accedere EF al valore della proprietà RowVersion oltre alla chiave del record.
+Questo parametro è stato convertito in un'istanza di entità Department creata dallo strumento di associazione di modelli. Ciò consente a EF di accedere al valore della proprietà RowVersion oltre che alla chiave del record.
 
 ```csharp
 public async Task<IActionResult> Delete(Department department)
 ```
 
-È stato modificato il nome del metodo di azione da `DeleteConfirmed` a `Delete`. Il codice di supporto temporaneo utilizzato il nome `DeleteConfirmed` per fornire il metodo HttpPost una firma univoca. (Common Language Runtime richiede metodi di overload per disporre di parametri di metodo diverso). Ora che le firme sono univoche, è possibile utilizzare la convenzione MVC e utilizzare lo stesso nome per i metodi di eliminazione HttpPost e HttpGet.
+Anche il nome del metodo di azione è stato modificato da `DeleteConfirmed` a `Delete`. Il codice sottoposto a scaffolding usava il nome `DeleteConfirmed` per offrire al metodo HttpPost una firma unica. (Common Language Runtime richiede che i metodi di overload dispongano di parametri di metodo diversi). Ora che le firme sono univoche, è possibile aderire alla convenzione MVC e usare lo stesso nome per i metodi di eliminazione HttpPost e HttpGet.
 
-Se il reparto è già stato eliminato, il `AnyAsync` metodo restituisce false e l'applicazione appena torna al metodo di indice.
+Se il reparto è già stato eliminato, il metodo `AnyAsync` restituisce false e l'applicazione torna al metodo Index.
 
-Se viene rilevato un errore di concorrenza, il codice viene visualizzata nuovamente la pagina di conferma eliminazione e fornisce un flag che indica che si visualizza un messaggio di errore di concorrenza.
+Se viene rilevato un errore di concorrenza, il codice visualizza nuovamente la pagina di conferma Delete (Elimina) e visualizza un flag indicante che è necessario visualizzare un messaggio di errore di concorrenza.
 
-### <a name="update-the-delete-view"></a>Aggiornare la visualizzazione di eliminazione
+### <a name="update-the-delete-view"></a>Aggiornare la pagina Delete
 
-In *Views/Departments/Delete.cshtml*, sostituire il codice di supporto temporaneo con il seguente codice che aggiunge un campo di messaggio di errore e i campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche sono evidenziate.
+In *Views/Departments/Delete.cshtml*, sostituire il codice sottoposto a scaffolding con il codice seguente, che aggiunge un campo messaggio di errore e campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche sono evidenziate.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
-In questo modo le modifiche seguenti:
+Questa impostazione determina le modifiche seguenti:
 
-* Aggiunge un messaggio di errore tra il `h2` e `h3` intestazioni.
+* Aggiunge un messaggio di errore tra le intestazioni `h2` e `h3`.
 
-* Sostituisce FirstMidName con nome completo nel **amministratore** campo.
+* Sostituisce FirstMidName con FullName nel campo **Administrator** (Amministratore).
 
 * Rimuove il campo RowVersion.
 
-* Aggiunge un campo nascosto per il `RowVersion` proprietà.
+* Aggiunge un campo nascosto per la proprietà `RowVersion`.
 
-Eseguire l'app e passare alla pagina di indice reparti. Fare doppio clic su di **eliminare** collegamento ipertestuale per il reparto in lingua inglese e selezionare **aperto in una nuova scheda**, fare clic su nella prima scheda di **modifica** collegamento ipertestuale per il reparto in lingua inglese.
+Eseguire l'app e passare alla pagina Departments Index (Indice reparti). Fare clic con il pulsante destro del mouse sul collegamento ipertestuale **Edit**  (Modifica) per il reparto English (Inglese) e selezionare **Apri link in nuova scheda**, quindi fare clic sul collegamento ipertestuale **Edit** per il reparto English.
 
-Nella prima finestra, modificare uno dei valori e fare clic su **salvare**:
+Nella prima finestra modificare uno dei valori e fare clic su **Salva**:
 
-![Pagina Modifica reparto dopo la modifica prima dell'eliminazione](concurrency/_static/edit-after-change-for-delete.png)
+![Pagina Department Edit (Modifica - Reparto) dopo la modifica e prima dell'eliminazione](concurrency/_static/edit-after-change-for-delete.png)
 
-Nella seconda scheda, fare clic su **eliminare**. Viene visualizzato il messaggio di errore di concorrenza e i valori di reparto vengono aggiornati con i dati attualmente il database.
+Nella seconda scheda fare clic su **Delete** (Elimina). Viene visualizzato il messaggio di errore di concorrenza e i valori di Department (Reparto) vengono aggiornati con i dati attualmente presenti nel database.
 
-![Pagina di conferma eliminazione reparto con errore di concorrenza](concurrency/_static/delete-error.png)
+![Pagina di conferma Department Delete (Elimina - Reparto) con errore di concorrenza](concurrency/_static/delete-error.png)
 
-Se si fa clic **eliminare** nuovamente, si viene reindirizzati alla pagina di indice, che indica che il reparto è stato eliminato.
+Se si fa di nuovo clic su **Delete** (Elimina) viene visualizzata la pagina Index che indica che il reparto è stato eliminato.
 
-## <a name="update-details-and-create-views"></a>L'aggiornamento dei dettagli e creare visualizzazioni
+## <a name="update-details-and-create-views"></a>Aggiornare le visualizzazioni Details (Dettagli) e Create (Crea)
 
-Facoltativamente, è possibile pulire il codice scaffolding nei dettagli e creare visualizzazioni.
+Facoltativamente è possibile pulire il codice di scaffolding nelle visualizzazioni Details (Dettagli) e Create (Crea).
 
-Sostituire il codice in *Views/Departments/Details.cshtml* per eliminare la colonna RowVersion e visualizzare il nome completo dell'amministratore.
+Sostituire il codice in *Views/Departments/Details.cshtml* per eliminare la colonna RowVersion e visualizzare il nome completo di Administrator (Amministratore).
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
-Sostituire il codice in *Views/Departments/Create.cshtml* da aggiungere all'elenco di riepilogo a discesa selezionare l'opzione.
+Sostituire il codice in *Views/Departments/Create.cshtml* per aggiungere all'elenco a discesa un'opzione Select (Seleziona).
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Riepilogo
 
-Introduzione alla gestione di conflitti di concorrenza è stata completata. Per ulteriori informazioni su come gestire la concorrenza in Entity Framework Core, vedere [i conflitti di concorrenza](https://docs.microsoft.com/ef/core/saving/concurrency). L'esercitazione successiva viene illustrato come implementare l'ereditarietà tabella per gerarchia per le entità Instructor e Student.
+Questo argomento completa l'introduzione alla gestione dei conflitti di concorrenza. Per altre informazioni su come gestire i conflitti di concorrenza in EF Core, vedere [Conflitti di concorrenza](https://docs.microsoft.com/ef/core/saving/concurrency). L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per le entità Instructor (Insegnante) e Student (Studente).
 
 >[!div class="step-by-step"]
 [Precedente](update-related-data.md)
