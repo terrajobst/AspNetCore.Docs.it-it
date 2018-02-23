@@ -1,5 +1,5 @@
-<span data-ttu-id="f091f-101">La versione finale... /Cu e... /cuFinal contiene più codice completato.</span><span class="sxs-lookup"><span data-stu-id="f091f-101">The final version ../cu and ../cuFinal contain more completed code.</span></span>
+<span data-ttu-id="a5394-101">La versione finale... /cu e... /cuFinal contengono una percentuale maggiore di codice completato.</span><span class="sxs-lookup"><span data-stu-id="a5394-101">The final version ../cu and ../cuFinal contain more completed code.</span></span>
 
-<span data-ttu-id="f091f-102">Copiare wwwroot da... /Cu/ o da un nuovo progetto di pagine Razor.</span><span class="sxs-lookup"><span data-stu-id="f091f-102">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
+<span data-ttu-id="a5394-102">Copiare wwwroot da... /cu/ o da un nuovo progetto Razor Pages.</span><span class="sxs-lookup"><span data-stu-id="a5394-102">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
 
-<span data-ttu-id="f091f-103">Eseguire `dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="f091f-103">Run `dotnet ef database update`</span></span>
+<span data-ttu-id="a5394-103">Eseguire `dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="a5394-103">Run `dotnet ef database update`</span></span>
