@@ -1,5 +1,5 @@
 ---
-title: Choose between ASP.NET and ASP.NET Core (Scegliere tra ASP.NET e ASP.NET Core)
+title: Scegliere tra ASP.NET e ASP.NET Core
 author: rick-anderson
 description: Informazioni su come scegliere tra ASP.NET e ASP.NET Core.
 manager: wpickett
@@ -15,7 +15,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>Choose between ASP.NET and ASP.NET Core (Scegliere tra ASP.NET e ASP.NET Core) 
+# <a name="choose-between-aspnet-and-aspnet-core"></a>Scegliere tra ASP.NET e ASP.NET Core 
 
 Indipendentemente dall'applicazione web che si sta creando, ASP.NET dispone di una soluzione per l'utente: da applicazioni web aziendali destinate a Windows Server, a piccoli contenitori di Linux destinati ai microservizi, passando per tutto ciò che è compreso tra i due elementi.
 
@@ -54,4 +54,4 @@ ASP.NET è un framework consolidato che fornisce tutti i servizi necessari per l
 ## <a name="resources"></a>Risorse
 
 * [Introduzione ad ASP.NET](https://docs.microsoft.com/aspnet/overview)
-* [Introduzione a ASP.NET Core](xref:index)
+* [Introduzione a ASP.NET Core](https://docs.microsoft.com/aspnet/core/)
