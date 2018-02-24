@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Configurare l'autenticazione di Windows in un'applicazione ASP.NET di base
 
-Da [Steve Smith](https://ardalis.com) e [Scott Addie](https://twitter.com/Scott_Addie)
+[Steve Smith](https://ardalis.com) e [Scott Addie](https://twitter.com/Scott_Addie)
 
 L'autenticazione di Windows può essere configurata per le applicazioni ASP.NET Core ospitate in IIS, [HTTP.sys](xref:fundamentals/servers/httpsys), o [WebListener](xref:fundamentals/servers/weblistener).
 
@@ -111,6 +111,9 @@ Quando è abilitata l'autenticazione di Windows e accesso anonimo è disabilitat
 Quando sono abilitati sia l'autenticazione di Windows e l'accesso anonimo, usare il `[Authorize]` e `[AllowAnonymous]` gli attributi. Il `[Authorize]` attributo consente di proteggere parti dell'app che richiedono effettivamente l'autenticazione di Windows. Il `[AllowAnonymous]` esegue l'override dell'attributo `[Authorize]` attributo utilizzo all'interno di applicazioni che consentono l'accesso anonimo. Vedere [autorizzazione semplice](xref:security/authorization/simple) per informazioni dettagliate sull'utilizzo di attributi.
 
 In ASP.NET Core 2. x, il `[Authorize]` attributo richiede una configurazione aggiuntiva in *Startup.cs* di incentivare le richieste anonime per l'autenticazione di Windows. La configurazione consigliata varia leggermente in base al server web in uso.
+
+> [!NOTE]
+> Per impostazione predefinita, vengono presentati gli utenti che non dispongono di autorizzazioni per accedere a una pagina con un documento vuoto. Il [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) può essere configurato per fornire agli utenti un'esperienza migliore "Accesso negato".
 
 #### <a name="iis"></a>IIS
 

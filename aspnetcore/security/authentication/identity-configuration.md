@@ -1,31 +1,58 @@
 ---
 title: "Configurare l'identità di ASP.NET Core"
 author: AdrienTorris
-description: "Comprendere i valori predefiniti di ASP.NET Identity Core e configurare le varie proprietà di identità per l'utilizzo di valori personalizzati."
+description: "Informazioni sui valori predefiniti di ASP.NET Identity Core e informazioni su come configurare le proprietà di identità per l'utilizzo di valori personalizzati."
 manager: wpickett
 ms.author: scaddie
-ms.date: 01/11/2018
+ms.date: 02/21/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 0ec223ce06ff116c36182b8de507138e96a277a4
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: c6f67240c4bfa5ddc1c3aad6c6270ed07349bc72
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-identity"></a>Configurare l'identità
 
-ASP.NET Identity Core presenta comportamenti comuni nelle applicazioni, ad esempio criteri password, il periodo di blocco e le impostazioni dei cookie che è possibile sostituire facilmente l'applicazione `Startup` classe.
+Identità di ASP.NET Core utilizza configurazione predefinita per le impostazioni come criteri password, il periodo di blocco e le impostazioni dei cookie. Queste impostazioni possono essere sostituite dell'app `Startup` classe.
 
-## <a name="passwords-policy"></a>Criteri password
+## <a name="identity-options"></a>Opzioni di identità
 
-Per impostazione predefinita, l'identità richiede che le password deve contenere un carattere maiuscolo, caratteri minuscoli in caratteri, una cifra e un carattere non alfanumerico. Esistono inoltre alcune altre restrizioni. Per semplificare le restrizioni di password, modificare il `ConfigureServices` metodo la `Startup` classe dell'applicazione.
+Il [IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) classe rappresenta le opzioni che possono essere usate per configurare il sistema di identità.
+
+### <a name="claims-identity"></a>Identità basata sulle attestazioni
+
+[IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity) specifica il [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions) con le proprietà visualizzate nella tabella.
+
+| Proprietà | Descrizione | Impostazione predefinita |
+| -------- | ----------- | :-----: |
+| [RoleClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.roleclaimtype) | Ottiene o imposta il tipo di attestazione utilizzato per un'attestazione di ruolo. | [ClaimTypes.Role](/dotnet/api/system.security.claims.claimtypes.role) |
+| [SecurityStampClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.securitystampclaimtype) | Ottiene o imposta il tipo di attestazione utilizzato per l'attestazione di indicatore di sicurezza. | `AspNet.Identity.SecurityStamp` |
+| [UserIdClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.useridclaimtype) | Ottiene o imposta il tipo di attestazione utilizzato per l'attestazione dell'identificatore utente. | [ClaimTypes.NameIdentifier](/dotnet/api/system.security.claims.claimtypes.nameidentifier) |
+| [UserNameClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.usernameclaimtype) | Ottiene o imposta il tipo di attestazione utilizzato per l'attestazione del nome utente. | [ClaimTypes.Name](/dotnet/api/system.security.claims.claimtypes.name) |
+
+### <a name="lockout"></a>Blocco
+
+[!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
+
+[IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout) specifica il [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) con le proprietà visualizzate nella tabella.
+
+| Proprietà | Descrizione | Impostazione predefinita |
+| -------- | ----------- | :-----: |
+| [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | Determina se un nuovo utente può essere bloccato. | `true` |
+| [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | La quantità di tempo un utente è bloccato quando si verifica un blocco. | 5 minuti |
+| [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) | Il numero di tentativi di accesso non riuscito fino a quando un utente viene bloccato, se il blocco è abilitato. | 5 |
+
+### <a name="password"></a>Password
+
+Per impostazione predefinita, l'identità richiede che le password deve contenere un carattere maiuscolo, caratteri minuscoli in caratteri, una cifra e un carattere non alfanumerico. Le password devono essere composta da almeno sei caratteri. [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) possono essere modificati in `Startup.ConfigureServices`.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Componenti di base di ASP.NET 2.0 è stato aggiunto il `RequiredUniqueChars` proprietà. In caso contrario, le opzioni sono le stesse da ASP.NET Core 1. x.
+Componenti di base di ASP.NET 2.0 è stato aggiunto il [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) proprietà. In caso contrario, le opzioni sono le stesse ASP.NET Core 1. x.
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-37,50-52)]
 
@@ -35,60 +62,57 @@ Componenti di base di ASP.NET 2.0 è stato aggiunto il `RequiredUniqueChars` pro
 
 ---
 
-`IdentityOptions.Password` presenta le seguenti proprietà:
+[IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password) specifica il [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) con le proprietà visualizzate nella tabella.
 
-| Proprietà                | Descrizione                       | Impostazione predefinita |
-| ----------------------- | --------------------------------- | ------- |
-| `RequireDigit`          | Richiede un numero compreso tra 0 e 9 nella password. | true |
-| `RequiredLength`        | La lunghezza minima della password. | 6 |
-| `RequireNonAlphanumeric`| Richiede un carattere non alfanumerico nella password. | true |
-| `RequireUppercase`      | Richiede un carattere maiuscolo nella password. | true |
-| `RequireLowercase`      | Richiede un carattere minuscolo nella password. | true |
-| `RequiredUniqueChars`   | Richiede il numero di caratteri distinti nella password. | 1 |
+| Proprietà | Descrizione | Impostazione predefinita |
+| -------- | ----------- | :-----: |
+| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Richiede un numero compreso tra 0 e 9 nella password. | `true` |
+| [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | La lunghezza minima della password. | 6 |
+| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | Si applica solo a componenti di base di ASP.NET 2.0 o versione successiva.<br><br> Richiede il numero di caratteri distinti nella password. | 1 |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Richiede un carattere minuscolo nella password. | `true` |
+| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Richiede un carattere non alfanumerico nella password. | `true` |
+| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Richiede un carattere maiuscolo nella password. | `true` |
 
-
-## <a name="users-lockout"></a>Blocco dell'utente
-
-[!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
-
-`IdentityOptions.Lockout` presenta le seguenti proprietà:
-
-| Proprietà                | Descrizione                       | Impostazione predefinita |
-| ----------------------- | --------------------------------- | ------- |
-| `DefaultLockoutTimeSpan` | La quantità di tempo un utente è bloccato quando si verifica un blocco.  | 5 minuti  |
-| `MaxFailedAccessAttempts` | Il numero di tentativi di accesso non riuscito fino a quando un utente viene bloccato, se il blocco è abilitato.  | 5 |
-| `AllowedForNewUsers` | Determina se un nuovo utente può essere bloccato.  | true |
-
-## <a name="sign-in-settings"></a>Impostazioni di accesso
+### <a name="sign-in"></a>Accedi
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
-`IdentityOptions.SignIn` presenta le seguenti proprietà:
+[IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin) specifica il [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions) con le proprietà visualizzate nella tabella.
 
-| Proprietà                | Descrizione                       | Impostazione predefinita |
-| ----------------------- | --------------------------------- | ------- |
-| `RequireConfirmedEmail` | Richiede una conferma tramite posta elettronica di accedere. | False  |
-| `RequireConfirmedPhoneNumber` |  Richiede un numero di telefono di conferma accedere. | False  |
+| Proprietà | Descrizione | Impostazione predefinita |
+| -------- | ----------- | :-----: |
+| [RequireConfirmedEmail](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedemail) | Richiede una conferma tramite posta elettronica di accedere. | `false` |
+| [RequireConfirmedPhoneNumber](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedphonenumber) | Richiede un numero di telefono di conferma accedere. | `false` |
 
-## <a name="user-validation-settings"></a>Impostazioni di convalida utente
+### <a name="tokens"></a>token
+
+[IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens) specifica il [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions) con le proprietà visualizzate nella tabella.
+
+| Proprietà | Descrizione |
+| -------- | ----------- |
+| [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider) | Ottiene o imposta il `AuthenticatorTokenProvider` utilizzato per convalidare gli accessi a due fattori con un autenticatore. |
+| [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider) | Ottiene o imposta il `ChangeEmailTokenProvider` utilizzato per generare i token utilizzati nei messaggi e-mail di conferma Modifica messaggio di posta elettronica. |
+| [ChangePhoneNumberTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changephonenumbertokenprovider) | Ottiene o imposta il `ChangePhoneNumberTokenProvider` utilizzato per generare i token utilizzati quando si modificano i numeri di telefono. |
+| [EmailConfirmationTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.emailconfirmationtokenprovider) | Ottiene o imposta il provider di token usato per generare i token utilizzati nei messaggi e-mail di conferma di account. |
+| [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider) | Ottiene o imposta il [IUserTwoFactorTokenProvider<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1) utilizzato per generare i token utilizzati nei messaggi e-mail di reimpostazione della password. |
+| [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap) | Utilizzato per costruire un [Provider di Token utente](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor) con la chiave utilizzata come il nome del provider. |
+
+### <a name="user"></a>Utente
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
-`IdentityOptions.User` presenta le seguenti proprietà:
+[IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user) specifica il [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions) con le proprietà visualizzate nella tabella.
 
-| Proprietà                | Descrizione                       | Impostazione predefinita |
-| ----------------------- | --------------------------------- | ------- |
-| `RequireUniqueEmail`  | Richiede che ogni utente dispone di un messaggio di posta elettronica univoco. | False  |
-| `AllowedUserNameCharacters`  | Caratteri consentiti nel nome utente. | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ |
+| Proprietà | Descrizione | Impostazione predefinita |
+| -------- | ----------- | :-----: |
+| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | Caratteri consentiti nel nome utente. | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
+| [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | Richiede che ogni utente dispone di un messaggio di posta elettronica univoco. | `false` |
 
+## <a name="cookie-settings"></a>Impostazioni dei cookie
 
-## <a name="applications-cookie-settings"></a>Impostazioni dei cookie dell'applicazione
-
-Ad esempio i criteri password, tutte le impostazioni dei cookie dell'applicazione modificabili nel `Startup` classe.
+Configurare il cookie dell'applicazione in `Startup.ConfigureServices`:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-In `ConfigureServices` nel `Startup` (classe), è possibile configurare il cookie dell'applicazione.
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?name=snippet_configurecookie)]
 
@@ -98,17 +122,35 @@ In `ConfigureServices` nel `Startup` (classe), è possibile configurare il cooki
 
 ---
 
-`CookieAuthenticationOptions` presenta le seguenti proprietà:
+[CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions) presenta le seguenti proprietà:
 
-| Proprietà                | Descrizione                       | Impostazione predefinita |
-| ----------------------- | --------------------------------- | ------- |
-| `Cookie.Name`  | Il nome del cookie.  | .AspNetCore.Cookies.  |
-| `Cookie.HttpOnly`  | Se è true, il cookie non è accessibile da script lato client.  |  true |
-| `ExpireTimeSpan`  | Determina quanto tempo memorizzata il ticket di autenticazione nel cookie resterà valido dal punto di cui che viene creato.  | 14 giorni  |
-| `LoginPath`  | Quando un utente non autorizzato, essi verrà reindirizzati a questo percorso per l'account di accesso. | /Account/Login  |
-| `LogoutPath`  | Quando un utente è disconnesso, essi verrà reindirizzati a questo percorso.  | /Account/Logout  |
-| `AccessDeniedPath`  | Quando un utente ha esito negativo di un controllo dell'autorizzazione, essi verrà reindirizzati a questo percorso.  |  /Account/AccessDenied |
-| `SlidingExpiration`  | Se è true, verrà generato un nuovo cookie con la nuova ora di scadenza quando il cookie corrente ha superato la metà nella finestra di scadenza.  | true |
-| `ReturnUrlParameter`  | Determina il nome del parametro della stringa di query che viene aggiunto dal middleware quando un codice di stato Unauthorized 401 viene modificato in un reindirizzamento 302 nel percorso di accesso.  | ReturnUrl |
-| `AuthenticationScheme`  | Questo è importante solo per ASP.NET Core 1. x. Il nome logico per uno schema di autenticazione specifico. |  |
-| `AutomaticAuthenticate`  | Questo flag è rilevante solo per ASP.NET Core 1. x. Se è true, all'autenticazione dei cookie deve eseguire in ogni richiesta e tentare di convalidare e ricostruire qualsiasi entità serializzato che è creato.  |  |
+| Proprietà | Descrizione |
+| -------- | ----------- |
+| [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath) | Informa il gestore che è necessario cambiare in uscita *403-accesso negato* codice di stato in un *reindirizzamento 302* nel percorso specificato.<br><br>Il valore predefinito è `/Account/AccessDenied`. |
+| [AuthenticationScheme](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.authenticationscheme) | Si applica solo a ASP.NET di base 1. x.<br><br> Il nome logico per uno schema di autenticazione specifico. |
+| [AutomaticAuthenticate](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticauthenticate) | Si applica solo a ASP.NET di base 1. x.<br><br> Se è true, all'autenticazione dei cookie deve eseguire in ogni richiesta e tentare di convalidare e ricostruire qualsiasi entità serializzato che è creato. |
+| [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge) | Si applica solo a ASP.NET di base 1. x.<br><br> Se true, il middleware di autenticazione gestisce sfide automatico. Se false, il middleware di autenticazione altera solo le risposte quando richiesto esplicitamente dal `AuthenticationScheme`. |
+| [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer) | Ottiene o imposta l'autorità emittente che deve essere utilizzato per tutte le attestazioni che vengono create (ereditata da [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)). |
+| [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) | Il dominio a cui associare il cookie. |
+| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | Ottiene o imposta la durata di un cookie. |
+| [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) | Indica se un cookie è accessibile da uno script sul lato client.<br><br>Il valore predefinito è `true`. |
+| [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) | Il nome del cookie.<br><br>Il valore predefinito è `.AspNetCore.Cookies`. |
+| [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) | Il percorso del cookie. |
+| [Cookie.SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) | Il `SameSite` attributo del cookie.<br><br>Il valore predefinito è [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode). |
+| [Cookie.SecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.securepolicy) | Il [CookieSecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy) configurazione.<br><br>Il valore predefinito è [CookieSecurePolicy.SameAsRequest](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy). |
+| [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiedomain) | Si applica solo a ASP.NET di base 1. x.<br><br> Il nome di dominio in cui il cookie viene servito. |
+| [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiehttponly) | Si applica solo a ASP.NET di base 1. x.<br><br> Flag che indica se il cookie deve essere accessibile solo ai server.<br><br>Il valore predefinito è `true`. |
+| [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiepath) | Si applica solo a ASP.NET di base 1. x.<br><br> Utilizzato per isolare le app eseguono lo stesso nome host. |
+| [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure) | Si applica solo a ASP.NET di base 1. x.<br><br> Flag che indica se il cookie creato deve essere limitato a HTTPS (`CookieSecurePolicy.Always`), HTTP o HTTPS (`CookieSecurePolicy.None`), o lo stesso protocollo della richiesta (`CookieSecurePolicy.SameAsRequest`).<br><br>Il valore predefinito è `CookieSecurePolicy.SameAsRequest`. |
+| [CookieManager](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.cookiemanager) | Il componente utilizzato per ottenere i cookie dalla richiesta o impostarli sulla risposta. | [ChunkingCookieManager](/dotnet/api/microsoft.aspnetcore.authentication.cookies.chunkingcookiemanager) |
+| [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider) | Se è impostato, il provider utilizzato per il [CookieAuthenticationHandler](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationhandler) per la protezione dati. |
+| [Descrizione](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description) | Si applica solo a ASP.NET di base 1. x.<br><br> Informazioni aggiuntive sul tipo di autenticazione viene resa disponibile per l'app. |
+| [Eventi](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.events) | Il gestore chiama i metodi per il provider che offrono il controllo di app in determinati momenti in cui è in corso l'elaborazione. |
+| [EventsType](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.eventstype) | Se impostato, il servizio di tipo per ottenere il `Events` istanza anziché la proprietà (ereditata da [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)). |
+| [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan) | Controlla la quantità di tempo archiviato in rimangono i cookie validi dal punto che viene creato il ticket di autenticazione.<br><br>Il valore predefinito è 14 giorni. |
+| [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath) | Quando un utente non autorizzato, viene indirizzato a questo percorso per l'account di accesso.<br><br>Il valore predefinito è `/Account/Login`. |
+| [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath) | Quando un utente è disconnesso, viene indirizzato a questo percorso.<br><br>Il valore predefinito è `/Account/Logout`. |
+| [ReturnUrlParameter](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.returnurlparameter) | Determina il nome del parametro della stringa di query che viene aggiunto dal middleware quando un *401 non autorizzato* codice di stato viene modificato in un *reindirizzamento 302* nel percorso di accesso.<br><br>Il valore predefinito è `ReturnUrl`. |
+| [SessionStore](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.sessionstore) | Un contenitore facoltativo in cui archiviare l'identità in tutte le richieste. |
+| [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.slidingexpiration) | Se è true, viene generato un nuovo cookie con la nuova ora di scadenza quando il cookie corrente ha superato la metà nella finestra di scadenza.<br><br>Il valore predefinito è `true`. |
+| [TicketDataFormat](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.ticketdataformat) | Il `TicketDataFormat` viene utilizzata per proteggere e annullare la protezione dell'identità e altre proprietà che vengono archiviate nel valore del cookie. |

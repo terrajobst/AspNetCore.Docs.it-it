@@ -1,34 +1,34 @@
 ---
 title: Utilizzare il modello di progetto Angular
 author: SteveSandersonMS
-description: Informazioni su come iniziare con il modello di progetto ASP.NET Core a pagina singola applicazione (SPA) versione finale candidata per angolare e CLI angolare.
+description: Informazioni su come iniziare con il modello di progetto ASP.NET Core singolo pagina applicazione (SPA) per angolare e CLI angolare.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Utilizzare il modello di progetto angolare (versione finale candidata)
+# <a name="use-the-angular-project-template"></a>Utilizzare il modello di progetto Angular
 
 > [!NOTE]
-> Questa documentazione non è sul modello di progetto angolare rilasciato. **Questa documentazione è sulla versione finale candidata del modello angolare.** Ci auguriamo che per la versione rilasciata 2018 anticipata.
+> Questa documentazione non è incluso sul modello di progetto angolare in ASP.NET 2.0 Core. È sul modello di angolare più recente a cui è possibile aggiornare manualmente. Per impostazione predefinita, il modello è incluso in ASP.NET Core 2.1.
 
-Il modello di progetto angolare aggiornato fornisce un punto di partenza ideale per ASP.NET Core App con 5 angolare e CLI angolare per implementare un'interfaccia utente avanzata, sul lato client (UI).
+Il modello di progetto angolare aggiornato fornisce un punto di partenza ideale per ASP.NET Core App utilizzando angolare e CLI angolare per implementare un'interfaccia utente avanzata, sul lato client (UI).
 
 Il modello è equivalente alla creazione di un progetto ASP.NET Core per agire come un back-end dell'API e un progetto CLI angolare come un'interfaccia utente. Il modello offre il vantaggio di hosting di entrambi i tipi di progetto in un progetto di app single. Di conseguenza, il progetto di applicazione da compilare e pubblicato come una singola unità.
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 
-Per iniziare, assicurarsi di aver [installato il modello di progetto angolare aggiornato](xref:spa/index#installation). Queste istruzioni non si applicano al modello di progetto angolare precedente incluso in .NET Core SDK 2.0.
+Se utilizza componenti di base di ASP.NET 2.0, assicurarsi che la [installato il modello di progetto angolare aggiornato](xref:spa/index#installation). Se si dispone di ASP.NET Core 2.1, non è necessario installarlo.
 
 Creare un nuovo progetto da un prompt dei comandi utilizzando il comando `dotnet new angular` in una directory vuota. Ad esempio, i comandi seguenti creano l'app in un *my-nuova-app* directory e passare alla directory:
 
