@@ -204,7 +204,7 @@
 ## [Aggregare e minimizzare](xref:client-side/bundling-and-minification)
 ## [Usare Browser Link](xref:client-side/using-browserlink)
 ## [Usare JavaScriptServices per app a pagina singola](xref:client-side/spa-services)
-## [Usare i modelli di progetto per app a pagina singola (RC)](xref:spa/index)
+## [Usare i modelli di progetto per app a pagina singola](xref:spa/index)
 ### [Modello di progetto per Angular](xref:spa/angular)
 ### [Modello di progetto per React](xref:spa/react)
 ### [Modello di progetto per React con Redux](xref:spa/react-with-redux)
