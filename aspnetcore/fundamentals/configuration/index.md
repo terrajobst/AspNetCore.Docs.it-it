@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 5acae4de56e3f714f0cda2c00d5446d2dcddaf36
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 12635c66bacdeed7360a9d6c689212bba81439e3
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurare un'app ASP.NET Core
 
@@ -63,6 +63,25 @@ Le coppie nome-valore scritte nei provider predefiniti [Configurazione](/dotnet/
 
 L'esempio precedente usa l'indicizzatore di configurazione per leggere i valori. Per accedere alla configurazione fuori da `Startup`, usare il *modello di opzioni*. Per altre informazioni, vedere l'argomento [Opzioni](xref:fundamentals/configuration/options).
 
+## <a name="xml-configuration"></a>Configurazione XML
+
+Per usare le matrici nelle origini di configurazione in formato XML, specificare un indice `name` in ogni elemento. Usare l'indice per accedere ai valori:
+
+```xml
+<wizards>
+  <wizard name="Gandalf">
+    <age>1000</age>
+  </wizard>
+  <wizard name="Harry">
+    <age>17</age>
+  </wizard>
+</wizards>
+```
+
+```csharp
+Console.Write($"{Configuration["wizard:Harry:age"]}");
+// Output: 17
+```
 
 ## <a name="configuration-by-environment"></a>Configurazione per ambiente
 

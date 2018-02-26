@@ -1,26 +1,26 @@
 ---
 title: Usare i modelli di applicazione a pagina singola
 author: SteveSandersonMS
-description: Informazioni su come installare e iniziare a usare i modelli di progetto di applicazioni a pagina singola della versione finale candidata di ASP.NET Core.
+description: Informazioni su come installare e iniziare a usare i modelli di progetto per applicazioni a pagina singola di ASP.NET Core.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 2017c2ada835eb7206dcfd195f6e2c032909f9ef
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 63b56de101199e9ea0d66d89d2dd7288e47902f6
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-single-page-application-templates-release-candidate"></a>Usare i modelli di applicazione a pagina singola (versione finale candidata)
+# <a name="use-the-single-page-application-templates"></a>Usare i modelli di applicazione a pagina singola
 
 > [!NOTE]
-> La versione rilasciata di .NET Core 2.0.x SDK include modelli di progetto per Angular, React e React con Redux. **Questa documentazione non riguarda questi modelli di progetto rilasciati.** Questa documentazione è riferita alla prossima versione dei modelli per Angular, React e React con Redux, di cui è previsto il rilascio agli inizi del 2018.
+> La versione rilasciata di .NET Core 2.0.x SDK include i modelli di progetto precedenti per Angular, React e React con Redux. Questa documentazione non riguarda i modelli di progetto precedenti. Questa documentazione si riferisce ai modelli Angular, React e React con Redux più recenti che possono essere installati manualmente in ASP.NET Core 2.0. I modelli sono inclusi per impostazione predefinita in ASP.NET Core 2.1.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="installation"></a>Installazione
 
-Eseguire il comando seguente per installare la  **versione finale candidata** dei modelli di ASP.NET Core per Angular, React e React con Redux:
+Se è stato installato ASP.NET Core 2.0, eseguire il comando seguente per installare i modelli di ASP.NET Core aggiornati per Angular, React e React con Redux:
 
 ```console
-dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0-rc2-final
+dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0
 ```
 
 ## <a name="use-the-templates"></a>Usare i modelli
