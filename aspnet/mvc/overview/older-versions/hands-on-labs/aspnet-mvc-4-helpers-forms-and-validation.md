@@ -12,34 +12,32 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Convalida, moduli e gli helper di ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Convalida, moduli e gli helper di ASP.NET MVC 4
 
-> In **accesso ai dati e i modelli di ASP.NET MVC 4** pratica, si è stati durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il **negozio** applicazione la possibilità di modificare i dati.
-> 
-> Con tale scopo, si creerà innanzitutto il controller che supporterà le azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) di album. Verrà generato un modello di visualizzazione dell'indice usufruire della funzionalità di scaffolding di ASP.NET MVC per visualizzare le proprietà degli album in una tabella HTML. Per migliorare la visualizzazione, si aggiungerà un helper HTML personalizzato che verrà troncato descrizioni lunghe.
-> 
-> Successivamente, si aggiungerà la modifica e creazione di visualizzazioni che consente di modificare gli album nel database, con l'aiuto di elementi del form come elenchi a discesa.
-> 
-> Infine, si permettono agli utenti di eliminare un album e inoltre si impedirà l'immissione di dati errati, convalidando l'input.
-> 
-> > [!NOTE]
-> > Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni fondamentali su MVC ASP.NET** le esercitazioni pratiche.
-> 
-> 
-> Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
-> 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Da [categorie Web Team](https://twitter.com/webcamps)
 
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+In **accesso ai dati e i modelli di ASP.NET MVC 4** pratica, si è stati durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il **negozio** applicazione la possibilità di modificare i dati.
+
+Con tale scopo, si creerà innanzitutto il controller che supporterà le azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) di album. Verrà generato un modello di visualizzazione dell'indice usufruire della funzionalità di scaffolding di ASP.NET MVC per visualizzare le proprietà degli album in una tabella HTML. Per migliorare la visualizzazione, si aggiungerà un helper HTML personalizzato che verrà troncato descrizioni lunghe.
+
+Successivamente, si aggiungerà la modifica e creazione di visualizzazioni che consente di modificare gli album nel database, con l'aiuto di elementi del form come elenchi a discesa.
+
+Infine, si permettono agli utenti di eliminare un album e inoltre si impedirà l'immissione di dati errati, convalidando l'input.
+
+Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni fondamentali su MVC ASP.NET** le esercitazioni pratiche.
+
+Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
+
+> [!NOTE]
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [helper di ASP.NET MVC 4, i form e convalida](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Obiettivi
@@ -659,7 +657,7 @@ In questa attività si testerà convalidano che le pagine di creare e modificare
 
     ![Convalidato i campi della pagina di modifica](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Convalidato i campi della pagina di modifica*
+    Convalidato i campi della pagina di modifica
 
 <a id="Exercise7"></a>
 

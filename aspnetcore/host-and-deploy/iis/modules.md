@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 5032c9f07af4f9291b44538cecbc310bfabc8e02
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso di moduli IIS con ASP.NET Core
 
@@ -159,6 +159,7 @@ I solo i moduli necessari per eseguire un'applicazione ASP.NET di base sono il m
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Host in Windows con IIS](xref:host-and-deploy/iis/index)
-* [Panoramica di moduli IIS](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Introduzione alle architetture IIS: moduli in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [Panoramica di moduli IIS](/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Personalizzazione di IIS 7.0 ruoli e i moduli](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)

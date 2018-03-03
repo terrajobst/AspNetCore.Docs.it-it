@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>Filtri azione personalizzati di ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-custom-action-filters"></a>Filtri azione personalizzati di ASP.NET MVC 4
 
-> ASP.NET MVC fornisce i filtri di azione per l'esecuzione di logica di filtro prima o dopo la chiamata di un metodo di azione. Filtri azione sono attributi personalizzati che forniscono un modo per aggiungere un comportamento pre-azione e post-azione ai metodi di azione del controller.
-> 
-> In questo laboratorio pratico si creerà un attributo di filtro azione personalizzato nella soluzione MvcMusicStore per intercettare le richieste del controller e registrare l'attività di un sito in una tabella di database. Sarà in grado di aggiungere il filtro di registrazione per l'inserimento di un'azione o un controller. Infine, si noterà che la visualizzazione del log che mostra l'elenco dei visitatori.
-> 
-> > [!NOTE]
-> > Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni di base di ASP.NET MVC 4** le esercitazioni pratiche.
+Da [categorie Web Team](https://twitter.com/webcamps)
 
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC fornisce i filtri di azione per l'esecuzione di logica di filtro prima o dopo la chiamata di un metodo di azione. Filtri azione sono attributi personalizzati che forniscono un modo per aggiungere un comportamento pre-azione e post-azione ai metodi di azione del controller.
+
+In questo laboratorio pratico si creerà un attributo di filtro azione personalizzato nella soluzione MvcMusicStore per intercettare le richieste del controller e registrare l'attività di un sito in una tabella di database. Sarà in grado di aggiungere il filtro di registrazione per l'inserimento di un'azione o un controller. Infine, si noterà che la visualizzazione del log che mostra l'elenco dei visitatori.
+
+Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni di base di ASP.NET MVC 4** le esercitazioni pratiche.
+
+> [!NOTE]
+> Tutto il codice di esempio e i frammenti di codice inclusi in Web categorie Training Kit, disponibile in [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [filtri azione personalizzati di ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Obiettivi
@@ -332,7 +333,7 @@ In questa attività si aggiornerà la soluzione per registrare il nuovo filtro (
 1. In **StoreController** classe, rimuovere **[MyNewCustomActionFilter]** attributo e la proprietà order **[CustomActionFilter]**. Dovrebbe essere simile al seguente:
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. Aprire **Global. asax** file e individuare il **applicazione\_avviare** metodo. Si noti che ogni thime l'avvio dell'applicazione sta registrando i filtri globali chiamando **RegisterGlobalFilters** metodo all'interno di **FilterConfig** classe.
+2. Aprire **Global. asax** file e individuare il **applicazione\_avviare** metodo. Si noti che ogni volta che viene avviata l'applicazione sta registrando i filtri globali chiamando **RegisterGlobalFilters** metodo all'interno di **FilterConfig** classe.
 
     ![Registrazione di filtri globali in Global. asax](aspnet-mvc-4-custom-action-filters/_static/image10.png "la registrazione di filtri globali in Global. asax")
 
@@ -484,12 +485,12 @@ Se l'applicazione viene utilizzato SQL Server database, è necessario creare un 
 
     ![Aggiunta indirizzo IP del Client](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *Aggiunta indirizzo IP del Client*
+    Aggiunta indirizzo IP del Client
 3. Una volta il **indirizzo IP del Client** viene aggiunto agli indirizzi IP consentiti elenco, fare clic su **salvare** per confermare le modifiche.
 
     ![Confermare le modifiche](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *Confermare le modifiche*
+    Confermare le modifiche
 
 <a id="ApxBTask3"></a>
 

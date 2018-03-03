@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzato per ASP.NET Identity Core
 
-[Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
 Identità di ASP.NET Core è un sistema estendibile che consente di creare un provider di archiviazione personalizzato e collegarlo all'app. In questo argomento viene descritto come creare un provider di archiviazione personalizzato per ASP.NET Identity Core. Vengono illustrati i concetti importanti per la creazione di un provider di archiviazione, ma non è una procedura dettagliata.
 
@@ -112,7 +112,7 @@ Archivia e recupera i ruoli assegnati a cui gli utenti. [Esempio](https://docs.m
 
 Nelle classi di accesso ai dati, fornire il codice per eseguire operazioni sui dati per il meccanismo di persistenza. Ad esempio, all'interno di un provider personalizzato, è necessario il codice seguente per creare un nuovo utente nel *archiviare* classe:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 La logica di implementazione per la creazione dell'utente è il ``_usersTable.CreateAsync`` metodo illustrato di seguito.
 
@@ -133,7 +133,7 @@ Creare un `UserStore` classe che fornisce i metodi per tutte le operazioni di da
 - Https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1 IUserRoleStore
 - Https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1 IUserClaimStore
 - Https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1 IUserPasswordStore
-- IUserSecurityStampStore<!-- make these all links and remove / -->
+- IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore
@@ -145,7 +145,7 @@ Il parametro facoltativo che ereditano da `IUserStore`. È possibile visualizzar
 
 All'interno di `UserStore` (classe), utilizzare le classi di accesso ai dati creati per eseguire operazioni. Questi vengono passati mediante l'inserimento di dipendenza. Ad esempio, in SQL Server con implementazione Dapper, il `UserStore` classe dispone di `CreateAsync` metodo che utilizza un'istanza di `DapperUsersTable` per inserire un nuovo record:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfacce da implementare per la personalizzazione archivio utente
 
@@ -196,7 +196,7 @@ Quando si implementa un provider di archiviazione di ruolo, è possibile creare 
 
 Di seguito è una classe ruolo di esempio:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Personalizzare l'archivio di ruolo
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
@@ -76,7 +76,7 @@ In questo modo consente di aggiungere la seguente istruzione using:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> Questo codice si presuppone che titiles siano univoci. Se si aggiunge manualmente un titolo duplicato, si otterrà la seguente eccezione alla successiva che si eseguire la migrazione.   
+> Questo codice si presuppone che i titoli siano univoci. Se si aggiunge manualmente un titolo duplicato, si otterrà la seguente eccezione alla successiva che si eseguire la migrazione.   
 >   
 >  *La sequenza contiene più di un elemento*  
 >   
@@ -144,7 +144,7 @@ Viene visualizzato questo errore perché l'aggiornamento `Movie` classe del mode
 
 Per correggere questo errore, esistono alcuni approcci:
 
-1. Fare in modo che Entity Framework elimini e crei di nuovo automaticamente il database in base al nuovo schema di classi del modello. Questo approccio è molto utile nelle prime fasi del ciclo di sviluppo in una fase attiva di sviluppo di un database di test e consente di migliorare rapidamente lo schema del modello e il database insieme. Lo svantaggio, tuttavia, è che si perdono i dati esistenti nel database, in modo si *non* per usare questo approccio in un database di produzione. Utilizzando un inizializzatore per inizializzare automaticamente un database con dati di test è spesso un modo produttivo per sviluppare un'applicazione. Per ulteriori informazioni sugli inizializzatori di database di Entity Framework, vedere [esercitazione ASP.NET MVC/Entity Framework](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+1. Fare in modo che Entity Framework elimini e crei di nuovo automaticamente il database in base al nuovo schema di classi del modello. Questo approccio è molto utile nelle prime fasi del ciclo di sviluppo in una fase attiva di sviluppo di un database di test e consente di migliorare rapidamente lo schema del modello e il database insieme. Lo svantaggio, tuttavia, è che si perdono i dati esistenti nel database, in modo si *non* per usare questo approccio in un database di produzione. Un modo efficace per sviluppare un'applicazione consiste nell'inizializzare automaticamente un database con dati di test usando un inizializzatore. Per ulteriori informazioni sugli inizializzatori di database di Entity Framework, vedere [esercitazione ASP.NET MVC/Entity Framework](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 2. Modificare esplicitamente lo schema del database esistente in modo che corrisponda alle classi del modello. Il vantaggio di questo approccio è che i dati vengono mantenuti. È possibile apportare questa modifica manualmente o creando uno script di modifica del database.
 3. Usare Migrazioni Code First per aggiornare lo schema del database.
 

@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
@@ -91,7 +91,7 @@ Il [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAt
 > [!WARNING]
 > Disabilitare la memorizzazione nella cache per il contenuto che contiene informazioni per i client autenticati. La memorizzazione nella cache deve essere abilitata solo per il contenuto che non cambia in base alle identità di un utente o se un utente è connesso.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varia la risposta memorizzata dai valori di elenco specificato di chiavi di query. Quando un singolo valore di `*` viene fornito, il middleware varia risposte da tutti i parametri di stringa di query di richiesta. `VaryByQueryKeys`richiede ASP.NET Core 1.1 o successiva.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varia la risposta memorizzata dai valori di elenco specificato di chiavi di query. Quando un singolo valore di `*` viene fornito, il middleware varia risposte da tutti i parametri di stringa di query di richiesta. `VaryByQueryKeys` richiede ASP.NET Core 1.1 o successiva.
 
 Il Middleware di memorizzazione nella cache della risposta deve essere abilitato per impostare il `VaryByQueryKeys` proprietà; in caso contrario, viene generata un'eccezione di runtime. Non è un'intestazione HTTP corrispondente per il `VaryByQueryKeys` proprietà. La proprietà è una funzionalità HTTP gestita dal Middleware di memorizzazione nella cache risposta. Per il middleware gestire una risposta memorizzata nella cache, la stringa di query e il valore di stringa di query deve corrispondere una richiesta precedente. Si consideri, ad esempio, la sequenza di richieste e i risultati mostrati nella tabella riportata di seguito.
 
@@ -113,7 +113,7 @@ Il `ResponseCacheAttribute` viene utilizzato per configurare e creare (tramite `
 
 Questa intestazione viene scritto solo quando il `VaryByHeader` proprietà è impostata. È impostato sul `Vary` valore della proprietà. L'esempio seguente usa il `VaryByHeader` proprietà:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 È possibile visualizzare le intestazioni di risposta con gli strumenti di rete del browser. La figura seguente mostra il F12 Edge in uscita nel **rete** scheda quando il `About2` viene aggiornato il metodo di azione:
 
@@ -121,7 +121,7 @@ Questa intestazione viene scritto solo quando il `VaryByHeader` proprietà è im
 
 ### <a name="nostore-and-locationnone"></a>NoStore e Location.None
 
-`NoStore`sostituisce la maggior parte delle altre proprietà. Quando questa proprietà è impostata su `true`, `Cache-Control` intestazione è impostata su `no-store`. Se `Location` è impostato su `None`:
+`NoStore` sostituisce la maggior parte delle altre proprietà. Quando questa proprietà è impostata su `true`, `Cache-Control` intestazione è impostata su `no-store`. Se `Location` è impostato su `None`:
 
 * `Cache-Control` è impostato su `no-store,no-cache`.
 * `Pragma` è impostato su `no-cache`.
@@ -130,7 +130,7 @@ Se `NoStore` è `false` e `Location` è `None`, `Cache-Control` e `Pragma` sono 
 
 In genere si imposta `NoStore` a `true` nelle pagine di errore. Ad esempio:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Ciò comporta le intestazioni seguenti:
 
@@ -148,7 +148,7 @@ Per abilitare la memorizzazione nella cache, `Duration` deve essere impostata su
 
 Di seguito è riportato un esempio che mostra le intestazioni ottenuto impostando `Duration` e lasciando il valore predefinito `Location` valore:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Viene prodotto l'intestazione seguente:
 
@@ -162,11 +162,11 @@ Anziché ripetere `ResponseCache` su molti attributi di azione controller, i pro
 
 Impostazione di un profilo della cache:
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 Riferimento a un profilo della cache:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 Il `ResponseCache` attributo può essere applicato sia alle azioni (metodi) e controller (classi). Gli attributi a livello di metodo sostituiscono le impostazioni specificate negli attributi a livello di classe.
 

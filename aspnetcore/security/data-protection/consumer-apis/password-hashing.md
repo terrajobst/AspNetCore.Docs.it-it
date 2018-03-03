@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 536499687865b4e4d5b1d9c4076623b5ac1ffdbe
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8e2796108be14ef382f46e6deb3d584517120d27
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="password-hashing"></a>Hashing della password
 
@@ -27,6 +27,6 @@ Il pacchetto attualmente offre un metodo `KeyDerivation.Pbkdf2` che consente l'h
 
 3. Il `KeyDerivation.Pbkdf2` metodo richiede che il chiamante specificare tutti i parametri (salinità, PRF e conteggio delle iterazioni). Il `Rfc2898DeriveBytes` tipo fornisce i valori predefiniti per questi.
 
-[!code-csharp[Main](password-hashing/samples/passwordhasher.cs)]
+[!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
 Vedere il codice sorgente per l'identità di ASP.NET Core `PasswordHasher` caso d'uso di tipo per un mondo reale.

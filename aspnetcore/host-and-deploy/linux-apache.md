@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 61827f456ba01ffa726f3446401156409b29111d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -232,7 +232,7 @@ sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-
 
 ### <a name="configure-firewall"></a>Configurare firewall
 
-*Firewalld* è un daemon dinamico per gestire il firewall con supporto per aree di rete. Porte e il filtraggio dei pacchetti può comunque essere gestiti da iptables. *Firewalld* deve essere installato per impostazione predefinita. `yum`può essere utilizzato per installare il pacchetto o verificare che sia installato.
+*Firewalld* è un daemon dinamico per gestire il firewall con supporto per aree di rete. Porte e il filtraggio dei pacchetti può comunque essere gestiti da iptables. *Firewalld* deve essere installato per impostazione predefinita. `yum` può essere utilizzato per installare il pacchetto o verificare che sia installato.
 
 ```bash
 sudo yum install firewalld -y
@@ -351,7 +351,7 @@ Aggiungere la riga `Header set X-Content-Type-Options "nosniff"`. Salvare il fil
 
 ### <a name="load-balancing"></a>Bilanciamento del carico 
 
-Questo esempio illustra come impostare e configurare Apache CentOS 7 e Kestrel nello stesso computer dell'istanza. Per non disporre di un singolo punto di errore. utilizzando *mod_proxy_balancer* e la modifica di **VirtualHost** consente la gestione di più istanze delle App web dietro il server proxy di Apache.
+Questo esempio illustra come impostare e configurare Apache CentOS 7 e Kestrel nello stesso computer dell'istanza. Per non disporre di un singolo punto di errore. utilizzando *mod_proxy_balancer* e la modifica di **VirtualHost** consentirebbe la gestione di più istanze delle App web dietro il server proxy di Apache.
 
 ```bash
 sudo yum install mod_proxy_balancer

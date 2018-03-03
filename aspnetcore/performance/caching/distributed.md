@@ -1,7 +1,7 @@
 ---
 title: Utilizzo di una cache distribuita in ASP.NET Core
 author: ardalis
-description: "Informazioni su come utilizzare la memorizzazione nella cache distribuita per migliorare le prestazioni e la scalabilità delle applicazioni ASP.NET di base, soprattutto quando è ospitato in un ambiente di farm di server o cloud."
+description: "Imparare a usare ASP.NET Core distribuita la memorizzazione nella cache per migliorare le prestazioni dell'applicazione e la scalabilità, in particolare in un ambiente di farm di server o cloud."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 877a3e1f8c3282fdd67a389ddf5b4ff49dea3b42
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Utilizzo di una cache distribuita in ASP.NET Core
 
-Da [Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
 Le cache distribuite possono migliorare le prestazioni e scalabilità delle applicazioni ASP.NET di base, soprattutto quando è ospitato in un ambiente di farm di server o cloud. In questo articolo viene illustrato come utilizzare le implementazioni e astrazioni di cache distribuita incorporata del ASP.NET di base.
 
@@ -73,13 +73,13 @@ Utilizzare il `IDistributedCache` interfaccia:
 
 Nell'esempio seguente viene illustrato come utilizzare un'istanza di `IDistributedCache` in un componente del middleware semplice:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
 
 Nel codice precedente, il valore memorizzato nella cache viene letto ma non è stato scritto. In questo esempio, il valore viene impostato solo quando un server viene avviato e non cambia. In uno scenario con più server, il server più recente per l'avvio sovrascriverà i valori precedenti che sono stati impostati da altri server. Il `Get` e `Set` metodi utilizzano il `byte[]` tipo. Pertanto, il valore di stringa deve essere convertito utilizzando `Encoding.UTF8.GetString` (per `Get`) e `Encoding.UTF8.GetBytes` (per `Set`).
 
 Nell'esempio di codice da *Startup.cs* Mostra il valore da impostare:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
 
 > [!NOTE]
 > Poiché `IDistributedCache` è configurato nel `ConfigureServices` (metodo), è disponibile per il `Configure` metodo come parametro. Aggiungerlo come parametro consentirà l'istanza configurata essere fornito mediante DI.
@@ -92,7 +92,7 @@ Configurare l'implementazione di Redis in `ConfigureServices` e diritti di acces
 
 Nell'esempio di codice, un `RedisCache` implementazione viene utilizzata quando il server è configurato per un `Staging` ambiente. In questo modo il `ConfigureStagingServices` metodo consente di configurare il `RedisCache`:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
 > Per installare Redis sul computer locale, installare il pacchetto chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) ed eseguire `redis-server` da un prompt dei comandi.
@@ -103,7 +103,7 @@ L'implementazione di SqlServerCache consente la cache distribuita utilizzare un 
 
 Per utilizzare lo strumento della cache sql, aggiungere `SqlConfig.Tools` per il `<ItemGroup>` elemento del *csproj* file ed eseguire il ripristino dotnet.
 
-[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 Test SqlConfig.Tools eseguendo il comando seguente
 
@@ -125,7 +125,7 @@ La tabella creata con lo schema seguente:
 
 Come tutte le implementazioni di cache, l'app deve ottenere e impostare i valori della cache utilizzando un'istanza di `IDistributedCache`, non un `SqlServerCache`. L'esempio implementa `SqlServerCache` nel `Production` ambiente (in modo che è configurato `ConfigureProductionServices`).
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
 
 > [!NOTE]
 > Il `ConnectionString` (e, facoltativamente, `SchemaName` e `TableName`) in genere devono essere archiviate di fuori di controllo del codice sorgente (ad esempio segreti utente), poiché potrebbero contenere le credenziali.

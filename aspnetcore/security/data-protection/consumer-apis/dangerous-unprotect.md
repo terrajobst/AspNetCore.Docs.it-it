@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 584dbb545c15add4401086b9160d4bf30caf41b5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37332dda794f898fb866424b38394f5d4441e166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Rimozione della protezione payload le cui chiavi sono stati revocati.
 
@@ -30,7 +30,7 @@ Per supportare lo scenario di consentire il payload essere protetto anche in cas
 > [!NOTE]
 > Non tutti i `IDataProtector` possono eseguire il cast di istanze per `IPersistedDataProtector`. Gli sviluppatori devono usare c# come operatore o simili per evitare eccezioni di runtime dovuto a cast non valido e deve essere preparato a gestire il caso di errore in modo appropriato.
 
-`IPersistedDataProtector`espone la superficie dell'API seguente:
+`IPersistedDataProtector` espone la superficie dell'API seguente:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
@@ -46,4 +46,4 @@ Questa API richiede il payload protetto (come una matrice di byte) e restituisce
 >[!WARNING]
 > Prestare molta attenzione quando si passa `ignoreRevocationErrors: true` per il `DangerousUnprotect` metodo. Se dopo aver chiamato questo metodo il `wasRevoked` valore è true, quindi la chiave utilizzata per proteggere il payload è stata revocata e l'autenticità del payload devono essere considerate come sospetto. In questo caso, solo smettere di funzionare nel payload di non protetto se si dispone di una discreta garanzia separato che sia autentico, ad esempio, che provengono da un database protetto anziché inviati da un client web non attendibili.
 
-[!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]
+[!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

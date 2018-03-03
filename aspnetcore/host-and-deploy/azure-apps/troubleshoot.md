@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi relativi a ASP.NET Core nel servizio App di Azure
 
 Di [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 In questo articolo vengono fornite istruzioni su come diagnosticare un ASP.NET Core problema di avvio di app utilizzando gli strumenti di diagnostica del servizio App di Azure. Per ulteriori suggerimenti sulla risoluzione dei problemi, vedere [Panoramica di diagnostica di Azure App Service](/azure/app-service/app-service-diagnostics) e [procedura: monitorare le App in Azure App Service](/azure/app-service/web-sites-monitor) nella documentazione di Azure.
 
@@ -96,14 +98,14 @@ Il log di stdout ASP.NET Core modulo spesso registra i messaggi di errore utile 
 1. Controllare il **Modified** colonna e selezionare l'icona della matita per modificare il stdout accedere con la data dell'ultima modifica.
 1. Quando si apre il file di log, verrà visualizzato l'errore.
 
-**Importante!** Disabilitare la registrazione di stdout quando la risoluzione dei problemi è stata completata.
+**Importante**: Disabilitare la registrazione di stdout quando la risoluzione dei problemi è stata completata.
 
 1. Nel Kudu **Console diagnostica**, restituito nel percorso **sito** > **wwwroot** per rivelare il *Web. config* file. Aprire il **Web. config** file nuovo selezionando l'icona della matita.
 1. Impostare **stdoutLogEnabled** a `false`.
 1. Selezionare **salvare** per salvare il file.
 
 > [!WARNING]
-> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. È presente alcun limite sulla dimensione del file di log o il numero di file di log creati.
+> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare.
 >
 > Per la routine registrazione in un'applicazione ASP.NET di base, utilizzare una libreria di registrazione che limita dimensioni file di log e ruota i log. Per ulteriori informazioni, vedere [provider di log di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
 
@@ -158,7 +160,7 @@ Continuare per attivare la registrazione diagnostica:
 1. Effettuare una richiesta per l'app.
 1. All'interno dei dati di flusso di log, viene indicata la causa dell'errore.
 
-**Importante!** Assicurarsi di disabilitare la registrazione stdout quando la risoluzione dei problemi è stata completata. Vedere le istruzioni di [log di stdout ASP.NET Core modulo](#aspnet-core-module-stdout-log) sezione.
+**Importante**: Assicurarsi di disabilitare la registrazione stdout quando la risoluzione dei problemi è stata completata. Vedere le istruzioni di [log di stdout ASP.NET Core modulo](#aspnet-core-module-stdout-log) sezione.
 
 Per visualizzare i log di traccia richieste non riuscite (log FREB):
 
@@ -170,7 +172,7 @@ Vedere [sezione di abilitare la registrazione diagnostica per App web nell'argom
 Per ulteriori informazioni, vedere [abilitare la registrazione diagnostica per le app web in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log).
 
 > [!WARNING]
-> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. È presente alcun limite sulla dimensione del file di log o il numero di file di log creati.
+> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare.
 >
 > Per la routine registrazione in un'applicazione ASP.NET di base, utilizzare una libreria di registrazione che limita dimensioni file di log e ruota i log. Per ulteriori informazioni, vedere [provider di log di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
 

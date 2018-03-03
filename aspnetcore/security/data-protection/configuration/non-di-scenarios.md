@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/non-di-scenarios
-ms.openlocfilehash: eccf914d20e04adbb113f17e262766ed2dd1a554
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d878bd20489876f919f2a8e0149f3f000cbf72d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>Non DI scenari compatibile con protezione dei dati in ASP.NET Core
 
@@ -23,7 +23,7 @@ Il sistema di protezione dei dati di ASP.NET Core è in genere [aggiunto a un co
 
 Per supportare questi scenari, il [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) pacchetto fornisce un tipo concreto, [DataProtectionProvider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider), che offre un modo semplice per utilizzare la protezione dei dati senza basarsi su DI. Il `DataProtectionProvider` il tipo implementa [IDataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionprovider). Costruzione di `DataProtectionProvider` è necessario solo fornire un [DirectoryInfo](/dotnet/api/system.io.directoryinfo) istanza per indicare le chiavi di crittografia del provider in cui devono essere archiviate, come illustrato nell'esempio di codice seguente:
 
-[!code-none[Main](non-di-scenarios/_static/nodisample1.cs)]
+[!code-none[](non-di-scenarios/_static/nodisample1.cs)]
 
 Per impostazione predefinita, il `DataProtectionProvider` tipo concreto non crittografa il materiale della chiave non elaborato prima renderli persistenti nel file System. Si tratta per supportare scenari in cui i punti di sviluppatore per una condivisione di rete e il sistema di protezione dei dati non è possibile dedurre automaticamente un meccanismo di crittografia con chiave appropriate nel resto.
 
@@ -31,7 +31,7 @@ Inoltre, il `DataProtectionProvider` non di tipo concreto [isolare le app](xref:
 
 Il [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) costruttore accetta un callback di configurazione facoltativa che può essere usato per modificare i comportamenti del sistema. Nell'esempio seguente viene illustrato il ripristino di isolamento con una chiamata esplicita a [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname). L'esempio illustra anche la configurazione del sistema per crittografare automaticamente le chiavi persistenti con DPAPI di Windows. Se la directory punta a una condivisione UNC, è preferibile distribuire un certificato condiviso tra tutti i computer interessati e per configurare il sistema per utilizzare la crittografia basata su certificati con una chiamata a [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate).
 
-[!code-none[Main](non-di-scenarios/_static/nodisample2.cs)]
+[!code-none[](non-di-scenarios/_static/nodisample2.cs)]
 
 > [!TIP]
 > Le istanze del `DataProtectionProvider` tipo concreto sono costose da creare. Se un'applicazione gestisce più istanze di questo tipo e se tutti utilizzano la stessa directory di archiviazione delle chiavi, potrebbero influire negativamente sulle prestazioni dell'applicazione. Se si utilizza il `DataProtectionProvider` tipo, si consiglia di creare questo tipo una sola volta e riutilizzarla in quanto possibile. Il `DataProtectionProvider` tipo e tutti [oggetto IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) istanze create da quest'ultimo sono thread-safe per più i chiamanti.

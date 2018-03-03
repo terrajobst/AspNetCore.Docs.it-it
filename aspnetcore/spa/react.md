@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-react-project-template"></a>Utilizzare il modello di progetto React
 
@@ -49,9 +49,9 @@ Il processo di compilazione consente di ripristinare le dipendenze di npm alla p
 
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con valore `Development`. In Windows (in istruzioni non PowerShell), eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS, eseguire `export ASPNETCORE_Environment=Development`.
 
-Eseguire `dotnet build` per verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
+Eseguire [compilazione dotnet](/dotnet/core/tools/dotnet-build) per verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
 
-Eseguire `dotnet run` per avviare l'app.
+Eseguire [dotnet eseguire](/dotnet/core/tools/dotnet-run) per avviare l'app.
 
 ---
 

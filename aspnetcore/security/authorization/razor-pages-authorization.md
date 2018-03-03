@@ -1,7 +1,7 @@
 ---
 title: Convenzioni di autorizzazione di pagine Razor in ASP.NET Core
 author: guardrex
-description: Informazioni su come controllare l'accesso alle pagine con le convenzioni all'avvio di autorizzano gli utenti e consentono agli utenti anonimi di accedere a singole pagine o le cartelle di pagine.
+description: Informazioni su come controllare l'accesso alle pagine con informazioni sulle convenzioni autorizzare gli utenti e consentire agli utenti anonimi di accedere a pagine o le cartelle di pagine.
 manager: wpickett
 ms.author: riande
 ms.date: 10/27/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 2bad6e1cc654b972206af03f99160628f81e026f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bbef653c6cf968527e753df9c853f5972640cc03
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Convenzioni di autorizzazione di pagine Razor in ASP.NET Core
 
@@ -27,7 +27,7 @@ Un modo per controllare l'accesso nell'app pagine Razor consiste nell'utilizzare
 
 Utilizzare il [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) convenzione tramite [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) per aggiungere un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) alla pagina nel percorso specificato:
 
-[!code-csharp[Main](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,4)]
+[!code-csharp[](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,4)]
 
 Il percorso specificato è il percorso del motore di visualizzazione, ovvero il percorso relativo della directory radice di pagine Razor senza un'estensione e contenente solo le barre.
 
@@ -37,7 +37,7 @@ Un [AuthorizePage overload](/dotnet/api/microsoft.extensions.dependencyinjection
 
 Utilizzare il [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder) convenzione tramite [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) per aggiungere un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) per tutte le pagine in una cartella nel percorso specificato:
 
-[!code-csharp[Main](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,5)]
+[!code-csharp[](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,5)]
 
 Il percorso specificato è il percorso di motore di visualizzazione, ovvero il percorso radice pagine Razor.
 
@@ -47,7 +47,7 @@ Un [AuthorizeFolder overload](/dotnet/api/microsoft.extensions.dependencyinjecti
 
 Utilizzare il [AllowAnonymousToPage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustopage) convenzione tramite [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) per aggiungere un [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) a una pagina nel percorso specificato:
 
-[!code-csharp[Main](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,6)]
+[!code-csharp[](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,6)]
 
 Il percorso specificato è il percorso del motore di visualizzazione, ovvero il percorso relativo della directory radice di pagine Razor senza un'estensione e contenente solo le barre.
 
@@ -55,7 +55,7 @@ Il percorso specificato è il percorso del motore di visualizzazione, ovvero il 
 
 Utilizzare il [AllowAnonymousToFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustofolder) convenzione tramite [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) per aggiungere un [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) per tutte le pagine in una cartella nel percorso specificato:
 
-[!code-csharp[Main](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,7)]
+[!code-csharp[](razor-pages-authorization/sample/Startup.cs?name=snippet1&highlight=2,7)]
 
 Il percorso specificato è il percorso di motore di visualizzazione, ovvero il percorso radice pagine Razor.
 

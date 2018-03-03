@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: c10f94b40fec00e7533cc3a6e88daa3f3da614ed
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d05256af4e62834b8d43689786a7b8bb3a5e58fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
@@ -41,7 +41,7 @@ In genere, le risposte compresse in modo nativo possono trarre vantaggio dalla c
 
 Quando un client può elaborare il contenuto compresso, il client deve informare il server delle rispettive funzionalità inviando il `Accept-Encoding` intestazione con la richiesta. Quando un server invia il contenuto compresso, deve includere informazioni di `Content-Encoding` intestazione nella modalità di codifica risposta compressa. Designazioni di codifica del contenuto supportati dal middleware vengono visualizzati nella tabella seguente.
 
-| `Accept-Encoding`valori di intestazione | Middleware supportati | Descrizione                                                 |
+| `Accept-Encoding` valori di intestazione | Middleware supportati | Descrizione                                                 |
 | :-----------------------------: | :------------------: | ----------------------------------------------------------- |
 | `br`                            | No                   | Formato di dati compressi Brotli                               |
 | `compress`                      | No                   | Formato di dati "comprimere" UNIX                                 |
@@ -83,11 +83,11 @@ Il codice seguente viene illustrato come abilitare il Middleware di compressione
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
+[!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
+[!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
 ---
 
@@ -117,11 +117,11 @@ Il provider di compressione gzip per impostazione predefinita il livello di comp
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
+[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
 ---
 
@@ -140,11 +140,11 @@ Il middleware specifica un set predefinito di tipi MIME per la compressione:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
+[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
 ---
 
@@ -155,15 +155,15 @@ Usando l'app di esempio, il client invia una richiesta con la `Accept-Encoding: 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
+[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
-[!code-csharp[Main](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
+[!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
-[!code-csharp[Main](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
+[!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
 ---
 
@@ -179,7 +179,7 @@ Quando la compressione delle risposte in base il `Accept-Encoding` intestazione,
 
 **ASP.NET Core solo 1. x**
 
-[!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema di middleware dietro un proxy inverso Nginx
 Quando una richiesta viene inviata da Nginx, il `Accept-Encoding` intestazione viene rimosso. Ciò impedisce il middleware di compressione della risposta. Per ulteriori informazioni, vedere [NGINX: la compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Questo problema viene rilevato da [scoprire la compressione di tipo pass-through per Nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).

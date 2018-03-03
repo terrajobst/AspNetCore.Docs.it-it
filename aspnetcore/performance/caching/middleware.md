@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -31,11 +31,11 @@ Per includere il middleware in un progetto, aggiungere un riferimento di [ `Micr
 
 In `ConfigureServices`, aggiungere il middleware per la raccolta di servizio.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 Configurare l'applicazione per utilizzare il middleware con il `UseResponseCaching` metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione della richiesta. L'app di esempio aggiunge un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) intestazione risposta che memorizza nella cache le risposte memorizzabile nella cache per un massimo di 10 secondi. L'esempio invia un [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) intestazione per configurare il middleware per fornire una risposta memorizzata nella cache solo se il [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) intestazione delle richieste successive corrisponda a quello della richiesta originale.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 Risposta Middleware di memorizzazione nella cache vengono memorizzati nella cache solo le risposte del server che produce un codice di stato 200 (OK). Altre risposte, tra cui [pagine di errore](xref:fundamentals/error-handling), vengono ignorate dal middleware.
 
@@ -125,10 +125,10 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 * Il metodo di richiesta deve essere GET o HEAD.
 * Middleware terminal, ad esempio [Middleware File statico](xref:fundamentals/static-files), non è necessario elaborare la risposta prima il Middleware di memorizzazione nella cache della risposta.
 * Il `Authorization` intestazione non deve essere presente.
-* `Cache-Control`parametri dell'intestazione deve essere validi, e la risposta deve essere contrassegnata `public` e non contrassegnato come `private`.
+* `Cache-Control` parametri dell'intestazione deve essere validi, e la risposta deve essere contrassegnata `public` e non contrassegnato come `private`.
 * Il `Pragma: no-cache` intestazione non deve essere presente se la `Cache-Control` intestazione non è presente, come il `Cache-Control` intestazione esegue l'override di `Pragma` intestazione quando è presente.
 * Il `Set-Cookie` intestazione non deve essere presente.
-* `Vary`parametri dell'intestazione devono essere valido e non è uguale a `*`.
+* `Vary` parametri dell'intestazione devono essere valido e non è uguale a `*`.
 * Il `Content-Length` valore di intestazione (se impostato) deve corrispondere alle dimensioni del corpo della risposta.
 * Il [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) non viene utilizzato.
 * La risposta non deve essere non aggiornata come specificato da di `Expires` intestazione e il `max-age` e `s-maxage` direttive di memorizzare nella cache.

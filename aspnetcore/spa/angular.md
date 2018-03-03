@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-angular-project-template"></a>Utilizzare il modello di progetto Angular
 
@@ -49,9 +49,9 @@ Il processo di compilazione consente di ripristinare le dipendenze di npm alla p
 
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con un valore di `Development`. In Windows (in istruzioni non PowerShell), eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS, eseguire `export ASPNETCORE_Environment=Development`.
 
-Eseguire `dotnet build` di verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
+Eseguire [compilazione dotnet](/dotnet/core/tools/dotnet-build) di verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
 
-Eseguire `dotnet run` per avviare l'app. Viene registrato un messaggio simile al seguente:
+Eseguire [dotnet eseguire](/dotnet/core/tools/dotnet-run) per avviare l'app. Viene registrato un messaggio simile al seguente:
 
 ```console
 Now listening on: http://localhost:<port>

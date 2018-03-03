@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 1044a87a4dcc7636413078b0fc09ade206c97d0a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -38,7 +38,7 @@ In questa guida:
 
 ## <a name="copy-over-the-app"></a>Copiare l'app
 
-Eseguire `dotnet publish` dall'ambiente di sviluppo per creare un pacchetto per un'applicazione in una directory indipendente che può essere eseguita sul server.
+Eseguire [dotnet pubblicare](/dotnet/core/tools/dotnet-publish) dall'ambiente di sviluppo per creare un pacchetto di un'app in una directory indipendente che è possibile eseguire sul server.
 
 Copia l'app ASP.NET Core per il server utilizzando qualsiasi strumento integra nel flusso di lavoro dell'organizzazione (ad esempio, SCP, FTP). Testare l'applicazione, ad esempio:
 
@@ -53,7 +53,7 @@ Un proxy inverso è una configurazione comune per la gestione delle applicazioni
 
 Kestrel è molto utile per disporre il contenuto dinamico da ASP.NET Core. Tuttavia, le funzionalità di gestione web non sono come ricco di funzionalità come server, ad esempio IIS, Apache o Nginx. Un server proxy inverso può scaricare il lavoro, ad esempio del contenuto statico, la memorizzazione nella cache le richieste, la compressione di richieste e la terminazione SSL dal server HTTP. Un server proxy inverso può risiedere in un computer dedicato o essere distribuito insieme a un server HTTP.
 
-Ai fini di questa guida viene usata una singola istanza di Nginx. Viene eseguito sullo stesso server, insieme al server HTTP. In base ai requisiti, un'impostazione diversa potrebbe essere scelto.
+Ai fini di questa guida viene usata una singola istanza di Nginx. Viene eseguito sullo stesso server, insieme al server HTTP. In base ai requisiti, può essere scelto un programma di installazione diverso.
 
 Poiché le richieste vengono inoltrate da proxy inverso, utilizzare il Middleware di intestazioni inoltrati dal [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pacchetto. Gli aggiornamenti di middleware di `Request.Scheme`, usando il `X-Forwarded-Proto` intestazione, in modo che gli URI di reindirizzamento e altri criteri di sicurezza funzionino correttamente.
 
@@ -283,11 +283,11 @@ La libreria PCRE è obbligatoria per le espressioni regolari. Le espressioni reg
 
 Aggiungere il file di configurazione */etc/nginx/proxy.conf*:
 
-[!code-nginx[Main](linux-nginx/proxy.conf)]
+[!code-nginx[](linux-nginx/proxy.conf)]
 
 Aggiungere il file di configurazione */etc/nginx/proxy.conf*. L'esempio contiene entrambe le sezioni `http` e `server` in un unico file di configurazione.
 
-[!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
+[!code-nginx[](linux-nginx/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Proteggere Nginx dal clickjacking
 Il clickjacking è una tecnica fraudolenta con cui i clic di un utente vengono "catturati" e reindirizzati a un oggetto in un sito infetto. Utilizzare X-FRAME-OPTIONS per proteggere il sito.

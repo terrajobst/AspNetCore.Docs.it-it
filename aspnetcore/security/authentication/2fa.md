@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 7bca1c6249bebe84b532b652ab736186f35c50ee
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 721c4c20234c7232b509a0cff444538c2cfeb166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="two-factor-authentication-with-sms"></a>Autenticazione a due fattori con SMS
 
@@ -60,7 +60,7 @@ Si userà il [modello opzioni](xref:fundamentals/configuration/options) per acce
 
    * Creare una classe per recuperare la chiave sicura di SMS. Per questo esempio, il `SMSoptions` classe il *Services/SMSoptions.cs* file.
 
-[!code-csharp[Main](2fa/sample/Web2FA/Services/SMSoptions.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
 Impostare il `SMSAccountIdentification`, `SMSAccountPassword` e `SMSAccountFrom` con il [strumento segreto manager](xref:security/app-secrets). Ad esempio:
 
@@ -81,16 +81,16 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 
 **Twilio:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
 **ASPSMS:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
-### <a name="configure-startup-to-use-smsoptions"></a>Configurare l'avvio da utilizzare`SMSoptions`
+### <a name="configure-startup-to-use-smsoptions"></a>Configurare l'avvio da utilizzare `SMSoptions`
 
 Aggiungere `SMSoptions` al contenitore del servizio nel `ConfigureServices` metodo il *Startup.cs*:
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
 
 ### <a name="enable-two-factor-authentication"></a>Abilitare l'autenticazione a due fattori
 
@@ -144,4 +144,4 @@ Se non si ottiene un messaggio di testo, vedere la pagina di log twilio.
 
 È consigliabile che utilizzare il blocco degli account con 2FA. Una volta che un utente accede (tramite un account locale o sociali), ogni tentativo non riuscito in 2FA viene archiviato e se viene raggiunto il numero massimo di tentativi (valore predefinito è 5), l'utente è bloccato per cinque minuti (è possibile impostare il blocco ora con `DefaultAccountLockoutTimeSpan`). Gli elementi seguenti configurano Account venga bloccato per 10 minuti dopo 10 tentativi non riusciti.
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 

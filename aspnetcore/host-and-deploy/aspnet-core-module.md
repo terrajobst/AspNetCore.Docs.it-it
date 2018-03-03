@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Riferimento di configurazione di ASP.NET modulo Core
 
@@ -128,6 +128,12 @@ L'esempio seguente `aspNetCore` elemento configura `stdout` la registrazione per
 ```
 
 Vedere [configurazione con Web. config](#configuration-with-webconfig) per un esempio del `aspNetCore` elemento il *Web. config* file.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>La configurazione del proxy usa il protocollo HTTP e un token di associazione
+
+Il proxy creato tra il modulo di base di ASP.NET e Kestrel utilizza il protocollo HTTP. Utilizzo di HTTP è un'ottimizzazione delle prestazioni, in cui il traffico tra il modulo e Kestrel effettuata in un indirizzo di loopback dall'interfaccia di rete. Non c'è alcun rischio di intercettazione il traffico tra il modulo e Kestrel da una posizione dal server.
+
+Viene usato un token di associazione per garantire che le richieste ricevute da Kestrel siano state trasmesse tramite proxy da IIS e non provengano da un'altra origine. Il token di associazione viene creato e impostato in una variabile di ambiente (`ASPNETCORE_TOKEN`) dal modulo. Il token di associazione viene impostato anche in un'intestazione (`MSAspNetCoreToken`) in tutte le richieste trasmesse tramite proxy. Il middleware di IIS controlla ogni richiesta che riceve in modo da confermare che il valore dell'intestazione del token di associazione corrisponda al valore della variabile di ambiente. Se i valori del token non corrispondono, la richiesta viene registrata e rifiutata. La variabile di ambiente token di associazione e il traffico tra il modulo e Kestrel non sono accessibili da una posizione dal server. Senza conoscere il valore del token di associazione, un utente malintenzionato non può inviare richieste che ignorano il controllo nel middleware di IIS.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Modulo Core ASP.NET con IIS condiviso
 

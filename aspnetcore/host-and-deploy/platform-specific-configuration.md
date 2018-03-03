@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/platform-specific-configuration
-ms.openlocfilehash: 2663cd1e05be9e8695966df959082e6e574d0b4a
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: c36b8acd6f7fcb4e4d11e43013ccaf5ca6d1b0ab
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-app-features-using-a-platform-specific-configuration-in-aspnet-core"></a>Aggiungere funzionalità di app tramite una configurazione specifica della piattaforma in ASP.NET Core
 
@@ -30,7 +30,7 @@ Per individuare gli assembly di avvio di hosting caricato dall'applicazione o da
 
 Le operazioni di lettura di app di esempio di [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) in un `string` di matrice e viene visualizzato il risultato nella pagina di indice dell'app:
 
-[!code-csharp[Main](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
+[!code-csharp[](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
 
 ## <a name="disable-automatic-loading-of-hosting-startup-assemblies"></a>Disabilitare il caricamento automatico di hosting di assembly di avvio
 
@@ -49,19 +49,19 @@ La disabilitazione di hosting gli assembly di avvio usando la variabile di ambie
 
 Un `IHostingStartup` funzionalità viene distribuito come un assembly in base a un'applicazione console senza un punto di ingresso. I riferimenti agli assembly di [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/) pacchetto:
 
-[!code-xml[Main](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
+[!code-xml[](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
 
 Oggetto [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) attributo identifica una classe come un'implementazione di `IHostingStartup` per il caricamento e l'esecuzione quando si compila il [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost). Nell'esempio seguente, lo spazio dei nomi è `StartupFeature`, e la classe è `StartupFeatureHostingStartup`:
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
 
 Una classe implementa `IHostingStartup`. La classe [configura](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) metodo utilizza un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) per aggiungere funzionalità a un'app:
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
 
 Quando si compila un `IHostingStartup` file di progetto, le dipendenze (*\*. deps.json*) imposta il `runtime` percorso dell'assembly per il *bin* cartella:
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
 
 Viene visualizzata solo una parte del file. Nome dell'assembly nell'esempio `StartupFeature`.
 
@@ -69,7 +69,7 @@ Viene visualizzata solo una parte del file. Nome dell'assembly nell'esempio `Sta
 
 Il percorso di runtime è specificato nella  *\*. deps.json* file. Su attivo, la funzionalità di `runtime` elemento è necessario specificare il percorso dell'assembly di runtime della funzionalità. Prefisso di `runtime` posizione con `lib/netcoreapp2.0/`:
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
 
 Nell'applicazione di esempio, la modifica del  *\*. deps.json* file viene eseguita da un [PowerShell](/powershell/scripting/powershell-scripting) script. Lo script di PowerShell viene automaticamente attivato da una destinazione di compilazione nel file di progetto.
 

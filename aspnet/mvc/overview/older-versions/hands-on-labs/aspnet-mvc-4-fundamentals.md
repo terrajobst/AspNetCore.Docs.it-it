@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-fundamentals"></a>Nozioni fondamentali su ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-fundamentals"></a>Nozioni fondamentali su ASP.NET MVC 4
 
-> Questa pratica è basato su archivio musica MVC (Model View Controller), un'applicazione di esercitazione che vengono presentati e dettagliate sull'utilizzo di MVC ASP.NET e Visual Studio. All'interno del laboratorio si apprenderà semplicità, ancora potenza di utilizzo congiunto di queste tecnologie. Si inizierà con una semplice applicazione e verrà compilato finché non si dispone di un completamente funzionale applicazione Web ASP.NET MVC 4.
-> 
-> In questo laboratorio funziona con ASP.NET MVC 4.
-> 
-> Se si desidera esplorare la versione di ASP.NET MVC 3 dell'esercitazione applicazione, sarà possibile trovarlo in [negozio di musica MVC](https://github.com/evilDave/MVC-Music-Store).
-> 
-> > [!NOTE]
-> > Questa pratica, si presuppone che lo sviluppatore ha esperienza nelle tecnologie di sviluppo Web, ad esempio HTML e JavaScript.
-> 
-> 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Da [categorie Web Team](https://twitter.com/webcamps)
 
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
+
+Questa pratica è basato su archivio musica MVC (Model View Controller), un'applicazione di esercitazione che vengono presentati e dettagliate sull'utilizzo di MVC ASP.NET e Visual Studio. All'interno del laboratorio si apprenderà semplicità, ancora potenza di utilizzo congiunto di queste tecnologie. Si inizierà con una semplice applicazione e verrà compilato finché non si dispone di un completamente funzionale applicazione Web ASP.NET MVC 4.
+
+In questo laboratorio funziona con ASP.NET MVC 4.
+
+Se si desidera esplorare la versione di ASP.NET MVC 3 dell'esercitazione applicazione, sarà possibile trovarlo in [negozio di musica MVC](https://github.com/evilDave/MVC-Music-Store).
+
+Questa pratica, si presuppone che lo sviluppatore ha esperienza nelle tecnologie di sviluppo Web, ad esempio HTML e JavaScript.
+
+> [!NOTE]
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [nozioni di base di ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals).
 
 <a id="The_Music_Store_application"></a>
 ### <a name="the-music-store-application"></a>L'applicazione del Negozio
@@ -51,7 +51,7 @@ Applicazione di archiviazione di file musicali sarà creati usando **Controller 
 
 - **Modelli**: gli oggetti modello rappresentano le parti dell'applicazione che implementano la logica di dominio. Spesso, anche gli oggetti del modello recupero e archiviano lo stato del modello in un database.
 - **Visualizzazioni:** visualizzazioni sono i componenti che consentono di visualizzare l'interfaccia utente (UI). In genere, questa interfaccia viene creata da dati del modello. Un esempio potrebbe essere la visualizzazione di modifica dell'album che consente di visualizzare le caselle di testo e un elenco a discesa in base allo stato corrente di un oggetto Album.
-- **Controller:** controller sono i componenti che gestiscono l'interazione dell'utente, modificare il modello e selezionano infine una visualizzazione per il rendering dell'interfaccia utente. In un'applicazione MVC, Visualizza solo informazioni; il controller gestisce e risponde all'input dell'utente e l'interazione.
+- **Controller:** controller sono i componenti che gestiscono l'interazione dell'utente, modificare il modello e selezionano infine una visualizzazione per il rendering dell'interfaccia utente. In un'applicazione MVC la visualizzazione presenta solo le informazioni, mentre il controller gestisce e risponde all'input e all'interazione dell'utente.
 
 Il modello MVC consente di creare applicazioni che separano i diversi aspetti dell'applicazione (logica di input, logica di business e logica dell'interfaccia utente), fornendo un accoppiamento libero tra questi elementi. Questa separazione consente di gestire la complessità quando si compila un'applicazione, in quanto consente di concentrarsi su un aspetto dell'implementazione alla volta. Inoltre, il modello MVC rende semplice testare le applicazioni, incoraggiando anche l'utilizzo di sviluppo basato su test (TDD) per la creazione di applicazioni.
 
@@ -173,7 +173,7 @@ In questa attività si esaminerà la struttura della soluzione per comprendere g
 
 Nelle applicazioni ASP.NET che non utilizzano il framework di MVC, interazione dell'utente è organizzata intorno alle pagine e intorno alla generazione e la gestione degli eventi da tali pagine. Al contrario, interazione dell'utente con le applicazioni ASP.NET MVC è organizzata intorno a controller e i relativi metodi di azione.
 
-D'altra parte, framework di MVC ASP.NET esegue il mapping degli URL alle classi che vengono definite i controller. I controller di elaborare le richieste in ingresso, gestire l'input dell'utente e le interazioni, eseguire la logica di applicazione appropriata e determinare la risposta da inviare al client (visualizzazione del contenuto HTML, scaricare un file, reindirizzare a un altro URL e così via). Nel caso di visualizzazione HTML, una classe controller chiama in genere un componente di visualizzazione separato per generare il markup HTML per la richiesta. In un'applicazione MVC, Visualizza solo informazioni; il controller gestisce e risponde all'input dell'utente e l'interazione.
+D'altra parte, framework di MVC ASP.NET esegue il mapping degli URL alle classi che vengono definite i controller. I controller di elaborare le richieste in ingresso, gestire l'input dell'utente e le interazioni, eseguire la logica di applicazione appropriata e determinare la risposta da inviare al client (visualizzazione del contenuto HTML, scaricare un file, reindirizzare a un altro URL e così via). Nel caso di visualizzazione HTML, una classe controller chiama in genere un componente di visualizzazione separato per generare il markup HTML per la richiesta. In un'applicazione MVC la visualizzazione presenta solo le informazioni, mentre il controller gestisce e risponde all'input e all'interazione dell'utente.
 
 In questa attività si aggiungerà una classe Controller che gestirà gli URL per la Home page del sito Negozio.
 
@@ -277,7 +277,7 @@ In questa attività verrà provare l'applicazione in un web browser.
 2. Avvia il progetto nel **Home** pagina. Modificare l'URL per verificare l'implementazione di ogni azione.
 
     1. **/ Archiviare**. Si noterà  **&quot;Hello da Store.Index()&quot;**.
-    2. **/ Archivio/Sfoglia**. Si noterà  **&quot;Hello da Store.Browse()&quot;**.
+    2. **/Store/Browse**. Si noterà  **&quot;Hello da Store.Browse()&quot;**.
     3. **/ / Dettagli archivio**. Si noterà  **&quot;Hello da Store.Details()&quot;**.
 
         ![Esplorazione StoreBrowse](aspnet-mvc-4-fundamentals/_static/image9.png "esplorazione StoreBrowse")
@@ -331,7 +331,7 @@ In questa attività si provare l'applicazione in un web browser e si utilizzerà
 1. Premere **F5** per eseguire l'applicazione.
 2. Avvia il progetto nel **Home** pagina. Modificare l'URL in   */archiviare/Sfoglia? Genre = Disco* per verificare che l'azione riceve il parametro genere.
 
-    ![Esplorazione StoreBrowseGenre = Disco](aspnet-mvc-4-fundamentals/_static/image10.png "esplorazione StoreBrowseGenre = Disco")
+    ![Browsing StoreBrowseGenre=Disco](aspnet-mvc-4-fundamentals/_static/image10.png "Browsing StoreBrowseGenre=Disco")
 
     *Esplorazione /Store/Browse? Genre = Disco*
 3. Chiudere il browser.
@@ -818,7 +818,7 @@ In questa attività si aggiungerà un collegamento nella visualizzazione archivi
     > [!NOTE]
     > un altro approccio potrebbe essere il collegamento direttamente alla pagina, con un codice simile al seguente:
     > 
-    > &lt;href =&quot;archivio/Sfoglia? genre =@genreName&quot;&gt;@genreName&lt;/a&gt;
+    > &lt;a href=&quot;/Store/Browse?genre=@genreName&quot;&gt;@genreName&lt;/a&gt;
     > 
     > Sebbene questo approccio funziona, dipende dalla stringa hardcoded. Se in un secondo momento, si rinomina il Controller, sarà necessario modificare manualmente questa istruzione. Un'alternativa migliore consiste nell'usare un **HTML Helper** metodo. ASP.NET MVC include un metodo HTML Helper che è disponibile per tali attività. Il **Html.ActionLink()** metodo helper semplifica la compilazione HTML  **&lt;un&gt;**  collegamenti, assicurandosi che i percorsi URL siano URL correttamente codificati.
     > 
@@ -895,7 +895,7 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
 #### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Attività 1: Esplorare il modello di applicazione ASP.NET MVC 4 Internet
 
 1. Se non è già aperta, avviare **Visual Studio Express per il Web**
-2. Selezionare il **File | New | Progetto** comando di menu. Nel **nuovo progetto** finestra di dialogo Seleziona il **Visual c# | Web** modello nel riquadro sinistro della struttura ad albero e scegliere il **applicazione Web ASP.NET MVC 4**. **Nome** il progetto *MusicStore* e aggiornare il **Nome soluzione** a *iniziare*, quindi selezionare un percorso (o lasciare il valore predefinito) e fare clic su **OK**.
+2. Selezionare il **File | New | Progetto** comando di menu. Nel **nuovo progetto** finestra di dialogo Seleziona il **Visual c# | Web** modello nel riquadro sinistro della struttura ad albero e scegliere il **applicazione Web ASP.NET MVC 4**. **Nome** il progetto *MusicStore* e aggiornare il **Nome soluzione** a *iniziare*, quindi selezionare un percorso (o lasciare il valore predefinito) e fare clic su **OK** .
 
     ![Creazione di un nuovo progetto ASP.NET MVC 4](aspnet-mvc-4-fundamentals/_static/image36.png "la creazione di un nuovo progetto ASP.NET MVC 4")
 

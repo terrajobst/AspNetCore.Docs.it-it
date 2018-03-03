@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 7f335681581b73e36e5b4deaf513255770900965
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3aa0c4bc8d009147dd15571da4d7d63402e4c512
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="consumer-apis-overview"></a>Panoramica di API di consumer
 
@@ -48,11 +48,11 @@ L'esempio seguente illustra i tre concetti:
 
 3. Creazione di un `IDataProtector` da un `IDataProtectionProvider` da utilizzare per proteggere e annullare la protezione dati.
 
-[!code-csharp[Main](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
+[!code-csharp[](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
 Il pacchetto Microsoft.AspNetCore.DataProtection.Abstractions contiene un metodo di estensione `IServiceProvider.GetDataProtector` praticità per sviluppatori. Incapsula come una singola operazione di recupero di entrambi un `IDataProtectionProvider` dal provider di servizi e chiamare il metodo `IDataProtectionProvider.CreateProtector`. L'esempio seguente viene illustrato l'utilizzo.
 
-[!code-csharp[Main](./overview/samples/getdataprotector.cs?highlight=15)]
+[!code-csharp[](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
 > Le istanze di `IDataProtectionProvider` e `IDataProtector` sono thread-safe per più i chiamanti. È destinata che una volta che un componente ottiene un riferimento a un `IDataProtector` tramite una chiamata a `CreateProtector`, tale riferimento verrà utilizzato per più chiamate a `Protect` e `Unprotect`. Una chiamata a `Unprotect` genererà CryptographicException se il payload protetto può essere verificato o decifrato. Alcuni componenti preferibile ignorare gli errori durante rimuovere la protezione di operazioni. un componente che legge i cookie di autenticazione potrebbe gestire questo errore e gestire la richiesta, come se non contenesse alcun cookie affatto anziché rifiuteranno la richiesta di definitiva. Componenti che questo comportamento devono in particolare intercettare CryptographicException anziché integrare tutte le eccezioni.

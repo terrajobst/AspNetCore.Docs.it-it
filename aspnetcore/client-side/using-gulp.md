@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
 
@@ -204,7 +204,7 @@ Le associazioni è impostare con **Task Runner Explorer** vengono archiviate in 
 </Target>
 ```
 
-Ora l'attività di pulizia viene eseguito quando si esegue il progetto in Visual Studio o da un prompt dei comandi tramite il `dotnet run` comando (eseguire `npm install` prima).
+Ora l'attività di pulizia viene eseguito quando si esegue il progetto in Visual Studio o da un prompt dei comandi tramite il [dotnet eseguire](/dotnet/core/tools/dotnet-run) comando (eseguire `npm install` prima).
 
 ## <a name="defining-and-running-a-new-task"></a>Definizione e l'esecuzione di una nuova attività
 

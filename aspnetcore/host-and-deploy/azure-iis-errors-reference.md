@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 53b59045751153cd858e13769b5b42d5700e26d4
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Riferimento per gli errori comuni di servizio App di Azure e IIS con ASP.NET Core
 
@@ -29,6 +29,8 @@ Raccogliere le seguenti informazioni:
 * Voci di log di stdout modulo Core ASP.NET
 
 Confrontare le informazioni per i seguenti errori. Se viene trovata una corrispondenza, seguire i consigli sulla risoluzione dei problemi.
+
+[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Il programma di installazione non riesce ad ottenere VC++ Ridistribuibile
 

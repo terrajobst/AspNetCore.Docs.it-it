@@ -12,21 +12,22 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c735bbdafe4b8f0423abb6bacd076f173a1be9d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-dependency-injection"></a>Inserimento di dipendenze di ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-dependency-injection"></a>Inserimento di dipendenze di ASP.NET MVC 4
+
+Da [categorie Web Team](https://twitter.com/webcamps)
+
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
+
+Questa pratica presuppone avere conoscenze di base **ASP.NET MVC** e **filtri ASP.NET MVC 4**. Se non è stato utilizzato **filtri ASP.NET MVC 4** in precedenza, è consigliabile esaminare **filtri azione personalizzati di ASP.NET MVC** le esercitazioni pratiche.
 
 > [!NOTE]
-> Questa pratica presuppone avere conoscenze di base **ASP.NET MVC** e **filtri ASP.NET MVC 4**. Se non è stato utilizzato **filtri ASP.NET MVC 4** in precedenza, è consigliabile esaminare **filtri azione personalizzati di ASP.NET MVC** le esercitazioni pratiche.
-> 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Tutto il codice di esempio e i frammenti di codice inclusi in Web categorie Training Kit, disponibile in [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [ASP.NET MVC 4 Dependency Injection](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection).
 
 In **oggetto orientato alla programmazione** paradigma di interazione tra gli oggetti in un modello di collaborazione in cui sono presenti i collaboratori e i consumer. Naturalmente, questo modello di comunicazione genera dipendenze tra oggetti e componenti, diventare difficile da gestire quando si aumenta la complessità.
 

@@ -12,28 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35f9402ad6090c0441425a23b2b8063350892210
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="whats-new-in-aspnet-mvc-4"></a>Novità di ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="whats-new-in-aspnet-mvc-4"></a>Novità di ASP.NET MVC 4
 
-[Download Web categorie Kit di formazione](http://www.microsoft.com/download/29843)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
-> ASP.NET MVC 4 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e le potenzialità di ASP.NET e .NET framework. Questa nuova, quarta versione di framework è incentrata su come rendere più semplice lo sviluppo di applicazioni web per dispositivi mobili.
-> 
-> Per iniziare, quando si crea un nuovo progetto ASP.NET MVC 4 è ora disponibile un modello di progetto di applicazione per dispositivi mobili che è possibile utilizzare per creare un'applicazione autonoma in particolare per i dispositivi mobili. Inoltre, ASP.NET MVC 4 si integra con jQuery Mobile tramite un pacchetto NuGet jQuery.Mobile.MVC. jQuery Mobile è un framework basato su HTML5 per lo sviluppo di applicazioni web compatibili con tutte le piattaforme dei dispositivi mobili più comuni, tra cui Windows Phone, iPhone, Android e così via. Tuttavia, se è necessario specializzazione, ASP.NET MVC 4 consente inoltre di fornire visualizzazioni diverse per diversi dispositivi e specificare le ottimizzazioni specifiche del dispositivo.
-> 
-> In questa esercitazione pratica, si inizierà con ASP.NET MVC 4 &quot;applicazione Internet&quot; modello di progetto per creare un'applicazione Raccolta foto. Si procederà al miglioramento progressivamente l'app usando jQuery Mobile e nuove funzionalità di ASP.NET MVC 4 per assicurarsi che sia compatibile con diversi dispositivi mobili e browser desktop. Si apprenderà inoltre nuove soluzioni di codice per la generazione di codice e come ASP.NET MVC 4 rende più semplice per la scrittura di metodi di azione asincroni grazie al supporto delle attività&lt;ActionResult&gt; tipi restituiti.
-> 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
 
+ASP.NET MVC 4 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e le potenzialità di ASP.NET e .NET framework. Questa nuova, quarta versione di framework è incentrata su come rendere più semplice lo sviluppo di applicazioni web per dispositivi mobili.
 
-<a id="Objectives"></a>
+Per iniziare, quando si crea un nuovo progetto ASP.NET MVC 4 è ora disponibile un modello di progetto di applicazione per dispositivi mobili che è possibile utilizzare per creare un'applicazione autonoma in particolare per i dispositivi mobili. Inoltre, ASP.NET MVC 4 si integra con jQuery Mobile tramite un pacchetto NuGet jQuery.Mobile.MVC. jQuery Mobile è un framework basato su HTML5 per lo sviluppo di applicazioni web compatibili con tutte le piattaforme dei dispositivi mobili più comuni, tra cui Windows Phone, iPhone, Android e così via. Tuttavia, se è necessario specializzazione, ASP.NET MVC 4 consente inoltre di fornire visualizzazioni diverse per diversi dispositivi e specificare le ottimizzazioni specifiche del dispositivo.
+
+In questa esercitazione pratica, si inizierà con ASP.NET MVC 4 &quot;applicazione Internet&quot; modello di progetto per creare un'applicazione Raccolta foto. Si procederà al miglioramento progressivamente l'app usando jQuery Mobile e nuove funzionalità di ASP.NET MVC 4 per assicurarsi che sia compatibile con diversi dispositivi mobili e browser desktop. Si apprenderà inoltre nuove soluzioni di codice per la generazione di codice e come ASP.NET MVC 4 rende più semplice per la scrittura di metodi di azione asincroni grazie al supporto delle attività&lt;ActionResult&gt; tipi restituiti.
+
+> [!NOTE]
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [novità di Web Form in ASP.NET 4.5](https://github.com/Microsoft-Web/HOL-ASPNETWebForms).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Obiettivi
@@ -146,7 +144,7 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
 
     ![Convalida jQuery](whats-new-in-aspnet-mvc-4/_static/image6.png)
 
-    *Convalida jQuery*
+    Convalida jQuery
 
     > [!NOTE]
     > Si noti che i due log nelle sezioni, nella prima sezione è possono accedere utilizzando un account registrato dal sito e nella seconda sezione che è possibile altenativelly l'accesso utilizzando un altro servizio di autenticazione come google (disattivato per impostazione predefinita).
@@ -164,7 +162,7 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
 
     ![Selezione del log nel servizio](whats-new-in-aspnet-mvc-4/_static/image7.png)
 
-    *Selezione del log nel servizio*
+    Selezione del log nel servizio
 10. Accedere con l'account di Google.
 11. Consentire al sito (localhost) recuperare informazioni dall'account di Google.
 12. Infine, è necessario registrare il sito per associare l'account di Google.
@@ -258,9 +256,9 @@ Utilizzando la tecnica di rendering adattivo, sarà il sito **visualizzato corre
 
 Esempi di query di supporto: &gt;  **@media tutti e (larghezza massima: 1000px) e (min-width: 700px) {}:** per tutte le risoluzioni tra 700px e 1000px.
 
-> **@mediaschermata e (min-width: 400px) e (larghezza massima: 700px) {…}:** solo per le schermate. La risoluzione deve essere compreso tra 400 e 700px.
+> **@media schermata e (min-width: 400px) e (larghezza massima: 700px) {…}:** solo per le schermate. La risoluzione deve essere compreso tra 400 e 700px.
 > 
-> **@mediapalmari e (min-width: 20em), schermo e (min-width: 20em) {…}:** per palmari (mobili e dispositivi) e schermate iniziali. La larghezza minima deve essere maggiore di 20em.
+> **@media palmari e (min-width: 20em), schermo e (min-width: 20em) {…}:** per palmari (mobili e dispositivi) e schermate iniziali. La larghezza minima deve essere maggiore di 20em.
 > 
 > È possibile trovare ulteriori informazioni sul [sito W3C](http://www.w3.org/TR/css3-mediaqueries/).
 

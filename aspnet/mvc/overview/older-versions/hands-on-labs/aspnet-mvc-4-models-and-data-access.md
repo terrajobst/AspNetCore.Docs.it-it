@@ -12,23 +12,24 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-models-and-data-access"></a>Accesso ai dati e i modelli ASP.NET MVC 4
-====================
-da [categorie Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-models-and-data-access"></a>Accesso ai dati e i modelli ASP.NET MVC 4
+
+Da [categorie Web Team](https://twitter.com/webcamps)
+
+[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
+
+Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni di base di ASP.NET MVC 4** le esercitazioni pratiche.
+
+Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
 
 > [!NOTE]
-> Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni di base di ASP.NET MVC 4** le esercitazioni pratiche.
-> 
-> Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
-> 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [accesso ai dati e i modelli di ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4ModelsAndDataAccess).
 
 In **nozioni fondamentali su MVC ASP.NET** pratica, si hanno stato passando dati hardcoded verso i controller per i modelli di visualizzazione. Ma, per compilare un'applicazione Web reale, è possibile utilizzare un database reale.
 
@@ -38,7 +39,7 @@ Tuttavia, è inoltre possibile utilizzare il **Model First** approccio, creare l
 
 ![Visual Studio prima di database. Prima del modello](aspnet-mvc-4-models-and-data-access/_static/image1.png "Database First Visual Studio. Primo modello")
 
-*Visual Studio prima di database. Primo modello*
+*Visual Studio prima di database. Primo modello
 
 Dopo aver generato il modello, verranno apportate le modifiche appropriate nella StoreController per fornire le viste di archivio con i dati acquisiti dal database, invece di usare dati hardcoded. Non occorre di apportare qualsiasi modifica ai modelli di visualizzazione perché il StoreController verrà restituito il ViewModel stessa per i modelli di visualizzazione, anche se questo tempo i dati provengono dal database.
 
@@ -325,7 +326,7 @@ Ora che già stato aggiunto un database al progetto, viene scritto nel **Web. co
 
     ![Percorso del file Web. config](aspnet-mvc-4-models-and-data-access/_static/image19.png "percorso del file Web. config")
 
-    *Percorso del file Web. config*
+    *percorso del file Web. config*
 
 
     [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
