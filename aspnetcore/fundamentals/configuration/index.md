@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 12635c66bacdeed7360a9d6c689212bba81439e3
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurare un'app ASP.NET Core
 
@@ -42,15 +42,15 @@ Il modello di opzioni usa le classi di opzioni per rappresentare i gruppi di imp
 
 La seguente app di console usa il provider di configurazione JSON:
 
-[!code-csharp[Main](index/sample/ConfigJson/Program.cs)]
+[!code-csharp[](index/sample/ConfigJson/Program.cs)]
 
 L'app legge e visualizza le impostazioni di configurazione seguenti:
 
-[!code-json[Main](index/sample/ConfigJson/appsettings.json)]
+[!code-json[](index/sample/ConfigJson/appsettings.json)]
 
 La configurazione è costituita da un elenco gerarchico di coppie nome-valore in cui i nodi sono separati dai due punti. Per recuperare un valore, accedere all'indicizzatore `Configuration` con la chiave dell'elemento corrispondente:
 
-[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=21-22)]
+[!code-csharp[](index/sample/ConfigJson/Program.cs?range=21-22)]
 
 Per lavorare con le matrici nelle origini di configurazione in formato JSON, usare un indice di matrice come parte della stringa separata da due punti. L'esempio seguente recupera il nome del primo elemento della matrice precedente `wizards`:
 
@@ -99,11 +99,11 @@ Le origini di configurazione vengono lette nell'ordine in cui sono specificate. 
 
 Considerare il file seguente *appsettings. Staging.JSON*:
 
-[!code-json[Main](index/sample/appsettings.Staging.json)]
+[!code-json[](index/sample/appsettings.Staging.json)]
 
 Quando l'ambiente è impostato su `Staging`, il metodo `Configure` seguente legge il valore di `MyConfig`:
 
-[!code-csharp[Main](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
+[!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
 
 L'ambiente è in genere impostato su `Development`, `Staging` o `Production`. Per altre informazioni, vedere [Working with multiple environments](xref:fundamentals/environments) (Utilizzo con più ambienti).
@@ -119,7 +119,7 @@ Considerazioni sulla configurazione:
 
 L'esempio seguente illustra come usare il provider in memoria e associarlo a una classe:
 
-[!code-csharp[Main](index/sample/InMemory/Program.cs)]
+[!code-csharp[](index/sample/InMemory/Program.cs)]
 
 I valori di configurazione vengono restituiti come stringhe, ma l'associazione consente la costruzione di oggetti. L'associazione consente il recupero di oggetti POCO o di interi grafici degli oggetti.
 
@@ -127,7 +127,7 @@ I valori di configurazione vengono restituiti come stringhe, ma l'associazione c
 
 Nell'esempio seguente viene illustrato il metodo di estensione [GetValue&lt;T&gt; ](/dotnet/api/microsoft.extensions.configuration.configurationbinder.get?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_ConfigurationBinder_Get__1_Microsoft_Extensions_Configuration_IConfiguration_):
 
-[!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
+[!code-csharp[](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
 Il metodo `GetValue<T>` di ConfigurationBinder consente la specifica di un valore predefinito (80 nell'esempio). `GetValue<T>` è per scenari semplici e non viene associato a intere sezioni. `GetValue<T>` ottiene valori scalari da `GetSection(key).Value` convertiti in un tipo specifico.
 
@@ -135,11 +135,11 @@ Il metodo `GetValue<T>` di ConfigurationBinder consente la specifica di un valor
 
 È possibile impostare associazioni ricorsive a ogni oggetto di una classe. Si consideri la classe `AppSettings` seguente:
 
-[!code-csharp[Main](index/sample/ObjectGraph/AppSettings.cs)]
+[!code-csharp[](index/sample/ObjectGraph/AppSettings.cs)]
 
 L'esempio seguente è associato alla classe `AppSettings`:
 
-[!code-csharp[Main](index/sample/ObjectGraph/Program.cs?highlight=15-16)]
+[!code-csharp[](index/sample/ObjectGraph/Program.cs?highlight=15-16)]
 
 **ASP.NET Core 1.1** e le versioni successive possono usare `Get<T>`, che funziona con intere sezioni. `Get<T>` può essere più comodo che usare `Bind`. L'esempio di codice seguente illustra come usare il metodo `Get<T>` con l'esempio precedente:
 
@@ -149,7 +149,7 @@ var appConfig = config.GetSection("App").Get<AppSettings>();
 
 Tramite il file *appSettings.json* seguente:
 
-[!code-json[Main](index/sample/ObjectGraph/appsettings.json)]
+[!code-json[](index/sample/ObjectGraph/appsettings.json)]
 
 Il programma visualizza `Height 11`.
 
@@ -188,35 +188,35 @@ In questa sezione viene creato un provider di configurazione di base che legge l
 
 Definire un'entità `ConfigurationValue` per l'archiviazione dei valori di configurazione nel database:
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/ConfigurationValue.cs)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/ConfigurationValue.cs)]
 
 Aggiungere `ConfigurationContext` per archiviare e accedere ai valori configurati:
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
 Creare una classe che implementi [IConfigurationSource](/dotnet/api/Microsoft.Extensions.Configuration.IConfigurationSource):
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
 Creare il provider di configurazione personalizzato ereditando da [ConfigurationProvider](/dotnet/api/Microsoft.Extensions.Configuration.ConfigurationProvider). Il provider di configurazione inizializza il database quando è vuoto:
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
 Quando l'esempio viene eseguito, vengono visualizzati i valori evidenziati del database ("value_from_ef_1" e "value_from_ef_2").
 
 È possibile usare un metodo di estensione `EFConfigSource` per aggiungere l'origine di configurazione:
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
 L'esempio di codice seguente illustra come usare il metodo `EFConfigProvider` personalizzato:
 
-[!code-csharp[Main](index/sample/CustomConfigurationProvider/Program.cs?highlight=21-26)]
+[!code-csharp[](index/sample/CustomConfigurationProvider/Program.cs?highlight=21-26)]
 
 Notare che l'esempio aggiunge l'oggetto personalizzato `EFConfigProvider` dopo il provider JSON, pertanto le impostazioni del database sostituiranno le impostazioni del file *appSettings.json*.
 
 Tramite il file *appSettings.json* seguente:
 
-[!code-json[Main](index/sample/CustomConfigurationProvider/appsettings.json)]
+[!code-json[](index/sample/CustomConfigurationProvider/appsettings.json)]
 
 Verrà visualizzato l'output seguente:
 
@@ -238,7 +238,7 @@ Il [provider di configurazione CommandLine](/aspnet/core/api/microsoft.extension
 
 Per attivare la configurazione della riga di comando, chiamare il metodo di estensione `AddCommandLine` su un'istanza di [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
-[!code-csharp[Main](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
+[!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
 
 Eseguendo il codice, verrà visualizzato l'output seguente:
 
@@ -262,13 +262,13 @@ Left: 1979
 
 Per eseguire l'override della configurazione fornita da altri provider di configurazione con la configurazione della riga di comando, chiamare `AddCommandLine` per ultimo su `ConfigurationBuilder`:
 
-[!code-csharp[Main](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
+[!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Le tipiche app ASP.NET Core 2.x usano il metodo statico `CreateDefaultBuilder` per compilare l'host:
 
-[!code-csharp[Main](index/sample_snapshot//Program.cs?highlight=12)]
+[!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
 
 `CreateDefaultBuilder` carica la configurazione facoltativa da *appSettings.json*, *appsettings.{Environment}.json*, [i segreti utente](xref:security/app-secrets) (nell'ambiente `Development`), le variabili di ambiente e gli argomenti della riga di comando. Il provider di configurazione CommandLine è chiamato per ultimo. Chiamando il provider per ultimo, gli argomenti della riga di comando passati in fase di esecuzione possono eseguire l'override della configurazione impostata da altri provider di configurazione chiamati in precedenza.
 
@@ -286,7 +286,7 @@ L'app ASP.NET Core 2.x può usare [WebHostBuilder](/dotnet/api/microsoft.aspnetc
 
 Creare un oggetto [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) e chiamare il metodo `AddCommandLine` per usare il provider di configurazione CommandLine. Chiamando il provider per ultimo, gli argomenti della riga di comando passati in fase di esecuzione possono eseguire l'override della configurazione impostata da altri provider di configurazione chiamati in precedenza. Applicare la configurazione a [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) con il metodo `UseConfiguration`:
 
-[!code-csharp[Main](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
+[!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
 ---
 
@@ -361,7 +361,7 @@ Regole principali del dizionario dei mapping di sostituzione:
 
 Nell'esempio seguente il metodo `GetSwitchMappings` consente agli argomenti della riga di comando di usare un prefisso di chiave con trattino singolo (`-`) ed evitare i prefissi iniziali nelle sottochiavi.
 
-[!code-csharp[Main](index/sample/CommandLine/Program.cs?highlight=10-19,32)]
+[!code-csharp[](index/sample/CommandLine/Program.cs?highlight=10-19,32)]
 
 Senza fornire argomenti della riga di comando, il dizionario per `AddInMemoryCollection` imposta i valori di configurazione. Eseguire l'app con il comando seguente:
 
