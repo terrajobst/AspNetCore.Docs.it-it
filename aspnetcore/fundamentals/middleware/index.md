@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5d236c79120d79195c1970cc87d164002b56d0f1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -44,13 +44,13 @@ Ogni delegato può eseguire operazioni prima e dopo il delegato successivo. Un d
 
 L'app di ASP.NET Core più semplice imposta un delegato di richiesta singolo che gestisce tutte le richieste. In questo caso non è inclusa una pipeline di richieste effettiva. Al contrario, viene chiamata una singola funzione anonima in risposta a ogni richiesta HTTP.
 
-[!code-csharp[Main](index/sample/Middleware/Startup.cs)]
+[!code-csharp[](index/sample/Middleware/Startup.cs)]
 
 Il primo delegato [app.Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) termina la pipeline.
 
 È possibile concatenare più delegati di richiesta insieme a [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). Il parametro `next` rappresenta il delegato successivo nella pipeline. (Tenere presente che è possibile eseguire il corto circuito della pipeline *non* chiamando il parametro *successivo*). In genere è possibile eseguire un'azione prima e dopo il delegato successivo, come illustra l'esempio seguente:
 
-[!code-csharp[Main](index/sample/Chain/Startup.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
 > Non chiamare `next.Invoke` dopo aver inviato la risposta al client. Le modifiche apportate a `HttpResponse` dopo l'avvio della risposta generano un'eccezione. Ad esempio, le modifiche come l'impostazione delle intestazioni, del codice di stato e così via, generano un'eccezione. Scrivere nel corpo della risposta dopo aver chiamato `next`:
@@ -142,7 +142,7 @@ Configurare la pipeline HTTP usando `Use`,`Run` e `Map`. Il metodo `Use` può es
 
 Le estensioni `Map*` vengono usate come convenzione per la diramazione della pipeline. [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) crea un ramo nella pipeline delle richieste in base alle corrispondenze del percorso della richiesta specificato. Se il percorso della richiesta inizia con il percorso specificato, il ramo viene eseguito.
 
-[!code-csharp[Main](index/sample/Chain/StartupMap.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
 La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente:
 
@@ -157,7 +157,7 @@ Quando si usa `Map`, i segmenti di percorso corrispondenti vengono rimossi da `H
 
 [MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) crea un ramo nella pipeline delle richieste in base al risultato del predicato specificato. È possibile usare qualsiasi predicato di tipo `Func<HttpContext, bool>` per mappare le richieste a un nuovo ramo della pipeline. Nell'esempio seguente viene usato un predicato per rilevare la presenza di una variabile di stringa di query `branch`:
 
-[!code-csharp[Main](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
 La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente:
 
@@ -212,7 +212,7 @@ ASP.NET Core viene dato con i componenti middleware seguenti e una descrizione d
 
 Il middleware è in genere incapsulato in una classe ed esposto con un metodo di estensione. Si consideri il middleware seguente, che specifica le impostazioni cultura per la richiesta corrente dalla stringa di query:
 
-[!code-csharp[Main](index/sample/Culture/StartupCulture.cs?name=snippet1)]
+[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
 
 Nota: il codice di esempio precedente viene usato per illustrare la creazione di un componente middleware. Vedere [Globalizzazione e localizzazione](xref:fundamentals/localization) per il supporto di localizzazione incorporato di ASP.NET Core.
 
@@ -220,15 +220,15 @@ Nota: il codice di esempio precedente viene usato per illustrare la creazione di
 
 Il codice seguente sposta il delegato middleware in una classe:
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
 
 Il metodo di estensione seguente espone il middleware tramite [IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder):
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
 Il codice seguente chiama il middleware da `Configure`:
 
-[!code-csharp[Main](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
 
 Il middleware deve seguire il [principio delle dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/) esponendo le dipendenze nel costruttore. Il middleware viene costruito una volta per ogni *durata applicazione*. Se è necessario condividere servizi con il middleware all'interno di una richiesta, vedere *Dipendenze per richiesta* di seguito.
 
@@ -262,4 +262,4 @@ public class MyMiddleware
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Funzionalità di richiesta](xref:fundamentals/request-features)
 * [Attivazione del middleware basata sulla factory](xref:fundamentals/middleware/extensibility)
-* [Attivazione del middleware basata sulla factory con contenitore di terze parti](xref:fundamentals/middleware/extensibility-third-party-container)
+* [Attivazione del middleware con un contenitore di terze parti](xref:fundamentals/middleware/extensibility-third-party-container)
