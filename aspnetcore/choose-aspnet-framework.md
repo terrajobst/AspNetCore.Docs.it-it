@@ -54,4 +54,4 @@ ASP.NET è un framework consolidato che fornisce tutti i servizi necessari per l
 ## <a name="resources"></a>Risorse
 
 * [Introduzione ad ASP.NET](https://docs.microsoft.com/aspnet/overview)
-* [Introduzione a ASP.NET Core](https://docs.microsoft.com/aspnet/core/)
+* [Introduzione a ASP.NET Core](xref:index)
