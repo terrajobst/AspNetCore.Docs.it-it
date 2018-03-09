@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 223dd48bb996de527f20291e4701e7d1b60a539d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Creazione di un modello di dati di Entity Framework per un'applicazione ASP.NET MVC (1 di 10)
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 [Scaricare il progetto completato](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -29,7 +29,7 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > > Oggetto [versione più recente di questa serie di esercitazioni](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) è disponibile, per MVC 5, Entity Framework 6 e Visual Studio 2013.
 > 
 > 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzo di Entity Framework 5 e Visual Studio 2012. L'applicazione di esempio è un sito web per un'università Contoso fittizio. Include funzionalità, ad esempio l'ammissione di studenti, la creazione di corsi e assegnazioni istruttore. Questa serie di esercitazioni viene illustrato come compilare l'applicazione di esempio Contoso University. È possibile [il download dell'applicazione completata](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8).
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzo di Entity Framework 5 e Visual Studio 2012. L'applicazione di esempio è un sito Web per una fittizia Contoso University. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati. Questa serie di esercitazioni viene illustrato come compilare l'applicazione di esempio Contoso University. È possibile [il download dell'applicazione completata](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8).
 > 
 > ## <a name="code-first"></a>Code First
 > 
@@ -53,26 +53,26 @@ Da [Tom Dykstra](https://github.com/tdykstra)
 > 
 > Nel caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework e LINQ to forum entità](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), o [ StackOverflow.com](http://stackoverflow.com/).
 > 
-> ## <a name="acknowledgments"></a>Riconoscimenti
+> ## <a name="acknowledgments"></a>Ringraziamenti
 > 
 > Vedere l'esercitazione della serie per ultimo [una nota relativa VB e riconoscimenti](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#acknowledgments).
 > 
 > ## <a name="original-version-of-the-tutorial"></a>Versione originale dell'esercitazione
 > 
-> La versione originale dell'esercitazione è disponibile nel [4.1 di EF / MVC 3 e-book](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC).
+> La versione originale dell'esercitazione è disponibile nel [Entity Framework 4.1 / MVC 3 e-book](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC).
 
 
 ## <a name="the-contoso-university-web-application"></a>L'applicazione Web di Contoso University
 
-L'applicazione da generare in queste esercitazioni è un sito web semplice university.
+L'applicazione che sarà compilata in queste esercitazioni è un semplice sito Web universitario.
 
-Gli utenti possono visualizzare e aggiornare studente, corsi e istruttore informazioni. Ecco alcune delle schermate che verranno create.
+Gli utenti possono visualizzare e aggiornare le informazioni che riguardano studenti, corsi e insegnanti. Di seguito sono disponibili alcune schermate che saranno create.
 
 ![Students_Index_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
 ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
 
-Lo stile dell'interfaccia utente del sito è disponibile vicino a ciò che viene generato tramite i modelli predefiniti, in modo che l'esercitazione è possibile concentrarsi principalmente sull'utilizzo di Entity Framework.
+Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato tramite i modelli predefiniti. L'esercitazione si concentra pertanto soprattutto sull'uso di Entity Framework.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -98,13 +98,13 @@ Fare clic su **OK**.
 
 ## <a name="set-up-the-site-style"></a>Impostare lo stile del sito
 
-Alcune semplici modifiche imposterà il menu del sito, layout e home page di.
+Con alcune modifiche è possibile impostare il menu del sito, il layout e la home page.
 
 Aprire *Views\Shared\\layout. cshtml*e sostituire il contenuto del file con il codice seguente. Le modifiche sono evidenziate.
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=5,15,25-28,43)]
 
-Questo codice rende le modifiche seguenti:
+Questo codice determina le modifiche seguenti:
 
 - Sostituisce le istanze di modello di "My ASP.NET MVC Application" e "inserire qui il logo" con "Contoso University".
 - Aggiunge diversi collegamenti di azione che verranno utilizzati più avanti nell'esercitazione.
@@ -123,13 +123,13 @@ Premere CTRL + F5 per eseguire il sito. Viene visualizzata la pagina home al men
 
 ## <a name="create-the-data-model"></a>Creare il modello di dati
 
-Successivamente, si creeranno le classi di entità per l'applicazione Contoso University. Si inizierà con tre entità seguenti:
+A questo punto è possibile creare le classi delle entità per l'applicazione di Contoso University. Si inizierà con tre entità seguenti:
 
 ![Class_diagram](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image6.png)
 
-È una relazione uno-a-molti tra `Student` e `Enrollment` entità, ed è presente una relazione uno-a-molti tra `Course` e `Enrollment` entità. In altre parole, gli studenti possono essere registrati in un numero qualsiasi di corsi e un corso può avere qualsiasi numero di studenti iscritti in essa contenuti.
+Esiste una relazione uno-a-molti tra le entità `Student` e `Enrollment` ed esiste una relazione uno-a-molti tra le entità `Course` e `Enrollment`. In altre parole, uno studente può iscriversi a un numero qualsiasi di corsi e un corso può avere un numero qualsiasi di studenti iscritti.
 
-Nelle sezioni seguenti si creerà una classe per ognuna di queste entità.
+Nelle sezioni seguenti viene creata una classe per ognuna di queste entità.
 
 > [!NOTE]
 > Se si tenta di compilare il progetto per completare la creazione di tutte queste classi di entità, si ottengono gli errori del compilatore.
@@ -143,27 +143,27 @@ Nel *modelli* cartella, creare *Student.cs* e sostituire il codice esistente con
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample4.cs)]
 
-Il `StudentID` proprietà diventerà una colonna chiave primaria della tabella di database che corrisponde a questa classe. Per impostazione predefinita, Entity Framework interpreta una proprietà denominata `ID` o *classname* `ID` come chiave primaria.
+La proprietà `StudentID` diventa la colonna di chiave primaria della tabella di database che corrisponde a questa classe. Per impostazione predefinita, Entity Framework interpreta una proprietà denominata `ID` o *classname* `ID` come chiave primaria.
 
 Il `Enrollments` proprietà è un *proprietà di navigazione*. Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso, il `Enrollments` proprietà di un `Student` entità conterrà tutte le `Enrollment` entità correlate che `Student` entità. In altre parole, se un determinato `Student` riga del database dispone di due correlati `Enrollment` righe (le righe che contengono la chiave primaria di student con tale valore nel loro `StudentID` colonna chiave esterna), che `Student` dell'entità `Enrollments` proprietà di navigazione conterrà questi due `Enrollment` entità.
 
 Le proprietà di navigazione sono in genere definite come `virtual` in modo che è possibile sfruttare alcune funzionalità di Entity Framework, ad esempio *caricamento lazy*. (Caricamento lazy verrà spiegato più avanti nel [lettura di dati correlati](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) esercitazione più avanti in questa serie.
 
-Se una proprietà di navigazione può contenere più entità (ad esempio relazioni molti-a-molti o uno-a-molti), il tipo deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, ad esempio `ICollection`.
+Se una proprietà di navigazione può contenere più entità (come nel caso di relazioni molti-a-molti e uno-a-molti), il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, come ad esempio `ICollection`.
 
 ### <a name="the-enrollment-entity"></a>L'entità di registrazione
 
 ![Enrollment_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image8.png)
 
-Nel *modelli* cartella, creare *Enrollment.cs* e sostituire il codice esistente con il codice seguente:
+Nella cartella *Models* creare *Enrollment.cs* e sostituire il codice esistente con il codice seguente:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
 La proprietà di livello è un [enum](https://msdn.microsoft.com/data/hh859576.aspx). Il punto interrogativo dopo il `Grade` dichiarazione del tipo di indica che il `Grade` proprietà [nullable](https://msdn.microsoft.com/library/2cf62fcy.aspx). Un livello null è diverso da un livello pari a zero, ovvero null indica che un livello non è noto o non è stato ancora assegnato.
 
-Il `StudentID` proprietà è una chiave esterna e la proprietà di navigazione corrispondente è `Student`. Un `Enrollment` entità è associata a una `Student` entità, pertanto la proprietà può contenere solo un unico `Student` entità (a differenza di `Student.Enrollments` proprietà di navigazione illustrato in precedenza, che può contenere più `Enrollment` entità).
+La proprietà `StudentID` è una chiave esterna e la proprietà di navigazione corrispondente è `Student`. Un'entità `Enrollment` è associata a un'entità `Student`, pertanto la proprietà può contenere un'unica entità `Student`, a differenza della proprietà di navigazione `Student.Enrollments` vista in precedenza, che può contenere più entità `Enrollment`.
 
-Il `CourseID` proprietà è una chiave esterna e la proprietà di navigazione corrispondente è `Course`. Un `Enrollment` è associata a una entità `Course` entità.
+La proprietà `CourseID` è una chiave esterna e la proprietà di navigazione corrispondente è `Course`. Un'entità `Enrollment` è associata a un'entità `Course`.
 
 ### <a name="the-course-entity"></a>L'entità Course
 
@@ -173,13 +173,13 @@ Nel *modelli* cartella, creare *Course.cs*, sostituendo il codice esistente con 
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample6.cs)]
 
-Il `Enrollments` è una proprietà di navigazione. Oggetto `Course` entità può essere correlato a un numero qualsiasi di `Enrollment` entità.
+La proprietà `Enrollments` rappresenta una proprietà di navigazione. È possibile correlare un'entità `Course` a un numero qualsiasi di entità `Enrollment`.
 
-Ciò che diremo più sul [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). None)] attributo nella prossima esercitazione. In pratica, questo attributo consente di immettere la chiave primaria per il corso anziché il database di generarlo.
+Ciò che diremo più sul [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). None)] attributo nella prossima esercitazione. In pratica, questo attributo consente di immettere la chiave primaria per il corso invece di essere generata dal database.
 
-## <a name="create-the-database-context"></a>Creare il contesto del Database
+## <a name="create-the-database-context"></a>Creare il contesto di database
 
-La classe principale che coordina le funzionalità di Entity Framework per un modello di dati specificato è il *contesto di database* classe. Creazione di questa classe mediante la derivazione da di [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) classe. Nel codice specificare le entità incluse nel modello di dati. È anche possibile personalizzare determinati comportamenti di Entity Framework. In questo progetto, la classe è denominata `SchoolContext`.
+La classe principale che coordina le funzionalità di Entity Framework per un modello di dati specificato è il *contesto di database* classe. Creazione di questa classe mediante la derivazione da di [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) classe. Nel codice vengono specificate le entità incluse nel modello di dati. È anche possibile personalizzare un determinato comportamento di Entity Framework. In questo progetto la classe è denominata `SchoolContext`.
 
 Creare una cartella denominata *DAL* (per il livello di accesso ai dati). In questa cartella creare un nuovo file di classe denominato *SchoolContext.cs*e sostituire il codice esistente con il codice seguente:
 
@@ -277,7 +277,7 @@ Per questa esercitazione, sarà possibile usare le migrazioni per la distribuzio
 
     ![Cartella Migrations iniziale migrazione](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
-    Il `Up` metodo il `InitialCreate` classe crea le tabelle di database che corrispondono ai set di entità del modello di dati, e `Down` metodo li elimina. Chiamate di migrazioni di `Up` metodo per implementare le modifiche del modello di dati per la migrazione. Quando si immette un comando per annullare l'aggiornamento, le chiamate di migrazioni di `Down` metodo. Nel codice seguente viene illustrato il contenuto del `InitialCreate` file:
+    Il `Up` metodo il `InitialCreate` classe crea le tabelle di database che corrispondono ai set di entità del modello di dati, e `Down` metodo li elimina. Le migrazioni chiamano il metodo `Up` per implementare le modifiche al modello di dati per una migrazione. Quando si immette un comando per annullare l'aggiornamento, le migrazioni chiamano il metodo `Down`. Nel codice seguente viene illustrato il contenuto del `InitialCreate` file:
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample15.cs)]
 
@@ -340,7 +340,7 @@ Il passaggio successivo consiste nel creare un ASP.NET MVC controller e visualiz
 La quantità di codice era necessario scrivere affinché Entity Framework sia in grado di creare un database completo per l'utente è minima a causa dell'utilizzo di *convenzioni*, o presupposti che rende Entity Framework. Alcuni di essi sono stati già:
 
 - Le forme pluralized di nomi di classe di entità vengono utilizzate come nomi di tabella.
-- I nomi delle proprietà di entità vengono utilizzati per i nomi di colonna.
+- I nomi della proprietà di entità vengono usati come nomi di colonna.
 - Le proprietà delle entità denominate `ID` o *classname* `ID` sono riconosciuti come proprietà della chiave primaria.
 
 Si è visto che è possono eseguire l'override di convenzioni (ad esempio, è specificato che i nomi di tabella non devono essere pluralizzati), e si apprenderà ulteriori informazioni sulle convenzioni e come eseguire l'override nel [la creazione di un modello di dati più complesso](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) esercitazione più avanti in questa serie. Per ulteriori informazioni, vedere [convenzioni nel codice prima](https://msdn.microsoft.com/data/jj679962).

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 <a name="introduction-to-signalr"></a>Introduzione a SignalR
 ====================
@@ -26,7 +26,7 @@ da [Patrick Fletcher](https://github.com/pfletcher)
 > 
 > ## <a name="questions-and-comments"></a>Domande e commenti
 > 
-> Lasciare commenti e suggerimenti su come è stato apprezzato questa esercitazione e cosa migliorare nei commenti nella parte inferiore della pagina. In caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum di ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
+> Lasciare commenti e suggerimenti su come è stato apprezzato questa esercitazione e cosa migliorare nei commenti nella parte inferiore della pagina. In caso di domande che non sono direttamente correlate all'esercitazione, è possibile registrarli per il [forum di ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
 
 
 ## <a name="what-is-signalr"></a>Che cos'è SignalR?
@@ -140,7 +140,7 @@ Una connessione rappresenta un endpoint di tipo semplice per l'invio di messaggi
 
 Un Hub è una pipeline più alto livello basata sull'API di connessione che consente il client e server chiamare i metodi direttamente tra loro. SignalR gestisce la distribuzione tra limiti di computer come se fosse magic, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Utilizzando il modello di comunicazione hub risulteranno familiare agli sviluppatori che hanno usato la chiamata remota, ad esempio servizi remoti .NET. Utilizzo di un Hub consente inoltre di passare parametri fortemente tipizzati per metodi che consentono l'associazione del modello.
 
-### <a name="architecture-diagram"></a>diagramma dell'architettura
+### <a name="architecture-diagram"></a>Diagramma dell'architettura
 
 Il diagramma seguente mostra la relazione tra hub, le connessioni permanenti e le tecnologie sottostanti utilizzate per i trasporti.
 
