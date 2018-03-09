@@ -213,6 +213,9 @@
 # [Dispositivi mobili](xref:mobile/index)
 ## [Creare servizi back-end per app native per dispositivi mobili](xref:mobile/native-mobile-backend)
 
+# [SignalR](xref:signalr/index)
+## [Introduzione](xref:signalr/get-started-signalr-core)
+
 # [Ospitare e distribuire](xref:host-and-deploy/index)
 ## [Ospitare in Servizio app di Azure](xref:host-and-deploy/azure-apps/index)
 ### [Pubblicare in Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
