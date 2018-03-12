@@ -4,16 +4,16 @@ author: rick-anderson
 description: Offre un'introduzione ad ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 112e1e4dc4eed2cf0ee94741a52ce6625e1f42a6
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core"></a>ASP.NET Core
 
@@ -43,7 +43,7 @@ ASP.NET Core offre i vantaggi seguenti:
 * Possibilità di compilare ed eseguire in Windows, macOS e Linux.
 * Open-source e [incentrato sulle community](https://live.asp.net/).
 
-ASP.NET Core viene fornito esclusivamente come pacchetti [NuGet](https://www.nuget.org/). Ciò consente di ottimizzare l'app per includere solo i pacchetti NuGet necessari. In effetti, le app ASP.NET Core 2.x destinate a NET Core richiedono un [singolo pacchetto NuGet](xref:fundamentals/metapackage). Una riduzione della superficie occupata dall'app offre anche diversi vantaggi, tra cui una maggiore sicurezza, una riduzione delle esigenze di assistenza e un miglioramento delle prestazioni.
+ASP.NET Core viene fornito esclusivamente come pacchetti [NuGet](https://www.nuget.org/). L'uso di pacchetto NuGet consente di ottimizzare l'app includendo solo le dipendenze necessarie. In effetti, le app ASP.NET Core 2.x destinate a NET Core richiedono un [singolo pacchetto NuGet](xref:fundamentals/metapackage). Una riduzione della superficie occupata dall'app offre anche diversi vantaggi, tra cui una maggiore sicurezza, una riduzione delle esigenze di assistenza e un miglioramento delle prestazioni.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Compilare API web e interfaccia utente web tramite ASP.NET Core MVC
 
@@ -59,7 +59,21 @@ ASP.NET Core MVC offre funzionalità per la compilazione di [API Web](xref:tutor
 
 ## <a name="client-side-development"></a>Sviluppo lato client
 
-ASP.NET Core si integra perfettamente con popolari framework e librerie sul lato client, inclusi [Angular](xref:spa/angular), [React](xref:spa/react) e [Bootstrap](xref:client-side/bootstrap). Vedere [Sviluppo lato client](xref:client-side/index) per altri dettagli.
+ASP.NET Core si integra perfettamente con popolari framework e librerie sul lato client, inclusi [Angular](xref:spa/angular), [React](xref:spa/react) e [Bootstrap](xref:client-side/bootstrap). Per altre informazioni, vedere [Sviluppo lato client](xref:client-side/index).
+
+## <a name="aspnet-core-targeting-net-framework"></a>ASP.NET Core per .NET Framework
+
+ASP.NET Core può avere come destinazione .NET Core o .NET Framework. Le app ASP.NET Core destinate a .NET Framework non sono multipiattaforma, ma funzionano solo in Windows. Non è prevista la rimozione del supporto di ASP.NET Core per .NET Framework. ASP.NET Core è in genere costituito da librerie [.NET Standard](/dotnet/standard/net-standard). Le app scritte con .NET 2.0 Standard funzionano ovunque sia supportato .NET Standard 2.0.
+
+Usare .NET Core come destinazione offre diversi vantaggi, che aumentano con ogni versione. Alcuni vantaggi di .NET Core in .NET Framework sono:
+
+* Funzionamento multipiattaforma. Esecuzione con macOS, Linux e Windows.
+* Miglioramento delle prestazioni
+* Controllo delle versioni side-by-side
+* Nuove API
+* Open source
+
+È in corso un'intensa attività volta a colmare il divario da .NET Framework a .NET Core relativo alle API. [Windows Compatibility Pack](/dotnet/core/porting/windows-compat-pack) ha reso disponibili in .NET Core migliaia di API solo per Windows. Queste API non erano disponibili in .NET Core 1. x.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
