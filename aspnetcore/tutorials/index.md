@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Esercitazioni di ASP.NET Core
 
@@ -47,12 +47,15 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
   * [API Web con Visual Studio per Windows](first-web-api.md)
   * [API Web con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
   * [API Web con Visual Studio Code](web-api-vsc.md)
-  
-* [Pagine della Guida dell'API Web ASP.NET Core con Swagger](web-api-help-pages-using-swagger.md)
+
+* [Pagine della Guida dell'API Web ASP.NET Core con Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+  * [Introduzione a NSwag](xref:tutorials/get-started-with-nswag)
+  * [Introduzione a Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
+
 * [Creare servizi Web di back-end per app native per dispositivi mobili](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Accesso ai dati e archiviazione di questi
-* [Introduzione a Pagine Razor ed EF Core con Visual Studio](xref:data/ef-rp/intro)
+* [Introduzione a pagine Razor ed EF Core con Visual Studio](xref:data/ef-rp/intro)
 * [Introduzione ad ASP.NET Core MVC ed EF Core con Visual Studio](../data/ef-mvc/index.md)
 * [ASP.NET Core MVC con EF Core: nuovo database](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core MVC con EF Core: database esistente](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
