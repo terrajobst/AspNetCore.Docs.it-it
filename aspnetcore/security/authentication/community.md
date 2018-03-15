@@ -1,33 +1,33 @@
 ---
-title: Opzioni di autenticazione community OSS
+title: Opzioni di autenticazione community OSS per ASP.NET Core
 author: rick-anderson
-description: Gli elenchi di aprire le opzioni di autenticazione di origine per ASP.NET Core.
+description: Individuare le opzioni di autenticazione open source per ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 08/18/2017
+ms.date: 03/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/community
-ms.openlocfilehash: 08171cec99f83677b4bf2a2de48908f31cd11fff
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 576e465b686ab5f067daf5aa588676260af7961f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="community-oss-authentication-options"></a><span data-ttu-id="1e568-103">Opzioni di autenticazione community OSS</span><span class="sxs-lookup"><span data-stu-id="1e568-103">Community OSS authentication options</span></span>
+# <a name="community-oss-authentication-options-for-aspnet-core"></a><span data-ttu-id="85624-103">Opzioni di autenticazione community OSS per ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="85624-103">Community OSS authentication options for ASP.NET Core</span></span>
 
-<span data-ttu-id="1e568-104">Questa pagina contiene le opzioni di autenticazione fornite community open source per ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="1e568-104">This page contains community-provided, open source authentication options for ASP.NET Core.</span></span> <span data-ttu-id="1e568-105">Questa pagina verrà aggiornata periodicamente come nuovi provider diventi disponibile.</span><span class="sxs-lookup"><span data-stu-id="1e568-105">This page will be periodically updated as new providers become available.</span></span>
+<span data-ttu-id="85624-104">Questa pagina contiene le opzioni di autenticazione fornite community open source per ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="85624-104">This page contains community-provided, open source authentication options for ASP.NET Core.</span></span> <span data-ttu-id="85624-105">Questa pagina viene aggiornata periodicamente come nuovi provider diventi disponibile.</span><span class="sxs-lookup"><span data-stu-id="85624-105">This page is periodically updated as new providers become available.</span></span>
 
-# <a name="oss-authentication-providers"></a><span data-ttu-id="1e568-106">Provider di autenticazione di sistemi operativi</span><span class="sxs-lookup"><span data-stu-id="1e568-106">OSS Authentication Providers</span></span>
+# <a name="oss-authentication-providers"></a><span data-ttu-id="85624-106">Provider di autenticazione di sistemi operativi</span><span class="sxs-lookup"><span data-stu-id="85624-106">OSS authentication providers</span></span>
 
-<span data-ttu-id="1e568-107">L'elenco è ordinato alfabeticamente.</span><span class="sxs-lookup"><span data-stu-id="1e568-107">The list below is sorted alphabetically.</span></span>
+<span data-ttu-id="85624-107">L'elenco è ordinato alfabeticamente.</span><span class="sxs-lookup"><span data-stu-id="85624-107">The list below is sorted alphabetically.</span></span>
 
-| <span data-ttu-id="1e568-108">nome</span><span class="sxs-lookup"><span data-stu-id="1e568-108">Name</span></span> | <span data-ttu-id="1e568-109">Descrizione</span><span class="sxs-lookup"><span data-stu-id="1e568-109">Description</span></span> |
-|:--------------|:------------------|
-| [<span data-ttu-id="1e568-110">AspNet.Security.OpenIdConnect.Server (ASOS)</span><span class="sxs-lookup"><span data-stu-id="1e568-110">AspNet.Security.OpenIdConnect.Server (ASOS)</span></span>](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | <span data-ttu-id="1e568-111">Minime livello/protocollo first OpenID Connect framework di server per ASP.NET Core e OWIN/Katana</span><span class="sxs-lookup"><span data-stu-id="1e568-111">Low-level/protocol-first OpenID Connect server framework for ASP.NET Core and OWIN/Katana</span></span> |
-| [<span data-ttu-id="1e568-112">IdentityServer4</span><span class="sxs-lookup"><span data-stu-id="1e568-112">IdentityServer4</span></span>](https://identityserver.io/) | <span data-ttu-id="1e568-113">OpenID Connect e OAuth 2.0 framework per ASP.NET Core - ufficialmente certificate da OpenID Foundation e in governance della Fondazione .NET</span><span class="sxs-lookup"><span data-stu-id="1e568-113">OpenID Connect and OAuth 2.0 framework for ASP.NET Core - officially certified by the OpenID Foundation and under governance of the .NET Foundation</span></span> |
-| [<span data-ttu-id="1e568-114">OpenIddict</span><span class="sxs-lookup"><span data-stu-id="1e568-114">OpenIddict</span></span>](https://github.com/openiddict/openiddict-core) | <span data-ttu-id="1e568-115">Server di OpenID Connect da usare per ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1e568-115">Easy-to-use OpenID Connect server for ASP.NET Core</span></span>  |
-| [<span data-ttu-id="1e568-116">Cierge</span><span class="sxs-lookup"><span data-stu-id="1e568-116">Cierge</span></span>](https://github.com/pwdless/Cierge) | <span data-ttu-id="1e568-117">Autenticazione OpenID Connect sostituti passwordless,</span><span class="sxs-lookup"><span data-stu-id="1e568-117">Passwordless, drop-in OpenID Connect authentication</span></span>   |
+| <span data-ttu-id="85624-108">nome</span><span class="sxs-lookup"><span data-stu-id="85624-108">Name</span></span> | <span data-ttu-id="85624-109">Descrizione</span><span class="sxs-lookup"><span data-stu-id="85624-109">Description</span></span> |
+| ---- | ----------- |
+| [<span data-ttu-id="85624-110">AspNet.Security.OpenIdConnect.Server (ASOS)</span><span class="sxs-lookup"><span data-stu-id="85624-110">AspNet.Security.OpenIdConnect.Server (ASOS)</span></span>](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | <span data-ttu-id="85624-111">ASOS è un basso livello, il primo protocollo OpenID Connect server framework per ASP.NET Core e OWIN/Katana.</span><span class="sxs-lookup"><span data-stu-id="85624-111">ASOS is a low-level, protocol-first OpenID Connect server framework for ASP.NET Core and OWIN/Katana.</span></span> |
+| [<span data-ttu-id="85624-112">IdentityServer</span><span class="sxs-lookup"><span data-stu-id="85624-112">IdentityServer</span></span>](https://identityserver.io/) | <span data-ttu-id="85624-113">IdentityServer è un framework di OpenID Connect e OAuth 2.0 per ASP.NET Core, ufficialmente certificate da OpenID Foundation e in governance della Fondazione .NET.</span><span class="sxs-lookup"><span data-stu-id="85624-113">IdentityServer is an OpenID Connect and OAuth 2.0 framework for ASP.NET Core, officially certified by the OpenID Foundation and under governance of the .NET Foundation.</span></span> <span data-ttu-id="85624-114">Per ulteriori informazioni, vedere [di IdentityServer4 (documentazione)](https://identityserver4.readthedocs.io/en/release/).</span><span class="sxs-lookup"><span data-stu-id="85624-114">For more information, see [Welcome to IdentityServer4 (Documentation)](https://identityserver4.readthedocs.io/en/release/).</span></span> |
+| [<span data-ttu-id="85624-115">OpenIddict</span><span class="sxs-lookup"><span data-stu-id="85624-115">OpenIddict</span></span>](https://github.com/openiddict/openiddict-core) | <span data-ttu-id="85624-116">OpenIddict è un server di OpenID Connect di semplice utilizzo per ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="85624-116">OpenIddict is an easy-to-use OpenID Connect server for ASP.NET Core.</span></span> |
+| [<span data-ttu-id="85624-117">Cierge</span><span class="sxs-lookup"><span data-stu-id="85624-117">Cierge</span></span>](https://github.com/pwdless/Cierge) | <span data-ttu-id="85624-118">Cierge è un server di OpenID Connect che gestisce l'iscrizione utente, account di accesso, i profili, gestione, gli account di accesso social networking e altro ancora.</span><span class="sxs-lookup"><span data-stu-id="85624-118">Cierge is an OpenID Connect server that handles user signup, login, profiles, management, social logins, and more.</span></span> |
 
-<span data-ttu-id="1e568-118">Per ottenere il provider aggiunto [modificare questa pagina](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).</span><span class="sxs-lookup"><span data-stu-id="1e568-118">To get your provider added here [edit this page](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).</span></span>
+<span data-ttu-id="85624-119">Per aggiungere un provider, [modificare questa pagina](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).</span><span class="sxs-lookup"><span data-stu-id="85624-119">To add a provider, [edit this page](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).</span></span>
