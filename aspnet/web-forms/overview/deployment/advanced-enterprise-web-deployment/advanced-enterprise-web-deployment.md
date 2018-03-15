@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>Distribuzione Web aziendale avanzato
 ====================
@@ -26,7 +26,7 @@ da [Jason Lee](https://github.com/jrjlee)
 
 > In questa esercitazione Mostra come eseguire diverse attività che sono necessari o utili in molti scenari di distribuzione dell'organizzazione.
 > 
-> Per una traduzione italiana di queste esercitazioni, visitare [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Per una traduzione italiana di queste esercitazioni, visitare [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 Questo fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) #x 2014; & soluzione per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
@@ -54,7 +54,7 @@ Viene descritto lo scenario di alto livello per queste esercitazioni in [distrib
 
 In questa esercitazione viene illustrato come utilizzare questi prodotti e tecnologie per supportare la compilazione automatica e distribuzione web:
 
-- Visual Studio 2010 e Team Foundation Server (TFS) 2010
+- Visual Studio 2010 and Team Foundation Server (TFS) 2010
 - MSBuild e compilazione di Team TFS
 - Internet Information Services (IIS) 7.5
 - Strumento di distribuzione Web di IIS (distribuzione Web) 2.1
@@ -70,4 +70,4 @@ Questo fa parte di una serie di cinque esercitazioni su distribuzione web su lar
 - [Configurazione di Team Foundation Server per la distribuzione Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In questa esercitazione viene descritto come configurare TFS per supportare diversi scenari di distribuzione, tra cui la distribuzione automatica come parte di un processo di integrazione continua e attivate manualmente le distribuzioni di compilazioni specifiche.
 
 >[!div class="step-by-step"]
-[Successivo](performing-a-what-if-deployment.md)
+[avanti](performing-a-what-if-deployment.md)

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
 ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>La visualizzazione dei dati in un grafico con le pagine Web ASP.NET (Razor)
 ====================
@@ -41,7 +41,7 @@ by [Microsoft](https://github.com/microsoft)
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>L'Helper grafico
 
-Quando si desidera visualizzare i dati sotto forma di grafico, è possibile utilizzare `Chart` helper. Il `Chart` helper può eseguire il rendering di un'immagine che visualizza i dati in una vasta gamma di tipi di grafico. Supporta numerose opzioni di formattazione e l'assegnazione di etichette. Il `Chart` supporto può rendere più di 30 tipi di grafici, inclusi tutti i tipi di grafici che è possibile avere familiarità con da Microsoft Excel o altri strumenti &#8212; grafici ad area, barre, istogrammi, linee, grafici e grafici a torta, insieme con più i grafici azionari, ad esempio grafici speciali.
+Quando si desidera visualizzare i dati sotto forma di grafico, è possibile utilizzare `Chart` helper. Il `Chart` helper può eseguire il rendering di un'immagine che visualizza i dati in una vasta gamma di tipi di grafico. Supporta numerose opzioni di formattazione e l'assegnazione di etichette. Il `Chart` supporto può rendere più di 30 tipi di grafici, inclusi tutti i tipi di grafici che è possibile avere familiarità con da Microsoft Excel o altri strumenti &#8212; grafici ad area, grafici a barre, istogrammi, grafici a linee e i grafici a torta, insieme a informazioni i grafici azionari, ad esempio grafici speciali.
 
 | **Grafico ad area** ![descrizione: immagine del tipo di grafico ad Area](7-displaying-data-in-a-chart/_static/image1.jpg) | **Grafico a barre** ![descrizione: immagine del tipo di grafico a barre](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
@@ -122,7 +122,7 @@ La terza opzione per la creazione di grafici consiste nell'utilizzare un file XM
 
     Il codice crea prima una `DataSet` oggetto. Questo oggetto viene utilizzato per gestire i dati che viene letto dal file XML e organizzarli in base alle informazioni nel file di schema. (Si noti che nella parte superiore del codice inclusa l'istruzione `using SystemData`. Questa operazione è necessaria per poter funzionare con il `DataSet` oggetto. Per ulteriori informazioni, vedere [ &quot;Using&quot; istruzioni e i nomi completi](#SB_UsingStatements) più avanti in questo articolo.)
 
-    Successivamente, il codice crea un `DataView` oggetto basato sul set di dati. La visualizzazione di dati fornisce un oggetto che è possibile associare il grafico a &#8212; ovvero, leggere e tracciare. Il grafico viene associato a dati mediante il `AddSeries` (metodo), come visto prima quando grafici i dati, tranne il fatto che questa volta il `xValue` e `yValues` sono impostati sul `DataView` oggetto.
+    Successivamente, il codice crea un `DataView` oggetto basato sul set di dati. La visualizzazione di dati fornisce un oggetto che è possibile associare il grafico a &#8212; , leggere e tracciare. Il grafico viene associato a dati mediante il `AddSeries` (metodo), come visto prima quando grafici i dati, tranne il fatto che questa volta il `xValue` e `yValues` sono impostati sul `DataView` oggetto.
 
     In questo esempio viene inoltre illustrato come specificare un particolare tipo di grafico. Quando i dati vengono aggiunti nel `AddSeries` (metodo), il `chartType` parametro viene impostato anche per visualizzare un grafico a torta.
 7. Eseguire la pagina in un browser. 
@@ -136,7 +136,7 @@ La terza opzione per la creazione di grafici consiste nell'utilizzare un file XM
 > 
 > .NET Framework basato su ASP.NET Web Pages con sintassi Razor è costituito da molte migliaia di componenti (classi). Per rendere più gestibile per utilizzare tutte queste classi, sono organizzati in *gli spazi dei nomi*, che sono paragonabili alle librerie. Ad esempio, il `System.Web` dello spazio dei nomi contiene classi che supportano la comunicazione browser/server, il `System.Xml` spazio dei nomi contiene classi che consentono di creare e leggere i file XML, e `System.Data` dello spazio dei nomi contiene classi che consentono di lavorare con i dati.
 > 
-> Per accedere a qualsiasi classe fornita in .NET Framework, deve conoscere non solo il nome della classe, ma anche lo spazio dei nomi della classe nel codice. Ad esempio, per poter utilizzare il `Chart` helper, il codice deve trovare il `System.Web.Helpers.Chart` (classe), che combina lo spazio dei nomi (`System.Web.Helpers`) con il nome di classe (`Chart`). Questo è noto come la classe *completo* nome &#8212; il percorso completo e non ambiguo all'interno di vastness di .NET Framework. Nel codice, questo avrà un aspetto simile al seguente:
+> Per accedere a qualsiasi classe fornita in .NET Framework, deve conoscere non solo il nome della classe, ma anche lo spazio dei nomi della classe nel codice. Ad esempio, per poter utilizzare il `Chart` helper, il codice deve trovare il `System.Web.Helpers.Chart` (classe), che combina lo spazio dei nomi (`System.Web.Helpers`) con il nome di classe (`Chart`). Questo è noto come la classe *completo* nome &#8212; relativo percorso completo e non ambiguo all'interno di vastness di .NET Framework. Nel codice, questo avrà un aspetto simile al seguente:
 > 
 > `var myChart = new System.Web.Helpers.Chart(width: 600, height: 400) // etc.`
 > 
@@ -239,7 +239,7 @@ Grafici salvati nella cache potrebbero essere rimossi se il server è insufficie
 
     Infine, il codice Usa il `WriteFromCache` metodo per recuperare ed eseguire il rendering del grafico dalla cache. Si noti che questo metodo è di fuori di `if` blocco che controlla la cache, perché questa recupera il grafico dalla cache se il grafico è inizialmente o deve essere generato e salvato nella cache.
 
-    Si noti che nell'esempio di `AddTitle` metodo include un timestamp. (Aggiunge la data e ora &#8212; `DateTime.Now` &#8212; per il titolo.)
+    Si noti che nell'esempio di `AddTitle` metodo include un timestamp. (Aggiunge la data e ora correnti &#8212; `DateTime.Now` &#8212; al titolo.)
 5. Creare una nuova pagina denominata *ClearCache.cshtml* e sostituirne il contenuto con quanto segue:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]

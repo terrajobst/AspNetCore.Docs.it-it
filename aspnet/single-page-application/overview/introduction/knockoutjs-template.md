@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Applicazione a pagina singola: Modello Knockout.js
 ====================
@@ -94,7 +94,7 @@ Nel progetto di Visual Studio, la cartella Modelli contiene i modelli utilizzati
 
 **TodoItem, TodoList**
 
-Questi sono i modelli di database per Entity Framework Code First. Si noti che i modelli hanno proprietà che fanno riferimento a altro. `ToDoList`contiene una raccolta di ToDoItems e ogni `ToDoItem` dispone di un riferimento al relativo elemento padre ToDoList. Queste proprietà sono definite proprietà di navigazione e rappresentano la relazione uno-a-molti, un elenco di attività e i relativi elementi di attività da eseguire.
+Questi sono i modelli di database per Entity Framework Code First. Si noti che i modelli hanno proprietà che fanno riferimento a altro. `ToDoList` contiene una raccolta di ToDoItems e ogni `ToDoItem` dispone di un riferimento al relativo elemento padre ToDoList. Queste proprietà sono definite proprietà di navigazione e rappresentano la relazione uno-a-molti, un elenco di attività e i relativi elementi di attività da eseguire.
 
 Il `ToDoItem` utilizzato anche dalla classe di **[ForeignKey]** attributo per specificare che `ToDoListId` è una chiave esterna nel `ToDoList` tabella. Ciò indica a Entity Framework per aggiungere un vincolo di chiave esterna nel database.
 
@@ -162,7 +162,7 @@ Il `TodoController` è molto simile alla classe `TodoListController`. La differe
 
 ## <a name="mvc-controllers-and-views"></a>Le visualizzazioni e controller MVC
 
-I controller MVC si trovano anche nella cartella Controllers della soluzione. `HomeController`esegue il rendering HTML per l'applicazione principale. La visualizzazione per il controller Home è definita in Views/Home/Index.cshtml. La visualizzazione iniziale viene eseguito il rendering di contenuto diverso a seconda se l'utente è connesso:
+I controller MVC si trovano anche nella cartella Controllers della soluzione. `HomeController` esegue il rendering HTML per l'applicazione principale. La visualizzazione per il controller Home è definita in Views/Home/Index.cshtml. La visualizzazione iniziale viene eseguito il rendering di contenuto diverso a seconda se l'utente è connesso:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 

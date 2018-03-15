@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Introduzione all'uso di un Database in ASP.NET Web Pages siti (Razor)
 ====================
@@ -54,9 +54,9 @@ Si supponga una tipico di Rubrica. Per ogni voce della Rubrica (ovvero, per ogni
 
 Un modo comune di dati di immagine simile al seguente è una tabella con righe e colonne. In termini di database, ogni riga è noto anche come un record. Ogni colonna (talvolta detto campi) contiene un valore per ogni tipo di dati: nome del primo, ultimo nome e così via.
 
-| **ID** | **FirstName** | **Cognome** | **Indirizzo** | **Posta elettronica** | **Telefono** |
+| **ID** | **FirstName** | **LastName** | **Indirizzo** | **Posta elettronica** | **Telefono** |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Jim | Abrus | 210 100 St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
+| 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
 
 Per la maggior parte delle tabelle di database, la tabella deve disporre di una colonna che contiene un identificatore univoco, ad esempio un numero cliente, numero di conto, e così via. Questo è noto come la tabella *chiave primaria*, e usarlo per identificare ogni riga nella tabella. Nell'esempio, la colonna ID è la chiave primaria per la Rubrica.
@@ -91,7 +91,7 @@ Questa procedura viene illustrato come creare un database denominato SmallBakery
     Come suggerisce il nome, **chiave primaria è** indica il database che si tratterà di chiave primaria della tabella. **Identità** indica il database da creare automaticamente un numero di ID per ogni nuovo record e per assegnare il successivo numero sequenziale (a partire da 1).
 10. Fare clic nella riga successiva. L'editor avvia una nuova definizione di colonna.
 11. Per il valore del nome, immettere &quot;nome&quot;.
-12. Per **tipo di dati**, scegliere &quot;nvarchar&quot; e impostare la lunghezza su 50. Il *var* parte `nvarchar` indica il database che i dati per questa colonna sarà una stringa il cui dimensioni possono variare da un record a altro. (Il  *n*  prefisso rappresenta *national*, che indica che il campo può contenere dati di tipo carattere che rappresenta qualsiasi alfabeto o la scrittura di sistema & #8212, vale a dire, che il campo contiene Unicode dati).
+12. Per **tipo di dati**, scegliere &quot;nvarchar&quot; e impostare la lunghezza su 50. Il *var* parte `nvarchar` indica il database che i dati per questa colonna sarà una stringa il cui dimensioni possono variare da un record a altro. (Il *n* prefisso rappresenta *national*, che indica che il campo può contenere dati di tipo carattere che rappresenta qualsiasi carattere alfabetico o sistema di scrittura &#8212; vale a dire che il campo contiene i dati Unicode.)
 13. Impostare il **Ammetti** opzione **n**. Impone che il *nome* colonna non è vuoto.
 14. Utilizzando lo stesso processo, creare una colonna denominata *descrizione*. Impostare **tipo di dati** "nvarchar" e 50 per la lunghezza, quindi impostare **Ammetti** su false.
 15. Creare una colonna denominata *prezzo*. Impostare **tipo di dati "money"** e impostare **Ammetti** su false.
@@ -110,7 +110,7 @@ Questa procedura viene illustrato come creare un database denominato SmallBakery
 2. Il pulsante destro della tabella Product e quindi fare clic su **dati**.
 3. Nel riquadro di modifica, immettere i record seguenti:
 
-    | **Nome** | **Descrizione** | **Prezzo** |
+    | **Name** | **Descrizione** | **Prezzo** |
     | --- | --- | --- |
     | Pane | Salvati sono aggiornate ogni giorno. | 2.99 |
     | Shortcake alla | Eseguita con fragole organiche dal nostro garden. | 9.99 |
@@ -136,7 +136,7 @@ Dopo aver ottenuto un database con i dati in essa contenuti, è possibile visual
 
     [!code-cshtml[Main](5-working-with-data/samples/sample1.cshtml)]
 
-    Nel primo blocco di codice, si apre il *SmallBakery.sdf* file (database) creato in precedenza. Il `Database.Open` metodo presuppone che il *sdf* file è di un sito Web *App\_dati* cartella. (Si noti che non è necessario specificare il *sdf* estensione &#8212; infatti, in caso contrario, il `Open` (metodo) non funzionerà.)
+    Nel primo blocco di codice, si apre il *SmallBakery.sdf* file (database) creato in precedenza. Il `Database.Open` metodo presuppone che il *sdf* file è di un sito Web *App\_dati* cartella. (Si noti che non è necessario specificare il *sdf* estensione &#8212; in effetti, in caso contrario, il `Open` (metodo) non funzionerà.)
 
     > [!NOTE]
     > Il *App\_dati* cartella è una cartella speciale di ASP.NET che viene utilizzato per archiviare i file di dati. Per ulteriori informazioni, vedere [connessione a un Database](#SB_ConnectingToADatabase) più avanti in questo articolo.
@@ -258,7 +258,7 @@ Dopo che sono stati immessi dati in una tabella, potrebbe essere necessario aggi
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Si noti che il `href` attributo è impostato su `UpdateProducts/n`, dove  *n*  è un numero di prodotto. Quando un utente fa clic su uno di questi collegamenti, l'URL risulta avrà un aspetto simile al seguente:
+    Si noti che il `href` attributo è impostato su `UpdateProducts/n`, dove *n* è un numero di prodotto. Quando un utente fa clic su uno di questi collegamenti, l'URL risulta avrà un aspetto simile al seguente:
 
     `http://localhost:18816/UpdateProducts/6`
 
@@ -384,7 +384,7 @@ In questa sezione viene illustrato come consentire agli utenti di eliminare un p
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Come già indicato, il `Database.Open` metodo consente di passare un nome di database o una stringa di connessione e calcolerà da usare. È molto utile quando si distribuisce (pubblica) nel sito Web. È possibile utilizzare un *sdf* file nel *App\_dati* cartella quando si esegue lo sviluppo e il test del sito. Quando si sposta il sito in un server di produzione, è possibile utilizzare una stringa di connessione nel *Web. config* file con lo stesso nome del *sdf* file, ma che punta al database & # il provider di hosting 8212; tutto senza dover modificare il codice.
+> Come già indicato, il `Database.Open` metodo consente di passare un nome di database o una stringa di connessione e calcolerà da usare. È molto utile quando si distribuisce (pubblica) nel sito Web. È possibile utilizzare un *sdf* file nel *App\_dati* cartella quando si esegue lo sviluppo e il test del sito. Quando si sposta il sito in un server di produzione, è possibile utilizzare una stringa di connessione nel *Web. config* file con lo stesso nome del *sdf* file ma che punta al provider di hosting database &#8212;tutto senza dover modificare il codice.
 > 
 > Infine, se si desidera lavorare direttamente con una stringa di connessione, è possibile chiamare il `Database.OpenConnectionString` (metodo) e l'effettiva connessione stringa anziché solo il nome di uno nel passaggio di *Web. config* file. Questo potrebbe essere utile nelle situazioni in cui per qualche motivo non si ha accesso alla stringa di connessione (o i valori in essa contenuti, ad esempio il *sdf* nome file) fino a quando la pagina è in esecuzione. Per la maggior parte degli scenari, tuttavia, è possibile utilizzare `Database.Open` come descritto in questo articolo.
 
@@ -393,4 +393,4 @@ In questa sezione viene illustrato come consentire agli utenti di eliminare un p
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [Connessione a un Database SQL Server o MySQL in WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [Convalida dell'Input utente nei siti di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Convalida dell'input utente nelle pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)

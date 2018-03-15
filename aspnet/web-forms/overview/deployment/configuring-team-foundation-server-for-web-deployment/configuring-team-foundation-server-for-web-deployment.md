@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Configurazione di Team Foundation Server per la distribuzione Web
 ====================
@@ -32,7 +32,7 @@ da [Jason Lee](https://github.com/jrjlee)
 > - Come creare una definizione di compilazione che include la logica di distribuzione.
 > - Come configurare le autorizzazioni per la distribuzione automatizzata.
 > 
-> Per una traduzione italiana di queste esercitazioni, visitare [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Per una traduzione italiana di queste esercitazioni, visitare [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 In questa esercitazione si presuppone di aver installato TFS 2010 e creare una raccolta di progetti team come parte del processo di configurazione iniziale. Il [Guida all'installazione di Team Foundation per Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) fornisce indicazioni su queste attività.
@@ -78,4 +78,4 @@ Questo fa parte di una serie di cinque esercitazioni su distribuzione web su lar
 - [Distribuzione Web aziendale avanzate](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In questa esercitazione viene illustrato come eseguire diverse attività di distribuzione più avanzate, ad esempio personalizzare le distribuzioni di database per più ambienti, esclusione dalla distribuzione di file e cartelle e l'esecuzione di applicazioni web offline durante il processo di distribuzione .
 
 >[!div class="step-by-step"]
-[Successivo](creating-a-team-project-in-tfs.md)
+[avanti](creating-a-team-project-in-tfs.md)

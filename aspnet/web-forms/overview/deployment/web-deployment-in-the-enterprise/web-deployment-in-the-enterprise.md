@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Distribuzione Web dell'organizzazione
 ====================
@@ -26,7 +26,7 @@ da [Jason Lee](https://github.com/jrjlee)
 
 > In questa esercitazione viene descritto come soddisfano molti dei problemi che si verificano quando si gestisce la distribuzione di applicazioni web su larga scala per ambienti di sviluppo, test, gestione temporanea e produzione. L'esercitazione include una soluzione di riferimento con una combinazione di contenuto concettuale e orientata alle attività per eseguire varie attività comuni e procedure.
 > 
-> Per una traduzione italiana di queste esercitazioni, visitare [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Per una traduzione italiana di queste esercitazioni, visitare [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="enterprise-deployment-challenges"></a>Problemi legati alla distribuzione dell'organizzazione
@@ -68,18 +68,18 @@ In questa esercitazione è inclusi argomenti che possono essere suddivise in qua
 
 Questi argomenti la soluzione di riferimento & #x 2014; la soluzione di gestione di contatto & #x 2014; e viene descritto come scaricarlo e configurarlo nel computer locale:
 
-- [La soluzione di gestione di contatto](the-contact-manager-solution.md)
-- [Impostazione della soluzione di gestione di contatto](setting-up-the-contact-manager-solution.md)
+- [Soluzione Contact Manager](the-contact-manager-solution.md)
+- [Configurazione della soluzione Contact Manager](setting-up-the-contact-manager-solution.md)
 
 Questi argomenti introdurre i file di progetto MSBuild, viene descritto come è possibile creare e utilizzare i file di progetto personalizzato e scorrere il processo di distribuzione per la soluzione di gestione di contatto:
 
-- [Informazioni sui File di progetto](understanding-the-project-file.md)
+- [Informazioni sul file di progetto](understanding-the-project-file.md)
 - [Informazioni sul processo di compilazione](understanding-the-build-process.md)
 
 Questi argomenti descrivono la distribuzione di applicazioni web, tra cui la creazione di pacchetti e alla build funzionamento sul processo, come il processo di compilazione si integra con la Pipeline di pubblicazione sul Web, come modificare i parametri di distribuzione e come distribuire i pacchetti web di destinazione ambienti:
 
-- [Compilazione e l'assemblaggio di progetti di applicazione Web](building-and-packaging-web-application-projects.md)
-- [Configurazione dei parametri per la distribuzione di pacchetto Web](configuring-parameters-for-web-package-deployment.md)
+- [Compilazione e creazione di pacchetti di progetti di applicazione Web](building-and-packaging-web-application-projects.md)
+- [Configurazione dei parametri per la distribuzione di pacchetti Web](configuring-parameters-for-web-package-deployment.md)
 - [Distribuzione di pacchetti Web](deploying-web-packages.md)
 
 - [Distribuzione di progetti di Database](deploying-database-projects.md) descrive le diverse tecniche che è possibile utilizzare per distribuire i progetti di database di Visual Studio, con i vantaggi e svantaggi di ogni approccio. [Creazione ed esecuzione di un File di comando di distribuzione](creating-and-running-a-deployment-command-file.md) viene descritto come creare un semplice file di comando che incapsula la logica di distribuzione e consente di distribuire soluzioni complesse come processo un singolo passaggio.
@@ -105,4 +105,4 @@ Questo fa parte di una serie di cinque esercitazioni su distribuzione web su lar
 - [Distribuzione Web aziendale avanzate](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In questa esercitazione viene illustrato come eseguire diverse attività di distribuzione più avanzate, ad esempio personalizzare le distribuzioni di database per più ambienti, esclusione dalla distribuzione di file e cartelle e l'esecuzione di applicazioni web offline durante il processo di distribuzione .
 
 >[!div class="step-by-step"]
-[Successivo](the-contact-manager-solution.md)
+[avanti](the-contact-manager-solution.md)

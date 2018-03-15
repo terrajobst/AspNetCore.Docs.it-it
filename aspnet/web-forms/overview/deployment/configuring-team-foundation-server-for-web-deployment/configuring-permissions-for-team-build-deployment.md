@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Configurazione delle autorizzazioni per Team di distribuzione della compilazione
 ====================
@@ -38,7 +38,7 @@ Quando si installa il servizio di compilazione 2010 Team Foundation Server (TFS)
 Qualsiasi attività di distribuzione che richiedono l'autenticazione di Windows e che si intende automatizzare con Team Build, viene eseguito con l'identità del servizio di compilazione. Di conseguenza, è necessario concedere l'identità del servizio di compilazione le autorizzazioni necessarie per i server web e i server di database.
 
 > [!NOTE]
-> L'account del servizio di rete Usa l'account del computer per l'autenticazione in altri computer. Gli account computer assumono la forma *[nome dominio]\[nome macchina]***$**& #x 2014, ad esempio **FABRIKAM\TFSBUILD$**. Di conseguenza, se il servizio di compilazione viene eseguita utilizzando l'identità del servizio di rete, è necessario concedere alcuna delle autorizzazioni necessarie per l'identità dell'account computer per il server di compilazione.
+> L'account del servizio di rete Usa l'account del computer per l'autenticazione in altri computer. Gli account computer assumono la forma * [nome dominio]\[nome macchina] ***$**& #x 2014, ad esempio **FABRIKAM\TFSBUILD$**. Di conseguenza, se il servizio di compilazione viene eseguita utilizzando l'identità del servizio di rete, è necessario concedere alcuna delle autorizzazioni necessarie per l'identità dell'account computer per il server di compilazione.
 
 
 ## <a name="configuring-web-server-permissions"></a>Configurazione delle autorizzazioni di Server Web
