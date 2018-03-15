@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introduzione alle applicazioni stile con meno, Sass e carattere straordinario in ASP.NET Core
 
-Da [Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
 Se si desidera applicare uno stile e l'esperienza complessiva, gli utenti delle applicazioni web hanno aspettative sempre più elevate. Applicazioni web moderne spesso sfruttano strumenti avanzati e Framework per definire e gestire l'aspetto in modo coerente. Framework come [Bootstrap](http://getbootstrap.com/) possono passare in modo che definisce un set comune di stili e le opzioni di layout per i siti web. Tuttavia, la maggior parte dei siti non semplice anche trarre vantaggio dalla possibilità di definire in modo efficace e Gestisci stili e i file di foglio di stile CSS, nonché l'accesso semplice a icone non di immagine che consentono di rendere più intuitiva interfaccia del sito. Corretta linguaggi e strumenti che supportano [meno](http://lesscss.org/) e [Sass](http://sass-lang.com/), e le librerie come [carattere straordinario](http://fontawesome.io/), sono disponibili in.
 
@@ -97,9 +97,9 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`e l'altro @-prefixed gli elementi sono variabili. Ognuno di essi rappresenta un colore. Ad eccezione di `@base`, si impostano utilizzando funzioni di colore: schiarire, viene resa più scura e ruotare. Rendere più chiari e più scuri eseguire praticamente alle aspettative; selezione consente di regolare la tonalità di un colore di un numero di gradi (circa il selettore di colore). Il minore processore è abbastanza per ignorare le variabili che non sono utilizzate per illustrare il funzionano di queste variabili, è necessario utilizzarle in un punto. Le classi `.baseColor`, e così via consentiranno di dimostrare i valori calcolati di ciascuna delle variabili nel file CSS che viene generato.
+`@base` e l'altro @-prefixed gli elementi sono variabili. Ognuno di essi rappresenta un colore. Ad eccezione di `@base`, si impostano utilizzando funzioni di colore: schiarire, viene resa più scura e ruotare. Rendere più chiari e più scuri eseguire praticamente alle aspettative; selezione consente di regolare la tonalità di un colore di un numero di gradi (circa il selettore di colore). Il minore processore è abbastanza per ignorare le variabili che non sono utilizzate per illustrare il funzionano di queste variabili, è necessario utilizzarle in un punto. Le classi `.baseColor`, e così via consentiranno di dimostrare i valori calcolati di ciascuna delle variabili nel file CSS che viene generato.
 
-### <a name="getting-started"></a>Per iniziare
+### <a name="get-started"></a>Introduzione
 
 Creare un **File di configurazione npm** (*package. JSON*) nella cartella del progetto e modificarlo per fare riferimento a `gulp` e `gulp-less`:
 

@@ -1,5 +1,5 @@
 ---
-title: Autenticazione cloud in web API con Azure Active Directory B2C
+title: Autenticazione cloud in web API con Azure Active Directory B2C in ASP.NET Core
 author: camsoper
 description: Per scoprire come configurare l'autenticazione di Azure Active Directory B2C con API Web di ASP.NET Core. Eseguire il test web API con Postman autenticato.
 ms.author: casoper
@@ -10,13 +10,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Autenticazione cloud in web API con Azure Active Directory B2C
+# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud in web API con Azure Active Directory B2C in ASP.NET Core
 
 Di [Cam Soper](https://twitter.com/camsoper)
 
@@ -120,7 +120,7 @@ Utilizzare i valori seguenti:
 | **Esempio di app web o web API** | Yes                              |                                 |
 | **Consenti flusso implicito**       | Yes                              |                                 |
 | **URL di risposta**                 | `https://getpostman.com/postman` |                                 |
-| **URI ID App**                | *&lt;lasciare vuoto&gt;*            | Non è obbligatorio per questa esercitazione. |
+| **URI ID App**                | *&lt;Lasciare vuoto&gt;*            | Non è obbligatorio per questa esercitazione. |
 | **Includere native client**     | No                               |                                 |
 
 L'app web appena registrato richiede l'autorizzazione per accedere all'API web per conto dell'utente.  
@@ -177,7 +177,7 @@ Per rendere una richiesta autenticata all'API web, è necessario un token di con
     | **URL callback**          | `https://getpostman.com/postman`                                                              |                                                                                            |
     | **Autorizzazione URL**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Sostituire  *&lt;nome dominio tenant&gt;*  con il nome di dominio del tenant senza parentesi angolari. |
     | **ID client**             | *&lt;Immettere la password di Postman <b>ID applicazione</b>&gt;*                                       |                                                                                            |
-    | **Segreto client**         | *&lt;lasciare vuoto&gt;*                                                                         |                                                                                            |
+    | **Segreto client**         | *&lt;Lasciare vuoto&gt;*                                                                         |                                                                                            |
     | **Ambito**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Sostituire  *&lt;nome dominio tenant&gt;*  con il nome di dominio del tenant senza parentesi angolari. |
     | **Autenticazione client** | Inviare le credenziali del client nel corpo                                                               |                                                                                            |
     

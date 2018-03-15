@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
@@ -62,7 +62,7 @@ Si noti che il secondo metodo di azione `Edit` è preceduto dall'attributo `Http
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cshtml?highlight=9)]
 
-`@Html.AntiForgeryToken()`Genera un token antifalsificazione nascosto del modulo che deve corrispondere il `Edit` metodo il `Movies` controller. Altre informazioni su Cross-site request forgery (noto anche come XSRF o CSRF) in my esercitazione [XSRF/CSRF prevenzione in MVC](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md).
+`@Html.AntiForgeryToken()` Genera un token antifalsificazione nascosto del modulo che deve corrispondere il `Edit` metodo il `Movies` controller. Altre informazioni su Cross-site request forgery (noto anche come XSRF o CSRF) in my esercitazione [XSRF/CSRF prevenzione in MVC](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md).
 
 Il `HttpGet` `Edit` metodo accetta il parametro ID film, Cerca il film tramite Entity Framework `Find` (metodo) e restituisce il filmato selezionato per la visualizzazione di modifica. Se non viene trovato un filmato, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) viene restituito. Quando il sistema di scaffolding ha creato la vista Edit, ha esaminato la classe `Movie` e il codice creato per eseguire il rendering degli elementi `<label>` e `<input>` per ogni proprietà della classe. Nell'esempio seguente viene illustrata la visualizzazione di modifica è stata generata con il sistema lo scaffolding di visual studio:
 
@@ -100,7 +100,7 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 
 
 > [!NOTE]
-> Per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e  *Cultures/globalize.Cultures.js* file (da [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. È possibile ottenere la convalida non inglesi jQuery da NuGet. (Non installare Globalize se si utilizza una lingua inglese.)
+> per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. È possibile ottenere la convalida non inglesi jQuery da NuGet. (Non installare Globalize se si utilizza una lingua inglese.)
 
 
 1. Dal **strumenti** dal menu **NuGetLibrary Package Manager**, quindi fare clic su **Gestisci pacchetti NuGet per la soluzione**.  
@@ -109,7 +109,7 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 2. Nel riquadro sinistro, selezionare **Sfoglia*. * * * (vedere l'immagine riportata di seguito).
 3. Nella casella di input, immettere * Globalize * *.  
   
-    ![](examining-the-edit-methods-and-edit-view/_static/image6.png)Scegliere `jQuery.Validation.Globalize`, scegliere `MvcMovie` e fare clic su **installare**. Il *Scripts\jquery.globalize\globalize.js* file verrà aggiunto al progetto. Il *Scripts\jquery.globalize\cultures\* cartella conterrà i file JavaScript di molte delle impostazioni cultura. Si noti che potrebbe richiedere cinque minuti per installare questo pacchetto.
+    ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Scegliere `jQuery.Validation.Globalize`, scegliere `MvcMovie` e fare clic su **installare**. Il *Scripts\jquery.globalize\globalize.js* file verrà aggiunto al progetto. Il *Scripts\jquery.globalize\cultures\* cartella conterrà i file JavaScript di molte delle impostazioni cultura. Si noti che potrebbe richiedere cinque minuti per installare questo pacchetto.
 
  Il codice seguente illustra le modifiche al file Views\Movies\Edit.cshtml: 
 
@@ -123,7 +123,7 @@ Risolvere il problema temporaneo, se non è possibile ottenere convalida utilizz
 
 [!code-xml[Main](examining-the-edit-methods-and-edit-view/samples/sample11.xml)]
 
-<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a>Nella prossima esercitazione, verrà implementato la funzionalità di ricerca.
+<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> Nella prossima esercitazione, verrà implementato la funzionalità di ricerca.
 
 >[!div class="step-by-step"]
 [Precedente](accessing-your-models-data-from-a-controller.md)

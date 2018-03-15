@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi relativi a ASP.NET Core nel servizio App di Azure
 
@@ -184,4 +184,5 @@ Per ulteriori informazioni, vedere [abilitare la registrazione diagnostica per l
 * [Risolvere gli errori HTTP di "502 gateway non valido" e "503 Servizio non disponibile" nelle App web di Azure](/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Risolvere i problemi di prestazioni lente web app in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Domande frequenti sulle prestazioni dell'applicazione per le app Web in Azure](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
+* [Azure sandbox Web App (limitazioni di esecuzione runtime di servizio App)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
 * [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience) (Azure Friday: diagnostica e risoluzione dei problemi del servizio app di Azure) (video di 12 minuti)

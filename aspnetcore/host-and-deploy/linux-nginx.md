@@ -5,16 +5,16 @@ description: Viene descritto come configurare Nginx come un proxy inverso in Ubu
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a1de177fcd41c925a85e5aab9a0d236249b7da0b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -22,7 +22,8 @@ Di [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Questa guida spiega come configurare un ambiente ASP.NET Core pronto per la produzione in un server Ubuntu 16.04.
 
-**Nota:** per Ubuntu 14.04, *supervisord* è consigliabile come soluzione per il monitoraggio del processo Kestrel. *systemd* non è disponibile in Ubuntu 14.04. [Vedere la versione precedente di questo documento](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)
+> [!NOTE]
+> Per Ubuntu 14.04, *supervisord* è consigliabile come soluzione per il monitoraggio del processo Kestrel. *systemd* non è disponibile in Ubuntu 14.04. [Vedere la versione precedente di questo documento](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
 
 In questa guida:
 
@@ -113,23 +114,37 @@ Verificare che un browser visualizzi la pagina di destinazione predefinita per N
 
 ### <a name="configure-nginx"></a>Configurare Nginx
 
-Per configurare come un proxy inverso per inoltrare le richieste per l'app ASP.NET Core Nginx modificare `/etc/nginx/sites-available/default`. Aprirlo in un editor di testo e sostituire il contenuto con quanto segue:
+Per configurare Nginx come un proxy inverso per inoltrare le richieste all'applicazione ASP.NET di base, modificare */etc/nginx/sites-available/default*. Aprirlo in un editor di testo e sostituire il contenuto con quanto segue:
 
-```
+```nginx
 server {
-    listen 80;
+    listen        80;
+    server_name   example.com *.example.com;
     location / {
-        proxy_pass http://localhost:5000;
+        proxy_pass         http://localhost:5000;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection keep-alive;
-        proxy_set_header Host $http_host;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $http_host;
         proxy_cache_bypass $http_upgrade;
     }
 }
 ```
 
-Questo file di configurazione Nginx inoltra il traffico pubblico in ingresso dalla porta `80` alla porta `5000`.
+Se non si `server_name` corrispondenze, Nginx utilizza il server predefinito. Se non è definito alcun server predefinito, il primo server nel file di configurazione è il server predefinito. Come procedura consigliata, aggiungere un server predefinito specifico che restituisce un codice di stato di 444 nel file di configurazione. Un esempio di configurazione server predefinita è:
+
+```nginx
+server {
+    listen   80 default_server;
+    # listen [::]:80 default_server deferred;
+    return   444;
+}
+```
+
+Con il precedente server di configurazione predefiniti e di file Nginx accetta traffico pubblico sulla porta 80 con intestazione host `example.com` o `*.example.com`. Le richieste non corrisponda a questi host non ottenere inoltrate a Kestrel. Nginx inoltra le richieste corrispondenti a Kestrel in `http://localhost:5000`. Vedere [come nginx elabora una richiesta](https://nginx.org/docs/http/request_processing.html) per ulteriori informazioni.
+
+> [!WARNING]
+> L'impossibilità di specificare una corretta [direttiva nome_server](https://nginx.org/docs/http/server_names.html) espone l'app a vulnerabilità di sicurezza. Associazione con caratteri jolly sottodominio (ad esempio, `*.example.com`) non comporta il rischio di sicurezza se è possibile controllare il dominio padre intero (in contrapposizione a `*.com`, che è vulnerabile). Vedere [rfc7230 sezione-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) per ulteriori informazioni.
 
 Una volta stabilita la configurazione di Nginx, eseguire `sudo nginx -t` per verificare la sintassi dei file di configurazione. Se il test di file di configurazione ha esito positivo, forzare Nginx per rendere effettive le modifiche eseguendo `sudo nginx -s reload`.
 

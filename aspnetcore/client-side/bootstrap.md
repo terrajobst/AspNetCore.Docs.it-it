@@ -1,7 +1,7 @@
 ---
-title: Creazione di efficaci e reattive siti con Bootstrap
+title: Creazione di efficaci e reattive siti con Bootstrap e ASP.NET Core
 author: ardalis
-description: 
+description: Informazioni su come utilizzare Bootstrap per lo sviluppo di App reattiva web con ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creazione di efficaci e reattive siti con Bootstrap
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Creazione di efficaci e reattive siti con Bootstrap e ASP.NET Core
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 Bootstrap è attualmente il framework di web più diffuso per lo sviluppo di applicazioni web reattiva. Offre un numero di funzionalità e i vantaggi che possono migliorare l'esperienza degli utenti con il sito web, se più esperti nella progettazione front-end e di sviluppo o di un esperto. Bootstrap viene distribuito come un set di file CSS e JavaScript ed è progettato per la scala del sito Web o applicazione in modo efficiente dai telefoni a Tablet ai desktop.
 
-## <a name="getting-started"></a>Per iniziare
+## <a name="get-started"></a>Introduzione
 
 Esistono diversi modi per iniziare con Bootstrap. Se si inizia una nuova applicazione web in Visual Studio, è possibile scegliere il modello di avvio predefinito per ASP.NET di base, in cui verrà vengono preinstallati Bootstrap case:
 
@@ -190,7 +190,7 @@ Se si desidera modificare il tema Bootstrap, inserire il *bootstrap.css* file pe
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-Se si desidera creare un dashboard personalizzato, è possibile avviare dell'esempio gratuita disponibile qui: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/).
+Se si desidera creare un dashboard personalizzato, è possibile avviare dell'esempio gratuita disponibile qui: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/).
 
 ## <a name="components"></a>Componenti
 
@@ -214,7 +214,7 @@ Controlli di navigazione sono un componente dell'interfaccia utente comune utili
 
 ## <a name="javascript-support"></a>Supporto di JavaScript
 
-Libreria JavaScript del bootstrap include il supporto di API per i componenti inclusi, che consente di controllare il comportamento a livello di codice all'interno dell'applicazione. Inoltre, *bootstrap.js* include decine plug-in personalizzato di jQuery, fornendo funzionalità aggiuntive come transizioni, finestre di dialogo modale, scorrere verso il rilevamento (aggiornamento degli stili in base a cui l'utente è stata fatta scorrere nel documento), comportamento di compressione, nastri e apposizione menu nella finestra in modo che non scorrono fuori dallo schermo. Non vi sia spazio sufficiente per coprire tutti i componenti aggiuntivi JavaScript incorporati Bootstrap: per ulteriori informazioni, visitare [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Libreria JavaScript del bootstrap include il supporto di API per i componenti inclusi, che consente di controllare il comportamento a livello di codice all'interno dell'applicazione. Inoltre, *bootstrap.js* include decine plug-in personalizzato di jQuery, fornendo funzionalità aggiuntive come transizioni, finestre di dialogo modale, scorrere verso il rilevamento (aggiornamento degli stili in base a cui l'utente è stata fatta scorrere nel documento), comportamento di compressione, nastri e apposizione menu nella finestra in modo che non scorrono fuori dallo schermo. Non vi sia spazio sufficiente per coprire tutti i componenti aggiuntivi JavaScript incorporati Bootstrap: per ulteriori informazioni, visitare [ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Riepilogo
 

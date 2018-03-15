@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="aspnet-error-handling"></a>Gestione degli errori ASP.NET
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -250,7 +250,7 @@ Come accennato in precedenza in questa esercitazione, è possibile aggiungere is
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample13.cs?highlight=20,22-23)]
 
-Le chiamate di codice precedente il `LogException` metodo contenuto nel `ExceptionUtility` classe. Aggiunto il *ExceptionUtility.cs* file di classe per il *logica* cartella precedentemente in questa esercitazione. Il `LogException` metodo accetta due parametri. Il primo parametro è l'oggetto eccezione. Il secondo parametro è una stringa utilizzata per riconoscere l'origine dell'errore.
+Le chiamate di codice precedente il `LogException` metodo contenuto nel `ExceptionUtility` classe. Aggiunto il *ExceptionUtility.cs* file di classe per il *logica* cartella precedentemente in questa esercitazione. Il metodo `LogException` accetta due parametri. Il primo parametro è l'oggetto eccezione. Il secondo parametro è una stringa utilizzata per riconoscere l'origine dell'errore.
 
 ### <a name="inspecting-the-error-logging-information"></a>Esaminare le informazioni di registrazione errore
 
@@ -301,7 +301,7 @@ Visualizzazione del registro ELMAH è semplice, ma prima di tutto si creerà un'
 
 1. Premere **CTRL + F5** per eseguire l'applicazione di esempio Wingtip Toys.
 2. Per scrivere un'eccezione non gestita nel registro ELMAH, spostarsi nel browser all'URL seguente (utilizzando il numero di porta):  
-    `https://localhost:44300/NoPage.aspx`Verrà visualizzata la pagina di errore.
+    `https://localhost:44300/NoPage.aspx` Verrà visualizzata la pagina di errore.
 3. Per visualizzare il registro ELMAH, spostarsi nel browser all'URL seguente (utilizzando il numero di porta):  
     `https://localhost:44300/elmah.axd`
 

@@ -1,5 +1,5 @@
 ---
-title: Provider di configurazione Azure insieme di credenziali chiave
+title: Provider di configurazione di Azure insieme di credenziali chiave in ASP.NET Core
 author: guardrex
 description: Informazioni su come utilizzare il Provider di configurazione dell'insieme di credenziali chiave di Azure per configurare un'applicazione che utilizza coppie nome-valore in fase di esecuzione.
 manager: wpickett
@@ -8,13 +8,13 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Provider di configurazione Azure insieme di credenziali chiave
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure insieme di credenziali chiave in ASP.NET Core
 
 Da [Luke Latham](https://github.com/guardrex) e [Andrew Stanton-infermiera](https://github.com/anurse)
 
@@ -74,7 +74,7 @@ Quando si esegue l'app, una pagina Web Mostra i valori caricati segreti:
 ![Finestra del browser che mostra i valori dei segreti caricati tramite il Provider di configurazione dell'insieme di credenziali chiave di Azure](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Creazione di segreti con prefisso insieme di credenziali chiave e il caricamento dei valori di configurazione (tasto-nome-prefisso-esempio)
-`AddAzureKeyVault`fornisce anche un overload che accetta un'implementazione di `IKeyVaultSecretManager`, che consente di controllare i segreti dell'insieme di credenziali chiave vengono convertiti in chiavi di configurazione. Ad esempio, è possibile implementare l'interfaccia per caricare i valori dei segreti basati su un valore di prefisso che è fornire all'avvio dell'app. Questo consente, ad esempio, per caricare i segreti in base alla versione dell'app.
+`AddAzureKeyVault` fornisce anche un overload che accetta un'implementazione di `IKeyVaultSecretManager`, che consente di controllare i segreti dell'insieme di credenziali chiave vengono convertiti in chiavi di configurazione. Ad esempio, è possibile implementare l'interfaccia per caricare i valori dei segreti basati su un valore di prefisso che è fornire all'avvio dell'app. Questo consente, ad esempio, per caricare i segreti in base alla versione dell'app.
 
 > [!WARNING]
 > Non utilizzare i prefissi su segreti dell'insieme di credenziali chiave inserire stesso insieme di credenziali chiave di segreti per più applicazioni o di posizionare i segreti dell'ambiente (ad esempio, *sviluppo* e *produzione* segreti) nella stessa insieme di credenziali. È consigliabile che diverse App e gli ambienti di sviluppo/produzione usare gli insiemi di credenziali chiave separati per isolare gli ambienti di app per il massimo livello di sicurezza.

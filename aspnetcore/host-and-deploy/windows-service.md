@@ -1,5 +1,5 @@
 ---
-title: Host in un servizio Windows
+title: Host ASP.NET Core in un servizio Windows
 author: tdykstra
 description: Informazioni su come pubblicare un'applicazione ASP.NET Core in un servizio Windows.
 manager: wpickett
@@ -10,19 +10,19 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: c14a1f62bce4d06be3b8e6356f45cd5e330a0751
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: f3455e47cfc06a4492dc4e34871b348184c6ecfb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Ospitare un'applicazione ASP.NET Core in un servizio Windows
+# <a name="host-aspnet-core-in-a-windows-service"></a>Host ASP.NET Core in un servizio Windows
 
-Da [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
 Il metodo consigliato per ospitare un'applicazione ASP.NET Core in Windows senza utilizza IIS, è possibile eseguirlo in un [servizio Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Quando è ospitato come servizio Windows, l'app è possibile eseguire automaticamente inizio dopo aver riavviato e si blocca senza intervento umano.
 
-[Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)). Per istruzioni su come eseguire l'app di esempio, vedere l'esempio *README.md* file.
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample)). Per istruzioni su come eseguire l'app di esempio, vedere l'esempio *README.md* file.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Il metodo consigliato per ospitare un'applicazione ASP.NET Core in Windows senza
 
 * Se l'applicazione riceve richieste da Internet (non solo da una rete interna), è necessario utilizzare il [HTTP.sys](xref:fundamentals/servers/httpsys) server web (noto in precedenza come [WebListener](xref:fundamentals/servers/weblistener) per le app di ASP.NET Core 1. x) anziché [Kestrel](xref:fundamentals/servers/kestrel). È consigliabile IIS per l'utilizzo come server proxy inverso per le distribuzioni di bordo con Kestrel. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
 
-## <a name="getting-started"></a>Per iniziare
+## <a name="get-started"></a>Introduzione
 
 Questa sezione illustra le modifiche minime necessarie per configurare un progetto ASP.NET Core esistente per l'esecuzione in un servizio.
 
@@ -117,7 +117,7 @@ Se l'oggetto personalizzato `WebHostService` codice richiede un servizio dall'in
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
-## <a name="acknowledgments"></a>Riconoscimenti
+## <a name="acknowledgments"></a>Ringraziamenti
 
 In questo articolo è stato scritto con l'aiuto di origini pubblicate:
 

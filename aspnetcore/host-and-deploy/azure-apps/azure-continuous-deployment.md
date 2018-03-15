@@ -1,5 +1,5 @@
 ---
-title: Distribuzione continua in Azure con Visual Studio e Git
+title: Distribuzione continua in Azure con Visual Studio e Git con ASP.NET Core
 author: rick-anderson
 description: Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e distribuirla nel Servizio app di Azure usando Git per la distribuzione continua.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Distribuzione continua in Azure per ASP.NET Core con Visual Studio e Git
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Distribuzione continua in Azure con Visual Studio e Git con ASP.NET Core
 
 Di [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ Questa esercitazione si presuppone che viene installato il software seguente:
 
 1. Scegliere **Nuovo** > **Progetto** dal menu **File**.
 
-1. Selezionare il modello di progetto **Applicazione Web ASP.NET Core**. Viene visualizzato in **Modelli** > **installati** > **Visual C#** > **.NET Core**. Denominare il progetto `SampleWebAppDemo`. Selezionare l'opzione **Creare un nuovo repository Git** e fare clic su **OK**.
+1. Selezionare il modello di progetto **Applicazione Web ASP.NET Core**. Viene visualizzato in **Modelli** > **installati** > **Visual C#** > **.NET Core**. Denominare il progetto `SampleWebAppDemo`. Selezionare il **Crea nuovo repository Git** opzione e fare clic su **OK**.
 
    ![Finestra di dialogo Nuovo progetto](azure-continuous-deployment/_static/01-new-project.png)
 

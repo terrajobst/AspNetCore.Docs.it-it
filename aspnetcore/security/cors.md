@@ -1,7 +1,7 @@
 ---
-title: Abilitare le richieste tra le origini (CORS)
+title: Abilitare le richieste tra le origini (CORS) in ASP.NET Core
 author: rick-anderson
-description: Questo documento introduce CORS come standard per consentire o rifiutare le richieste cross-origin in un'applicazione ASP.NET Core.
+description: Informazioni su come CORS come standard per consentire o rifiutare le richieste cross-origin in un'applicazione ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>Abilitare le richieste tra le origini (CORS)
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste tra le origini (CORS) in ASP.NET Core
 
 Da [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), e [Tom Dykstra](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ Browser non sono completamente coerenti in modalità impostano Access-Control-Re
 
 ### <a name="set-the-exposed-response-headers"></a>Impostare le intestazioni di risposta esposto
 
-Per impostazione predefinita, il browser non espone tutte le intestazioni di risposta all'applicazione. (Vedere [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Le intestazioni di risposta che sono disponibili per impostazione predefinita sono:
+Per impostazione predefinita, il browser non espone tutte le intestazioni di risposta all'applicazione. (Vedere [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Le intestazioni di risposta che sono disponibili per impostazione predefinita sono:
 
 * Cache-Control
 

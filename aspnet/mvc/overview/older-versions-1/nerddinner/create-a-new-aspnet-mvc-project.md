@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
 ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Creare un nuovo progetto ASP.NET MVC
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -65,12 +65,12 @@ Progetti ASP.NET MVC per impostazione predefinita sono sei directory di primo li
 
 | **Directory** | **Scopo** |
 | --- | --- |
-| **/ Controller** | In cui inserire le classi Controller che gestiscono le richieste di URL |
+| **/Controllers** | In cui inserire le classi Controller che gestiscono le richieste di URL |
 | **O i modelli** | In cui inserire le classi che rappresentano e modificano i dati |
-| **E viste** | In cui inserire i file di modello dell'interfaccia utente che sono responsabili dell'output del rendering |
-| **/ Script** | In cui inserire i file di libreria JavaScript e script (con estensione js) |
-| **/ Content** | In cui inserire CSS e i file di immagine e altro contenuto non non dinamico/JavaScript |
-| **/ App\_dati** | Se si archiviano file di dati che si desidera lettura/scrittura. |
+| **/Views** | In cui inserire i file di modello dell'interfaccia utente che sono responsabili dell'output del rendering |
+| **/Scripts** | In cui inserire i file di libreria JavaScript e script (con estensione js) |
+| **/Content** | In cui inserire CSS e i file di immagine e altro contenuto non non dinamico/JavaScript |
+| **/App\_Data** | Se si archiviano file di dati che si desidera lettura/scrittura. |
 
 ASP.NET MVC non richiede questa struttura. In realtà, gli sviluppatori che lavorano in applicazioni di grandi dimensioni in genere suddividerà l'applicazione backup tra più progetti per renderla più gestibile (ad esempio: classi di modello di dati spesso inseriti in un progetto libreria di classi separato dall'applicazione web). Struttura del progetto predefinita, tuttavia, fornisce una convenzione di directory nice predefinito che è possibile usare per mantenere pulita la problematiche relative all'applicazione.
 

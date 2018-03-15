@@ -1,7 +1,7 @@
 ---
 title: Abilitare la generazione di codice a matrice per le app di autenticazione in ASP.NET Core
 author: rick-anderson
-description: Abilitare la generazione di codice a matrice per le app di autenticazione in ASP.NET Core
+description: Informazioni su come abilitare la generazione di codice a matrice per le app di autenticazione che utilizzano l'autenticazione a due fattori ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Abilitare la generazione di codice a matrice per le app di autenticazione in ASP.NET Core
 
@@ -25,7 +25,7 @@ I modelli di applicazione web ASP.NET Core supportano gli autenticatori, ma non 
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Aggiunta di codici a matrice alla pagina di configurazione 2FA
 
-Queste istruzioni si usa *qrcode.js* dal repository https://davidshimjs.github.io/qrcodejs/.
+Queste istruzioni si usa *qrcode.js* dal https://davidshimjs.github.io/qrcodejs/ repository.
 
 * Scaricare il [libreria javascript qrcode.js](https://davidshimjs.github.io/qrcodejs/) per il `wwwroot\lib` cartella nel progetto.
 
@@ -84,8 +84,8 @@ Il secondo parametro nella chiamata a `string.Format` è il nome del sito, ricav
 
 L'URL formattato correttamente per il codice a matrice è disponibile nel:
 
-* `AuthenticatorUri`proprietà del modello.
-* `data-url`proprietà di `qrCodeData` elemento. 
+* `AuthenticatorUri` proprietà del modello.
+* `data-url` proprietà di `qrCodeData` elemento. 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP client e server sfasamento dell'ora
 

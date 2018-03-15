@@ -1,7 +1,7 @@
 ---
-title: La migrazione da ASP.NET Web API
+title: Migrazione da API Web ASP.NET ad ASP.NET di base
 author: ardalis
-description: 
+description: Informazioni su come eseguire la migrazione di un'implementazione di API Web di ASP.NET Web API a ASP.NET MVC di base.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 929fab90aa88745807761e824a2cf614f078ea36
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-from-aspnet-web-api"></a>La migrazione da ASP.NET Web API
+# <a name="migrating-from-aspnet-web-api-to-aspnet-core"></a>Migrazione da API Web ASP.NET ad ASP.NET di base
 
 [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
@@ -25,7 +25,7 @@ API Web sono servizi HTTP in grado di raggiungono una vasta gamma di client, inc
 
 ## <a name="review-aspnet-web-api-project"></a>Progetto API Web ASP.NET di revisione
 
-Questo articolo viene utilizzato il progetto di esempio, *ProductsApp*, creato nell'articolo [Introduzione a ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) come punto di partenza. In tale progetto, un progetto di API Web ASP.NET semplice viene configurato come indicato di seguito.
+Questo articolo viene utilizzato il progetto di esempio, *ProductsApp*, creato nell'articolo [Introduzione a ASP.NET Web API 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) come punto di partenza. In tale progetto, un progetto di API Web ASP.NET semplice viene configurato come indicato di seguito.
 
 In *Global.asax.cs*, viene effettuata una chiamata a `WebApiConfig.Register`:
 

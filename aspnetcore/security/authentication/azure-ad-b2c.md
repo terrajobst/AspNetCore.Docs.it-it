@@ -1,5 +1,5 @@
 ---
-title: Autenticazione cloud con Azure Active Directory B2C
+title: Autenticazione cloud con Azure Active Directory B2C in ASP.NET Core
 author: camsoper
 description: Per scoprire come configurare l'autenticazione di Azure Active Directory B2C con ASP.NET Core.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a7bad452a68cf7fe7aa81645d79a0ee9e7719fe7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Autenticazione cloud con Azure Active Directory B2C
+# <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud con Azure Active Directory B2C in ASP.NET Core
 
 Di [Cam Soper](https://twitter.com/camsoper)
 
@@ -51,7 +51,7 @@ Utilizzare i valori seguenti:
 
 | Impostazione                       | Valore                     | Note                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                      | *&lt;nome dell'App&gt;*        | Immettere un **nome** per l'applicazione che descritta l'app agli utenti.                                                                                                                                 |
+| **Name**                      | *&lt;Nome dell'App&gt;*        | Immettere un **nome** per l'applicazione che descritta l'app agli utenti.                                                                                                                                 |
 | **Esempio di app web o web API** | Yes                       |                                                                                                                                                                                                    |
 | **Consenti flusso implicito**       | Yes                       |                                                                                                                                                                                                    |
 | **URL di risposta**                 | `https://localhost:44300` | URL di risposta sono endpoint in Azure Active Directory B2C restituisce tutti i token che richiede l'app. Visual Studio fornisce l'URL di risposta da utilizzare. Per il momento, immettere `https://localhost:44300` per completare il modulo. |
@@ -90,7 +90,7 @@ In Visual Studio:
     | **Percorso di callback**             | *&lt;Utilizzare il valore predefinito&gt;*                       |
     | **Criteri di iscrizione o accesso** | `B2C_1_SiUpIn`                                        |
     | **Criteri di reimpostazione della password**     | `B2C_1_SSPR`                                          |
-    | **Modificare i criteri del profilo**       | *&lt;lasciare vuoto&gt;*                                 |
+    | **Modificare i criteri del profilo**       | *&lt;Lasciare vuoto&gt;*                                 |
     
     Selezionare il **copia** collegamento accanto a **URI di Reply** per copiare l'URI di risposta negli Appunti. Selezionare **OK** per chiudere la **Modifica autenticazione** finestra di dialogo. Selezionare **OK** per creare l'app web.
 

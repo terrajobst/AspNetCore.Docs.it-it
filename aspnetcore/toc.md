@@ -313,7 +313,6 @@
 #### [Formato di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-format)
 #### [Provider di protezione dati temporanea](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [Compatibilità](xref:security/data-protection/compatibility/index)
-#### [Condivisione di cookie tra le app](xref:security/data-protection/compatibility/cookie-sharing)
 #### [Sostituire <machineKey> in ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Imporre HTTPS](xref:security/enforcing-ssl)
 ## [Archiviazione sicura di segreti dell'app durante lo sviluppo](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [Prevenire attacchi di reindirizzamento aperto](xref:security/preventing-open-redirects)
 ## [Evitare il cross-site scripting](xref:security/cross-site-scripting)
 ## [Abilitare richieste tra le origini (CORS)](xref:security/cors)
+## [Condivisione di cookie tra le app](xref:security/cookie-sharing)
 
 # [Prestazioni](xref:performance/index)
 ## [Memorizzazione nella cache](xref:performance/caching/index)

@@ -5,16 +5,16 @@ author: spboyer
 manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/19/2016
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 033adddc586b60c9f7453df5434617aa838737f8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -112,27 +112,32 @@ Complete!
 ```
 
 > [!NOTE]
-> In questo esempio, l'output rispecchi httpd.86_64 poiché la versione CentOS 7 a 64 bit. Per verificare dove è installato Apache, eseguire `whereis httpd` da un prompt dei comandi. 
+> In questo esempio, l'output rispecchi httpd.86_64 poiché la versione CentOS 7 a 64 bit. Per verificare dove è installato Apache, eseguire `whereis httpd` da un prompt dei comandi.
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Configurare Apache per il proxy inverso
 
 I file di configurazione per Apache si trovano all'interno della directory `/etc/httpd/conf.d/`. Qualsiasi file con il *.conf* estensione viene elaborata in ordine alfabetico oltre i file di configurazione del modulo in `/etc/httpd/conf.modules.d/`, che contiene tutte le configurazioni di file necessarie per caricare i moduli.
 
-Creare un file di configurazione per l'applicazione denominata `hellomvc.conf`:
+Creare un file di configurazione denominato *hellomvc.conf*, per l'app:
 
 ```
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-    ErrorLog /var/log/httpd/hellomvc-error.log
-    CustomLog /var/log/httpd/hellomvc-access.log common
+    ServerName www.example.com
+    ServerAlias *.example.com
+    ErrorLog ${APACHE_LOG_DIR}hellomvc-error.log
+    CustomLog ${APACHE_LOG_DIR}hellomvc-access.log common
 </VirtualHost>
 ```
 
-Il **VirtualHost** può essere visualizzato più volte in uno o più file in un server. **VirtualHost** è impostato per l'ascolto su qualsiasi indirizzo IP tramite la porta 80. Le due righe successive vengono impostate su richieste proxy nella directory principale nel server a 127.0.0.1 sulla porta 5000. Per la comunicazione bidirezionale, *ProxyPass* e *ProxyPassReverse* sono necessari.
+Il `VirtualHost` blocco può comparire più volte, in uno o più file in un server. Nel file di configurazione precedente Apache accetta traffico pubblico sulla porta 80. Il dominio `www.example.com` viene gestita e `*.example.com` alias risolve allo stesso sito. Vedere [supporto basato sul nome host virtuale](https://httpd.apache.org/docs/current/vhosts/name-based.html) per ulteriori informazioni. Le richieste vengono elaborate dal proxy alla radice alla porta 5000 del server 127.0.0.1. Per la comunicazione bidirezionale, `ProxyPass` e `ProxyPassReverse` sono necessari.
 
-Registrazione può essere configurata **VirtualHost** utilizzando **ErrorLog** e **CustomLog** direttive. **Log degli errori** è il percorso in cui i registri del server, errori e **CustomLog** imposta il nome e il formato del file di log. In questo caso, si tratta in cui vengono registrate informazioni di richiesta. È presente una riga per ogni richiesta.
+> [!WARNING]
+> L'impossibilità di specificare una corretta [ServerName direttiva](https://httpd.apache.org/docs/current/mod/core.html#servername) nel **VirtualHost** blocco espone l'app a vulnerabilità di sicurezza. Associazione con caratteri jolly sottodominio (ad esempio, `*.example.com`) non comporta il rischio di sicurezza se è possibile controllare il dominio padre intero (in contrapposizione a `*.com`, che è vulnerabile). Vedere [rfc7230 sezione-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) per ulteriori informazioni.
+
+Registrazione può essere configurata `VirtualHost` utilizzando `ErrorLog` e `CustomLog` direttive. `ErrorLog` è il percorso in cui i registri del server, errori e `CustomLog` imposta il nome e il formato del file di log. In questo caso, si tratta in cui vengono registrate informazioni di richiesta. È presente una riga per ogni richiesta.
 
 Salvare il file e il test della configurazione. Se tutto ciò viene superato, la risposta deve essere `Syntax [OK]`.
 

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Configurazione dell'applicazione Web di produzione per usare il Database di produzione (c#)
 ====================
@@ -37,16 +37,16 @@ Non è insolito per informazioni sulla configurazione di differenze tra gli ambi
 
 ## <a name="examining-the-connection-string-information"></a>Esaminare le informazioni sulla stringa di connessione
 
-La stringa di connessione utilizzata dall'applicazione web recensioni viene archiviata nel file di configurazione dell'applicazione s, `Web.config`. `Web.config`include una sezione speciale per l'archiviazione delle stringhe di connessione, il nome appropriato [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Il `Web.config` file per il sito Web recensioni dispone di una stringa di connessione definita in questa sezione denominata `ReviewsConnectionString`:
+La stringa di connessione utilizzata dall'applicazione web recensioni viene archiviata nel file di configurazione dell'applicazione s, `Web.config`. `Web.config` include una sezione speciale per l'archiviazione delle stringhe di connessione, il nome appropriato [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). Il `Web.config` file per il sito Web recensioni dispone di una stringa di connessione definita in questa sezione denominata `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
 La stringa di connessione - origine dati =. \SQLEXPRESS; AttachDbFilename = | Sicurezza DataDirectory|\Reviews.mdf;Integrated = True; User Instance = True - è costituito da un numero di opzioni e i valori, con coppie opzione/valore delimitate da un punto e virgola e ogni opzione e il valore delimitate da un segno di uguale. Le quattro opzioni utilizzate nella stringa di connessione sono:
 
-- `Data Source`-Specifica il percorso del server di database e il nome istanza server di database (se presente). Il valore, `.\SQLEXPRESS`, è riportato un esempio in cui è presente un server di database e un nome di istanza. Il periodo di specifica che il server di database è nello stesso computer come applicazione. il nome dell'istanza è `SQLEXPRESS`.
-- `AttachDbFilename`-Specifica il percorso del file di database. Il valore contiene il segnaposto `|DataDirectory|`, che viene risolto il percorso completo di s applicazione `App_Data` cartella in fase di esecuzione.
-- `Integrated Security`-un valore booleano che indica se utilizzare un nome utente/password specificata durante la connessione al database (false) o di Windows corrente, le credenziali dell'account (true).
-- `User Instance`-un'opzione di configurazione specifica per SQL Server Express Edition che indica se consentire agli utenti senza privilegi di amministratore nel computer locale, collegarsi e connettono a un database di SQL Server Express Edition. Vedere [le istanze di SQL Server Express utente](https://msdn.microsoft.com/library/ms254504.aspx) per ulteriori informazioni su questa impostazione.
+- `Data Source` -Specifica il percorso del server di database e il nome istanza server di database (se presente). Il valore, `.\SQLEXPRESS`, è riportato un esempio in cui è presente un server di database e un nome di istanza. Il periodo di specifica che il server di database è nello stesso computer come applicazione. il nome dell'istanza è `SQLEXPRESS`.
+- `AttachDbFilename` -Specifica il percorso del file di database. Il valore contiene il segnaposto `|DataDirectory|`, che viene risolto il percorso completo di s applicazione `App_Data` cartella in fase di esecuzione.
+- `Integrated Security` -un valore booleano che indica se utilizzare un nome utente/password specificata durante la connessione al database (false) o di Windows corrente, le credenziali dell'account (true).
+- `User Instance` -un'opzione di configurazione specifica per SQL Server Express Edition che indica se consentire agli utenti senza privilegi di amministratore nel computer locale, collegarsi e connettono a un database di SQL Server Express Edition. Vedere [le istanze di SQL Server Express utente](https://msdn.microsoft.com/library/ms254504.aspx) per ulteriori informazioni su questa impostazione.
   
 
 Le opzioni di stringa di connessione consentite dipendono dal database a cui a che ci si connette e il provider di database ADO.NET in uso. Ad esempio, la stringa di connessione per la connessione a Microsoft SQL Server database è diverso da usare per connettersi a un database Oracle. Analogamente, la connessione a un database di Microsoft SQL Server tramite il provider SqlClient utilizza una stringa di connessione diversa rispetto all'utilizzo del provider OLE DB.
@@ -125,7 +125,7 @@ A questo punto il `ConfigSections` cartella deve contenere tre file (vedere la f
 **Figura 4**: ConfigSections ([fare clic per visualizzare l'immagine ingrandita](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image12.jpg))
 
 
-È ora necessario indicare `Web.config` per utilizzare il file databaseConnectionStrings.config per il proprio archivio di stringa di connessione. Aprire `Web.config` e sostituire `<connectionStrings>` elemento con le operazioni seguenti:
+È ora necessario indicare `Web.config` per utilizzare il file databaseConnectionStrings.config per il proprio archivio di stringa di connessione. Aprire `Web.config` e sostituire l'elemento `<connectionStrings>` esistente con il codice seguente:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample4.xml)]
 

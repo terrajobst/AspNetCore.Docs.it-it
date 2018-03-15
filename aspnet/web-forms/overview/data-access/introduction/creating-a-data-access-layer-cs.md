@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Creazione di un livello di accesso ai dati (c#)
 ====================
@@ -308,7 +308,7 @@ Entrambi i modelli modifica dati utilizzano dell'oggetto TableAdapter **InsertCo
 
 [![Il TableAdapter è InsertCommand, UpdateCommand e DeleteCommand proprietà](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**Nella figura 23**: il TableAdapter è **InsertCommand**, **UpdateCommand**, e **DeleteCommand** proprietà ([fare clic per visualizzare dimensioni effettive](creating-a-data-access-layer-cs/_static/image63.png))
+**Nella figura 23**: il TableAdapter è **InsertCommand**, **UpdateCommand**, e **DeleteCommand** proprietà ([fare clic su visualizzazione a schermo intero immagine](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 Per esaminare o modificare una di queste proprietà di comando di database, fare clic su di **CommandText** sottoproprietà, che verrà visualizzato il generatore delle Query.
@@ -316,7 +316,7 @@ Per esaminare o modificare una di queste proprietà di comando di database, fare
 
 [![Configurare l'istruzione INSERT, UPDATE e istruzioni DELETE nel generatore di Query](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**Figura 24**: configurare il **inserire**, **aggiornamento**, e **eliminare** istruzioni nel generatore di Query ([fare clic per visualizzare l'immagine ingrandita ](creating-a-data-access-layer-cs/_static/image66.png))
+**Figura 24**: configurare il **inserire**, **aggiornamento**, e **eliminare** istruzioni nel generatore di Query ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 Esempio di codice seguente viene illustrato come utilizzare il modello di aggiornamento batch per raddoppiare il prezzo di tutti i prodotti che non sono fuori produzione e che dispongono di 25 unità in magazzino o meno:
@@ -537,7 +537,7 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
