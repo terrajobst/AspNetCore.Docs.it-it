@@ -5,16 +5,16 @@ description: "Informazioni su HTTP.sys, un server Web per ASP.NET Core in Window
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/28/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 730ecf12f718f6bbbdefb7cdc561481b126c995b
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: d7ae6c070c7eecfd714086e15f32eff96c0943d9
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web HTTP.sys in ASP.NET Core
 
@@ -136,6 +136,9 @@ HTTP.sys è una tecnologia consolidata che protegge da molti tipi di attacchi e 
    Le impostazioni di `UrlPrefixes` sostituiscono le impostazioni `UseUrls`/`urls`/`ASPNETCORE_URLS`. Pertanto, un vantaggio offerto da `UseUrls`, `urls` e dalla variabile di ambiente `ASPNETCORE_URLS` è che risulta più semplice alternare Kestrel e HTTP.sys. Per altre informazioni su `UseUrls`, `urls` e `ASPNETCORE_URLS`, vedere [Hosting](xref:fundamentals/hosting).
 
    HTTP.sys usa i [formati di stringa UrlPrefix dell'API del server HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
+
+   > [!WARNING]
+   > Le associazioni con caratteri jolly di livello superiore (`http://*:80/` e `http://+:80`) **non** devono essere usate, poiché possono introdurre vulnerabilità a livello di sicurezza nell'app. Questo concetto vale sia per i caratteri jolly sicuri che vulnerabili. Usare nomi host espliciti al posto di caratteri jolly. L'associazione con caratteri jolly del sottodominio (ad esempio, `*.mysub.com`) non costituisce un rischio per la sicurezza se viene controllato l'intero dominio padre (a differenza di `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di rfc7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.
 
 1. Pre-registrare i prefissi URL per il binding a HTTP.sys e impostare i certificati x.509.
 
