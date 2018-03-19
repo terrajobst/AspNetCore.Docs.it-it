@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/index
-ms.openlocfilehash: cbe68f6928e1d73d8e2f7f79075043dcef8ea888
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 72ac1064b597a300d660236ff35f842b6959d4ef
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Introduzione ad ASP.NET Core MVC ed Entity Framework Core con Visual Studio
+# <a name="get-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Introduzione ad ASP.NET Core MVC ed Entity Framework Core con Visual Studio
 
 [!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
-1. [Introduzione](intro.md)
-2. [Operazioni di creazione, lettura, aggiornamento ed eliminazione](crud.md)
-3. [Ordinamento, filtro, paging e raggruppamento](sort-filter-page.md)
-4. [Migrazioni](migrations.md)
-5. [Creazione di un modello di dati complesso](complex-data-model.md)
-6. [Lettura di dati correlati](read-related-data.md)
-7. [Aggiornamento di dati correlati](update-related-data.md)
-8. [Gestione di conflitti di concorrenza](concurrency.md)
-9. [Ereditarietà](inheritance.md)
-10. [Argomenti avanzati](advanced.md)
+1. [Introduzione](xref:data/ef-mvc/intro)
+1. [Operazioni di creazione, lettura, aggiornamento ed eliminazione](xref:data/ef-mvc/crud)
+1. [Ordinamento, filtro, paging e raggruppamento](xref:data/ef-mvc/sort-filter-page)
+1. [Migrazioni](xref:data/ef-mvc/migrations)
+1. [Creazione di un modello di dati complesso](xref:data/ef-mvc/complex-data-model)
+1. [Lettura di dati correlati](xref:data/ef-mvc/read-related-data)
+1. [Aggiornamento di dati correlati](xref:data/ef-mvc/update-related-data)
+1. [Gestione di conflitti di concorrenza](xref:data/ef-mvc/concurrency)
+1. [Ereditarietà](xref:data/ef-mvc/inheritance)
+1. [Argomenti avanzati](xref:data/ef-mvc/advanced)

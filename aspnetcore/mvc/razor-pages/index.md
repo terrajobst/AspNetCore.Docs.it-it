@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f24de7ab12a3bbd7915ce6c3c93a107eb47fe864
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -21,9 +21,9 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Ryan Nowak](https://githu
 
 Razor Pages è una nuova funzionalità di ASP.NET Core MVC che semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine.
 
-Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Controller, vedere l'[introduzione ad ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
+Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Controller, vedere [Introduzione ad ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
 
-Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se si trovano alcune sezioni più difficili da seguire, vedere la [Guida introduttiva a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
+Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
 <a name="prerequisites"></a>
 
@@ -42,7 +42,7 @@ Se si usa Visual Studio, installare [Visual Studio](https://www.visualstudio.com
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Per istruzioni dettagliate su come creare un progetto Razor Pages con Visual Studio, vedere la [guida introduttiva a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
+Per istruzioni dettagliate su come creare un progetto Razor Pages con Visual Studio, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
 
 #   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -151,6 +151,11 @@ La proprietà `Customer` usa l'attributo `[BindProperty]` optare per consentire 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 Per impostazione predefinita Razor Pages associa le proprietà solo ai verbi non GET. Il binding alle proprietà può ridurre la quantità di codice da scrivere. Riduce il codice usando la stessa proprietà per il eseguire il rendering dei campi del form (`<input asp-for="Customer.Name" />`) e accettare l'input.
+
+> [!NOTE]
+> Per motivi di sicurezza, è necessario acconsentire esplicitamente all'associazione dei dati della richiesta GET alle proprietà del modello di pagina. Verificare l'input dell'utente prima di eseguirne il mapping alle proprietà. Acconsentire esplicitamente a questo comportamento è utile quando si compilano funzionalità che si basano su valori di route o stringa di query.
+>
+> Per associare una proprietà nelle richieste GET, impostare la proprietà `SupportsGet` dell'attributo `[BindProperty]` su `true`: `[BindProperty(SupportsGet = true)]`
 
 La home page (*Index.cshtml*):
 
@@ -384,7 +389,7 @@ Per la precompilazione delle visualizzazioni, vedere l'articolo sulla [compilazi
 
 [Scaricare o visualizzare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample).
 
-Vedere l'articolo [Getting started with Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) (Guida introduttiva a Razor Pages in ASP.NET Core), che si basa su questa introduzione.
+Vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start), che si basa su questa introduzione.
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Specificare che Razor Pages si trova nella radice del contenuto
 
@@ -414,6 +419,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>Vedere anche
 
+* [Introduzione a ASP.NET Core](xref:index)
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Convenzioni di autorizzazione di Razor Pages](xref:security/authorization/razor-pages-authorization)
 * [Route personalizzata di Razor Pages e provider di modelli di pagina](xref:mvc/razor-pages/razor-pages-convention-features)

@@ -5,16 +5,16 @@ description: Informazioni su come ospitare app ASP.NET Core in Windows Server In
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -195,6 +195,9 @@ Quando si distribuiscono app ai server con [Distribuzione Web](/iis/publish/usin
 1. Specificare un **Nome del sito** e impostare il **Percorso fisico** per la cartella di distribuzione dell'app. Specificare la configurazione in **Binding** e creare il sito Web scegliendo **OK**:
 
    ![Specificare il nome del sito, il percorso fisico e il nome Host nel passaggio Aggiungi sito Web.](index/_static/add-website-ws2016.png)
+
+   > [!WARNING]
+   > Le associazioni con caratteri jolly di livello superiore (`http://*:80/` e `http://+:80`) **non** devono essere usate, poiché possono introdurre vulnerabilità a livello di sicurezza nell'app. Questo concetto vale sia per i caratteri jolly sicuri che vulnerabili. Usare nomi host espliciti al posto di caratteri jolly. L'associazione con caratteri jolly del sottodominio (ad esempio, `*.mysub.com`) non costituisce un rischio per la sicurezza se viene controllato l'intero dominio padre (a differenza di `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di RFC7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.
 
 1. Nel nodo del server selezionare **Pool di applicazioni**.
 

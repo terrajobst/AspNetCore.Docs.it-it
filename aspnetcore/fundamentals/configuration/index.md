@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurare un'app ASP.NET Core
 
@@ -24,13 +24,13 @@ L'API di configurazione fornisce un modo per configurare un'app Web ASP.NET Core
 
 Esistono provider di configurazione per:
 
-* Formati di file (INI, JSON e XML)
-* Argomenti della riga di comando
-* Variabili di ambiente
-* Oggetti .NET in memoria
-* Un archivio utente crittografato
-* [Insieme di credenziali delle chiavi di Azure](xref:security/key-vault-configuration)
-* Provider personalizzati (installati o creati)
+* Formati di file (INI, JSON e XML).
+* Argomenti della riga di comando.
+* Variabili di ambiente.
+* Oggetti .NET in memoria.
+* Archiviazione con [Secret Manager](xref:security/app-secrets) senza crittografia.
+* Un archivio utente non crittografato, come [Azure Key Vault](xref:security/key-vault-configuration).
+* Provider personalizzati (installati o creati).
 
 Ogni valore di configurazione è associato a una chiave di stringa. È disponibile il supporto di associazione incorporato per deserializzare le impostazioni in un oggetto personalizzato [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) (una classe .NET semplice con proprietà).
 
