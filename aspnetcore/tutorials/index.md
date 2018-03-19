@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Esercitazioni di ASP.NET Core
 
@@ -27,14 +27,14 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
 * Creare un'app web Razor Pages con ASP.NET Core
 
    * [Razor Pages in Windows](xref:tutorials/razor-pages/index)
-   * [Razor Pages in Mac](xref:tutorials/razor-pages-mac/index)
+   * [Razor Pages in macOS](xref:tutorials/razor-pages-mac/index)
    * [Razor Pages con VS Code](xref:tutorials/razor-pages-vsc/index)  
 
 * Creare un'app Web ASP.NET Core MVC
 
    * [App Web con Visual Studio per Windows](first-mvc-app/index.md)
    * [App Web con Visual Studio per Mac](first-mvc-app-mac/index.md)
-   * [App Web con Visual Studio Code in Mac o Linux](first-mvc-app-xplat/index.md)
+   * [App Web con Visual Studio Code in macOS o Linux](first-mvc-app-xplat/index.md)
 
 * [Introduzione ad ASP.NET Core ed Entity Framework Core con Visual Studio](../data/ef-mvc/index.md)
 * [Creare helper per i tag](../mvc/views/tag-helpers/authoring.md)
