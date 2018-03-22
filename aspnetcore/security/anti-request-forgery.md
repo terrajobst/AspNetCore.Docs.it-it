@@ -1,7 +1,7 @@
 ---
-title: Evitare Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core
+title: Evitare attacchi Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 author: steve-smith
-description: "Informazioni su come prevenire gli attacchi contro le app web in un sito Web dannoso può influenzare l'interazione tra un browser del client e l'app."
+description: Informazioni su come prevenire gli attacchi contro le app web in un sito Web dannoso può influenzare l'interazione tra un browser del client e l'app.
 manager: wpickett
 ms.author: riande
 ms.date: 7/14/2017
@@ -11,7 +11,7 @@ ms.topic: article
 uid: security/anti-request-forgery
 ms.openlocfilehash: 80651a3c3e4c722e0cb96d7cc07de366819f8d1d
 ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/02/2018
 ---
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>Quali attacchi previene l'antifalsificazione?
 
-Cross-Site Request Forgery (noto anche come XSRF o CSRF, pronuncia inglese *see-surf*) è un attacco contro applicazioni web in base al quale un sito web in grado di influenzare l'interazione tra un browser del client e un sito web che considera attendibile tale browser. Questi attacchi sono possibili in quanto web browser invia alcuni tipi di token di autenticazione automaticamente con ogni richiesta a un sito web. Questa forma di attacco è nota anche come *one-click attack* (attacco con un clic) o come *session riding*, perché l'attacco approfitta della sessione utente autenticata in predecenza.
+Richieste intersito false (noto anche come XSRF o CSRF, pronuncia *tra superfici vedere*) è un attacco contro applicazioni ospitate da web in base al quale un sito web in grado di influenzare l'interazione tra un browser del client e un sito web che considera attendibile tale browser. Questi attacchi sono possibili in quanto web browser invia alcuni tipi di token di autenticazione automaticamente con ogni richiesta a un sito web. Questa forma di attacco del noto anche come un *attacco con un clic* o come *sessione riding*, perché l'attacco sfrutta i vantaggi dell'utente dell'autenticazione in precedenza sessione.
 
 Un esempio di un attacco di tipo CSRF:
 
@@ -42,8 +42,8 @@ Un esempio di un attacco di tipo CSRF:
 
 Si noti che l'azione del form è inviata al sito vulnerabile, non al sito dannoso. Questa è la parte "cross-site" di CSRF.
 
-4. L'utente fa clic sul pulsante Invia. Il browser include automaticamente il cookie di autenticazione per il dominio richiesto (in questo caso sito vulnerabile ) con la richiesta.
-5. La richiesta viene eseguita nel server con il contesto di autenticazione dell'utente e può eseguire qualsiasi operazione che è consentita a un utente autenticato. 
+4. L'utente fa clic sul pulsante Invia. Il browser include automaticamente il cookie di autenticazione per il dominio richiesto (sito vulnerabile in questo caso) con la richiesta.
+5. La richiesta viene eseguita nel server con il contesto di autenticazione dell'utente e può eseguire qualsiasi operazione che è consentita ad un utente autenticato.
 
 Questo esempio richiede all'utente di fare clic sul pulsante del form. La pagina dannosa potrebbe:
 
@@ -51,11 +51,11 @@ Questo esempio richiede all'utente di fare clic sul pulsante del form. La pagina
 * Inviare il form come una richiesta AJAX. 
 * Utilizzare un form nascosto con CSS. 
 
-Un attacco di tipo CSRF non impedisce l'uso di SSL, il sito dannoso può inviare una richiesta `https://` . 
+Un attacco di tipo CSRF non impedisce l'uso di SSL, il sito dannoso può inviare una richiesta `https://`. 
 
-Alcuni attacchi hanno come oggetto gli endpoint del sito che rispondono alle richieste `GET` , nel qual caso un tag image consente di eseguire l'azione (questa forma di attacco è comune nei siti di forum che consentono le immagini ma bloccano JavaScript). Le applicazioni che modificano lo stato con richieste `GET` sono vulnerabili a questi attacchi.
+Alcuni attacchi hanno come oggetto gli endpoint del sito che rispondono alle richieste`GET` , nel qual caso un tag image consente di eseguire l'azione (questa forma di attacco è comune nei siti di forum che consentono le immagini ma bloccano JavaScript). Le applicazioni che modificano lo stato con richieste `GET` sono vulnerabili a questi attacchi.
 
-Attacchi CSRF sono possibili contro i siti web che usano i cookie per l'autenticazione, in quanto i browser inviano tutti i cookie pertinenti al sito web di destinazione. Tuttavia, gli attacchi CSRF non sono limitati allo sfruttamento dei cookie. Ad esempio, l'autenticazione Basic (di base) e Digest (classificata) sono altresì vulnerabili. Dopo che un utente accede con l'autenticazione di base o Digest, il browser invia automaticamente le credenziali, fino al termine della sessione.
+Attacchi CSRF sono possibili contro i siti web che usano i cookie per l'autenticazione, in quanto browser invia tutti i cookie pertinenti al sito web di destinazione. Tuttavia, gli attacchi CSRF non sono limitati per sfruttare i cookie. Ad esempio, l'autenticazione di base e classificata sono anche vulnerabili. Dopo che un utente accede con l'autenticazione di base o Digest, il browser invia automaticamente le credenziali, fino al termine della sessione.
 
 Nota: In questo contesto, *sessione* fa riferimento alla sessione sul lato client durante la quale l'utente viene autenticato. Non è correlato alle sessioni lato server o alla [sessione middleware](xref:fundamentals/app-state).
 
