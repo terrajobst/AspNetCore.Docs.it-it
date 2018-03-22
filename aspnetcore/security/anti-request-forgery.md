@@ -42,8 +42,8 @@ Un esempio di un attacco di tipo CSRF:
 
 Si noti che l'azione del form è inviata al sito vulnerabile, non al sito dannoso. Questa è la parte "cross-site" di CSRF.
 
-4. L'utente fa clic sul pulsante Invia. Il browser include automaticamente il cookie di autenticazione per il dominio richiesto (sito vulnerabile in questo caso) con la richiesta.
-5. La richiesta viene eseguita nel server con il contesto di autenticazione dell'utente e può eseguire qualsiasi operazione che è consentita ad un utente autenticato.
+4. L'utente fa clic sul pulsante Invia. Il browser include automaticamente il cookie di autenticazione per il dominio richiesto (in questo caso sito vulnerabile ) con la richiesta.
+5. La richiesta viene eseguita nel server con il contesto di autenticazione dell'utente e può eseguire qualsiasi operazione che è consentita a un utente autenticato. 
 
 Questo esempio richiede all'utente di fare clic sul pulsante del form. La pagina dannosa potrebbe:
 
