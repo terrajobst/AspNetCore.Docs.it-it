@@ -41,7 +41,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
     ![Finestra di dialogo Nuovo progetto](identity/_static/02-new-project.png)
 
-    Offerta una finestra di dialogo Opzioni di autenticazione. Selezionare **singoli account utente di** e fare clic su **OK** per tornare alla finestra di dialogo precedente.
+    Appare una finestra di dialogo con le opzioni di autenticazione. Selezionare **singoli account utente di** e fare clic su **OK** per tornare alla finestra di dialogo precedente.
 
     ![Finestra di dialogo Nuovo progetto](identity/_static/03-new-project-auth.png)
 
@@ -57,7 +57,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
 2.  Configurare i servizi di identità e aggiungere middleware `Startup`.
 
-    I servizi di identità vengono aggiunti all'applicazione nel `ConfigureServices` metodo la `Startup` classe:
+    I servizi di identità vengono aggiunti all'applicazione nel metodo `ConfigureServices` della classe `Startup`:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -65,7 +65,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
     
     Questi servizi vengono resi disponibili per l'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
     
-    Identità è abilitata per l'applicazione chiamando `UseAuthentication` nel `Configure` metodo. `UseAuthentication` Aggiunge l'autenticazione [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
+    Identità è abilitata per l'applicazione chiamando `UseAuthentication` nel metodo `Configure`. `UseAuthentication` aggiunge l'autenticazione [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
     
     [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
@@ -91,43 +91,43 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
     
     ![Applicare le migrazioni pagina](identity/_static/apply-migrations.png)
     
-    In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria. Per utilizzare un database in memoria, aggiungere il ``Microsoft.EntityFrameworkCore.InMemory`` pacchetto all'App e modificare la chiamata dell'applicazione a ``AddDbContext`` in ``ConfigureServices`` come indicato di seguito:
+    In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria. Per utilizzare un database in memoria, aggiungere il pacchetto ``Microsoft.EntityFrameworkCore.InMemory`` all'App e modificare la chiamata dell'applicazione a ``AddDbContext`` in ``ConfigureServices`` come indicato di seguito:
 
     ```csharp
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
     ```
     
-    Quando l'utente sceglie il **registrare** collegamento, il ``Register`` azione viene richiamata sul ``AccountController``. Il ``Register`` azione consente all'utente chiamando `CreateAsync` sul `_userManager` oggetto (fornito a ``AccountController`` dall'inserimento di dipendenze):
+    Quando l'utente sceglie il collegamento **registrare**, il metodo azione ``Register`` viene richiamato nell' ``AccountController``. L'azione ``Register``crea l'utente chiamando `CreateAsync` sull'oggetto `_userManager` (fornito all' ``AccountController`` tramite dependency injection):
  
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
-    Se l'utente è stato creato correttamente, l'utente è connesso tramite la chiamata di ``_signInManager.SignInAsync``.
+    Se l'utente è stato creato correttamente, l'utente è connesso tramite la chiamata al metodo ``_signInManager.SignInAsync``.
 
     **Nota:** vedere [account conferma](xref:security/authentication/accconfirm#prevent-login-at-registration) per la procedura impedire l'accesso immediato al momento della registrazione.
  
 4.  Accedi.
  
-    Gli utenti possono accedere facendo clic di **Accedi** collegamento nella parte superiore del sito, o può essere reindirizzati alla pagina di accesso se si tenta di accedere a una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il ``AccountController`` ``Login`` azione viene chiamata.
+    Gli utenti possono accedere facendo clic sul collegamento **Accedi** nella parte superiore del sito, o possono essere reindirizzati alla pagina di accesso se si tenta di accedere ad una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il metodo di azione ``Login`` nell'``AccountController`` viene invocato.
 
-    Il ``Login`` azione chiama ``PasswordSignInAsync`` sul ``_signInManager`` oggetto (fornito a ``AccountController`` dall'inserimento di dipendenze).
+    L'azione ``Login`` chiama ``PasswordSignInAsync`` sull'oggetto ``_signInManager`` (fornito all' ``AccountController`` tramite dependency injection).
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
-    La base ``Controller`` classe espone un ``User`` proprietà che è possibile accedere dai metodi di controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
+    La classe base ``Controller`` espone una proprietà ``User`` a cui è possibile accedere dai metodi del controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
  
 5.  Effettuare la disconnessione.
  
-    Fare clic su di **disconnettersi** collegamento chiamate il `LogOut` azione.
+    Fare clic sul collegamento **disconnettersi** per chiamare l'azione `LogOut`.
  
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
-    Il codice precedente le chiamate di sopra di `_signInManager.SignOutAsync` metodo. Il `SignOutAsync` metodo cancella attestazioni dell'utente archiviate in un cookie.
+    Il codice precedente chiama il metodo `_signInManager.SignOutAsync`. Il metodo `SignOutAsync` cancella attestazioni dell'utente archiviate in un cookie.
  
 <a name="pw"></a>
 6.  Configurazione.
 
-    Identità dispone di alcuni comportamenti predefiniti che possono essere sostituiti nella classe di avvio dell'app. `IdentityOptions` non devono essere configurate quando si utilizzano i comportamenti predefiniti. Il codice seguente imposta diverse opzioni di livello di attendibilità di password:
+    Identità dispone di alcuni comportamenti predefiniti che possono essere sostituiti nella classe di avvio dell'app. Le `IdentityOptions` non devono essere configurate quando si utilizzano i comportamenti predefiniti. Il codice seguente imposta diverse opzioni sul livello di sicurezza della password:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -145,15 +145,15 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
  
 7.  Visualizzare il database.
 
-    Se l'app Usa un database di SQL Server (impostazione predefinita in Windows e per gli utenti di Visual Studio), è possibile visualizzare il database dell'applicazione creata. È possibile utilizzare **SQL Server Management Studio**. In alternativa, da Visual Studio, selezionare **vista** > **Esplora oggetti di SQL Server**. Connettersi a **(localdb) \MSSQLLocalDB**. Il database con un nome corrispondente **aspnet - <*nome del progetto*>-<*stringa data*>** viene visualizzato.
+    Se l'app usa un database di SQL Server (impostazione predefinita in Windows e per gli utenti di Visual Studio), è possibile visualizzare il database dell'applicazione creata. È possibile utilizzare **SQL Server Management Studio**. In alternativa, da Visual Studio, selezionare **vista** > **Esplora oggetti di SQL Server**. Connettersi a **(localdb) \MSSQLLocalDB**. Il database con un nome corrispondente **aspnet - <*nome del progetto*>-<*stringa data*>** viene visualizzato.
 
     ![Menu di scelta rapida nella tabella di database AspNetUsers](identity/_static/04-db.png)
     
-    Espandere il database e il relativo **tabelle**, quindi fare doppio clic su di **dbo. AspNetUsers** tabella e selezionare **Visualizza dati**.
+    Espandere il database e le relative **tabelle**, quindi fare clic con il pulsante destro del mouse sulla tabella **dbo. AspNetUsers** e selezionare **Visualizza dati**.
 
 8. Verificare il funzionamento dell'identità
 
-    Il valore predefinito *applicazione Web di ASP.NET Core* modello di progetto consente agli utenti di accedere a qualsiasi azione nell'applicazione senza che sia all'account di accesso. Per verificare il funzionamento di ASP.NET Identity, aggiungere un`[Authorize]` attributo il `About` azione il `Home` Controller.
+    Il template di progetto predefinito per l'*applicazione Web di ASP.NET Core* consente agli utenti di accedere a qualsiasi azione nell'applicazione senza effettuare l'accesso. Per verificare il funzionamento di ASP.NET Identity, aggiungere un attributo `[Authorize]` all'azione `About` del controller `Home`.
  
     ```cs
     [Authorize]
