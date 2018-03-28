@@ -1,7 +1,7 @@
 ---
-title: "Introduzione all'identità su ASP.NET Core"
+title: Introduzione all'identità su ASP.NET Core
 author: rick-anderson
-description: "Usare l'identità con un'applicazione ASP.NET di base. Include, impostazione dei requisiti delle password (RequireDigit, RequiredLength, RequiredUniqueChars e altro ancora)."
+description: Usare l'identità con un'applicazione ASP.NET di base. Include, impostazione dei requisiti delle password (RequireDigit, RequiredLength, RequiredUniqueChars e altro ancora).
 manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
@@ -11,7 +11,7 @@ ms.topic: article
 uid: security/authentication/identity
 ms.openlocfilehash: a84c5f1d4cf802ee0c4116d2a02bdbfbab9aa72b
 ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
 ---
@@ -57,7 +57,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
 2.  Configurare i servizi di identità e aggiungere middleware `Startup`.
 
-    I servizi di identità vengono aggiunti all'applicazione nel metodo `ConfigureServices` della classe `Startup`:
+    I servizi di identità vengono aggiunti all'applicazione nel metodo `ConfigureServices` della classe `Startup` classe:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -65,7 +65,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
     
     Questi servizi vengono resi disponibili per l'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
     
-    Identità è abilitata per l'applicazione chiamando `UseAuthentication` nel metodo `Configure`. `UseAuthentication` aggiunge l'autenticazione [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
+    Identità è abilitata per l'applicazione chiamando `UseAuthentication` nel metodo`Configure`. `UseAuthentication` aggiunge l'autenticazione [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
     
     [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
@@ -75,7 +75,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
     
     Questi servizi vengono resi disponibili per l'applicazione tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection).
     
-    Identità è abilitata per l'applicazione chiamando `UseIdentity` nel `Configure` metodo. `UseIdentity` Aggiunge l'autenticazione basata su cookie [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
+    Identità è abilitata per l'applicazione chiamando `UseIdentity` nel metodo`Configure` . `UseIdentity` Aggiunge l'autenticazione basata su cookie [middleware](xref:fundamentals/middleware/index) alla pipeline delle richieste.
         
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     
@@ -91,14 +91,14 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
     
     ![Applicare le migrazioni pagina](identity/_static/apply-migrations.png)
     
-    In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria. Per utilizzare un database in memoria, aggiungere il pacchetto ``Microsoft.EntityFrameworkCore.InMemory`` all'App e modificare la chiamata dell'applicazione a ``AddDbContext`` in ``ConfigureServices`` come indicato di seguito:
+    In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria.  Per utilizzare un database in memoria, aggiungere il pacchetto ``Microsoft.EntityFrameworkCore.InMemory`` pall'App e modificare la chiamata dell'applicazione a ``AddDbContext`` in ``ConfigureServices`` come indicato di seguito:
 
     ```csharp
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
     ```
     
-    Quando l'utente sceglie il collegamento **registrare**, il metodo azione ``Register`` viene richiamato nell' ``AccountController``. L'azione ``Register``crea l'utente chiamando `CreateAsync` sull'oggetto `_userManager` (fornito all' ``AccountController`` tramite dependency injection):
+    Quando l'utente sceglie il collegamento**registrare** il metodo azione``Register`` viene richiamato nell ``AccountController``. L'azione``Register`` crea l'utente chiamandoconsente all'utente chiamando  `CreateAsync` sull'oggetto  `_userManager`(fornito all ``AccountController`` tramite dependency injection):
  
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
@@ -108,13 +108,13 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
  
 4.  Accedi.
  
-    Gli utenti possono accedere facendo clic sul collegamento **Accedi** nella parte superiore del sito, o possono essere reindirizzati alla pagina di accesso se si tenta di accedere ad una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il metodo di azione ``Login`` nell'``AccountController`` viene invocato.
+    Gli utenti possono accedere facendo clic sul collegamento**Accedi** nella parte superiore del sito, o possono essere reindirizzati alla pagina di accesso se si tenta di accedere ad una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il metodo di azione``AccountController``nell ``Login``viene invocato.
 
-    L'azione ``Login`` chiama ``PasswordSignInAsync`` sull'oggetto ``_signInManager`` (fornito all' ``AccountController`` tramite dependency injection).
+    L'azione ``Login`` chiama ``PasswordSignInAsync`` sul ``_signInManager`` oggetto (fornito all ``AccountController`` tramite dependency injection).
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
-    La classe base ``Controller`` espone una proprietà ``User`` a cui è possibile accedere dai metodi del controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
+    La classe base ``Controller`` espone una proprietà  ``User`` a cui è possibile accedere dai metodi del controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
  
 5.  Effettuare la disconnessione.
  
@@ -153,7 +153,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
 8. Verificare il funzionamento dell'identità
 
-    Il template di progetto predefinito per l'*applicazione Web di ASP.NET Core* consente agli utenti di accedere a qualsiasi azione nell'applicazione senza effettuare l'accesso. Per verificare il funzionamento di ASP.NET Identity, aggiungere un attributo `[Authorize]` all'azione `About` del controller `Home`.
+    l template di progetto predefinito per l'*applicazione Web di ASP.NET Core* consente agli utenti di accedere a qualsiasi azione nell'applicazione senza effettuare l'accesso. Per verificare il funzionamento di ASP.NET Identity, aggiungere un attributo `[Authorize]` all'azione `About` del controller `Home`.
  
     ```cs
     [Authorize]
