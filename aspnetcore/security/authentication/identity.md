@@ -118,11 +118,11 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
  
 5.  Effettuare la disconnessione.
  
-    Fare clic sul collegamento **disconnettersi** chiama l'azione `LogOut`.
+    Fare clic sul collegamento **disconnettersi** per chiamare l'azione `LogOut`.
  
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
-    Il codice precedente qui sopra chiama il metodo `_signInManager.SignOutAsync`. Il metodo `SignOutAsync` cancella attestazioni dell'utente archiviate in un cookie.
+    Il codice precedente chiama il metodo `_signInManager.SignOutAsync`. Il metodo `SignOutAsync` cancella attestazioni dell'utente archiviate in un cookie.
  
 <a name="pw"></a>
 6.  Configurazione.
@@ -149,7 +149,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
     ![Menu di scelta rapida nella tabella di database AspNetUsers](identity/_static/04-db.png)
     
-    Espandere il database e il relativo **tabelle**, quindi tasto destro sulla tabella **dbo. AspNetUsers** e selezionare **Visualizza dati**.
+    Espandere il database e le relative **tabelle**, quindi fare clic con il pulsante destro del mouse sulla tabella **dbo. AspNetUsers** e selezionare **Visualizza dati**.
 
 8. Verificare il funzionamento dell'identità
 
