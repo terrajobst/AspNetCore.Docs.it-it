@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Parte 8: Pagine finale, gestione delle eccezioni e conclusione
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 8 aggiunge una pagina di contatto, sulla pagina e la gestione delle eccezioni. Questa è la conclusione della serie.
 
 
-## <a id="_Toc260221680"></a>Contattare pagina (invio messaggio di posta elettronica da ASP.NET)
+## <a id="_Toc260221680"></a>  Contattare pagina (invio messaggio di posta elettronica da ASP.NET)
 
 Creare una nuova pagina denominata ContactUs.aspx
 
@@ -43,11 +43,11 @@ Questo codice si presuppone che il file Web. config contiene una voce nella sezi
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>Informazioni sulla pagina
+## <a id="_Toc260221681"></a>  Informazioni sulla pagina
 
 Creare una pagina denominata AboutUs. aspx e aggiungere il contenuto desiderato.
 
-## <a id="_Toc260221682"></a>Gestore di eccezioni globale
+## <a id="_Toc260221682"></a>  Gestore eccezioni globale
 
 Infine, in tutta l'applicazione è stata generata un'eccezione di eccezioni ed esistono circostanze impreviste che fredde anche eccezioni causa non gestita nell'applicazione web.
 
@@ -75,11 +75,11 @@ Ora nella pagina\_caricare estrazione del gestore eventi i messaggi di errore da
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>Conclusione
+## <a id="_Toc260221683"></a>  Conclusione
 
 Abbiamo visto che ASP.NET WebForms rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente.
 
 Probabilmente questa esercitazione è state ricevute gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate Web Form ASP.NET!
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-7.md)

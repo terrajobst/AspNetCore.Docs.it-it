@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
 msc.type: video
-ms.openlocfilehash: 6294e7f48ae67df5b01e1effac84490928e07a0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e8959cedec283b852c63a4f70bdb532dbeed70fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[Eseguire la ricerca per categorie:] Utilizzare il controllo dispositivo di scorrimento ASP.NET AJAX?
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Il controllo dispositivo di scorrimento di ASP.NET AJAX Control Toolkit fornisce un modo semplice ed elegante all'utente di selezionare un valore numerico. In questo video viene illustrato come aggiungere un controllo dispositivo di scorrimento alla pagina Web e come configurare l'orientamento, intervallo di valori e le dimensioni di incrementi.
 
-[&#9654; Guardare video (10 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-slider-control)
+[&#9654;Guardare video (10 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-slider-control)
 
->[!div class="step-by-step"]
-[Precedente](how-do-i-use-the-aspnet-ajax-confirmbutton-extender.md)
-[Successivo](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)
+> [!div class="step-by-step"]
+> [Precedente](how-do-i-use-the-aspnet-ajax-confirmbutton-extender.md)
+> [Successivo](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)

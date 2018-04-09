@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 5a314a1761527d8a2273166a743e3deac012a557
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd906282db5c620476966ffbe09cecb5ade66ee4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Fornire CRUD (Create, leggere, aggiornare ed eliminare) supporto voce Form dati
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -39,22 +39,22 @@ da [Microsoft](https://github.com/microsoft)
 
 Metodi di azione DinnersController che implementato il supporto per due URL viene aggiunto in precedenza: */Dinners* e */Dinners/dettagli / [id]*.
 
-| **URL** | **VERBO** | **Scopo** |
+| **URL** | **VERB** | **Scopo** |
 | --- | --- | --- |
 | */Dinners/* | GET | Visualizzare un elenco HTML di dinners future. |
-| */Dinners/dettagli / [id]* | GET | Visualizzare informazioni dettagliate su una cena specifica. |
+| */Dinners/Details/[id]* | GET | Visualizzare informazioni dettagliate su una cena specifica. |
 
-A questo punto si aggiungeranno i metodi di azione per implementare tre ulteriori URL: */Dinners/modifica / [id], Dinners/Create,*e*/Dinners/Delete / [id]*. Questi URL verranno abilitare il supporto per modifica Dinners esistente, creazione nuova Dinners ed eliminazione Dinners.
+A questo punto si aggiungeranno i metodi di azione per implementare tre ulteriori URL: <em>/Dinners/modifica / [id], Dinners/Create,</em>e<em>/Dinners/Delete / [id]</em>. Questi URL verranno abilitare il supporto per modifica Dinners esistente, creazione nuova Dinners ed eliminazione Dinners.
 
 Interazioni di verbo HTTP GET e HTTP POST con questi nuovi URL saranno supportati. Le richieste HTTP GET di questi URL verranno visualizzato visualizzazione HTML iniziale dei dati (un modulo compilato con i dati di Dinner nel caso di "Modifica", un modulo vuoto in caso di "creazione" e una schermata di conferma eliminazione nel caso di "delete"). Le richieste HTTP POST di questi URL verranno salvare, aggiornare o eliminare i dati di Dinner nel nostro DinnerRepository (e da lì al database).
 
-| **URL** | **VERBO** | **Scopo** |
+| **URL** | **VERB** | **Scopo** |
 | --- | --- | --- |
-| */Dinners/modifica / [id]* | GET | Visualizzare un form HTML modificabile popolato con dati Dinner. |
+| */Dinners/Edit/[id]* | GET | Visualizzare un form HTML modificabile popolato con dati Dinner. |
 | INSERISCI | Salvare le modifiche di form per un particolare Dinner al database. |
-| */ Dinners/Create* | GET | Visualizzare un form HTML vuoto che consente agli utenti di definire nuove Dinners. |
+| */Dinners/Create* | GET | Visualizzare un form HTML vuoto che consente agli utenti di definire nuove Dinners. |
 | INSERISCI | Creare un nuovo Dinner e salvarlo nel database. |
-| */Dinners/delete / [id]* | GET | Visualizza eliminazione schermata di conferma. |
+| */Dinners/Delete/[id]* | GET | Visualizza eliminazione schermata di conferma. |
 | INSERISCI | Elimina la cena specificata dal database. |
 
 ### <a name="edit-support"></a>Supporto di modifica
@@ -107,7 +107,7 @@ In alternativa, se l'istruzione "using" approccio non naturale per uno scenario 
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-La chiamata a Html.BeginForm() senza parametri determinerà l'output di un elemento di modulo che esegue un POST HTTP all'URL della richiesta corrente. Vale a dire perché la visualizzazione di modifica genera un  *&lt;azione modulo = "/ Modifica/Dinners/1" metodo = "post"&gt;*  elemento. È stato possibile in alternativa superati parametri espliciti per Html.BeginForm() se si desidera inviare a un URL diverso.
+La chiamata a Html.BeginForm() senza parametri determinerà l'output di un elemento di modulo che esegue un POST HTTP all'URL della richiesta corrente. Vale a dire perché la visualizzazione di modifica genera un *&lt;azione modulo = "/ Modifica/Dinners/1" metodo = "post"&gt;* elemento. È stato possibile in alternativa superati parametri espliciti per Html.BeginForm() se si desidera inviare a un URL diverso.
 
 ##### <a name="htmltextbox-helper-method"></a>Metodo helper Html.TextBox()
 
@@ -115,7 +115,7 @@ La vista Edit viene utilizzato il metodo di supporto Html.TextBox() per generare
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-Metodo Html.TextBox() accetta un solo parametro – utilizzato per specificare entrambi gli attributi di nome/id il &lt;input di tipo = "text" /&gt; elemento di output, nonché la proprietà del modello per popolare il valore della casella di testo da. Ad esempio, l'oggetto Dinner è passati per la visualizzazione di modifica contiene un valore di proprietà "Title" di ".NET future" e pertanto il metodo Html.TextBox("Title") chiamare output:  *&lt;input con id = "Title" nome = "Title" type = "text" value = ".NET future" /&gt;* .
+Metodo Html.TextBox() accetta un solo parametro – utilizzato per specificare entrambi gli attributi di nome/id il &lt;input di tipo = "text" /&gt; elemento di output, nonché la proprietà del modello per popolare il valore della casella di testo da. Ad esempio, l'oggetto Dinner è passati per la visualizzazione di modifica contiene un valore di proprietà "Title" di ".NET future" e pertanto il metodo Html.TextBox("Title") chiamare output: *&lt;input con id = "Title" nome = "Title" type = "text" value = ".NET future" /&gt;*.
 
 In alternativa, è possibile utilizzare il primo parametro Html.TextBox() per specificare il nome o un id dell'elemento e quindi passare in modo esplicito nel valore da usare come secondo parametro:
 
@@ -141,7 +141,7 @@ Inizieremo aggiungendo un metodo di azione overload "Modifica" per il nostro Din
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-Quando i metodi di azione overload viene applicato l'attributo [AcceptVerbs], ASP.NET MVC gestisce automaticamente le richieste di invio al metodo di azione appropriato in base al verbo HTTP in ingresso. Le richieste HTTP POST per */Dinners/modifica / [id]* URL verrà inviata al metodo di modifica precedente, mentre tutte le altre richieste di verbi HTTP a */Dinners/modifica / [id]*URL verrà inviata al primo metodo di modifica (che è stata implementata ha un attributo [AcceptVerbs]).
+Quando i metodi di azione overload viene applicato l'attributo [AcceptVerbs], ASP.NET MVC gestisce automaticamente le richieste di invio al metodo di azione appropriato in base al verbo HTTP in ingresso. Le richieste HTTP POST per <em>/Dinners/modifica / [id]</em> URL verrà inviata al metodo di modifica precedente, mentre tutte le altre richieste di verbi HTTP a <em>/Dinners/modifica / [id]</em>URL verrà inviata al primo metodo di modifica (che è stata implementata ha un attributo [AcceptVerbs]).
 
 | **Sul lato dell'argomento: Differenziare perché tramite i verbi HTTP?** |
 | --- |
@@ -225,13 +225,13 @@ Il metodo helper di Html.ValidationMessage() può essere utilizzato per restitui
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample17.aspx)]
 
-Restituisce il codice sopra riportato:  *&lt;span classe = "errore di convalida campo"&gt; 'BOGUS' il valore è valido &lt; /span&gt;*
+Restituisce il codice sopra riportato:  *&lt;span classe = "errore di convalida campo"&gt; il valore 'BOGUS' non è valido &lt; /span&gt;*
 
 Il metodo di supporto Html.ValidationMessage() supporta anche un secondo parametro che consente agli sviluppatori di ignorare il messaggio di testo di errore visualizzato:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Restituisce il codice sopra riportato:  *&lt;span classe = "errore di convalida campo"&gt;\*&lt;/span&gt;*anziché il testo di errore predefinito quando un errore sia presente per il Proprietà EventDate.
+Restituisce il codice sopra riportato:  <em>&lt;span classe = "errore di convalida campo"&gt;\*&lt;/span&gt;</em>anziché il testo di errore predefinito quando un errore sia presente per il Proprietà EventDate.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Metodo Helper Html.ValidationSummary()
 
@@ -427,6 +427,6 @@ Il nostro DinnersController ora consente Dinner elenchi o dettagli, nonché crea
 
 Ora esaminare in che modo utilizzare classi ViewData e ViewModel attivare arricchire dell'interfaccia utente sul form.
 
->[!div class="step-by-step"]
-[Precedente](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-[Successivo](use-viewdata-and-implement-viewmodel-classes.md)
+> [!div class="step-by-step"]
+> [Precedente](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [Successivo](use-viewdata-and-implement-viewmodel-classes.md)

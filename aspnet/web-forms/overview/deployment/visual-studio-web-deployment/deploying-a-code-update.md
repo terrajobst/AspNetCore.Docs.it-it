@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dd02b5c627fbfbb0034030f4c21207d24f6aabce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di un aggiornamento del codice
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -104,7 +104,7 @@ Utilizzando *app\_offline.htm* nel sito di staging non è necessario, perché no
 
 ### <a name="copy-appofflinehtm-to-the-root-folder-of-the-web-site"></a>Copia app\_offline.htm nella cartella radice del sito web
 
-È possibile utilizzare qualsiasi strumento FTP per copiare i file del sito web. [FileZilla](http://filezilla-project.org/) è uno strumento FTP comune e viene visualizzato nelle schermate.
+È possibile utilizzare qualsiasi strumento FTP per copiare i file del sito web. [FileZilla](http://filezilla-project.org/) è uno strumento largamente usato FTP e viene visualizzato nelle schermate.
 
 Per utilizzare uno strumento FTP, sono necessari tre operazioni: l'URL di FTP, il nome utente e la password.
 
@@ -207,6 +207,6 @@ Abbiamo visto diversi modi per distribuire un aggiornamento di un'applicazione c
 
 L'esercitazione successiva viene illustrato come distribuire una modifica al database: un campo Data di nascita verrà aggiunto al database e alla pagina i docenti.
 
->[!div class="step-by-step"]
-[Precedente](deploying-to-production.md)
-[Successivo](deploying-a-database-update.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-to-production.md)
+> [Successivo](deploying-a-database-update.md)

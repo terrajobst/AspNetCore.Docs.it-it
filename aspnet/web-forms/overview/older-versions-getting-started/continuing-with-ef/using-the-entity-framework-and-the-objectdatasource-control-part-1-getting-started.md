@@ -12,19 +12,19 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6584767418c898913777b3b1549a816679c8430d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Utilizzo di Entity Framework 4.0 e il controllo ObjectDataSource, parte 1: introduzione
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > Questa serie di esercitazioni si basa sull'applicazione web di Contoso University creando il [introduzione di Entity Framework 4.0](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) serie di esercitazioni. Se non ha completato le esercitazioni precedenti, come punto di partenza per questa esercitazione è possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) che consente di creare. È anche possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creati tramite la serie di esercitazioni completo.
 > 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. L'applicazione di esempio è un sito Web per un'università Contoso fittizio. Include funzionalità, ad esempio l'ammissione di studenti, la creazione di corsi e assegnazioni istruttore.
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. L'applicazione di esempio è un sito Web per un'università Contoso fittizio. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati.
 > 
 > L'esercitazione è riportati esempi in c#. Il [esempio scaricabile](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) contiene il codice in c# e Visual Basic.
 > 
@@ -311,7 +311,7 @@ Il gestore per il `Init` evento Salva un riferimento al `DropDownList` controllo
 Utilizzare il *DepartmentsAdd.aspx* pagina per aggiungere una nuova categoria, quindi eseguire il *Departments.aspx* pagina e fare clic su **modifica** sulla riga che è stato aggiunto.
 
 > [!NOTE]
-> Non sarà in grado di modificare le righe che non è stata aggiunta (ovvero, che sono stati già nel database), a causa di dati non validi nel database. gli amministratori per le righe che sono stati creati con il database siano studenti. Se si tenta di modificare uno di essi, si otterrà una pagina di errore che segnala un errore di`'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> Non sarà in grado di modificare le righe che non è stata aggiunta (ovvero, che sono stati già nel database), a causa di dati non validi nel database. gli amministratori per le righe che sono stati creati con il database siano studenti. Se si prova a modificare uno di essi, si otterrà una pagina di errore che segnala un errore, ad esempio `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
@@ -324,5 +324,5 @@ Modificare un valore del campo o selezionare un diverso per l'amministratore e f
 
 Introduzione all'uso è stata completata la `ObjectDataSource` controllo per CRUD di base (creare, leggere, aggiornare ed eliminare) operazioni con Entity Framework. Una volta compilato una semplice applicazione a più livelli, ma il livello di logica di business è ancora strettamente a livello di accesso ai dati, che rendono più complessa di unit test automatici. Nell'esercitazione seguente si noterà come implementare il modello di repository per facilitare gli unit test.
 
->[!div class="step-by-step"]
-[avanti](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [!div class="step-by-step"]
+> [avanti](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
-title: 'Distribuzione di un''applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: trasformazioni File Web. config - 3 di 12 | Documenti Microsoft'
+title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: trasformazioni File Web. config - 3 di 12 | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual riceventi...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86eb74ca35e8804978127412e2276eeee9d615dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: trasformazioni File Web. config - 3 di 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010. Per un'introduzione alla serie, vedere [la prima esercitazione di serie](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
@@ -97,7 +97,7 @@ Non è necessario limitare l'accesso di log di errore nell'ambiente di test, in 
 
 > [!NOTE] 
 > 
-> **Nota sulla sicurezza** mai visualizzare i dettagli dell'errore per il pubblico in un'applicazione di produzione o archiviare le informazioni in una posizione pubblica. Gli utenti malintenzionati possono utilizzare informazioni sugli errori per individuare le vulnerabilità in un sito. Se si utilizza ELMAH nella propria applicazione, assicurarsi di esaminare i modi in cui ELMAH possono essere configurati per ridurre al minimo i rischi di sicurezza. Nell'esempio ELMAH in questa esercitazione non deve essere considerata una configurazione consigliata. È un esempio in cui è stato scelto per illustrare come gestire una cartella che l'applicazione deve essere in grado di creare i file.
+> **Nota sulla sicurezza** mai visualizzare i dettagli dell'errore al pubblico in un'applicazione di produzione o archiviare le informazioni in una posizione pubblica. Gli utenti malintenzionati possono utilizzare informazioni sugli errori per individuare le vulnerabilità in un sito. Se si utilizza ELMAH nella propria applicazione, assicurarsi di esaminare i modi in cui ELMAH possono essere configurati per ridurre al minimo i rischi di sicurezza. Nell'esempio ELMAH in questa esercitazione non deve essere considerata una configurazione consigliata. È un esempio in cui è stato scelto per illustrare come gestire una cartella che l'applicazione deve essere in grado di creare i file.
 
 
 ## <a name="setting-an-environment-indicator"></a>L'impostazione di un indicatore di ambiente
@@ -136,7 +136,7 @@ Questa trasformazione stesso è in produzione di Test e i file di trasformazione
 
 ## <a name="setting-connection-strings"></a>Impostare le stringhe di connessione
 
-Nella maggior parte dei casi non è necessario impostare le trasformazioni di stringhe di connessione, poiché è possibile specificare le stringhe di connessione nel profilo di pubblicazione. Ma si verifica un'eccezione quando si distribuisce un database di SQL Server Compact e si utilizza Entity Framework migrazioni Code First per aggiornare il database nel server di destinazione. Per questo scenario, è necessario specificare una stringa di connessione aggiuntive che verrà utilizzata per l'aggiornamento dello schema del database nel server. Per configurare questa trasformazione, aggiungere un  **&lt;connectionStrings&gt;**  elemento subito dopo l'apertura  **&lt;configurazione&gt;**  tag sia in il *Web.Test.config* e *Web.Production.config* trasformare file:
+Nella maggior parte dei casi non è necessario impostare le trasformazioni di stringhe di connessione, poiché è possibile specificare le stringhe di connessione nel profilo di pubblicazione. Ma si verifica un'eccezione quando si distribuisce un database di SQL Server Compact e si utilizza Entity Framework migrazioni Code First per aggiornare il database nel server di destinazione. Per questo scenario, è necessario specificare una stringa di connessione aggiuntive che verrà utilizzata per l'aggiornamento dello schema del database nel server. Per configurare questa trasformazione, aggiungere un **&lt;connectionStrings&gt;** elemento subito dopo l'apertura **&lt;configurazione&gt;** tag sia in il *Web.Test.config* e *Web.Production.config* trasformare file:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
@@ -148,6 +148,6 @@ Il `Transform` attributo specifica che verrà aggiunto a questa stringa di conne
 
 Per ulteriori informazioni sugli argomenti rientrano in questa esercitazione, vedere lo scenario di trasformazione Web. config in [mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx).
 
->[!div class="step-by-step"]
-[Precedente](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
-[Successivo](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+> [!div class="step-by-step"]
+> [Precedente](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [Successivo](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)

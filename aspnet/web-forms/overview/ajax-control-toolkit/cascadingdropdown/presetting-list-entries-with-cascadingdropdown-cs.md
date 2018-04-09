@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d86c5887a8b175a60c32a0970482266b7d690162
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d87da6c19f6dbdff70eff410ba7573c3e26884fb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a>Voci dell'elenco preimpostazione con CascadingDropDown (c#)
 ====================
@@ -60,6 +60,6 @@ Il caricamento della pagina nel browser riempirà nell'elenco a discesa con tre 
 
 L'elenco viene compilato e preselezionato automaticamente ([fare clic per visualizzare l'immagine ingrandita](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](using-cascadingdropdown-with-a-database-cs.md)
-[Successivo](using-auto-postback-with-cascadingdropdown-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](using-cascadingdropdown-with-a-database-cs.md)
+> [Successivo](using-auto-postback-with-cascadingdropdown-cs.md)

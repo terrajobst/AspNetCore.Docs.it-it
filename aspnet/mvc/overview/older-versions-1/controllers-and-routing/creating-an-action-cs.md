@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b751dc7e34951be33e7c27a3429c383a3e1e1c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c6145902db59b07e96a5563b138c1a6323946b2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-action-c"></a>Creazione di un'azione (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come aggiungere una nuova azione a un controller MVC ASP.NET. Informazioni sui requisiti per un metodo da un'azione.
 
@@ -53,17 +53,17 @@ Quando si aggiunge un metodo che non violi questi requisiti per un controller, i
 
 Se è necessario creare un metodo pubblico in una classe controller e non si desidera esporre il metodo come un'azione del controller quindi è possibile evitare che il metodo richiamato utilizzando l'attributo [NonAction]. Ad esempio, il controller nel listato 2 contiene un metodo pubblico denominato CompanySecrets() decorata con l'attributo [NonAction].
 
-**Elenco di 2 - Controllers\WorkController.cs**
+**Il listato 2 - Controllers\WorkController.cs**
 
 [!code-csharp[Main](creating-an-action-cs/samples/sample2.cs)]
 
 Se si tenta di richiamare l'azione del controller CompanySecrets() digitando /Work/CompanySecrets nella barra degli indirizzi del browser si otterrà il messaggio di errore nella figura 1.
 
 
-[![Richiama un metodo NonAction](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
+[![Richiamare un metodo NonAction](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
 
 **Figura 01**: chiamata di un metodo NonAction ([fare clic per visualizzare l'immagine ingrandita](creating-an-action-cs/_static/image2.png))
 
->[!div class="step-by-step"]
-[Precedente](creating-a-controller-cs.md)
-[Successivo](asp-net-mvc-routing-overview-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-controller-cs.md)
+> [Successivo](asp-net-mvc-routing-overview-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: Introduzione a Entity Framework 6 Database First MVC 5 con | Documenti Microsoft
 author: tfitzmac
-description: "Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri..."
+description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ae60b5c808d2522c66dc17ccf7d16fefdc65d552
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Introduzione a Entity Framework 6 Database First con MVC 5
 ====================
@@ -111,5 +111,5 @@ Viene visualizzata una visualizzazione modificabile dei dati della tabella.
 
 Il database è ora configurato e popolato con dati. Nella prossima esercitazione, si creerà un'applicazione web per il database.
 
->[!div class="step-by-step"]
-[avanti](creating-the-web-application.md)
+> [!div class="step-by-step"]
+> [avanti](creating-the-web-application.md)

@@ -1,5 +1,5 @@
 ---
-title: "Unità di pagine Razor e integrazione test in ASP.NET Core"
+title: Razor pagine unit test e integrazione test in ASP.NET Core
 author: guardrex
 description: Informazioni su come creare unit test e integrazione test per App pagine Razor.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unità di pagine Razor e integrazione test in ASP.NET Core
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>Razor pagine unit test e integrazione test in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -59,9 +59,9 @@ L'applicazione di messaggio è un semplice sistema messaggio Razor pagine con le
 * L'app contiene un livello di accesso ai dati (DAL) nella relativa classe di contesto di database, `AppDbContext` (*Data/AppDbContext.cs*). I metodi DAL sono contrassegnati `virtual`, che consente a tali i metodi da utilizzare nei test.
 * Se il database è vuoto all'avvio dell'app, l'archivio di messaggi viene inizializzato con tre messaggi. Questi *seeding messaggi* vengono inoltre utilizzati nel test.
 
-&#8224;L'argomento EF [test con InMemory](/ef/core/miscellaneous/testing/in-memory), viene illustrato come utilizzare un database in memoria per il test con MSTest. Questo argomento viene utilizzato il [xUnit](https://xunit.github.io/) framework di test. Le implementazioni di test in diversi framework di test e test concetti sono simili ma non identica.
+&#8224;L'argomento EF [Test con InMemory](/ef/core/miscellaneous/testing/in-memory), viene illustrato come utilizzare un database in memoria per i test con MSTest. Questo argomento viene utilizzato il [xUnit](https://xunit.github.io/) framework di test. Le implementazioni di test in diversi framework di test e test concetti sono simili ma non identica.
 
-Anche se l'app non usa il [modello di repository](http://martinfowler.com/eaaCatalog/repository.html) e non è un esempio efficace del [modello unità di lavoro (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per ulteriori informazioni, vedere [progettazione del livello di persistenza infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementazione del Repository e schemi di unità di lavoro in un'applicazione MVC ASP.NET](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), e [test logica di controller](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
+Anche se l'app non usa il [modello di repository](http://martinfowler.com/eaaCatalog/repository.html) e non è un esempio efficace del [modello unità di lavoro (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per altre informazioni, vedere [progetta il livello di persistenza infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementazione del Repository e modelli di unità di lavoro in un'applicazione MVC ASP.NET](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), e [controller di Test logica](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
 
 ## <a name="test-app-organization"></a>Organizzazione di app di test
 
@@ -232,7 +232,7 @@ Il `Post_AddMessageHandler_ReturnsSuccess_WhenMessageTextTooLong` test `Message`
 
 * [Unit test c# in .NET Core usando xUnit e test dotnet](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Test di integrazione](xref:testing/integration-testing)
-* [Test dei controller](xref:mvc/controllers/testing)
+* [Test controller](xref:mvc/controllers/testing)
 * [Il codice dello unit Test](/visualstudio/test/unit-test-your-code) (Visual Studio)
 * [xUnit.net](https://xunit.github.io/)
 * [Introduzione a xUnit.net (.NET Core/ASP.NET Core)](https://xunit.github.io/docs/getting-started-dotnet-core)

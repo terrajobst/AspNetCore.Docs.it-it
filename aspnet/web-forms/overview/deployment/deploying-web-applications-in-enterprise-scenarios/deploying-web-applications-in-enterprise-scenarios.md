@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 title: Distribuzione di applicazioni Web in scenari aziendali utilizzando Visual Studio 2010 | Documenti Microsoft
 author: jrjlee
-description: "Questo set di esercitazioni vengono descritti strumenti e tecniche che è possibile utilizzare per distribuire applicazioni web in diversi scenari aziendali. Viene spiegato come utilizzare meglio..."
+description: Questo set di esercitazioni vengono descritti strumenti e tecniche che è possibile utilizzare per distribuire applicazioni web in diversi scenari aziendali. Viene spiegato come utilizzare meglio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 99bab371dd34b30f3554843e49bbec7f57c3f96c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Distribuzione di applicazioni Web in scenari aziendali utilizzando Visual Studio 2010
 ====================
@@ -36,7 +36,7 @@ da [Jason Lee](https://github.com/jrjlee)
 > > Durante queste esercitazioni vengono descritti l'utilizzo di TFS, come un elemento di configurazione di server, il materiale sussidiario è facilmente adattato per qualsiasi elemento di configurazione di server. Non è necessaria una conoscenza approfondita di TFS per comprendere e utilizzare le esercitazioni.
 > 
 > 
-> Per una traduzione italiana di queste esercitazioni, visitare [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Per una traduzione italiana di queste esercitazioni, visitare [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="about-the-authors"></a>Informazioni sugli autori
@@ -54,7 +54,7 @@ Il set di esercitazioni è per gli sviluppatori di applicazioni web ASP.NET e ar
 Per seguire le procedure dettagliate ed eseguire le attività che descrivono queste esercitazioni, è necessario installare il software nel computer di sviluppo:
 
 - Visual Studio 2010 Premium o Ultimate Edition con Service Pack 1
-- .NET framework 4.0
+- .NET Framework 4.0
 - .NET framework 3.5 con Service Pack 1
 - ASP.NET MVC 3.0
 - IIS 7.5 Express
@@ -80,5 +80,5 @@ La serie include quattro set di esercitazione. Ogni è incentrata sui diversi as
 
 Questo set di esercitazioni Usa una soluzione di esempio con un livello di complessità, insieme a uno scenario di distribuzione dell'organizzazione fittizia, realistico per fornire un'implementazione di riferimento e per assegnare le attività e procedure dettagliate di un contesto comune. L'argomento successivo, [distribuzione Web aziendale: panoramica dello Scenario](enterprise-web-deployment-scenario-overview.md), illustra lo scenario e soluzione di esempio. Da qui è possibile utilizzare le esercitazioni e gli argomenti che meglio soddisfano le proprie esigenze.
 
->[!div class="step-by-step"]
-[Successivo](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [avanti](enterprise-web-deployment-scenario-overview.md)

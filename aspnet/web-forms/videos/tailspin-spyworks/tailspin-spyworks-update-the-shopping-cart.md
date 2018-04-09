@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-update-the-shopping-cart
 msc.type: video
-ms.openlocfilehash: 5b37769139f3becb2debd501bce52a1ad3914b88
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 39e9db794b4659cc46dc08dd73e77c45ac462165
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tailspin-spyworks---update-the-shopping-cart"></a>Tailspin Spyworks - aggiornamento del carrello degli acquisti
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Joe Stagner aggiorna il carrello acquisti per l'applicazione Web Form di esempio Tailspin Spyworks.
 
-[&#9654; Guardare video (41 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-update-the-shopping-cart)
+[&#9654;Guardare video (41 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-update-the-shopping-cart)
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-display-shopping-cart.md)
-[Successivo](tailspin-spyworks-migrate-the-shopping-cart.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-display-shopping-cart.md)
+> [Successivo](tailspin-spyworks-migrate-the-shopping-cart.md)

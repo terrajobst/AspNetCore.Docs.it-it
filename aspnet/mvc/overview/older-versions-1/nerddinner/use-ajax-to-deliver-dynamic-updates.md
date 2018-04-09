@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Utilizzare AJAX per distribuire gli aggiornamenti dinamici
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -115,11 +115,11 @@ Per utilizzare jQuery innanzitutto verrà aggiunto un riferimento a script a ess
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*Suggerimento: verificare che sia installato l'hotfix di JavaScript intellisense per Visual Studio 2008 SP1 che consente il supporto intellisense avanzato per i file JavaScript (inclusi jQuery). È possibile scaricarlo da: http://tinyurl.com/vs2008javascripthotfix*
+*Suggerimento: verificare che sia installato l'hotfix di JavaScript intellisense per Visual Studio 2008 SP1 che abilita il supporto intellisense più completo per i file JavaScript (inclusi jQuery). È possibile scaricarlo da: http://tinyurl.com/vs2008javascripthotfix*
 
-Codice scritto con JQuery spesso viene utilizzata una globale "$ ()" metodo JavaScript che recupera uno o più elementi HTML mediante un selettore CSS. Ad esempio, *$("#rsvpmsg")* Seleziona tutti gli elementi HTML con l'id di rsvpmsg, mentre *$(".something")* selezionare tutti gli elementi con la "cosa" CSS nome della classe. È anche possibile scrivere query più avanzate, ad esempio "restituirà tutti i pulsanti di opzione selezionato" utilizzando una query di selezione come: *$("input [@type= radio] [@checked]")*.
+Codice scritto con JQuery spesso viene utilizzata una globale "$ ()" metodo JavaScript che recupera uno o più elementi HTML mediante un selettore CSS. Ad esempio, <em>$("#rsvpmsg")</em> Seleziona tutti gli elementi HTML con l'id di rsvpmsg, mentre <em>$(".something")</em> selezionare tutti gli elementi con la "cosa" CSS nome della classe. È anche possibile scrivere query più avanzate, ad esempio "restituirà tutti i pulsanti di opzione selezionato" utilizzando una query di selezione come: <em>$("input [@type= radio] [@checked]")</em>.
 
-Dopo aver selezionato gli elementi, è possibile chiamare metodi su di essi per eseguire l'azione, ad esempio nasconderli: *$("#rsvpmsg").hide();*
+Dopo aver selezionato gli elementi, è possibile chiamare metodi su di esse per eseguire l'azione, ad esempio nasconderli: *$("#rsvpmsg").hide();*
 
 Per questo scenario RSVP, definiamo una semplice funzione JavaScript denominata "AnimateRSVPMessage" che consente di selezionare "rsvpmsg" &lt;div&gt; e aggiunge un'animazione le dimensioni del contenuto di testo. Il codice riportato di seguito viene avviato il testo di piccole dimensioni e cause per aumentare in un intervallo di tempo 400 millisecondi:
 
@@ -153,6 +153,6 @@ In questo modo il codice di pulizia da leggere e gestire.
 
 Ora esaminiamo come è possibile utilizzare ulteriormente AJAX e aggiungere il supporto di mapping interattivo per l'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](secure-applications-using-authentication-and-authorization.md)
-[Successivo](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [Precedente](secure-applications-using-authentication-and-authorization.md)
+> [Successivo](use-ajax-to-implement-mapping-scenarios.md)

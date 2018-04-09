@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 title: Ordinamento, paging e filtro dei dati con l'associazione di modelli e web form | Documenti Microsoft
 author: tfitzmac
-description: "Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-..."
+description: Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Ordinamento, paging e filtro dei dati con l'associazione di modelli e web form
 ====================
@@ -48,7 +48,7 @@ Eseguire l'applicazione web e test record studente ordinamento per i valori in c
 
 ![studenti di ordinamento](sorting-paging-and-filtering-data/_static/image2.png)
 
-## <a name="add-paging"></a>Aggiunta di impaginazione
+## <a name="add-paging"></a>aggiunta di impaginazione
 
 L'abilitazione di paging è anche molto semplice. In GridView, impostare il **AllowPaging** proprietà **true** e impostare il **PageSize** proprietà per il numero di record che si desidera visualizzare in ogni pagina. In questa esercitazione, è possibile impostarla su 4.
 
@@ -64,14 +64,14 @@ Esecuzione di query posticipata migliora l'efficienza dell'applicazione. Invece 
 
 Associazione di modelli aggiunge diversi attributi che consentono di designare come impostare il valore per un parametro in un metodo di associazione del modello. Questi attributi sono di **System.Web.ModelBinding** dello spazio dei nomi. e comprendono:
 
-- Controllo
+- Control
 - Cookie
 - Form
 - Profilo
 - QueryString
 - RouteData
 - Sessione
-- Profilo utente
+- UserProfile
 - ViewState
 
 In questa esercitazione si utilizzerà il valore di un controllo per filtrare i record visualizzati in GridView. Si aggiungerà il **controllo** attributo al metodo di query è stato creato in precedenza. In un [in un secondo momento](using-query-string-values-to-retrieve-data.md) esercitazione, si applicherà il **QueryString** attributo a un parametro per specificare che il valore del parametro proviene da un valore di stringa di query.
@@ -100,6 +100,6 @@ In questa esercitazione è abilitato ordinamento e paging dei dati. È attivato 
 
 Nella prossima [esercitazione](integrating-jquery-ui.md) si procederà al miglioramento dell'interfaccia utente tramite l'integrazione di un widget di JQuery UI nel modello di dati dinamica.
 
->[!div class="step-by-step"]
-[Precedente](updating-deleting-and-creating-data.md)
-[Successivo](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Precedente](updating-deleting-and-creating-data.md)
+> [Successivo](integrating-jquery-ui.md)

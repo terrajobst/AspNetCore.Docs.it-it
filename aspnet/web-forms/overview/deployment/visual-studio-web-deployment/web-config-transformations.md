@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: le trasformazioni di File Web. config
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -107,7 +107,7 @@ Quando si testa il sito dopo la distribuzione, verrà testato anche per verifica
 
 > [!NOTE] 
 > 
-> **Nota sulla sicurezza** mai visualizzare i dettagli dell'errore per il pubblico in un'applicazione di produzione o archiviare le informazioni in una posizione pubblica. Gli utenti malintenzionati possono utilizzare informazioni sugli errori per individuare le vulnerabilità in un sito. Se si utilizza ELMAH nella propria applicazione, è possibile configurare ELMAH per ridurre al minimo i rischi di sicurezza. Nell'esempio ELMAH in questa esercitazione non deve essere considerata una configurazione consigliata. È un esempio in cui è stato scelto per illustrare come gestire una cartella che l'applicazione deve essere in grado di creare i file. Per ulteriori informazioni, vedere [proteggere l'endpoint ELMAH](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
+> **Nota sulla sicurezza** mai visualizzare i dettagli dell'errore al pubblico in un'applicazione di produzione o archiviare le informazioni in una posizione pubblica. Gli utenti malintenzionati possono utilizzare informazioni sugli errori per individuare le vulnerabilità in un sito. Se si utilizza ELMAH nella propria applicazione, è possibile configurare ELMAH per ridurre al minimo i rischi di sicurezza. Nell'esempio ELMAH in questa esercitazione non deve essere considerata una configurazione consigliata. È un esempio in cui è stato scelto per illustrare come gestire una cartella che l'applicazione deve essere in grado di creare i file. Per ulteriori informazioni, vedere [proteggere l'endpoint ELMAH](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
 
 
 ## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>Un'impostazione di gestire in file di trasformazione del profilo di pubblicazione
@@ -152,6 +152,6 @@ Nell'esercitazione seguente verranno definite delle attività di configurazione 
 
 Per ulteriori informazioni sugli argomenti rientrano in questa esercitazione, vedere [trasformazioni tramite Web. config per modificare le impostazioni nel file Web. config di destinazione o nel file app. config durante la distribuzione](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) nella mappa del contenuto di distribuzione Web per Visual Studio e ASP.NET.
 
->[!div class="step-by-step"]
-[Precedente](preparing-databases.md)
-[Successivo](project-properties.md)
+> [!div class="step-by-step"]
+> [Precedente](preparing-databases.md)
+> [Successivo](project-properties.md)

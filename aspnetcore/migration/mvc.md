@@ -1,5 +1,5 @@
 ---
-title: Migrazione da MVC ASP.NET ad ASP.NET MVC di base
+title: Eseguire la migrazione di ASP.NET MVC per Core ASP.NET MVC
 author: ardalis
 description: Informazioni su come iniziare a eseguire la migrazione di un progetto MVC ASP.NET ad ASP.NET MVC di base.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrazione da MVC ASP.NET ad ASP.NET MVC di base
+# <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Eseguire la migrazione di ASP.NET MVC per Core ASP.NET MVC
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), e [Scott Addie](https://scottaddie.com)
 
@@ -48,7 +48,7 @@ Creare un nuovo *vuoto* app web ASP.NET Core con lo stesso nome del progetto pre
 
 * Installare il `Microsoft.AspNetCore.Mvc` e `Microsoft.AspNetCore.StaticFiles` pacchetti NuGet.
 
-  `Microsoft.AspNetCore.Mvc` è il framework ASP.NET MVC di base. `Microsoft.AspNetCore.StaticFiles` è il gestore di file statici. Il runtime di ASP.NET è modulare e deve esplicitamente ad utilizzati file statici (vedere [utilizzo di file statici](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` è il framework ASP.NET MVC di base. `Microsoft.AspNetCore.StaticFiles` è il gestore di file statici. Il runtime di ASP.NET è modulare ed è necessario in modo esplicito acconsentire esplicitamente a servire file statici (vedere [lavorare con file statici](../fundamentals/static-files.md)).
 
 * Aprire il *csproj* file (pulsante destro del mouse sul progetto in **Esplora** e selezionare **WebApp1.csproj modifica**) e aggiungere un `PrepareForPublish` destinazione:
 
@@ -220,7 +220,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Vedere **utilizzando la pagina di eccezione Developer** in [Error Handling](../fundamentals/error-handling.md) per ulteriori informazioni.
+Vedere **utilizzando la pagina di eccezione Developer** in [gestire gli errori](../fundamentals/error-handling.md) per altre informazioni.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

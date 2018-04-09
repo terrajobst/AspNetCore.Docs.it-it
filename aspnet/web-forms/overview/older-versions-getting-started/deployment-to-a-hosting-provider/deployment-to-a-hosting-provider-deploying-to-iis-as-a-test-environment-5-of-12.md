@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
-title: 'Distribuzione di un''applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione in IIS come ambiente di Test - 5 di 12 | Documenti Microsoft'
+title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione in IIS come ambiente di Test - 5 di 12 | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual riceventi...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16050455c161c8ced1f954bfce9c2d9a44c522b4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione in IIS come ambiente di Test - 5 di 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010. Per un'introduzione alla serie, vedere [la prima esercitazione di serie](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
@@ -242,14 +242,14 @@ La stringa di connessione aggiuntive consente di specificare un account utente p
 
 Per informazioni sull'esecuzione di IIS o IIS Express in Visual Studio, vedere le risorse seguenti:
 
-- [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) nel sito IIS.net.
-- [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) sul blog di Scott Guthrie.
+- [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) sul sito IIS.net.
+- [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) su relativo Guthrie.
 - [Procedura: specificare il Server Web per i progetti Web in Visual Studio](https://msdn.microsoft.com/library/ms178108.aspx).
 - [Principali differenze tra IIS e il Server di sviluppo ASP.NET](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) sul sito ASP.NET.
-- [Testare l'applicazione Web Form in IIS 7 o ASP.NET MVC in 30 secondi](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) sul blog di Rick Anderson. Questa voce vengono forniti esempi di perché il test con Visual Studio Development Server (Cassini) non è così affidabile come test in IIS Express e perché il test in IIS Express non è così affidabile come test in IIS.
+- [Testare l'applicazione Web Form in IIS 7 o ASP.NET MVC in 30 secondi](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) nel blog di Rick Anderson. Questa voce vengono forniti esempi di perché il test con Visual Studio Development Server (Cassini) non è così affidabile come test in IIS Express e perché il test in IIS Express non è così affidabile come test in IIS.
 
 Per informazioni su quali problemi possono verificarsi durante l'applicazione viene eseguita in attendibilità media, vedere [Hosting di applicazioni ASP.NET in attendibilità media](http://www.4guysfromrolla.com/articles/100307-1.aspx) sugli Guy dal sito Rolla 4.
 
->[!div class="step-by-step"]
-[Precedente](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
-[Successivo](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [!div class="step-by-step"]
+> [Precedente](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+> [Successivo](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)

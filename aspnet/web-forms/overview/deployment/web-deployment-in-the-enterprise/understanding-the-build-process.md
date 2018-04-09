@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4544a5e6212ea9b1247062dc35edc135ff7ca354
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-build-process"></a>Informazioni sul processo di compilazione
 ====================
@@ -30,9 +30,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > > L'argomento precedente, [informazioni sui File di progetto](understanding-the-project-file.md), descritti i componenti principali di un file di progetto MSBuild e stato introdotto il concetto di suddivisione dei file di progetto per supportare la distribuzione in più ambienti di destinazione. Se non si ha già familiarità con questi concetti, è necessario rivedere [informazioni sui File di progetto](understanding-the-project-file.md) prima di utilizzare questo argomento.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="build-and-deployment-overview"></a>Cenni preliminari sulla distribuzione e compilazione
 
@@ -50,16 +50,16 @@ Prima di esaminare questi file in maggior dettaglio, esaminiamo un funzionamento
 
 ![](understanding-the-build-process/_static/image2.png)
 
-La prima cosa è che i due progetti di file & #x 2014; uno contenente le compilazione universale e istruzioni di distribuzione e uno contenente impostazioni specifiche dell'ambiente & #x 2014; vengono uniti in un singolo file del progetto. MSBuild quindi funziona tramite le istruzioni nel file di progetto. Compila tutti i progetti nella soluzione, tramite il file di progetto per ogni progetto. Viene quindi chiamato per altri strumenti, ad esempio di distribuzione Web (MSDeploy.exe) e l'utilità VSDBCMD per distribuire il contenuto web e i database all'ambiente di destinazione.
+Il primo elemento che si verifica è che i due file di progetto&#x2014;uno contenente le istruzioni di compilazione e distribuzione universale e uno che contiene impostazioni specifiche dell'ambiente&#x2014;vengono unite in un singolo file del progetto. MSBuild quindi funziona tramite le istruzioni nel file di progetto. Compila tutti i progetti nella soluzione, tramite il file di progetto per ogni progetto. Viene quindi chiamato per altri strumenti, ad esempio di distribuzione Web (MSDeploy.exe) e l'utilità VSDBCMD per distribuire il contenuto web e i database all'ambiente di destinazione.
 
 Dall'inizio alla fine, il processo di compilazione e distribuzione esegue queste attività:
 
 1. Elimina il contenuto della directory di output, in preparazione per una nuova compilazione.
 2. Compila ogni progetto nella soluzione:
 
-    1. Per progetti web & #x 2014; in questo caso, un'applicazione web MVC ASP.NET e WCF web servizio & #x 2014; il processo di compilazione crea un pacchetto di distribuzione web per ogni progetto.
+    1. Per i progetti web&#x2014;in questo caso, un'applicazione web MVC ASP.NET e WCF al servizio web&#x2014;il processo di compilazione crea un pacchetto di distribuzione web per ogni progetto.
     2. Per i progetti di database, il processo di compilazione crea un manifesto di distribuzione (file con estensione deploymanifest) per ogni progetto.
-3. Usa l'utilità VSDBCMD.exe per distribuire ogni progetto di database nella soluzione, utilizzando le proprietà da file di progetto e #x 2014; una stringa di connessione di destinazione e un nome del database & #x 2014; insieme al file con estensione deploymanifest.
+3. Usa l'utilità VSDBCMD.exe per distribuire ogni progetto di database nella soluzione, utilizzando le proprietà dei file di progetto&#x2014;una stringa di connessione di destinazione e un nome di database&#x2014;insieme al file con estensione deploymanifest.
 4. Usa l'utilità di MSDeploy.exe per la distribuzione di ogni progetto web nella soluzione, utilizzando le proprietà dei file di progetto per controllare il processo di distribuzione.
 
 È possibile utilizzare la soluzione di esempio per questo processo in modo più dettagliato di traccia.
@@ -102,9 +102,9 @@ MSBuild rileva l'elemento successivo è un gruppo singolo elemento, che contiene
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
 
-MSBuild elabora questa istruzione per la creazione di un elenco di elementi denominato **ProjectsToBuild**. In questo caso, l'elenco di elementi contiene un singolo valore & #x 2014; il percorso e il nome del file della soluzione.
+MSBuild elabora questa istruzione per la creazione di un elenco di elementi denominato **ProjectsToBuild**. In questo caso, l'elenco di elementi contiene un singolo valore&#x2014;il percorso e il nome del file di soluzione.
 
-A questo punto, gli elementi rimanenti sono destinazioni. Le destinazioni vengono elaborate in modo diverso le proprietà e gli elementi di & #x 2014, in pratica, le destinazioni non vengono elaborate a meno che vengono esplicitamente specificati dall'utente o richiamati da un altro costrutto all'interno del file di progetto. Tenere presente che l'apertura **progetto** tag include un **DefaultTargets** attributo.
+A questo punto, gli elementi rimanenti sono destinazioni. Le destinazioni vengono elaborate in modo diverso dalla proprietà e gli elementi&#x2014;in pratica, le destinazioni non vengono elaborate, a meno che vengono esplicitamente specificate dall'utente o richiamati da un altro costrutto all'interno del file di progetto. Tenere presente che l'apertura **progetto** tag include un **DefaultTargets** attributo.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
@@ -173,7 +173,7 @@ Se per analizzare il **GatherPackagesForPublishing** destinazione, si noterà ch
 
 Questi elementi fanno riferimento ai pacchetti di distribuzione che siano stati creati quando il **BuildProjects** destinazione è stata eseguita. Non è stato possibile definire questi elementi in modo statico nel file di progetto, perché i file a cui fanno riferimento gli elementi non esistono fino a quando il **BuildProjects** destinazione viene eseguita. Al contrario, gli elementi devono essere definiti in modo dinamico all'interno di una destinazione che non viene richiamata fino a dopo il **BuildProjects** destinazione viene eseguita.
 
-Gli elementi non vengono utilizzati all'interno di questa destinazione & #x 2014; la destinazione Build semplicemente gli elementi e i metadati associati a ogni valore dell'elemento. Dopo l'elaborazione di questi elementi sono il **PublishPackages** elemento conterrà due valori, il percorso il *ContactManager.Mvc.deploy.cmd* file e il percorso di  *ContactManager.Service.deploy.cmd* file. Distribuzione Web questi file vengono creati come parte del pacchetto per ogni progetto web e sono i file che è necessario richiamare nel server di destinazione per la distribuzione dei pacchetti. Se si apre uno di questi file, si noterà fondamentalmente un comando di MSDeploy.exe con diversi valori di parametro di compilazione specifiche.
+Gli elementi non vengono utilizzati all'interno di questa destinazione&#x2014;tale destinazione genera semplicemente gli elementi e i metadati associati a ogni valore dell'elemento. Dopo l'elaborazione di questi elementi sono il **PublishPackages** elemento conterrà due valori, il percorso il *ContactManager.Mvc.deploy.cmd* file e il percorso di  *ContactManager.Service.deploy.cmd* file. Distribuzione Web questi file vengono creati come parte del pacchetto per ogni progetto web e sono i file che è necessario richiamare nel server di destinazione per la distribuzione dei pacchetti. Se si apre uno di questi file, si noterà fondamentalmente un comando di MSDeploy.exe con diversi valori di parametro di compilazione specifiche.
 
 Il **DbPublishPackages** elemento conterrà un singolo valore, il percorso di *ContactManager.Database.deploymanifest* file.
 
@@ -199,7 +199,7 @@ Questo è un esempio di *destinazioni*. Nei file di progetto MSBuild, il batch �
 - Eseguire la destinazione di una volta per ogni batch.
 
 > [!NOTE]
-> **Identità** è uno del [i valori predefiniti dei metadati](https://msdn.microsoft.com/library/ms164313.aspx) assegnato a ogni elemento al momento della creazione. Fa riferimento al valore del **Include** attributo la **elemento** elemento & #x 2014; in altre parole, il percorso e il nome dell'elemento.
+> **Identità** è uno del [i valori predefiniti dei metadati](https://msdn.microsoft.com/library/ms164313.aspx) assegnato a ogni elemento al momento della creazione. Fa riferimento al valore del **inclusione** attributo il **elemento** elemento&#x2014;in altre parole, il percorso e il nome dell'elemento.
 
 
 In questo caso, perché non sono mai più di un elemento con lo stesso percorso e nome file, essenzialmente stiamo lavorando con dimensioni di batch di uno. La destinazione viene eseguita una volta per ogni pacchetto di database.
@@ -251,6 +251,6 @@ In questo argomento viene fornita una procedura dettagliata della modalità di u
 
 Per un'introduzione più dettagliata a WPP e file di progetto, vedere [all'interno di Microsoft Build Engine: uso di MSBuild e Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi e William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Precedente](understanding-the-project-file.md)
-[Successivo](building-and-packaging-web-application-projects.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-the-project-file.md)
+> [Successivo](building-and-packaging-web-application-projects.md)

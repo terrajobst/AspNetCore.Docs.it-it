@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 title: Esaminare i metodi di modifica e visualizzazione di modifica | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
 da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In questa sezione si esamineranno generato `Edit` metodi di azione e le visualizzazioni per il controller di film. Ma prima diventerà la deviazione breve per rendere la data di rilascio di un aspetto migliore. Aprire il *Models\Movie.cs* file e aggiungere le righe evidenziate illustrate di seguito:
 
@@ -106,12 +106,12 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 1. Dal **strumenti** dal menu **NuGetLibrary Package Manager**, quindi fare clic su **Gestisci pacchetti NuGet per la soluzione**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. Nel riquadro sinistro, selezionare **Sfoglia*. * * * (vedere l'immagine riportata di seguito).
+2. Nel riquadro sinistro, selezionare <strong>esplorare*.</strong>* (Vedere la figura riportata di seguito).
 3. Nella casella di input, immettere * Globalize * *.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Scegliere `jQuery.Validation.Globalize`, scegliere `MvcMovie` e fare clic su **installare**. Il *Scripts\jquery.globalize\globalize.js* file verrà aggiunto al progetto. Il *Scripts\jquery.globalize\cultures\* cartella conterrà i file JavaScript di molte delle impostazioni cultura. Si noti che potrebbe richiedere cinque minuti per installare questo pacchetto.
 
- Il codice seguente illustra le modifiche al file Views\Movies\Edit.cshtml: 
+   Il codice seguente illustra le modifiche al file Views\Movies\Edit.cshtml: 
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
@@ -125,6 +125,6 @@ Risolvere il problema temporaneo, se non è possibile ottenere convalida utilizz
 
 <a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> Nella prossima esercitazione, verrà implementato la funzionalità di ricerca.
 
->[!div class="step-by-step"]
-[Precedente](accessing-your-models-data-from-a-controller.md)
-[Successivo](adding-search.md)
+> [!div class="step-by-step"]
+> [Precedente](accessing-your-models-data-from-a-controller.md)
+> [Successivo](adding-search.md)

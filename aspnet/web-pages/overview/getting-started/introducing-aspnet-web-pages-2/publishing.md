@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 title: 'Introduzione a ASP.NET Web Pages: pubblicazione di un sito utilizzando WebMatrix | Documenti Microsoft'
 author: tfitzmac
-description: "In questa esercitazione è l'ultima parte del set di esercitazione che introduce ASP.NET Web Pages e WebMatrix Microsoft. Illustra come pubblicare il sito t..."
+description: In questa esercitazione è l'ultima parte del set di esercitazione che introduce ASP.NET Web Pages e WebMatrix Microsoft. Illustra come pubblicare il sito t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Introduzione a ASP.NET Web Pages - pubblicazione di un sito tramite WebMatrix
 ====================
@@ -32,7 +32,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Informazioni sulla pubblicazione del sito
 
-Apportate fino a questo punto, tutto il lavoro in un computer locale, tra cui il test delle pagine. Per eseguire il*. cshtml* pagine, è stato utilizzato il server web che viene compilato in WebMatrix, vale a dire IIS Express. Ma nessun altro naturalmente possibile vedere il sito di che è stato creato, ad eccezione. Per consentire ad altri utenti di lavorare con il sito, è necessario pubblicarla in Internet.
+Apportate fino a questo punto, tutto il lavoro in un computer locale, tra cui il test delle pagine. Per eseguire il<em>. cshtml</em> pagine, è stato utilizzato il server web che viene compilato in WebMatrix, vale a dire IIS Express. Ma nessun altro naturalmente possibile vedere il sito di che è stato creato, ad eccezione. Per consentire ad altri utenti di lavorare con il sito, è necessario pubblicarla in Internet.
 
 A meno che non si ha già accesso a un server web pubblici, pubblicazione significa che è necessario disporre di un account con un *piattaforma cloud* o *provider di hosting*. Una piattaforma cloud, ad esempio Microsoft Azure, offre l'infrastruttura su richiesta per le applicazioni. Un provider di hosting è una società che possiede i server web accessibile pubblicamente e che verrà noleggiare è lo spazio per il sito. Hosting di piani di esecuzione da alcuni dollari al mese (o anche gratuiti) per i siti da molte centinaia di dollari mese per i siti Web commerciali di volumi elevati di piccole dimensioni.
 
@@ -53,7 +53,7 @@ In questa esercitazione contiene quattro sezioni:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Impostazione della pagina predefinita
 
-Quando un utente passa all'indirizzo di base per il sito web, la pagina predefinita per il sito viene visualizzata all'utente. Ad esempio, quando Default.htm è impostata come pagina predefinita per il sito a www.contoso.com, quindi passare a **www.contoso.com** equivale passando a **www.contoso.com/Default.htm**.
+Quando un utente passa all'indirizzo di base per il sito web, la pagina predefinita per il sito viene visualizzata all'utente. Ad esempio, quando Default.htm è impostata come pagina predefinita per il sito a www.contoso.com, quindi passare a <strong>www.contoso.com</strong> equivale passando a <strong>www.contoso.com/Default.htm</strong>.
 
 Attualmente, il sito utilizza **cshtml** come pagina predefinita. Questa pagina è appropriata per la pagina predefinita, ma in questa esercitazione non è stato aggiunto alcun contenuto alla pagina in modo verrebbe visualizzata una pagina vuota. Aprire Default. cshtml e sostituire il contenuto con il codice seguente.
 
@@ -206,7 +206,7 @@ Passare al sito in tempo reale (è possibile fare clic sul collegamento nel mess
 
 > [!TIP] 
 > 
-> **La modifica dei file in modalità remota**
+> **Modifica dei file in modalità remota**
 > 
 > In alternativa alla modifica del sito e quindi di ripubblicazione, è possibile modificare i file remoti direttamente in WebMatrix. In questo scenario, si apre un file che utilizza il provider del servizio e WebMatrix Scarica una copia da modificare. Ogni volta che si salva il file, WebMatrix invia le modifiche al sito.
 > 
@@ -219,5 +219,5 @@ Passare al sito in tempo reale (è possibile fare clic sul collegamento nel mess
 
 - [Forum di WebMatrix ASP.NET Web Pages ASP.NET](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), un ottimo punto di registrazione domande e risposte.
 
->[!div class="step-by-step"]
-[Precedente](layouts.md)
+> [!div class="step-by-step"]
+> [Precedente](layouts.md)

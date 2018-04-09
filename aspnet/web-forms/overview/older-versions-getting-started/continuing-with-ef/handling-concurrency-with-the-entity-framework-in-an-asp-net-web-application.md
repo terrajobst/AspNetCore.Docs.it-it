@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdcf610458631749531ed1279d27e90572f0371
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f40695270006e4f8b0c9ad8e94049e5239f06e63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>La gestione della concorrenza con Entity Framework 4.0 in un'applicazione Web 4 ASP.NET
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > Questa serie di esercitazioni si basa sull'applicazione web di Contoso University creando il [introduzione di Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serie di esercitazioni. Se non ha completato le esercitazioni precedenti, come punto di partenza per questa esercitazione è possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) che consente di creare. È anche possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creati tramite la serie di esercitazioni completo. Nel caso di problemi con le esercitazioni, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -37,13 +37,13 @@ Quando un utente modifica un record e un altro utente modifica lo stesso record 
 
 ### <a name="pessimistic-concurrency-locking"></a>Concorrenza pessimistica (blocco)
 
-Se l'applicazione è necessario evitare la perdita accidentale dei dati in scenari di concorrenza, un modo per eseguire questa operazione è necessario utilizzare blocchi di database. Si tratta di *concorrenza pessimistica*. Ad esempio, prima di leggere una riga da un database, si richiedono il blocco di sola lettura o per l'accesso per l'aggiornamento. Se si blocca una riga per l'accesso per l'aggiornamento, altri utenti non sono consentiti per bloccare la riga di sola lettura o aggiornare l'accesso, poiché si potrebbe ottenere una copia dei dati che sono in corso di modifica. Se si blocca una riga per l'accesso in sola lettura, altri utenti anche possibile bloccarla per l'accesso in sola lettura, ma non per l'aggiornamento.
+Se è importante che l'applicazione eviti la perdita accidentale di dati in scenari di concorrenza, un metodo per garantire che ciò accada è l'uso dei blocchi di database. Si tratta di *concorrenza pessimistica*. Ad esempio, prima di leggere una riga da un database si richiede un blocco per l'accesso di sola lettura o per l'accesso in modalità aggiornamento. Se si blocca una riga per l'accesso di aggiornamento, nessun altro utente può bloccare la riga per l'accesso di sola lettura o di aggiornamento, perché riceverebbe una copia di dati dei quali è in corso la modifica. Se si blocca una riga per l'accesso in sola lettura, anche altri utenti possono bloccarla per l'accesso in sola lettura, ma non per l'aggiornamento.
 
-Gestione dei blocchi presenta alcuni svantaggi. Può risultare difficile al programma. Richiede risorse di gestione di database significativa, e come il numero di utenti di un'applicazione può causare problemi di prestazioni aumenta (vale a dire non è facilmente scalabile). Per questi motivi, non tutti i sistemi di gestione di database supportano la concorrenza pessimistica. Entity Framework è disponibile alcun supporto predefinito per il e, in questa esercitazione non mostra come implementarlo.
+Gestione dei blocchi presenta alcuni svantaggi. La sua programmazione può risultare complicata. Richiede risorse di gestione di database significativa, e come il numero di utenti di un'applicazione può causare problemi di prestazioni aumenta (vale a dire non è facilmente scalabile). Per questi motivi non tutti i sistemi di gestione di database supportano la concorrenza pessimistica. Entity Framework è disponibile alcun supporto predefinito per il e, in questa esercitazione non mostra come implementarlo.
 
 ### <a name="optimistic-concurrency"></a>Concorrenza ottimistica
 
-L'alternativa alla concorrenza pessimistica è *la concorrenza ottimistica*. Concorrenza ottimistica significa consentire i conflitti di concorrenza consente di eseguire e quindi reazione in modo appropriato in questo caso. Ad esempio, Giorgio esegue la *Department.aspx* pagina, fa clic sul **modifica** collegamento per il reparto di cronologia e riduce il **Budget** importo di $ $1,000,000.00 125,000.00. (Giorgio amministra un reparto concorrente e desidera liberare money per il proprio reparto).
+L'alternativa alla concorrenza pessimistica è *la concorrenza ottimistica*. Nella concorrenza ottimistica si consente che i conflitti di concorrenza si verifichino, quindi si reagisce con le modalità appropriate. Ad esempio, Giorgio esegue la *Department.aspx* pagina, fa clic sul **modifica** collegamento per il reparto di cronologia e riduce il **Budget** importo di $ $1,000,000.00 125,000.00. (Giorgio amministra un reparto concorrente e desidera liberare money per il proprio reparto).
 
 [![Image07](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
@@ -55,15 +55,15 @@ Seleziona John **aggiornamento** in primo luogo, quindi fa clic Jane **aggiornam
 
 Alcune delle azioni da eseguire in questo scenario includono quanto segue:
 
-- È possibile tenere traccia di quali proprietà di un utente ha modificato e aggiornare solo le colonne corrispondenti nel database. Nello scenario di esempio, non dati andrebbero persi, perché sono state aggiornate diverse proprietà per i due utenti. La volta successiva che un utente che accede al reparto di cronologia, visualizzeranno 1/1/1999 e $125,000.00. 
+- È possibile tenere traccia della proprietà che un utente ha modificato e aggiornare solo le colonne corrispondenti nel database. Nello scenario dell'esempio non si perde nessun dato, perché i due utenti hanno aggiornato proprietà diverse. La volta successiva che un utente che accede al reparto di cronologia, visualizzeranno 1/1/1999 e $125,000.00. 
 
     Questo è il comportamento predefinito in Entity Framework e consente pertanto di ridurre il numero di conflitti che potrebbero comportare la perdita di dati. Tuttavia, questo comportamento non evita la perdita di dati se vengono apportate modifiche competizione per la stessa proprietà di un'entità. Inoltre, questo comportamento non è sempre possibile. Quando si esegue il mapping di stored procedure a un tipo di entità, le proprietà di un'entità vengono aggiornate quando vengono apportate modifiche all'entità nel database.
-- È possibile consentire la modifica di Jane sovrascrivere la modifica di John. Dopo che fa clic Jane **aggiornamento**, **Budget** quantità torna a essere $1,000,000.00. Si tratta di un *prevalenza del Client* o *ultimo in Wins* scenario. (I valori del client hanno la precedenza su ciò che si trova nell'archivio dati).
-- È possibile impedire la modifica di Jane vengano aggiornati nel database. In genere, verrebbe visualizzato un messaggio di errore, Mostra lo stato corrente dei dati e consente di immettere nuovamente le proprie modifiche se desiderate in modo da renderle. È possibile automatizzare ulteriormente il processo di salvataggio proprio input e fornendo utente la possibilità di riapplicarlo senza dover immettere di nuovo il. Si tratta di un *archivio Wins* scenario. (I valori dell'archivio dati hanno la precedenza sui valori inviati dal client).
+- È possibile consentire la modifica di Jane sovrascrivere la modifica di John. Dopo che fa clic Jane **aggiornamento**, **Budget** quantità torna a essere $1,000,000.00. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). (I valori del client hanno la precedenza su ciò che si trova nell'archivio dati).
+- È possibile impedire la modifica di Jane vengano aggiornati nel database. In genere, verrebbe visualizzato un messaggio di errore, Mostra lo stato corrente dei dati e consente di immettere nuovamente le proprie modifiche se desiderate in modo da renderle. È possibile automatizzare ulteriormente il processo di salvataggio proprio input e fornendo utente la possibilità di riapplicarlo senza dover immettere di nuovo il. Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client.
 
 ### <a name="detecting-concurrency-conflicts"></a>Il rilevamento dei conflitti di concorrenza
 
-In Entity Framework, è possibile risolvere conflitti gestendo `OptimisticConcurrencyException` eccezioni generate Entity Framework. Per sapere quando generano queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto, è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
+In Entity Framework, è possibile risolvere conflitti gestendo `OptimisticConcurrencyException` eccezioni generate Entity Framework. Per determinare quando generare queste eccezioni, Entity Framework deve essere in grado di rilevare i conflitti. Pertanto è necessario configurare il database e il modello di dati in modo appropriato. Di seguito sono elencate alcune opzioni per abilitare il rilevamento dei conflitti:
 
 - Nel database, includere una colonna di tabella che può essere utilizzata per determinare quando è stata modificata una riga. È quindi possibile configurare Entity Framework per includere la colonna di `Where` clausola SQL `Update` o `Delete` comandi.
 
@@ -92,7 +92,7 @@ In Visual Studio, aprire l'applicazione web di Contoso università che si stava 
 
 Aprire *SchoolModel*e in Progettazione modelli di dati, fare doppio clic su di `Name` proprietà il `Department` entità e quindi fare clic su **proprietà**. Nel **proprietà** finestra, modifica il `ConcurrencyMode` proprietà `Fixed`.
 
-[![Image16](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
+[![image16](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
 
 Eseguire la stessa operazione per le altre proprietà chiave non primaria scalare (`Budget`, `StartDate`, e `Administrator`.) (È non consentita per le proprietà di navigazione.) Specifica che ogni volta che Entity Framework genera un `Update` o `Delete` comando SQL per aggiornare il `Department` entità nel database, queste colonne (con i valori originali) devono essere incluso nel `Where` clausola. Se viene trovata alcuna riga quando il `Update` o `Delete` comando viene eseguito, Entity Framework genera un'eccezione di concorrenza ottimistica.
 
@@ -140,19 +140,19 @@ Il nuovo metodo da chiamare il `Updated` gestore dell'evento aggiunto in precede
 
 Eseguire il *Departments.aspx* pagina.
 
-[![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
+[![image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
 Fare clic su **modifica** in una riga e modificare il valore di **Budget** colonna. (Tenere presente che è possibile modificare solo i record creati per questa esercitazione, poiché esistente `School` i record del database contengono alcuni dati non validi. Il record per il reparto di economia è sicuro per sperimentare.)
 
-[![Image18](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
+[![image18](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
 Aprire una nuova finestra del browser ed eseguire nuovamente la pagina (copia l'URL nella casella indirizzo prima della finestra del browser per la seconda finestra del browser).
 
-[![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
+[![image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
 
 Fare clic su **modifica** nella stessa riga modificata in precedenza e modificare il **Budget** valore a un elemento diverso.
 
-[![Image19](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
+[![image19](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
 
 Nella seconda finestra del browser, fare clic su **aggiornamento**. Il **Budget** quantità viene modificata per questo nuovo valore.
 
@@ -241,7 +241,7 @@ Eseguire il *OfficeAssignments.aspx* pagina.
 
 Fare clic su **modifica** in una riga e modificare il valore di **percorso** colonna.
 
-[![Image11](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image34.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image33.png)
+[![image11](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image34.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image33.png)
 
 Aprire una nuova finestra del browser ed eseguire nuovamente la pagina (copia l'URL dalla finestra del browser prima la seconda finestra del browser).
 
@@ -302,8 +302,8 @@ Eseguire la pagina e creare nuovamente un conflitto di concorrenza. Questa fase 
 
 [![Image23](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image46.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image45.png)
 
-Introduzione alla gestione di conflitti di concorrenza è stata completata. L'esercitazione successiva forniranno indicazioni su come migliorare le prestazioni in un'applicazione web che usa Entity Framework.
+Questo argomento completa l'introduzione alla gestione dei conflitti di concorrenza. L'esercitazione successiva forniranno indicazioni su come migliorare le prestazioni in un'applicazione web che usa Entity Framework.
 
->[!div class="step-by-step"]
-[Precedente](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
-[Successivo](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Precedente](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [Successivo](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

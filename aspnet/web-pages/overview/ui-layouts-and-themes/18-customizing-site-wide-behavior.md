@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 title: Personalizzazione del comportamento a livello di sito per ASP.NET Web Pages siti (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "In questo capitolo viene illustrato come creare le impostazioni per l'intero sito Web o un'intera cartella, anziché una pagina."
+description: In questo capitolo viene illustrato come creare le impostazioni per l'intero sito Web o un'intera cartella, anziché una pagina.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: b1caa26a23517bd976addfefac89375ae965eb91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4457318bcf1d2886eb8ed68fdd795eea7905368b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Personalizzazione del comportamento a livello di sito per i siti Web ASP.NET (Razor) pagine
 ====================
@@ -93,20 +93,20 @@ Questa procedura viene illustrato come impostare `WebMail` impostazioni a livell
 
     Modificare le impostazioni correlate nel codice di posta elettronica seguenti:
 
-    - Impostare `your-SMTP-host` sul nome del server SMTP che è possibile accedere.
-    - Impostare `your-user-name-here` per il nome utente per l'account del server SMTP.
-    - Impostare `your-account-password` la password per l'account del server SMTP.
-    - Impostare `your-email-address-here` sul proprio indirizzo di posta elettronica. Si tratta dell'indirizzo di posta elettronica da cui viene inviato il messaggio. (Alcuni provider di posta elettronica non consentono di specificare un altro `From` indirizzi e utilizzerà il nome utente come il `From` indirizzo.)
+   - Impostare `your-SMTP-host` sul nome del server SMTP che è possibile accedere.
+   - Impostare `your-user-name-here` per il nome utente per l'account del server SMTP.
+   - Impostare `your-account-password` la password per l'account del server SMTP.
+   - Impostare `your-email-address-here` sul proprio indirizzo di posta elettronica. Si tratta dell'indirizzo di posta elettronica da cui viene inviato il messaggio. (Alcuni provider di posta elettronica non consentono di specificare un altro `From` indirizzi e utilizzerà il nome utente come il `From` indirizzo.)
 
-    Per ulteriori informazioni sulle impostazioni SMTP, vedere [configurazione delle impostazioni di posta elettronica](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) nell'articolo [l'invio di posta elettronica da un sito di pagine Web ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) e [problemi con l'invio di posta elettronica](https://go.microsoft.com/fwlink/?LinkId=253001#email)nel [pagine Web ASP.NET (Razor) Troubleshooting Guide](https://go.microsoft.com/fwlink/?LinkId=253001).
-- Salvare il  *\_AppStart.cshtml* file e chiuderlo.
-- Nella cartella radice di un sito Web, creare nuova pagina denominata *TestEmail.cshtml*.
-- Sostituire il contenuto esistente con il seguente: 
+     Per ulteriori informazioni sulle impostazioni SMTP, vedere [configurazione delle impostazioni di posta elettronica](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) nell'articolo [l'invio di posta elettronica da un sito di pagine Web ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) e [problemi con l'invio di posta elettronica](https://go.microsoft.com/fwlink/?LinkId=253001#email)nel [pagine Web ASP.NET (Razor) Troubleshooting Guide](https://go.microsoft.com/fwlink/?LinkId=253001).
+4. Salvare il  *\_AppStart.cshtml* file e chiuderlo.
+5. Nella cartella radice di un sito Web, creare nuova pagina denominata *TestEmail.cshtml*.
+6. Sostituire il contenuto esistente con il seguente: 
 
-    [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-- Eseguire il *TestEmail.cshtml* pagina in un browser.
-- Compilare i campi per inviare un messaggio di posta elettronica e quindi fare clic su **inviare**.
-- Controllare la posta elettronica per verificare che è stato utilizzato il messaggio.
+     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
+7. Eseguire il *TestEmail.cshtml* pagina in un browser.
+8. Compilare i campi per inviare un messaggio di posta elettronica e quindi fare clic su **inviare**.
+9. Controllare la posta elettronica per verificare che è stato utilizzato il messaggio.
 
 La parte importante di questo esempio è che le impostazioni che in genere non cambiano, ad esempio il nome del server SMTP e le credenziali di posta elettronica, vengono impostate  *\_AppStart.cshtml* file. In questo modo non è necessario impostarle nuovamente in ogni pagina in cui si invia tramite posta elettronica. (Anche se se per qualche motivo, è necessario modificare tali impostazioni, è possibile impostarle singolarmente in una pagina.) Nella pagina, è solo necessario impostare i valori che in genere modificato ogni volta, ad esempio il destinatario e il corpo del messaggio di posta elettronica.
 

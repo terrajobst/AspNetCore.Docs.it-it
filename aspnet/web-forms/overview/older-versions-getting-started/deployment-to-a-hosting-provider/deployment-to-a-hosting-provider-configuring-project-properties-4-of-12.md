@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5632b801586c13084f887c4c414fc8686731094c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8352c1832ffc79db93b6324dd673afaff6b0d74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: configurazione delle proprietà del progetto - 4 di 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010. Per un'introduzione alla serie, vedere [la prima esercitazione di serie](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
@@ -48,10 +48,10 @@ Quando viene visualizzata la finestra, per impostazione predefinita che mostra i
 Con **attiva (rilascio)** o **versione** selezionata, vengono visualizzati i valori che vengono applicati quando si distribuisce tramite la configurazione della build di rilascio:
 
 - Nel **gli elementi da distribuire** casella **solo i file necessari per eseguire l'applicazione** è selezionata. Altre opzioni sono **tutti i file in questo progetto** o **tutti i file nella cartella di progetto**. Lasciando invariata la selezione predefinita evitare la distribuzione di file del codice sorgente, ad esempio. Questa impostazione è il motivo perché le cartelle che contengono i file binari di SQL Server Compact devono essere incluso nel progetto. Per ulteriori informazioni su questa impostazione, vedere **perché non tutti i file nella cartella di progetto vengono distribuiti?** in [domande frequenti sulla distribuzione di ASP.NET Web applicazione progetto](https://msdn.microsoft.com/library/ee942158.aspx).
-- **I simboli di debug Exclude generato** è selezionata. È non verrà eseguito il debug quando si utilizza questa configurazione della build.
+- **I simboli di debug Exclude generato** sia selezionata. È non verrà eseguito il debug quando si utilizza questa configurazione della build.
 - **Escludere i file dall'App\_cartella dati** non è selezionata. È necessario distribuire il file di SQL Server Compact per il database delle appartenenze è in tale cartella. Quando si distribuiscono gli aggiornamenti che non includono modifiche del database, occorre selezionare questa casella di controllo.
 - **Precompilazione di questa applicazione prima della pubblicazione** non è selezionata. Nella maggior parte degli scenari, non è necessario per la precompilazione progetti applicazione web. Per ulteriori informazioni su questa opzione, vedere [scheda di pubblicazione/creazione pacchetto Web, le proprietà del progetto](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx) e [precompilare le impostazioni di finestra di dialogo Avanzate](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx).
-- **Includere tutti i database configurati nella scheda Pubblicazione/creazione pacchetto SQL** è selezionata, ma questa opzione non ha effetto ora perché non configurando il **pubblicazione/creazione pacchetto SQL** scheda. Tale scheda è per un metodo di distribuzione di database legacy che consentono di essere l'unica opzione per la distribuzione di database di SQL Server. Si userà il **pubblicazione/creazione pacchetto SQL** nella scheda il [la migrazione a SQL Server](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md) esercitazione.
+- **Includere tutti i database configurati nella scheda Pubblicazione/creazione pacchetto SQL** è selezionata, questa opzione ha tuttavia alcun effetto ora perché non configurando il **pubblicazione/creazione pacchetto SQL** scheda. Tale scheda è per un metodo di distribuzione di database legacy che consentono di essere l'unica opzione per la distribuzione di database di SQL Server. Si userà il **pubblicazione/creazione pacchetto SQL** nella scheda il [la migrazione a SQL Server](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md) esercitazione.
 - Il **impostazioni pacchetto di distribuzione Web** sezione non è applicabile poiché si utilizza un solo clic pubblicare in queste esercitazioni.
 
 Modifica il **configurazione** casella a discesa di Debug per visualizzare le impostazioni predefinite per le build di Debug. I valori sono identici, tranne **Escludi generati i simboli di debug** viene cancellato in modo che è possibile eseguire il debug quando si distribuisce una build di Debug.
@@ -70,6 +70,6 @@ In **Esplora**, fare doppio clic su di *Elmah* cartella, selezionare **Aggiungi 
 
 Tutte le attività di configurazione di distribuzione sono stati completati. Nella prossima esercitazione, verrà di distribuire il sito Contoso University nell'ambiente di testing e di testarlo.
 
->[!div class="step-by-step"]
-[Precedente](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
-[Successivo](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
+> [!div class="step-by-step"]
+> [Precedente](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [Successivo](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)

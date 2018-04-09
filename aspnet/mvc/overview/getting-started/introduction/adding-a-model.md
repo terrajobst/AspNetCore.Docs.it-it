@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-model
 title: Aggiunta di un modello | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>Aggiunta di un modello
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In questa sezione si aggiungeranno alcune classi per la gestione di filmati in un database. Queste classi sarà il &quot;modello&quot; fa parte dell'applicazione ASP.NET MVC.
 
@@ -54,16 +54,16 @@ Per poter fare riferimento a `DbContext` e `DbSet`, è necessario aggiungere il 
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-È possibile farlo aggiungendo manualmente utilizzando istruzione oppure è possibile passare il mouse su righe ondulate rosse, fare clic su `Show potential fixes` e fare clic su`using System.Data.Entity;`
+È possibile farlo aggiungendo manualmente utilizzando l'istruzione oppure è possibile passare il mouse sulle righe ondulate rosse, fare clic su `Show potential fixes` e fare clic su `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
-Nota: Alcuni inutilizzati `using` istruzioni sono state rimosse. Visual Studio Visualizza dipendenze non utilizzate in grigio. È possibile rimuovere dipendenze non utilizzate passando sopra le dipendenze grigio, fare clic su `Show potential fixes` e fare clic su **Rimuovi using inutilizzate.**
+Nota: Alcuni inutilizzati `using` istruzioni sono state rimosse. Visual Studio Visualizza dipendenze non utilizzate in grigio. È possibile rimuovere le dipendenze non utilizzate passandovi sopra le dipendenze grigio, fare clic su `Show potential fixes` e fare clic su **Rimuovi using inutilizzate.**
 
 ![](adding-a-model/_static/image3.png)
 
 Infine, è stato aggiunto un modello (M in MVC). Nella sezione successiva si utilizzerà la stringa di connessione di database.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-view.md)
-[Successivo](creating-a-connection-string.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-view.md)
+> [Successivo](creating-a-connection-string.md)

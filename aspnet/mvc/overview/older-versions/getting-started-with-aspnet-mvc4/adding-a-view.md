@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 title: Aggiunta di una vista | Documenti Microsoft
 author: Rick-Anderson
-description: "Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo..."
+description: 'Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 60374ddc6754f7e312ad08b420268308a9935bb4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61a93c1430e9e39543c69b84901a50ceb710a5ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -70,7 +70,7 @@ In alternativa, eseguire l'applicazione e individuare il `HelloWorld` controller
 
 ![](adding-a-view/_static/image6.png)
 
-È buona. Si noti tuttavia che Mostra barra del titolo del browser &quot;indice personali A ASP.NET&quot; e il collegamento grande nella parte superiore della pagina è indicato &quot;inserire qui il logo.&quot; Di sotto di &quot;qui il logo.&quot; collegamento sono registrazione e log in collegamenti e seguito che si collega alla home page, circa e contattare pagine. È necessario modificare alcune di queste.
+È buona. Si noti tuttavia che Mostra barra del titolo del browser &quot;indice My A ASP.NET&quot; e il collegamento grande nella parte superiore della pagina è indicato &quot;inserire qui il logo.&quot; Di sotto di &quot;qui il logo.&quot; collegamento sono registrazione e log in collegamenti e seguito che si collega alla home page, circa e contattare pagine. È necessario modificare alcune di queste.
 
 ## <a name="changing-views-and-layout-pages"></a>Modifica delle visualizzazioni e pagine di Layout
 
@@ -116,7 +116,7 @@ I controller sono responsabili di fornire qualsiasi dati o gli oggetti necessari
 
 Attualmente, il `Welcome` metodo di azione il `HelloWorldController` classe accetta un `name` e `numTimes` parametro e quindi i valori direttamente al browser di output. Per evitare che il controller di eseguire il rendering questa risposta sotto forma di stringa, è necessario modificare il controller per utilizzare invece un modello di visualizzazione. Il modello di vista genererà una risposta dinamica, il che significa che è necessario passare i bit di dati appropriati dal controller alla vista per generare la risposta. È possibile farlo con il controller di inserire i dati dinamici (parametri) necessarie per il modello di visualizzazione in un `ViewBag` oggetto che può quindi accedere il modello di visualizzazione.
 
-Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag`è un oggetto dinamico, ovvero che è possibile inserire elementi desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il [sistema di associazione del modello MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) esegue automaticamente il mapping di parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi per i parametri del metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
+Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag` è un oggetto dinamico, ovvero che è possibile inserire desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il [sistema di associazione del modello MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) esegue automaticamente il mapping di parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi per i parametri del metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
 
 [!code-csharp[Main](adding-a-view/samples/sample7.cs)]
 
@@ -148,6 +148,6 @@ Nell'esempio precedente, è stato usato un `ViewBag` oggetto per passare i dati 
 
 Che è un tipo di un &quot;M&quot; per modello, ma non il tipo di database. Creare un database di film con i concetti appresi.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-controller.md)
-[Successivo](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-controller.md)
+> [Successivo](adding-a-model.md)

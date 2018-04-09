@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 title: Inserimento, aggiornamento ed eliminazione di dati con SqlDataSource (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Nelle esercitazioni precedenti è stato descritto come il controllo ObjectDataSource consentito per l'inserimento, aggiornamento ed eliminazione dei dati. Il controllo SqlDataSource supporta t..."
+description: Nelle esercitazioni precedenti è stato descritto come il controllo ObjectDataSource consentito per l'inserimento, aggiornamento ed eliminazione dei dati. Il controllo SqlDataSource supporta t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4664e15ca6afa14f072e0840354c7f5a48d97ddf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d195c3e1e349cd82e0625cf9a6c5a82644b5db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Inserimento, aggiornamento ed eliminazione di dati con SqlDataSource (VB)
 ====================
@@ -29,7 +29,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Introduzione
 
-Come descritto in [una panoramica di inserimento, aggiornamento ed eliminazione](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md), il controllo GridView fornisce aggiornamento predefinite e le funzionalità di eliminazione, mentre i controlli DetailsView e FormView includono l'inserimento di supportano insieme a modifica ed eliminazione di funzionalità. Queste funzionalità di modifica dei dati può essere collegata direttamente in un controllo origine dati senza una riga di codice che devono essere scritti. [Una panoramica di inserimento, aggiornamento ed eliminazione](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) esaminato tramite ObjectDataSource per facilitare l'inserimento, aggiornamento ed eliminazione con i controlli di GridView, DetailsView e FormView. In alternativa, SqlDataSource può essere utilizzato al posto di ObjectDataSource.
+Come descritto in [una panoramica di inserimento, aggiornamento ed eliminazione](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md), il controllo GridView fornisce aggiornamento predefinite e le funzionalità di eliminazione, mentre i controlli DetailsView e FormView includono l'inserimento di supportano insieme a modifica ed eliminazione di funzionalità. Queste funzionalità di modifica dei dati può essere collegata direttamente in un controllo origine dati senza una riga di codice che devono essere scritti. [Una panoramica di inserimento, aggiornamento ed eliminazione di](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) esaminato tramite ObjectDataSource per facilitare l'inserimento, aggiornamento ed eliminazione con i controlli in GridView, DetailsView e FormView. In alternativa, SqlDataSource può essere utilizzato al posto di ObjectDataSource.
 
 Si tenga presente che per il supporto di inserimento, aggiornamento ed eliminazione, con ObjectDataSource è Needed per specificare i metodi di livello oggetto da richiamare per l'esecuzione dell'inserimento, aggiornamento o eliminazione di azione. Con SqlDataSource, è necessario fornire `INSERT`, `UPDATE`, e `DELETE` SQL (istruzioni o stored procedure) per l'esecuzione. Come si vedrà in questa esercitazione, queste istruzioni possono essere create manualmente o possono essere generate automaticamente dalla procedura guidata Configura origine dati s SqlDataSource.
 
@@ -42,7 +42,7 @@ Si tenga presente che per il supporto di inserimento, aggiornamento ed eliminazi
 Come si ve visualizzata nelle ultime due esercitazioni, per recuperare dati da un controllo SqlDataSource che è necessario impostare due proprietà:
 
 1. `ConnectionString`, che consente di specificare quali database per inviare la query, e
-2. `SelectCommand`, che specifica l'istruzione SQL ad hoc o il nome della stored procedure da eseguire per restituire i risultati.
+2. `SelectCommand`, che consente di specificare l'istruzione SQL ad hoc o nome della stored procedure da eseguire per restituire i risultati.
 
 Per `SelectCommand` i valori con parametri, il parametro i valori vengono specificati tramite s SqlDataSource `SelectParameters` insieme e possono includere valori hardcoded, valori dei parametri comuni origine (i campi querystring, variabili di sessione, il valore di controllo Web, e così via), o può essere assegnato a livello di codice. Quando il controllo SqlDataSource s `Select()` metodo viene richiamato in modo automatico o a livello di codice da un controllo Web di dati viene stabilita una connessione al database, vengono assegnati i valori dei parametri alla query e il comando è inviato disattivato per il database. I risultati vengono quindi restituiti sotto forma di set di dati o DataReader, a seconda del valore del controllo s `DataSourceMode` proprietà.
 
@@ -53,7 +53,7 @@ Una volta un `InsertCommand`, `UpdateCommand`, o `DeleteCommand` valore è stato
 Aprire il `InsertUpdateDelete.aspx` e `Querying.aspx` le pagine dal `SqlDataSource` cartella. Dalla finestra di progettazione nel `Querying.aspx` pagina, selezionare SqlDataSource e GridView del primo esempio (il `ProductsDataSource` e `GridView1` controlli). Dopo aver selezionato i due controlli, passare al menu Modifica e scegliere Copia oppure preme Ctrl + C. Successivamente, accedere alla finestra di progettazione di `InsertUpdateDelete.aspx` e incollare i controlli. Dopo avere spostato i due controlli a `InsertUpdateDelete.aspx`, testare la pagina in un browser. È necessario visualizzare i valori del `ProductID`, `ProductName`, e `UnitPrice` colonne per tutti i record nel `Products` tabella di database.
 
 
-[![Tutti i prodotti sono elencati, ordinati per ID prodotto](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
+[![Tutti i prodotti sono elencati, ordinati in base ProductID](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
 
 **Figura 1**: tutti i prodotti sono elencati, ordinati in base `ProductID` ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image2.png))
 
@@ -130,7 +130,7 @@ Figura 5 viene illustrata questa interazione graficamente. Fare riferimento in f
 
 ![Fare clic sul pulsante Elimina in GridView richiama il metodo Delete () s SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image5.gif)
 
-**Figura 5**: fare clic sul pulsante Elimina in GridView richiama s SqlDataSource `Delete()` (metodo)
+**Figura 5**: fare clic sul pulsante Delete in GridView richiama s SqlDataSource `Delete()` (metodo)
 
 
 ## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>Passaggio 2: Generare automaticamente il`INSERT`,`UPDATE`, e`DELETE`istruzioni
@@ -142,15 +142,15 @@ Consente di esplorare l'opzione di generazione automatica s. Aggiungere un contr
 
 [![Creare un nuovo SqlDataSource denominato ManageProductsDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.png)
 
-**Figura 6**: creare un nuovo SqlDataSource denominato `ManageProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.png))
+**Figura 6**: creare un nuovo denominato SqlDataSource `ManageProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.png))
 
 
 Dalla procedura guidata Configura origine dati, scegliere di utilizzare il `NORTHWINDConnectionString` connessione stringa e fare clic su Avanti. Dalla schermata di istruzione Select, configura lascia specificare le colonne da un pulsante di opzione di tabella o vista selezionato e scegliere il `Products` tabella dall'elenco a discesa. Selezionare il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` colonne nell'elenco della casella di controllo.
 
 
-[![Utilizzando la tabella Products, restituire il ProductID, ProductName, UnitPrice e le colonne non più supportate](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
+[![Utilizza la tabella Products, restituire il ProductID, ProductName, UnitPrice e le colonne non più supportate](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
 
-**Figura 7**: utilizzando il `Products` tabella, per restituire il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` colonne ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image10.png))
+**Figura 7**: tramite il `Products` tabella, per restituire il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` colonne ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image10.png))
 
 
 Per generare automaticamente `INSERT`, `UPDATE`, e `DELETE` istruzioni in base alla tabella selezionata e le colonne, fare clic sul pulsante avanzato e controllare genera `INSERT`, `UPDATE`, e `DELETE` casella di controllo di istruzioni.
@@ -176,7 +176,7 @@ Per attivare le funzionalità di modifica dei dati di DetailsView s, controllare
 Visitare la pagina in un browser e notare la modifica, eliminazione e nuovi pulsanti inclusi nel controllo DetailsView. Fare clic sul pulsante Modifica consente di trasformare DetailsView in modalità di modifica, che visualizza ogni BoundField cui `ReadOnly` è impostata su `False` (predefinito) come una casella di testo e il CheckBoxField come una casella di controllo.
 
 
-[![S DetailsView predefinito di interfaccia di modifica](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image11.png)
+[![S DetailsView predefinito interfaccia di modifica](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image11.png)
 
 **Figura 9**: s DetailsView l'interfaccia di modifica predefinito ([fare clic per visualizzare l'immagine ingrandita](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image12.png))
 
@@ -213,8 +213,8 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](using-parameterized-queries-with-the-sqldatasource-vb.md)
-[Successivo](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-parameterized-queries-with-the-sqldatasource-vb.md)
+> [Successivo](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introduzione a ASP.NET Web Pages - nozioni di base di Form HTML
 ====================
@@ -68,7 +68,7 @@ Il `<form>` elemento include gli elementi HTML da inviare. (È un semplice error
 
 > [!TIP] 
 > 
-> **Sicurezza verbo HTTP GET e POST**
+> **GET, POST e sicurezza verbo HTTP**
 > 
 > HTTP, il protocollo utilizzato per lo scambio di informazioni, browser e server è molto semplice durante le operazioni di base. I browser usano solo alcuni verbi per effettuare richieste al server. Quando si scrive codice per il web, è utile comprendere tali verbi e utilizzarli come il browser e il server. Senza dubbio i verbi utilizzati più di frequente sono:
 > 
@@ -88,11 +88,11 @@ Il `<form>` elemento include gli elementi HTML da inviare. (È un semplice error
 
 La maggior parte degli elementi di input utente sono in formato HTML `<input>` elementi. Aspetto `<input type="type" name="name">,` in *tipo* indica il tipo di controllo di input utente desiderato. Questi elementi sono più comuni:
 
-- Casella di testo:`<input type="text">`
-- Casella di controllo:`<input type="check">`
-- Pulsante di opzione:`<input type="radio">`
-- Pulsante:`<input type="button">`
-- Pulsante di invio:`<input type="submit">`
+- Casella di testo: `<input type="text">`
+- Casella di controllo: `<input type="check">`
+- Pulsante di opzione: `<input type="radio">`
+- pulsante: `<input type="button">`
+- Pulsante di invio: `<input type="submit">`
 
 È inoltre possibile utilizzare il `<textarea>` elemento per creare una casella di testo su più righe e `<select>` elemento per creare un elenco di riepilogo a discesa o scorrevole. (Per ulteriori informazioni su HTML costituiscono gli elementi, vedere [form HTML e Input](http://www.w3schools.com/html/html_forms.asp) nel sito W3Schools.)
 
@@ -151,7 +151,7 @@ Suddivide il test in questo modo:
 - Scoprire se è vuoto tramite il `IsEmpty` metodo. Questo metodo è la modalità standard per determinare se un elemento (ad esempio, un elemento di formato) contiene un valore. Ma soprattutto è rilevante solo se è stato *non* vuoto, di conseguenza...
 - Aggiungere il `!` operatore in primo piano la `IsEmpty` test. (Il `!` operatore significa NOT logico).
 
-In parole semplici, l'intero `if` condizione si traduce in quanto segue: *se elemento searchGenre del modulo non è vuoto, quindi...*
+In parole semplici, l'intera `if` condizione si traduce in quanto segue: *se elemento searchGenre del modulo non è vuota, quindi...*
 
 Questo blocco imposta la fase per la creazione di una query che utilizza il termine di ricerca. È possibile farlo nella sezione successiva.
 
@@ -169,9 +169,9 @@ Questo blocco imposta la fase per la creazione di una query che utilizza il term
 > 
 > Il `Request` oggetto effettivamente espone diversi subset. Ad esempio:
 > 
-> - `Request.Form`Fornisce i valori dagli elementi all'interno di inviato `<form>` elemento se la richiesta è un `POST` richiesta.
-> - `Request.QueryString`consente solo i valori presenti nella stringa di query dell'URL. (In un URL come `http://mysite/myapp/page?searchGenre=action&page=2`, `?searchGenre=action&page=2` sezione dell'URL è la stringa di query.)
-> - `Request.Cookies`raccolta consente di accedere ai cookie che ha inviato il browser.
+> - `Request.Form` Fornisce i valori dagli elementi all'interno di inviato `<form>` elemento se la richiesta è un `POST` richiesta.
+> - `Request.QueryString` consente solo i valori presenti nella stringa di query dell'URL. (In un URL come `http://mysite/myapp/page?searchGenre=action&page=2`, `?searchGenre=action&page=2` sezione dell'URL è la stringa di query.)
+> - `Request.Cookies` raccolta consente di accedere ai cookie che ha inviato il browser.
 > 
 > Per ottenere un valore che si è certi del modulo inviato, è possibile utilizzare `Request["name"]`. In alternativa, è possibile utilizzare le versioni più specifiche `Request.Form["name"]` (per `POST` richieste) o `Request.QueryString["name"]` (per `GET` richieste). Naturalmente, *nome* è il nome dell'elemento da ottenere.
 > 
@@ -218,7 +218,7 @@ Se si inseriscono tutti questi elementi insieme, viene visualizzato il codice se
 
 > [!NOTE] 
 > 
-> **Importante!** Utilizzo di segnaposti (come `@0`) per passare valori a un comando SQL è *estremamente importante* per la sicurezza. Il modo in cui è visualizzato in questo caso, con segnaposto per i dati della variabile, è l'unico modo, è necessario costruire i comandi SQL.
+> **Importante**: Utilizzo di segnaposti (come `@0`) per passare valori a un comando SQL è *estremamente importante* per la sicurezza. Il modo in cui è visualizzato in questo caso, con segnaposto per i dati della variabile, è l'unico modo, è necessario costruire i comandi SQL.
 > 
 > Mai costruire un'istruzione SQL, combinazione di testo letterale (concatenazione) e i valori che si ottiene da parte dell'utente. Concatenazione di input dell'utente in un'istruzione SQL viene aperto il sito a un *attacco SQL injection* in cui un utente malintenzionato invia i valori alla pagina hack del database. (È possibile leggere informazioni nell'articolo [attacchi SQL Injection](https://msdn.microsoft.com/library/ms161953.aspx) il sito Web MSDN.)
 
@@ -359,10 +359,10 @@ Nella prossima esercitazione, si creerà una pagina che utilizza un modulo per c
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduzione alla programmazione Web ASP.NET con sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Clausola WHERE SQL](http://www.w3schools.com/sql/sql_where.asp) nel sito W3Schools
 - [Le definizioni di metodo](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) articolo sul sito W3C
 
->[!div class="step-by-step"]
-[Precedente](displaying-data.md)
-[Successivo](entering-data.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-data.md)
+> [Successivo](entering-data.md)

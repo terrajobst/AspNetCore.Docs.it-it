@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: dd975850a3ed3e7b1746d5123572065675a88656
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Estrazione e pagamento PayPal
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -55,7 +55,7 @@ In questa esercitazione si creeranno due nuove classi per tenere traccia dei dat
 Più indietro in questa serie di esercitazioni, è stato definito lo schema per le categorie, prodotti, e gli elementi di carrello creando il `Category`, `Product`, e `CartItem` classi nel *modelli* cartella. Verranno ora aggiunte due nuove classi per definire lo schema per l'ordine di prodotto e i dettagli dell'ordine.
 
 1. Nel **modelli** cartella, aggiungere una nuova classe denominata *cs*.   
- Il nuovo file di classe viene visualizzato nell'editor.
+   Il nuovo file di classe viene visualizzato nell'editor.
 2. Sostituire il codice predefinito con quanto segue:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample1.cs)]
@@ -107,7 +107,7 @@ A questo punto si creerà il *estrazione* cartella e le pagine in cui il cliente
 Aggiungendo un nuovo *Web. config* file per il *estrazione* cartella, sarà possibile limitare l'accesso a tutte le pagine contenute nella cartella.
 
 1. Fare doppio clic su di *estrazione* cartella e selezionare **Aggiungi**  - &gt; **nuovo elemento**.  
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare il **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra. Quindi, nel riquadro centrale, selezionare **File di configurazione Web**, accettare il nome predefinito di *Web. config*, quindi selezionare **Aggiungi**.
 3. Sostituire il contenuto nel documento XML esistente di *Web. config* file con le operazioni seguenti:  
 
@@ -127,13 +127,13 @@ Il *Web. config* file specifica che tutti gli utenti sconosciuti dell'applicazio
 2. Modifica **SSL abilitato** a `true`.
 3. Copia il **URL SSL** quindi è possibile usare in un secondo momento.   
  L'URL SSL sarà `https://localhost:44300/` a meno che non è già stato creato siti Web SSL (come illustrato di seguito).   
-    ![Proprietà del progetto](checkout-and-payment-with-paypal/_static/image4.png)
+    ![Proprietà di progetti](checkout-and-payment-with-paypal/_static/image4.png)
 4. In **Esplora soluzioni**, fare clic destro la **WingtipToys** sul progetto e scegliere **proprietà**.
 5. Nella scheda di sinistra, fare clic su **Web**.
 6. Modifica il **Url progetto** per utilizzare il **URL SSL** salvato in precedenza.   
     ![Proprietà del progetto Web](checkout-and-payment-with-paypal/_static/image5.png)
 7. Salvare la pagina premendo **CTRL + S**.
-8. Premere **Ctrl + F5** per eseguire l'applicazione. Visual Studio verrà visualizzata un'opzione che consente di evitare gli avvisi di SSL.
+8. Premere **CTRL+F5** per eseguire l'applicazione. Visual Studio verrà visualizzata un'opzione che consente di evitare gli avvisi di SSL.
 9. Fare clic su **Sì** per considerare attendibile il certificato SSL di IIS Express e continuare.   
     ![Dettagli del certificato SSL di IIS Express](checkout-and-payment-with-paypal/_static/image6.png)  
  Viene visualizzato un avviso di sicurezza.
@@ -162,32 +162,32 @@ La procedura seguente consente di aggiungere un provider di autenticazione Googl
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample5.cs)]
 3. Passare il [Google Developers Console](https://console.developers.google.com/). È inoltre necessario effettuare l'accesso con l'account di posta elettronica per sviluppatori Google (gmail.com). Se non si dispone di un account Google, selezionare il **creare un account** collegamento.   
- Successivamente, verrà visualizzato il **Google Developers Console**.   
+   Successivamente, verrà visualizzato il **Google Developers Console**.   
     ![Google Developers Console](checkout-and-payment-with-paypal/_static/image8.png)
 4. Fare clic su di **Crea progetto** pulsante e immettere un nome di progetto e l'ID (è possibile utilizzare i valori predefiniti). Quindi, fare clic sul **casella di controllo di contratto** e **crea** pulsante.  
 
     ![Google - nuovo progetto](checkout-and-payment-with-paypal/_static/image9.png)
 
- In pochi secondi verrà creato il nuovo progetto e il browser visualizzerà la nuova pagina di progetti.
+   In pochi secondi verrà creato il nuovo progetto e il browser visualizzerà la nuova pagina di progetti.
 5. Nella scheda di sinistra, fare clic su **API &amp; auth**, quindi fare clic su **credenziali**.
 6. Fare clic su di **Crea nuovo ID Client** in **OAuth**.   
- Il **Create Client ID** verrà visualizzata una finestra di dialogo.   
-    ![Google - creare l'ID Client](checkout-and-payment-with-paypal/_static/image10.png)
+   Il **Create Client ID** verrà visualizzata una finestra di dialogo.   
+    ![Google - creare ID Client](checkout-and-payment-with-paypal/_static/image10.png)
 7. Nel **Create Client ID** finestra di dialogo, mantenere il valore predefinito **applicazione Web** per il tipo di applicazione.
 8. Impostare il **Authorized JavaScript Origins** all'URL SSL è utilizzato in precedenza in questa esercitazione (`https://localhost:44300/` a meno che non è stato creato altri progetti SSL).   
- Questo URL è l'origine per l'applicazione. Per questo esempio, si verrà solo immettere l'URL di test di localhost. Tuttavia, è possibile immettere più URL per l'account per localhost e di produzione.
+   Questo URL è l'origine per l'applicazione. Per questo esempio, si verrà solo immettere l'URL di test di localhost. Tuttavia, è possibile immettere più URL per l'account per localhost e di produzione.
 9. Impostare il **autorizzato l'URI di reindirizzamento** al seguente: 
 
     [!code-html[Main](checkout-and-payment-with-paypal/samples/sample6.html)]
 
- Questo valore è l'URI che OAuth ASP.NET agli utenti di comunicare con il server di google OAuth. Ricorda l'URL SSL è stato utilizzato in precedenza ( `https://localhost:44300/` a meno che non è stato creato altri progetti SSL).
+   Questo valore è l'URI che OAuth ASP.NET agli utenti di comunicare con il server di google OAuth. Ricorda l'URL SSL è stato utilizzato in precedenza ( `https://localhost:44300/` a meno che non è stato creato altri progetti SSL).
 10. Fare clic su di **Create Client ID** pulsante.
 11. Nel menu a sinistra di Google Developers Console, fare clic su di **schermata consenso** voce di menu, quindi impostare il nome di prodotto e l'indirizzo di posta elettronica. Dopo aver completato il form, fare clic su **salvare**.
 12. Fare clic su di **API** voce di menu, scorrere verso il basso e fare clic su di **off** accanto al pulsante **Google + API**.   
- Accettazione di questa opzione consentirà l'API di Google +.
+    Accettazione di questa opzione consentirà l'API di Google +.
 13. È necessario aggiornare anche il **italiano** pacchetto NuGet alla versione 3.0.0.   
- Dal **strumenti** dal menu **Gestione pacchetti NuGet** e quindi selezionare **Gestisci pacchetti NuGet per la soluzione**.  
- Dal **Gestisci pacchetti NuGet** finestra Trova e aggiornamento di **italiano** pacchetto alla versione 3.0.0.
+    Dal **strumenti** dal menu **Gestione pacchetti NuGet** e quindi selezionare **Gestisci pacchetti NuGet per la soluzione**.  
+    Dal **Gestisci pacchetti NuGet** finestra Trova e aggiornamento di **italiano** pacchetto alla versione 3.0.0.
 14. In Visual Studio, è possibile aggiornare il `UseGoogleAuthentication` metodo il *Startup.Auth.cs* pagina utilizzando la copia e Incolla il **ID Client** e **segreto Client** nel metodo. Il **ID Client** e **segreto Client** valori riportati di seguito sono riportati alcuni esempi e non funzionerà. 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
@@ -258,7 +258,7 @@ PayPal è una piattaforma di fatturazione basato sul web che accetta i pagamenti
 Per utilizzare l'ambiente di testing di PayPal, è necessario creare e verificare un account sviluppatore di test. Si utilizzerà l'account di prova per sviluppatori per creare un acquirente di account di prova e un account di prova del venditore. Le credenziali dell'account per sviluppatori test consentirà inoltre l'applicazione di esempio Wingtip Toys accedere all'ambiente di testing di PayPal.
 
 1. In un browser, passare allo sviluppatore di PayPal test del sito:   
-    [https://Developer.PayPal.com](https://developer.paypal.com/)
+    [https://developer.paypal.com](https://developer.paypal.com/)
 2. Se non si dispone di un account sviluppatore PayPal, creare un nuovo account facendo **iscrizione**e seguendo la procedura di iscrizione. Se si dispone di un account sviluppatore PayPal esistente, effettuare l'accesso facendo clic su **Accedi**. È necessario che l'account sviluppatore di PayPal per testare l'applicazione di esempio Wingtip Toys più avanti in questa esercitazione.
 3. Se hanno appena effettuato l'iscrizione per l'account sviluppatore PayPal, occorre verificare il tuo account sviluppatore PayPal con PayPal. È possibile verificare l'account seguendo i passaggi da PayPal inviato al proprio account di posta elettronica. Dopo aver verificato l'account sviluppatore PayPal, accedere di nuovo il test del sito per sviluppatori di PayPal.
 4. Dopo che si è connessi al sito per sviluppatori di PayPal per l'account sviluppatore PayPal che è necessario creare un account di prova dell'acquirente di PayPal se non già presente. Per creare un account di prova dell'acquirente, fare clic su sito PayPal il **applicazioni** scheda e quindi fare clic su **account Sandbox**.   
@@ -293,11 +293,11 @@ Le credenziali di API del TEST classico visualizzate (nome utente, Password e fi
 Si inseriranno la maggior parte del codice PayPal in un'unica classe. Questa classe contiene i metodi utilizzati per comunicare con PayPal. Inoltre, si aggiungerà le credenziali di PayPal per questa classe.
 
 1. Nell'applicazione di esempio Wingtip Toys all'interno di Visual Studio, fare doppio clic su di **logica** cartella e quindi selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. In **Visual c#** dal **installato** riquadro a sinistra, seleziona **codice**.
 3. Nel riquadro centrale, selezionare **classe**. Denominare la nuova classe **PayPalFunctions.cs**.
 4. Fare clic su **Aggiungi**.  
- Il nuovo file di classe viene visualizzato nell'editor.
+   Il nuovo file di classe viene visualizzato nell'editor.
 5. Sostituire il codice predefinito con il codice seguente:  
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample12.cs)]
@@ -312,9 +312,9 @@ Si inseriranno la maggior parte del codice PayPal in un'unica classe. Questa cla
 
 La classe NVPAPICaller contiene la maggior parte delle funzionalità PayPal. Il codice nella classe fornisce i metodi necessari per eseguire una prova di acquisto dall'ambiente di testing di PayPal. Le funzioni di PayPal tre seguenti consentono di effettuare acquisti:
 
-- `SetExpressCheckout`(funzione)
-- `GetExpressCheckoutDetails`(funzione)
-- `DoExpressCheckoutPayment`(funzione)
+- `SetExpressCheckout` (Funzione)
+- `GetExpressCheckoutDetails` (Funzione)
+- `DoExpressCheckoutPayment` (Funzione)
 
 Il `ShortcutExpressCheckout` metodo consente di raccogliere i dettagli di prodotto e informazioni di acquisto test dal carrello acquisti e chiama il `SetExpressCheckout` funzione PayPal. Il `GetCheckoutDetails` metodo conferma i dettagli di acquisto e chiamate di `GetExpressCheckoutDetails` funzione PayPal prima di effettuare l'acquisto di test. Il `DoCheckoutPayment` metodo viene completato l'acquisto di test dall'ambiente di testing chiamando il `DoExpressCheckoutPayment` funzione PayPal. Il codice rimanente supporta i metodi di PayPal e un processo, ad esempio la codifica delle stringhe, la decodifica delle stringhe, matrici di elaborazione e determinare le credenziali.
 
@@ -359,14 +359,14 @@ Ora che le funzioni principali di PayPal sono stati aggiunti all'applicazione di
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample18.cs?highlight=18)]
 6. Salvare le modifiche apportate a entrambi il *ShoppingCart.aspx* file e *ShoppingCart.aspx.cs* file.
 7. Nel menu, selezionare **Debug**-&gt;**compilare WingtipToys**.  
- Il progetto verrà ricompilato con appena aggiunta **ImageButton** controllo.
+   Il progetto verrà ricompilato con appena aggiunta **ImageButton** controllo.
 
 ### <a name="send-purchase-details-to-paypal"></a>Invia dettagli acquisto PayPal
 
 Quando l'utente fa clic il **estrazione** pulsante nella pagina carrello acquisti (*ShoppingCart.aspx*), vengono innanzitutto il processo di acquisto. Il codice seguente chiama la prima funzione PayPal necessaria per l'acquisto di prodotti.
 
 1. Dal *estrazione* cartella, aprire il file code-behind denominato *CheckoutStart.aspx.cs*.   
- Assicurarsi di aprire il file code-behind.
+   Assicurarsi di aprire il file code-behind.
 2. Sostituire il codice esistente con quello seguente:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample19.cs)]
@@ -439,20 +439,20 @@ Il *CheckoutError.aspx* pagina viene visualizzata con i dettagli dell'errore qua
 Eseguire l'applicazione per informazioni sulle modalità di acquisto dei prodotti. Si noti che verrà eseguita di PayPal ambiente di testing. Non viene scambiato money effettivo.
 
 1. Verificare che tutti i file vengono salvati in Visual Studio.
-2. Aprire un Web browser e passare a [https://developer.paypal.com](https://developer.paypal.com/).
+2. Aprire un Web browser e passare a [ https://developer.paypal.com ](https://developer.paypal.com/).
 3. Account di accesso con l'account sviluppatore PayPal creato precedentemente in questa esercitazione.  
- Per sandbox di PayPal per sviluppatori, è necessario avere effettuato l'accesso a [https://developer.paypal.com](https://developer.paypal.com/) per testare l'estrazione di express. Si applica solo a test, non all'ambiente in tempo reale di PayPal sandbox di PayPal.
+   Per sandbox di PayPal per sviluppatori, è necessario avere effettuato l'accesso al [ https://developer.paypal.com ](https://developer.paypal.com/) per testare estrazione express. Si applica solo a test, non all'ambiente in tempo reale di PayPal sandbox di PayPal.
 4. In Visual Studio, premere **F5** per eseguire l'applicazione di esempio Wingtip Toys.  
- Dopo aver ricompilato il database, aprire il browser e visualizzare il *Default.aspx* pagina.
+   Dopo aver ricompilato il database, aprire il browser e visualizzare il *Default.aspx* pagina.
 5. Aggiungere i tre prodotti diversi per il carrello acquisti selezionando la categoria di prodotto, ad esempio "Auto" e quindi fare clic su **Aggiungi al carrello** accanto a ogni prodotto.  
- Il carrello acquisti verrà visualizzato il prodotto che è stato selezionato.
+   Il carrello acquisti verrà visualizzato il prodotto che è stato selezionato.
 6. Fare clic su di **PayPal** pulsante di estrazione. 
 
     ![Estrazione e pagamento PayPal - carrello](checkout-and-payment-with-paypal/_static/image20.png)
 
- Estrazione richiederà di disporre di un account utente per l'applicazione di esempio Wingtip Toys.
+   Estrazione richiederà di disporre di un account utente per l'applicazione di esempio Wingtip Toys.
 7. Fare clic su di **Google** collegamento a destra della pagina di accesso con un account di posta elettronica gmail.com esistente.  
- Se non si dispone di un account gmail.com, è possibile crearne uno per scopi di test [www.gmail.com](https://www.gmail.com/). È inoltre possibile utilizzare un account locale standard facendo clic su "Register". 
+   Se non si dispone di un account gmail.com, è possibile crearne uno per scopi di test [www.gmail.com](https://www.gmail.com/). È inoltre possibile utilizzare un account locale standard facendo clic su "Register". 
 
     ![Estrazione e pagamento PayPal - Log in](checkout-and-payment-with-paypal/_static/image21.png)
 8. Accedere con l'account gmail e la password. 
@@ -465,7 +465,7 @@ Eseguire l'applicazione per informazioni sulle modalità di acquisto dei prodott
 
     ![Estrazione e pagamento PayPal - PayPal Accedi](checkout-and-payment-with-paypal/_static/image24.png)
 11. I criteri di PayPal per accettare e fare clic su di **Accetto** pulsante.  
- Si noti che questa pagina è visualizzato la prima volta, si utilizza questo account PayPal. Nuovo si noti che questo è un account di test non money reali vengono scambiati. 
+    Si noti che questa pagina è visualizzato la prima volta, si utilizza questo account PayPal. Nuovo si noti che questo è un account di test non money reali vengono scambiati. 
 
     ![Estrazione e pagamento PayPal - PayPal criteri](checkout-and-payment-with-paypal/_static/image25.png)
 12. Esaminare le informazioni dell'ordine di PayPal verifica pagina di revisione dell'ambiente e fare clic su **continua**. 
@@ -511,13 +511,13 @@ In questa esercitazione è stato aggiunto ordine e schemi di dettagli ordine per
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Cenni preliminari sulla configurazione di ASP.NET](https://msdn.microsoft.com/library/ms178683(v=vs.100).aspx)  
-[Distribuire un'App di moduli Web ASP.NET in modo sicuro con appartenenza, OAuth e Database SQL di servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Distribuire un'App di moduli Web ASP.NET in modo sicuro con l'appartenenza, OAuth e il Database SQL al servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
 
 Questa esercitazione contiene codice di esempio. Tale codice di esempio viene fornito "così com'è" senza garanzia di alcun tipo. Di conseguenza, Microsoft non garantisce l'accuratezza, integrità o qualità del codice di esempio. Si accetta di utilizzare il codice di esempio a proprio rischio. In nessun caso Microsoft sarà responsabile per l'utente in alcun modo per qualsiasi codice di esempio, il contenuto, inclusi, a titolo esemplificativo, eventuali errori o omissioni in qualsiasi codice di esempio, il contenuto, o eventuali perdite o danni di qualsiasi tipo generato come risultato l'utilizzo di qualsiasi codice di esempio. Così di notifica e decidono indennizzare, salvare e contenere nei confronti di perdita di tutte, le attestazioni di perdita, lesioni personali o di danni di qualsiasi tipo inclusi, a titolo esemplificativo, quelli risultanti dall'o derivanti dal materiale in cui si registra, Microsoft trasmettere, utilizzare o si basano sull'inclusione via esemplificativa, le opinioni espresse al suo interno.
 
->[!div class="step-by-step"]
-[Precedente](shopping-cart.md)
-[Successivo](membership-and-administration.md)
+> [!div class="step-by-step"]
+> [Precedente](shopping-cart.md)
+> [Successivo](membership-and-administration.md)

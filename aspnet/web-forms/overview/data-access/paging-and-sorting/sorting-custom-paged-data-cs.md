@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 title: Ordinamento personalizzato di dati (c#) di paging | Documenti Microsoft
 author: rick-anderson
-description: "Nell'esercitazione precedente è stato descritto come implementare il paging personalizzato quando presentating dati in una pagina web. In questa esercitazione viene illustrato come estendere il precedente..."
+description: Nell'esercitazione precedente è stato descritto come implementare il paging personalizzato quando presentating dati in una pagina web. In questa esercitazione viene illustrato come estendere il precedente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c30f13703ef20cd764785b00cd812ef4486e0f16
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>Ordinamento personalizzato paging dei dati (c#)
 ====================
@@ -71,12 +71,12 @@ Questa query dinamica viene creata concatenando le parti di query statica e `@so
 
 ![Provare valori diversi per il Stored Procedure s tre parametri di Input](sorting-custom-paged-data-cs/_static/image1.png)
 
-**Figura 1**: provare diversi valori per la Stored Procedure s tre parametri di Input.
+**Figura 1**: provare diversi valori per la Stored Procedure s tre parametri di Input
 
 
-[![I dispositivi di Stored Procedure i risultati vengono visualizzati nella finestra di Output](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[![La Stored Procedure s i risultati vengono visualizzati nella finestra di Output](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
-**Figura 2**: s la Stored Procedure i risultati vengono visualizzati nella finestra di Output ([fare clic per visualizzare l'immagine ingrandita](sorting-custom-paged-data-cs/_static/image4.png))
+**Figura 2**: la Stored Procedure s i risultati vengono visualizzati nella finestra di Output ([fare clic per visualizzare l'immagine ingrandita](sorting-custom-paged-data-cs/_static/image4.png))
 
 
 > [!NOTE]
@@ -106,7 +106,7 @@ Questa stored procedure restituisce un set di record, come i risultati in tal ca
 
 ![Indicare che la Stored Procedure restituisce dati in formato tabulare](sorting-custom-paged-data-cs/_static/image7.png)
 
-**Figura 5**: indicare che la Stored Procedure restituisce dati in formato tabulare
+**Figura 5**: indicare che la Stored Procedure restituisce dati tabulari
 
 
 Infine, creare i metodi che usano entrambi il riempimento DAL DataTable e restituire modelli un DataTable, i metodi di denominazione `FillPagedAndSorted` e `GetProductsPagedAndSorted`, rispettivamente.
@@ -158,7 +158,7 @@ Durante l'attuale implementazione può ordinare correttamente i risultati in bas
 
 ![Il tentativo di ordinare i risultati dal fornitore dà la seguente eccezione di Runtime](sorting-custom-paged-data-cs/_static/image12.png)
 
-**Figura 8**: tentativo di ordinare i risultati dal fornitore dà la seguente eccezione di Runtime
+**Figura 8**: tentativo di ordinare i risultati per i risultati di fornitore la seguente eccezione di Runtime
 
 
 Questa eccezione si verifica perché il `SortExpression` di GridView s `SupplierName` BoundField è impostato su `SupplierName`. Tuttavia, il fornitore s nome nel `Suppliers` tabella viene effettivamente chiamata `CompanyName` siamo rimasti alias il nome della colonna come `SupplierName`. Tuttavia, il `OVER` clausola utilizzata per il `ROW_NUMBER()` funzione non è possibile utilizzare l'alias e devono usare il nome di colonna effettivi. Di conseguenza, modificare il `SupplierName` BoundField s `SortExpression` da NomeFornitore su CompanyName (vedere Figura 9). Come illustrato nella figura 10, dopo questa modifica che i risultati possono essere ordinati in base al fornitore.
@@ -166,10 +166,10 @@ Questa eccezione si verifica perché il `SortExpression` di GridView s `Supplier
 
 ![Modificare SortExpression s NomeFornitore BoundField CompanyName](sorting-custom-paged-data-cs/_static/image13.png)
 
-**Figura 9**: modificare SortExpression s NomeFornitore BoundField CompanyName
+**Figura 9**: modificare SortExpression s NomeFornitore BoundField in CompanyName
 
 
-[![I risultati possono essere ordinati in base al fornitore](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![I risultati possono essere ordinati in base fornitore](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
 **Figura 10**: il risultati possono essere ordinati in base fornitore ([fare clic per visualizzare l'immagine ingrandita](sorting-custom-paged-data-cs/_static/image16.png))
 
@@ -184,12 +184,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Carlos Santos. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](efficiently-paging-through-large-amounts-of-data-cs.md)
-[Successivo](creating-a-customized-sorting-user-interface-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](efficiently-paging-through-large-amounts-of-data-cs.md)
+> [Successivo](creating-a-customized-sorting-user-interface-cs.md)

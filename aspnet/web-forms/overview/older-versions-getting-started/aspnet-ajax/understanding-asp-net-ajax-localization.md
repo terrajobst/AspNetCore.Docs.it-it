@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 title: Informazioni sulla localizzazione di ASP.NET AJAX | Documenti Microsoft
 author: scottcate
-description: "Localizzazione è il processo di progettazione e l'integrazione di supporto per una lingua specifica e le impostazioni cultura in un'applicazione o un componente dell'applicazione. Il Mic..."
+description: Localizzazione è il processo di progettazione e l'integrazione di supporto per una lingua specifica e le impostazioni cultura in un'applicazione o un componente dell'applicazione. Il Mic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Informazioni sulla localizzazione di AJAX ASP.NET
 ====================
-da [Scott Care](https://github.com/scottcate)
+da [Scott categorie](https://github.com/scottcate)
 
 [Scarica il PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
@@ -63,10 +63,10 @@ Nella tabella seguente vengono riepilogate le convenzioni di denominazione file 
 
 | Nomefile | Significato |
 | --- | --- |
-| Js | Uno script di lingua della versione di rilascio. |
+| Script.js | Uno script di lingua della versione di rilascio. |
 | Script.debug.js | Uno script di lingua della versione di debug. |
-| Script.en US.js | Versione in lingua inglese, Stati Uniti script in versione. |
-| Script.debug.es CO.js | Uno script di Columbia spagnola, versione di debug. |
+| Script.en-US.js | Versione in lingua inglese, Stati Uniti script in versione. |
+| Script.debug.es-CO.js | Uno script di Columbia spagnola, versione di debug. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Procedura dettagliata: Creare uno Script incorporato, localizzato
 
@@ -82,15 +82,15 @@ Per coloro che non si ha dimestichezza con sintassi JavaScript Regex, il testo a
 
 1. Aggiungere le seguenti stringhe di risorse a DeletionResources.resx: 
 
-    **VerifyDelete**: si certi che si desidera eliminare FILENAME?
+    **VerifyDelete**: è certi che si desidera eliminare FILENAME?
 
-    **Eliminare**: nome del file è stato eliminato.
+    **Eliminato**: nome del file è stato eliminato.
 
 1. Aggiungere le seguenti stringhe di risorse a DeletionResources.es.resx: 
 
     **VerifyDelete**: Est seguro que desee quitar FILENAME?
 
-    **Eliminare**: FILENAME sa a disponibilità elevata quitado.
+    **Eliminato**: FILENAME sa a disponibilità elevata quitado.
 2. Aggiungere le righe di codice seguente al file AssemblyInfo:
 
 [!code-csharp[Main](understanding-asp-net-ajax-localization/samples/sample2.cs)]
@@ -121,7 +121,7 @@ Per coloro che non si ha dimestichezza con sintassi JavaScript Regex, il testo a
 
 Si noti che esistono diverse varianti per questa procedura dettagliata. Ad esempio, gli script potrebbero essere registrati con il controllo ScriptManager a livello di codice durante il caricamento di pagina.
 
-## <a name="including-a-static-script-file-structure"></a>*Tra cui una struttura di File di Script statici*
+## <a name="including-a-static-script-file-structure"></a>*Tra cui una struttura di File Script statico*
 
 Quando si utilizza file di script statici per la distribuzione, si perdono alcuni dei vantaggi dell'utilizzo lo schema di localizzazione .NET inerente. È principalmente visibile che si perde il tipo automatico generato, compresi file di risorse di script. Nella procedura dettagliata precedente, ad esempio, le risorse sono stati esposti da un tipo generato automaticamente chiamato messaggio dal controllo ScriptManager.
 
@@ -149,10 +149,10 @@ Applicazioni web con l'aumentare per raggiungere un numero elevato di destinatar
 
 .NET Framework supporta intrinsecamente un framework di localizzazione avanzata che utilizzano gli assembly satellite e file di risorse (resx) XML per presentare un metodo uniforme per cercare le immagini e stringhe di risorse. Estensioni AJAX di ASP.NET, tra cui Microsoft AJAX Framework e Script Microsoft AJAX Library, forniscono supporto per questo modello di programmazione nel codice sul lato client, abilitare le ricerche di stringhe di risorse semplice. Gli assembly satellite supportano l'inclusione automatica delle risorse di script (file con estensione js effettivo) attraverso ScriptResource, purché i nomi di file seguono uno schema di denominazione specificato. Con questo supporto, ASP.NET AJAX Extensions semplificano la localizzazione di script e globalizzazione di applicazioni.
 
-## <a name="bio"></a>*Biografia*
+## <a name="bio"></a>*Bio*
 
 Categoria Scott lavora con tecnologie Web di Microsoft dal 1997 ed è il vicepresidente myKB.com ([www.myKB.com](http://www.myKB.com)) in cui si è specializzato nella scrittura ASP.NET basato su applicazioni con stato attivo sulle soluzioni Software Knowledge Base. Scott possano essere contattati tramite posta elettronica al [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o il suo blog all'indirizzo [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Precedente](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[Successivo](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [Successivo](understanding-asp-net-ajax-web-services.md)

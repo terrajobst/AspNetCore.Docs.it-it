@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 title: 'Appendice: per risolvere il problema applicazione di esempio (creazione di applicazioni Cloud del mondo reale con Azure) | Documenti Microsoft'
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Appendice: per risolvere il problema applicazione di esempio (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare la correzione, progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
+[Scaricare la correzione progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -245,18 +245,18 @@ Esistono due modi per eseguire l'app Fix:
 
     Con Visual Studio 2013:
 
-    1. Premere F5 per eseguire il progetto FixIt.
-    2. In **Esplora**, fare clic sul progetto MyFixItCloudService e quindi fare clic su **Debug** -- **Avvia nuova istanza**.
+   1. Premere F5 per eseguire il progetto FixIt.
+   2. In **Esplora**, fare clic sul progetto MyFixItCloudService e quindi fare clic su **Debug** -- **Avvia nuova istanza**.
 
-    Utilizzo di Visual Studio 2013 Express per Web:
+      Utilizzo di Visual Studio 2013 Express per Web:
 
-    1. In Esplora soluzioni, la soluzione FixIt e scegliere **proprietà**.
-    2. Selezionare **più progetti di avvio**...
-    3. Nel **azione** elenco a discesa in MyFixIt e MyFixItCloudService, selezionare **avviare**.
-    4. Fare clic su **OK**.
-    5. Premere F5 per eseguire entrambi i progetti.
+   3. In Esplora soluzioni, la soluzione FixIt e scegliere **proprietà**.
+   4. Selezionare **più progetti di avvio**...
+   5. Nel **azione** elenco a discesa in MyFixIt e MyFixItCloudService, selezionare **avviare**.
+   6. Fare clic su **OK**.
+   7. Premere F5 per eseguire entrambi i progetti.
 
-    Quando si esegue il progetto MyFixItCloudService, Visual Studio avvia l'emulatore di calcolo di Azure. A seconda della configurazione del firewall, potrebbe essere necessario consentire l'emulatore attraverso il firewall.
+      Quando si esegue il progetto MyFixItCloudService, Visual Studio avvia l'emulatore di calcolo di Azure. A seconda della configurazione del firewall, potrebbe essere necessario consentire l'emulatore attraverso il firewall.
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Come distribuire l'app di base per le app Web di servizio App di Azure utilizzando gli script di Windows PowerShell
@@ -285,7 +285,7 @@ Queste istruzioni presuppongono che è già stato scaricato ed eseguire la soluz
     Queste credenziali scadono dopo un periodo di tempo ed è necessario eseguire di nuovo il `Add-AzureAccount` cmdlet. Come viene scritto l'e-book, il limite di tempo prima della scadono delle credenziali è 12 ore.
 5. Se si dispone di più sottoscrizioni, usare il cmdlet Select-AzureSubscription per specificare la sottoscrizione a cui in che si desidera creare l'ambiente di test.
 6. Importare un certificato di gestione per la stessa sottoscrizione di Azure tramite il `Get-AzurePublishSettingsFile` e `Import-AzurePublishSettingsFile` cmdlet. Il primo di questi cmdlet scarica un file di certificato e nella seconda è specificare il percorso del file per l'importazione. > [!IMPORTANT]
- > Mantenere il file scaricato in un percorso sicuro o eliminarlo al termine, perché contiene un certificato che può essere usato per gestire i servizi di Azure.
+   > Mantenere il file scaricato in un percorso sicuro o eliminarlo al termine, perché contiene un certificato che può essere usato per gestire i servizi di Azure.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -399,5 +399,5 @@ In MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, sostituire i segnaposto
 
 A questo punto si è pronti per distribuire il servizio cloud. In Esplora soluzioni, fare clic sul progetto MyFixItCloudService e selezionare **pubblica**. Per ulteriori informazioni, vedere "[distribuire l'applicazione in Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", che è in parte 2 di [questa esercitazione](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
->[!div class="step-by-step"]
-[Precedente](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Precedente](more-patterns-and-guidance.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4f635153213b0695d7d4b64d09adefaf8ee8e892
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Appartenenze al ruolo del Database di distribuzione per gli ambienti di Test
 ====================
@@ -37,9 +37,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > Il fattore chiave è che questa operazione deve essere condizionale in base all'ambiente di destinazione. Se si distribuisce in di gestione temporanea o di un ambiente di produzione, si desidera ignorare l'operazione. Se si distribuisce a uno sviluppatore o l'ambiente di test, si desidera distribuire le appartenenze ai ruoli senza ulteriore intervento. In questo argomento viene descritto un approccio che è possibile utilizzare per risolvere questo problema.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -94,7 +94,7 @@ Prima di incorporare questo comando in una destinazione di MSBuild, è necessari
 
 - Il database di destinazione deve esistere prima di modificare l'appartenenza del ruolo. Di conseguenza, è necessario eseguire questo script *dopo* la distribuzione di database.
 - È necessario includere una condizione in modo che lo script viene eseguito solo per ambienti di test.
-- Se si esegue una distribuzione "cosa accade se" & #x 2014; in altre parole, se si è la generazione di script di distribuzione ma non viene eseguita li & #x 2014; non deve eseguire lo script SQL.
+- Se si esegue una distribuzione "cosa accade se"&#x2014;in altre parole, se si è la generazione di script di distribuzione ma non in esecuzione in&#x2014;è consigliabile non eseguire lo script SQL.
 
 Se si utilizza l'approccio di file di progetto split descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), come illustrato dalla soluzione di esempio Contact Manager, è possibile dividere le istruzioni di compilazione per lo script SQL simile al seguente:
 
@@ -132,6 +132,6 @@ In questo argomento viene descritto un modo in cui è possibile aggiungere gli u
 
 Per ulteriori informazioni sull'utilizzo VSDBCMD per distribuire i progetti di database, vedere [progetti di Database di distribuzione](../web-deployment-in-the-enterprise/deploying-database-projects.md). Per istruzioni sulla personalizzazione delle distribuzioni di database per gli ambienti di destinazione diverso, vedere [personalizzazione delle distribuzioni di Database per più ambienti](customizing-database-deployments-for-multiple-environments.md). Per ulteriori informazioni sull'utilizzo dei file di progetto MSBuild personalizzati per controllare il processo di distribuzione, vedere [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) e [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Per ulteriori informazioni sulle opzioni della riga di comando sqlcmd, vedere [utilità sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
->[!div class="step-by-step"]
-[Precedente](customizing-database-deployments-for-multiple-environments.md)
-[Successivo](deploying-membership-databases-to-enterprise-environments.md)
+> [!div class="step-by-step"]
+> [Precedente](customizing-database-deployments-for-multiple-environments.md)
+> [Successivo](deploying-membership-databases-to-enterprise-environments.md)

@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bee7e17ee16d75419c215558b1deb7d6f0d79448
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9f91cc07bc531cfb3edf577ab79e91fd94a57a3c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>Aggiunta di contenuto dinamico a una pagina memorizzata nella cache (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come combinare il contenuto dinamico e memorizzati nella cache nella stessa pagina. Sostituzione post-cache consente di visualizzare il contenuto dinamico, ad esempio pubblicitari o notizie, all'interno di una pagina che è stato memorizzato nella cache.
 
@@ -47,7 +47,7 @@ Si supponga, ad esempio, che si desidera visualizzare in modo casuale notizie di
 
 Per sfruttare i vantaggi di sostituzione post-cache, si chiama il metodo HttpResponse.WriteSubstitution(). Il metodo WriteSubstitution() imposta il codice per sostituire un'area della pagina memorizzata nella cache con contenuto dinamico. Il metodo WriteSubstitution() viene utilizzato per visualizzare l'elemento notizie casuali nella visualizzazione elenco 2.
 
-**Elenco di 2 – Views\Home\Index.aspx**
+**Elenco 2 – Views\Home\Index.aspx.**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample2.aspx)]
 
@@ -61,7 +61,7 @@ La visualizzazione dell'indice viene memorizzato nella cache. La vista viene res
 
 Anche se la visualizzazione dell'indice viene memorizzato nella cache, notizie casuali diversi vengono visualizzate quando si richiede la pagina di indice. Quando si richiede la pagina di indice, l'ora visualizzata nella pagina rimane invariato per 60 secondi (vedere la figura 1). Il fatto che il cambiamento di ora non significa che la pagina nella cache. Tuttavia, il contenuto inserito le modifiche di metodo – casuale notizia – WriteSubstitution() con ogni richiesta.
 
-**Figura 1: inserimento di notizie dinamica in una pagina memorizzata nella cache**
+**Figura 1 – inserendo notizie dinamica in una pagina memorizzata nella cache**
 
 ![clip_image002](adding-dynamic-content-to-a-cached-page-cs/_static/image1.jpg)
 
@@ -81,13 +81,13 @@ Il metodo RenderBannerInternal() è un metodo privato. Questo metodo non esposto
 
 La visualizzazione dell'indice modificata nel listato 5 viene illustrato come è possibile utilizzare il metodo di supporto RenderBanner(). Si noti che un altro &lt;% @ Import %&gt; direttiva è inclusa nella parte superiore della vista da importare lo spazio dei nomi MvcApplication1.Helpers. Se non si importa questo spazio dei nomi, il metodo RenderBanner() non verrà visualizzato come un metodo per la proprietà Html.
 
-**Elenco di 5-Views\Home\Index.aspx (con il metodo RenderBanner())**
+**Nel listato 5 – Views\Home\Index.aspx (con metodo RenderBanner())**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample5.aspx)]
 
 Quando si richiede la pagina il rendering da parte della vista nel listato 5, con ogni richiesta viene visualizzato un annuncio di intestazione diverso (vedere la figura 2). La pagina nella cache, ma il banner pubblicitario viene inserito in modo dinamico dal metodo di supporto RenderBanner().
 
-**Figura 2: la visualizzazione dell'indice la visualizzazione di un annuncio banner casuale**
+**Figura 2 – la visualizzazione dell'indice la visualizzazione di un annuncio banner casuale**
 
 ![clip_image004](adding-dynamic-content-to-a-cached-page-cs/_static/image2.jpg)
 
@@ -101,6 +101,6 @@ Sfruttare i vantaggi della memorizzazione nella cache quando possibile, ciò pu�
 
 ## 
 
->[!div class="step-by-step"]
-[Precedente](improving-performance-with-output-caching-cs.md)
-[Successivo](creating-a-controller-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](improving-performance-with-output-caching-cs.md)
+> [Successivo](creating-a-controller-cs.md)

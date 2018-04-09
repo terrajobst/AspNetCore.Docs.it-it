@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 title: Batch di eliminazione (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Informazioni su come eliminare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è di ampliare un GridView avanzata creato nella versione precedente tut..."
+description: Informazioni su come eliminare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è di ampliare un GridView avanzata creato nella versione precedente tut...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 71c4b323c2604d9e775f75272bb9565505580522
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 59c90dcf373d19aad42250ee6dedba5f09f833b5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-deleting-c"></a>Batch di eliminazione (c#)
 ====================
@@ -46,7 +46,7 @@ Poiché è già stato creato il batch, l'eliminazione di interfaccia di [aggiunt
 
 [![Copiare il Markup dichiarativo di CheckBoxField.aspx negli Appunti](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
 
-**Figura 2**: copiare Markup dichiarativo di `CheckBoxField.aspx` negli Appunti ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image4.png))
+**Figura 2**: copiare il Markup dichiarativo del `CheckBoxField.aspx` negli Appunti ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image4.png))
 
 
 Successivamente, passare alla visualizzazione origine in `BatchDelete.aspx` e incollare il contenuto degli Appunti all'interno di `<asp:Content>` tag. Anche copiare e incollare il codice dall'interno la classe code-behind in `CheckBoxField.aspx.cs` all'interno di classe code-behind in `BatchDelete.aspx.cs` (il `DeleteSelectedProducts` pulsante s `Click` gestore dell'evento, il `ToggleCheckState` (metodo) e `Click` gestori eventi per il `CheckAll` e `UncheckAll` pulsanti). Dopo aver copiato il contenuto, la `BatchDelete.aspx` classe code-behind s pagina deve contenere il codice seguente:
@@ -57,9 +57,9 @@ Successivamente, passare alla visualizzazione origine in `BatchDelete.aspx` e in
 Dopo aver copiato il markup dichiarativo e codice sorgente, è opportuno testare `BatchDelete.aspx` visualizzandolo tramite un browser. Verrà visualizzato un elenco dei primi dieci prodotti in un controllo GridView con ogni riga Elenca il nome del prodotto s, categoria e prezzo insieme a una casella di controllo di GridView. Dovrebbero essere presenti tre pulsanti: controllare tutti deselezionare tutti i prodotti ed eliminare selezionato. Fare clic sul pulsante Seleziona tutto seleziona tutte le caselle di controllo, mentre tutti deselezionare Cancella tutte le caselle di controllo. Facendo clic di eliminare i prodotti selezionati viene visualizzato un messaggio in cui sono elencati i `ProductID` i valori dei prodotti selezionati, ma non elimina effettivamente i prodotti.
 
 
-[![L'interfaccia da CheckBoxField.aspx è stato spostato in BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
+[![L'interfaccia da CheckBoxField.aspx è stata spostata in BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
 
-**Figura 3**: l'interfaccia da `CheckBoxField.aspx` è stato spostato in `BatchDeleting.aspx` ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image6.png))
+**Figura 3**: l'interfaccia da `CheckBoxField.aspx` sono state spostate in `BatchDeleting.aspx` ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image6.png))
 
 
 ## <a name="step-2-deleting-the-checked-products-using-transactions"></a>Passaggio 2: Eliminazione dei prodotti selezionati utilizzando transazioni
@@ -90,9 +90,9 @@ La figura 4 mostra GridView dopo aver selezionato un numero di righe per l'elimi
 **Figura 4**: il selezionati i prodotti verranno eliminati ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image8.png))
 
 
-[![I valori di ProductID eliminati i prodotti sono elencati sotto il controllo GridView.](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
+[![I valori di ProductID prodotti eliminato sono elencati sotto il controllo GridView.](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
 
-**Figura 5**: prodotti eliminato il `ProductID` i valori sono elencati sotto il controllo GridView ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image10.png))
+**Figura 5**: il prodotti eliminato `ProductID` i valori sono elencati sotto il controllo GridView. ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image10.png))
 
 
 > [!NOTE]
@@ -109,12 +109,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Hilton Giesenow e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](batch-updating-cs.md)
-[Successivo](batch-inserting-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](batch-updating-cs.md)
+> [Successivo](batch-inserting-cs.md)
