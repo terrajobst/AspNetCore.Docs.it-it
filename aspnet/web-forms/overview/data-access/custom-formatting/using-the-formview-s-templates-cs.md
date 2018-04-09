@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 title: Utilizzo di modelli del controllo FormView (c#) | Documenti Microsoft
 author: rick-anderson
-description: "A differenza di DetailsView, FormView è composta non da campi. In alternativa, FormView rendering viene eseguito utilizzando i modelli. In questa esercitazione si esamineranno utilizzando il F...."
+description: A differenza di DetailsView, FormView è composta non da campi. In alternativa, FormView rendering viene eseguito utilizzando i modelli. In questa esercitazione si esamineranno utilizzando il F....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 18e76a763e22c0d1046acc60e095bbd11960c5e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e1b36f0bfc244e39bb620c1c066b3e2403722cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-formviews-templates-c"></a>Utilizzo di modelli del controllo FormView (c#)
 ====================
@@ -33,17 +33,17 @@ Nelle ultime due esercitazioni è stato illustrato come personalizzare l'output 
 
 A differenza di DetailsView, FormView è composta non da campi. È possibile aggiungere un TemplateField BoundField a un controllo FormView. In alternativa, FormView rendering viene eseguito utilizzando i modelli. Considerato come un controllo DetailsView che contiene un singolo TemplateField FormView. FormView supporta i modelli seguenti:
 
-- `ItemTemplate`usato per il rendering il record specifico visualizzato in FormView
-- `HeaderTemplate`utilizzato per specificare una riga di intestazione facoltativa
-- `FooterTemplate`utilizzato per specificare una riga di piè di pagina facoltativi
-- `EmptyDataTemplate`Quando il controllo FormView `DataSource` non dispone di alcun record, il `EmptyDataTemplate` è usato al posto di `ItemTemplate` per il rendering del markup del controllo
-- `PagerTemplate`può essere utilizzato per personalizzare l'interfaccia di paging per FormViews con paging abilitato
-- `EditItemTemplate` / `InsertItemTemplate`usato per personalizzare l'interfaccia di modifica o l'interfaccia di inserimento per FormViews che supportano tale funzionalità
+- `ItemTemplate` usato per il rendering il record specifico visualizzato in FormView
+- `HeaderTemplate` Consente di specificare una riga di intestazioni facoltative
+- `FooterTemplate` Consente di specificare una riga di piè di pagina facoltativi
+- `EmptyDataTemplate` Quando il controllo FormView `DataSource` non è presente alcun record, il `EmptyDataTemplate` viene usato al posto del `ItemTemplate` per il rendering di markup del controllo
+- `PagerTemplate` può essere utilizzato per personalizzare l'interfaccia di paging per FormViews con paging abilitato
+- `EditItemTemplate` / `InsertItemTemplate` usato per personalizzare l'interfaccia di modifica o l'interfaccia di inserimento per FormViews che supportano tale funzionalità
 
 In questa esercitazione che si esamineranno utilizzando il controllo FormView per presentare una visualizzazione dei prodotti meno rigida. Invece di campi per il nome, categoria, fornitore e del così via, FormView `ItemTemplate` verranno visualizzati i valori utilizzando una combinazione di un elemento di intestazione e un `<table>` (vedere la figura 1).
 
 
-[![Interruzioni di FormView Out del Layout della griglia visualizzato nel controllo DetailsView.](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
+[![FormView interruzioni del Layout di griglia simile a quello visualizzato nel controllo DetailsView.](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
 
 **Figura 1**: FormView interrotta il Layout Grid-Like visualizzato nel controllo DetailsView ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image3.png))
 
@@ -53,9 +53,9 @@ In questa esercitazione che si esamineranno utilizzando il controllo FormView pe
 Aprire il `FormView.aspx` pagina e trascinare un controllo FormView dalla casella degli strumenti nella finestra di progettazione. Quando si aggiungono innanzitutto FormView viene visualizzato come una casella grigia, che ci indica che un `ItemTemplate` è necessaria.
 
 
-[![FormView Impossibile eseguire il rendering nella finestra di progettazione fino a quando non viene fornito un elemento ItemTemplate](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
+[![FormView non può essere eseguito il rendering nella finestra di progettazione fino a quando non viene fornito un elemento ItemTemplate](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
 
-**Figura 2**: il controllo FormView non è possibile visualizzare la finestra di progettazione fino a un `ItemTemplate` viene fornito ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image6.png))
+**Figura 2**: il controllo FormView non è possibile visualizzare la finestra di progettazione fino a un' `ItemTemplate` fornito ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image6.png))
 
 
 Il `ItemTemplate` possono essere creati manualmente (tramite la sintassi dichiarativa) o possono essere create automaticamente associando FormView a un controllo origine dati tramite la finestra di progettazione. Questo create automaticamente `ItemTemplate` contiene tag HTML che elenca il nome di ogni campo e un'etichetta controllo cui `Text` proprietà è associata al valore del campo. Questo approccio anche auto-crea un `InsertItemTemplate` e `EditItemTemplate`, entrambi i quali vengono popolati con i controlli di input per ognuno dei campi di dati restituiti dal controllo origine dati.
@@ -96,9 +96,9 @@ Con il `ItemTemplate` completo, vengono visualizzate le informazioni di prodotto
 **Figura 3**: l'Output di DetailsView rigida ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image9.png))
 
 
-[![L'Output di FormView fluido](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
+[![L'Output FormView fluido](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
 
-**Figura 4**: FormView Output fluido ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image12.png))
+**Figura 4**: l'Output di FormView fluido ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-cs/_static/image12.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -111,12 +111,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata E.R. Morelli. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](using-templatefields-in-the-detailsview-control-cs.md)
-[Successivo](displaying-summary-information-in-the-gridview-s-footer-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](using-templatefields-in-the-detailsview-control-cs.md)
+> [Successivo](displaying-summary-information-in-the-gridview-s-footer-cs.md)

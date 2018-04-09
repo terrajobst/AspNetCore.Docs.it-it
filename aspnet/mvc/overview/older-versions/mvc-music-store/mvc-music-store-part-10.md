@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Aggiornamenti finali allo spostamento e la struttura del sito, conclusione
 ====================
@@ -69,7 +69,7 @@ Si seguirà la stessa procedura consente di creare anche una visualizzazione par
 
 Questa azione restituisce un elenco di generi che verrà visualizzato tramite la visualizzazione parziale, che verrà creato successivamente.
 
-*Nota: È stato aggiunto l'attributo [ChildActionOnly] per questa azione del controller, che indica che si vuole inserire solo questa azione utilizzabile da una visualizzazione parziale. Questo attributo impedirà l'azione del controller venga eseguito selezionando /Store/GenreMenu. Questo non è necessario per le visualizzazioni parziali, ma è consigliabile, poiché è necessario assicurarsi che le azioni del controller vengono usate come si desidera. È inoltre stiamo restituzione PartialView anziché visualizzazione, che informa il motore di visualizzazione che consigliabile utilizzare il Layout per la visualizzazione, come includerlo nelle altre visualizzazioni.*
+*Nota: È stato aggiunto l'attributo [ChildActionOnly] per questa azione controller, che indica che si vuole inserire solo questa azione utilizzabile da una visualizzazione parziale. Questo attributo impedirà l'azione del controller venga eseguito selezionando /Store/GenreMenu. Questo non è necessario per le visualizzazioni parziali, ma è consigliabile, poiché è necessario assicurarsi che le azioni del controller vengono usate come si desidera. È in corso anche restituzione PartialView anziché a vista, che informa il motore di visualizzazione che consigliabile non usa il Layout per questa visualizzazione, come includerlo nelle altre visualizzazioni.*
 
 Fare clic su azione del controller GenreMenu e creare una visualizzazione parziale denominata GenreMenu fortemente tipizzato utilizzando la classe di dati di visualizzazione Genre, come illustrato di seguito.
 
@@ -95,7 +95,7 @@ La pagina Sfoglia archivio funzionale, ma non è del tutto soddisfacente. È pos
 
 Qui stiamo utilizzare Action anziché HTML. ActionLink in modo che è possibile applicare una formattazione speciale per il collegamento per includere il disegno album.
 
-*Nota: Viene visualizzato una copertina generico per gli album. Queste informazioni vengono archiviate nel database e può essere modificato tramite la gestione di Store. Si è di aggiungere un'immagine personalizzata.*
+*Nota: Viene visualizzato una copertina generico per questi album. Queste informazioni vengono archiviate nel database e può essere modificato tramite la gestione di Store. Si è benvenuto aggiungere un'immagine personalizzata.*
 
 Ora quando si passa a un genere, si visualizzeranno gli album visualizzati in una griglia con la grafica album.
 
@@ -109,7 +109,7 @@ In primo luogo, una proprietà di navigazione verrà aggiunto alla classe Album 
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample8.cs)]
 
-*Nota: Questo richiede l'aggiunta di un utilizzo dell'istruzione di portare nello spazio dei nomi System.Collections.Generic.*
+*Nota: Questo richiederà aggiunta di un tramite portare nello spazio dei nomi System.Collections.Generic dell'istruzione.*
 
 In primo luogo, verrà aggiunto un campo storeDB e il MvcMusicStore.Models utilizzando le istruzioni, come il nostro altri controller. Successivamente, aggiungeremo il metodo seguente per la classe HomeController che esegue query di database per trovare album vendite in base alle OrderDetails.
 
@@ -138,5 +138,5 @@ A questo punto quando si esegue l'applicazione, verranno esaminati aggiornato ho
 Abbiamo visto che ASP.NET MVC rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente. Probabilmente questa esercitazione riceve gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate ASP.NET MVC.
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-9.md)

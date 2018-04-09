@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
 title: Una panoramica del progetto Katana | Documenti Microsoft
 author: howarddierking
-description: "Il Framework di ASP.NET è stato rilasciato per oltre 10 anni e la piattaforma è abilitato lo sviluppo di numerosi siti Web e servizi. Come applicazione Web..."
+description: Il Framework di ASP.NET è stato rilasciato per oltre 10 anni e la piattaforma è abilitato lo sviluppo di numerosi siti Web e servizi. Come applicazione Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>Una panoramica del progetto Katana
 ====================
@@ -35,7 +35,7 @@ da [Howard Dierking](https://github.com/howarddierking)
 
 ### <a name="challenges-raised-by-the-historical-model"></a>Problemi generati dal modello cronologico
 
-**Il risultato è un modello di programmazione per sviluppatori e di runtime maturo ricco di funzionalità.** Tuttavia, con cui ricchezza di funzionalità proviene alcuni problemi rilevanti. In primo luogo, il framework era **monolitico**, con le unità diverse in modo logico di funzionalità da strettamente nello stesso assembly System.Web.dll (ad esempio, gli oggetti di base HTTP con il framework di Web Form). In secondo luogo, ASP.NET è incluso come parte del più grande .NET Framework, che ha il **tempo tra le versioni: nell'ordine di anni.** Questo rende difficile per tenere il passo con tutte le modifiche eseguite in rapida evoluzione lo sviluppo Web ASP.NET. Infine, System.Web.dll stessa è stata associata in diversi modi per un'opzione di hosting Web specifico: Internet Information Services (IIS).
+**Il risultato è un modello di programmazione per sviluppatori e di runtime maturo ricco di funzionalità.** Tuttavia, con cui ricchezza di funzionalità proviene alcuni problemi rilevanti. In primo luogo, il framework era **monolitico**, con le unità diverse in modo logico di funzionalità da strettamente nello stesso assembly System.Web.dll (ad esempio, gli oggetti di base HTTP con il framework di Web Form). In secondo luogo, ASP.NET è stata inclusa come parte di dimensioni maggiori .NET Framework, che ha il **tempo tra le versioni: nell'ordine di anni.** Questo rende difficile per tenere il passo con tutte le modifiche eseguite in rapida evoluzione lo sviluppo Web ASP.NET. Infine, System.Web.dll stessa è stata associata in diversi modi per un'opzione di hosting Web specifico: Internet Information Services (IIS).
 
 ### <a name="evolutionary-steps-aspnet-mvc-and-aspnet-web-api"></a>Passaggi evolutivi: ASP.NET MVC e ASP.NET Web API
 
@@ -95,9 +95,9 @@ Se è stato esaminato [OWIN](http://owin.org/) o [Katana](https://github.com/asp
 
 Considerando che sia il [OWIN](http://owin.org/html/owin.html) specifica e *Owin.dll* sono proprietà dell'azienda e Comunità eseguire attività di origine aperto, il [Katana](https://github.com/aspnet/AspNetKatana/wiki) progetto rappresenta il set di OWIN componenti che, sebbene origine ancora aperto, vengono compilati e rilasciati da Microsoft. Questi componenti includono, ad esempio componenti dell'infrastruttura, ad esempio host e server, nonché a componenti funzionali, ad esempio componenti di autenticazione e le associazioni ai framework [SignalR](../../../signalr/index.md) e [Web ASP.NET API](../../../web-api/overview/getting-started-with-aspnet-web-api/index.md). Il progetto presenta gli obiettivi di alto livelli tre seguenti: 
 
-- **Portatile** : i componenti devono essere in grado di essere facilmente sostituito con nuovi componenti appena diventano disponibili. Sono inclusi tutti i tipi di componenti, dal framework per il server host. L'implicazione di questo obiettivo è che il framework di terze parti può facilmente eseguiti sui server Microsoft mentre Framework Microsoft possono essere potenzialmente eseguiti su host e server di terze parti.
-- **Modulare/flessibile**: a differenza di molti Framework che includono numerose funzionalità che sono attivati per impostazione predefinita, i componenti di progetto Katana devono essere piccole e lo stato attivo, fornendo controllo allo sviluppatore di applicazioni per determinare quali componenti utilizzare nella propria applicazione.
-- **Lightweight/ad alte prestazioni/scalabile** : suddividendo la nozione di un framework tradizionale in un set di piccole, con stato attivo di componenti che vengono aggiunti in modo esplicito dallo sviluppatore dell'applicazione, un'applicazione Katana risulta può utilizzare un numero inferiore di calcolo le risorse e di conseguenza, gestire un carico maggiore, rispetto ad altri tipi di server e altri Framework. Come i requisiti dell'applicazione richiedono altre funzionalità dall'infrastruttura sottostante, quelli possono essere aggiunti alla pipeline OWIN, ma che deve essere una decisione esplicita da parte dello sviluppatore dell'applicazione. Inoltre, sostituibilità dei componenti di livello inferiore significa che appena diventano disponibili, nuovi server ad alte prestazioni possono essere introdotti con facilità per migliorare le prestazioni delle applicazioni OWIN senza interrompere le applicazioni.
+- **Portabile** – componenti devono essere in grado di essere facilmente sostituito con nuovi componenti appena diventano disponibili. Sono inclusi tutti i tipi di componenti, dal framework per il server host. L'implicazione di questo obiettivo è che il framework di terze parti può facilmente eseguiti sui server Microsoft mentre Framework Microsoft possono essere potenzialmente eseguiti su host e server di terze parti.
+- **Modulare/flessibile**: a differenza di molti Framework che includono numerose funzionalità che sono attivate per impostazione predefinita, i componenti di progetto Katana devono essere piccole e con lo stato attivo, che fornisce controllo allo sviluppatore di applicazioni per determinare quali componenti utilizzare nella propria applicazione.
+- **Lightweight/ad alte prestazioni/scalabile** – suddividendo la nozione di un framework tradizionale in un set di piccola, con stato attivo di componenti che vengono aggiunti in modo esplicito dallo sviluppatore dell'applicazione, un'applicazione Katana risulta può utilizzare un numero inferiore di calcolo le risorse e di conseguenza, gestire un carico maggiore, rispetto ad altri tipi di server e altri Framework. Come i requisiti dell'applicazione richiedono altre funzionalità dall'infrastruttura sottostante, quelli possono essere aggiunti alla pipeline OWIN, ma che deve essere una decisione esplicita da parte dello sviluppatore dell'applicazione. Inoltre, sostituibilità dei componenti di livello inferiore significa che appena diventano disponibili, nuovi server ad alte prestazioni possono essere introdotti con facilità per migliorare le prestazioni delle applicazioni OWIN senza interrompere le applicazioni.
 
 ## <a name="getting-started-with-katana-components"></a>Introduzione a componenti Katana
 
@@ -144,9 +144,9 @@ Dalla riga di comando, è possibile quindi passare alla cartella radice del prog
 - Gestione del processo sottostante.
 - Orchestrazione di flusso di lavoro che comporta la selezione di un server e la creazione di una pipeline OWIN tramite le richieste verranno gestite.
 
- Attualmente, sono disponibili 3 opzioni di hosting primarie per le applicazioni basate su Katana:  
+  Attualmente, sono disponibili 3 opzioni di hosting primarie per le applicazioni basate su Katana:  
   
-**IIS/ASP.NET**: usando i tipi di HttpModule e gestore HTTP standard, la pipeline OWIN eseguibili in IIS come parte di un flusso di richiesta ASP.NET. Supporto per l'hosting ASP.NET è abilitato per l'installazione del pacchetto Microsoft.AspNet.Host.SystemWeb NuGet in un progetto di applicazione Web. Inoltre, poiché IIS funge da host e un server, la distinzione/host server OWIN viene unita secondo di questo pacchetto NuGet, vale a dire che se si utilizza l'host SystemWeb, uno sviluppatore non può sostituire un'implementazione di un server alternativo.  
+**Accoppiato**: usando i tipi di HttpModule e gestore HTTP standard, le pipeline OWIN eseguibili in IIS come parte di un flusso di richiesta ASP.NET. Supporto per l'hosting ASP.NET è abilitato per l'installazione del pacchetto Microsoft.AspNet.Host.SystemWeb NuGet in un progetto di applicazione Web. Inoltre, poiché IIS funge da host e un server, la distinzione/host server OWIN viene unita secondo di questo pacchetto NuGet, vale a dire che se si utilizza l'host SystemWeb, uno sviluppatore non può sostituire un'implementazione di un server alternativo.  
   
 **Host personalizzato**: Katana la suite di componenti consente allo sviluppatore la possibilità di ospitare applicazioni nel proprio processo personalizzato, se un'applicazione console del servizio di Windows, e così via. Questa funzionalità è simile alla funzionalità self-host fornite dall'API Web. Nell'esempio seguente viene illustrato un host personalizzato del codice API Web:  
 
@@ -162,7 +162,7 @@ Una differenza fondamentale tra gli esempi di API Web e Katana host indipendente
 
 La classe di avvio verrà descritta più dettagliatamente più avanti nell'articolo. Tuttavia, il codice necessario per avviare un Katana indipendente processo Cerca sorprendentemente simile al codice che si stia utilizzando oggi nelle applicazioni di servizio indipendente di ASP.NET Web API.
 
-**OwinHost.exe**: mentre alcuni desidera scrivere un processo personalizzato per eseguire applicazioni Katana Web, molti preferiscono semplicemente avviare un eseguibile preesistente grado di avviare un server ed eseguire l'applicazione. Per questo scenario, la suite di componente Katana include `OwinHost.exe`. Quando eseguito dall'interno directory radice del progetto, questo eseguibile avvia un server (utilizza il server di HttpListener per impostazione predefinita) e utilizzare le convenzioni per trovare ed eseguire la classe di avvio dell'utente. Per un controllo più granulare, il file eseguibile offre un numero di parametri della riga di comando aggiuntive.
+**OwinHost.exe**: anche alcuni verrà effettuato il tentativo di scrivere un processo personalizzato per eseguire applicazioni Katana Web, molti preferiscono semplicemente avviare un eseguibile preesistente che è possibile avviare un server ed eseguire l'applicazione. Per questo scenario, la suite di componente Katana include `OwinHost.exe`. Quando eseguito dall'interno directory radice del progetto, questo eseguibile avvia un server (utilizza il server di HttpListener per impostazione predefinita) e utilizzare le convenzioni per trovare ed eseguire la classe di avvio dell'utente. Per un controllo più granulare, il file eseguibile offre un numero di parametri della riga di comando aggiuntive.
 
 ![](an-overview-of-project-katana/_static/image4.png)
 
@@ -170,8 +170,8 @@ La classe di avvio verrà descritta più dettagliatamente più avanti nell'artic
 
  Mentre l'host è responsabile per l'avvio e il processo entro il quale viene eseguita l'applicazione, la responsabilità del server di gestione è per aprire un socket di rete, l'ascolto delle richieste e inviarli tramite la pipeline di componenti OWIN specificati dall'utente (come si è già notato, questa pipeline è specificata nella classe di avvio dello sviluppatore dell'applicazione). Attualmente, il progetto Katana include due implementazioni di server: 
 
-- **Systemweb**: come indicato in precedenza, insieme con la pipeline ASP.NET IIS funge da host e un server. Pertanto, quando si sceglie questa opzione di hosting, IIS gestisce i problemi a livello di host, ad esempio l'attivazione del processo sia ascolta le richieste HTTP. Per le applicazioni Web ASP.NET, invia quindi le richieste nella pipeline ASP.NET. L'host Katana SystemWeb registra un HttpModule ASP.NET e un gestore HTTP per intercettare le richieste che passano attraverso la pipeline HTTP e inviarli tramite la pipeline OWIN specificato dall'utente.
-- **HttpListener**: come indica il nome, il server di Katana utilizza classe HttpListener di .NET Framework per aprire un socket e inviare le richieste in una pipeline OWIN specificati dallo sviluppatore. Questa è attualmente la selezione di server predefinito per l'API di host indipendente Katana e OwinHost.exe.
+- **Systemweb**: come indicato in precedenza, IIS interagisce con la pipeline ASP.NET funge da un host e un server. Pertanto, quando si sceglie questa opzione di hosting, IIS gestisce i problemi a livello di host, ad esempio l'attivazione del processo sia ascolta le richieste HTTP. Per le applicazioni Web ASP.NET, invia quindi le richieste nella pipeline ASP.NET. L'host Katana SystemWeb registra un HttpModule ASP.NET e un gestore HTTP per intercettare le richieste che passano attraverso la pipeline HTTP e inviarli tramite la pipeline OWIN specificato dall'utente.
+- **HttpListener**: indica il nome, questo server Katana utilizza classe HttpListener di .NET Framework per aprire un socket e inviare le richieste in una pipeline OWIN specificato developer. Questa è attualmente la selezione di server predefinito per l'API di host indipendente Katana e OwinHost.exe.
 
 ## <a name="middlewareframework"></a>Middleware/framework
 
@@ -221,11 +221,11 @@ Per Katana 2.0, i componenti middleware sono principalmente incentrati sui diver
 
 ## <a name="for-more-information-about-katana"></a>Per ulteriori informazioni su Katana
 
-- Il progetto Katana su GitHub: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/).
+- Il progetto Katana su GitHub: [ https://github.com/aspnet/AspNetKatana/ ](https://github.com/aspnet/AspNetKatana/).
 - Video: [OWIN per ASP.NET - progetto Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET), da Howard Dierking.
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
-- [Rick Anderson](https://blogs.msdn.com/b/rickandy/): (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT) ) Rick è un writer di programmazione senior per porre l'attenzione su Azure e MVC Microsoft.
+- [Rick Anderson](https://blogs.msdn.com/b/rickandy/): (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT) ) Rick è un writer di programmazione senior per Microsoft con particolare attenzione ad Azure e MVC.
 - [Scott Hanselman](http://www.hanselman.com/blog/): (twitter [ @shanselman ](https://twitter.com/shanselman) )
 - [Jon Galloway](https://weblogs.asp.net/jgalloway/default.aspx): (twitter [ @jongalloway ](https://twitter.com/jongalloway) )

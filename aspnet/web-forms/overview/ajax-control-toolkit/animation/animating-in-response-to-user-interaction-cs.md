@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 title: Animazione in risposta all'interazione dell'utente (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Le animazioni possano stelle..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Le animazioni possano stelle...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: efb9c34c317ec56b43c498f40a857a9b47fa50b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 783563f4e33087e99a071cf829ca6bab246ba3b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-in-response-to-user-interaction-c"></a>Animazione in risposta all'interazione dell'utente (c#)
 ====================
@@ -51,11 +51,11 @@ Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un `ID`, `Target
 
 All'interno di `<Animations>` nodo, sono disponibili cinque modi per iniziare l'animazione tramite l'interazione dell'utente (l'elemento mancano è `<OnLoad>` che viene eseguito una volta l'intera pagina è stata caricata completamente):
 
-- `<OnClick>`(fare clic del mouse sul controllo)
-- `<OnHoverOut>`(mouse abbandona il controllo)
-- `<OnHoverOver>`(mouse viene spostato su un controllo, l'arresto di `<OnHoverOut>` animazione)
-- `<OnMouseOut>`(mouse esce da un controllo)
-- `<OnMouseOver>`(mouse viene spostato su un controllo, non arrestare il `<OnMouseOut>` animazione)
+- `<OnClick>` (fare clic del mouse sul controllo)
+- `<OnHoverOut>` (mouse esce dall'area di controllo)
+- `<OnHoverOver>` (mouse viene spostato su un controllo, l'arresto di `<OnHoverOut>` animazione)
+- `<OnMouseOut>` (mouse esce dall'area di un controllo)
+- `<OnMouseOver>` (mouse viene spostato su un controllo, non arrestare il `<OnMouseOut>` animazione)
 
 In questo scenario, `<OnClick>` viene utilizzato. Quando l'utente fa clic sul riquadro, viene ridimensionato e dissolvenza nello stesso momento.
 
@@ -66,6 +66,6 @@ In questo scenario, `<OnClick>` viene utilizzato. Quando l'utente fa clic sul ri
 
 Un clic del mouse viene avviata l'animazione ([fare clic per visualizzare l'immagine ingrandita](animating-in-response-to-user-interaction-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](picking-one-animation-out-of-a-list-cs.md)
-[Successivo](disabling-actions-during-animation-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](picking-one-animation-out-of-a-list-cs.md)
+> [Successivo](disabling-actions-during-animation-cs.md)

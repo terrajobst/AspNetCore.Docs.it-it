@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 title: Nozioni fondamentali su ASP.NET MVC 4 | Documenti Microsoft
 author: rick-anderson
-description: "Questa pratica è basato sull'archivio musica MVC (Model View Controller), un'applicazione di esercitazione che vengono presentati e dettagliate sull'utilizzo di ASP.NET MV..."
+description: Questa pratica è basato sull'archivio musica MVC (Model View Controller), un'applicazione di esercitazione che vengono presentati e dettagliate sull'utilizzo di ASP.NET MV...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a0dd32280321938aba84a2aed5273d80750ed774
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>Nozioni fondamentali su ASP.NET MVC 4
 
@@ -156,15 +156,15 @@ In questa attività si esaminerà la struttura della soluzione per comprendere g
 
     *Struttura di cartelle di MVC ASP.NET in Esplora soluzioni*
 
-    1. **Controller**. Questa cartella contiene le classi controller. In un'applicazione MVC di base, i controller sono responsabili per la gestione di interazione dell'utente finale, la modifica del modello e infine scegliendo una visualizzazione per il rendering dell'interfaccia utente.
+   1. **Controller**. Questa cartella contiene le classi controller. In un'applicazione MVC di base, i controller sono responsabili per la gestione di interazione dell'utente finale, la modifica del modello e infine scegliendo una visualizzazione per il rendering dell'interfaccia utente.
 
-        > [!NOTE]
-        > Il framework MVC richiede che i nomi di tutti i controller terminino con &quot;Controller&quot;-ad esempio HomeController, LoginController o ProductController.
-    2. **Modelli**. Questa cartella viene fornita per le classi che rappresentano il modello di applicazione per l'applicazione Web MVC. Questo include in genere il codice che definisce gli oggetti e la logica per l'interazione con l'archivio dati. In genere, gli oggetti modello effettivo sarà nelle librerie di classi separato. Tuttavia, quando si crea una nuova applicazione, si includono le classi e spostarle in librerie di classi separate in un momento successivo nel ciclo di sviluppo.
-    3. **Viste**. Questa cartella è la posizione consigliata per le viste, i componenti responsabili per la visualizzazione dell'interfaccia utente dell'applicazione. Le visualizzazioni utilizzano file con estensione aspx, ascx, cshtml e master, oltre a qualsiasi altro file che sono correlato al rendering delle visualizzazioni. Cartella Views contiene una cartella per ogni controller. la cartella è denominata con il prefisso del nome del controller. Ad esempio, se si dispone di un controller denominato **HomeController**, la cartella Views conterrà una cartella Home. Per impostazione predefinita, quando il framework di MVC ASP.NET carica una visualizzazione, la ricerca di un file con estensione aspx con il nome della visualizzazione richiesta nella cartella Views\controllerName (**viste [ControllerName] [azione] aspx**) o (**viste [ControllerName] [Azione] cshtml**) per le visualizzazioni Razor.
+       > [!NOTE]
+       > Il framework MVC richiede che i nomi di tutti i controller terminino con &quot;Controller&quot;-ad esempio HomeController, LoginController o ProductController.
+   2. **Modelli**. Questa cartella viene fornita per le classi che rappresentano il modello di applicazione per l'applicazione Web MVC. Questo include in genere il codice che definisce gli oggetti e la logica per l'interazione con l'archivio dati. In genere, gli oggetti modello effettivo sarà nelle librerie di classi separato. Tuttavia, quando si crea una nuova applicazione, si includono le classi e spostarle in librerie di classi separate in un momento successivo nel ciclo di sviluppo.
+   3. **Viste**. Questa cartella è la posizione consigliata per le viste, i componenti responsabili per la visualizzazione dell'interfaccia utente dell'applicazione. Le visualizzazioni utilizzano file con estensione aspx, ascx, cshtml e master, oltre a qualsiasi altro file che sono correlato al rendering delle visualizzazioni. Cartella Views contiene una cartella per ogni controller. la cartella è denominata con il prefisso del nome del controller. Ad esempio, se si dispone di un controller denominato **HomeController**, la cartella Views conterrà una cartella Home. Per impostazione predefinita, quando il framework di MVC ASP.NET carica una visualizzazione, la ricerca di un file con estensione aspx con il nome della visualizzazione richiesta nella cartella Views\controllerName (**viste [ControllerName] [azione] aspx**) o (**viste [ControllerName] [Azione] cshtml**) per le visualizzazioni Razor.
 
-    > [!NOTE]
-    > Oltre alle cartelle elencate in precedenza, un'applicazione Web MVC utilizza il **Global. asax** impostazioni predefinite di file per impostare il routing degli URL globale e viene utilizzato il **Web. config** file per configurare l'applicazione.
+      > [!NOTE]
+      > Oltre alle cartelle elencate in precedenza, un'applicazione Web MVC utilizza il **Global. asax** impostazioni predefinite di file per impostare il routing degli URL globale e viene utilizzato il **Web. config** file per configurare l'applicazione.
 
 <a id="Ex1Task3"></a>
 
@@ -192,7 +192,9 @@ In questa attività si aggiungerà una classe Controller che gestirà gli URL pe
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex1 HomeController indice*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
+~~~
 
 <a id="Ex1Task4"></a>
 
@@ -234,12 +236,12 @@ In questa attività si aggiungerà un nuovo Controller.
 1. Se non è già aperta, avviare **Visual Studio Express per Web 2012**.
 2. Nel **File** menu, scegliere **Apri progetto**. Nella finestra di dialogo Apri progetto individuare **Source\Ex02 CreatingAController\Begin**selezionare **Begin.sln** e fare clic su **aprire**. In alternativa, è possibile continuare con la soluzione ottenuta dopo aver completato l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 3. Aggiungere il nuovo controller. A tale scopo, fare doppio clic su di **controller** cartella in Esplora soluzioni, selezionare **Aggiungi** e quindi la **Controller** comando. Modifica il **nome Controller** a *StoreController*, fare clic su **Aggiungi**.
 
     ![Finestra di dialogo Controller Aggiungi](aspnet-mvc-4-fundamentals/_static/image8.png "Controller finestra di dialogo Aggiungi")
@@ -258,13 +260,17 @@ In questa attività si modificherà i Controller i metodi chiamati **azioni**. L
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - indice StoreController Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
+~~~
 2. Aggiungere **Sfoglia** e **dettagli** metodi. A tale scopo, aggiungere il codice seguente per il **StoreController**:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex2 StoreController BrowseAndDetails*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
+~~~
 
 <a id="Ex2Task3"></a>
 
@@ -302,24 +308,26 @@ In questa attività, si utilizzerà il **querystring** per l'invio di parametri 
 1. Se non è già aperta, avviare **Visual Studio Express per Web**.
 2. Nel **File** menu, scegliere **Apri progetto**. Nella finestra di dialogo Apri progetto individuare **Source\Ex03 PassingParametersToAController\Begin**selezionare **Begin.sln** e fare clic su **aprire**. In alternativa, è possibile continuare con la soluzione ottenuta dopo aver completato l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 3. Aprire **StoreController** classe. A tale scopo, nel **Esplora**, espandere il **controller** cartella e fare doppio clic su **StoreController.cs**.
 4. Modifica il **Sfoglia** (metodo), aggiunta di un parametro di stringa per richiedere per un genere specifico. ASP.NET MVC verranno automaticamente passare qualsiasi stringa di query o parametri denominati invio del form **genere** a questo metodo di azione quando viene richiamato. A tale scopo, sostituire il **Sfoglia** metodo con il codice seguente:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex3 StoreController BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
-    > [!NOTE]
-    > Si utilizza il **HttpUtility** il metodo di utilità per impedisce agli utenti di inserire Javascript nella vista con un collegamento come **archivio/Sfoglia? Genre =&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
-    > 
-    > Per ulteriori informazioni, visitare [questo articolo di msdn](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
+> [!NOTE]
+> You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
+> 
+> For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
+~~~
 
 <a id="Ex3Task2"></a>
 
@@ -348,7 +356,9 @@ In questa attività, si utilizzerà il **URL** per passare un **Id** parametro p
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex3 StoreController DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
+~~~
 
 <a id="Ex3Task4"></a>
 
@@ -383,26 +393,26 @@ Il file **~/Views/Shared/\_cshtml** consente di configurare un modello per HTML 
 1. Se non è già aperta, avviare **Visual Studio Express per Web**.
 2. Nel **File** menu, scegliere **Apri progetto**. Nella finestra di dialogo Apri progetto individuare **Source\Ex04 CreatingAView\Begin**selezionare **Begin.sln** e fare clic su **aprire**. In alternativa, è possibile continuare con la soluzione ottenuta dopo aver completato l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-3. Il file  **\_cshtml** contiene il layout di contenitore HTML per tutte le pagine nel sito. Include il  **&lt;html&gt;**  elemento per la risposta HTML, nonché il  **&lt;head&gt;**  e  **&lt;corpo&gt;**  elementi. **@RenderBody()** all'interno dell'HTML corpo identificare le aree di visualizzazione modelli saranno in grado di inserire il contenuto dinamico.
-(C#)
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+3. Il file  <strong>\_cshtml</strong> contiene il layout di contenitore HTML per tutte le pagine nel sito. Include il <strong>&lt;html&gt;</strong> elemento per la risposta HTML, nonché il <strong>&lt;head&gt;</strong> e <strong>&lt;corpo&gt;</strong> elementi. <strong>@RenderBody()</strong> all'interno dell'HTML corpo identificare le aree di visualizzazione modelli saranno in grado di inserire il contenuto dinamico.
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample6.cshtml)]
 4. Aggiungere un'intestazione comune con i collegamenti all'area Home page e l'archivio in tutte le pagine nel sito. A tale scopo, aggiungere il codice seguente sotto &lt;corpo&gt; istruzione.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Includere un elemento div per eseguire il rendering nella sezione corpo di ogni pagina. Sostituire  **@RenderBody()** con il seguente codice higlighted: (c#)
+5. Includere un elemento div per eseguire il rendering nella sezione corpo di ogni pagina. Sostituire  <strong>@RenderBody()</strong> con il seguente codice higlighted: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > Non tutti sanno. Visual Studio 2012 include frammenti di codice che rendono più semplice aggiungere codice di uso comune in HTML, file di codice e altro ancora! Provarlo digitando  **&lt;div&gt;**  e premendo **scheda** due volte per inserire un completo **div** tag.
+    > Non tutti sanno. Visual Studio 2012 include frammenti di codice che rendono più semplice aggiungere codice di uso comune in HTML, file di codice e altro ancora! Provarlo digitando **&lt;div&gt;** e premendo **scheda** due volte per inserire un completo **div** tag.
 
 <a id="Ex4Task2"></a>
 
@@ -432,7 +442,9 @@ In questa attività si aggiungerà un modello di visualizzazione per generare la
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex4 HomeController indice*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
+~~~
 2. A questo punto, è necessario aggiungere un modello di visualizzazione appropriato. A tale scopo, **destro** all'interno di **indice** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la **Aggiungi visualizzazione** finestra di dialogo.
 
     ![Aggiunta di una vista all'interno del metodo indice](aspnet-mvc-4-fundamentals/_static/image13.png "aggiunta di una vista all'interno del metodo di indice")
@@ -458,7 +470,9 @@ In questa attività si aggiungerà un modello di visualizzazione per generare la
 5. Il modello di visualizzazione generato si basa sul  **\_cshtml** modello definito in precedenza. Aggiornare la proprietà ViewBag **Home**e modificare il contenuto principale per **questa è la Home Page**, come illustrato nel codice seguente:
 
 
-    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
+~~~
+[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
+~~~
 6. Selezionare **MvcMusicStore** progetto in Esplora soluzioni e premere **F5** per eseguire l'applicazione.
 
 <a id="Ex4Task4"></a>
@@ -497,12 +511,12 @@ In questa attività si creerà una classe ViewModel che consente di implementare
 1. Se non è già aperta, avviare **Visual Studio Express per Web**.
 2. Nel **File** menu, scegliere **Apri progetto**. Nella finestra di dialogo Apri progetto individuare **Source\Ex05 CreatingAViewModel\Begin**selezionare **Begin.sln** e fare clic su **aprire**. In alternativa, è possibile continuare con la soluzione ottenuta dopo aver completato l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 3. Creare un **ViewModel** cartella per contenere l'elemento ViewModel. A tale scopo, fare doppio clic su di primo livello **MvcMusicStore** progetto, selezionare **Aggiungi** e quindi **nuova cartella**.
 
     ![Aggiunta di una nuova cartella](aspnet-mvc-4-fundamentals/_static/image17.png "aggiunta una nuova cartella")
@@ -537,10 +551,12 @@ In questa attività si aggiungeranno tali 2 proprietà per il **StoreIndexViewMo
     (- Frammento di codice *ASP.NET MVC 4 nozioni di base - proprietà Ex5 StoreIndexViewModel*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
-    > [!NOTE]
-    > Il **{get; impostare;}**  utilizza la notazione di # funzionalità proprietà implementate automaticamente. Fornisce i vantaggi di una proprietà senza richiedere di dichiarare un campo sottostante.
+> [!NOTE]
+> The **{ get; set; }** notation makes use of C#'s auto-implemented properties feature. It provides the benefits of a property without requiring us to declare a backing field.
+~~~
 
 <a id="Ex5Task3"></a>
 
@@ -561,7 +577,9 @@ In questa attività si aggiornerà il **StoreController** per utilizzare il **St
     (- Frammento di codice *ASP.NET MVC 4 nozioni di base - StoreIndexViewModel Ex5 utilizzando ViewModel*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
+~~~
 3. Modifica il **StoreController**del **indice** il metodo di azione in modo che crea e popola un **StoreIndexViewModel** dell'oggetto e quindi li passa a un modello di visualizzazione per generare una risposta HTML con esso.
 
     > [!NOTE]
@@ -573,10 +591,12 @@ In questa attività si aggiornerà il **StoreController** per utilizzare il **St
     (- Frammento di codice *ASP.NET MVC 4 nozioni di base - metodo Ex5 StoreController indice*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
-    > [!NOTE]
-    > Se non si ha familiarità con c#, potrebbe presumere che l'utilizzo **var** significa che il **viewModel** variabile è ad associazione tardiva. Che non è corretto, il compilatore c# viene usata in base a cui assegnare alla variabile di inferenza del tipo per determinare che **viewModel** è di tipo **StoreIndexViewModel**. Inoltre, per la compilazione locale **viewModel** variabile come un **StoreIndexViewModel** tipo di controllo in fase di compilazione di get e il supporto di editor di codice di Visual Studio.
+> [!NOTE]
+> If you're unfamiliar with C#, you may assume that using **var** means that the **viewModel** variable is late-bound. That's not correct - the C# compiler is using type-inference based on what you assign to the variable to determine that **viewModel** is of type **StoreIndexViewModel**. Also, by compiling the local **viewModel** variable as a **StoreIndexViewModel** type you get compile-time checking and Visual Studio code-editor support.
+~~~
 
 <a id="Ex5Task4"></a>
 
@@ -617,20 +637,22 @@ In questa attività, è possibile aggiornare il modello di visualizzazione creat
 1. Nel **cshtml** file, all'interno di **archivio** cartella, sostituire il codice con quanto segue:
 
 
-    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
+~~~
+[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
-    > [!NOTE]
-    > Non appena si finisce di digitare il periodo dopo la parola **modello**, Intellisense di Visual Studio verrà visualizzato un elenco di possibili proprietà e metodi da selezionare.
-    > 
-    > ![](aspnet-mvc-4-fundamentals/_static/image25.png)
-    > 
-    > *Ottenere le proprietà del modello e i metodi con IntelliSense di Visual Studio*
-    > 
-    > Il **modello** riferimenti alle proprietà di **StoreIndexViewModel** che il Controller è passato per il modello di visualizzazione. Ciò significa che è possibile accedere a tutti i dati passati dal Controller per il modello di visualizzazione tramite il **modello** , proprietà e formattarli in una risposta HTML appropriata all'interno del modello di visualizzazione.
-    > 
-    > È sufficiente selezionare il **NumberOfGenres** elenco di proprietà da Intellisense anziché digitare in e quindi verrà completamento automatico, premendo il **tasto tab**.
-2. Scorrere l'elenco in genere **StoreIndexViewModel** e creare un elemento HTML  **&lt;ul&gt;**  elenco tramite un **foreach** ciclo.
-(C#)
+> [!NOTE]
+> As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
+> 
+> ![](aspnet-mvc-4-fundamentals/_static/image25.png)
+> 
+> *Getting Model properties and methods with Visual Studio's IntelliSense*
+> 
+> The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
+> 
+> You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
+~~~
+2. Scorrere l'elenco in genere **StoreIndexViewModel** e creare un elemento HTML **&lt;ul&gt;** elenco tramite un **foreach** ciclo.
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample15.cshtml)]
 3. Premere **F5** per eseguire l'applicazione e selezionare **e delle archiviazioni**. Verrà visualizzato l'elenco di generi passato il **StoreIndexViewModel** dall'oggetto di **StoreController** per il modello di visualizzazione.
@@ -657,12 +679,12 @@ A differenza di ViewModel, che vengono creati solo per passare le informazioni d
 1. Se non è già aperta, avviare **Visual Studio Express per il Web**
 2. Nel **File** menu, scegliere **Apri progetto**. Nella finestra di dialogo Apri progetto individuare **Source\Ex06 UsingParametersInView\Begin**selezionare **Begin.sln** e fare clic su **aprire**. In alternativa, è possibile continuare con la soluzione ottenuta dopo aver completato l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 3. Aggiungere un **Genre** classe del modello. A tale scopo, fare doppio clic sul **modelli** cartella il **Esplora**, selezionare **Aggiungi** e quindi il **nuovo elemento** opzione. In **codice**, scegliere il **classe** elemento e denominare il file *Genre.cs*, quindi fare clic su **Aggiungi**.
 
     ![Aggiunta di una classe](aspnet-mvc-4-fundamentals/_static/image27.png "aggiunta di una classe")
@@ -677,14 +699,18 @@ A differenza di ViewModel, che vengono creati solo per passare le informazioni d
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Genre Ex6*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
+~~~
 5. Seguire la stessa procedura come prima, aggiungere un **Album** classe. A tale scopo, fare doppio clic sul **modelli** cartella il **Esplora**, selezionare **Aggiungi** e quindi il **nuovo elemento** opzione. In **codice**, scegliere il **classe** elemento e denominare il file *Album.cs*, quindi fare clic su **Aggiungi**.
 6. Aggiungere due proprietà alla classe Album: **Genre** e **titolo**. A tale scopo, aggiungere il codice seguente:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Album Ex6*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
+~~~
 
 <a id="Ex6Task2"></a>
 
@@ -699,20 +725,24 @@ Oggetto **StoreBrowseViewModel** verrà utilizzato in questa attività per visua
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex6 UsingModel*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
+~~~
 3. Aggiungere le due proprietà **StoreBrowseViewModel** classe: **Genre** e **album**. A tale scopo, aggiungere il codice seguente:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex6 ModelProperties*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
-    > [!NOTE]
-    > Che cos'è **elenco&lt;Album&gt;**  ?: utilizza questa definizione di **elenco&lt;T&gt;**  tipo, in cui **T** vincola la agli elementi di questo tipo di **elenco** appartiene, in questo caso **Album** (o uno qualsiasi dei relativi discendenti).
-    > 
-    > La possibilità di progettare classi e metodi che rinviano la specifica di uno o più tipi fino a quando la classe o il metodo viene dichiarato e creare un'istanza dal codice client è una funzionalità del linguaggio c# denominata **Generics**.
-    > 
-    > **Elenco&lt;T&gt;**  equivale a generico di **ArrayList** tipo ed è disponibile nel **System.Collections.Generic** dello spazio dei nomi. Uno dei vantaggi dell'utilizzo di **generics** poiché il tipo è specificato, non necessario svolgere operazioni, ad esempio il cast degli elementi nel controllo del tipo **Album** come si farebbe con un **ArrayList**.
+> [!NOTE]
+> What is **List&lt;Album&gt;** ?: This definition is using the **List&lt;T&gt;** type, where **T** constrains the type to which elements of this **List** belong to, in this case **Album** (or any of its descendants).
+> 
+> This ability to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code is a feature of the C# language called **Generics**.
+> 
+> **List&lt;T&gt;** is the generic equivalent of the **ArrayList** type and is available in the **System.Collections.Generic** namespace. One of the benefits of using **generics** is that since the type is specified, you do not need to take care of type checking operations such as casting the elements into **Album** as you would do with an **ArrayList**.
+~~~
 
 <a id="Ex6Task3"></a>
 
@@ -726,19 +756,25 @@ In questa attività si modificherà il **StoreController**del **Sfoglia** e **de
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex6 UsingModelInController*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
+~~~
 2. Sostituire il **Sfoglia** il metodo di azione per utilizzare il **StoreViewBrowseController** classe. Si creerà un genere e due nuovi oggetti album con dati fittizi (nel laboratorio pratico successiva si utilizzerà dati reali da un database). A tale scopo, sostituire il **Sfoglia** metodo con il codice seguente:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex6 BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
+~~~
 3. Sostituire il **dettagli** il metodo di azione per utilizzare il **StoreViewBrowseController** classe. Verrà creato un nuovo **Album** oggetto da restituire per il **vista**. A tale scopo, sostituire il **dettagli** metodo con il codice seguente:
 
     (- Frammento di codice *nozioni fondamentali su ASP.NET MVC 4 - Ex6 DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
+~~~
 
 <a id="Ex6Task4"></a>
 
@@ -811,22 +847,22 @@ In questa attività, si verificherà che il **dettagli** vista recupera le infor
 In questa attività si aggiungerà un collegamento nella visualizzazione archivio per disporre di un collegamento in nome di ogni genere appropriati **archivio/Sfoglia** URL. In questo modo, quando si fa clic su un genere, ad esempio **Disco**, verrà visualizzata **archivio/Sfoglia? genre = Disco** URL.
 
 1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aggiornamento di **indice** pagina per aggiungere un collegamento per il **Sfoglia** pagina. A tale scopo, nel **Esplora** espandere la **viste** cartella, il **archivio** cartella e fare doppio clic il **cshtml** pagina.
-2. Aggiungere un collegamento alla visualizzazione Sfoglia che indica il genere selezionato. A tale scopo, sostituire il codice evidenziato di seguito all'interno di  **&lt;li&gt;**  tag: (c#)
+2. Aggiungere un collegamento alla visualizzazione Sfoglia che indica il genere selezionato. A tale scopo, sostituire il codice evidenziato di seguito all'interno di **&lt;li&gt;** tag: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample25.cshtml)]
 
-    > [!NOTE]
-    > un altro approccio potrebbe essere il collegamento direttamente alla pagina, con un codice simile al seguente:
-    > 
-    > &lt;a href=&quot;/Store/Browse?genre=@genreName&quot;&gt;@genreName&lt;/a&gt;
-    > 
-    > Sebbene questo approccio funziona, dipende dalla stringa hardcoded. Se in un secondo momento, si rinomina il Controller, sarà necessario modificare manualmente questa istruzione. Un'alternativa migliore consiste nell'usare un **HTML Helper** metodo. ASP.NET MVC include un metodo HTML Helper che è disponibile per tali attività. Il **Html.ActionLink()** metodo helper semplifica la compilazione HTML  **&lt;un&gt;**  collegamenti, assicurandosi che i percorsi URL siano URL correttamente codificati.
-    > 
-    > Htlm.ActionLink dispone di diversi overload. In questo esercizio si utilizzerà uno che accetta tre parametri:
-    > 
-    > 1. Testo del collegamento, che verrà visualizzato il nome di genere
-    > 2. Nome dell'azione controller (**Sfoglia**)
-    > 3. I valori di parametro, che specifica il nome di route (**Genre**) e il valore (**nome genere**)
+   > [!NOTE]
+   > un altro approccio potrebbe essere il collegamento direttamente alla pagina, con un codice simile al seguente:
+   > 
+   > &lt;a href=&quot;/Store/Browse?genre=@genreName&quot;&gt;@genreName&lt;/a&gt;
+   > 
+   > Sebbene questo approccio funziona, dipende dalla stringa hardcoded. Se in un secondo momento, si rinomina il Controller, sarà necessario modificare manualmente questa istruzione. Un'alternativa migliore consiste nell'usare un **HTML Helper** metodo. ASP.NET MVC include un metodo HTML Helper che è disponibile per tali attività. Il **Html.ActionLink()** metodo helper semplifica la compilazione HTML **&lt;un&gt;** collegamenti, assicurandosi che i percorsi URL siano URL correttamente codificati.
+   > 
+   > Htlm.ActionLink dispone di diversi overload. In questo esercizio si utilizzerà uno che accetta tre parametri:
+   > 
+   > 1. Testo del collegamento, che verrà visualizzato il nome di genere
+   > 2. Nome dell'azione controller (**Sfoglia**)
+   > 3. I valori di parametro, che specifica il nome di route (**Genre**) e il valore (**nome genere**)
 
 <a id="Ex6Task9"></a>
 
@@ -854,17 +890,19 @@ Verrà utilizzata la raccolta dinamica ViewBag per passare un elenco di &quot; *
 1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreController.cs** e modificare **indice** metodo per creare un elenco di generi di stella in ViewModel raccolta:
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
-    > [!NOTE]
-    > È anche possibile usare la sintassi **ViewBag [&quot;Starred&quot;]** per accedere alle proprietà.
-2. L'icona a stella  **&quot;starred.png&quot;**  è incluso nel **Source\Assets\Images** cartella di questa esercitazione. Per aggiungerlo all'applicazione, trascinare i propri contenuti da un **Esplora** finestra all'interno di **Esplora** in Visual Web Developer Express, come illustrato di seguito:
+> [!NOTE]
+> You could also use the syntax **ViewBag[&quot;Starred&quot;]** to access the properties.
+~~~
+2. L'icona a stella **&quot;starred.png&quot;** è incluso nel **Source\Assets\Images** cartella di questa esercitazione. Per aggiungerlo all'applicazione, trascinare i propri contenuti da un **Esplora** finestra all'interno di **Esplora** in Visual Web Developer Express, come illustrato di seguito:
 
     ![Immagine di stella di aggiunta alla soluzione](aspnet-mvc-4-fundamentals/_static/image34.png "immagine di stella di aggiunta alla soluzione")
 
     *Immagine di stella aggiunta alla soluzione*
 3. Aprire la visualizzazione **Store/Index.cshtml** e modificare il contenuto. È di lettura di &quot;stella&quot; proprietà il **ViewBag** insieme per verificare se il nome del genere corrente è nell'elenco. In questo caso saranno visualizzati un'icona a stella destra al collegamento di genere.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample27.cshtml)]
 
@@ -931,40 +969,40 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
 
     *Il modello di progetto ASP.NET MVC 4 applicazione Internet*
 
-    1. **Tag HTML5**
+   1. **Tag HTML5**
 
-        Sfogliare le viste di modello per individuare il markup nuovo tema, ad esempio aprire **About.cshtml** visualizzare all'interno di **Home** cartella.
+       Sfogliare le viste di modello per individuare il markup nuovo tema, ad esempio aprire **About.cshtml** visualizzare all'interno di **Home** cartella.
 
-        ![Nuovo modello, utilizzando il markup Razor e HTML5](aspnet-mvc-4-fundamentals/_static/image41.png "nuovo modello, utilizzando il markup Razor e HTML5")
+       ![Nuovo modello, utilizzando il markup Razor e HTML5](aspnet-mvc-4-fundamentals/_static/image41.png "nuovo modello, utilizzando il markup Razor e HTML5")
 
-        *Nuovo modello, utilizzando il markup Razor e HTML5*
-    2. **Librerie JavaScript inclusione**
+       *Nuovo modello, utilizzando il markup Razor e HTML5*
+   2. **Librerie JavaScript inclusione**
 
-        1. **jQuery**: jQuery semplifica l'attraversamento documento HTML, la gestione degli eventi, l'animazione e interazioni Ajax.
-        2. **jQuery UI**: questa libreria fornisce astrazioni per applicazione widget basato sulla libreria JavaScript jQuery e animazione, effetti avanzate e interazione di basso livello.
+      1. **jQuery**: jQuery semplifica l'attraversamento documento HTML, la gestione degli eventi, l'animazione e interazioni Ajax.
+      2. **jQuery UI**: questa libreria fornisce astrazioni per applicazione widget basato sulla libreria JavaScript jQuery e animazione, effetti avanzate e interazione di basso livello.
 
-            > [!NOTE]
-            > È possibile acquisire informazioni jQuery e jQuery UI in [ [http://docs.jquery.com/](http://docs.jquery.com/)](http://docs.jquery.com/).
-        3. **Knockout.js**: modello predefinito di ASP.NET MVC 4 include ora **Knockout.js**, un framework JavaScript MVVM che consente di creare applicazioni web avanzate e ad alte scritte in JavaScript e HTML. Ad esempio in ASP.NET MVC 3, jQuery e jQuery librerie di interfaccia utente sono incluse anche in ASP.NET MVC 4.
+         > [!NOTE]
+         > È possibile acquisire informazioni jQuery e jQuery UI in [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
+      3. **Knockout.js**: modello predefinito di ASP.NET MVC 4 include ora **Knockout.js**, un framework JavaScript MVVM che consente di creare applicazioni web avanzate e ad alte scritte in JavaScript e HTML. Ad esempio in ASP.NET MVC 3, jQuery e jQuery librerie di interfaccia utente sono incluse anche in ASP.NET MVC 4.
 
-            > [!NOTE]
-            > È possibile ottenere ulteriori informazioni sulla libreria Knockout.js in questo collegamento: [http://learn.knockoutjs.com/](http://learn.knockoutjs.com/).
-        4. **Modernizr**: questa libreria viene eseguito automaticamente, rendendo il sito compatibile con browser meno recenti quando si utilizzano le tecnologie di HTML5 e CSS3.
+          > [!NOTE]
+          > È possibile ottenere ulteriori informazioni sulla libreria Knockout. js in questo collegamento: [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/).
+      4. **Modernizr**: questa libreria viene eseguito automaticamente, rendendo il sito compatibile con browser meno recenti quando si utilizzano le tecnologie di HTML5 e CSS3.
 
-            > [!NOTE]
-            > È possibile ottenere ulteriori informazioni sulla libreria Modernizr in questo collegamento: [http://www.modernizr.com/](http://www.modernizr.com/).
-    3. **SimpleMembership inclusi nella soluzione**
+          > [!NOTE]
+          > È possibile ottenere ulteriori informazioni sulla libreria Modernizr in questo collegamento: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
+   3. **SimpleMembership inclusi nella soluzione**
 
-        SimpleMembership è stato progettato come sostituzione per il sistema di provider di ruoli ASP.NET e appartenenza precedente. Include molte nuove funzionalità che rendono più semplice per lo sviluppatore a pagine web protette in modo più flessibile.
+       SimpleMembership è stato progettato come sostituzione per il sistema di provider di ruoli ASP.NET e appartenenza precedente. Include molte nuove funzionalità che rendono più semplice per lo sviluppatore a pagine web protette in modo più flessibile.
 
-        Il modello Internet già dispone di configurare alcuni aspetti da integrare SimpleMembership, ad esempio, il AccountController è pronto per l'utilizzo OAuthWebSecurity (per la registrazione dell'account OAuth, account di accesso, gestione e così via) e la sicurezza del Web.
+       Il modello Internet già dispone di configurare alcuni aspetti da integrare SimpleMembership, ad esempio, il AccountController è pronto per l'utilizzo OAuthWebSecurity (per la registrazione dell'account OAuth, account di accesso, gestione e così via) e la sicurezza del Web.
 
-        ![SimpleMembership inclusi nella soluzione](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership inclusi nella soluzione")
+       ![SimpleMembership inclusi nella soluzione](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership inclusi nella soluzione")
 
-        *SimpleMembership inclusi nella soluzione*
+       *SimpleMembership inclusi nella soluzione*
 
-        > [!NOTE]
-        > Ulteriori informazioni su [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
+       > [!NOTE]
+       > Ulteriori informazioni su [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) in MSDN.
 
 > [!NOTE]
 > Inoltre, è possibile distribuire l'applicazione per siti Web di Azure seguenti [pubblicazione appendice b: un'applicazione ASP.NET MVC 4 con distribuzione Web](#AppendixB).
@@ -994,9 +1032,9 @@ Completando questa pratica si è appreso le nozioni di base di ASP.NET MVC:
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il  **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
 
-1. Passare a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; *Visual Studio Express 2012 per Web con Windows Azure SDK*&quot;.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
 2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
 3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
 
@@ -1140,14 +1178,14 @@ Se l'applicazione viene utilizzato SQL Server database, è necessario creare un 
     *Configurazione della distribuzione Web*
 5. Configurare la connessione al database come segue:
 
-    - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
-    - In **nome utente** digitare il nome di accesso di amministratore di server.
-    - In **Password** digitare la password dell'account di accesso amministratore server.
-    - Digitare un nuovo nome di database, ad esempio: *MVC4SampleDB*.
+   - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
+   - In **nome utente** digitare il nome di accesso di amministratore di server.
+   - In **Password** digitare la password dell'account di accesso amministratore server.
+   - Digitare un nuovo nome di database, ad esempio: *MVC4SampleDB*.
 
-    ![Configurazione di stringa di connessione di destinazione](aspnet-mvc-4-fundamentals/_static/image64.png "configurazione stringa di connessione di destinazione")
+     ![Configurazione di stringa di connessione di destinazione](aspnet-mvc-4-fundamentals/_static/image64.png "configurazione stringa di connessione di destinazione")
 
-    *Configurazione di stringa di connessione di destinazione*
+     *Configurazione di stringa di connessione di destinazione*
 6. Fare quindi clic su **OK**. Quando viene richiesto di creare il database fare clic su **Sì**.
 
     ![Creazione del database](aspnet-mvc-4-fundamentals/_static/image65.png "creazione della stringa di database")

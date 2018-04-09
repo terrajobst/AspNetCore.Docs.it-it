@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e889cd27e2267a08f7b6ea708c92e35edbdd7a1a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introduzione a ASP.NET Web Pages: aggiornamento dei dati di Database
 ====================
@@ -108,7 +108,7 @@ Una volta che si conoscono il `format` proprietà, è più facile da comprendere
 
 La colonna include *solo* di markup che esegue il rendering del collegamento, nonché alcune informazioni (ID) che è stato estratto dal record del database per la riga.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **I parametri denominati e i parametri posizionali per un metodo**
 > 
@@ -173,7 +173,7 @@ Il codice utilizza `Request.QueryString["id"]` per ottenere l'ID che viene passa
 
 Questo codice viene illustrato un modo diverso per convalidare le informazioni. Nell'esercitazione precedente, si è lavorato con il `Validation` helper. La registrazione di campi da convalidare, ASP.NET automaticamente e la convalida ha visualizzati errori tramite `Html.ValidationMessage` e `Html.ValidationSummary`. In questo caso, tuttavia, si effettua non effettivamente la convalida dell'input dell'utente. Al contrario, si effettua la convalida di un valore che è stato passato alla pagina da un' posizione. Il `Validation` helper che non esegue automaticamente.
 
-Pertanto, per verificare il valore manualmente, con `if(!Request.QueryString["ID"].IsEmpty()`). Se si verifica un problema, è possibile visualizzare l'errore utilizzando `Html.ValidationSummary`, come è stato eseguito con il `Validation` helper. A tale scopo, si chiama `Validation.AddFormError` e passarlo a un messaggio da visualizzare. `Validation.AddFormError`è un metodo incorporato che consente di definire messaggi personalizzati che è strettamente si ha già familiarità con il sistema di convalida. (Più avanti in questa esercitazione verranno fornite informazioni rendere un po' più affidabile questo processo di convalida.)
+Pertanto, per verificare il valore manualmente, con `if(!Request.QueryString["ID"].IsEmpty()`). Se si verifica un problema, è possibile visualizzare l'errore utilizzando `Html.ValidationSummary`, come è stato eseguito con il `Validation` helper. A tale scopo, si chiama `Validation.AddFormError` e passarlo a un messaggio da visualizzare. `Validation.AddFormError` è un metodo incorporato che consente di definire messaggi personalizzati che strettamente si ha già familiarità con il sistema di convalida. (Più avanti in questa esercitazione verranno fornite informazioni rendere un po' più affidabile questo processo di convalida.)
 
 Dopo aver apportato che vi sia un ID per il film, il codice legge il database, cercando solo un elemento singolo database. (Si probabilmente notato il modello generale per le operazioni di database: aprire il database, definire un'istruzione SQL ed eseguire l'istruzione.) Questa volta, l'istruzione SQL `Select` istruzione include `WHERE ID = @0`. Poiché l'ID è univoco, può essere restituito un solo record.
 
@@ -207,7 +207,7 @@ L'importante differenza tra il *AddMovie* codice e il codice è che in questo co
 
 > [!NOTE] 
 > 
-> **Importante** il `Where` clausola con l'ID è molto importante, perché è come il database identifica quale database record che si desidera aggiornare. Se si è interrotto il `Where` clausola, il database Aggiorna *ogni* record nel database. Nella maggior parte dei casi, sarebbe un'emergenza.
+> **Importante** il `Where` clausola con l'ID è molto importante, perché si tratta come database sappia quale database record che si desidera aggiornare. Se si è interrotto il `Where` clausola, il database Aggiorna *ogni* record nel database. Nella maggior parte dei casi, sarebbe un'emergenza.
 
 
 Nel codice, aggiornare i valori vengono passati all'istruzione SQL utilizzando segnaposto. Per ripetere quanto abbiamo detto prima: per motivi di sicurezza *solo* utilizzare segnaposto per passare valori a un'istruzione SQL.
@@ -311,6 +311,6 @@ Nella prossima esercitazione, si noterà come eliminare un record di film.
 - [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](../../getting-started/introducing-razor-syntax-c.md)
 - [Istruzione SQL UPDATE](http://www.w3schools.com/sql/sql_update.asp) nel sito W3Schools
 
->[!div class="step-by-step"]
-[Precedente](entering-data.md)
-[Successivo](deleting-data.md)
+> [!div class="step-by-step"]
+> [Precedente](entering-data.md)
+> [Successivo](deleting-data.md)

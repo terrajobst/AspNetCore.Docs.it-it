@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 title: Creazione di un livello di accesso ai dati (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si sarà avviare fin dall'inizio e creare Data Access Layer (DAL), utilizzando i dataset tipizzati, per accedere alle informazioni in un database."
+description: In questa esercitazione si sarà avviare fin dall'inizio e creare Data Access Layer (DAL), utilizzando i dataset tipizzati, per accedere alle informazioni in un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5cf1a430d6fe94174a877beb04b930409bdbf084
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Creazione di un livello di accesso ai dati (VB)
 ====================
@@ -77,10 +77,10 @@ Quando si lavora con dati uno consiste nel non incorporare la logica di specific
 
 Tutto il codice specifico per l'origine dati sottostante, ad esempio la creazione di una connessione al database, il rilascio `SELECT`, `INSERT`, `UPDATE`, e `DELETE` comandi e così via devono trovarsi nello DAL. Il livello di presentazione non deve contenere riferimenti a tale codice di accesso ai dati, ma deve invece di effettuare chiamate in per le richieste di tutti i dati. Livelli di accesso ai dati in genere contengono i metodi per l'accesso ai dati di database sottostante. È ad esempio, il database Northwind, `Products` e `Categories` tabelle che registrano i prodotti in vendita e le categorie a cui appartengono. Nel nostro DAL abbiamo metodi, ad esempio:
 
-- `GetCategories(),`che restituisce informazioni su tutte le categorie
+- `GetCategories(),` Pertanto restituirà informazioni su tutte le categorie
 - `GetProducts()`, che restituirà informazioni su tutti i prodotti
 - `GetProductsByCategoryID(categoryID)`, che restituirà tutti i prodotti che appartengono a una categoria specificata
-- `GetProductByProductID(productID)`, che restituisce informazioni su un prodotto specifico
+- `GetProductByProductID(productID)`, che restituirà informazioni su un prodotto specifico
 
 Questi metodi, quando richiamata, verranno connettersi al database, eseguire la query appropriata e restituire i risultati. Come restituiamo questi risultati è importante. Questi metodi può semplicemente restituire un set di dati o DataReader popolata dalla query sul database, ma idealmente devono essere restituiti i risultati utilizzando *oggetti fortemente tipizzati*. Un oggetto fortemente tipizzato è quello il cui schema è rigidamente definito in fase di compilazione, mentre il contrario, un oggetto fortemente tipizzato, è uno cui schema non è noto fino al runtime.
 
@@ -129,7 +129,7 @@ Dopo aver selezionato il database e fare clic su Avanti, verrà chiesto se si de
 
 [![Salvare la stringa di connessione in Web. config](creating-a-data-access-layer-vb/_static/image15.png)](creating-a-data-access-layer-vb/_static/image14.png)
 
-**Figura 6**: Salva stringa di connessione per `Web.config` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image16.png))
+**Figura 6**: Salva stringa di connessione `Web.config` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image16.png))
 
 
 Successivamente, è necessario definire lo schema per il primo DataTable fortemente tipizzati e fornire il primo metodo per l'oggetto TableAdapter da utilizzare durante il popolamento del set di dati fortemente tipizzati. Questi due passaggi, vengono eseguiti contemporaneamente creando una query che restituisce le colonne della tabella che si desidera siano indicati nei nostri DataTable. Al termine della procedura guidata si assegnerà un nome di metodo per la query. Una volta che viene eseguito, questo metodo può essere richiamato da questo livello di presentazione. Il metodo esegue la query definita e popolare un oggetto DataTable fortemente tipizzata.
@@ -178,7 +178,7 @@ Se selezionata, la casella di controllo finale, "GenerateDBDirectMethods," Crea 
 
 [![Modificare il nome del metodo da GetData a GetProducts](creating-a-data-access-layer-vb/_static/image30.png)](creating-a-data-access-layer-vb/_static/image29.png)
 
-**Figura 11**: modificare il nome del metodo da `GetData` a `GetProducts` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image31.png))
+**Figura 11**: modificare il nome del metodo da `GetData` alla `GetProducts` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image31.png))
 
 
 Completare la procedura guidata, fare clic su Fine. Dopo aver chiuso la procedura guidata è viene restituiti alla finestra di progettazione set di dati che mostra il DataTable che appena creato. È possibile visualizzare l'elenco di colonne di `Products` DataTable (`ProductID`, `ProductName`e così via), nonché i metodi del `ProductsTableAdapter` (`Fill()` e `GetProducts()`).
@@ -230,7 +230,7 @@ Vengono innanzitutto richieste se si desidera accedere al database utilizzando u
 
 [![Scegliere di creare un'istruzione SELECT che restituisce righe](creating-a-data-access-layer-vb/_static/image40.png)](creating-a-data-access-layer-vb/_static/image39.png)
 
-**Figura 15**: scegliere di creare un `SELECT` istruzione che restituisce righe ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image41.png))
+**Figura 15**: scegliere di creare un `SELECT` che restituisce le righe di rendiconto ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image41.png))
 
 
 Il passaggio successivo consiste nel definire la query SQL utilizzata per accedere ai dati. Poiché si desidera restituire solo i prodotti che appartengono a una categoria specifica, utilizzare lo stesso `SELECT` from dell'istruzione `GetProducts()`, ma è aggiungere le seguenti `WHERE` clausola: `WHERE CategoryID = @CategoryID`. Il `@CategoryID` per la configurazione guidata TableAdapter parametro indica che il metodo che si sta creando richiede un parametro di input del tipo corrispondente (vale a dire, un intero che ammette valori null).
@@ -308,7 +308,7 @@ Entrambi i modelli modifica dati utilizzano dell'oggetto TableAdapter `InsertCom
 
 [![Il TableAdapter è InsertCommand, UpdateCommand e DeleteCommand proprietà](creating-a-data-access-layer-vb/_static/image62.png)](creating-a-data-access-layer-vb/_static/image61.png)
 
-**Nella figura 23**: il TableAdapter è `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image63.png))
+**Nella figura 23**: il TableAdapter ha `InsertCommand`, `UpdateCommand`, e `DeleteCommand` delle proprietà ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image63.png))
 
 
 Per esaminare o modificare una di queste proprietà di comando di database, fare clic su di `CommandText` sottoproprietà, che verrà visualizzato il generatore delle Query.
@@ -362,7 +362,7 @@ Per impostazione predefinita, inserire i metodi di query non problema metodi, va
 
 [![Modificare la proprietà ExecuteMode per scalare](creating-a-data-access-layer-vb/_static/image77.png)](creating-a-data-access-layer-vb/_static/image76.png)
 
-**Figura 28**: modifica di `ExecuteMode` proprietà `Scalar` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image78.png))
+**Figura 28**: modifica il `ExecuteMode` proprietà `Scalar` ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image78.png))
 
 
 Il codice seguente illustra questo nuovo `InsertProduct` metodo di azione:
@@ -380,7 +380,7 @@ Questo può costituire un problema, tuttavia, come i metodi dell'oggetto TableAd
 
 [![Aggiornare l'istruzione SELECT per il metodo GetProducts()](creating-a-data-access-layer-vb/_static/image80.png)](creating-a-data-access-layer-vb/_static/image79.png)
 
-**Figura 29**: aggiornamento di `SELECT` istruzione per il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image81.png))
+**Figura 29**: aggiornamento di `SELECT` istruzione per il `GetProducts()` (metodo) ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-vb/_static/image81.png))
 
 
 Dopo aver aggiornato il `GetProducts()` metodo da usare questa nuova query DataTable includerà due nuove colonne: `CategoryName` e `SupplierName`.
@@ -388,7 +388,7 @@ Dopo aver aggiornato il `GetProducts()` metodo da usare questa nuova query DataT
 
 ![DataTable prodotti include due nuove colonne](creating-a-data-access-layer-vb/_static/image82.png)
 
-**Figura 30**: il `Products` DataTable dispone di due nuove colonne
+**Figura 30**: il `Products` DataTable include due nuove colonne
 
 
 È opportuno aggiornare il `SELECT` clausola il `GetProductsByCategoryID(categoryID)` anche metodo.
@@ -403,48 +403,48 @@ Richiedere alcuni minuti per creare i seguenti oggetti TableAdapter e metodi uti
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
 
 
 [![Progettazione DataSet dopo che sono stati aggiunti i quattro oggetti TableAdapter](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
@@ -481,7 +481,7 @@ Questa classe parziale indica al compilatore che quando la creazione di `Northwi
 
 ![Il metodo GetProducts() fa ora parte della classe Northwind.SuppliersRow](creating-a-data-access-layer-vb/_static/image90.png)
 
-**Figura 34**: il `GetProducts()` metodo appartiene a questo punto il `Northwind.SuppliersRow` classe
+**Figura 34**: il `GetProducts()` metodo fa ora parte di `Northwind.SuppliersRow` (classe)
 
 
 Il `GetProducts()` metodo ora può essere utilizzato per enumerare il set di prodotti per un particolare fornitore, come illustrato nel codice seguente:
@@ -537,12 +537,12 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Ron Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, etichetta Gomez e Santos Carlos. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](master-pages-and-site-navigation-cs.md)
-[Successivo](creating-a-business-logic-layer-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](master-pages-and-site-navigation-cs.md)
+> [Successivo](creating-a-business-logic-layer-vb.md)

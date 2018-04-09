@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ee83a134dcbdd1abfb296f3126a64c7d4ebab7f5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3159feb6538e3048f4f235f7d549e692604ca4e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-route-constraint-c"></a>Creazione di un vincolo di Route (c#)
 ====================
@@ -35,7 +35,7 @@ Ad esempio, si supponga che sia stata definita la route nel listato 1 nel file G
 
 Elenco 1 contiene una route denominata Product. È possibile utilizzare la route di prodotto per eseguire il mapping alle richieste del browser il ProductController contenuti nel listato 2.
 
-**Elenco di 2 - Controllers\ProductController.cs**
+**Il listato 2 - Controllers\ProductController.cs**
 
 [!code-csharp[Main](creating-a-route-constraint-cs/samples/sample2.cs)]
 
@@ -56,7 +56,7 @@ Poiché l'azione Details() prevede un parametro intero, effettua una richiesta c
 
 [![La finestra di dialogo Nuovo progetto](creating-a-route-constraint-cs/_static/image1.jpg)](creating-a-route-constraint-cs/_static/image1.png)
 
-**Figura 01**: visualizzare una pagina esplosi ([fare clic per visualizzare l'immagine ingrandita](creating-a-route-constraint-cs/_static/image2.png))
+**Figura 01**: una pagina visualizzata esplodere ([fare clic per visualizzare l'immagine ingrandita](creating-a-route-constraint-cs/_static/image2.png))
 
 
 Cosa si vuole eseguire è trovare solo gli URL che contengono un productId intero appropriato. È possibile utilizzare un vincolo quando si definisce una route per limitare gli URL che corrispondono alla route. La route di prodotto modificata nel listato 3 contiene un vincolo di espressione regolare che corrisponde solo numeri interi.
@@ -77,6 +77,6 @@ Ma non gli URL seguenti:
 
 - Queste richieste del browser verranno gestite da un'altra route o, se non esistono route corrispondente, un *non è stata trovata la risorsa* viene restituito l'errore.
 
->[!div class="step-by-step"]
-[Precedente](creating-custom-routes-cs.md)
-[Successivo](creating-a-custom-route-constraint-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-custom-routes-cs.md)
+> [Successivo](creating-a-custom-route-constraint-cs.md)

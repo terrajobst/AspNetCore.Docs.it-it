@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'Database di Entity Framework prima con ASP.NET MVC: generazione di visualizzazioni | Documenti Microsoft'
 author: tfitzmac
-description: "Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri..."
+description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 5fccb3c56af0945ec448becff777a3e92dc160d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60e89a187a879255eb051dc87241714cef6fa63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>Database di Entity Framework prima con ASP.NET MVC: generazione di visualizzazioni
 ====================
@@ -27,7 +27,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > Questa parte della serie si concentra sull'uso di Scaffolding di ASP.NET per generare il controller e visualizzazioni.
 
 
-## <a name="add-scaffold"></a>Aggiungere lo scaffolding
+## <a name="add-scaffold"></a>aggiungere lo scaffolding
 
 Si è pronti per generare il codice che fornisce le operazioni di dati standard per le classi di modello. Aggiungere il codice aggiungendo un elemento lo scaffolding. Sono disponibili molte opzioni per il tipo di scaffolding che è possibile aggiungere; in questa esercitazione il scaffold includerà un controller e visualizzazioni che corrispondono ai modelli di studenti e la registrazione che è stato creato nella sezione precedente.
 
@@ -109,6 +109,6 @@ Inoltre, convalida dei valori forniti viene applicata automaticamente in base al
 
 Significa che le visualizzazioni generate automaticamente consentono agli utenti di lavorare con i dati nel database. Nella prossima esercitazione di questa serie, si aggiorna il database e apportare le modifiche corrispondenti nell'applicazione web.
 
->[!div class="step-by-step"]
-[Precedente](creating-the-web-application.md)
-[Successivo](changing-the-database.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-the-web-application.md)
+> [Successivo](changing-the-database.md)

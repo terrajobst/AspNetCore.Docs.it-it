@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 191de7546e2ba913fda0c8c8a8bfd3531b53336e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4ba2981e627199da89a25b0b59840f66521f2e78
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-master-page-programmatically-vb"></a>Specifica la pagina Master a livello di codice (VB)
 ====================
@@ -45,9 +45,9 @@ Ogni volta che arriva una richiesta nel server web per una pagina ASP.NET che è
 La figura 1 illustra questo fusion. Passaggio 1 nella figura 1 mostra le gerarchie di controllo pagina master e il contenuto iniziale. Alla fine della parte finale della fase PreInit il contenuto della pagina vengono aggiunti al ContentPlaceHolder corrispondente nella pagina master (passaggio 2). Dopo questo fusion, la pagina master funge da radice della gerarchia del controllo fusibili. Questo controllo con fusibile gerarchia viene quindi aggiunto alla pagina per produrre la gerarchia del controllo finalizzato (passaggio 3). Il risultato è che la gerarchia dei controlli della pagina include la gerarchia dei controlli fusibili.
 
 
-[![La pagina Master e le gerarchie di controllo del contenuto della pagina sono fusibile insieme durante la fase PreInit](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
+[![La pagina Master e le gerarchie di controllo della pagina contenuto sono fusibile insieme durante la fase PreInit](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
-**Figura 01**: la pagina Master e contenuto pagina gerarchie di controllo sono fusibile insieme durante la fase PreInit ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image3.png))
+**Figura 01**: le gerarchie di controllo della pagina Master e pagina di contenuto sono fusibile insieme durante la fase PreInit ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image3.png))
 
 
 ## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>Passaggio 2: Configurazione di`MasterPageFile`proprietà dal codice
@@ -88,7 +88,7 @@ In breve, è necessario lasciare il `MasterPageFile` attributo la `@Page` dirett
 
 [![Visual Studio Usa il @Page attributo MasterPageFile della direttiva per il rendering della visualizzazione Progettazione](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
-**Figura 02**: Visual Studio Usa il `@Page` della direttiva `MasterPageFile` attributo per il rendering, la visualizzazione di progettazione ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image6.png))
+**Figura 02**: Visual Studio Usa la `@Page` della direttiva `MasterPageFile` attributo per il rendering la visualizzazione della struttura ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image6.png))
 
 
 ## <a name="step-3-creating-an-alternative-master-page"></a>Passaggio 3: Creazione di una pagina Master alternativa
@@ -111,9 +111,9 @@ Creare una nuova pagina master nella cartella radice denominata `Alternate.maste
 > ASP.NET include la possibilità di definire *temi*. Un tema è una raccolta di immagini, file CSS e relative allo stile Web proprietà impostazioni di controllo possono essere applicate a una pagina in fase di esecuzione. I temi sono il modo se il layout del sito sono diversi solo in immagini visualizzate e le regole CSS. Se i layout diversi più significativo, ad esempio utilizzando i controlli Web diversi o con un layout di completamente diverso, è necessario utilizzare pagine master separate. Alla fine di questa esercitazione per ulteriori informazioni su temi, consultare la sezione di approfondimento.
 
 
-[![Le pagine contenute ora è possono usare un nuovo aspetto](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
+[![Le pagine contenute ora possono usare un nuovo aspetto](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
-**Figura 04**: le pagine contenute ora è possono usare un nuovo aspetto ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image12.png))
+**Figura 04**: le pagine contenute ora possono usare un nuovo aspetto ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image12.png))
 
 
 Quando il server principale e il markup di pagine contenuto sono fusibile, la `MasterPage` classe controlli per assicurarsi che ogni contenuto controllo nella pagina di contenuto fa riferimento a un controllo ContentPlaceHolder nella pagina master. Se viene trovato un controllo contenuto che fa riferimento a un controllo ContentPlaceHolder inesistente, viene generata un'eccezione. In altre parole, è fondamentale che la pagina master da assegnare alla pagina di contenuto include un ContentPlaceHolder per ogni controllo nella pagina di contenuto del contenuto.
@@ -259,7 +259,7 @@ Con questo codice, visitare il `ChooseMasterPage.aspx` pagina. Inizialmente, il 
 **Figura 06**: le pagine di contenuto vengono visualizzati utilizzando il `Site.master` pagina Master ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image18.png))
 
 
-[![Pagine di contenuto vengono visualizzate tramite la pagina Master Alternate.master](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
+[![Pagine contenuto sono ora visualizzate mediante la pagina Master Alternate.master](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
 **Figura 07**: le pagine di contenuto vengono ora visualizzati utilizzando il `Alternate.master` pagina Master ([fare clic per visualizzare l'immagine ingrandita](specifying-the-master-page-programmatically-vb/_static/image21.png))
 
@@ -282,12 +282,12 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](master-pages-and-asp-net-ajax-vb.md)
-[Successivo](nested-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](master-pages-and-asp-net-ajax-vb.md)
+> [Successivo](nested-master-pages-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs
 title: Aggiunta di controlli di convalida per la modifica e l'inserimento di interfacce (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida EditItemTemplate e InsertItemTemplate dei dati di controllo Web, per offrire maggiori..."
+description: In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida EditItemTemplate e InsertItemTemplate dei dati di controllo Web, per offrire maggiori...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8b05705629b5e8a9acfc5d23517ef1b3cfa7cd6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3df80984d15e13efddc52497d600d396d775d365
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a>Aggiunta di controlli di convalida per la modifica e l'inserimento di interfacce (c#)
 ====================
@@ -37,12 +37,12 @@ Per fornire una modalità di modifica personalizzata o un'interfaccia di inserim
 
 In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida per il TemplateField `EditItemTemplate` e `InsertItemTemplate` per fornire un'interfaccia utente più infallibile. In particolare, questa esercitazione illustra l'esempio creato nel [esaminando gli eventi associati con l'inserimento, aggiornamento ed eliminazione](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) esercitazione e consente la modifica e l'inserimento delle interfacce per includere la convalida appropriata.
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-csmd"></a>Passaggio 1: La replica di esempio da[esaminando gli eventi associati di inserimento, aggiornamento ed eliminazione](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-csmd"></a>Passaggio 1: La replica di esempio dal[esaminando gli eventi associati inserimento, aggiornamento ed eliminazione](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
 
 Nel [esaminando gli eventi associati con l'inserimento, aggiornamento ed eliminazione](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) esercitazione è stata creata una pagina elencati i nomi e i prezzi dei prodotti in un controllo GridView. modificabile. Inoltre, la pagina è incluso un controllo DetailsView cui `DefaultMode` è stata impostata su `Insert`, pertanto è sempre il rendering in modalità di inserimento. Da questo controllo DetailsView, l'utente può immettere il nome e il prezzo per un nuovo prodotto, fare clic su Inserisci e aggiungerlo al sistema (vedere la figura 1).
 
 
-[![Nell'esempio precedente consente agli utenti di aggiungere nuovi prodotti e modificare quelli esistenti](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image1.png)
+[![Nell'esempio precedente consente agli utenti di aggiungere nuovi prodotti e modificare quelle esistenti](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image1.png)
 
 **Figura 1**: il precedente esempio consente agli utenti di aggiungere nuovi prodotti e modificare quelli esistenti ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image3.png))
 
@@ -78,7 +78,7 @@ Dopo avere spostato il contenuto e il codice da `DataModificationEvents.aspx` a 
 Per aggiungere i controlli di convalida per le interfacce di modificare e l'inserimento, devono essere convertiti in TemplateFields il BoundField usato dai controlli DetailsView e GridView. A tale scopo, scegliere i collegamenti di modifica colonne e modificare i campi in GridView e DetailsView smart tag, rispettivamente. Qui, selezionare ogni il BoundField e fare clic sul collegamento "Converti il campo in un TemplateField".
 
 
-[![Convertire ogni BoundField di DetailsView e GridView in TemplateFields](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image7.png)
+[![Ognuna delle BoundField di DetailsView e del controllo GridView. convertire TemplateFields](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image7.png)
 
 **Figura 3**: convertirli singolarmente di DetailsView e GridView BoundField in TemplateFields ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image9.png))
 
@@ -104,10 +104,10 @@ Fare clic su "Converti il campo in un TemplateField", Visual Studio ha creato un
 Quando si crea il form di immissione dati, è importante che gli utenti immettere tutti i campi obbligatori e che tutti gli input forniti sono valori validi, formattato correttamente. Per garantire che l'input dell'utente siano valide, ASP.NET fornisce cinque i controlli di convalida incorporate che sono progettati per essere utilizzati per convalidare il valore di un singolo controllo di input:
 
 - [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) assicura che è stato fornito un valore
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) convalida di un valore rispetto a un altro valore di controllo Web o un valore costante o assicura che il formato del valore è valido per un tipo di dati specificato
-- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) garantisce che un valore all'interno di un intervallo di valori
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) convalida di un valore rispetto a un [espressioni regolari](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) convalida di un valore rispetto a un metodo personalizzato definito dall'utente
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) convalida un valore rispetto a un altro valore di controllo Web o un valore costante, oppure verifica che il formato del valore è valido per un tipo di dati specificato
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) assicura che un valore sia all'interno di un intervallo di valori
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) convalida un valore rispetto a un [espressioni regolari](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) convalida un valore rispetto a un metodo personalizzato definito dall'utente
 
 Per ulteriori informazioni su questi cinque controlli, consultare il [sezione relativa ai controlli di convalida](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx) del [esercitazioni delle Guide rapide ASP.NET](https://asp.net/QuickStart/aspnet/).
 
@@ -138,7 +138,7 @@ Tutti i controlli di convalida di lavoro tramite la convalida dell'input di un s
 
 [![Modificare ID la casella di testo in EditProductName](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image16.png)
 
-**Figura 6**: modificare la casella di testo `ID` a `EditProductName` ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image18.png))
+**Figura 6**: modificare la casella di testo `ID` alla `EditProductName` ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image18.png))
 
 
 Successivamente, impostare il controllo RequiredFieldValidator `ControlToValidate` proprietà `EditProductName`. Infine, impostare il [proprietà ErrorMessage](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) "È necessario fornire il nome del prodotto" e [proprietà Text](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) per "\*". Il `Text` valore della proprietà, se fornito, è il testo visualizzato dal controllo di convalida se la convalida non riesce. Il `ErrorMessage` valore della proprietà, è necessario, viene utilizzato il controllo ValidationSummary; se il `Text` valore della proprietà viene omessa, il `ErrorMessage` valore della proprietà è anche il testo visualizzato dal controllo di convalida un input non valido.
@@ -146,9 +146,9 @@ Successivamente, impostare il controllo RequiredFieldValidator `ControlToValidat
 Dopo l'impostazione di queste tre proprietà di RequiredFieldValidator la schermata dovrebbe essere simile alla figura 7.
 
 
-[![Impostare il controllo RequiredFieldValidator ControlToValidate ErrorMessage e proprietà di testo](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image19.png)
+[![Impostare il RequiredFieldValidator ControlToValidate ErrorMessage e proprietà di testo](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image19.png)
 
-**Figura 7**: impostare il controllo RequiredFieldValidator `ControlToValidate`, `ErrorMessage`, e `Text` proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image21.png))
+**Figura 7**: impostare il RequiredFieldValidator `ControlToValidate`, `ErrorMessage`, e `Text` delle proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image21.png))
 
 
 Con RequiredFieldValidator aggiunti il `ProductName` `EditItemTemplate`, che rimane consiste nell'aggiungere la convalida necessaria per tutti i `UnitPrice` `EditItemTemplate`. Poiché per questa pagina, abbiamo deciso che, di `UnitPrice` è facoltativo quando modifica un record, non è necessario aggiungere un controllo RequiredFieldValidator. Tuttavia, è necessario aggiungere un controllo CompareValidator per assicurarsi che il `UnitPrice`, se fornito, viene correttamente formattati come valuta ed è maggiore o uguale a 0.
@@ -165,9 +165,9 @@ Dopo aver apportato queste modifiche, aprire la pagina in un browser. Se si tent
 > Tenere presente che nel *gli eventi associati ad inserimento, aggiornamento ed eliminazione* esercitazione viene impostato il BoundField `DataFormatString` proprietà `{0:c}` per formattarlo come valuta. Inoltre, viene impostato il `ApplyFormatInEditMode` proprietà su true, causando GridView di modifica della interfaccia per formattare il `UnitPrice` come valuta. Quando si convertono i BoundField in un TemplateField, Visual Studio annotato queste impostazioni e la casella di testo formattato `Text` proprietà come valuta utilizzando la sintassi di associazione dati `<%# Bind("UnitPrice", "{0:c}") %>`.
 
 
-[![Viene visualizzato un asterisco accanto a caselle di testo con Input non valido](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image22.png)
+[![Viene visualizzato un asterisco accanto alle caselle di testo con Input non valido](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image22.png)
 
-**Figura 8**: un asterisco visualizzato Avanti per caselle di testo con Input non valido ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image24.png))
+**Figura 8**: un asterisco viene visualizzato Avanti per caselle di testo con Input non valido ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image24.png))
 
 
 Durante la convalida funziona come-è, l'utente deve rimuovere manualmente il simbolo di valuta, quando si modifica un record, che non è accettabile. Per risolvere questo problema, sono disponibili tre opzioni:
@@ -181,10 +181,10 @@ Proviamo l'opzione #1 per questo esercizio. Attualmente il `UnitPrice` sia forma
 
 [![Fare clic sul collegamento Modifica DataBindings del controllo TextBox](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image25.png)
 
-**Figura 9**: fare clic sul collegamento Modifica DataBindings del controllo TextBox ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image27.png))
+**Figura 9**: fare clic sul collegamento Modifica DataBindings la casella di testo ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image27.png))
 
 
-[![Specificare l'identificatore di formato nell'istruzione Bind](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image28.png)
+[![Specificare l'identificatore di formato nell'istruzione di binding](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image28.png)
 
 **Figura 10**: specificare l'identificatore di formato nel `Bind` istruzione ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image30.png))
 
@@ -202,9 +202,9 @@ Oltre ai controlli di convalida di cinque, ASP.NET include il [controllo Validat
 A tale scopo, trascinare un controllo ValidationSummary dalla casella degli strumenti nella finestra di progettazione. Il percorso del controllo di convalida non è importante, poiché si intende configurare in modo da visualizzare solo il riepilogo come un messagebox. Dopo aver aggiunto il controllo, impostare il relativo [proprietà ShowSummary](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) per `false` e il relativo [proprietà ShowMessageBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) a `true`. Con l'aggiunta, eventuali errori di convalida sono riepilogati in una finestra di messaggio sul lato client.
 
 
-[![Gli errori di convalida sono riepilogati in una finestra di messaggio sul lato Client](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image31.png)
+[![Gli errori di convalida sono riepilogati in Messagebox lato Client](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image31.png)
 
-**Figura 11**: di errori di convalida sono riepilogati in una finestra di messaggio sul lato Client ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image33.png))
+**Figura 11**: di errori di convalida sono riepilogati in Messagebox lato Client ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image33.png))
 
 
 ## <a name="step-5-adding-the-validation-controls-to-the-detailsviewsinsertitemtemplate"></a>Passaggio 5: Aggiunta di controlli di convalida al controllo DetailsView.`InsertItemTemplate`
@@ -220,7 +220,7 @@ Dopo l'aggiunta di questi controlli di convalida, un nuovo prodotto non può ess
 
 [![La logica di convalida è stato aggiunto all'interfaccia di inserimento del controllo DetailsView.](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image34.png)
 
-**Figura 12**: logica di convalida è stato aggiunto all'interfaccia di inserimento di DetailsView ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image36.png))
+**Figura 12**: è stata aggiunta logica di convalida all'interfaccia del controllo DetailsView inserimento di ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image36.png))
 
 
 ## <a name="step-6-partitioning-the-validation-controls-into-validation-groups"></a>Passaggio 6: Partizionamento dei controlli di convalida in gruppi di convalida
@@ -228,9 +228,9 @@ Dopo l'aggiunta di questi controlli di convalida, un nuovo prodotto non può ess
 La pagina è costituita da due set logicamente diversi controlli di convalida: quelli che corrispondono a GridView della modifica dell'interfaccia e quelli che corrispondono al controllo DetailsView dell'inserimento dell'interfaccia. Per impostazione predefinita, quando si verifica un postback *tutti* vengono controllati i controlli di convalida della pagina. Tuttavia, quando si modifica un record non vogliamo controlli di convalida dell'interfaccia inserimento del controllo DetailsView da convalidare. Figura 13 illustra il problema corrente quando un utente sta modificando un prodotto con i valori validi perfettamente, facendo clic su Update provoca un errore di convalida perché i valori di nome e il prezzo nell'interfaccia di inserimento sono vuoti.
 
 
-[![L'aggiornamento di un prodotto comporta i controlli di convalida dell'interfaccia inserimento attivati](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image37.png)
+[![L'aggiornamento di un prodotto fa sì che i controlli di convalida dell'interfaccia inserimento a fuoco](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image37.png)
 
-**Figura 13**: l'aggiornamento di un prodotto comporta i controlli di convalida dell'interfaccia inserimento incendio ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image39.png))
+**Figura 13**: l'aggiornamento di un prodotto comporta il controlli dell'interfaccia inserimento di convalida vengono attivati ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image39.png))
 
 
 I controlli di convalida in ASP.NET 2.0 possono essere partizionati in gruppi di convalida tramite i relativi `ValidationGroup` proprietà. Per associare un set di controlli di convalida in un gruppo, è sufficiente impostare i relativi `ValidationGroup` proprietà sullo stesso valore. Per questa esercitazione, impostare il `ValidationGroup` le proprietà dei controlli di convalida in GridView TemplateFields a `EditValidationControls` e `ValidationGroup` proprietà TemplateFields del controllo DetailsView per `InsertValidationControls`. Queste modifiche possono essere eseguite direttamente nel markup dichiarativo o tramite la finestra Proprietà quando si utilizza la finestra di progettazione modificare l'interfaccia di modello.
@@ -238,9 +238,9 @@ I controlli di convalida in ASP.NET 2.0 possono essere partizionati in gruppi di
 Oltre alla convalida controlli, il pulsante e correlati a pulsanti in ASP.NET 2.0 inoltre includere un `ValidationGroup` proprietà. Validator del gruppo di convalida viene verificato la validità solo quando un postback è causato da un pulsante che ha lo stesso `ValidationGroup` l'impostazione della proprietà. Ad esempio, in ordine per il pulsante Inserisci di DetailsView attivare il `InsertValidationControls` gruppo di convalida, è necessario impostare il CommandField `ValidationGroup` proprietà `InsertValidationControls` (vedere Figura 14). Inoltre, impostare il controllo GridView del CommandField `ValidationGroup` proprietà `EditValidationControls`.
 
 
-[![Set di DetailsView's proprietà ValidationGroup del CommandField InsertValidationControls](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image40.png)
+[![Set di DetailsView di proprietà del CommandField ValidationGroup InsertValidationControls](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image40.png)
 
-**Figura 14**: Set di DetailsView del CommandField `ValidationGroup` proprietà `InsertValidationControls` ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image42.png))
+**Figura 14**: impostare il controllo DetailsView del CommandField `ValidationGroup` proprietà `InsertValidationControls` ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image42.png))
 
 
 Dopo aver apportato queste modifiche, il controllo DetailsView GridView TemplateFields e CommandFields dovrebbe essere simile al seguente:
@@ -269,12 +269,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Liz Shulok e Zack Jones. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
-[Successivo](customizing-the-data-modification-interface-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
+> [Successivo](customizing-the-data-modification-interface-cs.md)

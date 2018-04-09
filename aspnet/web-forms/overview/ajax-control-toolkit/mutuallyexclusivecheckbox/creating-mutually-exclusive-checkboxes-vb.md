@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 title: Creazione di caselle di controllo si escludono a vicenda (VB) | Documenti Microsoft
 author: wenz
-description: "Quando può essere selezionato solo uno di un set di opzioni, pulsanti di opzione in genere vengono utilizzati. È uno svantaggio, tuttavia: dopo aver selezionato un pulsante di opzione in un gruppo,..."
+description: 'Quando può essere selezionato solo uno di un set di opzioni, pulsanti di opzione in genere vengono utilizzati. È uno svantaggio, tuttavia: dopo aver selezionato un pulsante di opzione in un gruppo,...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 023ca0b145de8147a98e78f4dba20846dc344f06
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdb93a080fb62cfdc7e3ff0604a1447e2bb99071
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Creazione di caselle di controllo si escludono a vicenda (VB)
 ====================
@@ -54,5 +54,5 @@ Salvare ed eseguire la pagina: È possibile selezionare e deselezionare caselle 
 
 Solo una casella di controllo può essere verificata in un momento ([fare clic per visualizzare l'immagine ingrandita](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](creating-mutually-exclusive-checkboxes-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-mutually-exclusive-checkboxes-cs.md)

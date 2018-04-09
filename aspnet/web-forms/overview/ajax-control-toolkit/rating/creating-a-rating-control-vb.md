@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 title: Creazione di un controllo di valutazione (VB) | Documenti Microsoft
 author: wenz
-description: "Molti siti Web, di e-commerce ai siti delle community, offrono agli utenti di articoli di frequenza o elementi. Ciò in genere richiede alcuni impegno di codifica, ma non è disponibile il..."
+description: Molti siti Web, di e-commerce ai siti delle community, offrono agli utenti di articoli di frequenza o elementi. Ciò in genere richiede alcuni impegno di codifica, ma non è disponibile il...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ff3394865e084c5a24e7e79469a4a7d26aabb552
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c19f36dfe1b72a3954db61ff1845e99c02e47c14
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-rating-control-vb"></a>Creazione di un controllo di valutazione (VB)
 ====================
@@ -41,12 +41,12 @@ Quindi, creare un nuovo file ASP.NET e iniziare, aggiungere un `ScriptManager` c
 
 Aggiungere quindi il `Rating` controllo di ASP.NET AJAX Control Toolkit. È necessario impostare per questo esempio gli attributi seguenti:
 
-- `CurrentRating`la valutazione iniziale da utilizzare
-- `MaxRating`la classificazione massima
-- `EmptyStarCssClass`la classe CSS da utilizzare quando un elemento di classificazione (asterisco) è vuota
-- `FilledStarCssClass`la classe CSS da utilizzare quando viene compilato un elemento di classificazione (asterisco)
-- `StarCssClass`la classe CSS da usare per un stat visibile
-- `WaitingStarCssClass`la classe CSS da usare durante una classificazione a stelle viene inviata al server
+- `CurrentRating` la valutazione iniziale da utilizzare
+- `MaxRating` la classificazione massima
+- `EmptyStarCssClass` la classe CSS da utilizzare quando un elemento di classificazione (asterisco) è vuota
+- `FilledStarCssClass` la classe CSS da utilizzare quando viene compilato un elemento di classificazione (asterisco)
+- `StarCssClass` la classe CSS da usare per un stat visibile
+- `WaitingStarCssClass` la classe CSS da usare durante una classificazione a stelle viene inviata al server
 
 Di seguito è il markup che crea un controllo di classificazione con cinque elementi (smileys) di cui non viene riempita inizialmente:
 
@@ -73,5 +73,5 @@ Salvare la pagina e caricarla nel browser. Quando si passa il mouse sugli elemen
 
 Creazione di un sistema di classificazione con quantità minima di codice ([fare clic per visualizzare l'immagine ingrandita](creating-a-rating-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](creating-a-rating-control-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-rating-control-cs.md)

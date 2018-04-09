@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 title: Aggiunta della convalida per il modello (VB) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: cac86760b90c90a0ea2fad16268f60b5ccf61299
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 86058530aa00ecbc00aeebc6ed7b5cf019fdad72
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>Aggiunta della convalida per il modello (VB)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul seguente collegamento: [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti utilizzando i collegamenti seguenti:
 > 
@@ -123,6 +123,6 @@ Eseguire l'applicazione e individuare il `Movies` controller.
 
 Nella parte successiva della serie, viene esaminare l'applicazione e apportare alcuni miglioramenti alla generato automaticamente `Details` e `Delete` metodi...
 
->[!div class="step-by-step"]
-[Precedente](adding-a-new-field.md)
-[Successivo](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-new-field.md)
+> [Successivo](improving-the-details-and-delete-methods.md)

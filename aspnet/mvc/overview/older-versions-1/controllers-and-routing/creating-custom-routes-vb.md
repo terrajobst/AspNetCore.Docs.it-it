@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d3161bd1bf74df425d3c53873875a1abcfbfa05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e827725ab7ce54c86ae9f4193d0a8a7ef4af8512
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-vb"></a>Creazione di route personalizzate (Visual Basic)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come aggiungere route personalizzate per un'applicazione MVC ASP.NET. In questa esercitazione imparare a modificare la tabella di route predefinita nel file Global. asax.
 
@@ -31,7 +31,7 @@ Nelle applicazioni ASP.NET MVC, la tabella di route predefinita funzionerà senz
 
 Si supponga, ad esempio, si compila un'applicazione di blog. È consigliabile gestire le richieste in ingresso che è simile al seguente:
 
-Archivio 12-25-2009
+/Archive/12-25-2009
 
 Quando un utente immette la richiesta, si desidera restituire il post di blog che corrisponde alla data 25/12/2009. Per gestire questo tipo di richiesta, è necessario creare una route personalizzata.
 
@@ -45,9 +45,9 @@ L'ordine di route che aggiungono alla tabella di route è importante. La nuova r
 
 La route di Blog personalizzata corrisponde a qualsiasi richiesta che inizia con archivio /. In tal caso, corrisponde tutti gli URL seguenti:
 
-- Archivio 12-25-2009
+- /Archive/12-25-2009
 
-- / Archivio/10-6-2004
+- /Archive/10-6-2004
 
 - / Archiviazione/apple
 
@@ -55,13 +55,13 @@ La route personalizzata viene eseguito il mapping della richiesta in ingresso a 
 
 È possibile utilizzare la route personalizzata Blog con il controller nel listato 2.
 
-**Elenco di 2 - ArchiveController.vb**
+**Il listato 2 - ArchiveController.vb**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
 Si noti che il metodo Entry() nel listato 2 accetta un parametro di tipo DateTime. Il framework di MVC è abbastanza per convertire la data di inizio dall'URL in un valore DateTime automaticamente. Se il parametro della data voce dall'URL non può essere convertito in un oggetto DateTime, viene generato un errore (vedere la figura 1).
 
-**Figura 1: errore di conversione del parametro**
+**Figura 1 - errore dalla conversione del parametro**
 
 
 [![La finestra di dialogo Nuovo progetto](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
@@ -73,6 +73,6 @@ Si noti che il metodo Entry() nel listato 2 accetta un parametro di tipo DateTim
 
 L'obiettivo di questa esercitazione è dimostrare come creare una route personalizzata. È stato descritto come aggiungere una route personalizzata per la tabella di routing nel file Global. asax che rappresenta i post di blog. Viene illustrato come mappare le richieste di post di blog di un controller denominato ArchiveController e un'azione del controller denominato Entry().
 
->[!div class="step-by-step"]
-[Precedente](asp-net-mvc-controller-overview-vb.md)
-[Successivo](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](asp-net-mvc-controller-overview-vb.md)
+> [Successivo](creating-a-route-constraint-vb.md)

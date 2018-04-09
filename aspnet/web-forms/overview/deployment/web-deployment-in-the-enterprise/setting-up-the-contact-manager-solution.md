@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e8fb24f5b2d96d864d1aa6bc0f78644773de00ab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>Impostazione della soluzione di gestione di contatto
 ====================
@@ -56,7 +56,7 @@ Per configurare ed eseguire la soluzione di gestione di contatto nel computer lo
 
 Nella parte restante di questa sezione fornisce informazioni aggiuntive sulla modalità di completamento di ognuna di queste attività.
 
-**Per creare il database di servizi di applicazione**
+**Per creare il database di servizi dell'applicazione**
 
 1. Aprire il prompt dei comandi di Visual Studio 2010. A tale scopo, scegliere il **avviare** dal menu **tutti i programmi**, fare clic su **Microsoft Visual Studio 2010**, fare clic su **Visual Studio Tools**e quindi Fare clic su **prompt dei comandi di Visual Studio (2010)**.
 2. Al prompt dei comandi, digitare il comando seguente e quindi premere INVIO:
@@ -125,6 +125,6 @@ A questo punto, la soluzione di gestione di contatto deve essere completamente c
 
 L'argomento successivo, [informazioni sui File di progetto](understanding-the-project-file.md), viene illustrato come è possibile utilizzare i file di progetto personalizzati di Microsoft Build Engine (MSBuild) all'interno della soluzione di gestione di contatto per controllare il processo di distribuzione.
 
->[!div class="step-by-step"]
-[Precedente](the-contact-manager-solution.md)
-[Successivo](understanding-the-project-file.md)
+> [!div class="step-by-step"]
+> [Precedente](the-contact-manager-solution.md)
+> [Successivo](understanding-the-project-file.md)

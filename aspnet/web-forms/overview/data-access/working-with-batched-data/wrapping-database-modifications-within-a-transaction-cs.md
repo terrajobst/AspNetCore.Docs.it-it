@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 title: Il wrapping delle modifiche del Database all'interno di una transazione (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione è la prima delle quattro che esamina l'aggiornamento, eliminazione e inserimento di batch di dati. In questa esercitazione viene illustrato come cui consentire le transazioni di database..."
+description: In questa esercitazione è la prima delle quattro che esamina l'aggiornamento, eliminazione e inserimento di batch di dati. In questa esercitazione viene illustrato come cui consentire le transazioni di database...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2dafdf9a9414bddfca37ef942856c94096f35b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a3f8ec2de7b9259e4bb83f4346bde8abfd643fb4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>Modifiche al Database di ritorno a capo all'interno di una transazione (c#)
 ====================
@@ -80,7 +80,7 @@ Prima di iniziare l'esplorazione come migliorare per supportare le transazioni d
 
 ![Aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource](wrapping-database-modifications-within-a-transaction-cs/_static/image1.gif)
 
-**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource
+**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative alla SqlDataSource
 
 
 Come con le altre cartelle, `Default.aspx` utilizzerà il `SectionLevelTutorialListing.ascx` controllo utente all'elenco di esercitazioni all'interno della sezione. Pertanto, aggiungere il controllo utente `Default.aspx` trascinandolo da Esplora soluzioni nella pagina di visualizzazione della struttura s.
@@ -88,7 +88,7 @@ Come con le altre cartelle, `Default.aspx` utilizzerà il `SectionLevelTutorialL
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image2.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image2.png))
 
 
 Infine, aggiungere questi quattro pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo la personalizzazione della mappa del sito `<siteMapNode>`:
@@ -101,7 +101,7 @@ Dopo aver aggiornato `Web.sitemap`, dedicare alcuni minuti per visualizzare il s
 
 ![Mappa del sito include ora le voci per l'utilizzo con le esercitazioni di dati in batch](wrapping-database-modifications-within-a-transaction-cs/_static/image3.gif)
 
-**Figura 3**: mappa del sito include ora le voci per l'utilizzo con le esercitazioni di dati in batch
+**Figura 3**: mappa del sito include ora le voci per lavorare con i dati in batch esercitazioni
 
 
 ## <a name="step-2-updating-the-data-access-layer-to-support-database-transactions"></a>Passaggio 2: Aggiornamento a livello di accesso ai dati per supportare le transazioni di Database
@@ -117,7 +117,7 @@ Il DataSet tipizzato `Northwind.xsd` si trova nella `App_Code` cartella s `DAL` 
 
 ![Aggiungere una cartella denominata TransactionSupport e un File di classe denominato ProductsTableAdapter.TransactionSupport.cs](wrapping-database-modifications-within-a-transaction-cs/_static/image4.gif)
 
-**Figura 4**: aggiungere una cartella denominata `TransactionSupport` e un File di classe denominato`ProductsTableAdapter.TransactionSupport.cs`
+**Figura 4**: aggiungere una cartella denominata `TransactionSupport` e un File di classe denominato `ProductsTableAdapter.TransactionSupport.cs`
 
 
 Immettere il codice seguente nel `ProductsTableAdapter.TransactionSupport.cs` file:
@@ -127,7 +127,7 @@ Immettere il codice seguente nel `ProductsTableAdapter.TransactionSupport.cs` fi
 
 Il `partial` parola chiave nella dichiarazione di classe qui indica al compilatore che devono essere aggiunti per i membri aggiunti all'interno di `ProductsTableAdapter` classe il `NorthwindTableAdapters` dello spazio dei nomi. Si noti il `using System.Data.SqlClient` istruzione all'inizio del file. Poiché il TableAdapter è stato configurato per utilizzare il provider SqlClient, utilizza internamente un [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx) oggetto per eseguire i comandi al database. Di conseguenza, è necessario utilizzare la `SqlTransaction` classe per avviare la transazione e quindi eseguirne il commit o eseguirne il rollback. Se si utilizza un archivio dati diverso da Microsoft SQL Server, è necessario utilizzare il provider appropriato.
 
-Questi metodi forniscono i blocchi predefiniti necessari per l'avvio, rollback e commit di una transazione. Questi ultimi vengono contrassegnati `public`, consentendo loro utilizzabile dall'interno di `ProductsTableAdapter`, da un'altra classe DAL, o da un altro livello dell'architettura della finestra, ad esempio il livello Business LOGIC. `BeginTransaction`Apre i TableAdapter interno `SqlConnection` (se necessario), avvia una transazione e la assegna al `Transaction` proprietà e associa la transazione all'interno `SqlDataAdapter` s `SqlCommand` oggetti. `CommitTransaction`e `RollbackTransaction` chiamare il `Transaction` oggetto s `Commit` e `Rollback` metodi, rispettivamente, prima di chiudere interno `Connection` oggetto.
+Questi metodi forniscono i blocchi predefiniti necessari per l'avvio, rollback e commit di una transazione. Questi ultimi vengono contrassegnati `public`, consentendo loro utilizzabile dall'interno di `ProductsTableAdapter`, da un'altra classe DAL, o da un altro livello dell'architettura della finestra, ad esempio il livello Business LOGIC. `BeginTransaction` Apre i TableAdapter interno `SqlConnection` (se necessario), avvia una transazione e lo assegna al `Transaction` proprietà e allega la transazione alla classe interna `SqlDataAdapter` s `SqlCommand` oggetti. `CommitTransaction` e `RollbackTransaction` chiamare la `Transaction` oggetto s `Commit` e `Rollback` metodi, rispettivamente, prima di chiudere interna `Connection` oggetto.
 
 ## <a name="step-3-adding-methods-to-update-and-delete-data-under-the-umbrella-of-a-transaction"></a>Passaggio 3: Aggiunta di metodi per aggiornare ed eliminare dati in generico di una transazione
 
@@ -171,14 +171,14 @@ Per illustrare l'effetto della transazione durante l'aggiornamento di un batch d
 Aprire il `Transactions.aspx` nella pagina di `BatchData` cartelle e trascinare un controllo GridView dalla casella degli strumenti nella finestra di progettazione. Impostare il relativo `ID` a `Products` e dal suo smart tag, associarlo a un nuovo oggetto ObjectDataSource denominato `ProductsDataSource`. Configurare ObjectDataSource per estrarre i dati di `ProductsBLL` classe s `GetProducts` metodo. Questo verrà un GridView di sola lettura, pertanto, impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le tabulazioni su (nessuno) e fare clic su Fine.
 
 
-[![Figura 5: Configurare ObjectDataSource per utilizzare il metodo di classe ProductsBLL s GetProducts](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
+[![Figura 5: Configurare ObjectDataSource per utilizzare il metodo GetProducts ProductsBLL classe s](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
 
 **Figura 5**: figura 5: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe s `GetProducts` metodo ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image4.png))
 
 
-[![Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
+[![Impostare gli elenchi a discesa in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
 
-**Figura 6**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image6.png))
+**Figura 6**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE (nessuno) ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image6.png))
 
 
 Dopo aver completato la configurazione guidata origine dati, Visual Studio creerà BoundField e un CheckBoxField per i campi di dati di prodotto. Rimuovere tutti questi campi, ad eccezione di `ProductID`, `ProductName`, `CategoryID`, e `CategoryName` e rinominare il `ProductName` e `CategoryName` BoundField `HeaderText` proprietà Product e Category, rispettivamente. Smart tag, selezionare l'opzione Abilita Paging. Dopo aver apportato queste modifiche, il markup dichiarativo s GridView e ObjectDataSource dovrebbe essere simile al seguente:
@@ -194,9 +194,9 @@ Successivamente, aggiungere tre controlli Web pulsante sopra il controllo GridVi
 La visualizzazione di progettazione in Visual Studio a questo punto dovrebbe essere simile alla schermata illustrata nella figura 7.
 
 
-[![La pagina contiene un controllo GridView e tre i controlli Web Button](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
+[![La pagina contiene un oggetto GridView con tre pulsanti Web](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
 
-**Figura 7**: la pagina contiene un GridView e tre i controlli Web Button ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image8.png))
+**Figura 7**: la pagina contiene un oggetto GridView con tre pulsanti Web ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image8.png))
 
 
 Creare gestori eventi per ogni pulsante tre s `Click` eventi e utilizzare il codice seguente:
@@ -213,14 +213,14 @@ Il terzo `Click` gestore degli aggiornamenti dei prodotti `CategoryID` s nello s
 Per illustrare questo comportamento, visitare la pagina tramite un browser. Inizialmente verrà visualizzato la prima pagina di dati come illustrato nella figura 8. Successivamente, fare clic sul pulsante di modificare le categorie (con transazione). Ciò causerà un postback e tentare di aggiornare tutti i prodotti `CategoryID` valori, ma comporta una violazione di vincolo di chiave esterna (vedere Figura 9).
 
 
-[![I prodotti vengono visualizzati in GridView paginabile](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
+[![I prodotti vengono visualizzati in un controllo GridView paginabile](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
 
-**Figura 8**: il prodotti vengono visualizzati in GridView paginabile ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image10.png))
+**Figura 8**: i prodotti di vengono visualizzati in GridView paginabile ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image10.png))
 
 
 [![Riassegnazione di categorie comporta una violazione di vincolo di chiave esterna](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
 
-**Figura 9**: riassegnare i risultati di categorie in una violazione del vincolo di chiave esterna ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image12.png))
+**Figura 9**: riassegnare i risultati di categorie in una violazione di vincolo di chiave esterna ([fare clic per visualizzare l'immagine ingrandita](wrapping-database-modifications-within-a-transaction-cs/_static/image12.png))
 
 
 A questo punto premere il pulsante Indietro del browser s e quindi fare clic sul pulsante Aggiorna la griglia. Dopo l'aggiornamento dei dati verrà visualizzato lo stesso output esattamente come illustrato nella figura 8. Vale a dire, anche se alcuni prodotti `CategoryID` s sono valori modificati per legali e aggiornata correttamente nel database, sono state annullate quando si è verificata la violazione di vincolo di chiave esterna.
@@ -246,18 +246,18 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Mantenere la coerenza del Database con transazioni](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)
-- [Stored procedure di gestione delle transazioni in SQL Server](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
-- [Transazioni semplificate:`System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
+- [Stored procedure per la gestione delle transazioni in SQL Server](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
+- [Transazioni da rendere più semplice: `System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
 - [TransactionScope e DataAdapter](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [Utilizzo delle transazioni di Database Oracle in .NET](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Dave Gardner Hilton Giesenow e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](batch-updating-cs.md)
+> [!div class="step-by-step"]
+> [avanti](batch-updating-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d92ee0c26787e5c482e8695001d8809d3ee9ee30
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 299665f45d72fee33f92344ed53c87dfb1a76d60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>Creazione di Unit test per le applicazioni MVC ASP.NET (VB)
 ====================
@@ -33,7 +33,7 @@ L'obiettivo di questa esercitazione è dimostrare come è possibile scrivere uni
 
 Iniziamo creando il controller che si desidera testare. Il controller, denominato il `ProductController`, è contenuto in elenco 1.
 
-**Elenco 1:`ProductController.vb`**
+**Elenco 1: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample1.vb)]
 
@@ -43,7 +43,7 @@ Il `ProductController` contiene due metodi di azione denominati `Index()` e `Det
 
 Si supponga che si desidera testare o meno il `ProductController` restituisce della vista destra. Si desidera assicurarsi che quando il `ProductController.Details()` azione viene richiamata, viene restituita la visualizzazione dei dettagli. La classe di test nel listato 2 contiene uno unit test per la visualizzazione restituita da test di `ProductController.Details()` azione.
 
-**Elenco di 2:`ProductControllerTest.vb`**
+**Elenco 2: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample2.vb)]
 
@@ -62,9 +62,9 @@ Questa azione del controller restituisce inoltre una visualizzazione denominata 
 È possibile eseguire lo unit test nel listato 2 immettendo la combinazione di tasti **Ctrl-R, A** o facendo clic di **eseguire tutti i test nella soluzione** pulsante (vedere Figura 1). Se il test viene superato, verrà visualizzato nella finestra Risultati Test nella figura 2.
 
 
-[![Esegui tutti i test nella soluzione](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
+[![Eseguire i test nella soluzione](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
 
-**Figura 01**: esecuzione di tutti i test nella soluzione ([fare clic per visualizzare l'immagine ingrandita](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))
+**Figura 01**: eseguire tutti i test nella soluzione ([fare clic per visualizzare l'immagine ingrandita](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))
 
 
 [![Operazione completata](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
@@ -74,11 +74,11 @@ Questa azione del controller restituisce inoltre una visualizzazione denominata 
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>Verifica dei dati della visualizzazione restituito da un Controller
 
-Controller MVC passa i dati in una vista utilizzando uno strumento denominato  *`View Data`* . Ad esempio, si supponga che si desidera visualizzare i dettagli per un determinato prodotto quando si richiama il `ProductController Details()` azione. In tal caso, è possibile creare un'istanza di un `Product` classe (definito nel modello) e passare l'istanza di `Details` visualizzazione sfruttando `View Data`.
+Controller MVC passa i dati in una vista utilizzando uno strumento denominato *`View Data`*. Ad esempio, si supponga che si desidera visualizzare i dettagli per un determinato prodotto quando si richiama il `ProductController Details()` azione. In tal caso, è possibile creare un'istanza di un `Product` classe (definito nel modello) e passare l'istanza di `Details` visualizzazione sfruttando `View Data`.
 
 Modificato `ProductController` listato 3 include una versione aggiornata `Details()` azione che restituisce un prodotto.
 
-**Elenco di 3:`ProductController.vb`**
+**Elenco di 3: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample5.vb)]
 
@@ -86,7 +86,7 @@ Prima di tutto, il `Details()` azione viene creata una nuova istanza di `Product
 
 È possibile scrivere unit test per verificare se i dati previsti sono contenuto nella visualizzazione dati. Lo unit test in test listato 4 o meno un prodotto che rappresenta un computer portatile viene restituito quando si chiama il `ProductController Details()` metodo di azione.
 
-**Elenco di 4:`ProductControllerTest.vb`**
+**Elenco di 4: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample6.vb)]
 
@@ -98,13 +98,13 @@ Un'azione del controller più complessa può restituire diversi tipi di risultat
 
 Ad esempio, l'elemento modificato `Details()` azione listato 5 restituisce il `Details` visualizzare quando si passa un Id di prodotto valido per l'azione. Se si passa un prodotto valido Id - Id con un valore minore di - 1, quindi si viene reindirizzati al `Index()` azione.
 
-**Elenco di 5:`ProductController.vb`**
+**Elenco 5: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample7.vb)]
 
 È possibile testare il comportamento del `Details()` azione con lo unit test nel listato 6. Lo unit test nel listato 6 verifica che si verrà reindirizzati al `Index` visualizzare quando viene passato un Id con il valore -1 per il `Details()` metodo.
 
-**Elenco di 6:`ProductControllerTest.vb`**
+**Elenco 6: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample8.vb)]
 
@@ -118,5 +118,5 @@ Successivamente, viene esaminato come è possibile testare il contenuto di `View
 
 Infine, è illustrato come è possibile verificare se vengono restituiti tipi diversi di risultati dell'azione da un'azione del controller. È stato descritto come verificare se un controller restituisce un `ViewResult` o `RedirectToRouteResult`.
 
->[!div class="step-by-step"]
-[Precedente](creating-unit-tests-for-asp-net-mvc-applications-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-unit-tests-for-asp-net-mvc-applications-cs.md)

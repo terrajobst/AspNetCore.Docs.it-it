@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 15bda09c59afaf9e5449c68c5206bb28de245541
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: risoluzione dei problemi
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -33,7 +33,7 @@ Gli scenari illustrati valide sia per Azure che i provider di hosting di terze p
 
 - [Risolvere i problemi relativi a un'app web nel servizio App di Azure con Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 - [Monitorare le app Web nel servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
-- [Annuncio del rilascio di Windows Azure SDK 2.0 per .NET](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (blog di scottgu, Mostra come ottenere i log di diagnostica in Visual Studio)
+- [Annuncio del rilascio di Windows Azure SDK 2.0 per .NET](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (di scottgu, viene illustrato come ottenere i log di diagnostica in Visual Studio)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Errore server nell'applicazione - '/' attuali impostazioni personalizzate errori evitare che i dettagli dell'errore venga visualizzato in modalità remota
 
@@ -292,8 +292,8 @@ Prima di tutto è tentato di creare il database, ma l'App\_dati cartella non esi
 
 È stato completato con un clic pubblicare per distribuire l'applicazione e si avvia venga visualizzato questo errore:
 
-Attività di distribuzione Web non riuscita. (Impossibile completare la richiesta per l'URL agente remoto 'https://serverurl.com/msdeploy.axd?site=sitename').  
- Non è stato possibile completare la richiesta per l'URL agente remoto 'https://url/msdeploy.axd?site=sitename'.  
+Attività di distribuzione Web non riuscita. (Non è stato possibile completare la richiesta per l'URL agente remoto '<https://serverurl.com/msdeploy.axd?site=sitename>'.)  
+ Non è stato possibile completare la richiesta per l'URL agente remoto '<https://url/msdeploy.axd?site=sitename>'.  
 La richiesta è stata interrotta: la richiesta è stata annullata.  
 Impossibile utilizzare l'oggetto COM che è stato separato dal RCW sottostante.
 
@@ -309,7 +309,7 @@ Pubblicazione ha esito negativo con un errore indicante che è non dispone di au
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se è noto che le autorizzazioni predefinite per le cartelle sito siano corrette e non è necessario impostare, è possibile disattivare questo comportamento aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se è noto che le autorizzazioni predefinite per le cartelle sito siano corrette e non è necessario impostare, è possibile disattivare questo comportamento aggiungendo **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Errori di accesso negato quando l'applicazione tenta di scrivere in una cartella dell'applicazione
 
@@ -319,7 +319,7 @@ Gli errori dell'applicazione quando si tenta di creare o modificare un file in u
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se l'applicazione necessita di accesso in scrittura a una sottocartella, è possibile impostare le autorizzazioni per tale cartella come illustrato nell'impostazione delle autorizzazioni di cartella di distribuzione per le esercitazioni di ambiente di produzione di questa serie. Se l'applicazione necessita di accesso in scrittura alla cartella radice del sito, è necessario impedirne l'impostazione di accesso in sola lettura nella cartella radice aggiungendo  **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Per impostazione predefinita, Visual Studio imposta le autorizzazioni per la cartella radice del sito autorizzazioni lettura e scrittura nell'App\_cartella dati. Se l'applicazione necessita di accesso in scrittura a una sottocartella, è possibile impostare le autorizzazioni per tale cartella come illustrato nell'impostazione delle autorizzazioni di cartella di distribuzione per le esercitazioni di ambiente di produzione di questa serie. Se l'applicazione necessita di accesso in scrittura alla cartella radice del sito, è necessario impedirne l'impostazione di accesso in sola lettura nella cartella radice aggiungendo **&lt;IncludeSetACLProviderOn destinazione&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** al file del profilo di pubblicazione (per influisce su un unico profilo) o al file wpp.targets (per influisce su tutti i profili). Per informazioni su come modificare questi file, vedere [procedura: modificare le impostazioni di distribuzione nel file del profilo (con estensione pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -377,5 +377,5 @@ Il contenuto richiesto sembra essere uno script e non verrà fornito dal gestore
 
 ASP.NET 4.5 potrebbe non essere installato nel computer in uso. Vedere i passaggi di distribuzione a IIS come un'esercitazione di ambiente di Test di questa serie che spiegano come installare ASP.NET 4.5.
 
->[!div class="step-by-step"]
-[Precedente](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-extra-files.md)

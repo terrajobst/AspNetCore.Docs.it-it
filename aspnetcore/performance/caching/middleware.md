@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -88,7 +88,7 @@ La memorizzazione nella cache dal middleware di risposta viene configurato utili
 | Header | Dettagli |
 | ------ | ------- |
 | Autorizzazione | Se l'intestazione esiste, non è memorizzato nella cache la risposta. |
-| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>Min-nuova</li><li>must-revalidate</li><li>no-cache</li><li>no-store</li><li>solo se-memorizzato nella cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224; se non viene specificato alcun limite `max-stale`, il middleware non esegue alcuna azione.<br>&#8225; `proxy-revalidate` ha lo stesso effetto `must-revalidate`.<br><br>Per ulteriori informazioni, vedere [RFC 7231: richiesta direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>Min-nuova</li><li>must-revalidate</li><li>no-cache</li><li>no-store</li><li>solo se-memorizzato nella cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite `max-stale`, il middleware non esegue alcuna azione.<br>&#8225;`proxy-revalidate`ha lo stesso effetto `must-revalidate`.<br><br>Per ulteriori informazioni, vedere [RFC 7231: richiesta direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | Oggetto `Pragma: no-cache` intestazione nella richiesta produce lo stesso effetto `Cache-Control: no-cache`. Questa intestazione viene sottoposto a override dalle direttive rilevanti nel `Cache-Control` intestazione, se presente. Considerati per la compatibilità con HTTP/1.0. |
 | Set-Cookie | Se l'intestazione esiste, non è memorizzato nella cache la risposta. |
 | Variare | Il `Vary` intestazione viene utilizzata per variare la risposta memorizzata nella cache da un'altra intestazione. Ad esempio, nella cache le risposte codificando includendo il `Vary: Accept-Encoding` intestazione, che memorizza nella cache le risposte per le richieste con intestazioni `Accept-Encoding: gzip` e `Accept-Encoding: text/plain` separatamente. Una risposta con un valore di intestazione di `*` non venga mai memorizzata. |
@@ -105,8 +105,8 @@ Il middleware rispetta le regole del [specifica la memorizzazione nella cache di
 
 Per un maggiore controllo sul comportamento di memorizzazione nella cache, esplorare altre funzionalità di memorizzazione nella cache di ASP.NET Core. Vedere gli argomenti seguenti:
 
-* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
-* [Uso di una cache distribuita](xref:performance/caching/distributed)
+* [Cache in memoria](xref:performance/caching/memory)
+* [Usare una cache distribuita](xref:performance/caching/distributed)
 * [Helper di Tag in componenti di base di ASP.NET MVC di memorizzare nella cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
@@ -142,8 +142,8 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)
-* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
-* [Uso di una cache distribuita](xref:performance/caching/distributed)
+* [Cache in memoria](xref:performance/caching/memory)
+* [Usare una cache distribuita](xref:performance/caching/distributed)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

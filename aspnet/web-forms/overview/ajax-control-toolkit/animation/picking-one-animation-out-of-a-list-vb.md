@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 title: Selezione di un'animazione da un elenco (VB) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Il framework anche autoriz..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Il framework anche autoriz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dd2cfd512b03fa1d1f7754d9f86d080c1977695d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f2bd1b3cc72595da7e8901786ea8415d7c1c524a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="picking-one-animation-out-of-a-list-vb"></a>Selezione di un'animazione da un elenco (VB)
 ====================
@@ -45,7 +45,7 @@ Nella classe CSS associata per il pannello, definire un colore di sfondo nice e 
 
 [!code-css[Main](picking-one-animation-out-of-a-list-vb/samples/sample3.css)]
 
-Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un `ID`, `TargetControlID` attributo e l'obbligatoria`runat="server":`
+Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `TargetControlID` attributo e l'obbligatoria `runat="server":`
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample4.aspx)]
 
@@ -56,10 +56,10 @@ Il markup seguente definisce tre dipendenti: ridimensionare la larghezza e l'alt
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample5.aspx)]
 
 
-[![Una delle tre animazioni possibili: il pannello ottiene più ampio](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
+[![Uno dei tre animazioni possibili: il pannello ottiene più ampio](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
 
 Una delle tre animazioni possibili: il pannello si allunga ([fare clic per visualizzare l'immagine ingrandita](picking-one-animation-out-of-a-list-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](animation-depending-on-a-condition-vb.md)
-[Successivo](animating-in-response-to-user-interaction-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](animation-depending-on-a-condition-vb.md)
+> [Successivo](animating-in-response-to-user-interaction-vb.md)

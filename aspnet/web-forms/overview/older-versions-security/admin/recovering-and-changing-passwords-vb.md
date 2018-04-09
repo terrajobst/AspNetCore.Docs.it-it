@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b78469858483a9501a0f73d1c894e29ae0a99122
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cffe07eaea5144df82e56c989b0cde7cfd3d194a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Recupero e modifica delle password (VB)
 ====================
@@ -45,8 +45,8 @@ Tutti i siti Web che supportano gli account utente necessario fornire agli utent
 
 Il controllo PasswordRecovery è costituito da tre visualizzazioni:
 
-- **Nome utente** -richiede l'inserimento per il proprio nome utente. Si tratta della visualizzazione iniziale.
-- **Domanda**-Visualizza domande di nome utente e la sicurezza dell'utente come testo, insieme a una casella di testo per l'utente di immettere la risposta alla sua domanda di sicurezza.
+- **Nome utente** -richiede il visitatore per il relativo nome utente. Si tratta della visualizzazione iniziale.
+- **Domanda**-Visualizza domande di nome utente e la sicurezza dell'utente come testo, insieme a una casella di testo per l'utente immetta la risposta alla sua domanda di sicurezza.
 - **Esito positivo**-viene visualizzato un messaggio che informa l'utente che la password è stata inviata.
 
 Visualizzare le viste e le azioni eseguite dal controllo PasswordRecovery dipendono le seguenti impostazioni di configurazione di appartenenza:
@@ -66,7 +66,7 @@ Dopo che l'utente ha fornito il suo nome utente - o una risposta il suo nome ute
 La figura 1 illustra come interfaccia e il comportamento di PasswordRecovery varia a seconda della configurazione di appartenenza.
 
 
-[![Il RequiresQuestionAndAnswer EnablePasswordRetrieval ed EnablePasswordReset influenzare l'aspetto e il comportamento del controllo PasswordRecovery](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
+[![Il RequiresQuestionAndAnswer EnablePasswordRetrieval ed EnablePasswordReset influenzare aspetto e il comportamento del controllo PasswordRecovery](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
 
 **Figura 1**: il `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`, e `EnablePasswordReset` influenzare l'aspetto e il comportamento del controllo PasswordRecovery ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image3.png))
 
@@ -86,7 +86,7 @@ Prima di testare questa pagina, è una parte finale della configurazione da tend
 La configurazione di recapito di posta elettronica viene specificata tramite il [ `<system.net>` elemento](https://msdn.microsoft.com/library/6484zdc1.aspx)del [ `<mailSettings>` elemento](https://msdn.microsoft.com/library/w355a94k.aspx). Utilizzare il [ `<smtp>` elemento](https://msdn.microsoft.com/library/ms164240.aspx) per indicare il metodo di recapito e il valore predefinito dall'indirizzo. Il markup seguente configura le impostazioni di posta elettronica per l'utilizzo di un server SMTP di rete denominato `smtp.example.com` sulla porta 25 e con le credenziali di nome utente e password del nome utente e password.
 
 > [!NOTE]
-> `<system.net>`è un elemento figlio della radice `<configuration>` elemento e pari livello `<system.web>`. Pertanto, non inserire il `<system.net>` elemento all'interno di `<system.web>` elemento; invece inserirlo allo stesso livello.
+> `<system.net>` è un elemento figlio della radice `<configuration>` elemento e pari livello `<system.web>`. Pertanto, non inserire il `<system.net>` elemento all'interno di `<system.web>` elemento; invece inserirlo allo stesso livello.
 
 
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
@@ -104,7 +104,7 @@ Dopo aver configurato le impostazioni SMTP, visitare il `RecoverPassword.aspx` p
 Immettere un nome utente. Utilizzare il nome utente di un account nel sistema con un indirizzo di posta elettronica che è possibile accedere e rispondere a cui sicurezza è noto. Dopo aver immesso il nome utente e facendo clic su Invia, il controllo PasswordRecovery consente di visualizzare la visualizzazione della domanda. Come con la visualizzazione del nome utente, se si immette un'implementazione non corretta risponde il controllo PasswordRecovery Visualizza un messaggio di errore (vedere la figura 3). Utilizzare il [ `QuestionFailureText` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) per personalizzare questo messaggio di errore.
 
 
-[![Se l'utente immette una risposta di sicurezza non valida, viene visualizzato un messaggio di errore](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
+[![Viene visualizzato un messaggio di errore se l'utente immette una risposta di sicurezza non valida](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
 
 **Figura 3**: viene visualizzato un messaggio di errore se l'utente immette una risposta di sicurezza non valida ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image9.png))
 
@@ -114,7 +114,7 @@ Infine, immettere la risposta di sicurezza corrette e fare clic su Invia. Dietro
 
 [![L'utente viene inviato un messaggio di posta elettronica con His nuova Password](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
 
-**Figura 4**: l'utente viene inviato un messaggio di posta elettronica con una nuova Password His ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image12.png))
+**Figura 4**: l'utente viene inviato un messaggio di posta elettronica con His nuova Password ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image12.png))
 
 
 ### <a name="customizing-the-email"></a>Personalizzazione di messaggio di posta elettronica
@@ -123,7 +123,7 @@ Il messaggio di posta elettronica predefinito inviato dal controllo PasswordReco
 
 Tornare al sito e accedere con le informazioni seguenti.
 
-Nome utente: *nome utente*
+Nome utente: *username*
 
 Password: *password*
 
@@ -148,9 +148,9 @@ Infine, scegliere il `MailDefinition`del [ `BodyFileName` proprietà](https://ms
 Dopo avere apportare queste modifiche rivedere il `RecoverPassword.aspx` pagina e immettere la risposta di nome utente e la sicurezza. Viene visualizzato un messaggio di posta elettronica simile a quello in figura 5 deve. Si noti che `webmaster@example.com` è stata CC sarebbe e che l'oggetto e corpo sono state aggiornate.
 
 
-[![Elenco CC, oggetto e corpo sono stati aggiornati.](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
+[![L'oggetto, corpo e CC elenco sono stati aggiornati](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
 
-**Figura 5**: del soggetto, corpo e CC elenco sono state aggiornate ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image15.png))
+**Figura 5**: il soggetto, corpo e CC elenco sono stati aggiornati ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image15.png))
 
 
 Per inviare un messaggio di posta elettronica in formato HTML impostare [ `IsBodyHtml` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.isbodyhtml.aspx) su True (il valore predefinito è False) e il modello di posta elettronica di aggiornamento per includere HTML.
@@ -165,8 +165,8 @@ Il `MailDefinition` proprietà non è univoca per la classe PasswordRecovery. Co
 
 Reimpostazione password di un utente PasswordRecovery quando il controllo di chiamate di `MembershipUser` dell'oggetto [ `ResetPassword` metodo](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Questo metodo dispone di due overload:
 
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-Reimposta una password. Utilizzare questo overload se `RequiresQuestionAndAnswer` è False.
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-Reimposta fornito se solo la password di un utente *securityAnswer* sia corretto. Utilizzare questo overload se `RequiresQuestionAndAnswer` è True.
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -Consente di reimpostare la password dell'utente. Utilizzare questo overload se `RequiresQuestionAndAnswer` è False.
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -Reimposta solo se la password dell'utente fornito *securityAnswer* sia corretto. Utilizzare questo overload se `RequiresQuestionAndAnswer` è True.
 
 Entrambi gli overload restituiscono la nuova password generata casualmente.
 
@@ -202,7 +202,7 @@ Aprire il `ChangePassword.aspx` pagina e aggiungere un controllo ChangePassword 
 
 [![Aggiungere un controllo ChangePassword alla pagina](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
 
-**Figura 6**: aggiungere un controllo ChangePassword ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image18.png))
+**Figura 6**: aggiungere un controllo ChangePassword alla pagina ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image18.png))
 
 
 Il controllo ChangePassword può aggiornare la password dell'utente attualmente connesso *o* la password di un altro utente specificato. Come illustrato nella figura 6, la visualizzazione di modifica della Password predefinita esegue il rendering solo tre controlli TextBox: uno per la vecchia password e due per la nuova password. Questa interfaccia predefinita viene utilizzata per aggiornare la password dell'utente attualmente connesso.
@@ -220,7 +220,7 @@ Visitare il `ChangePassword.aspx` pagina tramite un browser e cambia la password
 
 [![Aggiungere un controllo ChangePassword alla pagina](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
 
-**Figura 7**: aggiungere un controllo ChangePassword ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image21.png))
+**Figura 7**: aggiungere un controllo ChangePassword alla pagina ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image21.png))
 
 
 Al momento immettendo la vecchia password corretta e una password di nuovo valida, usato per l'accesso dell'utente viene modificata la password e la visualizzazione di esito positivo.
@@ -238,9 +238,9 @@ Successivamente, impostare il controllo di ChangePassword `MailDefinition` della
 Dopo aver apportato queste modifiche, rivedere la pagina e modificare di nuovo la password. Questa volta, il controllo ChangePassword invia un messaggio di posta elettronica personalizzato, in formato HTML all'indirizzo di posta elettronica dell'utente nel file (vedere la figura 8).
 
 
-[![Un messaggio di posta elettronica indica la Password l'utente che è stato modificato](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
+[![Un messaggio di posta elettronica in cui si informa che Their Password dell'utente è stato modificato](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
 
-**Figura 8**: un messaggio di posta elettronica informa l'utente che Their Password è stata modificata ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image24.png))
+**Figura 8**: un messaggio di posta elettronica per informare l'utente che Their Password è stata modificata ([fare clic per visualizzare l'immagine ingrandita](recovering-and-changing-passwords-vb/_static/image24.png))
 
 
 ## <a name="step-3-allowing-administrators-to-change-users-passwords"></a>Passaggio 3: Consentendo agli amministratori di modificare le password degli utenti
@@ -300,16 +300,16 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Guida introduttiva di controllo ChangePassword](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [Guida introduttiva di controllo PasswordRecovery](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [L'invio di posta elettronica in ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail`Domande frequenti](http://www.systemnetmail.com/)
+- [`System.Net.Mail` Domande frequenti](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Michael Emmings e Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Michael Emmings e Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](building-an-interface-to-select-one-user-account-from-many-vb.md)
-[Successivo](unlocking-and-approving-user-accounts-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [Successivo](unlocking-and-approving-user-accounts-vb.md)

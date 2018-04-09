@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>Distribuzione di progetti di Database
 ====================
@@ -92,8 +92,8 @@ In questo caso:
 
 - Il **/a** (o **/Action**) consente di specificare VSDBCMD eseguire desiderato. È possibile impostarlo su **importazione** o **Distribuisci**. Il **importazione** opzione viene utilizzata per generare un file con estensione dbschema da un database esistente e **Distribuisci** opzione viene usata per distribuire un file con estensione dbschema in un database di destinazione.
 - Il **/manifesto** (o **/ManifestFile**) commutatore identifica il file con estensione deploymanifest si desidera distribuire. Se si desidera utilizzare invece il file con estensione dbschema, utilizzerebbe il **/modello** (o **/ModelFile**) passare.
-- Il **/cs** (o **/ConnectionString**) commutatore fornisce la stringa di connessione per il server di database di destinazione. Si noti che questo non include il nome del database & #x 2014; VSDBCMD deve connettersi al server per la creazione del database. non è necessario connettersi a un singolo database. Se il file con estensione deploymanifest include una stringa di connessione, è possibile omettere questa opzione è attivata. Se si utilizza l'opzione comunque, il valore dell'opzione sostituirà il valore DeployManifest.
-- Il **/p: TargetDatabase** proprietà fornisce il nome da assegnare al database di destinazione al momento della creazione. Questo sostituisce il valore del **TargetDatabase** proprietà nel file con estensione deploymanifest. È possibile utilizzare il **/p:** *[nome proprietà]*sintassi per impostare un'ampia gamma di proprietà di distribuzione ed eseguire l'override di tutte le variabili SQLCMD dichiarato nel file sqlcmdvars.
+- Il **/cs** (o **/ConnectionString**) commutatore fornisce la stringa di connessione per il server di database di destinazione. Si noti che questo non include il nome del database&#x2014;VSDBCMD deve connettersi al server per creare il database. non è necessario connettersi a un singolo database. Se il file con estensione deploymanifest include una stringa di connessione, è possibile omettere questa opzione è attivata. Se si utilizza l'opzione comunque, il valore dell'opzione sostituirà il valore DeployManifest.
+- Il <strong>/p: TargetDatabase</strong> proprietà fornisce il nome da assegnare al database di destinazione al momento della creazione. Questo sostituisce il valore del <strong>TargetDatabase</strong> proprietà nel file con estensione deploymanifest. È possibile utilizzare il <strong>/p:</strong> <em>[nome proprietà]</em>sintassi per impostare un'ampia gamma di proprietà di distribuzione ed eseguire l'override di tutte le variabili SQLCMD dichiarato nel file sqlcmdvars.
 - Il **/dd+** (o **/DeployToDatabase+**) parametro indica che si desidera creare una distribuzione e distribuire in ambiente di destinazione. Se si specifica **/dd-**, omettere il parametro o VSDBCMD genera uno script di distribuzione ma non distribuirla nell'ambiente di destinazione. Questa opzione è spesso l'origine di confusione ed è illustrata più dettagliatamente nella sezione successiva.
 - Il **/script** (o **/DeploymentScriptFile**) consente di specificare dove si desidera generare lo script di distribuzione. Questo valore non influisce sul processo di distribuzione.
 
@@ -150,6 +150,6 @@ Questi argomenti in MSDN includono linee guida più ampia e informazioni general
 - [Procedura: preparare un Database per la distribuzione da un prompt dei comandi tramite VSDBCMD. FILE EXE](https://msdn.microsoft.com/library/dd193258.aspx)
 - [Una panoramica di Database e di distribuzione](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[Precedente](deploying-web-packages.md)
-[Successivo](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-web-packages.md)
+> [Successivo](creating-and-running-a-deployment-command-file.md)

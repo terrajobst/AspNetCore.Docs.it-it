@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 title: Modello basate su coda di lavoro (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 124e673206ecea2eac5efb8c2802a32a690fa104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Modello basate su coda di lavoro (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -156,7 +156,7 @@ Fare clic su **OK** per completare la finestra di dialogo. Aggiunge due progetti
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Per ulteriori informazioni, vedere [creazione di un progetto Azure con Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
+Per altre informazioni, vedere [creazione di un progetto Azure con Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 All'interno del ruolo di lavoro, si esegue il polling per i messaggi chiamando il `ProcessMessageAsync` metodo la `FixItQueueManager` classe che è stato illustrato in precedenza.
 
@@ -183,17 +183,17 @@ Per ulteriori informazioni sulle code, vedere le risorse seguenti.
 
 Documentazione:
 
-- [Microsoft Azure Storage code parte 1: Introduzione](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Articolo di Schacherl romano.
-- [L'esecuzione di attività in Background](https://msdn.microsoft.com/library/ff803365.aspx), capitolo 5 di [spostamento di applicazioni Cloud, 3rd Edition](https://msdn.microsoft.com/library/ff728592.aspx) da Microsoft Patterns and Practices. (In particolare, la sezione ["Utilizzo delle code di archiviazione Azure"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Microsoft Azure Storage code parte 1: Getting Started](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Articolo di Schacherl romano.
+- [L'esecuzione di attività in Background](https://msdn.microsoft.com/library/ff803365.aspx), il capitolo 5 del [lo spostamento di applicazioni nel Cloud, 3rd Edition](https://msdn.microsoft.com/library/ff728592.aspx) da Microsoft Patterns and Practices. (In particolare, la sezione ["Utilizzo delle code di archiviazione Azure"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
 - [Procedure consigliate per ottimizzare la scalabilità e la convenienza delle soluzioni di messaggistica basata su coda in Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). White paper per Valery Mizonov.
-- [Confronto tra le code di Azure e code del Bus di servizio](https://msdn.microsoft.com/magazine/jj159884.aspx). Articolo di MSDN Magazine, fornisce informazioni aggiuntive che consentono di scegliere quale servizio di Accodamento da utilizzare. L'articolo viene indicato che il Bus di servizio sia dipendente da ACS per l'autenticazione, che indica che le code di Service bus sarebbe disponibile quando ACS non è disponibile. Tuttavia, poiché l'articolo è stato scritto, Service bus è stato modificato per consentono di utilizzare [token SAS](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) un'alternativa ad ACS.
+- [Confronto tra le code di Azure e le code Service Bus](https://msdn.microsoft.com/magazine/jj159884.aspx). Articolo di MSDN Magazine, fornisce informazioni aggiuntive che consentono di scegliere quale servizio di Accodamento da utilizzare. L'articolo viene indicato che il Bus di servizio sia dipendente da ACS per l'autenticazione, che indica che le code di Service bus sarebbe disponibile quando ACS non è disponibile. Tuttavia, poiché l'articolo è stato scritto, Service bus è stato modificato per consentono di utilizzare [token SAS](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) un'alternativa ad ACS.
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Introduzione alla messaggistica asincrona, modello di pipe e filtri, il modello di compensazione delle transazioni, modello consumer concorrenti, modello CQRS, vedere.
-- [CQRS viaggio](https://msdn.microsoft.com/library/jj554200). E-book su CQRS Microsoft Patterns and Practices.
+- [Spero CQRS](https://msdn.microsoft.com/library/jj554200). E-book su CQRS Microsoft Patterns and Practices.
 
 Video:
 
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Per un'introduzione al servizio di archiviazione di Azure e le code, vedere episodio 5 partendo da 35:13.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Per un'introduzione al servizio di archiviazione di Azure e le code, vedere episodio 5 partendo da 35:13.
 
->[!div class="step-by-step"]
-[Precedente](distributed-caching.md)
-[Successivo](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Precedente](distributed-caching.md)
+> [Successivo](more-patterns-and-guidance.md)

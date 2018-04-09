@@ -1,7 +1,7 @@
 ---
-title: Intestazioni di contesto
+title: Intestazioni di contesto in ASP.NET Core
 author: rick-anderson
-description: Questo documento descrive i dettagli di implementazione delle intestazioni di contesto protezione dati ASP.NET Core.
+description: Informazioni su dettagli di implementazione delle intestazioni di contesto di protezione dei dati di ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>Intestazioni di contesto
+# <a name="context-headers-in-aspnet-core"></a>Intestazioni di contesto in ASP.NET Core
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ La maggior parte dei sistemi che supportano l'agilità di crittografia tale scop
 
 Eseguire di nuovo, si è deciso che si stava per raggiungere il problema dalla direzione errata. Un identificatore di oggetto viene identificato l'algoritmo, ma è indifferente effettivamente su questo argomento. Se è necessario utilizzare un singolo valore entropic in modo sicuro in due diversi algoritmi, non è necessario a Microsoft per sapere quali effettivamente sono gli algoritmi. Ciò che effettivamente interessante è il comportamento. Qualsiasi algoritmo di crittografia simmetrico ragionevole è anche una permutazione pseudocasuale sicura (PRP): correggere gli input (chiave, il concatenamento di testo normale modalità, IV) e l'output di testo crittografato con una probabilità di sovraccaricare sarà diverso da quello di qualsiasi altro tipo di crittografia simmetrico algoritmo ha gli stessi input. Analogamente, qualsiasi funzione hash con chiave ragionevole è anche una funzione di pseudocasuale sicura (PRF) e fornito un set fisso di input relativo output estremamente sarà diverso da quello di qualsiasi altra funzione hash con chiave.
 
-Questo concetto di sicuro PRPs e PRFs è usare per creare un'intestazione del contesto. Questa intestazione del contesto funge essenzialmente da un'identificazione personale del stabile tramite gli algoritmi in uso per qualsiasi operazione, e fornisce la flessibilità di crittografia necessita per il sistema di protezione dati. Questa intestazione è riproducibile e viene utilizzata in un secondo momento come parte di [sottochiave processo derivazione](subkeyderivation.md#data-protection-implementation-subkey-derivation). Esistono due modi diversi per compilare l'intestazione del contesto a seconda di modalità di funzionamento degli algoritmi sottostanti.
+Questo concetto di sicuro PRPs e PRFs è usare per creare un'intestazione del contesto. Questa intestazione del contesto funge essenzialmente da un'identificazione personale del stabile tramite gli algoritmi in uso per qualsiasi operazione, e fornisce la flessibilità di crittografia necessita per il sistema di protezione dati. Questa intestazione è riproducibile e viene utilizzata in un secondo momento come parte di [sottochiave processo derivazione](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Esistono due modi diversi per compilare l'intestazione del contesto a seconda di modalità di funzionamento degli algoritmi sottostanti.
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>La crittografia in modalità CBC + autenticazione HMAC
 

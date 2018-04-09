@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 title: 'Scenario: Configurazione di un ambiente di gestione temporanea per la distribuzione Web | Documenti Microsoft'
 author: jrjlee
-description: "Questo argomento viene descritto uno scenario di distribuzione web tipiche per un ambiente di gestione temporanea e le attività da completare per impostare un simile env..."
+description: Questo argomento viene descritto uno scenario di distribuzione web tipiche per un ambiente di gestione temporanea e le attività da completare per impostare un simile env...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864559b0599091beeacb87e90e80a51285039df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Scenario: Configurazione di un ambiente di gestione temporanea per la distribuzione Web
 ====================
@@ -62,6 +62,6 @@ Questi argomenti includono tutte le informazioni necessarie per completare quest
 
 Per ulteriori informazioni sulla configurazione di un ambiente di test di sviluppo comuni, vedere [Scenario: configurazione di un ambiente di Test per la distribuzione Web](scenario-configuring-a-test-environment-for-web-deployment.md). Per ulteriori informazioni sulla configurazione di un ambiente di produzione tipico, vedere [Scenario: configurazione di un ambiente di produzione per la distribuzione Web](scenario-configuring-a-production-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Precedente](scenario-configuring-a-test-environment-for-web-deployment.md)
-[Successivo](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [Successivo](scenario-configuring-a-production-environment-for-web-deployment.md)

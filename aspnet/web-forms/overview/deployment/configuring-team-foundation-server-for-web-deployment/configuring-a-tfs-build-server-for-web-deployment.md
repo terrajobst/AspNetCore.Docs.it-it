@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Configurazione di un Server di compilazione TFS per la distribuzione Web
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come preparare un server di compilazione di Team Foundation Server (TFS) per compilare e distribuire le soluzioni con Team Build e lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web).
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -100,7 +100,7 @@ Il modo migliore per installare i componenti della piattaforma web comune è uti
 7. Nel **ASP.NET MVC 3 (Visual Studio 2010)** di riga, fare clic su **Aggiungi**.
 8. Nel riquadro di spostamento, fare clic su **Server**.
 9. Nel **2.1 dello strumento di distribuzione Web** di riga, fare clic su **Aggiungi**.
-10. Fare clic su **Installa**. L'installazione guidata piattaforma Web verrà visualizzato un elenco di prodotti & #x 2014; insieme a tutte le dipendenze associate & #x 2014; sia installato e verrà richiesto di accettare le condizioni di licenza.
+10. Fare clic su **Installa**. L'installazione guidata piattaforma Web verrà visualizzato un elenco di prodotti&#x2014;con le dipendenze associate&#x2014;sia installato e verrà richiesto di accettare le condizioni di licenza.
 11. Esaminare le condizioni di licenza e, se accettano le condizioni, fare clic su **accetto**.
 12. Una volta completato l'installazione, fare clic su **fine**, quindi chiudere il **installazione guidata piattaforma Web 3.0** finestra.
 
@@ -116,6 +116,6 @@ A questo punto, il server di compilazione è possibile avviare la creazione e la
 
 Per istruzioni generali sull'uso di Team Build, vedere [amministrazione di Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
->[!div class="step-by-step"]
-[Precedente](adding-content-to-source-control.md)
-[Successivo](creating-a-build-definition-that-supports-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-content-to-source-control.md)
+> [Successivo](creating-a-build-definition-that-supports-deployment.md)

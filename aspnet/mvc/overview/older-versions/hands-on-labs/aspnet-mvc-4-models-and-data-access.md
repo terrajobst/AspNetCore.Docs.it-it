@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>Accesso ai dati e i modelli ASP.NET MVC 4
 
@@ -112,12 +112,12 @@ In questa attività si aggiungerà un database già creato con le tabelle princi
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex1-AddingADatabaseDBFirst/Begin/** cartella.
 
-    1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aggiungere **MvcMusicStore** file di database. In questo laboratorio pratico, utilizzare un database già creato denominato **MvcMusicStore.mdf**. A tale scopo, fare doppio clic su **App\_dati** cartella, scegliere **Aggiungi** e quindi fare clic su **elemento esistente**. Passare a **\Source\Assets** e selezionare il **MvcMusicStore.mdf** file.
 
     ![Aggiunta di un elemento esistente](aspnet-mvc-4-models-and-data-access/_static/image2.png "aggiunta di un elemento esistente")
@@ -186,8 +186,8 @@ In questa attività si creerà un modello di dati per interagire con il database
 
     *Diagramma di entità*
 
-> [!NOTE]
-> I modelli T4 (con estensione TT) eseguire codice per generare le classi di entità e sovrascriveranno le classi esistenti con lo stesso nome. In questo esempio, le classi &quot;Album&quot;, &quot;Genre&quot; e &quot;artista&quot; sono stati sovrascritti con il codice generato.
+    > [!NOTE]
+    > I modelli T4 (con estensione TT) eseguire codice per generare le classi di entità e sovrascriveranno le classi esistenti con lo stesso nome. In questo esempio, le classi &quot;Album&quot;, &quot;Genre&quot; e &quot;artista&quot; sono stati sovrascritti con il codice generato.
 
 
 <a id="Ex1Task3"></a>
@@ -225,30 +225,38 @@ In questa attività si aggiornerà la classe StoreController in modo che, invece
     (- Frammento di codice *modelli e accesso ai dati - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
 2. Il **MusicStoreEntities** classe espone una raccolta di proprietà per ogni tabella nel database. Aggiornamento **Sfoglia** il metodo di azione per recuperare un genere con tutte le **album**.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Sfoglia archivio Ex1*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
 
-    > [!NOTE]
-    > Si utilizza una funzionalità di .NET denominata **LINQ** (language integrated query) per scrivere espressioni di query fortemente tipizzata in base a queste raccolte - di cui eseguire il codice nel database e verranno restituiti gli oggetti che è possibile programmare nei confronti.
-    > 
-    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+~~~
 3. Aggiornamento **indice** per recuperare tutti i generi i metodo di azione.
 
     (- Frammento di codice *modelli e l'accesso ai dati - indice archivio Ex1*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
 4. Aggiornamento **indice** metodo di azione per recuperare tutti i generi e trasformare la raccolta a un elenco.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex1 archivio GenreMenu*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
 
 <a id="Ex1Task5"></a>
 
@@ -291,12 +299,12 @@ In questa attività verrà compilato il database con dati di esempio, quando vie
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex2-CreatingADatabaseCodeFirst/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aggiungere il **SampleData.cs** file per il **modelli** cartella. A tale scopo, fare doppio clic su **modelli** cartella, scegliere **Aggiungi** e quindi fare clic su **elemento esistente**. Passare a **\Source\Assets** e selezionare il **SampleData.cs** file.
 
     ![Dati di esempio popolano codice](aspnet-mvc-4-models-and-data-access/_static/image18.png "codice di popolare i dati di esempio")
@@ -307,13 +315,17 @@ In questa attività verrà compilato il database con dati di esempio, quando vie
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 globale Asax using*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
 4. Nel **applicazione\_Start** metodo aggiungere la riga seguente per impostare l'inizializzatore del database.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 globale Asax SetInitializer*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
 
 <a id="Ex2Task2"></a>
 
@@ -322,14 +334,16 @@ In questa attività verrà compilato il database con dati di esempio, quando vie
 
 Ora che già stato aggiunto un database al progetto, viene scritto nel **Web. config** file la stringa di connessione.
 
-1. Aggiungere una stringa di connessione in **Web. config**. A tale scopo, aprire **Web. config** alla radice del progetto e sostituire la stringa di connessione denominata DefaultConnection con la riga nel  **&lt;connectionStrings&gt;**  sezione:
+1. Aggiungere una stringa di connessione in **Web. config**. A tale scopo, aprire **Web. config** alla radice del progetto e sostituire la stringa di connessione denominata DefaultConnection con la riga nel **&lt;connectionStrings&gt;** sezione:
 
     ![Percorso del file Web. config](aspnet-mvc-4-models-and-data-access/_static/image19.png "percorso del file Web. config")
 
     *percorso del file Web. config*
 
 
-    [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
+[!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
 
 <a id="Ex2Task3"></a>
 
@@ -338,7 +352,7 @@ Ora che già stato aggiunto un database al progetto, viene scritto nel **Web. co
 
 Ora che già stato configurato la connessione al database, si procederà al collegamento del modello con le tabelle di database. In questa attività si creerà una classe che verrà collegata al database con Code First. Tenere presente che esiste una classe di modello POCO esistente che deve essere modificata.
 
-> [!NOTE]
+   > [!NOTE]
 > Se è stato completato esercizio 1, si noterà che questo passaggio è stato eseguito da una procedura guidata. In questo modo Code First, si creerà manualmente le classi che verranno collegate alle entità di dati.
 
 
@@ -347,24 +361,30 @@ Ora che già stato configurato la connessione al database, si procederà al coll
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 codice prima Genre*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
 
-    > [!NOTE]
-    > Per utilizzare le convenzioni di Code First, la classe Genre deve avere una proprietà di chiave primaria che verrà rilevata automaticamente.
-    > 
-    > Altre informazioni sulle convenzioni prima del codice in questo [articolo msdn](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+> [!NOTE]
+> To work with Code First conventions, the class Genre must have a primary key property that will be automatically detected.
+> 
+> You can read more about Code First Conventions in this [msdn article](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+~~~
 2. A questo punto, aprire la classe di modello POCO **Album** da **modelli** cartella del progetto e includere le chiavi esterne, creare proprietà con i nomi **GenreId** e  **ArtistId**. Questa classe dispone già di **GenreId** per la chiave primaria.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 codice primo Album*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
 3. Aprire la classe modello POCO **artista** e includere il **ArtistId** proprietà.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 codice prima artista*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
 4. Fare doppio clic su di **modelli** cartella del progetto e selezionare **Aggiungi | Classe**. Nome del file **MusicStoreEntities.cs**. Quindi, fare clic su **Aggiungi.**
 
     ![Aggiunta di una classe](aspnet-mvc-4-models-and-data-access/_static/image20.png "aggiunta di una classe")
@@ -377,16 +397,20 @@ Ora che già stato configurato la connessione al database, si procederà al coll
 5. Aprire la classe appena creato, **MusicStoreEntities.cs**e includere gli spazi dei nomi **System.Data.Entity** e **System.Data.Entity.Infrastructure**.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
 6. Sostituire la dichiarazione di classe per estendere il **DbContext** classe: dichiarare un pubblico **DBSet** ed eseguire l'override **OnModelCreating** metodo. Dopo questo passaggio si otterrà una classe di dominio che si collegherà il modello con Entity Framework. A tale scopo, sostituire il codice della classe con le operazioni seguenti:
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 codice prima MusicStoreEntities*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
-    > [!NOTE]
-    > Con Entity Framework **DbContext** e **DBSet** sarà in grado di eseguire query sulla classe POCO genere. Estendendo **OnModelCreating** metodo, si specifica nel **codice** come genere verrà mappato a una tabella di database. È possibile trovare ulteriori informazioni su DBContext e DBSet in questo articolo di msdn: [collegamento](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+> [!NOTE]
+> With Entity Framework **DbContext** and **DBSet** you will be able to query the POCO class Genre. By extending **OnModelCreating** method, you are specifying in the **code** how Genre will be mapped to a database table. You can find more information about DBContext and DBSet in this msdn article: [link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+~~~
 
 <a id="Ex2Task4"></a>
 
@@ -406,30 +430,38 @@ In questa attività si aggiornerà la classe StoreController in modo che, invece
     (- Frammento di codice *modelli e accesso ai dati - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
 2. Il **MusicStoreEntities** classe espone una raccolta di proprietà per ogni tabella nel database. Aggiornamento **Sfoglia** il metodo di azione per recuperare un genere con tutte le **album**.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Sfoglia archivio Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
 
-    > [!NOTE]
-    > Si utilizza una funzionalità di .NET denominata **LINQ** (language integrated query) per scrivere espressioni di query fortemente tipizzata in base a queste raccolte - di cui eseguire il codice nel database e verranno restituiti gli oggetti che è possibile programmare nei confronti.
-    > 
-    > Per ulteriori informazioni su LINQ, visitare il [sito msdn](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+~~~
 3. Aggiornamento **indice** per recuperare tutti i generi i metodo di azione.
 
     (- Frammento di codice *modelli e l'accesso ai dati - indice archivio Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
 4. Aggiornamento **indice** metodo di azione per recuperare tutti i generi e trasformare la raccolta a un elenco.
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex2 archivio GenreMenu*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
 
 <a id="Ex2Task5"></a>
 
@@ -470,26 +502,28 @@ In questa attività si modificherà il **StoreController** classe per accedere a
 
 1. Aprire il **iniziare** soluzione si trova in corrispondenza di **Source\Ex3 QueryingTheDatabaseWithParametersCodeFirst\Begin** cartella se si desidera utilizzare Code First approccio o **Source\ Ex3 QueryingTheDatabaseWithParametersDBFirst\Begin** cartella se si desidera utilizzare l'approccio di Database-First. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire il **StoreController** classe per modificare il **Sfoglia** metodo di azione. A tale scopo, nel **Esplora**, espandere il **controller** cartella e fare doppio clic su **StoreController.cs**.
 3. Modifica il **Sfoglia** metodo di azione per recuperare gli album per un genere specifico. A tale scopo, sostituire il codice seguente:
 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex3 StoreController BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
 
-    > [!NOTE]
-    > Per popolare una raccolta di entità, è necessario utilizzare il **Include** per specificare che si desidera recuperare gli album troppo. È possibile utilizzare il. **Single()** estensione in LINQ perché in questo caso in cui è previsto il genere di un solo per un album. Il **Single()** metodo accetta un'espressione Lambda come un parametro che specifica in questo caso un singolo oggetto Genre in modo che il nome corrisponde al valore definito.
-    > 
-    > Si avvale di una funzionalità che consente di indicare altre entità correlate che si desidera caricare anche quando l'oggetto Genre viene recuperato. Questa funzionalità è denominata **forma del risultato di Query**e consente di ridurre il numero di volte necessario per accedere al database per recuperare le informazioni. In questo scenario, è possibile recuperare preventivamente gli album per il genere recuperate.
-    > 
-    > La query include **Genres.Include (&quot;album&quot;)** per indicare che si desidera anche album correlati. Verrà creato in un'applicazione più efficiente, poiché consente di recuperare dati sia Genre e Album nella richiesta singolo database.
+> [!NOTE]
+> To populate a collection of the entity, you need to use the **Include** method to specify you want to retrieve the albums too. You can use the .**Single()** extension in LINQ because in this case only one genre is expected for an album. The **Single()** method takes a Lambda expression as a parameter, which in this case specifies a single Genre object such that its name matches the value defined.
+> 
+> You will take advantage of a feature that allows you to indicate other related entities you want loaded as well when the Genre object is retrieved. This feature is called **Query Result Shaping**, and enables you to reduce the number of times needed to access the database to retrieve information. In this scenario, you will want to pre-fetch the Albums for the Genre you retrieve.
+> 
+> The query includes **Genres.Include(&quot;Albums&quot;)** to indicate that you want related albums as well. This will result in a more efficient application, since it will retrieve both Genre and Album data in a single database request.
+~~~
 
 <a id="Ex3Task2"></a>
 
@@ -518,7 +552,9 @@ In questa attività si ripeterà la procedura precedente per ottenere gli album 
     (- Frammento di codice *modelli e l'accesso ai dati - Ex3 StoreController DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
 
 <a id="Ex3Task4"></a>
 
@@ -558,9 +594,9 @@ Per il completamento di questa pratica si è appreso le nozioni di base di acces
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il  **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
 
-1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; *Visual Studio Express 2012 per Web con Windows Azure SDK*&quot;.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
 2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
 3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
 
@@ -704,14 +740,14 @@ Se l'applicazione viene utilizzato SQL Server database, è necessario creare un 
     *Configurazione della distribuzione Web*
 5. Configurare la connessione al database come segue:
 
-    - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
-    - In **nome utente** digitare il nome di accesso di amministratore di server.
-    - In **Password** digitare la password dell'account di accesso amministratore server.
-    - Digitare un nuovo nome di database.
+   - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
+   - In **nome utente** digitare il nome di accesso di amministratore di server.
+   - In **Password** digitare la password dell'account di accesso amministratore server.
+   - Digitare un nuovo nome di database.
 
-    ![Configurazione di stringa di connessione di destinazione](aspnet-mvc-4-models-and-data-access/_static/image47.png "configurazione stringa di connessione di destinazione")
+     ![Configurazione di stringa di connessione di destinazione](aspnet-mvc-4-models-and-data-access/_static/image47.png "configurazione stringa di connessione di destinazione")
 
-    *Configurazione di stringa di connessione di destinazione*
+     *Configurazione di stringa di connessione di destinazione*
 6. Fare quindi clic su **OK**. Quando viene richiesto di creare il database fare clic su **Sì**.
 
     ![Creazione del database](aspnet-mvc-4-models-and-data-access/_static/image48.png "creazione della stringa di database")

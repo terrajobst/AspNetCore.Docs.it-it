@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f8023efd4d0b32e81dd3aab70e6e7521066fc84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d334a86fcf2fbd1069628527c6e89f3ab655dd5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-vb"></a>Personalizzazione dell'interfaccia di modifica di dati (VB)
 ====================
@@ -36,7 +36,7 @@ Nel [esercitazione precedente](adding-validation-controls-to-the-editing-and-ins
 
 [![Interfaccia di modifica del controllo GridView include controlli DropDownList e pulsanti di opzione](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
 
-**Figura 1**: modifica di controlli DropDownList include di interfaccia e pulsanti di opzione di GridView ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image3.png))
+**Figura 1**: modificare controlli include DropDownList interfaccia e pulsanti di opzione di GridView ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image3.png))
 
 
 ## <a name="step-1-creating-the-appropriateupdateproductoverload"></a>Passaggio 1: Creazione appropriata`UpdateProduct`Overload
@@ -61,7 +61,7 @@ Con il `UpdateProduct` aggiunto overload, si è pronti per creare il nostro Grid
 
 [![Configurare ObjectDataSource per utilizzare l'Overload UpdateProduct appena creato](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
 
-**Figura 2**: configurare ObjectDataSource per utilizzare il `UpdateProduct` Overload appena creato ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image6.png))
+**Figura 2**: configurare ObjectDataSource per usare il `UpdateProduct` Overload appena creato ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image6.png))
 
 
 Come abbiamo visto durante le esercitazioni di modifica di dati, la sintassi dichiarativa per ObjectDataSource creata da Visual Studio assegna il `OldValuesParameterFormatString` proprietà `original_{0}`. Ciò, naturalmente, non funzionerà con il livello di logica di Business poiché i metodi non si prevedono l'originale `ProductID` valore deve essere passato. Pertanto, come che abbiamo realizzato nelle esercitazioni precedenti, è opportuno rimuovere questa assegnazione di proprietà con la sintassi dichiarativa o, invece, impostare il valore di questa proprietà su `{0}`.
@@ -95,7 +95,7 @@ A questo punto, il comportamento di sola lettura di GridView è stato completato
 
 [![Interfaccia di sola lettura di GridView è completato.](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
 
-**Figura 4**: interfaccia di sola lettura di GridView è completa ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image12.png))
+**Figura 4**: interfaccia del GridView di sola lettura è completa ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image12.png))
 
 
 > [!NOTE]
@@ -145,15 +145,15 @@ Per restituire tutte le categorie ObjectDataSource, associarlo al `CategoriesBLL
 
 [![Associare ObjectDataSource al metodo GetCategories() del CategoriesBLL](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
 
-**Figura 7**: ObjectDataSource per associare il `CategoriesBLL`del `GetCategories()` metodo ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image21.png))
+**Figura 7**: associare ObjectDataSource per la `CategoriesBLL`del `GetCategories()` metodo ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image21.png))
 
 
 Infine, configurare le impostazioni del DropDownList in modo che il `CategoryName` campo viene visualizzato in ogni DropDownList `ListItem` con il `CategoryID` utilizzato come valore del campo.
 
 
-[![Dispone il campo CategoryName visualizzato e il CategoryID utilizzato come valore](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
+[![Dispone il campo CategoryName visualizzato e il CategoryID utilizzato come il valore](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
 
-**Figura 8**: sono il `CategoryName` campo visualizzato e `CategoryID` utilizzato come valore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image24.png))
+**Figura 8**: sono il `CategoryName` campo visualizzato e il `CategoryID` utilizzato come valore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image24.png))
 
 
 Dopo avere apportare queste modifiche markup dichiarativo per la `EditItemTemplate` nel `CategoryName` TemplateField includerà un DropDownList sia ObjectDataSource:
@@ -170,9 +170,9 @@ Ripetere questi passaggi per aggiungere un controllo DropDownList denominato `Su
 Dopo l'aggiunta di controlli DropDownList ai due `EditItemTemplate` s, caricare la pagina in un browser e fare clic sul pulsante Modifica per il prodotto Cajun Seasoning di Chef Anton. Come illustrato nella figura 9, le colonne di categoria e il fornitore del prodotto vengono visualizzate come elenchi a discesa contenente le categorie e i fornitori, tra cui scegliere. Si noti tuttavia che il *prima* in entrambi gli elenchi a discesa sono selezionati per impostazione predefinita (bevande per la categoria) e liquide esotiche come il fornitore, anche se Chef Anton Cajun Seasoning è per un condimento fornito da New Orleans Cajun Delights.
 
 
-[![Per impostazione predefinita viene selezionato il primo elemento in elenchi di riepilogo a discesa](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
+[![Per impostazione predefinita viene selezionato il primo elemento in elenchi di elenco a discesa](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
 
-**Figura 9**: l'elenco a discesa sono elencati il primo elemento è selezionato per impostazione predefinita ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image27.png))
+**Figura 9**: per impostazione predefinita viene selezionato il primo elemento in elenchi di elenco a discesa ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image27.png))
 
 
 Inoltre, se si sceglie di aggiornamento, si noterà che il prodotto `CategoryID` e `SupplierID` valori vengono impostati su `NULL`. Entrambi questi indesiderati comportamenti causati perché i controlli DropDownList nel `EditItemTemplate` s non sono associati a tutti i campi dati dai dati sottostanti del prodotto.
@@ -184,7 +184,7 @@ Per disporre di categoria e il fornitore del prodotto modificato elenchi a disce
 In alternativa, è possibile impostare i databindings del DropDownList la modifica del modello tramite la finestra di progettazione e scegliendo il collegamento Modifica DataBindings smart tag del DropDownList. Successivamente, indicano che il `SelectedValue` proprietà deve essere associata al `CategoryID` campo con associazione a dati bidirezionale (vedere la figura 10). Ripetere il processo della finestra di progettazione o dichiarativo per associare il `SupplierID` campo dati e il `Suppliers` DropDownList.
 
 
-[![Associare il CategoryID alla proprietà SelectedValue di DropDownList mediante associazione dati bidirezionale](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
+[![Associare il CategoryID alla proprietà SelectedValue di DropDownList utilizzando l'associazione dati bidirezionale](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
 
 **Figura 10**: associare il `CategoryID` per il controllo DropDownList `SelectedValue` Data Binding bidirezionale di utilizzo di proprietà ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image30.png))
 
@@ -222,9 +222,9 @@ Ripetere questi passaggi per DropDownList fornitori.
 Con questo aggiuntive `ListItem`, l'interfaccia di modifica a questo punto è possibile assegnare `NULL` valori a un prodotto `CategoryID` e `SupplierID` campi, come illustrato nella figura 12.
 
 
-[![Scegliere (nessuno) per assegnare un valore NULL per categoria di un prodotto o fornitore](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
+[![(None) scegliere di assegnare un valore NULL per categoria o un fornitore del prodotto](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
 
-**Figura 12**: (None) scegliere di assegnare un `NULL` valore per la categoria di un prodotto o fornitore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image36.png))
+**Figura 12**: scegliere (nessuno) per assegnare un `NULL` valore per la categoria di un prodotto o fornitore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image36.png))
 
 
 ## <a name="step-4-using-radiobuttons-for-the-discontinued-status"></a>Passaggio 4: Utilizzo di pulsanti di opzione per lo stato non più supportato
@@ -236,7 +236,7 @@ Avviare convertendo il `Discontinued` CheckBoxField in un TemplateField, che cre
 Sostituire la casella di controllo in entrambe la `ItemTemplate` e `EditItemTemplate` con un controllo RadioButtonList, l'impostazione entrambi RadioButtonList `ID` proprietà `DiscontinuedChoice`. Successivamente, indicare il RadioButtonList deve ciascuna delle quali contiene due pulsanti di opzione, uno con etichettato "attivo" con valore "False" e uno con l'etichetta "Sospeso" con un valore "True". A tale scopo è possibile immettere il `<asp:ListItem>` elementi direttamente tramite la sintassi dichiarativa o l'uso di `ListItem` Editor della raccolta dalla finestra di progettazione. Figura 13 illustra il `ListItem` Editor della raccolta dopo i due opzioni pulsante di opzione sono state specificate.
 
 
-[![Aggiungere attivo e non più utilizzate opzioni RadioButtonList](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
+[![Aggiungere opzioni attive e non più supportate a RadioButtonList](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
 
 **Figura 13**: aggiungere Active e non più disponibili le opzioni per RadioButtonList ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image39.png))
 
@@ -255,7 +255,7 @@ Con queste modifiche, il `Discontinued` colonna è stata trasformata da un elenc
 
 [![Le caselle di controllo non più supportate sono state sostituite dalle coppie di pulsante di opzione](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
 
-**Nella figura 14**: il non più disponibili le caselle di controllo sono state sostituite dalle coppie di pulsante di opzione ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image42.png))
+**Figura 14**: il non più disponibili le caselle di controllo sono state sostituite dalle coppie di pulsante di opzione ([fare clic per visualizzare l'immagine ingrandita](customizing-the-data-modification-interface-vb/_static/image42.png))
 
 
 > [!NOTE]
@@ -276,8 +276,8 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
-[Successivo](implementing-optimistic-concurrency-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+> [Successivo](implementing-optimistic-concurrency-vb.md)

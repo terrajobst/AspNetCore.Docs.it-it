@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 title: L'aggiornamento dell'oggetto TableAdapter per usare join (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Quando si utilizza un database è comune per i dati della richiesta che viene distribuiti tra più tabelle. Per recuperare dati da due diverse tabelle è possibile utilizzare..."
+description: Quando si utilizza un database è comune per i dati della richiesta che viene distribuiti tra più tabelle. Per recuperare dati da due diverse tabelle è possibile utilizzare...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0698269c0a29c234f03dc56f7b63e7bc83d032
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 91d700f3de02dc78692e933644e221e2ac8175a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>L'aggiornamento dell'oggetto TableAdapter per usare join (Visual Basic)
 ====================
@@ -54,7 +54,7 @@ In alternativa, un `JOIN` può essere utilizzato per restituire ogni nome di un 
 Oggetto `JOIN` unisce i record da una tabella con i record da un'altra tabella in base ad alcuni criteri specificati. Nella query precedente, ad esempio, il `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` indica a SQL Server per unire ogni record di prodotto con la categoria record il cui `CategoryID` valore corrisponda al prodotto s `CategoryID` valore. Risultati sottoposti a merge consentono di operare con i campi categoria corrispondente per ogni prodotto (ad esempio `CategoryName`).
 
 > [!NOTE]
-> `JOIN`s comunemente utilizzati per eseguire query sui dati dai database relazionali. Se si ha familiarità con il `JOIN` sintassi o necessità di rinfrescarti la memoria bit sul relativo utilizzo, d si consiglia di [esercitazione Join SQL](http://www.w3schools.com/sql/sql_join.asp) in [scuole W3](http://www.w3schools.com/). Anche la pena di lettura sono i [ `JOIN` nozioni di base](https://msdn.microsoft.com/library/ms191517.aspx) e [principi fondamentali di sottoquery](https://msdn.microsoft.com/library/ms189575.aspx) sezioni del [documentazione Online di SQL](https://msdn.microsoft.com/library/ms130214.aspx).
+> `JOIN` s comunemente utilizzati per eseguire query sui dati dai database relazionali. Se si ha familiarità con il `JOIN` sintassi o necessità di rinfrescarti la memoria bit sul relativo utilizzo, d si consiglia di [esercitazione Join SQL](http://www.w3schools.com/sql/sql_join.asp) in [scuole W3](http://www.w3schools.com/). Anche la pena di lettura sono i [ `JOIN` nozioni di base](https://msdn.microsoft.com/library/ms191517.aspx) e [principi fondamentali di sottoquery](https://msdn.microsoft.com/library/ms189575.aspx) sezioni del [documentazione Online di SQL](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Poiché `JOIN` s e sottoquery correlate possono essere utilizzate entrambe per recuperare i dati correlati da altre tabelle, molti sviluppatori restano eventuali graffi le intestazioni e chiedere l'approccio da utilizzare. Tutti i controbattono SQL si ve parlata per hanno affermato approssimativamente la stessa operazione, che t è importante inoltro come SQL Server genera i piani di esecuzione quasi identici. I consigli, sono quindi utilizzare la tecnica di utente e il team ha maggiore familiarità con. Opportuno notare che dopo d'imprimere questa raccomandazione questi esperti immediatamente express la preferenza di `JOIN` s sulle sottoquery correlate.
@@ -85,13 +85,13 @@ Fare clic su Fine per completare la procedura guidata. A questo punto la finestr
 
 ![DataTable include una colonna per ogni campo restituito nell'elenco di colonne](updating-the-tableadapter-to-use-joins-vb/_static/image5.png)
 
-**Figura 3**: DataTable include una colonna per ogni campo restituito nell'elenco di colonne
+**Figura 3**: DataTable include una colonna per ogni campo restituito nell'elenco delle colonne
 
 
 Mentre il DataTable contiene le colonne appropriate, TableAdapter non dispone di valori per il relativo `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà. A tale scopo, fare clic sul TableAdapter nella finestra di progettazione e quindi passare alla finestra Proprietà. Vi si noterà che il `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà vengono impostate su (nessuno).
 
 
-[![La proprietà InsertCommand, UpdateCommand, DeleteCommand proprietà e vengono impostate su (nessuno)](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
+[![La proprietà InsertCommand, UpdateCommand e proprietà DeleteCommand vengono impostate su (nessuno)](updating-the-tableadapter-to-use-joins-vb/_static/image7.png)](updating-the-tableadapter-to-use-joins-vb/_static/image6.png)
 
 **Figura 4**: il `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà vengono impostate su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image8.png))
 
@@ -111,9 +111,9 @@ Per questa esercitazione si aggiungerà un oggetto TableAdapter e DataTable fort
 Aprire il `NorthwindWithSprocs` set di dati nel `~/App_Code/DAL` cartella. Pulsante destro del mouse nella finestra di progettazione, selezionare l'opzione Aggiungi dal menu di scelta rapida e scegliere la voce di menu TableAdapter. Verrà avviata la configurazione guidata TableAdapter. Come viene illustrata nella figura 5, hanno la procedura guidata Crea nuove stored procedure e fare clic su Avanti. Per un aggiornamento per la creazione di nuove stored procedure dalla configurazione guidata TableAdapter s, consultare il [la creazione di nuove Stored procedure per gli oggetti TableAdapter s DataSet tipizzato](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) esercitazione.
 
 
-[![Selezionare la crea nuove stored procedure opzione](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
+[![Selezionare Crea nuove stored procedure. opzione](updating-the-tableadapter-to-use-joins-vb/_static/image10.png)](updating-the-tableadapter-to-use-joins-vb/_static/image9.png)
 
-**Figura 5**: selezionare la creazione di nuove stored procedure opzione ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image11.png))
+**Figura 5**: selezionare Crea nuove stored procedure opzione ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image11.png))
 
 
 Utilizzare la seguente `SELECT` istruzione per la query principale di TableAdapter s:
@@ -134,7 +134,7 @@ Il passaggio seguente consente di denominare le procedure archiviati TableAdapte
 Il passaggio finale viene richiesto di denominare metodi s dell'oggetto TableAdapter. Utilizzare `Fill` e `GetEmployees` come i nomi di metodo. È inoltre necessario assicurarsi di lasciare Crea metodi per inviare aggiornamenti direttamente alla casella di controllo database (GenerateDBDirectMethods) selezionata.
 
 
-[![Nome, il riempimento di metodi TableAdapter s e GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
+[![Nome il riempimento di metodi TableAdapter s e GetEmployees](updating-the-tableadapter-to-use-joins-vb/_static/image16.png)](updating-the-tableadapter-to-use-joins-vb/_static/image15.png)
 
 **Figura 7**: nome i metodi di TableAdapter `Fill` e `GetEmployees` ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image17.png))
 
@@ -144,7 +144,7 @@ Dopo aver completato la procedura guidata, è opportuno esaminare le stored proc
 
 [![TableAdapter include Insert, Update e Delete funzionalità](updating-the-tableadapter-to-use-joins-vb/_static/image19.png)](updating-the-tableadapter-to-use-joins-vb/_static/image18.png)
 
-**Figura 8**: il TableAdapter include Insert, Update e funzionalità di eliminazione ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image20.png))
+**Figura 8**: TableAdapter include Insert, Update e le funzionalità di eliminazione ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image20.png))
 
 
 Con l'inserimento, aggiornamento ed eliminazione di stored procedure create automaticamente e `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà configurata correttamente, si è pronti per personalizzare il `SelectCommand` s stored procedure per restituire ulteriori informazioni su ogni dipendente s responsabile. In particolare, è necessario aggiornare il `Employees_Select` stored procedure per utilizzare un `JOIN` e restituire il gestore s `FirstName` e `LastName` valori. Dopo aver aggiornata la stored procedure, è necessario aggiornare il DataTable in modo che includa tali colonne aggiuntive. È possibile affrontare queste due attività nei passaggi 2 e 3.
@@ -159,7 +159,7 @@ Iniziare da Esplora Server, il drill-down nella cartella Northwind database s St
 Dopo aver aggiornato il `SELECT` istruzione, salvare le modifiche dal menu File e scegliendo Salva `Employees_Select`. In alternativa, è possibile fare clic sull'icona Salva nella barra degli strumenti o premere Ctrl + S. Dopo aver salvato le modifiche, fare clic su di `Employees_Select` stored procedure in Esplora Server e scegliere Esegui. Verrà eseguito la stored procedure e visualizzare i risultati nella finestra di Output (vedere Figura 9).
 
 
-[![I risultati della Stored procedure vengono visualizzati nella finestra di Output](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
+[![I risultati di procedure archiviate vengono visualizzati nella finestra di Output](updating-the-tableadapter-to-use-joins-vb/_static/image22.png)](updating-the-tableadapter-to-use-joins-vb/_static/image21.png)
 
 **Figura 9**: la Stored procedure risultati vengono visualizzati nella finestra di Output ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image23.png))
 
@@ -168,7 +168,7 @@ Dopo aver aggiornato il `SELECT` istruzione, salvare le modifiche dal menu File 
 
 A questo punto, il `Employees_Select` stored procedure restituisce `ManagerFirstName` e `ManagerLastName` valori, ma la `EmployeesDataTable` manca queste colonne. È possibile aggiungere queste colonne mancante nella DataTable in uno dei due modi:
 
-- **Manualmente** : fare clic su DataTable in Progettazione DataSet e, nel menu Aggiungi, scegliere colonna. Quindi, è possibile assegnare un nome di colonna e impostarne le proprietà di conseguenza.
+- **Manualmente** - destro del mouse sul DataTable in Progettazione DataSet e scegliere dal menu Aggiungi colonna. Quindi, è possibile assegnare un nome di colonna e impostarne le proprietà di conseguenza.
 - **Automaticamente** -la configurazione guidata TableAdapter aggiornerà le colonne s DataTable per riflettere i campi restituiti dal `SelectCommand` stored procedure. Quando si Usa istruzioni SQL ad hoc, la procedura guidata rimuoverà anche la `InsertCommand`, `UpdateCommand`, e `DeleteCommand` proprietà dopo il `SelectCommand` contiene ora un `JOIN`. Ma quando si utilizzano stored procedure, queste proprietà comando rimangono intatte.
 
 È stata esplorare aggiunta manuale di colonne DataTable in esercitazioni precedenti, tra cui [Master/dettaglio mediante un elenco puntato dei record Master con un controllo DataList dettagli](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md) e [caricamento di file](../working-with-binary-files/uploading-files-vb.md), e verrà esaminare questo processo nuovamente in modo più dettagliato nell'esercitazione successiva. Per questa esercitazione, tuttavia, consentono s, utilizzare l'approccio automatico tramite la configurazione guidata TableAdapter.
@@ -176,9 +176,9 @@ A questo punto, il `Employees_Select` stored procedure restituisce `ManagerFirst
 Avviare facendo clic su di `EmployeesTableAdapter` e selezionando Configura dal menu di scelta rapida. Verrà visualizzata la configurazione guidata TableAdapter, che elenca le stored procedure utilizzate per la selezione, inserimento, aggiornamento e l'eliminazione, con i relativi valori restituiti e parametri (se presente). Figura 10 è illustrata la procedura guidata. Qui è possibile osservare che il `Employees_Select` stored procedure restituisce ora il `ManagerFirstName` e `ManagerLastName` campi.
 
 
-[![Mostra la procedura guidata elenco delle colonne aggiornate per il Employees_Select Stored Procedure](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
+[![La procedura guidata Mostra elenco delle colonne aggiornate per il Employees_Select Stored Procedure](updating-the-tableadapter-to-use-joins-vb/_static/image25.png)](updating-the-tableadapter-to-use-joins-vb/_static/image24.png)
 
-**Figura 10**: la procedura guidata mostra l'elenco delle colonne aggiornate di `Employees_Select` Stored Procedure ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))
+**Figura 10**: la procedura guidata mostra l'elenco delle colonne aggiornate per il `Employees_Select` Stored Procedure ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image26.png))
 
 
 Completare la procedura guidata, fare clic su Fine. All'uscita alla finestra di progettazione set di dati, il `EmployeesDataTable` include due colonne aggiuntive: `ManagerFirstName` e `ManagerLastName`.
@@ -209,7 +209,7 @@ Configurare ObjectDataSource per utilizzare il `EmployeesBLLWithSprocs` classe e
 
 [![Configurare ObjectDataSource per utilizzare la classe EmployeesBLLWithSprocs](updating-the-tableadapter-to-use-joins-vb/_static/image31.png)](updating-the-tableadapter-to-use-joins-vb/_static/image30.png)
 
-**Figura 12**: configurare ObjectDataSource per utilizzare il `EmployeesBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))
+**Figura 12**: configurare ObjectDataSource per usare il `EmployeesBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image32.png))
 
 
 [![È possibile utilizzare ObjectDataSource le GetEmployees e i metodi di DeleteEmployee](updating-the-tableadapter-to-use-joins-vb/_static/image34.png)](updating-the-tableadapter-to-use-joins-vb/_static/image33.png)
@@ -229,15 +229,15 @@ Il test della pagina, visitare il sito tramite un browser. Come mostrato nella f
 
 [![Il JOIN nel Employees_Select Stored Procedure restituisce il nome del gestore s](updating-the-tableadapter-to-use-joins-vb/_static/image37.png)](updating-the-tableadapter-to-use-joins-vb/_static/image36.png)
 
-**Nella figura 14**: il `JOIN` nel `Employees_Select` Stored Procedure restituisce il nome di gestore ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image38.png))
+**Figura 14**: il `JOIN` nel `Employees_Select` Stored Procedure restituisce il nome di gestore ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image38.png))
 
 
 Fare clic sul pulsante Elimina viene avviato il flusso di lavoro l'eliminazione, culmina nell'esecuzione del `Employees_Delete` stored procedure. Tuttavia, il tentativo `DELETE` istruzione nella stored procedure non riesce a causa di una violazione di vincolo di chiave esterna (vedere Figura 15). In particolare, ogni dipendente ha uno o più record `Orders` tabella, causando l'eliminazione di esito negativo.
 
 
-[![L'eliminazione di un dipendente che dispone di risultati di ordini corrispondenti in una violazione del vincolo di chiave esterna](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
+[![L'eliminazione di un dipendente che ha restituito risultati ordini corrispondente in una violazione di vincolo di chiave esterna](updating-the-tableadapter-to-use-joins-vb/_static/image40.png)](updating-the-tableadapter-to-use-joins-vb/_static/image39.png)
 
-**Figura 15**: eliminazione di un dipendente che dispone di risultati di ordini corrispondenti in una violazione del vincolo di chiave esterna ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image41.png))
+**Figura 15**: l'eliminazione di un dipendente che ha restituito risultati ordini corrispondente in una violazione di vincolo di chiave esterna ([fare clic per visualizzare l'immagine ingrandita](updating-the-tableadapter-to-use-joins-vb/_static/image41.png))
 
 
 Per consentire a un dipendente eliminato è stato possibile:
@@ -260,12 +260,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Hilton Geisenow e David Suru Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-[Successivo](adding-additional-datatable-columns-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [Successivo](adding-additional-datatable-columns-vb.md)

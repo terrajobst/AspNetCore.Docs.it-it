@@ -2,21 +2,21 @@
 uid: whitepapers/aspnet4/overview
 title: In ASP.NET 4 e Cenni preliminari sullo sviluppo di Visual Studio 2010 Web | Documenti Microsoft
 author: rick-anderson
-description: "Questo documento fornisce una panoramica delle numerose delle nuove funzionalità per ASP.NET che sono inclusi in.NET Framework 4 e in Visual Studio 2010."
+description: Questo documento fornisce una panoramica delle numerose delle nuove funzionalità per ASP.NET che sono inclusi in.NET Framework 4 e in Visual Studio 2010.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Cenni preliminari sullo sviluppo di Visual Studio 2010 Web e di ASP.NET 4
 ====================
@@ -27,37 +27,37 @@ ms.lasthandoff: 01/30/2018
 
 **Sommario**
 
-**[Servizi di base](#0.2__Toc253429238 "_Toc253429238")**  
-[Il File Web. config Refactoring](#0.2__Toc253429239 "_Toc253429239")  
+**[Servizi principali](#0.2__Toc253429238 "_Toc253429238")**  
+[File Web. config Refactoring](#0.2__Toc253429239 "_Toc253429239")  
 [La memorizzazione nella cache di Output Extensible](#0.2__Toc253429240 "_Toc253429240")  
 [Avvio automatico di applicazioni Web](#0.2__Toc253429241 "_Toc253429241")  
 [Una pagina di reindirizzamento permanente](#0.2__Toc253429242 "_Toc253429242")  
-[Lo stato della sessione di compattazione](#0.2__Toc253429243 "_Toc253429243")  
+[La compattazione lo stato della sessione](#0.2__Toc253429243 "_Toc253429243")  
 [Espansione dell'intervallo di URL consentiti](#0.2__Toc253429244 "_Toc253429244")  
-[Convalida delle richieste estensibile](#0.2__Toc253429245 "_Toc253429245")  
-[La memorizzazione nella cache dell'oggetto e l'oggetto estensibilità di memorizzazione nella cache](#0.2__Toc253429246 "_Toc253429246")  
-[Extensible HTML, URL e codifica dell'intestazione HTTP](#0.2__Toc253429247 "_Toc253429247")  
+[Convalida delle richieste Extensible](#0.2__Toc253429245 "_Toc253429245")  
+[La memorizzazione nella cache dell'oggetto e l'oggetto estensibilità memorizzazione nella cache](#0.2__Toc253429246 "_Toc253429246")  
+[Extensible HTML, l'URL e codifica dell'intestazione HTTP](#0.2__Toc253429247 "_Toc253429247")  
 [Monitoraggio delle prestazioni per le singole applicazioni in un singolo processo di lavoro](#0.2__Toc253429248 "_Toc253429248")  
-[Funzionalità di multitargeting](#0.2__Toc253429249 "_Toc253429249")
+[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
-**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
-[jQuery inclusi con Web Form e MVC](#0.2__Toc253429251 "_Toc253429251")  
-[Supporto di rete di recapito di contenuto](#0.2__Toc253429252 "_Toc253429252")  
-[Script espliciti ScriptManager](#0.2__Toc253429253 "_Toc253429253")
+**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
+[jQuery inclusa con Web Form e MVC](#0.2__Toc253429251 "_Toc253429251")  
+[Supporto di rete per il recapito di contenuto](#0.2__Toc253429252 "_Toc253429252")  
+[Gli script esplicita ScriptManager](#0.2__Toc253429253 "_Toc253429253")
 
 **[Web Form](#0.2__Toc253429256 "_Toc253429256")**  
-[L'impostazione di tag Meta Page.MetaKeywords e le proprietà Page.MetaDescription](#0.2__Toc253429257 "_Toc253429257")  
-[Attivazione dello stato di visualizzazione per i singoli controlli](#0.2__Toc253429258 "_Toc253429258")  
+[Impostazione metatag con le proprietà di Page.MetaDescription e Page.MetaKeywords](#0.2__Toc253429257 "_Toc253429257")  
+[L'abilitazione di stato di visualizzazione per i singoli controlli](#0.2__Toc253429258 "_Toc253429258")  
 [Modifiche alle funzionalità del Browser](#0.2__Toc253429259 "_Toc253429259")  
 [Routing in ASP.NET 4](#0.2__Toc253429260 "_Toc253429260")  
 [Impostazione degli ID Client](#0.2__Toc253429261 "_Toc253429261")  
-[Selezione di righe persistenti nei controlli dati](#0.2__Toc253429262 "_Toc253429262")  
-[Controllo ASP.NET Chart](#0.2__Toc253429263 "_Toc253429263")  
+[Impostazione della persistenza selezione di riga nei controlli di dati](#0.2__Toc253429262 "_Toc253429262")  
+[ASP.NET Chart Control](#0.2__Toc253429263 "_Toc253429263")  
 [Filtro dei dati con il controllo QueryExtender](#0.2__Toc253429264 "_Toc253429264")  
 [Le espressioni di codice codificata in formato HTML](#0.2__Toc253429265 "_Toc253429265")  
-[Le modifiche al modello di progetto](#0.2__Toc253429266 "_Toc253429266")  
+[Le modifiche del modello di progetto](#0.2__Toc253429266 "_Toc253429266")  
 [Miglioramenti di CSS](#0.2__Toc253429267 "_Toc253429267")  
-[Nascondere elementi intorno campi nascosti div](#0.2__Toc253429268 "_Toc253429268")  
+[Nascondere elementi intorno a campi nascosti div](#0.2__Toc253429268 "_Toc253429268")  
 [Il rendering di una tabella esterna per i controlli basati su modelli](#0.2__Toc253429269 "_Toc253429269")  
 [Miglioramenti al controllo ListView](#0.2__Toc253429270 "_Toc253429270")  
 [Miglioramenti di controllo RadioButtonList e CheckBoxList](#0.2__Toc253429271 "_Toc253429271")  
@@ -66,33 +66,33 @@ ms.lasthandoff: 01/30/2018
 
 **[ASP.NET MVC](#0.2__Toc253429274 "_Toc253429274")**  
 [Supporto di aree](#0.2__Toc253429275 "_Toc253429275")  
-[Supporto della convalida l'annotazione dei dati attributo](#0.2__Toc253429276 "_Toc253429276")  
+[Supporto della convalida attributo annotazione dei dati](#0.2__Toc253429276 "_Toc253429276")  
 [Helper basati su modelli](#0.2__Toc253429277 "_Toc253429277")
 
-**[Dati dinamici](#0.2__Toc253429278 "_Toc253429278")**  
+**[Dynamic Data](#0.2__Toc253429278 "_Toc253429278")**  
 [Abilitazione di Dynamic Data per i progetti esistenti](#0.2__Toc253429279 "_Toc253429279")  
 [La sintassi dichiarativa per il controllo DynamicDataManager](#0.2__Toc253429280 "_Toc253429280")  
 [I modelli di entità](#0.2__Toc253429281 "_Toc253429281")  
-[Nuovi modelli di campo per gli indirizzi di posta elettronica e gli URL](#0.2__Toc253429282 "_Toc253429282")  
+[Nuovi modelli di campo per URL e indirizzi di posta elettronica](#0.2__Toc253429282 "_Toc253429282")  
 [Creazione di collegamenti con il controllo DynamicHyperLink](#0.2__Toc253429283 "_Toc253429283")  
 [Supporto per l'ereditarietà nel modello di dati](#0.2__Toc253429284 "_Toc253429284")  
-[Supporto per le relazioni molti-a-molti (solo per Entity Framework)](#0.2__Toc253429285 "_Toc253429285")  
+[Supporto per le relazioni molti-a-molti (solo Entity Framework)](#0.2__Toc253429285 "_Toc253429285")  
 [Nuovi attributi di visualizzazione del controllo e il supporto delle enumerazioni](#0.2__Toc253429286 "_Toc253429286")  
 [Supporto migliorato per i filtri](#0.2__Toc253429287 "_Toc253429287")
 
 **[Visual Studio 2010 Web miglioramenti per lo sviluppo](#0.2__Toc253429288 "_Toc253429288")**  
-[Migliorare la compatibilità CSS](#0.2__Toc253429289 "_Toc253429289")  
+[Migliorata compatibilità CSS](#0.2__Toc253429289 "_Toc253429289")  
 [Frammenti di codice JavaScript e HTML](#0.2__Toc253429290 "_Toc253429290")  
 [Miglioramenti di IntelliSense per JavaScript](#0.2__Toc253429291 "_Toc253429291")
 
 **[Distribuzione di applicazioni con Visual Studio 2010 Web](#0.2__Toc253429292 "_Toc253429292")**  
-[Creazione di pacchetti Web](#0.2__Toc253429293 "_Toc253429293")  
-[Trasformazione Web. config](#0.2__Toc253429294 "_Toc253429294")  
+[Web imballaggio](#0.2__Toc253429293 "_Toc253429293")  
+[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
 [Distribuzione del database](#0.2__Toc253429295 "_Toc253429295")  
-[Pubblicazione con un clic per le applicazioni Web](#0.2__Toc253429296 "_Toc253429296")  
-[Risorse](#0.2__Toc253429297 "_Toc253429297")
+[Pubblicazione per le applicazioni Web con un clic](#0.2__Toc253429296 "_Toc253429296")  
+[Le risorse](#0.2__Toc253429297 "_Toc253429297")
 
-**[Dichiarazione di non responsabilità](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -199,16 +199,16 @@ In ASP.NET 4 introduce nuove opzioni per l'espansione dell'URL dell'applicazione
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Per consentire i percorsi superiori o inferiori (parte dell'URL che non include protocollo, nome del server e stringa di query), modificare il  *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  attributo. Per consentire le stringhe di query superiori o inferiori, modificare il valore di  *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  attributo.
+Per consentire i percorsi superiori o inferiori (parte dell'URL che non include protocollo, nome del server e stringa di query), modificare il *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* attributo. Per consentire le stringhe di query superiori o inferiori, modificare il valore di *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* attributo.
 
 In ASP.NET 4 consente inoltre di configurare i caratteri che vengono utilizzati dal controllo di caratteri di URL. Quando ASP.NET rileva un carattere non valido nella parte di percorso di un URL, rifiuta la richiesta e genera un errore HTTP 400. Nelle versioni precedenti di ASP.NET, i controlli di caratteri di URL sono limitati a un insieme fisso di caratteri. In ASP.NET 4, è possibile personalizzare il set di caratteri validi utilizzando il nuovo *requestPathInvalidChars* attributo del *httpRuntime* elemento di configurazione, come illustrato nell'esempio seguente:
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Per impostazione predefinita, il *requestPathInvalidChars* attributo definisce otto caratteri come non validi. (Nella stringa di cui è assegnata *requestPathInvalidChars* per impostazione predefinita*,*il minore di (&lt;), maggiore di (&gt;) e commerciale (&amp;) sono caratteri codifica, poiché il `Web.config` file è un file XML.) È possibile personalizzare il set di caratteri non validi in base alle esigenze.
+Per impostazione predefinita, il <em>requestPathInvalidChars</em> attributo definisce otto caratteri come non validi. (Nella stringa di cui è assegnata <em>requestPathInvalidChars</em> per impostazione predefinita<em>,</em>il minore di (&lt;), maggiore di (&gt;) e commerciale (&amp;) sono caratteri codifica, poiché il `Web.config` file è un file XML.) È possibile personalizzare il set di caratteri non validi in base alle esigenze.
 
 > [!NOTE]
-> Si noti che ASP.NET 4 rifiuta sempre i percorsi URL contenenti caratteri nell'intervallo ASCII da 0x00 a 0x1F, perché sono caratteri dell'URL non validi come definito in RFC 2396 di IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). Nelle versioni di Windows Server che esegue IIS 6 o versioni successive, il driver di dispositivo del protocollo HTTP. sys Rifiuta automaticamente gli URL con questi caratteri.
+> Si noti che ASP.NET 4 rifiuta sempre i percorsi URL contenenti caratteri nell'intervallo ASCII da 0x00 a 0x1F, poiché sono caratteri dell'URL non validi come definito in RFC 2396 di IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). Nelle versioni di Windows Server che esegue IIS 6 o versioni successive, il driver di dispositivo del protocollo HTTP. sys Rifiuta automaticamente gli URL con questi caratteri.
 
 
 <a id="0.2__Toc253429245"></a><a id="0.2__Toc243304619"></a>
@@ -326,9 +326,11 @@ Il Microsoft Ajax rete CDN (Content Delivery) consente di aggiungere facilmente 
 
 Microsoft Ajax Content Delivery Network supporta SSL (HTTPS), nel caso in cui sia necessario presentare una pagina web utilizzando Secure Sockets Layer.
 
+Implementare un fallback quando la rete CDN non è disponibile. Testare il fallback.
+
 Per ulteriori informazioni sulla rete CDN di Microsoft Ajax, visitare il seguente sito Web:
 
-[https://www.ASP.NET/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
+[https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
 
 ScriptManager ASP.NET supporta la rete CDN di Microsoft Ajax. Semplicemente effettuando l'impostazione della una proprietà, la proprietà EnableCdn, è possibile recuperare tutti i file JavaScript framework ASP.NET dalla rete CDN:
 
@@ -402,7 +404,7 @@ Le nuove proprietà sono una funzione semplice, ma salvano dal requisito di aggi
 
 Per impostazione predefinita, lo stato di visualizzazione è abilitato per la pagina, in modo che ogni controllo nella pagina Archivia lo stato di visualizzazione potenzialmente anche se non è necessaria per l'applicazione. Dati dello stato di visualizzazione sono incluso nel markup che una pagina viene generato l'errore e aumenta la quantità di tempo impiegato per l'invio di una pagina per il client e registrarlo nuovamente. L'archiviazione dello stato di visualizzazione più del necessario può causare un peggioramento delle prestazioni. Nelle versioni precedenti di ASP.NET, gli sviluppatori è stato possibile disabilitare lo stato di visualizzazione per i singoli controlli per ridurre le dimensioni di pagina, ma ha operazioni da eseguire in modo esplicito per singoli controlli. In ASP.NET 4, i controlli server Web includono un *ViewStateMode* proprietà che consente di disabilitare lo stato di visualizzazione per impostazione predefinita e quindi abilitarlo solo per i controlli che lo richiedono nella pagina.
 
-Il *ViewStateMode* proprietà accetta un'enumerazione che dispone di tre valori: *abilitato*, *disabilitato*, e *eredita*. *Abilitato* consente di visualizzare lo stato per il controllo e per eventuali controlli figlio che sono impostati su *eredita* o che non impostato. *Disabilitato* disabilita lo stato di visualizzazione e *eredita* specifica che il controllo viene utilizzato il *ViewStateMode* impostazione dal controllo padre.
+Il *ViewStateMode* proprietà accetta un'enumerazione che dispone di tre valori: *abilitato*, *disabilitato*, e *eredita*. *Abilitata* consente di visualizzare lo stato per il controllo e per tutti i controlli figlio che vengono impostati su *eredita* o che non è nothing impostato. *Disabilitato* disattiva stato di visualizzazione, e *eredita* specifica che il controllo Usa il *ViewStateMode* impostazione dal controllo padre.
 
 L'esempio seguente mostra come *ViewStateMode* proprietà funziona. Il markup e il codice per i controlli nella pagina seguente include i valori per il *ViewStateMode* proprietà:
 
@@ -412,13 +414,13 @@ Come si può notare, il codice disabilita lo stato di visualizzazione per il con
 
 L'effetto di queste impostazioni è che, quando la pagina viene caricata la prima volta, nel browser viene visualizzato il seguente output:
 
-Disabilitato`: [DynamicValue]`
+Disabilitato `: [DynamicValue]`
 
 Abilitata:`[DynamicValue]`
 
 Dopo un postback, tuttavia, viene visualizzato il seguente output:
 
-Disabilitato`: [DeclaredValue]`
+Disabilitato `: [DeclaredValue]`
 
 Abilitata:`[DynamicValue]`
 
@@ -444,17 +446,17 @@ Il *HttpBrowserCapabilities* oggetto dipende da un set di file di definizione de
 
 L'elenco seguente mostra il nuovo browser di file di definizione:
 
-- *BlackBerry.browser*
-- *Chrome.browser*
-- *Default*
-- *Firefox.browser*
+- *blackberry.browser*
+- *chrome.browser*
+- *Default.browser*
+- *firefox.browser*
 - *gateway.browser*
-- *mostrato*
-- *IE*
-- *Iemobile.browser*
-- *iPhone.browser*
+- *generic.browser*
+- *ie.browser*
+- *iemobile.browser*
+- *iphone.browser*
 - *opera.browser*
-- *Safari.browser*
+- *safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Utilizzo di provider di funzionalità del Browser
 
@@ -554,7 +556,7 @@ Tramite il routing, è possibile configurare l'applicazione per accettare l'URL 
 
 [!code-console[Main](overview/samples/sample37.cmd)]
 
-Routing è stato disponibile a partire da ASP.NET 3.5 SP1. (Per un esempio di come utilizzare il routing di ASP.NET 3.5 SP1, vedere la voce [utilizzando Routing con WebForms](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "titolo di questa voce.") nel blog di Phil Haack.) Tuttavia, ASP.NET 4 include alcune funzionalità che rendono più semplice di utilizzare il routing, inclusi i seguenti:
+Routing è stato disponibile a partire da ASP.NET 3.5 SP1. (Per un esempio di come utilizzare il routing ASP.NET 3.5 SP1, vedere il post [utilizzando Routing con WebForms](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "titolo di questa voce.") nel blog di Phil Haack.) Tuttavia, ASP.NET 4 include alcune funzionalità che rendono più semplice di utilizzare il routing, inclusi i seguenti:
 
 - Il *PageRouteHandler* (classe), che è un semplice gestore HTTP utilizzato per definire le route. La classe passa i dati per la pagina che viene inoltrata la richiesta.
 - Le nuove proprietà *HttpRequest.RequestContext* e *Page.RouteData* (ovvero un proxy per il *HttpRequest.RequestContext.RouteData* oggetto). Tali proprietà semplificano per accedere alle informazioni che viene passato dalla route.
@@ -578,8 +580,8 @@ Il codice nell'esempio viene eseguito il mapping della route per una pagina fisi
 Il *MapPageRoute* metodo supporta l'overload del metodo seguente:
 
 - *MapPageRoute (stringa routeName routeUrl stringa, stringa physicalFile, checkPhysicalUrlAccess bool)*
-- *MapPageRoute (stringa routeName, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary predefinite)*
-- *MapPageRoute (stringa routeName, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary predefiniti, vincoli RouteValueDictionary)*
+- *MapPageRoute (routeName stringa, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, i valori predefiniti RouteValueDictionary)*
+- *MapPageRoute (stringa routeName, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary i valori predefiniti, vincoli RouteValueDictionary)*
 
 Il *checkPhysicalUrlAccess* parametro specifica se la route deve verificare le autorizzazioni di sicurezza per la pagina fisica viene eseguito il routing (in questo caso, Search. aspx) e le autorizzazioni per l'URL in ingresso (in questo caso, eseguire la ricerca / {searchterm}). Se il valore di *checkPhysicalUrlAccess* è *false*, verranno verificate solo le autorizzazioni dell'URL in ingresso. Queste autorizzazioni sono definite nel `Web.config` file utilizzando le impostazioni, ad esempio le operazioni seguenti:
 
@@ -629,7 +631,7 @@ Il *RouteParameter* classe consente di specificare i dati della route come valor
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-In questo caso, verrà utilizzato il valore di searchterm di parametro di route per il @companyname parametro il *selezionare* istruzione.
+In questo caso, verrà utilizzato il valore di searchterm di parametro di route per il @companyname parametro il <em>selezionare</em> istruzione.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -641,10 +643,10 @@ Il *id* attributo in formato HTML che viene eseguito il rendering dei controlli 
 
 Il nuovo *ClientIDMode* proprietà consente di specificare il modo più precisamente l'ID client viene generato per i controlli. È possibile impostare il *ClientIDMode* proprietà per qualsiasi controllo, tra cui la pagina. Impostazioni possibili sono i seguenti:
 
-- *AutoID* – equivale all'algoritmo per la generazione di *ClientID* i valori delle proprietà che è stato utilizzato in versioni precedenti di ASP.NET.
-- *Statico* : Specifica che il *ClientID* valore sarà lo stesso ID senza concatenazione gli ID dei contenitori di denominazione padre. Può essere utile nei controlli utente Web. Poiché un controllo utente Web può trovarsi in diverse pagine e controlli contenitore diverso, può essere difficile la scrittura di script client per i controlli che utilizzano il *AutoID* algoritmo perché non è possibile prevedere i valori di ID sarà .
+- *AutoID* : questa opzione equivale all'algoritmo per la generazione *ClientID* i valori delle proprietà che è stato usato nelle versioni precedenti di ASP.NET.
+- *Static* : Specifica che il *ClientID* valore sarà lo stesso ID senza concatenazione gli ID di denominazione dei contenitori padre. Può essere utile nei controlli utente Web. Poiché un controllo utente Web può trovarsi in diverse pagine e controlli contenitore diverso, può essere difficile la scrittura di script client per i controlli che utilizzano il *AutoID* algoritmo perché non è possibile prevedere i valori di ID sarà .
 - *Stimabile* : questa opzione viene principalmente utilizzato nei controlli di dati che utilizzano modelli ripetuti. Concatena le proprietà ID di contenitori di denominazione del controllo, ma generato *ClientID* valori non contengono stringhe come "ctlxxx". Questa impostazione interagisce con il *ClientIDRowSuffix* proprietà del controllo. Impostare il *ClientIDRowSuffix* proprietà per il nome di un campo dati e il valore del campo utilizzato come suffisso per generato *ClientID* valore. In genere si usa la chiave primaria di un record di dati come il *ClientIDRowSuffix* valore.
-- *Ereditare* : questa impostazione è il comportamento predefinito per i controlli, ma specifica che la generazione degli ID di un controllo corrisponde al relativo elemento padre.
+- *Ereditare* : questa impostazione è il comportamento predefinito per i controlli, ovvero viene specificato che la generazione degli ID di un controllo corrisponde a quello del padre.
 
 È possibile impostare il *ClientIDMode* proprietà a livello di pagina. Definisce il valore predefinito *ClientIDMode* valore per tutti i controlli nella pagina corrente.
 
@@ -690,11 +692,11 @@ Il codice nell'esempio seguente include un *ListView* controllo:
 
 Nell'esempio precedente, il *ClientIDMode* e *RowClientIDRowSuffix* proprietà vengono impostate nel markup. Il *ClientIDRowSuffix* proprietà può essere utilizzata solo nei controlli associati a dati e il relativo comportamento varia a seconda di quale controllo in uso. Esistono le seguenti differenze:
 
-- *GridView* controllo, è possibile specificare il nome di uno o più colonne nell'origine dati, che vengono combinati in fase di esecuzione per creare il client ID. Ad esempio, se si imposta *RowClientIDRowSuffix* per "ProductName, ProductId", ID di controllo per gli elementi di rendering avranno un formato simile al seguente:
+- *GridView* controllo, è possibile specificare il nome di una o più colonne nell'origine dati, che vengono combinati in fase di esecuzione per creare il client ID. Ad esempio, se si imposta *RowClientIDRowSuffix* per "ProductName, ProductId", ID di controllo per gli elementi di rendering avranno un formato simile al seguente:
 
 - [!code-console[Main](overview/samples/sample54.cmd)]
 
-- *ListView* controllo, è possibile specificare una singola colonna nell'origine dati che viene aggiunto all'ID client. Ad esempio, se si imposta *ClientIDRowSuffix* per "ProductName", il controllo viene eseguito il rendering ID avrà un formato simile al seguente:
+- *ListView* controllo, è possibile specificare una singola colonna nell'origine dati che viene aggiunto per l'ID client. Ad esempio, se si imposta *ClientIDRowSuffix* per "ProductName", il controllo viene eseguito il rendering ID avrà un formato simile al seguente:
 
 - [!code-console[Main](overview/samples/sample55.cmd)]
 
@@ -720,7 +722,7 @@ La selezione persistente è stata inizialmente supportata solo nei progetti di d
 
 <a id="0.2__Toc253429263"></a><a id="0.2__Toc243304637"></a>
 
-### <a name="aspnet-chart-control"></a>Controllo ASP.NET Chart
+### <a name="aspnet-chart-control"></a>ASP.NET Chart Control
 
 ASP.NET *grafico* controllo espande le offerte di visualizzazione dei dati in .NET Framework. Utilizzo di *grafico* controllo, è possibile creare pagine ASP.NET che sono grafici intuitivi e visivamente accattivanti per eseguire complesse analisi statistica e finanziaria. ASP.NET *grafico* controllo è stato introdotto come componente aggiuntivo per la versione di .NET Framework versione 3.5 SP1 ed è parte della versione di .NET Framework 4.
 
@@ -805,7 +807,7 @@ L'opzione di espressione di proprietà consente di definire un confronto per un 
 
 [!code-aspx[Main](overview/samples/sample63.aspx)]
 
-#### <a name="customexpression"></a>Espressione personalizzata
+#### <a name="customexpression"></a>CustomExpression
 
 Infine, è possibile specificare un'espressione personalizzata da utilizzare con il *QueryExtender* controllo. Questa opzione consente di chiamare una funzione nella pagina che definisce la logica di filtro personalizzato. Nell'esempio seguente viene illustrato come specificare in modo dichiarativo un'espressione personalizzata nel *QueryExtender* controllo.
 
@@ -937,7 +939,7 @@ Il valore per *controlRenderingCompatibility* è una stringa, che consente di po
 - "4.0". Se la proprietà dispone di questa impostazione, i controlli server ASP.NET Web eseguire le operazioni seguenti:
 - Il *xhtmlConformance* proprietà viene sempre considerata come "Strict". Di conseguenza, i controlli il rendering del markup XHTML 1.0 Strict.
 - La disabilitazione di controlli non di input non esegue il rendering di stili non validi.
-- *div* tra gli elementi nascosti vengono ora applicato uno stile in modo non interferiscono con le regole CSS creati dall'utente.
+- *div* attorno campi nascosti venga ora stile in modo non interferiscono con le regole CSS creati dall'utente.
 - I controlli menu il rendering del markup semanticamente corretto e conforme alle linee guida di accessibilità.
 - I controlli di convalida non vengono visualizzati gli stili in linea.
 - I controlli che in precedenza eseguito il rendering del bordo = "0" (i controlli che derivano da ASP.NET *tabella* controllo e ASP.NET *immagine* controllo) non è più il rendering di questo attributo.
@@ -983,10 +985,10 @@ ASP.NET 2.0 e versioni successive, eseguire il rendering campi nascosti specific
 Per impostazione predefinita, i seguenti controlli server Web ASP.NET che supportano i modelli vengono automaticamente eseguito il wrapping in una tabella esterna che viene utilizzata per applicare gli stili in linea:
 
 - *Controllo FormView*
-- *Account di accesso*
+- *Login*
 - *PasswordRecovery*
 - *ChangePassword*
-- *Procedura guidata*
+- *Wizard*
 - *CreateUserWizard*
 
 Una nuova proprietà denominata *RenderOuterTable* è stato aggiunto a questi controlli che consente la tabella esterna da rimuovere dal markup. Ad esempio, si consideri l'esempio seguente di un *FormView* controllo:
@@ -1045,8 +1047,8 @@ Poiché questi controlli contengono elenchi di elementi, per eseguire il renderi
 
 In ASP.NET 4, il *CheckBoxList* e *RadioButtonList* controlli supportano i nuovi valori per il *RepeatLayout* proprietà:
 
-- *OrderedList* : il contenuto viene visualizzato come *li* elementi all'interno di un *ol* elemento.
-- *UnorderedList* : il contenuto viene visualizzato come *li* elementi all'interno di un *ul* elemento.
+- *OrderedList* : il contenuto viene visualizzato come *li* elementi all'interno di una *ol* elemento.
+- *Layout UnorderedList* : il contenuto viene visualizzato come *li* elementi all'interno di una *ul* elemento.
 
 Nell'esempio seguente viene illustrato come utilizzare i nuovi valori.
 
@@ -1099,7 +1101,7 @@ L'esempio contiene quanto segue denominata segnaposto di *LayoutTemplate* elemen
 - *headerPlaceholder* : in fase di esecuzione, questo viene sostituito dal contenuto del *HeaderTemplate* elemento.
 - *sideBarPlaceholder* : in fase di esecuzione, questo viene sostituito dal contenuto del *SideBarTemplate* elemento.
 - *wizardStepPlaceHolder* : in fase di esecuzione, questo viene sostituito dal contenuto del *WizardStepTemplate* elemento.
-- *navigationPlaceholder* : in fase di esecuzione, questo viene sostituito da alcun modello di navigazione che sono state definite.
+- *navigationPlaceholder* – in fase di esecuzione, che viene sostituita da alcun modello di navigazione che sono state definite.
 
 Il markup nell'esempio che usa segnaposti di rendering viene eseguito il codice HTML seguente (senza contenuto effettivamente definito nei modelli):
 
@@ -1362,11 +1364,11 @@ Per ulteriori informazioni, vedere [procedura: distribuire un'applicazione con u
 I siti Web seguenti forniscono ulteriori informazioni su ASP.NET 4 e Visual Studio 2010.
 
 - [In ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) , consultare la documentazione ufficiale per ASP.NET 4 nel sito Web MSDN.
-- [https://www.ASP.NET/](https://www.asp.net/) : ASP.NET il sito Web del team.
-- [https://www.ASP.NET/DynamicData/](https://msdn.microsoft.com/library/cc488545.aspx) e [ASP.NET Dynamic Data Content Map](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) -risorse Online sul sito del team ASP.NET e nella documentazione ufficiale per ASP.NET Dynamic Data.
-- [https://www.ASP.NET/AJAX/](../../ajax/index.md) : la risorsa Web principale per lo sviluppo di ASP.NET Ajax.
-- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) : blog del Team di Visual Web Developer, che include informazioni sulle funzionalità in Visual Studio 2010.
-- [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) : la risorsa Web principale per le versioni di anteprima di ASP.NET.
+- [https://www.asp.net/](https://www.asp.net/) : ASP.NET il sito Web del team.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) e [ASP.NET Dynamic Data Content Map](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) -risorse Online sul sito del team ASP.NET e nella documentazione ufficiale per ASP.NET Dynamic Data.
+- [https://www.asp.net/ajax/](../../ajax/index.md) : La risorsa Web principale per lo sviluppo di ASP.NET Ajax.
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) Ovvero il blog del Team di Visual Web Developer, che include informazioni sulle funzionalità in Visual Studio 2010.
+- [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) , ovvero la risorsa Web principale per le versioni di anteprima di ASP.NET.
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>
 

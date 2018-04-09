@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b23e16f2e4dd26f50eb3e07f35d078dd19a19
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9fd11ea0348eb7fe9a7634f7b26031339146828
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a>Compilazione dinamica di un controllo utilizzando il codice JavaScript (c#)
 ====================
@@ -62,6 +62,6 @@ Si noti che nel contesto di un pulsante di opzione, l'espressione JavaScript `th
 
 Un clic sul pulsante Recupera la data dal server, nel formato specificato ([fare clic per visualizzare l'immagine ingrandita](dynamically-populating-a-control-using-javascript-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](dynamically-populating-a-control-cs.md)
-[Successivo](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](dynamically-populating-a-control-cs.md)
+> [Successivo](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)

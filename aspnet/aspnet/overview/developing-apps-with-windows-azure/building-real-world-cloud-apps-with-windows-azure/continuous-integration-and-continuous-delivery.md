@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 title: Integrazione continua e il recapito continuo (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d482aaa0d25d6e6baaf196df4b4bb9335408e46
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Integrazione continua e il recapito continuo (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -37,7 +37,7 @@ In genere, si consiglia di effettuare la distribuzione continua per lo sviluppo 
 
 Nel seguente diagramma da [un Microsoft Patterns and Practices e-book sul recapito continuo](http://aka.ms/ReleasePipeline) viene illustrato un tipico flusso di lavoro. Clic sull'immagine per visualizzarla dimensioni completa nel relativo contesto originale.
 
-[![Flusso di lavoro di distribuzione continua](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
+[![Flusso di lavoro per il recapito continuo](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Come il cloud consente economiche CI e CD
 
@@ -73,9 +73,9 @@ Vedere anche le risorse seguenti:
 - [Indicazioni e strumenti di ALM Rangers DevOps](https://aka.ms/vsarsolutions/). ALM Rangers introdotta la soluzione complementare di esempio Workbench di DevOps e istruzioni pratiche in collaborazione con i modelli &amp; libro consigliate *la creazione di una Pipeline di rilascio con TFS 2012*, come un ottimo modo per iniziare concetti di DevOps &amp; Release Management per TFS 2012 e per avviare il servizio. Le indicazioni fornite di seguito viene illustrato come compilare una sola volta e di distribuzione in più ambienti.
 - [Test per il recapito continuo con Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). E-book Microsoft Patterns and Practices, verrà illustrato come integrare i test automatizzati con il recapito continuo.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Codice sorgente per uno strumento progettato per acquisire una compilazione da TFS (basato su un'etichetta), compilare, pacchetto, consentire ad altri utenti nel ruolo DevOps per configurare gli aspetti specifici di esso e inserirlo in Azure. Lo strumento registra il processo di distribuzione per consentire operazioni "rollback" a una versione precedentemente distribuita. Lo strumento non presenta dipendenze esterne e può funzionare autonomo usando le API di TFS e Azure SDK.
-- [Il recapito continuo: Software affidabile rilascia tramite l'automazione della distribuzione, compilazione e Test](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Rubrica tramite Jez modesto.
+- [Il recapito continuo: Rilascia Software affidabile tramite l'automazione della distribuzione, compilazione e Test](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Rubrica tramite Jez modesto.
 - [Rilasciarlo! Progettare e distribuire il Software di ambiente di produzione](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Rubrica tramite Michael T. Nygard.
 
->[!div class="step-by-step"]
-[Precedente](source-control.md)
-[Successivo](web-development-best-practices.md)
+> [!div class="step-by-step"]
+> [Precedente](source-control.md)
+> [Successivo](web-development-best-practices.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: df43052950b6186908fe1baf04808f40cb926f69
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 59ffa05945289de6e01e2c21dd5a0f82ca1fa374
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a>Gestione dei postback da un controllo Popup senza un UpdatePanel (c#)
 ====================
@@ -61,6 +61,6 @@ Il calendario viene visualizzato quando l'utente fa clic nella casella di testo 
 
 Facendo clic su una data lo inserisce nella casella di testo ([fare clic per visualizzare l'immagine ingrandita](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Precedente](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
-[Successivo](using-multiple-popup-controls-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> [Successivo](using-multiple-popup-controls-vb.md)

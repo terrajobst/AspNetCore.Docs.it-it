@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
-title: "La modifica delle proprietà di DropShadow dal codice Client (c#) | Documenti Microsoft"
+title: La modifica delle proprietà di DropShadow dal codice Client (c#) | Documenti Microsoft
 author: wenz
 description: Personalizzazione dell'interfaccia di modifica del controllo DataList
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59f7d4610ce610ef4357510f0e861f107278b5da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 37a7784e1d42477e31938e1d15495993ac86fc56
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-c"></a>La modifica delle proprietà di DropShadow dal codice Client (c#)
 ====================
@@ -62,6 +62,6 @@ La funzione JavaScript `changeOpacity()` quindi necessario trovare il `DropShado
 
 L'opacità viene modificato sul lato client ([fare clic per visualizzare l'immagine ingrandita](manipulating-dropshadow-properties-from-client-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](adjusting-the-z-index-of-a-dropshadow-cs.md)
-[Successivo](adjusting-the-z-index-of-a-dropshadow-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adjusting-the-z-index-of-a-dropshadow-cs.md)
+> [Successivo](adjusting-the-z-index-of-a-dropshadow-vb.md)

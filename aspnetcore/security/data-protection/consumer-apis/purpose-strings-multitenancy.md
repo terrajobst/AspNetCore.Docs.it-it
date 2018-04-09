@@ -1,7 +1,7 @@
 ---
-title: Scopo di stringhe in ASP.NET Core
+title: Gerarchia scopo e multi-tenancy in ASP.NET Core
 author: rick-anderson
-description: Questo documento descrive gerarchia stringa scopo e multi-tenancy, tra cui le API di protezione dati ASP.NET Core.
+description: Informazioni sulle funzionalità multi-tenancy e scopo stringa gerarchia, tra cui le API di protezione dati di ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: 490896563db514aba3904b01e69a23b61659d830
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a1ca2c32f95a86b877cbbe94d106d23b86800443
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Gerarchia scopo e multi-tenancy in ASP.NET Core
 
 Poiché un `IDataProtector` è inoltre in modo implicito un `IDataProtectionProvider`, a scopo può essere concatenato. In questo senso, `provider.CreateProtector([ "purpose1", "purpose2" ])` equivale a `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
 
-In questo modo per alcune relazioni gerarchiche interessanti attraverso il sistema di protezione dati. Nell'esempio precedente di [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), può chiamare il componente SecureMessage `provider.CreateProtector("Contoso.Messaging.SecureMessage")` dedicano una sola volta e memorizza nella cache il risultato in una privata `_myProvide` campo. Protezioni future possono quindi essere creati tramite chiamate a `_myProvider.CreateProtector("User: username")`, e queste protezioni possono essere utilizzate per la protezione dei singoli messaggi.
+In questo modo per alcune relazioni gerarchiche interessanti attraverso il sistema di protezione dati. Nell'esempio precedente di [Contoso.Messaging.SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), può chiamare il componente SecureMessage `provider.CreateProtector("Contoso.Messaging.SecureMessage")` dedicano una sola volta e memorizza nella cache il risultato in una privata `_myProvide` campo. Protezioni future possono quindi essere creati tramite chiamate a `_myProvider.CreateProtector("User: username")`, e queste protezioni possono essere utilizzate per la protezione dei singoli messaggi.
 
 Questo può anche essere invertito. Prendere in considerazione una singola applicazione logica quali host più tenant (un CMS sembra ragionevole) e ogni tenant può essere configurato con un proprio sistema di gestione di autenticazione e lo stato. L'applicazione di tipo generico è un unico provider master, e chiama `provider.CreateProtector("Tenant 1")` e `provider.CreateProtector("Tenant 2")` per concedere a ogni tenant periodo isolato del sistema di protezione dati. I tenant Impossibile derivare le proprie singoli programmi di protezione in base alle proprie esigenze, ma indipendentemente dalla modalità tentano non possono creare protezioni con cui sono in conflitto con un altro tenant nel sistema. Graficamente, rappresentati come indicato di seguito.
 

@@ -2,7 +2,7 @@
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
 title: Introduzione al debug ASP.NET Web Pages siti (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "Il debug è il processo di individuazione e correzione degli errori nelle pagine di codice. Questo capitolo illustra alcuni strumenti e tecniche che è possibile utilizzare per eseguire il debug e analyz..."
+description: Il debug è il processo di individuazione e correzione degli errori nelle pagine di codice. Questo capitolo illustra alcuni strumenti e tecniche che è possibile utilizzare per eseguire il debug e analyz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introduzione al debug ASP.NET Web Pages siti (Razor)
 ====================
@@ -33,7 +33,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > Queste sono le funzionalità ASP.NET introdotte nell'articolo:
 > 
 > - Il `ServerInfo` helper.
-> - `ObjectInfo`helper.
+> - `ObjectInfo` helper.
 >   
 > 
 > ## <a name="software-versions"></a>Versioni del software
@@ -66,12 +66,12 @@ Il `ServerInfo` helper è uno strumento di diagnostica che fornisce una panorami
 
     Il `ServerInfo` helper visualizzate quattro tabelle delle informazioni nella pagina:
 
-    - Configurazione del server. In questa sezione vengono fornite informazioni sui server di hosting web, inclusi nome del computer, la versione di ASP.NET è in esecuzione, il nome di dominio e ora del server.
-    - Variabili Server ASP.NET. In questa sezione vengono fornite informazioni dettagliate sui dettagli del protocollo HTTP molti (chiamata HTTP variabili) e i valori che fanno parte di ogni richiesta di pagina web.
-    - Informazioni di HTTP Runtime. Questa sezione vengono fornite informazioni dettagliate su che la versione di Microsoft .NET Framework in esecuzione con la pagina web, percorso, i dettagli relativi alla cache e così via. (Come descritto in [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages utilizzando Razor sintassi si basano sulla tecnologia Microsoft per ASP.NET web server, che a sua volta è basato su un software completo libreria di sviluppo denominato .NET Framework).
-    - Variabili di ambiente. In questa sezione fornisce un elenco di tutte le variabili di ambiente locale e i relativi valori nel server web.
+   - Configurazione del server. In questa sezione vengono fornite informazioni sui server di hosting web, inclusi nome del computer, la versione di ASP.NET è in esecuzione, il nome di dominio e ora del server.
+   - Variabili Server ASP.NET. In questa sezione vengono fornite informazioni dettagliate sui dettagli del protocollo HTTP molti (chiamata HTTP variabili) e i valori che fanno parte di ogni richiesta di pagina web.
+   - Informazioni di HTTP Runtime. Questa sezione vengono fornite informazioni dettagliate su che la versione di Microsoft .NET Framework in esecuzione con la pagina web, percorso, i dettagli relativi alla cache e così via. (Come descritto in [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages utilizzando Razor sintassi si basano sulla tecnologia Microsoft per ASP.NET web server, che a sua volta è basato su un software completo libreria di sviluppo denominato .NET Framework).
+   - Variabili di ambiente. In questa sezione fornisce un elenco di tutte le variabili di ambiente locale e i relativi valori nel server web.
 
-    Una descrizione completa di tutte le informazioni di richiesta e server non rientra nell'ambito di questo articolo, ma è possibile vedere che il `ServerInfo` helper restituisce molte delle informazioni di diagnostica. Per ulteriori informazioni sui valori che `ServerInfo` restituisce un valore, vedere [riconosciuto le variabili di ambiente](https://technet.microsoft.com/library/dd560744(WS.10).aspx) nel sito Web Microsoft TechNet e [variabili del Server IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) nel sito Web MSDN.
+     Una descrizione completa di tutte le informazioni di richiesta e server non rientra nell'ambito di questo articolo, ma è possibile vedere che il `ServerInfo` helper restituisce molte delle informazioni di diagnostica. Per ulteriori informazioni sui valori che `ServerInfo` restituisce un valore, vedere [riconosciuto le variabili di ambiente](https://technet.microsoft.com/library/dd560744(WS.10).aspx) nel sito Web Microsoft TechNet e [variabili del Server IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) nel sito Web MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Incorporare le espressioni di Output per visualizzare i valori di pagina
 
@@ -115,10 +115,10 @@ Il `ObjectInfo` helper Visualizza il tipo e il valore di ciascun oggetto passato
 
     In questo esempio, il `ObjectInfo` helper Visualizza due elementi:
 
-    - Tipo. Per la prima variabile, il tipo è `DayOfWeek`. Per la seconda variabile, il tipo è `String`.
-    - Valore. In questo caso, perché già possibile visualizzare il valore della variabile di saluto nella pagina, il valore viene visualizzato nuovamente quando si passa la variabile `ObjectInfo`.
+   - Tipo. Per la prima variabile, il tipo è `DayOfWeek`. Per la seconda variabile, il tipo è `String`.
+   - Valore. In questo caso, perché già possibile visualizzare il valore della variabile di saluto nella pagina, il valore viene visualizzato nuovamente quando si passa la variabile `ObjectInfo`.
 
-    Per gli oggetti più complessi, di `ObjectInfo` helper è possibile visualizzare ulteriori informazioni &#8212; in pratica, è possibile visualizzare i tipi e valori di tutte le proprietà dell'oggetto.
+     Per gli oggetti più complessi, il `ObjectInfo` helper può visualizzare altre informazioni &#8212; in pratica, è possibile visualizzare i tipi e valori di tutte le proprietà dell'oggetto.
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Usando gli strumenti di debug in Visual Studio
 

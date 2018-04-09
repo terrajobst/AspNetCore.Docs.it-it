@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 629c1154683a0370e3e650873edf29dc9f22b4bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="uploading-files-c"></a>Il caricamento di file (c#)
 ====================
@@ -58,7 +58,7 @@ Come in altre cartelle, `Default.aspx` nel `BinaryData` cartella elencherà le e
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image2.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image2.png))
 
 
 Infine, aggiungere tali pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo l'ottimizzazione GridView `<siteMapNode>`:
@@ -71,7 +71,7 @@ Dopo aver aggiornato `Web.sitemap`, dedicare alcuni minuti per visualizzare il s
 
 ![Mappa del sito include ora le voci per l'utilizzo con le esercitazioni di dati binari](uploading-files-cs/_static/image3.gif)
 
-**Figura 3**: mappa del sito include ora le voci per l'utilizzo con le esercitazioni di dati binari
+**Figura 3**: mappa del sito include ora le voci per lavorare con i dati binari esercitazioni
 
 
 ## <a name="step-2-deciding-where-to-store-the-binary-data"></a>Passaggio 2: Decidere dove archiviare i dati binari
@@ -89,8 +89,8 @@ Si supponga di voler estendere il database Northwind per associare un'immagine a
 I vantaggi principali di archiviare i dati binari nel file system sono:
 
 - **Facilità di implementazione** come vedremo a breve, archiviare e recuperare dati binari archiviati direttamente all'interno del database richiede un po' più codice rispetto a quando l'utilizzo dei dati tramite il file system. Inoltre, affinché un utente di visualizzare o scaricare dati binari devono essere presentati con un URL a tali dati. Se i dati si trovano nel file system s server web, l'URL è semplice. Se i dati vengono archiviati nel database, tuttavia, una pagina web. deve essere creato che recupererà e restituire i dati dal database.
-- **Estendere l'accesso ai dati binari** potrebbe essere necessario accessibili ad altri servizi o applicazioni, quelle che non è possibile estrarre i dati dal database i dati binari. Ad esempio, le immagini associate a ogni prodotto inoltre potrebbe essere necessario rendere disponibili agli utenti tramite [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), nel qual caso d da archiviare i dati binari nel file system.
-- **Prestazioni** se i dati binari vengono archiviati nel file system, congestione richiesta e di rete tra il server di database e il server web sarà inferiore se i dati binari vengono archiviati direttamente all'interno del database.
+- **Estendere l'accesso ai dati binari** potrebbero devono essere accessibili ad altri servizi o applicazioni, quelle che non è possibile estrarre i dati dal database i dati binari. Ad esempio, le immagini associate a ogni prodotto inoltre potrebbe essere necessario rendere disponibili agli utenti tramite [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), nel qual caso d da archiviare i dati binari nel file system.
+- **Prestazioni** se i dati binari vengono archiviati nel file system, congestione richiesta e di rete tra il server di database e il server web sarà minore se i dati binari vengono archiviati direttamente all'interno del database.
 
 Lo svantaggio principale di archiviare i dati binari nel file system è che separa i dati dal database. Se viene eliminato un record dal `Products` della tabella, i file associato nel file system s server web non viene eliminata automaticamente. È necessario scrivere codice aggiuntivo per eliminare il file o nel file system verrà accumularsi di file orfani, inutilizzati. Inoltre, durante il backup del database, è necessario assicurarsi di eseguire il backup di dati binari associati nel file system, nonché. Spostare il database in un altro sito o server comporta simile problematiche.
 
@@ -113,9 +113,9 @@ Attualmente la tabella Categories presenta solo quattro colonne: `CategoryID`, `
 Aggiungere un nuovo `varchar(200)` colonna per il `Categories` tabella denominata `BrochurePath` ed `NULL` s e fare clic sull'icona Salva (o premere Ctrl + S).
 
 
-[![Aggiungere una colonna BrochurePath alla tabella Categories](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
+[![Aggiungere una colonna BrochurePath con la tabella Categories](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
 
-**Figura 5**: aggiungere un `BrochurePath` colonna per il `Categories` tabella ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image6.png))
+**Figura 5**: aggiungere un `BrochurePath` colonna il `Categories` tabella ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image6.png))
 
 
 ## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>Passaggio 4: Aggiornamento dell'architettura da usare il`Picture`e`BrochurePath`colonne
@@ -124,9 +124,9 @@ Il `CategoriesDataTable` nel livello accesso dati (DAL) sono attualmente disponi
 
 Come descritto in *la creazione di un livello di accesso ai dati*, DataTable nel DataSet tipizzato costituiscono gli oggetti business. Gli oggetti TableAdapter sono responsabili per la comunicazione con il database e agli oggetti business con i risultati della query. Il `CategoriesDataTable` è popolato dal `CategoriesTableAdapter`, che dispone di tre metodi di recupero di dati:
 
-- `GetCategories()`esegue la query principale s TableAdapter e restituisce il `CategoryID`, `CategoryName`, e `Description` campi di tutti i record di `Categories` tabella. La query principale viene utilizzato per la generazione automatica `Insert` e `Update` metodi.
-- `GetCategoryByCategoryID(categoryID)`Restituisce il `CategoryID`, `CategoryName`, e `Description` campi della categoria di cui `CategoryID` è uguale a *categoryID*.
-- `GetCategoriesAndNumberOfProducts()`-Restituisce il `CategoryID`, `CategoryName`, e `Description` campi per tutti i record di `Categories` tabella. Utilizza inoltre una sottoquery per restituire il numero di prodotti associati a ogni categoria.
+- `GetCategories()` esegue la query principale s TableAdapter e restituisce il `CategoryID`, `CategoryName`, e `Description` i campi di tutti i record di `Categories` tabella. La query principale viene utilizzato per la generazione automatica `Insert` e `Update` metodi.
+- `GetCategoryByCategoryID(categoryID)` Restituisce il `CategoryID`, `CategoryName`, e `Description` i campi della categoria di cui `CategoryID` è uguale a *categoryID*.
+- `GetCategoriesAndNumberOfProducts()` -Restituisce il `CategoryID`, `CategoryName`, e `Description` i campi per tutti i record di `Categories` tabella. Utilizza inoltre una sottoquery per restituire il numero di prodotti associati a ogni categoria.
 
 Si noti che nessuna di queste query restituiscono il `Categories` tabella s `Picture` o `BrochurePath` colonne; e non il `CategoriesDataTable` fornire `DataColumn` s per questi campi. Per poter funzionare con l'immagine e `BrochurePath` proprietà, è necessario prima aggiungerli al `CategoriesDataTable` e quindi aggiornare la `CategoriesTableAdapter` classe per restituire le colonne.
 
@@ -135,9 +135,9 @@ Si noti che nessuna di queste query restituiscono il `Categories` tabella s `Pic
 Per iniziare, aggiungere queste due colonne per la `CategoriesDataTable`. Fare clic su di `CategoriesDataTable` intestazione s, selezionare Aggiungi dal menu di scelta rapida e quindi scegliere l'opzione di colonna. Verrà creato un nuovo `DataColumn` nel DataTable denominata `Column1`. Rinominare questa colonna come `Picture`. La finestra Proprietà impostare il `DataColumn` s `DataType` proprietà `System.Byte[]` (non è un'opzione nell'elenco a discesa, è necessario digitarla nella).
 
 
-[![Creare un'immagine denominata DataColumn il cui tipo di dati è System. Byte [](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![Creare un'immagine denominata DataColumn il cui tipo di dati è System. byte]](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
-**Figura 6**: creare un `DataColumn` denominato `Picture` cui `DataType` è `System.Byte[]` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image8.png))
+**Figura 6**: creare un `DataColumn` Named `Picture` cui `DataType` è `System.Byte[]` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image8.png))
 
 
 Aggiungere un altro `DataColumn` nella DataTable, denominarla `BrochurePath` utilizzando il valore predefinito `DataType` valore (`System.String`).
@@ -149,9 +149,9 @@ Con queste due `DataColumn` aggiunta al `CategoriesDataTable`, è nuovamente pro
 Per aggiornare la query TableAdapter principale, fare clic su di `CategoriesTableAdapter` intestazione s e scegliere l'opzione di configurazione dal menu di scelta rapida. Verrà visualizzata la configurazione guidata adattatore tabella cui è visualizzata in una serie di esercitazioni precedenti ve. Aggiornare la query per riportare il `BrochurePath` e fare clic su Fine.
 
 
-[![Aggiornare l'elenco di colonne nell'istruzione SELECT per restituire i BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+[![Aggiornare l'elenco colonne nell'istruzione SELECT per restituire anche BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
 
-**Figura 7**: aggiornare l'elenco colonne nel `SELECT` istruzione per restituire i `BrochurePath` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image10.png))
+**Figura 7**: aggiornare l'elenco colonne nel `SELECT` istruzione restituisca anche `BrochurePath` ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image10.png))
 
 
 Quando si Usa istruzioni SQL ad hoc per l'oggetto TableAdapter, l'aggiornamento dell'elenco di colonne della query principale aggiorna l'elenco di colonne per tutte le `SELECT` metodi nell'oggetto TableAdapter di query. Ciò significa che il `GetCategoryByCategoryID(categoryID)` metodo è stato aggiornato per restituire il `BrochurePath` colonna, che potrebbe essere è voluto. Tuttavia, anche aggiornato l'elenco colonne nel `GetCategoriesAndNumberOfProducts()` (metodo), rimuovere la sottoquery che restituisce il numero di prodotti per ogni categoria! Pertanto, è necessario aggiornare questo metodo s `SELECT` query. Fare clic su di `GetCategoriesAndNumberOfProducts()` (metodo), scegliere Configura e ripristinare il `SELECT` query al valore originale:
@@ -180,7 +180,7 @@ Nel terzo passaggio, immettere la seguente query SQL e fare clic su Avanti:
 L'ultimo passaggio consiste nello scegliere il nome per il nuovo metodo. Utilizzare `FillCategoryWithBinaryDataByCategoryID` e `GetCategoryWithBinaryDataByCategoryID` per il riempimento del DataTable e restituire un oggetto DataTable modelli, rispettivamente. Fare clic su Fine per completare la procedura guidata.
 
 
-[![Scegliere i nomi per i metodi s TableAdapter](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[![Scegliere i nomi per i metodi di s TableAdapter](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
 **Figura 10**: scegliere i nomi per i metodi di TableAdapter ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image16.png))
 
@@ -196,7 +196,7 @@ Dopo aver aggiunto i due `DataColumn` s per il `CategoriesDataTable` e `GetCateg
 
 ![La finestra di progettazione del set di dati include le nuove colonne (metodo)](uploading-files-cs/_static/image11.gif)
 
-**Figura 11**: la finestra di progettazione del set di dati include le nuove colonne (metodo)
+**Figura 11**: la finestra di progettazione set di dati include le nuove colonne (metodo)
 
 
 ## <a name="updating-the-business-logic-layer-bll"></a>Aggiornare il livello di logica di Business (BLL)
@@ -244,9 +244,9 @@ FileUpload s `SaveAs(filePath)` Salva il file caricato specificato *filePath*. *
 Dopo aver completato il `Click` gestore eventi, è opportuno testare la pagina in un browser. Fare clic sul pulsante Sfoglia e selezionare un file dal disco rigido e quindi fare clic sul pulsante Carica File selezionato. Il contenuto del file selezionato invierà il postback al server web, che verranno quindi visualizzate le informazioni sul file prima di salvarla per la `~/Brochures` cartella. Dopo aver caricato il file, tornare a Visual Studio e fare clic sul pulsante di aggiornamento in Esplora soluzioni. Si dovrebbe essere visualizzato il file che appena caricato nella cartella ~/Brochures.
 
 
-[![EvolutionValley.jpg il File è stato caricato per il Server Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![Una volta caricato il File EvolutionValley.jpg al Server Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
-**Nella figura 14**: il File `EvolutionValley.jpg` è stato caricato per il Server Web ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image22.png))
+**Figura 14**: il File `EvolutionValley.jpg` è stato caricato per il Server Web ([fare clic per visualizzare l'immagine ingrandita](uploading-files-cs/_static/image22.png))
 
 
 ![EvolutionValley.jpg è stato salvato nella cartella ~/Brochures](uploading-files-cs/_static/image15.gif)
@@ -287,11 +287,11 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e Bernadette Leigh. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [!div class="step-by-step"]
+> [avanti](displaying-binary-data-in-the-data-web-controls-cs.md)
