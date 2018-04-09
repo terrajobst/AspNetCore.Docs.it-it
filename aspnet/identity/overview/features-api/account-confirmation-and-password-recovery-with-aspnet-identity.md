@@ -1,31 +1,31 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: "Account di conferma e il recupero della Password con identità di ASP.NET (c#) | Documenti Microsoft"
+title: Account di conferma e il recupero della Password con identità di ASP.NET (c#) | Documenti Microsoft
 author: HaoK
-description: "Prima di eseguire questa esercitazione che è necessario completare prima creare un'app web di ASP.NET MVC 5 sicura con l'accesso, la reimpostazione di posta elettronica di conferma e la password. In questa esercitazione..."
+description: Prima di eseguire questa esercitazione che è necessario completare prima creare un'app web di ASP.NET MVC 5 sicura con l'accesso, la reimpostazione di posta elettronica di conferma e la password. In questa esercitazione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
 ms.topic: article
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0167388cf6b488b72ca36f583a7794690dbf9900
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>La conferma dell'account e Password di ripristino con identità di ASP.NET (c#)
 ====================
-da [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://github.com/Rick-Anderson), [Suhas Joshi](https://github.com/suhasj)
+dal [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://github.com/Rick-Anderson), [Suhas Joshi](https://github.com/suhasj)
 
 > Prima di eseguire questa esercitazione è necessario completare [creare un'app web di ASP.NET MVC 5 sicura con l'accesso, la reimpostazione di posta elettronica di conferma e la password](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). In questa esercitazione contiene ulteriori dettagli e viene illustrato come impostare la posta elettronica per la conferma dell'account locale e consentire agli utenti di reimpostare la password dimenticata in ASP.NET Identity. In questo articolo è stato scritto dal Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi ([@rustd](https://twitter.com/rustd)), Hao Kung e Suhas Joshi. L'esempio di NuGet è stata scritta principalmente da Hao Kung.
 
 
-Un account utente locale richiede all'utente di creare una password per l'account e password verrà memorizzata () nell'app web. Identità di ASP.NET supporta anche gli account di social networking, che non richiedono all'utente di creare una password per l'app. [Account social](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) utilizzare una terza parte (ad esempio Google, Twitter, Facebook o Microsoft) per autenticare gli utenti. Questo argomento vengono illustrate le operazioni seguenti:
+Un account utente locale richiede all'utente di creare una password per l'account e password verrà memorizzata () nell'app web. Identità di ASP.NET supporta anche gli account di social networking, che non richiedono all'utente di creare una password per l'app. [Gli account di social networking](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) utilizzare una terza parte (ad esempio Google, Twitter, Facebook o Microsoft) per autenticare gli utenti. Questo argomento vengono illustrate le operazioni seguenti:
 
 - [Creare un'applicazione MVC ASP.NET](#createMvc) ed esplorare le funzionalità di ASP.NET Identity.
 - [Compilazione dell'esempio di identità](#build)
@@ -88,7 +88,7 @@ Avviare l'installazione ed eseguendo [Visual Studio Express 2013 per Web](https:
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
- A questo punto il messaggio di posta elettronica non è stato confermato.
+   A questo punto il messaggio di posta elettronica non è stato confermato.
 
 L'archivio di dati predefinito per ASP.NET Identity è Entity Framework, ma è possibile configurarlo per utilizzare altri archivi dati e per aggiungere altri campi. Vedere [risorse aggiuntive](#addRes) sezione alla fine di questa esercitazione.
 
@@ -117,7 +117,7 @@ Esaminare il `ApplicationUserManager` (classe), che contiene le informazioni sul
 - Autenticazione a due fattori (2FA). Descritti 2FA e SMS in un'altra esercitazione.
 - Associazione di posta e dei servizi SMS. (Un'altra esercitazione verrà descritta SMS).
 
-Il `ApplicationUserManager` classe deriva dal modello generico `UserManager<ApplicationUser>` classe. `ApplicationUser`deriva da [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`deriva da generica `IdentityUser` classe:
+Il `ApplicationUserManager` classe deriva dal modello generico `UserManager<ApplicationUser>` classe. `ApplicationUser` deriva da [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser` deriva da generica `IdentityUser` classe:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -127,11 +127,11 @@ Gli argomenti generici in `IUser` consentono di derivare una classe di utilizzo 
 
 ### <a name="applicationuser"></a>ApplicationUser
 
-`ApplicationUser`(`public class ApplicationUserManager : UserManager<ApplicationUser>`) è definito in *Models\IdentityModels.cs* come:
+`ApplicationUser` (`public class ApplicationUserManager : UserManager<ApplicationUser>`) è definito in *Models\IdentityModels.cs* come:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-Genera il codice evidenziato sopra un [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity e OWIN Cookie di autenticazione basata sulle attestazioni, pertanto il framework richiede che l'app per generare un `ClaimsIdentity` per l'utente. `ClaimsIdentity`contiene informazioni su tutte le attestazioni per l'utente, ad esempio il nome dell'utente, l'età e i ruoli utente appartiene. È anche possibile aggiungere ulteriori attestazioni per l'utente in questa fase.
+Genera il codice evidenziato sopra un [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity e OWIN Cookie di autenticazione basata sulle attestazioni, pertanto il framework richiede che l'app per generare un `ClaimsIdentity` per l'utente. `ClaimsIdentity` contiene informazioni su tutte le attestazioni per l'utente, ad esempio il nome dell'utente, l'età e i ruoli utente appartiene. È anche possibile aggiungere ulteriori attestazioni per l'utente in questa fase.
 
 OWIN `AuthenticationManager.SignIn` metodo passa il `ClaimsIdentity` e accede l'utente:
 
@@ -152,7 +152,7 @@ In questa sezione si userà NuGet per scaricare un esempio più completo, che si
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
- In questa esercitazione si userà [SendGrid](http://sendgrid.com/) per inviare posta elettronica. Il `Identity.Samples` pacchetto viene installato il codice che verrà utilizzato con.
+   In questa esercitazione si userà [SendGrid](http://sendgrid.com/) per inviare posta elettronica. Il `Identity.Samples` pacchetto viene installato il codice che verrà utilizzato con.
 3. Impostare il [progetto utilizzare SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. Creazione di account locali di test eseguendo l'app, fare clic di **registrare** il collegamento e registrazione del modulo di registrazione.
 5. Scegliere il collegamento di posta elettronica, demo che simula una conferma tramite posta elettronica.
@@ -198,7 +198,7 @@ Il codice seguente viene illustrato come inviare tramite posta elettronica di [M
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
-> Sicurezza - archivio mai i dati sensibili nel codice sorgente. L'account e le credenziali vengono archiviate in appSetting. In Azure, è possibile archiviare questi valori in modo sicuro nel  **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  scheda nel portale di Azure. Vedere [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Sicurezza - archivio mai i dati sensibili nel codice sorgente. L'account e le credenziali vengono archiviate in appSetting. In Azure, è possibile archiviare questi valori in modo sicuro nel **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** scheda nel portale di Azure. Vedere [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 Immettere le credenziali SendGrid, eseguire l'app, registrazione con un alias di posta elettronica può fare clic sul collegamento di conferma nel messaggio di posta elettronica. Per informazioni su come eseguire questa operazione con il [Outlook.com](http://outlook.com) account di posta elettronica, vedere di John Atten [c# configurazione SMTP per l'Host SMTP Outlook.Com](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) e il suo[identità ASP.NET 2.0: convalida dell'impostazione di Account e l'autorizzazione a due fattori](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) post.
@@ -239,7 +239,7 @@ Il codice seguente viene illustrato il metodo di conferma tramite posta elettron
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Panoramica dei provider di archiviazione personalizzati per ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [App di MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) viene inoltre illustrato come aggiungere informazioni sul profilo nella tabella gli utenti.
+- [App di MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) viene inoltre illustrato come aggiungere informazioni sul profilo alla tabella users.
 - [ASP.NET MVC e identità 2.0: nozioni di base](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) da John Atten.
 - [Introduzione ad ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Annuncio RTM di ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) da Pranav Rastogi.

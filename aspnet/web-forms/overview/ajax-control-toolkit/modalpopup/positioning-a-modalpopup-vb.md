@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b9c0790d1696bcf478bcdea089d4d3d92450369
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d20888674dfedee7a7af85efd8df118c8394c6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="positioning-a-modalpopup-vb"></a>Posizionamento di un ModalPopup (VB)
 ====================
@@ -58,9 +58,9 @@ E `stopMoving()` funzione si verifica quando la finestra popup viene chiusa può
 [!code-aspx[Main](positioning-a-modalpopup-vb/samples/sample6.aspx)]
 
 
-[![Il popup modale viene visualizzato in corrispondenza della posizione designata](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
+[![Verrà visualizzata la finestra popup modale in corrispondenza della posizione designata](positioning-a-modalpopup-vb/_static/image2.png)](positioning-a-modalpopup-vb/_static/image1.png)
 
 Il popup modale viene visualizzato in corrispondenza della posizione designata ([fare clic per visualizzare l'immagine ingrandita](positioning-a-modalpopup-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](handling-postbacks-from-a-modalpopup-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](handling-postbacks-from-a-modalpopup-vb.md)

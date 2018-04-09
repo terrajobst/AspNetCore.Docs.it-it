@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 title: Animazione di un controllo UpdatePanel (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Per il contenuto di un..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Per il contenuto di un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6d8954d2ec886994cdd723121e540b471131f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d8d5b9c3f15b39045b5e01b455bdddfc9443a24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-an-updatepanel-control-c"></a>Animazione di un controllo UpdatePanel (c#)
 ====================
@@ -43,8 +43,8 @@ In questo scenario l'animazione verrà applicato a un ASP.NET `Wizard` controllo
 
 Il codice necessario per il `UpdatePanelAnimationExtender` controllo è simile al markup usato per il `AnimationExtender`. Nel `TargetControlID` attributo forniamo il `ID` del `UpdatePanel` animare; all'interno di `UpdatePanelAnimationExtender` (controllo), il `<Animations>` elemento contiene il markup XML dell'animazione. È tuttavia una differenza: la quantità di eventi e gestori eventi è limitata alla `AnimationExtender`. Per `UpdatePanels`, solo due di essi esiste:
 
-- `<OnUpdated>`Quando l'UpdatePanel è stato aggiornato
-- `<OnUpdating>`Quando l'UpdatePanel avvia l'aggiornamento
+- `<OnUpdated>` Quando l'UpdatePanel è stato aggiornato
+- `<OnUpdating>` Quando l'UpdatePanel avvia l'aggiornamento
 
 In questo scenario, il contenuto di nuovo il `UpdatePanel` (dopo il postback) sono dissolvenza in entrata. Questo è il codice necessario per che:
 
@@ -57,6 +57,6 @@ Ora ogni volta che si verifica un postback all'interno di UpdatePanel, il conten
 
 Il passaggio successivo della procedura guidata è la dissolvenza in entrata ([fare clic per visualizzare l'immagine ingrandita](animating-an-updatepanel-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](changing-an-animation-using-client-side-code-cs.md)
-[Successivo](dynamically-controlling-updatepanel-animations-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](changing-an-animation-using-client-side-code-cs.md)
+> [Successivo](dynamically-controlling-updatepanel-animations-cs.md)

@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 title: Web consigliate per lo sviluppo (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Consigliate per lo sviluppo Web (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -30,8 +30,8 @@ da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.
 I primi tre modelli sono stati sulla configurazione di un processo di sviluppo agile. gli altri sono sull'architettura e codice. Questa è una raccolta di procedure consigliate di sviluppo web:
 
 - [Server web senza stato](#stateless) dietro il bilanciamento del carico intelligente.
-- [Evitare lo stato della sessione](#sessionstate) (o se è impossibile evitare tale situazione, usare cache distribuita, invece di un database).
-- [Utilizzare una rete CDN](#cdn) agli asset di file statici cache perimetrale (immagini, script).
+- [Evitare lo stato della sessione](#sessionstate) (o se non è possibile evitare tale situazione, usare cache distribuita, invece di un database).
+- [Usa una rete CDN](#cdn) agli asset di file statici cache perimetrale (immagini, gli script).
 - [Utilizzare il supporto asincrono del .NET 4.5](#async) per evitare di bloccare le chiamate.
 
 Queste procedure sono valide per tutti lo sviluppo web, non solo per le app cloud, ma sono particolarmente importanti per le applicazioni basate su cloud. Interagiscono per garantire un utilizzo ottimale di scalabilità estremamente flessibile offerto da parte dell'ambiente cloud. Se non si seguono queste procedure, viene eseguita in limitazioni quando si tenta di applicare la scalabilità dell'applicazione.
@@ -39,7 +39,7 @@ Queste procedure sono valide per tutti lo sviluppo web, non solo per le app clou
 <a id="stateless"></a>
 ## <a name="stateless-web-tier-behind-a-smart-load-balancer"></a>Livello web senza stato dietro il bilanciamento del carico intelligente
 
-*Livello web senza stato* significa vivamente di non memorizzare i dati dell'applicazione nel sistema di memoria o un file server di web. Mantenere il livello web senza stato consente di fornire una migliore esperienza del cliente e risparmiare denaro:
+*Livello web senza stato* significa non memorizzare i dati dell'applicazione nel sistema di memoria o su file server di web. Mantenere il livello web senza stato consente di fornire una migliore esperienza del cliente e risparmiare denaro:
 
 - Se il livello web è senza stato e si trova dietro un bilanciamento del carico, è possibile rispondere rapidamente alle modifiche del traffico dell'applicazione in modo dinamico aggiungendo o rimuovendo i server. Nell'ambiente cloud in cui si paga solo per le risorse del server fino a quando è in realtà utilizzare, la possibilità di rispondere alle modifiche nella richiesta si traduce in un notevole risparmio.
 - Un livello web senza stato è strutturalmente molto più semplice di scalabilità orizzontale dell'applicazione. Troppo, che consente di rispondere alle esigenze più rapidamente la scalabilità e spesa nello sviluppo e test nel processo.
@@ -142,29 +142,29 @@ Per ulteriori informazioni, vedere le risorse seguenti.
 
 Server web senza stato:
 
-- [Microsoft Patterns and Practices - Guida per la scalabilità automatica](https://msdn.microsoft.com/library/dn589774.aspx).
-- [Disabilitazione ARR istanza l'affinità in siti Web di Azure Windows](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Post di blog di Erez Benari, illustra l'affinità di sessione in siti Web di Windows Azure.
+- [Microsoft Patterns and Practices - materiale sussidiario per la scalabilità automatica](https://msdn.microsoft.com/library/dn589774.aspx).
+- [La disattivazione ARR istanza affinità in siti Web di Azure Windows](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Post di blog di Erez Benari, illustra l'affinità di sessione in siti Web di Windows Azure.
 
 CDN:
 
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Vedere la discussione della rete CDN nell'episodio 3 a partire da 1:34:00.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Vedere la discussione della rete CDN nell'episodio 3 a partire da 1:34:00.
 - [Modello di Microsoft Patterns e procedure consigliate statico Hosting del contenuto](https://msdn.microsoft.com/library/dn589776.aspx)
-- [Rete CDN revisioni](http://www.cdnreviews.com/). Panoramica di molte reti CDN.
+- [Le revisioni della rete CDN](http://www.cdnreviews.com/). Panoramica di molte reti CDN.
 
 Programmazione asincrona:
 
-- [Utilizzare i metodi asincroni in ASP.NET MVC 4](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Esercitazione di Rick Anderson.
+- [Uso di metodi asincroni in ASP.NET MVC 4](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Esercitazione di Rick Anderson.
 - [Programmazione asincrona con Async e Await (c# e Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). White paper di MSDN che illustra come scrivere codice per la relativa implementazione, il funzionamento in ASP.NET 4.5 e spiegazione logica per la programmazione asincrona.
-- [Query asincrone di Entity Framework e salvataggio](https://msdn.microsoft.com/data/jj819165)
-- [Come creare applicazioni Web ASP.NET utilizzando asincrono](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Presentazione video di Miller Rowan. È inclusa una dimostrazione di grafici di programmazione asincrona può facilitare l'aumento della velocità effettiva del server web in condizioni di carico elevato.
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Per informazioni sull'impatto della programmazione asincrona sulla scalabilità, vedere episodio 4 e 8 episodio.
-- [Il trucco dell'utilizzo di metodi asincroni in ASP.NET 4.5 più un problema importante](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Post di blog di Scott Hanselman, principalmente sull'utilizzo di async in applicazioni Web Form ASP.NET.
+- [Query asincrone di Entity Framework e al salvataggio](https://msdn.microsoft.com/data/jj819165)
+- [Come creare applicazioni Web ASP.NET Usa Async](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Presentazione video di Miller Rowan. È inclusa una dimostrazione di grafici di programmazione asincrona può facilitare l'aumento della velocità effettiva del server web in condizioni di carico elevato.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Per informazioni sull'impatto della programmazione asincrona sulla scalabilità, vedere episodio 4 e 8 episodio.
+- [Il trucco dell'utilizzo di metodi asincroni in ASP.NET 4.5 oltre a un problema importante](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Post di blog di Scott Hanselman, principalmente sull'utilizzo di async in applicazioni Web Form ASP.NET.
 
 Per procedure guidate di sviluppo web aggiuntivi, vedere le risorse seguenti:
 
 - [Per risolvere il problema applicazione - procedure consigliate di esempio](the-fix-it-sample-application.md#bestpractices). Appendice di questo e-book viene elencata una serie di procedure consigliate che sono state implementate nell'applicazione Correggi.
 - [Elenco di controllo di Web Developer](http://webdevchecklist.com/asp.net)
 
->[!div class="step-by-step"]
-[Precedente](continuous-integration-and-continuous-delivery.md)
-[Successivo](single-sign-on.md)
+> [!div class="step-by-step"]
+> [Precedente](continuous-integration-and-continuous-delivery.md)
+> [Successivo](single-sign-on.md)

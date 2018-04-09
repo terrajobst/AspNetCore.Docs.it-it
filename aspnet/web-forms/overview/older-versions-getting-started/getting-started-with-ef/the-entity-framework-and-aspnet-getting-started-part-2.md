@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 title: Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 di Web Form - parte 2 | Documenti Microsoft
 author: tdykstra
-description: "L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio..."
+description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a6c95a92aa77e2bb73aa513a207e0469d1aedbd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 2
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -33,7 +33,7 @@ Nell'esercitazione precedente è stato creato un sito web, un database e un mode
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-2/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image3.png)
 
-[![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
+[![image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
 Si noti che in questa applicazione è non verrà aggiunta la convalida dell'input alle pagine in cui aggiornano il database e tra la gestione degli errori non sarà così solido come potrebbe essere necessario eseguire in un'applicazione di produzione. Che mantiene l'esercitazione con stato attivo su Entity Framework e ne troppo lunga. Per informazioni dettagliate su come aggiungere queste funzionalità a un'applicazione, vedere [convalida dell'Input utente in ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) e [gestione degli errori nelle pagine ASP.NET e applicazioni](https://msdn.microsoft.com/library/w16865z6.aspx).
 
@@ -125,7 +125,7 @@ Fare clic su **modificare colonne**.
 
 Nel **campi selezionati** eliminare **PersonID**, **LastName**, e **HireDate**. In genere non viene visualizzata una chiave di record per gli utenti, la data di assunzione non è pertinente per studenti e verrà inserita entrambe le parti del nome in un campo, pertanto è necessario solo uno dei campi del nome.)
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
 
 Selezionare il **FirstMidName** campo e quindi fare clic su **Converti il campo in un TemplateField**.
 
@@ -187,7 +187,7 @@ In *Students.aspx*, che si desidera visualizzare il numero di corsi per tutti gl
 
 Apre o passa al *Students.aspx*, passare alla **progettazione** visualizzazione, selezionare `StudentsEntityDataSource`e il **proprietà** finestra set il **Include**proprietà **StudentGrades**. (Se si desidera ottenere più proprietà di navigazione, è possibile specificare i nomi separati da virgole, ad esempio, **StudentGrades, corsi**.)
 
-[![Image19](the-entity-framework-and-aspnet-getting-started-part-2/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image39.png)
+[![image19](the-entity-framework-and-aspnet-getting-started-part-2/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image39.png)
 
 Passare a **origine** visualizzazione. Nel `StudentsGridView` controllo, dopo l'ultimo `asp:TemplateField` elemento, aggiungere il nuovo campo di modello seguenti:
 
@@ -229,11 +229,11 @@ In **progettazione** visualizzare, aggiungere un `EntityDataSource` controllo al
 
 Dal **Standard** scheda della finestra il **della casella degli strumenti**, trascinare un `DropDownList` alla pagina di controllo, il nome `DepartmentsDropDownList`, fare clic sullo smart tag e selezionare **Scegli origine dati** per avviare il **configurazione guidata origine dati**.
 
-[![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
+[![image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
 Nel **scegliere un'origine dati** passaggio seleziona **DepartmentsEntityDataSource** come origine dati, fare clic su **Aggiorna Schema**, quindi selezionare **nome** come il campo dei dati per visualizzare e **DepartmentID** del campo dati valore. Fare clic su **OK**.
 
-[![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
+[![image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 
 Il metodo da utilizzare come associare il controllo tramite Entity Framework è la stessa, come con altri dati ASP.NET specifica i controlli di origine, ad eccezione di entità e proprietà dell'entità.
 
@@ -245,10 +245,10 @@ Come promemoria, modificare il markup per il `EntityDataSource` controllo a ques
 
 Eseguire la pagina ed è possibile selezionare un reparto dall'elenco a discesa.
 
-[![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image51.png)
+[![image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image51.png)
 
 Introduzione all'uso è stata completata la `EntityDataSource` controllo. Utilizzo di questo controllo è in genere non è diverso dall'utilizzo di altri dati ASP.NET controlli origine, ad eccezione del fatto che si fa riferimento a entità e proprietà invece di tabelle e colonne. L'unica eccezione è quando si desidera accedere alle proprietà di navigazione. Nella prossima esercitazione si noterà che la sintassi è utilizzare con `EntityDataSource` controllo potrebbero essere diversi anche da altri controlli origine dati quando il filtro, raggruppamento e ordinamento dei dati.
 
->[!div class="step-by-step"]
-[Precedente](the-entity-framework-and-aspnet-getting-started-part-1.md)
-[Successivo](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> [Successivo](the-entity-framework-and-aspnet-getting-started-part-3.md)

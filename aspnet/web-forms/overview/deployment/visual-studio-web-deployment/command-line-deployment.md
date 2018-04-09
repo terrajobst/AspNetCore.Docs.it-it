@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione della riga di comando
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -45,7 +45,7 @@ Aprire il *About* pagina, eliminare tutti i commenti all'interno di `MainContent
 
 Eseguire il progetto e selezionare il **su** pagina.
 
-![Informazioni sulla pagina](command-line-deployment/_static/image2.png)
+![Pagina About (Informazioni)](command-line-deployment/_static/image2.png)
 
 ## <a name="deploy-to-test-by-using-the-command-line"></a>Distribuire i Test dalla riga di comando
 
@@ -98,9 +98,9 @@ Il numero di versione per Visual Studio 2010 è 10.0. Per ulteriori informazioni
 
 Tre metodi di pubblicazione sono supportati per la pubblicazione della riga di comando:
 
-- `MSDeploy`-Pubblicazione tramite distribuzione Web.
-- `Package`-Pubblicazione mediante la creazione di un pacchetto di distribuzione Web. È necessario installare separatamente il pacchetto del comando di MSBuild che lo crea.
-- `FileSystem`-Pubblicare copiando i file in una cartella specificata.
+- `MSDeploy` -Pubblicazione tramite distribuzione Web.
+- `Package` -Pubblicazione mediante la creazione di un pacchetto di distribuzione Web. È necessario installare separatamente il pacchetto del comando di MSBuild che lo crea.
+- `FileSystem` -Pubblicare copiando i file in una cartella specificata.
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>Specifica la piattaforma e configurazione di compilazione
 
@@ -144,6 +144,6 @@ Ora stato distribuito un aggiornamento dell'applicazione tramite la riga di coma
 
 Nella prossima esercitazione, verrà visualizzato un esempio di come estendere web pipeline di pubblicazione. L'esempio mostra come distribuire i file che non sono inclusi nel progetto.
 
->[!div class="step-by-step"]
-[Precedente](deploying-a-database-update.md)
-[Successivo](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-a-database-update.md)
+> [Successivo](deploying-extra-files.md)

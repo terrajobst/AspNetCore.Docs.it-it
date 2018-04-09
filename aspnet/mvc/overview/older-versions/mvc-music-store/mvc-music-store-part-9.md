@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 1caf836f8c92cbc9ab95e0aa990f81493e577a27
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: e7e83b70f2508b6dfc0c078b992747a76e4d0ff2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-9-registration-and-checkout"></a>Parte 9: Estrazione e registrazione
 ====================
@@ -81,7 +81,7 @@ In primo luogo, aggiungere l'attributo Authorize sopra la dichiarazione di class
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*Nota: Questa operazione è simile per la modifica che è effettuate in precedenza per il StoreManagerController, ma in tal caso l'attributo Authorize richiesto che l'utente deve essere un ruolo di amministratore. Nel Controller di estrazione, si sta richiedendo all'utente di connettersi ma non richiedono che sono amministratori.*
+*Nota: Questa operazione è simile alla modifica che è apportate in precedenza il StoreManagerController, ma in tal caso l'attributo Authorize necessario che l'utente appartenga a un ruolo di amministratore. Nel Controller di estrazione, è in corso richiedendo all'utente di connettersi ma non richiedono che sono amministratori.*
 
 Per ragioni di semplicità, è non essere gestiscono le informazioni di pagamento in questa esercitazione. Al contrario, si consente agli utenti di estrarre utilizzando un codice promozionale. Verrà archiviato il codice promozionale utilizza una costante denominata codice promozione.
 
@@ -93,9 +93,9 @@ Il CheckoutController saranno disponibili le seguenti azioni controller:
 
 **AddressAndPayment (GET method)** verrà visualizzato un form per consentire all'utente di immettere le informazioni.
 
-**AddressAndPayment (metodo POST)** verrà convalidare l'input e di elaborare l'ordine.
+**AddressAndPayment (metodo POST)** verrà convalidare l'input ed elaborare l'ordine.
 
-**Completamento** verrà visualizzato dopo che un utente ha completato correttamente il processo di estrazione. Questa visualizzazione includerà il numero di ordine dell'utente, conferma.
+**Completa** verrà visualizzato dopo che un utente ha completato correttamente il processo di estrazione. Questa visualizzazione includerà il numero di ordine dell'utente, conferma.
 
 In primo luogo, rinominare l'azione del controller indice (che è stato generato quando abbiamo creato il controller) per AddressAndPayment. Questa azione del controller Visualizza solo il modulo di estrazione, e pertanto non richiede le informazioni sul modello.
 
@@ -163,6 +163,6 @@ Poiché si tratta di una pagina di errore generico, il contenuto è molto sempli
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-8.md)
-[Successivo](mvc-music-store-part-10.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-8.md)
+> [Successivo](mvc-music-store-part-10.md)

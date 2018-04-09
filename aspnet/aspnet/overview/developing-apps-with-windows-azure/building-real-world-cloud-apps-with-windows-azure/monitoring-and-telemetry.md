@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 title: Monitoraggio e telemetria (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2015
 ms.topic: article
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d58c495b3888c146a2a9bc831865cf7cc0d94c7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitoraggio e telemetria (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -265,33 +265,33 @@ Per altre informazioni, vedere le seguenti risorse.
 Documentazione principalmente sulla telemetria di:
 
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere strumentazione e dati di telemetria sulla, istruzioni di controllo del servizio, il monitoraggio dell'integrità dell'Endpoint criterio e il criterio di riconfigurazione di Runtime.
-- [Centesimi di compressione nel Cloud: abilitazione di nuove Relic monitoraggio delle prestazioni nei siti Web di Azure](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy. Vedere la sezione di dati di telemetria e diagnostica.
+- [Centesimi compressione nel Cloud: abilitazione di nuove prestazioni Relic monitoraggio nei siti Web di Azure](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud di Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy. Vedere la sezione di dati di telemetria e diagnostica.
 - [Sviluppo di prossima generazione con Application Insights](https://msdn.microsoft.com/magazine/dn683794.aspx). Articolo di MSDN Magazine.
 
 Documentazione principalmente sulla registrazione:
 
-- [Blocco applicazione di semantica di registrazione (sezione)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Neil Mackenzie presenta nel caso di registrazione semantica con sonoro.
+- [Blocco applicazione per la registrazione semantica (sezione)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Neil Mackenzie presenta nel caso di registrazione semantica con sonoro.
 - [Creazione di log significativo e strutturati con la registrazione semantica](https://channel9.msdn.com/Events/Build/2013/3-336). (Video) Julian Dominguez presenta nel caso di registrazione semantica con sonoro.
-- [EF6 Registrazione SQL – parte 1: registrazione semplice](http://blog.oneunicorn.com/2013/05/08/ef6-sql-logging-part-1-simple-logging/). Arthur Vickers viene illustrato come registrare query eseguita da Entity Framework 6, Entity Framework.
-- [Resilienza di connessione e comando di intercettazione con Entity Framework in un'applicazione MVC ASP.NET](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Quarto in una serie di esercitazioni nove parti, viene illustrato come utilizzare la funzionalità di intercettazione di Entity Framework 6 comando per registrare i comandi SQL inviati al database da Entity Framework.
+- [EF6 La registrazione SQL – parte 1: registrazione semplice](http://blog.oneunicorn.com/2013/05/08/ef6-sql-logging-part-1-simple-logging/). Arthur Vickers viene illustrato come registrare query eseguita da Entity Framework 6, Entity Framework.
+- [Resilienza di connessione e comando di intercettazione con Entity Framework in un'applicazione ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Quarto in una serie di esercitazioni nove parti, viene illustrato come utilizzare la funzionalità di intercettazione di Entity Framework 6 comando per registrare i comandi SQL inviati al database da Entity Framework.
 - [Migliorare la registrazione tramite c# attributi informativi sul chiamante 5.0](http://www.dotnetcurry.com/showarticle.aspx?ID=972). Come registrare il nome del metodo chiamante in modo semplice senza impostare come hardcoded, in valori letterali o tramite reflection eseguire questa operazione manualmente.
 
 Documentazione principalmente sulla risoluzione dei problemi:
 
 - [Risoluzione dei problemi di Azure &amp; debug blog](https://blogs.msdn.com/b/kwill/).
-- [AzureTools – la diagnostica utilità utilizzati dal Team di supporto per sviluppatori di Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/26/azuretools-the-diagnostic-utility-used-by-the-windows-azure-developer-support-team.aspx?Redirected=true). Introduce e fornisce un collegamento di download per uno strumento utilizzato in una macchina virtuale di Azure per scaricare ed eseguire un'ampia gamma di strumenti di diagnostica e monitoraggio. È utile quando è necessario diagnosticare un problema per una determinata macchina virtuale.
-- [Risolvere i problemi relativi a un'app web nel servizio App di Azure con Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Un'esercitazione dettagliata per iniziare a usare System. Diagnostics traccia e debug remoto.
+- [AzureTools – la diagnostica utilità utilizzata dal Team di supporto per sviluppatori Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/26/azuretools-the-diagnostic-utility-used-by-the-windows-azure-developer-support-team.aspx?Redirected=true). Introduce e fornisce un collegamento di download per uno strumento utilizzato in una macchina virtuale di Azure per scaricare ed eseguire un'ampia gamma di strumenti di diagnostica e monitoraggio. È utile quando è necessario diagnosticare un problema per una determinata macchina virtuale.
+- [Risolvere i problemi di un'app web nel servizio App di Azure utilizzando Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Un'esercitazione dettagliata per iniziare a usare System. Diagnostics traccia e debug remoto.
 
 Video
 
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Episodi 4 e 9 sono sul monitoraggio e dati di telemetria. Episodio 9 include una panoramica di monitoraggio dei servizi MetricsHub, AppDynamics, New Relic e PagerDuty.
-- [Compilazione Big: Apprese dai clienti di Azure - parte II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms comunica sulla progettazione per errore e la strumentazione di tutti gli elementi. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Episodi 4 e 9 sono sul monitoraggio e dati di telemetria. Episodio 9 include una panoramica di monitoraggio dei servizi MetricsHub, AppDynamics, New Relic e PagerDuty.
+- [Compilazione Big: Insegnamenti appresi ai clienti di Azure - parte II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms comunica sulla progettazione per errore e la strumentazione di tutti gli elementi. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
 
 Nell'esempio di codice:
 
 - [Sviluppo di servizi in Azure cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Applicazione di esempio creata con il Team di consulenza clienti di Microsoft Azure. Viene illustrato sia dati di telemetria e procedure consigliate di registrazione, come descritto negli articoli seguenti. L'esempio implementa la registrazione delle applicazioni tramite [NLog](http://nlog-project.org/). Per la documentazione correlata, vedere il [serie di quattro articoli wiki di TechNet sui dati di telemetria e la registrazione](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon).
 
->[!div class="step-by-step"]
-[Precedente](design-to-survive-failures.md)
-[Successivo](transient-fault-handling.md)
+> [!div class="step-by-step"]
+> [Precedente](design-to-survive-failures.md)
+> [Successivo](transient-fault-handling.md)

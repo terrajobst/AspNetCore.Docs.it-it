@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 title: 'Distribuzione Web aziendale: Panoramica dello Scenario | Documenti Microsoft'
 author: jrjlee
-description: "Questo set di esercitazioni utilizza una soluzione di esempio con un livello di complessità, insieme a uno scenario di distribuzione dell'organizzazione fittizia, realistico per fornire un riferimento..."
+description: Questo set di esercitazioni utilizza una soluzione di esempio con un livello di complessità, insieme a uno scenario di distribuzione dell'organizzazione fittizia, realistico per fornire un riferimento...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: f90db22bf98456661c530e728e854ce109aec6fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Distribuzione Web aziendale: Panoramica dello Scenario
 ====================
@@ -39,7 +39,7 @@ I processi di Application Lifecycle Management (ALM) Fabrikam, Inc. richiedono l
 
 Ciascuno di questi ambienti ha requisiti di sicurezza e di configurazione diverso e ognuno comporta dei problemi di distribuzione univoco.
 
-### <a name="the-fabrikam-inc-server-infrastructure"></a>La società Fabrikam, Inc. Infrastruttura di server
+### <a name="the-fabrikam-inc-server-infrastructure"></a>The Fabrikam, Inc. Infrastruttura di server
 
 Questo è l'infrastruttura di sviluppo e distribuzione ad alto livello Fabrikam, Inc.
 
@@ -122,6 +122,6 @@ Inoltre, la gestione della distribuzione quando gli aggiornamenti sono frequenti
 - Si desidera registrare le attività di distribuzione. Il processo di distribuzione deve inviare notifiche tramite posta elettronica delle distribuzioni di esito positivo o negativo di destinatari specificati.
 - Se una distribuzione automatica non riesce, il processo di distribuzione deve ripetere la distribuzione corrente o distribuire il pacchetto web precedente.
 
->[!div class="step-by-step"]
-[Precedente](deploying-web-applications-in-enterprise-scenarios.md)
-[Successivo](application-lifecycle-management-from-development-to-production.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-web-applications-in-enterprise-scenarios.md)
+> [Successivo](application-lifecycle-management-from-development-to-production.md)

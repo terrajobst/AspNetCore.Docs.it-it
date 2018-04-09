@@ -2,7 +2,7 @@
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 title: Profilo ed eseguire il debug dell'app ASP.NET MVC con panoramica | Documenti Microsoft
 author: Rick-Anderson
-description: "Panoramica è che intraprendono e famiglia di pacchetti NuGet open source che offre prestazioni dettagliati di crescita, debug e informazioni di diagnostica per ASP.NET un..."
+description: Panoramica è che intraprendono e famiglia di pacchetti NuGet open source che offre prestazioni dettagliati di crescita, debug e informazioni di diagnostica per ASP.NET un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilo ed eseguire il debug dell'app ASP.NET MVC con sguardo rapido
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Panoramica di è un che intraprendono e in continuo aumento famiglia di pacchetti NuGet open source che offre prestazioni dettagliati, debug e informazioni di diagnostica per App ASP.NET. È semplice da installare, leggere, ultra-veloce e visualizza le metriche di prestazioni chiave nella parte inferiore di ogni pagina. Consente di eseguire il drill down in app quando è necessario sapere cosa accade nel server. Sguardo rapido fornisce informazioni molto utili, che si consiglia di che usare in tutto il ciclo di sviluppo, tra cui l'ambiente di testing di Azure. Mentre [Fiddler](http://www.telerik.com/fiddler) e [gli strumenti di sviluppo F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) forniscono un lato client, sguardo rapido fornisce una visualizzazione dettagliata dal server. In questa esercitazione sarà incentrata sull'uso di panoramica di ASP.NET MVC e dei pacchetti di Entity Framework, ma sono disponibili molti altri pacchetti. Dove possibile verrà collegare appropriati [osservare docs](http://getglimpse.com/Docs/) che consentono di gestire. Panoramica di è un progetto open source, è troppo possono contribuire al codice sorgente e i documenti.
 
@@ -55,7 +55,7 @@ I seguenti comandi installano moduli MVC5 sguardo rapido ed EF6 dalla console di
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Abilitare sguardo rapido per localhost
 
-Passare a http://localhost:&lt;n. porta&gt;/glimpse.axd e fare clic su di **attiva sguardo rapido** pulsante.
+Passare a http://localhost: &lt;numero di porta&gt;/glimpse.axd e fare clic sui <strong>attiva Glimpse</strong> pulsante.
 
 ![Pagina di panoramica axd](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
@@ -127,4 +127,4 @@ Per informazioni sull'aggiunta di ruoli, vedere il [distribuire un'app web Secur
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Distribuire un'app protetta ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
-- [Osservare il configurazione](http://getglimpse.com/Docs/Configuration) -pagina Doc sulla configurazione delle schede, i criteri di runtime, registrazione e altro ancora.
+- [Osservare configurazione](http://getglimpse.com/Docs/Configuration) -pagina Doc sulla configurazione di schede, i criteri di runtime, la registrazione e altro ancora.

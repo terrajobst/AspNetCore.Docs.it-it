@@ -2,7 +2,7 @@
 uid: signalr/overview/security/introduction-to-security
 title: Introduzione alla sicurezza SignalR | Documenti Microsoft
 author: pfletcher
-description: "Vengono descritti i problemi di sicurezza che è necessario considerare quando si sviluppa un'applicazione di SignalR."
+description: Vengono descritti i problemi di sicurezza che è necessario considerare quando si sviluppa un'applicazione di SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb9f15a958028822b50decf4b420c36596ce25e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a4f09c8036d6d662dfdc44d7c7feaba0101e0c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr-security"></a>Introduzione alla sicurezza di SignalR
 ====================
-da [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+dal [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > In questo articolo vengono descritti i problemi di sicurezza che è necessario considerare quando si sviluppa un'applicazione di SignalR. 
 > 
@@ -115,7 +115,7 @@ Di seguito è riportato un esempio di un attacco di tipo CSRF:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
- Si noti che le azioni form invia al sito vulnerabile, non per il sito dannoso. Questa è la parte "cross-site" di CSRF.
+   Si noti che l'azione del form è inviata al sito vulnerabile, non al sito dannoso. Questa è la parte "cross-site" di CSRF.
 4. L'utente fa clic sul pulsante Invia. Il visualizzatore include il cookie di autenticazione con la richiesta.
 5. La richiesta viene eseguita nel server di example.com con contesto di autenticazione dell'utente e può eseguire qualsiasi operazione che è consentito un utente autenticato.
 
@@ -129,7 +129,7 @@ SignalR esegue i passaggi seguenti per impedire la creazione di richieste valide
 
 - **Disabilitare le richieste tra domini**  
  SignalR disabilita le richieste tra domini per impedire agli utenti di chiamata di un endpoint di SignalR da un dominio esterno. SignalR considera qualsiasi richiesta da un dominio esterno non valido e blocca la richiesta. È consigliabile mantenere questo comportamento predefinito; in caso contrario, un sito dannoso può indurre gli utenti a inviare i comandi al sito. Se è necessario utilizzare richieste tra domini, vedere [per stabilire una connessione tra domini](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Passare il token di connessione nella stringa di query, non i cookie**  
+- **Passare il token di connessione nella stringa di query, non cookie**  
  SignalR passa il token di connessione come un valore di stringa di query, anziché come un cookie. Archiviare il token di connessione in un cookie è sicuro in quanto il browser può inavvertitamente inoltra il token di connessione quando viene rilevato malware. Inoltre, passando il token di connessione nella stringa di query impedisce il token di connessione di persistenza oltre alla connessione corrente. Pertanto, un utente malintenzionato non è possibile effettuare una richiesta con credenziali di autenticazione dell'utente.
 - **Verificare i token di connessione**  
  Come descritto nel [token di connessione](#connectiontoken) sezione, il server riconosce l'id di connessione associata a ogni utente autenticato. Il server non elabora le richieste da un id di connessione che non corrisponde al nome utente. È improbabile che un utente malintenzionato potrebbe ipotizzare una richiesta valida perché l'utente malintenzionato dovrebbe conoscere il nome utente e l'id generato in modo casuale connessione corrente. L'id di connessione diventa non valido non appena la connessione viene chiusa. Gli utenti anonimi non deve accedere a informazioni riservate.

@@ -1,7 +1,7 @@
 ---
 title: Introduzione a SignalR su ASP.NET Core
 author: rachelappel
-description: "Informazioni su come la libreria di ASP.NET SignalR Core semplifica l'aggiunta di funzionalità web in tempo reale alle applicazioni."
+description: Informazioni su come la libreria di ASP.NET SignalR Core semplifica l'aggiunta di funzionalità web in tempo reale alle applicazioni.
 manager: wpickett
 ms.author: rachelap
 ms.custom: mvc
@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
 ms.openlocfilehash: 3fa70c957b246787d4e457c74f90ad797b3af766
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="introduction-to-signalr"></a>Introduzione a SignalR
 

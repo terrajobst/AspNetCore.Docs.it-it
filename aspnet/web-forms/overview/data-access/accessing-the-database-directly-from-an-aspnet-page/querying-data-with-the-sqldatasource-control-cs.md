@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3d6f681169267ad5c65486c1d1fac0a9396535d1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Eseguire query sui dati con il controllo SqlDataSource (c#)
 ====================
@@ -76,7 +76,7 @@ Prima di iniziare l'esplorazione di come utilizzare direttamente i dati del data
 
 ![Aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image3.gif)
 
-**Figura 3**: aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource
+**Figura 3**: aggiungere le pagine ASP.NET per le esercitazioni relative alla SqlDataSource
 
 
 Come in altre cartelle, `Default.aspx` nel `SqlDataSource` cartella elencherà le esercitazioni nella relativa sezione. Tenere presente che il `SectionLevelTutorialListing.ascx` controllo utente fornisce questa funzionalità. Pertanto, aggiungere il controllo utente `Default.aspx` trascinandolo da Esplora soluzioni nella pagina di visualizzazione della struttura s.
@@ -84,7 +84,7 @@ Come in altre cartelle, `Default.aspx` nel `SqlDataSource` cartella elencherà l
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
 
-**Figura 4**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image6.gif))
+**Figura 4**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image6.gif))
 
 
 Infine, aggiungere questi quattro pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo l'aggiunta di pulsanti personalizzata al DataList e Repeater `<siteMapNode>`:
@@ -107,7 +107,7 @@ Aprire il `Querying.aspx` nella pagina di `SqlDataSource` cartella e passare all
 
 ![Scegliere il collegamento Configura origine dati da SqlDataSource s Smart Tag](querying-data-with-the-sqldatasource-control-cs/_static/image8.gif)
 
-**Figura 6**: scegliere il collegamento Configura origine dati da SqlDataSource s Smart Tag
+**Figura 6**: scegliere il collegamento Configura origine dati da SqlDataSource s sullo Smart Tag
 
 
 Verrà visualizzata la procedura guidata Configura origine dati di s controllo SqlDataSource. Durante la procedura guidata s differisce dal controllo ObjectDataSource s, l'obiettivo finale è lo stesso per fornire i dettagli su come recuperare, inserire, aggiornare ed eliminare dati tramite l'origine dati. Per SqlDataSource questo implica che specifica il database sottostante da utilizzare e fornire le istruzioni SQL ad hoc o le stored procedure.
@@ -139,7 +139,7 @@ Dopo aver configurato la procedura guidata per restituire il `ProductID`, `Produ
 
 ![Fare clic sul pulsante Query di Test per esaminare la Query di selezione](querying-data-with-the-sqldatasource-control-cs/_static/image11.gif)
 
-**Figura 9**: fare clic sul pulsante Query di Test per esaminare il `SELECT` Query
+**Figura 9**: fare clic sul pulsante Test Query alla revisione di `SELECT` Query
 
 
 Per completare la procedura guidata, fare clic su Fine.
@@ -175,7 +175,7 @@ Visitare questa pagina tramite un browser. Come mostrato nella figura 11, GridVi
 
 [![GridView Visualizza ogni prodotto s ProductID, ProductName e i valori di UnitPrice](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
 
-**Figura 11**: il prodotto di ogni Visualizza GridView s `ProductID`, `ProductName`, e `UnitPrice` valori ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image17.gif))
+**Figura 11**: il controllo GridView. consente di visualizzare ogni prodotto s `ProductID`, `ProductName`, e `UnitPrice` valori ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image17.gif))
 
 
 Quando viene visitata GridView richiama il controllo origine dati s `Select()` metodo. Quando si stava usando il controllo ObjectDataSource, questa chiamata di `ProductsBLL` classe s `GetProducts()` metodo. Con SqlDataSource, tuttavia, il `Select()` metodo stabilisce una connessione al database specificato e i problemi di `SelectCommand` (`SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`, in questo esempio). SqlDataSource restituisce i risultati che quindi GridView enumera, creazione di una riga in GridView per ogni record di database restituiti.
@@ -201,7 +201,7 @@ Aggiungere un altro controllo GridView il `Querying.aspx` pagina e scegliere di 
 
 ![Creare un nuovo controllo SqlDataSource denominato ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image18.gif)
 
-**Figura 12**: creare un nuovo controllo SqlDataSource denominato`ProductsWithCategoryInfoDataSource`
+**Figura 12**: creare un nuovo controllo SqlDataSource denominato `ProductsWithCategoryInfoDataSource`
 
 
 Nella schermata successiva viene chiesto di specificare il database. Come è stato fatto tornare nella figura 7, selezionare il `NORTHWINDConnectionString` dall'elenco a discesa elenco e fare clic su Avanti. Schermata di istruzione Select della configurazione, scegliere di specificare un pulsante di opzione di stored procedure o un'istruzione SQL personalizzata e fare clic su Avanti. Verrà visualizzata la schermata di Stored procedure o definire istruzioni personalizzate, che offre schede: SELECT, UPDATE, INSERT e DELETE. In ogni scheda è possibile immettere un'istruzione SQL personalizzata nella casella di testo o scegliere una stored procedure dall'elenco a discesa. In questa esercitazione verranno esaminati immettendo un'istruzione SQL personalizzata. l'esercitazione successiva include un esempio che utilizza una stored procedure.
@@ -220,7 +220,7 @@ L'istruzione SQL personalizzata può essere immesso manualmente nella casella di
 
 ![È possibile graficamente costruire la Query utilizzando il generatore di Query](querying-data-with-the-sqldatasource-control-cs/_static/image20.gif)
 
-**Nella figura 14**: È possibile costruire graficamente la Query utilizzando il generatore di Query
+**Figura 14**: È possibile costruire graficamente la Query utilizzando il generatore delle Query
 
 
 Dopo aver specificato la query, fare clic su Avanti per passare alla schermata Test Query. Fare clic su Fine per completare la procedura guidata SqlDataSource.
@@ -231,9 +231,9 @@ Dopo aver completato la procedura guidata, GridView disporrà di tre BoundField 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample5.aspx)]
 
 
-[![GridView Mostra ogni ID prodotto s, il nome di categoria, nome e l'oggetto associato](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
+[![GridView Mostra ogni ID prodotto s, nome della categoria di nome e associato](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
 
-**Figura 15**: ID s il GridView Mostra ogni prodotto, nome e il nome di categoria associata ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))
+**Figura 15**: il controllo GridView Mostra ogni prodotto s, nome, nome e l'ID associato ([fare clic per visualizzare l'immagine ingrandita](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -256,11 +256,11 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Connery Susan Bernadette Leigh e David Suru. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](using-parameterized-queries-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [avanti](using-parameterized-queries-with-the-sqldatasource-cs.md)

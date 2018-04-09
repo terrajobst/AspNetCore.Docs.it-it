@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 title: Miglioramento delle prestazioni con Output memorizzazione nella cache (VB) | Documenti Microsoft
 author: microsoft
-description: "In questa esercitazione viene illustrato come è possibile migliorare notevolmente le prestazioni delle applicazioni web ASP.NET MVC, sfruttando la cache di output. Si..."
+description: In questa esercitazione viene illustrato come è possibile migliorare notevolmente le prestazioni delle applicazioni web ASP.NET MVC, sfruttando la cache di output. Si...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3bd4b6c3ac52577cbee451d2986f1167e441f0e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ee933b477307f5c3f2377e112a1a98d3d6bc337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-vb"></a>Miglioramento delle prestazioni con Output la memorizzazione nella cache (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In questa esercitazione viene illustrato come è possibile migliorare notevolmente le prestazioni delle applicazioni web ASP.NET MVC, sfruttando la cache di output. Informazioni su come memorizzare nella cache il risultato restituito da un'azione del controller in modo che lo stesso contenuto non devono essere creati ogni volta che un nuovo utente richiama l'azione.
 
@@ -40,7 +40,7 @@ Abilitare la memorizzazione nella cache di output aggiungendo un &lt;OutputCache
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
 
-Nelle versioni Beta di ASP.NET MVC, la memorizzazione nella cache di output non funziona per un URL come [http://www.MySite.com/](http://www.mysite.com/). In alternativa, è necessario immettere un URL come [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index).
+Nelle versioni Beta di ASP.NET MVC, la memorizzazione nella cache di output non funziona per un URL, ad esempio [ http://www.MySite.com/ ](http://www.mysite.com/). Al contrario, è necessario immettere un URL, ad esempio [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index).
 
 
 Nel listato 1, l'output dell'azione Index () viene memorizzato nella cache per 10 secondi. Se si preferisce, è possibile specificare una durata maggiore di cache. Ad esempio, se si desidera memorizzare nella cache l'output di un'azione del controller per un giorno è possibile specificare una durata della cache di 86400 secondi (60 secondi \* 60 minuti \* 24 ore).
@@ -49,11 +49,11 @@ Vi è alcuna garanzia che il contenuto non nella cache per la quantità di tempo
 
 Il controller Home nel listato 1 restituisce la visualizzazione dell'indice nel listato 2. Non c'è niente di speciale su questa vista. La visualizzazione dell'indice vengono visualizzate l'ora corrente (vedere la figura 1).
 
-**Elenco di 2 – Views\Home\Index.aspx**
+**Elenco 2 – Views\Home\Index.aspx.**
 
 [!code-aspx[Main](improving-performance-with-output-caching-vb/samples/sample2.aspx)]
 
-**Figura 1: visualizzazione dell'indice memorizzata nella cache**
+**Figura 1 – visualizzazione dell'indice memorizzata nella cache**
 
 ![clip_image002](improving-performance-with-output-caching-vb/_static/image1.jpg)
 
@@ -114,17 +114,17 @@ Se si memorizza nella cache la pagina dei dettagli, i dettagli per lo stesso fil
 
 Ad esempio, il controller nel listato 5 espone due azioni denominate Master() e Details(). L'azione Master() restituisce un elenco di titoli dei film e l'azione Details() restituisce i dettagli per il film selezionato.
 
-**Elenco di 5-Controllers\MoviesController.vb**
+**Nel listato 5 – Controllers\MoviesController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample5.vb)]
 
 L'azione Master() include una proprietà VaryByParam con il valore "none". Viene restituito quando l'azione viene richiamata, Master() la stessa versione memorizzata nella cache del Master Visualizza. Eventuali parametri di modulo o la stringa di query i parametri vengono ignorati (vedere Figura 2).
 
-**Figura 2: la vista /Movies/Master**
+**Figura 2 – vista /Movies/Master**
 
 ![clip_image004](improving-performance-with-output-caching-vb/_static/image2.jpg)
 
-**Figura 3: la visualizzazione dei dettagli/filmati**
+**Figura 3 – la visualizzazione dei dettagli/filmati /**
 
 ![clip_image006](improving-performance-with-output-caching-vb/_static/image3.jpg)
 
@@ -134,7 +134,7 @@ L'azione Details() include una proprietà VaryByParam con il valore "Id". Quando
 
 È possibile impostare la proprietà VaryByParam per i valori seguenti:
 
-> \*= Ogni volta che un parametro di stringa di formato o una query varia, creare un'altra versione memorizzata nella cache.
+> \* = Creare una versione memorizzata nella cache diversa ogni volta che varia in un parametro di stringa di formato o la query.
 > 
 > None = mai creare diverse versioni memorizzate nella cache
 > 
@@ -151,13 +151,13 @@ In secondo luogo, è possibile modificare il file di configurazione web senza ri
 
 Ad esempio, il &lt;la memorizzazione nella cache&gt; sezione di configurazione web nel listato 6 definisce un profilo della cache denominato Cache1Hour. Il &lt;la memorizzazione nella cache&gt; sezione deve figurare all'interno di &lt;System. Web&gt; sezione di un file di configurazione web.
 
-**Elenco di 6-sezione di memorizzazione nella cache per Web. config**
+**Elenco 6 – sezione di memorizzazione nella cache per Web. config**
 
 [!code-xml[Main](improving-performance-with-output-caching-vb/samples/sample6.xml)]
 
 Il controller nel listato 7 viene illustrato come è possibile applicare il profilo Cache1Hour a un'azione del controller con la &lt;OutputCache&gt; attributo.
 
-**Elenco 7: Controllers\ProfileController.vb**
+**Listing 7 – Controllers\ProfileController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample7.vb)]
 
@@ -167,6 +167,6 @@ Se si richiama l'azione Index () esposto dal controller nel listato 7 contempora
 
 La memorizzazione nella cache di output fornisce un metodo molto semplice di migliorare notevolmente le prestazioni delle applicazioni ASP.NET MVC. In questa esercitazione è stato descritto come utilizzare il &lt;OutputCache&gt; attributo per memorizzare nella cache l'output di azioni del controller. È stato inoltre descritto come modificare le proprietà del &lt;OutputCache&gt; attributo, ad esempio le proprietà di durata e VaryByParam per modificare il contenuto Ottiene memorizzato nella cache. Infine, è stato descritto come definire i profili di cache nel file di configurazione web.
 
->[!div class="step-by-step"]
-[Precedente](understanding-action-filters-vb.md)
-[Successivo](adding-dynamic-content-to-a-cached-page-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-action-filters-vb.md)
+> [Successivo](adding-dynamic-content-to-a-cached-page-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4a28ea92b22e4928e41a39a8a91b62bfa4f08175
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manually-installing-web-packages"></a>Installare manualmente i pacchetti Web
 ====================
@@ -30,10 +30,10 @@ da [Jason Lee](https://github.com/jrjlee)
 > 
 > Dopo aver creato un pacchetto di distribuzione web, è possibile pubblicarlo in un server IIS in vari modi. In molti scenari, sarà possibile sfruttare i punti di integrazione tra MSBuild, WPP e distribuzione Web per creare e installare i pacchetti web in modalità remota come parte di un processo di compilazione e distribuzione automatico o singolo passaggio. Questo processo è descritto in [distribuzione di pacchetti Web](deploying-web-packages.md). Tuttavia, ciò non è sempre possibile. Si supponga che si desidera distribuire un'applicazione web in un ambiente di produzione con connessione Internet. Per motivi di sicurezza, in almeno molto probabilmente da un firewall in una subnet separata dal server di compilazione, in una rete perimetrale (detta anche DMZ e subnet schermata) è un ambiente di produzione. In molti casi, l'ambiente di produzione sarà in un dominio diverso o in una rete isolata fisicamente.
 > 
-> In questi scenari, l'unica opzione possibile trasferire il pacchetto web nel server di destinazione e importarlo manualmente in IIS. Sebbene questo approccio impedisce la distribuzione automatica, è ancora una tecnica estremamente efficiente per la pubblicazione di un'applicazione web & #x 2014, è sufficiente copiare un unico file zip per il server web e consentono di eseguire il processo di importazione utilizzando una procedura guidata.
+> In questi scenari, l'unica opzione possibile trasferire il pacchetto web nel server di destinazione e importarlo manualmente in IIS. Sebbene questo approccio impedisce la distribuzione automatica, è ancora una tecnica estremamente efficiente per la pubblicazione di un'applicazione web&#x2014;è semplicemente copiare un unico file zip per il server web e utilizzare una procedura guidata per eseguire il processo di importazione.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -133,5 +133,5 @@ In questo argomento viene descritto come importare un pacchetto di distribuzione
 
 Per istruzioni su come configurare un server web IIS per supportare l'importazione manuale di un pacchetto web, vedere [configurare un Server Web per distribuire pubblicazione sul Web (non in linea distribuzione)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Per istruzioni generali sulla distribuzione di pacchetti web, vedere [procedura dettagliata: distribuzione di un progetto di applicazione Web utilizzando un pacchetto di distribuzione Web (parte 1 di 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
->[!div class="step-by-step"]
-[Precedente](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-and-running-a-deployment-command-file.md)

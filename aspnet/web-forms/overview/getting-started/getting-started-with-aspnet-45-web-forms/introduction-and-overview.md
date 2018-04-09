@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013
 ====================
@@ -177,9 +177,9 @@ Dopo aver installato i prerequisiti, si è pronti per iniziare a creare il nuovo
 
 [Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (c#) 
 
-Il download è un *zip* file. Per visualizzare il progetto completato crea questa serie di esercitazioni, trovare e selezionare il *c#*cartella la *zip* file. Salvare il *c#* la cartella in cartella consentono di lavorare con progetti di Visual Studio 2013. Per impostazione predefinita, la cartella di progetti di Visual Studio 2013 è la seguente:
+Il download è un <em>zip</em> file. Per visualizzare il progetto completato crea questa serie di esercitazioni, trovare e selezionare il <em>c#</em>cartella la <em>zip</em> file. Salvare il <em>c#</em> la cartella in cartella consentono di lavorare con progetti di Visual Studio 2013. Per impostazione predefinita, la cartella di progetti di Visual Studio 2013 è la seguente:
 
-**C:\Users\*****&lt;username&gt;* * * \Documents\Visual 2013\Projects Studio**
+<strong>C:\Users\</ strong ><strong><em>&lt;nomeutente&gt;</em></strong><strong>\Documents\Visual 2013\Projects Studio</strong>
 
 Rinominare il ***c#*** cartella ***WingtipToys***.
 
@@ -197,5 +197,5 @@ I commenti in questa serie di esercitazioni sono, e quando viene aggiornata la s
 
 Quando si verifica un errore durante lo sviluppo oppure se il sito Web non viene eseguito correttamente, i messaggi di errore possono fornire indicazioni complesse per l'origine del problema o non potrebbero spiegare come correggerlo. Per alcuni scenari comuni di problema, è inoltre possibile utilizzare il [forum ASP.NET](https://forums.asp.net/) o nella sezione delle domande e risposte incluso con il [Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) ( C#) esempio. Se viene visualizzato un messaggio di errore o non funzioni come eseguire le esercitazioni, assicurarsi di controllare nei percorsi indicati.
 
->[!div class="step-by-step"]
-[avanti](create-the-project.md)
+> [!div class="step-by-step"]
+> [avanti](create-the-project.md)

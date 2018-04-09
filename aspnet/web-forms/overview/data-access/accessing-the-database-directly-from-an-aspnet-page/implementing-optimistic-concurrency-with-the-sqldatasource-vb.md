@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 title: Implementazione della concorrenza ottimistica con SqlDataSource (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione è esaminare gli aspetti principali di controllo della concorrenza ottimistica e quindi esplorare come implementarlo mediante il controllo SqlDataSource."
+description: In questa esercitazione è esaminare gli aspetti principali di controllo della concorrenza ottimistica e quindi esplorare come implementarlo mediante il controllo SqlDataSource.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 974ea50a0d12aae09107470815214b20068ea553
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6e7e81b3f3a54596c033caa2cf75e5e3ec01764c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>Implementazione della concorrenza ottimistica con SqlDataSource (VB)
 ====================
@@ -36,7 +36,7 @@ Insieme a genera `INSERT`, `UPDATE`, e `DELETE` istruzioni casella di controllo,
 
 ![È possibile aggiungere il supporto della concorrenza ottimistica da avanzate la finestra di dialogo Opzioni di generazione SQL](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image1.gif)
 
-**Figura 1**: È possibile aggiungere il supporto della concorrenza ottimistica da avanzate la finestra di dialogo Opzioni di generazione SQL
+**Figura 1**: È possibile aggiungere il supporto di concorrenza ottimistica da avanzate finestra di dialogo Opzioni di generazione SQL
 
 
 Nel [implementazione di concorrenza ottimistica](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md) esercitazione sono state esaminate le nozioni di base del controllo della concorrenza ottimistica e come aggiungerlo a ObjectDataSource. In questa esercitazione viene ritoccare in essentials di controllo della concorrenza ottimistica e quindi esplorare come implementarlo SqlDataSource.
@@ -50,12 +50,12 @@ Si supponga che due utenti, Jisun e Sam, sono stati entrambi visitare una pagina
 Figura 2 viene illustrata questa interazione.
 
 
-[![Quando due utenti simultaneamente aggiornare un Record sono potenziale s s di un utente cambia per sovrascrivere altri elementi](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image1.png)
+[![Quando due utenti simultaneamente aggiornare un Record sono s potenziale per un utente s viene modificato per sovrascrivere l'altri spazi dei nomi](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image1.png)
 
-**Figura 2**: quando due utenti simultaneamente aggiornare un Record sono s potenziale per un utente s le modifiche agli altri oggetti di sovrascrittura ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.png))
+**Figura 2**: quando due utenti simultaneamente aggiornare un Record sono s potenziale per un utente s le modifiche al sovrascrittura di altri spazi dei nomi ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image2.png))
 
 
-Per evitare questo scenario unfolding, una forma di [il controllo della concorrenza](http://en.wikipedia.org/wiki/Concurrency_control) deve essere implementato. [Concorrenza ottimistica](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) l'obiettivo di questa esercitazione funziona sul presupposto che mentre possono essere presenti conflitti di concorrenza ogni ora e quindi, si verificano la maggior parte dei casi tali conflitti vinto t. Pertanto, se si verificano un conflitto, controllo della concorrenza ottimistica semplicemente informa l'utente che loro t di modifiche può essere salvato perché un altro utente ha modificato gli stessi dati.
+Per evitare questo scenario unfolding, una forma di [il controllo della concorrenza](http://en.wikipedia.org/wiki/Concurrency_control) deve essere implementato. [Concorrenza ottimistica](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) l'obiettivo di questa esercitazione funziona sul presupposto che mentre possono essere presenti conflitti di concorrenza ogni ora e quindi, la maggior parte dei casi tali conflitti vinto t ripresenti. Pertanto, se si verificano un conflitto, controllo della concorrenza ottimistica semplicemente informa l'utente che loro t di modifiche può essere salvato perché un altro utente ha modificato gli stessi dati.
 
 > [!NOTE]
 > Per le applicazioni in cui si presuppone che non vi saranno numerosi conflitti di concorrenza o se tali conflitti non sono quindi il controllo della concorrenza pessimistica consente invece. Fare riferimento al [implementazione di concorrenza ottimistica](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md) esercitazione per una descrizione più dettagliata sul controllo della concorrenza pessimistica.
@@ -66,7 +66,7 @@ Controllo della concorrenza ottimistica funziona, verificare che il record da ag
 
 [![Per Update o Delete abbia esito positivo, i valori originali devono essere uguali per i valori del Database corrente](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image3.png)
 
-**Figura 3**: For Update o Delete su esito positivo, l'originale valori deve essere uguale per i valori del Database corrente ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.png))
+**Figura 3**: per Update o Delete su esito positivo, l'originale valori deve essere uguale per i valori del Database corrente ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.png))
 
 
 Sono disponibili diversi approcci per l'implementazione della concorrenza ottimistica (vedere [Peter A. Bromberg](http://peterbromberg.net/) s [Optmistic concorrenza aggiornamento logica](http://www.eggheadcafe.com/articles/20050719.asp) per una breve panoramica una serie di opzioni). La tecnica utilizzata da SqlDataSource (sia per i dataset tipizzati ADO.NET utilizzato in questo livello di accesso ai dati) aumenta la `WHERE` clausola per includere un confronto di tutti i valori originali. Le operazioni seguenti `UPDATE` istruzione, ad esempio, aggiorna il nome e il prezzo di un prodotto solo se i valori del database corrente sono uguali a quelli che sono stati recuperati inizialmente quando si aggiorna il record in GridView. Il `@ProductName` e `@UnitPrice` parametri contengono i nuovi valori immessi dall'utente, mentre `@original_ProductName` e `@original_UnitPrice` contengono i valori che sono stati originariamente caricati in GridView, quando è stato fatto clic sul pulsante di modifica:
@@ -81,9 +81,9 @@ Come si vedrà in questa esercitazione, l'abilitazione di controllo della concor
 Aprire il `OptimisticConcurrency.aspx` pagina dal `SqlDataSource` cartella. Trascinare un controllo SqlDataSource dalla casella degli strumenti nella finestra di progettazione, le impostazioni relative `ID` proprietà `ProductsDataSourceWithOptimisticConcurrency`. Fare clic sul collegamento Configura origine dati dallo smart tag s di controllo. Scegliere la prima schermata della procedura guidata, funzionino con la `NORTHWINDConnectionString` e fare clic su Avanti.
 
 
-[![Scegliere per l'uso con la connessione NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.png)
+[![Scegliere per l'uso con la NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image5.png)
 
-**Figura 4**: scegliere di utilizzare il `NORTHWINDConnectionString` ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.png))
+**Figura 4**: scegliere per l'uso con il `NORTHWINDConnectionString` ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.png))
 
 
 Per questo esempio verranno aggiunte GridView che consente agli utenti di modificare il `Products` tabella. Pertanto, la configurazione, la schermata di istruzione Select, scegliere il `Products` tabella dall'elenco a discesa e selezionare il `ProductID`, `ProductName`, `UnitPrice`, e `Discontinued` colonne, come illustrato nella figura 5.
@@ -116,7 +116,7 @@ Analogamente, il `DeleteCommand` proprietà e `DeleteParameters` raccolta dovreb
 
 Oltre a aumento il `WHERE` clausole del `UpdateCommand` e `DeleteCommand` proprietà e aggiungere i parametri aggiuntivi per le raccolte di parametro corrispondente, selezionando l'utilizzo consente di regolare due altre opzione di concorrenza ottimistica proprietà:
 
-- Modifiche di [ `ConflictDetection` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) da `OverwriteChanges` (predefinito) per`CompareAllValues`
+- Modifiche di [ `ConflictDetection` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) da `OverwriteChanges` (predefinito) per `CompareAllValues`
 - Modifiche di [ `OldValuesParameterFormatString` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) da {0} (predefinito) originale\_{0}.
 
 Quando i dati di controllo Web richiama s SqlDataSource `Update()` o `Delete()` metodo passa i valori originali. Se i dispositivi SqlDataSource `ConflictDetection` è impostata su `CompareAllValues`, questi valori originali vengono aggiunti al comando. Il `OldValuesParameterFormatString` proprietà fornisce il modello di denominazione per questi parametri di valore originale. La configurazione guidata origine dati utilizza originale\_{0} e i nomi di ogni parametro originale il `UpdateCommand` e `DeleteCommand` proprietà e `UpdateParameters` e `DeleteParameters` raccolte di conseguenza.
@@ -155,9 +155,9 @@ Questa applicazione per questo esempio verifica quanto segue modificato `UpdateC
 Con SqlDataSource configurato per supportare la concorrenza ottimistica, che è comunque necessario aggiungere un controllo Web di dati che utilizza questo controllo della concorrenza. Consente di s per questa esercitazione, aggiungere un controllo GridView che fornisce sia modifica ed eliminazione automatiche. A tale scopo, trascinare un controllo GridView dalla casella degli strumenti di progettazione e il set relativo `ID` a `Products`. Il GridView s smart tag, associarlo al `ProductsDataSourceWithOptimisticConcurrency` controllo SqlDataSource aggiunto nel passaggio 1. Infine, controllare le opzioni Abilita modifica e abilitare l'eliminazione dallo smart tag.
 
 
-[![Associare il controllo GridView SqlDataSource e abilitare Modifica ed eliminazione](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.png)
+[![Associare GridView SqlDataSource e abilitare la modifica ed eliminazione](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.png)
 
-**Figura 6**: associare il controllo GridView SqlDataSource e abilitare la modifica ed eliminazione ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image10.png))
+**Figura 6**: associare il controllo GridView SqlDataSource e Abilita modifica ed eliminazione ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image10.png))
 
 
 Dopo l'aggiunta di GridView, configurare l'aspetto rimuovendo il `ProductID` BoundField, modifica il `ProductName` BoundField s `HeaderText` proprietà al prodotto, aggiornare il `UnitPrice` BoundField in modo che il relativo `HeaderText` proprietà è semplicemente prezzo. Idealmente, d è migliorare l'interfaccia di modifica per un controllo RequiredFieldValidator per includere il `ProductName` valore e un controllo CompareValidator per il `UnitPrice` valore (per verificare il valore numerico formattato correttamente s). Fare riferimento al [personalizzazione dell'interfaccia di modifica dati](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) esercitazione per un approfondimento personalizzazione s GridView la modifica di interfaccia.
@@ -176,9 +176,9 @@ Per visualizzare il controllo della concorrenza ottimistica in azione, aprire du
 Nella seconda finestra del browser, modificare il prezzo (ma lasciare il nome del prodotto come valore originale) e fare clic su Aggiorna. Durante il postback, griglia restituisce relativa modalità di pre-modifica, ma non viene registrata la modifica al prezzo. Il secondo browser Mostra lo stesso valore prima il nuovo nome del prodotto con il prezzo precedente. Le modifiche apportate nella finestra del browser secondo sono andate perse. Inoltre, le modifiche verranno perse invece in modalità non interattiva, perché si è verificato alcun eccezione o un messaggio che indica che una violazione di concorrenza si è verificato.
 
 
-[![Nella finestra del Browser secondo le modifiche verranno perse senza avvisare](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image11.png)
+[![Le modifiche nella finestra del Browser secondo verranno perse senza avvisare](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image11.png)
 
-**Figura 7**: il secondo Browser finestra automaticamente persi di modifiche ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image12.png))
+**Figura 7**: il secondo Browser finestra sono automaticamente andati persi di modifiche ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image12.png))
 
 
 Il motivo per cui il secondo browser s commit delle non modifiche è stato perché il `UPDATE` istruzione s `WHERE` clausola filtrati tutti i record e pertanto non ha influito sulle righe. Consente di esaminare s il `UPDATE` nuovamente l'istruzione:
@@ -216,7 +216,7 @@ In entrambi i gestori eventi controlliamo il `e.AffectedRows` proprietà e, se �
 Come mostrato nella figura 9, con questi due gestori, viene visualizzato un messaggio molto evidente quando si verifica una violazione della concorrenza.
 
 
-[![Viene visualizzato un messaggio in caso di una violazione di concorrenza](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image15.png)
+[![Viene visualizzato un messaggio in caso di una violazione della concorrenza](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image15.png)
 
 **Figura 9**: viene visualizzato un messaggio in caso di una violazione della concorrenza ([fare clic per visualizzare l'immagine ingrandita](implementing-optimistic-concurrency-with-the-sqldatasource-vb/_static/image16.png))
 
@@ -231,7 +231,7 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

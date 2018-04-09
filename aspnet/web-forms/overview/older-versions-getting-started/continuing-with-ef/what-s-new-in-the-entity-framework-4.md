@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
-title: "Novità di Entity Framework 4.0 | Documenti Microsoft"
+title: Novità di Entity Framework 4.0 | Documenti Microsoft
 author: tdykstra
 description: Questa serie di esercitazioni compila nell'applicazione web di Contoso University creato da introduttiva la serie di esercitazioni di Entity Framework 4.0. I...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04444ce98fa60045cf617a6c518dd55677258148
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Novità di Entity Framework 4.0
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > Questa serie di esercitazioni si basa sull'applicazione web di Contoso University creando il [Introduzione a Entity Framework](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) serie di esercitazioni. Se non ha completato le esercitazioni precedenti, come punto di partenza per questa esercitazione è possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) che consente di creare. È anche possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creati tramite la serie di esercitazioni completo. Nel caso di problemi con le esercitazioni, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -122,7 +122,7 @@ Per aggiungere un'associazione tra queste due entità, fare doppio clic su di `A
 
 I valori predefiniti nel **Aggiungi associazione** la finestra di dialogo sono (uno-a-molti, includere le proprietà di navigazione, includere chiavi esterne), quindi fare clic su **OK**.
 
-[![Image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
+[![image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
 
 La finestra di progettazione aggiunge una linea di associazione e una proprietà di chiave esterna.
 
@@ -146,7 +146,7 @@ Fare clic su **Sì** quando viene chiesto se si desidera creare il database. Qua
 
 Nel **riepilogo e le impostazioni** passaggio, fare clic su **fine**.
 
-[![Image18](what-s-new-in-the-entity-framework-4/_static/image30.png)](what-s-new-in-the-entity-framework-4/_static/image29.png)
+[![image18](what-s-new-in-the-entity-framework-4/_static/image30.png)](what-s-new-in-the-entity-framework-4/_static/image29.png)
 
 Oggetto *SQL* file con i comandi di data definition language (DDL) viene creato, ma i comandi non sono stati ancora eseguiti.
 
@@ -198,12 +198,12 @@ Supporto POCO in Entity Framework 4 ancora è necessario creare un modello di da
 Per ulteriori informazioni sull'utilizzo l'approccio di codice prima di sviluppo, vedere le risorse seguenti:
 
 - [Sviluppo con Entity Framework 4 Code-First](https://weblogs.asp.net/scottgu/archive/2010/07/16/code-first-development-with-entity-framework-4.aspx). Si tratta di un post di blog di sviluppo di codice prima introduzione di Scott Guthrie.
-- [Post di Blog del Team di sviluppo Entity Framework - CodeOnly con tag](https://blogs.msdn.com/b/efdesign/archive/tags/codeonly/)
+- [Post di blog del Team di sviluppo Framework Entity - tag CodeOnly](https://blogs.msdn.com/b/efdesign/archive/tags/codeonly/)
 - [Post di blog del Team di sviluppo Framework Entity - tag Code First](https://blogs.msdn.com/b/efdesign/archive/tags/code+first/)
 - [Esercitazione per l'archivio di musica MVC - parte 4: accesso ai dati e modelli](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [Introduzione a MVC 3 - parte 4: lo sviluppo Code First di Entity Framework](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
-Inoltre, una nuova esercitazione Code-First MVC che compila un'applicazione simile all'applicazione Contoso University è previsto per la pubblicazione in primavera del 2011 alle [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
+Inoltre, una nuova esercitazione MVC Code-First che consente di creare un'applicazione simile all'applicazione Contoso University è previsto per essere pubblicata in primavera del 2011 alle [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
 ## <a name="more-information"></a>Altre informazioni
 
@@ -212,5 +212,5 @@ In questo passaggio si completa la panoramica per novità di Entity Framework e 
 - [Novità in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) argomento MSDN sulle nuove funzionalità nella versione 4 di Entity Framework.
 - [Annuncio del rilascio di Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) post di blog del team di sviluppo di Entity Framework sulle nuove funzionalità nella versione 4.
 
->[!div class="step-by-step"]
-[Precedente](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Precedente](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

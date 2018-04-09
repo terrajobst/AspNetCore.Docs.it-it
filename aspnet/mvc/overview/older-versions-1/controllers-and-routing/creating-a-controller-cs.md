@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9faaff1e00998ef9a77c4928a9eb36fc93ab97f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86966f1064d09419e2102542c6d14c4162d153e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-c"></a>Creazione di un Controller (c#)
 ====================
@@ -64,7 +64,7 @@ Quando si crea un controller, è possibile generare automaticamente i metodi di 
 **Figura 03**: la creazione automatica di metodi di azione ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-cs/_static/image6.png))
 
 
-**Elenco di 2 - Controllers\CustomerController.cs**
+**Il listato 2 - Controllers\CustomerController.cs**
 
 [!code-csharp[Main](creating-a-controller-cs/samples/sample2.cs)]
 
@@ -81,7 +81,7 @@ Controller MVC ASP.NET è semplicemente una classe. Se si preferisce, è possibi
 
 [![Creazione di una nuova classe](creating-a-controller-cs/_static/image4.jpg)](creating-a-controller-cs/_static/image7.png)
 
-**Figura 04**: creazione di una nuova classe ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-cs/_static/image8.png))
+**Figura 04**: creare una nuova classe ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-cs/_static/image8.png))
 
 
 **Elenco di 3 - Controllers\PersonController.cs**
@@ -92,10 +92,10 @@ Il controller nel listato 3 espone un'azione denominata index () che restituisce
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Il Server di sviluppo ASP.NET utilizza un numero di porta casuale (ad esempio, 40071). Quando si immette un URL per richiamare un controller, sarà necessario fornire il numero della porta destra. È possibile determinare il numero di porta passando il mouse sull'icona per il Server di sviluppo ASP.NET nell'Area di notifica di Windows (in basso a destra dello schermo).
-
->[!div class="step-by-step"]
-[Precedente](adding-dynamic-content-to-a-cached-page-cs.md)
-[Successivo](creating-an-action-cs.md)
+> 
+> [!div class="step-by-step"]
+> [Precedente](adding-dynamic-content-to-a-cached-page-cs.md)
+> [Successivo](creating-an-action-cs.md)

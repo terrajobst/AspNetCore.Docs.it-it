@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 75e1dff96f8b56d74c28ff9d522f4766fbad669f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 195c01ff0d71b2bfd0c00e71244d47a166330921
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>Parte 8: Shopping Cart con gli aggiornamenti Ajax
 ====================
@@ -43,7 +43,7 @@ Successivamente, aggiungere una classe Order (cs) con il codice seguente.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample2.cs)]
 
-Questa classe tiene traccia delle informazioni di riepilogo e il recapito di un ordine. **Non verrà compilato ancora**perché è una proprietà di navigazione OrderDetails che dipende da una classe è non ancora creato. Si correggerà che ora aggiungendo una classe denominata OrderDetail.cs, aggiungendo il codice seguente.
+Questa classe tiene traccia delle informazioni di riepilogo e il recapito di un ordine. **Non verrà compilato ancora**perché non è una proprietà di navigazione OrderDetails che dipende da una classe è non ancora creato. Si correggerà che ora aggiungendo una classe denominata OrderDetail.cs, aggiungendo il codice seguente.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample3.cs)]
 
@@ -57,13 +57,13 @@ Successivamente, si creerà la classe ShoppingCart nella cartella Models. Il mod
 
 Poiché non si desidera richiedere agli utenti di iscriversi a un account solo aggiungere elementi al carrello acquisti, si assegnerà agli utenti un identificatore univoco temporaneo (utilizzando un GUID o un identificatore univoco globale) quando accedono il carrello acquisti. Questo ID utilizzando la classe di sessione ASP.NET verranno archiviate.
 
-*Nota: La sessione ASP.NET è una posizione comoda in cui archiviare informazioni specifiche dell'utente che scadranno dopo di lasciare il sito. Durante l'utilizzo improprio dello stato sessione può avere implicazioni sulle prestazioni siti di grandi dimensioni, l'uso di luce funzionerà anche a scopo dimostrativo.*
+*Nota: La sessione ASP.NET è una posizione comoda in cui archiviare informazioni specifiche dell'utente che scadranno dopo che gli utenti lasciano il sito. Mentre un utilizzo improprio dello stato della sessione può incidere sulle prestazioni siti di grandi dimensioni, l'uso di luce funzionerà anche per scopi dimostrativi.*
 
 La classe ShoppingCart espone i metodi seguenti:
 
-**AddToCart** accetta un Album come parametro e lo aggiunge al carrello acquisti dell'utente. Poiché la tabella di carrello tiene traccia della quantità per ogni album, include la logica per creare una nuova riga, se necessario o semplicemente incrementa la quantità se l'utente ha già ordinato una copia dell'album.
+**AddToCart** accetta un Album come parametro e lo aggiunge al carrello dell'utente. Poiché la tabella di carrello tiene traccia della quantità per ogni album, include la logica per creare una nuova riga, se necessario o semplicemente incrementa la quantità se l'utente ha già ordinato una copia dell'album.
 
-**RemoveFromCart** accetta un ID di Album e lo rimuove dal carrello dell'utente. Se l'utente dispone solo di una copia dell'album nel carrello, la riga viene rimossa.
+**RemoveFromCart** accetta un ID Album e di rimuoverlo dal carrello dell'utente. Se l'utente dispone solo di una copia dell'album nel carrello, la riga viene rimossa.
 
 **EmptyCart** rimuove tutti gli elementi dal carrello acquisti dell'utente.
 
@@ -75,7 +75,7 @@ La classe ShoppingCart espone i metodi seguenti:
 
 **CreateOrder** converte il carrello acquisti in un ordine durante la fase di estrazione.
 
-**GetCart** è un metodo statico che consente il controller ottenere un oggetto del carrello. Usa il **GetCartId** metodo per gestire la lettura di CartId dalla sessione dell'utente. Il metodo GetCartId richiede HttpContextBase in modo che è possibile leggere CartId dell'utente dalla sessione dell'utente.
+**GetCart** è un metodo statico che consente di utilizzare il controller ottenere un oggetto del carrello. Usa il **GetCartId** metodo per gestire la lettura di CartId dalla sessione dell'utente. Il metodo GetCartId richiede HttpContextBase in modo che è possibile leggere CartId dell'utente dalla sessione dell'utente.
 
 Ecco l'intero **classe ShoppingCart**:
 
@@ -161,6 +161,6 @@ Dopo il caricamento di carrello, è possibile fare clic sul pulsante Rimuovi dal
 È stata realizzata un lavoro carrello che consente agli utenti di annullare la registrazione aggiungere elementi al carrello degli acquisti. Nella sezione seguente, in modo per registrare e completare il processo di estrazione.
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-7.md)
-[Successivo](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-7.md)
+> [Successivo](mvc-music-store-part-9.md)

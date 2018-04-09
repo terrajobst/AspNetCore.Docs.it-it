@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 title: Creare un'applicazione di Database film in 15 minuti con MVC ASP.NET (VB) | Documenti Microsoft
 author: StephenWalther
-description: "Stephen Walther compila un'intera basato su database applicazione MVC ASP.NET dall'inizio completamento. In questa esercitazione è un ottimo inizio per gli utenti che sono nuovi t..."
+description: Stephen Walther compila un'intera basato su database applicazione MVC ASP.NET dall'inizio completamento. In questa esercitazione è un ottimo inizio per gli utenti che sono nuovi t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b87a69df24a410161dfaf055519eb6137fa76c06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecd5892457af5bc14a939672c64eed85fc05ec22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>Creare un'applicazione di Database film in 15 minuti con MVC ASP.NET (VB)
 ====================
@@ -83,7 +83,7 @@ Iniziamo creando un nuovo progetto applicazione Web ASP.NET MVC in Visual Studio
 
 [![La finestra di dialogo Nuovo progetto](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image1.png)
 
-**Figura 01**: la finestra di dialogo Nuovo progetto il ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.png))
+**Figura 01**: finestra di dialogo Nuovo progetto di ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image2.png))
 
 
 Assicurarsi di selezionare .NET Framework 3.5 nell'elenco a discesa nella parte superiore della finestra di dialogo Nuovo progetto o il modello di progetto applicazione Web MVC ASP.NET non sarà più visualizzato.
@@ -156,7 +156,7 @@ Dopo aver completato la creazione della tabella, aggiungere alcuni record di fil
 
 [![La finestra di dialogo Nuovo progetto](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image5.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image9.png)
 
-**Figura 05**: immissione record filmato ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.png))
+**Figura 05**: immettere record film ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image10.png))
 
 
 ## <a name="creating-the-model"></a>Creazione del modello
@@ -232,7 +232,7 @@ Ho modificato anche il metodo Index () nel listato 2. Il metodo Index () utilizz
 
 L'elenco di film viene passato alla visualizzazione. Come visualizzare i dati, tutto ciò che viene passata al metodo View() viene passata alla visualizzazione.
 
-**Elenco di 2 – Controllers/HomeController.vb (metodo indice modificato)**
+**Elenco 2 – Controllers/HomeController.vb (metodo indice modificato)**
 
 [!code-vb[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample2.vb)]
 
@@ -306,7 +306,7 @@ Visual Studio è facile creare il form per la creazione di un nuovo database fil
 
 Visual Studio genera automaticamente la visualizzazione nel listato 5. Questa vista contiene un form HTML che include i campi corrispondenti a ogni proprietà della classe film.
 
-**Elenco di 5-Views\Home\Create.aspx**
+**Nel listato 5 – Views\Home\Create.aspx**
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample5.aspx)]
 
@@ -322,7 +322,7 @@ Si noti che si ottiene automaticamente la convalida dei form. Se non si elencano
 
 [![La finestra di dialogo Nuovo progetto](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image13.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image25.png)
 
-**Figura 13**: creazione di un nuovo record di database filmato ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image26.png))
+**Figura 13**: creare un nuovo record di database filmato ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image26.png))
 
 
 ## <a name="editing-existing-database-records"></a>Modifica di record di Database esistenti
@@ -342,7 +342,7 @@ Completare questi passaggi aggiunge una nuova vista denominata Edit nella cartel
 
 [![La finestra di dialogo Nuovo progetto](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image14.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image27.png)
 
-**Nella figura 14**: aggiunta della visualizzazione di modifica ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image28.png))
+**Figura 14**: aggiunta della visualizzazione di modifica ([fare clic per visualizzare l'immagine ingrandita](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/_static/image28.png))
 
 
 > [!NOTE] 
@@ -366,5 +366,5 @@ Lo scopo di questa esercitazione è stata per avere un'idea dell'esperienza di c
 
 In questa esercitazione sono state esaminate solo le funzionalità di base del framework di MVC ASP.NET. Nelle esercitazioni future, si vengono approfonditi argomenti quali controller, le azioni del controller, visualizzazioni, visualizzare i dati e gli helper HTML.
 
->[!div class="step-by-step"]
-[Precedente](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)

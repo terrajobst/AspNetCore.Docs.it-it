@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 title: Convalida con i validator di annotazione dei dati (VB) | Documenti Microsoft
 author: microsoft
-description: "È possibile sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. Informazioni su come utilizzare i diversi tipi di convalida..."
+description: È possibile sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. Informazioni su come utilizzare i diversi tipi di convalida...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 227c1acb5e478047c4e5cdc7dbddedd703e91292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d1987182a44a0ad3f91f455342dc934d1dd50267
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Convalida con i validator di annotazione dei dati (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > È possibile sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. Informazioni su come utilizzare i diversi tipi di attributi di convalida e utilizzarli in Entity Framework Microsoft.
 
@@ -78,7 +78,7 @@ La classe di prodotto viene illustrato come utilizzare un attributo aggiuntivo: 
 
 > [!NOTE] 
 > 
-> Se si desidera personalizzare completamente il messaggio di errore visualizzato da un validator è possibile assegnare un messaggio di errore personalizzata per la proprietà del validator messaggio di errore simile al seguente:`<Required(ErrorMessage:="This field needs a value!")>`
+> Se si desidera personalizzare completamente il messaggio di errore visualizzato da un validator è possibile assegnare un messaggio di errore personalizzato per la proprietà del validator messaggio di errore simile al seguente: `<Required(ErrorMessage:="This field needs a value!")>`
 
 
 È possibile utilizzare la classe di prodotto in **listato 1** con l'azione del controller nel metodo di creazione **listato 2**. Questa azione del controller ricompilata la visualizzazione Create quando lo stato del modello contiene errori.
@@ -95,7 +95,7 @@ Infine, è possibile creare la visualizzazione in **listato 3** facendo clic l'a
 
 [!code-aspx[Main](validation-with-the-data-annotation-validators-vb/samples/sample4.aspx)]
 
-**Elenco di 3**: Views\Product\Create.aspx
+**Listato 3**: Views\Product\Create.aspx
 
 > [!NOTE] 
 > 
@@ -106,13 +106,13 @@ Se si invia il form per la creazione di un prodotto e non si immette i valori pe
 
 [![](validation-with-the-data-annotation-validators-vb/_static/image7.png)](validation-with-the-data-annotation-validators-vb/_static/image6.png)
 
-**Figura 3**: i campi obbligatori mancanti
+**Figura 3**: campi necessari mancanti
 
 Se si immette un importo di valuta non valido, quindi il messaggio di errore in **figura 4** viene visualizzato.
 
 [![](validation-with-the-data-annotation-validators-vb/_static/image9.png)](validation-with-the-data-annotation-validators-vb/_static/image8.png)
 
-**Figura 4**: importo di valuta non valido
+**Figura 4**: importo in valuta non valido
 
 ## <a name="using-data-annotation-validators-with-the-entity-framework"></a>Utilizzo di validator annotazione dei dati con Entity Framework
 
@@ -153,5 +153,5 @@ La pagina in **figura 6** illustra i messaggi di errore restituiti quando si imm
 
 In questa esercitazione è stato descritto come sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. È stato descritto come utilizzare i diversi tipi di attributi di convalida, ad esempio la e StringLength. È stato inoltre descritto come utilizzare questi attributi quando si lavora con Microsoft Entity Framework.
 
->[!div class="step-by-step"]
-[Precedente](validating-with-a-service-layer-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](validating-with-a-service-layer-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Introduzione a ASP.NET Web Pages: immissione dei dati di Database tramite moduli
 ====================
@@ -101,7 +101,7 @@ In altre parole, specificare la tabella per inserire, quindi elencare le colonne
 
 Le colonne che si sta inserendo in già sono elencate nel comando, ovvero `(Title, Genre, Year)`. La parte interessante modo è possibile ottenere i valori dalle caselle di testo nel `VALUES` fa parte del comando. Anziché i valori effettivi, vedrai `@0`, `@1`, e `@2`, che sono naturalmente segnaposto. Quando si esegue il comando (nel `db.Execute` riga), si passano i valori ottenuti dalle caselle di testo.
 
-**Importante!** Tenere presente che l'unico modo mai includere i dati immessi in linea da un utente in un'istruzione SQL da utilizzare come segnaposto, come riportato seguito (`VALUES(@0, @1, @2)`). Se si concatenano input dell'utente in un'istruzione SQL, si espone a un attacco SQL injection, come illustrato in [nozioni fondamentali sui Form in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (l'esercitazione precedente).
+**Importante**: Tenere presente che l'unico modo mai includere i dati immessi in linea da un utente in un'istruzione SQL da utilizzare come segnaposto, come riportato seguito (`VALUES(@0, @1, @2)`). Se si concatenano input dell'utente in un'istruzione SQL, si espone a un attacco SQL injection, come illustrato in [nozioni fondamentali sui Form in ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (l'esercitazione precedente).
 
 Ancora all'interno di `if` di blocco, aggiungere la riga seguente dopo il `db.Execute` riga:
 
@@ -121,7 +121,7 @@ Nella visualizzazione ad albero dei file in WebMatrix, fare doppio clic su di *A
 
 !['Aggiungi film' pagina nel browser](entering-data/_static/image2.png)
 
-(Se si finisce con un'altra pagina nel browser, verificare che l'URL sia `http://localhost:nnnnn/AddMovie`), dove  *nnnnn*  è il numero di porta che si sta utilizzando.)
+(Se si finisce con un'altra pagina nel browser, verificare che l'URL sia `http://localhost:nnnnn/AddMovie`), dove *nnnnn* è il numero di porta in uso.)
 
 Ottenere una pagina di errore? In questo caso, leggere con attenzione e assicurarsi che il codice sarà esattamente ciò che è stato indicato in precedenza.
 
@@ -145,7 +145,7 @@ In questo caso, il database non è stata effettivamente generato (o *generare*) 
 
 Ovviamente, non si desidera consentire agli utenti di immettere informazioni su filmati metà vuoto nel database. La soluzione consiste nel convalidare l'input dell'utente. Inizialmente, la convalida verrà semplicemente assicurarsi che l'utente ha immesso un valore per tutti i campi (vale a dire che nessuna di esse contiene una stringa vuota).
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Stringhe null e vuote**
 > 
@@ -256,10 +256,10 @@ Nella prossima esercitazione, si apprenderà come consentire agli utenti di modi
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
-- [Istruzione SQL INSERT INTO](http://www.w3schools.com/sql/sql_insert.asp) nel sito W3Schools
+- [Introduzione alla programmazione Web ASP.NET con sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Istruzione SQL INSERT INTO](http://www.w3schools.com/sql/sql_insert.asp) sul sito W3Schools
 - [Convalida dell'Input utente in ASP.NET Web Pages siti](https://go.microsoft.com/fwlink/?LinkId=253002). Ulteriori informazioni sull'utilizzo di `Validation` helper.
 
->[!div class="step-by-step"]
-[Precedente](form-basics.md)
-[Successivo](updating-data.md)
+> [!div class="step-by-step"]
+> [Precedente](form-basics.md)
+> [Successivo](updating-data.md)

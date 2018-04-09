@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/whats-new-in-aspnet-web-pages-32
-title: "Novità di ASP.NET Web Pages 3.2 | Documenti Microsoft"
+title: Novità di ASP.NET Web Pages 3.2 | Documenti Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/30/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/whats-new-in-aspnet-web-pages-32
 msc.type: authoredcontent
-ms.openlocfilehash: cdb0e259bbf27d1d3dcf6ada11e6636c9cefcc9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 80421018e0508d430b6142cd3cee1727d1d17b7e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-aspnet-web-pages-32"></a>Novità di ASP.NET Web Pages 3.2
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
-In questo argomento vengono descritte le nuove per 3.2 pagine Web ASP.NET, pagine Web 3.2.2 e [pagine Web 3.2.3 beta1](https://blogs.msdn.com/b/webdev/archive/2014/12/17/asp-net-mvc-5-2-3-web-pages-5-2-3-and-web-api-5-2-3-beta-releases.aspx)
+In questo argomento vengono descritte le funzionalità nuove per ASP.NET Web Pages 3.2, le pagine Web 3.2.2 e [pagine Web 3.2.3 beta1](https://blogs.msdn.com/b/webdev/archive/2014/12/17/asp-net-mvc-5-2-3-web-pages-5-2-3-and-web-api-5-2-3-beta-releases.aspx)
 
 ## <a name="aspnet-web-pages-32"></a>ASP.NET Web Pages 3.2
 
@@ -64,8 +64,9 @@ Di seguito è una tabella che illustra i risultati dell'analisi di un [perfview]
 | GC Gen2 (conteggio) | 229 | 2 | <font style="background-color: #00ff00">-99.10%</font> |
 | CPU / richiesta (esempi/req) | 19.73 | 16.47 | -16.50% |
 
-| Codifica a colori: | <font style="background-color: #00ff00">Utilizzo di componenti di base</font> | <font style="background-color: #4bacc6">Positivo impatto sulle prestazioni</font> |
-| --- | --- | --- |
+| Codifica a colori: | <font style="background-color: #00ff00">Analisi utilizzo software dei componenti di base</font> | <font style="background-color: #4bacc6">Positivo impatto sulle prestazioni</font> |
+|---------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------|
+|               |                                                                 |                                                                               |
 
 ## <a name="aspnet-web-pages-323-beta1"></a>ASP.NET Web Pages 3.2.3 beta1
 

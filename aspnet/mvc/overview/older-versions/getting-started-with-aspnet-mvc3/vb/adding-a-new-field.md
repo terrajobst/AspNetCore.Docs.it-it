@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 title: Aggiunta di un nuovo campo al modello di film e di tabella di Database (VB) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 377c667a56bb5c0d58ecef5c3550ca510ec52546
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5927b7d977e375881fe618b4b844cbd708023ba1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Aggiunta di un nuovo campo al modello di film e di tabella di Database (Visual Basic)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul seguente collegamento: [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti utilizzando i collegamenti seguenti:
 > 
@@ -49,7 +49,7 @@ Ricompilare l'applicazione utilizzando il **Debug** &gt; **compilare film** coma
 
 Ora che è stato aggiornato il `Model` (classe), è anche necessario aggiornare il *\Views\Movies\Index.vbhtml* e *\Views\Movies\Create.vbhtml* consente di visualizzare i modelli per supportare la nuova `Rating`proprietà.
 
-Aprire il*\Views\Movies\Index.vbhtml* file e aggiungere un `<th>Rating</th>` intestazione di colonna subito dopo il **prezzo** colonna. Aggiungere quindi una `<td>` colonna verso la fine del modello per il rendering di `@item.Rating` valore. Di seguito è riportato l'aggiornato *Index.vbhtml* modello di visualizzazione è simile a:
+Aprire il<em>\Views\Movies\Index.vbhtml</em> file e aggiungere un `<th>Rating</th>` intestazione di colonna subito dopo il <strong>prezzo</strong> colonna. Aggiungere quindi una `<td>` colonna verso la fine del modello per il rendering di `@item.Rating` valore. Di seguito è riportato l'aggiornato <em>Index.vbhtml</em> modello di visualizzazione è simile a:
 
 [!code-vbhtml[Main](adding-a-new-field/samples/sample3.vbhtml)]
 
@@ -82,7 +82,7 @@ Di seguito, aggiornare l'applicazione in modo che il primo codice automaticament
 
 > [!NOTE] 
 > 
-> **Avviso** è consigliabile abilitare questo approccio di automaticamente eliminare e ricreare il database solo quando si utilizza un database di sviluppo o test, e *mai* in un database di produzione che contiene i dati reali. Utilizzarla in un server di produzione può causare la perdita di dati.
+> **Avviso** è consigliabile abilitare questo approccio di automaticamente eliminando e ricreando il database solo quando si utilizza un database di sviluppo o test, e *mai* in un database di produzione che contiene dati reali. Utilizzarla in un server di produzione può causare la perdita di dati.
 
 
 In **Esplora soluzioni**, fare clic destro la *modelli* cartella, selezionare **Aggiungi**e quindi selezionare **classe**.
@@ -123,6 +123,6 @@ Scegliere **Crea**. Il nuovo filmato, tra cui la valutazione, viene inserito nei
 
 In questa sezione è stato illustrato come è possibile modificare gli oggetti del modello e sincronizzare il database con le modifiche. È stato inoltre un modo per popolare un database appena creato con dati di esempio in modo è possibile provare gli scenari. Successivamente, si esaminerà come è possibile aggiungere la logica di convalida più completa per le classi di modello e abilitare alcune regole di business da applicare.
 
->[!div class="step-by-step"]
-[Precedente](examining-the-edit-methods-and-edit-view.md)
-[Successivo](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Precedente](examining-the-edit-methods-and-edit-view.md)
+> [Successivo](adding-validation-to-the-model.md)

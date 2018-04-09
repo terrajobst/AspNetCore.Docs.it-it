@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 title: Autorizzazione basata sull'utente (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verranno esaminati limitando l'accesso alle pagine e funzionalità a livello di pagina tramite varie tecniche di limitazione."
+description: In questa esercitazione verranno esaminati limitando l'accesso alle pagine e funzionalità a livello di pagina tramite varie tecniche di limitazione.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5bee98878b5191a096b851c65aaea19ad989f608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a0d476ffaf1f176c21b245520fa943f66e8c0d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="user-based-authorization-c"></a>Autorizzazione basata sull'utente (c#)
 ====================
@@ -48,9 +48,9 @@ Esamina la sintassi per le regole di autorizzazione URL nel passaggio 1, ma prim
 La figura 1 illustra il flusso di lavoro della pipeline ASP.NET, il `FormsAuthenticationModule`e `UrlAuthorizationModule` quando una richiesta non autorizzata arriva. In particolare, la figura 1 mostra una richiesta da un visitatore anonimo per `ProtectedPage.aspx`, che è una pagina che nega l'accesso agli utenti anonimi. Poiché il visitatore è anonimo, il `UrlAuthorizationModule` interrompe la richiesta e restituisce uno stato HTTP 401 non autorizzato. Il `FormsAuthenticationModule` converte quindi di stato 401 nel reindirizzamento 302 alla pagina di accesso. Dopo che l'utente viene autenticato tramite la pagina di accesso, viene reindirizzato al `ProtectedPage.aspx`. Questa volta il `FormsAuthenticationModule` identifica l'utente in base a esso il ticket di autenticazione. Ora che il visitatore viene autenticato, il `UrlAuthorizationModule` consente l'accesso alla pagina.
 
 
-[![L'autenticazione basata su form e un flusso di lavoro autorizzazione URL](user-based-authorization-cs/_static/image2.png)](user-based-authorization-cs/_static/image1.png)
+[![L'autenticazione basata su form e flusso di lavoro autorizzazione URL](user-based-authorization-cs/_static/image2.png)](user-based-authorization-cs/_static/image1.png)
 
-**Figura 1**: l'autenticazione basata su form e flusso di lavoro autorizzazione URL ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image3.png))
+**Figura 1**: flusso di lavoro autorizzazione URL e l'autenticazione basata su form ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image3.png))
 
 
 Figura 1 illustra l'interazione che si verifica quando un visitatore anonimo tenta di accedere a una risorsa che non è disponibile per gli utenti anonimi. In tal caso, il visitatore anonimo viene reindirizzato alla pagina di accesso con la pagina che ha tentato di visitare specificato nella stringa di query. Una volta che l'utente è connesso correttamente, lei verrà automaticamente reindirizzata nuovamente alla risorsa che inizialmente ha tentato di visualizzare.
@@ -62,9 +62,9 @@ Si supponga che il sito Web hanno regole di autorizzazione relativi URL configur
 Figura 2 viene illustrata questa confusione del flusso di lavoro.
 
 
-[![Il flusso di lavoro predefinita può causare un ciclo di confusione](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
+[![Il flusso di lavoro predefinita può provocare un ciclo di confusione](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
 
-**Figura 2**: il predefinito del flusso di lavoro può causare un ciclo confondere ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image6.png))
+**Figura 2**: il predefinito del flusso di lavoro può causare un ciclo disorienta ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image6.png))
 
 
 Il flusso di lavoro illustrato nella figura 2 può rapidamente befuddle anche la maggior parte dei computer esperti visitatore. Verranno esaminati modi per evitare questo problema confondere ciclo nel passaggio 2.
@@ -85,7 +85,7 @@ In breve, nelle versioni precedenti di IIS 7, le regole di autorizzazione URL ve
 > Esistono alcune differenze meno evidenti comunque importanti come ASP. Del NET `UrlAuthorizationModule` e funzionalità di autorizzazione URL di IIS 7 elaborare le regole di autorizzazione. In questa esercitazione non esamina la funzionalità di autorizzazione URL IIS 7 o le differenze nella modalità analizza rispetto alle regole di autorizzazione di `UrlAuthorizationModule`. Per ulteriori informazioni su questi argomenti, vedere la documentazione di IIS 7 in MSDN o a [www.iis.net](https://www.iis.net/).
 
 
-## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>Passaggio 1: Definizione di regole di autorizzazione URL in`Web.config`
+## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>Passaggio 1: Definire le regole di autorizzazione URL in`Web.config`
 
 Il `UrlAuthorizationModule` determina se concedere o negare l'accesso a una risorsa richiesta per una determinata identità in base alle regole di autorizzazione URL definite nella configurazione dell'applicazione. Le regole di autorizzazione sono dichiarate nel [ `<authorization>` elemento](https://msdn.microsoft.com/library/8d82143t.aspx) sotto forma di `<allow>` e `<deny>` gli elementi figlio. Ogni `<allow>` e `<deny>` elemento figlio è possibile specificare:
 
@@ -121,7 +121,7 @@ Consente di aggiornare il sito Web in modo che solo gli utenti autenticati posso
 
 [![Aggiungere un File Web. config nella cartella di appartenenza](user-based-authorization-cs/_static/image8.png)](user-based-authorization-cs/_static/image7.png)
 
-**Figura 3**: aggiungere un `Web.config` File per il `Membership` cartella ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image9.png))
+**Figura 3**: aggiungere un `Web.config` del File per il `Membership` cartella ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image9.png))
 
 
 A questo punto il progetto deve contenere due `Web.config` file: uno nella directory radice e uno nel `Membership` cartella.
@@ -143,9 +143,9 @@ Per testare questa modifica, visitare la home page in un browser e verificare ch
 Fare clic sul collegamento creazione degli account utente rilevato nella colonna a sinistra. Verrà visualizzata per il `~/Membership/CreatingUserAccounts.aspx`. Poiché il `Web.config` file nel `Membership` cartella vengono definite le regole di autorizzazione per impedire l'accesso anonimo, il `UrlAuthorizationModule` interrompe la richiesta e restituisce uno stato HTTP 401 non autorizzato. Il `FormsAuthenticationModule` questa modifica allo stato di reindirizzamento 302, invia alla pagina di accesso. Si noti che la pagina è durante il tentativo di accesso (`CreatingUserAccounts.aspx`) viene passato alla pagina di accesso tramite il `ReturnUrl` parametro querystring.
 
 
-[![Perché l'URL autorizzazione regole non consentire l'accesso anonimo, si viene reindirizzati alla pagina di accesso](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
+[![Poiché l'URL di autorizzazione regole proibire l'accesso anonimo, ci stiamo reindirizzati alla pagina di accesso](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
 
-**Figura 5**: poiché l'autorizzazione URL regole non consentire l'accesso anonimo, si viene reindirizzati alla pagina di accesso ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image15.png))
+**Figura 5**: poiché l'autorizzazione URL regole non consentire l'accesso anonimo, ci stiamo reindirizzati alla pagina di accesso ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image15.png))
 
 
 Seguito all'accesso, si viene reindirizzati al `CreatingUserAccounts.aspx` pagina. Questa volta il `UrlAuthorizationModule` consente l'accesso alla pagina perché non verrà più anonimi.
@@ -168,7 +168,7 @@ Per testare la modifica di questa autorizzazione, avviare visitando il sito Web 
 
 ### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Esaminare il modo in`UrlAuthorizationModule`utilizza le regole di autorizzazione per concedere o negare l'accesso
 
-Il `UrlAuthorizationModule` determina se per autorizzare una specifica identità per un URL specifico analizzando l'autorizzazione URL regole uno alla volta, a partire dal primo e l'utilizzo dirigendo verso il basso. Non appena viene rilevata una corrispondenza, l'utente viene concesso o negato l'accesso, a seconda se è stata trovata la corrispondenza un `<allow>` o `<deny>` elemento. **Se viene trovata alcuna corrispondenza, l'utente viene concesso l'accesso.** Di conseguenza, se si desidera limitare l'accesso, è essenziale usare un `<deny>` elemento come ultimo elemento nella configurazione di autorizzazione URL. **Se si omette un * * *`<deny>`* * * elemento, tutti gli utenti verranno concesso l'accesso.**
+Il `UrlAuthorizationModule` determina se per autorizzare una specifica identità per un URL specifico analizzando l'autorizzazione URL regole uno alla volta, a partire dal primo e l'utilizzo dirigendo verso il basso. Non appena viene rilevata una corrispondenza, l'utente viene concesso o negato l'accesso, a seconda se è stata trovata la corrispondenza un `<allow>` o `<deny>` elemento. <strong>Se viene trovata alcuna corrispondenza, l'utente viene concesso l'accesso.</strong> Di conseguenza, se si desidera limitare l'accesso, è essenziale usare un `<deny>` elemento come ultimo elemento nella configurazione di autorizzazione URL. <strong>Se si omette un</strong><strong>`<deny>`</strong><strong>elemento, tutti gli utenti verranno concesso l'accesso.</strong>
 
 Per comprendere meglio il processo utilizzato per il `UrlAuthorizationModule` per determinare l'autorità, considerare l'esempio regole di autorizzazione URL è stato esaminato in precedenza in questo passaggio. La prima regola è un `<allow>` elemento che consente l'accesso a Tito e Scott. Le regole secondo un `<deny>` elemento che nega l'accesso a tutti gli utenti. Se un utente anonimo visita, il `UrlAuthorizationModule` è anonimo inizia richiedendo, Scott o Tito? La risposta, è ovviamente, No, in modo che consente di passare alla seconda regola. È anonimo nel set di tutti gli utenti? Poiché la risposta qui è Sì, il `<deny>` regola viene inserita in effetti e visitatore viene reindirizzato alla pagina di accesso. Analogamente, se la visita di Jisun, il `UrlAuthorizationModule` chieda, Jisun è Scott o Tito? Dal momento che non lo è, il `UrlAuthorizationModule` consente di passare alla seconda domanda, è Jisun nel set di tutti gli utenti? Mary è, in modo che, troppo, viene negata l'accesso. Infine, se Tito visita, la prima domanda provocati dal `UrlAuthorizationModule` è una risposta affermativa, pertanto Tito viene concesso l'accesso.
 
@@ -217,7 +217,7 @@ Tali regole di autorizzazione singole possono essere implementate in modo dichia
 Creare una pagina che elenca i file in una directory specifica all'interno di un controllo GridView. Insieme a elenchi di ogni nome di file, dimensioni e altre informazioni, GridView includerà due colonne di LinkButton: uno denominato Vista e una Delete titolo. Se si fa clic sull'elemento LinkButton visualizzazione, verrà visualizzato il contenuto del file selezionato; Se si fa clic sull'elemento LinkButton eliminazione, il file verrà eliminato. Inizialmente creiamo questa pagina in modo che la funzionalità di visualizzazione e l'eliminazione è disponibile per tutti gli utenti. Utilizzare le sezioni a livello di programmazione delle funzionalità di limitazione e controllo LoginView verrà spiegato come abilitare o disabilitare queste funzionalità in base all'utente visita la pagina.
 
 > [!NOTE]
-> La pagina ASP.NET che si sta tentando di compilare utilizza un controllo GridView per visualizzare un elenco di file. Poiché in questa esercitazione serie è incentrata sulla autenticazione basata su form, autorizzazione, gli account utente e ruoli, non si desidera dedicare troppo tempo che illustrano il funzionamento interno del controllo GridView. Durante questa esercitazione vengono fornite istruzioni dettagliate specifiche per la configurazione di questa pagina, non approfondire i dettagli di perché in cui sono state apportate alcune scelte, o quali dispone di proprietà particolare effetto sull'output sottoposto a rendering. Per un esame esauriente del controllo GridView, consultare il  *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)*  serie di esercitazioni.
+> La pagina ASP.NET che si sta tentando di compilare utilizza un controllo GridView per visualizzare un elenco di file. Poiché in questa esercitazione serie è incentrata sulla autenticazione basata su form, autorizzazione, gli account utente e ruoli, non si desidera dedicare troppo tempo che illustrano il funzionamento interno del controllo GridView. Durante questa esercitazione vengono fornite istruzioni dettagliate specifiche per la configurazione di questa pagina, non approfondire i dettagli di perché in cui sono state apportate alcune scelte, o quali dispone di proprietà particolare effetto sull'output sottoposto a rendering. Per un esame esauriente del controllo GridView, consultare il *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)* serie di esercitazioni.
 
 
 Aprire il `UserBasedAuthorization.aspx` file nel `Membership` cartella e aggiunta di un controllo GridView alla pagina denominata `FilesGrid`. Smart tag del controllo GridView, fare clic sul collegamento di modifica colonne per avviare la finestra di dialogo campi. Da qui, deselezionare l'opzione genera automaticamente i campi casella di controllo nell'angolo inferiore sinistro. Successivamente, aggiungere un pulsante Seleziona un pulsante Elimina e due BoundField dall'angolo superiore sinistro (i pulsanti di selezione e Delete sono reperibile in corrispondenza del tipo CommandField). Impostare il pulsante Seleziona `SelectText` proprietà alla visualizzazione e il primo BoundField `HeaderText` e `DataField` proprietà al nome. Impostare il secondo BoundField `HeaderText` proprietà alla dimensione in byte, relativo `DataField` proprietà lunghezza, il relativo `DataFormatString` proprietà {0: N0} e il relativo `HtmlEncode` la proprietà su False.
@@ -273,7 +273,7 @@ Il codice visualizza semplicemente il nome completo del file da eliminare nella 
 
 [![Fare clic sul pulsante Delete non elimina effettivamente il File](user-based-authorization-cs/_static/image26.png)](user-based-authorization-cs/_static/image25.png)
 
-**Figura 9**: scegliendo di eliminare pulsante non elimina effettivamente il File ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image27.png))
+**Figura 9**: fare clic su di Delete pulsante non effettivamente Elimina il File ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image27.png))
 
 
 Passaggio 1 è stato configurato le regole di autorizzazione URL per impedire agli utenti anonimi di visualizzare le pagine di `Membership` cartella. Per presentare meglio l'autenticazione con granularità fine, si consente agli utenti anonimi di visitare il `UserBasedAuthorization.aspx` pagina, ma con funzionalità limitate. Per aprire questa pagina per tutti gli utenti di accedere, aggiungere il seguente `<location>` elemento per il `Web.config` file nel `Membership` cartella:
@@ -301,9 +301,9 @@ Tuttavia, questo codice non è più valido. Spostando il `FileContents` nella ca
 Dopo avere spostato la casella di testo di LoginView `LoggedInTemplate` e aggiornamento del codice della pagina di riferimento che la casella di testo utilizzando il `FindControl("controlId")` di schema, visitare la pagina come utente anonimo. Come mostrato nella figura 10, il `FileContents` casella di testo non viene visualizzata. Tuttavia, viene ancora visualizzato sull'elemento LinkButton vista.
 
 
-[![Il controllo LoginView visualizza solo la casella di testo FileContents per gli utenti autenticati](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
+[![Il controllo LoginView solo viene eseguito il rendering FileContents casella di testo per gli utenti autenticati](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
 
-**Figura 10**: il LoginView controllo solo esegue il rendering di `FileContents` casella di testo per gli utenti autenticati ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image30.png))
+**Figura 10**: il LoginView controllo solo viene eseguito il rendering le `FileContents` casella di testo per gli utenti autenticati ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image30.png))
 
 
 Un modo per nascondere il pulsante di visualizzazione per gli utenti anonimi consiste nel convertire il campo di GridView in un TemplateField. Verrà generato un modello contenente il markup dichiarativo per la visualizzazione di LinkButton. È quindi possibile aggiungere un controllo LoginView il TemplateField e inserire il LinkButton all'interno di LoginView `LoggedInTemplate`, creando così come nascondere il pulsante di visualizzazione dai visitatori anonimi. A tale scopo, fare clic sul collegamento Modifica colonne del controllo GridView Smart tag per avviare la finestra di dialogo campi. Successivamente, selezionare il pulsante Seleziona dall'elenco in basso a sinistra e quindi fare clic su Converti questo campo per un collegamento TemplateField. In questo modo verrà modificata dichiarativo del campo da:
@@ -323,7 +323,7 @@ Come mostrato nella figura 11, il risultato finale non è che piuttosto come vis
 
 [![Il controllo LoginView nasconde LinkButton la visualizzazione per i visitatori anonimi](user-based-authorization-cs/_static/image32.png)](user-based-authorization-cs/_static/image31.png)
 
-**Figura 11**: il controllo LoginView nasconde LinkButton la visualizzazione per i visitatori anonimi ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image33.png))
+**Figura 11**: il controllo LoginView nasconde LinkButton la visualizzazione per i visitatori anonimo ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image33.png))
 
 
 ### <a name="programmatically-limiting-functionality"></a>Funzionalità di limitazione a livello di codice
@@ -344,14 +344,14 @@ Aggiungere il codice seguente per il `Page_Load` gestore dell'evento prima di as
 Come accennato nel [ *una panoramica dell'autenticazione basata su form* ](../introduction/an-overview-of-forms-authentication-cs.md) esercitazione `User.Identity.Name` restituisce il nome dell'identità. Corrisponde al nome utente immesso nel controllo di accesso. Se è Tito visita, seconda colonna del controllo GridView della pagina `Visible` è impostata su `true`; in caso contrario, viene impostato su `false`. Il risultato finale è che quando un utente diverso da Tito visita la pagina, un altro utente autenticato o un utente anonimo, Elimina la colonna non viene eseguita (vedere Figura 12). Tuttavia, quando Tito visita la pagina, Elimina la colonna è presente (vedere Figura 13).
 
 
-[![Elimina la colonna non è sottoposto a rendering quando visitato da un utente diverso da Tito (ad esempio Bruce)](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
+[![Elimina colonna non è sottoposto a rendering quando visitato da un utente diverso da Tito (ad esempio Bruce)](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
 
-**Figura 12**: eliminare Column non è sottoposto a rendering quando visitato da un utente diverso da Tito (ad esempio Bruce) ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image36.png))
+**Figura 12**: Elimina la colonna non è sottoposto a rendering quando visitato da un utente diverso da Tito (ad esempio Bruce) ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image36.png))
 
 
 [![Elimina colonna viene eseguito il rendering per Tito](user-based-authorization-cs/_static/image38.png)](user-based-authorization-cs/_static/image37.png)
 
-**Figura 13**: eliminare Column viene eseguito il rendering per Tito ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image39.png))
+**Figura 13**: Elimina la colonna viene eseguito il rendering per Tito ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image39.png))
 
 
 ## <a name="step-4-applying-authorization-rules-to-classes-and-methods"></a>Passaggio 4: Applicazione di regole di autorizzazione a classi e metodi
@@ -371,7 +371,7 @@ Se, in qualche modo, un utente diverso Tito tenta di eseguire il `RowDeleting` g
 
 [![Se il contesto di sicurezza non è autorizzato a eseguire il metodo, viene generata un'eccezione SecurityException](user-based-authorization-cs/_static/image41.png)](user-based-authorization-cs/_static/image40.png)
 
-**Nella figura 14**: se il contesto di sicurezza non è autorizzato a eseguire il metodo, un `SecurityException` viene generata un'eccezione ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image42.png))
+**Figura 14**: se il contesto di sicurezza non è autorizzato a eseguire il metodo, una `SecurityException` viene generata un'eccezione ([fare clic per visualizzare l'immagine ingrandita](user-based-authorization-cs/_static/image42.png))
 
 
 > [!NOTE]
@@ -396,24 +396,24 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Aggiunta di regole di autorizzazione di Business e i livelli di dati tramite`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [Aggiunta di regole di autorizzazione di Business e i livelli di dati tramite `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [Autorizzazione ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Modifiche tra IIS 6 e IIS 7 di sicurezza](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [Configurazione di sottodirectory e file specifici](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
+- [Configurazione facoltativa nelle sottodirectory e file specifici](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Limitazione della funzionalità di modifica dei dati in base all'utente](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [Guida introduttiva di controllo LoginView](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
-- [Informazioni di autorizzazione URL IIS 7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`Documentazione tecnica](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
-- [Utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)
+- [Informazioni sull'autorizzazione URL IIS 7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
+- [`UrlAuthorizationModule` Documentazione tecnica](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
+- [Utilizzo di dati in ASP.NET 2.0](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](validating-user-credentials-against-the-membership-user-store-cs.md)
-[Successivo](storing-additional-user-information-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](validating-user-credentials-against-the-membership-user-store-cs.md)
+> [Successivo](storing-additional-user-information-cs.md)

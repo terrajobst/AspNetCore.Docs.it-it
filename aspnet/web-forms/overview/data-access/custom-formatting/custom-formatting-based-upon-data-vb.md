@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 title: Formattazione personalizzata sulla base dei dati (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Modificare il formato di FormView in base ai dati a essa associati, GridView o DetailsView può essere eseguita in diversi modi. In questa esercitazione, ti invieremo l..."
+description: Modificare il formato di FormView in base ai dati a essa associati, GridView o DetailsView può essere eseguita in diversi modi. In questa esercitazione, ti invieremo l...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a5c7f99b863697cc49a5bc9831dae861f51e129d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>Formattazione personalizzata sulla base dei dati (VB)
 ====================
@@ -54,7 +54,7 @@ Una volta ObjectDataSource è stato associato al controllo DetailsView., è oppo
 
 [![Figura 1: La casella Abilita Paging nello Smart Tag del controllo DetailsView.](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
-**Figura 1**: figura 1: la casella Abilita Paging nello Smart Tag del controllo DetailsView. ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image3.png))
+**Figura 1**: nella figura 1: abilitare il Paging la casella di controllo di DetailsView Smart tag ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image3.png))
 
 
 Dopo aver apportato queste modifiche, il markup di DetailsView sarà:
@@ -67,7 +67,7 @@ Dopo aver apportato queste modifiche, il markup di DetailsView sarà:
 
 [![Il controllo DetailsView visualizza un solo prodotto alla volta](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
-**Figura 2**: il controllo DetailsView consente di visualizzare un prodotto per il controllo alla volta ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image6.png))
+**Figura 2**: il controllo DetailsView controllo consente di visualizzare un prodotto in un momento ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image6.png))
 
 
 ## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>Passaggio 2: Determinare a livello di codice il valore dei dati nel gestore eventi associato a dati
@@ -129,12 +129,12 @@ Quando si visualizzano Chai, che ha un costo inferiore a $75,00, il prezzo viene
 
 [![I prezzi minore di $75,00 vengono visualizzati in un tipo di carattere normale](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
-**Figura 4**: prezzi minore di $75,00 vengono visualizzati in un tipo di carattere normale ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image10.png))
+**Figura 4**: i prezzi minore di $75,00 vengono visualizzati in un tipo di carattere normale ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image10.png))
 
 
-[![I prezzi di prodotti costosi vengono visualizzati in un grassetto, corsivo carattere](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
+[![I prezzi dei prodotti costosi vengono visualizzati in un grassetto, corsivo del tipo di carattere](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
-**Figura 5**: prezzi prodotti costosi vengono visualizzati in un tipo di carattere corsivo grassetto ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image13.png))
+**Figura 5**: i prezzi dei prodotti costosi vengono visualizzati in un grassetto, corsivo carattere ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image13.png))
 
 
 ## <a name="using-the-formview-controlsdataboundevent-handler"></a>Utilizzo del controllo FormView`DataBound`gestore dell'evento
@@ -157,8 +157,8 @@ Dopo queste modifiche al markup del FormView dovrebbe essere simile al seguente:
 Si noti che la `ItemTemplate` contiene:
 
 - **HTML statico** il testo "prodotto:" e "unità In magazzino:" con il `<br />` e `<b>` elementi.
-- **Controlli Web** due controlli Label, `ProductNameLabel` e `UnitsInStockLabel`.
-- **Sintassi di associazione dati** il `<%# Bind("ProductName") %>` e `<%# Bind("UnitsInStock") %>` sintassi, che assegna i valori di questi campi per i controlli di etichetta `Text` proprietà.
+- **Controlli Web** i due controlli etichetta `ProductNameLabel` e `UnitsInStockLabel`.
+- **Sintassi DataBinding** il `<%# Bind("ProductName") %>` e `<%# Bind("UnitsInStock") %>` sintassi, che assegna i valori di questi campi per i controlli di etichetta `Text` proprietà.
 
 ## <a name="step-5-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>Passaggio 5: Determinare a livello di codice il valore dei dati nel gestore eventi associato a dati
 
@@ -201,12 +201,12 @@ Le figure 7 mostra FormView durante la visualizzazione di un prodotto il cui `Un
 
 [![Per i prodotti con un sufficientemente grande Units In Stock, viene applicata nessuna formattazione personalizzata](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
-**Figura 7**: per i prodotti con un sufficientemente grande Units In Stock, nessuna formattazione personalizzata viene applicata ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image17.png))
+**Figura 7**: viene applicata per i prodotti con un sufficientemente grande Units In Stock, nessuna formattazione personalizzata ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image17.png))
 
 
-[![Le unità in magazzino numero viene visualizzato in rosso per i prodotti con i valori 10 o minore di](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
+[![L'unità in magazzino numero viene visualizzato in rosso per i prodotti con valori di 10 o meno](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
-**Figura 8**: l'unità in magazzino numero viene visualizzata in rosso per i prodotti con i valori 10 o minore di ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image20.png))
+**Figura 8**: l'unità in magazzino numero viene visualizzata in rosso per i prodotti con valori di 10 o meno ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image20.png))
 
 
 ## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>La formattazione con il controllo GridView`RowDataBound`evento
@@ -221,19 +221,19 @@ Questi tre semplici passaggi sono sufficienti per il controllo DetailsView e For
 
 Nel passaggio 2 GridView enumera l'origine dati e, per ogni record, crea un `GridViewRow` istanza e associa il record corrente. Per ogni `GridViewRow` aggiunto a GridView, vengono generati due eventi:
 
-- **`RowCreated`**viene generato dopo il `GridViewRow` è stato creato
-- **`RowDataBound`**viene generato dopo il record corrente è stato associato al `GridViewRow`.
+- **`RowCreated`** viene generato dopo il `GridViewRow` è stato creato
+- **`RowDataBound`** viene generato dopo il record corrente è stato associato per il `GridViewRow`.
 
 Per GridView, quindi, associazione dati è descritto in modo più accurato per la sequenza di passaggi seguente:
 
 1. Il GridView `DataBinding` viene generato l'evento.
 2. I dati sono associati a GridView.   
   
- Per ogni record nell'origine dati 
+   Per ogni record nell'origine dati 
 
     1. Creare un `GridViewRow` oggetto
     2. Attivare il `RowCreated` evento
-    3. Associare il record per il`GridViewRow`
+    3. Associare il record per il `GridViewRow`
     4. Attivare il `RowDataBound` evento
     5. Aggiungere il `GridViewRow` per il `Rows` raccolta
 3. Il GridView `DataBound` viene generato l'evento.
@@ -279,12 +279,12 @@ Quando il `RowDataBound` viene generato l'evento, il gestore dell'evento viene p
 
 Quando si lavora con la `RowDataBound` gestore eventi è importante tenere presente che il controllo GridView è costituito da diversi tipi di righe e che questo evento viene generato per *tutti* tipi di riga. A `GridViewRow`del tipo può essere determinato dal relativo `RowType` , proprietà e può avere uno dei valori possibili:
 
-- `DataRow`una riga in cui è associata un record di GridView`DataSource`
-- `EmptyDataRow`la riga visualizzata se il controllo GridView `DataSource` è vuoto
-- `Footer`la riga di piè di pagina. visualizzato se il controllo GridView `ShowFooter` proprietà è impostata su`True`
-- `Header`la riga di intestazione. illustrato se GridView ShowHeader è impostata su `True` (impostazione predefinita)
-- `Pager`per GridView che implementano il paging, la riga che visualizza l'interfaccia di paging
-- `Separator`non utilizzare per il controllo GridView, ma per il `RowType` controlla le proprietà per il DataList e Repeater, due dati controlli Web, si parlerà in futuro esercitazioni
+- `DataRow` una riga a cui è associata a un record di GridView `DataSource`
+- `EmptyDataRow` la riga visualizzata se il controllo GridView `DataSource` è vuoto
+- `Footer` la riga di piè di pagina. visualizzato se il controllo GridView `ShowFooter` è impostata su `True`
+- `Header` la riga di intestazione; illustrato se GridView ShowHeader è impostata su `True` (impostazione predefinita)
+- `Pager` per GridView che implementano il paging, la riga che visualizza l'interfaccia di paging
+- `Separator` non utilizzata per GridView, ma per il `RowType` consentono di controllare le proprietà per il DataList e Repeater, due dati controlli Web verranno discussi in futuro esercitazioni
 
 Poiché il `EmptyDataRow`, `Header`, `Footer`, e `Pager` righe non sono associate a un `DataSource` record, verrà sempre hanno un valore di `Nothing` per loro `DataItem` proprietà. Per questo motivo, prima di tentare di utilizzare corrente `GridViewRow`del `DataItem` proprietà, è innanzitutto necessario assicurarsi che ci stiamo occupa un `DataRow`. Questa operazione può essere eseguita controllando la `GridViewRow`del `RowType` proprietà come illustrato di seguito:
 
@@ -308,7 +308,7 @@ Anziché impostare la `GridViewRow`del `BackColor` proprietà direttamente, ci s
 
 [![I prodotti più conveniente sono giallo evidenziato](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
-**Figura 11**: la maggior parte di conveniente prodotti sono giallo evidenziato ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image27.png))
+**Figura 11**: la maggior parte del conveniente prodotti sono giallo evidenziato ([fare clic per visualizzare l'immagine ingrandita](custom-formatting-based-upon-data-vb/_static/image27.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -323,12 +323,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati E.R. Morelli, Dennis Patterson e Dan Jagers. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](displaying-summary-information-in-the-gridview-s-footer-cs.md)
-[Successivo](using-templatefields-in-the-gridview-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-summary-information-in-the-gridview-s-footer-cs.md)
+> [Successivo](using-templatefields-in-the-gridview-control-vb.md)

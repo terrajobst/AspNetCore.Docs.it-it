@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: a23b2cf4d1728624698c0db49c25ea7efd3af67d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a9b1e6d7d453bd8dc5a61b1f1cec4617af7d693
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Proteggere le applicazioni tramite l'autenticazione e autorizzazione
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -39,7 +39,7 @@ A tale scopo si userà l'autenticazione e autorizzazione per proteggere l'applic
 
 ### <a name="understanding-authentication-and-authorization"></a>Autorizzazione e informazioni sull'autenticazione
 
-*Autenticazione* è il processo di identificare e convalidare l'identità di un client a un'applicazione. In termini più semplici, risulta sull'identificazione "che l'utente finale quando visitano un sito Web". ASP.NET supporta più modalità per autenticare gli utenti del browser. Per le applicazioni web di Internet, l'approccio più comune di autenticazione utilizzato è denominato "Autenticazione basata su form". Autenticazione basata su form consente agli sviluppatori di creare un form di accesso HTML all'interno di propria applicazione e quindi convalidare il nome utente/password che un utente finale invia rispetto a un database o un altro archivio delle credenziali di password. Se la combinazione di nome utente/password è corretta, lo sviluppatore può quindi chiedere ASP.NET per rilasciare un cookie HTTP crittografato per identificare l'utente in tutte le richieste future. Ti invieremo un utilizzando l'autenticazione basata su form con l'applicazione NerdDinner.
+*Autenticazione* è il processo di identificazione e la convalida dell'identità di un client che accede a un'applicazione. In termini più semplici, risulta sull'identificazione "che l'utente finale quando visitano un sito Web". ASP.NET supporta più modalità per autenticare gli utenti del browser. Per le applicazioni web di Internet, l'approccio più comune di autenticazione utilizzato è denominato "Autenticazione basata su form". Autenticazione basata su form consente agli sviluppatori di creare un form di accesso HTML all'interno di propria applicazione e quindi convalidare il nome utente/password che un utente finale invia rispetto a un database o un altro archivio delle credenziali di password. Se la combinazione di nome utente/password è corretta, lo sviluppatore può quindi chiedere ASP.NET per rilasciare un cookie HTTP crittografato per identificare l'utente in tutte le richieste future. Ti invieremo un utilizzando l'autenticazione basata su form con l'applicazione NerdDinner.
 
 *Autorizzazione* è il processo volto a determinare se un utente autenticato dispone dell'autorizzazione per accedere a un particolare URL/risorsa o di eseguire un'azione. Ad esempio, all'interno dell'applicazione NerdDinner si desidera autorizzare che possono accedere solo gli utenti che sono registrati il *Dinners/crea* URL e creare di nuovo Dinners. Si consiglia inoltre di aggiungere la logica di autorizzazione in modo che solo l'utente che ospita una cena può modificare, ad esempio e negare l'accesso in modifica a tutti gli altri utenti.
 
@@ -155,6 +155,6 @@ Il metodo di azione all'interno di questo DinnersController Details() recupera u
 
 Ora esaminiamo come è possibile abilitare gli utenti autenticati possono RSVP per l'utilizzo di AJAX dinners.
 
->[!div class="step-by-step"]
-[Precedente](implement-efficient-data-paging.md)
-[Successivo](use-ajax-to-deliver-dynamic-updates.md)
+> [!div class="step-by-step"]
+> [Precedente](implement-efficient-data-paging.md)
+> [Successivo](use-ajax-to-deliver-dynamic-updates.md)

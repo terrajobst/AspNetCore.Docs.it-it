@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
 title: 'Database di Entity Framework prima con ASP.NET MVC: miglioramento della convalida dei dati | Documenti Microsoft'
 author: tfitzmac
-description: "Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri..."
+description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8ea2e94db7956b76c5ccf0a139ac024e38910b49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>Database di Entity Framework prima con ASP.NET MVC: miglioramento della convalida dei dati
 ====================
@@ -87,6 +87,6 @@ Salvare il file ContosoModel.edmx per applicare le modifiche.
 
 Aprire il file Student.cs o il file Enrollment.cs e si noti che gli attributi di convalida dei dati applicate in precedenza non sono più nel file. Tuttavia, eseguire l'applicazione e si noti che quando si immettono dati ancora vengono applicate le regole di convalida.
 
->[!div class="step-by-step"]
-[Precedente](customizing-a-view.md)
-[Successivo](publish-to-azure.md)
+> [!div class="step-by-step"]
+> [Precedente](customizing-a-view.md)
+> [Successivo](publish-to-azure.md)

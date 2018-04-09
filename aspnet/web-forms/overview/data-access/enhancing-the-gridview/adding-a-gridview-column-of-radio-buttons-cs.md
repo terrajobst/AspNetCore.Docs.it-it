@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 title: Aggiunta di una colonna di GridView di pulsanti di opzione (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà illustrato come aggiungere una colonna di pulsanti di opzione a un controllo GridView per fornire all'utente un modo più intuitivo per la selezione di una singola riga di..."
+description: In questa esercitazione verrà illustrato come aggiungere una colonna di pulsanti di opzione a un controllo GridView per fornire all'utente un modo più intuitivo per la selezione di una singola riga di...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 386fcb1cef896edbb465ba36415712af70d916ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 32bfe8463d80dfcff925f3bd6f31de67b071fc0b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Aggiunta di una colonna di GridView di pulsanti di opzione (c#)
 ====================
@@ -49,7 +49,7 @@ Prima di iniziare il GridView per includere una colonna di pulsanti di opzione d
 
 ![Aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.gif)
 
-**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative SqlDataSource
+**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative alla SqlDataSource
 
 
 Come in altre cartelle, `Default.aspx` nel `EnhancedGridView` cartella elencherà le esercitazioni nella relativa sezione. Tenere presente che il `SectionLevelTutorialListing.ascx` controllo utente fornisce questa funzionalità. Pertanto, aggiungere il controllo utente `Default.aspx` trascinandolo da Esplora soluzioni nella pagina di visualizzazione della struttura s.
@@ -57,7 +57,7 @@ Come in altre cartelle, `Default.aspx` nel `EnhancedGridView` cartella elencher�
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image1.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image2.png))
 
 
 Infine, aggiungere questi quattro pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo l'utilizzo del controllo SqlDataSource `<siteMapNode>`:
@@ -82,12 +82,12 @@ Aprire il `RadioButtonField.aspx` nella pagina di `EnhancedGridView` cartella me
 
 [![Creare un nuovo oggetto ObjectDataSource denominato SuppliersDataSource](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image3.png)
 
-**Figura 4**: creare un nuovo ObjectDataSource denominato `SuppliersDataSource` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.png))
+**Figura 4**: creare un nuovo denominato ObjectDataSource `SuppliersDataSource` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image4.png))
 
 
 [![Configurare ObjectDataSource per utilizzare la classe SuppliersBLL](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image5.png)
 
-**Figura 5**: configurare ObjectDataSource per utilizzare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.png))
+**Figura 5**: configurare ObjectDataSource per usare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.png))
 
 
 Poiché si desidera solo elencare questi fornitori negli Stati Uniti, scegliere il `GetSuppliersByCountry(country)` metodo dall'elenco a discesa nella scheda Seleziona.
@@ -95,7 +95,7 @@ Poiché si desidera solo elencare questi fornitori negli Stati Uniti, scegliere 
 
 [![Configurare ObjectDataSource per utilizzare la classe SuppliersBLL](adding-a-gridview-column-of-radio-buttons-cs/_static/image6.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.png)
 
-**Figura 6**: configurare ObjectDataSource per utilizzare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.png))
+**Figura 6**: configurare ObjectDataSource per usare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.png))
 
 
 L'aggiornamento scheda, selezionare (nessuno) l'opzione e fare clic su Avanti.
@@ -103,13 +103,13 @@ L'aggiornamento scheda, selezionare (nessuno) l'opzione e fare clic su Avanti.
 
 [![Configurare ObjectDataSource per utilizzare la classe SuppliersBLL](adding-a-gridview-column-of-radio-buttons-cs/_static/image7.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.png)
 
-**Figura 7**: configurare ObjectDataSource per utilizzare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.png))
+**Figura 7**: configurare ObjectDataSource per usare il `SuppliersBLL` classe ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.png))
 
 
 Poiché il `GetSuppliersByCountry(country)` metodo accetta un parametro, la configurazione guidata origine dati richiede Microsoft per l'origine del parametro. Per specificare un valore hardcoded (USA, in questo esempio), mantenere il parametro di elenco a discesa origine impostata su None, immettere il valore predefinito nella casella di testo. Fare clic su Fine per completare la procedura guidata.
 
 
-[![Utilizzare USA come valore predefinito per il parametro paese](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.png)
+[![Utilizzare USA come valore predefinito per il paese parametro](adding-a-gridview-column-of-radio-buttons-cs/_static/image8.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.png)
 
 **Figura 8**: utilizzare USA come valore predefinito per il `country` parametro ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.png))
 
@@ -124,9 +124,9 @@ Per questa esercitazione, lasciare s consente all'utente di visualizzare il forn
 Figura 9 è illustrato il `Suppliers` GridView e Web pulsante due controlli quando viene visualizzato tramite un browser.
 
 
-[![Questi fornitori dagli Stati Uniti, dispongono di nome, città ed elencate informazioni relative al paese](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.png)
+[![Questi fornitori dagli Stati Uniti hanno nome, città che informazioni relative al paese elencati](adding-a-gridview-column-of-radio-buttons-cs/_static/image9.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.png)
 
-**Figura 9**: quelli Suppliers da USA sono relativi nome, città e paese informazioni elencate ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.png))
+**Figura 9**: I fornitori del USA hanno Their nome, città e paese informazioni elencate ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.png))
 
 
 ## <a name="step-3-adding-a-column-of-radio-buttons"></a>Passaggio 3: Aggiunta di una colonna di pulsanti di opzione
@@ -140,7 +140,7 @@ Anche se tramite un TemplateField controlli RadioButton Web non offre la funzion
 
 [![Aggiungere un controllo RadioButton Web ItemTemplate](adding-a-gridview-column-of-radio-buttons-cs/_static/image10.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.png)
 
-**Figura 10**: aggiungere un controllo RadioButton Web il `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.png))
+**Figura 10**: aggiungere un controllo Web RadioButton per i `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.png))
 
 
 Dopo aver apportato queste aggiunte tramite la finestra di progettazione, nel markup di GridView s dovrebbe essere simile al seguente:
@@ -155,7 +155,7 @@ Con il controllo RadioButton Web aggiunto di `ItemTemplate`, visitare la pagina 
 
 [![I pulsanti di opzione s GridView non sono raggruppati](adding-a-gridview-column-of-radio-buttons-cs/_static/image11.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.png)
 
-**Figura 11**: pulsanti di opzione s GridView in cui viene non sono raggruppate ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.png))
+**Figura 11**: pulsanti di opzione s GridView non sono raggruppate ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.png))
 
 
 Il motivo non sono raggruppati i pulsanti di opzione è che il rendering `name` gli attributi sono diversi, nonostante entrambe abbiano lo stesso `GroupName` l'impostazione della proprietà. Per visualizzare queste differenze, eseguire un'origine dal browser ed esaminare il markup di pulsante di opzione:
@@ -189,7 +189,7 @@ Altri approcci per inserire personalizzato, markup di basso livello in un modell
 Iniziare a rimuovere il controllo RadioButton da s TemplateField `ItemTemplate`, sostituirlo con un controllo Literal. Impostare il valore letterale controllo s `ID` a `RadioButtonMarkup`.
 
 
-[![Aggiungere un controllo a ItemTemplate](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.png)
+[![Aggiungere un controllo Literal ItemTemplate](adding-a-gridview-column-of-radio-buttons-cs/_static/image12.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.png)
 
 **Figura 12**: aggiungere un valore letterale per il `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image20.png))
 
@@ -245,7 +245,7 @@ Per supportare un `SuppliersSelectedIndex` valore `-1`, aggiungere un controllo 
 
 [![Aggiungere un controllo Web etichetta sopra il controllo GridView.](adding-a-gridview-column-of-radio-buttons-cs/_static/image13.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image21.png)
 
-**Figura 13**: aggiungere un controllo del programma di etichetta Web sopra il GridView ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image22.png))
+**Figura 13**: aggiungere un'etichetta Web controllo sopra GridView ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image22.png))
 
 
 Successivamente, aumentare il `Click` gestore eventi per visualizzare il `ChooseSupplierMsg` etichetta se `SuppliersSelectedIndex` è minore di zero e reindirizzare l'utente per `~/Filtering/ProductsForSupplierDetails.aspx?SupplierID=SupplierID` in caso contrario.
@@ -258,12 +258,12 @@ Visitare la pagina in un browser e scegliere il `SendToProducts` pulsante prima 
 
 [![L'etichetta ChooseSupplierMsg viene visualizzata se si seleziona No fornitore](adding-a-gridview-column-of-radio-buttons-cs/_static/image14.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image23.png)
 
-**Nella figura 14**: il `ChooseSupplierMsg` etichetta viene visualizzata se si seleziona No fornitore ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image24.png))
+**Figura 14**: il `ChooseSupplierMsg` etichetta viene visualizzata se si seleziona No fornitore ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image24.png))
 
 
 [![I prodotti s fornitore selezionato vengono visualizzati in ProductsForSupplierDetails.aspx](adding-a-gridview-column-of-radio-buttons-cs/_static/image15.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image25.png)
 
-**Figura 15**: prodotti s il fornitore selezionato vengono visualizzati in `ProductsForSupplierDetails.aspx` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image26.png))
+**Figura 15**: i prodotti s il fornitore selezionato vengono visualizzati nella `ProductsForSupplierDetails.aspx` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image26.png))
 
 
 ## <a name="step-5-displaying-the-selected-supplier-s-products-on-the-same-page"></a>Passaggio 5: Visualizzare i prodotti s fornitore selezionato nella stessa pagina
@@ -273,7 +273,7 @@ Nel passaggio 4 è stato illustrato come inviare all'utente a un'altra pagina we
 Poiché si desidera solo questo GridView dei prodotti per la visualizzazione dopo aver selezionato un fornitore, aggiungere un controllo pannello Web sotto il `Suppliers` GridView, impostare il relativo `ID` per `ProductsBySupplierPanel` e il relativo `Visible` proprietà `false`. All'interno del pannello, aggiungere il testo prodotti per il fornitore selezionato, seguito da un controllo GridView denominato `ProductsBySupplier`. GridView s smart tag, scegliere di associarlo a un nuovo oggetto ObjectDataSource denominato `ProductsBySupplierDataSource`.
 
 
-[![Associare un nuovo oggetto ObjectDataSource di ProductsBySupplier GridView](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image27.png)
+[![Associare un nuovo oggetto ObjectDataSource ProductsBySupplier GridView](adding-a-gridview-column-of-radio-buttons-cs/_static/image16.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image27.png)
 
 **Figura 16**: associare il `ProductsBySupplier` GridView per un nuovo oggetto ObjectDataSource ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image28.png))
 
@@ -283,10 +283,10 @@ A questo punto, configurare ObjectDataSource per utilizzare il `ProductsBLL` cla
 
 [![Configurare ObjectDataSource per utilizzare il metodo GetProductsBySupplierID(supplierID)](adding-a-gridview-column-of-radio-buttons-cs/_static/image17.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image29.png)
 
-**Figura 17**: configurare ObjectDataSource per utilizzare il `GetProductsBySupplierID(supplierID)` metodo ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image30.png))
+**Figura 17**: configurare ObjectDataSource per usare il `GetProductsBySupplierID(supplierID)` metodo ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image30.png))
 
 
-[![Impostare gli elenchi a discesa su (nessuno) nell'aggiornamento, inserimento ed eliminare le schede](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image31.png)
+[![Impostare gli elenchi di elenco a discesa su (nessuno) in UPDATE, INSERT ed eliminare le schede](adding-a-gridview-column-of-radio-buttons-cs/_static/image18.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image31.png)
 
 **Figura 18**: impostare l'elenco a discesa sono elencati su (nessuno) nelle schede DELETE, INSERT e UPDATE ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image32.png))
 
@@ -298,9 +298,9 @@ Sono disponibili due opzioni qui in specificare l'origine del valore del paramet
 In alternativa, è possibile utilizzare un ControlParameter e fare riferimento al `Suppliers` GridView s [ `SelectedValue` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (vedere Figura 19). S GridView `SelectedValue` proprietà restituisce il `DataKey` valore corrispondente al [ `SelectedIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). Affinché il corretto funzionamento di questa opzione, è necessario impostare a livello di programmazione s GridView `SelectedIndex` proprietà selezionato riga quando il `ListProducts` si fa clic sul pulsante. Un ulteriore vantaggio, impostando il `SelectedIndex`, assumerà il record selezionato il `SelectedRowStyle` definito nel `DataWebControls` tema (uno sfondo giallo).
 
 
-[![Impostare un ControlParameter SelectedValue s GridView come origine del parametro](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
+[![Utilizzare un ControlParameter per specificare SelectedValue s GridView come origine del parametro](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
 
-**Figura 19**: utilizzare un ControlParameter per specificare gli oggetti di GridView SelectedValue come origine del parametro ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image34.png))
+**Figura 19**: usare un ControlParameter per specificare gli oggetti di GridView SelectedValue come origine del parametro ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-radio-buttons-cs/_static/image34.png))
 
 
 Dopo avere completato la procedura guidata, Visual Studio aggiungerà automaticamente i campi per i campi di dati prodotto s. Rimuovere tutto tranne il `ProductName`, `CategoryName`, e `UnitPrice` , BoundField e modificare il `HeaderText` le proprietà per prodotto, categoria e prezzo. Configurare il `UnitPrice` BoundField in modo che il relativo valore viene formattato come valuta. Dopo aver apportato queste modifiche, il pannello di controllo GridView e ObjectDataSource s dichiarativo dovrebbe essere simile al seguente:
@@ -335,11 +335,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata David Suru. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](adding-a-gridview-column-of-checkboxes-cs.md)
+> [!div class="step-by-step"]
+> [avanti](adding-a-gridview-column-of-checkboxes-cs.md)

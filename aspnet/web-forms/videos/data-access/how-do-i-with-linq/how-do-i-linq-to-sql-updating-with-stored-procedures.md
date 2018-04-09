@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
 msc.type: video
-ms.openlocfilehash: 9a481ddf0e728501b71ae7c72dbb3f841359a061
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b9cdcf3f05fec641fc0328c3884d0c2d5a7fa43
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Eseguire la ricerca per categorie: LINQ to SQL: l'aggiornamento con le Stored procedure
 ====================
@@ -24,8 +24,8 @@ da [Scott Stanfield](https://github.com/scottstanfield)
 
 Sostituire la logica di update, delete o insert ORM generata con il proprio tramite stored procedure. Il video inoltre illustrato in dettaglio come utilizzare SQL Profiler per monitorare le modifiche di ORM dal codice SQL generato per il nostro procs SQL archiviate personalizzato. Poiché ci stiamo semplice scrittura di SQL, si applicano le stesse tecniche a c# e gli sviluppatori di Visual Basic.
 
-[&#9654; Guardare video (15 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-updating-with-stored-procedures)
+[&#9654;Guardare video (15 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-updating-with-stored-procedures)
 
->[!div class="step-by-step"]
-[Precedente](how-do-i-linq-to-sql-using-stored-procedures.md)
-[Successivo](how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+> [!div class="step-by-step"]
+> [Precedente](how-do-i-linq-to-sql-using-stored-procedures.md)
+> [Successivo](how-do-i-linq-to-sql-executing-arbitrary-sql.md)

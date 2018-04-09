@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
-title: "Inserimento di un nuovo Record dal piè di pagina del controllo GridView (c#) | Documenti Microsoft"
+title: Inserimento di un nuovo Record dal piè di pagina del controllo GridView (c#) | Documenti Microsoft
 author: rick-anderson
 description: Mentre il controllo GridView non fornisce supporto incorporato per l'inserimento di un nuovo record di dati, in questa esercitazione viene illustrato come aumentare GridView per includere un...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b0208b4df0194abaf37f7f9ac66c9ce24c35d721
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f131280f4769507d169f8ada7568184233591446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>Inserimento di un nuovo Record dal piè di pagina del controllo GridView (c#)
 ====================
@@ -46,7 +46,7 @@ Aggiunta di funzionalità di inserimento a GridView, ci sono responsabili si dec
 
 [![Creare un nuovo oggetto ObjectDataSource denominato ProductsDataSource](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image3.png)
 
-**Figura 2**: creare un nuovo ObjectDataSource denominato `ProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image4.png))
+**Figura 2**: creare un nuovo denominato ObjectDataSource `ProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image4.png))
 
 
 Configurare ObjectDataSource per utilizzare il `ProductsBLL` classe s `GetProducts()` metodo per recuperare informazioni sul prodotto. Per questa esercitazione, lasciare che lo stato attivo s esclusivamente sull'aggiunta di funzionalità di inserimento e non preoccuparsi di modifica ed eliminazione. Pertanto, assicurarsi che l'elenco di riepilogo a discesa nella scheda Inserisci è impostato su `AddProduct()` e che gli elenchi a discesa nelle schede UPDATE e DELETE sono impostati su (nessuno).
@@ -54,12 +54,12 @@ Configurare ObjectDataSource per utilizzare il `ProductsBLL` classe s `GetProduc
 
 [![Eseguire il mapping del metodo AddProduct al metodo ObjectDataSource s Insert)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image5.png)
 
-**Figura 3**: mappa di `AddProduct` metodo s ObjectDataSource `Insert()` metodo ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image6.png))
+**Figura 3**: mappa il `AddProduct` metodo s ObjectDataSource `Insert()` metodo ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image6.png))
 
 
-[![Impostare gli elenchi di riepilogo a discesa UPDATE e DELETE schede su (nessuno)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image7.png)
+[![Impostare gli elenchi di elenco a discesa UPDATE e DELETE schede su (nessuno)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image7.png)
 
-**Figura 4**: impostare l'aggiornamento ed eliminazione Elenca elenco a discesa di schede (nessuno) ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image8.png))
+**Figura 4**: impostare l'aggiornamento ed eliminazione Elenca elenco a discesa schede (nessuno) ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image8.png))
 
 
 Dopo aver completato la procedura guidata Configura origine dati di ObjectDataSource s, Visual Studio aggiungerà automaticamente i campi a GridView per ognuno dei campi dati corrispondenti. Per il momento, lasciare tutti i campi aggiunti da Visual Studio. Più avanti in questa esercitazione verrà tornare e rimuovere alcuni dei campi i cui valori non è stata ridimensionata deve essere specificato quando si aggiunge un nuovo record.
@@ -72,9 +72,9 @@ A questo punto, il markup dichiarativo s GridView e ObjectDataSource dovrebbe es
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample1.aspx)]
 
 
-[![Tutti i campi dati di prodotto vengono visualizzati in un controllo GridView di paging](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image9.png)
+[![Tutti i campi di dati di prodotto vengono visualizzati in un controllo GridView del pool di paging](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image9.png)
 
-**Figura 5**: tutti i campi dati di prodotto vengono visualizzati in un controllo GridView di paging ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image10.png))
+**Figura 5**: tutti i campi di dati di prodotto vengono visualizzati in un controllo GridView del pool di paging ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image10.png))
 
 
 ## <a name="step-2-adding-a-footer-row"></a>Passaggio 2: Aggiunta di una riga di piè di pagina
@@ -84,7 +84,7 @@ Insieme all'intestazione e le righe di dati, il controllo GridView include una r
 
 [![Per visualizzare la riga di piè di pagina, impostare ShowFooter su True](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image11.png)
 
-**Figura 6**: per visualizzare la riga di piè di pagina, impostare `ShowFooter` a `True` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image12.png))
+**Figura 6**: per visualizzare la riga di piè di pagina, impostare `ShowFooter` alla `True` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image12.png))
 
 
 Si noti che la riga di piè di pagina ha un colore di sfondo di colore rosso scuro. Ciò è dovuto al tema DataWebControls è creato e applicato a tutte le pagine nel [la visualizzazione di dati con ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md) esercitazione. In particolare, il `GridView.skin` file configura il `FooterStyle` proprietà tali che utilizza il `FooterStyle` classe CSS. Il `FooterStyle` classe è definita in `Styles.css` come indicato di seguito:
@@ -99,9 +99,9 @@ Si noti che la riga di piè di pagina ha un colore di sfondo di colore rosso scu
 Dopo aver impostato la `ShowFooter` proprietà `true`, dedicare alcuni minuti per visualizzare l'output in un browser. Attualmente t riga del piè di pagina contiene testo o i controlli Web. Nel passaggio 3 il piè di pagina per ogni campo di GridView verrà modificata in modo che includa l'interfaccia appropriata di inserimento.
 
 
-[![La riga di piè di pagina vuota è visualizzato sopra il Paging controlli dell'interfaccia](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image13.png)
+[![La riga di piè di pagina vuota è visualizzato sopra il Paging i controlli dell'interfaccia](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image13.png)
 
-**Figura 7**: riga di piè di pagina vuota è visualizzato sopra il Paging controlli dell'interfaccia ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image14.png))
+**Figura 7**: riga di piè di pagina vuota viene visualizzato sopra il Paging i controlli dell'interfaccia ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image14.png))
 
 
 ## <a name="step-3-customizing-the-footer-row"></a>Passaggio 3: Personalizzazione della riga di piè di pagina
@@ -133,25 +133,25 @@ Ora che ogni campo di GridView è stato convertito in un TemplateField, è possi
 Per creare l'interfaccia di modifica, scegliere il collegamento di modifica modelli dal tag smart s GridView. Quindi, nell'elenco a discesa selezionare il campo s `FooterTemplate` e trascinare il controllo appropriato dalla casella degli strumenti nella finestra di progettazione.
 
 
-[![Aggiungere l'interfaccia di inserimento appropriata per ogni FooterTemplate s campo](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image15.png)
+[![Aggiungere l'interfaccia di inserimento appropriata a ogni FooterTemplate s campo](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image15.png)
 
-**Figura 9**: aggiungere l'interfaccia di inserimento appropriata per ogni campo s `FooterTemplate` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image16.png))
+**Figura 9**: aggiungere l'interfaccia di inserimento appropriata a ogni campo s `FooterTemplate` ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image16.png))
 
 
 Il seguente elenco puntato enumera i campi di GridView, che specifica l'interfaccia di inserimento per aggiungere:
 
-- `ProductID`Nessuno.
-- `ProductName`aggiungere una casella di testo e impostare il relativo `ID` a `NewProductName`. Aggiungere un controllo RequiredFieldValidator anche per assicurarsi che l'utente immette un valore per il nuovo nome di prodotto s.
-- `SupplierID`Nessuno.
-- `CategoryID`Nessuno.
-- `QuantityPerUnit`aggiungere una casella di testo, l'impostazione relativa `ID` a `NewQuantityPerUnit`.
-- `UnitPrice`aggiungere una casella di testo denominato `NewUnitPrice` e un controllo CompareValidator che garantisce il valore immesso è maggiore o uguale a zero un valore di valuta.
-- `UnitsInStock`utilizzare una casella di testo la cui `ID` è impostato su `NewUnitsInStock`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
-- `UnitsOnOrder`utilizzare una casella di testo la cui `ID` è impostato su `NewUnitsOnOrder`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
-- `ReorderLevel`utilizzare una casella di testo la cui `ID` è impostato su `NewReorderLevel`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
-- `Discontinued`aggiungere una casella di controllo, l'impostazione relativa `ID` a `NewDiscontinued`.
-- `CategoryName`aggiungere un controllo DropDownList e impostare il relativo `ID` a `NewCategoryID`. Associarlo a un nuovo oggetto ObjectDataSource denominato `CategoriesDataSource` e configurarlo per utilizzare il `CategoriesBLL` classe s `GetCategories()` metodo. Hanno s DropDownList `ListItem` visualizzazione s il `CategoryName` dati campo utilizzando il `CategoryID` dei valori di campo dei dati.
-- `SupplierName`aggiungere un controllo DropDownList e impostare il relativo `ID` a `NewSupplierID`. Associarlo a un nuovo oggetto ObjectDataSource denominato `SuppliersDataSource` e configurarlo per utilizzare il `SuppliersBLL` classe s `GetSuppliers()` metodo. Hanno s DropDownList `ListItem` visualizzazione s il `CompanyName` dati campo utilizzando il `SupplierID` dei valori di campo dei dati.
+- `ProductID` Nessuno.
+- `ProductName` aggiungere una casella di testo e impostare il relativo `ID` a `NewProductName`. Aggiungere un controllo RequiredFieldValidator anche per assicurarsi che l'utente immette un valore per il nuovo nome di prodotto s.
+- `SupplierID` Nessuno.
+- `CategoryID` Nessuno.
+- `QuantityPerUnit` aggiungere una casella di testo, l'impostazione relativa `ID` a `NewQuantityPerUnit`.
+- `UnitPrice` aggiungere una casella di testo denominato `NewUnitPrice` e un controllo CompareValidator che garantisce il valore immesso è maggiore o uguale a zero un valore di valuta.
+- `UnitsInStock` usare una casella di testo il cui `ID` è impostata su `NewUnitsInStock`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
+- `UnitsOnOrder` usare una casella di testo il cui `ID` è impostata su `NewUnitsOnOrder`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
+- `ReorderLevel` usare una casella di testo il cui `ID` è impostata su `NewReorderLevel`. Includere un CompareValidator che assicura che il valore immesso è un valore intero maggiore o uguale a zero.
+- `Discontinued` aggiungere una casella di controllo, l'impostazione relativa `ID` a `NewDiscontinued`.
+- `CategoryName` aggiungere un controllo DropDownList e impostare il relativo `ID` a `NewCategoryID`. Associarlo a un nuovo oggetto ObjectDataSource denominato `CategoriesDataSource` e configurarlo per utilizzare il `CategoriesBLL` classe s `GetCategories()` metodo. Hanno s DropDownList `ListItem` visualizzazione s il `CategoryName` dati campo utilizzando il `CategoryID` dei valori di campo dei dati.
+- `SupplierName` aggiungere un controllo DropDownList e impostare il relativo `ID` a `NewSupplierID`. Associarlo a un nuovo oggetto ObjectDataSource denominato `SuppliersDataSource` e configurarlo per utilizzare il `SuppliersBLL` classe s `GetSuppliers()` metodo. Hanno s DropDownList `ListItem` visualizzazione s il `CompanyName` dati campo utilizzando il `SupplierID` dei valori di campo dei dati.
 
 Per ognuno dei controlli di convalida, cancellare il `ForeColor` proprietà in modo che il `FooterStyle` colore di sfondo bianco classe s CSS verrà utilizzato invece il valore predefinito di colore rosso. Utilizzare inoltre il `ErrorMessage` ma impostare la proprietà per una descrizione dettagliata, il `Text` proprietà su un asterisco. Per impedire che il testo del controllo s convalida che causa l'inserimento interfaccia va a capo in due righe, impostare il `FooterStyle` s `Wrap` la proprietà su false per ogni il `FooterTemplate` che usa un controllo di convalida. Infine, aggiungere un controllo ValidationSummary sotto GridView e set relativo `ShowMessageBox` proprietà `true` e il relativo `ShowSummary` proprietà `false`.
 
@@ -171,7 +171,7 @@ Quando viene visualizzato tramite un browser, la riga di piè di pagina s GridVi
 
 [![Il piè di pagina di GridView fornisce un'interfaccia per l'aggiunta di un nuovo Record](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image17.png)
 
-**Figura 10**: piè di pagina GridView fornisce un'interfaccia per l'aggiunta di un nuovo Record ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image18.png))
+**Figura 10**: il piè di pagina di GridView fornisce un'interfaccia per l'aggiunta di un nuovo Record ([fare clic per visualizzare l'immagine ingrandita](inserting-a-new-record-from-the-gridview-s-footer-cs/_static/image18.png))
 
 
 ## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>Passaggio 4: Incluso un pulsante Aggiungi nell'interfaccia di inserimento
@@ -234,7 +234,7 @@ GridView utilizzato in questa esercitazione non è valida qualsiasi criterio di 
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample9.cs)]
 
-`SendUserToLastPage`è una variabile Boolean a livello di pagina che inizialmente è assegnata un valore di `false`. In GridView s `DataBound` gestore dell'evento, se `SendUserToLastPage` è false, il `PageIndex` proprietà viene aggiornata per inviare all'utente per l'ultima pagina.
+`SendUserToLastPage` variabile booleana a livello di pagina che inizialmente è assegnata un valore di `false`. In GridView s `DataBound` gestore dell'evento, se `SendUserToLastPage` è false, il `PageIndex` proprietà viene aggiornata per inviare all'utente per l'ultima pagina.
 
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample10.cs)]
@@ -262,12 +262,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Bernadette Leigh. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](adding-a-gridview-column-of-checkboxes-cs.md)
-[Successivo](adding-a-gridview-column-of-radio-buttons-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-gridview-column-of-checkboxes-cs.md)
+> [Successivo](adding-a-gridview-column-of-radio-buttons-vb.md)

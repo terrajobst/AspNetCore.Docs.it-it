@@ -2,25 +2,25 @@
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 title: Implementazione di un Provider di archiviazione di ASP.NET Identity MySQL personalizzato | Documenti Microsoft
 author: raquelsa
-description: "Identità di ASP.NET è un sistema estendibile che consente di creare un provider di archiviazione e collegarlo all'applicazione senza utilizzare nuovamente il appli..."
+description: Identità di ASP.NET è un sistema estendibile che consente di creare un provider di archiviazione e collegarlo all'applicazione senza utilizzare nuovamente il appli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 3bfbccd91705755fc24bb8305fff171baa26f370
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d843b31e011fe520aad6cfdab0beca2d12477f12
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementazione di un Provider di archiviazione di ASP.NET Identity MySQL personalizzato
 ====================
-da [Raquel Soares De Almeida](https://github.com/raquelsa), [Suhas Joshi](https://github.com/suhasj), [Tom FitzMacken](https://github.com/tfitzmac)
+dal [Raquel Soares De Almeida](https://github.com/raquelsa), [Suhas Joshi](https://github.com/suhasj), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Identità di ASP.NET è un sistema estendibile che consente di creare un provider di archiviazione e collegarlo all'applicazione senza utilizzare nuovamente l'applicazione. In questo argomento viene descritto come creare un provider di archiviazione di MySQL per l'identità ASP.NET. Per una panoramica della creazione di provider di archiviazione personalizzati, vedere [panoramica dei personalizzato provider di archiviazione per l'identità ASP.NET](overview-of-custom-storage-providers-for-aspnet-identity.md).
 > 
@@ -59,19 +59,19 @@ Prima di passare alla procedura per creare il provider di archiviazione di MySQL
 ### <a name="storage-classes"></a>Classi di archiviazione
 
 - [IdentityUser](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs) -contiene le proprietà per l'utente.
-- [Oggetto UserStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserStore.cs) -include operazioni per l'aggiunta, aggiornamento o il recupero degli utenti.
+- [Nell'oggetto UserStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserStore.cs) -include operazioni per l'aggiunta, aggiornamento o il recupero degli utenti.
 - [IdentityRole](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityRole.cs) -contiene le proprietà per i ruoli.
-- [Oggetto RoleStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) -include operazioni per l'aggiunta, eliminazione, aggiornamento e il recupero dei ruoli.
+- [Nell'oggetto RoleStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) -contiene operazioni di aggiunta, eliminazione, aggiornamento e recupero dei ruoli.
 
 ### <a name="data-access-layer-classes"></a>Classi del livello di accesso ai dati
 
-Per questo esempio, le classi di livello accesso dati contengono istruzioni SQL per l'utilizzo con le tabelle. Tuttavia, nel codice è consigliabile usare mapping relazionale a oggetti (ORM), ad esempio Entity Framework o NHibernate. In particolare, l'applicazione potrebbe influire negativamente sulle prestazioni senza ORM che include il caricamento lazy e la memorizzazione nella cache di oggetto. Per ulteriori informazioni, vedere [ASP.NET 2.0 identità senza Entity Framework?](https://aspnetidentity.codeplex.com/discussions/561828)
+Per questo esempio, le classi di livello accesso dati contengono istruzioni SQL per l'utilizzo con le tabelle. Tuttavia, nel codice è consigliabile usare mapping relazionale a oggetti (ORM), ad esempio Entity Framework o NHibernate. In particolare, l'applicazione potrebbe influire negativamente sulle prestazioni senza ORM che include il caricamento lazy e la memorizzazione nella cache di oggetto. Per altre informazioni, vedere [ASP.NET 2.0 identità senza Entity Framework?](https://aspnetidentity.codeplex.com/discussions/561828)
 
-- [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) -contiene i metodi per l'esecuzione di operazioni di database e la connessione al database MySQL. Oggetto UserStore e oggetto RoleStore sono entrambi creata un'istanza con un'istanza di questa classe.
+- [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) -contiene la connessione al database MySQL e metodi per l'esecuzione di operazioni di database. Oggetto UserStore e oggetto RoleStore sono entrambi creata un'istanza con un'istanza di questa classe.
 - [RoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) -contiene operazioni di database per la tabella che contiene i ruoli.
 - [UserClaimsTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) -contiene operazioni di database per la tabella che contiene le attestazioni utente.
 - [UserLoginsTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) -contiene operazioni di database per la tabella che contiene informazioni sull'accesso utente.
-- [UserRoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) -contiene operazioni di database per la tabella che contiene gli utenti che vengono assegnati a determinati ruoli.
+- [UserRoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) -contiene operazioni di database per la tabella che contiene gli utenti che sono assegnati ai quali ruoli.
 - [UserTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserTable.cs) -contiene operazioni di database per la tabella che contiene gli utenti.
 
 ## <a name="create-a-mysql-database-instance-on-azure"></a>Creare un'istanza di database MySQL su Azure
@@ -96,7 +96,7 @@ Per questo esempio, le classi di livello accesso dati contengono istruzioni SQL 
 
 ### <a name="install-mysql-workbench-tool-to-connect-and-manage-mysql-database"></a>Installare MySQL Workbench strumento per connettersi e gestire database MySQL
 
-1. Installare il **MySQL Workbench** dello strumento la [pagina di download di MySQL](http://dev.mysql.com/downloads/windows/installer/)
+1. Installare il **MySQL Workbench** dello strumento la [pagina dei download di MySQL](http://dev.mysql.com/downloads/windows/installer/)
 2. Avviare l'app e aggiungere fare clic su di **MySQLConnections +** pulsante per aggiungere una nuova connessione. Utilizzare i dati di stringa di connessione che è copiati dal database di MySQL di Azure creata precedentemente in questa esercitazione.
 3. Dopo avere stabilito la connessione, aprire una nuova **Query** scheda; incollare i comandi da [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql) nella query ed eseguirla per creare le tabelle di database.
 4. È ora tutte le identità di ASP.NET necessarie tabelle create in un database MySQL ospitato in Azure, come illustrato di seguito.  
@@ -115,16 +115,16 @@ Se necessario, installare uno [Visual Studio Express 2013 per Web](https://go.mi
 
 ### <a name="create-a-new-mvc-application-project-from-template"></a>Creare un nuovo progetto di applicazione MVC da modello
 
-1. Fare clic destro la **AspNet.Identity.MySQL** soluzione e **Aggiungi**, **nuovo progetto**
+1. Fare clic con il pulsante destro il **AspNet.Identity.MySQL** soluzione e **Add**, **nuovo progetto**
 2. Nel **Aggiungi nuovo progetto** selezionare finestra di dialogo **Visual c#** a sinistra, quindi **Web** e quindi selezionare **applicazione Web ASP.NET**. Denominare il progetto **IdentityMySQLDemo**; e quindi fare clic su OK.  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.jpg)
-3. Nel **nuovo progetto ASP.NET** finestra di dialogo, selezionare il modello MVC con le opzioni predefinite (che include **singoli account utente di** come metodo di autenticazione) e fare clic su **OK** .![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
+3. Nel **nuovo progetto ASP.NET** finestra di dialogo, selezionare il modello MVC con le opzioni predefinite (che include **singoli account utente** come metodo di autenticazione) e fare clic su **OK** .![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
 4. In Esplora soluzioni fare doppio clic su progetto IdentityMySQLDemo e selezionare **Gestisci pacchetti NuGet**. Nella finestra di dialogo di testo di ricerca, digitare **Identity.EntityFramework**. Selezionare il pacchetto nell'elenco dei risultati e fare clic su **Disinstalla**. Verrà richiesto di disinstallare il pacchetto della dipendenza EntityFramework. Fare clic su Sì come indicato non è più il pacchetto in questa applicazione.
 5. Fare clic con il pulsante destro del progetto IdentityMySQLDemo, selezionare **Aggiungi**, **riferimento, soluzioni, progetti;** selezionare il progetto AspNet.Identity.MySQL e fare clic su **OK**.
 6. Nel progetto IdentityMySQLDemo, sostituire tutti i riferimenti a  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
- con  
+   con  
      `using AspNet.Identity.MySQL;`
 7. In IdentityModels.cs, impostare **ApplicationDbContext** da cui derivare **MySqlDatabase** e includere un costruttore che accetta un parametro singolo con il nome della connessione.  
 
@@ -138,7 +138,7 @@ Se necessario, installare uno [Visual Studio Express 2013 per Web](https://go.mi
 
 ## <a name="run-the-app-and-connect-to-the-mysql-db"></a>Eseguire l'app e connettersi al database MySQL
 
-1. Fare clic destro la **IdentityMySQLDemo** del progetto e selezionare **imposta come progetto di avvio**
+1. Fare clic con il pulsante destro il **IdentityMySQLDemo** del progetto e selezionare **imposta come progetto di avvio**
 2. Premere **Ctrl + F5** per compilare ed eseguire l'app.
 3. Fare clic su **registrare** scheda nella parte superiore della pagina.
 4. Immettere un nuovo nome utente e una password e quindi fare clic su **registrare**.  

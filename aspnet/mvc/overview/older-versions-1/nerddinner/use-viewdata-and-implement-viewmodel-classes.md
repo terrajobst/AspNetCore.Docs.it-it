@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 title: Utilizzare ViewData e implementare ViewModel classi | Documenti Microsoft
 author: microsoft
-description: "Passaggio 6 mostra come Abilita il supporto per più form modifica di scenari e viene inoltre due approcci che possono essere utilizzati per passare i dati dai controller alle visualizzazioni:..."
+description: Passaggio 6 mostra come Abilita il supporto per più form modifica di scenari e viene inoltre due approcci che possono essere utilizzati per passare i dati dai controller alle visualizzazioni:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 36b9e87cc24f74f7f2cc592afb5102709b598f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-viewdata-and-implement-viewmodel-classes"></a>Utilizzare ViewData e implementare ViewModel classi
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -127,6 +127,6 @@ Classi di ViewModel a forma di personalizzato possono fornire una notevole fless
 
 Ora esaminiamo come è possibile utilizzare parziali e pagine master consente di riutilizzare e condividere dell'interfaccia utente tra l'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](provide-crud-create-read-update-delete-data-form-entry-support.md)
-[Successivo](re-use-ui-using-master-pages-and-partials.md)
+> [!div class="step-by-step"]
+> [Precedente](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [Successivo](re-use-ui-using-master-pages-and-partials.md)

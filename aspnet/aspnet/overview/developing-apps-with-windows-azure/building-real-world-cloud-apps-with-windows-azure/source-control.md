@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 title: Controllo (creazione di applicazioni con Azure Cloud del mondo reale) del codice sorgente | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Controllo del codice sorgente (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -31,7 +31,7 @@ Controllo del codice sorgente è essenziale per tutti i progetti di sviluppo clo
 
 La prima parte di questa sezione vengono illustrate tre procedure consigliate principali da tenere presenti:
 
-- [Gli script di automazione di considerare come codice sorgente](#scripts) versione e usarle con il codice dell'applicazione.
+- [Considerare gli script di automazione come codice sorgente](#scripts) versione e usarle con il codice dell'applicazione.
 - [Non controllare mai in segreti](#secrets) (dati sensibili quali le credenziali) in un repository di codice sorgente.
 - [Impostare i rami di origine](#devops) per abilitare il flusso di lavoro DevOps.
 
@@ -66,7 +66,7 @@ Il ramo master corrisponde sempre il codice che è in produzione. Branch di sott
 
 Per i team di grandi dimensioni potrebbe essere branch separati per ogni nuova funzionalità; per un team più piccolo potrebbe essere everyone archiviando al ramo development.
 
-Se si dispone di un ramo per ogni funzionalità, quando una funzionalità è pronta è merge relativo modifiche al codice sorgente allo sviluppo branching e down gli altri rami di funzionalità. Questo codice sorgente l'unione di processo può richiedere molto tempo e per evitare tale lavoro mantenendo comunque funzionalità separati, alcune squadre di implementano un'alternativa denominata  *[attiva o disattiva la funzionalità](http://en.wikipedia.org/wiki/Feature_toggle)*  (noto anche come *funzionalità flag*). Ciò significa tutto il codice per tutte le funzionalità sia nello stesso ramo, ma è abilitare o disabilitare singole funzionalità utilizzando i commutatori nel codice. Si supponga, ad esempio, di funzionalità A un nuovo campo per le attività Correggi app e funzionalità B aggiunge funzionalità di memorizzazione nella cache. Il codice per entrambe le funzionalità può essere nel ramo development, ma la visualizzazione dell'app verrà solo il nuovo campo quando una variabile è impostata su true e utilizzerà solo la memorizzazione nella cache quando una variabile diversa è impostata su true. Se A funzionalità non è pronta per essere innalzate di livello ma Feature B è pronto, è possibile alzare di livello tutto il codice nell'ambiente di produzione con l'opzione della funzionalità A disattivare e attivare la funzionalità di B. È quindi possibile fine A funzionalità e alzare di livello in un secondo momento, tutte con alcun codice di origine l'unione.
+Se si dispone di un ramo per ogni funzionalità, quando una funzionalità è pronta è merge relativo modifiche al codice sorgente allo sviluppo branching e down gli altri rami di funzionalità. Questo codice sorgente l'unione di processo può richiedere molto tempo e per evitare tale lavoro mantenendo comunque funzionalità separati, alcune squadre di implementano un'alternativa denominata *[attiva o disattiva la funzionalità](http://en.wikipedia.org/wiki/Feature_toggle)* (noto anche come *funzionalità flag*). Ciò significa tutto il codice per tutte le funzionalità sia nello stesso ramo, ma è abilitare o disabilitare singole funzionalità utilizzando i commutatori nel codice. Si supponga, ad esempio, di funzionalità A un nuovo campo per le attività Correggi app e funzionalità B aggiunge funzionalità di memorizzazione nella cache. Il codice per entrambe le funzionalità può essere nel ramo development, ma la visualizzazione dell'app verrà solo il nuovo campo quando una variabile è impostata su true e utilizzerà solo la memorizzazione nella cache quando una variabile diversa è impostata su true. Se A funzionalità non è pronta per essere innalzate di livello ma Feature B è pronto, è possibile alzare di livello tutto il codice nell'ambiente di produzione con l'opzione della funzionalità A disattivare e attivare la funzionalità di B. È quindi possibile fine A funzionalità e alzare di livello in un secondo momento, tutte con alcun codice di origine l'unione.
 
 Se si utilizza rami o elementi Toggle per le funzionalità, una struttura con rami simile al seguente consente di propagare codice dallo sviluppo alla produzione in un modo agile e ripetibile.
 
@@ -137,7 +137,7 @@ Quando si esegue in locale nell'ambiente di sviluppo, l'app legge il file Web. c
 
 [GIT](http://git-scm.com/) è un DVCS che è diventata molto diffusa. Quando si usa Git per controllo del codice sorgente, è una copia completa del repository con tutta la sua cronologia sul computer locale. Molti utenti preferiscono tuttavia che poiché è più semplice per continuare a lavorare quando non si è connessi alla rete, è possibile continuare a eseguire il commit e rollback, creare e cambiare rami e così via. Anche quando si è connessi alla rete, è più semplice e rapido creare rami e cambiare rami quando tutto è locale. È anche possibile eseguire rollback e commit locale senza un impatto su altri sviluppatori. Ed è possibile raggruppare in batch commit prima di inviarli al server.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), precedentemente noto come Team Foundation Service, offre sia Git e [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; centralizzato di controllo del codice sorgente). Qui in Microsoft Azure gruppo alcune squadre di utilizzano controllo del codice sorgente centralizzato, utilizzato per scopi di distribuzione, e alcuni utilizzano una combinazione (centralizzata per alcuni progetti e distribuiti per altri progetti). Il servizio di Visual Studio Online è disponibile per gli utenti fino a 5. È possibile iscriversi per un piano gratuito [qui](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), precedentemente noto come Team Foundation Service, offre sia Git e [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; centralizzata controllo del codice sorgente). Qui in Microsoft Azure gruppo alcune squadre di utilizzano controllo del codice sorgente centralizzato, utilizzato per scopi di distribuzione, e alcuni utilizzano una combinazione (centralizzata per alcuni progetti e distribuiti per altri progetti). Il servizio di Visual Studio Online è disponibile per gli utenti fino a 5. È possibile iscriversi per un piano gratuito [qui](https://go.microsoft.com/fwlink/?LinkId=307137).
 
 Visual Studio 2013 include incorporato prima classe [supporto Git](https://msdn.microsoft.com/library/hh850437.aspx); Ecco una rapida dimostrazione di come funziona.
 
@@ -202,25 +202,25 @@ Il [Visual Studio Online](https://www.visualstudio.com/) portale fornisce serviz
 
 Per ulteriori informazioni su TFVC (controllo della versione centralizzato) e Git (controllo della versione distribuita), vedere le risorse seguenti:
 
-- [Il sistema di controllo della versione è preferibile usare: TFVC o Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Documentazione di MSDN, include una tabella di riepilogo le differenze tra TFVC e Git.
-- [In genere Team Foundation Server e desidero Git, ma che è preferibile?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Confronto tra Git e TFVC.
+- [Il sistema di controllo di versione è preferibile usare: TFVC o Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Documentazione di MSDN, include una tabella di riepilogo le differenze tra TFVC e Git.
+- [Desidera che Team Foundation Server e organizzo Git, ma che è preferibile?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Confronto tra Git e TFVC.
 
 Per ulteriori informazioni sulle strategie di diramazione, vedere le risorse seguenti:
 
 - [La creazione di una Pipeline di rilascio con Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Documentazione di Microsoft Patterns and Practices. Vedere il capitolo 6 per informazioni sulle strategie di diramazione. Funzionalità sostenitori attiva o disattiva su rami di funzionalità e se si utilizzano i branch per le funzionalità, sostiene mantenendoli breve durata (ore o giorni al massimo).
 - [Versione controllo Guida](https://aka.ms/vsarsolutions). Guida alle strategie di diramazione da ALM Rangers. Nella scheda dei download, vedere Strategies.pdf diramazione.
-- [Sviluppo di software con attiva o Disattiva funzionalità](https://msdn.microsoft.com/magazine/dn683796.aspx). Articolo di MSDN Magazine.
+- [Sviluppo di software con gli elementi Toggle funzionalità](https://msdn.microsoft.com/magazine/dn683796.aspx). Articolo di MSDN Magazine.
 - [Attivazione/disattivazione delle funzionalità](http://martinfowler.com/bliki/FeatureToggle.html). Introduzione alla funzionalità attiva o Disattiva / funzionalità flag sul blog di Martin Fowler.
-- [Funzionalità di vs attiva o disattiva la funzionalità rami](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Un altro post di blog su Attiva o disattiva la funzionalità, Dylan Smith.
+- [Funzionalità di vs attiva o Disattiva funzionalità rami](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Un altro post di blog su Attiva o disattiva la funzionalità, Dylan Smith.
 
 Per ulteriori informazioni su come gestire le informazioni riservate che non devono essere mantenute nel repository del controllo codice sorgente, vedere le risorse seguenti:
 
 - [Procedure consigliate per la distribuzione delle password e altri dati sensibili per ASP.NET e servizio App di Azure](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-- [Siti Web di Azure: La connessione e le stringhe dell'applicazione stringhe lavoro](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Viene illustrata la funzionalità di Azure che esegue l'override `appSettings` e `connectionStrings` dati il *Web. config* file.
-- [Custom impostazioni di configurazione e applicazione in Azure Web Sites - con Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
+- [Siti Web di Azure: La connessione e le stringhe dell'applicazione funzionamento delle stringhe](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Viene illustrata la funzionalità di Azure che esegue l'override `appSettings` e `connectionStrings` dati il *Web. config* file.
+- [Custom impostazioni di configurazione e dell'applicazione in siti di Web di Azure - con Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
 
 Per informazioni su altri metodi per mantenere le informazioni riservate da controllo del codice sorgente, vedere [ASP.NET MVC: mantenere privato le impostazioni di controllo del codice sorgente](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
->[!div class="step-by-step"]
-[Precedente](automate-everything.md)
-[Successivo](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [Precedente](automate-everything.md)
+> [Successivo](continuous-integration-and-continuous-delivery.md)

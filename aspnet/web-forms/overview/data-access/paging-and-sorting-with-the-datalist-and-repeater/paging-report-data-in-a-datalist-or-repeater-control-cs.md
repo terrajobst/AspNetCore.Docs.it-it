@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 title: Spostamento di dati del Report in un controllo DataList o Repeater (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Durante il paging automatico offerta DataList né Ripetitore o il supporto dell'ordinamento, in questa esercitazione viene illustrato come aggiungere il supporto di paging per il controllo DataList o Repeater,..."
+description: Durante il paging automatico offerta DataList né Ripetitore o il supporto dell'ordinamento, in questa esercitazione viene illustrato come aggiungere il supporto di paging per il controllo DataList o Repeater,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 43b1370e1411858cef02bca534d082a3c105e51e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Il paging dati di Report in un controllo DataList o Repeater (c#)
 ====================
@@ -50,7 +50,7 @@ Prima di iniziare questa esercitazione, lasciare s innanzitutto è opportuno agg
 
 ![Creare una cartella PagingSortingDataListRepeater e aggiungere le pagine ASP.NET dell'esercitazione](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image1.png)
 
-**Figura 1**: creare un `PagingSortingDataListRepeater` cartella e aggiungere le pagine ASP.NET dell'esercitazione
+**Figura 1**: creare un `PagingSortingDataListRepeater` cartella e aggiungere le pagine ASP.NET Tutorial
 
 
 Aprire quindi il `Default.aspx` pagina e trascinare il `SectionLevelTutorialListing.ascx` controllo utente dal `UserControls` cartella nell'area di progettazione. Questo controllo utente, creata nel [pagine Master e esplorazione del sito](../introduction/master-pages-and-site-navigation-cs.md) esercitazione enumera la mappa del sito e visualizza tali esercitazioni nella sezione corrente in un elenco puntato.
@@ -58,7 +58,7 @@ Aprire quindi il `Default.aspx` pagina e trascinare il `SectionLevelTutorialList
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image2.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image4.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image4.png))
 
 
 Per visualizzare l'elenco puntato per lo spostamento e l'ordinamento di esercitazioni che verrà creata, è necessario aggiungerli alla mappa del sito. Aprire il `Web.sitemap` file e aggiungere il markup seguente dopo la modifica ed eliminazione con il markup di nodo DataList mappa del sito:
@@ -78,7 +78,7 @@ Nelle esercitazioni precedenti è stato illustrato come scorrere i dati nei cont
 
 Poiché il paging predefinito richiede nuovamente tutti i record per ogni pagina, non è pratico quando paging sufficientemente grandi quantità di dati. Si supponga, ad esempio, paging 50.000 record con una dimensione di pagina pari a 10. Ogni volta che l'utente passa a una nuova pagina, tutte 50.000 record deve essere richiamato dal database, anche se dieci soli di essi vengono visualizzati.
 
-*Il paging personalizzato* risolve i problemi di prestazioni del paging predefinito selezionandola solo il sottoinsieme preciso di record per visualizzare la pagina richiesta. Quando si implementa il paging personalizzato, è necessario scrivere la query SQL che restituisce solo il set corretto di record in modo efficiente. È stato illustrato come creare una query utilizzando SQL Server 2005 s nuovo [ `ROW_NUMBER()` (parola chiave)](http://www.4guysfromrolla.com/webtech/010406-1.shtml) nuovamente il [in modo efficiente il Paging tramite quantità di dati di grandi dimensioni](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) esercitazione.
+*Il paging personalizzato* risolve i problemi di prestazioni del paging predefinito cattura solo il subset di record per visualizzare la pagina richiesta preciso. Quando si implementa il paging personalizzato, è necessario scrivere la query SQL che restituisce solo il set corretto di record in modo efficiente. È stato illustrato come creare una query utilizzando SQL Server 2005 s nuovo [ `ROW_NUMBER()` (parola chiave)](http://www.4guysfromrolla.com/webtech/010406-1.shtml) nuovamente il [in modo efficiente il Paging tramite quantità di dati di grandi dimensioni](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) esercitazione.
 
 Per implementare il paging predefinito nei controlli del controllo DataList o Repeater, è possibile utilizzare il [ `PagedDataSource` classe](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) come wrapper per il `ProductsDataTable` il cui contenuto è il paging. Il `PagedDataSource` classe dispone di un `DataSource` proprietà che possono essere assegnati a un oggetto enumerabile e [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) e [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) le proprietà che indicano il numero di record a visualizzare ogni pagina e l'indice della pagina corrente. Una volta queste proprietà sono state impostate, il `PagedDataSource` può essere utilizzato come origine dati di qualsiasi dato controllo Web. Il `PagedDataSource`, quando enumerata, verrà restituito solo il subset appropriato di record della relativa interna `DataSource` in base il `PageSize` e `CurrentPageIndex` proprietà. Figura 4 illustra le funzionalità del `PagedDataSource` classe.
 
@@ -100,10 +100,10 @@ Il `ProductsBLL` classe dispone attualmente di un metodo per la restituzione di 
 
 Aggiungere un metodo per il `ProductsBLL` classe denominata `GetProductsAsPagedDataSource` che accetta due parametri di input di interi:
 
-- `pageIndex`l'indice della pagina per visualizzare, indicizzate da zero, e
-- `pageSize`il numero di record da visualizzare per pagina.
+- `pageIndex` l'indice della pagina per visualizzare, indicizzate da zero, e
+- `pageSize` il numero di record da visualizzare per ogni pagina.
 
-`GetProductsAsPagedDataSource`inizia recuperando *tutti* dei record da `GetProducts()`. Crea quindi un `PagedDataSource` oggetto impostando il relativo `CurrentPageIndex` e `PageSize` proprietà ai valori di passato `pageIndex` e `pageSize` parametri. Il metodo si conclude con la restituzione di questa configurazione `PagedDataSource`:
+`GetProductsAsPagedDataSource` inizia recuperando *tutti* dei record da `GetProducts()`. Crea quindi un `PagedDataSource` oggetto impostando il relativo `CurrentPageIndex` e `PageSize` proprietà ai valori di passato `pageIndex` e `pageSize` parametri. Il metodo si conclude con la restituzione di questa configurazione `PagedDataSource`:
 
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
@@ -113,7 +113,7 @@ Aggiungere un metodo per il `ProductsBLL` classe denominata `GetProductsAsPagedD
 Con il `GetProductsAsPagedDataSource` aggiunto al metodo di `ProductsBLL` (classe), è ora possibile creare un controllo DataList o Repeater che fornisce il paging predefinito. Aprire il `Paging.aspx` nella pagina di `PagingSortingDataListRepeater` cartelle e trascinare un controllo DataList dalla casella degli strumenti nella finestra di progettazione, l'impostazione di DataList s `ID` proprietà `ProductsDefaultPaging`. Lo smart tag DataList s, creare un nuovo oggetto ObjectDataSource denominato `ProductsDefaultPagingDataSource` e configurarlo in modo che recuperi dati usando il `GetProductsAsPagedDataSource` metodo.
 
 
-[![Creare un ObjectDataSource e configurarlo per utilizzare il metodo () di GetProductsAsPagedDataSource](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
+[![Creare un ObjectDataSource e configurarlo per utilizzare il metodo () GetProductsAsPagedDataSource](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image7.png)
 
 **Figura 5**: creare un ObjectDataSource e configurarlo per utilizzare il `GetProductsAsPagedDataSource` `()` metodo ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image9.png))
 
@@ -121,9 +121,9 @@ Con il `GetProductsAsPagedDataSource` aggiunto al metodo di `ProductsBLL` (class
 Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno).
 
 
-[![Impostare l'elenco a discesa sono elencati nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
+[![Impostare l'elenco a discesa sono elencati in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image10.png)
 
-**Figura 6**: impostare l'elenco a discesa sono elencati nell'aggiornamento, inserimento ed eliminare le schede su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
+**Figura 6**: impostare l'elenco a discesa sono elencati in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image12.png))
 
 
 Poiché il `GetProductsAsPagedDataSource` metodo prevede due parametri di input, la procedura guidata richiede Microsoft per l'origine di questi valori di parametro.
@@ -133,9 +133,9 @@ L'indice della pagina e i valori di dimensioni di pagina devono essere riconosci
 In particolare, usare il querystring campi pageIndex e pageSize per il `pageIndex` e `pageSize` parametri, rispettivamente (vedere la figura 7). È opportuno impostare i valori predefiniti per questi parametri, come i valori di stringa di query ha vinto t essere presente quando un utente visita prima di questa pagina. Per `pageIndex`, impostare il valore predefinito 0 (che verrà visualizzata la prima pagina di dati) e `pageSize` il valore predefinito s a 4.
 
 
-[![Utilizzare la stringa di query come origine per i parametri di pageIndex e pageSize](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
+[![Utilizzare il parametro QueryString come origine per i parametri di pageIndex e pageSize](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image13.png)
 
-**Figura 7**: utilizzare il parametro QueryString come origine per il `pageIndex` e `pageSize` parametri ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image15.png))
+**Figura 7**: usare il parametro QueryString come origine per il `pageIndex` e `pageSize` parametri ([fare clic per visualizzare l'immagine ingrandita](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image15.png))
 
 
 Dopo aver configurato il ObjectDataSource, Visual Studio crea automaticamente un `ItemTemplate` per DataList. Personalizzare il `ItemTemplate` in modo che vengono visualizzati solo il nome del prodotto s, categoria e fornitore. Inoltre impostare DataList s `RepeatColumns` proprietà su 2, il relativo `Width` su 100% e il relativo `ItemStyle` s `Width` al 50%. Queste impostazioni di larghezza fornirà uguale spaziatura per le due colonne.
@@ -172,7 +172,7 @@ Sono disponibili diverse interfacce di paging diversi che possono essere impleme
 - **Successivo, precedente** gli utenti possono spostare una pagina alla volta, a quello successivo o precedente.
 - **Successivo, precedente, primo, ultimo** oltre ai pulsanti Avanti e indietro, questa interfaccia include pulsanti First e Last per lo spostamento alla prima o ultima pagina.
 - **Numerico** sono elencati i numeri di pagina nell'interfaccia di paging, consentendo all'utente di passare rapidamente a una pagina particolare.
-- **Numerici, primo, ultimo** oltre i numeri di pagina numerici include pulsanti per spostarsi alla prima o ultima pagina.
+- **Numerici, in primo luogo, ultimo** oltre i numeri di pagina numerici include pulsanti per spostarsi a una molto prima o nell'ultima pagina.
 
 Per DataList e Repeater, ci sono responsabili per decidere su un'interfaccia di paging e implementarlo. Include la creazione di controlli Web necessari nella pagina e visualizzare la pagina richiesta quando viene premuto un pulsante di interfaccia di paging particolare. Inoltre, alcuni controlli di interfaccia di paging potrebbe essere necessario deve essere disabilitata. Ad esempio, quando si visualizza la prima pagina di dati di utilizzo successivo, precedente, primo, ultimo interfaccia, pulsanti precedente e prima sarà disabilitati.
 
@@ -275,11 +275,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Liz Shulok, Ken Pespisa e Bernadette Leigh. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [avanti](sorting-data-in-a-datalist-or-repeater-control-cs.md)

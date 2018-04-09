@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 title: Parametri dichiarativi (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà illustrato come utilizzare un parametro impostato su un valore hardcoded per selezionare i dati da visualizzare in un controllo DetailsView."
+description: In questa esercitazione verrà illustrato come utilizzare un parametro impostato su un valore hardcoded per selezionare i dati da visualizzare in un controllo DetailsView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 840630852d28f49f4f4387f1d2cc6b275b468fc2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-c"></a>Parametri dichiarativi (c#)
 ====================
@@ -40,7 +40,7 @@ Per questa esercitazione innanzitutto che illustrano come utilizzare un parametr
 Per il primo esempio, per iniziare, aggiungere un controllo DetailsView per il `DeclarativeParams.aspx` nella pagina di `BasicReporting` cartella. Smart tag del controllo DetailsView selezionare &lt;nuova origine dati&gt; dall'elenco a discesa elenco e scegliere di aggiungere un ObjectDataSource.
 
 
-[![Aggiungere un ObjectDataSource](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![Aggiungere un ObjectDataSource alla pagina](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
 **Figura 1**: aggiungere un ObjectDataSource ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image3.png))
 
@@ -92,7 +92,7 @@ Parametro di ObjectDataSource valori possono essere impostati anche in base al v
 
 [![Aggiungere una casella di testo con ID CountryName](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
-**Figura 6**: aggiungere una casella di testo con `ID` `CountryName` ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image18.png))
+**Figura 6**: aggiungere una casella di testo alla pagina contenente `ID` `CountryName` ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image18.png))
 
 
 Successivamente, aggiungere un controllo GridView alla pagina e, dallo smart tag, scegliere di aggiungere un nuovo oggetto ObjectDataSource. Poiché si desidera visualizzare fornitore informazioni selezionare il `SuppliersBLL` classe dalla schermata prima della procedura guidata. Dalla seconda schermata scegliere il `GetSuppliersByCountry(country)` metodo.
@@ -108,7 +108,7 @@ Poiché il `GetSuppliersByCountry(country)` metodo ha un parametro di input, la 
 
 [![Impostare il valore del parametro per il valore del controllo CountryName](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
-**Figura 8**: impostare il valore del parametro di `CountryName` valore di controllo ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image24.png))
+**Figura 8**: impostare il valore del parametro il `CountryName` valore Control ([fare clic per visualizzare l'immagine ingrandita](declarative-parameters-cs/_static/image24.png))
 
 
 Markup dichiarativo di ObjectDataSource differisce leggermente dal primo esempio, utilizzando un [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) anziché lo standard `Parameter` oggetto. Oggetto `ControlParameter` dispone di proprietà aggiuntive per specificare il `ID` del controllo Web e il valore della proprietà da utilizzare per il parametro (`PropertyName`). La configurazione guidata origine dati è stata abbastanza per determinare che, per una casella di testo è consisterà probabilmente nell'utilizzare il `Text` proprietà per il valore del parametro. Se, tuttavia, si desidera utilizzare un altro valore della proprietà dal controllo Web è possibile modificare il `PropertyName` valore qui o facendo clic sul collegamento "Mostra proprietà avanzate" della procedura guidata.
@@ -127,7 +127,7 @@ Una volta il visitatore entra in un paese, tuttavia e fa clic sul pulsante Mostr
 
 ## <a name="showing-all-suppliers-by-default"></a>Visualizzazione di tutti i fornitori per impostazione predefinita
 
-Invece di nessuno dei fornitori la prima visualizzazione della pagina potrebbe essere necessario mostrare *tutti* suppliers inizialmente, consentendo all'utente di ridurre l'elenco, specificare un nome di paese nella casella di testo. Quando la casella di testo è vuota, il `SuppliersBLL` della classe `GetSuppliersByCountry(country)` viene passato una `null` valore per il relativo  *`country`*  parametro di input. Questo `null` valore viene quindi passato verso il basso il campo DAL `GetSupplierByCountry(country)` (metodo), in cui viene convertita in un database `NULL` valore per il `@Country` parametro nella query seguente:
+Invece di nessuno dei fornitori la prima visualizzazione della pagina potrebbe essere necessario mostrare *tutti* suppliers inizialmente, consentendo all'utente di ridurre l'elenco, specificare un nome di paese nella casella di testo. Quando la casella di testo è vuota, il `SuppliersBLL` della classe `GetSuppliersByCountry(country)` viene passato una `null` valore per il relativo *`country`* parametro di input. Questo `null` valore viene quindi passato verso il basso il campo DAL `GetSupplierByCountry(country)` (metodo), in cui viene convertita in un database `NULL` valore per il `@Country` parametro nella query seguente:
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](displaying-data-with-the-objectdatasource-cs.md)
-[Successivo](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-data-with-the-objectdatasource-cs.md)
+> [Successivo](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)

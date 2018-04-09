@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: "Parte 7: Aggiunta di funzionalità | Documenti Microsoft"
+title: 'Parte 7: Aggiunta di funzionalità | Documenti Microsoft'
 author: JoeStagner
-description: "Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 7 aggiunge funzionalità aggiuntive, ad esempio account revie..."
+description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 7 aggiunge funzionalità aggiuntive, ad esempio account revie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5280de44b3e75f9d1ae85e0248bc3ef6d5444f6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17f068155f6726047901e2f7d580d375a4e07c87
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-adding-features"></a>Parte 7: Aggiunta di funzionalità
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 7 aggiunge funzionalità aggiuntive, come la revisione di account, recensioni dei prodotti e "elementi comuni" e controlli utente "anche acquistato".
 
 
-## <a id="_Toc260221673"></a>Aggiunta di funzionalità
+## <a id="_Toc260221673"></a>  Aggiunta di funzionalità
 
 Se gli utenti possono cercare il catalogo, inserire gli elementi nel carrello acquisti e completare il processo di estrazione, sono disponibili che funzionalità di un numero di supporto che verrà incluso per migliorare il sito.
 
@@ -40,7 +40,7 @@ Se gli utenti possono cercare il catalogo, inserire gli elementi nel carrello ac
 7. Aggiungere una pagina.
 8. Errore globale
 
-## <a id="_Toc260221674"></a>Revisione di account
+## <a id="_Toc260221674"></a>  Revisione di account
 
 Nella cartella "Account", creare due pagine aspx OrderList.aspx denominata uno e l'altra denominata OrderDetails.aspx
 
@@ -56,7 +56,7 @@ Si noti inoltre questi parametri, HyperlinkField di GridView:
 
 Il collegamento alla visualizzazione Dettagli ordine per ogni prodotto specificando il campo OrderID come parametro QueryString per la pagina OrderDetails.aspx specificano.
 
-## <a id="_Toc260221675"></a>OrderDetails.aspx
+## <a id="_Toc260221675"></a>  OrderDetails.aspx
 
 Un controllo EntityDataSource utilizzeremo per accedere gli ordini e un controllo FormView per visualizzare i dati dell'ordine e un altro EntityDataSource con un controllo GridView per visualizzare le voci dell'ordine.
 
@@ -72,7 +72,7 @@ Nel file Code-Behind (OrderDetails.aspx.cs) sono disponibili due bit minimo di m
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>Home Page
+## <a id="_Toc260221676"></a>  Home Page
 
 Aggiungere contenuto statico alla pagina Default.aspx.
 
@@ -82,7 +82,7 @@ Nel segnaposto nella parte inferiore della pagina aspx, aggiungere il markup seg
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>Revisioni dei prodotti
+## <a id="_Toc260221677"></a>  Recensioni dei prodotti
 
 Innanzitutto verrà aggiunto un pulsante con un collegamento a un form che è possibile utilizzare per immettere una revisione del prodotto.
 
@@ -94,7 +94,7 @@ Si noti che viene passato il ProductID nella stringa di query
 
 Avanti aggiungere pagina denominata ReviewAdd.aspx
 
-Questa pagina verrà utilizza ASP.NET AJAX Control Toolkit. Se non si è già connessi in modo è possibile scaricarlo da [DevExpress](http://devexpress.com/act) e indicazioni su come configurare il toolkit per l'uso con Visual Studio qui [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Questa pagina verrà utilizza ASP.NET AJAX Control Toolkit. Se non è già fatto in modo è possibile scaricarlo dal [DevExpress](http://devexpress.com/act) e sono presenti informazioni aggiuntive su come configurare il toolkit per l'uso con Visual Studio qui [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
 
 Nella modalità progettazione, trascinare i controlli e validator dalla casella degli strumenti e creare un form simile a quello riportato di seguito.
 
@@ -114,7 +114,7 @@ In esecuzione l'applicazione ora e passare a un prodotto Mostra le informazioni 
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>Controllo di elementi comuni (creazione di controlli utente)
+## <a id="_Toc260221678"></a>  Controllo di elementi comuni (creazione di controlli utente)
 
 Per aumentare le vendite nel sito web verrà aggiunto un paio di funzionalità per i prodotti più diffusi o correlati "vendere suggerite".
 
@@ -156,7 +156,7 @@ A questo punto quando si esegue l'applicazione della home page Visualizza gli el
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>"Anche acquistato" controllare (controlli utente con parametri)
+## <a id="_Toc260221679"></a>  "Anche acquistato" controllare (controlli utente con i parametri)
 
 Il secondo controllo utente che verrà creata richiederà suggerito aggiungendo specificità contesto delle vendite al livello successivo.
 
@@ -236,6 +236,6 @@ Quando si compila ed Esegui ora e passare a un prodotto è visualizzare gli elem
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-6.md)
-[Successivo](tailspin-spyworks-part-8.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-6.md)
+> [Successivo](tailspin-spyworks-part-8.md)

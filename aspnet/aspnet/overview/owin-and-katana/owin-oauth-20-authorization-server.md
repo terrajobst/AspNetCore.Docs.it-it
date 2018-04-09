@@ -2,25 +2,25 @@
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 title: Server di autorizzazione OAuth 2.0 OWIN | Documenti Microsoft
 author: hongyes
-description: "In questa esercitazione fornisce le istruzioni su come implementare un Server di autorizzazione OAuth 2.0 tramite il middleware OWIN OAuth. Questo è il raggruppamento solo di un'esercitazione avanzata..."
+description: In questa esercitazione fornisce le istruzioni su come implementare un Server di autorizzazione OAuth 2.0 tramite il middleware OWIN OAuth. Questo è il raggruppamento solo di un'esercitazione avanzata...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>Server di autorizzazione OAuth 2.0 OWIN
 ====================
-da [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+dal [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione fornisce le istruzioni su come implementare un Server di autorizzazione OAuth 2.0 tramite il middleware OWIN OAuth. Si tratta di un'esercitazione avanzata solo vengono delineati i passaggi per creare un Server di autorizzazione OWIN OAuth 2.0. Non si tratta di un'esercitazione dettagliata. [Scaricare il codice di esempio](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 > 
@@ -56,7 +56,7 @@ In questa esercitazione illustra:
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) o la versione gratuita [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), come indicato **versioni del Software** nella parte superiore della pagina.
+- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) o la versione gratuita [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), come indicato nel **versioni del Software** nella parte superiore della pagina.
 - Familiarità con OWIN. Vedere [introduzione con il progetto Katana](https://msdn.microsoft.com/magazine/dn451439.aspx) e [novità di OWIN e Katana](index.md).
 - Una certa familiarità con [OAuth](http://tools.ietf.org/html/rfc6749) terminologia, tra cui [ruoli](http://tools.ietf.org/html/rfc6749#section-1.1), [protocollo flusso](http://tools.ietf.org/html/rfc6749#section-1.2), e [autorizzazione Grant](http://tools.ietf.org/html/rfc6749#section-1.3). [Introduzione di OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-1) fornisce una buona introduzione.
 
@@ -83,16 +83,16 @@ Il codice precedente consente i cookie e l'autenticazione di Google, vengono uti
 Il `UseOAuthAuthorizationServer` è il metodo di estensione per il server di autorizzazione del programma di installazione. Le opzioni di installazione sono:
 
 - `AuthorizeEndpointPath`: Il percorso della richiesta in cui le applicazioni client reindirizzeranno l'agente utente per gli utenti di ottenere il consenso per emettere un token o codice. Deve iniziare con una barra iniziale, ad esempio, "`/Authorize`".
-- `TokenEndpointPath`: Le applicazioni client del percorso richiesta comunicano direttamente per ottenere il token di accesso. Deve iniziare con una barra iniziale, come "/token". Se il client viene emesso un [client\_secret](http://tools.ietf.org/html/rfc6749#appendix-A.2), deve essere fornito a questo endpoint.
-- `ApplicationCanDisplayErrors`: Impostare su `true` se l'applicazione web richiede la generazione di una pagina di errore personalizzato per gli errori di convalida del client in `/Authorize` endpoint. Questo è necessario solo per i casi in cui non viene reindirizzato il browser all'applicazione client, ad esempio, quando il `client_id` o `redirect_uri` non sono corrette. Il `/Authorize` endpoint prevede che "oauth. Errore","oauth. ErrorDescription"e"oauth. Proprietà ErrorUri"vengono aggiunti all'ambiente OWIN. 
+- `TokenEndpointPath`: Le applicazioni client di percorso richiesta comunicano direttamente per ottenere il token di accesso. Deve iniziare con una barra iniziale, come "/token". Se il client viene emesso un [client\_secret](http://tools.ietf.org/html/rfc6749#appendix-A.2), deve essere fornito a questo endpoint.
+- `ApplicationCanDisplayErrors`: Impostare su `true` se nell'applicazione web è richiesto generare una pagina di errore personalizzata per gli errori di convalida del client su `/Authorize` endpoint. Questo è necessario solo per i casi in cui non viene reindirizzato il browser all'applicazione client, ad esempio, quando il `client_id` o `redirect_uri` non sono corrette. Il `/Authorize` endpoint prevede che "oauth. Errore","oauth. ErrorDescription"e"oauth. Proprietà ErrorUri"vengono aggiunti all'ambiente OWIN. 
 
     > [!NOTE]
     > Se non è true, il server di autorizzazione restituirà una pagina di errore predefinita con i dettagli dell'errore.
-- `AllowInsecureHttp`: True per consentire di autorizzare e le richieste di token per arrivare agli indirizzi URI HTTP e per consentire in ingresso `redirect_uri` autorizzare indirizzi URI HTTP per i parametri di richiesta. 
+- `AllowInsecureHttp`: True per consentire autorizzare e le richieste di token in arrivo nella indirizzi URI HTTP e per consentire in ingresso `redirect_uri` autorizzare parametri di richiesta per avere indirizzi URI HTTP. 
 
     > [!WARNING]
     > Sicurezza - si tratta per solo per lo sviluppo.
-- `Provider`: L'oggetto fornito dall'applicazione per elaborare gli eventi generati dal middleware del Server di autorizzazione. L'applicazione può implementare completamente l'interfaccia o è possibile creare un'istanza di `OAuthAuthorizationServerProvider` e assegnare delegati necessari per questo server supporta i flussi di OAuth.
+- `Provider`: L'oggetto fornito dall'applicazione per elaborare eventi generati dal middleware del Server di autorizzazione. L'applicazione può implementare completamente l'interfaccia o è possibile creare un'istanza di `OAuthAuthorizationServerProvider` e assegnare delegati necessari per questo server supporta i flussi di OAuth.
 - `AuthorizationCodeProvider`: Genera un codice di autorizzazione monouso da restituire all'applicazione client. Per il server di OAuth proteggere l'applicazione **deve** fornire un'istanza per `AuthorizationCodeProvider` in cui il token prodotto dal `OnCreate/OnCreateAsync` evento viene considerato valido solo per una chiamata a `OnReceive/OnReceiveAsync`.
 - `RefreshTokenProvider`: Genera un token di aggiornamento che può essere utilizzato per produrre un nuovo token di accesso quando necessario. Se non è stato specificato il server di autorizzazione non restituirà i token di aggiornamento dal `/Token` endpoint.
 
@@ -104,7 +104,7 @@ OAuth non è rilevante dove o come gestire le informazioni sull'account utente. 
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`viene utilizzato per convalidare il client con il relativo URL di reindirizzamento registrato. `ValidateClientAuthentication`Controlla l'intestazione di schema di base e il corpo del form per ottenere le credenziali del client.
+`ValidateClientRedirectUri` viene utilizzato per convalidare il client con il relativo URL di reindirizzamento registrato. `ValidateClientAuthentication` Controlla l'intestazione di base dello schema e il corpo del form per ottenere le credenziali del client.
 
 Pagina di accesso è illustrata di seguito:
 
@@ -112,7 +112,7 @@ Pagina di accesso è illustrata di seguito:
 
 Esaminare IETF OAuth 2 [concessione del codice di autorizzazione](http://tools.ietf.org/html/rfc6749#section-4.1) sezione ora. 
 
-**Provider** (nella tabella riportata di seguito) è [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Provider, che è di tipo `OAuthAuthorizationServerProvider`, che contiene tutti gli eventi server OAuth. 
+**Provider** (nella tabella seguente) viene [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Provider, che è di tipo `OAuthAuthorizationServerProvider`, che contiene tutti gli eventi server OAuth. 
 
 | Passaggi del flusso dalla sezione di concessione del codice di autorizzazione | Download di esempio esegue le operazioni con: |
 | --- | --- |
@@ -241,10 +241,10 @@ Vedere *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.cs* nel dow
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`metodo consente la condivisione CORS per tutti i domini.
-- `UseOAuthBearerAuthentication`metodo consente il middleware di autenticazione del token di connessione OAuth che consente di ricevere e convalidare i token di connessione dall'intestazione di autorizzazione nella richiesta.
-- `Config.SuppressDefaultHostAuthenticaiton`evita la visualizzazione predefinita host entità autenticata dall'app, pertanto sarà tutte le richieste anonime dopo questa chiamata.
-- `HostAuthenticationFilter`Abilita l'autenticazione solo per il tipo di autenticazione specificato. In questo caso, è il tipo di autenticazione bearer.
+- `UseCors` metodo consente la condivisione CORS per tutti i domini.
+- `UseOAuthBearerAuthentication` metodo consente il middleware di autenticazione del token di connessione OAuth che consente di ricevere e convalidare i token di connessione dall'intestazione di autorizzazione nella richiesta.
+- `Config.SuppressDefaultHostAuthenticaiton` evita la visualizzazione predefinita host entità autenticata dall'app, pertanto sarà tutte le richieste anonime dopo questa chiamata.
+- `HostAuthenticationFilter` Abilita l'autenticazione solo per il tipo di autenticazione specificato. In questo caso, è il tipo di autenticazione bearer.
 
 Per dimostrare l'identità autenticata, verrà creato un ApiController per restituire le attestazioni dell'utente corrente.
 
@@ -272,7 +272,7 @@ Ecco il codice di esempio di `HomeController` del client.
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`Per impostazione predefinita, richiede SSL. Poiché demo sta usando HTTP, è necessario aggiungere l'impostazione nel file di configurazione seguente:
+`DotNetOpenAuth` richiede SSL per impostazione predefinita. Poiché demo sta usando HTTP, è necessario aggiungere l'impostazione nel file di configurazione seguente:
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-controller
 title: Aggiunta di un Controller | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,23 +12,23 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Aggiunta di un controller
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 MVC è l'acronimo di *model-view-controller*. MVC è un modello per lo sviluppo di applicazioni che sono ben strutturato, testabile e facili da gestire. Applicazioni basate su MVC contengono:
 
 - **M** odels: le classi che rappresentano i dati dell'applicazione e che usano la logica di convalida per applicare le regole di business per tali dati.
-- **V** iews: file di modello che l'applicazione utilizza per generare dinamicamente le risposte HTML.
-- **C** ontrollers: le classi che gestiscono le richieste in ingresso del browser, recuperare i dati del modello e quindi specificare i modelli di visualizzazione che restituiscono una risposta nel browser.
+- **V** iews: file di modello che l'applicazione usa per generare in modo dinamico le risposte HTML.
+- **C** ontrollers: le classi che gestiscono le richieste del browser in ingresso, recuperare i dati del modello e quindi specificare i modelli di visualizzazione che restituiscono una risposta nel browser.
 
 Si verrà tutti questi concetti in questa serie di esercitazioni di copertura e viene illustrato come usarle per compilare un'applicazione.
 
@@ -95,7 +95,7 @@ Sostituire il metodo di completamento dell'installazione con il codice seguente:
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-Eseguire l'applicazione e immettere l'URL seguente:`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+Eseguire l'applicazione e immettere l'URL seguente: `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
@@ -115,6 +115,6 @@ Per molte applicazioni MVC, la route predefinita funziona correttamente. Verrà 
 
 In questi esempi di operazioni il controller del &quot;VC&quot; parte di MVC, vale a dire, il lavoro di visualizzazione e controller. Il controller ha restituito HTML direttamente. In genere non si desidera controller restituzione HTML direttamente, dal momento che diventa molto complessa al codice. Invece in genere si userà un file di modello di visualizzazione separato per generare la risposta HTML. Verrà ora esaminato il successivo come possiamo farlo.
 
->[!div class="step-by-step"]
-[Precedente](getting-started.md)
-[Successivo](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started.md)
+> [Successivo](adding-a-view.md)

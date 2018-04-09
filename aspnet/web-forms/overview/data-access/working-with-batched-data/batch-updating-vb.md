@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 title: Batch di aggiornamento (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Informazioni su come aggiornare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è compilazione di un controllo GridView in cui ogni riga è modificabile. Nei dati..."
+description: Informazioni su come aggiornare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è compilazione di un controllo GridView in cui ogni riga è modificabile. Nei dati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bcfdf734de0b4a4aa0a11f35bd6e40d6b97719cf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2c5119410057b39e7b9a03eca3a2dbdbc315ce00
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-updating-vb"></a>Batch di aggiornamento (VB)
 ====================
@@ -62,20 +62,20 @@ Prima di preoccupazione la creazione di un controllo GridView in cui sono le rig
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLL](batch-updating-vb/_static/image2.gif)](batch-updating-vb/_static/image3.png)
 
-**Figura 2**: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image4.png))
+**Figura 2**: configurare ObjectDataSource per usare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image4.png))
 
 
-[![Recuperare i dati di prodotto utilizzando il metodo GetProducts](batch-updating-vb/_static/image3.gif)](batch-updating-vb/_static/image5.png)
+[![Recuperare i dati di prodotto usando il metodo GetProducts](batch-updating-vb/_static/image3.gif)](batch-updating-vb/_static/image5.png)
 
-**Figura 3**: recuperare i dati di prodotto usando il `GetProducts` metodo ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image6.png))
+**Figura 3**: recuperare i dati di prodotto utilizzando il `GetProducts` metodo ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image6.png))
 
 
 Come GridView, le funzioni di modifica ObjectDataSource s sono progettate per funzionare per ogni riga. Per aggiornare un set di record, è necessario scrivere codice per la classe code-behind pagine ASP.NET che invia i dati in batch e le passa al livello Business Logic. Pertanto, impostare gli elenchi a discesa in s ObjectDataSource schede UPDATE, INSERT e DELETE su (nessuno). Fare clic su Fine per completare la procedura guidata.
 
 
-[![Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](batch-updating-vb/_static/image4.gif)](batch-updating-vb/_static/image7.png)
+[![Impostare gli elenchi a discesa in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](batch-updating-vb/_static/image4.gif)](batch-updating-vb/_static/image7.png)
 
-**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image8.png))
+**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE (nessuno) ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image8.png))
 
 
 Dopo aver completato la configurazione guidata origine dati, il markup dichiarativo s ObjectDataSource dovrebbe essere simile al seguente:
@@ -110,7 +110,7 @@ Consentire s iniziano con la `ProductName` TemplateField. Fare clic sul collegam
 Successivamente, aggiungere un controllo RequiredFieldValidator per il `ItemTemplate` per garantire che l'utente fornisce un valore per ogni nome di prodotto s. Impostare il `ControlToValidate` proprietà ProductName, il `ErrorMessage` proprietà per l'utente deve fornire il nome del prodotto. e `Text` proprietà \*. Dopo aver apportato queste aggiunte per la `ItemTemplate`, la schermata dovrebbe essere simile alla figura 6.
 
 
-[![ProductName TemplateField ora include una casella di testo e un controllo RequiredFieldValidator](batch-updating-vb/_static/image6.gif)](batch-updating-vb/_static/image9.png)
+[![ProductName TemplateField ora include una casella di testo e RequiredFieldValidator](batch-updating-vb/_static/image6.gif)](batch-updating-vb/_static/image9.png)
 
 **Figura 6**: il `ProductName` TemplateField ora include una casella di testo e un RequiredFieldValidator ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image10.png))
 
@@ -120,9 +120,9 @@ Per il `UnitPrice` interfaccia di modifica, iniziare la casella di testo da copi
 Aggiungere anche un CompareValidator per il `UnitPrice` s `ItemTemplate` per garantire che il valore immesso dall'utente è un valore di valuta valido maggiore o uguale a $0,00. Impostare la convalida s `ControlToValidate` proprietà UnitPrice, relativo `ErrorMessage` proprietà per l'utente deve immettere un valore di valuta validi. . Omettere qualsiasi valuta i simboli., il relativo `Text` proprietà \*, le `Type` proprietà `Currency`, le `Operator` proprietà `GreaterThanEqual`e il relativo `ValueToCompare` proprietà su 0.
 
 
-[![Aggiungere un controllo CompareValidator per garantire il prezzo immesso è un valore di valuta Non negativo](batch-updating-vb/_static/image7.gif)](batch-updating-vb/_static/image11.png)
+[![Aggiungere un CompareValidator immesso il prezzo è un valore di valuta Non negativo](batch-updating-vb/_static/image7.gif)](batch-updating-vb/_static/image11.png)
 
-**Figura 7**: aggiungere un controllo CompareValidator per garantire il prezzo immesso è un valore di valuta Non negativo ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image12.png))
+**Figura 7**: aggiungere un CompareValidator immesso il prezzo è un valore di valuta Non negativo ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image12.png))
 
 
 Per il `Discontinued` TemplateField è possibile utilizzare la casella di controllo già definito nel `ItemTemplate`. È sufficiente impostare il relativo `ID` in sospeso e il relativo `Enabled` proprietà `True`.
@@ -140,7 +140,7 @@ Trascinare un controllo DropDownList dalla casella degli strumenti di `CategoryN
 
 [![Configurare ObjectDataSource per utilizzare la classe CategoriesBLL](batch-updating-vb/_static/image8.gif)](batch-updating-vb/_static/image13.png)
 
-**Figura 8**: configurare ObjectDataSource per utilizzare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image14.png))
+**Figura 8**: configurare ObjectDataSource per usare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image14.png))
 
 
 [![Recuperare i dati della categoria utilizzando il metodo GetCategories](batch-updating-vb/_static/image9.gif)](batch-updating-vb/_static/image15.png)
@@ -166,7 +166,7 @@ Con il `CategoriesDataSource` creato e configurato, ripristinare il `CategoryNam
 
 [![Associare il CategoriesDataSource DropDownList](batch-updating-vb/_static/image11.gif)](batch-updating-vb/_static/image19.png)
 
-**Figura 11**: DropDownList per associare il `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image20.png))
+**Figura 11**: eseguire il binding DropDownList per il `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](batch-updating-vb/_static/image20.png))
 
 
 A questo punto il `Categories` DropDownList Elenca tutte le categorie, ma non è ancora automaticamente selezionare la categoria appropriata per il prodotto associato alla riga GridView. A tale scopo è necessario impostare il `Categories` s DropDownList `SelectedValue` al prodotto s `CategoryID` valore. Fare clic sul collegamento Modifica DataBindings dallo smart tag s DropDownList e associare il `SelectedValue` proprietà con il `CategoryID` campo dati, come illustrato nella figura 12.
@@ -174,7 +174,7 @@ A questo punto il `Categories` DropDownList Elenca tutte le categorie, ma non è
 
 ![Associare il valore di CategoryID prodotto s alla proprietà SelectedValue s DropDownList](batch-updating-vb/_static/image12.gif)
 
-**Figura 12**: associare il prodotto s `CategoryID` valore al s DropDownList `SelectedValue` proprietà
+**Figura 12**: eseguire il binding del prodotto s `CategoryID` valore al s DropDownList `SelectedValue` proprietà
 
 
 Un ultimo resta di problema: se il prodotto dispone di un `CategoryID` valore specificato, l'istruzione di associazione dati in `SelectedValue` genererà un'eccezione. Infatti DropDownList contiene solo gli elementi per le categorie e non offre un'opzione per i prodotti con un `NULL` database valore per `CategoryID`. Per risolvere questo problema, impostare il s DropDownList `AppendDataBoundItems` proprietà `True` e aggiungere un nuovo elemento DropDownList, omettendo il `Value` proprietà con la sintassi dichiarativa. Vale a dire, assicurarsi che il `Categories` la sintassi dichiarativa s DropDownList simile al seguente:
@@ -185,7 +185,7 @@ Un ultimo resta di problema: se il prodotto dispone di un `CategoryID` valore sp
 Nota come il `<asp:ListItem Value="">` - selezionare 1 - è relativa `Value` attributo impostato esplicitamente su una stringa vuota. Fare riferimento al [personalizzazione dell'interfaccia di modifica dati](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md) esercitazione per una descrizione più dettagliata sul motivo per cui questo elemento DropDownList aggiuntivo è necessaria per gestire il `NULL` case e perché l'assegnazione del `Value` proprietà da una stringa vuota è essenziale.
 
 > [!NOTE]
-> È un problema potenziale di prestazioni e scalabilità in questo caso è importante ricordare. Poiché ogni riga dispone di un controllo DropDownList che utilizza il `CategoriesDataSource` come origine dati, il `CategoriesBLL` classe s `GetCategories` metodo verrà chiamato  *n*  visita per pagina, in cui  *n*  è il numero di righe nel controllo GridView. Questi  *n*  le chiamate a `GetCategories` comportare  *n*  query per il database. L'impatto sul database potrebbe essere bilanciato dalla memorizzazione nella cache le categorie restituite in una cache per ogni richiesta o attraverso il livello di memorizzazione nella cache utilizzando una dipendenza o a una scadenza molto basato su breve periodo di tempo di memorizzazione nella cache di SQL. Per ulteriori informazioni sulla richiesta per la memorizzazione nella cache di opzione, vedere [ `HttpContext.Items` un archivio Cache richiesta Per](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
+> È un problema potenziale di prestazioni e scalabilità in questo caso è importante ricordare. Poiché ogni riga ha un DropDownList che utilizza il `CategoriesDataSource` come origine dati, il `CategoriesBLL` classe s `GetCategories` metodo verrà chiamato *n* visitano volte per ogni pagina, in cui *n* è il numero di righe in GridView. Questi *n* le chiamate a `GetCategories` comportare *n* query al database. L'impatto sul database potrebbe essere bilanciato dalla memorizzazione nella cache le categorie restituite in una cache per ogni richiesta o attraverso il livello di memorizzazione nella cache utilizzando una dipendenza o a una scadenza molto basato su breve periodo di tempo di memorizzazione nella cache di SQL. Per ulteriori informazioni sulla richiesta per la memorizzazione nella cache di opzione, vedere [ `HttpContext.Items` un archivio Cache richiesta Per](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>Passaggio 4: Completare l'interfaccia di modifica
@@ -203,7 +203,7 @@ Esistono alcuni problemi di formattazione secondari che è opportuno prestare at
 
 ![Formattare la proprietà Text sotto forma di numero](batch-updating-vb/_static/image14.gif)
 
-**Nella figura 14**: formato di `Text` proprietà sotto forma di numero
+**Figura 14**: formato di `Text` proprietà sotto forma di numero
 
 
 In secondo luogo, s consentono di allineare al centro la casella di controllo di `Discontinued` colonna (anziché è allineato a sinistra). Fare clic su Modifica colonne dallo smart tag GridView s e selezionare il `Discontinued` TemplateField dall'elenco dei campi nell'angolo inferiore sinistro. Drill-down `ItemStyle` e impostare il `HorizontalAlign` proprietà al centro, come illustrato nella figura 15.
@@ -211,7 +211,7 @@ In secondo luogo, s consentono di allineare al centro la casella di controllo di
 
 ![Allineare al centro la casella di controllo non più supportata](batch-updating-vb/_static/image15.gif)
 
-**Figura 15**: centro di `Discontinued` casella di controllo
+**Figura 15**: Center il `Discontinued` casella di controllo
 
 
 Successivamente, aggiungere un controllo ValidationSummary alla pagina e impostare il relativo `ShowMessageBox` proprietà `True` e il relativo `ShowSummary` proprietà `False`. Aggiungere anche il pulsante di controlli Web, che, quando si fa clic, aggiorna le modifiche s utente. In particolare, aggiungere due controlli pulsante Web, uno sopra GridView e di sotto, l'impostazione di entrambi i controlli `Text` proprietà per i prodotti di aggiornamento.
@@ -270,11 +270,11 @@ Per i tipi di situazioni, è consigliabile utilizzare le seguenti `BatchUpdateAl
 
 [!code-vb[Main](batch-updating-vb/samples/sample7.vb)]
 
-`BatchMethodAlternate`inizia creando un nuovo vuoto `ProductsDataTable` denominato `products`. Viene quindi i passaggi da a s GridView `Rows` insieme e per ogni riga Ottiene le informazioni di prodotto specifico con s BLL `GetProductByProductID(productID)` metodo. Recuperato `ProductsRow` istanza ha le proprietà aggiornate in modo identico a `BatchUpdate`, ma dopo aver aggiornato la riga viene importato nel `products` `ProductsDataTable` tramite gli oggetti DataTable [ `ImportRow(DataRow)` metodo](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` inizia creando un nuovo vuoto `ProductsDataTable` denominato `products`. Viene quindi i passaggi da a s GridView `Rows` insieme e per ogni riga Ottiene le informazioni di prodotto specifico con s BLL `GetProductByProductID(productID)` metodo. Recuperato `ProductsRow` istanza ha le proprietà aggiornate in modo identico a `BatchUpdate`, ma dopo aver aggiornato la riga viene importato nel `products` `ProductsDataTable` tramite gli oggetti DataTable [ `ImportRow(DataRow)` metodo](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Dopo il `For Each` ciclo viene completato, `products` contiene uno `ProductsRow` istanza per ogni riga in GridView. Poiché ogni del `ProductsRow` istanze sono state aggiunte per la `products` (anziché aggiornato), se si passa a ciecamente il `UpdateWithTransaction` (metodo) il `ProductsTableAdatper` tenterà di inserire ogni record nel database. In alternativa, è necessario specificare che ognuna di queste righe è stata modificata (non aggiunto).
 
-Questa operazione può essere eseguita aggiungendo un nuovo metodo al livello Business Logic denominato `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, set indicato di seguito, il `RowState` di ogni il `ProductsRow` istanze il `ProductsDataTable` per `Modified` e quindi passa il `ProductsDataTable` per i dispositivi DAL `UpdateWithTransaction` (metodo).
+Questa operazione può essere eseguita aggiungendo un nuovo metodo al livello Business Logic denominato `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, set indicato di seguito, il `RowState` di ogni il `ProductsRow` istanze il `ProductsDataTable` a `Modified` e quindi passa il `ProductsDataTable` per i dispositivi DAL `UpdateWithTransaction` (metodo).
 
 
 [!code-vb[Main](batch-updating-vb/samples/sample8.vb)]
@@ -289,12 +289,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e David Suru. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](wrapping-database-modifications-within-a-transaction-vb.md)
-[Successivo](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](wrapping-database-modifications-within-a-transaction-vb.md)
+> [Successivo](batch-deleting-vb.md)

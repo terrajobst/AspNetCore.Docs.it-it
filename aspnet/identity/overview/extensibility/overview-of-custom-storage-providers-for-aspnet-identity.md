@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: "Panoramica dei provider di archiviazione personalizzato per l'identità ASP.NET | Documenti Microsoft"
+title: Panoramica dei provider di archiviazione personalizzato per l'identità ASP.NET | Documenti Microsoft
 author: tfitzmac
-description: "Identità di ASP.NET è un sistema estendibile che consente di creare un provider di archiviazione e collegarlo all'applicazione senza utilizzare nuovamente il appli..."
+description: Identità di ASP.NET è un sistema estendibile che consente di creare un provider di archiviazione e collegarlo all'applicazione senza utilizzare nuovamente il appli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
 ms.topic: article
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 06e3ad3b74bf94806f56da9f579255bf2917bc48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Panoramica dei provider di archiviazione personalizzato per l'identità ASP.NET
 ====================
@@ -153,29 +153,29 @@ L'immagine successiva Mostra ulteriori informazioni sulle funzionalità definite
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **IUserStore**  
- Il [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) è l'unica interfaccia è necessario implementare nell'archivio utente. Definisce metodi per la creazione, aggiornamento, eliminazione e recupero degli utenti.
+  Il [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) è l'unica interfaccia è necessario implementare nell'archivio utente. Definisce metodi per la creazione, aggiornamento, eliminazione e recupero degli utenti.
 - **IUserClaimStore**  
- Il [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente per abilitare le attestazioni utente. Contiene metodi o aggiunta, rimozione e recupera le attestazioni utente.
+  Il [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente per abilitare le attestazioni utente. Contiene metodi o aggiunta, rimozione e recupera le attestazioni utente.
 - **IUserLoginStore**  
- Il [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definisce i metodi è necessario implementare nell'archivio utente per consentire ai provider di autenticazione esterno. Contiene metodi per l'aggiunta, rimozione e il recupero degli account di accesso utente e un metodo per il recupero di un utente in base alle informazioni di accesso.
+  Il [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definisce i metodi è necessario implementare nell'archivio utente per consentire ai provider di autenticazione esterno. Contiene metodi per l'aggiunta, rimozione e il recupero degli account di accesso utente e un metodo per il recupero di un utente in base alle informazioni di accesso.
 - **IUserRoleStore**  
- Il [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente per mappare un utente a un ruolo. Contiene metodi per aggiungere, rimuovere e recuperare i ruoli dell'utente e un metodo per verificare se un utente è assegnato a un ruolo.
+  Il [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente per mappare un utente a un ruolo. Contiene metodi per aggiungere, rimuovere e recuperare i ruoli dell'utente e un metodo per verificare se un utente è assegnato a un ruolo.
 - **IUserPasswordStore**  
- Il [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente in modo permanente l'hashing delle password. Contiene metodi per ottenere e impostare la password con hash e un metodo che indica se l'utente ha impostato una password.
+  Il [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente in modo permanente l'hashing delle password. Contiene metodi per ottenere e impostare la password con hash e un metodo che indica se l'utente ha impostato una password.
 - **IUserSecurityStampStore**  
- Il [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente da utilizzare un indicatore di sicurezza per che indica se le informazioni sull'account è stato modificato. . Questo indicatore viene aggiornato quando un utente modifica la password, o aggiunge o rimuove gli account di accesso. Contiene metodi per ottenere e impostare l'indicatore di sicurezza.
+  Il [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare nell'archivio utente da utilizzare un indicatore di sicurezza per che indica se le informazioni sull'account è stato modificato. . Questo indicatore viene aggiornato quando un utente modifica la password, o aggiunge o rimuove gli account di accesso. Contiene metodi per ottenere e impostare l'indicatore di sicurezza.
 - **IUserTwoFactorStore**  
- Il [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per implementare l'autenticazione a due fattori. Contiene metodi per ottenere e impostare se per un utente è abilitata l'autenticazione a due fattori.
+  Il [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per implementare l'autenticazione a due fattori. Contiene metodi per ottenere e impostare se per un utente è abilitata l'autenticazione a due fattori.
 - **IUserPhoneNumberStore**  
- Il [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare i numeri di telefono utente. Contiene metodi per ottenere e impostare il numero di telefono e indica se il numero di telefono è confermato.
+  Il [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare i numeri di telefono utente. Contiene metodi per ottenere e impostare il numero di telefono e indica se il numero di telefono è confermato.
 - **IUserEmailStore**  
- Il [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare gli indirizzi di posta elettronica utente. Contiene metodi per ottenere e impostare l'indirizzo di posta elettronica e se il messaggio di posta elettronica è confermato.
+  Il [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare gli indirizzi di posta elettronica utente. Contiene metodi per ottenere e impostare l'indirizzo di posta elettronica e se il messaggio di posta elettronica è confermato.
 - **IUserLockoutStore**  
- Il [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare le informazioni sul blocco di un account. Contiene metodi per ottenere il numero corrente di tentativi di accesso non riuscito, recupero e impostazione dell'account può essere bloccato, ottenere e impostare la data di fine del blocco, incremento del numero di tentativi non riusciti e reimpostazione del numero di tentativi non riusciti.
+  Il [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfaccia definisce i metodi è necessario implementare per archiviare le informazioni sul blocco di un account. Contiene metodi per ottenere il numero corrente di tentativi di accesso non riuscito, recupero e impostazione dell'account può essere bloccato, ottenere e impostare la data di fine del blocco, incremento del numero di tentativi non riusciti e reimpostazione del numero di tentativi non riusciti.
 - **IQueryableUserStore**  
- Il [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfaccia definisce i membri che è necessario implementare per fornire un archivio utente queryable. Contiene una proprietà che contiene gli utenti queryable.
+  Il [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfaccia definisce i membri che è necessario implementare per fornire un archivio utente queryable. Contiene una proprietà che contiene gli utenti queryable.
 
- Implementare le interfacce che sono necessari nell'applicazione; ad esempio, di tipo IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore e IUserSecurityStampStore interfacce come illustrato di seguito. 
+  Implementare le interfacce che sono necessari nell'applicazione; ad esempio, di tipo IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore e IUserSecurityStampStore interfacce come illustrato di seguito. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample5.cs)]
 
@@ -218,11 +218,11 @@ Nell'esempio seguente viene illustrata una classe di archivio di ruolo. Il param
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
- Il [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfaccia definisce i metodi da implementare nella classe archivio ruoli. Contiene metodi per la creazione, aggiornamento, eliminazione e il recupero dei ruoli.
+  Il [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfaccia definisce i metodi da implementare nella classe archivio ruoli. Contiene metodi per la creazione, aggiornamento, eliminazione e il recupero dei ruoli.
 - **RoleStore&lt;TRole&gt;**  
- Per personalizzare l'oggetto RoleStore, creare una classe che implementa l'interfaccia IRoleStore. È necessario implementare questa classe se desidera utilizzare i ruoli del sistema. Il costruttore che accetta un parametro denominato *database* di tipo ExampleDatabase è solo un'illustrazione di come passare nella classe di accesso ai dati. Nell'implementazione di MySQL, ad esempio, il costruttore accetta un parametro di tipo MySQLDatabase.  
+  Per personalizzare l'oggetto RoleStore, creare una classe che implementa l'interfaccia IRoleStore. È necessario implementare questa classe se desidera utilizzare i ruoli del sistema. Il costruttore che accetta un parametro denominato *database* di tipo ExampleDatabase è solo un'illustrazione di come passare nella classe di accesso ai dati. Nell'implementazione di MySQL, ad esempio, il costruttore accetta un parametro di tipo MySQLDatabase.  
   
- Per un'implementazione completa, vedere [oggetto RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
+  Per un'implementazione completa, vedere [oggetto RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
 
 <a id="reconfigure"></a>
 ## <a name="reconfigure-application-to-use-new-storage-provider"></a>Riconfigurare l'applicazione per l'uso di nuovi provider di archiviazione
@@ -232,7 +232,7 @@ Nell'esempio seguente viene illustrata una classe di archivio di ruolo. Il param
 ### <a name="replace-default-storage-provider-in-mvc-project"></a>Sostituire il provider di archiviazione predefinito nel progetto MVC
 
 1. Nel **Gestisci pacchetti NuGet** finestra, disinstallare il **Microsoft ASP.NET Identity EntityFramework** pacchetto. È possibile trovare il pacchetto eseguendo una ricerca nei pacchetti di installazione per Identity.EntityFramework.  
-    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png)Verrà richiesto se si desidera disinstallare anche Entity Framework. Se non è necessaria in altre parti dell'applicazione, è possibile disinstallarlo.
+    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Verrà richiesto se si desidera disinstallare anche Entity Framework. Se non è necessaria in altre parti dell'applicazione, è possibile disinstallarlo.
 2. Nel file IdentityModels.cs nella cartella Models, eliminare o impostare come commento il **ApplicationUser** e **ApplicationDbContext** classi. In un'applicazione MVC, è possibile eliminare l'intero file IdentityModels.cs. In un'applicazione Web Form, eliminare le due classi, ma accertarsi di mantenere una classe helper che è disponibile anche nel file IdentityModels.cs.
 3. Se il provider di archiviazione si trova in un progetto separato, è possibile aggiungere un riferimento a essa nell'applicazione web.
 4. Sostituire tutti i riferimenti a `using Microsoft.AspNet.Identity.EntityFramework;` con un'istruzione per lo spazio dei nomi del provider di archiviazione.
@@ -254,7 +254,7 @@ Nell'esempio seguente viene illustrata una classe di archivio di ruolo. Il param
 ## <a name="other-resources"></a>Altre risorse
 
 - Blog: [implementazione di ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
-- Codice di esercitazione e GIT: [Simple.Data Provider di identità di Asp.Net](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
+- Codice di esercitazione e GIT: [Simple.Data Asp.Net Identity Provider](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
 - Esercitazione:[impostazione degli account di identità base e li verso un database esterno](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx). Da [ @xivSolutions ](https://twitter.com/xivSolutions).
 - Esercitazione[: implementazione di un Provider di archiviazione di ASP.NET Identity MySQL personalizzato](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
 - [Entità CodeFluent](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/) da [SoftFluent](http://www.softfluent.com/)

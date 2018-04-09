@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 title: Abilita automatizzata Unit test | Documenti Microsoft
 author: microsoft
-description: "Passaggio 12 illustra come sviluppare un gruppo di unit test automatizzati per verificare la funzionalità NerdDinner e che ci consentirà di confidenza per apportare modifiche..."
+description: Passaggio 12 illustra come sviluppare un gruppo di unit test automatizzati per verificare la funzionalità NerdDinner e che ci consentirà di confidenza per apportare modifiche...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 1a4258054d90b2d5bcc06a63fb6f3b4673a4837d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fede08be7e06327c6d04fa5d36f7dd818d79b380
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-automated-unit-testing"></a>Abilitare Unit test automatici
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -45,7 +45,7 @@ Unit test automatizzati consentono di rete di protezione che consente di miglior
 
 Il Framework di MVC ASP.NET è più semplice e naturale alle funzionalità di unit test dell'applicazione. Consente inoltre di un flusso di lavoro di Test Driven Development (TDD) che consente lo sviluppo basato su test preliminare.
 
-### <a name="nerddinnertests-project"></a>Progetto NerdDinner.Tests
+### <a name="nerddinnertests-project"></a>NerdDinner.Tests Project
 
 Quando abbiamo creato l'applicazione NerdDinner all'inizio di questa esercitazione, alla richiesta con una finestra di dialogo che chiede se si desidera creare un progetto di unit test per passare insieme al progetto di applicazione:
 
@@ -99,7 +99,7 @@ Visual Studio 2008 Professional (e versioni successive) includono un programma t
 
 ![](enable-automated-unit-testing/_static/image5.png)
 
-*Nota: La finestra Risultati test di Visual Studio non visualizza la colonna nome della classe per impostazione predefinita. È possibile aggiungere questo facendo clic all'interno della finestra risultati del Test e il comando di menu Aggiungi/Rimuovi colonne.*
+*Nota: La finestra Risultati test di Visual Studio non visualizza la colonna nome della classe per impostazione predefinita. È possibile aggiungere questo facendo clic all'interno della finestra risultati del Test e utilizzando il comando di menu Aggiungi/Rimuovi colonne.*
 
 I due test ha richiesto solo una frazione di secondo per l'esecuzione e come si può vedere entrambi passati. È possibile passare e li aumentare mediante la creazione di altri test che verifica le convalide di regole specifici, nonché coprire i due metodi helper - IsUserHost() e IsUserRegisterd(): aggiunto alla classe di Dinner. Quando tutti questi test in posizione centralizzata per la classe Dinner renderà molto più semplice e sicuro per aggiungervi nuove regole business e le convalide in futuro. È possibile aggiungere la nuova logica della regola a cena e quindi verificare che non è stata interrotta la precedente funzionalità logica entro pochi secondi.
 
@@ -234,7 +234,7 @@ L'oggetto utente nella classe di base Controller incapsula i dettagli relativi a
 
 Framework di simulazione per facilitare il testing, consentendo di creare dinamicamente false versioni degli oggetti dipendenti che supportano i test. Ad esempio, è possibile utilizzare un framework di simulazione al test di azione di modifica per creare dinamicamente un oggetto utente che il nostro DinnersController è possibile utilizzare per cercare un nome utente simulato. Questo modo si evita un riferimento null viene generata quando si esegue il test.
 
-Esistono molti .NET tali Framework che può essere utilizzato con ASP.NET MVC (è possibile visualizzare un elenco di queste impostazioni qui: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). Per testare l'applicazione NerdDinner si userà un'open source di tali framework denominato "Moq", che può essere scaricato gratuitamente da [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
+Esistono molti .NET tali Framework che può essere utilizzato con ASP.NET MVC da (è possibile visualizzare un elenco di queste impostazioni qui: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Per il test dell'applicazione NerdDinner si userà un open-source mocking framework denominato "Moq", che può essere scaricato gratuitamente dal [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
 
 Una volta scaricato, verrà aggiunto un riferimento nel progetto NerdDinner.Tests all'assembly Moq.dll:
 
@@ -285,6 +285,6 @@ Sviluppo basato su Test (TDD) e come utilizzarla con ASP.NET MVC, si parlerà un
 
 Alcuni incapsulamento finale i commenti.
 
->[!div class="step-by-step"]
-[Precedente](use-ajax-to-implement-mapping-scenarios.md)
-[Successivo](nerddinner-wrap-up.md)
+> [!div class="step-by-step"]
+> [Precedente](use-ajax-to-implement-mapping-scenarios.md)
+> [Successivo](nerddinner-wrap-up.md)

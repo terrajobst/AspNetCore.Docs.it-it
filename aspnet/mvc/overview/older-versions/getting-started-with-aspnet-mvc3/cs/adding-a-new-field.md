@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 title: Aggiunta di un nuovo campo al modello di film e di tabella (c#) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10f3be30a92a605c34fa1c56fa3691389374beb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6364e438bbb7e128945255a5150e1e84e593ac4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>Aggiunta di un nuovo campo al modello di film e di tabella (c#)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -86,7 +86,7 @@ Di seguito, aggiornare l'applicazione in modo che il primo codice automaticament
 
 > [!NOTE] 
 > 
-> **Avviso** è consigliabile abilitare questo approccio di automaticamente eliminare e ricreare il database solo quando si utilizza un database di sviluppo o test, e *mai* in un database di produzione che contiene i dati reali. Utilizzarla in un server di produzione può causare la perdita di dati.
+> **Avviso** è consigliabile abilitare questo approccio di automaticamente eliminando e ricreando il database solo quando si utilizza un database di sviluppo o test, e *mai* in un database di produzione che contiene dati reali. Utilizzarla in un server di produzione può causare la perdita di dati.
 
 
 In **Esplora soluzioni**, fare clic destro la *modelli* cartella, selezionare **Aggiungi**e quindi selezionare **classe**.
@@ -133,6 +133,6 @@ Scegliere **Crea**. Il nuovo filmato, tra cui la valutazione, viene inserito nei
 
 In questa sezione è stato illustrato come è possibile modificare gli oggetti del modello e sincronizzare il database con le modifiche. È stato inoltre un modo per popolare un database appena creato con dati di esempio in modo è possibile provare gli scenari. Successivamente, si esaminerà come è possibile aggiungere la logica di convalida più completa per le classi di modello e abilitare alcune regole di business da applicare.
 
->[!div class="step-by-step"]
-[Precedente](examining-the-edit-methods-and-edit-view.md)
-[Successivo](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Precedente](examining-the-edit-methods-and-edit-view.md)
+> [Successivo](adding-validation-to-the-model.md)

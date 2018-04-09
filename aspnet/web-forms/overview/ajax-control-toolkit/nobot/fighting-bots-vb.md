@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b786fd8605c7521a4aae8e49ca236363a71b572
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d5984ac7ff3422bab07a759c93fef3914a22f7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="fighting-bots-vb"></a>Tori bot (VB)
 ====================
@@ -37,7 +37,7 @@ Un approccio comune per aggirare i robot consiste nell'utilizzare test CAPTCHAs 
 
 Esistono diversi vantaggi e svantaggi di questo approccio, ma una descrizione di questo oggetto non rientra nell'ambito di questa esercitazione. È tuttavia un controllo ASP.NET AJAX Control Toolkit che fornisce un approccio simile: `NoBot`. È più semplice superare rispetto a un CAPTCHA, ma è molto facile da usare e tariffe molto bene in siti Web come blog in cui viene considerato un caso di esito positivo se la maggior parte di inviare posta indesiderata tentativi sono annullati, quale il `NoBot` controllo eseguibili.
 
-`NoBot`Consente di intercettare il postback di web form ASP.NET corrente se viene soddisfatta almeno una delle seguenti condizioni:
+`NoBot` Consente di intercettare il postback di web form ASP.NET corrente se viene soddisfatta almeno una delle seguenti condizioni:
 
 - Il browser non riesce a risolvere un puzzle JavaScript (ad esempio quando JavaScript è disattivato)
 - Il modulo alla veloce inviati dall'utente
@@ -45,9 +45,9 @@ Esistono diversi vantaggi e svantaggi di questo approccio, ma una descrizione di
 
 Per verificare la presenza di queste condizioni, il `NoBot` controllo richiede questi attributi (tutti facoltativi):
 
-- `ResponseMinimumDelaySeconds`quantità minima di secondi durante i postback
-- `CutoffWindowSeconds`lunghezza dell'intervallo di tempo in cui i postback da un indirizzo IP sono misure
-- `CutoffMaximumInstances`quantità massima di secondi per l'intervallo di tempo
+- `ResponseMinimumDelaySeconds` quantità minima di secondi tra i vari postback
+- `CutoffWindowSeconds` lunghezza dell'intervallo di tempo in cui i postback da un indirizzo IP sono misure
+- `CutoffMaximumInstances` quantità massima di secondi per ogni intervallo di tempo
 
 Le seguenti richieste di markup che almeno due secondi devono trascorrere tra i vari postback e che sono presenti i postback solo cinque o meno all'interno di un intervallo di 30 secondi:
 
@@ -72,5 +72,5 @@ Quando si esegue questo script e disattivare JavaScript o inviare il modulo entr
 
 Questo messaggio di errore potrebbe essere causato da un robot ([fare clic per visualizzare l'immagine ingrandita](fighting-bots-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](fighting-bots-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](fighting-bots-cs.md)

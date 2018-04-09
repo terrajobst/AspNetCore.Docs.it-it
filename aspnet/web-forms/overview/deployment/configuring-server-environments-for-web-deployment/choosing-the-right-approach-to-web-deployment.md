@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 title: Scelta dell'approccio corretto per la distribuzione Web | Documenti Microsoft
 author: jrjlee
-description: "Quando utilizza Internet Information Services (IIS) strumento di distribuzione Web (distribuzione Web) 2.0 o versione successiva, sono disponibili tre approcci principali, che è possibile utilizzare per ottenere..."
+description: Quando utilizza Internet Information Services (IIS) strumento di distribuzione Web (distribuzione Web) 2.0 o versione successiva, sono disponibili tre approcci principali, che è possibile utilizzare per ottenere...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Scelta dell'approccio corretto per la distribuzione Web
 ====================
@@ -118,7 +118,7 @@ Nel caso di utenti non amministratori, il servizio di gestione Web (WMSvc) conse
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-Si supponga, ad esempio, che un processo di compilazione è configurato per distribuire automaticamente un'applicazione web in un ambiente di gestione temporanea dopo ogni compilazione ha esito positivo. Se si utilizza l'approccio di agente remoto, è necessario verificare l'identità del processo di compilazione di un amministratore sui server di destinazione. Al contrario, l'utilizzo dell'approccio gestore distribuzione Web è possibile assegnare un utente non amministratore & #x 2014; **FABRIKAM\stagingdeployer** in questo caso & #x 2014; le autorizzazioni per un solo sito specifico di IIS e il processo di compilazione possono fornire queste credenziali per distribuire il pacchetto web.
+Si supponga, ad esempio, che un processo di compilazione è configurato per distribuire automaticamente un'applicazione web in un ambiente di gestione temporanea dopo ogni compilazione ha esito positivo. Se si utilizza l'approccio di agente remoto, è necessario verificare l'identità del processo di compilazione di un amministratore sui server di destinazione. Al contrario, Usa l'approccio gestore distribuzione Web è possibile assegnare un utente senza privilegi di amministratore&#x2014;**FABRIKAM\stagingdeployer** in questo caso&#x2014;possono fornire queste autorizzazioni necessarie per un sito Web di IIS specifico solo, il processo di compilazione credenziali per distribuire il pacchetto di web.
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Per ulteriori informazioni sulla sintassi e le operazioni da riga di comando di 
 
 Per istruzioni generali sulle diverse modalità in cui è possibile distribuire i pacchetti web da un computer remoto, vedere [tramite distribuzione Web in remoto](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Per ulteriori informazioni sull'utilizzo di distribuzione Web su richiesta, vedere [distribuzione Web su richiesta](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
->[!div class="step-by-step"]
-[Precedente](configuring-server-environments-for-web-deployment.md)
-[Successivo](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-server-environments-for-web-deployment.md)
+> [Successivo](scenario-configuring-a-test-environment-for-web-deployment.md)

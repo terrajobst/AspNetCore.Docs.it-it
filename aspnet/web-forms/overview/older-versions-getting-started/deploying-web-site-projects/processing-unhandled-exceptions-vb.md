@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 title: L'elaborazione delle eccezioni non gestite (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Quando si verifica un errore di runtime in un'applicazione web nell'ambiente di produzione è importante per notificare a uno sviluppatore e di registrare l'errore, in modo che può essere diagnosticata in un la..."
+description: Quando si verifica un errore di runtime in un'applicazione web nell'ambiente di produzione è importante per notificare a uno sviluppatore e di registrare l'errore, in modo che può essere diagnosticata in un la...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f5bf39bc2433a2fb277cb56554ddf39bea7a9c79
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: cb42cf6c457cf20da7f65352bb7eed1230b59588
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>L'elaborazione delle eccezioni non gestite (VB)
 ====================
@@ -167,6 +167,6 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Utilizzo di ASP.NET `Global.asax` File](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
 - [Utilizzo di `HttpApplication` istanze](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
->[!div class="step-by-step"]
-[Precedente](displaying-a-custom-error-page-vb.md)
-[Successivo](logging-error-details-with-asp-net-health-monitoring-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-a-custom-error-page-vb.md)
+> [Successivo](logging-error-details-with-asp-net-health-monitoring-vb.md)

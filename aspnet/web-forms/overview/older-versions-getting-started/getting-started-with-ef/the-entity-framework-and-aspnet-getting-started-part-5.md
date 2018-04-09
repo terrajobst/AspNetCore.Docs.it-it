@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 title: Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 di Web Form - parte 5 | Documenti Microsoft
 author: tdykstra
-description: "L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio..."
+description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 5
 ====================
@@ -123,10 +123,10 @@ Eseguire la pagina.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Selezionare un docente. Il **assegnare un corso** elenco a discesa Visualizza i corsi istruttore non spiega, e **rimuovere un corso** elenco a discesa Visualizza i corsi istruttore è già assegnato a. Nel **assegnare un corso** sezione, selezionare un corso e quindi fare clic su **assegnare**. Sposta la linea di **rimuovere un corso** elenco a discesa. Selezionare un corso nel **rimuovere un corso** sezione e fare clic su **Remove * * *.* Sposta la linea di **assegnare un corso** elenco a discesa.
+Selezionare un docente. Il <strong>assegnare un corso</strong> elenco a discesa Visualizza i corsi istruttore non spiega, e <strong>rimuovere un corso</strong> elenco a discesa Visualizza i corsi istruttore è già assegnato a. Nel <strong>assegnare un corso</strong> sezione, selezionare un corso e quindi fare clic su <strong>assegnare</strong>. Sposta la linea di <strong>rimuovere un corso</strong> elenco a discesa. Selezionare un corso nel <strong>rimuovere una linea di condotta</strong> sezione e fare clic su <strong>rimuovere</strong><em>.</em> Sposta la linea di <strong>assegnare un corso</strong> elenco a discesa.
 
 Sono stati analizzati alcuni altri modi per lavorare con i dati correlati. Nell'esercitazione seguente, si apprenderà come usare l'ereditarietà nel modello di dati per migliorare la manutenibilità dell'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[Successivo](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [Precedente](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [Successivo](the-entity-framework-and-aspnet-getting-started-part-6.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 title: La distribuzione del sito utilizzando un Client FTP (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Il modo più semplice per distribuire un'applicazione ASP.NET è copiare manualmente i file necessari dall'ambiente di sviluppo all'ambiente di produzione. Parola..."
+description: Il modo più semplice per distribuire un'applicazione ASP.NET è copiare manualmente i file necessari dall'ambiente di sviluppo all'ambiente di produzione. Parola...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3b7add6765374fc3e5dba2c90239102354da3922
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>La distribuzione del sito utilizzando un Client FTP (c#)
 ====================
@@ -72,9 +72,9 @@ Figura 1 mostra FileZilla dopo avere copiati i file necessari. FileZilla Visuali
 > Non è causa problemi con i file del codice sorgente nel server di produzione, vengono ignorati. Per impostazione predefinita, in ASP.NET non consente le richieste HTTP ai file del codice sorgente in modo che anche se i file del codice sorgente sono presenti nel server di produzione sono inaccessibili ai visitatori del sito Web. (Ovvero, se un utente tenta di visitare `http://www.yoursite.com/Default.aspx.cs` che verrà visualizzato come una pagina di errore che spiega che questi tipi di file - `.cs` - file non sono consentite.)
 
 
-[![Utilizzare un Client FTP per copiare i file necessari dal proprio computer al Server Web il Provider di hosting Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
+[![Utilizzare un Client FTP per copiare i file necessari dal Desktop nel server Web a Provider di hosting Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
 
-**Figura 1**: utilizzare un FTP Client per copiare i file necessari nel Desktop nel server Web al Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
+**Figura 1**: usare un FTP Client per copiare i file necessari da Your Desktop nel server Web a Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
 
 
 Dopo la distribuzione del sito è opportuno testare il sito. Se è stato acquistato un nome di dominio e configurato le impostazioni DNS in modo corretto, è possibile visitare il sito, immettere il nome di dominio. In alternativa, il provider di hosting web deve avere ha fornito un URL al sito, che avrà un aspetto simile *accountname*. *webhostprovider*. com o *webhostprovider*. com /*accountname*. Ad esempio, l'URL per l'account su ASP.NET di sconto è: `http://httpruntime.web703.discountasp.net`.
@@ -85,9 +85,9 @@ Figura 2 mostra il sito recensioni distribuito. Si noti che lo sto visualizzando
 > Se si verifica un errore durante la visualizzazione dell'applicazione è opportuno verificare che è stato distribuito il set corretto di file. Successivamente, controllare il messaggio di errore per vedere se rivela eventuali indizi il problema. Successivamente, è possibile attivare al supporto tecnico della società host web o inviare una domanda nel forum appropriato nel [forum ASP.NET](https://forums.asp.net/).
 
 
-[![Il sito di revisioni del libro è ora accessibile agli utenti con una connessione Internet](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
+[![Il sito di revisioni del libro è ora accessibile a chiunque disponga di una connessione a Internet](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
 
-**Figura 2**: il sito di revisioni del libro è ora accessibile agli utenti con una connessione Internet ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
+**Figura 2**: il sito revisioni del libro è ora accessibile a chiunque disponga di una connessione Internet ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
 
 
 ## <a name="deploying-the-book-review-web-site-project"></a>La distribuzione del progetto di sito Web di revisione della Rubrica
@@ -127,9 +127,9 @@ Dopo aver creato correttamente il progetto, è possibile utilizzare il client FT
 Figura 3 mostra FileZilla dopo la copia dei file necessari. Come si può notare, ASP.NET file di codice sorgente, ad esempio `About.aspx.cs`, sono presenti nel computer locale (ambiente di sviluppo) sia il provider di hosting web (ambiente di produzione) perché i file di codice devono essere distribuiti quando si usa automatico compilazione.
 
 
-[![Utilizzare un Client FTP per copiare i file necessari dal proprio computer al Server Web il Provider di hosting Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
+[![Utilizzare un Client FTP per copiare i file necessari dal Desktop nel server Web a Provider di hosting Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
 
-**Figura 3**: utilizzare un FTP Client per copiare i file necessari nel Desktop nel server Web al Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
+**Figura 3**: usare un FTP Client per copiare i file necessari da Your Desktop nel server Web a Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
 
 
 L'esperienza utente non è interessata dal modello di compilazione dell'applicazione. Le stesse pagine ASP.NET sono accessibili e l'aspetto e lo stesso comportamento se il sito Web è stato creato utilizzando il modello di progetto di applicazione Web o il modello di progetto di sito Web.
@@ -158,9 +158,9 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [App\_Offline.htm e risolvere la funzionalità "IE descrittivo errori"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
+- [App\_Offline.htm e soluzioni alternative: la funzionalità "Errori di inserimento/espulsione descrittivo"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [Modalità stato sessione](https://msdn.microsoft.com/library/ms178586.aspx)
 
->[!div class="step-by-step"]
-[Precedente](determining-what-files-need-to-be-deployed-cs.md)
-[Successivo](deploying-your-site-using-visual-studio-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](determining-what-files-need-to-be-deployed-cs.md)
+> [Successivo](deploying-your-site-using-visual-studio-cs.md)

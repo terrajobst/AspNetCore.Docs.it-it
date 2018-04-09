@@ -1,5 +1,5 @@
 ---
-title: "Configurare il tipo di dati della chiave primaria identità in ASP.NET Core"
+title: Configurare il tipo di dati della chiave primaria identità in ASP.NET Core
 author: AdrienTorris
 description: Informazioni sulla procedura per la configurazione del tipo di dati desiderato, utilizzato per la chiave primaria di ASP.NET Identity Core.
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: 02482b81faa64b01765a90c2c6ffe9cf92b1a7e7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: db47055aecc5252dbb3991f29a8255b946deaeb7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>Configurare il tipo di dati della chiave primaria identità in ASP.NET Core
 
@@ -25,30 +25,27 @@ Identità di ASP.NET Core consente di configurare il tipo di dati utilizzato per
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationUser.cs?highlight=4&range=7-13)]
 
-1. Creare un'implementazione personalizzata del [IdentityRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) classe. Rappresenta il tipo da utilizzare per la creazione di oggetti di ruolo. Nell'esempio seguente, il valore predefinito `string` tipo viene sostituito con `Guid`.
-    
+2. Creare un'implementazione personalizzata del [IdentityRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) classe. Rappresenta il tipo da utilizzare per la creazione di oggetti di ruolo. Nell'esempio seguente, il valore predefinito `string` tipo viene sostituito con `Guid`.
+
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationRole.cs?highlight=3&range=7-12)]
-    
-1. Creare una classe del contesto del database personalizzato. Eredita dalla classe di contesto di database di Entity Framework utilizzata per l'identità. Il `TUser` e `TRole` argomenti fanno riferimento le classi utente e il ruolo personalizzate create nel passaggio precedente, rispettivamente. Il `Guid` tipo di dati definito per la chiave primaria.
+
+3. Creare una classe del contesto del database personalizzato. Eredita dalla classe di contesto di database di Entity Framework utilizzata per l'identità. Il `TUser` e `TRole` argomenti fanno riferimento le classi utente e il ruolo personalizzate create nel passaggio precedente, rispettivamente. Il `Guid` tipo di dati definito per la chiave primaria.
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Data/ApplicationDbContext.cs?highlight=3&range=9-26)]
-    
-1. Quando si aggiunge il servizio di identità nella classe di avvio dell'app, registrare la classe di contesto del database personalizzato.
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-    
+4. Quando si aggiunge il servizio di identità nella classe di avvio dell'app, registrare la classe di contesto del database personalizzato.
+
+   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
     Il `AddEntityFrameworkStores` metodo non accetta un `TKey` argomento perché è stato in ASP.NET Core 1. x. Tipo di dati della chiave primaria è dedotto analizzando il `DbContext` oggetto.
-    
-    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=6-8&range=25-37)]
-    
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-    
-    Il `AddEntityFrameworkStores` metodo accetta un `TKey` argomento indica il tipo di dati della chiave primaria.
-    
-    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=9-11&range=39-55)]
-    
-    ---
 
+    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=6-8&range=25-37)]
+
+   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+    Il `AddEntityFrameworkStores` metodo accetta un `TKey` argomento indica il tipo di dati della chiave primaria.
+
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=9-11&range=39-55)]
+
+   * * *
 ## <a name="test-the-changes"></a>Testare le modifiche
 
 Dopo il completamento delle modifiche di configurazione, la proprietà che rappresenta la chiave primaria riflette il nuovo tipo di dati. Nell'esempio seguente viene illustrato l'accesso alla proprietà in un controller MVC.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9059e358311cc80b6a64aa3ee1168f4ffcd4e94c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c0123c12bb653a7f680154e2155eae0eb129428
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-vb"></a>Pagine Master annidate (VB)
 ====================
@@ -94,7 +94,7 @@ Questo codice consente di visualizzare un collegamento denominato "Pagine Master
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>Passaggio 2: Creazione di una pagina Master annidata semplice
 
-`Simple.master`contiene due controlli ContentPlaceHolder: il `MainContent` ContentPlaceHolder è aggiunto all'interno del Web Form con il `head` ContentPlaceHolder nel `<head>` elemento. Se si crea una pagina contenuta e associarlo al `Simple.master` pagina contenuto avrebbe due controlli contenuto che fa riferimento il due ContentPlaceHolder. Analogamente, se si crea una pagina master annidata e associarlo al `Simple.master` la pagina master annidata avrà due controlli contenuto.
+`Simple.master` contiene due controlli ContentPlaceHolder: il `MainContent` ContentPlaceHolder è aggiunto all'interno del Form Web insieme al `head` ContentPlaceHolder nel `<head>` elemento. Se si crea una pagina contenuta e associarlo al `Simple.master` pagina contenuto avrebbe due controlli contenuto che fa riferimento il due ContentPlaceHolder. Analogamente, se si crea una pagina master annidata e associarlo al `Simple.master` la pagina master annidata avrà due controlli contenuto.
 
 Aggiungere una nuova pagina master annidata per il `NestedMasterPages` cartella denominata `SimpleNested.master`. Fare clic su di `NestedMasterPages` cartella e scegliere Aggiungi nuovo elemento. Verrà visualizzata la finestra di dialogo Aggiungi nuovo elemento mostrata nella figura 2. Selezionare il tipo di modello di pagina Master e digitare il nome della nuova pagina master. Per indicare che la nuova pagina master deve essere una pagina master annidata, selezionare la casella di controllo "Seleziona pagina master".
 
@@ -104,14 +104,14 @@ Successivamente, fare clic sul pulsante Aggiungi. L'istruzione Select stesso ver
 > Se è stato creato il sito Web ASP.NET utilizzando il modello di progetto di applicazione Web anziché il modello di progetto di sito Web non si vedranno la casella di controllo "Seleziona pagina master" nella finestra di dialogo Aggiungi nuovo elemento mostrato nella figura 2. Per creare una pagina master annidata quando si utilizza il modello di progetto di applicazione Web è necessario scegliere il modello di pagina Master annidata (anziché il modello di pagina Master). Dopo aver selezionato il modello annidato pagina Master e fare clic su Aggiungi, lo stesso Seleziona pagina Master che verrà visualizzata la finestra di dialogo illustrata nella figura 3.
 
 
-[![Controllare il &quot;Seleziona pagina master&quot; casella di controllo per aggiungere una pagina Master annidate](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
+[![Controllare la &quot;Seleziona pagina master&quot; casella di controllo per aggiungere una pagina Master annidate](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
 
 **Figura 02**: selezionare la casella di controllo "Seleziona pagina master" per aggiungere una pagina Master annidate ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image6.png))
 
 
 [![Associare la pagina Master annidata alla pagina Master Simple.master](nested-master-pages-vb/_static/image8.png)](nested-master-pages-vb/_static/image7.png)
 
-**Figura 03**: la pagina Master annidate per associare il `Simple.master` pagina Master ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image9.png))
+**Figura 03**: pagina Master annidate per associare il `Simple.master` pagina Master ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image9.png))
 
 
 Markup dichiarativo della pagina master annidata, illustrato di seguito, contiene due controlli contenuto di riferimento ai controlli ContentPlaceHolder due di livello superiore della pagina master.
@@ -126,7 +126,7 @@ Aggiornare questa pagina master annidata in modo che venga visualizzato il testo
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Dopo aver apportato questa aggiunta, salvare la pagina master annidata e quindi aggiungere una nuova pagina contenuta per il `NestedMasterPages` cartella denominata `Default.aspx`e associarlo al `SimpleNested.master` pagina master. Dopo l'aggiunta di questa pagina potrebbe essere strano che non contiene alcun controllo contenuto (vedere la figura 4). Una pagina di contenuto può accedere solo ai relativi *padre* gli elementi ContentPlaceHolder della pagina master. `SimpleNested.master`non contiene tutti i controlli ContentPlaceHolder; Pertanto, qualsiasi pagina di contenuto associato a questa pagina master non può contenere tutti i controlli contenuti.
+Dopo aver apportato questa aggiunta, salvare la pagina master annidata e quindi aggiungere una nuova pagina contenuta per il `NestedMasterPages` cartella denominata `Default.aspx`e associarlo al `SimpleNested.master` pagina master. Dopo l'aggiunta di questa pagina potrebbe essere strano che non contiene alcun controllo contenuto (vedere la figura 4). Una pagina di contenuto può accedere solo ai relativi *padre* gli elementi ContentPlaceHolder della pagina master. `SimpleNested.master` non contiene tutti i controlli ContentPlaceHolder; Pertanto, qualsiasi pagina di contenuto associato a questa pagina master non può contenere tutti i controlli contenuti.
 
 
 [![La nuova pagina di contenuto non contiene contenuti controlli](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
@@ -152,9 +152,9 @@ Eliminare il `Default.aspx` il contenuto pagina appena creato e quindi aggiunger
 La figura 5 mostra tre entità coinvolte, `Simple.master`, `SimpleNested.master`, e `Default.aspx` - e come interagiscono tra loro. Come illustrato nel diagramma, la pagina master annidata implementa i controlli del contenuto per ContentPlaceHolder del padre. Se queste aree devono poter accedere alla pagina di contenuto, la pagina master annidata è necessario aggiungere il proprio ContentPlaceHolder ai controlli del contenuto.
 
 
-[![Le pagine Master di primo livello e nidificati definiscono il Layout della pagina di contenuto](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
+[![Le pagine Master di primo livello e nidificati, definiscono il contenuto del Layout della pagina](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
 
-**Figura 05**: le pagine Master di primo livello e nidificati definiscono il Layout della pagina di contenuto ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image15.png))
+**Figura 05**: le pagine Master di primo livello e nidificati, definiscono il contenuto del Layout della pagina ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image15.png))
 
 
 Questo comportamento viene illustrato come una pagina contenuto o una pagina master è solo consapevoli della pagina master padre. Questo comportamento è indicato anche dalla progettazione di Visual Studio. La figura 6 mostra la finestra di progettazione `Default.aspx`. Mentre la finestra di progettazione mostra chiaramente le aree sono modificabili della pagina di contenuto e quali non sono parti, non risolvere le ambiguità nei quali sono le aree non modificabili della pagina master nidificata e quali sono le aree della pagina master di primo livello.
@@ -192,9 +192,9 @@ Per dimostrare la facilità con cui è possibile modificare il layout del sito o
 Consente di aggiungere due collegamenti nella parte superiore di ogni pagina che associa `Simple.master`, `SimpleNested.master`, o `SimpleNestedAlternate.master`; le modifiche si applicano a pagine master annidate tutti e le relative pagine contenute immediatamente. La figura 8 mostra `Alternate.aspx` quando viene visualizzato tramite un browser. Si noti l'aggiunta dei collegamenti nella parte superiore della pagina (rispetto alla figura 7).
 
 
-[![Modificato in una pagina Master di livello superiore vengono immediatamente riflessi nel relativo le pagine Master annidate e le pagine di contenuto relativi](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
+[![Modificato per la pagina Master di livello superiore vengono immediatamente riflessi nel relativo pagine Master annidate e le pagine di contenuto Their](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
 
-**Figura 08**: modificato per la pagina Master di livello superiore vengono immediatamente riflessi nel relativo le pagine Master annidate e le pagine di contenuto relativi ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image24.png))
+**Figura 08**: modificato per la pagina Master di livello superiore vengono immediatamente riflessi nel relativo pagine Master annidate e le pagine di contenuto Their ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image24.png))
 
 
 ## <a name="using-a-nested-master-page-for-the-administration-section"></a>Utilizzo di una pagina Master annidata per la sezione di amministrazione
@@ -249,16 +249,16 @@ Notare che ogni controllo contenuto dispone di un controllo ContentPlaceHolder e
 Figura 10 è illustrata la `AdminNested.master` pagina master annidata quando viene visualizzato tramite Progettazione di Visual Studio. È possibile visualizzare le istruzioni nella casella di colore gialla nella parte superiore del `MainContent` controllo contenuto.
 
 
-[![La pagina Master annidata estende il primo livello pagina Master per includere istruzioni per l'amministratore.](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
+[![La pagina Master annidata estende il primo livello pagina Master per includere le istruzioni per l'amministratore.](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
 
-**Figura 10**: la pagina Master annidata estende il primo livello pagina Master per includere istruzioni per l'amministratore. ([Fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image30.png))
+**Figura 10**: la pagina Master annidata estende il primo livello pagina Master per includere le istruzioni per l'amministratore. ([Fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image30.png))
 
 
 ## <a name="step-5-updating-the-existing-content-pages-to-use-the-new-nested-master-page"></a>Passaggio 5: Aggiornamento delle pagine di contenuto esistenti per utilizzare la nuova pagina Master nidificata
 
 In qualsiasi momento si aggiunga una nuova pagina contenuta per la sezione di amministrazione, è necessario associarlo al `AdminNested.master` pagina master appena creato. Ma cosa succede esistenti pagine di contenuto? Attualmente, tutte le pagine di contenuto nel sito di derivano il `BasePage` (classe), che a livello di codice imposta il contenuto della pagina master in fase di esecuzione. Questa operazione è il comportamento desiderato per le pagine di contenuto della sezione di amministrazione. Si desidera invece che queste pagine contenute utilizzare sempre il `AdminNested.master` pagina. Sarà la responsabilità della pagina master nidificata per scegliere la pagina di contenuto a destra di primo livello in fase di esecuzione.
 
-Per il modo migliore per ottenere questo desiderata comportamento consiste nel creare una nuova classe di pagina base personalizzata denominata `AdminBasePage` che estende la `BasePage` classe. `AdminBasePage`quindi è possibile eseguire l'override di `SetMasterPageFile` e impostare il `Page` dell'oggetto `MasterPageFile` sul valore hardcoded "~ / Admin/AdminNested.master". In questo modo, qualsiasi pagina che deriva da `AdminBasePage` utilizzerà `AdminNested.master`, mentre qualsiasi pagina che deriva da `BasePage` avrà relativo `MasterPageFile` impostata in modo dinamico su "~ / Site. master" o "~ / Alternate.master" in base al valore del `MyMasterPage` Variabile di sessione.
+Per il modo migliore per ottenere questo desiderata comportamento consiste nel creare una nuova classe di pagina base personalizzata denominata `AdminBasePage` che estende la `BasePage` classe. `AdminBasePage` quindi è possibile eseguire l'override di `SetMasterPageFile` e impostare il `Page` dell'oggetto `MasterPageFile` sul valore hardcoded "~ / Admin/AdminNested.master". In questo modo, qualsiasi pagina che deriva da `AdminBasePage` utilizzerà `AdminNested.master`, mentre qualsiasi pagina che deriva da `BasePage` avrà relativo `MasterPageFile` impostata in modo dinamico su "~ / Site. master" o "~ / Alternate.master" in base al valore del `MyMasterPage` Variabile di sessione.
 
 Per iniziare, aggiungere un nuovo file di classe e il `App_Code` cartella denominata `AdminBasePage.vb`. Avere `AdminBasePage` estendere `BasePage` e quindi eseguire l'override di `SetMasterPageFile` metodo. In tale metodo, assegnare il `MasterPageFile` il valore "~ / Admin/AdminNested.master". Dopo aver apportato queste modifiche classe file dovrebbe essere simile al seguente:
 
@@ -316,9 +316,9 @@ Tenere presente che il `@MasterType` direttiva aggiunge una proprietà fortement
 Con questo codice, deve essere in grado di vedere e utilizzare le pagine di contenuto della sezione di amministrazione. Figura 12 illustra il `~/Admin/Products.aspx` pagina quando viene visualizzato tramite un browser. Come si può notare, la pagina include la casella di istruzioni di amministrazione in cui è definita nella pagina master nidificata.
 
 
-[![Le pagine di contenuto nella sezione amministrazione comprendono delle istruzioni nella parte superiore di ogni pagina](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
+[![Le pagine di contenuto della sezione amministrazione comprendono delle istruzioni nella parte superiore di ogni pagina](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
 
-**Figura 12**: le pagine di contenuto in Amministrazione sezione includono istruzioni alla parte superiore di ogni pagina ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image36.png))
+**Figura 12**: le pagine contenuto nelle amministrazione sezione includono istruzioni nella parte superiore di ogni pagina di ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image36.png))
 
 
 ## <a name="step-7-using-the-appropriate-top-level-master-page-at-runtime"></a>Passaggio 7: Utilizzo della pagina Master di primo livello appropriato in fase di esecuzione
@@ -337,7 +337,7 @@ Il `GetMasterPageFileFromSession` metodo, che è stato aggiunto alla `BasePage` 
 Con questa modifica sul posto, la selezione dell'utente pagina master viene mantenuta in sezione Amministrazione. Figura 13 illustra la stessa pagina, come nella figura 12, ma dopo che l'utente ha modificato la selezione della pagina master per `Alternate.master`.
 
 
-[![La pagina Amministrazione nidificata utilizza il primo livello pagina Master selezionata dall'utente](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
+[![La pagina di amministrazione nidificata utilizza la pagina Master principale selezionato dall'utente](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
 
 **Figura 13**: la pagina di amministrazione Nested utilizza la pagina Master di primo livello selezionato dall'utente ([fare clic per visualizzare l'immagine ingrandita](nested-master-pages-vb/_static/image39.png))
 
@@ -353,16 +353,16 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Pagine Master ASP.NET annidate](https://msdn.microsoft.com/library/x2b3ktt7.aspx)
-- [Suggerimenti per le pagine Master annidate e in fase di progettazione di Visual Studio 2005](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
+- [Suggerimenti per la fase di progettazione di Visual Studio 2005 e pagine Master annidate](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
 - [Visual Studio 2008 annidati supporto delle pagine Master](https://weblogs.asp.net/scottgu/archive/2007/07/09/vs-2008-nested-master-page-support.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](specifying-the-master-page-programmatically-vb.md)

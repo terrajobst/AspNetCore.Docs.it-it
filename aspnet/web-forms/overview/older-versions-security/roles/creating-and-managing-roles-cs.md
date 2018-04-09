@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 title: Creazione e gestione dei ruoli (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione vengono esaminati i passaggi necessari per configurare il framework di ruoli. Successivamente, verrà compilata pagine web per creare ed eliminare ruoli."
+description: In questa esercitazione vengono esaminati i passaggi necessari per configurare il framework di ruoli. Successivamente, verrà compilata pagine web per creare ed eliminare ruoli.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2b13a2a3b242877060aaec2257b2a742ac8d674
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a4ea7e76e023cd436d1d8ac52307a3ac17267fef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-managing-roles-c"></a>Creazione e gestione dei ruoli (c#)
 ====================
@@ -51,9 +51,9 @@ Iniziare creando una nuova cartella nel progetto denominato `Roles`. Successivam
 Esplora soluzioni del progetto a questo punto dovrebbe essere simile alla schermata illustrata nella figura 1.
 
 
-[![Sono stati aggiunti quattro nuove pagine nella cartella dei ruoli](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
+[![Quattro nuove pagine sono stati aggiunti alla cartella dei ruoli](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
 
-**Figura 1**: quattro nuove pagine sono stati aggiunti i `Roles` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image3.png))
+**Figura 1**: quattro nuove pagine sono stati aggiunti per il `Roles` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image3.png))
 
 
 Ogni pagina, dovrebbe rispondere a questo punto, includere i due controlli contenuti, uno per ognuno dei ContentPlaceHolder della pagina master: `MainContent` e `LoginContent`.
@@ -71,9 +71,9 @@ Infine, si aggiorna la mappa del sito (`Web.sitemap`) per includere le nuove pag
 Con la mappa del sito è stata aggiornata, visitare il sito tramite un browser. Come illustrato nella figura 2, la navigazione a sinistra ora include gli elementi per le esercitazioni di ruoli.
 
 
-[![Sono stati aggiunti quattro nuove pagine nella cartella dei ruoli](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
+[![Quattro nuove pagine sono stati aggiunti alla cartella dei ruoli](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
 
-**Figura 2**: quattro nuove pagine sono stati aggiunti i `Roles` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image6.png))
+**Figura 2**: quattro nuove pagine sono stati aggiunti per il `Roles` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image6.png))
 
 
 ## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>Passaggio 2: Impostazione e sulla configurazione del Provider di ruoli Framework
@@ -96,8 +96,8 @@ Il provider `connectionStringName` attributo specifica l'archivio di ruolo che v
 
 Di conseguenza, se si abilita semplicemente il framework di ruoli senza specificare le informazioni del provider dell'applicazione `Web.config` file, l'applicazione utilizza il provider di ruoli predefinito registrato, `AspNetSqlRoleProvider`. Se il `~/App_Data/aspnet.mdf` database non esiste, il runtime di ASP.NET verrà automaticamente creato e aggiungere lo schema di servizi di applicazione. Tuttavia, non si desidera utilizzare il `aspnet.mdf` database; invece, si desidera utilizzare il `SecurityTutorials.mdf` database che abbiamo già creato e aggiunto lo schema di servizi delle applicazioni per. Questa modifica può essere eseguita in uno dei due modi:
 
-- **Specificare un valore per il * * *`LocalSqlServer`* * * il nome di stringa di connessione in * * *`Web.config`* * *.** Sovrascrivendo il `LocalSqlServer` valore di nome di stringa di connessione in `Web.config`, è possibile utilizzare il provider di ruoli predefinito registrato (`AspNetSqlRoleProvider`) e fare in modo funzionare correttamente con il `SecurityTutorials.mdf` database. Per ulteriori informazioni su questa tecnica, vedere [Scott Guthrie](https://weblogs.asp.net/scottgu/)del post di blog, [la configurazione di servizi applicativi di ASP.NET 2.0 per utilizzare SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Aggiungere un nuovo provider registrati di tipo * * *`SqlRoleProvider`* * * e configurare il * * *`connectionStringName`* * * impostazione in modo che punti al * * *`SecurityTutorials.mdf`* * * database.** Si tratta dell'approccio è consigliato e utilizzata per la <a id="_msoanchor_7"> </a> [ *creazione dello Schema di appartenenza in SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) esercitazione ed è l'approccio verrà utilizzato in questa esercitazione anche.
+- <strong>Specificare un valore per il</strong><strong>`LocalSqlServer`</strong><strong>nome di stringa di connessione in</strong><strong>`Web.config`</strong><strong>.</strong> Sovrascrivendo il `LocalSqlServer` valore di nome di stringa di connessione in `Web.config`, è possibile utilizzare il provider di ruoli predefinito registrato (`AspNetSqlRoleProvider`) e fare in modo funzionare correttamente con il `SecurityTutorials.mdf` database. Per ulteriori informazioni su questa tecnica, vedere [Scott Guthrie](https://weblogs.asp.net/scottgu/)del post di blog, [la configurazione di servizi applicativi di ASP.NET 2.0 per utilizzare SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Aggiungere un nuovo provider di tipo registrato</strong><strong>`SqlRoleProvider`</strong><strong>e configurare il relativo</strong><strong>`connectionStringName`</strong><strong>impostazione in modo che punti al</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>database.</strong> Si tratta dell'approccio è consigliato e utilizzata per la <a id="_msoanchor_7"> </a> [ *creazione dello Schema di appartenenza in SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) esercitazione ed è l'approccio verrà utilizzato in questa esercitazione anche.
 
 Aggiungere il seguente markup per la configurazione dei ruoli per il `Web.config` file. In questo markup registra un nuovo provider denominato `SecurityTutorialsSqlRoleProvider`.
 
@@ -162,7 +162,7 @@ Che succede? Si verifica un postback, ma non esiste alcun segnale visivo che il 
 
 [![Aspnet_Roles tabella dispone di una riga per gli amministratori](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
 
-**Figura 4**: il `aspnet_Roles` tabella contiene una riga per gli amministratori ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image12.png))
+**Figura 4**: il `aspnet_Roles` la tabella contiene una riga per gli amministratori ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image12.png))
 
 
 ## <a name="step-5-displaying-the-roles-in-the-system"></a>Passaggio 5: Visualizzare i ruoli del sistema
@@ -178,9 +178,9 @@ Il `Roles` della classe `GetAllRoles` metodo restituisce tutti i ruoli del siste
 Con questo codice, visitare la pagina tramite un browser. Come illustrato nella figura 5, verrà visualizzata una griglia con una singola colonna con etichetta di elemento. La griglia include una riga per il ruolo di amministratore che è aggiunto nel passaggio 4.
 
 
-[![GridView Visualizza i ruoli in un'unica colonna](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
+[![Controllo GridView. consente di visualizzare i ruoli in un'unica colonna](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
 
-**Figura 5**: GridView Visualizza i ruoli in un'unica colonna ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image15.png))
+**Figura 5**: GridView consente di visualizzare i ruoli in un'unica colonna ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image15.png))
 
 
 GridView Visualizza una colonna singola con l'etichetta di elemento perché il controllo GridView `AutoGenerateColumns` è impostata su True (impostazione predefinita), provocando GridView creare automaticamente una colonna per ogni proprietà nel relativo `DataSource`. Matrice con un'unica proprietà che rappresenta gli elementi nella matrice, pertanto la singola colonna in GridView.
@@ -208,15 +208,15 @@ A questo punto quando l'utente aggiunge un nuovo ruolo di `RoleList` GridView vi
 
 [![Il ruolo supervisori è stato aggiunto](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
 
-**Figura 6**: supervisori ruolo è stato aggiunto ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image18.png))
+**Figura 6**: ruolo supervisori è stata aggiunta ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image18.png))
 
 
 ## <a name="step-6-deleting-roles"></a>Passaggio 6: Eliminazione di ruoli
 
 A questo punto un utente può creare un nuovo ruolo e visualizzare tutti i ruoli esistenti dal `ManageRoles.aspx` pagina. Si consente agli utenti di eliminare anche i ruoli. Il `Roles.DeleteRole` metodo dispone di due overload:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx)-Elimina il ruolo *roleName*. Se il ruolo contiene uno o più membri, viene generata un'eccezione.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx)-Elimina il ruolo *roleName*. Se *throwOnPopulateRole* è `true`, viene generata un'eccezione se il ruolo contiene uno o più membri. Se *throwOnPopulateRole* è `false`, quindi viene eliminato il ruolo se o non contiene membri. Internamente, il `DeleteRole(roleName)` chiamate al metodo `DeleteRole(roleName, true)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -Elimina il ruolo *roleName*. Se il ruolo contiene uno o più membri, viene generata un'eccezione.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -Elimina il ruolo *roleName*. Se *throwOnPopulateRole* è `true`, viene generata un'eccezione se il ruolo contiene uno o più membri. Se *throwOnPopulateRole* è `false`, quindi viene eliminato il ruolo se o non contiene membri. Internamente, il `DeleteRole(roleName)` chiamate al metodo `DeleteRole(roleName, true)`.
 
 Il `DeleteRole` metodo genererà un'eccezione anche se *roleName* è `null` o una stringa vuota o se *roleName* contiene una virgola. Se *roleName* non esiste nel sistema, `DeleteRole` non riesce senza avvisare, senza generare un'eccezione.
 
@@ -225,7 +225,7 @@ Consente di aumentare GridView in `ManageRoles.aspx` per includere un pulsante E
 
 [![Aggiungere un pulsante Elimina a RoleList GridView](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
 
-**Figura 7**: aggiungere un pulsante di eliminare il `RoleList` GridView ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image21.png))
+**Figura 7**: aggiungere un pulsante Elimina per il `RoleList` GridView ([fare clic per visualizzare l'immagine ingrandita](creating-and-managing-roles-cs/_static/image21.png))
 
 
 Dopo aver aggiunto il pulsante Elimina, markup dichiarativo di GridView dovrebbe essere simile al seguente:
@@ -257,17 +257,17 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Analisi di ASP.NET 2.0 appartenenza, ruoli e profilo](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Procedura: Utilizzare Gestione ruoli in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998314.aspx)
 - [Provider di ruoli](https://msdn.microsoft.com/library/aa478950.aspx)
-- [Strumento Amministrazione sito Web in sequenza](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [In sequenza il proprio strumento Amministrazione sito Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [Documentazione tecnica per il `<roleManager>` elemento](https://msdn.microsoft.com/library/ms164660.aspx)
 - [Tramite l'appartenenza e l'API di gestione di ruolo](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Alicja Maziarz Suchi Banerjee e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Alicja Maziarz Suchi Banerjee e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](assigning-roles-to-users-cs.md)
+> [!div class="step-by-step"]
+> [avanti](assigning-roles-to-users-cs.md)

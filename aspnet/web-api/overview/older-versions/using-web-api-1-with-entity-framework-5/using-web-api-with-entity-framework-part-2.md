@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 title: 'Parte 2: Creazione dei modelli di dominio | Documenti Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84631494c1be266c21e5e5702182df717b1d29b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Parte 2: Creazione dei modelli di dominio
 ====================
@@ -42,7 +42,7 @@ Verrà creata la POCOs seguenti:
 - Ordinamento
 - OrderDetail
 
-Per creare ogni classe, fare clic sulla cartella modelli in Esplora soluzioni. Dal menu di scelta rapida, selezionare **Aggiungi** e quindi selezionare **classe.**
+Per creare ogni classe, fare clic sulla cartella modelli in Esplora soluzioni. Dal menu di scelta rapida, selezionare **Add** e quindi selezionare **classe.**
 
 ![](using-web-api-with-entity-framework-part-2/_static/image1.png)
 
@@ -84,6 +84,6 @@ In Esplora soluzioni, espandere l'applicazione\_avviare cartella e aprire il fil
 
 Questo codice imposta il formattatore JSON per mantenere i riferimenti all'oggetto e rimuove il formattatore XML dalla pipeline completamente. (È possibile configurare il formattatore XML per mantenere i riferimenti agli oggetti, ma è più lunga e dobbiamo solo JSON per questa applicazione. Per ulteriori informazioni, vedere [la gestione di riferimenti circolari oggetto](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).)
 
->[!div class="step-by-step"]
-[Precedente](using-web-api-with-entity-framework-part-1.md)
-[Successivo](using-web-api-with-entity-framework-part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](using-web-api-with-entity-framework-part-1.md)
+> [Successivo](using-web-api-with-entity-framework-part-3.md)

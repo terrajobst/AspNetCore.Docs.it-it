@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 title: L'archiviazione delle informazioni utente aggiuntive (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà rispondere a questa domanda creando un'applicazione molto rudimentali visitatori. In questo modo, verranno esaminati opzioni diverse per modeli..."
+description: In questa esercitazione verrà rispondere a questa domanda creando un'applicazione molto rudimentali visitatori. In questo modo, verranno esaminati opzioni diverse per modeli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-vb"></a>L'archiviazione delle informazioni utente aggiuntive (VB)
 ====================
@@ -50,7 +50,7 @@ Per aggiungere questa tabella per il database, accedere a Esplora Database in Vi
 
 [![Aggiungere una nuova tabella nel database SecurityTutorials](storing-additional-user-information-vb/_static/image2.png)](storing-additional-user-information-vb/_static/image1.png)
 
-**Figura 1**: aggiungere una nuova tabella per la `SecurityTutorials` Database ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image3.png))
+**Figura 1**: aggiungere una nuova tabella per il `SecurityTutorials` Database ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image3.png))
 
 
 Successivamente, definire il `GuestbookComments`di colonne. Per iniziare, aggiungere una colonna denominata `CommentId` di tipo `uniqueidentifier`. Questa colonna verrà identificare in modo univoco ogni commento nei visitatori, pertanto, non consentire `NULL` s e contrassegnarlo come chiave primaria della tabella. Anziché fornire un valore per il `CommentId` ogni campo `INSERT`, per indicare che un nuovo `uniqueidentifier` valore deve essere generato automaticamente per questo campo su `INSERT` impostando il valore predefinito della colonna su `NEWID()`. Dopo aver aggiunto il primo campo, contrassegnarlo come le impostazioni e chiavi primarie, il valore predefinito, la schermata dovrebbe essere simile alla schermata illustrata nella figura 2.
@@ -78,15 +78,15 @@ Fare clic sul pulsante Aggiungi nell'angolo inferiore sinistro della finestra di
 
 [![Utilizzare la finestra di dialogo relazioni di chiave esterna per gestire i vincoli di chiave esterna di una tabella](storing-additional-user-information-vb/_static/image8.png)](storing-additional-user-information-vb/_static/image7.png)
 
-**Figura 3**: utilizzare la finestra di dialogo di relazioni chiave esterna per gestire i vincoli di chiave esterna di una tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image9.png))
+**Figura 3**: utilizzare la finestra di dialogo relazioni di chiave esterna per gestire i vincoli di chiave esterna della tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image9.png))
 
 
 Successivamente, fare clic sull'icona puntini di sospensione nella riga "Tabella e le colonne specifiche" a destra. Verrà avviata la finestra di dialogo tabelle e colonne da cui è possibile specificare la tabella di chiave primaria e di colonna e la colonna chiave esterna dal `GuestbookComments` tabella. In particolare, selezionare `aspnet_Users` e `UserId` come la tabella di chiave primaria e la colonna, e `UserId` dal `GuestbookComments` tabella come colonna chiave esterna (vedere la figura 4). Dopo aver definito le tabelle di chiavi primarie ed esterne e le colonne, fare clic su OK per tornare alla finestra di dialogo Relazioni chiavi esterne.
 
 
-[![Stabilire un'esterna chiave vincolo tra il aspnet_Users e tabelle GuesbookComments](storing-additional-user-information-vb/_static/image11.png)](storing-additional-user-information-vb/_static/image10.png)
+[![Stabilire un Foreign Key vincolo tra il aspnet_Users e GuesbookComments tabelle](storing-additional-user-information-vb/_static/image11.png)](storing-additional-user-information-vb/_static/image10.png)
 
-**Figura 4**: stabilire un'esterna chiave vincolo tra il `aspnet_Users` e `GuesbookComments` tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image12.png))
+**Figura 4**: stabilire un Foreign Key vincolo tra il `aspnet_Users` e `GuesbookComments` tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image12.png))
 
 
 A questo punto il vincolo di chiave esterno è stato stabilito. La presenza di questo vincolo garantisce [integrità relazionale](http://en.wikipedia.org/wiki/Referential_integrity) tra le due tabelle, assicurando che non sarà mai una voce di registro dei visitatori che fa riferimento a un account utente inesistente. Per impostazione predefinita, un vincolo di chiave esterna non sarà un record padre deve essere eliminato se sono disponibili corrispondenti record figlio. Ovvero, se un utente esegue uno o più commenti visitatori e quindi si tenta di eliminare l'account utente, l'eliminazione non riuscirà a meno che i propri commenti visitatori vengono eliminati per primi.
@@ -94,7 +94,7 @@ A questo punto il vincolo di chiave esterno è stato stabilito. La presenza di q
 Vincoli di chiave esterna possono essere configurati per eliminare automaticamente i record figlio associato quando viene eliminato un record padre. In altre parole, è possibile configurare questo vincolo di chiave esterna in modo che le voci di registro dei visitatori di un utente vengono eliminate automaticamente quando il proprio account utente viene eliminato. A tale scopo, espandere la sezione "Inserimento e aggiornamento specifica" e impostare la proprietà "Eliminazione della regola" Cascade.
 
 
-[![Configurare il vincolo di chiave esterno per le eliminazioni a catena](storing-additional-user-information-vb/_static/image14.png)](storing-additional-user-information-vb/_static/image13.png)
+[![Configurare il vincolo di chiave esterna per le eliminazioni a catena](storing-additional-user-information-vb/_static/image14.png)](storing-additional-user-information-vb/_static/image13.png)
 
 **Figura 5**: configurare il vincolo di chiave esterna di eliminazione a catena ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image15.png))
 
@@ -107,20 +107,20 @@ Il `GuestbookComments` tabella di seguito viene illustrato come archiviare le in
 
 È ora necessario associare tre colonne a ogni account utente per archiviare città Natale, home page e firma, verrà visualizzato nei suoi commenti visitatori dell'utente. Sono presenti numeri diversi modi per eseguire questa operazione:
 
-- **Aggiungere nuove colonne il * * *`aspnet_Users`* * * o * * *`aspnet_Membership`* * * le tabelle.** È consigliabile non questo approccio poiché consente di modificare lo schema utilizzato per il `SqlMembershipProvider`. Questa decisione può essere utile consultare per recuperare il percorso. Ad esempio, se una versione futura di ASP.NET utilizza un altro `SqlMembershipProvider` dello schema. Microsoft può includere uno strumento per eseguire la migrazione di ASP.NET 2.0 `SqlMembershipProvider` dati al nuovo schema, ma se sono state modificate ASP.NET 2.0 `SqlMembershipProvider` dello schema, questo tipo di conversione potrebbe non essere possibile.
+- <strong>Aggiungere nuove colonne per la</strong><strong>`aspnet_Users`</strong><strong>oppure</strong><strong>`aspnet_Membership`</strong><strong>tabelle.</strong> È consigliabile non questo approccio poiché consente di modificare lo schema utilizzato per il `SqlMembershipProvider`. Questa decisione può essere utile consultare per recuperare il percorso. Ad esempio, se una versione futura di ASP.NET utilizza un altro `SqlMembershipProvider` dello schema. Microsoft può includere uno strumento per eseguire la migrazione di ASP.NET 2.0 `SqlMembershipProvider` dati al nuovo schema, ma se sono state modificate ASP.NET 2.0 `SqlMembershipProvider` dello schema, questo tipo di conversione potrebbe non essere possibile.
 
-- **Utilizzare le pagine ASP. Framework di profilo della rete, la definizione di una proprietà di profilo per la città Natale, home page e firma.** ASP.NET include un framework di profilo che è progettato per archiviare dati specifici dell'utente aggiuntivi. Ad esempio il framework di appartenenza, il framework di profilo viene compilato nella parte superiore del modello di provider. .NET Framework viene fornito con un `SqlProfileProvider` che archivia il profiling di dati in un database di SQL Server. In realtà, il database esiste già la tabella utilizzata dal `SqlProfileProvider` (`aspnet_Profile`), come è stato aggiunto al momento dell'aggiunta nuovamente i servizi delle applicazioni di [ *creazione dello Schema di appartenenza in SQL Server* ](creating-the-membership-schema-in-sql-server-vb.md)esercitazione.   
- Il vantaggio principale di framework profilo è che consente agli sviluppatori di definire le proprietà di profilo in `Web.config` : nessun codice deve essere scritto per serializzare i dati di profilo da e verso l'archivio dati sottostante. In breve, è molto semplice per definire un set di proprietà di profilo e di utilizzarle nel codice. Tuttavia, il sistema profilo migliorate per essere desiderato per quanto riguarda il controllo delle versioni, pertanto se si dispone di un'applicazione in cui si prevede di nuove proprietà specifiche dell'utente da aggiungere a un secondo momento o quelle esistenti da rimuovere o modificare, quindi il framework di profilo non può essere il  opzione migliore. Inoltre, il `SqlProfileProvider` archivia le proprietà del profilo in modo denormalizzato elevata, rendendo praticamente impossibile eseguire query direttamente sui dati del profilo (ad esempio, quanti utenti dispongono di una home città di New York).   
- Per ulteriori informazioni su framework profilo, consultare la sezione "Ulteriori letture" alla fine di questa esercitazione.
+- **Utilizzare le pagine ASP. Framework di profilo della rete, la definizione di una proprietà del profilo per la città natale home page e firma.** ASP.NET include un framework di profilo che è progettato per archiviare dati specifici dell'utente aggiuntivi. Ad esempio il framework di appartenenza, il framework di profilo viene compilato nella parte superiore del modello di provider. .NET Framework viene fornito con un `SqlProfileProvider` che archivia il profiling di dati in un database di SQL Server. In realtà, il database esiste già la tabella utilizzata dal `SqlProfileProvider` (`aspnet_Profile`), come è stato aggiunto al momento dell'aggiunta nuovamente i servizi delle applicazioni di [ *creazione dello Schema di appartenenza in SQL Server* ](creating-the-membership-schema-in-sql-server-vb.md)esercitazione.   
+  Il vantaggio principale di framework profilo è che consente agli sviluppatori di definire le proprietà di profilo in `Web.config` : nessun codice deve essere scritto per serializzare i dati di profilo da e verso l'archivio dati sottostante. In breve, è molto semplice per definire un set di proprietà di profilo e di utilizzarle nel codice. Tuttavia, il sistema profilo migliorate per essere desiderato per quanto riguarda il controllo delle versioni, pertanto se si dispone di un'applicazione in cui si prevede di nuove proprietà specifiche dell'utente da aggiungere a un secondo momento o quelle esistenti da rimuovere o modificare, quindi il framework di profilo non può essere il  opzione migliore. Inoltre, il `SqlProfileProvider` archivia le proprietà del profilo in modo denormalizzato elevata, rendendo praticamente impossibile eseguire query direttamente sui dati del profilo (ad esempio, quanti utenti dispongono di una home città di New York).   
+  Per ulteriori informazioni su framework profilo, consultare la sezione "Ulteriori letture" alla fine di questa esercitazione.
 
-- **Aggiungere queste tre colonne in una nuova tabella nel database e stabilire una relazione uno a uno tra questa tabella e * * *`aspnet_Users`* * *.** Questo approccio è un po' più semplice che con il framework di profilo, ma offre la massima flessibilità nella modalità le proprietà aggiuntive dell'utente vengono create nel database. Questa è l'opzione che verrà utilizzato in questa esercitazione.
+- <strong>Aggiungere queste tre colonne in una nuova tabella nel database e stabilire una relazione uno a uno tra questa tabella e</strong><strong>`aspnet_Users`</strong><strong>.</strong> Questo approccio è un po' più semplice che con il framework di profilo, ma offre la massima flessibilità nella modalità le proprietà aggiuntive dell'utente vengono create nel database. Questa è l'opzione che verrà utilizzato in questa esercitazione.
 
 Si creerà una nuova tabella denominata `UserProfiles` per salvare la città Natale, home page e firma per ogni utente. Pulsante destro del mouse sulla cartella tabelle nella finestra Esplora Database e scegliere di creare una nuova tabella. Nome della prima colonna `UserId` e impostarne il tipo di `uniqueidentifier`. Non consentire `NULL` valori e contrassegnare la colonna come chiave primaria. Successivamente, aggiungere le colonne denominate: `HomeTown` di tipo `nvarchar(50)`; `HomepageUrl` di tipo `nvarchar(100)`; e la firma del tipo `nvarchar(500)`. Ognuna di queste tre colonne può accettare un `NULL` valore.
 
 
 [![Creare la tabella UserProfiles](storing-additional-user-information-vb/_static/image17.png)](storing-additional-user-information-vb/_static/image16.png)
 
-**Figura 6**: creare il `UserProfiles` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image18.png))
+**Figura 6**: creare le `UserProfiles` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image18.png))
 
 
 Salvataggio della tabella e denominarla `UserProfiles`. Infine, stabilire un vincolo di chiave esterna tra le `UserProfiles` della tabella `UserId` campo e `aspnet_Users.UserId` campo. Come è stato fatto con il vincolo di chiave esterno tra le `GuestbookComments` e `aspnet_Users` tabelle disporre questo vincolo eliminazioni a catena. Poiché il `UserId` campo `UserProfiles` è quello primario chiave, in questo modo che non vi saranno presenti più record nel `UserProfiles` tabella per ogni account utente. Questo tipo di relazione viene definito come uno a uno.
@@ -131,7 +131,7 @@ Ora che abbiamo creato il modello di dati, ci sono pronti per utilizzarla. Nei p
 
 Esistono diversi modi per consentire all'utente attualmente connesso visualizzare e modificare le informazioni di città, home page e firma home. È stato possibile creare manualmente l'interfaccia utente con una casella di testo e controlli etichetta oppure è possibile utilizzare uno dei dati di controlli Web, ad esempio il controllo DetailsView. Per eseguire il database `SELECT` e `UPDATE` istruzioni potremmo ADO.NET il codice nella classe code-behind della pagina o in alternativa, utilizzare un approccio dichiarativo con SqlDataSource. Idealmente, l'applicazione deve contenere un'architettura a più livelli, che è stato possibile richiamare a livello di codice dalla classe code-behind della pagina o in modo dichiarativo tramite il controllo ObjectDataSource.
 
-Poiché questa serie di esercitazioni si concentra sull'autenticazione basata su form, autorizzazione, gli account utente e ruoli, non sarà disponibile una descrizione dettagliata di queste opzioni di accesso ai dati diversi o perché un'architettura a più livelli è preferibile eseguire direttamente le istruzioni SQL dalla pagina ASP.NET. Verrà illustrata utilizzando un controllo DetailsView e SqlDataSource: l'opzione più semplice e veloce: ma i concetti illustrati certamente possono essere applicati a logica alternativa di accesso ai dati e i controlli di Web. Per ulteriori informazioni sull'utilizzo dei dati in ASP.NET, vedere il  *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)*  serie di esercitazioni.
+Poiché questa serie di esercitazioni si concentra sull'autenticazione basata su form, autorizzazione, gli account utente e ruoli, non sarà disponibile una descrizione dettagliata di queste opzioni di accesso ai dati diversi o perché un'architettura a più livelli è preferibile eseguire direttamente le istruzioni SQL dalla pagina ASP.NET. Verrà illustrata utilizzando un controllo DetailsView e SqlDataSource: l'opzione più semplice e veloce: ma i concetti illustrati certamente possono essere applicati a logica alternativa di accesso ai dati e i controlli di Web. Per ulteriori informazioni sull'utilizzo dei dati in ASP.NET, vedere il *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)* serie di esercitazioni.
 
 Aprire il `AdditionalUserInfo.aspx` nella pagina di `Membership` cartella e aggiungere un controllo DetailsView alla pagina, impostare la proprietà ID su `UserProfile` e cancellare relativo `Width` e `Height` proprietà. Espandere di DetailsView Smart Tag e scegliere di associarlo a un nuovo controllo origine dati. Verrà avviata la configurazione guidata origine dati (vedere la figura 7). Il primo passaggio viene chiesto di specificare il tipo di origine dati. Poiché si stabilirà connettersi direttamente al `SecurityTutorials` del database, scegliere l'icona di Database, specificando il `ID` come `UserProfileDataSource`.
 
@@ -152,9 +152,9 @@ Nella schermata successiva è richiesto per il database da utilizzare. Abbiamo g
 La schermata successiva viene chiesto di specificare la tabella e le colonne a query. Scegliere il `UserProfiles` tabella dall'elenco a discesa e selezionare tutte le colonne.
 
 
-[![Portare indietro di tutte le colonne dalla tabella UserProfiles](storing-additional-user-information-vb/_static/image26.png)](storing-additional-user-information-vb/_static/image25.png)
+[![Portare indietro tutte le colonne dalla tabella UserProfiles](storing-additional-user-information-vb/_static/image26.png)](storing-additional-user-information-vb/_static/image25.png)
 
-**Figura 9**: portare nuovamente tutte le colonne di `UserProfiles` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image27.png))
+**Figura 9**: portare nuovamente tutte le colonne dal `UserProfiles` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image27.png))
 
 
 La query corrente nella figura 9 restituisce *tutti* dei record di `UserProfiles`, ma si desidera utilizzare solo i record dell'utente attualmente connesso. Per aggiungere un `WHERE` clausola, fare clic su di `WHERE` pulsante per visualizzare il componente `WHERE` clausola dialogo (figura 10). Qui è possibile selezionare l'origine del parametro di filtro, l'operatore e la colonna da filtrare. Selezionare `UserId` come colonna e "=" come l'operatore.
@@ -190,9 +190,9 @@ Se si visita il `AdditionalUserInfo.aspx` pagina tramite un browser si noterà u
 Passare a Esplora Database in Visual Studio ed espandere la cartella di tabelle. Fare clic su di `aspnet_Users` tabella e scegliere "Mostra i dati di tabella" per visualizzare i record nella tabella, eseguire la stessa operazione il `UserProfiles` tabella. Figura 11 Mostra i risultati quando si Affianca verticalmente. Nel database sono attualmente `aspnet_Users` record per Tito Bruce e Fred, ma nessun record di `UserProfiles` tabella.
 
 
-[![Vengono visualizzate il contenuto di aspnet_Users e tabelle UserProfiles](storing-additional-user-information-vb/_static/image32.png)](storing-additional-user-information-vb/_static/image31.png)
+[![Il contenuto del aspnet_Users e UserProfiles tabelle vengono visualizzate](storing-additional-user-information-vb/_static/image32.png)](storing-additional-user-information-vb/_static/image31.png)
 
-**Figura 11**: il contenuto del `aspnet_Users` e `UserProfiles` vengono visualizzate le tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image33.png))
+**Figura 11**: il contenuto del `aspnet_Users` e `UserProfiles` verranno visualizzate le tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image33.png))
 
 
 Aggiungere un nuovo record per il `UserProfiles` tabella manualmente digitando i valori per il `HomeTown`, `HomepageUrl`, e `Signature` campi. Il modo più semplice per ottenere un oggetto valido `UserId` valore nel nuovo `UserProfiles` record consiste nel selezionare il `UserId` campo da un account utente specifico nel `aspnet_Users` tabella e copiare e incollare nel `UserId` campo `UserProfiles`. Figura 12 illustra il `UserProfiles` tabella dopo l'aggiunta di un nuovo record per Bruce.
@@ -208,7 +208,7 @@ Restituito per il `AdditionalUserInfo.aspx page`, connesso come Bruce. Come illu
 
 [![L'utente attualmente visita è illustrato His impostazioni](storing-additional-user-information-vb/_static/image38.png)](storing-additional-user-information-vb/_static/image37.png)
 
-**Figura 13**: attualmente visita utente è illustrato impostazioni His ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image39.png))
+**Figura 13**: attualmente visita utente è mostrato impostazioni His ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image39.png))
 
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Successivamente, fare clic sul pulsante "Aggiorna parametri", verrà creato un p
 
 [![Specificare il SqlDataSource UpdateCommand e UpdateParameters](storing-additional-user-information-vb/_static/image41.png)](storing-additional-user-information-vb/_static/image40.png)
 
-**Nella figura 14**: specificare il SqlDataSource `UpdateCommand` e `UpdateParameters` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image42.png))
+**Figura 14**: specificare il SqlDataSource `UpdateCommand` e `UpdateParameters` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image42.png))
 
 
 A causa di Virtual Machine additions è effettuato il controllo SqlDataSource, il controllo può ora supportare la modifica di DetailsView. Dalla Smart Tag del controllo DetailsView., selezionare la casella di controllo "Abilita modifica". Aggiunge un CommandField al controllo `Fields` insieme con il relativo `ShowEditButton` proprietà è impostata su True. Si esegue il rendering di un pulsante Modifica quando DetailsView viene visualizzato nella modalità di sola lettura e aggiornamento e i pulsanti Annulla quando visualizzata modalità di modifica. Anziché richiedere all'utente di fare clic su Modifica, tuttavia, possibilità di installare il rendering di DetailsView in uno stato "sempre modificabile" tramite l'impostazione del controllo DetailsView [ `DefaultMode` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode.aspx) a `Edit`.
@@ -244,7 +244,7 @@ Vado avanti e testare questa pagina tramite un browser. Durante la visita a un u
 
 [![Controllo DetailsView esegue il rendering di un'interfaccia modificabile](storing-additional-user-information-vb/_static/image44.png)](storing-additional-user-information-vb/_static/image43.png)
 
-**Figura 15**: DetailsView esegue il rendering di un'interfaccia modificabile ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image45.png))
+**Figura 15**: il controllo DetailsView esegue il rendering di un'interfaccia modificabile ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image45.png))
 
 
 Provare a cambiare i valori e fare clic sul pulsante di aggiornamento. Viene visualizzato come se non accade nulla. È un postback e i valori vengono salvati nel database, ma vi è alcun feedback visivo che si è verificato durante il salvataggio.
@@ -312,9 +312,9 @@ Dopo aver selezionato il `PostCommentButton` pulsante vi è alcun feedback visiv
 Figura 17 mostra i contenuti del `GuestbookComments` dopo che sono stati lasciati due commenti.
 
 
-[![È possibile visualizzare i commenti visitatori nella tabella GuestbookComments](storing-additional-user-information-vb/_static/image50.png)](storing-additional-user-information-vb/_static/image49.png)
+[![È possibile visualizzare i commenti di visitatori nella tabella GuestbookComments](storing-additional-user-information-vb/_static/image50.png)](storing-additional-user-information-vb/_static/image49.png)
 
-**Figura 17**: È possibile visualizzare i commenti visitatori il `GuestbookComments` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image51.png))
+**Figura 17**: È possibile visualizzare i commenti di visitatori nel `GuestbookComments` tabella ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image51.png))
 
 
 > [!NOTE]
@@ -338,9 +338,9 @@ Verrà visualizzata la schermata "Definire istruzioni o Stored procedure persona
 Tutto ciò che è comunque necessario specificare le colonne da restituire. Dal `GuestbookComments` tabella selezionare la `Subject`, `Body`, e `CommentDate` colonne; restituito il `HomeTown`, `HomepageUrl`, e `Signature` le colonne di `UserProfiles` tabella; e restituire `UserName` da `aspnet_Users`. Inoltre, aggiungere "`ORDER BY CommentDate DESC`" alla fine del `SELECT` query in modo che post più recenti vengono restituite per prime. Dopo aver effettuato le selezioni, l'interfaccia del generatore di Query dovrebbe essere simile alla schermata nella figura 18.
 
 
-[![La Query di costruito unisce il GuestbookComments UserProfiles e aspnet_Users tabelle](storing-additional-user-information-vb/_static/image53.png)](storing-additional-user-information-vb/_static/image52.png)
+[![La Query costruito unisce il GuestbookComments, UserProfiles e aspnet_Users tabelle](storing-additional-user-information-vb/_static/image53.png)](storing-additional-user-information-vb/_static/image52.png)
 
-**Figura 18**: Query costruita `JOIN` s il `GuestbookComments`, `UserProfiles`, e `aspnet_Users` tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image54.png))
+**Figura 18**: la Query costruita `JOIN` s il `GuestbookComments`, `UserProfiles`, e `aspnet_Users` tabelle ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image54.png))
 
 
 Fare clic su OK per chiudere la finestra Generatore di Query e tornare alla schermata "Definire istruzioni o Stored procedure personalizzate". Fare clic su Avanti per passare alla schermata "Test Query", in cui è possibile visualizzare i risultati della query facendo clic sul pulsante Test Query. Quando si è pronti, fare clic su Fine per completare la configurazione guidata origine dati.
@@ -358,9 +358,9 @@ My `ItemTemplate` consente di visualizzare il soggetto del commento ogni visitat
 Richiedere qualche istante per visualizzare la pagina tramite un browser. Si dovrebbero vedere i commenti aggiunti alla visitatori nel passaggio 5 visualizzati qui.
 
 
-[![Guestbook. aspx ora consente di visualizzare i commenti del visitatori](storing-additional-user-information-vb/_static/image56.png)](storing-additional-user-information-vb/_static/image55.png)
+[![Ora Guestbook. aspx consente di visualizzare i commenti di visitatori](storing-additional-user-information-vb/_static/image56.png)](storing-additional-user-information-vb/_static/image55.png)
 
-**Figura 19**: `Guestbook.aspx` ora vengono visualizzati i commenti del visitatori ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image57.png))
+**Figura 19**: `Guestbook.aspx` ora consente di visualizzare i commenti di visitatori ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image57.png))
 
 
 Provare ad aggiungere un nuovo commento per i visitatori. Fare clic sul `PostCommentButton` pulsante pagina esegue il postback e il commento verrà aggiunto al database, ma il controllo ListView non viene aggiornato per mostrare il nuovo commento. Per risolvere questo problema tramite:
@@ -428,9 +428,9 @@ Il primo `WizardStep`, `CreateUserWizardStep`, esegue il rendering di interfacci
 
 Per personalizzare l'interfaccia del controllo CreateUserWizard per includere i campi modulo aggiuntivi, è possibile:
 
-- **Creare uno o più nuovi * * *`WizardStep`* * * s per contenere gli elementi dell'interfaccia utente aggiuntivi**. Per aggiungere un nuovo `WizardStep` per CreateUserWizard, fare clic su di "Aggiungi/Rimuovi `WizardStep` s" collegamento dal suo Smart Tag per avviare il `WizardStep` Editor della raccolta. Da qui è possibile aggiungere, rimuovere o riordinare i passaggi della procedura guidata. Si tratta dell'approccio che per questa esercitazione verrà utilizzato.
+- <strong>Creare uno o più nuovi</strong><strong>`WizardStep`</strong><strong>s per contenere gli elementi dell'interfaccia utente aggiuntiva</strong>. Per aggiungere un nuovo `WizardStep` per CreateUserWizard, fare clic su di "Aggiungi/Rimuovi `WizardStep` s" collegamento dal suo Smart Tag per avviare il `WizardStep` Editor della raccolta. Da qui è possibile aggiungere, rimuovere o riordinare i passaggi della procedura guidata. Si tratta dell'approccio che per questa esercitazione verrà utilizzato.
 
-- **Convertire il * * *`CreateUserWizardStep`* * * in un modificabile * * *`WizardStep`* * *.** Questa impostazione sostituisce il `CreateUserWizardStep` con un equivalente `WizardStep` cui markup definisce un'interfaccia utente che corrisponda il `CreateUserWizardStep`' s. Convertendo il `CreateUserWizardStep` in un `WizardStep` è possibile riposizionare i controlli o aggiungere elementi dell'interfaccia utente aggiuntivi per questo passaggio. Per convertire il `CreateUserWizardStep` o `CompleteWizardStep` in un modificabile `WizardStep`, fare clic sul "Personalizza Create User passaggio" o "Personalizza passaggio completamento" collegamento da Smart Tag del controllo.
+- <strong>Convertire il</strong><strong>`CreateUserWizardStep`</strong><strong>in un modificabile</strong><strong>`WizardStep`</strong><strong>.</strong> Questa impostazione sostituisce il `CreateUserWizardStep` con un equivalente `WizardStep` cui markup definisce un'interfaccia utente che corrisponda il `CreateUserWizardStep`' s. Convertendo il `CreateUserWizardStep` in un `WizardStep` è possibile riposizionare i controlli o aggiungere elementi dell'interfaccia utente aggiuntivi per questo passaggio. Per convertire il `CreateUserWizardStep` o `CompleteWizardStep` in un modificabile `WizardStep`, fare clic sul "Personalizza Create User passaggio" o "Personalizza passaggio completamento" collegamento da Smart Tag del controllo.
 
 - **Utilizzare una combinazione delle due opzioni precedenti.**
 
@@ -443,15 +443,15 @@ Figura 21 viene illustrato il flusso di lavoro quando aggiunto `WizardStep` prec
 
 [![Flusso di lavoro CreateUserWizard quando un WizardStep aggiuntive precede il CreateUserWizardStep](storing-additional-user-information-vb/_static/image62.png)](storing-additional-user-information-vb/_static/image61.png)
 
-**Figura 21**: il CreateUserWizard del flusso di lavoro quando un aggiuntive `WizardStep` Precedes il `CreateUserWizardStep` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image63.png))
+**Figura 21**: il CreateUserWizard flusso di lavoro quando un aggiuntive `WizardStep` Precedes il `CreateUserWizardStep` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image63.png))
 
 
 Se l'oggetto personalizzato `WizardStep` viene inserito *dopo* il `CreateUserWizardStep`, tuttavia, il processo di account utente di creazione si verifica prima che l'utente abbia la possibilità di immettere la città Natale, home page o firma. In tal caso, devono essere inserito nel database dopo aver creato l'account utente, come illustrato nella figura 22 queste informazioni aggiuntive.
 
 
-[![Flusso di lavoro CreateUserWizard quando viene fornito un WizardStep aggiuntive dopo il CreateUserWizardStep](storing-additional-user-information-vb/_static/image65.png)](storing-additional-user-information-vb/_static/image64.png)
+[![Il flusso di lavoro CreateUserWizard quando un WizardStep aggiuntive dopo il CreateUserWizardStep](storing-additional-user-information-vb/_static/image65.png)](storing-additional-user-information-vb/_static/image64.png)
 
-**Figura 22**: il CreateUserWizard del flusso di lavoro quando un aggiuntive `WizardStep` fornito dopo il `CreateUserWizardStep` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image66.png))
+**Figura 22**: il CreateUserWizard flusso di lavoro quando un aggiuntive `WizardStep` proviene dopo il `CreateUserWizardStep` ([fare clic per visualizzare l'immagine ingrandita](storing-additional-user-information-vb/_static/image66.png))
 
 
 Il flusso di lavoro illustrato nella figura 22 attende prima di inserire un record nel `UserProfiles` tabella fino al termine del passaggio 2. Se il visitatore chiude il browser dopo il passaggio 1, tuttavia, si raggiunge uno stato in cui è stato creato un account utente, ma è stato aggiunto nessun record `UserProfiles`. Una soluzione consiste nel disporre di un record con `NULL` o inseriti valori predefiniti `UserProfiles` nel `CreatedUser` gestore di eventi (che viene generato dopo il passaggio 1) e quindi aggiornare questo record di termine del passaggio 2. Ciò garantisce che un `UserProfiles` record verranno aggiunti per l'account utente anche se l'utente viene chiusa a metà il processo di registrazione tramite.
@@ -513,25 +513,25 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [L'accesso e l'aggiornamento dei dati in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [Controllo ASP.NET 2.0 guidata](https://weblogs.asp.net/scottgu/archive/2006/02/21/438732.aspx)
 - [Creazione di un'interfaccia utente dettagliate con il controllo ASP.NET 2.0 guidata](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
-- [Creazione di parametri di controllo origine dati personalizzata](http://aspnet.4guysfromrolla.com/articles/110106-1.aspx)
+- [Creazione dei parametri del controllo origine dati personalizzata](http://aspnet.4guysfromrolla.com/articles/110106-1.aspx)
 - [Personalizzazione del controllo CreateUserWizard](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx)
 - [Guida introduttiva di controllo DetailsView](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/detailsview.aspx)
-- [Visualizzazione dei dati con il controllo ListView](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
+- [Visualizzazione di dati con il controllo ListView](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
 - [Sezionando i controlli di convalida in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx)
-- [La modifica di inserimento ed eliminazione di dati](../../data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)
+- [Modifica di inserimento ed eliminazione di dati](../../data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)
 - [Convalida del form in ASP.NET](http://www.4guysfromrolla.com/webtech/090200-1.shtml)
-- [La raccolta di informazioni di registrazione utente personalizzata](https://weblogs.asp.net/scottgu/archive/2006/07/05/Tip_2F00_Trick_3A00_-Gathering-Custom-User-Registration-Information.aspx)
+- [Raccogliere le informazioni di registrazione utente personalizzata](https://weblogs.asp.net/scottgu/archive/2006/07/05/Tip_2F00_Trick_3A00_-Gathering-Custom-User-Registration-Information.aspx)
 - [Profili in ASP.NET 2.0](http://www.odetocode.com/Articles/440.aspx)
 - [Il controllo asp: ListView](https://weblogs.asp.net/scottgu/archive/2007/08/10/the-asp-listview-control-part-1-building-a-product-listing-page-with-clean-css-ui.aspx)
 - [Guida introduttiva di profili utente](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/profile/default.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](user-based-authorization-vb.md)

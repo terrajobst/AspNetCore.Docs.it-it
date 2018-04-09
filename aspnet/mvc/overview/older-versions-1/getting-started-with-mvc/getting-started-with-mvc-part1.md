@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: 08c30f4aab77bff64ed3ab874d13cc5dc863fc99
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Introduzione a ASP.NET MVC
 ====================
@@ -76,7 +76,7 @@ Selezionare il pulsante "play" alla barra degli strumenti.
 
 È una freccia verde che punta a destra che compila il programma e avviare l'applicazione in un web browser.
 
-*Nota: È possibile invece premere F5 o selezionare Debug -&gt;Avvia debug dal menu "Debug".*
+*Nota: È possibile in alternativa, premere F5 o selezionare Debug -&gt;Avvia debug dal menu "Debug".*
 
 In questo modo Visual Web Developer avviare un server web di sviluppo ed eseguire l'applicazione web (non sono presenti configurazione o una procedura manuale necessaria per abilitare questa opzione). Verrà quindi avviato un browser e configurarlo per esaminare l'home page dell'applicazione. Notare che la barra degli indirizzi del browser viene visualizzato "localhost" e non un risultato simile example.com sotto. Ciò avviene perché localhost punta sempre al computer locale, che in questo caso è in esecuzione l'applicazione che abbiamo appena creato.
 
@@ -84,5 +84,5 @@ In questo modo Visual Web Developer avviare un server web di sviluppo ed eseguir
 
 All'esterno della casella tale modello predefinito offre è due pagine da visitare e una pagina di accesso di base. Si modifica il funzionamento di questa applicazione e un po' informazioni su MVC ASP.NET nel processo. Chiudere il browser e consente di modificare il codice.
 
->[!div class="step-by-step"]
-[avanti](getting-started-with-mvc-part2.md)
+> [!div class="step-by-step"]
+> [avanti](getting-started-with-mvc-part2.md)

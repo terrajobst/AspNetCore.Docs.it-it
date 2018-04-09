@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 title: Creazione di un'interfaccia utente di ordinamento personalizzato (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Quando la visualizzazione di un lungo elenco di dati ordinati, può essere molto utile per raggruppare i dati correlati introducendo righe separatore. In questa esercitazione si vedrà come le cre..."
+description: Quando la visualizzazione di un lungo elenco di dati ordinati, può essere molto utile per raggruppare i dati correlati introducendo righe separatore. In questa esercitazione si vedrà come le cre...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 527bfe62a7293d0aa2d6b5b83119bb922906120b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35144907aceda6ece56d91b24aba15ef951ed99a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Creazione di un'interfaccia utente di ordinamento personalizzato (VB)
 ====================
@@ -53,9 +53,9 @@ Configurare quindi GridView in modo che contenga solo il `ProductName`, `Categor
 Richiedere qualche istante per visualizzare l'avanzamento finora in un browser. Figura 2 mostra GridView ordinabile quando i dati viene ordinati in base alla categoria in ordine alfabetico.
 
 
-[![S GridView ordinabile i dati vengono ordinati per categoria](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
+[![S GridView ordinabile dati vengono ordinati per categoria](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
 
-**Figura 2**: s GridView ordinabile di dati vengono ordinati per categoria ([fare clic per visualizzare l'immagine ingrandita](creating-a-customized-sorting-user-interface-vb/_static/image6.png))
+**Figura 2**: s GridView ordinabile dati vengono ordinati per categoria ([fare clic per visualizzare l'immagine ingrandita](creating-a-customized-sorting-user-interface-vb/_static/image6.png))
 
 
 ## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>Passaggio 2: Esplorazione di tecniche per l'aggiunta di righe separatore
@@ -105,7 +105,7 @@ Per aggiungere righe separatore tra ogni gruppo di ordinamento, è possibile mod
 
 [![Una tecnica alternativa consente di modificare la gerarchia del controllo GridView s](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
 
-**Figura 4**: una tecnica alternativa consente di modificare la gerarchia dei controlli di s GridView ([fare clic per visualizzare l'immagine ingrandita](creating-a-customized-sorting-user-interface-vb/_static/image10.png))
+**Figura 4**: una tecnica alternativa consente di modificare gli oggetti di GridView gerarchia del controllo ([fare clic per visualizzare l'immagine ingrandita](creating-a-customized-sorting-user-interface-vb/_static/image10.png))
 
 
 Per questa esercitazione, si userà questo approccio quest'ultimo per personalizzare l'esperienza utente di ordinamento.
@@ -141,7 +141,7 @@ Con l'indice della colonna di ordinamento dei dati, il passaggio finale consiste
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample4.vb)]
 
-Questo codice inizia a livello di codice che fa riferimento il `Table` alla radice della gerarchia del controllo s GridView è stato trovato e la creazione di una variabile di stringa denominata `lastValue`. `lastValue`viene utilizzato per confrontare il valore di colonna ordinati s riga corrente con il valore s riga precedente. Successivamente, i dispositivi di GridView `Rows` raccolta viene enumerata e per ogni riga il valore della colonna ordinato viene memorizzato nel `currentValue` variabile.
+Questo codice inizia a livello di codice che fa riferimento il `Table` alla radice della gerarchia del controllo s GridView è stato trovato e la creazione di una variabile di stringa denominata `lastValue`. `lastValue` Consente di confrontare il valore di colonna ordinati s riga corrente con il valore precedente della riga s. Successivamente, i dispositivi di GridView `Rows` raccolta viene enumerata e per ogni riga il valore della colonna ordinato viene memorizzato nel `currentValue` variabile.
 
 > [!NOTE]
 > Per determinare il valore della colonna s ordinati particolare riga utilizzare la cella s `Text` proprietà. Ciò vale per BoundField, ma non funzionerà nel modo desiderato per TemplateFields, CheckBoxFields e così via. Verrà esaminato come account per i campi di GridView alternativi a breve.
@@ -159,7 +159,7 @@ La classe CSS usata per formattare la riga di intestazione di gruppo ordinamento
 Con il codice corrente, l'ordinamento interfaccia aggiunge intestazioni di gruppo di ordinamento durante l'ordinamento da qualsiasi BoundField (vedere Figura 5, che mostra una schermata durante l'ordinamento dal fornitore). Tuttavia, quando l'ordinamento in base a qualsiasi altro tipo di campo (ad esempio un CheckBoxField o TemplateField), le intestazioni di gruppo di ordinamento sono da trovare (vedere Figura 6).
 
 
-[![L'interfaccia di ordinamento include le intestazioni di gruppo di ordinamento durante l'ordinamento da BoundField](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
+[![L'interfaccia ordinamento include intestazioni di gruppo di ordinamento durante l'ordinamento da BoundField](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
 
 **Figura 5**: l'ordinamento interfaccia include ordinamento gruppo intestazioni quando l'ordinamento da BoundField ([fare clic per visualizzare l'immagine ingrandita](creating-a-customized-sorting-user-interface-vb/_static/image13.png))
 
@@ -198,7 +198,7 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](sorting-custom-paged-data-vb.md)

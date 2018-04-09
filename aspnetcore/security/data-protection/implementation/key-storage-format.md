@@ -1,7 +1,7 @@
 ---
-title: Formato di archiviazione chiavi
+title: Formato di archiviazione chiavi in ASP.NET Core
 author: tdykstra
-description: Questo documento illustra i dettagli di implementazione del formato di archiviazione chiavi di protezione di dati ASP.NET Core.
+description: Informazioni su dettagli di implementazione del formato di archiviazione delle chiavi di protezione dei dati di ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 66783eb7264a4551eafdd9d5c7d99b014701a6de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: abe23da3de70107aa4f4d84f4da27aadfe7b2061
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-format"></a>Formato di archiviazione chiavi
+# <a name="key-storage-format-in-aspnet-core"></a>Formato di archiviazione chiavi in ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
@@ -66,7 +66,7 @@ Il formato specifico del \<descrittore > elemento dipende dall'implementazione d
 
 ## <a name="the-encryptedsecret-element"></a>Il \<encryptedSecret > elemento
 
-Un <encryptedSecret> elemento che contiene la forma crittografata del materiale della chiave privata può essere presente se [è abilitata la crittografia dei segreti inattivi](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest). L'attributo decryptorType sarà il nome completo dell'assembly di un tipo che implementa IXmlDecryptor. Questo tipo è responsabile della lettura interna <encryptedKey> elemento e la decrittografia per recuperare il testo non crittografato originale.
+Un <encryptedSecret> elemento che contiene la forma crittografata del materiale della chiave privata può essere presente se [è abilitata la crittografia dei segreti inattivi](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest). L'attributo decryptorType sarà il nome completo dell'assembly di un tipo che implementa IXmlDecryptor. Questo tipo è responsabile della lettura interna <encryptedKey> elemento e la decrittografia per recuperare il testo non crittografato originale.
 
 Come con \<descrittore >, il formato specifico del <encryptedSecret> elemento dipende dal meccanismo di crittografia a riposo in uso. Nell'esempio precedente, la chiave master viene crittografata utilizzando DPAPI di Windows per il commento.
 

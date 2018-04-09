@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 title: Creazione di classi di modello con Entity Framework (c#) | Documenti Microsoft
 author: microsoft
-description: "In questa esercitazione imparare a usare ASP.NET MVC con Entity Framework Microsoft. Informazioni su come utilizzare la procedura guidata Entity per creare un Da entità ADO.NET..."
+description: In questa esercitazione imparare a usare ASP.NET MVC con Entity Framework Microsoft. Informazioni su come utilizzare la procedura guidata Entity per creare un Da entità ADO.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a897f671de73d9991189e32a5d86b513051ef05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b0a79da580f14d5ae6bcfaaa00d3900234dc662e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-c"></a>Creazione di classi di modello con Entity Framework (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In questa esercitazione imparare a usare ASP.NET MVC con Entity Framework Microsoft. Informazioni su come utilizzare la procedura guidata Entity per creare un ADO.NET Entity Data Model. Nel corso di questa esercitazione, si compila un'applicazione web che illustra come selezionare, inserire, aggiornare ed eliminare dati del database tramite Entity Framework.
 
@@ -33,7 +33,7 @@ Per illustrare come è possibile utilizzare Microsoft Entity Framework con ASP.N
 
 In questa esercitazione si presuppone la presenza di Visual Studio 2008 o Visual Web Developer 2008 con Service Pack 1. È necessario Service Pack 1 per l'utilizzo di Entity Framework. È possibile scaricare Visual Studio 2008 Service Pack 1 o Visual Web Developer, con Service Pack 1 dal seguente indirizzo:
 
-> [https://www.ASP.NET/downloads/](https://www.asp.net/downloads)
+> [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 
 > [!NOTE] 
@@ -48,8 +48,8 @@ L'applicazione di Database di film utilizza una tabella di database denominata f
 | Nome colonna | Tipo di dati | Consenti valori null. | È una chiave primaria? |
 | --- | --- | --- | --- |
 | Id | int | False | True |
-| Titolo | Nvarchar (100) | False | False |
-| Director | Nvarchar (100) | False | False |
+| Titolo | nvarchar(100) | False | False |
+| Director | nvarchar(100) | False | False |
 
 È possibile aggiungere la tabella a un progetto ASP.NET MVC attenendosi alla procedura seguente:
 
@@ -81,15 +81,15 @@ Dopo aver completato questi passaggi, viene visualizzata la finestra di ADO.NET 
 
 ![clip_image002](creating-model-classes-with-the-entity-framework-cs/_static/image1.jpg)
 
-**Figura 2: scegliere il passaggio di contenuto modello**
+**Figura 2-scegliere il passaggio di contenuto modello**
 
 ![clip_image004](creating-model-classes-with-the-entity-framework-cs/_static/image2.jpg)
 
-**Figura 3: Seleziona connessione dati**
+**Figura 3 – scegliere la connessione ai dati**
 
 ![clip_image006](creating-model-classes-with-the-entity-framework-cs/_static/image3.jpg)
 
-**Figura 4: Seleziona oggetti di Database**
+**Figura 4 – Seleziona oggetti di Database**
 
 ![clip_image008](creating-model-classes-with-the-entity-framework-cs/_static/image4.jpg)
 
@@ -105,7 +105,7 @@ Ad esempio, è possibile utilizzare Entity Designer per modificare i nomi delle 
 
 Se si desidera rinominare una classe di entità, è possibile fare doppio clic sul nome della classe in Entity Designer e immettere un nuovo nome (vedere Figura 6). In alternativa, è possibile modificare il nome di un'entità nella finestra Proprietà dopo aver selezionato un'entità in Entity Designer.
 
-**Figura 6: modifica di un nome di entità**
+**Figura 6: modificare un nome di entità**
 
 ![clip_image012](creating-model-classes-with-the-entity-framework-cs/_static/image6.jpg)
 
@@ -139,7 +139,7 @@ Utilizzare la sintassi a seconda del valore LINQ, la sintassi del metodo o sinta
 
 La visualizzazione nel listato 2 viene utilizzata per visualizzare i record di film.
 
-**Elenco di 2 – Views\Home\Index.aspx**
+**Elenco 2 – Views\Home\Index.aspx.**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample3.aspx)]
 
@@ -155,7 +155,7 @@ La visualizzazione dell'indice è un *tipizzati vista*. La visualizzazione dell'
 
 È possibile utilizzare Entity Framework per semplificarne l'inserimento inserire nuovi record in una tabella di database. Elenco di 3 contiene due nuove azioni di aggiunta alla classe che consente di inserire nuovi record nella tabella di database film controller Home.
 
-**Elenco di 3: controllers\homecontroller.cs. (Aggiungi metodi)**
+**Listato 3 – controllers\homecontroller.cs. (Aggiungi metodi)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample4.cs)]
 
@@ -201,7 +201,7 @@ Infine, se non sono presenti errori di convalida, la tabella di database sottost
 
 Quando si modificano i record del database, è necessario passare l'Id del record in corso di modifica per l'azione del controller che esegue l'aggiornamento del database. In caso contrario, l'azione del controller non riconoscerà il record da aggiornare nel database sottostante. Visualizzazione di modifica, contenuta nel listato 5, include un campo nascosto del modulo che rappresenta l'Id del record di database da modificare.
 
-**Elenco di 5-Views\Home\Edit.aspx**
+**Listing 5 – Views\Home\Edit.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample8.aspx)]
 
@@ -221,5 +221,5 @@ Lo scopo di questa esercitazione è stata per illustrare come è possibile compi
 
 In primo luogo, è illustrato come è possibile utilizzare la procedura guidata Entity Data Model per generare un Entity Data Model da Visual Studio. Successivamente, si informazioni su come usare LINQ to Entities per recuperare un set di record del database da una tabella di database. Infine, Entity Framework è usato per inserire, aggiornare ed eliminare i record del database.
 
->[!div class="step-by-step"]
-[Successivo](creating-model-classes-with-linq-to-sql-cs.md)
+> [!div class="step-by-step"]
+> [avanti](creating-model-classes-with-linq-to-sql-cs.md)

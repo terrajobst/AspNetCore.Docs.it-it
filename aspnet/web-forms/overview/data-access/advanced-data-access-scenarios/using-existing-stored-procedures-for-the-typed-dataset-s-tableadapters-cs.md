@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 title: Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Nell'esercitazione precedente è stato descritto come utilizzare la configurazione guidata TableAdapter per generare nuove stored procedure. In questa esercitazione viene illustrato come stesso TableAdapter..."
+description: Nell'esercitazione precedente è stato descritto come utilizzare la configurazione guidata TableAdapter per generare nuove stored procedure. In questa esercitazione viene illustrato come stesso TableAdapter...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df8a714325ce99db615eddc3d457da5c926919ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)
 ====================
@@ -44,7 +44,7 @@ Visual Studio è facile aggiungere nuove stored procedure a un database. S conse
 
 [![Fare clic sulla cartella la Stored procedure e aggiungere una nuova Stored Procedure](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
 
-**Figura 1**: fare clic sulla cartella Stored procedure e aggiungere una nuova Stored Procedure ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png))
+**Figura 1**: scelta della cartella Stored Procedures e aggiungere una nuova Stored Procedure ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png))
 
 
 Come illustrato nella figura 1, si seleziona l'opzione Aggiungi nuova Stored Procedure Visualizza una finestra di script in Visual Studio con la struttura dello script SQL necessari per creare la stored procedure. È il processo per approfondire questo script ed eseguirlo, a quel punto verrà aggiunto al database della stored procedure.
@@ -56,12 +56,12 @@ Immettere lo script seguente:
 
 Questo script, quando eseguita, verrà aggiunta automaticamente una nuova stored procedure del database Northwind denominato `Products_SelectByCategoryID`. Questa stored procedure accetta un singolo parametro di input (`@CategoryID`, di tipo `int`) e restituisce tutti i campi per i prodotti con un corrispondente `CategoryID` valore.
 
-Per eseguire questa applicazione `CREATE PROCEDURE` script e aggiungere la stored procedure nel database, fare clic sull'icona Salva nella barra degli strumenti o premere Ctrl + S. Al termine dell'operazione, aggiornare la cartella Stored procedure che mostra l'oggetto appena creato di stored procedure. Inoltre, lo script nella finestra viene modificata abbastanza particolare da `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` a `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE`Aggiunge una nuova stored procedure nel database, mentre `ALTER PROCEDURE` aggiorna uno esistente. Poiché l'inizio dello script è stato modificato in `ALTER PROCEDURE`, modificare le stored procedure immettere parametri o istruzioni SQL e facendo clic sull'icona Salva aggiornerà la stored procedure con queste modifiche.
+Per eseguire questa applicazione `CREATE PROCEDURE` script e aggiungere la stored procedure nel database, fare clic sull'icona Salva nella barra degli strumenti o premere Ctrl + S. Al termine dell'operazione, aggiornare la cartella Stored procedure che mostra l'oggetto appena creato di stored procedure. Inoltre, lo script nella finestra viene modificata abbastanza particolare da `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` a `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE` Aggiunge una nuova stored procedure nel database, mentre `ALTER PROCEDURE` aggiorna uno esistente. Poiché l'inizio dello script è stato modificato in `ALTER PROCEDURE`, modificare le stored procedure immettere parametri o istruzioni SQL e facendo clic sull'icona Salva aggiornerà la stored procedure con queste modifiche.
 
 La figura 2 mostra Visual Studio dopo la `Products_SelectByCategoryID` stored procedure è stata salvata.
 
 
-[![Products_SelectByCategoryID la Stored Procedure è stato aggiunto al Database](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
+[![La Stored Procedure Products_SelectByCategoryID è stato aggiunto al Database](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
 
 **Figura 2**: la Stored Procedure `Products_SelectByCategoryID` è stato aggiunto al Database ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png))
 
@@ -75,7 +75,7 @@ Aprire il `NorthwindWithSprocs` set di dati. Fare clic su di `ProductsTableAdapt
 
 [![Scegliere l'utilizzo di stored procedure opzione esistente](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
 
-**Figura 3**: scegliere esistenti utilizzare stored procedure opzione ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png))
+**Figura 3**: scegliere Usa esistente store procedure opzione ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png))
 
 
 La schermata seguente fornisce che un elenco a discesa popolato con il database s stored procedure. Selezione di una stored procedure sono elencati i parametri di input a sinistra e i campi di dati restituiti (se presente) a destra. Scegliere il `Products_SelectByCategoryID` stored procedure dall'elenco e fare clic su Avanti.
@@ -93,7 +93,7 @@ Poiché il `Products_SelectByCategoryID` stored procedure restituisce tutti i pr
 
 [![Indicare che la Stored Procedure restituisce dati in formato tabulare](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
 
-**Figura 5**: indicare che la Stored Procedure restituisce dati tabulari ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image15.png))
+**Figura 5**: indica che la Stored Procedure restituisce dati tabellari ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image15.png))
 
 
 È comunque per indicare quali modelli di metodo da utilizzare seguita dai nomi per questi metodi. Lasciare il riempimento di entrambi, DataTable e restituire un oggetto DataTable di opzioni è selezionata, ma rinominare i metodi per `FillByCategoryID` e `GetProductsByCategoryID`. Fare clic su Avanti per esaminare un riepilogo delle attività che verrà eseguita la procedura guidata. Se tutto sembra corretto, fare clic su Fine.
@@ -101,7 +101,7 @@ Poiché il `Products_SelectByCategoryID` stored procedure restituisce tutti i pr
 
 [![Nome FillByCategoryID i metodi e GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
 
-**Figura 6**: i metodi di nome `FillByCategoryID` e `GetProductsByCategoryID` ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))
+**Figura 6**: nome i metodi `FillByCategoryID` e `GetProductsByCategoryID` ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))
 
 
 > [!NOTE]
@@ -130,12 +130,12 @@ Aprire il `ExistingSprocs.aspx` nella pagina di `AdvancedDAL` cartelle e trascin
 
 [![Recuperare i dati dal metodo GetCategories CategoriesBLL classe s](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
 
-**Figura 7**: recuperare dati dal `CategoriesBLL` classe s `GetCategories` metodo ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png))
+**Figura 7**: recupera i dati dal `CategoriesBLL` classe s `GetCategories` metodo ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png))
 
 
-[![Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
+[![Impostare gli elenchi a discesa in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
 
-**Figura 8**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png))
+**Figura 8**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE (nessuno) ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png))
 
 
 Dopo aver completato la procedura guidata ObjectDataSource, configurare DropDownList per visualizzare il `CategoryName` campo dei dati e di utilizzare il `CategoryID` campo come il `Value` per ogni `ListItem`.
@@ -150,12 +150,12 @@ Successivamente, trascinare un controllo GridView nella finestra di progettazion
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLLWithSprocs](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
 
-**Figura 9**: configurare ObjectDataSource per utilizzare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png))
+**Figura 9**: configurare ObjectDataSource per usare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png))
 
 
 [![Recuperare i dati dal metodo GetProductsByCategoryID(categoryID)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
 
-**Figura 10**: recuperare dati dal `GetProductsByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image30.png))
+**Figura 10**: recupera i dati dal `GetProductsByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image30.png))
 
 
 Il metodo selezionato nella scheda Seleziona prevede un parametro, pertanto il passaggio finale della procedura guidata richiede Microsoft per l'origine di s parametri. Impostare l'elenco di riepilogo a discesa Origine parametro al controllo e scegliere il `Categories` controllo dall'elenco a discesa ControlID. Fare clic su Fine per completare la procedura guidata.
@@ -163,7 +163,7 @@ Il metodo selezionato nella scheda Seleziona prevede un parametro, pertanto il p
 
 [![Utilizzare DropDownList categorie come origine di categoryID parametro](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
 
-**Figura 11**: utilizzo di `Categories` DropDownList come origine del `categoryID` parametro ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))
+**Figura 11**: usare il `Categories` DropDownList come origine del `categoryID` parametro ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))
 
 
 Dopo avere completato la procedura guidata ObjectDataSource, Visual Studio aggiungerà BoundField e un CheckBoxField per ognuno dei campi dati di prodotto. È possibile personalizzare questi campi in base alle esigenze.
@@ -173,7 +173,7 @@ Visitare la pagina tramite un browser. Quando si visita la pagina che è selezio
 
 [![Vengono visualizzati i prodotti nella categoria produrre](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
 
-**Figura 12**: vengono visualizzati il prodotti nella categoria produrre ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png))
+**Figura 12**: vengono visualizzati di prodotti nella categoria produrre ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png))
 
 
 ## <a name="step-5-wrapping-a-stored-procedure-s-statements-within-the-scope-of-a-transaction"></a>Passaggio 5: Disposizione testo per le istruzioni s una Stored Procedure all'interno dell'ambito di una transazione
@@ -209,14 +209,14 @@ Se non sono presenti errori di esecuzione delle istruzioni SQL che composizione 
 Consente di esaminare un esempio concreto s. Esiste un vincolo di chiave esterno tra la `Categories` e `Products` tabelle, vale a dire che ogni `CategoryID` campo il `Products` tabella deve essere associato a un `CategoryID` valore il `Categories` tabella. Qualsiasi operazione che violi il vincolo, ad esempio il tentativo di eliminare una categoria di cui è associati i prodotti, comporta una violazione di vincolo di chiave esterna. Per effettuare questa verifica, rivedere l'esempio di aggiornamento ed eliminazione di dati binari esistenti nella sezione Utilizzo di dati binari (`~/BinaryData/UpdatingAndDeleting.aspx`). Questa pagina elenca ogni categoria nel sistema insieme ai pulsanti Modifica e l'eliminazione (vedere Figura 13), ma se si tenta di eliminare una categoria di prodotti, ad esempio bevande - associata l'eliminazione ha esito negativo a causa di una violazione di vincolo di chiave esterna (vedere Figura 14).
 
 
-[![Ogni categoria viene visualizzata in un controllo GridView con modifica e l'eliminazione di pulsanti](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
+[![Ogni categoria viene visualizzata in un controllo GridView con i pulsanti Elimina e modifica](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
 
-**Figura 13**: ogni categoria viene visualizzata in un controllo GridView con modifica e i pulsanti Elimina ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png))
+**Figura 13**: ogni categoria viene visualizzata in un controllo GridView con i pulsanti Elimina e modifica ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png))
 
 
-[![Non è possibile eliminare una categoria di prodotti esistenti](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
+[![Non è possibile eliminare una categoria con i prodotti esistenti](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
 
-**Nella figura 14**: non è possibile eliminare una categoria di prodotti esistenti ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png))
+**Figura 14**: non è possibile eliminare una categoria con i prodotti esistenti ([fare clic per visualizzare l'immagine ingrandita](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png))
 
 
 Si supponga, tuttavia, che si desidera consentire le categorie da eliminare indipendentemente dal fatto che essi prodotti associati. Eliminare una categoria di prodotti, si supponga che si desidera eliminare anche i relativi prodotti esistenti (anche se un'altra opzione, è possibile impostare semplicemente i propri prodotti `CategoryID` valori `NULL`). Questa funzionalità può essere implementata tramite le regole cascade del vincolo di chiave esterna. In alternativa, è possibile creare una stored procedure che accetta un `@CategoryID` parametro di input e, quando richiamata, Elimina in modo esplicito tutti i prodotti associati e quindi la categoria specificata.
@@ -273,12 +273,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Geisenow Hilton S ren Lauritsen Bonaldi e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-[Successivo](updating-the-tableadapter-to-use-joins-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+> [Successivo](updating-the-tableadapter-to-use-joins-cs.md)

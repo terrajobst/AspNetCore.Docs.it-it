@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET e strumenti Web per note sulla versione di Visual Studio 2013
 ====================
@@ -199,16 +199,16 @@ I filtri di autenticazione sono un nuovo tipo di filtro in ASP.NET MVC che vengo
 
 È ora possibile sostituire i filtri da applicare a un metodo di azione specificato o un controller, specificando un filtro di sostituzione. I filtri di sostituzione è specificare un set di tipi di filtro che non devono essere eseguiti per un determinato ambito (azione o controller). Ciò consente di configurare i filtri che si applicano globalmente ma quindi escludere alcuni filtri globali dall'applicazione per azioni specifiche o controller.
 
-### <a name="attribute-routing"></a>Routing degli attributi
+### <a name="attribute-routing"></a>Routing con attributi
 
-ASP.NET MVC supporta ora il routing degli attributi, grazie a un contributo Tim McCall, l'autore di [http://attributerouting.net](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di annotando azioni e controller.
+ASP.NET MVC supporta ora routing degli attributi, grazie a Tim McCall, l'autore di un contributo [ http://attributerouting.net ](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di annotando azioni e controller.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
-### <a name="attribute-routing"></a>Routing degli attributi
+### <a name="attribute-routing"></a>Routing con attributi
 
-ASP.NET Web API ora supporta il routing degli attributi, grazie a un contributo Tim McCall, l'autore di [http://attributerouting.net](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di API Web annotando azioni e controller simile al seguente:
+ASP.NET Web API supporta ora routing degli attributi, grazie a Tim McCall, l'autore di un contributo [ http://attributerouting.net ](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di API Web annotando azioni e controller simile al seguente:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -230,7 +230,7 @@ Supporto per OAuth 2.0 è basato sul nuovo middleware di sicurezza fornito dai c
 
 ### <a name="odata-improvements"></a>Miglioramenti di OData
 
-**Espandere il supporto per $select, $, $batch e $value**
+**Supporto per $select, $expand, $batch e $value**
 
 ASP.NET Web API OData include ora il supporto completo per $select, $expand e $value. È inoltre possibile utilizzare $batch per la richiesta batch e l'elaborazione di insiemi di modifiche.
 
@@ -284,7 +284,7 @@ Poiché l'entità per la richiesta viene passata con la richiesta invece di basa
 
 Grazie a un altro ottimo contributo Brock Allen, ASP.NET ora supporta completamente richiesta condivisione Multiorigine (CORS).
 
-Protezione del browser impedisce che una pagina web effettua le richieste AJAX a un altro dominio. [CORS](http://www.w3.org/TR/cors/) è uno standard W3C che consente a un server per ridurre i criteri della stessa origine. Tramite condivisione CORS, un server può consentire in modo esplicito alcune richieste cross-origin durante il rifiuto di altri utenti.
+Protezione del browser impedisce che una pagina web effettua le richieste AJAX a un altro dominio. [CORS](http://www.w3.org/TR/cors/) è uno standard W3C che consente a un server per ridurre i criteri di origine stesso. Tramite condivisione CORS, un server può consentire in modo esplicito alcune richieste cross-origin durante il rifiuto di altri utenti.
 
 Web API 2 supporta ora CORS, tra cui la gestione automatica delle richieste di verifica preliminare. Per ulteriori informazioni, vedere [abilitazione richieste Cross-Origin in ASP.NET Web API](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md).
 
@@ -332,7 +332,7 @@ SignalR 2.0 si basa completamente in [OWIN (l'interfaccia Web aperta per .NET)](
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs e MapConnection sono ora MapSignalR
 
-Per compatibilità con gli standard OWIN, questi metodi sono stati rinominati in `MapSignalR`. `MapSignalR`chiamata senza parametri verranno eseguito il mapping di tutti gli hub (come `MapHubs` quello della versione 1. x); per eseguire il mapping singoli **PersistentConnection** oggetti, specificare il tipo di connessione come parametro di tipo e l'estensione dell'URL per la connessione come il primo argomento.
+Per compatibilità con gli standard OWIN, questi metodi sono stati rinominati in `MapSignalR`. `MapSignalR` chiamata senza parametri verranno eseguito il mapping di tutti gli hub (come `MapHubs` versione 1.x); per eseguire il mapping singoli **PersistentConnection** oggetti, specificare il tipo di connessione come parametro di tipo e l'estensione dell'URL per la connessione come il primo argomento.
 
 Il `MapSignalR` metodo viene chiamato in una classe di avvio di Owin. Visual Studio 2013 contiene un nuovo modello per una classe di avvio di Owin. Per utilizzare questo modello, effettuare le operazioni seguenti:
 
@@ -344,7 +344,7 @@ In un **applicazione Web,** Owin avvio classe contenente il `MapSignalR` metodo 
 
 In un **self-hosted applicazione**, la classe di avvio viene passata come parametro di tipo di `WebApp.Start` (metodo).
 
-**Il mapping degli hub e le connessioni in SignalR 1. x (da file di applicazione globale in un'applicazione web):** 
+**Mapping degli hub e le connessioni in SignalR 1.x (dal file dell'applicazione globale in un'applicazione web):** 
 
 [!code-csharp[Main](release-notes/samples/sample5.cs)]
 
@@ -376,7 +376,7 @@ Questo comando consente di aggiungere il 2.0.0 versione del pacchetto al progett
 
 I frammenti di codice seguente viene illustrato come implementare le connessioni tra domini in SignalR 1. x e 2.0.
 
-**Implementazione le richieste tra domini in SignalR 1. x (dal file dell'applicazione globale)**
+**Implementazione le richieste tra domini in SignalR 1.x (dal file dell'applicazione globale)**
 
 [!code-csharp[Main](release-notes/samples/sample9.cs)]
 
@@ -392,7 +392,7 @@ Il codice seguente viene illustrato come abilitare CORS o JSONP in un progetto S
 
 È stato aggiunto il supporto per iOS e Android client che utilizzano componenti MonoTouch e MonoDroid dal [Xamarin libreria](https://xamarin.com/). Per ulteriori informazioni su come utilizzarle, vedere [utilizzando i componenti di Xamarin](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Questi componenti è disponibili nel [Store Xamarin](https://store.xamarin.com/) quando non è disponibile la versione RTW SignalR.
 
-<a id="portable"></a># # # Portabile client .NET
+<a id="portable"></a> # # # Portabile client .NET
 
 Per una migliore facilitare lo sviluppo multipiattaforma, di Silverlight, WinRT e i client di Windows Phone sono stati sostituiti con un singolo client .NET portatile che supporta le piattaforme seguenti:
 
@@ -411,7 +411,7 @@ Per una migliore facilitare lo sviluppo multipiattaforma, di Silverlight, WinRT 
 
 ### <a name="backward-compatible-server-support"></a>Supporto server compatibili con le versioni precedenti
 
-Nelle versioni precedenti di SignalR, le versioni del pacchetto SignalR utilizzati nel client e server devono essere identici. Per supportare applicazioni thick client che sarebbero difficile da aggiornare, SignalR 2.0 supporta ora l'utilizzo di una versione più recente di server con un client precedente. **Nota: SignalR 2.0 non supporta server compilati con le versioni precedenti con i client più recenti.**
+Nelle versioni precedenti di SignalR, le versioni del pacchetto SignalR utilizzati nel client e server devono essere identici. Per supportare applicazioni thick client che sarebbero difficile da aggiornare, SignalR 2.0 supporta ora l'utilizzo di una versione più recente di server con un client precedente. **Nota: SignalR 2.0 non supporta i server compilati con le versioni precedenti con i client più recenti.**
 
 <a id="remove40"></a>
 
@@ -425,7 +425,7 @@ SignalR 2.0 ha eliminato il supporto per l'interoperabilità di server con .NET 
 
 In SignalR 2.0, è possibile inviare un messaggio utilizzando un elenco di client e l'ID del gruppo. I frammenti di codice seguente viene illustrato come eseguire questa operazione.
 
-**Invia un messaggio a un elenco di client e gruppi tramite PersistentConnection**
+**Invia un messaggio a un elenco di client e gruppi usando PersistentConnection**
 
 [!code-csharp[Main](release-notes/samples/sample11.cs)]
 
@@ -459,7 +459,7 @@ Gli utenti possono ora generare **HubException** da qualsiasi chiamata dell'hub.
 
 Il **Mostra eccezioni hub dettagliati** impostazione non ha alcun effetto sui **HubException** inviati al client o non; sempre inviata.
 
-**Codice lato server che illustra l'invio al client un HubException**
+**Codice sul lato server che illustrano l'invio al client un HubException**
 
 [!code-csharp[Main](release-notes/samples/sample15.cs)]
 
@@ -477,11 +477,11 @@ Il **Mostra eccezioni hub dettagliati** impostazione non ha alcun effetto sui **
 
 SignalR 2.0 include un'interfaccia denominata `IHubCallerConnectionContext` su hub che rende più semplice creare di chiamate sul lato client fittizio. I frammenti di codice seguente viene illustrato l'utilizzo di questa interfaccia con più diffusi test harness [xUnit.net](https://github.com/xunit/xunit) e [moq](https://code.google.com/p/moq/).
 
-**Unit test SignalR con xUnit.net**
+**Testing unità SignalR con xUnit.net**
 
 [!code-csharp[Main](release-notes/samples/sample18.cs)]
 
-**Unit test SignalR con moq**
+**Testing unità SignalR con moq**
 
 [!code-csharp[Main](release-notes/samples/sample19.cs)]
 
@@ -517,22 +517,22 @@ Autenticazione ASP.NET è basata su middleware OWIN che può essere usato in qua
 <a id="TOC7"></a>
 ## <a name="microsoft-owin-components"></a>Componenti Microsoft OWIN
 
-[Aprire l'interfaccia Web per .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e applicazioni web. OWIN disaccoppia l'applicazione web dal server, rendendo web applicazioni indipendente dall'host. Ad esempio, è possibile ospitare un'applicazione web basata su OWIN in IIS o indipendente in un processo personalizzato.
+[Aprire l'interfaccia Web per .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e le applicazioni web. OWIN disaccoppia l'applicazione web dal server, rendendo web applicazioni indipendente dall'host. Ad esempio, è possibile ospitare un'applicazione web basata su OWIN in IIS o indipendente in un processo personalizzato.
 
 Le modifiche introdotte nei componenti Microsoft OWIN (noto anche come progetto Katana) includono nuovi componenti server e l'host, le nuove librerie di supporto e middleware e nuovo middleware di autenticazione.
 
 Per ulteriori informazioni su OWIN e Katana, vedere [novità di OWIN e Katana](../../../aspnet/overview/owin-and-katana/index.md).
 
-**Nota: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) eseguire le applicazioni in modalità classica IIS; pertanto devono essere eseguite in modalità integrata.**
+**Nota: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) applicazioni non è possibile eseguire in modalità classica IIS; deve essere eseguiti in modalità integrata.**
 
-**Nota: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) applicazioni devono essere eseguite con attendibilità totale.**
+**Nota: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) le applicazioni devono essere eseguite con attendibilità totale.**
 
 ### <a name="new-servers-and-hosts"></a>Gli host e i nuovi server
 
 Con questa versione, i nuovi componenti sono stati aggiunti per abilitare scenari di host indipendente. Questi componenti includono i pacchetti NuGet seguenti:
 
 - **Microsoft.Owin.Host.HttpListener**. Fornisce un server OWIN che utilizza **HttpListener** in ascolto per le richieste HTTP e l'utente nella pipeline OWIN.
-- **Italiano** fornisce una libreria per gli sviluppatori che desiderano una pipeline OWIN in un processo personalizzato, ad esempio un'applicazione console o il servizio Windows di host indipendente.
+- **Owin** fornisce una libreria per gli sviluppatori che desiderano una pipeline OWIN in un processo personalizzato, ad esempio un'applicazione console o il servizio Windows di host indipendente.
 - **OwinHost**. Fornisce un file eseguibile autonomo che esegue il wrapping `Microsoft.Owin.Hosting` e consente di ospitare una pipeline OWIN in modo automatico senza dover scrivere un'applicazione host personalizzata.
 
 Inoltre, il `Microsoft.Owin.Host.SystemWeb` pacchetto consente ora di middleware di fornire suggerimenti per la **SystemWeb** server, che indica che il middleware deve essere chiamato durante una determinata fase della pipeline ASP.NET. Questa funzionalità è particolarmente utile per il middleware di autenticazione, che deve essere eseguito nelle prime fasi della pipeline ASP.NET.
@@ -542,10 +542,10 @@ Inoltre, il `Microsoft.Owin.Host.SystemWeb` pacchetto consente ora di middleware
 Sebbene sia possibile scrivere componenti OWIN utilizzando solo le definizioni di funzione e il tipo dalla specifica di OWIN, il nuovo `Microsoft.Owin` pacchetto fornisce un insieme di astrazioni più semplice. Questo pacchetto consente di combinare diversi pacchetti precedenti (ad esempio, `Owin.Extensions`, `Owin.Types`) in un modello di oggetto ben strutturati che può quindi essere facilmente utilizzato da altri componenti OWIN. In effetti, la maggior parte dei componenti Microsoft OWIN ora utilizzare il pacchetto.
 
 > [!NOTE]
-> [OWIN](http://www.owin.org) eseguire le applicazioni in modalità classica IIS; pertanto devono essere eseguite in modalità integrata.
+> [OWIN](http://www.owin.org) applicazioni non è possibile eseguire in modalità classica IIS; deve essere eseguiti in modalità integrata.
 
 > [!NOTE]
-> [OWIN](http://www.owin.org) applicazioni devono essere eseguite con attendibilità totale.
+> [OWIN](http://www.owin.org) le applicazioni devono essere eseguite con attendibilità totale.
 
 Questa versione include anche il pacchetto italiano, che include middleware per la convalida di un'applicazione OWIN in esecuzione più middleware della pagina di errore per consentire di analizzare gli errori.
 
@@ -555,12 +555,12 @@ I componenti di autenticazione seguenti sono disponibili.
 
 - **Microsoft.Owin.Security.ActiveDirectory**. Abilita l'autenticazione utilizzando i servizi directory in locale o basato su cloud.
 - **Cookies** Abilita l'autenticazione utilizzando i cookie. Questo pacchetto è stato in precedenza denominato `Microsoft.Owin.Security.Forms`.
-- **Italiano** Abilita l'autenticazione utilizzando servizio basato su OAuth di Facebook.
-- **Italiano** Abilita l'autenticazione utilizzando i servizi basati su OpenID di Google.
-- **Italiano** Abilita l'autenticazione con token JWT.
-- **MicrosoftAccount** Abilita l'autenticazione utilizzando l'account Microsoft.
+- **Owin** Abilita l'autenticazione utilizzando servizio basato su OAuth di Facebook.
+- **Owin** Abilita l'autenticazione utilizzando servizio basati su OpenID di Google.
+- **Owin** Abilita l'autenticazione con token JWT.
+- **MicrosoftAccount** Abilita l'autenticazione tramite account Microsoft.
 - **Microsoft.Owin.Security.OAuth**. Fornisce un server di autorizzazione OAuth nonché middleware per autenticare i token di connessione.
-- **Italiano** Abilita l'autenticazione tramite il servizio basato su OAuth di Twitter.
+- **Twitter** Abilita l'autenticazione utilizzando servizio basato su OAuth di Twitter.
 
 Questa versione include anche il `Microsoft.Owin.Cors` pacchetto che contiene il middleware per l'elaborazione delle richieste HTTP cross-origin.
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 include le nuove funzionalità seguenti:
 - Supporto per la modifica di scheda. Preivously, il **Formatta documento** comando rientro automatico e in Visual Studio di formattazione automatica non ha funzionato correttamente quando si utilizza il **Mantieni tabulazioni** opzione. Questa modifica consente di correggere la formattazione di codice Razor per scheda di formattazione di Visual Studio.
 - Supporto per le regole di riscrittura dell'URL per la generazione di collegamenti.
 - Rimozione dell'attributo di trasparenza di sicurezza.
- > [!NOTE]
- > Questa è una modifica di rilievo e rende Razor 3 incompatibile con MVC4 e versioni precedenti, mentre non è compatibile con MVC5 o gli assembly compilati con MVC5 2 Razor.
+  > [!NOTE]
+  > Questa è una modifica di rilievo e rende Razor 3 incompatibile con MVC4 e versioni precedenti, mentre non è compatibile con MVC5 o gli assembly compilati con MVC5 2 Razor.
 
 Problemi di Razor 3 risolti in Visual Studio 2013 da versioni non definitive sono reperibili [qui](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
@@ -597,13 +597,13 @@ In questa sezione vengono descritti problemi noti e modifiche di rilievo in ASP.
 
 ### <a name="nuget"></a>NuGet
 
-- [Ripristino del nuovo pacchetto non viene eseguita sui Mono quando si utilizza il file SLN](https://nuget.codeplex.com/workitem/3596) : verrà risolto in un download nuget.exe future e [NuGet.CommandLine pacchetto](http://www.nuget.org/packages/NuGet.CommandLine/) aggiornare.
+- [Ripristino del nuovo pacchetto non viene eseguita sui Mono quando si usa file SLN](https://nuget.codeplex.com/workitem/3596) : verrà risolto in un download nuget.exe future e [NuGet.CommandLine pacchetto](http://www.nuget.org/packages/NuGet.CommandLine/) aggiornare.
 - [Ripristino del pacchetto nuovo non funziona con i progetti di Wix](https://nuget.codeplex.com/workitem/3598) : verrà risolto in un download nuget.exe future e [NuGet.CommandLine pacchetto](http://www.nuget.org/packages/NuGet.CommandLine/) aggiornare.
-- [Ripristino automatico del pacchetto non funziona per i progetti in una cartella della soluzione](https://nuget.codeplex.com/workitem/3625) : verrà risolto in NuGet 2.8.
+- [Ripristino automatico del pacchetto non funziona per i progetti in una cartella della soluzione](https://nuget.codeplex.com/workitem/3625) – verrà risolto in NuGet 2.8.
 
 ### <a name="aspnet-web-api"></a>API Web ASP.NET
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`non restituisce `IQueryable<T>` sempre, come è stato aggiunto il supporto per `$select` e `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` non restituisce `IQueryable<T>` sempre, come è stato aggiunto supporto per `$select` e `$expand`.
 
     Gli esempi precedenti per `ODataQueryOptions<T>` sempre eseguito il cast il valore restituito da `ApplyTo` a `IQueryable<T>`. Operazione manualmente in precedenza, poiché la query opzioni che è supportato in precedenza (`$filter`, `$orderby`, `$skip`, `$top`) non modificare la forma della query. Ora che è supportato `$select` e `$expand` il valore restituito da `ApplyTo` non saranno `IQueryable<T>` sempre.
 
@@ -632,7 +632,7 @@ In questa sezione vengono descritti problemi noti e modifiche di rilievo in ASP.
 
     *Errore del server nell'applicazione '/'.*
 
-    *Un'attestazione di tipo 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier' o 'http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider' non è presente nell'oggetto ClaimsIdentity specificato. Per abilitare il supporto del token antifalsificazione con autenticazione basata sulle attestazioni, verificare che il provider di attestazioni configurato fornisce entrambe queste attestazioni nelle istanze di oggetto ClaimsIdentity che genera l'errore. Se il provider di attestazioni configurato, invece, utilizza un tipo di attestazione diverso come identificatore univoco, può essere configurato impostando la proprietà statica AntiForgeryConfig.UniqueClaimTypeIdentifier.*
+    <em>Un'attestazione di tipo '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'o'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' non era presente sul ClaimsIdentity specificato. Per abilitare il supporto del token antifalsificazione con autenticazione basata sulle attestazioni, verificare che il provider di attestazioni configurato fornisce entrambe queste attestazioni nelle istanze di oggetto ClaimsIdentity che genera l'errore. Se il provider di attestazioni configurato Usa invece un tipo di attestazione diverso come identificatore univoco, può essere configurato impostando la proprietà statica AntiForgeryConfig.UniqueClaimTypeIdentifier.</em>
 
     **Soluzione alternativa**:
 
@@ -647,14 +647,14 @@ In questa sezione vengono descritti problemi noti e modifiche di rilievo in ASP.
 
     Per correggere l'errore riportato sopra, aprire *tutti* i file Web. config (inclusi quelli nella cartella Views) del progetto e di eseguire le operazioni seguenti:
 
-    1. Aggiornare tutte le occorrenze della versione "4.0.0.0" di "System" a "5.0.0.0".
-    2. Aggiorna tutte le occorrenze della versione "2.0.0.0" di "System.Web.Helpers", &quot;System.Web.WebPages&quot; e &quot;webpages&quot; per "3.0.0.0"
+   1. Aggiornare tutte le occorrenze della versione "4.0.0.0" di "System" a "5.0.0.0".
+   2. Aggiorna tutte le occorrenze della versione "2.0.0.0" di "System.Web.Helpers", &quot;System.Web.WebPages&quot; e &quot;webpages&quot; per "3.0.0.0"
 
-    Ad esempio, dopo aver apportato le suddette modifiche, le associazioni di assembly dovrebbero essere simile al seguente:
+      Ad esempio, dopo aver apportato le suddette modifiche, le associazioni di assembly dovrebbero essere simile al seguente:
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    Per informazioni sull'aggiornamento di progetti MVC 4 e 5 MVC, vedere [come aggiornare un ASP.NET MVC 4 e il progetto API Web per ASP.NET MVC 5 e l'API Web 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+      Per informazioni sull'aggiornamento di progetti MVC 4 e 5 MVC, vedere [come aggiornare un ASP.NET MVC 4 e il progetto API Web per ASP.NET MVC 5 e l'API Web 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 3. Quando si utilizza la convalida lato client con jQuery non intrusiva convalida, il messaggio di convalida a volte non è corretto per un elemento input HTML con tipo = 'number'. L'errore di convalida per un valore obbligatorio ("Age il campo è obbligatorio") viene visualizzato quando un numero non valido viene immesso anziché il messaggio corretto che è necessario un numero valido.
 
     Questo problema è stato trovato in genere con codice di scaffolding per un modello con una proprietà integer nelle visualizzazioni Creazione e modifica.
@@ -697,13 +697,13 @@ Soluzione alternativa:
 - Per correggere l'errore per MVC, aggiungere un nuovo elemento di scaffolding e selezionare le dipendenze di MVC 5 (minima o completa). Questo processo verrà aggiungere tutte le modifiche necessarie al progetto.
 - Per correggere l'errore per l'API Web:
 
-    1. Aggiungere alla classe WebApiConfig al progetto.
+  1. Aggiungere alla classe WebApiConfig al progetto.
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. Configurare WebApiConfig.Register nell'applicazione\_Start (metodo) in Global. asax, come indicato di seguito:
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. Configurare WebApiConfig.Register nell'applicazione\_Start (metodo) in Global. asax, come indicato di seguito:
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

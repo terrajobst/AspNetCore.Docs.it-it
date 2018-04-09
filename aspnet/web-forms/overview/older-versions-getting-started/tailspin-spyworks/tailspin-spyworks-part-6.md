@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: 'Parte 6: L''appartenenza ASP.NET | Documenti Microsoft'
+title: "Parte 6: L'appartenenza ASP.NET | Documenti Microsoft"
 author: JoeStagner
 description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: efb0e2bed1172f42c7f1539f016fba305c47e3eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-aspnet-membership"></a>Parte 6: L'appartenenza ASP.NET
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
 
 
-## <a id="_Toc260221672"></a>Utilizzo di appartenenza ASP.NET
+## <a id="_Toc260221672"></a>  Utilizzo di appartenenze ASP.NET
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -112,6 +112,6 @@ Ai fini di questa applicazione di esempio è sarà calcolare una data di spedizi
 
 Esegue l'applicazione ora consentirà per testare il processo di acquisto dall'inizio alla fine.
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-5.md)
-[Successivo](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-5.md)
+> [Successivo](tailspin-spyworks-part-7.md)

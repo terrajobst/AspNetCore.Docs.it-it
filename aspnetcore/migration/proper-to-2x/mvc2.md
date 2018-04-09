@@ -1,5 +1,5 @@
 ---
-title: Migrazione da ASP.NET ad ASP.NET Core 2.0
+title: Eseguire la migrazione da ASP.NET ad ASP.NET Core 2.0
 author: isaac2004
 description: Ricevere istruzioni per la migrazione ASP.NET MVC o Web API delle applicazioni esistenti per ASP.NET 2.0 Core.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrazione da ASP.NET ad ASP.NET Core 2.0
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core 2.0
 
 Di [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,12 @@ Questo articolo offre una guida di riferimento per la migrazione delle applicazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
+Installare **uno** delle operazioni seguenti da [.NET Downloads: Windows](https://www.microsoft.com/net/download/windows):
+
+* .NET Core SDK
+* Visual Studio per Windows
+  * **Lo sviluppo web ASP.NET e** carico di lavoro
+  * **Lo sviluppo multipiattaforma con .NET core** carico di lavoro
 
 ## <a name="target-frameworks"></a>Framework di destinazione
 I progetti di ASP.NET Core 2.0 offrono agli sviluppatori la flessibilità necessaria per scegliere .NET Core, .NET Framework o entrambi come destinazione. Vedere [Scelta di .NET Core o .NET Framework per le app server](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) per determinare quale framework di destinazione è più appropriato.
@@ -145,7 +150,7 @@ In ASP.NET Core i file statici vengono archiviati nella "radice Web" (*&lt;radic
 
 Ad esempio, un asset immagine nella cartella *wwwroot/images* è accessibile al browser in corrispondenza di una posizione come `http://<app>/images/<imageFileName>`.
 
-**Nota:** per informazioni più dettagliate sulla gestione dei file statici in ASP.NET Core, vedere l'[introduzione all'uso dei file statici in ASP.NET Core](xref:fundamentals/static-files).
+**Nota:** per la documentazione più dettagliata di gestione dei file statici in ASP.NET Core, vedere [utilizzare i file statici in ASP.NET Core](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

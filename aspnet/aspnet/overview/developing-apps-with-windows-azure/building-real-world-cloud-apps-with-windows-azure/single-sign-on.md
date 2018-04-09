@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 title: Single Sign-On (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Single Sign-On (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -130,7 +130,7 @@ E in pochi minuti è terminato.
 
 È necessario solo eseguire questo comando in un controller di dominio dell'organizzazione, in Windows 2003 o versione successiva. E non è necessario riavviare il computer. Quando è terminato, tutti gli utenti sono nel cloud ed è possibile eseguire single sign-on da qualsiasi web o applicazione per dispositivi mobili, tramite SAML, OAuth o WS-Fed.
 
-In alcuni casi è spesso richiesto sulla modalità di protezione si tratta: utilizzato da Microsoft, per i propri dati aziendali sensibili? E la risposta è sì che facciamo. Ad esempio, se si passa al sito Microsoft SharePoint interno [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/), viene richiesto di accedere.
+In alcuni casi è spesso richiesto sulla modalità di protezione si tratta: utilizzato da Microsoft, per i propri dati aziendali sensibili? E la risposta è sì che facciamo. Ad esempio, se si torna al sito interno Microsoft SharePoint [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), viene richiesto di accedere.
 
 ![Accedi Office 365](single-sign-on/_static/image20.png)
 
@@ -186,13 +186,13 @@ Per altre informazioni, vedere le seguenti risorse:
 - [Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Pagina del portale per la documentazione di Azure AD nel sito Web windowsazure.com. Per esercitazioni dettagliate, vedere il **sviluppare** sezione.
 - [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Pagina del portale per la documentazione sull'autenticazione a più fattori in Azure.
 - [Le opzioni di autenticazione account aziendale](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Spiegazione delle opzioni di autenticazione di Azure AD nella finestra di dialogo Nuovo progetto Visual Studio 2013.
-- [Microsoft Patterns and Practices - federazione identità modello](https://msdn.microsoft.com/library/dn589790.aspx).
+- [Microsoft Patterns and Practices - Federated Identity modello](https://msdn.microsoft.com/library/dn589790.aspx).
 - [Procedura: Installare lo strumento di sincronizzazione di Azure Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
 - [Active Directory Federation Services 2.0 mappa del contenuto](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Collegamenti alla documentazione su ad FS 2.0.
 - [Autorizzazione basata sui ruoli e su ACL in un'applicazione di Microsoft Azure AD](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Applicazione di esempio.
 - [Blog di Azure Active Directory Graph API](https://blogs.msdn.com/b/aadgraphteam/).
 - [Controllo dell'accesso in BYOD e integrazione di Directory in un'infrastruttura di identità ibrida](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Tech 2014 Ed sessione video da Gayana Bagdasaryan.
 
->[!div class="step-by-step"]
-[Precedente](web-development-best-practices.md)
-[Successivo](data-storage-options.md)
+> [!div class="step-by-step"]
+> [Precedente](web-development-best-practices.md)
+> [Successivo](data-storage-options.md)

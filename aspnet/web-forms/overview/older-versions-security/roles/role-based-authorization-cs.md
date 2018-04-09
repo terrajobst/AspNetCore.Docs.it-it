@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9a71c463f94bafa80b7fd2f97f381b5d8cb5dcaa
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0a494e697eba44fcbf373c979e119572a8e37565
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="role-based-authorization-c"></a>Autorizzazione basata sui ruoli (c#)
 ====================
@@ -50,7 +50,7 @@ Figura 1 illustra il flusso di lavoro della pipeline ASP.NET quando si utilizza 
 Se un utente anonimo visita il sito, né il `FormsAuthenticationModule` né la `RoleManagerModule` crea un oggetto entità.
 
 
-[![Gli eventi della Pipeline ASP.NET per un utente autenticato quando si utilizza l'autenticazione basata su form e il Framework di ruoli](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
+[![Gli eventi Pipeline ASP.NET per un utente autenticato quando si utilizza l'autenticazione basata su form e il Framework di ruoli](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
 
 **Figura 1**: il eventi della Pipeline ASP.NET per un'autenticazione utente quando tramite autenticazione basata su form e il Framework di ruoli ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image3.png))
 
@@ -62,7 +62,7 @@ Il `RolePrincipal` dell'oggetto `IsInRole(roleName)` chiamate al metodo `Roles.G
 Se il framework di ruoli è configurato per memorizzare nella cache i ruoli dell'utente in un cookie, il `RoleManagerModule` crea il cookie durante della pipeline ASP.NET [ `EndRequest` evento](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx). Questo cookie viene usato nelle richieste successive nella `PostAuthenticateRequest`, ovvero quando la `RolePrincipal` viene creato l'oggetto. Se il cookie è valido e non sia scaduto, i dati nel cookie vengano analizzati e utilizzati per popolare i ruoli dell'utente, evitando così la `RolePrincipal` di dover eseguire una chiamata alla `Roles` classe per determinare i ruoli dell'utente. Figura 2 illustra il flusso di lavoro.
 
 
-[![Informazioni sul ruolo dell'utente possono essere archiviati in un Cookie per migliorare le prestazioni](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
+[![Le informazioni sui ruoli dell'utente possono essere archiviati in un Cookie per migliorare le prestazioni](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
 
 **Figura 2**: ruolo informazioni possono essere archiviati l'utente in un Cookie per migliorare le prestazioni ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image6.png))
 
@@ -73,18 +73,18 @@ Per impostazione predefinita, il meccanismo dei cookie ruolo della cache è disa
 > Le impostazioni di configurazione elencate nella tabella 1 specificano le proprietà del cookie di cache ruoli risultante. Per altre informazioni su cookie, il funzionamento e le varie proprietà, vedere [questa esercitazione i cookie](http://www.quirksmode.org/js/cookies.html).
 
 
-| **Property** | **Descrizione** |
-| --- | --- |
-| `cacheRolesInCookie` | Valore booleano che indica se viene utilizzata la memorizzazione nella cache di cookie. Il valore predefinito è `false`. |
-| `cookieName` | Il nome del cookie di cache di ruoli. Il valore predefinito è ". ASPXROLES". |
-| `cookiePath` | Il percorso del cookie del nome dei ruoli. L'attributo path consente a uno sviluppatore limitare l'ambito di un cookie a una gerarchia di directory specifico. Il valore predefinito è "/", che informa il browser invii il cookie di ticket di autenticazione a qualsiasi richiesta eseguita al dominio. |
-| `cookieProtection` | Indica le tecniche utilizzate per proteggere il cookie di cache di ruolo. I valori consentiti sono: `All` (impostazione predefinita). `Encryption`; `None`; e `Validation`. Fare riferimento al passaggio 3 di <a id="_anchor_5"> </a> [ *configurazione dell'autenticazione form e argomenti avanzati* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) esercitazione per ulteriori informazioni su questi livelli di protezione. |
-| `cookieRequireSSL` | Valore booleano che indica se è necessaria una connessione SSL per trasmettere il cookie di autenticazione. Il valore predefinito è `false`. |
-| `cookieSlidingExpiration` | Valore booleano che indica che se il timeout del cookie viene reimpostato ogni volta che l'utente visita il sito durante una singola sessione. Il valore predefinito è `false`. Questo valore è pertinente solo quando `createPersistentCookie` è impostato su `true`. |
-| `cookieTimeout` | Specifica il tempo, espresso in minuti, trascorso il quale il cookie di ticket di autenticazione scade. Il valore predefinito è `30`. Questo valore è pertinente solo quando `createPersistentCookie` è impostato su `true`. |
-| `createPersistentCookie` | Valore booleano che specifica se il cookie di cache di ruolo è un cookie di sessione o persistente. Se `false` (impostazione predefinita), viene utilizzato un cookie di sessione, che viene eliminato quando il browser viene chiuso. Se `true`, viene utilizzato un cookie permanente, data di scadenza `cookieTimeout` numero di minuti dopo che è stato creato o dopo la visita precedente, a seconda del valore di `cookieSlidingExpiration`. |
-| `domain` | Specifica il valore di dominio del cookie. Il valore predefinito è una stringa vuota, provocando il browser da usare il dominio da cui è stato rilasciato (ad esempio www.yourdomain.com). In questo caso, il cookie verrà **non** da inviare quando apportato richieste per i sottodomini, ad esempio admin.yourdomain.com. Se si desidera che il cookie deve essere passato a tutti i sottodomini è necessario personalizzare il `domain` attributo, se è impostato su "<sottodominio>.nomedominio.com". |
-| `maxCachedResults` | Specifica il numero massimo di nomi di ruoli memorizzati nella cache nel cookie. Il valore predefinito è 25. Il `RoleManagerModule` non crea un cookie per gli utenti che appartengono a più di `maxCachedResults` ruoli. Di conseguenza, il `RolePrincipal` dell'oggetto `IsInRole` metodo utilizzerà la `Roles` classe per determinare i ruoli dell'utente. Il motivo `maxCachedResults` esiste perché molti agenti utente non consente di limitare i cookie di dimensioni maggiori di 4.096 byte. Pertanto questa estremità è progettato per ridurre la probabilità di superare questa limitazione delle dimensioni. Se si dispone di nomi di ruolo estremamente lunghi, è consigliabile provare a specificare un minore `maxCachedResults` valore; contrariwise, se si dispone di nomi di ruolo molto breve, è possibile aumentare probabilmente questo valore. |
+| <strong>Property</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>Descrizione</strong>                                                                                                                                                                                                                                                                                                                                                          |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              Valore booleano che indica se viene utilizzata la memorizzazione nella cache di cookie. Il valore predefinito è `false`.                                                                                                                                                                                                                                                                                                                              |
+|       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     Il nome del cookie di cache di ruoli. Il valore predefinito è ". ASPXROLES".                                                                                                                                                                                                                                                                                                                                     |
+|       `cookiePath`        |                                                                                                                                                                                                                                Il percorso del cookie del nome dei ruoli. L'attributo path consente a uno sviluppatore limitare l'ambito di un cookie a una gerarchia di directory specifico. Il valore predefinito è "/", che informa il browser invii il cookie di ticket di autenticazione a qualsiasi richiesta eseguita al dominio.                                                                                                                                                                                                                                 |
+|    `cookieProtection`     |                                                                                                                                                               Indica le tecniche utilizzate per proteggere il cookie di cache di ruolo. I valori consentiti sono: `All` (impostazione predefinita). `Encryption`; `None`; e `Validation`. Fare riferimento al passaggio 3 di <a id="_anchor_5"> </a> [ *configurazione dell'autenticazione form e argomenti avanzati* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) esercitazione per ulteriori informazioni su questi livelli di protezione.                                                                                                                                                                |
+|    `cookieRequireSSL`     |                                                                                                                                                                                                                                                                                                   Valore booleano che indica se è necessaria una connessione SSL per trasmettere il cookie di autenticazione. Il valore predefinito è `false`.                                                                                                                                                                                                                                                                                                   |
+| `cookieSlidingExpiration` |                                                                                                                                                                                                                                                  Valore booleano che indica che se il timeout del cookie viene reimpostato ogni volta che l'utente visita il sito durante una singola sessione. Il valore predefinito è `false`. Questo valore è pertinente solo quando `createPersistentCookie` è impostato su `true`.                                                                                                                                                                                                                                                  |
+|      `cookieTimeout`      |                                                                                                                                                                                                                                                                         Specifica il tempo, espresso in minuti, trascorso il quale il cookie di ticket di autenticazione scade. Il valore predefinito è `30`. Questo valore è pertinente solo quando `createPersistentCookie` è impostato su `true`.                                                                                                                                                                                                                                                                         |
+| `createPersistentCookie`  |                                                                                                                                                                   Valore booleano che specifica se il cookie di cache di ruolo è un cookie di sessione o persistente. Se `false` (impostazione predefinita), viene utilizzato un cookie di sessione, che viene eliminato quando il browser viene chiuso. Se `true`, viene utilizzato un cookie permanente, data di scadenza `cookieTimeout` numero di minuti dopo che è stato creato o dopo la visita precedente, a seconda del valore di `cookieSlidingExpiration`.                                                                                                                                                                    |
+|         `domain`          |                                                                                                                                                 Specifica il valore di dominio del cookie. Il valore predefinito è una stringa vuota, provocando il browser da usare il dominio da cui è stato rilasciato (ad esempio www.yourdomain.com). In questo caso, il cookie verrà <strong>non</strong> da inviare quando apportato richieste per i sottodomini, ad esempio admin.yourdomain.com. Se si desidera che il cookie deve essere passato a tutti i sottodomini è necessario personalizzare il `domain` attributo, se è impostato su "<sottodominio>.nomedominio.com".                                                                                                                                                 |
+|    `maxCachedResults`     | Specifica il numero massimo di nomi di ruoli memorizzati nella cache nel cookie. Il valore predefinito è 25. Il `RoleManagerModule` non crea un cookie per gli utenti che appartengono a più di `maxCachedResults` ruoli. Di conseguenza, il `RolePrincipal` dell'oggetto `IsInRole` metodo utilizzerà la `Roles` classe per determinare i ruoli dell'utente. Il motivo `maxCachedResults` esiste perché molti agenti utente non consente di limitare i cookie di dimensioni maggiori di 4.096 byte. Pertanto questa estremità è progettato per ridurre la probabilità di superare questa limitazione delle dimensioni. Se si dispone di nomi di ruolo estremamente lunghi, è consigliabile provare a specificare un minore `maxCachedResults` valore; contrariwise, se si dispone di nomi di ruolo molto breve, è possibile aumentare probabilmente questo valore. |
 
 **Tabella 1:** le opzioni di configurazione di ruolo della Cache Cookie
 
@@ -120,7 +120,7 @@ A tale scopo, aggiungere innanzitutto un `Web.config` file per il `Roles` cartel
 
 [![Aggiungere un File Web. config nella directory di ruoli](role-based-authorization-cs/_static/image8.png)](role-based-authorization-cs/_static/image7.png)
 
-**Figura 3**: aggiungere un `Web.config` File per il `Roles` directory ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image9.png))
+**Figura 3**: aggiungere un `Web.config` del File per il `Roles` directory ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image9.png))
 
 
 Successivamente, aggiungere il markup seguente di configurazione per `Web.config`:
@@ -132,17 +132,17 @@ Il `<authorization>` elemento il `<system.web>` sezione indica che solo gli uten
 Dopo aver salvato le modifiche apportate alla `Web.config`, accedere come un utente che non si trova il ruolo di amministratore e quindi tenta di visitare una delle pagine protette. Il `UrlAuthorizationModule` rileverà che non si dispone dell'autorizzazione per visitare la risorsa richiesta, di conseguenza, il `FormsAuthenticationModule` verrà reindirizzati alla pagina di accesso. Quindi, la pagina di accesso reindirizzerà l'utente per il `UnauthorizedAccess.aspx` pagina (vedere la figura 4). Questo reindirizzamento finale dalla pagina di accesso per `UnauthorizedAccess.aspx` si verifica a causa di codice viene aggiunto alla pagina di accesso nel passaggio 2 del <a id="_msoanchor_7"> </a> [ *autorizzazione basata sull'utente* ](../membership/user-based-authorization-cs.md) esercitazione. In particolare, la pagina di accesso reindirizza automaticamente qualsiasi utente autenticato a `UnauthorizedAccess.aspx` se la stringa di query contiene un `ReturnUrl` parametro, come questo parametro indica che l'utente è arrivato alla pagina di accesso dopo un tentativo di visualizzare una pagina che non è stato autorizzati a visualizzare.
 
 
-[![Solo gli utenti al ruolo Administrators possono visualizzare le pagine protette](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
+[![Solo gli utenti nel ruolo gli amministratori possono visualizzare le pagine protette](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
 
-**Figura 4**: solo gli utenti al ruolo Administrators possono visualizzare le pagine protetto ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image12.png))
+**Figura 4**: solo gli utenti nel ruolo gli amministratori possono visualizzare le pagine protetto ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image12.png))
 
 
 Disconnettersi e quindi accedere come utente al ruolo Administrators. Ora deve essere in grado di visualizzare tre pagine protette.
 
 
-[![Visitare che il UsersAndRoles.aspx pagina perché è nel ruolo Administrators tito](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
+[![Tito visitando che il UsersAndRoles.aspx pagina perché è nel ruolo Administrators](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
 
-**Figura 5**: Tito è possibile visitare il `UsersAndRoles.aspx` pagina perché è il ruolo di amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image15.png))
+**Figura 5**: Tito possibile visitare il `UsersAndRoles.aspx` pagina perché è nel ruolo Administrators ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image15.png))
 
 
 > [!NOTE]
@@ -158,7 +158,7 @@ Tali regole di autorizzazione basata sui ruoli di singole possono essere impleme
 Creare una pagina che elenca tutti gli account utente nel sistema in un controllo GridView. GridView includerà username, indirizzo di posta elettronica, data di ultimo accesso e i commenti sull'utente di ogni utente. Oltre a visualizzare informazioni di ogni utente, GridView verranno includono modifica ed eliminare le funzionalità. Inizialmente verrà creato in questa pagina con la modifica e funzionalità disponibili per tutti gli utenti di eliminare. Nella sezione "Utilizzo del controllo LoginView" e "Limitazione a livello di codice la funzionalità" vedremo come abilitare o disabilitare queste funzionalità in base al ruolo dell'utente.
 
 > [!NOTE]
-> Per visualizzare gli account utente, la pagina ASP.NET che si sta tentando di compilare utilizza un controllo GridView. Poiché in questa esercitazione serie è incentrata sulla autenticazione basata su form, autorizzazione, gli account utente e ruoli, non si desidera dedicare troppo tempo che illustrano il funzionamento interno del controllo GridView. Durante questa esercitazione vengono fornite istruzioni dettagliate specifiche per la configurazione di questa pagina, non approfondire i dettagli di perché in cui sono state apportate alcune scelte, o quali dispone di proprietà particolare effetto sull'output sottoposto a rendering. Per un esame esauriente del controllo GridView, consultare il  *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)*  serie di esercitazioni.
+> Per visualizzare gli account utente, la pagina ASP.NET che si sta tentando di compilare utilizza un controllo GridView. Poiché in questa esercitazione serie è incentrata sulla autenticazione basata su form, autorizzazione, gli account utente e ruoli, non si desidera dedicare troppo tempo che illustrano il funzionamento interno del controllo GridView. Durante questa esercitazione vengono fornite istruzioni dettagliate specifiche per la configurazione di questa pagina, non approfondire i dettagli di perché in cui sono state apportate alcune scelte, o quali dispone di proprietà particolare effetto sull'output sottoposto a rendering. Per un esame esauriente del controllo GridView, consultare il *[utilizzo dei dati in ASP.NET 2.0](../../data-access/index.md)* serie di esercitazioni.
 
 
 Aprire il `RoleBasedAuthorization.aspx` nella pagina di `Roles` cartella. Trascinare un controllo GridView dalla pagina nella finestra di progettazione e set relativo `ID` a `UserGrid`. In un momento in cui si scriverà il codice che chiama il `Membership.GetAllUsers` (metodo) e associa il valore risultante `MembershipUserCollection` oggetto GridView. Il `MembershipUserCollection` contiene un `MembershipUser` oggetto per ogni account utente nel sistema. `MembershipUser` oggetti dispongono di proprietà come `UserName`, `Email`, `LastLoginDate`e così via.
@@ -172,7 +172,7 @@ Impostare il `HeaderText` proprietà le due TemplateFields "Email" e "Comment".
 
 [![I campi del controllo GridView possono essere configurati tramite la finestra di dialogo campi](role-based-authorization-cs/_static/image17.png)](role-based-authorization-cs/_static/image16.png)
 
-**Figura 6**: può essere configurato tramite il campi nel GridView finestra di dialogo ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image18.png))
+**Figura 6**: campi possono essere configurate tramite campi finestra il GridView di dialogo ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image18.png))
 
 
 È ora necessario definire il `ItemTemplate` e `EditItemTemplate` per il "Email" e "Comment" TemplateFields. Aggiungere un controllo Web etichetta a ogni il `ItemTemplate` s e associa i `Text` proprietà per il `Email` e `Comment` proprietà, rispettivamente.
@@ -244,7 +244,7 @@ Per gestire il RoleGroups, fare clic sul collegamento "Modifica RoleGroups" del 
 
 [![Gestire i modelli specifici per il ruolo di LoginView tramite l'Editor della raccolta RoleGroup](role-based-authorization-cs/_static/image23.png)](role-based-authorization-cs/_static/image22.png)
 
-**Figura 8**: gestione specifiche del ruolo modelli tramite l'Editor di LoginView della raccolta RoleGroup ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image24.png))
+**Figura 8**: la gestione specifiche del ruolo modelli tramite l'Editor del LoginView della raccolta RoleGroup ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image24.png))
 
 
 Fare clic su OK per chiudere l'Editor della raccolta RoleGroup; Aggiorna dichiarativo di LoginView per includere un `<RoleGroups>` sezione con un `<asp:RoleGroup>` nell'Editor della raccolta RoleGroup definito l'elemento figlio per ogni RoleGroup. Inoltre, l'elenco a discesa "Visualizzazioni" elenco Smart Tag di LoginView - elencate inizialmente solo il `AnonymousTemplate` e `LoggedInTemplate` – include ora anche la RoleGroups aggiunto.
@@ -258,14 +258,14 @@ Dopo aver apportato queste modifiche, salvare la pagina e quindi vi accede trami
 Successivamente, accedere come utente membro del ruolo supervisori. Questo tempo dovrebbe essere supervisori specifiche del ruolo del messaggio (vedere Figura 9). E se si accede come utente nel ruolo dovrebbe essere specifici del ruolo amministratori di messaggio (vedere la figura 10) amministratori.
 
 
-[![Bruce viene visualizzato il messaggio specifiche del ruolo supervisori](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
+[![Bruce viene visualizzato il messaggio di specifiche del ruolo mentre per i supervisori](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
 
-**Figura 9**: Bruce viene visualizzato il messaggio specifiche del ruolo supervisori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image27.png))
+**Figura 9**: Bruce viene visualizzato il messaggio di specifiche del ruolo mentre per i supervisori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image27.png))
 
 
-[![Tito viene visualizzato il messaggio specifiche del ruolo di amministratori](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
+[![Tito viene visualizzato il messaggio specifici per il ruolo di amministratori](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
 
-**Figura 10**: Tito viene visualizzato il messaggio specifiche del ruolo di amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image30.png))
+**Figura 10**: Tito viene visualizzato il messaggio specifici per il ruolo di amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image30.png))
 
 
 Come nelle schermate figure 9 e 10 Mostra, di LoginView solo esegue il rendering di un modello, anche se si applicano più modelli. Bruce e Tito sono entrambi gli utenti connessi, ma il LoginView esegue il rendering solo il RoleGroup corrispondente e non il `LoggedInTemplate`. Inoltre, Tito appartiene ai ruoli di amministratori e i supervisori, ma il controllo LoginView visualizza il modello di specifiche del ruolo amministratori anziché i supervisori uno.
@@ -275,7 +275,7 @@ La figura 11 illustra il flusso di lavoro utilizzata dal controllo LoginView per
 
 [![Flusso di lavoro del controllo LoginView per determinare quale modello per il rendering](role-based-authorization-cs/_static/image32.png)](role-based-authorization-cs/_static/image31.png)
 
-**Figura 11**: flusso di lavoro del controllo LoginView il per determinare quali modello per il rendering ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image33.png))
+**Figura 11**: flusso di lavoro del controllo LoginView il per determinare cosa modello per il rendering ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image33.png))
 
 
 ### <a name="programmatically-limiting-functionality"></a>Funzionalità di limitazione a livello di codice
@@ -316,17 +316,17 @@ Questa pagina tramite un browser di prova. Se si visita la pagina come un visita
 > È possibile nascondere il CommandField completamente quando un non-supervisore e senza privilegi di amministratore visita la pagina. Lasciare questo campo come esercizio per il lettore.
 
 
-[![La modifica e i pulsanti Elimina sono nascosti per i supervisori di Non e utenti Non amministratori](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
+[![La modifica e i pulsanti Elimina sono nascosti per i supervisori Non e di utenti Non amministratori](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
 
-**Figura 13**: modifica e i pulsanti Elimina sono nascosti per i supervisori di Non e utenti Non amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image39.png))
+**Figura 13**: pulsanti Elimina e modifica sono nascosti per i supervisori Non e gli altri utenti ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image39.png))
 
 
 Se un utente che appartiene al ruolo supervisori (ma non per il ruolo di amministratore) visita, vede solo il pulsante Modifica.
 
 
-[![Mentre il pulsante Modifica è disponibile per i supervisori, il pulsante Elimina è nascosto](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
+[![Anche se il pulsante Modifica è disponibile per i supervisori, il pulsante Elimina è nascosto](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
 
-**Nella figura 14**: mentre il pulsante Modifica è disponibile per i supervisori, il pulsante Elimina è nascosto ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image42.png))
+**Figura 14**: mentre il pulsante Modifica è disponibile per i supervisori, il pulsante Elimina è nascosto ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image42.png))
 
 
 E, se un amministratore visita, chiara ha accesso a entrambi i pulsanti Modifica e l'eliminazione.
@@ -334,7 +334,7 @@ E, se un amministratore visita, chiara ha accesso a entrambi i pulsanti Modifica
 
 [![La modifica e i pulsanti Elimina sono disponibili solo per gli amministratori](role-based-authorization-cs/_static/image44.png)](role-based-authorization-cs/_static/image43.png)
 
-**Figura 15**: eliminare pulsanti e modifica sono disponibili solo per gli amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image45.png))
+**Figura 15**: pulsanti Elimina e modifica sono disponibili solo per gli amministratori ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image45.png))
 
 
 ## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>Passaggio 3: Applicazione di regole di autorizzazione basata sui ruoli a classi e metodi
@@ -361,7 +361,7 @@ Se, in qualche modo, un utente non amministratore tenta di eseguire il `RowDelet
 
 [![Se il contesto di sicurezza non è autorizzato a eseguire il metodo, viene generata un'eccezione SecurityException](role-based-authorization-cs/_static/image47.png)](role-based-authorization-cs/_static/image46.png)
 
-**Figura 16**: se il contesto di sicurezza non è autorizzato a eseguire il metodo, un `SecurityException` viene generata un'eccezione ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image48.png))
+**Figura 16**: se il contesto di sicurezza non è autorizzato a eseguire il metodo, una `SecurityException` viene generata un'eccezione ([fare clic per visualizzare l'immagine ingrandita](role-based-authorization-cs/_static/image48.png))
 
 
 Oltre alle pagine ASP.NET, molte applicazioni hanno inoltre un'architettura che include vari livelli, ad esempio la logica di Business e i livelli di accesso ai dati. Questi livelli vengono in genere implementati come librerie di classi e offrono le classi e metodi per l'esecuzione delle funzionalità relative ai dati e logica di business. Il `PrincipalPermission` attributo è utile per applicare le regole di autorizzazione anche questi livelli.
@@ -380,19 +380,19 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Aggiunta di regole di autorizzazione di Business e i livelli di dati tramite`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [Aggiunta di regole di autorizzazione di Business e i livelli di dati tramite `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [Analisi di ASP.NET 2.0 appartenenza, ruoli e profilo: utilizzo dei ruoli](http://aspnet.4guysfromrolla.com/articles/121405-1.aspx)
 - [Elenco di domande di sicurezza per ASP.NET 2.0](https://msdn.microsoft.com/library/ms998375.aspx)
 - [Documentazione tecnica per il `<roleManager>` elemento](https://msdn.microsoft.com/library/ms164660.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Suchi Banerjee e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione includono Suchi Banerjee e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](assigning-roles-to-users-cs.md)
-[Successivo](creating-and-managing-roles-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](assigning-roles-to-users-cs.md)
+> [Successivo](creating-and-managing-roles-vb.md)

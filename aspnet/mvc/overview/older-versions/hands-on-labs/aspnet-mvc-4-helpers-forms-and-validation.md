@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 title: La convalida, moduli e gli helper di ASP.NET MVC 4 | Documenti Microsoft
 author: rick-anderson
-description: "In ASP.NET MVC 4 modelli e le esercitazioni pratiche accesso ai dati, è stato durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il..."
+description: In ASP.NET MVC 4 modelli e le esercitazioni pratiche accesso ai dati, è stato durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Convalida, moduli e gli helper di ASP.NET MVC 4
 
@@ -112,12 +112,12 @@ In questa attività si creerà un nuovo controller chiamato **StoreManagerContro
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex1-CreatingTheStoreManagerController/Begin/** cartella.
 
-    1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aggiunge un nuovo controller. A tale scopo, fare doppio clic su di **controller** cartella in Esplora soluzioni, selezionare **Aggiungi** e quindi la **Controller** comando. Modifica il **Controller** **nome** a **StoreManagerController** e accertarsi che l'opzione **controller MVC con azioni di lettura/scrittura vuote**è selezionata. Fare clic su **Aggiungi**.
 
     ![Finestra di dialogo Aggiungi controller](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "finestra di dialogo Aggiungi controller")
@@ -184,7 +184,7 @@ In questa attività, si potrà regolare il modello di visualizzazione semplice c
 1. Esaminare il codice creato. L'elenco di campi generato sarà parte del seguente tabella HTML **Scaffolding** utilizzata per la visualizzazione dei dati tabulari.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
-2. Sostituire il  **&lt;tabella&gt;**  codice con il codice seguente per visualizzare solo il **Genre**, **artista**, **titolo**, e **prezzo** campi. Questo elimina la **payload** e **Album Art URL** colonne. Inoltre, viene modificato GenreId e ArtistId colonne per visualizzare le proprietà di classe collegati di **Artist.Name** e **Genre.Name**e rimuove il **dettagli** collegamento.
+2. Sostituire il **&lt;tabella&gt;** codice con il codice seguente per visualizzare solo il **Genre**, **artista**, **titolo**, e **prezzo** campi. Questo elimina la **payload** e **Album Art URL** colonne. Inoltre, viene modificato GenreId e ArtistId colonne per visualizzare le proprietà di classe collegati di **Artist.Name** e **Genre.Name**e rimuove il **dettagli** collegamento.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample5.cshtml)]
 3. Modificare le descrizioni seguenti.
@@ -231,14 +231,14 @@ In questa attività si aggiungerà un nuovo metodo **Truncate** per il **HTML** 
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex2-AddingAnHTMLHelper/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire la visualizzazione di StoreManager indice. A tale scopo, in Esplora soluzioni espandere la **viste** cartella, quindi il **StoreManager** e aprire il **cshtml** file.
-3. Aggiungere il codice seguente sotto il  **@model**  (direttiva) per definire il **Truncate** metodo di supporto.
+3. Aggiungere il codice seguente sotto il <strong>@model</strong> (direttiva) per definire il <strong>Truncate</strong> metodo di supporto.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample7.cshtml)]
 
@@ -275,7 +275,7 @@ In questa attività, si verificherà che il **StoreManager** **indice** modello 
 
 In questo esercizio, si apprenderà come creare un form per consentire ai responsabili di archivio di modifica di un Album. Verrà esplorano il **/StoreManager/Edit/id** URL (**id** da id univoco dell'album da modificare), rendendo in tal modo una chiamata HTTP-GET al server.
 
-Il metodo di azione Modifica Controller verranno recuperare Album appropriato dal database, creare un **StoreManagerViewModel** incapsularlo (insieme a un elenco degli artisti e generi) e quindi passare a un modello di visualizzazione per oggetto all'utente, eseguire il rendering della pagina HTML. Questa pagina conterrà un  **&lt;modulo&gt;**  elemento con caselle di testo ed elenchi a discesa per modificare le proprietà dell'Album.
+Il metodo di azione Modifica Controller verranno recuperare Album appropriato dal database, creare un **StoreManagerViewModel** incapsularlo (insieme a un elenco degli artisti e generi) e quindi passare a un modello di visualizzazione per oggetto all'utente, eseguire il rendering della pagina HTML. Questa pagina conterrà un **&lt;modulo&gt;** elemento con caselle di testo ed elenchi a discesa per modificare le proprietà dell'Album.
 
 Dopo che l'utente aggiorna i valori del form Album e fa clic il **salvare** pulsante, le modifiche vengono inviate tramite un POST HTTP richiamare **/StoreManager/Edit/id**. Anche se l'URL viene mantenuta come l'ultima chiamata, ASP.NET MVC che identifica questa volta è un POST HTTP e pertanto viene eseguito un altro metodo di azione di modifica (uno decorati con **[HttpPost]**).
 
@@ -288,12 +288,12 @@ In questa attività verrà implementata la versione HTTP-GET del metodo di azion
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex3-CreatingTheEditView/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire il **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
 3. Sostituire il **HTTP-GET modifica** il metodo di azione con il codice seguente per recuperare l'oggetto appropriato **Album** , nonché **generi** e **artisti**Elenca.
 
@@ -425,12 +425,12 @@ In questa attività verrà implementata la versione HTTP-GET del metodo di azion
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex4-AddingACreateView/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
 3. Sostituire il **crea** codice metodo di azione con quanto segue:
 
@@ -524,12 +524,12 @@ In questa attività si implementerà la versione HTTP-GET del metodo di azione d
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex5-HandlingDeletion/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
 3. L'azione di eliminazione controller è esattamente come azione del controller dettagli archivio precedente: viene eseguita una query di **album** oggetto dal database utilizzando il **id** fornito l'URL e restituisce il appropriato **vista**. A tale scopo, sostituire HTTP-GET **eliminare** codice metodo di azione con quanto segue:
 
@@ -613,12 +613,12 @@ Per una classe di modello semplice, l'aggiunta di un'annotazione di dati viene g
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex6-AddingValidation/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire il **Album.cs** dal **modelli** cartella.
 3. Sostituire **Album.cs** contenuto con il codice evidenziato di seguito, in modo che risulti simile al seguente:
 
@@ -657,7 +657,7 @@ In questa attività si testerà convalidano che le pagine di creare e modificare
 
     ![Convalidato i campi della pagina di modifica](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    Convalidato i campi della pagina di modifica
+    *Convalidato i campi della pagina di modifica*
 
 <a id="Exercise7"></a>
 
@@ -679,12 +679,12 @@ In questa attività verrà eseguita l'applicazione prima di includere jQuery per
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex7-UnobtrusivejQueryValidation/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Premere **F5** per eseguire l'applicazione.
 3. Il progetto viene avviato nella Home page. Sfoglia **StoreManager/crea** e fare clic su **crea** senza compilare il modulo per verificare che i messaggi di convalida:
 
@@ -739,24 +739,24 @@ In questa attività, si verificherà che il **StoreManager** creare vista modell
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample23.html)]
 
-    > [!NOTE]
-    > Per ogni regola di convalida del client, jQuery non intrusiva aggiunge un attributo con dati-val -*rulename*=&quot;*messaggio*&quot;. Di seguito è riportato un elenco di tag che Unobtrusive jQuery inserisce nel campo di input html per eseguire la convalida del client:
-    > 
-    > - Dati val
-    > - Numero di dati val
-    > - Intervallo di dati val
-    > - Dati-val-intervallo-min / dati-val-intervallo-max
-    > - Val dati obbligatori
-    > - Val-lunghezza dei dati
-    > - Dati-val lunghezza max / min dati-val-lunghezza
-    > 
-    > Tutti i valori di dati vengono riempiti con modello **annotazione dei dati**. Quindi, è possibile eseguire la logica che funziona sul lato server sul lato client. Ad esempio, prezzo e presenta l'annotazione dei dati seguenti nel modello:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
-    > 
-    > Dopo aver utilizzato jQuery non intrusiva, il codice generato è:
-    >  
-    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
+   > [!NOTE]
+   > Per ogni regola di convalida del client, jQuery non intrusiva aggiunge un attributo con dati-val -*rulename*=&quot;*messaggio*&quot;. Di seguito è riportato un elenco di tag che Unobtrusive jQuery inserisce nel campo di input html per eseguire la convalida del client:
+   > 
+   > - Dati val
+   > - Numero di dati val
+   > - Intervallo di dati val
+   > - Dati-val-intervallo-min / dati-val-intervallo-max
+   > - Val dati obbligatori
+   > - Val-lunghezza dei dati
+   > - Dati-val lunghezza max / min dati-val-lunghezza
+   > 
+   > Tutti i valori di dati vengono riempiti con modello **annotazione dei dati**. Quindi, è possibile eseguire la logica che funziona sul lato server sul lato client. Ad esempio, prezzo e presenta l'annotazione dei dati seguenti nel modello:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
+   > 
+   > Dopo aver utilizzato jQuery non intrusiva, il codice generato è:
+   > 
+   > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
 * * *
 
@@ -781,9 +781,9 @@ Completando questa pratica si è appreso come consentire agli utenti di modifica
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il  **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
 
-1. Passare a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; *Visual Studio Express 2012 per Web con Windows Azure SDK*&quot;.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
 2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
 3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
 

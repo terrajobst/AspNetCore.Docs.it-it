@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: bd840f9f3f5d723e6bc1bb35955a7770634e9483
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a1b9681516e626b6a0eec420b168a74e05d88afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-file--new-project"></a>Parte 1: File -> Nuovo progetto
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 1 copre panoramica e File/nuovo progetto.
 
 
-## <a id="_Toc260221666"></a>Panoramica
+## <a id="_Toc260221666"></a>  Panoramica
 
 In questa esercitazione viene fornita un'introduzione a ASP.NET WebForms. Si verrà avviata lenta, pertanto l'esperienza di sviluppo web di livello per principianti è accettabile.
 
@@ -63,9 +63,9 @@ Iniziare creando un nuovo progetto di Web Form ASP.NET in Visual Studio 2010 e f
 
 È possibile seguire la procedura dettagliata, oppure è possibile scaricare l'applicazione finita da [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-È possibile utilizzare Visual Studio 2010 o il libero Visual Web Developer 2010 da [https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/). Per compilare l'applicazione, è possibile utilizzare SQL Server o il disponibile SQL Server Express per ospitare il database.
+È possibile utilizzare Visual Studio 2010 o il liberi Visual Web Developer 2010 da [ https://www.microsoft.com/express/Web/ ](https://www.microsoft.com/express/Web/). Per compilare l'applicazione, è possibile utilizzare SQL Server o il disponibile SQL Server Express per ospitare il database.
 
-## <a id="_Toc260221667"></a>File / nuovo progetto
+## <a id="_Toc260221667"></a>  File / nuovo progetto
 
 Si inizierà selezionando il nuovo progetto dal menu File in Visual Studio. Verrà visualizzata la finestra di dialogo Nuovo progetto.
 
@@ -105,5 +105,5 @@ Verrà inoltre spostare la pagina Master per la directory di stili. Anche se que
 
 Dopo questa operazione che è necessario modificare la pagina master i riferimenti in tutti i file con estensione aspx generato per l'impostazione predefinita le pagine Web Form ASP.NET.
 
->[!div class="step-by-step"]
-[Successivo](tailspin-spyworks-part-2.md)
+> [!div class="step-by-step"]
+> [avanti](tailspin-spyworks-part-2.md)

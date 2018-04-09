@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Configurazione delle autorizzazioni per Team di distribuzione della compilazione
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come configurare le autorizzazioni per consentire al server di compilazione distribuire il contenuto al server web e server di database come parte di un processo di compilazione automatizzato.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -38,7 +38,7 @@ Quando si installa il servizio di compilazione 2010 Team Foundation Server (TFS)
 Qualsiasi attività di distribuzione che richiedono l'autenticazione di Windows e che si intende automatizzare con Team Build, viene eseguito con l'identità del servizio di compilazione. Di conseguenza, è necessario concedere l'identità del servizio di compilazione le autorizzazioni necessarie per i server web e i server di database.
 
 > [!NOTE]
-> L'account del servizio di rete Usa l'account del computer per l'autenticazione in altri computer. Gli account computer assumono la forma * [nome dominio]\[nome macchina] ***$**& #x 2014, ad esempio **FABRIKAM\TFSBUILD$**. Di conseguenza, se il servizio di compilazione viene eseguita utilizzando l'identità del servizio di rete, è necessario concedere alcuna delle autorizzazioni necessarie per l'identità dell'account computer per il server di compilazione.
+> L'account del servizio di rete Usa l'account del computer per l'autenticazione in altri computer. Account del computer hanno il formato * [nome di dominio]\[nome macchina] ***$**&#x2014;, ad esempio, **FABRIKAM\TFSBUILD$**. Di conseguenza, se il servizio di compilazione viene eseguita utilizzando l'identità del servizio di rete, è necessario concedere alcuna delle autorizzazioni necessarie per l'identità dell'account computer per il server di compilazione.
 
 
 ## <a name="configuring-web-server-permissions"></a>Configurazione delle autorizzazioni di Server Web
@@ -50,7 +50,7 @@ Come descritto in [scelta dell'approccio di destra per distribuzione Web](../con
 
 L'agente remoto presenta due limitazioni principali in questo caso:
 
-- L'agente remoto supporta solo l'autenticazione NTLM. In altre parole, la distribuzione deve utilizzare l'identità del servizio di compilazione & #x 2014, è possibile rappresentare un altro account.
+- L'agente remoto supporta solo l'autenticazione NTLM. In altre parole, la distribuzione deve utilizzare l'identità del servizio di compilazione&#x2014;è possibile rappresentare un altro account.
 - Per utilizzare l'agente remoto, l'account che esegue la distribuzione deve essere un amministratore nel server di destinazione.
 
 Insieme, queste due limitazioni rendono l'approccio di agente remoto indesiderabile per una distribuzione automatizzata Team Build. Per utilizzare questo approccio, è necessario rendere il servizio di compilazione di account di amministratore su tutti i server web di destinazione.
@@ -93,5 +93,5 @@ A questo punto, è necessario comprendere le autorizzazioni necessarie, insieme 
 
 Per ulteriori informazioni sulla configurazione degli ambienti server Windows per supportare la distribuzione remota, vedere [configurazione di ambienti Server per la distribuzione Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Precedente](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-a-specific-build.md)

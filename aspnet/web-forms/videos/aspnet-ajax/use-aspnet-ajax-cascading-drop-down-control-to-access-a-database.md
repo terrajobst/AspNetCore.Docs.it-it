@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database
 msc.type: video
-ms.openlocfilehash: e465fb6d490873a71d7adb8b0faecca4f8fdfb7a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1ff8c1cdc4f1fa8b47121b55b5d82ab1900bfbad
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>Utilizzare ASP.NET AJAX CSS controllo elenco a discesa per accedere a un Database
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Questo video viene illustrato come ASP. DropDownList standard della rete possono diventare compatibili con AJAX mediante l'estensione del controllo CascadingDropDown di ASP.NET AJAX Control Toolkit. Si verifica anche quanto sia facile ottenere dati da un Database di un web form.
 
-[&#9654; Guardare video (minuti 32)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database)
+[&#9654;Guardare video (minuti 32)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database)
 
->[!div class="step-by-step"]
-[Precedente](two-simple-techniques-for-triggering-updates-to-update-panels.md)
-[Successivo](implement-infinite-data-patterns-in-ajax.md)
+> [!div class="step-by-step"]
+> [Precedente](two-simple-techniques-for-triggering-updates-to-update-panels.md)
+> [Successivo](implement-infinite-data-patterns-in-ajax.md)

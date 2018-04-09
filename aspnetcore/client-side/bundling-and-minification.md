@@ -1,5 +1,5 @@
 ---
-title: Come aggregare e riduzione in ASP.NET Core
+title: Bundle e minifiy asset statici in ASP.NET Core
 author: scottaddie
 description: Informazioni su come ottimizzare le risorse statiche in un'applicazione web ASP.NET Core applicando le tecniche di aggregazione e la riduzione.
 manager: wpickett
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>Come aggregare e riduzione
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Bundle e minifiy asset statici in ASP.NET Core
 
 Di [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ Opzioni di configurazione includono:
 
 * `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **required**
 * `inputFiles`: Una matrice di file da raggruppare. Questi sono i percorsi relativi al file di configurazione. **parametro facoltativo**, * comporta un valore vuoto in un file di output vuoto. [il glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
-* `minify`: Le opzioni di riduzione per il tipo di output. **parametro facoltativo**, *impostazione predefinita:`minify: { enabled: true }`*
+* `minify`: Le opzioni di riduzione per il tipo di output. **parametro facoltativo**, *impostazione predefinita: `minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.
     * [Minimizzatore CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [Minimizzatore JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ Specificare i file da includere nelle pagine usando il [Helper di Tag di ambient
 
 Nell'esempio `environment` tag esegue il rendering di file CSS non elaborati durante l'esecuzione nel `Development` ambiente:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 Nell'esempio `environment` tag esegue il rendering di file CSS in dotazione e minimizzati durante l'esecuzione in un ambiente diverso da `Development`. Ad esempio, in esecuzione in `Production` o `Staging` attiva il rendering di tali fogli di stile:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Utilizzare bundleconfig.json da Gulp
 
 Vi sono casi in cui come aggregare e minimizzazione flusso di lavoro un'app richiede un'ulteriore elaborazione. Sono esempi di ottimizzazione dell'immagine, busting cache e l'elaborazione di risorse della rete CDN. Per soddisfare questi requisiti, è possibile convertire il flusso di lavoro come aggregare e riduzione per l'utilizzo di Gulp.
@@ -317,7 +311,7 @@ In alternativa, Esplora esecuzione attività di Visual Studio può essere utiliz
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Uso di Gulp](xref:client-side/using-gulp)
-* [Uso di Grunt](xref:client-side/using-grunt)
-* [Uso di più ambienti](xref:fundamentals/environments)
+* [Usare Gulp](xref:client-side/using-gulp)
+* [Usare Grunt](xref:client-side/using-grunt)
+* [Con più ambienti di lavoro](xref:fundamentals/environments)
 * [Helper tag](xref:mvc/views/tag-helpers/intro)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: bdafd751e996e759d516d0fa25b09eff21241ed7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-controllers"></a>Parte 2: controller
 ====================
@@ -63,7 +63,7 @@ Il metodo dovrebbe risultare simile al seguente:
 Ora si esegue il sito. È possibile avviare il server web e provare a utilizzare il sito usando uno dei seguenti:
 
 - Scegliere la voce di menu Avvia debug ⇨ di Debug
-- Fare clic sul pulsante freccia verde nella barra degli strumenti![](mvc-music-store-part-2/_static/image2.jpg)
+- Fare clic sul pulsante freccia verde sulla barra degli strumenti ![](mvc-music-store-part-2/_static/image2.jpg)
 - Utilizzare i tasti di scelta rapida F5.
 
 Utilizzando uno dei passaggi precedenti verrà compilare il progetto e causare quindi il Server di sviluppo ASP.NET che viene compilato in Visual Web Developer per avviare. Una notifica verrà visualizzato nell'angolo inferiore della schermata per indicare che ha avviato il Server di sviluppo ASP.NET e verrà visualizzato il numero di porta che viene eseguito con.
@@ -76,7 +76,7 @@ Visual Web Developer verrà quindi aperto automaticamente una finestra del brows
 
 OK, che è stata abbastanza rapida: è stato creato un nuovo sito Web, aggiungere una funzione grafico three line e abbiamo testo in un browser. Non stare informatica, ma è un modo per iniziare.
 
-*Nota: Visual Web Developer comprende il Server di sviluppo ASP.NET che eseguiranno il sito Web in un numero casuale libero "porta". Nella schermata precedente, il sito è in esecuzione in `http://localhost:26641/`, pertanto è usando porta 26641. Il numero di porta è diverso. Quando si parlerà like /Store/Browse dell'URL in questa esercitazione, che entra dopo il numero di porta. Presupponendo un numero di porta di 26641, la selezione di archivio/Sfoglia implica la selezione di `http://localhost:26641/Store/Browse`.*
+*Nota: Visual Web Developer comprende il Server di sviluppo ASP.NET che eseguiranno il sito Web in un numero casuale libero "porta". Nella schermata precedente, il sito è in esecuzione in `http://localhost:26641/`, pertanto è usando porta 26641. Il numero di porta è diverso. Quando si parlerà like /Store/Browse dell'URL in questa esercitazione, che entra dopo il numero di porta. Presupponendo un numero di porta del 26641, la selezione di archivio/Sfoglia implica la selezione di `http://localhost:26641/Store/Browse`.*
 
 ## <a name="adding-a-storecontroller"></a>Aggiunta di un StoreController
 
@@ -116,7 +116,7 @@ Innanzitutto si modificherà il metodo di azione di esplorazione per recuperare 
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*Nota: Si usa il metodo di utilità HttpUtility per purificare l'input dell'utente. Questo impedisce agli utenti di Javascript inserendo la visualizzazione con un collegamento come /Store/Browse? Genre =&lt;script&gt;window.location= 'http://hackersite.com'&lt;/script&gt;.*
+*Nota: Si usa il metodo di utilità HttpUtility per purificare all'input dell'utente. Ciò impedisce agli utenti di inserendo Javascript la vista con un collegamento come /Store/Browse? Genre =&lt;script&gt;window.location='http://hackersite.com'&lt;/script&gt;.*
 
 Ora consente di passare a archivio/Sfoglia? Genre = Disco
 
@@ -141,6 +141,6 @@ Riepilogo si abbiamo finora:
 - Sono stati aggiunti i metodi di azione per il controller che risponde alle richieste di URL e restituisce testo nel browser
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-1.md)
-[Successivo](mvc-music-store-part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-1.md)
+> [Successivo](mvc-music-store-part-3.md)

@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
 title: Creare il Client JavaScript | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b397c5a413ae213c9b79da1c0e0626efe21c7e21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29d50e448e6d282c7db06b9d1946ac221347e1ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-javascript-client"></a>Creare il Client JavaScript
 ====================
@@ -58,8 +58,8 @@ Aggiungere un file JavaScript denominato app.js alla cartella degli script. (In 
 
 In, Knockout la `observable` classe consente l'associazione dati. Quando cambia il contenuto di un oggetto observable, observable notifica a tutti i controlli con associazione a dati, in modo che possano aggiornare autonomamente. (Il `observableArray` classe è la versione della matrice di *observable*.) Per iniziare, il modello di visualizzazione dispone di due oggetti osservabili:
 
-- `books`contiene l'elenco di libri.
-- `error`contiene un messaggio di errore se ha esito negativo di una chiamata AJAX.
+- `books` contiene l'elenco di libri.
+- `error` contiene un messaggio di errore se ha esito negativo di una chiamata AJAX.
 
 Il `getAllBooks` metodo effettua una chiamata AJAX per ottenere l'elenco di libri. Quindi inserisce il risultato nel `books` matrice.
 
@@ -73,6 +73,6 @@ Aprire il file App\_Start/BundleConfig.cs. Aggiungere il codice seguente al meto
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 
->[!div class="step-by-step"]
-[Precedente](part-5.md)
-[Successivo](part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](part-5.md)
+> [Successivo](part-7.md)

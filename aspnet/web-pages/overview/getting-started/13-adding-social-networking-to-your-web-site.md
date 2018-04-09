@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 title: Aggiunta di Social Networking a ASP.NET Web Pages siti (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "In questo capitolo viene illustrato come integrare il tuo sito con i social networking servizi di rete. In questo capitolo, si apprenderà come consentire agli utenti del sito Web/collegamento a segnalibro..."
+description: In questo capitolo viene illustrato come integrare il tuo sito con i social networking servizi di rete. In questo capitolo, si apprenderà come consentire agli utenti del sito Web/collegamento a segnalibro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2c43fa7d286e43f3a4581662ce421c7435e1871f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>Aggiunta di Social Networking a pagine Web ASP.NET (Razor) siti
 ====================
@@ -57,10 +57,10 @@ Per visualizzare le icone, aggiungere il `LinkSharecode` helper a una pagina. Pe
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
     In questo esempio, quando il `LinkShare` viene eseguito, il titolo della pagina viene passato come parametro, che a sua volta passa il titolo della pagina per il sito di social networking. Tuttavia, è possibile passare qualsiasi stringa. In questo esempio specifica inoltre quali siti di social networking da includere nell'elenco. È possibile specificare i siti di social networking rilevanti per il sito.
-- Eseguire il *ListLinkShare.cshtml* pagina in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.)
-- Fare clic su un glifo per uno dei siti che sono effettuato. Il collegamento reindirizza alla pagina nel sito di rete di social networking selezionata in cui è possibile condividere un collegamento. Ad esempio, se si fa clic sul collegamento Reddit, è necessario per il `submit to reddit` pagina del sito Web Reddit.
+2. Eseguire il *ListLinkShare.cshtml* pagina in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.)
+3. Fare clic su un glifo per uno dei siti che sono effettuato. Il collegamento reindirizza alla pagina nel sito di rete di social networking selezionata in cui è possibile condividere un collegamento. Ad esempio, se si fa clic sul collegamento Reddit, è necessario per il `submit to reddit` pagina del sito Web Reddit.
 
-    ![Immagine 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![Immagine 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>Aggiunta di un Twitter Feed
@@ -81,7 +81,7 @@ Il codice evidenziato di seguito è il codice che è stato recuperato tramite lo
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Il rendering di un'immagine Gravatar
 
-Oggetto *Gravatar* (un &quot;avatar globale riconosciuto&quot;) è un'immagine che può essere usato in più siti Web come proprio avatar & #8212, vale a dire, un'immagine che rappresenta è. Ad esempio, un Gravatar possibile identificare una persona in un post del forum, un commento, blog e così via. (È possibile registrare la propria Gravatar nel sito Web Gravatar in [http://www.gravatar.com/](http://www.gravatar.com/).) Se si desidera visualizzare le immagini accanto a nomi o indirizzi di posta elettronica degli utenti nel sito Web, è possibile utilizzare l'helper Gravatar.
+Un *Gravatar* (un &quot;avatar globalmente riconosciuto&quot;) è un'immagine che può essere usata in più siti Web come proprio avatar &#8212; , ovvero un'immagine che rappresenta è. Ad esempio, un Gravatar possibile identificare una persona in un post del forum, un commento, blog e così via. (È possibile registrare la propria Gravatar nel sito Web Gravatar al [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Se si desidera visualizzare le immagini accanto a nomi o indirizzi di posta elettronica degli utenti nel sito Web, è possibile utilizzare l'helper Gravatar.
 
 In questo esempio, si utilizza un singolo Gravatar che rappresenta se stessi. Un altro modo per utilizzare un Gravatar è per consentire agli utenti di specificare l'indirizzo Gravatar quando effettuano la registrazione del sito. (È possibile imparare consentire agli utenti di registrare in [sicurezza aggiunta e l'appartenenza a un sito di pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202904).) Quando si visualizzano informazioni per l'utente, è possibile aggiungere solo il Gravatar visualizzare dove il nome dell'utente.
 

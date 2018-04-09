@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 title: Master-Details filtri tra due pagine (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione viene illustrato come separare un report master/dettaglio tra due pagine. Nella pagina 'master' è utilizzato un controllo Repeater per eseguire il rendering di un elenco di categ..."
+description: In questa esercitazione viene illustrato come separare un report master/dettaglio tra due pagine. Nella pagina 'master' è utilizzato un controllo Repeater per eseguire il rendering di un elenco di categ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f43fa998b81800cb1a2b7796ebb3922fc1caeb8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2afc216de3b6894cfdd112787ab92d7483198ecc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Master-Details filtri tra due pagine (VB)
 ====================
@@ -40,7 +40,7 @@ In questa esercitazione verrà illustrato un esempio in cui sono elencate le cat
 Il primo passaggio nella creazione di qualsiasi report master-Details viene avviata tramite la visualizzazione dei record "master". Pertanto, la prima attività è per visualizzare le categorie nella pagina "master". Aprire il `CategoryListMaster.aspx` nella pagina di `DataListRepeaterFiltering` cartella, aggiungere un controllo Repeater e, dallo smart tag, scegliere di aggiungere un nuovo oggetto ObjectDataSource. Configurare il nuovo oggetto ObjectDataSource in modo che accede ai dati dal `CategoriesBLL` della classe `GetCategories` (metodo) (vedere la figura 1).
 
 
-[![Configurare per l'utilizzo GetCategories metodo della classe CategoriesBLL ObjectDataSource](master-detail-filtering-acess-two-pages-datalist-vb/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image1.png)
+[![Configurare ObjectDataSource per l'utilizzo GetCategories metodo della classe CategoriesBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image1.png)
 
 **Figura 1**: configurare ObjectDataSource per utilizzare il `CategoriesBLL` della classe `GetCategories` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image3.png))
 
@@ -59,7 +59,7 @@ Con questo markup completo, richiedere qualche istante per visualizzare l'avanza
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Passaggio 2: Trasformare il nome della categoria in un collegamento alla pagina dei dettagli
 
-Per consentire all'utente di visualizzare le informazioni "Dettagli" per una determinata categoria, è necessario aggiungere un collegamento a ogni elenco puntato di elemento che, quando è selezionato, richiederà all'utente la seconda pagina (`ProductsForCategoryDetails.aspx`). Questa seconda pagina visualizzerà i prodotti per la categoria selezionata utilizzando un controllo DataList. Per determinare la categoria è stato fatto clic con il collegamento, è necessario passare la categoria selezionata `CategoryID` alla seconda pagina tramite un meccanismo. Il modo più semplice, più semplice per trasferire dati scalare da una pagina è tramite la stringa di query, ovvero l'opzione che verrà utilizzata in questa esercitazione. In particolare, il `ProductsForCategoryDetails.aspx` pagina previsti selezionato  *`categoryID`*  valore deve essere passato tramite un campo stringa di query denominato `CategoryID`. Ad esempio, per visualizzare i prodotti per categoria delle bevande, che presenta un `CategoryID` pari a 1, un utente potrebbe visitare `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Per consentire all'utente di visualizzare le informazioni "Dettagli" per una determinata categoria, è necessario aggiungere un collegamento a ogni elenco puntato di elemento che, quando è selezionato, richiederà all'utente la seconda pagina (`ProductsForCategoryDetails.aspx`). Questa seconda pagina visualizzerà i prodotti per la categoria selezionata utilizzando un controllo DataList. Per determinare la categoria è stato fatto clic con il collegamento, è necessario passare la categoria selezionata `CategoryID` alla seconda pagina tramite un meccanismo. Il modo più semplice, più semplice per trasferire dati scalare da una pagina è tramite la stringa di query, ovvero l'opzione che verrà utilizzata in questa esercitazione. In particolare, il `ProductsForCategoryDetails.aspx` pagina previsti selezionato *`categoryID`* valore deve essere passato tramite un campo stringa di query denominato `CategoryID`. Ad esempio, per visualizzare i prodotti per categoria delle bevande, che presenta un `CategoryID` pari a 1, un utente potrebbe visitare `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
 Per creare un collegamento ipertestuale per ogni elemento di elenco puntato nel Repeater è necessario aggiungere un controllo Web di collegamento ipertestuale o un elemento ancoraggio HTML (`<a>`) per il `ItemTemplate`. In scenari in cui il collegamento ipertestuale è visualizzato lo stesso per ogni riga, saranno sufficiente entrambi gli approcci. Per controlli Repeater, preferisco utilizzando l'elemento di ancoraggio. Per utilizzare l'elemento di ancoraggio, aggiornare ItemTemplate del Ripetitore per:
 
@@ -86,7 +86,7 @@ Se si segue, è possibile utilizzare l'approccio con il controllo collegamento i
 Con il `CategoryListMaster.aspx` pagina completa, si è pronti per passare alle pagina "Dettagli", implementazione `ProductsForCategoryDetails.aspx`. Aprire questa pagina, trascinare un controllo DataList dalla casella degli strumenti nella finestra di progettazione e impostare il relativo `ID` proprietà `ProductsInCategory`. Successivamente, smart tag del controllo DataList scegliere di aggiungere un nuovo oggetto ObjectDataSource alla pagina, denominarla `ProductsInCategoryDataSource`. Configurarlo in modo che chiami il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` (metodo); impostare l'elenco a discesa sono elencati nelle schede delle INSERT, UPDATE e DELETE su (nessuno).
 
 
-[![Configurare ObjectDataSource per l'utilizzo GetProductsByCategoryID(categoryID) (metodo della classe ProductsBLL)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image10.png)
+[![Configurare ObjectDataSource per l'utilizzo GetProductsByCategoryID(categoryID) metodo della classe ProductsBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image10.png)
 
 **Figura 4**: configurare ObjectDataSource per utilizzare il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image12.png))
 
@@ -94,9 +94,9 @@ Con il `CategoryListMaster.aspx` pagina completa, si è pronti per passare alle 
 Poiché il `GetProductsByCategoryID(categoryID)` metodo accetta un parametro di input (*`categoryID`*), la procedura guidata Scegli origine dati offre la possibilità di specificare l'origine del parametro. Impostare l'origine del parametro QueryString utilizzando il QueryStringField `CategoryID`.
 
 
-[![Utilizzare il parametro di campo Querystring CategoryID come origine del parametro](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
+[![Utilizzare il campo Querystring CategoryID come origine del parametro](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
 
-**Figura 5**: utilizzare Querystring Field `CategoryID` come origine del parametro ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image15.png))
+**Figura 5**: usare Querystring Field `CategoryID` come origine del parametro ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image15.png))
 
 
 Come abbiamo visto nelle esercitazioni precedenti, dopo aver completato la procedura guidata Scegli origine dati, Visual Studio crea automaticamente un `ItemTemplate` per DataList che elenca ogni valore e il nome del campo dati. Sostituire tale modello con uno che elenca solo nome del prodotto, fornitore e prezzo. Inoltre, impostare il controllo DataList `RepeatColumns` proprietà su 2. Dopo aver apportato queste modifiche le DataList ObjectDataSource markup dichiarativo dovrebbe essere simile al seguente:
@@ -108,7 +108,7 @@ Per visualizzare questa pagina in azione, iniziare dal `CategoryListMaster.aspx`
 
 [![Vengono visualizzate le bibite, due per ogni riga](master-detail-filtering-acess-two-pages-datalist-vb/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image16.png)
 
-**Figura 6**: vengono visualizzati il bevande, due per ogni riga ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image18.png))
+**Figura 6**: vengono visualizzate il bibite, due per ogni riga ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image18.png))
 
 
 ## <a name="step-4-displaying-category-information-on-productsforcategorydetailsaspx"></a>Passaggio 4: Visualizzazione di informazioni di categoria su ProductsForCategoryDetails.aspx
@@ -118,9 +118,9 @@ Quando un utente fa clic su una categoria in `CategoryListMaster.aspx`, vengono 
 A tale scopo, aggiungere un controllo FormView sopra il controllo Repeater `ProductsForCategoryDetails.aspx`. Successivamente, aggiungere un nuovo oggetto ObjectDataSource alla pagina smart tag del controllo FormView denominato `CategoryDataSource` e configurarlo per utilizzare il `CategoriesBLL` della classe `GetCategoryByCategoryID(categoryID)` metodo.
 
 
-[![Accedere alle informazioni sulla categoria di tramite il CategoriesBLL metodo della classe GetCategoryByCategoryID(categoryID)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image19.png)
+[![Accedere alle informazioni sulla categoria attraverso il CategoriesBLL metodo della classe GetCategoryByCategoryID(categoryID)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image19.png)
 
-**Figura 7**: accedere alle informazioni sulla categoria di tramite il `CategoriesBLL` della classe `GetCategoryByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image21.png))
+**Figura 7**: accedere alle informazioni sulla categoria tramite il `CategoriesBLL` della classe `GetCategoryByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image21.png))
 
 
 Come con la `ProductsInCategoryDataSource` ObjectDataSource aggiunto nel passaggio 3, il `CategoryDataSource`della configurazione guidata origine dati richiede a un'origine per il `GetCategoryByCategoryID(categoryID)` parametro di input del metodo. Utilizzare le stesse identiche impostazioni come prima, impostando l'origine di parametro di stringa di query e il valore QueryStringField da `CategoryID` (vedere la figura 5).
@@ -135,9 +135,9 @@ Figura 8 mostra una schermata durante la visualizzazione di questa pagina tramit
 > Oltre a FormView, ho aggiunto anche un controllo HyperLink sopra FormView che richiederà all'utente l'elenco delle categorie (`CategoryListMaster.aspx`). È possibile effettuare il collegamento in un' posizione o per ometterlo.
 
 
-[![Informazioni sulla categoria è ora visualizzata nella parte superiore della pagina](master-detail-filtering-acess-two-pages-datalist-vb/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image22.png)
+[![Informazioni sulle categorie sono ora visualizzate nella parte superiore della pagina](master-detail-filtering-acess-two-pages-datalist-vb/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image22.png)
 
-**Figura 8**: informazioni sulla categoria è ora visualizzata nella parte superiore della pagina ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image24.png))
+**Figura 8**: informazioni sulle categorie sono ora visualizzate nella parte superiore della pagina ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image24.png))
 
 
 ## <a name="step-5-displaying-a-message-if-no-products-belong-to-the-selected-category"></a>Passaggio 5: Visualizzazione di un messaggio se prodotti non appartengono alla categoria selezionata
@@ -161,7 +161,7 @@ Tutte le categorie del database Northwind sono associate uno o più prodotti. Pe
 Dopo aver aggiornato di conseguenza il database, ripristinare il `CategoryListMaster.aspx` pagina e fare clic sul collegamento producono. Poiché non sono più presenti tutti i prodotti appartenenti alla categoria di prodotto, dovrebbe essere il "Non sono presenti prodotti per la categoria selezionata..." messaggio, come illustrato nella figura 9.
 
 
-[![Se sono presenti n prodotti appartenenti alla categoria selezionata, viene visualizzato un messaggio](master-detail-filtering-acess-two-pages-datalist-vb/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image25.png)
+[![Se sono presenti n prodotti appartenenti alla categoria selezionata viene visualizzato un messaggio](master-detail-filtering-acess-two-pages-datalist-vb/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image25.png)
 
 **Figura 9**: viene visualizzato un messaggio se sono presenti n prodotti appartenenti alla categoria selezionata ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-acess-two-pages-datalist-vb/_static/image27.png))
 
@@ -170,18 +170,18 @@ Dopo aver aggiornato di conseguenza il database, ripristinare il `CategoryListMa
 
 Mentre master-details report è possibile visualizzare i record master e di dettaglio in una singola pagina, in molti siti Web sono suddivisi in due pagine web. In questa esercitazione è stato illustrato come implementare tale una relazione master-Details con categorie elencate in un elenco puntato utilizzando un ripetitore nella pagina web "master" e i prodotti associati alla pagina "Dettagli". Ogni elemento di elenco nella pagina master web contenuto un collegamento alla pagina dei dettagli che passati lungo la riga `CategoryID` valore.
 
-Nella pagina dei dettagli del recupero di tali prodotti per il fornitore specificato è stato eseguito tramite il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo. Il  *`categoryID`*  valore del parametro è stato specificato in modo dichiarativo utilizzando la `CategoryID` valore querystring come origine del parametro. È stato anche illustrato come visualizzare i dettagli della categoria nella pagina dettagli mediante un controllo FormView e come se non fossero prodotti appartenenti alla categoria selezionata viene visualizzato un messaggio.
+Nella pagina dei dettagli del recupero di tali prodotti per il fornitore specificato è stato eseguito tramite il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo. Il *`categoryID`* valore del parametro è stato specificato in modo dichiarativo utilizzando la `CategoryID` valore querystring come origine del parametro. È stato anche illustrato come visualizzare i dettagli della categoria nella pagina dettagli mediante un controllo FormView e come se non fossero prodotti appartenenti alla categoria selezionata viene visualizzato un messaggio.
 
 Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Liz Shulok. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
-[Successivo](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
+> [Successivo](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)

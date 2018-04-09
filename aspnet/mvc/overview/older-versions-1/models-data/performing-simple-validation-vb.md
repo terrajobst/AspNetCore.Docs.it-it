@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc4cdbcd267bcdd3e71abc4c52664ae62c5c02e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-vb"></a>Esegue la convalida semplice (VB)
 ====================
@@ -71,7 +71,7 @@ Assicurarsi che si compila l'applicazione prima di aggiungere una visualizzazion
 
 Dopo aver completato questi passaggi, si ottiene la visualizzazione di creazione nel listato 2.
 
-**Elenco di 2 - Views\Product\Create.aspx**
+**Il listato 2 - Views\Product\Create.aspx**
 
 [!code-aspx[Main](performing-simple-validation-vb/samples/sample2.aspx)]
 
@@ -84,7 +84,7 @@ La pagina nella figura 3 illustra i messaggi di errore visualizzati per gli help
 
 [![La finestra di dialogo Nuovo progetto](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
-**Figura 03**: creare la vista inviato con problemi ([fare clic per visualizzare l'immagine ingrandita](performing-simple-validation-vb/_static/image6.png))
+**Figura 03**: crea la vista inviato con i problemi ([fare clic per visualizzare l'immagine ingrandita](performing-simple-validation-vb/_static/image6.png))
 
 
 Si noti che l'aspetto del codice HTML input campi vengono modificati anche quando si verifica un errore di convalida. I renderer di helper Html.TextBox() un *classe = "errore di convalida input"* attributo quando si verifica un errore di convalida associati alla proprietà di cui è eseguito il rendering dall'helper della Html.TextBox().
@@ -130,6 +130,6 @@ Se si desidera personalizzare l'aspetto di questi messaggi di errore prebinding 
 
 L'obiettivo di questa esercitazione è stata per descrivere il funzionamento di base di convalida nel framework di MVC ASP.NET. È stato illustrato come utilizzare lo stato del modello e gli helper HTML di convalida. Abbiamo parlato anche la distinzione tra prebinding e postbinding convalida. In altre esercitazioni si parlerà diverse strategie per spostare il codice di convalida, i controller e nelle classi del modello.
 
->[!div class="step-by-step"]
-[Precedente](displaying-a-table-of-database-data-vb.md)
-[Successivo](validating-with-the-idataerrorinfo-interface-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-a-table-of-database-data-vb.md)
+> [Successivo](validating-with-the-idataerrorinfo-interface-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d66079f784792a2514eefabf57f70826aab5dcf1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5b56fc45ea8fb5aee934530fc62e23b9d364242
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Visualizzazione di dati binari in dei controlli Web (c#)
 ====================
@@ -44,7 +44,7 @@ Nell'esercitazione precedente è stato illustrato come utilizzare il controllo F
 In questo download esercitazione s sono disponibili sette brochure file PDF di `~/Brochures` cartella, uno per ogni categoria, ad eccezione di frutti di mare. Omesso di proposito aggiunta brochure frutti di mare per illustrare in che modo gestire gli scenari in cui non tutti i record sono associati dati binari. Per aggiornare il `Categories` con questi valori di tabella, fare clic su di `Categories` nodo da Esplora Server e scegliere Mostra dati tabella. Quindi, immettere i percorsi virtuali per i file brochure per ogni categoria che ha una brochure, come illustrato nella figura 1. Poiché non è presente alcun brochure per la categoria di frutti di mare, lasciare il `BrochurePath` valore della colonna s come `NULL`.
 
 
-[![Immettere manualmente i valori della colonna BrochurePath tabella s Categories](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.png)
+[![Immettere manualmente i valori per la colonna BrochurePath della tabella s categorie](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image1.png)
 
 **Figura 1**: immettere manualmente i valori per il `Categories` tabella s `BrochurePath` colonna ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.png))
 
@@ -58,12 +58,12 @@ Per iniziare, trascinare un controllo GridView dalla casella degli strumenti nel
 
 [![Creare un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png)
 
-**Figura 2**: creare un nuovo ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.png))
+**Figura 2**: creare un nuovo denominato ObjectDataSource `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.png))
 
 
 [![Configurare ObjectDataSource per utilizzare la classe CategoriesBLL](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.png)
 
-**Figura 3**: configurare ObjectDataSource per utilizzare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.png))
+**Figura 3**: configurare ObjectDataSource per usare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.png))
 
 
 [![Recuperare l'elenco delle categorie utilizzando il metodo GetCategories()](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.png)
@@ -79,7 +79,7 @@ Dopo aver completato la configurazione guidata origine dati, Visual Studio aggiu
 Visualizzare la pagina tramite un browser (vedere Figura 5). Viene elencato ogni otto categorie. Le sette categorie con `BrochurePath` valori hanno la `BrochurePath` valore visualizzato con il rispettivo BoundField. Frutti di mare, che ha un `NULL` valore per il relativo `BrochurePath`, consente di visualizzare una cella vuota.
 
 
-[![Viene elencato ogni categoria s nome, descrizione e il valore di BrochurePath](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image9.png)
+[![Viene elencato ogni categoria s nome, descrizione e il valore BrochurePath](displaying-binary-data-in-the-data-web-controls-cs/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image9.png)
 
 **Figura 5**: ogni categoria s, nome, descrizione, e `BrochurePath` valore viene elencato ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.png))
 
@@ -89,7 +89,7 @@ Anziché visualizzare il testo del `BrochurePath` colonna, di voler creare un co
 
 ![Aggiungere un HyperLinkField per BrochurePath](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.gif)
 
-**Figura 6**: aggiungere un HyperLinkField per`BrochurePath`
+**Figura 6**: aggiungere un HyperLinkField per `BrochurePath`
 
 
 Verrà aggiunta una colonna di collegamenti a GridView, come illustrato nella figura 7. Fare clic su un collegamento Visualizza Brochure saranno visualizzare il formato PDF direttamente nel browser o richiedere all'utente di scaricare il file, a seconda che sia installato un visualizzatore PDF e le impostazioni del browser s.
@@ -97,7 +97,7 @@ Verrà aggiunta una colonna di collegamenti a GridView, come illustrato nella fi
 
 [![Una categoria s Brochure può essere visualizzati facendo clic sul collegamento Visualizza Brochure](displaying-binary-data-in-the-data-web-controls-cs/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.png)
 
-**Figura 7**: s A categoria Brochure possono essere visualizzati facendo clic sul collegamento Visualizza Brochure ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image12.png))
+**Figura 7**: una categoria s Brochure possono essere visualizzati facendo clic sul collegamento Visualizza Brochure ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image12.png))
 
 
 [![Viene visualizzata la categoria s Brochure PDF](displaying-binary-data-in-the-data-web-controls-cs/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.png)
@@ -134,9 +134,9 @@ Questo metodo determina se passato `object` valore è un database `NULL` e, in c
 Figura 10 è illustrata la pagina dopo l'applicazione di queste modifiche. Si noti che la categoria di frutti di mare s `BrochurePath` campo verrà visualizzato il testo Brochure non disponibile.
 
 
-[![Viene visualizzato il testo non Brochure disponibile per quelle categorie senza un Brochure](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image15.png)
+[![Testo Nessun Brochure disponibile viene visualizzato per quelle categorie senza un Brochure](displaying-binary-data-in-the-data-web-controls-cs/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image15.png)
 
-**Figura 10**: viene visualizzato il testo non Brochure disponibile per quelle categorie senza un Brochure ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image16.png))
+**Figura 10**: viene visualizzato il testo No Brochure disponibile per quelle categorie senza un Brochure ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image16.png))
 
 
 ## <a name="step-3-adding-a-web-page-to-display-a-category-s-picture"></a>Passaggio 3: Aggiunta di una pagina Web per visualizzare un'immagine di categoria s
@@ -171,9 +171,9 @@ Il `Response.ContentType` proprietà specifica il [tipo MIME](http://en.wikipedi
 Questa pagina creata, un'immagine di categoria s può essere visualizzata visitando `DisplayCategoryPicture.aspx?CategoryID=categoryID`. Figura 11 mostra l'immagine di categoria s bevande, che può essere visualizzato da `DisplayCategoryPicture.aspx?CategoryID=1`.
 
 
-[![Categoria delle bevande s che viene visualizzata l'immagine](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image17.png)
+[![S categoria Beverages che immagine viene visualizzata](displaying-binary-data-in-the-data-web-controls-cs/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image17.png)
 
-**Figura 11**: la categoria Beverages s viene visualizzata l'immagine ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image18.png))
+**Figura 11**: la categoria Beverages s immagine viene visualizzata ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image18.png))
 
 
 Se, durante la visita `DisplayCategoryPicture.aspx?CategoryID=categoryID`, verrà generata un'eccezione che legge Impossibile per il cast dell'oggetto di tipo 'System. DBNull' nel tipo 'System. Byte []', sono presenti due elementi che possono causare questo. Prima di tutto, il `Categories` tabella s `Picture` colonna Consenti `NULL` valori. Il `DisplayCategoryPicture.aspx` pagina, si presuppone tuttavia, non è`NULL` valore presente. Il `Picture` proprietà del `CategoriesDataTable` può accedervi direttamente se dispone di un `NULL` valore. Se si desidera consentire `NULL` valori per il `Picture` colonna d da includere la condizione seguente:
@@ -213,7 +213,7 @@ Richiedere qualche istante per visualizzare questa pagina tramite un browser. Si
 
 [![La categoria s immagine viene visualizzata per ogni riga](displaying-binary-data-in-the-data-web-controls-cs/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image19.png)
 
-**Figura 13**: s la categoria viene visualizzata per ogni riga ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image20.png))
+**Figura 13**: la categoria s immagine viene visualizzata per ogni riga ([fare clic per visualizzare l'immagine ingrandita](displaying-binary-data-in-the-data-web-controls-cs/_static/image20.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -226,12 +226,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e Dave Gardner. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](uploading-files-cs.md)
-[Successivo](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](uploading-files-cs.md)
+> [Successivo](including-a-file-upload-option-when-adding-a-new-record-cs.md)

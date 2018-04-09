@@ -2,7 +2,7 @@
 uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 title: App ASP.NET MVC 5 con SMS e l'autenticazione a due fattori di posta elettronica | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione viene illustrato come compilare un'app web ASP.NET MVC 5 con autenticazione a due fattori. È necessario completare l'applicazione web crea un sicuro ASP.NET MVC 5 con..."
+description: In questa esercitazione viene illustrato come compilare un'app web ASP.NET MVC 5 con autenticazione a due fattori. È necessario completare l'applicazione web crea un sicuro ASP.NET MVC 5 con...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5e1c54b3901f2c8c85134445c1fa91ee9f2e0d59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>App ASP.NET MVC 5 con SMS e l'autenticazione a due fattori di posta elettronica
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione viene illustrato come compilare un'app web ASP.NET MVC 5 con autenticazione a due fattori. È consigliabile completare [creare un'app web di ASP.NET MVC 5 sicura con l'accesso, la reimpostazione di posta elettronica di conferma e la password](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) prima di procedere. È possibile scaricare l'applicazione completata [qui](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). Il download contiene funzioni di supporto di debug che consentono di testare conferma tramite posta elettronica e SMS senza dover configurare un messaggio di posta elettronica o il provider SMS.
 > 
@@ -53,54 +53,54 @@ In questa esercitazione vengono fornite istruzioni per l'utilizzo di Twilio o AS
 
 1. **Creazione di un Account utente con un provider SMS**  
   
- Creare un [Twilio](https://www.twilio.com/try-twilio) o [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) account.
+   Creare un [Twilio](https://www.twilio.com/try-twilio) o [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) account.
 2. **Installazione di pacchetti aggiuntivi o l'aggiunta di riferimenti al servizio**  
   
- Twilio:  
- Nella Console di gestione pacchetti, immettere il comando seguente:  
+   Twilio:  
+   Nella Console di gestione pacchetti, immettere il comando seguente:  
     `Install-Package Twilio`  
   
- ASPSMS:  
- È necessario aggiungere il riferimento al servizio seguente:  
+   ASPSMS:  
+   È necessario aggiungere il riferimento al servizio seguente:  
   
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image2.png)  
   
- Indirizzo:  
+   Indirizzo:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- Spazio dei nomi:  
+   Spazio dei nomi:  
     `ASPSMSX2`
 3. **Capire le credenziali utente del Provider SMS**  
   
- Twilio:  
- Dal **Dashboard** scheda dell'account di Twilio, copia il **SID di Account** e **token di autorizzazione**.  
+   Twilio:  
+   Dal **Dashboard** scheda dell'account di Twilio, copia il **SID di Account** e **token di autorizzazione**.  
   
- ASPSMS:  
- Le impostazioni dell'account, passare alla **parametri Userkey** e copiarlo insieme il Self-definito **Password**.  
+   ASPSMS:  
+   Le impostazioni dell'account, passare alla **parametri Userkey** e copiarlo insieme il Self-definito **Password**.  
   
- Questi valori in un secondo momento verrà archiviato il *Web. config* file all'interno di chiavi `"SMSAccountIdentification"` e `"SMSAccountPassword"` .
+   Questi valori in un secondo momento verrà archiviato il *Web. config* file all'interno di chiavi `"SMSAccountIdentification"` e `"SMSAccountPassword"` .
 4. **Specifica l'ID mittente / iniziatore**  
   
- Twilio:  
- Dal **numeri** scheda, copiare il numero di telefono di Twilio.  
+   Twilio:  
+   Dal **numeri** scheda, copiare il numero di telefono di Twilio.  
   
- ASPSMS:  
- All'interno di **dei creatori di sbloccare** Menu, sbloccare una o più mittenti o scegliere un creatore alfanumerico (non supportato da tutte le reti).  
+   ASPSMS:  
+   All'interno di **dei creatori di sbloccare** Menu, sbloccare una o più mittenti o scegliere un creatore alfanumerico (non supportato da tutte le reti).  
   
- Questo valore in un secondo momento verrà archiviato il *Web. config* file all'interno della chiave `"SMSAccountFrom"` .
-5. **Il trasferimento delle credenziali del provider SMS in app**  
+   Questo valore in un secondo momento verrà archiviato il *Web. config* file all'interno della chiave `"SMSAccountFrom"` .
+5. **Il trasferimento di credenziali del provider SMS in app**  
   
- Le credenziali e il numero di telefono mittente rendere disponibile l'app. Per semplificare le operazioni, questi valori in verrà archiviato il *Web. config* file. Quando si distribuisce in Azure, che è possibile archiviare i valori in modo sicuro nel **impostazioni app** scheda Configura sezione sul sito web. 
+   Le credenziali e il numero di telefono mittente rendere disponibile l'app. Per semplificare le operazioni, questi valori in verrà archiviato il *Web. config* file. Quando si distribuisce in Azure, che è possibile archiviare i valori in modo sicuro nel **impostazioni app** scheda Configura sezione sul sito web. 
 
     [!code-xml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample1.xml?highlight=8-10)]
 
     > [!WARNING]
     > Sicurezza - archivio mai i dati sensibili nel codice sorgente. L'account e le credenziali vengono aggiunti al codice precedente per semplificare il codice di esempio. Vedere [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-6. **Implementazione di trasferimento dei dati al provider SMS**  
+6. **Implementazione del trasferimento dei dati al provider SMS**  
   
- Configurare il `SmsService` classe il *App\_Start\IdentityConfig.cs* file.  
+   Configurare il `SmsService` classe il *App\_Start\IdentityConfig.cs* file.  
   
- A seconda del provider SMS utilizzato attivare il **Twilio** o **ASPSMS** sezione: 
+   A seconda del provider SMS utilizzato attivare il **Twilio** o **ASPSMS** sezione: 
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample2.cs)]
 7. Aggiornamento di *Views\Manage\Index.cshtml* visualizzazione Razor: (Nota: non è sufficiente rimuovere i commenti nel codice esistente, utilizzare il codice riportato di seguito.)  
@@ -149,11 +149,11 @@ Questa esercitazione viene fornita una rapida introduzione all'abilitazione 2FA 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Autenticazione a due fattori tramite SMS e posta elettronica con ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) entra dettagli sull'autenticazione a due fattori
+- [L'autenticazione a due fattori tramite SMS e posta elettronica con ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) entra in dettaglio l'autenticazione a due fattori
 - [Collegamenti a ASP.NET Identity consigliato risorse](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [Account di conferma e il recupero della Password con ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) vengono descritti in dettaglio in Conferma password di ripristino e account.
 - [App di MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) in questa esercitazione viene illustrato come scrivere un'applicazione ASP.NET MVC 5 con autorizzazione di Facebook e Google OAuth 2. Viene inoltre illustrato come aggiungere ulteriori dati al database di identità.
-- [Distribuire un'app sicura ASP.NET MVC con appartenenza, OAuth e il Database SQL Azure Web](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). In questa esercitazione aggiunge distribuzione di Azure, come proteggere le app con i ruoli, come utilizzare l'API di appartenenza per aggiungere utenti e ruoli e funzionalità di sicurezza aggiuntive.
+- [Distribuire un'app protetta ASP.NET MVC con appartenenza, OAuth e il Database SQL a Web di Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). In questa esercitazione aggiunge distribuzione di Azure, come proteggere le app con i ruoli, come utilizzare l'API di appartenenza per aggiungere utenti e ruoli e funzionalità di sicurezza aggiuntive.
 - [Creazione di un'app di Google per OAuth 2 e l'applicazione di connessione al progetto](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#goog)
 - [Creazione di app in Facebook e l'applicazione di connessione al progetto](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)
 - [Impostazione di SSL nel progetto](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#ssl)

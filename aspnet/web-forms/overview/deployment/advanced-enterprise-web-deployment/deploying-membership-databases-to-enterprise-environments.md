@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 title: Distribuzione di database di appartenenza per ambienti aziendali | Documenti Microsoft
 author: jrjlee
-description: "In questo argomento illustra le considerazioni chiave e i problemi, che è necessario risolvere quando si esegue il provisioning di database di servizi dell'applicazione ASP.NET (più comuni..."
+description: In questo argomento illustra le considerazioni chiave e i problemi, che è necessario risolvere quando si esegue il provisioning di database di servizi dell'applicazione ASP.NET (più comuni...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b783fcf57759f2a431480eec6902105f6d683408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Distribuzione di database di appartenenza per ambienti aziendali
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > Questo argomento illustra le considerazioni chiave e i problemi, che è necessario risolvere per database (più comunemente indicati come database di appartenenza) in ambienti di test, gestione temporanea o produzione dei servizi per eseguire il provisioning dell'applicazione ASP.NET. Vengono inoltre descritti gli approcci che consente di soddisfare questi requisiti.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="what-are-the-issues-when-you-deploy-a-membership-database"></a>Quali sono i problemi quando si distribuisce un Database di appartenenza?
 
@@ -45,13 +45,13 @@ Sfortunatamente, i database di appartenenza ASP.NET introducono alcune problemat
 Utilizzare queste linee guida quando si sceglie come eseguire il provisioning di un database di appartenenza in un ambiente server aziendale:
 
 - Laddove possibile, non distribuire i database di appartenenza. In alternativa, creare manualmente i database delle appartenenze nel server di database di destinazione. Se lo schema del database di appartenenza non è stato personalizzato, è possibile semplicemente creare una nuova in situ di destinazione utilizzando il [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
-- Se non esiste nessuna opzione ma come distribuire un database delle appartenenze & #x 2014; ad esempio, se sono state apportate modifiche estese allo schema del database & #x 2014; eseguire una distribuzione solo allo schema del database delle appartenenze, per escludere i dati dell'account utente, e quindi eseguire uno script di post-distribuzione per aggiungere i dati di configurazione necessarie. È possibile trovare indicazioni generali su questi approcci in [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
+- Se non esiste nessuna opzione ma come distribuire un database di appartenenza&#x2014;, ad esempio, se sono state apportate modifiche estese allo schema del database&#x2014;è necessario eseguire una distribuzione solo allo schema del database delle appartenenze, per escludere i dati dell'account utente, quindi eseguire uno script di post-distribuzione per aggiungere tutti i dati di configurazione necessarie. È possibile trovare indicazioni generali su questi approcci in [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
-È importante ricordare che *lo schema del database di appartenenza è probabile che sia abbastanza statico*. Anche se è stato personalizzato il database delle appartenenze, è improbabile che è necessario aggiornare lo schema in un regolarmente & #x 2014; non verrà modificato con la stessa frequenza come il codice in un'applicazione web o un progetto di database. Non deve di conseguenza, è necessario includere il database delle appartenenze in tutti i processi di distribuzione automatica o passo-passo.
+È importante ricordare che *lo schema del database di appartenenza è probabile che sia abbastanza statico*. Anche se è stato personalizzato il database delle appartenenze, è improbabile che è necessario aggiornare lo schema a intervalli regolari&#x2014;non venga modificato con la stessa frequenza come il codice in un'applicazione web o un progetto di database. Non deve di conseguenza, è necessario includere il database delle appartenenze in tutti i processi di distribuzione automatica o passo-passo.
 
 ## <a name="using-vsdbcmd-to-update-a-membership-database-schema"></a>L'utilizzo di VSDBCMD per aggiornare uno Schema di Database di appartenenza
 
-Se si modifica la struttura del database di appartenenza dopo la distribuzione prima, si desidera utilizzare lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) per ridistribuire il database. La funzionalità di distribuzione di database di distribuzione Web non include la possibilità di rendere gli aggiornamenti differenziali in un database di destinazione e #x 2014, invece, distribuzione Web è necessario eliminare e ricreare il database. Ciò significa che si perdono i dati di account utente esistenti, che è in genere indesiderati in ambienti di produzione o gestione temporanea.
+Se si modifica la struttura del database di appartenenza dopo la distribuzione prima, si desidera utilizzare lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) per ridistribuire il database. La funzionalità di distribuzione di database di distribuzione Web non include la possibilità di rendere gli aggiornamenti differenziali in un database di destinazione&#x2014;, invece, distribuzione Web è necessario eliminare e ricreare il database. Ciò significa che si perdono i dati di account utente esistenti, che è in genere indesiderati in ambienti di produzione o gestione temporanea.
 
 L'alternativa consiste nell'utilizzare l'utilità VSDBCMD per aggiornare lo schema del database di destinazione. VSDBCMD include due funzionalità importanti. In primo luogo, è possibile importare lo schema di un database esistente in un file. dbschema. In secondo luogo, è possibile distribuire un file con estensione dbschema a un database esistente come un aggiornamento differenziale, che significa che è solo le modifiche necessarie per portare il database di destinazione aggiornato e non perdere i dati.
 
@@ -68,6 +68,6 @@ In questo argomento descritte alcune delle problematiche potrebbero verificarsi 
 
 Per ulteriori istruzioni ed esempi di come utilizzare VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx) e [procedura: importare uno Schema da un prompt dei comandi](https://msdn.microsoft.com/library/dd172135.aspx). Per ulteriori informazioni sull'utilizzo aspnet\_regsql.exe per creare il database di appartenenza, vedere [strumento di registrazione di SQL Server ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Per istruzioni generali sulla distribuzione di database di appartenenza, vedere [procedura: distribuire ASP.NET l'appartenenza al Database senza tra account utente](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Precedente](deploying-database-role-memberships-to-test-environments.md)
-[Successivo](excluding-files-and-folders-from-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-database-role-memberships-to-test-environments.md)
+> [Successivo](excluding-files-and-folders-from-deployment.md)

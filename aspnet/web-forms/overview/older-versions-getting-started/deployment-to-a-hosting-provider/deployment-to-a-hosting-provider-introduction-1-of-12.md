@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: 'Distribuzione di un''applicazione Web ASP.NET con SQL Server Compact con Visual Studio: Introduzione - 1 di 12 | Documenti Microsoft'
+title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio: Introduzione - 1 di 12 | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual riceventi...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio: Introduzione - 1 di 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010.
 > 
@@ -53,7 +53,7 @@ Le esercitazioni sono rivolte agli sviluppatori ASP.NET che lavorano in organizz
 
 In ambienti aziendali, di solito per implementare i processi di integrazione continua e ambiente di produzione è ospitato in genere dai server dell'azienda. Utenti diversi anche in genere eseguono ruoli diversi. Per informazioni sulla distribuzione aziendale, vedere [distribuzione di applicazioni Web in scenari aziendali](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Le organizzazioni di tutte le dimensioni possono anche distribuire applicazioni web in Azure e la maggior parte delle procedure illustrate in queste esercitazioni si applicano anche nelle App Web di servizi di App di Azure. Per un'introduzione a Azure, vedere [https://azure.microsoft.com](https://azure.microsoft.com).
+Le organizzazioni di tutte le dimensioni possono anche distribuire applicazioni web in Azure e la maggior parte delle procedure illustrate in queste esercitazioni si applicano anche nelle App Web di servizi di App di Azure. Per un'introduzione a Azure, vedere [ https://azure.microsoft.com ](https://azure.microsoft.com).
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Il Provider di Hosting illustrato nelle esercitazioni
 
@@ -142,5 +142,5 @@ Le seguenti funzionalità dell'applicazione influisce su come distribuire o ciò
 
 In questa esercitazione prima della serie, aver scaricato il progetto di Visual Studio e rivedere le funzionalità del sito che influiscono sulla modalità di distribuzione dell'applicazione. Nelle esercitazioni seguenti, ci si prepara per la distribuzione mediante l'impostazione di alcuni di questi elementi devono essere gestiti automaticamente. Altri occuperà di manualmente.
 
->[!div class="step-by-step"]
-[avanti](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [avanti](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

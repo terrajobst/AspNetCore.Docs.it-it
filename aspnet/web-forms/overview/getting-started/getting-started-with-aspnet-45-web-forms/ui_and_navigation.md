@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d2d4101455a85c53e016e567c0cf1337642f1863
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ui-and-navigation"></a>Interfaccia utente e la navigazione
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -54,7 +54,7 @@ Si continuerà a questa serie di esercitazioni modificando il *Default.aspx* pag
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
 5. Salvare il *Default.aspx* selezionando **salvare Default.aspx** dal **File** menu.
 
- Il valore risultante *Default.aspx* pagina viene visualizzata come indicato di seguito: 
+   Il valore risultante *Default.aspx* pagina viene visualizzata come indicato di seguito: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
@@ -62,7 +62,7 @@ Nell'esempio, impostare il `Title` attributo del `@Page` direttiva. Quando il co
 
 La pagina di esempio include gli elementi di base che costituiscono una pagina Web ASP.NET. La pagina contiene testo statico, potrebbe essere in una pagina HTML, insieme a elementi specifici di ASP.NET. Il contenuto di *Default.aspx* pagina verrà integrata con il contenuto della pagina master, che verrà spiegato più avanti in questa esercitazione.
 
-### <a name="page-directive"></a>@Page(Direttiva)
+### <a name="page-directive"></a>@Page (Direttiva)
 
 Web Form ASP.NET è in genere contengono direttive che consentono di specificare informazioni della pagina proprietà e la configurazione per la pagina. Le direttive sono utilizzate da ASP.NET come istruzioni sull'elaborazione della pagina, ma non vengono sottoposte a rendering come parte del codice che viene inviato al browser.
 
@@ -166,8 +166,8 @@ In questa esercitazione si modificherà aspetto dell'applicazione Wingtip Toys s
 2. Fare doppio clic su di *bootstrap.css* file e rinominarlo *bootstrap original.css*.
 3. Rinominare il *bootstrap.min.css* a *bootstrap original.min.css*.
 4. In **Esplora**, fare doppio clic su di *contenuto* cartella e selezionare **Apri cartella in Esplora File**.  
- Verrà visualizzato Esplora File. Si salverà un file CSS bootstrap scaricati in questa posizione.
-5. Nel browser, passare a [http://Bootswatch.com](http://bootswatch.com/).
+   Verrà visualizzato Esplora File. Si salverà un file CSS bootstrap scaricati in questa posizione.
+5. Nel browser, passare a [ http://Bootswatch.com ](http://bootswatch.com/).
 6. Scorrere la finestra del browser finché non viene visualizzato il tema Cerulean. 
 
     ![Interfaccia utente e la navigazione - Cerulean tema](ui_and_navigation/_static/image5.png)
@@ -176,9 +176,9 @@ In questa esercitazione si modificherà aspetto dell'applicazione Wingtip Toys s
 
     ![Interfaccia utente e la navigazione - Esplora soluzioni](ui_and_navigation/_static/image6.png)
 
- Si noterà che i due nuovi file CSS nel **contenuto** cartella, ma si noti che l'icona accanto a ogni nome di file non è disponibile. Ciò significa che il file non è ancora stato aggiunto al progetto.
+   Si noterà che i due nuovi file CSS nel **contenuto** cartella, ma si noti che l'icona accanto a ogni nome di file non è disponibile. Ciò significa che il file non è ancora stato aggiunto al progetto.
 9. Fare doppio clic su di *bootstrap.css* e *bootstrap.min.css* file e selezionare **Includi nel progetto**.   
- Quando si esegue l'applicazione Wingtip Toys più avanti in questa esercitazione, verrà visualizzata la nuova interfaccia utente.
+   Quando si esegue l'applicazione Wingtip Toys più avanti in questa esercitazione, verrà visualizzata la nuova interfaccia utente.
 
 > [!NOTE] 
 > 
@@ -288,10 +288,10 @@ In questa esercitazione della serie è stato aggiunto alcuni interfaccia utente 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[Introduzione alla programmazione di pagine Web ASP.NET](https://msdn.microsoft.com/library/ms178125.aspx)   
+[Introduzione alla programmazione di ASP.NET Web Pages](https://msdn.microsoft.com/library/ms178125.aspx)   
 [Cenni preliminari sui controlli Server Web ASP.NET](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [Esercitazione CSS](http://www.w3schools.com/css/default.asp)
 
->[!div class="step-by-step"]
-[Precedente](create_the_data_access_layer.md)
-[Successivo](display_data_items_and_details.md)
+> [!div class="step-by-step"]
+> [Precedente](create_the_data_access_layer.md)
+> [Successivo](display_data_items_and_details.md)

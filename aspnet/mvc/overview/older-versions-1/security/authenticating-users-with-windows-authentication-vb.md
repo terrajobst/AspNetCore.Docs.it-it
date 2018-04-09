@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 63b1266e03041c4261e71fd25e988c63932b503e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cf711d44a05d2457493998ed61e86536c65b5984
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>L'autenticazione degli utenti con l'autenticazione di Windows (VB)
 ====================
@@ -41,7 +41,7 @@ In primo luogo, durante lo sviluppo di un'applicazione MVC, utilizzare il Server
 
 Il Server Web di sviluppo ASP.NET supporta anche l'autenticazione NTLM. È possibile abilitare l'autenticazione NTLM facendo clic il nome del progetto nella finestra Esplora soluzioni e scegliendo proprietà. Successivamente, selezionare la scheda Web e selezionare la casella di controllo NTLM (vedere la figura 1).
 
-**Figura 1: abilitare l'autenticazione NTLM per il Server Web di sviluppo ASP.NET**
+**Figura 1: abilitare l'autenticazione NTLM per Server Web di sviluppo ASP.NET**
 
 ![clip_image002](authenticating-users-with-windows-authentication-vb/_static/image1.jpg)
 
@@ -51,7 +51,7 @@ Per un'applicazione web di produzione, l'icona della mano, si utilizza IIS come 
 
 > [!NOTE] 
 > 
-> Per una panoramica più dettagliata di questi diversi tipi di autenticazione, vedere [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Per una panoramica più dettagliata di questi diversi tipi di autenticazione, vedere [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Per abilitare un particolare tipo di autenticazione, è possibile utilizzare Gestione Internet Information Services. Tenere presente che tutti i tipi di autenticazione non sono disponibili nel caso di ogni sistema operativo. Inoltre, se si utilizza IIS 7.0 con Windows Vista, è necessario abilitare i diversi tipi di autenticazione di Windows prima che vengano visualizzati in Gestione Internet Information Services. Aprire **Pannello di controllo, programmi, programmi e funzionalità, delle funzionalità Windows attivare o disattivare**, espandere il nodo di Internet Information Services (vedere la figura 2).
@@ -84,7 +84,7 @@ Esattamente cosa accade quando si tenta di richiamare un'azione del controller s
 
 Se, invece, si utilizza IIS con l'autenticazione anonima sia disabilitata e abilitata l'autenticazione di base, quindi consente di accedere a un prompt della finestra di dialogo account di accesso ogni volta che si richiede la pagina protetta (vedere la figura 4).
 
-**Figura 4-finestra di dialogo account di accesso autenticazione di base**
+**Figura 4 – finestra di dialogo account di accesso autenticazione di base**
 
 ![clip_image008](authenticating-users-with-windows-authentication-vb/_static/image4.jpg)
 
@@ -92,6 +92,6 @@ Se, invece, si utilizza IIS con l'autenticazione anonima sia disabilitata e abil
 
 In questa esercitazione viene illustrato come è possibile utilizzare l'autenticazione di Windows nel contesto di un'applicazione MVC ASP.NET. È stato descritto come abilitare l'autenticazione di Windows all'interno di file di configurazione dell'applicazione web e come configurare l'autenticazione con IIS. Infine, si è appreso come utilizzare il &lt;Authorize&gt; attributo per limitare l'accesso alle azioni del controller a gruppi o utenti specifici di Windows.
 
->[!div class="step-by-step"]
-[Precedente](authenticating-users-with-forms-authentication-vb.md)
-[Successivo](preventing-javascript-injection-attacks-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](authenticating-users-with-forms-authentication-vb.md)
+> [Successivo](preventing-javascript-injection-attacks-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 title: Creazione di un'interfaccia per selezionare un Account utente da molti (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà compilata un'interfaccia utente con una griglia di paging, filtrabile. In particolare, l'interfaccia utente sarà costituito da una serie di LinkButton per..."
+description: In questa esercitazione verrà compilata un'interfaccia utente con una griglia di paging, filtrabile. In particolare, l'interfaccia utente sarà costituito da una serie di LinkButton per...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 304505b18e330425ea1dc8df87a552f3d8cd15f3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Creazione di un'interfaccia per selezionare un Account utente da molti (c#)
 ====================
@@ -59,7 +59,7 @@ Pagine ASP.NET il `Administration` cartella sono destinati esclusivamente agli u
 Esplora soluzioni del progetto a questo punto dovrebbe essere simile alla schermata illustrata nella figura 1.
 
 
-[![Quattro nuove pagine e un File Web. config sono stati aggiunti al sito Web](building-an-interface-to-select-one-user-account-from-many-cs/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image1.png)
+[![Sono stati aggiunti quattro nuove pagine e un File Web. config per il sito Web](building-an-interface-to-select-one-user-account-from-many-cs/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image1.png)
 
 **Figura 1**: quattro nuove pagine e un `Web.config` File sono stati aggiunti al sito Web ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image3.png))
 
@@ -73,7 +73,7 @@ Con la mappa del sito è stata aggiornata, visitare il sito tramite un browser. 
 
 [![Mappa del sito include un nodo denominato Amministrazione utenti](building-an-interface-to-select-one-user-account-from-many-cs/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image4.png)
 
-**Figura 2**: mappa del sito include un'amministrazione utente denominato nodo ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image6.png))
+**Figura 2**: mappa del sito include un nodo denominato utente amministrazione ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image6.png))
 
 
 ## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>Passaggio 2: Elenco di tutti gli account utente in un controllo GridView.
@@ -125,9 +125,9 @@ Questo metodo consente di specificare le opzioni di filtro come elementi di `str
 La figura 5 mostra il `ManageUsers.aspx` pagina quando viene visualizzato tramite un browser.
 
 
-[![Repeater elenca 27 LinkButton filtro](building-an-interface-to-select-one-user-account-from-many-cs/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image13.png)
+[![Ripetitore Elenca 27 LinkButton filtro](building-an-interface-to-select-one-user-account-from-many-cs/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image13.png)
 
-**Figura 5**: il controllo Repeater elenca 27 filtro LinkButton ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image15.png))
+**Figura 5**: il Ripetitore Elenca 27 filtro LinkButton ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image15.png))
 
 
 > [!NOTE]
@@ -155,9 +155,9 @@ Creare un gestore eventi per il controllo Repeater `ItemCommand` evento. Questo 
 Con questo codice, testare la funzionalità di filtro. Quando la pagina viene prima visitata, vengono visualizzati tutti gli account utente (vedere la figura 5). Facendo clic sull'elemento LinkButton A provoca un postback e filtra i risultati, la visualizzazione solo agli account utente che iniziano per a.
 
 
-[![Utilizzare il filtro LinkButton per visualizzare gli utenti il cui nome utente inizia con una determinata lettera](building-an-interface-to-select-one-user-account-from-many-cs/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image16.png)
+[![Utilizzare il filtro LinkButton per visualizzare tali utenti il cui nome utente inizia con una determinata lettera](building-an-interface-to-select-one-user-account-from-many-cs/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image16.png)
 
-**Figura 6**: utilizzare LinkButton il filtro per visualizzare tali utenti il cui nome utente inizia con una lettera determinati ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image18.png))
+**Figura 6**: utilizzare LinkButton filtro per visualizzare tali gli utenti il cui nome utente inizia con una lettera determinati ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image18.png))
 
 
 ## <a name="step-4-updating-the-gridview-to-use-paging"></a>Passaggio 4: Aggiornamento GridView per l'utilizzo di Paging
@@ -167,7 +167,7 @@ GridView illustrato nelle figure 5 e 6 sono elencati tutti i record restituiti d
 Il controllo GridView offre due tipi di paging:
 
 - **Paging predefinito** : facile da implementare, ma non efficiente. In breve, paging GridView predefinito prevede *tutti* dei record dall'origine dati. Quindi Visualizza solo la pagina di record appropriata.
-- **Il paging personalizzato** -richiede maggiore impegno per implementare, ma è più efficiente rispetto all'impostazione predefinita il paging in quanto con paging dei dati personalizzata origine restituisce solo il preciso set di record da visualizzare.
+- **Il paging personalizzato** -richiede maggiore impegno per implementare, ma è più efficiente predefinito paging perché con paging dei dati personalizzata origine restituisce solo il set di record per la visualizzazione precisa.
 
 La differenza nelle prestazioni tra l'impostazione predefinita e il paging personalizzato può rivelarsi piuttosto notevole paging migliaia di record. Poiché stiamo creando questa interfaccia, presupponendo che può essere centinaia o migliaia di account utente, è possibile utilizzare il paging personalizzato.
 
@@ -200,9 +200,9 @@ Successivamente, creare un gestore eventi per ogni sull'elemento LinkButton `Cli
 Figura 7 illustra le quattro LinkButton quando viene visualizzato tramite la visualizzazione di progettazione di Visual Web Developer.
 
 
-[![Aggiungere prima, precedente, in futuro, e l'ultimo LinkButton sotto controllo GridView.](building-an-interface-to-select-one-user-account-from-many-cs/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image19.png)
+[![Suggerimenti da aggiungere prima, precedente, e l'ultimo LinkButton sotto controllo GridView.](building-an-interface-to-select-one-user-account-from-many-cs/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image19.png)
 
-**Figura 7**: prima di aggiungere, precedente, successivo e ultimo LinkButton sotto il controllo GridView ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image21.png))
+**Figura 7**: aggiungere prima, precedente, successivo e ultimo LinkButton di sotto di GridView ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image21.png))
 
 
 ### <a name="keeping-track-of-the-current-page-index"></a>Tenere traccia dell'indice della pagina corrente
@@ -232,14 +232,14 @@ L'ultimo passaggio consiste nello scrivere il codice per LinkButton quattro `Cli
 Cifre 8 e 9 mostrano l'interfaccia di paging personalizzata in azione. Figura 8 viene illustrata la `ManageUsers.aspx` pagina quando si visualizzano la prima pagina di dati per tutti gli account utente. Si noti che vengono visualizzati solo 10 degli 13 account. Il collegamento successivo o ultimo provoca un postback, gli aggiornamenti di `PageIndex` su 1 e associa la seconda pagina utente account alla griglia (vedere Figura 9).
 
 
-[![Vengono visualizzati gli account utente di primo 10](building-an-interface-to-select-one-user-account-from-many-cs/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image22.png)
+[![Il primo account utente 10 vengono visualizzati](building-an-interface-to-select-one-user-account-from-many-cs/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image22.png)
 
 **Figura 8**: vengono visualizzati il primo account di 10 ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image24.png))
 
 
-[![Fare clic sul collegamento successivo consente di visualizzare la seconda pagina di account utente](building-an-interface-to-select-one-user-account-from-many-cs/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image25.png)
+[![Fare clic sul collegamento avanti consente di visualizzare la seconda pagina degli account utente](building-an-interface-to-select-one-user-account-from-many-cs/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image25.png)
 
-**Figura 9**: il collegamento successivo consente di visualizzare la seconda pagina di account utente ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png))
+**Figura 9**: fare clic sul collegamento avanti consente di visualizzare la seconda pagina di account utente ([fare clic per visualizzare l'immagine ingrandita](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -253,16 +253,16 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Paging personalizzato in ASP.NET con SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)
-- [In modo efficiente il Paging grandi quantità di dati](https://asp.net/learn/data-access/tutorial-25-cs.aspx)
-- [Strumento Amministrazione sito Web in sequenza](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [In modo efficiente Paging grandi quantità di dati](https://asp.net/learn/data-access/tutorial-25-cs.aspx)
+- [In sequenza il proprio strumento Amministrazione sito Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Alicja Maziarz. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Alicja Maziarz. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](recovering-and-changing-passwords-cs.md)
+> [!div class="step-by-step"]
+> [avanti](recovering-and-changing-passwords-cs.md)

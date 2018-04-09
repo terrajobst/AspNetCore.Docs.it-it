@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure insieme di credenziali chiave in ASP.NET Core
 
@@ -54,20 +54,21 @@ Il provider viene aggiunto per il `ConfigurationBuilder` con il `AddAzureKeyVaul
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Creazione di segreti dell'insieme di credenziali chiave e il caricamento dei valori di configurazione (esempio di base)
 1. Creare un insieme di credenziali chiave e configurare Azure Active Directory (Azure AD) per l'applicazione seguendo le istruzioni in [introduzione insieme credenziali chiavi Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Aggiungere i segreti alla chiave dell'insieme di credenziali utilizzando il [modulo PowerShell di insieme di credenziali chiave di Azure Resource Manager](/powershell/module/azurerm.keyvault) disponibile dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.KeyVault), il [API REST dell'insieme di credenziali chiave di Azure](/rest/api/keyvault/), o il [Portale di azure](https://portal.azure.com/). I segreti vengono creati come *manuale* o *certificato* segreti. *Certificato* segreti sono certificati per l'utilizzo da applicazioni e servizi, ma non sono supportati dal provider di configurazione. È consigliabile utilizzare il *manuale* opzione per creare i segreti di coppia nome-valore per l'utilizzo con il provider di configurazione.
-    * I segreti semplici vengono creati come coppie nome-valore. Azure insieme di credenziali chiave segreta i nomi sono limitati a caratteri alfanumerici e trattini.
-    * Utilizzano valori gerarchici (sezioni di configurazione) `--` (due trattini) come separatore nell'esempio. I due punti, che vengono generalmente utilizzati per la delimitazione di una sezione di una sottochiave [configurazione di ASP.NET Core](xref:fundamentals/configuration/index), non sono consentiti nei nomi dei segreti. Pertanto, due trattini vengono utilizzati e scambiati per i due punti, quando i segreti vengono caricati nella configurazione dell'applicazione.
-    * Creare due *manuale* segreti con le seguenti coppie nome-valore. Il segreto primo è un nome semplice e un valore e il segreto secondo crea un valore segreto con una sezione e una sottochiave nel nome del segreto:
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Registrare l'app di esempio con Azure Active Directory.
-  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
+   * Aggiungere i segreti alla chiave dell'insieme di credenziali utilizzando il [modulo PowerShell di insieme di credenziali chiave di Azure Resource Manager](/powershell/module/azurerm.keyvault) disponibile dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.KeyVault), il [API REST dell'insieme di credenziali chiave di Azure](/rest/api/keyvault/), o il [Portale di azure](https://portal.azure.com/). I segreti vengono creati come *manuale* o *certificato* segreti. *Certificato* segreti sono certificati per l'utilizzo da applicazioni e servizi, ma non sono supportati dal provider di configurazione. È consigliabile utilizzare il *manuale* opzione per creare i segreti di coppia nome-valore per l'utilizzo con il provider di configurazione.
+     * I segreti semplici vengono creati come coppie nome-valore. Azure insieme di credenziali chiave segreta i nomi sono limitati a caratteri alfanumerici e trattini.
+     * Utilizzano valori gerarchici (sezioni di configurazione) `--` (due trattini) come separatore nell'esempio. I due punti, che vengono generalmente utilizzati per la delimitazione di una sezione di una sottochiave [configurazione di ASP.NET Core](xref:fundamentals/configuration/index), non sono consentiti nei nomi dei segreti. Pertanto, due trattini vengono utilizzati e scambiati per i due punti, quando i segreti vengono caricati nella configurazione dell'applicazione.
+     * Creare due *manuale* segreti con le seguenti coppie nome-valore. Il segreto primo è un nome semplice e un valore e il segreto secondo crea un valore segreto con una sezione e una sottochiave nel nome del segreto:
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Registrare l'app di esempio con Azure Active Directory.
+   * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
+
 2. Aggiornare l'app *appSettings. JSON* file con i valori di `Vault`, `ClientId`, e `ClientSecret`.
 3. Eseguire l'app di esempio, che ottiene i valori di configurazione da `IConfigurationRoot` con lo stesso nome come nome del segreto.
-  * I valori non gerarchico: il valore per `SecretName` viene ottenuto con `config["SecretName"]`.
-  * I valori gerarchici (sezioni): utilizzare `:` notazione (virgola) o `GetSection` metodo di estensione. Per ottenere il valore di configurazione, utilizzare uno di questi approcci:
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * I valori non gerarchico: il valore per `SecretName` viene ottenuto con `config["SecretName"]`.
+   * I valori gerarchici (sezioni): utilizzare `:` notazione (virgola) o `GetSection` metodo di estensione. Per ottenere il valore di configurazione, utilizzare uno di questi approcci:
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 Quando si esegue l'app, una pagina Web Mostra i valori caricati segreti:
 
@@ -97,13 +98,14 @@ Quando si implementa questo approccio:
 > È anche possibile fornire una propria `KeyVaultClient` implementazione `AddAzureKeyVault`. Fornisce un client personalizzato consente di condividere una singola istanza del client tra il provider di configurazione e altre parti dell'app.
 
 1. Creare un insieme di credenziali chiave e configurare Azure Active Directory (Azure AD) per l'applicazione seguendo le istruzioni in [introduzione insieme credenziali chiavi Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Aggiungere i segreti alla chiave dell'insieme di credenziali utilizzando il [modulo PowerShell di insieme di credenziali chiave di Azure Resource Manager](/powershell/module/azurerm.keyvault) disponibile dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.KeyVault), il [API REST dell'insieme di credenziali chiave di Azure](/rest/api/keyvault/), o il [Portale di azure](https://portal.azure.com/). I segreti vengono creati come *manuale* o *certificato* segreti. *Certificato* segreti sono certificati per l'utilizzo da applicazioni e servizi, ma non sono supportati dal provider di configurazione. È consigliabile utilizzare il *manuale* opzione per creare i segreti di coppia nome-valore per l'utilizzo con il provider di configurazione.
-    * Utilizzano valori gerarchici (sezioni di configurazione) `--` (due trattini) come separatore.
-    * Creare due *manuale* segreti con le coppie nome-valore seguente:
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Registrare l'app di esempio con Azure Active Directory.
-  * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
+   * Aggiungere i segreti alla chiave dell'insieme di credenziali utilizzando il [modulo PowerShell di insieme di credenziali chiave di Azure Resource Manager](/powershell/module/azurerm.keyvault) disponibile dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.KeyVault), il [API REST dell'insieme di credenziali chiave di Azure](/rest/api/keyvault/), o il [Portale di azure](https://portal.azure.com/). I segreti vengono creati come *manuale* o *certificato* segreti. *Certificato* segreti sono certificati per l'utilizzo da applicazioni e servizi, ma non sono supportati dal provider di configurazione. È consigliabile utilizzare il *manuale* opzione per creare i segreti di coppia nome-valore per l'utilizzo con il provider di configurazione.
+     * Utilizzano valori gerarchici (sezioni di configurazione) `--` (due trattini) come separatore.
+     * Creare due *manuale* segreti con le coppie nome-valore seguente:
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Registrare l'app di esempio con Azure Active Directory.
+   * Autorizzare l'app per l'insieme di credenziali chiave di accesso. Quando si utilizza il `Set-AzureRmKeyVaultAccessPolicy` fornisce cmdlet di PowerShell per autorizzare l'app per l'insieme di credenziali chiave di accesso `List` e `Get` accesso ai segreti con `-PermissionsToSecrets list,get`.
+
 2. Aggiornare l'app *appSettings. JSON* file con i valori di `Vault`, `ClientId`, e `ClientSecret`.
 3. Eseguire l'app di esempio, che ottiene i valori di configurazione da `IConfigurationRoot` con lo stesso nome come nome del segreto con prefisso. In questo esempio, il prefisso è la versione dell'app, che è fornito per il `PrefixKeyVaultSecretManager` quando è stato aggiunto il provider di configurazione insieme credenziali chiavi Azure. Il valore per `AppSecret` viene ottenuto con `config["AppSecret"]`. La pagina Web generata dall'app Mostra il valore caricato:
 

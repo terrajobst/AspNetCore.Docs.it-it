@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 title: Riutilizzo dell'interfaccia utente utilizzando le pagine Master e parziali | Documenti Microsoft
 author: microsoft
-description: "Passaggio 7 esamina la modalità che è possibile applicare il principio secca entro i nostri modelli di visualizzazione per evitare la duplicazione del codice, usando i modelli di visualizzazione parziale e pagine master."
+description: Passaggio 7 esamina la modalità che è possibile applicare il principio secca entro i nostri modelli di visualizzazione per evitare la duplicazione del codice, usando i modelli di visualizzazione parziale e pagine master.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
-ms.openlocfilehash: c42cd6aca40b08a9f8461532fbfd0589901b64ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ade655f3a4a429360b678d02fb564ac9cf255d42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="re-use-ui-using-master-pages-and-partials"></a>Riutilizzo dell'interfaccia utente utilizzando le pagine Master e parziali
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -77,7 +77,7 @@ Quando si fa clic sul pulsante "Aggiungi", Visual Studio creerà un nuovo modell
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample2.aspx)]
 
-##### <a name="editaspx"></a>Edit
+##### <a name="editaspx"></a>Edit.aspx
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample3.aspx)]
 
@@ -85,7 +85,7 @@ Quando si fa clic sul pulsante "Aggiungi", Visual Studio creerà un nuovo modell
 
 Quando Html.RenderPartial() viene chiamato con solo il nome della visualizzazione parziale, ASP.NET MVC verrà passato alla visualizzazione parziale gli oggetti di un dizionario modello e ViewData stesso utilizzati dal modello di visualizzazione del chiamante. In alternativa, sono disponibili le versioni di overload di Html.RenderPartial() che consentono di passare un oggetto modello alternativo e/o il dizionario ViewData per la visualizzazione parziale da utilizzare. Ciò è utile per scenari in cui si desidera solo un subset del completo modello/ViewModel passare.
 
-| **Sul lato dell'argomento: Perché &lt;% %&gt; anziché &lt;% = %&gt;?** |
+| **Sul lato dell'argomento: Perché &lt;%&gt; anziché &lt;% = %&gt;?** |
 | --- |
 | Uno degli aspetti complessi è possibile aver notato con il codice precedente è che si sta usando un &lt;% %&gt; anziché il blocco una &lt;% = %&gt; blocco quando si chiama Html.RenderPartial(). &lt;% = %&gt; blocchi in ASP.NET indicano che uno sviluppatore desidera eseguire il rendering di un valore specificato (ad esempio: &lt;% = "Hello" %&gt; il rendering di "Hello"). &lt;% %&gt; blocchi invece indicano che lo sviluppatore desidera eseguire il codice e che qualsiasi output sottoposto a rendering all'interno di essi deve essere eseguita in modo esplicito (ad esempio: &lt;Response.Write("Hello") %&gt;. Il motivo che si sta usando un &lt;% %&gt; blocco con codice Html.RenderPartial è perché il metodo Html.RenderPartial() non restituisce una stringa e restituisce invece il contenuto direttamente al modello di visualizzazione del chiamante del flusso di output. Ciò avviene per motivi di efficienza di prestazioni e in tal modo evita la necessità di creare un oggetto stringa temporaneo (potenzialmente molto grande). Questo riduce l'utilizzo di memoria e consente di migliorare le prestazioni generali dell'applicazione. Un errore comune quando si utilizza Html.RenderPartial() è omesso di aggiungere un punto e virgola alla fine della chiamata quando è all'interno di un &lt;% %&gt; blocco. Ad esempio, questo codice causa un errore del compilatore: &lt;Html.RenderPartial("DinnerForm") %&gt; è invece necessario scrivere: &lt;Html.RenderPartial("DinnerForm") %; %&gt; infatti &lt;% %&gt; blocchi sono istruzioni di codice indipendente e quando si utilizza il codice c# istruzioni devono terminare con un punto e virgola. |
 
@@ -137,6 +137,6 @@ Pagine master e parziali forniscono opzioni molto flessibile che consentono di o
 
 Verrà ora accedere nuovamente lo scenario di elenco che è stato creato in precedenza e abilitare il supporto di paging scalabile.
 
->[!div class="step-by-step"]
-[Precedente](use-viewdata-and-implement-viewmodel-classes.md)
-[Successivo](implement-efficient-data-paging.md)
+> [!div class="step-by-step"]
+> [Precedente](use-viewdata-and-implement-viewmodel-classes.md)
+> [Successivo](implement-efficient-data-paging.md)

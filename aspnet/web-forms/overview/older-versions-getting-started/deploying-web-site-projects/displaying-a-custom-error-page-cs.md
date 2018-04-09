@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 title: Visualizzazione di una pagina di errore personalizzati (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Ciò che viene visualizzato quando si verifica un errore di runtime in un'applicazione web ASP.NET? La risposta dipende dalla modalità del sito Web &lt;customErrors&gt; configurazione..."
+description: Ciò che viene visualizzato quando si verifica un errore di runtime in un'applicazione web ASP.NET? La risposta dipende dalla modalità del sito Web &lt;customErrors&gt; configurazione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d68dedfc1f606cc6f0381bcbdb3f65c1ea3b2e5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f01a0f3af3680d53639512d7a86ac1a8645d00e2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-c"></a>Visualizzazione di una pagina di errore personalizzati (c#)
 ====================
@@ -55,12 +55,12 @@ Tenere presente le informazioni sull'eccezione presentati in **figura 1**. Il me
 
 [![](displaying-a-custom-error-page-cs/_static/image2.png)](displaying-a-custom-error-page-cs/_static/image1.png)
 
-**Figura 1**: YSOD i dettagli dell'eccezione include informazioni sull'eccezione  
+**Figura 1**: I dettagli dell'eccezione YSOD include informazioni sull'eccezione  
  ([Fare clic per visualizzare l'immagine ingrandita](displaying-a-custom-error-page-cs/_static/image3.png))
 
 L'altro tipo di YSOD è YSOD di errore di Runtime e viene visualizzato **figura 2**. YSOD di errore di Runtime informa il visitatore che si è verificato un errore di run-time, ma non include le informazioni sull'eccezione generata. (, Tuttavia, vengono fornite istruzioni su come rendere visibili i dettagli dell'errore modificando il `Web.config` file, che fa parte di ciò che rende tale YSOD un aspetto poco professionale.)
 
-Per impostazione predefinita, il YSOD di errore di Runtime verrà visualizzato agli utenti di visitare in modalità remota (tramite http://www.yoursite.com), come evidenziato dall'URL nella barra degli indirizzi del browser in **figura 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Le due schermate YSOD diverse esistono perché gli sviluppatori sono interessati a conoscere i dettagli dell'errore, ma tali informazioni non devono essere visualizzate in un sito in tempo reale come può rivelare potenziali vulnerabilità di sicurezza o altre informazioni riservate a chiunque visiti la sito.
+Per impostazione predefinita, il YSOD di errore di Runtime verrà visualizzato agli utenti che visitano in modalità remota (tramite http://www.yoursite.com), come evidenziato dall'URL nella barra degli indirizzi del browser in **figura 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Le due schermate YSOD diverse esistono perché gli sviluppatori sono interessati a conoscere i dettagli dell'errore, ma tali informazioni non devono essere visualizzate in un sito in tempo reale come può rivelare potenziali vulnerabilità di sicurezza o altre informazioni riservate a chiunque visiti la sito.
 
 > [!NOTE]
 > Se si segue e si utilizza DiscountASP.NET come host web, si noterà che il YSOD di errore di Runtime non viene visualizzata quando si visita il sito in tempo reale. In questo modo DiscountASP.NET dispone di propri server configurato per mostrare il YSOD Dettagli eccezione per impostazione predefinita. Buone notizie sono che è possibile eseguire l'override di questo comportamento predefinito aggiungendo un `<customErrors>` sezione per la `Web.config` file. La sezione "Configurazione di cui errore pagina viene visualizzato" esamina il `<customErrors>` sezione in modo dettagliato.
@@ -71,7 +71,7 @@ Per impostazione predefinita, il YSOD di errore di Runtime verrà visualizzato a
 **Figura 2**: errore di Runtime YSOD non Include tutti i dettagli dell'errore  
  ([Fare clic per visualizzare l'immagine ingrandita](displaying-a-custom-error-page-cs/_static/image6.png))
 
-Il terzo tipo di pagina di errore è la pagina di errore personalizzata, è una pagina web creata. Il vantaggio di una pagina di errore personalizzato consiste nel disporre di un controllo completo sulle informazioni che viene visualizzate all'utente con l'aspetto della pagina; pagina di errore personalizzata è possibile utilizzare la stessa pagina master e gli stili come le altre pagine. La sezione "Utilizzando una pagina di errore personalizzati" vengono illustrati la creazione di una pagina di errore personalizzato e configurarlo per visualizzare in caso di un'eccezione non gestita. **Figura 3** offre provare questa pagina di errore personalizzato. Come si può notare, l'aspetto della pagina di errore è molto più professionale rispetto a uno di colore giallo schermate di morte illustrato nelle figure 1 e 2.
+Il terzo tipo di pagina di errore è la pagina di errore personalizzata, è una pagina web creata. Il vantaggio di una pagina di errore personalizzato consiste nel disporre di un controllo completo sulle informazioni che viene visualizzate all'utente con l'aspetto della pagina; pagina di errore personalizzata è possibile utilizzare la stessa pagina master e gli stili come le altre pagine. La sezione "Utilizzando una pagina di errore personalizzati" vengono illustrati la creazione di una pagina di errore personalizzato e configurarlo per visualizzare in caso di un'eccezione non gestita. **Figura 3** offre provare questa pagina errori personalizzati. Come si può notare, l'aspetto della pagina di errore è molto più professionale rispetto a uno di colore giallo schermate di morte illustrato nelle figure 1 e 2.
 
 [![](displaying-a-custom-error-page-cs/_static/image8.png)](displaying-a-custom-error-page-cs/_static/image7.png)
 
@@ -89,11 +89,11 @@ Delle tre pagine di errore visualizzato è basato su due variabili:
 
 Il [ `<customErrors>` sezione](https://msdn.microsoft.com/library/h0hfz6fc.aspx) in `Web.config` dispone di due attributi che influiscono sulla viene visualizzata la pagina di errore: `defaultRedirect` e `mode`. L'attributo `defaultRedirect` è facoltativo. Se fornito, specifica l'URL della pagina di errore personalizzato e indica che deve essere visualizzata la pagina di errore personalizzato anziché il YSOD di errore di Runtime. Il `mode` attributo è obbligatorio e può accettare solo uno dei tre valori: `On`, `Off`, o `RemoteOnly`. Questi valori non hanno il seguente comportamento:
 
-- `On`-indica che viene visualizzata la pagina di errore personalizzate o YSOD di errore di Runtime a tutti i visitatori, indipendentemente dal fatto che siano locale o remoto.
-- `Off`-Specifica che il YSOD Dettagli eccezione viene visualizzata per tutti i visitatori, indipendentemente dal fatto che siano locale o remoto.
-- `RemoteOnly`-indica che la pagina di errore personalizzate o YSOD di errore di Runtime viene visualizzata visitatori remoto, mentre viene visualizzato il YSOD Dettagli eccezione visitatori locali.
+- `On` -indica che viene visualizzata la pagina di errore personalizzate o YSOD di errore di Runtime a tutti i visitatori, indipendentemente dal fatto che siano locale o remoto.
+- `Off` -Specifica che il YSOD Dettagli eccezione viene visualizzata per tutti i visitatori, indipendentemente dal fatto che siano locale o remoto.
+- `RemoteOnly` -indica che la pagina di errore personalizzate o YSOD di errore di Runtime viene visualizzata per i visitatori remoti, mentre il YSOD Dettagli eccezione viene visualizzata per i visitatori locali.
 
-Se non diversamente specificato, ASP.NET si comporta come se è stato impostato l'attributo mode su `RemoteOnly` e non è stato specificato un `defaultRedirect` valore. In altre parole, il comportamento predefinito è che viene visualizzato il YSOD Dettagli eccezione visitatori locali mentre visitatori remoti viene visualizzato il YSOD di errore di Runtime. È possibile eseguire l'override di questo comportamento predefinito aggiungendo un `<customErrors>` sezione all'applicazione web`Web.config file.`
+Se non diversamente specificato, ASP.NET si comporta come se è stato impostato l'attributo mode su `RemoteOnly` e non è stato specificato un `defaultRedirect` valore. In altre parole, il comportamento predefinito è che viene visualizzato il YSOD Dettagli eccezione visitatori locali mentre visitatori remoti viene visualizzato il YSOD di errore di Runtime. È possibile eseguire l'override di questo comportamento predefinito aggiungendo un `<customErrors>` sezione in cui l'applicazione web `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>Utilizzo di una pagina di errore personalizzati
 
@@ -128,7 +128,7 @@ Per questi motivi che è fondamentale che sia stato registrato un errore nell'am
 
 Quando un'eccezione viene generata da una pagina ASP.NET e non viene gestita l'eccezione percolates fino al runtime di ASP.NET, che consente di visualizzare la pagina di errore configurata. Se una richiesta viene nel motore di ASP.NET, ma non può essere elaborata per qualche motivo, ad esempio il file richiesto non è disponibile o leggere le autorizzazioni sono state disabilitate per il file, il motore di ASP.NET genera un `HttpException`. Questa eccezione, ad esempio le eccezioni generate dalle pagine ASP.NET, viene propagata al runtime, causando la pagina di errore appropriato da visualizzare.
 
-Ciò significa che per l'applicazione web nell'ambiente di produzione è che se un utente richiede una pagina che non viene trovata, quindi che verrà visualizzata la pagina di errore personalizzato. **Figura 6** Mostra un esempio. Perché la richiesta è per una pagina inesistente (`NoSuchPage.aspx`), un `HttpException` viene generata un'eccezione e viene visualizzata la pagina di errore personalizzato (si noti il riferimento a `NoSuchPage.aspx` nel `aspxerrorpath` parametro querystring).
+Ciò significa che per l'applicazione web nell'ambiente di produzione è che se un utente richiede una pagina che non viene trovata, quindi che verrà visualizzata la pagina di errore personalizzato. **Figura 6** viene illustrato un esempio di questo tipo. Perché la richiesta è per una pagina inesistente (`NoSuchPage.aspx`), un `HttpException` viene generata un'eccezione e viene visualizzata la pagina di errore personalizzato (si noti il riferimento a `NoSuchPage.aspx` nel `aspxerrorpath` parametro querystring).
 
 [![](displaying-a-custom-error-page-cs/_static/image16.png)](displaying-a-custom-error-page-cs/_static/image15.png)
 
@@ -144,7 +144,7 @@ Con questa modifica sul posto, ogni volta che un utente visita in modalità remo
 > Estrarre [pagine di errore 404, una volta più](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) per istruzioni sulla creazione di pagine di errore 404 effettivo.
 
 
-[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Figura 7**: la pagina di errore 404 personalizzate Visualizza un messaggio più mirato rispetto a`Oops.aspx`  
+[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Figura 7**: la pagina di errore 404 personalizzate viene visualizzato un messaggio più mirato rispetto a `Oops.aspx`  
  ([Fare clic per visualizzare l'immagine ingrandita](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
 Poiché si è certi che il `404.aspx` pagina viene raggiunto solo quando l'utente effettua una richiesta per una pagina che non è stata trovata, è possibile migliorare la pagina di errore personalizzata per includere funzionalità per consentire all'utente di risolvere questo tipo di errore specifico. Ad esempio, è possibile compilare una tabella di database che esegue il mapping nota URL non valido a un URL valido e quindi chiedere di `404.aspx` pagina di errore personalizzata eseguire una query di tabella e suggerire l'utente tenta di raggiungere le pagine.
@@ -167,12 +167,12 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Pagine di errore, ancora una volta](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
+- [Le pagine di errore, ancora una volta](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
 - [Linee guida di progettazione delle eccezioni](https://msdn.microsoft.com/library/ms229014.aspx)
-- [Pagine di errore descrittivo](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
+- [Pagine di errore descrittivi](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
 - [Gestione e generazione di eccezioni](https://msdn.microsoft.com/library/5b2yeyab.aspx)
-- [Correttamente utilizzando le pagine di errore personalizzato in ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
+- [Correttamente tramite pagine di errore personalizzate ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[Precedente](strategies-for-database-development-and-deployment-cs.md)
-[Successivo](processing-unhandled-exceptions-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](strategies-for-database-development-and-deployment-cs.md)
+> [Successivo](processing-unhandled-exceptions-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
-title: "Funzionalità di ASP.NET MVC 4 mobili | Documenti Microsoft"
+title: Funzionalità di ASP.NET MVC 4 mobili | Documenti Microsoft
 author: Rick-Anderson
-description: "È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in una distribuzione di un'applicazione Web ASP.NET MVC 5 Mobile nei siti Web di Azure."
+description: È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in una distribuzione di un'applicazione Web ASP.NET MVC 5 Mobile nei siti Web di Azure.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funzionalità per dispositivi mobili ASP.NET MVC 4
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in [distribuire un'applicazione Web ASP.NET MVC 5 Mobile nei siti Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
@@ -33,7 +33,7 @@ Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di
 
 È necessario anche un emulatore del browser per dispositivi mobili. Verranno illustrate le seguenti:
 
-- [Emulatore Windows Phone 7 Windows](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Questo è l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
+- [Emulatore Windows Phone Windows 7](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Questo è l'emulatore utilizzato nella maggior parte delle schermate in questa esercitazione).
 - Modificare la stringa agente utente per emulare un iPhone. Vedere [questo](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) post di blog.
 - [Opera Mobile emulatore](http://www.opera.com/developer/tools/mobile/)
 - [Apple Safari](http://www.apple.com/safari/download/) con l'agente utente impostato su iPhone. Per istruzioni su come impostare l'agente utente in Safari su "iPhone", vedere [descritto come consentire Safari fingono è IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) sul blog di David Alison.
@@ -83,7 +83,7 @@ Nota: Attualmente esiste un bug nel motore di memorizzazione nella cache per dis
 
 ## <a name="css-media-queries"></a>Query di supporto CSS
 
-[Query supporti CSS](http://www.w3.org/TR/css3-mediaqueries/) sono un'estensione di CSS per i tipi di supporto. Consentono di creare regole che ignorano le regole CSS predefinito per il browser specifici (agente utente). Una regola comune per CSS destinato browser per dispositivi mobili consiste nel definire la dimensione massima della schermata. Il *Content\Site.css* file creato quando si crea un nuovo progetto ASP.NET MVC 4 Internet contiene la query di supporto seguenti:
+[Query supporti CSS](http://www.w3.org/TR/css3-mediaqueries/) sono un'estensione di CSS per i tipi di supporti. Consentono di creare regole che ignorano le regole CSS predefinito per il browser specifici (agente utente). Una regola comune per CSS destinato browser per dispositivi mobili consiste nel definire la dimensione massima della schermata. Il *Content\Site.css* file creato quando si crea un nuovo progetto ASP.NET MVC 4 Internet contiene la query di supporto seguenti:
 
 [!code-css[Main](aspnet-mvc-4-mobile-features/samples/sample1.css)]
 
@@ -190,7 +190,7 @@ Installare il *jQuery.Mobile.MVC* pacchetto NuGet in questo modo:
 1. Dal **strumenti** dal menu **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
-2. Nel **Package Manager Console**, immettere`Install-Package jQuery.Mobile.MVC -version 1.0.0`
+2. Nel **Console di gestione pacchetti**, immettere `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
 La figura seguente mostra i file aggiunti e modificati per il progetto MvcMobile dal pacchetto NuGet di jQuery.Mobile.MVC. File che vengono aggiunti [Aggiungi] aggiunti dopo il nome del file. L'immagine non sono visualizzati GIF e PNG file aggiunti per il *Content\images* cartella.
 
@@ -204,7 +204,7 @@ Il pacchetto NuGet jQuery.Mobile.MVC viene installato quanto segue:
 - file di jQuery Mobile JavaScript.
 - Un file di layout in stile Mobile jQuery (*Views\Shared\\_Layout.Mobile.cshtml*).
 - Una visualizzazione parziale di selezione di visualizzazione *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) che fornisce un collegamento nella parte superiore di ogni pagina per passare dalla visualizzazione desktop in visualizzazione mobile e viceversa.
-- Diversi*PNG* e *GIF* file di immagine nel *Content\images* cartella.
+- Diversi<em>PNG</em> e <em>GIF</em> file di immagine nel <em>Content\images</em> cartella.
 
 Aprire il *Global. asax* file e aggiungere il codice seguente come l'ultima riga del `Application_Start` metodo.
 
@@ -270,7 +270,7 @@ A livello globale, è possibile disabilitare una visualizzazione (non mobile) pr
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout per dispositivi mobili (*\_Layout.Mobile.cshtml*) viene utilizzato solo per le visualizzazioni mobili. (Il file è nel formato ***ViewName**. Mobile.cshtml*). È possibile impostare `RequireConsistentDisplayMode` per `true` se il layout per dispositivi mobili non funziona bene con le visualizzazioni non mobili. Nella schermata seguente viene illustrato come la *altoparlanti* pagina esegue il rendering quando `RequireConsistentDisplayMode` è impostato su `true`.
+Quando `RequireConsistentDisplayMode` è impostato su `true`, il layout per dispositivi mobili (<em>\_Layout.Mobile.cshtml</em>) viene utilizzato solo per le visualizzazioni mobili. (Vale a dire, il file della visualizzazione è nel formato <em>* * ViewName</em><em>. Mobile.cshtml</em>.) È possibile impostare `RequireConsistentDisplayMode` per `true` se il layout per dispositivi mobili non funziona bene con le visualizzazioni non mobili. Nella schermata seguente viene illustrato come la <em>altoparlanti</em> pagina esegue il rendering quando `RequireConsistentDisplayMode` è impostato su `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
@@ -397,5 +397,5 @@ In questa esercitazione ha introdotto le nuove funzionalità per dispositivi mob
 
 - [jQuery Mobile](http://jquerymobile.com) sito.
 - [jQuery Mobile Panoramica](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
-- [W3C raccomandazione Web per dispositivi mobili le procedure consigliate](http://www.w3.org/TR/mwabp/)
-- [W3C Candidate Recommendation per le query di supporto](http://www.w3.org/TR/css3-mediaqueries/)
+- [W3C raccomandazione Web per dispositivi mobili applicazione le procedure consigliate](http://www.w3.org/TR/mwabp/)
+- [W3C Candidate Recommendation per le query supporti](http://www.w3.org/TR/css3-mediaqueries/)

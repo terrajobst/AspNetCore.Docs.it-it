@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Creazione di una Server Farm con Web Farm Framework
 ====================
@@ -27,7 +27,7 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come utilizzare la Web Farm Framework (WFF) 2.0 per creare e configurare una web farm di server da una raccolta di server.
 
 
-WFF consente di sincronizzare i prodotti della piattaforma web e i componenti, applicazioni web, siti Web e le impostazioni di configurazione tra più server web con bilanciamento del carico. Negli scenari in cui è necessario più di un server web, ad esempio gli ambienti di gestione temporanea e produzione, ciò consente di semplificare notevolmente il processo di distribuzione e configurazione. È possibile distribuire un'applicazione web in un server singolo & #x 2014; il *server primario*& #x 2014; e che verranno WFF consente di replicare automaticamente l'applicazione web su tutti gli altri server web nella server farm.
+WFF consente di sincronizzare i prodotti della piattaforma web e i componenti, applicazioni web, siti Web e le impostazioni di configurazione tra più server web con bilanciamento del carico. Negli scenari in cui è necessario più di un server web, ad esempio gli ambienti di gestione temporanea e produzione, ciò consente di semplificare notevolmente il processo di distribuzione e configurazione. È possibile distribuire un'applicazione web in un unico server&#x2014;il *server primario*&#x2014;e WFF verranno replicate automaticamente quell'applicazione web in tutti gli altri server web nella server farm.
 
 ## <a name="understanding-the-web-farm-framework"></a>Informazioni sulle Web Farm Framework
 
@@ -51,7 +51,7 @@ Prima di iniziare a configurare gli ambienti di gestione temporanea e produzione
 
 ## <a name="task-overview"></a>Panoramica di Task
 
-Per completare le attività e procedure dettagliate in questo argomento, è necessario almeno tre server e #x 2014; un controller WFF, server web primario uno per la server farm e uno o più server web secondario per la server farm. È possibile aggiungere più server secondari a una server farm WFF in qualsiasi momento. In generale, per creare e configurare una server farm WFF per l'ambiente di produzione o gestione temporanea, che è necessario:
+Per completare le attività e procedure dettagliate in questo argomento, è necessario almeno tre server&#x2014;un controller di WFF, un server web primario per la server farm e uno o più server web secondario per la server farm. È possibile aggiungere più server secondari a una server farm WFF in qualsiasi momento. In generale, per creare e configurare una server farm WFF per l'ambiente di produzione o gestione temporanea, che è necessario:
 
 - Creare un server di controller mediante l'installazione di Internet Information Services (IIS) 7.5 e WFF 2.0.
 - Preparare i server primari e secondari, creare un account di amministratore comuni e configurando le eccezioni del firewall.
@@ -78,7 +78,7 @@ Per creare un server di controller WFF, è necessario installare IIS 7 o version
 2. Nella parte superiore del **installazione guidata piattaforma Web 3.0** finestra, fare clic su **prodotti**.
 3. Sul lato sinistro della finestra, nel riquadro di spostamento, fare clic su **Server**.
 4. Nel **configurazione consigliata di IIS 7** di riga, fare clic su **Aggiungi**.
-5. Nel **Web Farm Framework 2. * * * x* di riga, fare clic su **Aggiungi**.
+5. Nel <strong>di Web Farm Framework 2.</strong> <em>x</em> di riga, fare clic su <strong>Aggiungi</strong>.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Fare clic su **Installa**. Si noti che l'installazione guidata piattaforma Web è aggiunto all'elenco installazione lo strumento di distribuzione Web, insieme a varie altre dipendenze.
@@ -96,7 +96,7 @@ Prima di creare una server farm WFF, è necessario completare alcune attività d
 
 Per ulteriori informazioni su come configurare le eccezioni del firewall in Windows Firewall, vedere [requisiti di sistema e piattaforma di Web Farm Framework 2.0 per IIS 7](https://go.microsoft.com/?linkid=9805128). Per altri sistemi firewall, consultare la documentazione del prodotto.
 
-È possibile utilizzare la procedura seguente per aggiungere un account di dominio al gruppo administrators locale in Windows Server 2008 R2. È necessario eseguire questa procedura su ogni server che si desidera aggiungere alla farm di server & #x 2014; in altre parole, aggiungere lo stesso account di dominio al gruppo administrators locale nel server primario e in ciascun server secondario.
+È possibile utilizzare la procedura seguente per aggiungere un account di dominio al gruppo administrators locale in Windows Server 2008 R2. È consigliabile eseguire questa procedura su ogni server che si desidera aggiungere alla server farm&#x2014;in altre parole, aggiungere lo stesso account di dominio al gruppo administrators locale nel server primario e in ciascun server secondario.
 
 **Per aggiungere un account di dominio al gruppo administrators locale**
 
@@ -111,7 +111,7 @@ Per ulteriori informazioni su come configurare le eccezioni del firewall in Wind
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. Nel **proprietà amministratori** la finestra di dialogo, fare clic su **OK**.
 
-I server sono ora pronti per l'aggiunta a una server farm. Nel caso il server primario, è possibile configurare il server per soddisfare i requisiti dell'applicazione, prima o dopo aver creato la farm di server & #x 2014; in entrambi i casi, il WFF verranno sincronizzati i server distribuendo i prodotti stesso, componenti, o configurazione dei server secondari. Per ragioni di semplicità, in questa esercitazione si presuppone che si configurerà il server primario quando viene creata la server farm.
+I server sono ora pronti per l'aggiunta a una server farm. Nel caso il server primario, è possibile configurare il server per soddisfare i requisiti dell'applicazione prima o dopo aver creato la server farm&#x2014;in entrambi i casi, il WFF sincronizzerà i server tramite la distribuzione di prodotti, componenti o configurazione per i server secondari. Per ragioni di semplicità, in questa esercitazione si presuppone che si configurerà il server primario quando viene creata la server farm.
 
 ## <a name="create-the-wff-server-farm"></a>Creare la Farm di Server WFF
 
@@ -225,12 +225,12 @@ Per ulteriori informazioni su come configurare il bilanciamento del carico con A
 
 ## <a name="conclusion"></a>Conclusione
 
-La server farm WFF dovrebbe ora essere in esecuzione. È possibile configurare il server primario per il supporto indipendentemente dall'approccio scelto distribuzione & #x 2014, vedere la sezione di approfondimento per dettagli & #x 2014; e la configurazione verrà replicati in ciascun server secondario nella server farm.
+La server farm WFF dovrebbe ora essere in esecuzione. È possibile configurare il server primario per supportare indipendentemente dall'approccio di distribuzione si preferisce&#x2014;vedere la sezione di approfondimento per informazioni dettagliate&#x2014;e la configurazione verrà replicata in ciascun server secondario nella server farm.
 
 ## <a name="further-reading"></a>Ulteriori informazioni
 
 Per ulteriori informazioni su tutti gli aspetti di configurazione e l'utilizzo di WFF, vedere il [Microsoft Web Farm Framework 2.0 per IIS 7](https://go.microsoft.com/?linkid=9805129) sito Web.
 
->[!div class="step-by-step"]
-[Precedente](configuring-a-database-server-for-web-deploy-publishing.md)
-[Successivo](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-a-database-server-for-web-deploy-publishing.md)
+> [Successivo](configuring-deployment-properties-for-a-target-environment.md)

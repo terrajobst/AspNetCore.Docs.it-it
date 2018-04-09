@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b0890d50f21eb790d81d54261a67fcf487b1c95e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 024a34c1b2e37e60e6777dd54dcbd9aa845ec749
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-vb"></a>Distribuzione di un Database (Visual Basic)
 ====================
@@ -41,18 +41,18 @@ Applicazione web le recensioni aggiornato un [SQL Server 2008 Express Edition](h
 
 Il `Reviews.mdf` database contiene quattro tabelle:
 
-- `Genres`-include un record per ogni genere, ad esempio di tecnologia, fittizio e Business.
-- `Books`-include un record per ogni revisione, con le colonne come `Title`, `GenreId`, `ReviewDate`, e `Review`, tra gli altri.
-- `Authors`-include informazioni su ogni autore che ha contribuito a un libro di revisione.
-- `BooksAuthors`-una tabella di join molti-a-molti che specifica quali autori hanno scritto quali libri.
+- `Genres` -include un record per ogni genere, ad esempio tecnologia, fittizio e Business.
+- `Books` -include un record per ogni revisione, con le colonne, ad esempio `Title`, `GenreId`, `ReviewDate`, e `Review`, tra gli altri.
+- `Authors` -include informazioni su ogni autore che ha contribuito a un libro rivisto.
+- `BooksAuthors` -una tabella di join molti-a-molti che specifica quali autori hanno scritto quali libri.
   
 
 Figura 1 mostra un diagramma di queste quattro tabelle.
 
 
-[![L'applicazione Web di revisioni Rubrica Database è composta da di quattro tabelle](deploying-a-database-vb/_static/image2.jpg)](deploying-a-database-vb/_static/image1.jpg) 
+[![L'applicazione Web revisioni Rubrica Database è composta da di quattro tabelle](deploying-a-database-vb/_static/image2.jpg)](deploying-a-database-vb/_static/image1.jpg) 
 
-**Figura 1**: l'applicazione Web di revisioni Rubrica Database è composta da di quattro tabelle ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image3.jpg))
+**Figura 1**: s dell'applicazione Web di revisioni Rubrica Database è composta da di quattro tabelle ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image3.jpg))
 
 
 La versione precedente del sito Web recensioni aveva una pagina ASP.NET separata per ogni libro. Ad esempio, si è verificato una pagina denominata `~/Tech/TYASP35.aspx` contenente la revisione per *insegna manualmente ASP.NET 3.5 nelle 24 ore*. Questa nuova versione del sito Web basato sui dati è archiviate nel database e una singola pagina ASP.NET, Review.aspx?ID= recensioni*bookId*, che consente di visualizzare la revisione per il runbook specificato. Analogamente, sussiste un Genre.aspx?ID=*genreId* pagina che elenca i libri di revisionati specificato appartenente al genere.
@@ -67,7 +67,7 @@ Nelle figure 2 e 3 mostra il `Genre.aspx` e `Review.aspx` in azione le pagine. P
 
 [![La revisione per insegnare manualmente ASP.NET 3.5 in 24 ore](deploying-a-database-vb/_static/image8.jpg)](deploying-a-database-vb/_static/image7.jpg) 
 
-**Figura 3**: la revisione per *insegna manualmente ASP.NET 3.5 nelle 24 ore* ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image9.jpg))
+**Figura 3**: la revisione *insegna manualmente ASP.NET 3.5 nelle 24 ore* ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image9.jpg))
 
 
 L'applicazione web revisioni Rubrica include anche una sezione di amministrazione in cui gli amministratori possono aggiungere, modificare e generi, le revisioni, eliminare e creare informazioni. Attualmente, qualsiasi visitatore può accedere alla sezione di amministrazione. Nell'esercitazione future viene aggiunto il supporto per gli account utente e consentire solo agli utenti autorizzati nelle pagine Amministrazione.
@@ -107,7 +107,7 @@ Aprire Visual Studio e passare il `Reviews.mdf` database. Se si utilizza Visual 
 Fare clic sul nome del database e scegliere l'opzione "Pubblica sul provider" dal menu di scelta rapida. Verrà avviata la pubblicazione guidata Database (vedere Figura 5). Fare clic su Avanti per passare oltre la schermata iniziale.
 
 
-[![Il Database di pubblicazione guidata schermata](deploying-a-database-vb/_static/image14.jpg)](deploying-a-database-vb/_static/image13.jpg) 
+[![Database Publishing Wizard schermata](deploying-a-database-vb/_static/image14.jpg)](deploying-a-database-vb/_static/image13.jpg) 
 
 **Figura 5**: il Database di pubblicazione guidata schermata ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image15.jpg))
 
@@ -118,7 +118,7 @@ La seconda schermata della procedura guidata elenca i database accessibili per l
 > Se viene visualizzato l'errore "non sono presenti oggetti nel database *databaseName* dei tipi di script da questa procedura guidata" quando facendo clic su Avanti nella schermata illustrata nella figura 6, assicurarsi che il percorso al file di database non è eccessivamente lungo. Come indicato nella [questo elemento di discussione](http://www.codeplex.com/sqlhost/Thread/View.aspx?ThreadId=11014) nella pagina del progetto Database Publishing Wizard, questo errore può verificarsi se il percorso del file di database è troppo lungo.
 
 
-[![Il Database di pubblicazione guidata schermata](deploying-a-database-vb/_static/image17.jpg)](deploying-a-database-vb/_static/image16.jpg) 
+[![Database Publishing Wizard schermata](deploying-a-database-vb/_static/image17.jpg)](deploying-a-database-vb/_static/image16.jpg) 
 
 **Figura 6**: il Database di pubblicazione guidata schermata ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image18.jpg))
 
@@ -126,9 +126,9 @@ La seconda schermata della procedura guidata elenca i database accessibili per l
 Nella schermata successiva è possibile generare un file di script o, se il web host lo supporta, è possibile pubblicare il database direttamente al server web host provider s database. Come illustrato nella figura 7, si è verificato lo script scritto nel file `C:\REVIEWS.MDF.sql`.
 
 
-[![Il Database in un File di script o pubblicarlo direttamente per il Provider di hosting Web](deploying-a-database-vb/_static/image20.jpg)](deploying-a-database-vb/_static/image19.jpg) 
+[![Il Database in un File di script o pubblicazione direttamente in del Provider di hosting Web](deploying-a-database-vb/_static/image20.jpg)](deploying-a-database-vb/_static/image19.jpg) 
 
-**Figura 7**: il Database in un File di Script o pubblicarlo direttamente per il Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image21.jpg))
+**Figura 7**: il Database in un File di Script o pubblicazione direttamente in del Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image21.jpg))
 
 
 La schermata successiva viene richiesto per un'ampia gamma di opzioni di scripting. È possibile specificare se lo script deve includere le istruzioni drop per rimuovere questi oggetti esistenti. L'impostazione predefinita è True, che è appropriato quando si distribuisce un database per la prima volta. È inoltre possibile specificare se il database di destinazione è SQL Server 2000, SQL Server 2005 o SQL Server 2008. Infine, è possibile indicare se generare lo script lo schema e i dati, solo i dati o solo lo schema. Lo schema è la raccolta di oggetti di database, tabelle, stored procedure, viste e così via. I dati sono le informazioni che si trovano nelle tabelle.
@@ -136,7 +136,7 @@ La schermata successiva viene richiesto per un'ampia gamma di opzioni di scripti
 Come illustrato nella figura 8, si invitiamo inoltre la procedura guidata configurata per eliminare oggetti di database esistente, per generare script per un database di SQL Server 2008 e per la pubblicazione sia lo schema e dati.
 
 
-[![La pubblicazione di specificare le opzioni](deploying-a-database-vb/_static/image23.jpg)](deploying-a-database-vb/_static/image22.jpg) 
+[![Specificare la pubblicazione opzioni](deploying-a-database-vb/_static/image23.jpg)](deploying-a-database-vb/_static/image22.jpg) 
 
 **Figura 8**: specificare le opzioni di pubblicazione ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image24.jpg))
 
@@ -154,7 +154,7 @@ Avviare SQL Server Management Studio e connettersi al server web host s database
 
 [![Connettersi al Server di Database Web Host Provider s](deploying-a-database-vb/_static/image26.jpg)](deploying-a-database-vb/_static/image25.jpg) 
 
-**Figura 9**: connettersi al Provider di hosting Web di s Server di Database ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image27.jpg))
+**Figura 9**: connessione a s Provider di hosting Web del Server di Database ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image27.jpg))
 
 
 Espandere la scheda di database e individuare il database. Fare clic sul pulsante Nuova Query nell'angolo superiore sinistro della barra degli strumenti, incollare nei comandi SQL dal file di script creato dalla pubblicazione guidata Database e fare clic sul pulsante Esegui per eseguire questi comandi nel server di database di produzione. Se il file di script è particolarmente elevato potrebbe richiedere alcuni minuti per eseguire i comandi.
@@ -162,7 +162,7 @@ Espandere la scheda di database e individuare il database. Fare clic sul pulsant
 
 [![Connettersi al Server di Database Web Host Provider s](deploying-a-database-vb/_static/image29.jpg)](deploying-a-database-vb/_static/image28.jpg) 
 
-**Figura 10**: connettersi al Provider di hosting Web di s Server di Database ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image30.jpg))
+**Figura 10**: connessione a s Provider di hosting Web del Server di Database ([fare clic per visualizzare l'immagine ingrandita](deploying-a-database-vb/_static/image30.jpg))
 
 
 Sono disponibili tutte le che s è! A questo punto, il database di sviluppo è stato duplicato nell'ambiente di produzione. Se si aggiorna il database in SQL Server Management Studio si dovrebbero vedere i nuovi oggetti di database. Figura 11 Mostra le tabelle di database s di produzione, stored procedure e funzioni definite dall'utente, che rispecchiano quelli nel database di sviluppo. E poiché è strutturato il Database di pubblicazione guidata per pubblicare i dati, tabelle s del database di produzione hanno gli stessi dati di tabelle di sviluppo database s al momento che è stata eseguita la procedura guidata. Figura 12 illustra i dati di `Books` tabella nel database di produzione.
@@ -195,6 +195,6 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Scaricare Microsoft SQL Server Database Publishing Wizard 1.1](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Scaricare Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[Precedente](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
-[Successivo](configuring-the-production-web-application-to-use-the-production-database-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
+> [Successivo](configuring-the-production-web-application-to-use-the-production-database-vb.md)

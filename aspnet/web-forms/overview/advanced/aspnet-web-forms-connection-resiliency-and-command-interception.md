@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Resilienza di connessione di ASP.NET Web Form e l'intercettazione di comando
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 In questa esercitazione si modificherà l'applicazione di esempio Wingtip Toys per supportare la resilienza di connessione e l'intercettazione di comando. Abilita la resilienza di connessione, l'applicazione di esempio Wingtip Toys tenterà automaticamente di ripetere le chiamate di dati quando si verificano errori temporanei tipici di un ambiente cloud. Inoltre, implementando l'intercettazione di comando, l'applicazione di esempio Wingtip Toys intercetterà tutte le query SQL inviate al database per accedere o apportare modifiche.
 
@@ -42,7 +42,7 @@ Prima di iniziare, assicurarsi di aver installato nel computer il software segue
 - [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework viene installato automaticamente.
 - Progetto di esempio Wingtip Toys in modo che è possibile implementare le funzionalità indicate in questa esercitazione all'interno del progetto Wingtip Toys. Il collegamento seguente fornisce dettagli sul download:
 
-    - [Introduzione a ASP.NET 4.5.1 Web Form - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
+    - [Getting Started with ASP.NET 4.5.1 Web Form - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
 - Prima del completamento di questa esercitazione, è consigliabile rivedere l'esercitazione serie correlate, [Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md). La serie di esercitazioni consentono di acquisire familiarità con la **WingtipToys** codice e il progetto.
 
 ## <a name="connection-resiliency"></a>Resilienza della connessione
@@ -102,9 +102,9 @@ In base alla procedura descritta sopra, aver scaricato e aperto il **WingtipToys
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
- L'interfaccia fornisce tre livelli di traccia per indicare l'importanza relativa dei log e progettata per fornire informazioni sulla latenza per le chiamate al servizio esterno, ad esempio le query di database. Metodi di registrazione dispongono di overload che consentono di passare un'eccezione. Si tratta in modo che informazioni sulle eccezioni, incluse le eccezioni interna e traccia dello stack viene registrati in modo affidabile tramite la classe che implementa l'interfaccia, invece di basarsi sui cui viene eseguita in ogni chiamata di metodo di registrazione in tutta l'applicazione.  
+   L'interfaccia fornisce tre livelli di traccia per indicare l'importanza relativa dei log e progettata per fornire informazioni sulla latenza per le chiamate al servizio esterno, ad esempio le query di database. Metodi di registrazione dispongono di overload che consentono di passare un'eccezione. Si tratta in modo che informazioni sulle eccezioni, incluse le eccezioni interna e traccia dello stack viene registrati in modo affidabile tramite la classe che implementa l'interfaccia, invece di basarsi sui cui viene eseguita in ogni chiamata di metodo di registrazione in tutta l'applicazione.  
   
- Il `TraceApi` metodi consentono di tenere traccia della latenza di ogni chiamata a un servizio esterno, ad esempio Database SQL.
+   Il `TraceApi` metodi consentono di tenere traccia della latenza di ogni chiamata a un servizio esterno, ad esempio Database SQL.
 3. Nel *registrazione* cartella, creare un file di classe denominato *Logger.cs* e sostituire il codice predefinito con il codice seguente:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
@@ -121,20 +121,20 @@ Successivamente, si creeranno le classi di Entity Framework chiamerà in ogni vo
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
- Per la query ha esito positivo o comandi, il codice scrive un file di registro con informazioni sulla latenza. Per le eccezioni, viene creato un log degli errori.
+   Per la query ha esito positivo o comandi, il codice scrive un file di registro con informazioni sulla latenza. Per le eccezioni, viene creato un log degli errori.
 2. Per creare la classe dell'intercettore che genera errori temporanei fittizi quando si immette &quot;generare&quot; nel **nome** casella di testo nella pagina denominata *AdminPage.aspx*, creare una classe file denominato *InterceptorTransientErrors.cs* nel *logica* cartella e sostituire il valore predefinito di codice con il codice seguente:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
     Questo codice esegue l'override solo di `ReaderExecuting` metodo, che viene chiamato per le query che possono restituire più righe di dati. Se si desidera controllare la resilienza di connessione per altri tipi di query, è possibile anche eseguire l'override di `NonQueryExecuting` e `ScalarExecuting` metodi nell'intercettore registrazione effettua.  
   
- In un secondo momento, accedere come "Admin" e selezionare il **Admin** collegamento sulla barra di spostamento superiore. Scegliere il *AdminPage.aspx* pagina si aggiungerà un prodotto denominato &quot;generare&quot;. Il codice crea un'eccezione di Database SQL fittizia per il numero di errore pari a 20, un tipo noto per essere in genere è temporaneo. Altri numeri di errore attualmente riconosciuti come oggetto temporaneo sono 64 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 e 40613, ma questi sono soggetti a modifiche nelle nuove versioni del Database SQL. Il prodotto verrà rinominato in "TransientErrorExample", nel codice di cui è possibile seguire il *InterceptorTransientErrors.cs* file.  
+   In un secondo momento, accedere come "Admin" e selezionare il **Admin** collegamento sulla barra di spostamento superiore. Scegliere il *AdminPage.aspx* pagina si aggiungerà un prodotto denominato &quot;generare&quot;. Il codice crea un'eccezione di Database SQL fittizia per il numero di errore pari a 20, un tipo noto per essere in genere è temporaneo. Altri numeri di errore attualmente riconosciuti come oggetto temporaneo sono 64 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 e 40613, ma questi sono soggetti a modifiche nelle nuove versioni del Database SQL. Il prodotto verrà rinominato in "TransientErrorExample", nel codice di cui è possibile seguire il *InterceptorTransientErrors.cs* file.  
   
- Il codice restituisce l'eccezione a Entity Framework, anziché eseguire la query e passando risultati indietro. Viene restituita l'eccezione temporaneo *quattro* volte, e quindi il codice verrà ripristinata la normale procedura di passare la query al database.
+   Il codice restituisce l'eccezione a Entity Framework, anziché eseguire la query e passando risultati indietro. Viene restituita l'eccezione temporaneo *quattro* volte, e quindi il codice verrà ripristinata la normale procedura di passare la query al database.
 
     Perché tutto ciò che viene eseguito l'accesso, sarà possibile vedere che Entity Framework tenta di eseguire la query quattro volte prima di essere completata e l'unica differenza nell'applicazione è che richiede più tempo per il rendering di una pagina di risultati della query.  
   
- Il numero massimo di che tentativi di Entity Framework è configurabile; il codice specifica quattro volte perché è il valore predefinito per i criteri di esecuzione del Database SQL. Se si modificano i criteri di esecuzione, è necessario anche modificare qui il codice che specifica quante volte vengono generati errori temporanei. È inoltre possibile modificare il codice per generare più eccezioni in modo da Entity Framework genererà il `RetryLimitExceededException` eccezione.
+   Il numero massimo di che tentativi di Entity Framework è configurabile; il codice specifica quattro volte perché è il valore predefinito per i criteri di esecuzione del Database SQL. Se si modificano i criteri di esecuzione, è necessario anche modificare qui il codice che specifica quante volte vengono generati errori temporanei. È inoltre possibile modificare il codice per generare più eccezioni in modo da Entity Framework genererà il `RetryLimitExceededException` eccezione.
 3. In *Global. asax*, aggiungere le seguenti istruzioni using:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
@@ -158,16 +158,16 @@ Si è scritto il codice di simulazione errore temporaneo in modo da consentire a
 2. Selezionare **Admin** dalla barra di navigazione nella parte superiore.
 3. Immettere un nuovo prodotto denominato "Throw" con file di descrizione, prezzo e image appropriato.
 4. Premere il **Add Product** pulsante.  
- Si noterà che il browser sembra bloccarsi per alcuni secondi, durante il Entity Framework è ritentare la query più volte. Il primo tentativo avviene molto rapidamente, quindi aumenta il tempo di attesa prima di ogni tentativo aggiuntiva. Questo processo di attesa più prima che venga chiamato ogni tentativo *backoff esponenziale* .
+   Si noterà che il browser sembra bloccarsi per alcuni secondi, durante il Entity Framework è ritentare la query più volte. Il primo tentativo avviene molto rapidamente, quindi aumenta il tempo di attesa prima di ogni tentativo aggiuntiva. Questo processo di attesa più prima che venga chiamato ogni tentativo *backoff esponenziale* .
 5. Attendere che la pagina non è più atttempting da caricare.
 6. Arresta il progetto ed esaminare di Visual Studio **Output** finestra per visualizzare l'output di traccia. È possibile trovare il **Output** selezionando **Debug**  - &gt; **Windows**  - &gt;  **Output**. Potrebbe essere necessario scorrere oltre diversi altri log scritto da parte del logger.  
   
- Si noti che è possibile visualizzare le query SQL effettive inviate al database. Vedrai alcune query iniziale e i comandi per Entity Framework per iniziare, verificare la tabella di cronologia versione e la migrazione di database.   
+   Si noti che è possibile visualizzare le query SQL effettive inviate al database. Vedrai alcune query iniziale e i comandi per Entity Framework per iniziare, verificare la tabella di cronologia versione e la migrazione di database.   
     ![Finestra di output](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
- Si noti che non è possibile ripetere questo test, a meno che non si arresta l'applicazione e riavviarla. Se si desidera essere in grado di resilienza di connessione di test più volte in una singola esecuzione dell'applicazione, è possibile scrivere codice per reimpostare il contatore degli errori in `InterceptorTransientErrors` .
+   Si noti che non è possibile ripetere questo test, a meno che non si arresta l'applicazione e riavviarla. Se si desidera essere in grado di resilienza di connessione di test più volte in una singola esecuzione dell'applicazione, è possibile scrivere codice per reimpostare il contatore degli errori in `InterceptorTransientErrors` .
 7. Per visualizzare la differenza la strategia di esecuzione (criteri di ripetizione) rende, commento di `SetExecutionStrategy` riga in *WingtipToysConfiguration.cs* file nel *logica* cartella, eseguire il **Admin**  pagina in modalità di debug, nuovo, quindi aggiungere il prodotto denominato &quot;generare&quot; nuovamente.  
   
- Questa volta il debugger si arresta la prima eccezione generato immediatamente quando si tenta di eseguire la query come la prima volta.  
+   Questa volta il debugger si arresta la prima eccezione generato immediatamente quando si tenta di eseguire la query come la prima volta.  
     ![Debug - Visualizza dettagli](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. Rimuovere il commento di `SetExecutionStrategy` riga il *WingtipToysConfiguration.cs* file.
 

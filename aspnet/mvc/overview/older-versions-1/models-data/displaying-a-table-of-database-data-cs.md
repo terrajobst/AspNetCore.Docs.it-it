@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 37ea081df2ee26e186669b815a4d769e1976ae9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d5dc9dd4a82e4577c6c1a3b124d45fef0b0f67c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-c"></a>Visualizza una tabella di dati del Database (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_CS.pdf)
 
@@ -66,13 +66,13 @@ Dopo aver fatto clic sul pulsante Aggiungi viene visualizzata la procedura guida
 
 [![Creazione di LINQ alle classi di SQL](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
 
-**Figura 01**: creazione di classi LINQ to SQL ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image2.png))
+**Figura 01**: la creazione di classi LINQ to SQL ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image2.png))
 
 
 Dopo aver completato la procedura guidata Entity Data Model, verrà visualizzata la finestra di progettazione Entity Data Model. La finestra di progettazione deve essere visualizzato l'entità di filmati (vedere la figura 2).
 
 
-[![Entity Data Model Designer](displaying-a-table-of-database-data-cs/_static/image2.jpg)](displaying-a-table-of-database-data-cs/_static/image3.png)
+[![Progettazione Entity Data Model](displaying-a-table-of-database-data-cs/_static/image2.jpg)](displaying-a-table-of-database-data-cs/_static/image3.png)
 
 **Figura 02**: la progettazione di Entity Data Model ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image4.png))
 
@@ -88,7 +88,7 @@ Ora che è disponibile un modo per rappresentare i record del database, è possi
 
 [![L'aggiunta di Menu Controller](displaying-a-table-of-database-data-cs/_static/image3.jpg)](displaying-a-table-of-database-data-cs/_static/image5.png)
 
-**Figura 03**: Aggiungi Menu Controller ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image6.png))
+**Figura 03**: il Aggiungi Controller di Menu ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image6.png))
 
 
 Quando il **Aggiungi Controller** viene visualizzata la finestra, immettere il nome del controller MovieController (vedere la figura 4). Fare clic su di **Aggiungi** pulsante per aggiungere il nuovo controller.
@@ -135,14 +135,14 @@ Nel **Aggiungi visualizzazione** finestra di dialogo, selezionare la casella di 
 
 Dopo aver selezionato il **Aggiungi** pulsante, la visualizzazione nel listato 2 viene generato automaticamente. Questa vista contiene il codice necessario per scorrere la raccolta di filmati e visualizzare ciascuna delle proprietà di un film.
 
-**Elenco di 2 – Views\Movie\Index.aspx**
+**Elenco 2 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-cs/samples/sample2.aspx)]
 
 È possibile eseguire l'applicazione selezionando l'opzione di menu **Debug, Avvia debug** (o premendo il tasto F5). Esegue l'applicazione avvia Internet Explorer. Se si passa all'URL /Movie quindi verrà visualizzata la pagina nella figura 7.
 
 
-[![Una tabella di filmati](displaying-a-table-of-database-data-cs/_static/image7.jpg)](displaying-a-table-of-database-data-cs/_static/image13.png)
+[![Una tabella di film](displaying-a-table-of-database-data-cs/_static/image7.jpg)](displaying-a-table-of-database-data-cs/_static/image13.png)
 
 **Figura 07**: una tabella di filmati ([fare clic per visualizzare l'immagine ingrandita](displaying-a-table-of-database-data-cs/_static/image14.png))
 
@@ -189,6 +189,6 @@ Il metodo RenderPartial() è diverso rispetto alla maggior parte dei metodi di s
 
 L'obiettivo di questa esercitazione è illustrare come è possibile visualizzare un set di record del database in una tabella HTML. In primo luogo, è stato descritto come restituire un set di record del database da un'azione del controller per sfruttare i vantaggi di Entity Framework Microsoft. Successivamente, è stato descritto come utilizzare lo scaffolding di Visual Studio per generare una visualizzazione contenente una raccolta di elementi automaticamente. Infine, è stato descritto come semplificare la visualizzazione sfruttando un parziale. È stato descritto come utilizzare un elemento parziale come modello in modo che è possibile formattare ogni record di database.
 
->[!div class="step-by-step"]
-[Precedente](creating-model-classes-with-linq-to-sql-cs.md)
-[Successivo](performing-simple-validation-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-model-classes-with-linq-to-sql-cs.md)
+> [Successivo](performing-simple-validation-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 42a6a76b0b05045bed1ada227b7c32a51600b760
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Master-Details filtri con un controllo DropDownList (c#)
 ====================
@@ -48,7 +48,7 @@ Scegliere di aggiungere un nuovo oggetto ObjectDataSource denominato `Categories
 
 [![Aggiungere un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](master-detail-filtering-with-a-dropdownlist-cs/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image4.png)
 
-**Figura 2**: aggiungere un nuovo ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image6.png))
+**Figura 2**: aggiungere un nuovo denominato ObjectDataSource `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image6.png))
 
 
 [![Scegliere di utilizzare la classe CategoriesBLL](master-detail-filtering-with-a-dropdownlist-cs/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image7.png)
@@ -64,7 +64,7 @@ Scegliere di aggiungere un nuovo oggetto ObjectDataSource denominato `Categories
 Dopo aver configurato il ObjectDataSource è comunque necessario specificare quale campo dell'origine dati deve essere visualizzato in DropDownList e che uno deve essere associato come valore per l'elemento dell'elenco. Dispone il `CategoryName` campo come la visualizzazione e `CategoryID` come valore per ogni elemento nell'elenco.
 
 
-[![Avere la visualizzazione di DropDownList campo CategoryName e CategoryID utilizzare come valore](master-detail-filtering-with-a-dropdownlist-cs/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image13.png)
+[![Avere la visualizzazione DropDownList campo CategoryName e CategoryID utilizzare come valore](master-detail-filtering-with-a-dropdownlist-cs/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image13.png)
 
 **Figura 5**: la visualizzazione DropDownList il `CategoryName` campo e utilizzare `CategoryID` come valore ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image15.png))
 
@@ -74,7 +74,7 @@ A questo punto si dispongono di un controllo DropDownList che viene popolato con
 
 [![Un elenco a discesa sono elencate le categorie corrente](master-detail-filtering-with-a-dropdownlist-cs/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image16.png)
 
-**Figura 6**: elenco a discesa Elenca le categorie corrente ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image18.png))
+**Figura 6**: un elenco a discesa sono elencate le categorie corrente ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image18.png))
 
 
 ## <a name="step-2-adding-the-products-gridview"></a>Passaggio 2: Aggiunta di prodotti GridView
@@ -87,12 +87,12 @@ Quest'ultimo passaggio nel report master-Details è per elencare i prodotti asso
 **Figura 7**: selezionare il `GetProductsByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))
 
 
-Dopo aver scelto questo metodo, la procedura guidata ObjectDataSource richiede us per il valore per il metodo  *`categoryID`*  parametro. Per utilizzare il valore dell'oggetto selezionato `categories` DropDownList elemento imposta l'origine di parametro al controllo e il ControlID per `Categories`.
+Dopo aver scelto questo metodo, la procedura guidata ObjectDataSource richiede us per il valore per il metodo *`categoryID`* parametro. Per utilizzare il valore dell'oggetto selezionato `categories` DropDownList elemento imposta l'origine di parametro al controllo e il ControlID per `Categories`.
 
 
-[![Impostare il parametro categoryID al valore di DropDownList categorie](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
+[![Impostare il valore di DropDownList categorie categoryID parametro](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
-**Figura 8**: impostare il  *`categoryID`*  il valore del parametro il `Categories` DropDownList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
+**Figura 8**: impostare il *`categoryID`* parametro per il valore della `Categories` DropDownList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
 
 
 Richiedere qualche istante per l'estrazione di stato di avanzamento in un browser. Durante la prima visita la pagina, tali prodotti appartengono alla categoria selezionata (bibite) vengono visualizzate (come illustrato nella figura 9), ma modifica DropDownList non aggiorna i dati. Infatti, deve verificarsi un postback per il controllo GridView aggiornare. A tale scopo che sono disponibili due opzioni (nessuna delle quali è necessario scrivere codice):
@@ -108,9 +108,9 @@ Figure 9 e 10 viene illustrato il report master/dettaglio in azione.
 **Figura 9**: durante la prima visita la pagina, vengono visualizzati i prodotti delle bibite ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image27.png))
 
 
-[![Selezionare automaticamente un nuovo prodotto (prodotto) provoca un PostBack, l'aggiornamento di GridView](master-detail-filtering-with-a-dropdownlist-cs/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image28.png)
+[![Se si seleziona un nuovo prodotto (prodotto) automaticamente, un PostBack, l'aggiornamento di GridView](master-detail-filtering-with-a-dropdownlist-cs/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image28.png)
 
-**Figura 10**: selezione di un nuovo prodotto (prodotto) automaticamente provoca un PostBack, l'aggiornamento di GridView ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image30.png))
+**Figura 10**: se si seleziona un nuovo prodotto (prodotto) automaticamente, un PostBack, l'aggiornamento di GridView ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image30.png))
 
 
 ## <a name="adding-a----choose-a-category----list-item"></a>Aggiunta di un elemento di elenco "-consente di scegliere una categoria"
@@ -140,23 +140,23 @@ Inoltre, è necessario impostare il controllo DropDownList `AppendDataBoundItems
 Dopo aver apportato queste modifiche, durante la prima visita la pagina è selezionata l'opzione "-consente di scegliere una categoria," e non i prodotti vengono visualizzati.
 
 
-[![Il caricamento della pagina iniziale vengono visualizzati i prodotti](master-detail-filtering-with-a-dropdownlist-cs/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image35.png)
+[![Il caricamento della pagina iniziale prodotti non vengono visualizzati](master-detail-filtering-with-a-dropdownlist-cs/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image35.png)
 
-**Figura 13**: sull'iniziale pagina carico No i prodotti vengono visualizzati ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))
+**Figura 13**: in the iniziale pagina carico No i prodotti vengono visualizzati ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))
 
 
-Nessun prodotto viene visualizzato quando perché l'elemento di elenco "-consente di scegliere una categoria," è selezionato, infatti, il valore è `-1` e non sono presenti prodotti nel database con un `CategoryID` di `-1`. Se si tratta del comportamento di cui che si desidera la apportate a questo punto! Se, tuttavia, si desidera visualizzare *tutti* delle categorie quando è selezionata la voce di elenco "-consente di scegliere una categoria,", tornare al `ProductsBLL` classe e personalizzare il `GetProductsByCategoryID(categoryID)` metodo in modo che richiama il `GetProducts()` metodo se il valore passato in  *`categoryID`*  parametro è minore di zero:
+Nessun prodotto viene visualizzato quando perché l'elemento di elenco "-consente di scegliere una categoria," è selezionato, infatti, il valore è `-1` e non sono presenti prodotti nel database con un `CategoryID` di `-1`. Se si tratta del comportamento di cui che si desidera la apportate a questo punto! Se, tuttavia, si desidera visualizzare *tutti* delle categorie quando è selezionata la voce di elenco "-consente di scegliere una categoria,", tornare al `ProductsBLL` classe e personalizzare il `GetProductsByCategoryID(categoryID)` metodo in modo che richiama il `GetProducts()` metodo se il valore passato in *`categoryID`* parametro è minore di zero:
 
 [!code-csharp[Main](master-detail-filtering-with-a-dropdownlist-cs/samples/sample2.cs)]
 
-La tecnica usata in questo esempio è simile all'approccio è utilizzati per visualizzare tutti i fornitori nuovamente il [parametri dichiarativi](../basic-reporting/declarative-parameters-cs.md) dell'esercitazione, anche se per questo esempio si usa un valore di `-1` per indicare che tutti i record devono essere recuperare anziché `null`. In questo modo il  *`categoryID`*  parametro del `GetProductsByCategoryID(categoryID)` metodo prevede che al valore passato valore intero, mentre nell'esercitazione parametri dichiarativi si stava passando un parametro di input di stringa.
+La tecnica usata in questo esempio è simile all'approccio è utilizzati per visualizzare tutti i fornitori nuovamente il [parametri dichiarativi](../basic-reporting/declarative-parameters-cs.md) dell'esercitazione, anche se per questo esempio si usa un valore di `-1` per indicare che tutti i record devono essere recuperare anziché `null`. In questo modo il *`categoryID`* parametro del `GetProductsByCategoryID(categoryID)` metodo prevede che al valore passato valore intero, mentre nell'esercitazione parametri dichiarativi si stava passando un parametro di input di stringa.
 
 La figura 14 mostra una schermata di `FilterByDropDownList.aspx` quando è selezionata l'opzione "-consente di scegliere una categoria,". In questo caso, tutti i prodotti vengono visualizzati per impostazione predefinita, e l'utente è possibile limitare la visualizzazione scegliendo una categoria specifica.
 
 
 [![Tutti i prodotti sono ora elencati per impostazione predefinita](master-detail-filtering-with-a-dropdownlist-cs/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image38.png)
 
-**Nella figura 14**: tutti i prodotti sono ora elencati per impostazione predefinita ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image40.png))
+**Figura 14**: tutti i prodotti sono ora elencati per impostazione predefinita ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-cs/_static/image40.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -169,7 +169,7 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[avanti](master-detail-filtering-with-two-dropdownlists-cs.md)
+> [!div class="step-by-step"]
+> [avanti](master-detail-filtering-with-two-dropdownlists-cs.md)

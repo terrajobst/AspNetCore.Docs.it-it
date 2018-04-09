@@ -12,23 +12,23 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 277503b65d9b75a9d3cc05538d5327f9367f45e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Scenari di avanzate di Entity Framework per un'applicazione Web MVC (10 di 10)
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 [Scaricare il progetto completato](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
 > 
 > > [!NOTE] 
 > > 
-> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e su come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
 
 Nell'esercitazione precedente è implementato il repository e l'unità di lavoro modelli. In questa esercitazione vengono trattati gli argomenti seguenti:
@@ -39,7 +39,7 @@ Nell'esercitazione precedente è implementato il repository e l'unità di lavoro
 - Utilizzo delle classi proxy.
 - Disabilitare il rilevamento automatico delle modifiche.
 - Sulla disabilitazione della convalida durante il salvataggio di modifiche.
-- [Errori e soluzioni alternative](#errors)
+- [Gli errori e soluzioni alternative](#errors)
 
 Per la maggior parte degli argomenti seguenti, si utilizzeranno le pagine che già stato creato. Per utilizzare SQL non elaborato per effettuare aggiornamenti bulk si creerà una nuova pagina che aggiorna il numero di crediti di tutti i corsi nel database:
 
@@ -53,13 +53,13 @@ E per l'utilizzo di una query di rilevamento di no si aggiungerà la nuova logic
 
 L'API di Entity Framework codice prima include metodi che consentono di passare i comandi SQL direttamente al database. Sono disponibili le seguenti opzioni:
 
-- Utilizzare il `DbSet.SqlQuery` metodo per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si disattiva rilevamento. (Vedere la sezione seguente `AsNoTracking` metodo.)
-- Utilizzare il `Database.SqlQuery` metodo per le query che restituiscono tipi non entità. I dati restituiti non sono rilevati dal contesto del database, anche se si utilizza questo metodo per recuperare i tipi di entità.
+- Usare il metodo `DbSet.SqlQuery` per le query che restituiscono tipi di entità. Gli oggetti restituiti devono essere del tipo previsto per il `DbSet` oggetto e vengono rilevate automaticamente dal contesto di database a meno che non si disattiva rilevamento. (Vedere la sezione seguente `AsNoTracking` metodo.)
+- Utilizzare il `Database.SqlQuery` metodo per le query che restituiscono tipi non entità. I dati restituiti non vengono registrati dal contesto di database, anche se il metodo viene usato per recuperare i tipi di entità.
 - Utilizzare il [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) per i comandi non query.
 
-Uno dei vantaggi dell'utilizzo di Entity Framework è che evita abbinata codice posizione troppo ravvicinata a un metodo particolare per l'archiviazione dei dati. Ciò avviene mediante la generazione di comandi e query SQL, che consente inoltre di dover scrivere manualmente. Esistono scenari eccezionali, quando è necessario eseguire query SQL specifiche che è stato creato manualmente, ma questi metodi consentono di gestire tali eccezioni.
+Uno dei vantaggi dell'utilizzo di Entity Framework è la mancanza di un collegamento troppo stretto del codice a un particolare metodo di archiviazione dei dati. Le query e i comandi SQL vengono generati automaticamente e non è necessario scriverli. Esistono scenari eccezionali, quando è necessario eseguire query SQL specifiche che è stato creato manualmente, ma questi metodi consentono di gestire tali eccezioni.
 
-Come è sempre true per l'esecuzione di comandi SQL in un'applicazione web, è necessario adottare le precauzioni necessarie per proteggere il sito da attacchi SQL injection. Un modo per eseguire questa operazione consiste nell'utilizzare le query con parametri per assicurarsi che le stringhe inviate da una pagina web non possono essere interpretate come comandi SQL. In questa esercitazione si userà le query con parametri per l'integrazione di input dell'utente in una query.
+Come avviene quando si eseguono comandi SQL in un'applicazione Web, è necessario adottare delle precauzioni per proteggere il sito dagli attacchi SQL injection. A questo scopo è possibile usare query parametrizzate per assicurarsi che le stringhe inviate da una pagina Web non possano essere interpretate come comandi SQL. In questa esercitazione verranno usate query parametrizzate quando l'input dell'utente viene integrato in una query.
 
 ### <a name="calling-a-query-that-returns-entities"></a>La chiamata di una Query che restituisce le entità
 
@@ -81,7 +81,7 @@ Eseguire la pagina dei dettagli verificare che la query select mediante works (s
 
 ### <a name="calling-a-query-that-returns-other-types-of-objects"></a>La chiamata di una Query che restituisce gli altri tipi di oggetti
 
-È stato creato in precedenza una griglia delle statistiche di studenti per la pagina di informazioni che è stato illustrato il numero di studenti per ogni data di registrazione. Il codice che esegue questa operazione in *HomeController.cs* utilizza LINQ:
+In precedenza è stata creata una griglia delle statistiche degli studenti per la pagina About che visualizza il numero di studenti per ogni data di registrazione. Il codice che esegue questa operazione in *HomeController.cs* utilizza LINQ:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs)]
 
@@ -91,13 +91,13 @@ In *HomeController.cs*, sostituire l'istruzione LINQ nel `About` (metodo) con il
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample4.cs)]
 
-Eseguire la pagina di informazioni. Visualizza gli stessi dati che non è stato modificato.
+Eseguire la pagina di informazioni. Vengono visualizzati gli stessi dati visualizzati in precedenza.
 
 ![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
 
 ### <a name="calling-an-update-query"></a>La chiamata di una Query di aggiornamento
 
-Si supponga che gli amministratori University Contoso desiderano essere in grado di eseguire modifiche di massa nel database, ad esempio la modifica del numero di crediti per ogni corso. Università dispone di un numero elevato di corsi, sarebbe opportuno recuperarli tutti come entità e modificarli singolarmente. In questa sezione viene implementato una pagina web che consente all'utente di specificare un fattore in base a cui si desidera modificare il numero di crediti per tutti i corsi e ti la modifica tramite l'esecuzione di un database SQL `UPDATE` istruzione. La pagina web sarà simile al seguente:
+Si supponga che gli amministratori University Contoso desiderano essere in grado di eseguire modifiche di massa nel database, ad esempio la modifica del numero di crediti per ogni corso. Se il numero di corsi dell'università è elevato, potrebbe non essere utile recuperarli tutti come entità e modificarli singolarmente. In questa sezione viene implementato una pagina web che consente all'utente di specificare un fattore in base a cui si desidera modificare il numero di crediti per tutti i corsi e ti la modifica tramite l'esecuzione di un database SQL `UPDATE` istruzione. La pagina Web apparirà come segue:
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image5.png)
 
@@ -107,7 +107,7 @@ Nel *DAL* cartella, creare *CourseRepository.cs* e sostituire il codice esistent
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cs)]
 
-In *UnitOfWork.cs*, modificare il `Course` il tipo di repository da `GenericRepository<Course>` a`CourseRepository:`
+In *UnitOfWork.cs*, modificare il `Course` tipo di repository da `GenericRepository<Course>` a `CourseRepository:`
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
@@ -131,15 +131,15 @@ In *Views\Course\UpdateCourseCredits.cshtml*, sostituire il codice del modello c
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample9.cshtml)]
 
-Eseguire il `UpdateCourseCredits` metodo selezionando il **corsi** scheda, quindi aggiungendo "/ UpdateCourseCredits" alla fine dell'URL nella barra degli indirizzi del browser (ad esempio: `http://localhost:50205/Course/UpdateCourseCredits`). Immettere un numero nella casella di testo:
+Eseguire il metodo `UpdateCourseCredits` selezionando la scheda **Courses**, quindi aggiungendo "/UpdateCourseCredits" alla fine dell'URL nella barra degli indirizzi del browser (ad esempio: `http://localhost:50205/Course/UpdateCourseCredits`). Immettere un numero nella casella di testo:
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-Fare clic su **Aggiorna**. Visualizzare il numero di righe interessate:
+Fare clic su **Aggiorna**. Viene visualizzato il numero di righe interessate:
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 
-Fare clic su **elenco** per visualizzare l'elenco dei corsi con il numero di crediti modificato.
+Fare clic su **Torna all'elenco** per visualizzare l'elenco dei corsi con il numero di crediti modificato.
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
@@ -147,12 +147,12 @@ Per ulteriori informazioni sulle query SQL non elaborate, vedere [query SQL non 
 
 ## <a name="no-tracking-queries"></a>Query di rilevamento di No
 
-Quando un contesto di database recupera le righe di database e crea gli oggetti di entità che li rappresentano, per impostazione predefinita consente di determinare se le entità in memoria sono sincronizzate con i dati del database. I dati in memoria funge da cache e viene utilizzati quando si aggiorna un'entità. La memorizzazione nella cache non è spesso necessario in un'applicazione web perché contesto istanze sono in genere breve durata (un nuovo uno viene creato o eliminato per ogni richiesta) e il contesto che legge un'entità viene in genere eliminata prima di tale entità viene usato di nuovo.
+Quando un contesto di database recupera le righe di database e crea gli oggetti di entità che li rappresentano, per impostazione predefinita consente di determinare se le entità in memoria sono sincronizzate con i dati del database. I dati in memoria svolgono la funzione di una cache e vengono usati per l'aggiornamento di un'entità. Questa memorizzazione nella cache spesso non è necessaria in un'applicazione Web poiché le istanze del contesto hanno spesso una durata breve (viene creata ed eliminata una nuova istanza per ogni richiesta) e il contesto che legge un'entità viene in genere eliminato prima che l'entità venga riutilizzata.
 
-È possibile specificare se il contesto tiene traccia degli oggetti di entità per una query utilizzando il `AsNoTracking` metodo. Scenari tipici in cui si desideri farlo che includono quanto segue:
+È possibile specificare se il contesto tiene traccia degli oggetti di entità per una query utilizzando il `AsNoTracking` metodo. Gli scenari tipici in cui viene disabilitata la registrazione includono i seguenti:
 
 - La query recupera un grosso volume di dati che potrebbero migliorare notevolmente le prestazioni di disattivazione del rilevamento.
-- Si desidera collegare un'entità per l'aggiornamento, ma è recuperato in precedenza la stessa entità per uno scopo diverso. Poiché l'entità è già rilevato dal contesto di database, è possibile collegare l'entità che si desidera modificare. Un modo per evitare questa situazione consiste nell'utilizzare il `AsNoTracking` opzione con la query precedente.
+- Si desidera collegare un'entità per l'aggiornamento, ma è recuperato in precedenza la stessa entità per uno scopo diverso. Poiché l'entità viene già registrata dal contesto di database, non è possibile collegare l'entità che si vuole modificare. Un modo per evitare questa situazione consiste nell'utilizzare il `AsNoTracking` opzione con la query precedente.
 
 In questa sezione viene implementato logica di business che illustra la seconda di questi scenari. In particolare, si sarà applicare una regola di business che segnala che un docente non può essere l'amministratore di più di un reparto.
 
@@ -187,7 +187,7 @@ Ripetere il tentativo di modificare il **Budget** quantità di un reparto. Quest
 
 ## <a name="examining-queries-sent-to-the-database"></a>Esaminare le query inviate al Database
 
-A volte risulta utile essere in grado di visualizzare le query SQL effettive vengono inviate al database. A tale scopo, è possibile esaminare una variabile di query nel debugger o la query denominata `ToString` metodo. Per provare la natura, verrà esaminata una semplice query e quindi osservare cosa accade a esso quando si aggiungono le opzioni di questo tipo eager durante il caricamento, filtro e ordinamento.
+A volte può essere utile visualizzare le query SQL inviate al database. A tale scopo, è possibile esaminare una variabile di query nel debugger o la query denominata `ToString` metodo. Per provare la natura, verrà esaminata una semplice query e quindi osservare cosa accade a esso quando si aggiungono le opzioni di questo tipo eager durante il caricamento, filtro e ordinamento.
 
 In *controller/CourseController*, sostituire il `Index` (metodo) con il codice seguente:
 
@@ -243,7 +243,7 @@ Per ulteriori informazioni, vedere [utilizzo di proxy](https://blogs.msdn.com/b/
 
 ## <a name="disabling-automatic-detection-of-changes"></a>Disabilitare il rilevamento automatico delle modifiche
 
-Entity Framework determina come è stata modificata un'entità (e pertanto gli aggiornamenti devono essere inviati al database), confrontando i valori correnti di un'entità con i valori originali. Quando l'entità è stata eseguita la query o collegato, vengono archiviati i valori originali. Alcuni dei metodi che causano il rilevamento delle modifiche automatico sono i seguenti:
+Entity Framework determina come è stata modificata un'entità (e di conseguenza gli aggiornamenti da inviare al database) confrontando i valori correnti di un'entità con i valori originali. Quando l'entità è stata eseguita la query o collegato, vengono archiviati i valori originali. I metodi che causano il rilevamento automatico delle modifiche includono:
 
 - `DbSet.Find`
 - `DbSet.Local`
@@ -271,11 +271,11 @@ Per informazioni su altri argomenti relativi a MVC, quali l'autenticazione e aut
 
 <a id="acknowledgments"></a>
 
-## <a name="acknowledgments"></a>Riconoscimenti
+## <a name="acknowledgments"></a>Ringraziamenti
 
 - Tom Dykstra ha scritto la versione originale di questa esercitazione ed è un writer di programmazione senior nel Team di contenuto di strumenti e piattaforma Web Microsoft.
 - [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) co-autore di questa esercitazione e ha la maggior parte delle operazioni di aggiornamento per Entity Framework 5 e MVC 4. Rick è un writer di programmazione senior per porre l'attenzione su Azure e MVC Microsoft.
-- [Miller rowan](http://www.romiller.com) e altri membri del team di Entity Framework assistiti da con le revisioni del codice che ha contribuito debug molti problemi con le migrazioni che si è verificato mentre si stava aggiornando l'esercitazione per Entity Framework 5.
+- [Miller rowan](http://www.romiller.com) e altri membri del team di Entity Framework consente di eseguire il debug molti problemi con le migrazioni che si verifica mentre si stava aggiornando l'esercitazione per Entity Framework 5 e assistiti da con le revisioni del codice.
 
 ## <a name="vb"></a>VB
 
@@ -289,7 +289,7 @@ Quando è stato originariamente creata nell'esercitazione, è fornito versioni c
 
 Messaggio di errore:
 
-*Impossibile creare/shadow copia 'DotNetOpenAuth.OpenId' se il file esiste già.*
+*Non è possibile creare/shadow copia 'DotNetOpenAuth.OpenId' se il file esiste già.*
 
 Soluzione:
 
@@ -299,7 +299,7 @@ Attendere alcuni secondi e aggiornare la pagina.
 
 Messaggio di errore:
 
-*Il termine 'Update-Database' non è riconosciuto come nome di un cmdlet, funzione, file di script o programma eseguibile. Controllare l'ortografia del nome, o se è stato incluso un percorso, verificare che il percorso sia corretto e riprovare.* (Dal  *`Update-Database`*  comando PMC.)
+*Il termine 'Update-Database' non è riconosciuto come nome di un cmdlet, funzione, file di script o programma eseguibile. Controllare l'ortografia del nome, o se è stato incluso un percorso, verificare che il percorso sia corretto e riprovare.* (Dal *`Update-Database`* comando PMC.)
 
 Soluzione:
 
@@ -309,7 +309,7 @@ Uscire da Visual Studio. Riaprire progetto e riprovare.
 
 Messaggio di errore:
 
-*Convalida non riuscita per uno o più entità. La proprietà 'EntityValidationErrors' per ulteriori informazioni, vedere.* (Dal  *`Update-Database`*  comando PMC.)
+*Convalida non riuscita per uno o più entità. La proprietà 'EntityValidationErrors' per ulteriori informazioni, vedere.* (Dal *`Update-Database`* comando PMC.)
 
 Soluzione:
 
@@ -319,22 +319,22 @@ Una delle cause di questo problema è errori di convalida quando la `Seed` esecu
 
 Messaggio di errore:
 
-*Errore HTTP 500.19 - errore interno del Server alla pagina richiesta non accessibile perché i dati di configurazione per la pagina non sono validi.*
+*Errore HTTP 500.19 - errore interno del Server alla pagina richiesta non è possibile accedere perché i dati di configurazione per la pagina non sono validi.*
 
 Soluzione:
 
 È possibile ottenere questo errore è da più copie della soluzione, ognuno di essi utilizzando lo stesso numero di porta. In genere, è possibile risolvere questo problema, uscire da tutte le istanze di Visual Studio, quindi riavviare il progetto di lavoro in. Se il problema persiste, provare a modificare il numero di porta. Fare clic con il pulsante destro sul file di progetto e quindi fare clic su proprietà. Selezionare il **Web** scheda e quindi modificare il numero di porta di **Url progetto** casella di testo.
 
-### <a name="error-locating-sql-server-instance"></a>Istanza di SQL Server individuazione errore
+### <a name="error-locating-sql-server-instance"></a>Errore di individuazione dell'istanza di SQL Server
 
 Messaggio di errore:
 
-*Si è verificato un errore di rete o specifico dell'istanza durante la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server è configurato per consentire le connessioni remote. (provider: interfacce di rete SQL, errore: 26 - errore nell'individuazione Server / dell'istanza specificati)*
+*Si è verificato un errore di rete o specifico dell'istanza durante la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato per consentire le connessioni remote. (provider: interfacce di rete SQL, errore: 26 - errore nell'individuazione Server / dell'istanza specificati)*
 
 Soluzione:
 
 Verificare la stringa di connessione. Se è stato eliminato manualmente il database, modificare il nome del database nella stringa di costruzione.
 
->[!div class="step-by-step"]
-[Precedente](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
-[Successivo](building-the-ef5-mvc4-chapter-downloads.md)
+> [!div class="step-by-step"]
+> [Precedente](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [Successivo](building-the-ef5-mvc4-chapter-downloads.md)

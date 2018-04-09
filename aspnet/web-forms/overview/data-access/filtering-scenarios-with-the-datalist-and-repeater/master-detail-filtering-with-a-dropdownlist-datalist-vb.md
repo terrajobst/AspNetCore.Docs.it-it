@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f480cfcfb3b02c9398b2db3e66cec432152a05d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4ece466319e268a74bbe8c4ed96ffc33cff432f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Master-Details filtri con un controllo DropDownList (VB)
 ====================
@@ -46,7 +46,7 @@ Prima di iniziare questa esercitazione, innanzitutto è opportuno aggiungere la 
 
 ![Creare una cartella DataListRepeaterFiltering e aggiungere le pagine ASP.NET dell'esercitazione](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image1.png)
 
-**Figura 1**: creare un `DataListRepeaterFiltering` cartella e aggiungere le pagine ASP.NET dell'esercitazione
+**Figura 1**: creare un `DataListRepeaterFiltering` cartella e aggiungere le pagine ASP.NET Tutorial
 
 
 Aprire quindi il `Default.aspx` pagina e trascinare il `SectionLevelTutorialListing.ascx` controllo utente dal `UserControls` cartella nell'area di progettazione. Questo controllo utente, creata nel [pagine Master e esplorazione del sito](../introduction/master-pages-and-site-navigation-vb.md) esercitazione enumera la mappa del sito e visualizza le esercitazioni dalla sezione corrente in un elenco puntato.
@@ -54,7 +54,7 @@ Aprire quindi il `Default.aspx` pagina e trascinare il `SectionLevelTutorialList
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image3.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image2.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image4.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image4.png))
 
 
 Per visualizzare l'elenco puntato le esercitazioni master-details che verrà creata, è necessario aggiungerli alla mappa del sito. Aprire il `Web.sitemap` file e aggiungere il markup seguente dopo il tag di nodo "Visualizzazione di dati con il DataList e Repeater" mappa del sito:
@@ -74,13 +74,13 @@ Il report master-details elencherà le categorie in un controllo DropDownList, c
 
 [![Aggiungere un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image7.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image6.png)
 
-**Figura 4**: aggiungere un nuovo ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image8.png))
+**Figura 4**: aggiungere un nuovo denominato ObjectDataSource `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image8.png))
 
 
 Configurare il nuovo oggetto ObjectDataSource in modo che richiama la `CategoriesBLL` della classe `GetCategories()` metodo. Dopo aver configurato il ObjectDataSource è comunque necessario specificare quale campo dell'origine dati deve essere visualizzato in DropDownList e che uno deve essere associato come valore per ogni elemento nell'elenco. Dispone il `CategoryName` campo come la visualizzazione e `CategoryID` come valore per ogni elemento nell'elenco.
 
 
-[![Avere la visualizzazione di DropDownList campo CategoryName e CategoryID utilizzare come valore](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image9.png)
+[![Avere la visualizzazione DropDownList campo CategoryName e CategoryID utilizzare come valore](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image9.png)
 
 **Figura 5**: la visualizzazione DropDownList il `CategoryName` campo e utilizzare `CategoryID` come valore ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image11.png))
 
@@ -90,7 +90,7 @@ A questo punto si dispongono di un controllo DropDownList che viene popolato con
 
 [![Un elenco a discesa sono elencate le categorie corrente](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image13.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image12.png)
 
-**Figura 6**: elenco a discesa Elenca le categorie corrente ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image14.png))
+**Figura 6**: un elenco a discesa sono elencate le categorie corrente ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image14.png))
 
 
 ## <a name="step-2-adding-the-products-datalist"></a>Passaggio 2: Aggiunta di prodotti DataList
@@ -103,12 +103,12 @@ L'ultimo passaggio nel report master-Details è per elencare i prodotti associat
 **Figura 7**: selezionare il `GetProductsByCategoryID(categoryID)` metodo ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image17.png))
 
 
-Dopo aver fatto clic su Avanti, la procedura guidata ObjectDataSource richiede us per l'origine del valore per il `GetProductsByCategoryID(categoryID)` del metodo  *`categoryID`*  parametro. Per utilizzare il valore dell'oggetto selezionato `categories` DropDownList elemento imposta l'origine di parametro al controllo e il ControlID per `Categories`.
+Dopo aver fatto clic su Avanti, la procedura guidata ObjectDataSource richiede us per l'origine del valore per il `GetProductsByCategoryID(categoryID)` del metodo *`categoryID`* parametro. Per utilizzare il valore dell'oggetto selezionato `categories` DropDownList elemento imposta l'origine di parametro al controllo e il ControlID per `Categories`.
 
 
-[![Impostare il parametro categoryID al valore di DropDownList categorie](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image18.png)
+[![Impostare il valore di DropDownList categorie categoryID parametro](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image18.png)
 
-**Figura 8**: impostare il  *`categoryID`*  il valore del parametro il `Categories` DropDownList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
+**Figura 8**: impostare il *`categoryID`* parametro per il valore della `Categories` DropDownList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
 
 
 Dopo avere completato la configurazione guidata origine dati, Visual Studio genera automaticamente un `ItemTemplate` per DataList che visualizza il nome e il valore di ogni campo dati. Consente di migliorare DataList per usare un `ItemTemplate` che visualizza solo il nome del prodotto, categoria, fornitore, quantità per unità e prezzo insieme a un `SeparatorTemplate` che inserisce un `<hr>` elemento tra ogni elemento. Ora utilizzare il `ItemTemplate` da in, ad esempio il [visualizzazione di dati con il DataList e Repeater](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md) esercitazione, ma è possibile utilizzare qualsiasi codice di modello trova più interessante.
@@ -127,9 +127,9 @@ Figure 9 e 10 viene illustrato il report master/dettaglio in azione.
 **Figura 9**: durante la prima visita la pagina, vengono visualizzati i prodotti delle bibite ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image23.png))
 
 
-[![Selezionare automaticamente un nuovo prodotto (prodotto) provoca un PostBack, l'aggiornamento di DataList](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image24.png)
+[![Se si seleziona un nuovo prodotto (prodotto) automaticamente, un PostBack, l'aggiornamento DataList](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image24.png)
 
-**Figura 10**: selezione di un nuovo prodotto (prodotto) automaticamente provoca un PostBack, l'aggiornamento di DataList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image26.png))
+**Figura 10**: se si seleziona un nuovo prodotto (prodotto) automaticamente, un PostBack, l'aggiornamento DataList ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image26.png))
 
 
 ## <a name="adding-a----choose-a-category----list-item"></a>Aggiunta di un elemento di elenco "-consente di scegliere una categoria"
@@ -161,10 +161,10 @@ Il motivo è stato scelto il valore `0` per l'elenco "-consente di scegliere una
 
 [![Quando il](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image30.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image29.png)
 
-**Figura 13**: quando è selezionata la voce di elenco "-consente di scegliere una categoria,", i prodotti non vengono visualizzati ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image31.png))
+**Figura 13**: quando è selezionata la voce di elenco "-consente di scegliere una categoria-", i prodotti non sono visualizzati ([fare clic per visualizzare l'immagine ingrandita](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image31.png))
 
 
-Se visualizza invece *tutti* dei prodotti quando è selezionata l'opzione "-consente di scegliere una categoria,", utilizzare un valore di `-1` invece. Il lettore attenti ricorderà che back nel *Master-Details filtro con un DropDownList* esercitazione è stato aggiornato il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo in modo che se un  *`categoryID`*  valore di `-1` passato, tutti i prodotti sono stati restituiti i record.
+Se visualizza invece *tutti* dei prodotti quando è selezionata l'opzione "-consente di scegliere una categoria,", utilizzare un valore di `-1` invece. Il lettore attenti ricorderà che back nel *Master-Details filtro con un DropDownList* esercitazione è stato aggiornato il `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo in modo che se un *`categoryID`* valore di `-1` passato, tutti i prodotti sono stati restituiti i record.
 
 ## <a name="summary"></a>Riepilogo
 
@@ -176,12 +176,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Randy Schmidt. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
-[Successivo](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [Successivo](master-detail-filtering-acess-two-pages-datalist-vb.md)

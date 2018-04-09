@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 title: Aggiunta di un Controller | Documenti Microsoft
 author: shanselman
-description: "Una versione aggiornata, se in questa esercitazione è disponibile qui con Visual Studio 2013. Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti rispetto t..."
+description: Una versione aggiornata, se in questa esercitazione è disponibile qui con Visual Studio 2013. Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti rispetto t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 93a362cf83d39b29fcba3f2dee0c28257805a89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c6ecd1ffdd53a629d0079d57b85c7f6db2f316ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Aggiunta di un controller
 ====================
@@ -61,13 +61,13 @@ ASP.NET MVC richiama diverse classi Controller (e diversi metodi di azione all'i
 
 La prima parte dell'URL determina la classe Controller da eseguire. Pertanto, /HelloWorld esegue il mapping alla classe HelloWorldController. La seconda parte dell'URL determina il metodo di azione della classe per l'esecuzione. Operazione /HelloWorld/Index comporta il metodo Index () della classe HelloWorldcontroller da eseguire. Si noti che è stato solo da visitare /HelloWorld precedente e il metodo di che indice è implicito. In questo modo un metodo denominato "Index" è il metodo predefinito che verrà chiamato su un controller non è specificata in modo esplicito.
 
-[![Questa è l'azione predefinita](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![Si tratta di azione predefinito](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
 A questo punto, si visitare `http://localhost:xx/HelloWorld/Welcome.` ora il metodo di completamento dell'installazione è eseguito e ha restituito la stringa HTML.
 
 Nuovo / [Controller] / [ActionName] / [parametri] Controller è HelloWorld e iniziale è il metodo in questo caso. È stata ancora eseguita ancora parametri.
 
-[![Si tratta del metodo di azione di completamento dell'installazione](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![Si tratta del metodo di azione iniziale](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
 Modifichiamo esempio leggermente, in modo che è possibile passare alcune informazioni dall'URL per il controller, ad esempio simile al seguente: / HelloWorld/iniziale? name = Scott&amp;numtimes = 4. Modificare il metodo per includere i due parametri e come il seguente aggiornamento iniziale. Si noti che è stata utilizzata la funzionalità di c# parametro facoltativo per indicare che numTimes il parametro deve essere predefinito su 1 se non viene passato.
 
@@ -77,6 +77,6 @@ Eseguire l'applicazione e visitare `http://localhost:xx/HelloWorld/Welcome?name=
 
 In entrambi questi esempi il controller è stato esegue tutto il lavoro e la restituzione direttamente HTML. In genere non vogliamo il controller di restituzione HTML direttamente - dal momento che finisce per essere molto complessa al codice. Invece in genere si userà un file di modello di visualizzazione separato per generare la risposta HTML. Vediamo come è possibile farlo. Chiudere il browser e tornare all'IDE.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part1.md)
-[Successivo](getting-started-with-mvc-part3.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part1.md)
+> [Successivo](getting-started-with-mvc-part3.md)

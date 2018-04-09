@@ -1,7 +1,7 @@
 ---
-title: Gestione delle chiavi
+title: Gestione delle chiavi in ASP.NET Core
 author: rick-anderson
-description: Questo documento descrive i dettagli di implementazione di ASP.NET Core dati protezione della gestione delle chiavi API.
+description: Ulteriori dettagli sull'implementazione della gestione delle chiavi di ASP.NET Core Data Protection API.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>Gestione delle chiavi
+# <a name="key-management-in-aspnet-core"></a>Gestione delle chiavi in ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ Il sistema di protezione dati gestisce automaticamente la durata delle chiavi ma
 
 * Revocato - la chiave viene compromessa e non deve essere utilizzata per nuove operazioni di protezione.
 
-Chiavi create, attive e scadute possono tutti essere utilizzate per rimuovere la protezione di payload in ingresso. Revocati chiavi per impostazione predefinita, non possono essere utilizzate per rimuovere la protezione di payload, ma lo sviluppatore di applicazioni può [eseguire l'override di questo comportamento](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect) se necessario.
+Chiavi create, attive e scadute possono tutti essere utilizzate per rimuovere la protezione di payload in ingresso. Revocati chiavi per impostazione predefinita, non possono essere utilizzate per rimuovere la protezione di payload, ma lo sviluppatore di applicazioni può [eseguire l'override di questo comportamento](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) se necessario.
 
 >[!WARNING]
 > Lo sviluppatore potrebbe essere tentato di eliminare una chiave dall'anello chiave (ad esempio, eliminando il file corrispondente dal file system). A questo punto, tutti i dati protetti dalla chiave è definitivamente decifrabili e vi sono sostituzioni emergenza come con chiavi revocate. Eliminazione di una chiave è realmente distruttivo comportamento e di conseguenza il sistema di protezione dati non espone alcuna API di prima classe per eseguire questa operazione.
@@ -83,6 +83,6 @@ Nell'esempio seguente viene illustrato l'utilizzo di `IKeyManager` interfaccia p
 
 Il sistema di protezione dati è un approccio euristico in base al quale si tenta di dedurre un percorso di archiviazione chiavi appropriata e la crittografia a meccanismo rest automaticamente. È anche configurabile dallo sviluppatore di app. I documenti seguenti illustrano le implementazioni nella casella di questi meccanismi:
 
-* [Nella casella provider di archiviazione chiavi](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [Nella casella provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [Crittografia della chiave nella casella provider di rest](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [Crittografia della chiave nella casella provider di rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

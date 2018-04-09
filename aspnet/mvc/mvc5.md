@@ -1,8 +1,8 @@
 ---
 uid: mvc/mvc5
-title: ASP.NET MVC 5 | Documenti Microsoft
+title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e la potenza di AS...."
+description: ASP.NET MVC 5 ASP.NET MVC 5 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e la potenza di AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -32,21 +32,21 @@ Per informazioni sull'aggiornamento di progetti MVC 4 e 5 MVC, vedere [come aggi
 
 I modelli di progetto MVC sono stati aggiornati per l'utilizzo di ASP.NET Identity per l'autenticazione e la gestione delle identità. Un'esercitazione che presenta l'autenticazione di Facebook e Google e la nuova API di appartenenza è reperibile in [creare un'App di ASP.NET MVC 5 con Facebook, Google OAuth2 e OpenID Sign-on](overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) e [distribuire un'app protetta ASP.NET MVC con L'appartenenza, OAuth e il Database SQL in un sito Web di Azure Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-### <a name="bootstrap"></a>bootstrap
+### <a name="bootstrap"></a>Bootstrap
 
 Il modello di progetto MVC è stato aggiornato per utilizzare [Bootstrap](http://getbootstrap.com/) per fornire un elegante e reattiva aspetto che è possibile personalizzare facilmente. Per ulteriori informazioni, vedere [Bootstrap nei modelli di progetto web di Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
 ### <a name="authentication-filters"></a>Filtri di autenticazione
 
-[Filtri di autenticazione](http://www.dotnetcurry.com/showarticle.aspx?ID=957) sono un nuovo tipo di filtro in ASP.NET MVC che vengono eseguiti prima dei filtri di autorizzazione nella pipeline ASP.NET MVC e consentono di specificare l'autenticazione logica per ogni azione, per ogni controller o a livello globale per tutti i controller. Filtri di autenticazione nella richiesta di credenziali di elaborare e forniscono un'entità corrispondente. Filtri di autenticazione possono anche aggiungere richieste di autenticazione in risposta alle richieste non autorizzate. Vedere [filtri di autenticazione ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtri di autenticazione in ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/) e [infine il nuovo ASP.NET MVC 5 filtri di autenticazione!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/).
+[Filtri di autenticazione](http://www.dotnetcurry.com/showarticle.aspx?ID=957) sono un nuovo tipo di filtro in ASP.NET MVC che vengono eseguiti prima di filtri di autorizzazione nella pipeline ASP.NET MVC e consentono di specificare l'autenticazione della logica per ogni azione, per ogni controller o a livello globale per tutti i controller. Filtri di autenticazione nella richiesta di credenziali di elaborare e forniscono un'entità corrispondente. Filtri di autenticazione possono anche aggiungere richieste di autenticazione in risposta alle richieste non autorizzate. Vedere [filtri di autenticazione ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtri di autenticazione in ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/).
 
 ### <a name="filter-overrides"></a>Esegue l'override di filtro
 
-È ora possibile sostituire i filtri da applicare a un metodo di azione specificato o un controller, specificando un [override filtro](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5). I filtri di sostituzione è specificare un set di tipi di filtro che non devono essere eseguiti per un determinato ambito (azione o controller). Ciò consente di configurare i filtri che si applicano globalmente ma quindi escludere alcuni filtri globali dall'applicazione per azioni specifiche o controller. Vedere [nuovo filtro esegue l'override di funzionalità di ASP.NET MVC 5 e ASP.NET Web API 2](https://weblogs.asp.net/imranbaloch/archive/2013/09/25/new-filter-overrides-in-asp-net-mvc-5-and-asp-net-web-api-2.aspx), [illustrato come utilizzare la funzionalità di esegue l'override di filtro di ASP.NET MVC 5](http://hackwebwith.net/how-to-use-the-asp-net-mvc-5-filter-overrides-feature/), e [esegue l'override di filtri in ASP.NET MVC 5](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)
+È ora possibile sostituire i filtri da applicare a un metodo di azione specificato o un controller, specificando un [override filtro](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5). I filtri di sostituzione è specificare un set di tipi di filtro che non devono essere eseguiti per un determinato ambito (azione o controller). Ciò consente di configurare i filtri che si applicano globalmente ma quindi escludere alcuni filtri globali dall'applicazione per azioni specifiche o controller. Vedere [nuovo filtro esegue l'override di funzionalità in ASP.NET MVC 5 e ASP.NET Web API 2](https://weblogs.asp.net/imranbaloch/archive/2013/09/25/new-filter-overrides-in-asp-net-mvc-5-and-asp-net-web-api-2.aspx), [illustrato come utilizzare la funzionalità di esegue l'override di filtro di ASP.NET MVC 5](http://hackwebwith.net/how-to-use-the-asp-net-mvc-5-filter-overrides-feature/), e [esegue l'override di filtri in ASP.NET MVC 5](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)
 
-### <a name="attribute-routing"></a>Routing degli attributi
+### <a name="attribute-routing"></a>Routing con attributi
 
-ASP.NET MVC sono ora supportate [attributo routing](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), grazie a un contributo Tim McCall, l'autore di [http://attributerouting.net](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di annotando azioni e controller.
+ASP.NET MVC sono ora supportate [attributo routing](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), grazie a un contributo Tim McCall, l'autore del [ http://attributerouting.net ](http://attributerouting.net). Con il routing di attributo è possibile specificare i percorsi di annotando azioni e controller.
 
 ## <a name="new-web-project-experience"></a>Nuova esperienza di progetto Web
 
@@ -82,11 +82,11 @@ Per ulteriori informazioni ed esercitazioni, vedere [Panoramica lo Scaffolding d
 
 ### <a name="getting-help-and-reporting-issues"></a>Ottenere informazioni della Guida e segnalare eventuali problemi
 
-- [Problemi noti e l'elenco di modifiche di rilievo](../visual-studio/overview/2013/release-notes.md#knownissues)
+- [Problemi noti ed elenco di modifiche di rilievo](../visual-studio/overview/2013/release-notes.md#knownissues)
 - Visualizzare la Guida e discutere ASP.NET MVC 5 nel [forum](https://forums.asp.net/1146.aspx)
 - [Segnalare un bug in ASP.NET MVC 5](https://github.com/aspnet/AspNetWebStack/issues)
 - [Effettuare una richiesta di funzionalità](http://aspnet.uservoice.com/forums/41201-asp-net-mvc)
 
 ### <a name="upgrading-from-aspnet-mvc-4"></a>L'aggiornamento da MVC ASP.NET 4
 
-Vedere [come aggiornare un ASP.NET MVC 4 e Web API progetto ASP.NET MVC 5 e Web API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)
+Vedere [come aggiornare un ASP.NET MVC 4 e progetto API Web API 2 e MVC ASP.NET 5 Web](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)

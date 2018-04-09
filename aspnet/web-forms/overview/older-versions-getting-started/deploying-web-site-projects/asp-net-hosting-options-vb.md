@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>Opzioni di Hosting ASP.NET (VB)
 ====================
@@ -61,7 +61,7 @@ Le informazioni di configurazione per un'applicazione web in genere si trovano n
 Oltre alle modifiche di configurazione dell'applicazione web, passaggio 1 inoltre può comportare una configurazione per il server web e il database. Ad esempio, se una pagina ASP.NET crea o Elimina i file da una directory nel server web quindi il server web deve essere configurato per consentire le modifiche al sistema questi file. Analogamente, potrebbero essere presenti impostazioni di autenticazione o autorizzazione che devono essere apportate al database.
 
 
-Passaggio 2 richiede la sincronizzazione di set di pagine ASP.NET essenziali e file di supporto tra gli ambienti di sviluppo e produzione. Il set specifico di ASP. I file correlati alla rete che devono essere sincronizzati tra i due ambienti dipende dal tipo di progetto creato in Visual Studio e la discussione nella prossima esercitazione, è  *[determinare quali file devono essere distribuiti](determining-what-files-need-to-be-deployed-vb.md)*. Il terza e quarta esercitazioni -  *[la distribuzione del sito tramite FTP](deploying-your-site-using-an-ftp-client-vb.md)*e  *[la distribuzione del sito tramite Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -esaminare strumenti e tecniche diverse per la sincronizzazione di questi file.
+Passaggio 2 richiede la sincronizzazione di set di pagine ASP.NET essenziali e file di supporto tra gli ambienti di sviluppo e produzione. Il set specifico di ASP. I file correlati alla rete che devono essere sincronizzati tra i due ambienti dipende dal tipo di progetto creato in Visual Studio e la discussione nella prossima esercitazione, è  <em>[determinare quali file devono essere distribuiti](determining-what-files-need-to-be-deployed-vb.md)</em>. Il terza e quarta esercitazioni -  <em>[la distribuzione del sito tramite FTP](deploying-your-site-using-an-ftp-client-vb.md)</em>e <em>[la distribuzione del sito tramite Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -esaminare strumenti e tecniche diverse per la sincronizzazione di questi file.
 
 Durante la compilazione di applicazioni guidate dai dati sono in genere due database in uso: uno per lo sviluppo e uno in produzione. Durante lo sviluppo, lo sviluppo schema del database può essere modificato per includere nuove tabelle, colonne, stored procedure e trigger, o può essere modificato per rimuovere o rinominare gli oggetti di database esistenti. Tra l'ora che vengono apportate queste modifiche e l'ora in cui che l'applicazione viene distribuita nell'ambiente di produzione, i database di sviluppo e produzione non sono sincronizzati. Questa modalità asincrona deve essere corretto durante il processo di distribuzione. Questi problemi verranno esaminati in esercitazioni future.
 
@@ -95,6 +95,6 @@ Buona programmazione!
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](users-and-roles-on-the-production-website-cs.md)
-[Successivo](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](users-and-roles-on-the-production-website-cs.md)
+> [Successivo](determining-what-files-need-to-be-deployed-vb.md)

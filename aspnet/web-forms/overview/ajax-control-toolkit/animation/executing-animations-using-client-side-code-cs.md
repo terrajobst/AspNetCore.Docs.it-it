@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-cs
 title: L'esecuzione di animazioni utilizzando codice lato Client (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. L'esecuzione di animazione..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. L'esecuzione di animazione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6b1911686a79aa692ef193430cd0746a2511105a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cfaed745b4c547d04033ee89d2c6549c5989cb73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-animations-using-client-side-code-c"></a>L'esecuzione di animazioni utilizzando codice lato Client (c#)
 ====================
@@ -70,6 +70,6 @@ Ecco il codice JavaScript sul lato client completo che emula il clic sul pannell
 
 L'animazione viene eseguita immediatamente, senza un clic del mouse ([fare clic per visualizzare l'immagine ingrandita](executing-animations-using-client-side-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](modifying-animations-from-the-server-side-cs.md)
-[Successivo](changing-an-animation-using-client-side-code-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](modifying-animations-from-the-server-side-cs.md)
+> [Successivo](changing-an-animation-using-client-side-code-cs.md)

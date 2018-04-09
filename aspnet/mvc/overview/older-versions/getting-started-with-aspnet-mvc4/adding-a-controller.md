@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-controller
 title: Aggiunta di un Controller | Documenti Microsoft
 author: Rick-Anderson
-description: "Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo..."
+description: 'Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 69af91401e51470fbc0b67103345325201b06723
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bb76c0a87d935322406b9d8e18fbdb3e41f327f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Aggiunta di un controller
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -29,8 +29,8 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 MVC è l'acronimo di *model-view-controller*. MVC è un modello per lo sviluppo di applicazioni che sono ben strutturato, testabile e facili da gestire. Applicazioni basate su MVC contengono:
 
 - **M** odels: le classi che rappresentano i dati dell'applicazione e che usano la logica di convalida per applicare le regole di business per tali dati.
-- **V** iews: file di modello che l'applicazione utilizza per generare dinamicamente le risposte HTML.
-- **C** ontrollers: le classi che gestiscono le richieste in ingresso del browser, recuperare i dati del modello e quindi specificare i modelli di visualizzazione che restituiscono una risposta nel browser.
+- **V** iews: file di modello che l'applicazione usa per generare in modo dinamico le risposte HTML.
+- **C** ontrollers: le classi che gestiscono le richieste del browser in ingresso, recuperare i dati del modello e quindi specificare i modelli di visualizzazione che restituiscono una risposta nel browser.
 
 Si verrà tutti questi concetti in questa serie di esercitazioni di copertura e viene illustrato come usarle per compilare un'applicazione.
 
@@ -74,6 +74,6 @@ Eseguire l'applicazione e passare all'URL di esempio (`http://localhost:xxxx/Hel
 
 In entrambi questi esempi il controller di operazioni il &quot;VC&quot; parte di MVC, vale a dire, il lavoro di visualizzazione e controller. Il controller ha restituito HTML direttamente. In genere non si desidera controller restituzione HTML direttamente, dal momento che diventa molto complessa al codice. Invece in genere si userà un file di modello di visualizzazione separato per generare la risposta HTML. Verrà ora esaminato il successivo come possiamo farlo.
 
->[!div class="step-by-step"]
-[Precedente](intro-to-aspnet-mvc-4.md)
-[Successivo](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Precedente](intro-to-aspnet-mvc-4.md)
+> [Successivo](adding-a-view.md)

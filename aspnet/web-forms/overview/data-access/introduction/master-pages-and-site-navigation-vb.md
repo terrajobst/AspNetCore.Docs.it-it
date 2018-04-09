@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 title: Pagine master e esplorazione del sito (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Una caratteristica comune dei siti Web intuitiva è che hanno uno schema di layout e la navigazione pagina coerente a livello di sito. In questa esercitazione verrà illustrato y..."
+description: Una caratteristica comune dei siti Web intuitiva è che hanno uno schema di layout e la navigazione pagina coerente a livello di sito. In questa esercitazione verrà illustrato y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7bb8a9bccbd9dfbbf983618ecd32588fd8f69c64
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 45fdbf70f7981c0faefef2603d21f913022e2a8f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-site-navigation-vb"></a>Pagine master e esplorazione del sito (VB)
 ====================
@@ -48,7 +48,7 @@ Il primo passaggio consiste nel creare la pagina master per il sito. Al momento 
 
 ![I file nel progetto](master-pages-and-site-navigation-vb/_static/image4.png)
 
-**Figura 2**: I file nel progetto
+**Figura 2**: I file di parte del progetto
 
 
 Per creare una pagina master, fare clic sul nome del progetto in Esplora soluzioni e scegliere Aggiungi nuovo elemento. Quindi selezionare il tipo di pagina Master dall'elenco dei modelli e denominarlo `Site.master`.
@@ -73,7 +73,7 @@ Con il markup specificato sopra, passando alla visualizzazione progettazione, vi
 
 [![La pagina Master, quando viene visualizzato tramite la visualizzazione di progettazione](master-pages-and-site-navigation-vb/_static/image9.png)](master-pages-and-site-navigation-vb/_static/image8.png)
 
-**Figura 4**: la pagina Master, quando visualizzati tramite la visualizzazione di progettazione ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image10.png))
+**Figura 4**: la pagina Master, quando visualizzati tramite la visualizzazione della struttura ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image10.png))
 
 
 ## <a name="step-2-adding-a-homepage-to-the-website"></a>Passaggio 2: Aggiunta di una home page al sito Web
@@ -113,7 +113,7 @@ Il `Title` attributo la `@Page` direttiva consente di impostare il titolo della 
 Passando alla visualizzazione progettazione che possiamo vedere come apparirà la pagina in un browser. Si noti che nella progettazione consente di visualizzare per la pagina ASP.NET che solo le aree modificabili del contenuto sono modificabili il markup non ContentPlaceHolder definito nella pagina master sono inattivo.
 
 
-[![La visualizzazione di progettazione per la pagina ASP.NET Mostra le aree modificabili e Non modificabili](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
+[![La visualizzazione di progettazione per la pagina ASP.NET Mostra entrambe le aree modificabili e Non modificabili](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
 
 **Figura 7**: la visualizzazione di progettazione per il ASP.NET pagina mostra sia il modificabile e Non modificabile aree ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image19.png))
 
@@ -147,7 +147,7 @@ Per questa esercitazione, tuttavia, utilizziamo provider mappa del sito predefin
 
 [![Aggiungere una mappa del sito al progetto](master-pages-and-site-navigation-vb/_static/image22.png)](master-pages-and-site-navigation-vb/_static/image21.png)
 
-**Figura 9**: aggiungere una mappa del sito del progetto ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image23.png))
+**Figura 9**: aggiungere una mappa del sito a un progetto ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image23.png))
 
 
 Il file di mappa del sito è un file XML. Si noti che Visual Studio fornisce IntelliSense per la struttura della mappa del sito. Il file di mappa del sito deve avere il `<siteMap>` nodo come nodo radice, che deve contenere esattamente un `<siteMapNode>` elemento figlio. Il primo `<siteMapNode>` elemento quindi può contenere un numero arbitrario di discendente `<siteMapNode>` elementi.
@@ -162,9 +162,9 @@ Web.sitemap
 Mappa del sito definisce la struttura del sito Web, ovvero una gerarchia che descrive le varie sezioni del sito. Ogni `<siteMapNode>` elemento `Web.sitemap` rappresenta una sezione di struttura del sito.
 
 
-[![Mappa del sito rappresenta una struttura gerarchica](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
+[![Mappa del sito rappresenta una struttura per la navigazione gerarchica](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
 
-**Figura 10**: mappa del sito rappresenta una struttura gerarchica per la navigazione ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image26.png))
+**Figura 10**: mappa del sito rappresenta una struttura per la navigazione gerarchica ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image26.png))
 
 
 ASP.NET espone la struttura della mappa del sito tramite .NET Framework [SiteMap classe](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Questa classe ha un `CurrentNode` proprietà, che restituisce informazioni sulla sezione l'utente sta attualmente visitando; il `RootNode` proprietà restituisce la radice della mappa del sito (home page, in questo esempio). Sia il `CurrentNode` e `RootNode` restituiscono [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) istanze, che dispongono di proprietà come `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`e così via, che consentono di mappa del sito gerarchia.
@@ -245,7 +245,7 @@ La barra di navigazione Mostra la pagina corrente l'utente visita nella gerarchi
 
 ![La barra di navigazione viene visualizzata la pagina corrente e gerarchia della mappa i predecessori del sito](master-pages-and-site-navigation-vb/_static/image28.png)
 
-**Figura 12**: della barra di navigazione viene visualizzata la pagina corrente e i relativi predecessori nel sito di gerarchia della mappa
+**Figura 12**: della barra di navigazione viene visualizzata la pagina corrente e i predecessori nel sito di gerarchia della mappa
 
 
 ## <a name="step-5-adding-the-default-page-for-each-section"></a>Passaggio 5: Aggiunta della pagina predefinita per ogni sezione
@@ -275,12 +275,12 @@ Nell'esempio precedente Ripetitore è associato il `SiteMap` dati al controllo R
 Dopo aver creato il controllo Repeater, aprire il `Default.aspx` pagine in ciascuna delle cartelle, passare alla visualizzazione progettazione e trascinare il controllo utente in Esplora soluzioni nell'area di progettazione in cui si desidera che l'elenco delle esercitazioni.
 
 
-[![Il controllo utente è stato aggiunto a Default.aspx](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
+[![Il controllo utente è stato aggiunto a default. aspx](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
 
-**Nella figura 14**: il controllo utente è stato aggiunto alla `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image34.png))
+**Figura 14**: il controllo utente è stato aggiunto alla `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image34.png))
 
 
-[![Sono elencate le esercitazioni di Reporting di base](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
+[![Sono elencate le esercitazioni di Reporting base](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
 
 **Figura 15**: sono elencate esercitazioni di Reporting di base ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-site-navigation-vb/_static/image37.png))
 
@@ -302,18 +302,18 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [ASP.NET 2.0 Progettazione modelli](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
 - [Panoramica di spostamento sito ASP.NET](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [Analisi di ASP.NET 2.0 dell'esplorazione del sito](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Funzionalità di navigazione di ASP.NET 2.0 del sito](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
+- [Nuove funzionalità di navigazione di ASP.NET 2.0 del sito](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
 - [Informazioni sullo stato di visualizzazione ASP.NET](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
 - [Procedura: abilitare la traccia di una pagina ASP.NET](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
 - [Controlli utente ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Liz Shulok, Dennis Patterson e Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](creating-a-business-logic-layer-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-business-logic-layer-vb.md)

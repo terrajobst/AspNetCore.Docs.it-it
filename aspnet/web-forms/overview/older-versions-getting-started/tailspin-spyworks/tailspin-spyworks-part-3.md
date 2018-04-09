@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>Parte 3: Layout e i Menu categoria
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 3 viene illustrata l'aggiunta di layout e un menu di categoria.
 
 
-## <a id="_Toc260221669"></a>Aggiunta di un Layout e un Menu di categoria
+## <a id="_Toc260221669"></a>  Aggiunta di un Layout e un Menu di categoria
 
 In questa pagina master sito verrà aggiunto un elemento div per la colonna di sinistra che conterrà il menu di categoria di prodotto.
 
@@ -77,6 +77,6 @@ Consente di eseguire l'applicazione adesso.
 
 Si noti che verrà visualizzato il menu di categoria di prodotto e quando si posiziona su una delle voci di menu categoria, è possibile osservare i punti di collegamento elemento di menu a una pagina è ancora necessario implementare denominato ProductsList.aspx e che è stato compilato un argomento di stringa di query dinamica che contiene il  id della categoria.
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-2.md)
-[Successivo](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-2.md)
+> [Successivo](tailspin-spyworks-part-4.md)

@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>Modello degli asciugamani a caldo
 ====================
@@ -26,11 +26,11 @@ da [Mads Kristensen](https://github.com/madskristensen)
 > 
 > Scegliere la versione da scaricare:
 > 
-> [Modello MVC degli asciugamani frequente per Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
+> [Modello MVC per accesso frequente asciugamani per Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
-> [Modello MVC degli asciugamani frequente per Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> [Modello MVC per accesso frequente asciugamani per Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
+> 
+> 
 > Scelta degli asciugamani: Perché non si desidera utilizzare l'autenticazione SPA senza uno!
 
 
@@ -60,7 +60,7 @@ Scelta degli asciugamani compila in base alla struttura di ASP.NET MVC potente e
 
 - App\_avviare
 - Content
-- Controller
+- Controllers
 - Modelli
 - Script
 - Visualizzazioni
@@ -71,9 +71,9 @@ Scelta degli asciugamani compila in base alla struttura di ASP.NET MVC potente e
 - API Web ASP.NET
 - Ottimizzazione di ASP.NET Web - creazione di bundle e riduzione
 - [Breeze.js](http://Breezejs.com) -gestione di dati complessi
-- [Durandal.js](http://Durandaljs.com) -spostamento e la composizione di visualizzazione
-- [Knockout.js](http://Knockoutjs.com) -associazioni dati
-- [Require.js](http://requirejs.org) -modularità con AMD e ottimizzazione
+- [Durandal.js](http://Durandaljs.com) -navigazione e composizione della vista
+- [Knockout.js](http://Knockoutjs.com) -i data binding
+- [Require](http://requirejs.org) -modularità con AMD e ottimizzazione
 - [Toastr.js](http://jpapa.me/c7toastr) -messaggi popup
 - [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - applicazione di stili CSS affidabile
 
@@ -95,7 +95,7 @@ Iniziare semplicemente l'aggiunta di codice.
 2. Aggiungere visualizzazioni per il `App/views` cartella
 3. Aggiungere ViewModel per il `App/viewmodels` cartella
 4. Aggiungere codice HTML e Knockout associazioni di dati alle nuove visualizzazioni
-5. Aggiornare le route di navigazione in`shell.js`
+5. Aggiornare le route di navigazione in `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>Procedura dettagliata del codice HTML/JavaScript
 
@@ -105,7 +105,7 @@ cshtml è la route iniziale e visualizzazione per l'applicazione MVC. Contiene t
 
 [!code-cshtml[Main](hottowel-template/samples/sample2.cshtml)]
 
-### <a name="appmainjs"></a>App/Main.js
+### <a name="appmainjs"></a>App/main.js
 
 Il `main.js` file contiene il codice che verrà eseguito non appena viene caricata l'app. Si tratta in cui si desidera definire i percorsi di navigazione, impostare l'avvio delle viste e di eseguire qualsiasi programma di installazione o l'avvio, ad esempio priming i dati dell'applicazione.
 
@@ -125,7 +125,7 @@ Il `compose` binding per l'intestazione e piè di pagina sono codificati in asci
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
-### <a name="navhtml"></a>NAV.HTML
+### <a name="navhtml"></a>nav.html
 
 Il `nav.html` contiene i collegamenti di navigazione per l'autenticazione SPA. Si tratta di dove sia possibile posizionare la struttura di menu, ad esempio. Spesso si tratta di dati associati (tramite Knockout) per il `router` modulo per visualizzare la navigazione in cui è definito il `shell.js`. Knockout ricerca per l'associazione di dati degli attributi e associa questi il `shell` viewmodel per visualizzare gli itinerari di navigazione e per mostrare un progressbar (tramite Twitter Bootstrap) se il `router` modulo è impegnato passare da una vista a altra (vedere `router.isNavigating`).
 
@@ -135,7 +135,7 @@ Il `nav.html` contiene i collegamenti di navigazione per l'autenticazione SPA. S
 
 Queste viste contengono HTML per visualizzazioni personalizzate. Quando il `home` collegare il `nav` si fa clic sul menu della visualizzazione, il `home` vista verrà posizionata nell'area del contenuto del `shell` visualizzazione. Queste viste possono essere aumentate o sostituite con visualizzazioni personalizzate.
 
-### <a name="footerhtml"></a>Footer.HTML
+### <a name="footerhtml"></a>footer.html
 
 Il `footer.html` contiene codice HTML visualizzato nel piè di pagina, nella parte inferiore del `shell` visualizzazione.
 
@@ -143,7 +143,7 @@ Il `footer.html` contiene codice HTML visualizzato nel piè di pagina, nella par
 
 ViewModel presenti nel `App/viewmodels` cartella.
 
-### <a name="shelljs"></a>Shell.js
+### <a name="shelljs"></a>shell.js
 
 Il `shell` viewmodel contiene proprietà e funzioni che sono associate ai `shell` visualizzazione. Spesso si tratta in cui si trovano le associazioni di navigazione di menu (vedere il `router.mapNav` logica).
 

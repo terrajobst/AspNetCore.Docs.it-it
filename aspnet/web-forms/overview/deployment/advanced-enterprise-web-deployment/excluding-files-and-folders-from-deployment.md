@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 title: Esclusione di file e cartelle da distribuzione | Documenti Microsoft
 author: jrjlee
-description: "In questo argomento viene descritto come è possibile escludere file e cartelle da un pacchetto di distribuzione web quando si compila e un progetto di applicazione web del pacchetto."
+description: In questo argomento viene descritto come è possibile escludere file e cartelle da un pacchetto di distribuzione web quando si compila e un progetto di applicazione web del pacchetto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Esclusione dalla distribuzione di file e cartelle
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come è possibile escludere file e cartelle da un pacchetto di distribuzione web quando si compila e un progetto di applicazione web del pacchetto.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="overview"></a>Panoramica
 
@@ -74,7 +74,7 @@ Anche se è Impossibile modificare i file di progetto per escludere le cartelle 
 1. Creare un file di progetto personalizzato denominato *.wpp.targets [nome progetto]* nella stessa cartella del file di progetto.
 
     > [!NOTE]
-    > Il *. wpp.targets* file deve essere inserito nella stessa cartella del file di progetto applicazione web & #x 2014; ad esempio, *ContactManager.Mvc.csproj*& #x 2014; anziché nella stessa cartella file di progetto personalizzato utilizzati per il controllo della compilazione e il processo di distribuzione.
+    > Il *. wpp.targets* file deve essere inserito nella stessa cartella file di progetto applicazione web&#x2014;, ad esempio, *ContactManager.Mvc.csproj*&#x2014;anziché nella stessa cartella come qualsiasi personalizzato file di progetto utilizzati per controllare il processo di compilazione e distribuzione.
 2. Nel *. wpp.targets* file, aggiungere un **ItemGroup** elemento.
 3. Nel **ItemGroup** elemento, aggiungere **ExcludeFromPackageFolders** e **ExcludeFromPackageFiles** elementi da escludere specifici file e cartelle in base alle esigenze.
 
@@ -106,16 +106,16 @@ La procedura successiva viene illustrato come aggiungere un *. wpp.targets* file
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Se si desidera escludere le cartelle dal pacchetto web, aggiungere un **ExcludeFromPackageFolders** elemento per il **ItemGroup** elemento:
 
-    1. Nel **Include** attributo, fornire un elenco delimitato da punto e virgola delle cartelle che si desidera escludere.
-    2. Nel **FromTarget** elemento dei metadati, fornire un valore significativo per indicare perché le cartelle esclusi, come il nome e il *. wpp.targets* file.
+   1. Nel **Include** attributo, fornire un elenco delimitato da punto e virgola delle cartelle che si desidera escludere.
+   2. Nel **FromTarget** elemento dei metadati, fornire un valore significativo per indicare perché le cartelle esclusi, come il nome e il *. wpp.targets* file.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Se si desidera escludere i file dal pacchetto web, aggiungere un **ExcludeFromPackageFiles** elemento per il **ItemGroup** elemento:
 
-    1. Nel **Include** attributo, fornire un elenco delimitato da punto e virgola dei file che si desidera escludere.
-    2. Nel **FromTarget** elemento dei metadati, fornire un valore significativo per indicare perché i file esclusi, come il nome e il *. wpp.targets* file.
+   1. Nel **Include** attributo, fornire un elenco delimitato da punto e virgola dei file che si desidera escludere.
+   2. Nel **FromTarget** elemento dei metadati, fornire un valore significativo per indicare perché i file esclusi, come il nome e il *. wpp.targets* file.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. Il *.wpp.targets [nome progetto]* file dovrebbe ora essere simile alla seguente:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ In questo argomento viene descritto come escludere file e cartelle specifici qua
 
 Per ulteriori informazioni sull'utilizzo dei file di progetto di Microsoft Build Engine (MSBuild) personalizzati per controllare il processo di distribuzione, vedere [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) e [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Per ulteriori informazioni sulla creazione di pacchetti e processo di distribuzione, vedere [compilazione e creazione di pacchetti Web Application Projects](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [configurazione dei parametri per la distribuzione di pacchetto Web](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), e [ Distribuzione di pacchetti Web](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
->[!div class="step-by-step"]
-[Precedente](deploying-membership-databases-to-enterprise-environments.md)
-[Successivo](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-membership-databases-to-enterprise-environments.md)
+> [Successivo](taking-web-applications-offline-with-web-deploy.md)

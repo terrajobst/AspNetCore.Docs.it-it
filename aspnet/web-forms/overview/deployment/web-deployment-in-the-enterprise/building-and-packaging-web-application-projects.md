@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 title: Compilazione e l'assemblaggio di progetti di applicazione Web | Documenti Microsoft
 author: jrjlee
-description: "Quando si desidera distribuire un progetto di applicazione web in un ambiente server remoto, la prima attività consiste nel compilare il progetto per generare un packa distribuzione web..."
+description: Quando si desidera distribuire un progetto di applicazione web in un ambiente server remoto, la prima attività consiste nel compilare il progetto per generare un packa distribuzione web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: c05f725c9e6b493a6af8f5b5d20dbc9ff73a1ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d630e1776607bd0bd7c61e1f0f7234ef58c7533b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-and-packaging-web-application-projects"></a>Compilazione e l'assemblaggio di progetti di applicazione Web
 ====================
@@ -59,8 +59,8 @@ Questa destinazione utilizza il **MSBuild** attività per compilare progetti div
 Il **pacchetto** definita nella destinazione di *Microsoft.Web.Publishing.targets* file. In pratica, la destinazione accetta l'output di compilazione del progetto di applicazione web e lo trasforma in un pacchetto di distribuzione web che può essere pubblicato in un server web IIS.
 
 > [!NOTE]
-> Per visualizzare un file di progetto (ad esempio, *ContactManager.Mvc.csproj*) in Visual Studio 2010, è necessario prima scaricare il progetto dalla soluzione. Nel **Esplora** finestra, fare doppio clic sul nodo del progetto e quindi fare clic su **Scarica progetto**. Nuovo pulsante destro del mouse sul nodo del progetto e quindi fare clic su **modifica***[file di progetto]*). Il file di progetto verrà aperto in formato XML non elaborato. Ricordarsi di ricaricare il progetto, al termine.  
-> Per ulteriori informazioni sulle destinazioni di MSBuild, attività, e **importazione** istruzioni, vedere [informazioni sui File di progetto](understanding-the-project-file.md). Per un'introduzione più dettagliata a WPP e file di progetto, vedere [all'interno di Microsoft Build Engine: uso di MSBuild e Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi e William Bartholomew, ISBN: 978-0-7356-4524-0.
+> Per visualizzare un file di progetto (ad esempio, <em>ContactManager.Mvc.csproj</em>) in Visual Studio 2010, è necessario prima scaricare il progetto dalla soluzione. Nel <strong>Esplora</strong> finestra, fare doppio clic sul nodo del progetto e quindi fare clic su <strong>Scarica progetto</strong>. Nuovo pulsante destro del mouse sul nodo del progetto e quindi fare clic su <strong>modifica</strong><em>[file di progetto]</em>). Il file di progetto verrà aperto in formato XML non elaborato. Ricordarsi di ricaricare il progetto, al termine.  
+> Per ulteriori informazioni sulle destinazioni di MSBuild, attività, e <strong>importazione</strong> istruzioni, vedere [informazioni sui File di progetto](understanding-the-project-file.md). Per un'introduzione più dettagliata a WPP e file di progetto, vedere [all'interno di Microsoft Build Engine: uso di MSBuild e Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi e William Bartholomew, ISBN: 978-0-7356-4524-0.
 
 
 ## <a name="what-is-a-web-deployment-package"></a>Che cos'è un pacchetto di distribuzione Web?
@@ -104,6 +104,6 @@ Negli argomenti successivi di questa esercitazione, [configurazione dei parametr
 
 Per un'introduzione più dettagliata a WPP e file di progetto, vedere [all'interno di Microsoft Build Engine: uso di MSBuild e Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi e William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Precedente](understanding-the-build-process.md)
-[Successivo](configuring-parameters-for-web-package-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-the-build-process.md)
+> [Successivo](configuring-parameters-for-web-package-deployment.md)

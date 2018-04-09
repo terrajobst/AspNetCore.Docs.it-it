@@ -2,7 +2,7 @@
 uid: mvc/overview/security/preventing-open-redirection-attacks
 title: Prevenzione degli attacchi di reindirizzamento aprire (c#) | Documenti Microsoft
 author: jongalloway
-description: "In questa esercitazione viene illustrato come è possibile impedire gli attacchi di reindirizzamento aperti nelle applicazioni ASP.NET MVC. In questa esercitazione vengono illustrate le modifiche apportate..."
+description: In questa esercitazione viene illustrato come è possibile impedire gli attacchi di reindirizzamento aperti nelle applicazioni ASP.NET MVC. In questa esercitazione vengono illustrate le modifiche apportate...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Prevenzione degli attacchi di reindirizzamento aprire (c#)
 ====================
@@ -39,7 +39,7 @@ Nella schermata seguente, possiamo vedere che un tentativo di accedere alla visu
 
 **Figura 01**: pagina di accesso con un reindirizzamento aperto
 
-Poiché il parametro querystring ReturnUrl non viene convalidato, un utente malintenzionato può modificarlo per inserire tutti gli indirizzi URL nel parametro per eseguire un attacco di reindirizzamento aperto. Per illustrare questo comportamento, è possibile modificare il parametro ReturnUrl in [http://bing.com](http://bing.com), in modo che l'URL di accesso risultante sarà/Account/accesso? ReturnUrl = http://www.bing.com/. Seguito all'accesso al sito, si viene reindirizzati alla [http://bing.com](http://bing.com). Poiché il reindirizzamento non viene convalidato, potrebbe invece fare riferimento a un sito che è stato eseguito un tentativo di ingannare l'utente.
+Poiché il parametro querystring ReturnUrl non viene convalidato, un utente malintenzionato può modificarlo per inserire tutti gli indirizzi URL nel parametro per eseguire un attacco di reindirizzamento aperto. Per dimostrare questo concetto, che potremo modificare il parametro ReturnUrl [ http://bing.com ](http://bing.com), pertanto l'URL di account di accesso risultante sarà/Account/accesso? ReturnUrl =<http://www.bing.com/>. Al momento è stato effettuato l'accesso al sito, è in corso reindirizzati alla [ http://bing.com ](http://bing.com). Poiché il reindirizzamento non viene convalidato, potrebbe invece fare riferimento a un sito che è stato eseguito un tentativo di ingannare l'utente.
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Un attacco di reindirizzamento aprire più complessi
 
@@ -53,13 +53,13 @@ Si noti che l'URL restituito punta a nerddiner.com, che non contiene una "n" da 
 
 [![](preventing-open-redirection-attacks/_static/image4.png)](preventing-open-redirection-attacks/_static/image3.png)
 
-**Figura 02**: NerdDinner pagina di accesso con un reindirizzamento aperto
+**Figura 02**: pagina di accesso NerdDinner con un reindirizzamento aperto
 
-Quando verrà eseguito correttamente l'accesso, azione di accesso del AccountController di MVC ASP.NET ci reindirizza all'URL specificato nel parametro querystring returnUrl. In questo caso, è l'URL che ha immesso l'autore dell'attacco, ovvero [http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn). A meno che non si è estremamente consentono, che è molto probabile che è non sarà possibile notare, soprattutto perché l'autore dell'attacco è stato attenzione per assicurarsi che le pagine manomesse aspetto esattamente la pagina di accesso legittimo. Questa pagina di accesso include un messaggio di errore che richiede che è nuovo l'accesso. Ingombranti, è necessario avere digitato correttamente la password.
+Quando verrà eseguito correttamente l'accesso, azione di accesso del AccountController di MVC ASP.NET ci reindirizza all'URL specificato nel parametro querystring returnUrl. In questo caso, è l'URL che ha immesso l'autore dell'attacco, ovvero [ http://nerddiner.com/Account/LogOn ](http://nerddiner.com/Account/LogOn). A meno che non si è estremamente consentono, che è molto probabile che è non sarà possibile notare, soprattutto perché l'autore dell'attacco è stato attenzione per assicurarsi che le pagine manomesse aspetto esattamente la pagina di accesso legittimo. Questa pagina di accesso include un messaggio di errore che richiede che è nuovo l'accesso. Ingombranti, è necessario avere digitato correttamente la password.
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
-**Figura 03**: schermata di accesso di NerdDinner contraffatte
+**Figura 03**: schermata di accesso NerdDinner contraffatte
 
 Quando si ridigitare il nome utente e password, la pagina di accesso contraffatta Salva le informazioni e ci è stata inviata al sito NerdDinner.com legittimo. A questo punto, il sito NerdDinner.com è già autenticato, in modo possibile reindirizzare la pagina di accesso contraffatta direttamente a tale pagina. Il risultato finale è che l'utente malintenzionato ha il nome utente e password e siamo consapevoli che è stato fornito ad essi.
 
@@ -67,13 +67,13 @@ Quando si ridigitare il nome utente e password, la pagina di accesso contraffatt
 
 Il codice per l'azione di accesso in un'applicazione ASP.NET MVC 2 è illustrato di seguito. Si noti che al momento di un account di accesso ha esito positivo, il controller restituisca un reindirizzamento per l'elemento returnUrl. Si noterà che non viene eseguita alcuna convalida rispetto al parametro returnUrl.
 
-**1: azione di accesso di ASP.NET MVC 2 nell'elenco`AccountController.cs`**
+**Elenco 1 – azione ASP.NET MVC 2 accesso `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
 Ora esaminiamo le modifiche all'azione di accesso di ASP.NET MVC 3. Questo codice è stato modificato per convalidare il parametro returnUrl chiamando un nuovo metodo nella classe helper System.Web.Mvc.Url denominata `IsLocalUrl()`.
 
-**2: azione di ASP.NET MVC 3 accesso nell'elenco`AccountController.cs`**
+**2: azione di ASP.NET MVC 3 accesso nell'elenco `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
@@ -85,39 +85,39 @@ Questo è stato modificato per convalidare il parametro dell'URL restituito chia
 
 Il metodo UrlHelper IsLocalUrl() semplicemente la chiamata in un metodo in System.Web.WebPages, come la convalida viene utilizzato anche dalle applicazioni ASP.NET Web Pages.
 
-**Elenco di 3: il metodo IsLocalUrl() il UrlHelper 3 MVC ASP.NET`class`**
+**Elenco di 3: il metodo IsLocalUrl() il UrlHelper 3 MVC ASP.NET `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
 Il metodo IsUrlLocalToHost contiene la logica di convalida effettiva, come illustrato nel listato 4.
 
-**Elenco di 4-metodo IsUrlLocalToHost() dalla classe System.Web.WebPages RequestExtensions**
+**Listato 4-metodo IsUrlLocalToHost() dalla classe System.Web.WebPages RequestExtensions**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample4.cs)]
 
 La versione 1.0 di ASP.NET MVC o dell'applicazione 2, verrà aggiunto un metodo IsLocalUrl() per il AccountController, ma si consiglia di aggiungerlo a una classe di supporto separato, se possibile. Si renderà due piccole modifiche alla versione ASP.NET MVC 3 di IsLocalUrl() in modo che funzioni all'interno di AccountController. Prima di tutto, verranno modificate, da un metodo pubblico a un metodo privato, poiché i metodi pubblici nel controller accessibile come azioni del controller. In secondo luogo, verrà modificata la chiamata che controlla l'host dell'URL con l'applicazione host. Che chiamata viene utilizzato un RequestContext locale campo nella classe UrlHelper. Anziché. RequestContext.HttpContext.Request.Url.Host, questa tabella verrà usata. Request.Url.Host. Il codice seguente è illustrato il metodo di IsLocalUrl() modificato per l'utilizzo con una classe controller in ASP.NET MVC 1.0 e 2 applicazioni.
 
-**Elenco di 5-metodo IsLocalUrl(), che viene modificato per l'utilizzo con una classe Controller MVC**
+**Nel listato 5 – IsLocalUrl() (metodo), che viene modificato per l'utilizzo con una classe Controller MVC**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample5.cs)]
 
 Ora che il metodo IsLocalUrl() è sul posto, è possibile chiamarlo dall'azione di accesso per convalidare il parametro returnUrl, come illustrato nel codice seguente.
 
-**Elenco di 6: metodo di accesso aggiornate che convalida il parametro returnUrl**
+**Elenco 6: metodo di accesso aggiornate che convalida il parametro returnUrl**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-È ora possibile testare un attacco di reindirizzamento aprire tentando di accedere con un URL esterno restituito. Consente di usare Account/accesso? ReturnUrl = http://www.bing.com/ nuovamente.
+È ora possibile testare un attacco di reindirizzamento aprire tentando di accedere con un URL esterno restituito. Consente di usare il /Account/LogOn? ReturnUrl =<http://www.bing.com/> nuovamente.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 
-**Figura 04**: l'azione di accesso aggiornate di test
+**Figura 04**: verifica l'azione di accesso aggiornate
 
 Dopo aver completato l'accesso, si viene reindirizzati di azione del Controller Home/Index anziché l'URL esterno.
 
 [![](preventing-open-redirection-attacks/_static/image10.png)](preventing-open-redirection-attacks/_static/image9.png)
 
-**Figura 05**: attacco reindirizzamento aprire annullato
+**Figura 05**: attacco reindirizzamento Open annullato
 
 ## <a name="summary"></a>Riepilogo
 

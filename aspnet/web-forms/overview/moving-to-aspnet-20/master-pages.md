@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
 title: Pagine master | Documenti Microsoft
 author: microsoft
-description: "Uno dei componenti principali di un sito Web ha esito positivo è un aspetto coerente. In ASP.NET 1. x, gli sviluppatori di usare controlli utente per replicare comuni elem. di pagina..."
+description: Uno dei componenti principali di un sito Web ha esito positivo è un aspetto coerente. In ASP.NET 1. x, gli sviluppatori di usare controlli utente per replicare comuni elem. di pagina...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: bd9effd4b73a014d4d7bb825b382b8db34d636f1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f45dd9704f665244d2a48ec000326f6e98984e4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages"></a>Pagine master
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Uno dei componenti principali di un sito Web ha esito positivo è un aspetto coerente. In ASP.NET 1. x, gli sviluppatori di controlli utente utilizzavano per replicare i comuni elementi della pagina in un'applicazione Web. Mentre è certamente una soluzione pratica, l'uso di controlli utente presenta alcuni svantaggi. Ad esempio, una modifica della posizione di un controllo utente richiede una modifica a più pagine in un sito. Controlli utente non viene eseguiti anche nella visualizzazione Progettazione dopo l'inserimento in una pagina.
 
@@ -74,7 +74,7 @@ Per creare una nuova pagina master:
 **Figura 2**: creazione di una nuova pagina Master
 
 
-Si noti che l'estensione di file per una pagina master è *master*. Questo è uno dei modi che una pagina master è diverso da una pagina normale. La principale differenza è che anziché un @Page direttiva, la pagina master contiene un @Master direttiva. Passare alla visualizzazione origine per il master per la pagina appena creato, esaminare il codice.
+Si noti che l'estensione di file per una pagina master è <em>master</em>. Questo è uno dei modi che una pagina master è diverso da una pagina normale. La principale differenza è che anziché un @Page direttiva, la pagina master contiene un @Master direttiva. Passare alla visualizzazione origine per il master per la pagina appena creato, esaminare il codice.
 
 Per impostazione predefinita, una nuova pagina master sarà necessario un controllo ContentPlaceHolder. Nella maggior parte dei casi, preferibile per creare gli elementi comuni di pagina prima e quindi inserire i controlli ContentPlaceHolder in cui si desidera contenuto personalizzato. In questi casi, gli sviluppatori dovranno eliminare il controllo ContentPlaceHolder predefinito e inserire nuovi record, come la pagina è stata sviluppata. Controlli ContentPlaceHolder non sono ridimensionabili nonostante il fatto che visualizzano quadratini di ridimensionamento. Le dimensioni del controllo ContentPlaceHolder automaticamente in base al contenuto contenente con un'eccezione; Se si inserisce un controllo ContentPlaceHolder all'interno di un elemento di blocco, ad esempio una cella della tabella, verrà ridimensionato in base alle dimensioni dell'elemento.
 
@@ -135,19 +135,19 @@ La nuova pagina di contenuto viene visualizzato in Visual Studio con un controll
 
 ![Impostazione di un controllo contenuto sul valore predefinito per il contenuto di pagine Master](master-pages/_static/image4.gif)
 
-**Figura 7**: impostazione di un controllo contenuto per impostazione predefinita per il contenuto di pagine Master
+**Figura 7**: impostazione di un controllo contenuto sul valore predefinito per il contenuto di pagine Master
 
 
 ## <a name="connecting-master-page-and-content-pages"></a>Connessione pagina Master e pagine di contenuto
 
 L'associazione tra una pagina master e di una pagina di contenuto può essere configurata in uno dei quattro modi diversi:
 
-- Il **MasterPageFile** attributo del @Page (direttiva)
+- Il <strong>MasterPageFile</strong> attributo del @Page (direttiva)
 - L'impostazione di **Page.MasterPageFile** proprietà nel codice.
-- Il  **&lt;pagine&gt;**  elemento nel file di configurazione dell'applicazione (Web. config nella cartella radice dell'applicazione)
-- Il  **&lt;pagine&gt;**  elemento in un file di configurazione (Web. config in una sottocartella) le sottocartelle
+- Il **&lt;pagine&gt;** elemento nel file di configurazione dell'applicazione (Web. config nella cartella radice dell'applicazione)
+- Il **&lt;pagine&gt;** elemento in un file di configurazione (Web. config in una sottocartella) le sottocartelle
 
-## <a name="masterpagefile-attribute"></a>Attributo MasterPageFile
+## <a name="masterpagefile-attribute"></a>MasterPageFile Attribute
 
 L'attributo MasterPageFile rende più facile applicare una pagina master per una determinata pagina ASP.NET. È anche il metodo utilizzato per applicare la pagina master quando si archivia il **Seleziona pagina Master** dopo averla selezionata come nell'esercizio 1.
 
@@ -157,7 +157,7 @@ Impostando la proprietà MasterPageFile nel codice, è possibile applicare una p
 
 ## <a name="using-the-ltpagesgt-element"></a>Utilizzo di &lt;pagine&gt; elemento
 
-È possibile configurare una pagina master per le pagine impostando l'attributo masterPageFile &lt;pagine&gt; elemento del file Web. config. Quando si utilizza questo metodo, tenere presente che il file Web. config nella struttura dell'applicazione è possono sostituire questa impostazione. Qualsiasi set di attributi MasterPageFile un @Page direttiva sostituiranno anche questa impostazione. Utilizzo di &lt;pagine&gt; elemento rende più semplice per creare un *master* pagina master che può essere sottoposto a override se necessario in determinate cartelle o file.
+È possibile configurare una pagina master per le pagine impostando l'attributo masterPageFile &lt;pagine&gt; elemento del file Web. config. Quando si utilizza questo metodo, tenere presente che il file Web. config nella struttura dell'applicazione è possono sostituire questa impostazione. Qualsiasi set di attributi MasterPageFile un @Page direttiva sostituiranno anche questa impostazione. Utilizzo di &lt;pagine&gt; elemento rende più semplice per creare un <em>master</em> pagina master che può essere sottoposto a override se necessario in determinate cartelle o file.
 
 ## <a name="properties-in-master-pages"></a>Proprietà nelle pagine Master
 
@@ -193,7 +193,7 @@ Questo video illustra una procedura dettagliata dell'utilizzo di pagine master a
 ![](master-pages/_static/image1.png)
 
 
-[Aprire Video a schermo intero](master-pages/_static/nested1.wmv)
+[Aprirlo Video a schermo intero](master-pages/_static/nested1.wmv)
 
 
 ![Selezione di una pagina Master](master-pages/_static/image4.jpg)

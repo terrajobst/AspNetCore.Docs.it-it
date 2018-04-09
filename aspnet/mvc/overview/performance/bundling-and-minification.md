@@ -2,7 +2,7 @@
 uid: mvc/overview/performance/bundling-and-minification
 title: Bundling and Minification | Documenti Microsoft
 author: Rick-Anderson
-description: "Creazione di bundle e minimizzazione sono due tecniche è possibile utilizzare in ASP.NET 4.5 per migliorare il tempo di caricamento richiesta. Come aggregare e minimizzazione migliora i tempi di caricamento di reducin..."
+description: Creazione di bundle e minimizzazione sono due tecniche è possibile utilizzare in ASP.NET 4.5 per migliorare il tempo di caricamento richiesta. Come aggregare e minimizzazione migliora i tempi di caricamento di reducin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>Bundling and Minification
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Creazione di bundle e minimizzazione sono due tecniche è possibile utilizzare in ASP.NET 4.5 per migliorare il tempo di caricamento richiesta. Come aggregare e minimizzazione migliora il tempo di carico riducendo il numero di richieste al server e riduzione delle dimensioni di un asset richiesti (ad esempio CSS e JavaScript).
 
@@ -98,7 +98,7 @@ Per abilitare l'aggregazione e riduzione, impostare il `debug` valore su "false"
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> A meno che non `EnableOptimizations` è `true` o l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file è impostato su `false`, i file non verranno inseriti o minimizzare. Inoltre, non verrà utilizzata la versione .min dei file, verranno selezionate le versioni di debug complete. `EnableOptimizations`sostituisce l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file
+> A meno che non `EnableOptimizations` è `true` o l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file è impostato su `false`, i file non verranno inseriti o minimizzare. Inoltre, non verrà utilizzata la versione .min dei file, verranno selezionate le versioni di debug complete. `EnableOptimizations` sostituisce l'attributo di debug nel [elemento compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) nel *Web. config* file
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Utilizzando Bundling and Minification con Web Form ASP.NET e pagine Web
@@ -168,7 +168,7 @@ Si consideri un progetto con i seguenti file JavaScript:
 
 La tabella seguente illustra i file aggiunti a un bundle utilizzando il carattere jolly come illustrato:
 
-| **Call** | **Aggiungere file o eccezione** |
+| **Call** | **Eccezione generata o i file aggiunti** |
 | --- | --- |
 | Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Eccezione di modello non valido. Il carattere jolly è consentito solo nel prefisso o suffisso. |
@@ -186,7 +186,7 @@ Aggiunta di ogni file in modo esplicito a un bundle è generalmente preferite tr
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- Il selettore con caratteri jolly "\*CSS" porta in ogni file CSS nella cartella, inclusi il *Content\themes\base\jquery.ui.all.css* file. Il *jquery.ui.all.css* file Importa altri file CSS.
+  Il selettore con caratteri jolly "\*CSS" porta in ogni file CSS nella cartella, inclusi il *Content\themes\base\jquery.ui.all.css* file. Il *jquery.ui.all.css* file Importa altri file CSS.
 
 ## <a name="bundle-caching"></a>Aggregare la memorizzazione nella cache
 
@@ -233,15 +233,15 @@ Bundle devono essere partizionati dalle pagine di cui sono necessari. Ad esempio
 
 Il `System.Web.Optimization` dello spazio dei nomi viene implementato in System.Web.Optimization.DLL. Sfrutta la libreria WebGrease (WebGrease.dll) per le funzionalità di riduzione, che a sua volta utilizza Antlr3.Runtime.dll.
 
-*Uso Twitter rendere rapido post e condividere i collegamenti. L'handle Twitter*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*È possibile utilizzare Twitter rendere rapido post e condividere i collegamenti. Handle Twitter è*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - Video:[Bundling and ottimizzazione](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) da [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Aggiunta di ottimizzazione Web a un sito Web Pages](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
 - [Aggiunta Bundling and Minification per Web Form](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Implicazioni sulle prestazioni di Bundling and Minification nel browser Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) da [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [Usando le reti CDN e scade per migliorare le prestazioni del sito Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) di Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Implicazioni sulle prestazioni di Bundling and Minification nel browser Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) da [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Usando le reti CDN e scade per migliorare le prestazioni del sito Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) di Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Ridurre al minimo RTT (tempi di round trip)](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Contributors

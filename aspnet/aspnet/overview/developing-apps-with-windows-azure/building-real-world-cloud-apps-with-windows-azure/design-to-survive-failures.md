@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 title: Progettazione di sopravvivenza errori (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Progettazione di sopravvivenza errori (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -107,7 +107,7 @@ Alcuni servizi cloud deliberatamente potrebbero negare i servizi se eccessiva Us
 In questo capitolo ha tentato di comprendere perché un'applicazione cloud reale è necessario progettare sopravvivenza normalmente gli errori. A partire dal [capitolo successivo](monitoring-and-telemetry.md), i modelli rimanenti di questa serie passare informazioni più dettagliate su alcune strategie che è possibile utilizzare a tale scopo:
 
 - Avere una buona [monitoraggio e telemetria](monitoring-and-telemetry.md), in modo che scoprire rapidamente gli errori che richiedono un intervento e si dispone di informazioni sufficienti per risolverli.
-- [Gestire gli errori temporanei](transient-fault-handling.md) implementando la logica di retry intelligenti, in modo che l'app consente di recuperare automaticamente quando possibile e tenti di [interruttore](transient-fault-handling.md#circuitbreakers) logica quando non è possibile.
+- [Gestire gli errori temporanei](transient-fault-handling.md) implementando la logica di retry intelligenti, in modo che l'app viene recuperato automaticamente quando possibile e torna a [interruttore](transient-fault-handling.md#circuitbreakers) in tal caso la logica.
 - Utilizzare [cache distribuita](distributed-caching.md) per ridurre al minimo i problemi di velocità effettiva, latenza e la connessione con accesso al database.
 - Implementare separati accoppiamento tramite il [basate su coda di lavoro modello](queue-centric-work-pattern.md), in modo che il front-end app è possibile continuare a lavorare quando back-end è inattivo.
 
@@ -118,19 +118,19 @@ Per ulteriori informazioni, vedere capitoli più avanti in questo e-book e le ri
 Documentazione:
 
 - [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud di Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
 - [Informazioni tecniche sulla continuità aziendale di Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). White paper Patrick Wickline, Jason Roth.
 - [Ripristino di emergenza e disponibilità elevata per applicazioni Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). White paper Michael McKeown Hanu Kommalapati, e Jason Roth.
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere la Guida di distribuzione con più Data Center, modello di interruttore.
-- [Supporto tecnico di Azure - contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
+- [Supporto di Azure - contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 - [Continuità aziendale nel Database SQL di Azure](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Documentazione sulle funzionalità Ripristino emergenza e disponibilità elevata del Database SQL.
-- [Disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
+- [La disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Video
 
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Episodi 1 e 8 entrano in modo approfondito nei motivi per la progettazione di applicazioni basate su cloud vengano conservate con errori. Vedere anche la discussione della limitazione delle richieste in episodio 2 iniziando 49:57, la discussione sulle modalità di errore in episodio 2 iniziando 56:05 e punti di errore e la descrizione del circuito breaker nell'episodio 3 iniziando 40:55 follow-up.
-- [Compilazione Big: Apprese dai clienti di Azure - parte II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms comunica sulla progettazione per errore e la strumentazione di tutti gli elementi. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Episodi 1 e 8 entrano in modo approfondito nei motivi per la progettazione di applicazioni basate su cloud vengano conservate con errori. Vedere anche la discussione della limitazione delle richieste in episodio 2 iniziando 49:57, la discussione sulle modalità di errore in episodio 2 iniziando 56:05 e punti di errore e la descrizione del circuito breaker nell'episodio 3 iniziando 40:55 follow-up.
+- [Compilazione Big: Insegnamenti appresi ai clienti di Azure - parte II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms comunica sulla progettazione per errore e la strumentazione di tutti gli elementi. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
 
->[!div class="step-by-step"]
-[Precedente](unstructured-blob-storage.md)
-[Successivo](monitoring-and-telemetry.md)
+> [!div class="step-by-step"]
+> [Precedente](unstructured-blob-storage.md)
+> [Successivo](monitoring-and-telemetry.md)

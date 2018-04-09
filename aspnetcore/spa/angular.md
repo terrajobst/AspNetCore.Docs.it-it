@@ -1,5 +1,5 @@
 ---
-title: Utilizzare il modello di progetto Angular
+title: Utilizzare il modello di progetto Angular con ASP.NET Core
 author: SteveSandersonMS
 description: Informazioni su come iniziare con il modello di progetto ASP.NET Core singolo pagina applicazione (SPA) per angolare e CLI angolare.
 manager: wpickett
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-angular-project-template"></a>Utilizzare il modello di progetto Angular
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>Utilizzare il modello di progetto Angular con ASP.NET Core
 
 > [!NOTE]
 > Questa documentazione non è incluso sul modello di progetto angolare in ASP.NET 2.0 Core. È sul modello di angolare più recente a cui è possibile aggiornare manualmente. Per impostazione predefinita, il modello è incluso in ASP.NET Core 2.1.
@@ -39,14 +39,12 @@ cd my-new-app
 
 Eseguire l'app da Visual Studio o l'interfaccia CLI di .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Aprire generato *csproj* file ed eseguire l'app come al solito da qui.
 
 Il processo di compilazione consente di ripristinare le dipendenze di npm alla prima esecuzione, che può richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
-
+#### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con un valore di `Development`. In Windows (in istruzioni non PowerShell), eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS, eseguire `export ASPNETCORE_Environment=Development`.
 
 Eseguire [compilazione dotnet](/dotnet/core/tools/dotnet-build) di verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
@@ -59,10 +57,9 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app viene avviata un'istanza del server CLI angolare in background. Viene registrato un messaggio simile al seguente: *NG in tempo reale del Server di sviluppo è in ascolto su localhost:&lt;otherport&gt;, aprire il browser in http://localhost:&lt;otherport&gt; /* . Ignorare questo messaggio&mdash;ha **non** l'URL per l'applicazione ASP.NET Core e CLI angolare combinato.
+L'app viene avviata un'istanza del server CLI angolare in background. Viene registrato un messaggio simile al seguente: <em>NG in tempo reale il Server di sviluppo è in ascolto su localhost:&lt;otherport&gt;, aprire il browser sul http://localhost: &lt;otherport&gt; /</em> . Ignorare questo messaggio&mdash;ha <strong>non</strong> l'URL per l'applicazione ASP.NET Core e CLI angolare combinato.
 
----
-
+* * *
 Il modello di progetto crea un'applicazione ASP.NET Core e un'app angolare. L'applicazione ASP.NET di base deve essere utilizzato per l'accesso ai dati, l'autorizzazione e altri problemi sul lato server. L'app angolare, che si trovano nel *ClientApp* sottodirectory, dovrà essere utilizzato per tutti i problemi dell'interfaccia utente.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
@@ -83,7 +80,7 @@ Se si dispone di `ng` strumento installato globalmente, è possibile eseguire i 
 
 Se non si dispone di `ng` strumento installato, eseguire `npm run ng` invece. Ad esempio, è possibile eseguire `npm run ng lint` o `npm run ng test`.
 
-## <a name="install-npm-packages"></a>Installare pacchetti npm
+## <a name="install-npm-packages"></a>Installa nuovi pacchetti npm
 
 Per installare i pacchetti di terze parti npm, utilizzare un prompt dei comandi nel *ClientApp* sottodirectory. Ad esempio:
 
@@ -185,7 +182,7 @@ Il `SupplyData` consente di callback di passare arbitrario, per ogni richiesta, 
 
 ### <a name="drawbacks-of-ssr"></a>Svantaggi di SSR
 
-Non tutte le app trarre vantaggio da SSR. Il vantaggio principale viene percepito delle prestazioni. Visitatori raggiungere l'app tramite una connessione di rete lenta o nei dispositivi mobili lenta vedere interfaccia utente iniziale rapidamente, anche se occorre un po' di tempo per recuperare o analizzare i bundle di JavaScript. Tuttavia, molti stabilimenti termali sono usate principalmente su reti aziendali interne, veloce nei computer veloci in cui l'app viene visualizzata quasi istantaneamente.
+Non tutte le app trarre vantaggio da SSR. Il vantaggio principale viene percepito delle prestazioni. Visitatori raggiungere l'app tramite una connessione di rete lenta o nei dispositivi mobili lenta vedere interfaccia utente iniziale rapidamente, anche se occorre un po' di tempo per recuperare o analizzare i bundle di JavaScript. Tuttavia, molti SPAs sono usata principalmente su reti aziendali interne, veloce nei computer veloci in cui l'app viene visualizzata quasi istantaneamente.
 
 Allo stesso tempo, esistono alcune limitazioni significative all'abilitazione SSR. Il processo di sviluppo aumenta la complessità. Il codice deve essere eseguito in due diversi ambienti: lato client e lato server (in un ambiente di Node.js richiamato da ASP.NET Core). Di seguito sono illustrati alcuni aspetti da tenere presente:
 

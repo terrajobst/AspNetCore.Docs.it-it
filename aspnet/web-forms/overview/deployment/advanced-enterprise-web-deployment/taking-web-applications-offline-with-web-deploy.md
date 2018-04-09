@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 title: Acquisire le applicazioni Web non in linea con Web distribuire | Documenti Microsoft
 author: jrjlee
-description: "In questo argomento viene descritto come eseguire un'applicazione web in modalità offline per tutta la durata della distribuzione automatica usando l'Avvis Web Internet Information Services (IIS)..."
+description: In questo argomento viene descritto come eseguire un'applicazione web in modalità offline per tutta la durata della distribuzione automatica usando l'Avvis Web Internet Information Services (IIS)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Creazione di applicazioni Web Offline con Web distribuire
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come eseguire un'applicazione web in modalità offline per tutta la durata della distribuzione automatica tramite lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web). Gli utenti che esplorano all'applicazione web vengono reindirizzati a un *App\_offline.htm* file fino al completamento della distribuzione.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -94,7 +94,7 @@ Per automatizzare questi comandi come parte di un processo di compilazione e dis
 2. Nella radice **progetto** elemento, creare un nuovo **PropertyGroup** elemento da archiviare le variabili per il *App\_offline* distribuzione:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. Il **SourceRoot** proprietà definita altrove nel *Publish.proj* file. Indica il percorso della cartella radice per il relativo il percorso corrente & #x 2014; in altre parole, relativo alla posizione del contenuto di origine di *Publish.proj* file.
+3. Il **SourceRoot** proprietà definita altrove nel *Publish.proj* file. Indica il percorso della cartella radice per il contenuto di origine relativo al percorso corrente&#x2014;in altre parole, relativo al percorso del *Publish.proj* file.
 4. Il **contentPath** provider non accetterà i percorsi di file relativo, pertanto è necessario ottenere un percorso assoluto al file di origine prima di poterla distribuire. È possibile utilizzare il [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) attività per eseguire questa operazione.
 5. Aggiungere un nuovo **destinazione** elemento denominato **GetAppOfflineAbsolutePath**. All'interno di questa destinazione, utilizzare il **ConvertToAbsolutePath** attività per ottenere un percorso assoluto per il *App\_offline modello* file nella cartella del progetto.
 
@@ -116,7 +116,7 @@ Quando si esegue il file di progetto MSBuild personalizzata, il *App\_offline* f
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Aggiunta di un'App\_File Offline ai pacchetti di distribuzione
 
-A seconda della modalità di configurazione della distribuzione, qualsiasi contenuto esistente di un'applicazione web IIS di destinazione & #x 2014; ad esempio il *App\_offline.htm* #x 2014; & file potrebbero essere eliminati automaticamente quando si distribuisce un sito web pacchetto per la destinazione. Per garantire che il *App\_offline.htm* file rimane attivo per la durata della distribuzione, è necessario includere il file all'interno del pacchetto di distribuzione web stesso inoltre per il file direttamente all'inizio della distribuzione il processo di distribuzione.
+A seconda di come si configura la distribuzione, qualsiasi il contenuto esistente nella destinazione IIS applicazione web&#x2014;, ad esempio il *App\_offline.htm* file&#x2014;potrebbero essere eliminati automaticamente quando si distribuisce un sito web pacchetto di destinazione. Per garantire che il *App\_offline.htm* file rimane attivo per la durata della distribuzione, è necessario includere il file all'interno del pacchetto di distribuzione web stesso inoltre per il file direttamente all'inizio della distribuzione il processo di distribuzione.
 
 - Se è stato seguito le attività precedenti in questo argomento, verranno aggiunti il *App\_offline.htm* file al progetto di applicazione web in un nome file diverso (utilizzassimo *App\_ non in linea di Microsoft Dynamics*) e verrà installata l'operazione di compilazione **Nessuno**. Queste modifiche sono necessari per evitare che il file da interferenze con lo sviluppo e debug. Di conseguenza, è necessario personalizzare il processo di creazione di pacchetti per assicurarsi che il *App\_offline.htm* file è incluso nel pacchetto di distribuzione web.
 
@@ -125,7 +125,7 @@ La Pipeline di pubblicazione sul Web (WPP) usa un elenco di elementi denominato 
 1. Creare un file di progetto personalizzato denominato *.wpp.targets [nome progetto]* nella stessa cartella del file di progetto.
 
     > [!NOTE]
-    > Il *. wpp.targets* file deve essere inserito nella stessa cartella del file di progetto applicazione web & #x 2014; ad esempio, *ContactManager.Mvc.csproj*& #x 2014; anziché nella stessa cartella file di progetto personalizzato utilizzati per il controllo della compilazione e il processo di distribuzione.
+    > Il *. wpp.targets* file deve essere inserito nella stessa cartella file di progetto applicazione web&#x2014;, ad esempio, *ContactManager.Mvc.csproj*&#x2014;anziché nella stessa cartella come qualsiasi personalizzato file di progetto utilizzati per controllare il processo di compilazione e distribuzione.
 2. Nel *. wpp.targets* file, creare una nuova destinazione di MSBuild che esegue *prima* il **CopyAllFilesToSingleFolderForPackage** destinazione. Questa è la destinazione del sito che compila un elenco di elementi da includere nel pacchetto.
 3. Nella nuova destinazione, creare un **ItemGroup** elemento.
 4. Nel **ItemGroup** elemento, aggiungere un **FilesForPackagingFromProject** elemento e specificare il *App\_offline.htm* file.
@@ -175,6 +175,6 @@ Per ulteriori informazioni sulla creazione di pacchetti e processo di distribuzi
 
 Se la pubblicazione di applicazioni web direttamente da Visual Studio, piuttosto che utilizza l'approccio di file progetto MSBuild personalizzato descritto in queste esercitazioni, è necessario utilizzare un approccio leggermente diverso per portare l'applicazione durante la pubblicazione processo. Per ulteriori informazioni, vedere [come portare offline l'app web durante la pubblicazione](https://go.microsoft.com/?linkid=9805135) (post di blog).
 
->[!div class="step-by-step"]
-[Precedente](excluding-files-and-folders-from-deployment.md)
-[Successivo](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Precedente](excluding-files-and-folders-from-deployment.md)
+> [Successivo](running-windows-powershell-scripts-from-msbuild-project-files.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-error-handling"></a>Gestione degli errori ASP.NET
 ====================
@@ -104,7 +104,7 @@ Nel codice precedente, il blocco try contiene il codice che deve essere protetto
 Prima di aggiungere all'applicazione di esempio Wingtip Toys di gestione degli errori, si verrà aggiunto il supporto di registrazione degli errori tramite l'aggiunta di un `ExceptionUtility` classe per il *logica* cartella. In questo modo, ogni volta che l'applicazione gestisce un errore, i dettagli dell'errore verranno aggiunto nel file di log degli errori.
 
 1. Fare doppio clic su di *logica* cartella e quindi selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare il **Visual c#**  - &gt; **codice** gruppo di modelli a sinistra. Selezionare quindi **classe**dal centro elenco e denominarlo **ExceptionUtility.cs**.
 3. Scegliere **Aggiungi**. Viene visualizzato il nuovo file di classe.
 4. Sostituire il codice esistente con quello seguente:  
@@ -118,7 +118,7 @@ Quando si verifica un'eccezione, l'eccezione può essere scritto in un file di l
 Nell'applicazione di esempio Wingtip Toys, una pagina da utilizzare per visualizzare gli errori. La pagina di errore è progettata per visualizzare un messaggio di errore sicuro agli utenti del sito. Tuttavia, se l'utente è uno sviluppatore effettua una richiesta HTTP che viene gestita in locale nel computer in cui si trova il codice, dettagli aggiuntivi sull'errore verrà visualizzato nella pagina di errore.
 
 1. Fare doppio clic sul nome del progetto (**Wingtip Toys**) in **Esplora** e selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare il **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra. Selezionare dall'elenco al centro, **Web Form con pagina Master**e denominarla **ErrorPage.aspx**.
 3. Fare clic su **Aggiungi**.
 4. Selezionare il *Site. master* file della pagina master e quindi scegliere **OK**.
@@ -166,7 +166,7 @@ Quando si richiede il *NoPage.aspx* pagina, che non esiste, la pagina di errore 
 Per verificare di funzionamento dell'applicazione durante un errore si verifica, è possibile creare deliberatamente le condizioni di errore in ASP.NET. Nell'applicazione di esempio Wingtip Toys, si verrà generata un'eccezione di test quando viene caricata la pagina predefinita per vedere cosa accade.
 
 1. Aprire il code-behind del *Default.aspx* pagina in Visual Studio.   
- Il *Default.aspx.cs* pagina code-behind verrà visualizzato.
+   Il *Default.aspx.cs* pagina code-behind verrà visualizzato.
 2. Nel `Page_Load` gestore, aggiungere il codice in modo che il gestore viene visualizzato come segue:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
@@ -356,11 +356,11 @@ Come è possibile grazie seguenti persone che hanno apportato contributi signifi
 ## <a name="community-contributions"></a>Contributi della community
 
 - Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
- Visual Studio 2012 correlate nell'esempio di codice su MSDN: [navigazione Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+  Visual Studio 2012 correlate nell'esempio di codice su MSDN: [navigazione Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - James Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
- Visual Studio 2012 correlate nell'esempio di codice su MSDN: [esercitazione serie di ASP.NET 4.5 Web Form in Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+  Visual Studio 2012 correlate nell'esempio di codice su MSDN: [esercitazione serie di ASP.NET 4.5 Web Form in Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
 - Andrielle Azevedo - collaboratore destinatari tecnici Microsoft (twitter: @driazevedo)  
- Conversione di Visual Studio 2012: [Iniciando com e ASP.NET Web Forms 4.5 - Parte 1 - Introdução Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  Conversione di Visual Studio 2012: [Iniciando com e ASP.NET Web Forms 4.5 - Parte 1 - Introdução Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
->[!div class="step-by-step"]
-[Precedente](url-routing.md)
+> [!div class="step-by-step"]
+> [Precedente](url-routing.md)

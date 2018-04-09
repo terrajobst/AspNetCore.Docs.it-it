@@ -2,7 +2,7 @@
 uid: mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 title: Come aggiornare un ASP.NET MVC 4 e API di progetto di Web API 2 e MVC ASP.NET 5 Web | Documenti Microsoft
 author: Rick-Anderson
-description: "ASP.NET MVC 5 e l'API Web 2 portare un host di nuove funzionalità, tra cui routing degli attributi, filtri di autenticazione e molto altro ancora."
+description: ASP.NET MVC 5 e l'API Web 2 portare un host di nuove funzionalità, tra cui routing degli attributi, filtri di autenticazione e molto altro ancora.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 05a3189cf105d1230b96e90b46ea5ab60fef1bf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f61502933a5ba92896ee97cef9cff915fe23831d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Come aggiornare un ASP.NET MVC 4 e il progetto API Web MVC ASP.NET 5 e Web API 2
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
-> ASP.NET MVC 5 e l'API Web 2 portare un host di nuove funzionalità, tra cui routing degli attributi, filtri di autenticazione e molto altro ancora. Vedere [https://www.asp.net/vnext](https://www.asp.net/core) per altri dettagli.
+> ASP.NET MVC 5 e l'API Web 2 portare un host di nuove funzionalità, tra cui routing degli attributi, filtri di autenticazione e molto altro ancora. Vedere [ https://www.asp.net/vnext ](https://www.asp.net/core) per altri dettagli.
 > 
 > Questa procedura dettagliata fornisce le istruzioni con i passaggi necessari per aggiornare l'applicazione alla versione più recente.  
 > 
@@ -41,34 +41,34 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample1.cs)]
 
- in
+   in
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample2.cs)]
 3. Assicurarsi che tutti i pacchetti che utilizzano i progetti sono compatibili con MVC 5 e l'API Web 2. La seguente tabella sono riportati MVC 4 e API Web relativi pacchetti che devono essere modificati. Se si dispone di un pacchetto che dipende da uno dei pacchetti elencati di seguito, contattare il server di pubblicazione per ottenere le versioni più recenti che sono compatibili con MVC 5 e l'API Web 2. Se si dispone del codice sorgente per tali pacchetti, è necessario ricompilarla con i nuovi assembly MVC 5 e 2 di API Web.   
 
     | **Id del pacchetto** | **Versione precedente** | **Nuova versione** |
     | --- | --- | --- |
-    | Italiano | 2.0.x.x | 3.0.0 |
+    | Microsoft.AspNet.Razor | 2.0.x.x | 3.0.0 |
     | Microsoft.AspNet.WebPages | 2.0.x.x | 3.0.0 |
     | Microsoft.AspNet.WebPages.WebData | 2.0.x.x | 3.0.0 |
     | Microsoft.AspNet.WebPages.OAuth | 2.0.x.x | 3.0.0 |
-    | Italiano | 4.0 | 5.0.0 |
-    | Microsoft.AspNet.Mvc.Facebook | 4.0 | 5.0.0 |
-    | Italiano | 4.0 | 5.0.0 |
-    | Microsoft.AspNet.WebApi.SelfHost | 4.0 | 5.0.0 |
-    | Webapi | 4.0 | 5.0.0 |
-    | Italiano | 4.0 | 5.0.0 |
-    | Microsoft.AspNet.WebApi | 4.0 | 5.0.0 |
-    | Italiano | 4.0 | 5.0.0 |
-    | Italiano | 4.0 | 5.0.0 |
-    | Microsoft.AspNet.WebApi.HelpPage | 4.0 | 5.0.0 |
-    | Microsoft.Net.Http | 2.0. | 2.2. |
-    | Microsoft | 5.2. x | 5.6.x |
-    | System. Spatial | 5.2. x | 5.6.x |
-    | Microsoft.Data.Edm | 5.2. x | 5.6.x |
-    | Microsoft.AspNet.Mvc.FixedDisplayModes | < o: p >< / o: p > | Rimosso |
-    | Microsoft.AspNet.WebPages.Administration | < o: p >< / o: p > | Rimosso |
-    | Helper Web di Microsoft | < o: p >< / o: p > | Microsoft.AspNet.WebHelpers |
+    | Microsoft.AspNet.Mvc | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.Mvc.Facebook | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.Core | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.SelfHost | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.Client | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.OData | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.WebHost | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.Tracing | 4.0.x.x | 5.0.0 |
+    | Microsoft.AspNet.WebApi.HelpPage | 4.0.x.x | 5.0.0 |
+    | Microsoft.Net.Http | 2.0.x. | 2.2.x. |
+    | Microsoft.Data.OData | 5.2.x | 5.6.x |
+    | System.Spatial | 5.2.x | 5.6.x |
+    | Microsoft.Data.Edm | 5.2.x | 5.6.x |
+    | Microsoft.AspNet.Mvc.FixedDisplayModes | <o:p> </o:p> | Rimosso |
+    | Microsoft.AspNet.WebPages.Administration | <o:p> </o:p> | Rimosso |
+    | Microsoft-Web-Helpers | <o:p> </o:p> | Microsoft.AspNet.WebHelpers |
 
     > [!NOTE]
     > Gli helper Web di Microsoft è stata sostituita con Microsoft.AspNet.WebHelpers. Rimuovere innanzitutto il pacchetto precedente e quindi installare il pacchetto più recente.   
@@ -78,17 +78,17 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 5. Rimuovere i seguenti pacchetti NuGet di ASP.NET installati. Utilizzare la Console di gestione pacchetto (PMC) saranno rimossi. Per aprire PMC, selezionare il **strumenti** menu e quindi selezionare **Gestione pacchetti di librerie,** selezionare **Package Manager Console**. Il progetto potrebbe non includere tutti i componenti.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
- Questo pacchetto viene in genere aggiunto durante l'aggiornamento da MVC 3 a MVC 4. Per rimuoverlo, eseguire il comando seguente in PMC:  
+   Questo pacchetto viene in genere aggiunto durante l'aggiornamento da MVC 3 a MVC 4. Per rimuoverlo, eseguire il comando seguente in PMC:  
         `Uninstall-Package -Id Microsoft.AspNet.WebPages.Administration`
     2. `Microsoft-Web-Helpers`   
- Questo pacchetto di branding come `Microsoft.AspNet.WebHelpers`. Per rimuoverlo, eseguire il comando seguente in PMC:  
+   Questo pacchetto di branding come `Microsoft.AspNet.WebHelpers`. Per rimuoverlo, eseguire il comando seguente in PMC:  
         `Uninstall-Package -Id Microsoft-Web-Helpers`
     3. `Microsoft.AspNet.Mvc.FixedDisplayMode`  
- Questo pacchetto contiene una soluzione alternativa per un bug in MVC 4 che è stato risolto in MVC 5. Per rimuoverlo, eseguire il comando seguente in PMC:  
+   Questo pacchetto contiene una soluzione alternativa per un bug in MVC 4 che è stato risolto in MVC 5. Per rimuoverlo, eseguire il comando seguente in PMC:  
         `Uninstall-Package -Id Microsoft.AspNet.Mvc.FixedDisplayModes`
 6. Aggiornare tutti i pacchetti di NuGet ASP.NET utilizzando PMC. In PMC, eseguire il comando seguente:  
     `Update-Package`  
- Il `Update-Package` comando senza parametri aggiornerà tutti i pacchetti. È possibile aggiornare i pacchetti singolarmente tramite l'argomento di tipo ID. Per ulteriori informazioni sul comando di aggiornamento, eseguire `get-help update-package` .
+   Il `Update-Package` comando senza parametri aggiornerà tutti i pacchetti. È possibile aggiornare i pacchetti singolarmente tramite l'argomento di tipo ID. Per ulteriori informazioni sul comando di aggiornamento, eseguire `get-help update-package` .
 
 ## <a name="update-the-application-webconfig-file"></a>Aggiornare l'applicazione *Web. config* File
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3782e3d4acc2db0e744128dad64fdfae1e8766d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 20a18a36cb5d1621b0b718f87c05eb3175110143
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-c"></a>Proteggere le stringhe di connessione e altre informazioni di configurazione (c#)
 ====================
@@ -60,8 +60,8 @@ ASP.NET 2.0 include un sistema di configurazione protetta per crittografare e de
 
 .NET Framework sono disponibili due provider di configurazione protetta:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-viene utilizzato l'asimmetrica [algoritmo RSA](http://en.wikipedia.org/wiki/Rsa) per crittografia e decrittografia.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Usa Windows [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) per crittografia e decrittografia.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) -Usa l'asimmetrica [algoritmo RSA](http://en.wikipedia.org/wiki/Rsa) per crittografia e decrittografia.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -Usa Windows [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) per crittografia e decrittografia.
 
 Poiché il sistema di configurazione protetto implementa il modello di progettazione del provider, è possibile creare un provider di configurazione protetto e inserirlo nell'applicazione. Vedere [implementando un Provider di configurazione protetta](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) per ulteriori informazioni su questo processo.
 
@@ -88,7 +88,7 @@ A questo punto la schermata dovrebbe essere simile alla figura 2.
 
 [![Aggiungere una casella di testo e due controlli Web pulsante alla pagina](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
 
-**Figura 2**: aggiungere una casella di testo e due controlli Web pulsante alla pagina ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))
+**Figura 2**: aggiungere una casella di testo e due controlli Web di pulsante ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))
 
 
 Successivamente, è necessario scrivere codice che carica e visualizza il contenuto di `Web.config` nel `WebConfigContents` casella di testo quando la pagina viene caricata. Aggiungere il codice seguente per la classe code-behind s di pagina. Questo codice aggiunge un metodo denominato `DisplayWebConfig` e viene chiamato dal `Page_Load` gestore dell'evento quando `Page.IsPostBack` è `false`:
@@ -116,7 +116,7 @@ Dopo aver immesso il codice sopra riportato, testarlo visitando il `EncryptingCo
 
 [![Aggiungere una casella di testo e due controlli Web pulsante alla pagina](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
 
-**Figura 3**: aggiungere una casella di testo e due controlli Web pulsante alla pagina ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))
+**Figura 3**: aggiungere una casella di testo e due controlli Web di pulsante ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))
 
 
 Fare clic sul pulsante di crittografare le stringhe di connessione. Se la convalida delle richieste è abilitata, il codice eseguito il postback dal `WebConfigContents` TextBox produrrà un `HttpRequestValidationException`, che viene visualizzato il messaggio, potenzialmente pericoloso `Request.Form` valore rilevato dal client. La convalida delle richieste, che è abilitata per impostazione predefinita in ASP.NET 2.0, impedisce i postback che includono non codificato in formato HTML ed è progettata per aiutare a evitare attacchi script injection. È possibile disabilitare questo controllo alla pagina - o a livello di applicazione. Per disattivare l'opzione per questa pagina, impostare il `ValidateRequest` impostando su `false` nel `@Page` direttiva. Il `@Page` direttiva si trova nella parte superiore del markup dichiarativo pagina s.
@@ -146,9 +146,9 @@ Crittografata `<connectionStrings>` segue sezione generati nel computer, anche s
 Quando le informazioni sulla stringa di connessione si accede da `Web.config` - tramite codice è scritto da un controllo SqlDataSource, o il codice generato automaticamente dagli oggetti TableAdapter nei dataset tipizzati - è stata decrittografata automaticamente. In breve, non è necessario aggiungere il codice aggiuntivo o la logica per decrittografare crittografata `<connectionString>` sezione. Per dimostrare questo concetto, visitare una delle esercitazioni precedenti a questo punto, ad esempio l'esercitazione di visualizzazione semplice dalla sezione Reporting di base (`~/BasicReporting/SimpleDisplay.aspx`). Come illustrato nella figura 5, l'esercitazione funziona esattamente come previsto, che indica che le informazioni sulla stringa di connessione crittografata viene automaticamente decrittografate dalla pagina ASP.NET.
 
 
-[![Il livello di accesso ai dati li decrittografa automaticamente le informazioni sulla stringa di connessione](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
+[![Livello di accesso ai dati decrittografa automaticamente le informazioni sulla stringa di connessione](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
 
-**Figura 5**: livello di accesso ai dati li decrittografa automaticamente le informazioni sulla stringa di connessione ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))
+**Figura 5**: livello di accesso ai dati decrittografa automaticamente le informazioni sulla stringa di connessione ([fare clic per visualizzare l'immagine ingrandita](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))
 
 
 Per ripristinare il `<connectionStrings>` sezione torna nella relativa rappresentazione di testo normale, fare clic sul pulsante di decrittografare le stringhe di connessione. Durante il postback dovrebbe essere stringhe di connessione `Web.config` in testo normale. A questo punto la schermata dovrebbe essere analoga a quella durante la prima visita questa pagina (vedere Figura 3).
@@ -162,7 +162,7 @@ L'istruzione seguente illustra la sintassi generale utilizzata per crittografare
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample5.cmd)]
 
-*sezione* è la sezione di configurazione per la crittografia (ad esempio connectionStrings), il *fisico\_directory* è il percorso fisico completo alla directory radice dell'applicazione s, web e *provider*  è il nome del provider di configurazione protetta da utilizzare (ad esempio DataProtectionConfigurationProvider). In alternativa, se l'applicazione web è registrato in IIS è possibile immettere il percorso virtuale anziché il percorso fisico utilizzando la sintassi seguente:
+*sezione* è la sezione di configurazione per la crittografia (ad esempio connectionStrings), il *fisico\_directory* è il percorso fisico completo alla directory radice dell'applicazione s web, e *provider*  è il nome del provider di configurazione protetta da utilizzare (ad esempio DataProtectionConfigurationProvider). In alternativa, se l'applicazione web è registrato in IIS è possibile immettere il percorso virtuale anziché il percorso fisico utilizzando la sintassi seguente:
 
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample6.cmd)]
@@ -185,8 +185,8 @@ Analogamente, il `aspnet_regiis.exe` strumento da riga di comando può essere ut
 
 Prima di qualsiasi applicazione può eseguire `SELECT`, `INSERT`, `UPDATE`, o `DELETE` query a un database di Microsoft SQL Server, il database prima di tutto necessario identificare il richiedente. Questo processo è noto come *autenticazione* e SQL Server sono disponibili due metodi di autenticazione:
 
-- **L'autenticazione di Windows** -il processo in cui è in esecuzione l'applicazione viene utilizzato per comunicare con il database. Quando si esegue un'applicazione ASP.NET tramite Visual Studio 2005 s Server di sviluppo ASP.NET, l'applicazione ASP.NET si presuppone che l'identità dell'utente attualmente connesso. Per le applicazioni ASP.NET in Microsoft Internet Information Server (IIS), applicazioni ASP.NET è in genere assumere l'identità di `domainName``\MachineName` o `domainName``\NETWORK SERVICE`, anche se può essere personalizzata.
-- **L'autenticazione di SQL** -vengono forniti i valori di ID e password di un utente come credenziali per l'autenticazione. Con l'autenticazione SQL, l'ID utente e password vengono forniti nella stringa di connessione.
+- **L'autenticazione di Windows** -il processo in cui viene eseguita l'applicazione viene utilizzato per comunicare con il database. Quando si esegue un'applicazione ASP.NET tramite Visual Studio 2005 s Server di sviluppo ASP.NET, l'applicazione ASP.NET si presuppone che l'identità dell'utente attualmente connesso. Per le applicazioni ASP.NET in Microsoft Internet Information Server (IIS), applicazioni ASP.NET è in genere assumere l'identità di `domainName``\MachineName` o `domainName``\NETWORK SERVICE`, anche se può essere personalizzata.
+- **L'autenticazione di SQL** -vengono forniti i valori di ID e password un utente come credenziali per l'autenticazione. Con l'autenticazione SQL, l'ID utente e password vengono forniti nella stringa di connessione.
 
 L'autenticazione di Windows è preferibile l'autenticazione di SQL perché è più sicuro. Con l'autenticazione di Windows è disponibile da un nome utente e una password della stringa di connessione e se il server web e il server di database si trovano in due computer diversi, le credenziali non vengono inviate in rete in testo normale. Con l'autenticazione SQL, tuttavia, le credenziali di autenticazione sono hardcoded nella stringa di connessione e vengono trasmessi dal server web al server di database in testo normale.
 
@@ -218,22 +218,22 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Applicazioni ASP.NET sicure compilazione: L'autenticazione, autorizzazione e comunicazioni protette](https://msdn.microsoft.com/library/aa302392.aspx)
+- [Compilazione applicazione ASP.NET sicure: Autenticazione, autorizzazione e comunicazioni protette](https://msdn.microsoft.com/library/aa302392.aspx)
 - [La crittografia delle informazioni di configurazione in ASP.NET 2.0 applicazioni](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
 - [La crittografia `Web.config` valori in ASP.NET 2.0](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
 - [Procedura: Crittografare sezioni di configurazione in ASP.NET 2.0 con DPAPI](https://msdn.microsoft.com/library/ms998280.aspx)
 - [Procedura: Crittografare sezioni di configurazione in ASP.NET 2.0 tramite RSA](https://msdn.microsoft.com/library/ms998283.aspx)
-- [L'API di configurazione in .NET 2.0](http://www.odetocode.com/Articles/418.aspx)
+- [L'API di configurazione di .NET 2.0](http://www.odetocode.com/Articles/418.aspx)
 - [Protezione dei dati di Windows](https://msdn.microsoft.com/library/ms995355.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e Randy Schmidt. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
-[Successivo](debugging-stored-procedures-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [Successivo](debugging-stored-procedures-cs.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 title: Creare un'app Web Form ASP.NET protetta con la registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password (c#) | Documenti Microsoft
 author: Erikre
-description: "In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con la registrazione utente, conferma tramite posta elettronica e password reimpostata utilizzando il membro di identità di ASP.NET..."
+description: In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con la registrazione utente, conferma tramite posta elettronica e password reimpostata utilizzando il membro di identità di ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Creare un'app Web Form ASP.NET protetta con la registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password (c#)
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 > In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con la registrazione utente, conferma tramite posta elettronica e password reimpostata utilizzando il sistema di appartenenze di ASP.NET Identity. In questa esercitazione è basata sul di Rick Anderson [esercitazione MVC](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md).
 
@@ -90,7 +90,7 @@ Sebbene questa esercitazione viene illustrato solo come aggiungere una notifica 
     [!code-xml[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample3.xml?highlight=2-5)]
 
     > [!WARNING]
-    > Sicurezza - archivio mai i dati sensibili nel codice sorgente. In questo esempio, l'account e le credenziali vengono archiviate nel **appSetting** sezione la *Web. config* file. In Azure, è possibile archiviare questi valori in modo sicuro nel  **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  scheda nel portale di Azure. Per ulteriori informazioni vedere l'argomento di Rick Anderson [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Sicurezza - archivio mai i dati sensibili nel codice sorgente. In questo esempio, l'account e le credenziali vengono archiviate nel **appSetting** sezione la *Web. config* file. In Azure, è possibile archiviare questi valori in modo sicuro nel **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** scheda nel portale di Azure. Per ulteriori informazioni vedere l'argomento di Rick Anderson [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 6. Aggiungere i valori di servizio di posta elettronica in modo da riflettere i valori di autenticazione SendGrid (nome utente e Password) in modo che sia possibile corretta inviare posta elettronica dalla tua app. Assicurarsi di utilizzare il nome di account di SendGrid, anziché l'indirizzo di posta elettronica è fornito SendGrid.
 
 ### <a name="enable-email-confirmation"></a>Abilitare la conferma tramite posta elettronica
@@ -102,11 +102,11 @@ Sebbene questa esercitazione viene illustrato solo come aggiungere una notifica 
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample4.cs?highlight=9-11)]
 2. In **Esplora**, fare doppio clic su *Default.aspx* e selezionare **imposta come pagina iniziale**.
-3. Eseguire l'applicazione premendo **F5.** Dopo la pagina viene visualizzata, fare clic su di **registrare** link per visualizzare la pagina di registrazione.
+3. Eseguire l'app premendo **F5.** Dopo la pagina viene visualizzata, fare clic su di **registrare** link per visualizzare la pagina di registrazione.
 4. Immettere il messaggio di posta elettronica e la password, quindi scegliere il **registrare** pulsante per inviare un messaggio di posta elettronica tramite SendGrid.  
- Lo stato corrente del progetto e codice consentirà all'utente di accedere dopo il completamento del modulo di registrazione, anche se essi non sono stati confermato il proprio account.
+   Lo stato corrente del progetto e codice consentirà all'utente di accedere dopo il completamento del modulo di registrazione, anche se essi non sono stati confermato il proprio account.
 5. Verificare l'account di posta elettronica e fare clic sul collegamento per confermare la posta elettronica.  
- Dopo aver inviato il modulo di registrazione, verrà registrato.  
+   Dopo aver inviato il modulo di registrazione, verrà registrato.  
     ![Sito Web di esempio - connesso](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -143,12 +143,12 @@ Anche se hai confermato l'account di posta elettronica, a questo punto non si de
 3. Aprire il *Login.aspx.cs* code-behind e rimuovere il commento la riga seguente di codice evidenziata in giallo dal `Page_Load` gestore eventi: 
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample9.cs?highlight=5)]
-4. Eseguire l'applicazione premendo **F5.** Dopo la pagina viene visualizzata, fare clic su di **Accedi** collegamento.
+4. Eseguire l'app premendo **F5.** Dopo la pagina viene visualizzata, fare clic su di **Accedi** collegamento.
 5. Fare clic su di **password dimenticata?** link per visualizzare il **Password dimenticata** pagina.
 6. Immettere l'indirizzo di posta elettronica e fare clic su di **Invia** pulsante per inviare un messaggio di posta elettronica all'indirizzo che consentirà di reimpostare la password.   
- Verificare l'account di posta elettronica e fare clic sul collegamento per visualizzare il **Reimposta Password** pagina.
+   Verificare l'account di posta elettronica e fare clic sul collegamento per visualizzare il **Reimposta Password** pagina.
 7. Nel **Reimposta Password** pagina, immettere il messaggio di posta elettronica, password e password di conferma. Premere quindi il **reimpostare** pulsante.  
- Quando è stata reimpostata la password, il **Password modificata** verrà visualizzata la pagina. È ora possibile registrare con la nuova password.
+   Quando è stata reimpostata la password, il **Password modificata** verrà visualizzata la pagina. È ora possibile registrare con la nuova password.
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>Inviare di nuovo il collegamento di conferma tramite posta elettronica
@@ -167,7 +167,7 @@ Una volta che un utente crea un nuovo account locale, essi vengono inviati trami
 4. Eliminare gli account nel **AspNetUsers** la tabella contenente l'alias di posta elettronica che si desidera verificare.
 5. Eseguire l'app (**F5**) e registrare l'indirizzo di posta elettronica.
 6. Prima di confermare il nuovo account tramite la posta elettronica che è appena stata inviata, tentare di accedere con il nuovo account.  
- Si noterà che non si riesce ad accedere e che è necessario disporre di un account di posta elettronica di conferma. Inoltre, è ora possibile rinviare un messaggio di conferma al proprio account di posta elettronica.
+   Si noterà che non si riesce ad accedere e che è necessario disporre di un account di posta elettronica di conferma. Inoltre, è ora possibile rinviare un messaggio di conferma al proprio account di posta elettronica.
 7. Immettere l'indirizzo di posta elettronica e una password, quindi premere il **inviare di nuovo conferma** pulsante.
 8. Dopo aver confermato l'indirizzo di posta elettronica in base al messaggio di posta elettronica appena inviato, accedere all'app.
 
@@ -184,7 +184,7 @@ Se non si riceve un messaggio di posta elettronica contenente il collegamento pe
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Collegamenti a ASP.NET Identity consigliato risorse](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
-- [La conferma dell'account e Password di ripristino con identità di ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
+- [La conferma dell'account e il recupero della Password con identità di ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [Serie di esercitazioni Web Form ASP.NET - aggiungere un Provider di OAuth 2.0](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [Distribuire un'App di moduli Web ASP.NET in modo sicuro con appartenenza, OAuth e Database SQL di servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [Distribuire un'App di moduli Web ASP.NET in modo sicuro con l'appartenenza, OAuth e il Database SQL al servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [ASP.NET Web Forms serie di esercitazioni - abilita SSL per il progetto](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)

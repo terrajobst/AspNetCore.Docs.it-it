@@ -1,5 +1,5 @@
 ---
-title: Memorizzazione nella cache in ASP.NET Core
+title: Memorizzare nella cache in memoria in ASP.NET Core
 author: rick-anderson
 description: Imparare a memorizzare nella cache i dati in memoria in ASP.NET Core.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 64635235c11b55818da02d63d044334f4b2cdb08
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: c2eae83219e8995a614b2933b1290d061f1b7869
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="in-memory-caching-in-aspnet-core"></a>Memorizzazione nella cache in ASP.NET Core
+# <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
 Da [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), e [Steve Smith](https://ardalis.com/)
 
@@ -98,7 +98,7 @@ Utilizzando un `CancellationTokenSource` consente più voci nella cache da rimuo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Uso di una cache distribuita](xref:performance/caching/distributed)
+* [Usare una cache distribuita](xref:performance/caching/distributed)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 title: Implementare il Paging dei dati efficiente | Documenti Microsoft
 author: microsoft
-description: "Passaggio 8 di seguito viene illustrato come aggiungere il supporto del paging l'URL /Dinners in modo che anziché visualizzare 1000 nastri in caso dinners in una sola volta, viene visualizzato solo 10 dinners future alla..."
+description: Passaggio 8 di seguito viene illustrato come aggiungere il supporto del paging l'URL /Dinners in modo che anziché visualizzare 1000 nastri in caso dinners in una sola volta, viene visualizzato solo 10 dinners future alla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b0fba604f97d3bb72d2d403e643b422b9ce48bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0188e21438820adf2adbe05b047fdb772540e1a0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implement-efficient-data-paging"></a>Implementare il Paging dei dati efficiente
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -131,7 +131,7 @@ E ora quando si esegue l'applicazione nuovamente vedremo 10 dinners in un moment
 
 ![](implement-efficient-data-paging/_static/image6.png)
 
-| **Sul lato dell'argomento: Comprendere le implicazioni di IQueryable&lt;T&gt;** |
+| **Sul lato dell'argomento: Comprendere le implicazioni di interfaccia IQueryable&lt;T&gt;** |
 | --- |
 | IQueryable&lt;T&gt; è una funzionalità molto potente che consente un'ampia gamma di scenari di esecuzione posticipata interessanti (ad esempio il paging e composizione di query basate su). Come con tutte le potenti funzionalità, opportuno prestare attenzione con modalità di utilizzo e assicurarsi che non è eccessivo. È importante riconoscere che restituisce un oggetto IQueryable&lt;T&gt; risultati dall'archivio consente al codice chiamante accodare sui metodi di operatore concatenate ad esso e pertanto partecipano all'esecuzione di query finale. Se non si desidera fornire codice chiamante questa possibilità, quindi è consigliabile ripristinare il backup di IList&lt;T&gt; o IEnumerable&lt;T&gt; - risultati che contengono i risultati di una query che è già stata eseguita. Per scenari di paginazione in questo caso è necessario inserire la logica di paginazione dati effettivi la chiamata al metodo di repository. In questo scenario è possibile aggiornare il metodo finder FindUpcomingDinners() per una firma che sia restituito un PaginatedList: PaginatedList&lt; Dinner&gt; {} FindUpcomingDinners (pageIndex int, int pageSize) o restituito IList &lt;Dinner&gt;e utilizzare "totalCount" out param per restituire il numero totale di Dinners: IList&lt;Dinner&gt; FindUpcomingDinners (pageIndex int, int pageSize, out int totalCount) {} |
 
@@ -139,6 +139,6 @@ E ora quando si esegue l'applicazione nuovamente vedremo 10 dinners in un moment
 
 Ora esaminiamo come è possibile aggiungere il supporto autenticazione e autorizzazione per l'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](re-use-ui-using-master-pages-and-partials.md)
-[Successivo](secure-applications-using-authentication-and-authorization.md)
+> [!div class="step-by-step"]
+> [Precedente](re-use-ui-using-master-pages-and-partials.md)
+> [Successivo](secure-applications-using-authentication-and-authorization.md)

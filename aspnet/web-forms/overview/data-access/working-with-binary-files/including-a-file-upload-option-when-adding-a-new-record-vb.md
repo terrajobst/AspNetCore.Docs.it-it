@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eb462a0e8ce88037855ea12d00c1afc0419fa04e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 39608eef7cc88be56ef6e21820e4afcfaa4ffd8d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>Tra cui un'opzione di caricamento di File quando si aggiunge un nuovo Record (VB)
 ====================
@@ -88,15 +88,15 @@ Aprire il `DisplayOrDownload.aspx` pagina dal `BinaryData` cartella. Passare all
 
 [![Copiare e incollare la sintassi dichiarativa da DisplayOrDownload.aspx a UploadInDetailsView.aspx](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image3.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image5.png)
 
-**Figura 3**: copiare e incollare la sintassi dichiarativa da `DisplayOrDownload.aspx` a `UploadInDetailsView.aspx` ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image6.png))
+**Figura 3**: copiare e incollare la sintassi dichiarativa dal `DisplayOrDownload.aspx` alla `UploadInDetailsView.aspx` ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image6.png))
 
 
 Dopo aver copiato la sintassi dichiarativa e `GenerateBrochureLink` metodo tramite il `UploadInDetailsView.aspx` pagina, visualizzare la pagina tramite un browser per verificare che tutto ciò che è stato copiato correttamente. Dovrebbe essere GridView otto categorie di elenco che include un collegamento per scaricare la brochure, nonché l'immagine di categoria s.
 
 
-[![Viene visualizzato ogni categoria insieme ai relativi dati binari](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image7.png)
+[![Dovrebbe essere visualizzato ogni categoria insieme ai relativi dati binari](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image4.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image7.png)
 
-**Figura 4**: È necessario ora vedere ogni categoria insieme con i relativi dati binari ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image8.png))
+**Figura 4**: si dovrebbe ora vedere ogni categoria insieme con i relativi dati binari ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image8.png))
 
 
 ## <a name="step-4-configuring-thecategoriesdatasourceto-support-inserting"></a>Passaggio 4: Configurazione di`CategoriesDataSource`all'inserimento di supporto
@@ -108,7 +108,7 @@ Avviare facendo clic sul collegamento Configura origine dati da smart tag Object
 
 [![Configurare ObjectDataSource per utilizzare il metodo InsertWithPicture](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image5.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image9.png)
 
-**Figura 5**: ObjectDataSource consente di configurare il `InsertWithPicture` metodo ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image10.png))
+**Figura 5**: configurare ObjectDataSource per usare il `InsertWithPicture` metodo ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image10.png))
 
 
 > [!NOTE]
@@ -129,7 +129,7 @@ Avvio mediante il trascinamento di un controllo DetailsView dalla casella degli 
 
 [![Associare il controllo DetailsView il CategoriesDataSource e Abilita inserimento](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image6.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image11.png)
 
-**Figura 6**: controllo DetailsView per associare il `CategoriesDataSource` e Abilita inserimento ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image12.png))
+**Figura 6**: eseguire il binding di DetailsView per il `CategoriesDataSource` e Abilita inserimento ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image12.png))
 
 
 Per eseguire il rendering in modo permanente di DetailsView nella relativa interfaccia di inserimento, impostare il relativo `DefaultMode` proprietà `Insert`.
@@ -158,7 +158,7 @@ Dal controllo DetailsView s smart tag, scegliere l'opzione di modifica modelli, 
 
 [![Aggiungere un controllo FileUpload il InsertItemTemplate](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image8.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image13.png)
 
-**Figura 8**: aggiungere un controllo FileUpload al `InsertItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image14.png))
+**Figura 8**: aggiungere un controllo con caricamento dei file per il `InsertItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image14.png))
 
 
 Dopo aver apportato queste aggiunte, saranno due sintassi dichiarativa TemplateField s:
@@ -237,7 +237,7 @@ Consentono di s richiedere qualche istante il test dell'interfaccia di inserimen
 Dopo avere verificato che la pagina richiede un'immagine da caricare e t acquisite accettare i file non PDF o non JPG, aggiungere una nuova categoria con un'immagine JPG valida, se si lascia vuoto il campo Brochure. Dopo aver fatto clic sul pulsante Inserisci, verrà postback della pagina e verrà aggiunto un nuovo record per il `Categories` tabella con il contenuto binario immagine caricata s archiviate direttamente nel database. GridView viene aggiornato e viene visualizzata una riga per la categoria appena aggiunta, ma, come mostrato nella figura 10, la nuova immagine s categoria non viene eseguita correttamente.
 
 
-[![La nuova categoria s che immagine non viene visualizzata.](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image17.png)
+[![La nuova categoria s che immagine non viene visualizzata](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image17.png)
 
 **Figura 10**: la nuova categoria s immagine non viene visualizzata ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image18.png))
 
@@ -252,9 +252,9 @@ Poiché sono ora disponibili entrambe le bitmap con intestazioni OLE e jpg nel `
 Con questa modifica, l'immagine JPG viene ora eseguito il rendering correttamente in GridView.
 
 
-[![Le immagini JPG per le nuove categorie sono correttamente il rendering](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image19.png)
+[![Le immagini JPG per nuove categorie sono correttamente eseguito il rendering](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image11.gif)](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image19.png)
 
-**Figura 11**: il immagini JPG per le nuove categorie sono correttamente il rendering ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image20.png))
+**Figura 11**: il immagini JPG per nuove categorie sono correttamente eseguito il rendering ([fare clic per visualizzare l'immagine ingrandita](including-a-file-upload-option-when-adding-a-new-record-vb/_static/image20.png))
 
 
 ## <a name="step-9-deleting-the-brochure-in-the-face-of-an-exception"></a>Passaggio 9: Eliminazione Brochure in caso di un'eccezione
@@ -280,12 +280,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Dave Gardner Teresa Murphy e Bernadette Leigh. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](displaying-binary-data-in-the-data-web-controls-vb.md)
-[Successivo](updating-and-deleting-existing-binary-data-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-binary-data-in-the-data-web-controls-vb.md)
+> [Successivo](updating-and-deleting-existing-binary-data-vb.md)

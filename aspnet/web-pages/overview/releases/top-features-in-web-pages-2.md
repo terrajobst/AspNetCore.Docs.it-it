@@ -12,15 +12,15 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>Le funzionalità principali di ASP.NET Web Pages 2
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In questo articolo viene fornita una panoramica delle nuove funzionalità in ASP.NET Web Pages 2 RC, un framework di programmazione web semplice inclusa superiore [Microsoft WebMatrix 2 RC](https://www.microsoft.com/web/).
 > 
@@ -33,7 +33,7 @@ da [Microsoft](https://github.com/microsoft)
 >     - [Modifiche per la versione Beta](#Changes_for_the_Beta_Version)
 >     - [Utilizzando i modelli di sito nuovi e aggiornati](#templates)
 >     - [Convalida dell'Input utente](#validation)
->     - [Abilitazione di account di accesso di Facebook e ad altri siti con OAuth e OpenID](#oauthsetup)
+>     - [L'abilitazione di account di accesso di Facebook e ad altri siti con OAuth e OpenID](#oauthsetup)
 >     - [Aggiunta di mapping utilizzando l'Helper di mappe](#maphelper)
 >     - [Esecuzione di applicazioni Web Pages Side-by-Side](#sidebyside)
 >     - [Il rendering di pagine per i dispositivi mobili](#mobile)
@@ -62,9 +62,9 @@ Per installare le pagine Web, è possibile utilizzare l'installazione guidata pi
     Se si utilizza Internet Explorer, andare al passaggio successivo. Se si utilizza un altro browser Mozilla Firefox o Google Chrome, viene chiesto di salvare il *Webmatrix.exe* file nel computer. Salvare il file e quindi fare clic su esso per avviare il programma di installazione.
 3. Eseguire il programma di installazione e scegliere il **installare** pulsante. Consente di installare WebMatrix e pagine Web.
 
-## <a id="New_and_Enhanced_Features"></a>Funzionalità nuove e migliorate
+## <a id="New_and_Enhanced_Features"></a>  Funzionalità nuove e migliorate
 
-### <a id="Changes_for_the_RC_Version"></a>Modifiche per la versione RC (giugno 2012)
+### <a id="Changes_for_the_RC_Version"></a>  Modifiche per la versione RC (giugno 2012)
 
 La versione RC versione nel giugno 2012 presenta alcune modifiche dall'aggiornamento della versione Beta è stata rilasciata nel marzo 2012. Queste modifiche sono:
 
@@ -94,8 +94,8 @@ La versione Beta rilasciata in febbraio 2012 dispone solo poche modifiche dalla 
     `<a href="~/Default.cshtml">Home</a>`
 - Il `Scripts` helper per la gestione delle risorse (resource) è stato sostituito con il `Assets` helper, che dispone di metodi leggermente diversi, come illustrato di seguito:
 
-    - Per `Scripts.Add`, usare`Assets.AddScript`
-    - Per `Scripts.GetScriptTags`, usare`Assets.GetScripts`
+  - Per `Scripts.Add`, usare `Assets.AddScript`
+  - Per `Scripts.GetScriptTags`, usare `Assets.GetScripts`
 
     Si tratta di una modifica di rilievo; la `Scripts` classe non è disponibile nella versione Beta. Esempi di codice che utilizzano la gestione delle risorse in questo documento sono stati aggiornati con questa modifica.
 
@@ -149,13 +149,13 @@ Per visualizzare un riepilogo (`<ul>` elenco) di tutti gli errori di pagina, `Ht
 
 Questi passaggi sono sufficienti per implementare la convalida sul lato server. Se si desidera aggiungere la convalida lato client, eseguire inoltre le operazioni seguenti.
 
-Aggiungere i seguenti riferimenti di file di script all'interno di `<head>` sezione di una pagina web. I primi due riferimenti a script scegliere i file remoti in un server di distribuzione di contenuti (CDN) di rete. Il terzo riferimento punta a un file di script locale.
+Aggiungere i seguenti riferimenti di file di script all'interno di `<head>` sezione di una pagina web. I primi due riferimenti a script scegliere i file remoti in un server di distribuzione di contenuti (CDN) di rete. Il terzo riferimento punta a un file di script locale. Le app di produzione devono implementare un fallback quando la rete CDN non è disponibile. Testare il fallback.
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 Il modo più semplice per ottenere una copia locale del *jquery.validate.unobtrusive.min.js* libreria consiste nel creare un nuovo sito di pagine Web in base a uno dei modelli di sito (ad esempio Starter Site). Il sito creato tramite il modello include *jquery.validate.unobtrusive.js* file nella cartella di script, da cui è possibile copiarlo nel sito.
 
-Se il sito Web utilizza un*\_SiteLayout* pagina per controllare il layout di pagina, è possibile includere riferimenti a questi script in questa pagina in modo che la convalida è disponibile per tutte le pagine di contenuto. Se si desidera eseguire la convalida solo in determinate pagine, è possibile utilizzare il gestore delle risorse per registrare gli script solo le pagine. A tale scopo, chiamare `Assets.AddScript(path)` nella pagina che si desidera convalidare e fare riferimento a ciascuno dei file di script. Aggiungere quindi una chiamata a `Assets.GetScripts` nel  *\_SiteLayout* pagina per eseguire il rendering registrato `<script>` tag. Per ulteriori informazioni, vedere la sezione [gli script di registrazione con il gestore di risorse](#resmanagement).
+Se il sito Web utilizza un<em>\_SiteLayout</em> pagina per controllare il layout di pagina, è possibile includere riferimenti a questi script in questa pagina in modo che la convalida è disponibile per tutte le pagine di contenuto. Se si desidera eseguire la convalida solo in determinate pagine, è possibile utilizzare il gestore delle risorse per registrare gli script solo le pagine. A tale scopo, chiamare `Assets.AddScript(path)` nella pagina che si desidera convalidare e fare riferimento a ciascuno dei file di script. Aggiungere quindi una chiamata a `Assets.GetScripts` nel  <em>\_SiteLayout</em> pagina per eseguire il rendering registrato `<script>` tag. Per ulteriori informazioni, vedere la sezione [gli script di registrazione con il gestore di risorse](#resmanagement).
 
 Nel markup per un singolo elemento, chiamare il `Validation.For` metodo. Questo metodo genera gli attributi possono associare tale jQuery per fornire la convalida lato client. Ad esempio:
 
@@ -172,21 +172,21 @@ Nell'esempio seguente viene mostrata una pagina che convalida l'input dell'utent
 
 Quando un utente invia un input valido, ecco la pagina:
 
-[![topSeven 1 valido](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 Quando un utente invia un campo obbligatorio lasciato vuoto, ecco la pagina:
 
-[![topSeven 2 valido](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 Di seguito è la pagina quando un utente invia con un valore diverso da un numero intero di **crediti** campo:
 
-[![topSeven 3 valido](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 Per ulteriori informazioni, vedere il post di blog seguenti:
 
-- [Convalida in pagine Web v2 aggiornato](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2344) nozioni fondamentali sull'aggiunta di convalida utilizzando il `Validation` helper (solo server-side)
-- [Convalida in pagine Web v2, parte 2 di aggiornamento](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=2347) aggiunta della convalida lato client.
-- [Convalida in pagine Web v2, parte 3 aggiornato](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2351) formattazione gli errori di convalida.
+- [Aggiornata la convalida in pagine Web v2](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2344) nozioni fondamentali sull'aggiunta di convalida usando il `Validation` helper (solo server-side)
+- [Aggiornare la convalida in pagine Web v2, parte 2](http://www.mikepope.com/blog/DisplayBlog.aspx?permalink=2347) aggiunta della convalida lato client.
+- [Aggiornare la convalida in pagine Web v2, parte 3](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2351) formattazione gli errori di convalida.
 
 <a id="resmanagement"></a>
 ### <a name="registering-scripts-using-the-assets-manager"></a>La registrazione di script utilizzando la gestione di risorse
@@ -207,7 +207,7 @@ Nell'esempio seguente viene illustrato il funzionamento di gestione di asset. Il
 
 - Un helper personalizzato denominato `MakeNote`. Questo supporto viene eseguito il rendering di una stringa all'interno di una casella eseguendo il wrapping di un `div` elemento che abbia uno stile con un bordo e aggiungendo &quot;Nota:&quot; a esso. Il supporto chiama inoltre un file JavaScript che aggiunge il comportamento in fase di esecuzione per la nota. Anziché fare riferimento allo script con un `<script>` tag, l'helper registra lo script chiamando `Assets.AddScript` .
 - Un file JavaScript. Si tratta del file che viene chiamato da helper e temporaneamente aumenta le dimensioni del carattere di elementi di nota durante un `mouseover` evento.
-- Una pagina di contenuto, che fa riferimento il*\_SiteLayout* esegue il rendering di alcuni contenuti nel corpo della pagina e quindi chiama il `MakeNote` helper.
+- Una pagina di contenuto, che fa riferimento il<em>\_SiteLayout</em> esegue il rendering di alcuni contenuti nel corpo della pagina e quindi chiama il `MakeNote` helper.
 - Oggetto  *\_SiteLayout* pagina. Questa pagina fornisce un'intestazione comune e una struttura di layout di pagina. Include inoltre una chiamata a `Assets.GetScripts`, ovvero come la gestione di attività esegue il rendering di script chiama in una pagina.
 
 Per eseguire l'esempio:
@@ -266,7 +266,7 @@ In questa sezione viene fornito un esempio di come consentire agli utenti di acc
     > Applicazioni di Windows Live accettano solo un URL in tempo reale per un sito Web di lavoro, non è possibile utilizzare un URL del sito Web locale per il test degli account di accesso.
 - Modifica di alcuni file nel sito Web per specificare il provider di autenticazione appropriato e per l'invio di un account di accesso al sito che si desidera utilizzare.
 
-**Per abilitare gli account di accesso di Google e Yahoo**:
+**Per abilitare gli account di accesso Google e Yahoo**:
 
 1. Nel sito Web, è possibile modificare il  *\_AppStart.cshtml* pagina e aggiungere le due righe seguenti del codice nel blocco di codice Razor dopo la chiamata al `WebSecurity.InitializeDatabaseConnection` metodo. Questo codice consente ai provider di Google sia OpenID di Yahoo. 
 
@@ -447,7 +447,7 @@ Di seguito sono illustrati alcuni aspetti da ricordare quando si installa la ver
 - Se si desidera eseguire un sito di Web Pages versione 1 (anziché il valore predefinito, come illustrato al punto precedente), è possibile configurare il sito a tale scopo. Se il sito non ha ancora un *Web. config* file nella radice del sito, crearne uno nuovo e copiarvi il seguente codice XML, sovrascrivendo il contenuto esistente. Se il sito contiene già un *Web. config* file, aggiungere un `<appSettings>` elemento simile a quello riportato di seguito per il `<configuration>` sezione.
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-'-Se non si specifica una versione di *Web. config* file, un sito viene distribuito come un sito di versione 2. (Vengono copiati gli assembly della versione 2 di *bin* cartella nel sito distribuito.)
+  '-Se non si specifica una versione di *Web. config* file, un sito viene distribuito come un sito di versione 2. (Vengono copiati gli assembly della versione 2 di *bin* cartella nel sito distribuito.)
 - Nuove applicazioni create utilizzando i modelli di sito nella versione Web Matrix Beta 2 includono gli assembly della versione 2 pagine Web del sito *bin* cartella.
 
 In generale, è sempre possibile controllare quale versione delle pagine Web da usare con il sito usando NuGet per installare gli assembly appropriati al sito *bin* cartella. Per trovare i pacchetti, visitare [NuGet.org](http://NuGet.org).
@@ -459,7 +459,7 @@ Pagine Web 2 consente di creare visualizzazioni personalizzate per il rendering 
 
 Il `System.Web.WebPages` spazio dei nomi contiene le classi seguenti che consentono di lavorare con le modalità di visualizzazione: `DefaultDisplayMode`, `DisplayInfo`, e `DisplayModes`. È possibile utilizzare direttamente queste classi e scrivere codice che esegue il rendering nell'output di destra per dispositivi specifici.
 
-In alternativa, è possibile creare pagine specifiche di dispositivo utilizzando un modello di denominazione dei file simile al seguente: *FileName.* *Mobile**. cshtml*. Ad esempio, è possibile creare due versioni di una pagina, uno denominato *MyFile.cshtml* e uno denominato *MyFile.Mobile.cshtml*. In fase di esecuzione, quando un dispositivo mobile richiede *MyFile.cshtml*, pagine Web viene eseguito il rendering del contenuto dalla *MyFile.Mobile.cshtml*. In caso contrario, *MyFile.cshtml* viene eseguito il rendering.
+In alternativa, è possibile creare pagine specifiche di dispositivo utilizzando un modello di denominazione dei file simile al seguente: <em>FileName.</em> <em>Mobile</em><em>. cshtml</em>. Ad esempio, è possibile creare due versioni di una pagina, uno denominato <em>MyFile.cshtml</em> e uno denominato <em>MyFile.Mobile.cshtml</em>. In fase di esecuzione, quando un dispositivo mobile richiede <em>MyFile.cshtml</em>, pagine Web viene eseguito il rendering del contenuto dalla <em>MyFile.Mobile.cshtml</em>. In caso contrario, <em>MyFile.cshtml</em> viene eseguito il rendering.
 
 Nell'esempio seguente viene illustrato come attivare il rendering di dispositivi mobili mediante l'aggiunta di una pagina contenuto per i dispositivi mobili. *Page1.cshtml* contiene contenuto più di una barra laterale di navigazione. *Page1.Mobile.cshtml* contiene lo stesso contenuto, ma omette l'intestazione laterale.
 
@@ -503,4 +503,4 @@ Per compilare ed eseguire l'esempio di codice:
 
 - [WebMatrix 2 Novità](http://webmatrix.com/next)
 - [Sito di Microsoft WebMatrix](https://go.microsoft.com/fwlink/?LinkID=195076)
-- [Avviare lo sviluppo Web con Microsoft WebMatrix](https://msdn.microsoft.com/en-us/library/hh145669(v=VS.99).aspx)(include un'applicazione di pagine Web di esempio completi dei)
+- [Avviare lo sviluppo Web con Microsoft WebMatrix](https://msdn.microsoft.com/en-us/library/hh145669(v=VS.99).aspx)(include un'applicazione di pagine Web di esempio ordinati)

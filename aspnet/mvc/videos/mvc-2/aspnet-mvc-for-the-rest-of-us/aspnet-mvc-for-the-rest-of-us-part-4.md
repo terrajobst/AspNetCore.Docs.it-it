@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4
 msc.type: video
-ms.openlocfilehash: 26e80b7945ee4f3c523a7e3a388df2bad6b38ad5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b9498bb546f370279c090a9b3b57ed2543cee234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-for-the-rest-of-us-part-4"></a>ASP.NET MVC per il resto del team: parte 4
 ====================
@@ -24,7 +24,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 In questo video Microsoft Joe Stagner aggiunge un controller per un'applicazione MVC ASP.NET.
 
-[&#9654; Guardare video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
+[&#9654;Guardare video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-for-the-rest-of-us-part-4)
 
->[!div class="step-by-step"]
-[Precedente](aspnet-mvc-for-the-rest-of-us-part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](aspnet-mvc-for-the-rest-of-us-part-3.md)

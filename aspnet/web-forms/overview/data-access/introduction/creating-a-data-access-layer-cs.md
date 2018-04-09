@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 title: Creazione di un livello di accesso ai dati (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si sarà avviare fin dall'inizio e creare Data Access Layer (DAL), utilizzando i dataset tipizzati, per accedere alle informazioni in un database."
+description: In questa esercitazione si sarà avviare fin dall'inizio e creare Data Access Layer (DAL), utilizzando i dataset tipizzati, per accedere alle informazioni in un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Creazione di un livello di accesso ai dati (c#)
 ====================
@@ -84,7 +84,7 @@ Tutto il codice specifico per l'origine dati sottostante, ad esempio la creazion
 
 Questi metodi, quando richiamata, verranno connettersi al database, eseguire la query appropriata e restituire i risultati. Come restituiamo questi risultati è importante. Questi metodi può semplicemente restituire un set di dati o DataReader popolata dalla query sul database, ma idealmente devono essere restituiti i risultati utilizzando *oggetti fortemente tipizzati*. Un oggetto fortemente tipizzato è quello il cui schema è rigidamente definito in fase di compilazione, mentre il contrario, un oggetto fortemente tipizzato, è uno cui schema non è noto fino al runtime.
 
-Il DataReader e il set di dati (per impostazione predefinita), ad esempio, sono oggetti fortemente tipizzato poiché lo schema è definito per le colonne restituite dalla query sul database utilizzata per popolare le. Accedere a una particolare colonna da un DataTable fortemente tipizzato, è necessario utilizzare una sintassi simile: ***DataTable*. Righe [*indice*] ["*columnName *"]**. Il DataTable tipizzazione in questo esempio viene esposto dal fatto che è necessario accedere al nome di colonna utilizzando una stringa o l'indice ordinale. Un oggetto DataTable fortemente tipizzata, d'altra parte, sarà necessario ciascuna delle relative colonne implementati come proprietà, risultante in codice simile al: ***DataTable*. Righe [*indice*].* Nome colonna***.
+Il DataReader e il set di dati (per impostazione predefinita), ad esempio, sono oggetti fortemente tipizzato poiché lo schema è definito per le colonne restituite dalla query sul database utilizzata per popolare le. Accedere a una particolare colonna da un DataTable non fortemente tipizzato, è necessario utilizzare una sintassi simile:  <strong><em>DataTable</em>. Righe [<em>indice</em>] ["<em>columnName</em>"]</strong>. Il DataTable tipizzazione in questo esempio viene esposto dal fatto che è necessario accedere al nome di colonna utilizzando una stringa o l'indice ordinale. Un oggetto DataTable fortemente tipizzata, d'altro canto, sarà necessario ciascuna delle relative colonne implementati come proprietà, risultante nel codice che è simile a:  <strong><em>DataTable</em>. Righe [<em>indice</em>]. *Nome colonna</strong>*.
 
 Per restituire oggetti fortemente tipizzati, gli sviluppatori possono creare propri oggetti di business personalizzata o utilizzano i dataset tipizzati. Un oggetto business viene implementato dallo sviluppatore come rappresenta una classe le cui proprietà riflettono in genere le colonne della tabella di database sottostante dell'oggetto business. Un set di dati tipizzato è una classe generata automaticamente da Visual Studio in base a uno schema di database e i cui membri sono fortemente tipizzati in base a questo schema. Il DataSet tipizzato stesso è costituito da classi che estendono le classi ADO.NET DataSet, DataTable e DataRow. Oltre a DataTable fortemente tipizzata, dataset tipizzati anche includono ora TableAdapter, che sono classi con metodi per il popolamento DataTable del set di dati e propagazione delle modifiche all'interno di DataTable nuovamente al database.
 
@@ -124,7 +124,7 @@ La configurazione guidata TableAdapter inizia da cui viene richiesto di selezion
 **Figura 5**: scegliere il Northwind Database nell'elenco a discesa ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image13.png))
 
 
-Dopo aver selezionato il database e fare clic su Avanti, verrà chiesto se si desidera salvare la stringa di connessione nel **Web. config** file. Salvando la stringa di connessione si verrà evita che il disco rigido codificate in classi TableAdapter, che semplifica le cose, se le informazioni sulla stringa di connessione viene modificata in futuro. Se si decide di salvare la stringa di connessione nel file di configurazione viene inserito nella  **&lt;connectionStrings&gt;**  , che può essere [facoltativamente crittografato](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) migliorato sicurezza o modificate in un secondo momento tramite la nuova pagina delle proprietà ASP.NET 2.0 all'interno dello strumento di amministrazione GUI di IIS, è più ideale per gli amministratori.
+Dopo aver selezionato il database e fare clic su Avanti, verrà chiesto se si desidera salvare la stringa di connessione nel **Web. config** file. Salvando la stringa di connessione si verrà evita che il disco rigido codificate in classi TableAdapter, che semplifica le cose, se le informazioni sulla stringa di connessione viene modificata in futuro. Se si decide di salvare la stringa di connessione nel file di configurazione viene inserito nella **&lt;connectionStrings&gt;** , che può essere [facoltativamente crittografato](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) migliorato sicurezza o modificate in un secondo momento tramite la nuova pagina delle proprietà ASP.NET 2.0 all'interno dello strumento di amministrazione GUI di IIS, è più ideale per gli amministratori.
 
 
 [![Salvare la stringa di connessione in Web. config](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
@@ -233,7 +233,7 @@ Vengono innanzitutto richieste se si desidera accedere al database utilizzando u
 **Figura 15**: scegliere di creare un **selezionare** istruzione che restituisce righe ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-Il passaggio successivo consiste nel definire la query SQL utilizzata per accedere ai dati. Poiché si desidera restituire solo i prodotti che appartengono a una categoria specifica, utilizzare lo stesso **selezionare** from dell'istruzione **GetProducts()**, ma è aggiungere le seguenti **in** clausola: **dove CategoryID = @CategoryID** . Il  **@CategoryID**  per la configurazione guidata TableAdapter parametro indica che il metodo che si sta creando richiede un parametro di input del tipo corrispondente (vale a dire, un intero che ammette valori null).
+Il passaggio successivo consiste nel definire la query SQL utilizzata per accedere ai dati. Poiché si desidera restituire solo i prodotti che appartengono a una categoria specifica, utilizzare lo stesso <strong>selezionare</strong> from dell'istruzione <strong>GetProducts()</strong>, ma è aggiungere le seguenti <strong>in</strong> clausola: <strong>dove CategoryID = @CategoryID</strong> . Il <strong>@CategoryID</strong> per la configurazione guidata TableAdapter parametro indica che il metodo che si sta creando richiede un parametro di input del tipo corrispondente (vale a dire, un intero che ammette valori null).
 
 
 [![Immettere una Query per restituire solo i prodotti in una categoria specifica](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -241,7 +241,7 @@ Il passaggio successivo consiste nel definire la query SQL utilizzata per accede
 **Figura 16**: immettere una Query per restituire solo i prodotti in una categoria specificata ([fare clic per visualizzare l'immagine ingrandita](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-Nel passaggio finale che è possibile scegliere quale modelli da utilizzare, nonché di personalizzare i nomi dei metodi generati di accesso ai dati. Per il motivo di riempimento, modificare il nome da **FillByCategoryID** e per il valore restituito un oggetto DataTable restituito modello (il **ottenere * X*** metodi), è possibile utilizzare **GetProductsByCategoryID**.
+Nel passaggio finale che è possibile scegliere quale modelli da utilizzare, nonché di personalizzare i nomi dei metodi generati di accesso ai dati. Per il motivo di riempimento, modificare il nome da <strong>FillByCategoryID</strong> e per il valore restituito un oggetto DataTable restituito modello (il <strong>ottenere*X</strong>*  metodi), è possibile utilizzare  <strong>GetProductsByCategoryID</strong>.
 
 
 [![Scegliere i nomi per i metodi TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -403,48 +403,48 @@ Richiedere alcuni minuti per creare i seguenti oggetti TableAdapter e metodi uti
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
 [![Progettazione DataSet dopo che sono stati aggiunti i quattro oggetti TableAdapter](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
@@ -543,5 +543,5 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Ron Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, etichetta Gomez e Santos Carlos. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](creating-a-business-logic-layer-cs.md)
+> [!div class="step-by-step"]
+> [avanti](creating-a-business-logic-layer-cs.md)

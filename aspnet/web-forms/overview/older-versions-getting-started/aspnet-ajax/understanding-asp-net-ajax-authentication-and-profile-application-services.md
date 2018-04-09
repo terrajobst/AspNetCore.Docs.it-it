@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0bf6538d0c4ae9488e6ac29ccba6d4b243cf070e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Informazioni sui servizi dell'applicazione del profilo e l'autenticazione ASP.NET AJAX
 ====================
-da [Scott Care](https://github.com/scottcate)
+da [Scott categorie](https://github.com/scottcate)
 
 [Scarica il PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
@@ -43,7 +43,7 @@ Il servizio di autenticazione consente agli utenti di fornire le credenziali per
 
 Il servizio profili consente l'integrazione automatica e l'archiviazione dei dati utente in base all'appartenenza come fornita dal servizio di autenticazione. I dati archiviati sono specificati dal file Web. config e la gestione dei dati di gestire i vari provider di servizi di profilatura. Come con il servizio di autenticazione, il servizio AJAX profilo è compatibile con il servizio di profilo ASP.NET standard, in modo che le pagine attualmente l'inserimento di funzionalità del servizio profili di ASP.NET non devono essere suddiviso, includendo il supporto AJAX.
 
-Incorpora l'autenticazione basata su ASP.NET e i servizi di profilatura in un'applicazione è esterno all'ambito di questo white paper. Per ulteriori informazioni sull'argomento, vedere MSDN Library, fare riferimento articolo gestione degli utenti tramite l'appartenenza a [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET include anche un'utilità di configurare automaticamente l'appartenenza con SQL Server, ovvero il provider del servizio di autenticazione predefinito per l'appartenenza ASP.NET. Per ulteriori informazioni, vedere l'articolo strumento di registrazione di SQL Server ASP.NET (Aspnet\_regsql.exe) in [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
+Incorpora l'autenticazione basata su ASP.NET e i servizi di profilatura in un'applicazione è esterno all'ambito di questo white paper. Per ulteriori informazioni sull'argomento, vedere MSDN Library, fare riferimento a articolo gestione degli utenti tramite l'appartenenza al [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET include anche un'utilità di configurare automaticamente l'appartenenza con SQL Server, ovvero il provider del servizio di autenticazione predefinito per l'appartenenza ASP.NET. Per altre informazioni, vedere l'articolo strumento di registrazione di SQL Server ASP.NET (Aspnet\_regsql.exe) in [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*Utilizzo del servizio di autenticazione ASP.NET AJAX*
 
@@ -131,7 +131,7 @@ Il riferimento alla funzione specificata da questa proprietà deve avere la firm
 
 | **Nome del parametro** | **Significato** |
 | --- | --- |
-| validCredentials | Specifica se l'utente ha fornito le credenziali valide. `true`Se l'utente è connesso correttamente. in caso contrario `false`. |
+| validCredentials | Specifica se l'utente ha fornito le credenziali valide. `true` Se l'utente è connesso correttamente. in caso contrario `false`. |
 | userContext | Specifica le informazioni sul contesto utente forniti quando è stata chiamata la funzione di accesso. |
 | NomeMetodo | Il nome del metodo chiamante. |
 
@@ -173,7 +173,7 @@ Questa proprietà determina il periodo di tempo di attesa per il servizio di aut
 
 Questa proprietà è un `Number` oggetto che rappresenta il numero di millisecondi di attesa di risultati dal servizio di autenticazione.
 
-*Nell'esempio di codice: L'accesso al servizio di autenticazione*
+*Nell'esempio di codice: La registrazione al servizio di autenticazione*
 
 Il markup seguente è una pagina ASP.NET di esempio con una chiamata di uno script semplice per i metodi di accesso e disconnessione della classe AuthenticationService.
 
@@ -345,6 +345,6 @@ Inoltre, creando le implementazioni del servizio web semplificata con firme dei 
 
 Categoria Scott lavora con tecnologie Web di Microsoft dal 1997 ed è il vicepresidente myKB.com ([www.myKB.com](http://www.myKB.com)) in cui si è specializzato nella scrittura ASP.NET basato su applicazioni con stato attivo sulle soluzioni Software Knowledge Base. Scott possano essere contattati tramite posta elettronica al [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o il suo blog all'indirizzo [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Precedente](understanding-asp-net-ajax-updatepanel-triggers.md)
-[Successivo](understanding-asp-net-ajax-localization.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [Successivo](understanding-asp-net-ajax-localization.md)

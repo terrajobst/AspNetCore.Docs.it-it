@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/introduction-to-signalr
 title: Introduzione a SignalR | Documenti Microsoft
 author: pfletcher
-description: "Questo articolo descrive SignalR è e alcune delle soluzioni che è stato progettato per creare."
+description: Questo articolo descrive SignalR è e alcune delle soluzioni che è stato progettato per creare.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr"></a>Introduzione a SignalR
 ====================
@@ -85,11 +85,11 @@ Nell'elenco seguente vengono illustrati i passaggi che SignalR utilizza per stab
 2. Se JSONP è configurato (vale a dire il `jsonp` parametro è impostato su `true` quando la connessione è stata avviata), di Polling lungo viene utilizzato.
 3. Se una connessione tra domini è stata effettuata (ovvero, se l'endpoint di SignalR non è presente nello stesso dominio della pagina di hosting), verrà utilizzato WebSocket se vengono soddisfatti i seguenti criteri:
 
-    - Il client supporta CORS (Cross-Origin Resource Sharing). Per informazioni dettagliate in cui i client supportano CORS, vedere [CORS in caniuse.com](http://www.caniuse.com/CORS).
-    - Il client supporta WebSocket
-    - Il server supporta WebSocket
+   - Il client supporta CORS (Cross-Origin Resource Sharing). Per informazioni dettagliate in cui i client supportano CORS, vedere [CORS in caniuse.com](http://www.caniuse.com/CORS).
+   - Il client supporta WebSocket
+   - Il server supporta WebSocket
 
-    Se uno di questi criteri non vengono soddisfatte, verrà utilizzato il Polling lungo. Per ulteriori informazioni sulle connessioni tra domini, vedere [per stabilire una connessione tra domini](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+     Se uno di questi criteri non vengono soddisfatte, verrà utilizzato il Polling lungo. Per ulteriori informazioni sulle connessioni tra domini, vedere [per stabilire una connessione tra domini](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
 4. Se la connessione non è tra domini JSONP non è configurato, verrà utilizzato WebSocket se supporta client e server.
 5. Se il client o il server non supporta WebSocket, gli eventi inviati Server viene utilizzato se disponibile.
 6. Se gli eventi del Server inviato non è disponibili, viene tentata Forever Frame.
@@ -140,7 +140,7 @@ Una connessione rappresenta un endpoint di tipo semplice per l'invio di messaggi
 
 Un Hub è una pipeline più alto livello basata sull'API di connessione che consente il client e server chiamare i metodi direttamente tra loro. SignalR gestisce la distribuzione tra limiti di computer come se fosse magic, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Utilizzando il modello di comunicazione hub risulteranno familiare agli sviluppatori che hanno usato la chiamata remota, ad esempio servizi remoti .NET. Utilizzo di un Hub consente inoltre di passare parametri fortemente tipizzati per metodi che consentono l'associazione del modello.
 
-### <a name="architecture-diagram"></a>Diagramma dell'architettura
+### <a name="architecture-diagram"></a>diagramma dell'architettura
 
 Il diagramma seguente mostra la relazione tra hub, le connessioni permanenti e le tecnologie sottostanti utilizzate per i trasporti.
 

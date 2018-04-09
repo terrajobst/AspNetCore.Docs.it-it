@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-vb
-title: "Test di complessità di una Password (VB) | Documenti Microsoft"
+title: Test di complessità di una Password (VB) | Documenti Microsoft
 author: wenz
 description: Le password sono necessarie ovunque, in modo che gli utenti lazy tendono a scegliere password semplici, facili da interrompere. Il controllo PasswordStrength nella pagina ASP. N....
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7f09a05fd4b5771b7ab532d40476fe45cbd3fe38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d46026535f3f5cf82944359599464e8a4725280
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="testing-the-strength-of-a-password-vb"></a>Test di complessità di una Password (VB)
 ====================
@@ -35,10 +35,10 @@ Le password sono necessarie ovunque, in modo che gli utenti lazy tendono a scegl
 
 Il `PasswordStrength` controllo estende una casella di testo e controlla se la password è sufficiente. Offre una vasta gamma di opzioni tramite gli attributi. Ecco solo alcuni di essi:
 
-- `MinimumNumericCharacters`numero minimo di caratteri numerici richiesti nella password
-- `MinimumSymbolCharacters`numero minimo di simboli (non lettere e cifre) richiesto nella password
-- `PreferredPasswordLength`lunghezza minima della password
-- `RequiresUpperAndLowerCaseCharacters`Se la password deve usare caratteri maiuscoli e minuscoli
+- `MinimumNumericCharacters` numero minimo di caratteri numerici richiesti nella password
+- `MinimumSymbolCharacters` numero minimo di simboli (non lettere e cifre) richiesto nella password
+- `PreferredPasswordLength` lunghezza minima della password
+- `RequiresUpperAndLowerCaseCharacters` indica se la password deve usare caratteri maiuscoli e minuscoli
 
 Il `StrengthIndicatorType` fornisce le informazioni come presentare la complessità della password, come testo (valore `"Text"`) o come un tipo di indicatore di stato (valore `"BarIndicator"`). Nel `DisplayPosition` attributo, configurare dove vengono visualizzate le informazioni. Ecco un esempio completo, incluso ASP.NET AJAX `ScriptManager` (controllo), il `PasswordStrength` controllo e, naturalmente, una casella di testo in cui l'utente può immettere una password. Ai fini di dimostrazione, il campo modulo quest'ultimo è un campo di testo normale e non un campo della password in modo da visualizzare durante lo sviluppo che si sta digitando.
 
@@ -51,5 +51,5 @@ Eseguire la pagina e digitare lontano: solo dopo avere immesso le lettere minusc
 
 A questo punto la password () buone ([fare clic per visualizzare l'immagine ingrandita](testing-the-strength-of-a-password-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](testing-the-strength-of-a-password-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](testing-the-strength-of-a-password-cs.md)

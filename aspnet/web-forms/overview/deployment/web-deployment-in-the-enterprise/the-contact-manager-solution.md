@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 title: La soluzione di gestione di contatto | Documenti Microsoft
 author: jrjlee
-description: 'Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; la soluzione di gestione di contatto & #x 2014; per rappresentare un''applicazione su larga scala con un livello realistico...'
+description: Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;la soluzione Contact Manager&#x2014;per rappresentare un'applicazione su larga scala con un livello realistico...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>La soluzione di gestione di contatto
 ====================
@@ -24,7 +24,7 @@ da [Jason Lee](https://github.com/jrjlee)
 
 [Scarica il PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Questo [serie di esercitazioni](web-deployment-in-the-enterprise.md) utilizza una soluzione di esempio & #x 2014; la soluzione di gestione di contatto & #x 2014; per rappresentare un'applicazione su larga scala con un livello di complessità realistico. In questo argomento introduce la soluzione di gestione di contatto, vengono descritti i componenti chiavi della soluzione e identifica le problematiche correlate alla distribuzione di questo tipo di applicazione per diverse piattaforme di destinazione in un ambiente aziendale.
+> Ciò [serie di esercitazioni](web-deployment-in-the-enterprise.md) utilizza una soluzione di esempio&#x2014;la soluzione di gestione di contatto&#x2014;per rappresentare un'applicazione su larga scala con un livello di complessità realistico. In questo argomento introduce la soluzione di gestione di contatto, vengono descritti i componenti chiavi della soluzione e identifica le problematiche correlate alla distribuzione di questo tipo di applicazione per diverse piattaforme di destinazione in un ambiente aziendale.
 > 
 > Quando si utilizzano gli argomenti in queste esercitazioni, è possibile utilizzare la soluzione di gestione di contatto come un'implementazione di riferimento che illustra come è possibile soddisfare i problemi specifici in scenari di distribuzione dell'organizzazione. L'argomento successivo, [impostazione backup Contact Manager soluzione](setting-up-the-contact-manager-solution.md), viene descritto come scaricare ed eseguire la soluzione nella workstation di sviluppo.
 
@@ -67,6 +67,6 @@ In questo argomento fornita una panoramica generale della soluzione di gestione 
 
 L'argomento successivo, [impostazione backup Contact Manager soluzione](setting-up-the-contact-manager-solution.md), viene descritto come scaricare ed eseguire la soluzione nella workstation di sviluppo.
 
->[!div class="step-by-step"]
-[Precedente](web-deployment-in-the-enterprise.md)
-[Successivo](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Precedente](web-deployment-in-the-enterprise.md)
+> [Successivo](setting-up-the-contact-manager-solution.md)

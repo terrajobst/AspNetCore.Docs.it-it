@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 title: 'Gestione del ciclo di vita delle applicazioni: Dallo sviluppo alla produzione | Documenti Microsoft'
 author: jrjlee
-description: "In questo argomento viene illustrato come una società fittizia gestisce la distribuzione di un'applicazione web ASP.NET tramite ambienti di test, gestione temporanea e produzione come par..."
+description: In questo argomento viene illustrato come una società fittizia gestisce la distribuzione di un'applicazione web ASP.NET tramite ambienti di test, gestione temporanea e produzione come par...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f7ffff1c3434ce98c70265e4bf64047fd44252d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8beeffb374df09c6695a1845199d30006ddcc1b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Gestione del ciclo di vita delle applicazioni: Dallo sviluppo alla produzione
 ====================
@@ -26,7 +26,7 @@ da [Jason Lee](https://github.com/jrjlee)
 
 > In questo argomento viene illustrato come una società fittizia gestisce la distribuzione di un'applicazione web ASP.NET tramite ambienti di test, gestione temporanea e produzione come parte di un processo di sviluppo continuo. All'argomento, vengono forniti collegamenti a ulteriori informazioni e procedure dettagliate su come eseguire attività specifiche.
 > 
-> L'argomento è progettato per fornire una panoramica di alto livello per un [serie di esercitazioni](deploying-web-applications-in-enterprise-scenarios.md) su distribuzione web dell'organizzazione. Non occorre preoccuparsi se non si ha familiarità con alcuni dei concetti descritti di seguito & #x 2014; le esercitazioni che seguono forniscono informazioni dettagliate su queste attività e tecniche.
+> L'argomento è progettato per fornire una panoramica di alto livello per un [serie di esercitazioni](deploying-web-applications-in-enterprise-scenarios.md) su distribuzione web dell'organizzazione. Non occorre preoccuparsi se non si ha familiarità con alcuni concetti descritti di seguito&#x2014;le esercitazioni che seguono forniscono informazioni dettagliate su queste attività e tecniche.
 > 
 > > [!NOTE]
 > > I migliori risultati Forthe di semplicità, in questo argomento non vengono trattate aggiornamento database come parte del processo di distribuzione. Tuttavia, eseguire aggiornamenti incrementali per le funzionalità di database è un requisito di molti scenari di distribuzione dell'organizzazione ed è possibile trovare istruzioni su come eseguire questa operazione, più avanti in questa serie di esercitazioni. Per ulteriori informazioni, vedere [progetti di Database di distribuzione](../web-deployment-in-the-enterprise/deploying-database-projects.md).
@@ -57,10 +57,10 @@ In pratica, il processo è leggermente più complesso, come si vedrà quando si 
 
 Il resto di questo argomento vengono esaminate le fasi principali di questo ciclo di vita di distribuzione:
 
-- **Prerequisiti**: come è necessario configurare l'infrastruttura del server prima di inserire la logica di distribuzione sul posto.
-- **Sviluppo e distribuzione iniziale**: è necessario eseguire prima di distribuire la soluzione per la prima volta.
+- **Prerequisiti**: la necessità di configurare l'infrastruttura del server prima di inserire la logica di distribuzione posto.
+- **Sviluppo e distribuzione iniziale**: che cosa è necessario eseguire prima di distribuire la soluzione per la prima volta.
 - **Distribuzione di test**: come creare un pacchetto e distribuire automaticamente il contenuto in un ambiente di test quando uno sviluppatore archivia nel nuovo codice.
-- **Distribuzione di gestione temporanea**: la modalità di distribuzione specifico compila in un ambiente di gestione temporanea e come eseguire "cosa accade se" distribuzioni per garantire che una distribuzione non causa alcun problema.
+- **Distribuzione di gestione temporanea**: la modalità di distribuzione specifico discende da un ambiente di gestione temporanea e come eseguire "cosa accade se" distribuzioni per garantire che una distribuzione non causa alcun problema.
 - **Distribuzione nell'ambiente di produzione**: come importare pacchetti web in un ambiente di produzione quando l'infrastruttura di rete impedisce la distribuzione remota.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -95,7 +95,7 @@ Per eseguire la distribuzione, un utente esegue il *Publish.proj* file utilizzan
 
 > [!NOTE]
 > Il funzionamento di questi file di progetto personalizzato è indipendente del meccanismo di che consentono di richiamare MSBuild. Ad esempio, è possibile utilizzare la riga di comando di MSBuild direttamente, come descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md). È possibile eseguire i file di progetto da un file di comando, come descritto in [creare ed eseguire un File di comando di distribuzione](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). In alternativa, è possibile eseguire i file di progetto da una definizione di compilazione in TFS, come descritto in [la creazione di una definizione di compilazione che la distribuzione supporta](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> In ogni caso, il risultato finale è la stessa #x 2014; & MSBuild esegue il file di progetto sottoposto a merge e distribuisce la soluzione nell'ambiente di destinazione. Ciò consente una notevole flessibilità nella modalità si attiva il processo di pubblicazione.
+> In ogni caso il risultato finale è lo stesso&#x2014;esegue il file di progetto unita di MSBuild e distribuisce la soluzione per l'ambiente di destinazione. Ciò consente una notevole flessibilità nella modalità si attiva il processo di pubblicazione.
 
 
 Una volta che ha creato i file di progetto personalizzati, Matt li aggiunge a una cartella della soluzione e li archivia nel controllo del codice sorgente.
@@ -185,7 +185,7 @@ Il **DeployToStaging-WhatIf** definizione di compilazione contiene la stessa log
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
 
-All'interno di *Publish.proj* file, il **WhatIf** proprietà indica che tutte le risorse di distribuzione devono essere pubblicate in modalità "cosa accade se". In altre parole, i file di log vengono generati come se la distribuzione non più avanti, ma non viene effettivamente modificato nell'ambiente di destinazione. Ciò consente di valutare l'impatto di una distribuzione proposto & #x 2014, in particolare, ciò che viene aggiunto, cosa verrà aggiornata e ciò che verrà eliminato & #x 2014; prima di eseguire effettivamente le modifiche.
+All'interno di *Publish.proj* file, il **WhatIf** proprietà indica che tutte le risorse di distribuzione devono essere pubblicate in modalità "cosa accade se". In altre parole, i file di log vengono generati come se la distribuzione non più avanti, ma non viene effettivamente modificato nell'ambiente di destinazione. Ciò consente di valutare l'impatto di una distribuzione proposta&#x2014;in particolare, ciò che viene aggiunto, quali verranno aggiornati e che cosa verrà eliminata&#x2014;prima di apportare effettivamente le modifiche.
 
 > [!NOTE]
 > Per ulteriori informazioni su come configurare le distribuzioni di "cosa accade se", vedere [con una distribuzione di "Cosa accade se"](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
@@ -227,5 +227,5 @@ In questo argomento fa parte di una serie di esercitazioni che forniscono inform
 - [Configurazione di Team Foundation Server per automatizzata Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In questa esercitazione vengono fornite indicazioni su come integrare i processi di compilazione TFS di logica di distribuzione.
 - [Distribuzione Web aziendale avanzate](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In questa esercitazione vengono fornite indicazioni su come soddisfare alcuni dei problemi di distribuzione più complessi in un'organizzazione.
 
->[!div class="step-by-step"]
-[Precedente](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Precedente](enterprise-web-deployment-scenario-overview.md)

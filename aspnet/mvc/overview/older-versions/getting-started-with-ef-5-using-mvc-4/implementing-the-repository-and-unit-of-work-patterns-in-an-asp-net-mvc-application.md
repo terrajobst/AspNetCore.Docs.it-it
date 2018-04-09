@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: "Implementare il Repository e l'unità di lavoro modelli in un'applicazione ASP.NET MVC (9 di 10) | Documenti Microsoft"
+title: Implementare il Repository e l'unità di lavoro modelli in un'applicazione ASP.NET MVC (9 di 10) | Documenti Microsoft
 author: tdykstra
 description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 con Code First di Entity Framework 5 e Visual Studio...
 ms.author: aspnetcontent
@@ -12,30 +12,30 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementare il Repository e l'unità di lavoro modelli in un'applicazione ASP.NET MVC (9 di 10)
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 [Scaricare il progetto completato](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
 > 
 > > [!NOTE] 
 > > 
-> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e su come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
 
 Nell'esercitazione precedente ereditarietà è utilizzato per ridurre il codice ridondante nel `Student` e `Instructor` le classi di entità. In questa esercitazione si noterà alcuni modi per usare il repository e l'unità di lavoro modelli per le operazioni CRUD. Come l'esercitazione precedente, in questo si modificherà il funzionamento del codice con pagine è già creati anziché crearne nuove pagine.
 
 ## <a name="the-repository-and-unit-of-work-patterns"></a>Il Repository e l'unità di lavoro modelli
 
-Il repository e l'unità di lavoro modelli servono per creare un livello di astrazione tra il livello di accesso ai dati e il livello di logica di business di un'applicazione. L'implementazione di questi modelli consentono di isolare l'applicazione dalle modifiche nell'archivio dati e possono facilitare lo sviluppo basato su test (TDD) o unit test automatici.
+Il repository e l'unità di lavoro modelli servono per creare un livello di astrazione tra il livello di accesso ai dati e il livello di logica di business di un'applicazione. L'implementazione di questi modelli può essere utile per isolare l'applicazione dalle modifiche nell'archivio dati e può semplificare il testing unità automatizzato o lo sviluppo basato su test (TDD).
 
 In questa esercitazione viene implementato una classe di repository per ogni tipo di entità. Per il `Student` tipo di entità, si creerà un'interfaccia del repository e una classe di repository. Quando si crea un'istanza di repository nel controller, si userà l'interfaccia in modo che il controller accetterà un riferimento a qualsiasi oggetto che implementa l'interfaccia del repository. Quando il controller viene eseguito in un server web, riceve un repository che funziona con Entity Framework. Quando il controller viene eseguito in una classe di unit test, riceve un repository che funziona con i dati archiviati in modo che è possibile modificare facilmente di test, ad esempio una raccolta in memoria.
 
@@ -48,9 +48,9 @@ Nella figura seguente viene illustrato un modo per realizzare le relazioni tra i
 Unit test non vengono creati in questa serie di esercitazioni. Per un'introduzione ai TDD con un'applicazione MVC che utilizza il modello di repository, vedere [procedura dettagliata: utilizzo TDD con ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Per ulteriori informazioni sul modello di repository, vedere le risorse seguenti:
 
 - [Il modello di Repository](https://msdn.microsoft.com/library/ff649690.aspx) su MSDN.
-- [Utilizzo di modelli Repository e unità di lavoro con Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) nel blog del team di Entity Framework.
+- [Utilizzo di modelli di Repository e unità di lavoro con Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) nel blog del team di Entity Framework.
 - [Agile Entity Framework 4 Repository](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serie di post sul blog di Julie Lerman.
-- [La creazione di Account in un'applicazione HTML5/jQuery immediatamente](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) sul blog di Dan Wahlin.
+- [La creazione di Account in un'applicazione HTML5/jQuery immediatamente](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) nel blog di Dan Wahlin.
 
 > [!NOTE]
 > Esistono diversi modi per implementare il repository e l'unità di lavoro modelli. È possibile utilizzare le classi del repository con o senza una classe di unità di lavoro. È possibile implementare un singolo repository per tutti i tipi di entità, o uno per ogni tipo. Se si implementa uno per ogni tipo, è possibile utilizzare classi separate, una classe base generica e le classi derivate, o una classe base e le classi derivate. È possibile includere la logica di business nel repository o applicare restrizioni a logica di accesso ai dati. È anche possibile compilare un livello di astrazione nella classe di contesto di database utilizzando [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) sono interfacce anziché [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) tipi per i set di entità. L'approccio all'implementazione di un livello di astrazione illustrato in questa esercitazione è una delle opzioni da prendere in considerazione, non una raccomandazione per tutti gli ambienti e scenari.
@@ -124,7 +124,7 @@ L'aggiornamento `Index` metodo contiene il codice seguente:
 
 Nella versione originale del codice, `students` è tipizzato come un `IQueryable` oggetto. La query non viene inviata al database finché non viene convertito in una raccolta con un metodo, ad esempio `ToList`, che non viene eseguita fino a quando la visualizzazione dell'indice accede al modello di studenti. Il `Where` metodo nel codice originale precedente diventa un `WHERE` clausola nella query SQL che viene inviata al database. A sua volta, ciò significa che solo le entità selezionate vengono restituite dal database. Tuttavia, come risultato della modifica `context.Students` a `studentRepository.GetStudents()`, il `students` variabile dopo questa istruzione è un `IEnumerable` raccolta che include tutti gli studenti nel database. Il risultato finale dell'applicazione di `Where` metodo è lo stesso, ma ora il lavoro viene svolto in memoria nel server web e non dal database. Per le query che restituiscono grandi volumi di dati, questo può risultare inefficiente.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Visual Studio IQueryable. IEnumerable**
 > 
@@ -249,6 +249,6 @@ Sono state implementate del repository e l'unità di lavoro modelli. È stato ut
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [mappa del contenuto ASP.NET dati accesso](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Precedente](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Successivo](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Precedente](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Successivo](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

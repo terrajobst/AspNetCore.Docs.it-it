@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 title: Accesso ai dati del modello da un Controller | Documenti Microsoft
 author: Rick-Anderson
-description: "Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo..."
+description: 'Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: f323fe37da739d957a609dc7ca4e71a3c3ab475e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cf896a6a9ce6cb8cd4adb13c3d87c4e7c3095fa6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Accesso ai dati del modello da un Controller
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -44,7 +44,7 @@ Fare clic su **Aggiungi**. Visual Studio Express crea i file e cartelle seguenti
 
 - *Un MoviesController.cs* nel file del progetto *controller* cartella.
 - Oggetto *filmati* cartella del progetto *viste* cartella.
-- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, e *cshtml* nel nuovo *Views\Movies* cartella.
+- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, e *cshtml* nella nuova *Views\Movies* cartella.
 
 ASP.NET MVC 4 creato automaticamente il CRUD (creare, leggere, aggiornare ed eliminare) i metodi di azione e le viste per l'utente (la creazione automatica delle viste e i metodi di azione CRUD è noto come scaffolding). Ora è un'applicazione web completamente funzionale che consente di creare, elencare, modificare ed eliminare le voci di film.
 
@@ -151,6 +151,6 @@ Al termine, chiudere la connessione facendo clic *MovieDBContext* e selezionando
 
 È ora disponibile il database e una pagina di elenco semplice per visualizzare il contenuto da esso. Nella prossima esercitazione, si sarà il resto del codice scaffolding di esaminare e aggiungere un `SearchIndex` (metodo) e un `SearchIndex` visualizzazione che consente di eseguire la ricerca di filmati in questo database.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-model.md)
-[Successivo](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-model.md)
+> [Successivo](examining-the-edit-methods-and-edit-view.md)

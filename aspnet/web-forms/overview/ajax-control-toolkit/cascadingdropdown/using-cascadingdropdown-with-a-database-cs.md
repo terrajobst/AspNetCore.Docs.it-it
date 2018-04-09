@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86d6b62259573433cff7054d50cc299da9e4f372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1991c26d408e593999288ea6df0467cea0369457
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-cascadingdropdown-with-a-database-c"></a>Utilizza CascadingDropDown con un Database (c#)
 ====================
@@ -33,7 +33,7 @@ Il controllo CascadingDropDown AJAX Control Toolkit estende un controllo DropDow
 
 ## <a name="steps"></a>Passaggi
 
-Prima di tutto, un'origine dati è obbligatoria. Questo esempio viene utilizzato il database AdventureWorks e Microsoft SQL Server 2005 Express Edition. Il database è una parte facoltativa di un'installazione di Visual Studio (inclusa express edition) ed è anche disponibile come download separato in [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). Il database AdventureWorks fa parte dei database di esempio e gli esempi di SQL Server 2005 (download all'indirizzo [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Il modo più semplice per configurare il database è di utilizzare Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx? FamilyID = c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) e collegare il `AdventureWorks.mdf` file di database.
+Prima di tutto, un'origine dati è obbligatoria. Questo esempio viene utilizzato il database AdventureWorks e Microsoft SQL Server 2005 Express Edition. Il database è una parte facoltativa di un'installazione di Visual Studio (inclusa express edition) ed è anche disponibile come download separato sotto [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). Il database AdventureWorks fa parte di database di esempio e gli esempi di SQL Server 2005 (download all'indirizzo [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e &amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Il modo più semplice per configurare il database consiste nell'utilizzare Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) e collegare il `AdventureWorks.mdf` file di database.
 
 In questo esempio, si presuppone che l'istanza di SQL Server 2005 Express Edition è stato chiamato `SQLEXPRESS` e si trova nello stesso computer come server web; questo è l'impostazione predefinita. Se il programma di installazione diverso, è necessario adattare le informazioni di connessione per il database.
 
@@ -47,12 +47,12 @@ Nel passaggio successivo, sono necessari due controlli DropDownList. In questo e
 
 Quindi, è necessario aggiungere due Extender CascadingDropDown alla pagina. Uno compilato automaticamente il primo elenco (fornitori), e l'altro nel secondo elenco (contatti). Impostare gli attributi seguenti:
 
-- `ServicePath`: URL di un servizio web, offrendo le voci dell'elenco
-- `ServiceMethod`: Metodo web le voci dell'elenco di distribuzione
+- `ServicePath`: URL di un servizio web recapitare le voci dell'elenco
+- `ServiceMethod`: Metodo web recapito le voci dell'elenco
 - `TargetControlID`: ID dell'elenco a discesa
-- `Category`: Le informazioni sulle categorie viene inviati al metodo web quando viene chiamato
-- `PromptText`: Testo visualizzato quando si caricano in modo asincrono i dati di elenco dal server
-- `ParentControlID`: (facoltativo) che il caricamento di trigger dell'elenco corrente di elenco a discesa padre
+- `Category`: Informazioni sulle categorie viene inviati al metodo web quando viene chiamato
+- `PromptText`: Testo visualizzato quando si caricano in modo asincrono i dati elenco dal server
+- `ParentControlID`: (facoltativo) che il caricamento di trigger dell'elenco corrente di elenco a discesa di padre
 
 A seconda del linguaggio di programmazione utilizzato, viene modificato il nome del servizio web in questione, ma tutti gli altri valori di attributo sono uguali. Di seguito è l'elemento CascadingDropDown per il primo elenco a discesa:
 
@@ -94,10 +94,10 @@ Caricare la pagina ASP.NET e, dopo un breve periodo di tempo nell'elenco di forn
 Nel primo elenco viene compilato automaticamente ([fare clic per visualizzare l'immagine ingrandita](using-cascadingdropdown-with-a-database-cs/_static/image3.png))
 
 
-[![Nel secondo elenco viene compilato in base alla selezione nel primo elenco](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
+[![Nel secondo elenco viene compilato in base della selezione nel primo elenco](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
 
 Nel secondo elenco viene compilato in base alla selezione nel primo elenco ([fare clic per visualizzare l'immagine ingrandita](using-cascadingdropdown-with-a-database-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Precedente](filling-a-list-using-cascadingdropdown-cs.md)
-[Successivo](presetting-list-entries-with-cascadingdropdown-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](filling-a-list-using-cascadingdropdown-cs.md)
+> [Successivo](presetting-list-entries-with-cascadingdropdown-cs.md)

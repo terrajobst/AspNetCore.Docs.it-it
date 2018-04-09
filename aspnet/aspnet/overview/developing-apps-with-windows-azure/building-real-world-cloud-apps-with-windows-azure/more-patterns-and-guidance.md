@@ -1,28 +1,28 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: "Più modelli e le indicazioni (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft"
+title: Più modelli e le indicazioni (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5da5110afc50fa02fcfae551a18741821f18fcbb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Più modelli e le indicazioni (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -35,10 +35,10 @@ da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.
     - [Migrazione Microsoft ASP.NET e IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656). Case study da Robert McMurray.
     - [Lo spostamento 4th &amp; sindaco per siti Web di Azure](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/). Post di blog da Jeff Wilcox chronicling la sua esperienza lo spostamento di un'app web da Amazon Web Services nelle App Web in Azure App Service.
     - [Lo spostamento delle App in Azure: le modifiche?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Breve video di Stefan Schackow, illustra l'accesso al file system nelle App Web in Azure App Service.
-    - [Cloud ibridi di Azure](https://www.amazon.com/dp/B00EOP4UQW). Copia cartacea libro o e-book Danny Garber Malik Jamal e Adam Fazio.
+    - [Cloud ibrido Azure](https://www.amazon.com/dp/B00EOP4UQW). Copia cartacea libro o e-book Danny Garber Malik Jamal e Adam Fazio.
 - Problemi di sicurezza, autenticazione e autorizzazione univoci per le applicazioni cloud
 
-    - [Guida alla protezione di Azure](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
+    - [Ulteriori informazioni sulla sicurezza di Azure](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
     - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere Gatekeeper modello, il modello di identità federata.
     - [Sicurezza di rete di Azure](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). White paper da Ashin Palekar.
 
@@ -51,34 +51,34 @@ Ognuno dei capitoli in questo manuale e vengono forniti collegamenti alle risors
 
 Documentazione
 
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud di Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). White paper Mark Simms e Michael Thomassy.
 - [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Versione della pagina Web della serie di video di operatore alternativo.
 - [Informazioni aggiuntive su Azure](https://azure.microsoft.com/develop/net/guidance/) pagina del portale per la documentazione ufficiale correlati allo sviluppo di applicazioni per Azure.
 
 Video
 
 - [Creazione di applicazioni Cloud reale con Azure - parte 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324) e [parte 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325). Video di Scott Guthrie basato su questo e-book di presentazione. Presentato al tecnico Ed Australia nel mese di settembre 2013. Una versione precedente della stessa presentazione è stata recapitata in norvegese sviluppatori conferenza (NDC) nel giugno 2013: [parte NDC 1](http://vimeo.com/68215538), [parte NDC 2](http://vimeo.com/68215602).
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta una visualizzazione a livello di 400 come progettare applicazioni basate su cloud. Questa serie è incentrata sulla teoria e motivi alla base di modelli consigliati; Per ulteriori informazioni sulle procedure, vedere la serie compilazione Big Mark Simms.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie video in nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta una visualizzazione a livello di 400 come progettare applicazioni basate su cloud. Questa serie è incentrata sulla teoria e motivi alla base di modelli consigliati; Per ulteriori informazioni sulle procedure, vedere la serie compilazione Big Mark Simms.
 - [Compilazione Big: Insegnamenti appresi da clienti Azure-parte 1](https://channel9.msdn.com/Events/Build/2012/3-029) e [parte 2](https://channel9.msdn.com/Events/Build/2012/3-030). Serie di video di due parti Simon Davies e Mark Simms, simile a una serie di operatore alternativo ma più orientato verso l'implementazione pratica.
 
 Nell'esempio di codice
 
 - [La correzione dell'applicazione che accompagna questo e-book](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
-- [Sviluppo di servizi di Azure in c# per Visual Studio 2012 cloud](http://aka.ms/csf). Progetto scaricabile nel sito Microsoft Code Gallery include sia il codice sviluppato da di Microsoft Team (CAT, Customer Advisory) documentazione. Vengono illustrate molte delle procedure consigliate raccomandate in serie di video operatore alternativo e Big compilazione e il white paper operatore alternativo. La pagina Code Gallery anche collegamenti a documentazione completa per gli autori del progetto, vedere in particolare il [raccolta wiki di sviluppo di servizi Cloud](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) collegamento nella casella blu nella parte superiore della descrizione del progetto. Questo progetto e la relativa documentazione ancora attivamente in fase di sviluppo, rendendola una scelta migliore per informazioni su molti argomenti di white paper simili, ma meno recenti.
+- [Sviluppo di servizi in Azure nel linguaggio c# per Visual Studio 2012 cloud](http://aka.ms/csf). Progetto scaricabile nel sito Microsoft Code Gallery include sia il codice sviluppato da di Microsoft Team (CAT, Customer Advisory) documentazione. Vengono illustrate molte delle procedure consigliate raccomandate in serie di video operatore alternativo e Big compilazione e il white paper operatore alternativo. La pagina Code Gallery anche collegamenti a documentazione completa per gli autori del progetto, vedere in particolare il [raccolta wiki di sviluppo di servizi Cloud](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) collegamento nella casella blu nella parte superiore della descrizione del progetto. Questo progetto e la relativa documentazione ancora attivamente in fase di sviluppo, rendendola una scelta migliore per informazioni su molti argomenti di white paper simili, ma meno recenti.
 
 Documentazione di copia
 
 - [Il cloud Computing bibbia](https://www.amazon.com/dp/0470903562). By Barrie Sosinsky.
 - [Rilasciarlo! Progettare e distribuire il Software di ambiente di produzione](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). By Michael T. Nygard.
-- [Modelli di architettura di cloud: Utilizzo di Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do). Da Wilder distinta.
-- [Windows Azure Platform](https://www.amazon.com/dp/1430235632). Da Tejaswi Redkar.
-- [Windows Azure, modelli di programmazione per Start-up](https://www.amazon.com/dp/1849685606). By Riccardo Becker.
-- [Istruzioni per lo sviluppo di Azure di Microsoft Windows](https://www.amazon.com/dp/1849682224). Da Neil Mackenzie.
+- [Modelli di architettura cloud: Con Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do). Da Wilder distinta.
+- [Windows della piattaforma Azure](https://www.amazon.com/dp/1430235632). Da Tejaswi Redkar.
+- [I modelli di programmazione per centinaia di Windows Azure](https://www.amazon.com/dp/1849685606). By Riccardo Becker.
+- [Microsoft Windows lo sviluppo di Azure Cookbook](https://www.amazon.com/dp/1849682224). Da Neil Mackenzie.
 
 Infine, quando iniziare la creazione di applicazioni reali e nell'esecuzione in Azure, prima o poi sarà probabilmente necessario assistenza degli esperti. È possibile porre domande in siti delle community, ad esempio [forum di Azure o StackOverflow](https://azure.microsoft.com/support/forums/), oppure è possibile contattare Microsoft direttamente per il supporto di Azure. Microsoft offre diversi livelli di supporto tecnico di Azure: per un riepilogo e un confronto tra le opzioni, vedere [Azure supporta](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>Riconoscimenti
+## <a name="acknowledgments"></a>Ringraziamenti
 
 Questo contenuto è stato scritto da Tom Dykstra, Rick Anderson e Mike Wasson. La maggior parte del contenuto originale provenienza [Scott Guthrie](https://weblogs.asp.net/scottgu/), e a sua volta su materiale da Mark Simms e di Microsoft Team (CAT, Customer Advisory).
 
@@ -132,6 +132,6 @@ Altri membri di DGAC esaminato e commentato la struttura preliminare:
 - Roger Whitehead
 - Pawel Wilkosz
 
->[!div class="step-by-step"]
-[Precedente](queue-centric-work-pattern.md)
-[Successivo](the-fix-it-sample-application.md)
+> [!div class="step-by-step"]
+> [Precedente](queue-centric-work-pattern.md)
+> [Successivo](the-fix-it-sample-application.md)

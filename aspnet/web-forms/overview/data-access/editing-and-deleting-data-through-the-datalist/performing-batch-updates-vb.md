@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 title: Esecuzione di aggiornamenti Batch (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Informazioni su come creare un completamente modificabile DataList in cui tutti gli elementi sono in modalità di modifica e i cui valori possono essere salvati, facendo clic su un pulsante 'Aggiorna tutto' il..."
+description: Informazioni su come creare un completamente modificabile DataList in cui tutti gli elementi sono in modalità di modifica e i cui valori possono essere salvati, facendo clic su un pulsante 'Aggiorna tutto' il...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-vb"></a>Esecuzione di aggiornamenti Batch (VB)
 ====================
@@ -32,7 +32,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 Nel [esercitazione precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md) abbiamo esaminato come creare un livello di elemento di DataList. Come standard GridView modificabile, ogni elemento DataList incluso una pulsante Modifica che, quando selezionato, rendere modificabile l'elemento. Mentre questo livello di elemento modifica funziona anche per i dati che viene aggiornati solo occasionalmente, alcuni scenari di casi di utilizzo richiedono all'utente di modificare più record. Se un utente deve modificare numerose di record e fare clic su Modifica, apportare le modifiche desiderate e fare clic su Aggiorna per ciascuno di essi viene forzato, la quantità di facendo clic su può compromettere la produttività. In tali situazioni, un'opzione migliore è di fornire un controllo DataList completamente modificabile, dove *tutti* dei relativi elementi sono in modalità di modifica e i cui valori possono essere modificati, fare clic su un pulsante Aggiorna tutte sulla pagina (vedere la figura 1).
 
 
-[![Ogni elemento in un DataList modificabile può essere modificato.](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
+[![Ogni elemento in un DataList modificabile può essere modificato](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
 
 **Figura 1**: ogni elemento in un DataList modificabile può essere modificato ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image3.png))
 
@@ -43,8 +43,8 @@ In questa esercitazione si esamineranno come permettere agli utenti di aggiornar
 
 Nell'esercitazione precedente, in cui è la creazione di un controllo DataList standard, a livello di elemento modificabile, abbiamo utilizzato due modelli:
 
-- `ItemTemplate`contiene l'interfaccia utente di sola lettura (i controlli Web di etichetta per la visualizzazione di ogni nome s del prodotto e prezzo).
-- `EditItemTemplate`contiene l'interfaccia utente in modalità di modifica (i due controlli TextBox Web).
+- `ItemTemplate` contiene l'interfaccia utente di sola lettura (i controlli Web di etichetta per la visualizzazione di ogni elemento name s prodotto e prezzo).
+- `EditItemTemplate` contiene l'interfaccia utente in modalità di modifica (i due controlli TextBox Web).
 
 DataList s `EditItemIndex` proprietà stabilisce cosa `DataListItem` (se presente) viene eseguito il rendering tramite il `EditItemTemplate`. In particolare, il `DataListItem` cui `ItemIndex` valore corrisponde a DataList s `EditItemIndex` viene eseguito il rendering di proprietà utilizzando il `EditItemTemplate`. Questo modello funziona bene quando è possibile modificare solo un elemento a un ora, ma divide in due cade durante la creazione di un DataList completamente modificabile.
 
@@ -55,20 +55,20 @@ Aprire il `BatchUpdate.aspx` pagina, aggiungere un controllo DataList e impostar
 
 [![Creare un nuovo oggetto ObjectDataSource denominato SuppliersDataSource](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
 
-**Figura 2**: creare un nuovo ObjectDataSource denominato `SuppliersDataSource` ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image6.png))
+**Figura 2**: creare un nuovo denominato ObjectDataSource `SuppliersDataSource` ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image6.png))
 
 
 Configurare ObjectDataSource per recuperare dati tramite il `SuppliersBLL` classe s `GetSuppliers()` (metodo) (vedere la figura 3). Con l'esercitazione precedente, piuttosto che l'aggiornamento delle informazioni del fornitore tramite ObjectDataSource, è necessario utilizzare direttamente il livello di logica di Business. Pertanto, impostare l'elenco a discesa su (nessuno) nella scheda aggiornamento (vedere la figura 4).
 
 
-[![Recuperare le informazioni sul fornitore utilizzando il metodo GetSuppliers()](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
+[![Recuperare informazioni sul fornitore tramite il metodo GetSuppliers()](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
 
 **Figura 3**: recuperare informazioni sul fornitore utilizzando il `GetSuppliers()` metodo ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image9.png))
 
 
 [![Impostazione dell'elenco di riepilogo a discesa su (nessuno) nella scheda dell'aggiornamento](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
 
-**Figura 4**: impostazione dell'elenco di riepilogo a discesa su (nessuno) nella scheda aggiornamento ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image12.png))
+**Figura 4**: impostare l'elenco a discesa su (nessuno) nella scheda aggiornamento ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image12.png))
 
 
 Dopo aver completato la procedura guidata, Visual Studio genera automaticamente DataList s `ItemTemplate` per visualizzare ogni campo di dati restituito dall'origine dati in un controllo etichetta Web. È necessario modificare il modello in modo che fornisce l'interfaccia di modifica. Il `ItemTemplate` può essere personalizzato tramite la finestra di progettazione utilizzando l'opzione di modifica modelli dallo smart tag DataList s o direttamente tramite la sintassi dichiarativa.
@@ -107,7 +107,7 @@ Inizio aggiungendo un controllo pulsante Web di sopra del DataList e impostare i
 Figura 6 mostra la pagina dopo l'aggiornamento a tutti i pulsanti sono stati aggiunti.
 
 
-[![Due pulsanti tutti di aggiornamento sono stati aggiunti alla pagina](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
+[![Due aggiornamento tutti i pulsanti sono stati aggiunti alla pagina](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
 
 **Figura 6**: due aggiornamento tutti i pulsanti sono stati aggiunti alla pagina ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-vb/_static/image18.png))
 
@@ -163,12 +163,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Ken Pespisa. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-[Successivo](handling-bll-and-dal-level-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [Successivo](handling-bll-and-dal-level-exceptions-vb.md)

@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 title: Introduzione a ASP.NET Web Pages - introduzione | Documenti Microsoft
 author: tfitzmac
-description: "WebMatrix non è più consigliato come un ambiente di sviluppo integrato per ASP.NET Web Pages. Utilizzare Visual Studio o Visual Studio Code. Questa guida un..."
+description: WebMatrix non è più consigliato come un ambiente di sviluppo integrato per ASP.NET Web Pages. Utilizzare Visual Studio o Visual Studio Code. Questa guida un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5fd67a230f76774e102094f42426b8bb126c0cc6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Introduzione a ASP.NET Web Pages - introduzione
 ====================
@@ -29,8 +29,8 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > Questa Guida e l'applicazione offre una panoramica di ASP.NET Web Pages (2 o versioni successive) e una sintassi Razor, un framework semplice per la creazione di siti Web dinamici. Introduce anche WebMatrix, uno strumento per la creazione di siti e pagine.
 > 
-> **Livello**: nuovo alle pagine Web ASP.NET.  
-> **Competenze presuppone**: HTML, i fogli di stile CSS (CSS) base.
+> **Livello**: familiarità con ASP.NET Web Pages.  
+> **Si presuppone che le competenze**: HTML, i fogli di stile CSS (CSS) base.
 > 
 > Argomenti trattati nella prima esercitazione del set di:
 > 
@@ -44,7 +44,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Installazione guidata piattaforma Web Microsoft.
 > - WebMatrix.
-> - *cshtml* pagine
+> - *. cshtml* pagine
 >   
 > 
 > Mike Pope scritto originariamente in questa esercitazione. Tom FitzMacken aggiornato per Microsoft WebMatrix 3.
@@ -263,7 +263,7 @@ Questo codice ottiene il valore inserito nella `currentDateTime` variabile nella
 
 Eseguire nuovamente la pagina (WebMatrix consente di salvare le modifiche per la prima dell'esecuzione della pagina). Questa volta che viene visualizzata la data e ora nella pagina.
 
-![&quot;Hello World&quot; pagina in esecuzione nel browser con un display ora generata in modo dinamico](getting-started/_static/image20.png)
+![&quot;Hello World&quot; pagina in esecuzione nel browser con una visualizzazione cronologica generato dinamicamente](getting-started/_static/image20.png)
 
 Attendere qualche minuto e quindi aggiornare la pagina nel browser. La visualizzazione di data e ora viene aggiornata.
 
@@ -289,5 +289,5 @@ Nella prossima esercitazione di questa serie, è esplorare pagine Web ASP.NET di
 
 [Creare un sito Web ASP.NET da zero](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Si tratta di un'esercitazione in cui è in particolare sull'utilizzo di WebMatrix (non ASP.NET Web Pages). Diventa un po' più dettagli su alcune delle funzionalità aggiuntive di WebMatrix che non verranno trattati in questa esercitazione set.
 
->[!div class="step-by-step"]
-[avanti](intro-to-web-pages-programming.md)
+> [!div class="step-by-step"]
+> [avanti](intro-to-web-pages-programming.md)

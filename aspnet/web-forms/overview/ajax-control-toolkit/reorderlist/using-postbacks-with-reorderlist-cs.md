@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-cs
 title: Utilizzo di postback con ReorderList (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo ReorderList AJAX Control Toolkit fornisce un elenco che può essere riordinato dall'utente tramite trascinamento della selezione. Ogni volta che l'elenco viene riordinato, un ordine di acquisto..."
+description: Il controllo ReorderList AJAX Control Toolkit fornisce un elenco che può essere riordinato dall'utente tramite trascinamento della selezione. Ogni volta che l'elenco viene riordinato, un ordine di acquisto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5f5c5e253f6d85203a488152c5ad908157e6ee0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed01c30c0721c8f1cd8ccb3fea0735ea8fa4f0a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-postbacks-with-reorderlist-c"></a>Utilizzo di postback con ReorderList (c#)
 ====================
@@ -42,7 +42,7 @@ Per associare il codice XML per un `ReorderList` impostare controllo e abilitare
 - `DataSourceID`: L'ID dell'origine dati
 - `SortOrderField`: La proprietà di ordinamento
 - `AllowReorder`: Se si desidera consentire all'utente di riordinare gli elementi dell'elenco
-- `PostBackOnReorder`: Se si desidera creare un postback, ogni volta che l'elenco viene riordinato
+- `PostBackOnReorder`: Se si desidera creare un postback ogni volta che l'elenco viene riordinato
 
 Di seguito è riportato il codice appropriato per il controllo:
 
@@ -65,9 +65,9 @@ Infine, per attivare le funzionalità di ASP.NET AJAX e il Toolkit di controllo,
 [!code-aspx[Main](using-postbacks-with-reorderlist-cs/samples/sample6.aspx)]
 
 
-[![Ogni tipo di riordinamento attiva un postback](using-postbacks-with-reorderlist-cs/_static/image2.png)](using-postbacks-with-reorderlist-cs/_static/image1.png)
+[![Ogni riordinamento attiva un postback](using-postbacks-with-reorderlist-cs/_static/image2.png)](using-postbacks-with-reorderlist-cs/_static/image1.png)
 
 Ogni tipo di riordinamento attiva un postback ([fare clic per visualizzare l'immagine ingrandita](using-postbacks-with-reorderlist-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Successivo](drag-and-drop-via-reorderlist-cs.md)
+> [!div class="step-by-step"]
+> [avanti](drag-and-drop-via-reorderlist-cs.md)

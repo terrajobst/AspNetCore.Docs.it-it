@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 1e3373a21c7d1766cfad390a7ba68b1363d8d895
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-file-new-project"></a>Parte 1: Panoramica e File -> Nuovo progetto
 ====================
@@ -117,13 +117,13 @@ ASP.NET MVC si avvalgono di alcune convenzioni di denominazione di base per i no
 
 | **Cartella** | **Scopo** |
 | --- | --- |
-| **/ Controller** | Controller rispondono a input dal browser, decidere cosa fare con esso e restituire una risposta all'utente. |
-| **E viste** | Viste contengono i nostri modelli dell'interfaccia utente |
+| **/Controllers** | Controller rispondono a input dal browser, decidere cosa fare con esso e restituire una risposta all'utente. |
+| **/Views** | Viste contengono i nostri modelli dell'interfaccia utente |
 | **O i modelli** | I modelli contengono e modificare i dati |
-| **/ Content** | Questa cartella contiene il nostro immagini, CSS e qualsiasi altro contenuto statico |
-| **/ Script** | Questa cartella contiene i file JavaScript |
+| **/Content** | Questa cartella contiene il nostro immagini, CSS e qualsiasi altro contenuto statico |
+| **/Scripts** | Questa cartella contiene i file JavaScript |
 
 Queste cartelle sono inclusi anche in un'applicazione MVC ASP.NET vuoto poiché il framework ASP.NET MVC per impostazione predefinita viene utilizzato un approccio "convenzione sulla configurazione" e rende alcuni presupposti in base alle convenzioni di denominazione di cartella. Ad esempio, i controller di cercano le viste nella cartella Views per impostazione predefinita senza dover specificare in modo esplicito nel codice. Trovarsi bene con le convenzioni predefinite riduce la quantità di codice da scrivere, e può rendere più semplice per gli altri sviluppatori comprendere il progetto. Verrà illustrato queste convenzioni ulteriori mentre si compila l'applicazione.
 
->[!div class="step-by-step"]
-[Successivo](mvc-music-store-part-2.md)
+> [!div class="step-by-step"]
+> [avanti](mvc-music-store-part-2.md)

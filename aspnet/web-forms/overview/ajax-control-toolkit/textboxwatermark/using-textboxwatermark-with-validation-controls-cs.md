@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 title: Utilizzo di TextBoxWatermark con i controlli di convalida (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo TextBoxWatermark AJAX Control Toolkit estende una casella di testo in modo che sia visualizzato all'interno della casella. Quando un utente fa clic nella casella, è possibile..."
+description: Il controllo TextBoxWatermark AJAX Control Toolkit estende una casella di testo in modo che sia visualizzato all'interno della casella. Quando un utente fa clic nella casella, è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61fa55c8c4580800de1097b7242c7077cda27115
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5cc7974f3444b54770cba54b991aab7b103f753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>Utilizzo di TextBoxWatermark con i controlli di convalida (c#)
 ====================
@@ -56,6 +56,6 @@ Infine, aggiungere codice lato server per il testo nel campo di output se nessun
 
 Il validator rileva che è disponibile alcun testo nel campo ([fare clic per visualizzare l'immagine ingrandita](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](using-textboxwatermark-in-a-formview-cs.md)
-[Successivo](using-textboxwatermark-in-a-formview-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-textboxwatermark-in-a-formview-cs.md)
+> [Successivo](using-textboxwatermark-in-a-formview-vb.md)

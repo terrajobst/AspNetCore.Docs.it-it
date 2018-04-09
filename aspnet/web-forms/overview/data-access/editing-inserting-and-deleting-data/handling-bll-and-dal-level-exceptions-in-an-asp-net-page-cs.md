@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 title: Gestione delle eccezioni BLL e DAL livello in una pagina ASP.NET (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà spiegato come visualizzare un messaggio di errore informativo e descrittivo consigliabile si verifichi un'eccezione durante un inserimento, aggiornamento o operazione di eliminazione di..."
+description: In questa esercitazione verrà spiegato come visualizzare un messaggio di errore informativo e descrittivo consigliabile si verifichi un'eccezione durante un inserimento, aggiornamento o operazione di eliminazione di...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7589584f3b0773a739b785c433ec45eeac3607e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Gestione delle eccezioni BLL e DAL livello in una pagina ASP.NET (c#)
 ====================
@@ -55,7 +55,7 @@ Con questo metodo completato, si è pronti per creare la pagina ASP.NET che cons
 
 [![Utilizzare l'Overload del metodo UpdateProduct che accetta quattro parametri di Input](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
 
-**Figura 1**: utilizzo di `UpdateProduct` metodo di Overload che accetta quattro parametri di Input ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))
+**Figura 1**: usare il `UpdateProduct` metodo di Overload che accetta quattro parametri di Input ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))
 
 
 Verrà creato un ObjectDataSource con un `UpdateParameters` insieme con quattro parametri e un controllo GridView con un campo per ognuno dei campi del prodotto. Markup dichiarativo di ObjectDataSource assegna il `OldValuesParameterFormatString` il valore della proprietà `original_{0}`, che verrà generata un'eccezione, poiché la classe BLL non prevede un parametro di input denominato `original_productID` che deve essere passato. Non dimenticare di rimuovere completamente questa impostazione dalla sintassi dichiarativa (o impostarlo sul valore predefinito, `{0}`).
@@ -65,9 +65,9 @@ Successivamente, ridurre la quantità di GridView da includere solo la `ProductN
 Nell'esercitazione precedente abbiamo esaminato come formattare il `UnitPrice` BoundField come valuta sia in modalità di sola lettura e la modalità di modifica. Di seguito si identico. Tenere presente che questa richiesta di impostazione del BoundField `DataFormatString` proprietà `{0:c}`, l'oggetto `HtmlEncode` proprietà `false`e il relativo `ApplyFormatInEditMode` a `true`, come illustrato nella figura 2.
 
 
-[![Configurare il UnitPrice BoundField da visualizzare come valuta](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
+[![Configurare il UnitPrice BoundField a vengono visualizzati come valuta](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
 
-**Figura 2**: configurare il `UnitPrice` BoundField da visualizzare come valuta ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))
+**Figura 2**: configurare il `UnitPrice` BoundField a vengono visualizzati come valuta ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))
 
 
 Formattazione di `UnitPrice` come una valuta nell'interfaccia di modifica richiede la creazione di un gestore eventi per il controllo GridView `RowUpdating` evento che analizza la stringa di formato di valuta in un `decimal` valore. Tenere presente che il `RowUpdating` gestore dell'evento dall'ultima esercitazione anche controllato per verificare che l'utente specificato un `UnitPrice` valore. Tuttavia, per questa esercitazione si consente all'utente omettere il prezzo.
@@ -86,17 +86,17 @@ Il GridView include un `QuantityPerUnit` BoundField, ma questo BoundField deve e
 Infine, controllare la casella di controllo Abilita modifica smart tag del controllo GridView. Dopo aver completato questi passaggi di `ErrorHandling.aspx` finestra di progettazione della pagina simile alla figura 4.
 
 
-[![Rimuovere tutto tranne necessario BoundField e verificare l'abilitazione, la casella di controllo di modifica](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
+[![Rimuovere tutte tranne quelle necessarie BoundField e verificare l'abilitazione di casella di controllo di modifica](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
 
-**Figura 4**: rimuovere tutto tranne il necessario BoundField e verificare la modifica di casella di controllo ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))
+**Figura 4**: rimuovere tutto tranne il necessari BoundField e verificare la modifica di casella di controllo ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))
 
 
 A questo punto si dispone di un elenco di tutti i prodotti `ProductName`, `QuantityPerUnit`, `UnitPrice`, e `UnitsInStock` campi; tuttavia, solo il `ProductName`, `UnitPrice`, e `UnitsInStock` campi possono essere modificati.
 
 
-[![Gli utenti possono ora facilmente modificare i nomi dei prodotti, prezzi e unità In magazzino campi](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
+[![Gli utenti ora possono modificare facilmente i nomi dei prodotti, prezzi e unità In magazzino campi](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
 
-**Figura 5**: nomi gli utenti possono ora facilmente modificare i prodotti, prezzi e campi di unità In magazzino ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))
+**Figura 5**: degli utenti possono ora facilmente modifica prodotti nomi, prezzi e unità In magazzino campi ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))
 
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Passaggio 2: Normalmente la gestione delle eccezioni di livello DAL
@@ -122,7 +122,7 @@ Per iniziare, aggiungere un'etichetta per la pagina ASP.NET, l'impostazione rela
 
 [![Aggiungere un controllo Web etichetta alla pagina](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
 
-**Figura 7**: aggiungere un controllo Web etichetta ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))
+**Figura 7**: aggiungere un controllo Web etichetta alla pagina ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))
 
 
 Poiché si desidera che questo controllo per essere visibile solo immediatamente dopo un'eccezione, impostare il relativo `Visible` proprietà su false nella `Page_Load` gestore eventi:
@@ -155,9 +155,9 @@ Creazione di questo gestore eventi aggiungerà il codice seguente in una classe 
 
 Secondo parametro di input del gestore di questo evento è un oggetto di tipo [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), che dispone di tre proprietà di interesse per la gestione delle eccezioni:
 
-- `Exception`un riferimento all'eccezione generata. Se è non stata generata alcuna eccezione, questa proprietà sarà assegnato un valore di`null`
-- `ExceptionHandled`un valore booleano che indica se l'eccezione è stata gestita nel `RowUpdated` gestore; se `false` (impostazione predefinita), l'eccezione viene generata nuovamente, percolating al runtime ASP.NET
-- `KeepInEditMode`Se impostato su `true` riga GridView modificata rimane in modalità di modifica; se `false` (impostazione predefinita), la riga GridView, vengono ripristinate la modalità di sola lettura
+- `Exception` un riferimento all'eccezione generata; Se è non stata generata alcuna eccezione, questa proprietà sarà assegnato un valore di `null`
+- `ExceptionHandled` un valore booleano che indica se l'eccezione è stata gestita nel `RowUpdated` gestore; se `false` (impostazione predefinita), l'eccezione viene generata nuovamente, percolating al runtime ASP.NET
+- `KeepInEditMode` Se impostato su `true` dalla riga GridView modificata rimane in modalità di modifica; se `false` (impostazione predefinita), la riga GridView, vengono ripristinate la modalità di sola lettura
 
 Il codice, quindi, deve verificare se `Exception` non `null`, vale a dire che è stata generata un'eccezione durante l'operazione. In questo caso, si vuole:
 
@@ -205,7 +205,7 @@ Con questa modifica, qualsiasi aggiornamento prezzo che è più del doppio rispe
 
 [![Le regole di Business di impedire l'aumento di prezzo che più del doppio prezzo del prodotto](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
 
-**Figura 11**: aumenti di prezzo non consentire che più del doppio prezzo del prodotto delle regole di Business ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))
+**Figura 11**: non consentire prezzo aumenta in più del doppio prezzo del prodotto delle regole di Business ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))
 
 
 > [!NOTE]
@@ -224,12 +224,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Liz Shulok. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
-[Successivo](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [Successivo](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)

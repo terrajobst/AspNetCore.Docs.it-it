@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi principali di ASP.NET in IIS
 
@@ -49,7 +49,7 @@ Il *502.5 errore del processo* pagina di errore viene restituito quando un error
 **500 Errore interno del Server**  
 Avvio dell'app, ma un errore impedisce al server di soddisfare la richiesta.
 
-Questo errore si verifica all'interno del codice dell'app durante l'avvio o durante la creazione di una risposta. La risposta non può contenere alcun contenuto o la risposta potrebbe essere visualizzato come un *500 Internal Server Error* nel browser. Registro eventi dell'applicazione in genere indica che l'app è stato avviato normalmente. Dalla prospettiva del server, che non è corretto. L'app è stato avviato, ma non può generare una risposta valida. [Eseguire l'app a un prompt dei comandi](#run-the-app-at-a-command-prompt) sul server o [abilitare il log di stdout ASP.NET Core modulo](#aspnet-core-module-stdout-log) per risolvere il problema.
+Questo errore si verifica all'interno del codice dell'app durante l'avvio o durante la creazione di una risposta. La risposta non può contenere alcun contenuto o la risposta potrebbe essere visualizzato come un *500 Internal Server Error* nel browser. Registro eventi dell'applicazione in genere indica che l'app è stato avviato normalmente. Dalla prospettiva del server, che non è corretto. L'app è stato avviato, ma non può generare una risposta valida. [Eseguire l'app al prompt dei comandi](#run-the-app-at-a-command-prompt) nel server o [abilitare il log di stdout ASP.NET Core modulo](#aspnet-core-module-stdout-log) per risolvere il problema.
 
 **Reimpostazione della connessione**
 
@@ -96,20 +96,20 @@ Per abilitare e visualizzare i log di stdout:
 
 1. Passare alla cartella di distribuzione del sito nel sistema host.
 1. Se il *registri* cartella non è presente, creare la cartella. Per istruzioni sull'abilitazione di MSBuild per creare il *registri* cartella nella distribuzione automaticamente, vedere il [struttura di Directory](xref:host-and-deploy/directory-structure) argomento.
-1. Modificare il *Web. config* file. Impostare **stdoutLogEnabled** a `true` e modificare il **stdoutLogFile** percorso affinché faccia riferimento al *registri* cartella (ad esempio, `.\logs\stdout`). `stdout`nel percorso è il prefisso di nome file di log. Un timestamp, id di processo e l'estensione di file vengono aggiunti automaticamente quando il log viene creato. Utilizzando `stdout` denominato come il prefisso del nome file, un file di log tipici *stdout_20180205184032_5412.log*. 
+1. Modificare il *Web. config* file. Impostare **stdoutLogEnabled** a `true` e modificare il **stdoutLogFile** percorso affinché faccia riferimento al *registri* cartella (ad esempio, `.\logs\stdout`). `stdout` nel percorso è il prefisso di nome file di log. Un timestamp, id di processo e l'estensione di file vengono aggiunti automaticamente quando il log viene creato. Utilizzando `stdout` denominato come il prefisso del nome file, un file di log tipici *stdout_20180205184032_5412.log*. 
 1. Salvare l'aggiornamento *Web. config* file.
 1. Effettuare una richiesta per l'app.
 1. Passare il *registri* cartella. Trovare e aprire il log di stdout più recente.
 1. Esaminare il log degli errori.
 
-**Importante!** Disabilitare la registrazione di stdout quando la risoluzione dei problemi è stata completata.
+**Importante**: Disabilitare la registrazione di stdout quando la risoluzione dei problemi è stata completata.
 
 1. Modificare il *Web. config* file.
 1. Impostare **stdoutLogEnabled** a `false`.
 1. Salvare il file.
 
 > [!WARNING]
-> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. È presente alcun limite sulla dimensione del file di log o il numero di file di log creati.
+> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare.
 >
 > Per la routine registrazione in un'applicazione ASP.NET di base, utilizzare una libreria di registrazione che limita dimensioni file di log e ruota i log. Per ulteriori informazioni, vedere [provider di log di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
 
@@ -148,7 +148,7 @@ Vedere [remoto il Debug di ASP.NET Core in un Computer remoto di IIS in Visual S
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](/azure/application-insights/) fornisce i dati di telemetria da app ospitate da IIS, inclusi errori di registrazione e le funzionalità di reporting. Application Insights può segnalare solo in caso di errori che si verifica dopo l'avvio dell'app quando diventano disponibili le funzionalità di registrazione dell'app. Per ulteriori informazioni, vedere [Application Insights per ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
+[Application Insights](/azure/application-insights/) fornisce dati di telemetria da app ospitate da IIS, inclusi errori di registrazione e le funzionalità di reporting. Application Insights può segnalare solo in caso di errori che si verifica dopo l'avvio dell'app quando diventano disponibili le funzionalità di registrazione dell'app. Per ulteriori informazioni, vedere [Application Insights per ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
 
 ## <a name="additional-troubleshooting-advice"></a>Suggerimenti sulla risoluzione dei problemi aggiuntive
 

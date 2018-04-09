@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d2caf7fe137b48c016ff3cd52db9e36e1e8001c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9a2bbcb09672f5247429064908cd4d2ef67f518
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-vb"></a>Creazione di un Controller (VB)
 ====================
@@ -64,7 +64,7 @@ Quando si crea un controller, è possibile generare automaticamente i metodi di 
 **Figura 03**: la creazione automatica di metodi di azione ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-vb/_static/image6.png))
 
 
-**Elenco di 2 - Controllers\CustomerController.vb**
+**Listing 2 - Controllers\CustomerController.vb**
 
 [!code-vb[Main](creating-a-controller-vb/samples/sample2.vb)]
 
@@ -81,10 +81,10 @@ Controller MVC ASP.NET è semplicemente una classe. Se si preferisce, è possibi
 
 [![Creazione di una nuova classe](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
 
-**Figura 04**: creazione di una nuova classe ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-vb/_static/image8.png))
+**Figura 04**: creare una nuova classe ([fare clic per visualizzare l'immagine ingrandita](creating-a-controller-vb/_static/image8.png))
 
 
-**Elenco di 3 - Controllers\PersonController.vb**
+**Listing 3 - Controllers\PersonController.vb**
 
 [!code-vb[Main](creating-a-controller-vb/samples/sample3.vb)]
 
@@ -92,10 +92,10 @@ Il controller nel listato 3 espone un'azione denominata index () che restituisce
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Il Server di sviluppo ASP.NET utilizza un numero di porta casuale (ad esempio, 40071). Quando si immette un URL per richiamare un controller, sarà necessario fornire il numero della porta destra. È possibile determinare il numero di porta passando il mouse sull'icona per il Server di sviluppo ASP.NET nell'Area di notifica di Windows (in basso a destra dello schermo).
-
->[!div class="step-by-step"]
-[Precedente](adding-dynamic-content-to-a-cached-page-vb.md)
-[Successivo](creating-an-action-vb.md)
+> 
+> [!div class="step-by-step"]
+> [Precedente](adding-dynamic-content-to-a-cached-page-vb.md)
+> [Successivo](creating-an-action-vb.md)

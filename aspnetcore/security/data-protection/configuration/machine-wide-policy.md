@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Supporto di criteri a livello di computer di protezione dati in ASP.NET Core
 
@@ -71,4 +71,4 @@ Se EncryptionType è gestita, il sistema è configurato per utilizzare un Symmet
 Se EncryptionType è qualsiasi altro valore diverso da null o vuoto, il sistema di protezione dei dati genera un'eccezione all'avvio.
 
 > [!WARNING]
-> Quando si configura un'impostazione di criteri predefinito che include i nomi dei tipi (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), i tipi devono essere disponibili per l'app. Ciò significa che per le App in esecuzione in CLR Desktop, gli assembly contenenti questi tipi devono essere presenti nella Global Assembly Cache (GAC). Per le applicazioni ASP.NET Core in esecuzione in [.NET Core](https://www.microsoft.com/net/core), i pacchetti che contengono questi tipi devono essere installati.
+> Quando si configura un'impostazione di criteri predefinito che include i nomi dei tipi (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), i tipi devono essere disponibili per l'app. Ciò significa che per le App in esecuzione in CLR Desktop, gli assembly contenenti questi tipi devono essere presenti nella Global Assembly Cache (GAC). Per le app ASP.NET Core in esecuzione su .NET Core, i pacchetti che contengono questi tipi devono essere installati.

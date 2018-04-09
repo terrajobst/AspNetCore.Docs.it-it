@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 title: Strategie per lo sviluppo del Database e la distribuzione (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Quando si distribuisce un'applicazione basati sui dati per la prima volta che è possibile copiare automaticamente il database nell'ambiente di sviluppo all'ambiente di produzione. B..."
+description: Quando si distribuisce un'applicazione basati sui dati per la prima volta che è possibile copiare automaticamente il database nell'ambiente di sviluppo all'ambiente di produzione. B...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 26e6537b7cba704d3513a2e4ae32f9266834e6d3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Strategie per lo sviluppo del Database e la distribuzione (VB)
 ====================
@@ -119,7 +119,7 @@ Dopo aver selezionato i database da confrontare e verificare le opzioni di confr
 > Le modifiche apportate in questa esercitazione del modello di dati sono state eseguite per illustrare l'utilizzo di uno strumento di confronto del database. Queste modifiche nel database si troverà non in esercitazioni future.
 
 
-[![Confronto SQL sono elencate le differenze tra lo sviluppo e il database di produzione](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
+[![Confronto SQL sono elencate le differenze tra lo sviluppo e i database di produzione](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
 
 **Figura 2**: confronto SQL sono elencate le differenze tra il database di sviluppo e produzione ([fare clic per visualizzare l'immagine ingrandita](strategies-for-database-development-and-deployment-vb/_static/image6.jpg))
 
@@ -133,7 +133,7 @@ Dopo aver esaminato le differenze e selezionare gli oggetti da sincronizzare, il
 
 [![Utilizzare la procedura guidata della sincronizzazione per sincronizzare gli schemi di database](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
 
-**Figura 3**: utilizzare la procedura guidata della sincronizzazione per sincronizzare il database schemi ([fare clic per visualizzare l'immagine ingrandita](strategies-for-database-development-and-deployment-vb/_static/image9.jpg))
+**Figura 3**: utilizzare la procedura guidata della sincronizzazione per sincronizzare il schemi di database ([fare clic per visualizzare l'immagine ingrandita](strategies-for-database-development-and-deployment-vb/_static/image9.jpg))
 
 
 Strumenti di confronto del database, ad esempio Red Gate Software s SQL Compare rendere l'applicazione delle modifiche allo schema del database di sviluppo nel database di produzione semplice come e fare clic su.
@@ -160,6 +160,6 @@ Questa esercitazione si conclude l'attenzione sulla distribuzione di un'applicaz
 
 Buona programmazione!
 
->[!div class="step-by-step"]
-[Precedente](configuring-a-website-that-uses-application-services-vb.md)
-[Successivo](displaying-a-custom-error-page-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-a-website-that-uses-application-services-vb.md)
+> [Successivo](displaying-a-custom-error-page-vb.md)

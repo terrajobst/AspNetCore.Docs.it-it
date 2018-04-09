@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/create-a-new-custom-extender
 msc.type: video
-ms.openlocfilehash: afd6772e45eb00c8a86d843f98dd532815653e27
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8f9c0485311206c358f5a884ace9c7e76c1141f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-new-custom-extender"></a>Creare una nuova estensione personalizzato
 ====================
@@ -24,7 +24,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 In questo video Joe viene illustrato come utilizzare AJAX Control Toolkit per creare una nuova estensione di controllo AJAX personalizzato.
 
-[&#9654; Guardare video (minuti 26)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/create-a-new-custom-extender)
+[&#9654;Guardare video (minuti 26)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/create-a-new-custom-extender)
 
->[!div class="step-by-step"]
-[Precedente](editor-control-custom.md)
+> [!div class="step-by-step"]
+> [Precedente](editor-control-custom.md)

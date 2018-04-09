@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 title: Controllare in modo dinamico le animazioni UpdatePanel (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Per il contenuto di un..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Per il contenuto di un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0408556e322a46211388fbd557d7a967044129ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 78401ee35027040dffea50c295c752dd182e75a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-controlling-updatepanel-animations-c"></a>Controllare in modo dinamico le animazioni UpdatePanel (c#)
 ====================
@@ -65,6 +65,6 @@ Eseguire il file nel browser. Quando si fa clic sul pulsante, l'ora corrente vie
 
 L'ora corrente è la dissolvenza in entrata ([fare clic per visualizzare l'immagine ingrandita](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](animating-an-updatepanel-control-cs.md)
-[Successivo](adding-animation-to-a-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](animating-an-updatepanel-control-cs.md)
+> [Successivo](adding-animation-to-a-control-vb.md)

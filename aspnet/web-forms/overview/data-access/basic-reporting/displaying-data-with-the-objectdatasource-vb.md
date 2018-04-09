@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 title: Visualizzazione dei dati con ObjectDataSource (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione vengono esaminati controllo ObjectDataSource utilizzando questo controllo che è possibile associare i dati recuperati da BLL creato nell'esercitazione precedente senza connettività..."
+description: In questa esercitazione vengono esaminati controllo ObjectDataSource utilizzando questo controllo che è possibile associare i dati recuperati da BLL creato nell'esercitazione precedente senza connettività...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c9e40ff968f82a9d05fc9441e2399e52a6c55f51
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ec3be56e1bb4294402351ff05e9209fe97510748
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-objectdatasource-vb"></a>Visualizzazione dei dati con ObjectDataSource (VB)
 ====================
@@ -62,7 +62,7 @@ Per specificare l'oggetto sottostante di ObjectDataSource e il mappano tra i met
 
 [![Scegliere il collegamento Configura origine dati dallo Smart Tag](displaying-data-with-the-objectdatasource-vb/_static/image6.png)](displaying-data-with-the-objectdatasource-vb/_static/image5.png)
 
-**Figura 3**: fare clic sul collegamento origine dati configurare Smart tag ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image7.png))
+**Figura 3**: fare clic sul collegamento di origine dati configurare dallo Smart Tag ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image7.png))
 
 
 Verrà visualizzata la configurazione guidata origine dati. In primo luogo, è necessario specificare l'oggetto che ObjectDataSource si intende utilizzare. Se è selezionata la casella di controllo "Mostra solo componenti dati", l'elenco a discesa in questa schermata vengono elencati solo gli oggetti che hanno ricevuto il `DataObject` attributo. Attualmente questo elenco sono inclusi gli oggetti TableAdapter del DataSet tipizzato e le classi BLL creata nell'esercitazione precedente. Se si è dimenticato di aggiungere il `DataObject` attributo alle classi di livello di logica di Business vengono non verrà visualizzate in questo elenco. In tal caso, deselezionare la casella di controllo "Mostra solo componenti dati" per visualizzare tutti gli oggetti, che devono includere le classi BLL (insieme ad altre classi il DataSet tipizzato DataTable DataRow e così via).
@@ -78,7 +78,7 @@ Nella prima schermata scegliere il `ProductsBLL` classe dall'elenco a discesa e 
 La schermata successiva della procedura guidata viene richiesto di selezionare il metodo ObjectDataSource deve richiamare. Elenco a discesa sono elencati i metodi che restituiscono dati per l'oggetto selezionato nella schermata precedente. Ecco `GetProductByProductID`, `GetProducts`, `GetProductsByCategoryID`, e `GetProductsBySupplierID`. Selezionare il `GetProducts` metodo dall'elenco a discesa e fare clic su Fine (se è stato aggiunto il `DataObjectMethodAttribute` per il `ProductBLL`di metodi, come illustrato nell'esercitazione precedente, questa opzione verranno selezionati per impostazione predefinita).
 
 
-[![Scegliere il metodo per restituire i dati dalla scheda Seleziona](displaying-data-with-the-objectdatasource-vb/_static/image12.png)](displaying-data-with-the-objectdatasource-vb/_static/image11.png)
+[![Scegliere il metodo per la restituzione di dati dalla scheda Seleziona](displaying-data-with-the-objectdatasource-vb/_static/image12.png)](displaying-data-with-the-objectdatasource-vb/_static/image11.png)
 
 **Figura 5**: scegliere il metodo per restituire i dati dalla scheda selezionare ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image13.png))
 
@@ -109,9 +109,9 @@ Aggiungere un controllo GridView dalla casella degli strumenti `SimpleDisplay.as
 È quindi possibile personalizzare, ridisporre o rimuovere i BoundField di GridView facendo clic sull'opzione di modifica colonne dallo smart tag.
 
 
-[![Gestire i BoundField di GridView mediante la finestra di dialogo Modifica colonne](displaying-data-with-the-objectdatasource-vb/_static/image18.png)](displaying-data-with-the-objectdatasource-vb/_static/image17.png)
+[![Gestire il BoundField di GridView mediante la finestra di dialogo Modifica colonne](displaying-data-with-the-objectdatasource-vb/_static/image18.png)](displaying-data-with-the-objectdatasource-vb/_static/image17.png)
 
-**Figura 7**: gestione BoundField tramite la modifica colonne la del controllo GridView finestra di dialogo ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image19.png))
+**Figura 7**: la gestione BoundField tramite Modifica colonne finestra del controllo GridView di dialogo ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image19.png))
 
 
 È opportuno modificare BoundField di GridView, la rimozione di `ProductID`, `SupplierID`, `CategoryID`, `QuantityPerUnit`, `UnitsInStock`, `UnitsOnOrder`, e `ReorderLevel` BoundField. Semplicemente selezionare le BoundField dall'elenco in basso a sinistra e fare clic sul pulsante di eliminazione (X rossa) per rimuoverle. Successivamente, ridisporre il BoundField in modo che il `CategoryName` e `SupplierName` precedano il `UnitPrice` BoundField selezionando questi BoundField e facendo clic sulla freccia verso l'alto. Impostare il `HeaderText` le proprietà dei restanti BoundField per `Products`, `Category`, `Supplier`, e `Price`, rispettivamente. Chiedere quindi il `Price` BoundField formattati come valuta impostando il BoundField `HtmlEncode` la proprietà su False e il relativo `DataFormatString` proprietà `{0:c}`. Infine, allineare in orizzontale il `Price` a destra e `Discontinued` casella di controllo nel centro tramite il `ItemStyle` / `HorizontalAlign` proprietà.
@@ -144,9 +144,9 @@ Per iniziare, aggiungere un nuovo File di interfaccia al progetto denominato `Gr
 File di interfaccia devono essere inseriti in un tema, che si trovano nel `App_Themes` cartella. Poiché tale cartella non sono ancora, Visual Studio chiederà di crearlo automaticamente quando si aggiunge la prima interfaccia. Fare clic su Sì per creare il `App_Theme` cartella e inserire il nuovo `GridView.skin` file non esiste.
 
 
-[![Consente di creare la cartella App_Theme Visual Studio](displaying-data-with-the-objectdatasource-vb/_static/image27.png)](displaying-data-with-the-objectdatasource-vb/_static/image26.png)
+[![Consentire a Visual Studio di creare la cartella App_Theme](displaying-data-with-the-objectdatasource-vb/_static/image27.png)](displaying-data-with-the-objectdatasource-vb/_static/image26.png)
 
-**Figura 10**: consente di Visual Studio crea il `App_Theme` cartella ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image28.png))
+**Figura 10**: consentire a Visual Studio creare le `App_Theme` cartella ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image28.png))
 
 
 Verrà creato un nuovo tema nel `App_Themes` cartella denominata GridView con il file di interfaccia `GridView.skin`.
@@ -177,7 +177,7 @@ Questo è tutto qui! Il `styleSheetTheme` impostazione indica che le proprietà 
 
 [![GridView Visualizza nome del prodotto, categoria, fornitore, prezzo e le informazioni obsolete](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
 
-**Figura 12**: GridView Visualizza nome del prodotto, categoria, fornitore, prezzo e non più disponibili informazioni ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image32.png))
+**Figura 12**: consente di visualizzare il controllo GridView. nome del prodotto, categoria, fornitore, prezzo e non più disponibili informazioni ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image32.png))
 
 
 ## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>Visualizzazione di un Record alla volta nel controllo DetailsView.
@@ -195,9 +195,9 @@ Per iniziare, aggiungere un controllo DetailsView *sopra* GridView in `SimpleDis
 Ad esempio GridView, BoundField di DetailsView possono essere modificati per fornire una visualizzazione più personalizzata dei dati restituiti da ObjectDataSource. Nella figura 14 mostra DetailsView dopo i BoundField e `CssClass` proprietà sono state configurate per rendere l'aspetto simile all'esempio di GridView.
 
 
-[![DetailsView Mostra un singolo Record](displaying-data-with-the-objectdatasource-vb/_static/image37.png)](displaying-data-with-the-objectdatasource-vb/_static/image36.png)
+[![Controllo DetailsView Mostra un singolo Record](displaying-data-with-the-objectdatasource-vb/_static/image37.png)](displaying-data-with-the-objectdatasource-vb/_static/image36.png)
 
-**Nella figura 14**: DetailsView Mostra un singolo Record ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image38.png))
+**Figura 14**: il controllo DetailsView Mostra un singolo Record ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image38.png))
 
 
 Si noti che DetailsView visualizza solo il primo record restituito dall'origine dati. Per consentire all'utente di eseguire tutti i record, uno alla volta, è necessario attivare il paging in DetailsView. A tale scopo, tornare a Visual Studio e selezionare la casella di controllo Abilita Paging nello smart tag del controllo DetailsView.
@@ -208,9 +208,9 @@ Si noti che DetailsView visualizza solo il primo record restituito dall'origine 
 **Figura 15**: Abilita Paging nel controllo DetailsView ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image41.png))
 
 
-[![Con il Paging è abilitato, il controllo DetailsView consente all'utente di visualizzare i prodotti](displaying-data-with-the-objectdatasource-vb/_static/image43.png)](displaying-data-with-the-objectdatasource-vb/_static/image42.png)
+[![Con il Paging è abilitato, il controllo DetailsView consente all'utente di visualizzare uno qualsiasi dei prodotti](displaying-data-with-the-objectdatasource-vb/_static/image43.png)](displaying-data-with-the-objectdatasource-vb/_static/image42.png)
 
-**Figura 16**: DetailsView abilitato il Paging, consente all'utente di visualizzare i prodotti ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image44.png))
+**Figura 16**: con Paging Enabled, DetailsView consente all'utente di visualizzare i prodotti ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image44.png))
 
 
 Verranno fornite altre informazioni sulle esercitazioni di paging in futuro.
@@ -235,7 +235,7 @@ Aggiungere un controllo FormView al `SimpleDisplay.aspx` area di progettazione d
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample6.aspx)]
 
 
-[![Il primo prodotto (Chai) viene visualizzato in un formato personalizzato](displaying-data-with-the-objectdatasource-vb/_static/image49.png)](displaying-data-with-the-objectdatasource-vb/_static/image48.png)
+[![Prima del prodotto (Chai) viene visualizzata in un formato personalizzato](displaying-data-with-the-objectdatasource-vb/_static/image49.png)](displaying-data-with-the-objectdatasource-vb/_static/image48.png)
 
 **Figura 18**: il primo prodotto (Chai) viene visualizzato in un formato personalizzato ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-objectdatasource-vb/_static/image50.png))
 
@@ -258,19 +258,19 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 - [Creare controlli origine dati](https://msdn.microsoft.com/library/ms364049.aspx)
 - [Esempi di GridView per ASP.NET 2.0](https://msdn.microsoft.com/library/aa479339.aspx)
-- [Data Binding di sintassi in ASP.NET 2.0 estesi e semplificata](http://www.15seconds.com/issue/040630.htm)
+- [Semplificato ed estesi Data Binding di sintassi in ASP.NET 2.0](http://www.15seconds.com/issue/040630.htm)
 - [Temi in ASP.NET 2.0](http://www.odetocode.com/Articles/423.aspx)
-- [Stili sul lato server tramite i temi](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
+- [Stili lato server tramite i temi](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
 - [Procedura: Applicare temi ASP.NET a livello di codice](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
-[Successivo](declarative-parameters-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+> [Successivo](declarative-parameters-vb.md)

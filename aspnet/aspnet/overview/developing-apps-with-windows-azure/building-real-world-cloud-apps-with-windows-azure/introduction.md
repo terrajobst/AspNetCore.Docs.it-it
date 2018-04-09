@@ -8,25 +8,25 @@ manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a62818a2dc21128bb0a42a8b296ade460e7b060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Creazione di applicazioni Cloud del mondo reale con Azure
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Questo manuale e viene illustrato un approccio basato su modelli per la creazione di soluzioni cloud del mondo reale. I modelli si applicano al processo di sviluppo, nonché all'architettura e procedure di codifica.
 > 
-> Il contenuto è basato su una presentazione sviluppato da Scott Guthrie e recapitati da quest'ultimo in norvegese sviluppatori conferenza (NDC) nel mese di giugno 2013 ([parte 1](http://vimeo.com/68215538), [parte 2](http://vimeo.com/68215602)) e in Microsoft Tech Ed Australia Settembre 2013 ([parte 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [parte 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Molti altri](more-patterns-and-guidance.md#acknowledgments) aggiornato e ampliate il contenuto durante la transizione da video in forma scritta.
+> Il contenuto è basato su una presentazione sviluppato da Scott Guthrie e recapitati da quest'ultimo in norvegese sviluppatori conferenza (NDC) nel mese di giugno 2013 ([parte 1](http://vimeo.com/68215538), [parte 2](http://vimeo.com/68215602)) e in Microsoft Tech Ed Australia Settembre 2013 ([parte 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [parte 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Molti altri](more-patterns-and-guidance.md#acknowledgments) aggiornato e aumentati in modo il contenuto durante la transizione da video al modulo è stato scritto.
 
 
 ## <a name="intended-audience"></a>Destinatari
@@ -52,15 +52,15 @@ Questo e-book indica che tredici consigliate modelli per lo sviluppo cloud. "Mod
     - Demo: aggiungere script al controllo del codice sorgente.
     - Demo: mantenere i dati sensibili fuori controllo del codice sorgente.
     - Demo: usare Git in Visual Studio.
-- [Integrazione continua e recapito](continuous-integration-and-continuous-delivery.md). 
+- [Integrazione continua e il recapito](continuous-integration-and-continuous-delivery.md). 
 
     - Automatizzare la compilazione e distribuzione con ogni check-in controllo di origine.
-- [Procedure consigliate di sviluppo Web](web-development-best-practices.md). 
+- [Procedure guidate di sviluppo Web](web-development-best-practices.md). 
 
     - Mantieni livello web senza stato.
     - Demo: ridimensionamento e il ridimensionamento automatico in App Web nel servizio App di Azure.
     - Evitare lo stato della sessione.
-    - Utilizzare una rete CDN.
+    - Utilizzare una rete CDN con fallback quando la rete CDN non è disponibile.
     - Utilizzare il modello di programmazione asincrono.
     - Demo: asincrono in ASP.NET MVC ed Entity Framework.
 - [L'accesso Single sign-on](single-sign-on.md). 
@@ -79,7 +79,7 @@ Questo e-book indica che tredici consigliate modelli per lo sviluppo cloud. "Mod
 
     - Archiviare i file nel cloud tramite il servizio blob.
     - Demo: nell'app Correggi utilizzo dell'archiviazione blob.
-- [Progettazione di sopravvivenza errori](design-to-survive-failures.md). 
+- [Progettazione di restare attiva quando errori](design-to-survive-failures.md). 
 
     - Tipi di errori.
     - Ambito di un errore.
@@ -98,7 +98,7 @@ Questo e-book indica che tredici consigliate modelli per lo sviluppo cloud. "Mod
 - [Memorizzazione nella cache distribuita](distributed-caching.md). 
 
     - Migliorare la scalabilità e ridurre i costi di transazione di database tramite la memorizzazione nella cache distribuita.
-- [Modello basate su coda lavoro](queue-centric-work-pattern.md). 
+- [Modello basato su coda lavoro](queue-centric-work-pattern.md). 
 
     - Abilitare la disponibilità elevata e migliorare la scalabilità accoppiando regime di controllo libero livelli web e di lavoro.
     - Demo: Code di archiviazione di Azure nell'app Correggi.
@@ -168,14 +168,14 @@ Per ulteriori informazioni sugli argomenti trattati in questo capitolo, vedere l
 
 Documentazione:
 
-- [Le App in Azure App Service Web](https://azure.microsoft.com/services/app-service/web/). Pagina del portale per la documentazione sulle App Web di Azure.
+- [Le app nel servizio App di Azure Web](https://azure.microsoft.com/services/app-service/web/). Pagina del portale per la documentazione sulle App Web di Azure.
 - [App Web, servizi Cloud e le macchine virtuali: situazioni in cui utilizzare?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, come illustrato in questo capitolo è solo uno dei tre modi diversi, è possibile eseguire le applicazioni web in Azure. In questo articolo vengono illustrate le differenze tra i tre modi e vengono fornite istruzioni su come scegliere quello più adatto per lo scenario. Ad esempio siti Web, servizi Cloud è una funzionalità PaaS di Azure. Le macchine virtuali sono una funzionalità di IaaS. Per una spiegazione di PaaS e IaaS, vedere il [opzioni dati](data-storage-options.md#paasiaas) capitolo.
 
 Video
 
 - [Scott Guthrie inizia in corrispondenza di passaggio 0 - che cos'è il sistema operativo Cloud di Azure?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Architettura di siti Web - con Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Architettura dei siti Web - con Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Elementi interni di siti Web di Azure con Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
->[!div class="step-by-step"]
-[avanti](automate-everything.md)
+> [!div class="step-by-step"]
+> [avanti](automate-everything.md)

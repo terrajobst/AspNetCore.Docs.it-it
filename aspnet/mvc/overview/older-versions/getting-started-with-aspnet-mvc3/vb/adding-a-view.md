@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 title: Aggiunta di una vista (VB) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>Aggiunta di una vista (VB)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul seguente collegamento: [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti utilizzando i collegamenti seguenti:
 > 
@@ -63,9 +63,9 @@ Eseguire l'applicazione e individuare il &quot;HelloWorld&quot; controller (`htt
 
 ## <a name="changing-views-and-layout-pages"></a>Modifica delle viste e delle pagine di layout
 
-In primo luogo, è necessario modificare il testo &quot;applicazione MVC.&quot; Tale testo è condivisa e verrà visualizzato in ogni pagina. In realtà solo in una posizione nel progetto, anche se è presente in ogni pagina nell'applicazione. Passare al */visualizzazioni/Shared* cartella **Esplora** e aprire il  *\_Layout.vbhtml* file. Questo file è denominato a una pagina di layout ed è condiviso &quot;shell&quot; che utilizzano tutte le altre pagine.
+In primo luogo, modificare il testo &quot;applicazione MVC.&quot; Tale testo è condivisa e verrà visualizzato in ogni pagina. In realtà solo in una posizione nel progetto, anche se è presente in ogni pagina nell'applicazione. Passare al */visualizzazioni/Shared* cartella **Esplora** e aprire il  *\_Layout.vbhtml* file. Questo file è denominato a una pagina di layout ed è condiviso &quot;shell&quot; che utilizzano tutte le altre pagine.
 
-Si noti il `@RenderBody()` riga di codice nella parte inferiore del file. `RenderBody`è un segnaposto in cui tutte le pagine create visualizzati &quot;incapsulati&quot; nella pagina di layout. Modifica il `<h1>` intestazione da  **&quot;**  applicazione MVC personale&quot; a &quot;App cinematografica MVC&quot;.
+Si noti il `@RenderBody()` riga di codice nella parte inferiore del file. `RenderBody` è un segnaposto in cui tutte le pagine create visualizzati &quot;incapsulati&quot; nella pagina di layout. Modifica il `<h1>` intestazione da **&quot;** applicazione MVC personale&quot; a &quot;App cinematografica MVC&quot;.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -111,11 +111,11 @@ Ecco il **Aggiungi visualizzazione** la finestra di dialogo è simile.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Aggiungere il codice seguente sotto il `<h2>` elemento nel nuovo *iniziale.* file vbhtml. Verrà verificare un ciclo e pronunciare &quot;Hello&quot; le volte che l'utente indicato si deve!
+Aggiungere il codice seguente sotto il `<h2>` elemento nel nuovo <em>iniziale.</em> file vbhtml. Verrà verificare un ciclo e pronunciare &quot;Hello&quot; le volte che l'utente indicato si deve!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Eseguire l'applicazione e passare a`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Eseguire l'applicazione e passare a `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 A questo punto dati viene portati dall'URL e passati automaticamente al controller. Il controller di pacchetti di dati in un `Model` oggetto e passa tale oggetto nella vista. La vista che consente di visualizzare i dati in formato HTML per l'utente.
 
@@ -123,6 +123,6 @@ A questo punto dati viene portati dall'URL e passati automaticamente al controll
 
 Che è un tipo di un &quot;M&quot; per modello, ma non il tipo di database. Creare un database di film con i concetti appresi.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-controller.md)
-[Successivo](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-controller.md)
+> [Successivo](adding-a-model.md)

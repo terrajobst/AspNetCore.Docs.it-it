@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b749ed093fbaacf45b60f2826a2c20bac219a5c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>I profili, temi e Web part
 ====================
@@ -156,7 +156,7 @@ Il file di interfaccia è un file XML che contiene le definizioni di proprietà 
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample11.aspx)]
 
-**Figura 1** seguente mostra una pagina ASP.NET small esplorazione senza un tema. **Figura 2** Mostra lo stesso file con un tema. Il colore di sfondo e testo vengono configurate mediante un file CSS. L'aspetto del pulsante e casella di testo vengono configurati utilizzando il file di interfaccia elencato in precedenza.
+**Figura 1** seguente mostra una pagina ASP.NET piccola esplorato senza un tema. **Figura 2** Mostra lo stesso file con un tema. Il colore di sfondo e testo vengono configurate mediante un file CSS. L'aspetto del pulsante e casella di testo vengono configurati utilizzando il file di interfaccia elencato in precedenza.
 
 
 ![Nessun tema](profiles-themes-and-web-parts/_static/image1.gif)
@@ -341,19 +341,19 @@ In questa parte della procedura dettagliata, si crea una pagina che utilizza i c
 4. Posizionare il cursore prima di `<div>` tag nella superficie di progettazione e premere INVIO per aggiungere una nuova riga. Posizionare il cursore prima del carattere di nuova riga, fare clic su di **formato blocco** dal menu di controllo elenco a discesa e selezionare il **titolo 1** opzione. Nell'intestazione, aggiungere il testo **pagina Web part dimostrazione**.
 5. Dal **WebParts** della casella degli strumenti, trascinare un **WebPartManager** controllo nella pagina, posizionarla subito dopo il carattere di nuova riga e prima di `<div>`tag.   
   
- Il **WebPartManager** controllo non eseguire il rendering di alcun output, viene visualizzato come casella grigia nell'area di progettazione.
+   Il **WebPartManager** controllo non eseguire il rendering di alcun output, viene visualizzato come casella grigia nell'area di progettazione.
 6. Posizionare il cursore all'interno di `<div>` tag.
 7. Nel **Layout** menu, fare clic su **Inserisci tabella**e creare una nuova tabella con una riga e tre colonne. Fare clic su di **proprietà delle celle** pulsante, selezionare **top** dal **allineamento verticale** elenco a discesa, fare clic su **OK**, fare clic su **OK** nuovamente per creare la tabella.
 8. Trascinare un controllo WebPartZone nella colonna della tabella a sinistra. Fare doppio clic su di **WebPartZone** di controllo, scegliere **proprietà**e impostare le proprietà seguenti:   
   
- ID: SidebarZone   
+   ID: SidebarZone   
   
- HeaderText: barra laterale
+   HeaderText: barra laterale
 9. Trascinare una seconda **WebPartZone** controllare nella colonna della tabella centrale e impostare le proprietà seguenti:   
   
- ID: MainZone   
+   ID: MainZone   
   
- HeaderText: principale
+   HeaderText: principale
 10. Salvare il file.
 
 La pagina presenta ora due aree distinte che è possibile controllare separatamente. Tuttavia, nessuna delle due nella zona. qualsiasi contenuto, pertanto la creazione di contenuto è il passaggio successivo Questa procedura dettagliata, si utilizzano i controlli Web part che visualizzano solo contenuto statico.
@@ -462,10 +462,10 @@ In questa parte della procedura dettagliata, aggiungere la possibilità agli ute
 2. Per verificare che la personalizzazione viene eseguita, chiudere il browser e quindi caricare di nuovo la pagina. Le modifiche apportate vengono salvate per future sessioni del browser.
 3. Dal **modalità di visualizzazione** dal menu **modifica**.   
   
- Ogni controllo nella pagina viene visualizzato con una freccia verso il basso nella barra del titolo, che contiene l'elenco a discesa dei verbi.
+   Ogni controllo nella pagina viene visualizzato con una freccia verso il basso nella barra del titolo, che contiene l'elenco a discesa dei verbi.
 4. Fare clic sulla freccia per visualizzare il menu dei verbi di **collegamenti personali** controllo. Fare clic su di **modifica** verbo.   
   
- Il **EditorZone** verrà visualizzato un controllo, la visualizzazione di EditorPart i controlli aggiunti.
+   Il **EditorZone** verrà visualizzato un controllo, la visualizzazione di EditorPart i controlli aggiunti.
 5. Nel **aspetto** sezione del controllo di modifica, modifica il **titolo** ai Preferiti, utilizzare il **tipo riquadro** elenco a discesa per selezionare **solo titolo**, quindi fare clic su **applica**. La schermata seguente mostra la pagina in modalità di modifica.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Pagina dimostrativa Web part in modalità di modifica
@@ -491,12 +491,12 @@ In questa parte della procedura dettagliata, aggiungere la possibilità agli ute
 
 È inoltre possibile consentire agli utenti di aggiungere i controlli Web part alla pagina in fase di esecuzione. A tale scopo, configurare la pagina con un catalogo Web part, che contiene un elenco di controlli Web part che si desidera rendere disponibili agli utenti.
 
-**Per consentire agli utenti di aggiungere Web part in fase di esecuzione**
+**Per consentire agli utenti di aggiungere le Web part in fase di esecuzione**
 
 1. Aprire la pagina WebPartsDemo e passare a **progettazione** visualizzazione.
 2. Dal **WebParts** scheda della casella degli strumenti trascinare un controllo CatalogZone nella colonna di destra della tabella, sotto il **EditorZone** controllo.   
   
- Entrambi i controlli possono essere nella stessa cella di tabella perché non verrà visualizzati allo stesso tempo.
+   Entrambi i controlli possono essere nella stessa cella di tabella perché non verrà visualizzati allo stesso tempo.
 3. Nel riquadro proprietà, assegnare la stringa **Aggiungi Web part** alla proprietà HeaderText del **CatalogZone** controllo.
 4. Dal **WebParts** sezione della casella degli strumenti, trascinare un controllo DeclarativeCatalogPart nell'area di contenuto di **CatalogZone** controllo.
 5. Fare clic sulla freccia nell'angolo superiore destro del **DeclarativeCatalogPart** per esporre il relativo menu attività di controllo e quindi selezionare **modifica modelli**.
@@ -504,7 +504,7 @@ In questa parte della procedura dettagliata, aggiungere la possibilità agli ute
 7. Passare a **origine** visualizzazione. Esaminare il codice sorgente del &lt;asp: catalogzone&gt; elemento. Si noti che il **DeclarativeCatalogPart** controllo contiene un &lt;webpartstemplate&gt; elemento con i due controlli server racchiusi che sarà in grado di aggiungere alla pagina dal catalogo.
 8. Aggiungere un **titolo** proprietà per ognuno dei controlli aggiunti al catalogo, utilizzando il valore stringa visualizzato per ogni titolo nell'esempio di codice riportato di seguito. Anche se il titolo non è una proprietà in genere è possibile impostare su questi due controlli server in fase di progettazione, quando un utente aggiunge questi controlli a un **WebPartZone** zona dal catalogo in fase di esecuzione, questi sono ognuno incluso con un  **GenericWebPart** controllo. Ciò consente loro di agire come controlli Web part, pertanto saranno in grado di visualizzare i titoli.   
   
- Il codice per i due controlli contenuti nel **DeclarativeCatalogPart** controllo dovrebbe apparire come segue. 
+   Il codice per i due controlli contenuti nel **DeclarativeCatalogPart** controllo dovrebbe apparire come segue. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Salvare la pagina.
@@ -516,12 +516,12 @@ In questa parte della procedura dettagliata, aggiungere la possibilità agli ute
 1. Caricare la pagina in un browser.
 2. Fare clic su di **modalità di visualizzazione** dal menu a discesa e selezionare **catalogo**.   
   
- Il catalogo denominato **Aggiungi Web part** viene visualizzato.
+   Il catalogo denominato **Aggiungi Web part** viene visualizzato.
 3. Trascinare il **Preferiti** da dell'area principale torna all'inizio dell'area di intestazione laterale e rilasciarlo non esiste.
 4. Nel **Aggiungi Web part** del catalogo, selezionare entrambe le caselle di controllo, quindi **Main** nell'elenco a discesa che contiene le zone disponibili.
 5. Fare clic su **Aggiungi** nel catalogo. I controlli vengono aggiunti all'area principale. Se si desidera, è possibile aggiungere più istanze di controlli dal catalogo alla pagina.   
   
- La schermata seguente mostra la pagina con il controllo caricamento file e il calendario nell'area principale. 
+   La schermata seguente mostra la pagina con il controllo caricamento file e il calendario nell'area principale. 
 
 ![Controlli aggiunti all'area Main dal catalogo](profiles-themes-and-web-parts/_static/image7.gif)
 

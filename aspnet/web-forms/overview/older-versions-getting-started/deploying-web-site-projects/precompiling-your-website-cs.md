@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f31f470b4d2b6736b98c0b7d88ea7a53ad1438b9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fe49029d09db99735a181b90e781396929f22d8d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="precompiling-your-website-c"></a>Precompilazione del sito Web (c#)
 ====================
@@ -93,11 +93,11 @@ Apri revisione WSP libro in Visual Studio, passare al menu di compilazione e sel
 > L'opzione Pubblica sito Web del menu Compila non è disponibile in Visual Web Developer. Se si utilizza Visual Web Developer, sarà necessario utilizzare la versione della riga di comando dello strumento di compilazione ASP.NET, come illustrato nella sezione "precompilazione dalla riga di comando".
 
 
-Dopo la precompilazione del sito Web, passare al percorso di destinazione che immesso nella finestra di dialogo Pubblica sito Web. Richiedere qualche istante per confrontare il contenuto della cartella con il contenuto del sito Web. **Figura 2** viene visualizzata la cartella del sito Web recensioni. Si noti che contiene entrambi `.aspx` e `.aspx.cs` file. Si noti inoltre che il `Bin` directory include un solo file, `Elmah.dll`, che è stato aggiunto nel [esercitazione precedente](logging-error-details-with-elmah-cs.md)
+Dopo la precompilazione del sito Web, passare al percorso di destinazione che immesso nella finestra di dialogo Pubblica sito Web. Richiedere qualche istante per confrontare il contenuto della cartella con il contenuto del sito Web. **Figura 2** Mostra la cartella del sito Web recensioni. Si noti che contiene entrambi `.aspx` e `.aspx.cs` file. Si noti inoltre che il `Bin` directory include un solo file, `Elmah.dll`, che viene aggiunto nel [esercitazione precedente](logging-error-details-with-elmah-cs.md)
 
 [![](precompiling-your-website-cs/_static/image5.png)](precompiling-your-website-cs/_static/image4.png)
 
-**Figura 2**: la Directory di progetto contiene `.aspx` e `.aspx.cs` file; la `Bin` cartella include solo`Elmah.dll`  
+**Figura 2**: la Directory di progetto contiene `.aspx` e `.aspx.cs` file; la `Bin` cartella include solo `Elmah.dll`  
  ([Fare clic per visualizzare l'immagine ingrandita](precompiling-your-website-cs/_static/image6.png))
 
 **Figura 3** Mostra la cartella del percorso di destinazione il cui contenuto sono stato creato dallo strumento di compilazione ASP.NET. Questa cartella non contiene alcun file code-behind. Inoltre, questa cartella `Bin` directory include diversi assembly e due `.compiled` file oltre al `Elmah.dll` assembly.
@@ -123,21 +123,21 @@ Lo strumento compilatore ASP.NET anche utilizzabile per precompilare un sito per
 
 [![](precompiling-your-website-cs/_static/image11.png)](precompiling-your-website-cs/_static/image10.png)
 
-**Figura 4**: deselezionare l'opzione "Consenti aggiornamento del sito precompilato" opzione per precompilare con un Non aggiornabili interfaccia utente  
+**Figura 4**: deselezionare l'opzione "Consenti a questo sito precompilato aggiornabile" opzione per precompilare con un Non aggiornabili interfaccia utente  
  ([Fare clic per visualizzare l'immagine ingrandita](precompiling-your-website-cs/_static/image12.png))
 
-**Figura 5** Mostra la cartella del percorso di destinazione dopo la precompilazione con un'interfaccia utente non è aggiornabile.
+**Figura 5** Mostra la cartella del percorso di destinazione dopo la precompilazione con un'interfaccia utente non aggiornabile.
 
 [![](precompiling-your-website-cs/_static/image14.png)](precompiling-your-website-cs/_static/image13.png)
 
-**Figura 5**: la cartella del percorso di destinazione per la distribuzione con interfaccia utente Non aggiornabile  
+**Figura 5**: la cartella del percorso di destinazione per la distribuzione con un'interfaccia utente Non aggiornabile  
  ([Fare clic per visualizzare l'immagine ingrandita](precompiling-your-website-cs/_static/image15.png))
 
 Confrontare **figura 3** a **figura 5**. Mentre le due cartelle potrebbero apparire identiche, si noti che la cartella non aggiornabile di interfaccia utente non dispone della pagina master, `Site.master`. Mentre **figura 5** include varie pagine ASP.NET, se si visualizza il contenuto di questi file si noterà che è stato rimossi del codice dichiarativo e sostituiti con il testo segnaposto: "questo è un file marcatore generato da lo strumento di precompilazione e non deve essere eliminato. "
 
 [![](precompiling-your-website-cs/_static/image17.png)](precompiling-your-website-cs/_static/image16.png)
 
-**Figura 5**: dichiarativo è stata rimossa dalle pagine ASP.NET
+**Figura 5**: il Markup dichiarativo è stato rimosso dalle pagine ASP.NET
 
 Il `Bin` cartelle **3 cifre** e **5** più sostanzialmente diversi. Oltre agli assembly, il `Bin` cartella **figura 5** include un `.compiled` file per ogni pagina ASP.NET, controllo utente e una pagina master.
 
@@ -190,6 +190,6 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Precompilazione ASP.NET](http://www.odetocode.com/Articles/417.aspx)
 - [Opzioni del sito precompilato in ASP.NET](http://www.dotnetperls.com/precompiled)
 
->[!div class="step-by-step"]
-[Precedente](logging-error-details-with-elmah-cs.md)
-[Successivo](users-and-roles-on-the-production-website-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](logging-error-details-with-elmah-cs.md)
+> [Successivo](users-and-roles-on-the-production-website-cs.md)

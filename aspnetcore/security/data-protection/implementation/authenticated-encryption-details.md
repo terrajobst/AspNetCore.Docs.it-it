@@ -1,7 +1,7 @@
 ---
-title: Dettagli di crittografia autenticata
+title: Dettagli di crittografia autenticata in ASP.NET Core
 author: rick-anderson
-description: Questo strutture documento i dettagli di implementazione della protezione dei dati di ASP.NET Core autenticato di crittografia.
+description: Ulteriori dettagli sull'implementazione della crittografia autenticata la protezione dei dati di ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: b58f36a5f0353da69d6f1ef4db542aba8267027a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authenticated-encryption-details"></a>Dettagli di crittografia autenticata
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>Dettagli di crittografia autenticata in ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
@@ -31,7 +31,7 @@ Il formato di payload protetto è costituita da tre componenti principali:
 
 * Id chiave a 128 bit che identifica la chiave utilizzata per proteggere il payload specifico.
 
-* Il resto del payload protetto è [specifiche per il componente di crittografia incapsulata da questa chiave](subkeyderivation.md#data-protection-implementation-subkey-derivation). Nell'esempio seguente la chiave rappresenta un AES-256-CBC + HMACSHA256 simmetrica e il payload è ulteriormente suddivisi come segue: * il modificatore di chiave A 128 bit. * Un vettore di inizializzazione di 128 bit. * 48 byte di output AES-256-CBC. * Un tag di autenticazione HMACSHA256.
+* Il resto del payload protetto è [specifiche per il componente di crittografia incapsulata da questa chiave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Nell'esempio seguente la chiave rappresenta un AES-256-CBC + HMACSHA256 simmetrica e il payload è ulteriormente suddivisi come segue: * il modificatore di chiave A 128 bit. * Un vettore di inizializzazione di 128 bit. * 48 byte di output AES-256-CBC. * Un tag di autenticazione HMACSHA256.
 
 Un payload protetto di esempio è illustrato di seguito.
 

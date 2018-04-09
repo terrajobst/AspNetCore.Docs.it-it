@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 title: La memorizzazione nella cache di dati con ObjectDataSource (VB) | Documenti Microsoft
 author: rick-anderson
-description: "La memorizzazione nella cache può indicare la differenza tra una lente e un rapido dell'applicazione Web. In questa esercitazione è la prima delle quattro che accettano un'analisi approfondita la memorizzazione nella cache in ASP.NET..."
+description: La memorizzazione nella cache può indicare la differenza tra una lente e un rapido dell'applicazione Web. In questa esercitazione è la prima delle quattro che accettano un'analisi approfondita la memorizzazione nella cache in ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ce0daabf8d68614c530115cc37b4f088f75dba4d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a79ed980e28e2c20a73fa4193f8c0970c9dbdef8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>La memorizzazione nella cache di dati con ObjectDataSource (VB)
 ====================
@@ -39,7 +39,7 @@ La memorizzazione nella cache possono essere applicate in qualsiasi punto dell'a
 
 La memorizzazione nella cache può migliorare notevolmente una s applicazione complessivo delle prestazioni e scalabilità considerando i dati che è dispendioso generare e archiviare una copia in una posizione a cui è possibile accedere in modo più efficiente. Poiché la cache contiene solo una copia dei dati effettivi, sottostante, possono diventare obsoleto, o *obsoleti*, se i dati sottostanti vengono modificati. Per ovviare al problema, uno sviluppatore di pagina può indicare i criteri con cui l'elemento della cache verrà *eliminate* dalla cache, utilizzando:
 
-- **Criteri basati sul tempo** può essere aggiunto un elemento nella cache per un assoluta o variabile di durata. Ad esempio, uno sviluppatore di pagina può indicare una durata, ad esempio, 60 secondi. Con una durata assoluta, l'elemento memorizzato nella cache viene eliminato dopo che è stato aggiunto alla cache, indipendentemente dalla frequenza di accesso di 60 secondi. Con una durata di scorrimento, l'elemento memorizzato nella cache viene eliminato 60 secondi dopo l'ultimo accesso.
+- **I criteri basati sul tempo** può aggiungere un elemento nella cache per un assoluta o variabile di durata. Ad esempio, uno sviluppatore di pagina può indicare una durata, ad esempio, 60 secondi. Con una durata assoluta, l'elemento memorizzato nella cache viene eliminato dopo che è stato aggiunto alla cache, indipendentemente dalla frequenza di accesso di 60 secondi. Con una durata di scorrimento, l'elemento memorizzato nella cache viene eliminato 60 secondi dopo l'ultimo accesso.
 - **Criteri basati su dipendenza** una dipendenza può essere associata a un elemento quando aggiunto alla cache. Quando viene modificata la dipendenza elemento s viene eliminato dalla cache. La dipendenza può essere un file, un altro elemento della cache o una combinazione dei due. ASP.NET 2.0 consente inoltre le dipendenze della cache SQL, che consentono agli sviluppatori di aggiungere un elemento alla cache e viene eliminato quando cambiano i dati di database sottostanti. Verranno presi in esame le dipendenze della cache SQL nella [con dipendenze della Cache SQL](using-sql-cache-dependencies-vb.md) esercitazione.
 
 Indipendentemente dai criteri di eliminazione specificati, potrebbe essere un elemento nella cache *scavenging* prima i criteri basati sul tempo o basato su dipendenza è stata soddisfatta. Se la cache ha raggiunto la capacità, è necessario rimuovere gli elementi esistenti prima di possono aggiungere quelli nuovi. Di conseguenza, quando a livello di codice l'uso di dati memorizzati nella cache s fondamentali che è sempre presupporre che i dati memorizzati nella cache non possono essere presenti. Verrà esaminato il criterio da utilizzare quando si accede ai dati dalla cache a livello di codice nell'esercitazione successiva, *memorizzazione dei dati nell'architettura*.
@@ -63,15 +63,15 @@ Prima di iniziare l'esplorazione delle funzionalità di caching s ObjectDataSour
 
 ![Aggiungere le pagine ASP.NET per le esercitazioni relative alla cache](caching-data-with-the-objectdatasource-vb/_static/image1.png)
 
-**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative alla cache
+**Figura 1**: aggiungere le pagine ASP.NET per le esercitazioni relative alla memorizzazione nella cache
 
 
 Come in altre cartelle, `Default.aspx` nel `Caching` cartella elencherà le esercitazioni nella relativa sezione. Tenere presente che il `SectionLevelTutorialListing.ascx` controllo utente fornisce questa funzionalità. Pertanto, aggiungere il controllo utente `Default.aspx` trascinandolo da Esplora soluzioni nella pagina di visualizzazione della struttura s.
 
 
-[![Figura 2: Aggiungere il controllo utente SectionLevelTutorialListing.ascx a Default.aspx](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
+[![Figura 2: Aggiungere il controllo utente SectionLevelTutorialListing.ascx a default. aspx](caching-data-with-the-objectdatasource-vb/_static/image3.png)](caching-data-with-the-objectdatasource-vb/_static/image2.png)
 
-**Figura 2**: figura 2: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image4.png))
+**Figura 2**: nella figura 2: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image4.png))
 
 
 Infine, aggiungere tali pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo l'utilizzo di dati binari `<siteMapNode>`:
@@ -96,15 +96,15 @@ Aprire il `ObjectDataSource.aspx` nella pagina di `Caching` cartella. Trascinare
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLL](caching-data-with-the-objectdatasource-vb/_static/image7.png)](caching-data-with-the-objectdatasource-vb/_static/image6.png)
 
-**Figura 4**: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image8.png))
+**Figura 4**: configurare ObjectDataSource per usare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image8.png))
 
 
 Per questa pagina consente s di creare un GridView modificabili in modo che è possibile esaminare cosa accade quando vengono modificati i dati memorizzati nella cache in ObjectDataSource tramite l'interfaccia s GridView. Lasciare l'elenco a discesa nella scheda Seleziona impostata sul valore predefinito, `GetProducts()`, ma l'elemento selezionato nella scheda UPDATE per modificare il `UpdateProduct` overload che accetta `productName`, `unitPrice`, e `productID` come parametri di input.
 
 
-[![Impostazione dell'elenco di riepilogo a discesa di aggiornamento scheda s all'Overload appropriato UpdateProduct](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
+[![Impostazione dell'elenco di riepilogo a discesa aggiornamento scheda s all'Overload appropriato UpdateProduct](caching-data-with-the-objectdatasource-vb/_static/image10.png)](caching-data-with-the-objectdatasource-vb/_static/image9.png)
 
-**Figura 5**: impostare gli oggetti di aggiornamento scheda elenco a discesa l'appropriato `UpdateProduct` Overload ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image11.png))
+**Figura 5**: impostare la scheda aggiornamento s elenco a discesa l'appropriato `UpdateProduct` Overload ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image11.png))
 
 
 Infine, impostare gli elenchi a discesa nelle schede delle INSERT e DELETE su (nessuno) e fare clic su Fine. Dopo avere completato la configurazione guidata origine dati, Visual Studio imposta s ObjectDataSource `OldValuesParameterFormatString` proprietà `original_{0}`. Come descritto nel [una panoramica di inserimento, aggiornamento ed eliminazione di dati](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) esercitazione, questa proprietà deve essere rimosso dalla sintassi dichiarativa o reimpostato sul valore predefinito, `{0}`, affinché l'aggiornamento del flusso di lavoro continuare senza errori.
@@ -119,7 +119,7 @@ Rendere modificabile il GridView selezionando la casella di controllo Abilita mo
 
 [![Abilitare il supporto di GridView per la modifica, l'ordinamento e Paging](caching-data-with-the-objectdatasource-vb/_static/image13.png)](caching-data-with-the-objectdatasource-vb/_static/image12.png)
 
-**Figura 6**: abilitare il supporto di GridView per la modifica, ordinamento e Paging ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image14.png))
+**Figura 6**: abilitare il supporto GridView per la modifica, l'ordinamento e Paging ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image14.png))
 
 
 Dopo aver apportato queste modifiche GridView, GridView e ObjectDataSource s dichiarativo dovrebbe essere simile al seguente:
@@ -130,9 +130,9 @@ Dopo aver apportato queste modifiche GridView, GridView e ObjectDataSource s dic
 Come illustrato nella figura 7, GridView modificabile Elenca il nome, categoria e il prezzo di ciascuno dei prodotti nel database. È opportuno testare i risultati, spostarsi tra loro, l'ordinamento di funzionalità della pagina s e modificare un record.
 
 
-[![Ogni nome di prodotto, categoria e prezzo è elencato un Sortable, Pageable, modificabile GridView](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
+[![Ogni nome di prodotto, categoria e prezzo è elencato un Sortable, Pageable, GridView modificabile](caching-data-with-the-objectdatasource-vb/_static/image16.png)](caching-data-with-the-objectdatasource-vb/_static/image15.png)
 
-**Figura 7**: ogni prodotto s, nome, categoria e prezzo è elencato un GridView modificabile Sortable, Pageable ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image17.png))
+**Figura 7**: ogni prodotto s nome, categoria e prezzo è elencato un Sortable, Pageable, GridView modificabile ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image17.png))
 
 
 ## <a name="step-3-examining-when-the-objectdatasource-is-requesting-data"></a>Passaggio 3: Esame ObjectDataSource di quando è richiesta di dati
@@ -159,14 +159,14 @@ Ogni volta che ObjectDataSource effettua una richiesta per l'architettura per i 
 Visitare questa pagina in un browser. Quando la pagina viene prima visitata, viene visualizzato l'evento di selezione di testo generato. Fare clic sul pulsante Postback e si noti che il testo scomparirà (supponendo che i dispositivi di GridView `EnableViewState` è impostata su `True`, il valore predefinito). In questo modo, durante il postback, GridView viene ricostruito dal relativo stato di visualizzazione e pertanto t attivare a ObjectDataSource per i propri dati. Ordinamento, spostamento o la modifica dei dati, tuttavia, comporta GridView riassociazione all'origine dati e pertanto l'evento Selecting generato viene visualizzato nuovamente il testo.
 
 
-[![Ogni volta che il controllo GridView è riassociato all'origine dati, viene visualizzato l'evento Selecting generato](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
+[![Ogni volta che viene riassociato GridView all'origine dati, viene visualizzato l'evento Selecting generato](caching-data-with-the-objectdatasource-vb/_static/image22.png)](caching-data-with-the-objectdatasource-vb/_static/image21.png)
 
-**Figura 9**: ogni volta che GridView in cui viene è riassociati all'origine dati, viene visualizzato l'evento Selecting generato ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image23.png))
+**Figura 9**: GridView in ogni volta che viene riassociato all'origine dati, viene visualizzato l'evento Selecting generato ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image23.png))
 
 
-[![Fare clic sul pulsante Postback fa sì che GridView per essere ricostruiti dallo stato di visualizzazione](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
+[![Fare clic sul pulsante Postback fa sì che controllo GridView. per essere ricostruiti dallo stato di visualizzazione](caching-data-with-the-objectdatasource-vb/_static/image25.png)](caching-data-with-the-objectdatasource-vb/_static/image24.png)
 
-**Figura 10**: fare clic sul pulsante Postback provoca GridView essere ricostruiti dallo stato di visualizzazione ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image26.png))
+**Figura 10**: facendo clic sul pulsante con i Postback, GridView essere ricostruiti dallo stato di visualizzazione ([fare clic per visualizzare l'immagine ingrandita](caching-data-with-the-objectdatasource-vb/_static/image26.png))
 
 
 Può sembrare inutili recuperare i dati di database ogni volta che i dati del pool di paging tramite o ordinati. Dopo tutto, poiché è re l'utilizzo del paging predefinito, ObjectDataSource ha recuperato tutti i record per la prima pagina di visualizzazione. Anche se GridView non fornisce l'ordinamento e paging supporto, i dati devono recuperati dal database ogni volta che viene innanzitutto visitata da qualsiasi utente (e in ogni postback, se lo stato di visualizzazione è disabilitato). Ma se il controllo GridView verrà visualizzati gli stessi dati per tutti gli utenti, queste richieste di database aggiuntive sono superflue. Perché non memorizzare nella cache i risultati restituiti dal `GetProducts()` (metodo) e bind GridView a quelli memorizzati nella cache dei risultati?
@@ -177,7 +177,7 @@ Semplicemente impostando alcune proprietà ObjectDataSource può essere configur
 
 - [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) deve essere impostato su `True` per abilitare la memorizzazione nella cache. Il valore predefinito è `False`.
 - [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) la quantità di tempo, espresso in secondi, che viene memorizzato nella cache i dati. Il valore predefinito è 0. ObjectDataSource solo memorizza nella cache dati se `EnableCaching` è `True` e `CacheDuration` è impostata su un valore maggiore di zero.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) può essere impostato su `Absolute` o `Sliding`. Se `Absolute`, ObjectDataSource memorizza nella cache i dati recuperati per `CacheDuration` secondi; se `Sliding`, i dati scadono solo dopo che è stato eseguito l'accesso per `CacheDuration` secondi. Il valore predefinito è `Absolute`.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) può essere impostata su `Absolute` o `Sliding`. Se `Absolute`, ObjectDataSource memorizza nella cache i dati recuperati per `CacheDuration` secondi; se `Sliding`, i dati scadono solo dopo che è stato eseguito l'accesso per `CacheDuration` secondi. Il valore predefinito è `Absolute`.
 - [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) utilizzare questa proprietà per associare le voci di cache s ObjectDataSource una dipendenza della cache esistente. Le voci di dati ObjectDataSource s possono essere rimossa in modo anomalo dalla cache impostando come scaduti associato `CacheKeyDependency`. Questa proprietà viene in genere utilizzata per associare una dipendenza della cache SQL con la cache s ObjectDataSource, un argomento si esamineranno in futuro [con dipendenze della Cache SQL](using-sql-cache-dependencies-vb.md) esercitazione.
 
 Configurare automaticamente s il `ProductsDataSource` ObjectDataSource per memorizzare nella cache i dati per 30 secondi in una scala assoluta. Impostare il s ObjectDataSource `EnableCaching` proprietà `True` e il relativo `CacheDuration` proprietà a 30. Lasciare il `CacheExpirationPolicy` impostata sul valore predefinito, `Absolute`.
@@ -231,17 +231,17 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [La memorizzazione nella cache di ASP.NET: Le tecniche e procedure consigliate](https://msdn.microsoft.com/library/aa478965.aspx)
-- [Guida all'architettura di memorizzazione nella cache per le applicazioni .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
+- [Guida all'architettura di memorizzazione nella cache per applicazioni .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
 - [La cache di output in ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](using-sql-cache-dependencies-cs.md)
-[Successivo](caching-data-in-the-architecture-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-sql-cache-dependencies-cs.md)
+> [Successivo](caching-data-in-the-architecture-vb.md)

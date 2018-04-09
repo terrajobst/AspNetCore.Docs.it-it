@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 title: Miglioramento dei dettagli e i metodi di eliminazione (VB) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: e057d9f106aaa8afbe521d8185a06dfbf48e46fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0c662510ce9a80e0e808af0eec2561ecdaa12c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Miglioramento dei dettagli e i metodi di eliminazione (VB)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul seguente collegamento: [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti utilizzando i collegamenti seguenti:
 > 
@@ -57,7 +57,7 @@ Il metodo `HttpPost` che elimina i dati è denominato `DeleteConfirmed` per forn
 
 Common language runtime (CLR) richiede metodi di overload per avere una firma univoca (stesso nome, elenco di parametri diverso). Tuttavia, in questo caso è necessario due metodi di eliminazione: uno per GET - e uno per POST che richiedono entrambi la stessa firma. Entrambi devono accettare un singolo intero come parametro.
 
-Per ordinare la natura, è possibile eseguire alcune operazioni. Uno consiste nell'assegnare i metodi di nomi diversi. Ovvero è stato fatto in egli sopra riportato. Tuttavia in questo modo si introduce un piccolo problema: ASP.NET esegue il mapping dei segmenti di un URL ai metodi di azione in base al nome e, se si rinomina un metodo, generalmente il routing non è in grado di trovare questo metodo. La soluzione è mostrata nell'esempio e consiste nell'aggiungere l'attributo `ActionName("Delete")` al metodo `DeleteConfirmed`. Questo in modo efficace esegue il mapping per il sistema di routing in modo che un URL che includa */Delete/*disponibili per un POST di richiesta di `DeleteConfirmed` metodo.
+Per ordinare la natura, è possibile eseguire alcune operazioni. Uno consiste nell'assegnare i metodi di nomi diversi. Ovvero è stato fatto in egli sopra riportato. Tuttavia in questo modo si introduce un piccolo problema: ASP.NET esegue il mapping dei segmenti di un URL ai metodi di azione in base al nome e, se si rinomina un metodo, generalmente il routing non è in grado di trovare questo metodo. La soluzione è mostrata nell'esempio e consiste nell'aggiungere l'attributo `ActionName("Delete")` al metodo `DeleteConfirmed`. Questo in modo efficace esegue il mapping per il sistema di routing in modo che un URL che includa <em>/Delete/</em>disponibili per un POST di richiesta di `DeleteConfirmed` metodo.
 
 Un altro modo per evitare un problema con metodi che hanno firme e i nomi identici consiste nel modificare artificialmente la firma del metodo POST per includere un parametro non utilizzato. Ad esempio, alcuni sviluppatori aggiungono un parametro di tipo `FormCollection` che viene passato al metodo POST e quindi semplicemente non usa il parametro:
 
@@ -74,14 +74,14 @@ In questa esercitazione di base ottenuto è iniziato le controller, associarli a
 Se si desidera distribuire l'applicazione, è utile per test prima dell'applicazione sul server locale di IIS 7. È possibile utilizzare questo [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) collegamento per abilitare l'impostazione di IIS per le applicazioni ASP.NET. Vedere i collegamenti di distribuzione seguenti:
 
 - [Mappa del contenuto di distribuzione di ASP.NET](https://msdn.microsoft.com/library/dd394698.aspx)
-- [L'attivazione di IIS 7. x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
+- [L'attivazione di IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Distribuzione di progetti applicazione Web](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Si consiglia per continuare con il livello intermedio ora [la creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) e [negozio MVC](../../mvc-music-store/mvc-music-store-part-1.md) esercitazioni, per esplorare il [ASP.NET articoli su MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)e per estrarre i video e le risorse in molti [https://asp.net/mvc](https://asp.net/mvc) per ulteriori informazioni su ASP.NET MVC. Il [forum di ASP.NET MVC](https://forums.asp.net/1146.aspx) sono un ottimo punto di porre domande.
+È possibile ora invita gli utenti per continuare con il livello intermedio [creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) e [MVC musica archivio](../../mvc-music-store/mvc-music-store-part-1.md) le esercitazioni, per esplorare il [ASP.NET articoli su MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)e per estrarre i video e risorse in molti [ https://asp.net/mvc ](https://asp.net/mvc) per ulteriori informazioni su ASP.NET MVC. Il [forum di ASP.NET MVC](https://forums.asp.net/1146.aspx) sono un ottimo punto di porre domande.
 
 Buona lettura.
 
--Scott Hanselman ([http://hanselman.com](http://hanselman.com) e [ @shanselman ](http://twitter.com/shanselman) su Twitter) e Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+-Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) e [ @shanselman ](http://twitter.com/shanselman) su Twitter) e Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
->[!div class="step-by-step"]
-[Precedente](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-validation-to-the-model.md)

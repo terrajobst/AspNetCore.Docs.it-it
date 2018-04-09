@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7eea51add6b05684357314e3d6aa5087383c6408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>Modifiche di rilievo 4 ASP.NET
 ====================
@@ -29,26 +29,26 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="contents"></a>Sommario
 
-[L'impostazione ControlRenderingCompatibilityVersion nel File Web. config](#0.1__Toc256770141 "_Toc256770141")  
+[Impostazione ControlRenderingCompatibilityVersion nel File Web. config](#0.1__Toc256770141 "_Toc256770141")  
 [Le modifiche ClientIDMode](#0.1__Toc256770142 "_Toc256770142")  
-[HtmlEncode e UrlEncode ora codificare virgolette](#0.1__Toc256770143 "_Toc256770143")  
+[HtmlEncode e UrlEncode ora codificare tra virgolette singole](#0.1__Toc256770143 "_Toc256770143")  
 [Pagina ASP.NET (aspx) Parser è Stricter](#0.1__Toc256770144 "_Toc256770144")  
 [File di definizione del browser aggiornati](#0.1__Toc256770145 "_Toc256770145")  
-[System.Web.Mobile.dll rimosso dal File di configurazione Web radice](#0.1__Toc256770146 "_Toc256770146")  
+[System rimossa dal File di configurazione Web radice](#0.1__Toc256770146 "_Toc256770146")  
 [Convalida della richiesta ASP.NET](#0.1__Toc256770147 "_Toc256770147")  
 [Algoritmo hash predefinito è ora HMACSHA256](#0.1__Toc256770148 "_Toc256770148")  
-[Errori di configurazione correlati per nuova configurazione di ASP.NET 4 radice](#0.1__Toc256770149 "_Toc256770149")  
-[Le applicazioni ASP.NET 4 figlio in grado di avvio in caso di ASP.NET 2.0 o ASP.NET 3.5 applicazioni](#0.1__Toc256770150 "_Toc256770150")  
-[Siti Web ASP.NET 4 non venga avviato nei computer in cui è installato SharePoint](#0.1__Toc256770151 "_Toc256770151")  
+[Errori di configurazione correlati a nuova configurazione di ASP.NET 4 radice](#0.1__Toc256770149 "_Toc256770149")  
+[Applicazioni ASP.NET 4 figlio esito negativo per l'avvio in caso di ASP.NET 2.0 o ASP.NET 3.5 applicazioni](#0.1__Toc256770150 "_Toc256770150")  
+[In ASP.NET 4 siti Web non vengono avviati nei computer in cui è installato SharePoint](#0.1__Toc256770151 "_Toc256770151")  
 [La proprietà HttpRequest.FilePath non include più valori PathInfo](#0.1__Toc256770152 "_Toc256770152")  
 [ASP.NET 2.0 applicazioni potrebbero generare errori HttpException che fanno riferimento a eurl. axd](#0.1__Toc256770153 "_Toc256770153")  
-[I gestori eventi non potrebbero essere generati non in un documento predefinito in IIS 7 o IIS 7.5 in modalità integrata](#0.1__Toc256770154 "_Toc256770154")  
+[Gestori eventi non potrebbero essere generati non in un documento predefinito in IIS 7.5 o IIS 7 in modalità integrata](#0.1__Toc256770154 "_Toc256770154")  
 [Modifiche all'implementazione di sicurezza dall'accesso di codice ASP.NET](#0.1__Toc256770155 "_Toc256770155")  
 [Sono stati spostati MembershipUser e altri tipi nel Namespace System.Web.Security](#0.1__Toc256770156 "_Toc256770156")  
 [Memorizzazione nella cache le modifiche per variare l'output \* intestazione HTTP](#0.1__Toc256770157 "_Toc256770157")  
 [Tipi di System.Web.Security per Passport sono Obsolete](#0.1__Toc256770158 "_Toc256770158")  
 [La proprietà MenuItem.PopOutImageUrl non riesce a eseguire il rendering di un'immagine in ASP.NET 4](#0.1__Toc256770159 "_Toc256770159")  
-[Menu.StaticPopOutImageUrl e non è riuscita per il rendering delle immagini quando i percorsi contenere barre rovesciate Menu.DynamicPopOutImageUrl](#0.1__Toc256770160 "_Toc256770160")  
+[Menu.StaticPopOutImageUrl e non è riuscita per il rendering delle immagini quando i percorsi di contenere barre rovesciate Menu.DynamicPopOutImageUrl](#0.1__Toc256770160 "_Toc256770160")  
 [Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
@@ -180,7 +180,7 @@ In questo scenario, il sistema di configurazione nativo di IIS 7 e IIS 7.5 resti
 
 La soluzione alternativa per il primo scenario consiste nell'aggiornare il livello di applicazione `Web.config` file includendo il testo di configurazione standard da un `Web.config` file che è stato generato automaticamente da Visual Studio 2008.
 
-Una soluzione alternativa per il primo scenario è per l'installazione di Service Pack 2 per la Vista o Windows Server 2008 nel computer o installare l'hotfix KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) correggere non corretto comportamento di unione di configurazione del sistema di configurazione IIS. Tuttavia, dopo aver eseguito una di queste azioni, l'applicazione probabilmente verificherà un errore di configurazione a causa del problema descritto per il secondo scenario.
+Una soluzione alternativa per il primo scenario consiste nell'installare Service Pack 2 per la Vista o Windows Server 2008 nel computer o installare hotfix KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) per risolvere il comportamento dell'unione di configurazione non corretta del Sistema di configurazione di IIS. Tuttavia, dopo aver eseguito una di queste azioni, l'applicazione probabilmente verificherà un errore di configurazione a causa del problema descritto per il secondo scenario.
 
 La soluzione per il secondo scenario consiste nell'eliminare o impostare come commento tutti i **Extensions** definizioni di sezione di configurazione e sezione di configurazione del gruppo di definizioni a livello di applicazione `Web.config` file. Queste definizioni sono in genere nella parte superiore del livello di applicazione `Web.config` file e può essere identificato tramite il **configSections** elemento e i relativi elementi figlio.
 
@@ -192,8 +192,8 @@ Per entrambi gli scenari, è consigliabile eliminare manualmente il **System. Co
 
 Le applicazioni ASP.NET 4 configurate come elementi figlio di applicazioni che eseguono versioni precedenti di ASP.NET potrebbero non avviarsi a causa di errori di compilazione o di configurazione. Nell'esempio seguente viene illustrata una struttura di directory per un'applicazione interessata.
 
-`/parentwebapp`(configurato per utilizzare ASP.NET 2.0 o ASP.NET 3.5)  
-`/childwebapp`(configurato per l'utilizzo di ASP.NET 4)
+`/parentwebapp` (configurato per utilizzare ASP.NET 2.0 o ASP.NET 3.5)  
+`/childwebapp` (configurato per l'utilizzo di ASP.NET 4)
 
 L'applicazione nel `childwebapp` cartella non riuscirà ad avviare in IIS 7 o IIS 7.5 e genererà un errore di configurazione. Il testo di errore includeranno un messaggio simile al seguente:
 
@@ -323,13 +323,13 @@ Se non è possibile modificare il mapping del sito Web per ASP.NET 2.0 o per mod
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>I gestori eventi non potrebbero essere generati non in un documento predefinito in IIS 7 o IIS 7.5 in modalità integrata
 
-ASP.NET 4 include modifiche che modificano il modo in **azione** attributo del codice HTML **modulo** elemento sottoposto a rendering quando risolve un URL senza estensione a un documento predefinito. Un esempio di URL senza estensione risolvere in un documento predefinito può essere [http://contoso.com/](http://contoso.com/), risultante in una richiesta di [http://contoso.com/Default.aspx](http://contoso.com/Default.aspx).
+ASP.NET 4 include modifiche che modificano il modo in **azione** attributo del codice HTML **modulo** elemento sottoposto a rendering quando risolve un URL senza estensione a un documento predefinito. Un esempio di URL senza estensione la risoluzione in un documento predefinito può essere [ http://contoso.com/ ](http://contoso.com/)risultante in una richiesta [ http://contoso.com/Default.aspx ](http://contoso.com/Default.aspx).
 
-In ASP.NET 4 ora esegue il rendering HTML **modulo** dell'elemento **azione** valore dell'attributo come una stringa vuota quando viene effettuata una richiesta a un URL senza estensione a cui è mappato a esso un documento predefinito. Ad esempio, nelle versioni precedenti di ASP.NET, una richiesta di [http://contoso.com](http://contoso.com) darà origine a una richiesta di `Default.aspx`. In tale documento, l'apertura **modulo** tag verrebbe eseguito come nell'esempio seguente:
+In ASP.NET 4 ora esegue il rendering HTML **modulo** dell'elemento **azione** valore dell'attributo come una stringa vuota quando viene effettuata una richiesta a un URL senza estensione a cui è mappato a esso un documento predefinito. Ad esempio, nelle versioni precedenti di ASP.NET, una richiesta al [ http://contoso.com ](http://contoso.com) comporterebbe una richiesta di `Default.aspx`. In tale documento, l'apertura **modulo** tag verrebbe eseguito come nell'esempio seguente:
 
 `<form action="Default.aspx" />`
 
-In ASP.NET 4, una richiesta di [http://contoso.com](http://contoso.com) anche i risultati in una richiesta di `Default.aspx`. Tuttavia, ASP.NET ora esegue il rendering dell'apertura HTML **modulo** tag come nell'esempio seguente:
+In ASP.NET 4, una richiesta al [ http://contoso.com ](http://contoso.com) anche i risultati in una richiesta `Default.aspx`. Tuttavia, ASP.NET ora esegue il rendering dell'apertura HTML **modulo** tag come nell'esempio seguente:
 
 `<form action="" />`
 
@@ -370,7 +370,7 @@ Quando si ripristina il modello legacy di autorità di certificazione, sono abil
 - Sono consentiti più set di autorizzazioni diverse in un singolo dominio applicazione.
 - Le asserzioni di autorizzazioni esplicite non sono necessari per gli assembly nella GAC che vengono richiamati quando solo ASP.NET o altro codice di .NET Framework è nello stack.
 
-Uno scenario non può essere annullato in .NET Framework 4: applicazioni con attendibilità parziale non Web non è più possono chiamare alcune API in System.Web.dll e System.Web.Extensions.dll. Nelle versioni precedenti di .NET Framework, è possibile per applicazioni con attendibilità parziale non Web a cui viene concesso in modo esplicito **AspNetHostingPermission** autorizzazioni. Quindi è possibile utilizzare queste applicazioni **System.Web.HttpUtility**, digita il **System.Web.ClientServices.\***  spazi dei nomi e tipi correlati all'appartenenza, ruoli e profili. Chiamata di questi tipi da applicazioni con attendibilità parziale non Web non è più supportata in .NET Framework 4.
+Uno scenario non può essere annullato in .NET Framework 4: applicazioni con attendibilità parziale non Web non è più possono chiamare alcune API in System.Web.dll e System.Web.Extensions.dll. Nelle versioni precedenti di .NET Framework, è possibile per applicazioni con attendibilità parziale non Web a cui viene concesso in modo esplicito <strong>AspNetHostingPermission</strong> autorizzazioni. Queste applicazioni potrebbe poi usare <strong>System.Web.HttpUtility</strong>, digita il <strong>System.Web.ClientServices.\< / strong > * spazi dei nomi e tipi correlati e all'appartenenza, ruoli, i profili. Chiamata di questi tipi da applicazioni con attendibilità parziale non Web non è più supportata in .NET Framework 4.
 
 > [!NOTE]
 > Il **HtmlEncode** e **HtmlDecode** funzionalità del **System.Web.HttpUtility** classe sia stata spostata di nuovo .NET Framework 4  **System.Net.WebUtility** classe. Se la funzionalità ASP.NET sola che veniva utilizzata, modificare il codice dell'applicazione per utilizzare la nuova **WebUtility** classe.
@@ -469,7 +469,7 @@ Se si lavora con un menu dinamico, utilizzare il *Menu.DynamicPopOutImageUrl* pr
 
 Se il *Menu.DynamicPopOutImageUrl* non è impostata e *Menu.DynamicEnableDefaultPopOutImage* è impostata su *false*, viene visualizzata alcuna immagine. Analogamente, se il *StaticPopOutImageUrl* non è impostata e *StaticEnableDefaultPopOutImage* è impostata su *false*, viene visualizzata alcuna immagine.
 
-Quando si impostano i percorsi di queste proprietà, utilizzare una barra (/) anziché una barra rovesciata (\). Per ulteriori informazioni, vedere [Menu.StaticPopOutImageUrl e non è riuscita a eseguire il rendering di immagini quando i percorsi contenere barre rovesciate Menu.DynamicPopOutImageUrl](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu.") in questo documento.
+Quando si impostano i percorsi di queste proprietà, utilizzare una barra (/) anziché una barra rovesciata (\). Per altre informazioni, vedere [Menu.StaticPopOutImageUrl e non è riuscita a eseguire il rendering di immagini quando i percorsi contenere barre rovesciate Menu.DynamicPopOutImageUrl](#0.1__Menu.StaticPopOutImageUrl_and_Menu. "_Menu.StaticPopOutImageUrl_and_Menu.") in questo documento.
 
 <a id="0.1__Menu.StaticPopOutImageUrl_and_Menu."></a><a id="0.1__Toc256770160"></a>
 

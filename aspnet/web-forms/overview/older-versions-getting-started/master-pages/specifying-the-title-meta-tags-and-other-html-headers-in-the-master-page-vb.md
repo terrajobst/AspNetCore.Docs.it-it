@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8bf9d32eee3e35ffc84521f7f82f7beecc99a0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Specifica il titolo, tag Meta e altre intestazioni HTML della pagina Master (VB)
 ====================
@@ -81,7 +81,7 @@ Il `<%@ Page %>` direttiva specifica gli attributi specifici di pagina utilizzat
 Per impostazione predefinita, quando si crea una nuova pagina di contenuto Visual Studio imposta la `Title` attributo "Senza nome pagina". Modifica `Default.aspx`del `Title` dell'attributo da "Senza nome pagina" a "Esercitazioni su pagina Master" e quindi visualizzare la pagina tramite un browser. Figura 1 mostra la barra del titolo del browser che riflette il nuovo titolo della pagina.
 
 
-![Barra del titolo del Browser verrà visualizzato &quot;esercitazioni pagina Master&quot; anziché &quot;senza titolo&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
+![Barra del titolo del Browser verrà visualizzato &quot;esercitazioni pagina Master&quot; anziché &quot;pagina senza titolo&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
 
 **Figura 01**: barra del titolo del Browser verrà visualizzato "Esercitazioni su pagina Master" anziché "Senza nome pagina"
 
@@ -108,7 +108,7 @@ La figura 3 Mostra barra del titolo del browser quando si visita il `About.aspx`
 
 ![Il titolo della pagina è impostato a livello di codice e include la data corrente](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image3.png)
 
-**Figura 03**: titolo della pagina di è impostato a livello di codice e include la data corrente
+**Figura 03**: titolo della pagina di viene impostata a livello di codice e includere la data corrente
 
 
 ## <a name="step-2-automatically-assigning-a-page-title"></a>Passaggio 2: Assegnare automaticamente un titolo di pagina
@@ -130,7 +130,7 @@ La prima attività consiste nel creare una classe di base di pagina, che è una 
 
 ![Aggiungere una cartella App_Code e una classe denominata BasePage](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
 
-**Figura 04**: aggiungere un `App_Code` cartella e una classe denominata`BasePage`
+**Figura 04**: aggiungere un `App_Code` cartella e una classe denominata `BasePage`
 
 
 > [!NOTE]
@@ -172,9 +172,9 @@ Al termine dell'operazione, visitare il sito tramite un browser. Se si visita un
 La figura 5 mostra il `MultipleContentPlaceHolders.aspx` pagina quando viene visualizzato tramite un browser. Si noti che il titolo è precisamente nome file della pagina (meno l'estensione), "MultipleContentPlaceHolders".
 
 
-[![Se non specificato in modo esplicito un titolo, nome del file della pagina viene utilizzato automaticamente](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
+[![Se non specificato in modo esplicito un titolo, nome del file della pagina viene usato automaticamente](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
 
-**Figura 05**: se non specificato in modo esplicito un titolo, nome del file della pagina viene utilizzato automaticamente ([fare clic per visualizzare l'immagine ingrandita](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png))
+**Figura 05**: se non specificato in modo esplicito un titolo, nome del file della pagina viene usato automaticamente ([fare clic per visualizzare l'immagine ingrandita](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png))
 
 
 ## <a name="step-3-basing-the-page-title-on-the-site-map"></a>Passaggio 3: Basare il titolo della pagina nella mappa del sito
@@ -209,7 +209,7 @@ Questo codice XML definisce la struttura della mappa del sito gerarchica illustr
 
 ![Mappa del sito è attualmente composto di tre nodi](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image11.png)
 
-**Figura 07**: la mappa del sito è attualmente composto di tre nodi
+**Figura 07**: la mappa del sito è attualmente composto di tre nodi della mappa sito
 
 
 La struttura della mappa del sito in esercitazioni future verrà aggiornato man mano che si aggiungono nuovi esempi.
@@ -257,9 +257,9 @@ Con questa modifica, ListView consente di visualizzare i punti elenco per inform
 Configurando SiteMapDataSource per omettere il nodo di inizio e l'aggiunta esplicita di un punto iniziale, nella sezione di lezioni viene ora visualizzato l'output desiderato.
 
 
-[![La sezione lezioni contiene un punto elenco per la casa e ogni nodo figlio](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
+[![La sezione lezioni contiene un punto per la casa e ogni nodo figlio](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
 
-**Figura 10**: la sezione lezioni contiene un punto elenco per la casa e ciascun nodo figlio ([fare clic per visualizzare l'immagine ingrandita](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png))
+**Figura 10**: la sezione lezioni contiene un punto per la casa e ciascun nodo figlio ([fare clic per visualizzare l'immagine ingrandita](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png))
 
 
 ### <a name="setting-the-title-based-on-the-site-map"></a>Impostazione del titolo in base alla mappa del sito
@@ -269,7 +269,7 @@ Con la mappa del sito sul posto, è possibile aggiornare il nostro `BasePage` cl
 
 ![In assenza di un in modo esplicito impostare titolo della pagina, viene utilizzato il titolo del corrispondente nodo della mappa del sito](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image21.png)
 
-**Figura 11**: In assenza di un in modo esplicito impostare titolo della pagina, viene utilizzato il titolo del corrispondente nodo della mappa del sito
+**Figura 11**: In assenza di un esplicitamente impostato titolo della pagina, viene usato titolo del corrispondente sito nodo della mappa
 
 
 Aggiornamento di `BasePage` della classe `OnLoadComplete` metodo per includere il codice seguente:
@@ -279,7 +279,7 @@ Aggiornamento di `BasePage` della classe `OnLoadComplete` metodo per includere i
 
 Come in precedenza, il `OnLoadComplete` metodo avvia determinando se il titolo della pagina è stato impostato in modo esplicito. Se `Page.Title` è `Nothing`, una stringa vuota, viene assegnato il valore "Senza nome pagina", quindi il codice assegna automaticamente un valore a o `Page.Title`.
 
-Per determinare il titolo da utilizzare, il codice di avvio facendo riferimento al [ `SiteMap` classe](https://msdn.microsoft.com/library/system.web.sitemap.aspx)del [ `CurrentNode` proprietà](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Restituisce il [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) istanza nella mappa del sito che corrisponde alla pagina attualmente richiesta. Presupponendo che la pagina attualmente richiesta si trova all'interno della mappa del sito, il `SiteMapNode`del `Title` proprietà viene assegnata al titolo della pagina. Se la pagina attualmente richiesta non è presente nella mappa del sito, `CurrentNode` restituisce `Nothing` e nome file della pagina richiesta viene utilizzato come il titolo (come è stato completato nel passaggio 2).
+Per determinare il titolo da utilizzare, il codice di avvio facendo riferimento al [ `SiteMap` classe](https://msdn.microsoft.com/library/system.web.sitemap.aspx)del [ `CurrentNode` proprietà](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` Restituisce il [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) istanza nella mappa del sito che corrisponde alla pagina attualmente richiesta. Presupponendo che la pagina attualmente richiesta si trova all'interno della mappa del sito, il `SiteMapNode`del `Title` proprietà viene assegnata al titolo della pagina. Se la pagina attualmente richiesta non è presente nella mappa del sito, `CurrentNode` restituisce `Nothing` e nome file della pagina richiesta viene utilizzato come il titolo (come è stato completato nel passaggio 2).
 
 Figura 12 illustra il `MultipleContentPlaceHolders.aspx` pagina quando viene visualizzato tramite un browser. Poiché il titolo della pagina non viene impostato in modo esplicito, viene invece utilizzato il titolo del nodo della mappa del sito corrispondente.
 
@@ -337,20 +337,20 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Impostazione in modo dinamico il titolo della pagina in ASP.NET](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
-- [Esame di ASP. Esplorazione del sito di rete](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Come utilizzare il tag HTML Meta](http://searchenginewatch.com/showPage.html?page=2167931)
+- [Esame ASP. Esplorazione del sito della rete](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [Come usare i tag HTML Meta](http://searchenginewatch.com/showPage.html?page=2167931)
 - [Pagine master in ASP.NET](http://www.odetocode.com/articles/419.aspx)
 - [Utilizzo di ASP.NET 3.5 controlli ListView e DataPager](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
-- [Utilizzo di una classe di Base personalizzata per le classi di Code-Behind di pagine di ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [Utilizzando una classe di Base personalizzata per le classi di Code-Behind di pagine ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](multiple-contentplaceholders-and-default-content-vb.md)
-[Successivo](urls-in-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](multiple-contentplaceholders-and-default-content-vb.md)
+> [Successivo](urls-in-master-pages-vb.md)

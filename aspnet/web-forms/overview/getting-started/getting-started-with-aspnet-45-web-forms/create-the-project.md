@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-project"></a>Creare il progetto
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -81,7 +81,7 @@ Il progetto richiederà un po' di tempo per creare. Quando è pronto, aprire il 
 > 
 > Oltre a quattro Framework di sviluppo principale, ASP.NET offre tecnologie aggiuntive che sono importanti da considerare e abbia familiarità con, ma non sono trattate in questa serie di esercitazioni:
 > 
-> - [ASP.NET Web API](../../../../web-api/index.md) -un framework per compilare servizi HTTP in grado di raggiungono una vasta gamma di client, inclusi browser e dispositivi mobili.
+> - [ASP.NET Web API](../../../../web-api/index.md) -un framework per compilare servizi HTTP in grado di raggiungere una vasta gamma di client, inclusi browser e dispositivi mobili.
 > - [ASP.NET SignalR](../../../../signalr/index.md) -una libreria che semplifica la funzionalità di sviluppo web in tempo reale.
 
 
@@ -122,7 +122,7 @@ Quando un server Web riceve una richiesta per una pagina, trova la pagina, viene
 
 > [!TIP] 
 > 
-> **Funzionalità dell'applicazione Web nel modello applicazione Web Form**
+> **Funzionalità dell'applicazione Web nel modello di applicazione Web Form**
 > 
 > Il modello di applicazioni Web Form ASP.NET fornisce un set completo di funzionalità predefinite. Fornisce non solo con un *aspx* pagina, un *About* pagina, un *Contact.aspx* pagina, ma include anche funzionalità di appartenenza che registra gli utenti e Salva le credenziali in modo che l'accesso al sito Web. Questa panoramica fornisce ulteriori informazioni su alcune delle funzionalità contenute nel modello di applicazioni Web Form ASP.NET e come vengono utilizzati nell'applicazione Wingtip Toys.
 > 
@@ -192,9 +192,9 @@ In questa esercitazione sono creati esaminate e, eseguire l'applicazione Web For
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Scelta del modello di programmazione](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Progetti applicazione Web e progetti di siti Web](https://msdn.microsoft.com/library/dd547590.aspx)   
-[Form di ASP.NET Web Pages Overview](https://msdn.microsoft.com/library/428509ah.aspx)
+[Progetti di applicazione Web e progetti di siti Web](https://msdn.microsoft.com/library/dd547590.aspx)   
+[Web Form ASP.NET pagine Panoramica](https://msdn.microsoft.com/library/428509ah.aspx)
 
->[!div class="step-by-step"]
-[Precedente](introduction-and-overview.md)
-[Successivo](create_the_data_access_layer.md)
+> [!div class="step-by-step"]
+> [Precedente](introduction-and-overview.md)
+> [Successivo](create_the_data_access_layer.md)

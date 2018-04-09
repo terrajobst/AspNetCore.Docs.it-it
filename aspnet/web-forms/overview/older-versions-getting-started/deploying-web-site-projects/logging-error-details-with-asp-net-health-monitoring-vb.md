@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 title: I dettagli dell'errore di registrazione con monitoraggio ASP.NET (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Sistema di monitoraggio di integrità di Microsoft fornisce un modo semplice e personalizzabile per accedere a vari eventi web, incluse le eccezioni non gestite. In questa esercitazione scheda..."
+description: Sistema di monitoraggio di integrità di Microsoft fornisce un modo semplice e personalizzabile per accedere a vari eventi web, incluse le eccezioni non gestite. In questa esercitazione scheda...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83f7504e3aeb02ed222712e7e51f612f7ffd5744
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Dettagli di errore di registrazione con monitoraggio ASP.NET (VB)
 ====================
@@ -128,7 +128,7 @@ Con l'origine di log di posta elettronica definito, è comunque per indicare l'i
 
 Il `<rules>` sezione include ora due regole. Il primo, denominato "Tutti gli errori di posta elettronica", l'origine del registro "EmailWebEventProvider" Invia tutte le eccezioni non gestite. Questa regola ha l'effetto dell'invio di dettagli sugli errori nel sito Web all'oggetto specificato all'indirizzo. La regola "Tutti gli errori al Database" Registra i dettagli dell'errore per il database del sito. Di conseguenza, ogni volta che si verifica un'eccezione non gestita nel sito i dettagli sono entrambi connessi al database e inviati all'indirizzo di posta elettronica specificato.
 
-**Figura 2** Mostra messaggio di posta elettronica generato dal `SimpleMailWebEventProvider` classe durante la visita `Genre.aspx?ID=foo`.
+**Figura 2** Mostra il messaggio di posta elettronica generato dal `SimpleMailWebEventProvider` classe durante la visita `Genre.aspx?ID=foo`.
 
 [![](logging-error-details-with-asp-net-health-monitoring-vb/_static/image5.png)](logging-error-details-with-asp-net-health-monitoring-vb/_static/image4.png)
 
@@ -150,10 +150,10 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Cenni preliminari sul monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Configurare e personalizzare il sistema di ASP.NET di monitoraggio dello stato](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [Domande frequenti - monitoraggio dell'integrità in ASP.NET 2.0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Procedura: Inviare posta elettronica per le notifiche di monitoraggio dello stato](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Procedura: Invio della posta elettronica per le notifiche di monitoraggio dello stato](https://msdn.microsoft.com/library/ms227553.aspx)
 - [Procedura: Utilizzare il monitoraggio dello stato di ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Monitoraggio dell'integrità in ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
->[!div class="step-by-step"]
-[Precedente](processing-unhandled-exceptions-vb.md)
-[Successivo](logging-error-details-with-elmah-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](processing-unhandled-exceptions-vb.md)
+> [Successivo](logging-error-details-with-elmah-vb.md)

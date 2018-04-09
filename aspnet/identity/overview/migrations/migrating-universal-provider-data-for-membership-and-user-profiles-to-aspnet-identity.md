@@ -8,19 +8,19 @@ manager: wpickett
 ms.date: 12/13/2013
 ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: e00bcfc111425d5dd26c7ff341eaf87fd969e089
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f65f93b20543d06ea70a9009b6921e297477c99e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>La migrazione dei Provider Universal dati per l'appartenenza e i profili di ASP.NET Identity (c#)
 ====================
-da [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://github.com/Rick-Anderson), [Robert McMurray](https://github.com/rmcmurray), [Suhas Joshi](https://github.com/suhasj)
+dal [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://github.com/Rick-Anderson), [Robert McMurray](https://github.com/rmcmurray), [Suhas Joshi](https://github.com/suhasj)
 
 > In questa esercitazione vengono descritti i passaggi necessari eseguire la migrazione di utenti e dei dati dei ruoli e i dati di profilo utente creati utilizzando Universal Providers di un'applicazione esistente per il modello di identità di ASP.NET. Per eseguire la migrazione di dati del profilo utente da utilizzare in un'applicazione con nonché appartenenze SQL, l'approccio sopra indicate.
 
@@ -30,7 +30,7 @@ Con la versione di Visual Studio 2013, il team di ASP.NET ha introdotto un nuovo
 Ad esempio, si inizierà con un'app web creata utilizzando Visual Studio 2012 che usa il modello di provider. Si verrà quindi aggiungere il codice per la gestione dei profili, registrazione di un utente, aggiungere dati di profilo per gli utenti, eseguire la migrazione dello schema del database e quindi modificare l'applicazione di utilizzare il sistema di identità per gestione di utenti e ruoli. Come un test della migrazione, gli utenti creati utilizzando i provider universali devono essere in grado di accedere e nuovi utenti devono essere in grado di registrare.
 
 > [!NOTE]
-> È possibile trovare l'esempio completo in [https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
+> È possibile trovare l'esempio completo alla [ https://github.com/suhasj/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
 
 
 ## <a name="profile-data-migration-summary"></a>Riepilogo di migrazione dei dati di profilo
@@ -39,7 +39,7 @@ Prima di iniziare la migrazione, esaminiamo l'esperienza di archiviazione di dat
 
 1. Aggiungere una classe che ha le proprietà utilizzate per archiviare i dati di profilo.
 2. Aggiungere una classe che estende "ProfileBase" e implementa i metodi per ottenere i dati del profilo precedente per l'utente.
-3. Consentire l'utilizzo di provider di profili predefiniti nel *Web. config* file e definire la classe dichiarata nel passaggio &#2; da utilizzare per l'accesso a informazioni sul profilo.
+3. Consentire l'utilizzo di provider di profili predefiniti nel *Web. config* file e definire la classe dichiarata nel passaggio 2 # da utilizzare per l'accesso a informazioni sul profilo.
 
 Le informazioni sul profilo viene memorizzati come codice xml serializzato e dati binari nella tabella 'Profili' nel database.
 
@@ -54,18 +54,18 @@ Dopo la migrazione dell'applicazione per utilizzare il nuovo sistema di identit�
 3. Ad esempio, segnalare il problema di archiviare la data di nascita, città, altezza e il peso dell'utente nel profilo. L'altezza e peso vengono archiviati come una classe personalizzata denominata 'PersonalStats'. Per archiviare e recuperare il profilo, è necessaria una classe che estende 'ProfileBase'. È possibile crearne una nuova classe 'AppProfile' per recuperare e archiviare le informazioni sul profilo.
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample1.cs)]
-4. Abilitare il profilo nel *Web. config* file. Immettere il nome della classe da utilizzare per archiviare/recuperare le informazioni utente create nel passaggio &#3;.
+4. Abilitare il profilo nel *Web. config* file. Immettere il nome della classe da utilizzare per archiviare/recuperare le informazioni utente create nel passaggio 3 #.
 
     [!code-xml[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample2.xml)]
 5. Aggiungere una pagina web form nella cartella 'Account' per ottenere i dati del profilo dell'utente e archiviarlo. Fare clic con il pulsante destro sul progetto e selezionare "Aggiungi nuovo elemento". Aggiungere una nuova pagina Web Form con pagina master 'AddProfileData.aspx'. Copiare quanto segue nella sezione 'MainContent':
 
     [!code-html[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample3.html)]
 
- Aggiungere il codice seguente nel code-behind:
+   Aggiungere il codice seguente nel code-behind:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample4.cs)]
 
- Aggiungere lo spazio dei nomi in cui AppProfile classe è definita per rimuovere gli errori di compilazione.
+   Aggiungere lo spazio dei nomi in cui AppProfile classe è definita per rimuovere gli errori di compilazione.
 6. Eseguire l'app e creare un nuovo utente con il nome utente '**olduser'.** Passare alla pagina 'AddProfileData' e aggiungere informazioni sul profilo per l'utente.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image2.png)
 
@@ -81,7 +81,7 @@ Per correggere il database esistente con il sistema di identità, è necessario 
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image5.png)
 
-Incollare lo script SQL da [https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) ed eseguirlo. Se la stringa DefaultConnection viene aggiornata, si noterà che vengono aggiunte le nuove tabelle. È possibile controllare i dati all'interno di tabelle per verificare che le informazioni sono stata eseguita la migrazione.
+Incollare lo script SQL dalla [ https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt ](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) ed eseguirlo. Se la stringa DefaultConnection viene aggiornata, si noterà che vengono aggiunte le nuove tabelle. È possibile controllare i dati all'interno di tabelle per verificare che le informazioni sono stata eseguita la migrazione.
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image6.png)
 
@@ -89,22 +89,22 @@ Incollare lo script SQL da [https://raw.github.com/suhasj/UniversalProviders-Ide
 
 1. Installare i pacchetti Nuget necessari per l'identità ASP.NET:
 
-    - EntityFramework
-    - Italiano
-    - Systemweb
-    - Italiano
-    - Italiano
-    - MicrosoftAccount
-    - Italiano
+    - Microsoft.AspNet.Identity.EntityFramework
+    - Microsoft.AspNet.Identity.Owin
+    - Microsoft.Owin.Host.SystemWeb
+    - Microsoft.Owin.Security.Facebook
+    - Microsoft.Owin.Security.Google
+    - Microsoft.Owin.Security.MicrosoftAccount
+    - Microsoft.Owin.Security.Twitter
 
- Sono disponibili ulteriori informazioni sulla gestione dei pacchetti Nuget [qui](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
+   Sono disponibili ulteriori informazioni sulla gestione dei pacchetti Nuget [qui](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
 2. Per utilizzare i dati esistenti nella tabella, è necessario creare le classi modello che eseguire nuovamente il mapping di tabelle e associare il sistema di identità. Come parte del contratto di identità, le classi di modello devono implementare le interfacce definite nella dll Identity.Core o estendono l'implementazione di queste interfacce disponibili in EntityFramework esistente. Si utilizzerà le classi esistenti per ruolo, gli account di accesso utente e le attestazioni utente. È necessario usare un utente personalizzato per l'esempio. Fare clic con il pulsante destro sul progetto e creare una nuova cartella 'IdentityModels'. Aggiungere una nuova classe di 'User', come illustrato di seguito:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample5.cs)]
 
- Si noti che 'ProfileInfo' è una proprietà sulla classe utente. Di conseguenza è possibile usare la classe dell'utente di utilizzare direttamente dati di profilo.
+   Si noti che 'ProfileInfo' è una proprietà sulla classe utente. Di conseguenza è possibile usare la classe dell'utente di utilizzare direttamente dati di profilo.
 
-Copiare i file di **IdentityModels** e **IdentityAccount** cartelle dall'origine del download ( [https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/ UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Queste sono le altre classi di modello e le nuove pagine necessarie per l'utente e la gestione dei ruoli usando le API di identità di ASP.NET. L'approccio utilizzato è simile all'appartenenza SQL ed è disponibile una descrizione dettagliata [qui](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
+Copiare i file nel **IdentityModels** e **IdentityAccount** cartelle dall'origine del download ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Queste sono le altre classi di modello e le nuove pagine necessarie per l'utente e la gestione dei ruoli usando le API di identità di ASP.NET. L'approccio utilizzato è simile all'appartenenza SQL ed è disponibile una descrizione dettagliata [qui](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
 
 ## <a name="copying-profile-data-to-the-new-tables"></a>Copia dei dati di profilo per le nuove tabelle
 
@@ -118,7 +118,7 @@ Come accennato in precedenza, è necessario deserializzare i dati xml nelle tabe
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample6.cs)]
 
- Alcuni dei modelli utilizzati vengono definiti nella cartella 'IdentityModels' del progetto di applicazione web, è necessario includere gli spazi dei nomi corrispondente.
+   Alcuni dei modelli utilizzati vengono definiti nella cartella 'IdentityModels' del progetto di applicazione web, è necessario includere gli spazi dei nomi corrispondente.
 5. Il codice sopra riportato funziona sul file di database nell'App\_cartella dati del progetto di applicazione web creata nei passaggi precedenti. Per fare riferimento a tale, aggiornare la stringa di connessione nel file app. config dell'applicazione console con stringa di connessione in Web. config dell'applicazione web. Forniscono anche il percorso fisico completo nella proprietà 'AttachDbFilename'.
 6. Aprire un prompt dei comandi e passare alla cartella bin dell'applicazione console precedente. Eseguire il file eseguibile ed esaminare l'output del log, come illustrato nella figura seguente.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image3.jpg)
@@ -134,4 +134,4 @@ I dati di profilo per l'utente precedente e i nuovi utenti devono essere recuper
 
 L'articolo viene descritto il processo di migrazione di applicazioni web che utilizzano il modello di provider di appartenenze di ASP.NET Identity. L'articolo viene descritto inoltre la migrazione dei dati di profilo per gli utenti di eseguire l'hook il sistema di identità. Lasciare commenti di seguito per domande e problemi riscontrati quando si esegue la migrazione dell'app.
 
-*Grazie a Rick Anderson e Robert McMurray per esaminare l'articolo.*
+*Ringraziamenti Rick Anderson e Robert McMurray per la verifica dell'articolo.*

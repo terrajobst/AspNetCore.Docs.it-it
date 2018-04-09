@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>Creazione di un progetto Team in TFS
 ====================
@@ -27,7 +27,7 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come creare un nuovo progetto team in Team Foundation Server (TFS) 2010.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -107,11 +107,11 @@ Successivamente, è necessario concedere all'utente l'autorizzazione per creare 
 
     ![](creating-a-team-project-in-tfs/_static/image9.png)
 
-    > [!NOTE]
-    > È possibile che venga visualizzato un **HTTP 404 non trovato** errore dovuto a un bug di codifica HTTP doppio. In questo caso, è possibile sostituire l'URL con questo:   
-    > [*URL della raccolta siti*] /\_layouts/permsetup.aspx  
-    > Ad esempio:  
-    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > [!NOTE]
+   > È possibile che venga visualizzato un <strong>HTTP 404 non trovato</strong> errore dovuto a un bug di codifica HTTP doppio. In questo caso, è possibile sostituire l'URL con questo:   
+   > [<em>URL della raccolta siti</em>] /\_layouts/permsetup.aspx  
+   > Ad esempio:  
+   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Nel **Imposta gruppi per questo sito** pagina, aggiungere l'utente che ha creato i progetti team di **proprietari** gruppo e quindi fare clic su **OK**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
@@ -202,6 +202,6 @@ L'argomento successivo, [contenuto aggiunta al controllo del codice sorgente](ad
 
 Per una più ampia informazioni aggiuntive sulla creazione di progetti team in TFS, vedere [creare un progetto Team](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Per ulteriori informazioni sull'abilitazione agli utenti di creare nuovi progetti team all'interno di una raccolta di progetti team, vedere [impostare autorizzazioni di amministratore per raccolte di progetti Team](https://msdn.microsoft.com/library/dd547204.aspx). Per ulteriori informazioni sull'aggiunta di utenti ai progetti team, vedere [aggiungere utenti ai progetti Team](https://msdn.microsoft.com/library/bb558971.aspx).
 
->[!div class="step-by-step"]
-[Precedente](configuring-team-foundation-server-for-web-deployment.md)
-[Successivo](adding-content-to-source-control.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-team-foundation-server-for-web-deployment.md)
+> [Successivo](adding-content-to-source-control.md)

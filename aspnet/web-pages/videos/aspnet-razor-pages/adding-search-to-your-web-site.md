@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/adding-search-to-your-web-site
 msc.type: video
-ms.openlocfilehash: 32f8c92184094d416b2ff4b57dad91a41a5767d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe1b6770d1bcf05c989846f8d1ccffbd03548346
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-search-to-your-web-site"></a>Aggiunta di ricerca al sito Web
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Video accompagnamento alla ricerca di aggiunta al sito Web dell'esercitazione
 
-[&#9654; Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-search-to-your-web-site)
+[&#9654;Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-search-to-your-web-site)
 
->[!div class="step-by-step"]
-[Precedente](adding-email-to-your-web-site.md)
-[Successivo](adding-social-networking-to-your-website.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-email-to-your-web-site.md)
+> [Successivo](adding-social-networking-to-your-website.md)

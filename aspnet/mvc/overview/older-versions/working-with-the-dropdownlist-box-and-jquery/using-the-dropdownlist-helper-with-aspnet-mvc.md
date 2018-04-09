@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 title: Utilizzo del DropDownList Helper con ASP.NET MVC | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21373deeded801c5cea9e89f6dac0f3542a55ca5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Utilizzo del DropDownList Helper con ASP.NET MVC
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 In questa esercitazione verrà fornite le nozioni di base dell'utilizzo di [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) helper e [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) helper in un'applicazione Web ASP.NET MVC. È possibile utilizzare Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio per eseguire l'esercitazione. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul seguente collegamento: [installazione guidata piattaforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti utilizzando i collegamenti seguenti:
 
-- [Prerequisiti di Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
+- [Prerequisiti di Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
 - [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(supportano runtime + tools)
 
@@ -142,10 +142,10 @@ Il `GetCountries` metodo crea un elenco di paesi, quindi lo passa al `MultiSelec
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample9.cs)]
 
-1. *elementi*: un [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di paesi.
+1. *gli elementi*: un [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di paesi.
 2. *dataValueField*: il nome della proprietà di **IEnumerable** elenco che contiene il valore. Nell'esempio precedente, il `ID` proprietà.
-3. *dataTextField*: il nome della proprietà di **IEnumerable** elenco che contiene le informazioni da visualizzare. Nell'esempio precedente, il `name` proprietà.
-4. *selectedValues*: l'elenco di valori selezionati.
+3. *dataTextField*: il nome della proprietà di **IEnumerable** elenco contenente le informazioni da visualizzare. Nell'esempio precedente, il `name` proprietà.
+4. *selectedValues*: l'elenco dei valori selezionati.
 
 Nell'esempio precedente, il `MultiSelectCountry` metodo passa una `null` valore per i paesi selezionati, in modo che nessun paesi sono selezionati, verrà visualizzata l'interfaccia utente. Il codice seguente viene illustrato il markup Razor usato per eseguire il rendering di `MultiSelectCountry` vista.
 
@@ -178,7 +178,7 @@ Nell'immagine precedente, è selezionato il Canada e contiene un **x** è possib
 Nella sezione seguente è più facile da seguire se si ha familiarità con jQuery. Se non si è mai usato jQuery prima, si desidera provare una delle seguenti esercitazioni jQuery.
 
 - [Funzionamento di jQuery](http://docs.jquery.com/Tutorials:How_jQuery_Works) da [John Resig](http://ejohn.org/)
-- [Introduzione a jQuery](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) da [Jörn Zaefferer](http://bassistance.de/)
+- [Guida introduttiva a jQuery](http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery) da [Jörn Zaefferer](http://bassistance.de/)
 - [Esempi di jQuery Live](http://codylindley.com/blogstuff/js/jquery/#) da [Cody Lindley](http://codylindley.com/)
 
 Il plug-in selezionato è incluso nell'avvio e i progetti di esempio completo che accompagnano questa esercitazione. Solo per questa esercitazione è necessario utilizzare jQuery per associarlo con l'interfaccia utente. Per utilizzare il plug-in di jQuery scelto raccolto in un progetto ASP.NET MVC, è necessario:
@@ -193,7 +193,7 @@ Aprire il *Views\Home\MultiSelectCountry.cshtml* file e aggiungere un `htmlAttri
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Nel codice precedente, si sta aggiungendo l'attributo HTML e il valore dell'attributo `class = "chzn-select"`. Il carattere @ precedente classe non ha nulla a che fare con il motore di visualizzazione Razor. `class`è un [parola chiave c#](https://msdn.microsoft.com/library/x53a06bb.aspx). Parole chiave c# non possono essere utilizzate come identificatori a meno che non includano @ come prefisso. Nell'esempio precedente, `@class` è un identificatore valido ma **classe** non **classe** è una parola chiave.
+Nel codice precedente, si sta aggiungendo l'attributo HTML e il valore dell'attributo `class = "chzn-select"`. Il carattere @ precedente classe non ha nulla a che fare con il motore di visualizzazione Razor. `class` è un [parola chiave c#](https://msdn.microsoft.com/library/x53a06bb.aspx). Parole chiave c# non possono essere utilizzate come identificatori a meno che non includano @ come prefisso. Nell'esempio precedente, `@class` è un identificatore valido ma **classe** non **classe** è una parola chiave.
 
 Aggiungere riferimenti al *Chosen/chosen.jquery.js* e *Chosen/chosen.css* file. Il *Chosen/chosen.jquery.js* e implementa il livello funzionale del plug-in selezionato. Il *Chosen/chosen.css* file fornisce gli stili. Aggiungere questi riferimenti a fondo il *Views\Home\MultiSelectCountry.cshtml* file. Il codice seguente viene illustrato come fare riferimento il plug-in selezionato.
 
@@ -217,5 +217,5 @@ Eseguire l'applicazione e passare il `MultiSelectCountry` visualizzazione. Prova
 
 Nella sezione successiva verrà visualizzato come il meccanismo di scaffolding di ASP.NET MVC funziona con il **DropDownList** helper.
 
->[!div class="step-by-step"]
-[avanti](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [avanti](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

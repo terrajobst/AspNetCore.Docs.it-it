@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 title: Creazione di classi di modello con LINQ to SQL (VB) | Documenti Microsoft
 author: microsoft
-description: "L'obiettivo di questa esercitazione è illustrare un metodo di creazione di classi del modello per un'applicazione MVC ASP.NET. In questa esercitazione, è illustrato come compilare modello c..."
+description: L'obiettivo di questa esercitazione è illustrare un metodo di creazione di classi del modello per un'applicazione MVC ASP.NET. In questa esercitazione, è illustrato come compilare modello c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 972d5b11049825e84e070ef1c4b2b90116654397
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5438838123c40d82afbda191a48878d6dca80736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>Creazione di classi di modello con LINQ to SQL (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_VB.pdf)
 
@@ -53,19 +53,20 @@ In questa esercitazione, per illustrare come è possibile creare classi di model
 
 Dopo aver creato il nuovo database, è possibile aprire il database da doppio clic sul file MoviesDB.mdf nell'App\_cartella dati. Doppio clic sul file MoviesDB.mdf apre la finestra di Esplora Server (vedere la figura 2).
 
-|  | La finestra di Esplora Server è denominata la finestra Esplora Database quando si utilizza Visual Web Developer. |
-| --- | --- |
 
+|   | La finestra di Esplora Server è denominata la finestra Esplora Database quando si utilizza Visual Web Developer. |
+|---|----------------------------------------------------------------------------------------------------|
+|   |                                                                                                    |
 
-[![Utilizzare la finestra di Esplora Server](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
+[![Utilizzo della finestra di Esplora Server](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
 
-**Figura 02**: utilizzando la finestra di Esplora Server ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image6.png))
+**Figura 02**: uso della finestra di Esplora Server ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image6.png))
 
 
 È necessario aggiungere una tabella di database che rappresenta il film. Fare doppio clic sulla cartella tabelle e selezionare l'opzione di menu **Aggiungi nuova tabella**. Selezionare questa opzione di menu per aprire Progettazione tabelle (vedere la figura 3).
 
 
-[![Utilizzare la finestra di Esplora Server](creating-model-classes-with-linq-to-sql-vb/_static/image8.png)](creating-model-classes-with-linq-to-sql-vb/_static/image7.png)
+[![Utilizzo della finestra di Esplora Server](creating-model-classes-with-linq-to-sql-vb/_static/image8.png)](creating-model-classes-with-linq-to-sql-vb/_static/image7.png)
 
 **Figura 03**: la progettazione di tabelle ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image9.png))
 
@@ -91,15 +92,15 @@ Il nostro modello MVC conterrà LINQ alle classi di SQL che rappresentano la tab
 
 [![Creazione di LINQ alle classi di SQL](creating-model-classes-with-linq-to-sql-vb/_static/image11.png)](creating-model-classes-with-linq-to-sql-vb/_static/image10.png)
 
-**Figura 04**: creazione di classi LINQ to SQL ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image12.png))
+**Figura 04**: la creazione di classi LINQ to SQL ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image12.png))
 
 
 Immediatamente dopo aver creato il film classi LINQ to SQL, viene visualizzata la finestra di Progettazione relazionale oggetti. È possibile trascinare le tabelle del database dalla finestra Esplora Server Object Relational Designer per creare classi LINQ to SQL che rappresentano le tabelle di database specifico. È necessario aggiungere la tabella di database tblMovie in Object Relational Designer (vedere la figura 4).
 
 
-[![Utilizzando Progettazione relazionale oggetti](creating-model-classes-with-linq-to-sql-vb/_static/image14.png)](creating-model-classes-with-linq-to-sql-vb/_static/image13.png)
+[![Utilizzando Object Relational Designer](creating-model-classes-with-linq-to-sql-vb/_static/image14.png)](creating-model-classes-with-linq-to-sql-vb/_static/image13.png)
 
-**Figura 05**: utilizzando Object Relational Designer ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image15.png))
+**Figura 05**: tramite Object Relational Designer ([fare clic per visualizzare l'immagine ingrandita](creating-model-classes-with-linq-to-sql-vb/_static/image15.png))
 
 
 Per impostazione predefinita, Object Relational Designer crea una classe con il nome della tabella di database che si trascina la finestra di progettazione stesso. Tuttavia, non si desidera chiamare tblMovie la classe. Pertanto, fare clic sul nome della classe nella finestra di progettazione e modificare il nome della classe per i film.
@@ -112,7 +113,7 @@ Ora che è disponibile il nostro classi LINQ to SQL, è possibile usare queste c
 
 In primo luogo, è necessario modificare la classe HomeController. Questa classe è reperibile nella cartella controller dell'applicazione. Modificare la classe in modo che risulti come se la classe nel listato 1.
 
-**Elenco 1:`Controllers\HomeController.vb`**
+**Elenco 1: `Controllers\HomeController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample1.vb)]
 
@@ -122,7 +123,7 @@ L'oggetto DataContext per recuperare tutti i film dalla tabella di database tblM
 
 Per visualizzare i film, che è quindi necessario modificare la visualizzazione dell'indice. È possibile trovare la visualizzazione dell'indice nella cartella Views\Home\. Aggiornare la visualizzazione dell'indice in modo che risulti come se la visualizzazione nel listato 2.
 
-**Elenco di 2:`Views\Home\Index.aspx`**
+**Elenco 2: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample2.aspx)]
 
@@ -164,19 +165,19 @@ Quando si crea la classe di repository, verrà creata un'interfaccia che rappres
 
 L'interfaccia listato 3 denominato IMovieRepository e rappresenta un singolo metodo denominato ListAll().
 
-**Elenco di 3:`Models\IMovieRepository.vb`**
+**Elenco di 3: `Models\IMovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample3.vb)]
 
 La classe repository listato 4 implementa l'interfaccia IMovieRepository. Si noti che contenga un metodo denominato ListAll() che corrisponde al metodo richiesto dall'interfaccia IMovieRepository.
 
-**Elenco di 4:`Models\MovieRepository.vb`**
+**Elenco di 4: `Models\MovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample4.vb)]
 
 Infine, la classe MoviesController listato 5 utilizza il modello di Repository. Non è più Usa LINQ alle classi SQL direttamente.
 
-**Elenco di 5:`Controllers\MoviesController.vb`**
+**Elenco 5: `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample5.vb)]
 
@@ -186,7 +187,7 @@ Il secondo costruttore con un solo parametro: un parametro IMovieRepository. Que
 
 La classe MoviesController è sfruttando la possibilità di un modello di progettazione software denominato modello di inserimento di dipendenze. In particolare, è usando un costruttore Dependency Injection. Altre informazioni su questo modello, leggere l'articolo seguente di Martin Fowler:
 
-[http://martinfowler.com/articles/injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Si noti che tutto il codice nella classe MoviesController (fatta eccezione per il primo costruttore) interagisce con l'interfaccia IMovieRepository anziché la classe MovieRepository effettiva. Il codice interagisce con un'interfaccia astratta anziché un'implementazione concreta dell'interfaccia.
 
@@ -200,6 +201,6 @@ L'obiettivo di questa esercitazione è stata per illustrare come è possibile cr
 
 Successivamente, è esplorare un percorso più complessa, ma è sicuramente più virtuoso, per la visualizzazione dei dati del database. Verrà sfruttato il modello di Repository e inserito tutta la logica di accesso ai database in una classe separata del repository. In questo controller, è stato scritto tutto il codice in un'interfaccia anziché una classe concreta. Il vantaggio del modello di Repository è che consente di modificare con facilità in futuro tecnologie di accesso ai database e consente di testare facilmente il nostro classi controller.
 
->[!div class="step-by-step"]
-[Precedente](creating-model-classes-with-the-entity-framework-vb.md)
-[Successivo](displaying-a-table-of-database-data-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-model-classes-with-the-entity-framework-vb.md)
+> [Successivo](displaying-a-table-of-database-data-vb.md)

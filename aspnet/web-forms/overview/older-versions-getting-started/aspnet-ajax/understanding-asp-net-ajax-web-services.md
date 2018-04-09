@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 8eb3486c9b3f4ddb6a8bc2c1cdcac774a6852574
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b9f61f895fea1960ebd25780454b86d5c3ba1bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-web-services"></a>Informazioni sui servizi Web ASP.NET AJAX
 ====================
-da [Scott Care](https://github.com/scottcate)
+da [Scott categorie](https://github.com/scottcate)
 
 [Scarica il PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial05_Web_Services_with_MS_Ajax_cs.pdf)
 
@@ -51,7 +51,7 @@ Questo gestore HTTP sostituzione viene eseguita per consentire chiamate JavaScri
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *>[!NOTE] è definito il nome dell'operazione come parte dell'URL per il servizio web, inoltre, i messaggi di richiesta non sempre inviati tramite JSON. Servizi Web possono utilizzare l'attributo ScriptMethod con il parametro UseHttpGet impostato su true, che fa sì che i parametri deve essere passato tramite un parametri della stringa di query.*
+> *> [!NOTE] il nome dell'operazione è definito come parte dell'URL al servizio web. Inoltre, i messaggi di richiesta non vengono sempre inviati tramite JSON. Servizi Web possono utilizzare l'attributo ScriptMethod con il parametro UseHttpGet impostato su true, che fa sì che i parametri deve essere passato tramite un parametri della stringa di query.*
 
 
 **Elenco di 3. Messaggio di risposta del servizio Web serializzato in JSON**
@@ -68,7 +68,7 @@ Se si ha familiarità con servizi Web ASP.NET, sono disponibili semplici da crea
 
 Listato 4 viene illustrato un esempio di utilizzo dell'attributo WebMethod a un metodo denominato GetCustomersByCountry().
 
-**Listato 4. Utilizzo dell'attributo WebMethod in un servizio Web**
+**Listato 4. Utilizzando l'attributo WebMethod in un servizio Web**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample4.cs)]
 
@@ -80,7 +80,7 @@ Durante l'aggiunta di WebMethod attributo consente al metodo GetCustomersByCount
 
 Nel listato 5 mostra un esempio di applicazione dell'attributo ScriptService a una classe di servizio Web denominata CustomersService.
 
-**Elenco di 5. Utilizzo dell'attributo ScriptService per abilitare AJAX per un servizio Web**
+**Elenco di 5. Utilizzo dell'attributo ScriptService per AJAX-attivare un servizio Web**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample5.cs)]
 
@@ -126,15 +126,15 @@ Anche se il formato JSON predefinito consente di ridurre la dimensione complessi
 
 Nel listato 5 è stato illustrato un esempio di restituzione di un tipo complesso denominato cliente da un servizio Web. La classe Customer definisce diversi tipi semplici internamente come proprietà, ad esempio FirstName e LastName. I tipi complessi usati come un parametro di input o il tipo restituito in un metodo Web compatibili con AJAX vengono serializzati in JSON automaticamente prima dell'invio al lato client. Tuttavia, i tipi complessi annidati, ovvero definito internamente all'interno di un altro tipo, non sono disponibili al client come oggetti autonomi per impostazione predefinita.
 
-In casi in cui un tipo complesso annidato utilizzato da un servizio Web deve inoltre essere utilizzato in una pagina client, aggiungere l'attributo di ASP.NET AJAX GenerateScriptType al servizio Web. Ad esempio, la classe CustomerDetails listato 9 contiene proprietà Address e Gender che ***rappresentano tipi complessi annidati.***
+In casi in cui un tipo complesso annidato utilizzato da un servizio Web deve inoltre essere utilizzato in una pagina client, aggiungere l'attributo di ASP.NET AJAX GenerateScriptType al servizio Web. Ad esempio, la classe CustomerDetails listato 9 contiene proprietà indirizzo e Gender cui ***rappresentano tipi complessi annidati.***
 
-**Elenco di 9. La classe CustomerDetails illustrata di seguito contiene due tipi complessi annidati.**
+**Elenco 9. La classe CustomerDetails illustrata di seguito contiene due tipi complessi annidati.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample10.cs)]
 
 Gli oggetti indirizzo e il sesso definiti all'interno della classe CustomerDetails listato 9 non verranno automaticamente resi disponibili per l'utilizzo sul lato client tramite JavaScript poiché sono i tipi annidati (indirizzo è una classe e il sesso è un'enumerazione). In situazioni in cui un tipo annidato utilizzato all'interno di un servizio Web deve essere disponibile sul lato client, è possibile utilizzare l'attributo GenerateScriptType indicato in precedenza (vedere Listato 10). Questo attributo può essere aggiunto più volte in casi in cui i diversi tipi complessi annidati vengono restituiti da un servizio. Può essere applicato direttamente alla classe di servizio Web o di sopra di metodi Web specifici.
 
-**Elenco di 10. Utilizzo dell'attributo GenerateScriptService per definire i tipi annidati che devono essere disponibili per il client.**
+**Elenco di 10. Utilizzo dell'attributo GenerateScriptService per definire i tipi annidati che devono essere disponibili al client.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample11.cs)]
 
@@ -160,7 +160,7 @@ L'aggiunta di un riferimento di CustomersService.asmx tramite il controllo Scrip
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *>[!NOTE] Se si desidera visualizzare il codice di proxy JavaScript effettivo che viene generato è possibile digitare l'URL per il servizio Web .NET desiderato nella casella Indirizzo Internet Explorer e aggiungere /js alla fine di esso.*
+> *> [!NOTE] Se si desidera visualizzare il codice effettivo di proxy JavaScript che viene generato è possibile digitare l'URL del servizio Web .NET desiderato nella casella Indirizzo Internet Explorer e aggiungere /js alla fine di esso.*
 
 
 Se è abilitato il debug in Web. config di che una versione di debug del proxy JavaScript verrà incorporata alla pagina come illustrato sotto:
@@ -184,7 +184,7 @@ Viene illustrato un esempio di utilizzo di un proxy JavaScript per chiamare un m
 Lo spazio dei nomi InterfaceTraining fa riferimento a questa chiamata, CustomersService classe e metodo Web GetCustomersByCountry definita nel servizio. Passa un valore del paese ottenuto da una casella di testo, nonché una funzione di callback denominato OnWSRequestComplete che deve essere richiamato al termine della chiamata asincrona al servizio Web. OnWSRequestComplete gestisce la matrice di oggetti restituiti dal servizio e li converte in una tabella che viene visualizzata nella pagina. L'output generato dalla chiamata è illustrato nella figura 1.
 
 
-[![Associazione di dati effettuando una chiamata AJAX asincrona a un servizio Web.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
+[![Associazione di dati ottenuti eseguendo una chiamata AJAX asincrona a un servizio Web.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
 
 **Figura 1**: associazione di dati ottenuto eseguendo una chiamata AJAX asincrona a un servizio Web.  ([Fare clic per visualizzare l'immagine ingrandita](understanding-asp-net-ajax-web-services/_static/image3.png))
 
@@ -228,9 +228,9 @@ Tipi complessi accettato o restituiti da un servizio Web vengono automaticamente
 Per rispondere a questa domanda, si supponga che una pagina ASP.NET AJAX consente di visualizzare i dati dei clienti e agli utenti finali di aggiornare l'indirizzo del cliente. Se il servizio Web specifica che il tipo di indirizzo (un tipo complesso definito all'interno di una classe CustomerDetails) può essere inviato al client il processo di aggiornamento è diviso in funzioni separate per una migliore codice riutilizzo.
 
 
-[![Output di creazione dalla chiamata a un servizio Web che restituisce dati RSS.](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
+[![Output creazione dalla chiamata a un servizio Web che restituisce dati RSS.](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
 
-**Figura 3**: creazione di chiamare un servizio Web che restituisce dati RSS di Output.  ([Fare clic per visualizzare l'immagine ingrandita](understanding-asp-net-ajax-web-services/_static/image9.png))
+**Figura 3**: creazione di chiamare un servizio Web che restituisce i dati RSS di Output.  ([Fare clic per visualizzare l'immagine ingrandita](understanding-asp-net-ajax-web-services/_static/image9.png))
 
 
 Elenco di 16 mostra un esempio di codice sul lato client che richiama un oggetto indirizzo definito in uno spazio dei nomi di modello, vi collocherà i dati aggiornati e assegna alla proprietà dell'indirizzo dell'oggetto CustomerDetails. L'oggetto CustomerDetails viene quindi passato al servizio Web per l'elaborazione.
@@ -249,7 +249,7 @@ ASP.NET AJAX fornisce un altro meccanismo per le chiamate di tipo di servizio We
 
 Elenco di 17 mostra un esempio di definizione di due metodi di pagina in una classe di tipo code-beside ASP.NET. Questi metodi di recuperano dati da una classe di livello aziendale situata nell'App\_cartella del codice del sito Web.
 
-**Elenco di 17. Definizione di metodi di pagina.**
+**Elenco 17. Definizione di metodi di pagina.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample22.cs)]
 
@@ -263,7 +263,7 @@ Utilizzando l'oggetto PageMethods è molto simile all'utilizzo di un oggetto pro
 
 ## <a name="the-autocompleteextender-and-the-aspnet-ajax-toolkit"></a>Il AutoCompleteExtender e ASP.NET AJAX Control Toolkit
 
-ASP.NET AJAX Toolkit (disponibile da [http://ajax.asp.net](http://ajax.asp.net)) offre diversi controlli che possono essere utilizzati per accedere ai servizi Web. In particolare, il toolkit contiene un controllo utile denominato `AutoCompleteExtender` che può essere utilizzato per chiamare i servizi Web e visualizzare i dati nelle pagine senza scrivere alcun codice JavaScript affatto.
+Il Toolkit di AJAX ASP.NET (disponibile dal [ http://ajax.asp.net ](http://ajax.asp.net)) offre diversi controlli che possono essere utilizzati per accedere ai servizi Web. In particolare, il toolkit contiene un controllo utile denominato `AutoCompleteExtender` che può essere utilizzato per chiamare i servizi Web e visualizzare i dati nelle pagine senza scrivere alcun codice JavaScript affatto.
 
 Il controllo AutoCompleteExtender può essere utilizzato per estendere le funzionalità esistenti di una casella di testo e consentire a più utenti di individuare facilmente i dati che cercano. Durante la digitazione in una casella di testo il controllo può essere utilizzato per richiedere un servizio Web e visualizzare i risultati sotto la casella di testo in modo dinamico. Figura 4 mostra un esempio di utilizzo del controllo AutoCompleteExtender per visualizzare gli ID cliente per un'applicazione di supporto. L'utente digita caratteri diversi nella casella di testo, verranno visualizzati diversi elementi sottostanti in base al relativo input. Gli utenti possono quindi selezionare l'id cliente desiderato.
 
@@ -283,7 +283,7 @@ Nei casi in cui è necessario utilizzare solo il controllo in una pagina è poss
 
 Una volta il sito Web è stato configurato per usare il Toolkit di AJAX ASP.NET, un AutoCompleteExtender controllo può essere aggiunto alla pagina molto come aggiungere un controllo server ASP.NET standard. Elenco di 19 mostra un esempio di utilizzo del controllo per chiamare un servizio Web.
 
-**Elenco di 19. Utilizzo del controllo ASP.NET AJAX Toolkit AutoCompleteExtender.**
+**Elenco 19. Utilizzo del controllo ASP.NET AJAX Toolkit AutoCompleteExtender.**
 
 [!code-aspx[Main](understanding-asp-net-ajax-web-services/samples/sample26.aspx)]
 
@@ -291,11 +291,11 @@ Il AutoCompleteExtender ha proprietà diverse tra cui le proprietà standard di 
 
 Il servizio Web chiamato deve avere l'attributo ScriptService applicato come indicato in precedenza e il metodo Web di destinazione deve accettare due parametri denominati prefixText e count. Il parametro prefixText rappresenta i caratteri digitati dall'utente finale e il parametro count rappresenta il numero di elementi per restituire (il valore predefinito è 10). Elenco di 20 viene illustrato un esempio del metodo Web GetCustomerIDs chiamato dal controllo AutoCompleteExtender illustrato in precedenza in elenco 19. Il metodo Web chiama un metodo di livello aziendale che a sua volta chiama un tipo di dati di livello metodo che gestisce il filtro dei dati e restituire i risultati corrispondenti. Il codice per il metodo di livello dati è illustrato nell'elenco 21.
 
-**Elenco di 20. Filtrare i dati inviati dal controllo AutoCompleteExtender.**
+**Elenco di 20. Filtraggio dei dati inviati dal controllo AutoCompleteExtender.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample27.cs)]
 
-**Elenco 21. Filtrare i risultati in base all'input dell'utente finale.**
+**Elenco 21. Filtro dei risultati in base all'input dell'utente finale.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample28.cs)]
 
@@ -303,12 +303,12 @@ Il servizio Web chiamato deve avere l'attributo ScriptService applicato come ind
 
 ASP.NET AJAX fornisce un supporto eccellente per richiamare servizi Web senza scrivere una quantità di codice JavaScript personalizzato per gestire i messaggi di richiesta e risposta. In questo articolo si è visto come servizi Web .NET di abilitare AJAX per consentire loro di elaborare i messaggi JSON e come definire il proxy JavaScript utilizzando il controllo ScriptManager. Si è visto anche come proxy può essere usato per chiamare i servizi Web, JavaScript di gestire i tipi semplici e complessi e gestire gli errori. Infine, è stato illustrato come utilizzare i metodi di pagina per semplificare il processo di creazione e rendendo chiamate al servizio Web e come il controllo AutoCompleteExtender grado di fornire agli utenti finali durante la digitazione. Anche se l'UpdatePanel disponibile in ASP.NET AJAX sarà certamente controllo ideale per molti programmatori AJAX a causa la semplicità, conoscere come chiamare servizi Web tramite il proxy JavaScript può risultare utile in molte applicazioni.
 
-## <a name="bio"></a>Biografia
+## <a name="bio"></a>Bio
 
-Dan Wahlin (Microsoft Most Valuable Professional per ASP.NET e servizi Web XML) è un sviluppo instructor e architettura consulente .NET al Training tecniche di interfaccia ([http://www.interfacett.com](http://www.interfacett.com)). Dan fondata il codice XML per il sito Web gli sviluppatori di ASP.NET ([www.XMLforASP.NET](http://www.XMLforASP.NET)), è l'ufficio INETA e pronuncia conferenze diversi. Dan co-autore Professional Windows DNA (Wrox), ASP.NET: i suggerimenti, esercitazioni e codice (SAM), ASP.NET 1.1 Insider soluzioni, Professional ASP.NET 2.0 AJAX (Wrox), modifiche alla MVP di ASP.NET 2.0 e XML creati per gli sviluppatori di ASP.NET (SAM). Quando ha non scrive codice, gli articoli o ai libri, Dan gode di scrittura e la registrazione di musica e la riproduzione di golf e basket con la moglie e bambini.
+Dan Wahlin (Microsoft Most Valuable Professional per ASP.NET e servizi Web XML) è un sviluppo docente e l'architettura consulente .NET al Training tecniche di interfaccia ([http://www.interfacett.com](http://www.interfacett.com)). Dan fondata il codice XML per il sito Web gli sviluppatori di ASP.NET ([www.XMLforASP.NET](http://www.XMLforASP.NET)), è l'ufficio INETA e pronuncia conferenze diversi. Dan co-autore Professional Windows DNA (Wrox), ASP.NET: i suggerimenti, esercitazioni e codice (SAM), ASP.NET 1.1 Insider soluzioni, Professional ASP.NET 2.0 AJAX (Wrox), modifiche alla MVP di ASP.NET 2.0 e XML creati per gli sviluppatori di ASP.NET (SAM). Quando ha non scrive codice, gli articoli o ai libri, Dan gode di scrittura e la registrazione di musica e la riproduzione di golf e basket con la moglie e bambini.
 
 Categoria Scott lavora con tecnologie Web di Microsoft dal 1997 ed è il vicepresidente myKB.com ([www.myKB.com](http://www.myKB.com)) in cui si è specializzato nella scrittura ASP.NET basato su applicazioni con stato attivo sulle soluzioni Software Knowledge Base. Scott possano essere contattati tramite posta elettronica al [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o il suo blog all'indirizzo [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Precedente](understanding-asp-net-ajax-localization.md)
-[Successivo](understanding-asp-net-ajax-debugging-capabilities.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-asp-net-ajax-localization.md)
+> [Successivo](understanding-asp-net-ajax-debugging-capabilities.md)

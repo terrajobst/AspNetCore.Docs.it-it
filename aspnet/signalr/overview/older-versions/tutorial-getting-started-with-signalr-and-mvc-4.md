@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Esercitazione: Introduzione a SignalR 1. x e MVC 4
 ====================
-da [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
+dal [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
 > In questa esercitazione viene illustrato come utilizzare ASP.NET SignalR per creare un'applicazione di chat in tempo reale. Verrà aggiungere SignalR a un'applicazione MVC 4 e creare una vista di chat per inviare e visualizzare i messaggi.
 
@@ -63,17 +63,17 @@ In questa sezione viene illustrato come creare un'applicazione ASP.NET MVC 4, ag
         > In Visual Studio 2010, selezionare **.NET Framework 4** nel controllo elenco a discesa della versione di Framework. Codice di SignalR viene eseguito nelle versioni di .NET Framework 4 e 4.5.
 
         ![Creare web mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. Selezionare il modello di applicazione Internet, deselezionare l'opzione **creare un progetto di unit test**, fare clic su OK.
+      2. Selezionare il modello di applicazione Internet, deselezionare l'opzione **creare un progetto di unit test**, fare clic su OK.
 
-        ![Creare il sito internet mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. Aprire il **strumenti | Gestione pacchetti libreria | Console di gestione pacchetti** ed eseguire il comando seguente. Questo passaggio viene aggiunto al progetto un set di file di script e i riferimenti ad assembly che abilita la funzionalità di SignalR.
+         ![Creare il sito internet mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. Aprire il **strumenti | Gestione pacchetti libreria | Console di gestione pacchetti** ed eseguire il comando seguente. Questo passaggio viene aggiunto al progetto un set di file di script e i riferimenti ad assembly che abilita la funzionalità di SignalR.
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. In **Esplora** espandere la cartella degli script. Si noti che le librerie di script per SignalR siano stati aggiunti al progetto.
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. In **Esplora** espandere la cartella degli script. Si noti che le librerie di script per SignalR siano stati aggiunti al progetto.
 
-        ![Riferimenti alla libreria](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. In **Esplora**, fare clic sul progetto, selezionare **Aggiungi | Nuova cartella**, e aggiungere una nuova cartella denominata **hub**.
-    6. Fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Classe**e creare una nuova classe c# denominata **ChatHub.cs**. Utilizzare questa classe come un hub di SignalR server che invia messaggi a tutti i client.
+         ![Riferimenti alla libreria](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. In **Esplora**, fare clic sul progetto, selezionare **Aggiungi | Nuova cartella**, e aggiungere una nuova cartella denominata **hub**.
+      6. Fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Classe**e creare una nuova classe c# denominata **ChatHub.cs**. Utilizzare questa classe come un hub di SignalR server che invia messaggi a tutti i client.
 
 > [!NOTE]
 > Se si utilizza Visual Studio 2012 e aver installato il [aggiornamento ASP.NET e Web strumenti 2012.2](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), è possibile utilizzare il nuovo modello di elemento di SignalR per creare la classe di hub. A tale scopo, fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Nuovo elemento**selezionare **classe Hub SignalR (v1)**e il nome della classe **ChatHub.cs**.
@@ -98,7 +98,7 @@ In questa sezione viene illustrato come creare un'applicazione ASP.NET MVC 4, ag
     > Quando si aggiungono SignalR e altre librerie di script al progetto di Visual Studio, la gestione dei pacchetti potrebbero installare le versioni degli script che sono più recenti rispetto alle versioni illustrate in questo argomento. Assicurarsi che i riferimenti a script nel codice corrispondono alle versioni delle librerie di script installate nel progetto.
 
     [!code-cshtml[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample4.cshtml)]
-7. **Salvare tutti** per il progetto.
+7. **Salva tutto** per il progetto.
 
 <a id="run"></a>
 
@@ -117,7 +117,7 @@ In questa sezione viene illustrato come creare un'applicazione ASP.NET MVC 4, ag
 6. La schermata seguente viene illustrata l'applicazione di chat in esecuzione in un browser.
 
     ![Browser chat](tutorial-getting-started-with-signalr-and-mvc-4/_static/image11.png)
-7. In **Esplora**, controllare il **documenti Script** nodo per l'applicazione in esecuzione. Questo nodo viene visualizzato in modalità di debug, se si utilizza Internet Explorer come browser. È presente un file script denominato **hub** che la libreria SignalR genera in modo dinamico in fase di esecuzione. Questo file consente di gestire la comunicazione tra script jQuery e codice lato server. Se si utilizza un browser diverso da Internet Explorer, è inoltre possibile accedere dinamica **hub** file passando ad esso direttamente, ad esempio http://mywebsite/signalr/hubs.
+7. In **Esplora**, controllare il **documenti Script** nodo per l'applicazione in esecuzione. Questo nodo viene visualizzato in modalità di debug, se si utilizza Internet Explorer come browser. È presente un file script denominato **hub** che la libreria SignalR genera in modo dinamico in fase di esecuzione. Questo file consente di gestire la comunicazione tra script jQuery e codice lato server. Se si utilizza un browser diverso da Internet Explorer, è inoltre possibile accedere dinamica **hub** file tentato di accedere ad esso direttamente, ad esempio http://mywebsite/signalr/hubs.
 
     ![Script generato hub](tutorial-getting-started-with-signalr-and-mvc-4/_static/image13.png)
 

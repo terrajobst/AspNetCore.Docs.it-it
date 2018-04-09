@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1c5cb23be4366365c73ce4774e6a53e452e2a6c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e488a30443970d5e2ce825abd96d8e4a027585d1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="filling-a-list-using-cascadingdropdown-vb"></a>La compilazione di un elenco utilizzando CascadingDropDown (VB)
 ====================
@@ -43,11 +43,11 @@ Quindi, è necessario un controllo di DropDownList:
 
 Per questo elenco, viene aggiunta un'estensione CascadingDropDown. Questo invierà una richiesta asincrona a un servizio web che verrà quindi restituito un elenco di voci da visualizzare nell'elenco. Per il funzionamento, è necessario impostare gli attributi CascadingDropDown seguenti:
 
-- `ServicePath`: URL di un servizio web, offrendo le voci dell'elenco
-- `ServiceMethod`: Metodo web le voci dell'elenco di distribuzione
+- `ServicePath`: URL di un servizio web recapitare le voci dell'elenco
+- `ServiceMethod`: Metodo web recapito le voci dell'elenco
 - `TargetControlID`: ID dell'elenco a discesa
-- `Category`: Le informazioni sulle categorie viene inviati al metodo web quando viene chiamato
-- `PromptText`: Testo visualizzato quando si caricano in modo asincrono i dati di elenco dal server
+- `Category`: Informazioni sulle categorie viene inviati al metodo web quando viene chiamato
+- `PromptText`: Testo visualizzato quando si caricano in modo asincrono i dati elenco dal server
 
 Ecco il markup per il `CascadingDropDown` elemento. L'unica differenza tra i linguaggi c# e Visual Basic è il nome del servizio web associato:
 
@@ -68,6 +68,6 @@ Il caricamento della pagina nel browser verrà attivata l'elenco da popolare con
 
 L'elenco viene compilato automaticamente ([fare clic per visualizzare l'immagine ingrandita](filling-a-list-using-cascadingdropdown-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](using-auto-postback-with-cascadingdropdown-cs.md)
-[Successivo](using-cascadingdropdown-with-a-database-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-auto-postback-with-cascadingdropdown-cs.md)
+> [Successivo](using-cascadingdropdown-with-a-database-vb.md)

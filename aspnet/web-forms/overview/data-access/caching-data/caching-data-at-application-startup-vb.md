@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 title: La memorizzazione nella cache di dati all'avvio dell'applicazione (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In qualsiasi applicazione Web alcuni dati vengono usati di frequente e alcuni dati verranno utilizzati raramente. È possibile migliorare le prestazioni dei nostri b applicazione ASP.NET..."
+description: In qualsiasi applicazione Web alcuni dati vengono usati di frequente e alcuni dati verranno utilizzati raramente. È possibile migliorare le prestazioni dei nostri b applicazione ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b84b797bf0c9670ac65a5384b6d95d5df3827eb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8f322dae89480fc7ed5586d7f8eeb4c67d7839f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-at-application-startup-vb"></a>Memorizzazione nella cache i dati all'avvio dell'applicazione (VB)
 ====================
@@ -29,9 +29,9 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Introduzione
 
-Le due esercitazioni precedenti esaminato la memorizzazione nella cache di dati della presentazione e livelli di memorizzazione nella cache. In [la memorizzazione nella cache di dati con ObjectDataSource](caching-data-with-the-objectdatasource-vb.md), abbiamo esaminato utilizzando s ObjectDataSource la memorizzazione nella cache le funzionalità per memorizzare i dati nel livello di presentazione. [La memorizzazione nella cache di dati nell'architettura](caching-data-in-the-architecture-vb.md) esaminata la memorizzazione nella cache in un livello separato, nuova memorizzazione nella cache. Entrambe queste esercitazioni utilizzate *caricamento reattivo* lavora con la cache dei dati. Con reattivo durante il caricamento, ogni volta che vengono richiesti i dati, il sistema controlla innanzitutto se si s nella cache. In caso contrario, acquisisce i dati all'origine, ad esempio il database e quindi lo archivia nella cache. Il vantaggio principale di caricamento reattivo è più semplice dell'implementazione. Uno degli svantaggi è le prestazioni non uniforme in tutte le richieste. Si supponga di una pagina che utilizza il livello di memorizzazione nella cache dall'esercitazione precedente per visualizzare informazioni sul prodotto. Quando questa pagina viene visitata per la prima volta o visitata per la prima volta dopo che i dati memorizzati nella cache sono stati eliminati a causa di limitazioni di memoria o la scadenza specificata che è stato raggiunto, i dati devono essere recuperati dal database. Pertanto, queste richieste di utenti richiederà più tempo rispetto le richieste di utenti che possono essere servite dalla cache.
+Le due esercitazioni precedenti esaminato la memorizzazione nella cache di dati della presentazione e livelli di memorizzazione nella cache. In [la memorizzazione nella cache di dati con ObjectDataSource](caching-data-with-the-objectdatasource-vb.md), abbiamo esaminato utilizzando s ObjectDataSource la memorizzazione nella cache le funzionalità per memorizzare i dati nel livello di presentazione. [La memorizzazione nella cache i dati dell'architettura della finestra](caching-data-in-the-architecture-vb.md) esaminata la memorizzazione nella cache in un livello di nuovo, separato la memorizzazione nella cache. Entrambe queste esercitazioni utilizzate *caricamento reattivo* lavora con la cache dei dati. Con reattivo durante il caricamento, ogni volta che vengono richiesti i dati, il sistema controlla innanzitutto se si s nella cache. In caso contrario, acquisisce i dati all'origine, ad esempio il database e quindi lo archivia nella cache. Il vantaggio principale di caricamento reattivo è più semplice dell'implementazione. Uno degli svantaggi è le prestazioni non uniforme in tutte le richieste. Si supponga di una pagina che utilizza il livello di memorizzazione nella cache dall'esercitazione precedente per visualizzare informazioni sul prodotto. Quando questa pagina viene visitata per la prima volta o visitata per la prima volta dopo che i dati memorizzati nella cache sono stati eliminati a causa di limitazioni di memoria o la scadenza specificata che è stato raggiunto, i dati devono essere recuperati dal database. Pertanto, queste richieste di utenti richiederà più tempo rispetto le richieste di utenti che possono essere servite dalla cache.
 
-*Caricamento proattivo* fornisce una strategia di gestione della cache alternativo che consente di ottenere le prestazioni nelle richieste caricando i dati memorizzati nella cache prima di esso necessari. In genere, il caricamento utilizza un processo che periodicamente verifica o viene informato quando si è verificato un aggiornamento dei dati sottostanti. Questo processo è quindi aggiorna la cache per mantenerla aggiornata. Attiva durante il caricamento è particolarmente utile se i dati sottostanti provengono da una connessione lenta al database, un servizio Web o un'altra origine dati particolarmente ridotte. Ma questo approccio per il caricamento è più difficile da implementare, poiché richiede la creazione, gestione e distribuzione di un processo per verificare le modifiche e aggiornare la cache.
+*Caricamento proattivo* fornisce una strategia di gestione della cache alternativo tale Equalizza le prestazioni nelle diverse richieste per il caricamento dei dati memorizzati nella cache prima che s necessario. In genere, il caricamento utilizza un processo che periodicamente verifica o viene informato quando si è verificato un aggiornamento dei dati sottostanti. Questo processo è quindi aggiorna la cache per mantenerla aggiornata. Attiva durante il caricamento è particolarmente utile se i dati sottostanti provengono da una connessione lenta al database, un servizio Web o un'altra origine dati particolarmente ridotte. Ma questo approccio per il caricamento è più difficile da implementare, poiché richiede la creazione, gestione e distribuzione di un processo per verificare le modifiche e aggiornare la cache.
 
 Un altro tipo di caricamento proattivo e il tipo che è sarà esplorazione in questa esercitazione, il caricamento dei dati nella cache all'avvio dell'applicazione. Questo approccio è particolarmente utile per la memorizzazione nella cache i dati statici, ad esempio i record nelle tabelle di ricerca del database.
 
@@ -66,7 +66,7 @@ Quando si utilizza una classe, in genere la classe deve essere creata un'istanza
 
 [!code-vb[Main](caching-data-at-application-startup-vb/samples/sample1.vb)]
 
-Prima di è possibile richiamare *SomeMethod* o funzionano con *SomeProperty*, è innanzitutto necessario creare un'istanza della classe utilizzando il `New` (parola chiave). *SomeMethod* e *SomeProperty* sono associati a una particolare istanza. La durata di questi membri è legata alla durata dell'oggetto associato. *I membri statici*, d'altra parte, sono variabili, proprietà e metodi che vengono condivisi tra *tutti* istanze della classe e, di conseguenza, hanno una durata, purché la classe. I membri statici sono contrassegnati dalla parola chiave `Shared`.
+Prima di è possibile richiamare *SomeMethod* o funzionano con *SomeProperty*, è innanzitutto necessario creare un'istanza della classe utilizzando il `New` (parola chiave). *SomeMethod* e *SomeProperty* sono associati a una particolare istanza. La durata di questi membri è legata alla durata dell'oggetto associato. *I membri statici*, invece, sono variabili, proprietà e metodi che vengono condivisi tra *tutti* istanze della classe e, di conseguenza, hanno una durata fintanto che la classe. I membri statici sono contrassegnati dalla parola chiave `Shared`.
 
 Oltre ai membri statici, dati possono essere memorizzati nella cache dello stato dell'applicazione. Ogni applicazione ASP.NET gestisce una raccolta nome/valore che s condiviso tra tutti gli utenti e pagine dell'applicazione. Questa raccolta è possibile accedere tramite il [ `HttpContext` classe](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` proprietà](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)e utilizzati da una classe code-behind di pagine ASP.NET come illustrato di seguito:
 
@@ -84,7 +84,7 @@ Per iniziare, creare una nuova classe denominata `StaticCache.cs` nel `CL` carte
 
 ![Creare la classe StaticCache.vb nella cartella CL](caching-data-at-application-startup-vb/_static/image2.png)
 
-**Figura 2**: creare il `StaticCache.vb` classe il `CL` cartella
+**Figura 2**: creare le `StaticCache.vb` classe il `CL` cartella
 
 
 È necessario aggiungere un metodo che carica i dati all'avvio nell'archivio di cache appropriata, nonché metodi che restituiscono dati da questa cache.
@@ -122,18 +122,18 @@ Aggiungi il `Global.asax` file alla directory radice s facendo clic sul nome del
 > Se si dispone già di un `Global.asax` file nel progetto, la classe di applicazione globale, tipo di elemento non verrà elencato nella finestra di dialogo Aggiungi nuovo elemento.
 
 
-[![Aggiungere il File Global. asax a Directory radice di s dell'applicazione Web](caching-data-at-application-startup-vb/_static/image4.png)](caching-data-at-application-startup-vb/_static/image3.png)
+[![Aggiungere il File Global. asax per la Directory radice s dell'applicazione Web](caching-data-at-application-startup-vb/_static/image4.png)](caching-data-at-application-startup-vb/_static/image3.png)
 
-**Figura 3**: aggiungere il `Global.asax` File dell'applicazione Web s Directory radice ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image5.png))
+**Figura 3**: aggiungere il `Global.asax` File a un'applicazione Web s Directory radice ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image5.png))
 
 
 Il valore predefinito `Global.asax` file modello include cinque metodi all'interno di un server-side `<script>` tag:
 
-- **`Application_Start`**viene eseguita al primo avvio dell'applicazione web
-- **`Application_End`**viene eseguito quando l'applicazione è in corso l'arresto
-- **`Application_Error`**viene eseguito ogni volta che un'eccezione non gestita raggiunge l'applicazione
-- **`Session_Start`**viene eseguito quando viene creata una nuova sessione
-- **`Session_End`**viene eseguito quando una sessione è scaduta o abbandonata
+- **`Application_Start`** viene eseguita al primo avvio dell'applicazione web
+- **`Application_End`** viene eseguito dopo la chiusura dell'applicazione è
+- **`Application_Error`** viene eseguita ogni volta che un'eccezione non gestita raggiunge l'applicazione
+- **`Session_Start`** viene eseguito quando viene creata una nuova sessione
+- **`Session_End`** viene eseguito quando una sessione è scaduta o abbandonata
 
 Il `Application_Start` gestore eventi viene chiamato una sola volta durante un ciclo di vita dell'applicazione s. L'applicazione viene avviata la prima volta che il problema può verificarsi modificando il contenuto di una risorsa ASP.NET è richiesto dall'applicazione e continua l'esecuzione fino al riavvio dell'applicazione, il `/Bin` cartella, modifica `Global.asax`, modifica il contenuto nel `App_Code` cartella o la modifica di `Web.config` file, fra le altre cause. Fare riferimento a [ciclo di vita delle applicazioni ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) per informazioni più dettagliate sul ciclo di vita dell'applicazione.
 
@@ -147,7 +147,7 @@ Sono disponibili tutte le che s è! All'avvio dell'applicazione, il `LoadStaticC
 
 [![Utilizzare un punto di interruzione per verificare che il gestore dell'evento Application_Start sia in esecuzione](caching-data-at-application-startup-vb/_static/image7.png)](caching-data-at-application-startup-vb/_static/image6.png)
 
-**Figura 4**: utilizzare un punto di interruzione per verificare che il `Application_Start` gestore eventi è in esecuzione ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image8.png))
+**Figura 4**: usare un punto di interruzione per verificare che il `Application_Start` gestore eventi è in esecuzione ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image8.png))
 
 
 > [!NOTE]
@@ -163,12 +163,12 @@ Aprire il `AtApplicationStartup.aspx` nella pagina di `Caching` cartella. Trasci
 
 [![Configurare ObjectDataSource per utilizzare la classe StaticCache](caching-data-at-application-startup-vb/_static/image10.png)](caching-data-at-application-startup-vb/_static/image9.png)
 
-**Figura 5**: ObjectDataSource consente di configurare il `StaticCache` classe ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image11.png))
+**Figura 5**: configurare ObjectDataSource per usare il `StaticCache` classe ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image11.png))
 
 
 [![Utilizzare il metodo GetSuppliers() per recuperare i dati memorizzati nella cache del fornitore](caching-data-at-application-startup-vb/_static/image13.png)](caching-data-at-application-startup-vb/_static/image12.png)
 
-**Figura 6**: utilizzo di `GetSuppliers()` metodo per recuperare i dati fornitore memorizzati nella cache ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image14.png))
+**Figura 6**: usare il `GetSuppliers()` metodo per recuperare i dati memorizzati nella cache del fornitore ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image14.png))
 
 
 Dopo aver completato la procedura guidata, Visual Studio aggiungerà automaticamente BoundField per ognuno dei campi dati `SuppliersDataTable`. Il markup dichiarativo s GridView e ObjectDataSource dovrebbe essere simile al seguente:
@@ -179,9 +179,9 @@ Dopo aver completato la procedura guidata, Visual Studio aggiungerà automaticam
 Figura 7 mostra la pagina quando viene visualizzato tramite un browser. L'output è lo stesso è fossero stati estratti i dati da s BLL `SuppliersBLL` classe, ma utilizza il `StaticCache` classe restituisce i dati fornitore come memorizzati nella cache all'avvio dell'applicazione. È possibile impostare i punti di interruzione nel `StaticCache` classe s `GetSuppliers()` metodo per verificare questo comportamento.
 
 
-[![I dati fornitore memorizzati nella cache viene visualizzato in un controllo GridView.](caching-data-at-application-startup-vb/_static/image16.png)](caching-data-at-application-startup-vb/_static/image15.png)
+[![I dati fornitore memorizzati nella cache vengono visualizzati in un controllo GridView.](caching-data-at-application-startup-vb/_static/image16.png)](caching-data-at-application-startup-vb/_static/image15.png)
 
-**Figura 7**: dei dati fornitore memorizzati nella cache viene visualizzato in un controllo GridView ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image17.png))
+**Figura 7**: il dati fornitore memorizzati nella cache vengono visualizzati in un controllo GridView ([fare clic per visualizzare l'immagine ingrandita](caching-data-at-application-startup-vb/_static/image17.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -194,12 +194,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e Zack Jones. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](caching-data-in-the-architecture-vb.md)
-[Successivo](using-sql-cache-dependencies-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](caching-data-in-the-architecture-vb.md)
+> [Successivo](using-sql-cache-dependencies-vb.md)

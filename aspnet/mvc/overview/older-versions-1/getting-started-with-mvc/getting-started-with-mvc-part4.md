@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: 22f1042555d7cdd0ca8d75f1cbde65fbb65d81cc
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ff2a41803cd31ce50bbf79e630d827b6de441ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-database"></a>Creazione di un Database
 ====================
@@ -51,7 +51,7 @@ Fare clic con il pulsante destro su tabelle e fare clic su Aggiungi tabella. Ver
 
 Inoltre, selezionare la colonna Id e in proprietà della colonna seguito modificare "Specifica identità" a "Yes".
 
-[![IsIdentity - proprietà di colonna](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
+[![IsIdentity - le proprietà delle colonne](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
 
 Quando hai eseguito, fare clic sull'icona Salva nella barra degli strumenti o selezionare File | Nome della tabella e Salva dal menu "**film**" (singolare). Abbiamo un database e una tabella.
 
@@ -87,6 +87,6 @@ Se non si desidera che i nomi predefiniti e mapping convenzioni usate da Entity 
 
 È ora possibile lavorare con alcuni dati reali.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part3.md)
-[Successivo](getting-started-with-mvc-part5.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part3.md)
+> [Successivo](getting-started-with-mvc-part5.md)

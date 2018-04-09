@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 Web Form
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. L'applicazione di esempio è un sito Web per un'università Contoso fittizio. Include funzionalità, ad esempio l'ammissione di studenti, la creazione di corsi e assegnazioni istruttore.
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. L'applicazione di esempio è un sito Web per un'università Contoso fittizio. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati.
 > 
 > L'esercitazione è riportati esempi in c#. Il [esempio scaricabile](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) contiene il codice in c# e Visual Basic.
 > 
@@ -54,7 +54,7 @@ L'applicazione da generare in queste esercitazioni è un sito Web semplice unive
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image1.png)
 
-Gli utenti possono visualizzare e aggiornare studente, corsi e istruttore informazioni. Seguito sono riportate alcune delle schermate che verranno create.
+Gli utenti possono visualizzare e aggiornare le informazioni che riguardano studenti, corsi e insegnanti. Seguito sono riportate alcune delle schermate che verranno create.
 
 [![Image30](the-entity-framework-and-aspnet-getting-started-part-1/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image3.png)
 
@@ -161,7 +161,7 @@ Al termine della creazione del modello, Visual Studio Mostra una rappresentazion
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    In questo caso, un `Person` entità può o non possano essere associate `StudentGrade` entità. Oggetto `StudentGrade` entità deve essere associata a uno `Person` entità. `StudentGrade`le entità rappresentano effettivamente corsi registrati in questo database. Se uno studente viene registrato un corso ed è presente alcun livello, il `Grade` proprietà è null. In altre parole, uno studente non può essere registrato in qualsiasi corsi ancora, può essere registrato in uno corso, oppure può essere registrato in più corsi. Ciascun anno scolastico di un corso registrato si applica a un solo studente.
+    In questo caso, un `Person` entità può o non possano essere associate `StudentGrade` entità. Oggetto `StudentGrade` entità deve essere associata a uno `Person` entità. `StudentGrade` le entità rappresentano effettivamente corsi registrati in questo database. Se uno studente è registrato in un corso e non è ancora, nessuna valutazione il `Grade` proprietà è null. In altre parole, uno studente non può essere registrato in qualsiasi corsi ancora, può essere registrato in uno corso, oppure può essere registrato in più corsi. Ciascun anno scolastico di un corso registrato si applica a un solo studente.
 - Un'associazione molti-a-molti è rappresentata da "\*"e"\*".
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
@@ -174,7 +174,7 @@ Un'altra differenza tra il diagramma di database e il modello di dati è aggiunt
 
 Un'altra differenza tra il modello di dati e il database è l'assenza del `CourseInstructor` tabella di associazione che viene utilizzata nel database per collegare il `Person` e `Course` tabelle in una relazione molti-a-molti. Le proprietà di navigazione consentono di ottenere correlati `Course` entità dal `Person` entità ed elementi correlati `Person` entità dal `Course` entità, in modo non è necessario per rappresentare la tabella di associazione del modello di dati.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
 
 Ai fini di questa esercitazione, si supponga che il `FirstName` colonna il `Person` tabella effettivamente contiene sia una persona nome e cognome. Si desidera modificare il nome del campo in modo da riflettere questo, ma l'amministratore del database (DBA) potrebbe non voler modificare il database. È possibile modificare il nome della `FirstName` proprietà nel modello di dati, lasciando il database equivalente invariata.
 
@@ -188,7 +188,7 @@ Digitare il nuovo nome "FirstMidName". Questa modifica il modo in cui che si fa 
 
 Il browser modello fornisce un altro modo per visualizzare la struttura del database, la struttura del modello di dati e il mapping tra di essi. Per visualizzarlo, fare doppio clic su un'area vuota nella finestra di progettazione entità e quindi fare clic su **Browser modello**.
 
-[![Image18](the-entity-framework-and-aspnet-getting-started-part-1/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image49.png)
+[![image18](the-entity-framework-and-aspnet-getting-started-part-1/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image49.png)
 
 Il **Browser modello** riquadro contiene una visualizzazione albero. (Il **Browser modello** riquadro può essere ancorato con il **Esplora** riquadro.) Il **SchoolModel** nodo rappresenta la struttura del modello di dati e **SchoolModel.Store** nodo rappresenta la struttura del database.
 
@@ -196,7 +196,7 @@ Il **Browser modello** riquadro contiene una visualizzazione albero. (Il **Brows
 
 Espandere **SchoolModel.Store** per visualizzare le tabelle, espandere **tabelle / viste** per visualizzare le tabelle e quindi espandere **corso** per visualizzare le colonne all'interno di una tabella.
 
-[![Image19](the-entity-framework-and-aspnet-getting-started-part-1/_static/image54.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image53.png)
+[![image19](the-entity-framework-and-aspnet-getting-started-part-1/_static/image54.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image53.png)
 
 Espandere **SchoolModel**, espandere **tipi di entità**, quindi espandere il **corso** nodo per visualizzare le entità e le proprietà nelle entità.
 
@@ -214,5 +214,5 @@ Entity Framework Usa XML per archiviare le informazioni relative al database, il
 
 È stato creato un sito Web, un database e un modello di dati. Nella procedura dettagliata successiva verrà procedere con i dati utilizzando il modello di dati e ASP.NET `EntityDataSource` controllo.
 
->[!div class="step-by-step"]
-[avanti](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [avanti](the-entity-framework-and-aspnet-getting-started-part-2.md)

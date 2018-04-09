@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: 'Distribuzione di un''applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrazione a SQL Server - 10 12 | Documenti Microsoft'
+title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrazione a SQL Server - 10 12 | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual riceventi...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25a829f1d3c730c7bb3b174f075ce8163999e482
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrazione a SQL Server - 10 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010. Per un'introduzione alla serie, vedere [la prima esercitazione di serie](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
@@ -77,7 +77,7 @@ Seguire la stessa procedura per creare un nuovo database di SQL Server Express S
 
 (Che si sta accodando "Test" i nomi di database perché è necessario essere in grado di distinguere i due set di database e in seguito si creerà un'altra istanza di ogni database per l'ambiente di sviluppo.)
 
-**Esplora server** verranno visualizzati due nuovi database.
+**Esplora server** Mostra ora due nuovi database.
 
 ![New_databases_in_Server_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image3.png)
 
@@ -242,7 +242,7 @@ In **Esplora**, fare clic sul progetto ContosoUniversity e fare clic su **pubbli
 
 Selezionare il **profilo** scheda.
 
-Selezionare  **&lt;New... &gt;**  dall'elenco a discesa, elenco e immettere "Test" come nome del profilo.
+Selezionare **&lt;New... &gt;** dall'elenco a discesa, elenco e immettere "Test" come nome del profilo.
 
 Nel **URL del servizio** immettere *localhost*.
 
@@ -268,7 +268,7 @@ Visual Studio distribuisce l'applicazione e apre il browser alla home page del s
 
 Ora che è stato distribuito l'ambiente di test, è pronti per configurare la distribuzione nell'ambiente di produzione. Come per l'ambiente di test, tramite la creazione di un database da distribuire per iniziare. Come si ricorda la panoramica, il piano di hosting Cytanium Lite consente solo un singolo database di SQL Server, pertanto sarà necessario impostare un solo database, non due. Tutte le tabelle e i dati dal database di SQL Server Compact dell'istituto di istruzione e appartenenza verranno distribuite in un database di SQL Server nell'ambiente di produzione.
 
-Passare al pannello di controllo Cytanium in [http://panel.cytanium.com](http://panel.cytanium.com). Posiziona il puntatore del mouse su **database** e quindi fare clic su **SQL Server 2008**.
+Andare a pannello di controllo Cytanium all'indirizzo [ http://panel.cytanium.com ](http://panel.cytanium.com). Posiziona il puntatore del mouse su **database** e quindi fare clic su **SQL Server 2008**.
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
@@ -367,7 +367,7 @@ Selezionare il **profilo** scheda.
 
 Fare clic su **importazione**e selezionare il file con estensione publishsettings scaricato in precedenza.
 
-Nel **connessione** scheda, modificare il **URL di destinazione** all'URL corretto temporaneo, che in questo esempio è http://contosouniversity.com.vserver01.cytanium.com.
+Nel **connessione** scheda, modificare il **URL di destinazione** per l'URL corretto temporaneo, che in questo esempio è http://contosouniversity.com.vserver01.cytanium.com.
 
 Rinominare il profilo nell'ambiente di produzione. (Selezionare il **profilo** scheda e fare clic su **Gestione profili** a tale scopo).
 
@@ -380,7 +380,7 @@ In un'applicazione reale, in cui è stato aggiornato il database in produzione, 
 
 Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, verificare che il **produzione** profilo sia selezionata e quindi fare clic su **pubblica**.
 
-Se è stata caricata *app\_offline.htm* prima della pubblicazione, è necessario utilizzare il **gestione File** utilità nel Pannello di controllo Cytanium eliminare *app\_offline.* htm prima di testare. È anche possibile contemporaneamente eliminare il *sdf* i file dal *App\_dati* cartella.
+Se è stata caricata <em>app\_offline.htm</em> prima della pubblicazione, è necessario utilizzare il <strong>gestione File</strong> utilità nel Pannello di controllo Cytanium eliminare <em>app\_offline.</em> htm prima di testare. È anche possibile contemporaneamente eliminare il <em>sdf</em> i file dal <em>App\_dati</em> cartella.
 
 È ora possibile aprire un browser e passare all'URL del sito pubblico per testare l'applicazione allo stesso modo che è stato eseguito dopo la distribuzione nell'ambiente di testing.
 
@@ -450,6 +450,6 @@ Seguire la stessa procedura per disinstallare il **SqlServerCompact** pacchetto.
 
 Avere ora correttamente la migrazione a SQL Server Express e completa di SQL Server. Nella prossima esercitazione si renderanno un'altra modifica del database e si noterà come distribuire le modifiche del database quando i database di test e produzione utilizzano SQL Server Express e completa di SQL Server.
 
->[!div class="step-by-step"]
-[Precedente](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-[Successivo](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Precedente](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [Successivo](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

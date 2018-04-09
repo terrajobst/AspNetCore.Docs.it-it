@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
-title: Utilizzo del controllo Editor HTML (C#) | Documenti Microsoft
+title: Utilizzo del controllo Editor HTML (C#) | Microsoft Docs
 author: microsoft
-description: "HTMLEditor è un controllo AJAX di ASP.NET che consente di creare e modificare contenuto HTML tramite i pulsanti in una barra degli strumenti con facilità."
+description: HTMLEditor è un controllo AJAX di ASP.NET che consente di creare e modificare contenuto HTML tramite i pulsanti in una barra degli strumenti con facilità.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17343660d7bf7aa6210fa9c6c9c0206598d34b18
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fca18948c0e4f1323f214dc0033f19fa44efad47
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-c"></a>Utilizzo del controllo Editor HTML (C#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > HTMLEditor è un controllo AJAX di ASP.NET che consente di creare e modificare contenuto HTML tramite i pulsanti in una barra degli strumenti con facilità.
 
@@ -38,7 +38,7 @@ Editor HTML consente di immettere contenuto utilizzando una modalità di progett
 
 [![Progettazione, HTML e anteprima di pulsanti](how-do-i-use-the-html-editor-control-cs/_static/image2.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image3.png)
 
-**Figura 02**: pulsanti di progettazione HTML e anteprima ([fare clic per visualizzare l'immagine ingrandita](how-do-i-use-the-html-editor-control-cs/_static/image4.png))
+**Figura 02**: pulsanti di progettazione, HTML e nell'anteprima ([fare clic per visualizzare l'immagine ingrandita](how-do-i-use-the-html-editor-control-cs/_static/image4.png))
 
 
 In questa esercitazione, è illustrato come visualizzare l'Editor HTML, come personalizzare i pulsanti della barra degli strumenti che vengono visualizzati nell'Editor HTML e come evitare attacchi di Cross-Site Scripting.
@@ -80,12 +80,12 @@ La proprietà Content di Editor HTML viene utilizzata per recuperare il contenut
 
 [![Un Editor HTML personalizzato](how-do-i-use-the-html-editor-control-cs/_static/image5.jpg)](how-do-i-use-the-html-editor-control-cs/_static/image9.png)
 
-**Figura 05**: personalizzato di un Editor HTML ([fare clic per visualizzare l'immagine ingrandita](how-do-i-use-the-html-editor-control-cs/_static/image10.png))
+**Figura 05**: A personalizzato Editor HTML ([fare clic per visualizzare l'immagine ingrandita](how-do-i-use-the-html-editor-control-cs/_static/image10.png))
 
 
 Per personalizzare i pulsanti della barra degli strumenti, un nuovo Editor HTML di derivazione dalla classe di base dell'Editor. Ad esempio, l'editor personalizzato nel listato 2 contiene solo i pulsanti della barra degli strumenti in grassetto e corsivo. Sono stati rimossi tutti gli altri pulsanti della barra degli strumenti. Inoltre, la scheda HTML è stata rimossa dalla parte inferiore dell'editor (ma le schede di progettazione e anteprima sono ancora presenti).
 
-**Elenco di 2 - App\_Code\CustomEditor.cs**
+**Il listato 2 - App\_Code\CustomEditor.cs**
 
 [!code-csharp[Main](how-do-i-use-the-html-editor-control-cs/samples/sample2.cs)]
 
@@ -111,5 +111,5 @@ Si supponga, ad esempio, che si sta creando un'applicazione di blog. In questo c
 
 In questa esercitazione sono stati forniti con una breve panoramica del controllo Editor HTML incluso in AJAX Control Toolkit. È stato descritto come utilizzare l'Editor HTML per accettare il contenuto dettagliato di un utente e inviare il contenuto al server. È stato descritto come personalizzare i pulsanti della barra degli strumenti che vengono visualizzati dall'Editor HTML. Infine, è stato descritto come evitare attacchi di Cross-Site Scripting quando si utilizza l'Editor HTML per accettare l'input potenzialmente dannosa.
 
->[!div class="step-by-step"]
-[Successivo](how-do-i-use-the-html-editor-control-vb.md)
+> [!div class="step-by-step"]
+> [avanti](how-do-i-use-the-html-editor-control-vb.md)

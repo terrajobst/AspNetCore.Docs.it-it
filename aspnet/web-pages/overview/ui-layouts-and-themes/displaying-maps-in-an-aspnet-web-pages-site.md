@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Visualizzazione di mappe in un sito Web di ASP.NET di pagine (Razor)
 ====================
@@ -89,9 +89,9 @@ Nell'esempio seguente viene illustrato come creare una pagina che esegue il rend
         > [!NOTE]
         > Se si utilizza una versione diversa della libreria jQuery, assicurarsi che sta correttamente puntano a tale versione.
     - La chiamata al `@Maps.GetGoogleHtml` nel corpo della pagina. Per eseguire il mapping di un indirizzo, è necessario passare una stringa di indirizzo. I metodi per i motori di mappa funzionano in modo analogo (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
-- Eseguire la pagina e immettere un indirizzo. La pagina Visualizza una mappa, in base alle mappe di Google, che mostra il percorso specificato.
+3. Eseguire la pagina e immettere un indirizzo. La pagina Visualizza una mappa, in base alle mappe di Google, che mostra il percorso specificato.
 
-    ![mapping di-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![mapping di-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Creazione di una mappa in base a latitudine e longitudine coordinate (tramite Bing)
 
@@ -101,14 +101,14 @@ In questo esempio viene illustrato come creare una mappa in base alle coordinate
 
     [!code-cshtml[Main](displaying-maps-in-an-aspnet-web-pages-site/samples/sample2.cshtml)]
 2. Sostituire `your-key-here` con la chiave di Bing Maps generato in precedenza.
-3. Eseguire il *MapCoordinates.cshtml* immettere coordinate di latitudine e longitudine e quindi fare clic su di **Map It!** immagini (...). (Se non si conoscono tutte le coordinate, procedere come segue. Questo è un percorso nel campus Microsoft Redmond.)
+3. Eseguire la *MapCoordinates.cshtml* immettere le coordinate di latitudine e longitudine e quindi fare clic sul **Map It!** immagini (...). (Se non si conoscono tutte le coordinate, procedere come segue. Questo è un percorso nel campus Microsoft Redmond.)
 
-    - Latitude: 47.6781005859375
-    - Longitudine:-122.158317565918
+   - Latitude: 47.6781005859375
+   - Longitudine:-122.158317565918
 
-    Verrà visualizzata la pagina in base alle coordinate specificate.
+     Verrà visualizzata la pagina in base alle coordinate specificate.
 
-    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive

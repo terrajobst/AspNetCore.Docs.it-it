@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introduzione a ASP.NET Web Pages: eliminazione di dati di Database
 ====================
@@ -133,11 +133,11 @@ Esistono due condizioni. Il primo è che la pagina viene inviata, come si è vis
 
 Il `&&` operatore significa "e" (AND logico). Pertanto l'intero `if` condizione è...
 
-*Questa richiesta è una richiesta post (non una richiesta prima)*  
+*Questa richiesta è una richiesta post (richiesta non primo)*  
   
  AND  
   
-*Il* `buttonDelete` *pulsante è il pulsante di invio del modulo.*
+*Il* `buttonDelete` *pulsante è stato il pulsante di invio del modulo.*
 
 Questo modulo (in effetti, questa pagina) contiene un solo pulsante, pertanto, il test per `buttonDelete` tecnicamente non è obbligatorio. Tuttavia, si sta per eseguire un'operazione che rimuove in modo permanente i dati. Pertanto, si desidera come assicurarsi che si sta eseguendo l'operazione solo quando l'utente ha richiesto in modo esplicito possibile. Si supponga, ad esempio, che espanso in un secondo momento questa pagina e aggiungere altri pulsanti. Anche in questo caso, il codice che elimina il filmato verrà eseguita solo se il `buttonDelete` è stato fatto clic sul pulsante.
 
@@ -170,8 +170,8 @@ L'esercitazione successiva viene illustrato come assegnare tutte le pagine nel s
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](../introducing-razor-syntax-c.md)
-- [Istruzione DELETE SQL](http://www.w3schools.com/sql/sql_delete.asp) nel sito W3Schools
+- [Istruzione SQL DELETE](http://www.w3schools.com/sql/sql_delete.asp) sul sito W3Schools
 
->[!div class="step-by-step"]
-[Precedente](updating-data.md)
-[Successivo](layouts.md)
+> [!div class="step-by-step"]
+> [Precedente](updating-data.md)
+> [Successivo](layouts.md)

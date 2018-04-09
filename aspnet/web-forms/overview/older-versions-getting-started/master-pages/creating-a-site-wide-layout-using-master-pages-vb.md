@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 title: Creazione di un Layout a livello di sito utilizzando le pagine Master (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Questa esercitazione verrà mostrato nozioni fondamentali sulla pagina master. In particolare, quali sono le pagine master, come esegue una creazione di una pagina master, quali sono i segnaposto del contenuto, funzionamento un cr..."
+description: Questa esercitazione verrà mostrato nozioni fondamentali sulla pagina master. In particolare, quali sono le pagine master, come esegue una creazione di una pagina master, quali sono i segnaposto del contenuto, funzionamento un cr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d18993af7159de552db0c622fbef58e814e36ebb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Creazione di un Layout a livello di sito utilizzando le pagine Master (VB)
 ====================
@@ -34,7 +34,7 @@ Un attributo di un sito Web ben progettato è un layout coerente a livello di si
 
 [![Il sito Web www.asp.net impiega un aspetto coerente in tutte le pagine](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
 
-**Figura 01**: il sito Web www.asp.net impiega un aspetto coerente e ritiene tra tutte le pagine ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
+<strong>Figura 01</strong>: il sito Web www.asp.net impiega un aspetto coerente e, è possibile tra tutte le pagine ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
 
 
 Un altro attributo di un sito ben progettato consiste nella facilità con cui può essere modificato l'aspetto del sito. Figura 1 mostra la home page www.asp.net a partire da marzo 2008, ma tra il momento e la pubblicazione di questa esercitazione, sia stato modificato l'aspetto. Ad esempio le voci di menu nella parte superiore verranno espanso per includere una nuova sezione per il framework di MVC. O forse una completamente nuova progettazione con diversi colori, tipi di carattere e layout verrà presentata. L'applicazione di tali modifiche all'intero sito deve essere un processo semplice e veloce che non è necessario modificare le migliaia di pagine web che costituiscono il sito.
@@ -73,7 +73,7 @@ Figura 2 mostra l'aspetto della pagina master per www.asp.net. Si noti che la pa
 
 ![Una pagina Master definisce il Layout a livello di sito e le aree modificabili in base a una pagina contenuto dalla pagina contenuto](creating-a-site-wide-layout-using-master-pages-vb/_static/image4.png)
 
-**Figura 02**: una pagina Master definisce il Layout a livello di sito e le aree modificabili in base a una pagina contenuto dalla pagina contenuto
+**Figura 02**: una pagina Master definisce il Layout a livello di sito e le aree modificabili in base a una pagina contenuto pagina in base al contenuto
 
 
 Dopo avere definita una pagina master può essere associato alle nuove pagine ASP.NET tramite il segno di graduazione di una casella di controllo. Queste pagine ASP.NET - chiamate pagine di contenuto, includono un controllo contenuto per ognuno dei controlli ContentPlaceHolder della pagina master. Quando si visita la pagina di contenuto tramite un browser il motore ASP.NET crea gerarchia dei controlli della pagina master e inserisce la gerarchia dei controlli della pagina di contenuto nelle posizioni appropriate. Questa gerarchia del controllo combinato viene eseguito il rendering e il codice HTML risultante viene restituito al browser dell'utente finale. Di conseguenza, la pagina contenuta genera il markup comune definiti nella relativa pagina master di fuori dei controlli ContentPlaceHolder sia il markup specifico della pagina definito all'interno di controlli contenuti. Figura 3 viene illustrato questo concetto.
@@ -119,10 +119,10 @@ Aggiunta di un nuovo file pagina master tramite Visual Web Developer crea una pa
 
 Il `DOCTYPE` e markup dichiarativo della pagina verrà visualizzata sotto il `@Master` direttiva. La pagina include HTML statico con quattro controlli sul lato server:
 
-- **Un modulo Web (il `<form runat="server">`)** , perché tutte le pagine ASP.NET è in genere presentano una forma di Web - e perché la pagina master può includere i controlli Web che devono trovarsi all'interno di un Web Form, assicurarsi di aggiungere il Web Form per la pagina master (anziché aggiungere un Web Form e abbia la priorità pagina contenuto).
-- **Un controllo ContentPlaceHolder denominato `ContentPlaceHolder1`**  -questo controllo ContentPlaceHolder viene visualizzato all'interno del Web Form e viene utilizzata come area per l'interfaccia utente della pagina di contenuto.
-- **Lato server `<head>` elemento** - `<head>` elemento ha il `runat="server"` attributo, rendendo accessibile tramite il codice lato server. Il `<head>` elemento viene implementato in questo modo, in modo che il titolo della pagina e altri `<head>`-correlati di markup può essere aggiunto o modificato a livello di codice. Ad esempio, l'impostazione della pagina ASP.NET `Title` le modifiche alle proprietà di `<title>` il rendering dell'elemento dal `<head>` controllo server.
-- **Un controllo ContentPlaceHolder denominato `head`**  -questo controllo ContentPlaceHolder appare all'interno di `<head>` server di controllo e può essere utilizzato in modo dichiarativo aggiungere contenuto al `<head>` elemento.
+- **Un Web Form (il `<form runat="server">`)** , perché tutte le pagine ASP.NET in genere presentano una forma di Web - e perché la pagina master può includere i controlli Web che devono figurare all'interno di un Web Form, assicurarsi di aggiungere il Web Form per la pagina master (anziché aggiungere un Web Form e abbia la priorità contenuto pagina).
+- **Un controllo ContentPlaceHolder denominato `ContentPlaceHolder1`**  -questo controllo ContentPlaceHolder viene visualizzato all'interno del Form Web e viene utilizzata come area per l'interfaccia utente della pagina di contenuto.
+- **Un server-side `<head>` elemento** : il `<head>` elemento ha il `runat="server"` attributo, rendendo accessibile tramite codice lato server. Il `<head>` elemento viene implementato in questo modo, in modo che il titolo della pagina e altri `<head>`-correlati di markup può essere aggiunto o modificato a livello di codice. Ad esempio, l'impostazione della pagina ASP.NET `Title` le modifiche alle proprietà di `<title>` il rendering dell'elemento dal `<head>` controllo server.
+- **Un controllo ContentPlaceHolder denominato `head`**  -questo controllo ContentPlaceHolder viene visualizzato all'interno di `<head>` server di controllo e può essere utilizzato in modo dichiarativo aggiungere contenuto al `<head>` elemento.
 
 In questo markup dichiarativo di pagina master predefinita funge da punto di partenza per la progettazione di pagine master. È possibile modificare il codice HTML o per aggiungere altri controlli Web o gli elementi ContentPlaceHolder della pagina master.
 
@@ -135,9 +135,9 @@ In questo markup dichiarativo di pagina master predefinita funge da punto di par
 Consente di espandere `Site.master`del markup dichiarativo predefinito per creare un layout del sito in cui tutte le pagine condividono: un'intestazione comune, una colonna a sinistra con navigazione, notizie e altro contenuto; a livello di sito e un piè di pagina che viene visualizzata l'icona "Attivato da Microsoft ASP.NET". Figura 6 mostra il risultato finale della pagina master quando una delle pagine contenute viene visualizzata tramite un browser. L'area in un cerchio rosso nella figura 6 è specifico per la pagina visitata (`Default.aspx`); altro contenuto è definito nella pagina master e pertanto coerente in tutte le pagine di contenuto.
 
 
-[![La pagina Master definisce il Markup per inferiore, superiore e sinistra](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
+[![La pagina Master definisce il Markup per la parte superiore sinistra e inferiore](creating-a-site-wide-layout-using-master-pages-vb/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image14.png)
 
-**Figura 06**: la pagina Master definisce il Markup per inferiore, superiore e sinistra ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image16.png))
+**Figura 06**: la pagina Master definisce il Markup per la parte superiore sinistra e inferiore ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image16.png))
 
 
 Per ottenere il layout del sito illustrato nella figura 6, iniziare aggiornando il `Site.master` pagina master, in modo che contenga il seguente markup dichiarativo:
@@ -201,7 +201,7 @@ Poiché la pagina master contiene due controlli ContentPlaceHolder - `head` e `M
 Pagine master lucentezza tramite tecniche a livello di sito modello precedente dove è con il relativo supporto in fase di progettazione. Figura 9 è illustrato il `About.aspx` pagina contenuto quando è visualizzato in visualizzazione progettazione del Visual Web Developer. Si noti che mentre il contenuto della pagina master è visibile, non è disponibile e non può essere modificato. I controlli del contenuto ContentPlaceHolder della pagina master corrispondente sono, tuttavia, modificabili. E, come con qualsiasi altra pagina ASP.NET, è possibile creare il contenuto dell'interfaccia pagina aggiungendo i controlli Web tramite le viste di origine o di progettazione.
 
 
-[![Visualizzazione di progettazione della pagina di contenuto vengono visualizzati sia il contenuto della pagina Master e specifici della pagina.](creating-a-site-wide-layout-using-master-pages-vb/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image23.png)
+[![Visualizzazione di progettazione della pagina di contenuto vengono visualizzati sia il contenuto pagina Master e specifici della pagina.](creating-a-site-wide-layout-using-master-pages-vb/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image23.png)
 
 **Figura 09**: il contenuto della pagina Progettazione Vista consente di visualizzare sia le specifiche delle pagine e contenuto della pagina Master ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image25.png))
 
@@ -211,7 +211,7 @@ Pagine master lucentezza tramite tecniche a livello di sito modello precedente d
 È opportuno creare contenuto per il `About.aspx` pagina. Come si vede nella figura 10, immettere un titolo "Informazioni sull'autore" e un paio di paragrafi di testo, ma è possibile aggiungere controlli Web, troppo. Dopo aver creato questa interfaccia, visitare il `About.aspx` pagina tramite un browser.
 
 
-[![Visitare la pagina About tramite un Browser](creating-a-site-wide-layout-using-master-pages-vb/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image26.png)
+[![Visitare la pagina About attraverso un Browser](creating-a-site-wide-layout-using-master-pages-vb/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image26.png)
 
 **Figura 10**: visitare il `About.aspx` pagina tramite un Browser ([fare clic per visualizzare l'immagine ingrandita](creating-a-site-wide-layout-using-master-pages-vb/_static/image28.png))
 
@@ -272,21 +272,21 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [ASP.NET per le finestre di progettazione: libero di modelli di progettazione e informazioni aggiuntive sulla compilazione di siti Web ASP.NET utilizzando gli standard Web](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [ASP.NET per le finestre di progettazione: liberare i modelli di progettazione e informazioni aggiuntive sulla compilazione di siti Web ASP.NET utilizzando gli standard Web](https://msdn.microsoft.com/asp.net/aa336602.aspx)
 - [Cenni preliminari sulle pagine Master ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
-- [Le esercitazioni di fogli di stile (CSS)](http://www.w3schools.com/css/default.asp)
+- [Propagazione esercitazioni di fogli di stile (CSS)](http://www.w3schools.com/css/default.asp)
 - [Impostazione in modo dinamico il titolo della pagina](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [Pagine master in ASP.NET](http://www.odetocode.com/articles/419.aspx)
-- [Esercitazioni delle Guide rapide di pagine master](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx)
+- [Esercitazioni delle Guide rapide delle pagine master](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](nested-master-pages-cs.md)
-[Successivo](multiple-contentplaceholders-and-default-content-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](nested-master-pages-cs.md)
+> [Successivo](multiple-contentplaceholders-and-default-content-vb.md)

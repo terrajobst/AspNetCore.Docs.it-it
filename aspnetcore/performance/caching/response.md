@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
@@ -64,13 +64,13 @@ Sempre rispettando la distinzione tra client `Cache-Control` le intestazioni di 
 
 Memorizzazione nella cache in memoria utilizza la memoria del server per archiviare i dati memorizzati nella cache. Questo tipo di memorizzazione nella cache è adatto per uno o più server tramite *sessioni permanenti*. Le sessioni permanenti significa che le richieste da un client vengono sempre indirizzate allo stesso server per l'elaborazione.
 
-Per ulteriori informazioni, vedere [Introduzione alla memorizzazione nella cache in memoria in ASP.NET Core](xref:performance/caching/memory).
+Per altre informazioni, vedere [memorizza nella Cache in memoria](xref:performance/caching/memory).
 
 ### <a name="distributed-cache"></a>Cache distribuita
 
 Utilizzare una cache distribuita per memorizzare dati in memoria quando l'applicazione è ospitata in una farm di server o cloud. La cache viene condivisa tra i server di elaborazione delle richieste. Un client può inviare una richiesta che viene gestita da qualsiasi server nel gruppo di dati memorizzati nella cache per il client sono disponibili. ASP.NET Core offre le cache Redis distribuita e SQL Server.
 
-Per ulteriori informazioni, vedere [utilizzano una cache distribuita](xref:performance/caching/distributed).
+Per altre informazioni, vedere [funziona con una cache distribuita](xref:performance/caching/distributed).
 
 ### <a name="cache-tag-helper"></a>Helper di Tag della cache
 
@@ -180,10 +180,10 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Memorizzazione nella cache in HTTP dalla specifica](https://tools.ietf.org/html/rfc7234#section-3)
+* [La memorizzazione delle risposte nella cache](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
-* [Uso di una cache distribuita](xref:performance/caching/distributed)
+* [Cache in memoria](xref:performance/caching/memory)
+* [Usare una cache distribuita](xref:performance/caching/distributed)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 * [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

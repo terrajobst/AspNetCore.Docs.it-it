@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 title: A livello di codice impostando i valori dei parametri di ObjectDataSource (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà esaminato l'aggiunta di un metodo per il nostro DAL e BLL che accetta un solo parametro di input e restituisce i dati. Nell'esempio verrà imposta questo parametro..."
+description: In questa esercitazione verrà esaminato l'aggiunta di un metodo per il nostro DAL e BLL che accetta un solo parametro di input e restituisce i dati. Nell'esempio verrà imposta questo parametro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aa4afbf2200e1167c9f66aeaddb4273e710394b4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac53d651601829b6e7d2ce312a084618a8afbb61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>A livello di codice impostando i valori dei parametri di ObjectDataSource (VB)
 ====================
@@ -36,9 +36,9 @@ Come illustrato nel [esercitazione precedente](declarative-parameters-vb.md), al
 Ogni volta che ObjectDataSource `Select` metodo viene richiamato prima genera ObjectDataSource relativo [evento Selecting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). Metodo dell'oggetto sottostante di ObjectDataSource viene quindi richiamato. Una volta completato l'operazione di ObjectDataSource [evento selezionati](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) generato (figura 1 illustra questa sequenza di eventi). I valori del parametro passati nel metodo dell'oggetto sottostante di ObjectDataSource possono essere impostati o in un gestore eventi per personalizzare il `Selecting` evento.
 
 
-[![ObjectDataSource selezionato e selezionare gli eventi attivati prima e del dopo il relativo oggetto sottostante metodo viene richiamato.](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
+[![Viene richiamato il ObjectDataSource selezionato e metodo selezionando gli eventi vengono attivati prima e dopo il suo sottostante dell'oggetto](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
 
-**Figura 1**: il ObjectDataSource `Selected` e `Selecting` gli eventi attivati prima e dopo il sottostante dell'oggetto viene richiamato ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image3.png))
+**Figura 1**: il ObjectDataSource `Selected` e `Selecting` gli eventi vengono attivati prima e dopo il suo sottostante dell'oggetto viene richiamato ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image3.png))
 
 
 In questa esercitazione verrà esaminato l'aggiunta di un metodo a livello logico di business che accetta un singolo parametro di input e DAL `Month`, di tipo `Integer` e restituisce un `EmployeesDataTable` oggetto popolato con i dipendenti che hanno le assunzione anniversario nell'oggetto specificato `Month`. Questo esempio verrà impostato il parametro a livello di programmazione basato sul mese corrente, che mostra un elenco di "Employee ricorrenze del mese".
@@ -55,12 +55,12 @@ Per il primo esempio è necessario aggiungere un modo per recuperare i dipendent
 **Figura 2**: aggiungere una nuova Query per il `EmployeesTableAdapter` ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image6.png))
 
 
-Scegliere di aggiungere un'istruzione SQL che restituisce righe. Quando si raggiunge la specifica un `SELECT` istruzione schermata il valore predefinito `SELECT` istruzione per il `EmployeesTableAdapter` saranno già caricato. Aggiungere semplicemente nel `WHERE` clausola: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) è una funzione di T-SQL che restituisce una parte di data particolare di un `datetime` tipo; in questo caso viene usata `DATEPART` per restituire il mese del `HireDate` colonna.
+Scegliere di aggiungere un'istruzione SQL che restituisce righe. Quando si raggiunge la specifica un `SELECT` istruzione schermata il valore predefinito `SELECT` istruzione per il `EmployeesTableAdapter` saranno già caricato. Aggiungere semplicemente nel `WHERE` clausola: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) è una funzione di T-SQL che restituisce una parte relativa alla data particolare di un `datetime` tipo; in questo caso verrà usato `DATEPART` per restituire il mese del `HireDate` colonna.
 
 
 [![Restituito solo le righe in cui HireDate Column è minore o uguale al @HiredBeforeDate parametro](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image7.png)
 
-**Figura 3**: restituire solo le righe in cui il `HireDate` colonna è minore o uguale al `@HiredBeforeDate` parametro ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image9.png))
+**Figura 3**: restituisce solo le righe in cui la `HireDate` colonna è minore o uguale al `@HiredBeforeDate` parametro ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image9.png))
 
 
 Infine, modificare il `FillBy` e `GetDataBy` i nomi dei metodi per `FillByHiredDateMonth` e `GetEmployeesByHiredDateMonth`, rispettivamente.
@@ -68,7 +68,7 @@ Infine, modificare il `FillBy` e `GetDataBy` i nomi dei metodi per `FillByHiredD
 
 [![Scegliere nomi di metodo più appropriati anziché FillBy e GetDataBy](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image11.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image10.png)
 
-**Figura 4**: scegliere più appropriato metodo nomi di `FillBy` e `GetDataBy` ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image12.png))
+**Figura 4**: scegliere più appropriato metodo nomi rispetto `FillBy` e `GetDataBy` ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image12.png))
 
 
 Fare clic su Fine per completare la procedura guidata e tornare all'area di progettazione del set di dati. Il `EmployeesTableAdapter` dovrebbero ora includere un nuovo set di metodi per l'accesso ai dipendenti assunti in un mese specificato.
@@ -76,7 +76,7 @@ Fare clic su Fine per completare la procedura guidata e tornare all'area di prog
 
 [![I nuovi metodi vengono visualizzati nell'area di progettazione del set di dati](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image14.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image13.png)
 
-**Figura 5**: il nuovo metodi verranno visualizzati nell'area di progettazione del set di dati ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image15.png))
+**Figura 5**: il nuovo metodi presenti nell'area di progettazione del set di dati ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image15.png))
 
 
 ## <a name="step-2-adding-thegetemployeesbyhireddatemonthmonthmethod-to-the-business-logic-layer"></a>Passaggio 2: Aggiunta di`GetEmployeesByHiredDateMonth(month)`al livello di logica di Business (metodo)
@@ -95,7 +95,7 @@ Il passaggio finale per questo esempio è per visualizzare i dipendenti il cui a
 
 [![Utilizzare la classe EmployeesBLL](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image17.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image16.png)
 
-**Figura 6**: utilizzo di `EmployeesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image18.png))
+**Figura 6**: usare il `EmployeesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image18.png))
 
 
 [![Selezionare da GetEmployeesByHiredDateMonth(month) (metodo)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image20.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image19.png)
@@ -106,7 +106,7 @@ Il passaggio finale per questo esempio è per visualizzare i dipendenti il cui a
 Nella schermata finale viene richiesto di fornire il `month` origine del valore del parametro. Poiché questo valore verrà impostata a livello di programmazione, lasciare l'origine del parametro impostato sul valore predefinito None opzione e fare clic su Fine.
 
 
-[![Lasciare il parametro di origine impostato su Nessuno](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image22.png)
+[![Lasciare il parametro origine impostato su Nessuno](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image23.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image22.png)
 
 **Figura 8**: lasciare l'origine parametro impostato su None ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image24.png))
 
@@ -121,10 +121,10 @@ Per impostare questo valore a livello di codice, è necessario creare un gestore
 
 ![Scegliere l'icona del fulmine nella finestra proprietà per visualizzare l'elenco di eventi di un controllo Web](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image25.png)
 
-**Figura 9**: scegliere l'icona del fulmine nella finestra proprietà per visualizzare l'elenco di eventi di un controllo Web
+**Figura 9**: scegliere l'icona del fulmine nella finestra proprietà per elencare gli eventi di un controllo Web
 
 
-Tutti e tre gli approcci di aggiungere un nuovo gestore eventi per ObjectDataSource `Selecting` classe code-behind della pagina dell'evento. In questo gestore eventi è possibile leggere e scrivere i valori di parametro utilizzando `e.InputParameters(parameterName)`, dove  *`parameterName`*  è il valore della `Name` attributo la `<asp:Parameter>` tag (il `InputParameters` insieme può anche essere indicizzata ordinale, come in `e.InputParameters(index)`). Per impostare il `month` parametro per il mese corrente, aggiungere il comando seguente per il `Selecting` gestore eventi:
+Tutti e tre gli approcci di aggiungere un nuovo gestore eventi per ObjectDataSource `Selecting` classe code-behind della pagina dell'evento. In questo gestore eventi è possibile leggere e scrivere i valori di parametro utilizzando `e.InputParameters(parameterName)`, dove *`parameterName`* è il valore della `Name` attributo la `<asp:Parameter>` tag (il `InputParameters` insieme può anche essere indicizzata ordinale, come in `e.InputParameters(index)`). Per impostare il `month` parametro per il mese corrente, aggiungere il comando seguente per il `Selecting` gestore eventi:
 
 
 [!code-vb[Main](programmatically-setting-the-objectdatasource-s-parameter-values-vb/samples/sample3.vb)]
@@ -132,9 +132,9 @@ Tutti e tre gli approcci di aggiungere un nuovo gestore eventi per ObjectDataSou
 Quando si visita questa pagina tramite un browser possiamo vedere che un solo dipendente assunzione di questo mese (marzo) Laura Callahan, che ha lavorato nell'azienda dal 1994.
 
 
-[![I dipendenti il cui ricorrenze vengono visualizzati il mese corrente](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image26.png)
+[![I dipendenti il cui ricorrenze questo mese vengono visualizzate](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image27.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image26.png)
 
-**Figura 10**: I dipendenti il cui ricorrenze questo mese vengono visualizzate ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image28.png))
+**Figura 10**: I dipendenti la cui ricorrenze questo mese vengono visualizzate ([fare clic per visualizzare l'immagine ingrandita](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image28.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -147,11 +147,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](declarative-parameters-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](declarative-parameters-vb.md)

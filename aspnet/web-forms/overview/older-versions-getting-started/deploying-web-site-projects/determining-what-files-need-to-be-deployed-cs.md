@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 title: Determinare quali file devono essere distribuiti (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Quali file devono essere distribuiti dall'ambiente di sviluppo all'ambiente di produzione dipende in parte se ci è stato compilato l'applicazione ASP.NET..."
+description: Quali file devono essere distribuiti dall'ambiente di sviluppo all'ambiente di produzione dipende in parte se ci è stato compilato l'applicazione ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ff5f1d7d156efa12d97382db56211a07c43178fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>Determinare quali file devono essere distribuiti (c#)
 ====================
@@ -49,7 +49,7 @@ Indipendentemente dal quale modello di compilazione si utilizza, la parte di mar
 
 Tabella 1 sono riepilogati i diversi file da distribuire quando si utilizza la compilazione esplicita e compilazione automatica. Si noti che indipendentemente dalla compilazione modello utilizzato è consigliabile distribuire sempre gli assembly di `Bin` cartella, se tale cartella è presente. Il `Bin` cartella contiene gli assembly specifici dell'applicazione web, che includono il codice sorgente compilati quando si utilizza il modello di compilazione esplicita. Il `Bin` directory contiene anche gli assembly da altri progetti e gli assembly di terze parti o open source che si stia utilizzando e questi devono trovarsi sul server di produzione. Pertanto, per una regola empirica generale, copiare il `Bin` cartella fino a quando la distribuzione di produzione. (Se si utilizza il modello di compilazione automatica e non si utilizza qualsiasi assembly esterni, si avrà un `Bin` directory - OK!)
 
-| **Modello di compilazione** | **Distribuire i File di Markup parte?** | **Distribuire i File del codice sorgente?** | **Distribuire gli assembly nella `Bin` Directory?** |
+| **Modello di compilazione** | **Distribuire il File di parte Markup?** | **Distribuire i File del codice sorgente?** | **Distribuire gli assembly nella `Bin` Directory?** |
 | --- | --- | --- | --- |
 | Compilazione esplicita | Yes | No | Yes |
 | Compilazione automatica | Yes | Yes | Sì (se presente) |
@@ -80,14 +80,14 @@ Il download per questa esercitazione include un'applicazione ASP.NET denominata 
 - Sette diverse pagine ASP.NET: 
 
     - ~`/Default.aspx`-Home page del sito.
-    - ~`/About.aspx`-una pagina "Sul sito".
-    - ~`/Fiction/Default.aspx`-elenco di libri che sono stati verificati fittizio. 
+    - ~`/About.aspx` -una pagina "Sul sito".
+    - ~`/Fiction/Default.aspx` -elenco di libri fittizio che sono stati verificati. 
 
-        - ~`/Fiction/Blaze.aspx`-una revisione del romanzo Richard Bachman *Blaze*.
-    - ~/`Tech/Default.aspx`-una pagina che elenca i libri di tecnologia che sono stati verificati. 
+        - ~`/Fiction/Blaze.aspx` -una revisione del romanzo Richard Bachman *Blaze*.
+    - ~/`Tech/Default.aspx` -una pagina che elenca i libri di tecnologia che sono stati verificati. 
 
         - ~/`Tech/CYOW.aspx`-una revisione del *creare il sito Web proprio*.
-        - ~/`Tech/TYASP35.aspx`-una revisione del *insegna manualmente ASP.NET 3.5 nelle 24 ore*.
+        - ~/`Tech/TYASP35.aspx` -una revisione del *insegna manualmente ASP.NET 3.5 nelle 24 ore*.
 - Tre file CSS diversi nella cartella Styles.
 - Quattro file di immagine - una tecnologia ASP.NET logo e immagini di copertura dei libri riviste tre - tutti all'interno di `Images` cartella.
 - Oggetto `Web.sitemap` file, che definisce la mappa del sito e consente di visualizzare menu il `Default.aspx` pagine nella directory radice e `Fiction` e `Tech` cartelle.
@@ -96,9 +96,9 @@ Il download per questa esercitazione include un'applicazione ASP.NET denominata 
 Figura 1 mostra una schermata del sito Web recensioni quando viene visualizzato tramite un browser. Di seguito viene visualizzata la pagina ~ /`Tech/TYASP35.aspx`, che esamina il libro *insegna manualmente ASP.NET 3.5 nelle 24 ore*. Che si estende nella parte superiore della pagina e il menu nella colonna sinistra della barra di navigazione sono basati sulla struttura della mappa del sito definita in `Web.sitemap`. L'immagine nell'angolo superiore sinistro è uno della copertura della Rubrica le immagini memorizzate nella `Images` cartella. Aspetto del sito Web sono definiti tramite pronunciate dai file CSS nella cartella Styles, mentre il layout di pagina globale viene definito nella pagina master, regole dei fogli di stile CSS `Site.master`.
 
 
-[![Il sito Web revisioni Rubrica offre revisioni in un'ampia gamma di titoli](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
+[![Il sito Web esamina manuale offre le revisioni su un'ampia gamma di titoli](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
 
-**Figura 1:** il sito Web revisioni Rubrica offre revisioni in un'ampia gamma di titoli ([fare clic per visualizzare l'immagine ingrandita](determining-what-files-need-to-be-deployed-cs/_static/image3.png))
+**Figura 1:** il sito Web esamina manuale offre le revisioni su un'ampia gamma di titoli ([fare clic per visualizzare l'immagine ingrandita](determining-what-files-need-to-be-deployed-cs/_static/image3.png))
 
 
 Questa applicazione non utilizza un database. ogni revisione viene implementato come una pagina web separata nell'applicazione. Viene illustrata la distribuzione di un'applicazione web che non dispone di un database in questa esercitazione (e le esercitazioni più avanti). Tuttavia, in un'esercitazione in futura è contribuisce a migliorare questa applicazione per archiviare le revisioni, lettore commenti e altre informazioni all'interno di un database e verranno esplorati necessario passaggi da eseguire per distribuire correttamente un'applicazione web basate sui dati.
@@ -110,7 +110,7 @@ Questa applicazione non utilizza un database. ogni revisione viene implementato 
 Download di questa esercitazione ha due copie dell'applicazione web, ciascuno implementato come un diverso tipo di progetto di Visual Studio: BookReviewsWAP, un progetto di applicazione Web e BookReviewsWSP, un progetto di sito Web. Entrambi i progetti creati con Visual Web Developer 2008 SP1 e utilizzano ASP.NET 3.5 SP1. Per l'utilizzo di questi progetti per iniziare, decomprimere il contenuto sul desktop. Per aprire il progetto di applicazione Web (BookReviewsWAP), passare alla cartella BookReviewsWAP e fare doppio clic sul file di soluzione `BookReviewsWAP.sln`. Per aprire il progetto di sito Web (BookReviewsWSP), avviare Visual Studio e quindi dal menu File, scegliere l'opzione Apri sito Web, individuare il `BookReviewsWSP` cartella sul Desktop, fare clic su OK.
 
 
-Due sezioni rimanenti in questa esercitazione esaminerà i file che sarà necessario copiare nell'ambiente di produzione quando si distribuisce l'applicazione. Le due esercitazioni -  *[la distribuzione del sito tramite FTP](deploying-your-site-using-an-ftp-client-cs.md)*  e  *[la distribuzione del sito tramite Visual Studio](deploying-your-site-using-visual-studio-cs.md)*  -Mostra i diversi modi per copiare questi file in un provider di hosting web.
+Due sezioni rimanenti in questa esercitazione esaminerà i file che sarà necessario copiare nell'ambiente di produzione quando si distribuisce l'applicazione. Le due esercitazioni - *[la distribuzione del sito tramite FTP](deploying-your-site-using-an-ftp-client-cs.md)* e *[la distribuzione del sito tramite Visual Studio](deploying-your-site-using-visual-studio-cs.md)* -Mostra i diversi modi per copiare questi file in un provider di hosting web.
 
 ## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Determinare i file da distribuire per il progetto di applicazione Web
 
@@ -177,14 +177,14 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 - [Cenni preliminari sulla compilazione di ASP.NET](https://msdn.microsoft.com/library/ms178466.aspx)
 - [Controlli utente ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
-- [Esame di ASP. Esplorazione del sito di rete](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [Esame ASP. Esplorazione del sito della rete](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [Introduzione ai progetti di applicazione Web](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Esercitazioni di pagina master](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Condivisione del codice tra le pagine](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
-- [Utilizzo di una classe di Base personalizzata per le classi di Code-Behind di pagine di ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [Utilizzando una classe di Base personalizzata per le classi di Code-Behind di pagine ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [Sistema di progetto di sito Web di Visual Studio 2005: informazioni sulla funzionalità e perché è farlo?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Procedura dettagliata: Conversione di un progetto di sito Web in un progetto di applicazione Web in Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Precedente](asp-net-hosting-options-cs.md)
-[Successivo](deploying-your-site-using-an-ftp-client-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](asp-net-hosting-options-cs.md)
+> [Successivo](deploying-your-site-using-an-ftp-client-cs.md)

@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 title: Opzioni di archiviazione di dati (creazione di applicazioni con Azure Cloud del mondo reale) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opzioni di archiviazione di dati (creazione di applicazioni Cloud reale in Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
 
@@ -41,14 +41,14 @@ Il cloud rende relativamente facile da utilizzare un'ampia gamma di relazionale 
 
 La tabella contiene quattro tipi di database NoSQL:
 
-- [Database di chiave/valore](https://msdn.microsoft.com/library/dn313285.aspx#sec7) archiviare un singolo oggetto serializzato per ogni valore di chiave. Sono infatti utili per l'archiviazione di grandi volumi di dati in cui si desidera ottenere un elemento per un determinato valore di chiave e non è necessario per eseguire query in base ad altre proprietà dell'elemento.
+- [I database di chiave/valore](https://msdn.microsoft.com/library/dn313285.aspx#sec7) archiviare un singolo oggetto serializzato per ogni valore di chiave. Sono infatti utili per l'archiviazione di grandi volumi di dati in cui si desidera ottenere un elemento per un determinato valore di chiave e non è necessario per eseguire query in base ad altre proprietà dell'elemento.
 
-    [Archiviazione Blob di Azure](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) è un database di chiave/valore che funziona come file di archiviazione nel cloud, con valori di chiave che corrispondono ai nomi di file e cartelle. Recuperare un file per la cartella e il nome di file e non per la ricerca di valori nel contenuto del file.
+    [Archiviazione Blob di Azure](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) è un database di chiave/valore che funziona come l'archivio di file nel cloud, con valori di chiave che corrispondono ai nomi dei file e cartelle. Recuperare un file per la cartella e il nome di file e non per la ricerca di valori nel contenuto del file.
 
     [Archiviazione tabelle di Azure](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) è anche un database di chiave/valore. Ogni valore viene chiamato un *entità* (simile a una riga, identificata da una chiave di partizione e chiave di riga) e contiene più *proprietà* (simile alle colonne, ma non tutte le entità in una tabella devono condividere lo stesso colonne). Esecuzione di query su colonne diverse dalle chiavi di è poco efficiente ed è opportuno evitarle. Ad esempio, è possibile archiviare i dati del profilo utente, con un'unica partizione, l'archiviazione delle informazioni relative a un singolo utente. È possibile memorizzare i dati, ad esempio nome utente, hash della password, la data di nascita e così via, in proprietà separate di un'entità o entità separate nella stessa partizione. Ma è preferibile eseguire una query per tutti gli utenti con un determinato intervallo di date di nascita e non è possibile eseguire una query di join tra la tabella dei profili e un'altra tabella. Archiviazione tabelle è più scalabile e meno costoso di un database relazionale, ma non consente le query più complesse o join.
 - [Documentdatabases](https://msdn.microsoft.com/library/dn313285.aspx#sec8) sono database chiave/valore in cui i valori sono *documenti*. "Documento" qui non viene utilizzato il concetto di un documento di Word o Excel, ma si intende una raccolta di campi denominati e i valori, ognuna delle quali potrebbe essere un documento secondario. In una tabella di cronologia di ordine, ad esempio, potrebbe essere un documento di ordine di numero di ordine, data dell'ordine e i campi del cliente; e il campo cliente potrebbe avere campi nome e indirizzo. Il database codifica i dati di campo in un formato, ad esempio BSON; YAML, JSON o XML è possibile utilizzare testo normale. Una funzionalità che imposta il database di documento oltre ai database di chiave/valore è la possibilità di eseguire una query su campi non chiave e definire gli indici secondari per rendere più efficiente l'esecuzione di query. Questa possibilità rende un database di documenti più adatte per le applicazioni necessarie per recuperare i dati in base ai criteri più complessi rispetto al valore della chiave del documento. Ad esempio, in un database di documento di ordine di vendita della cronologia è Impossibile eseguire la query in diversi campi, ad esempio ID prodotto, ID cliente, il nome del cliente e così via. [MongoDB](http://www.mongodb.org/) è un database di documenti più diffusi.
-- [I database della famiglia colonna](https://msdn.microsoft.com/library/dn313285.aspx#sec9) sono archivi di dati che consentono di passare all'archiviazione di dati di struttura in raccolte di colonne correlate chiamate famiglie di colonna di chiave/valore. Ad esempio, un database census potrebbe disporre di un gruppo di colonne per nome di una persona (primo, secondo nome, cognome), un gruppo per l'indirizzo dell'utente e un gruppo per le informazioni sul profilo dell'utente (tua data di nascita, sesso, ecc.). Il database è quindi possibile archiviare ogni famiglia di colonna in una partizione separata, mantenendo tutti i dati per una persona correlato per la stessa chiave. È quindi possibile leggere tutte le informazioni senza dover leggere le informazioni nome e l'indirizzo. [Cassandra](http://cassandra.apache.org/) è un database della famiglia di colonna più diffuso.
-- [Grafico database](https://msdn.microsoft.com/library/dn313285.aspx#sec10) archiviare informazioni come una raccolta di oggetti e relazioni. Lo scopo di un database di grafico è per abilitare un'applicazione da eseguire in modo efficiente le query che passano attraverso la rete di oggetti e le relazioni tra di essi. Ad esempio, gli oggetti siano dipendenti in un database delle risorse umane e potrebbe essere necessario per facilitare la query, ad esempio "trovare tutti i dipendenti che lavorano direttamente o indirettamente a Scott." [Neo4j](http://www.neo4j.org/) è un database comune grafico.
+- [I database della famiglia di colonna](https://msdn.microsoft.com/library/dn313285.aspx#sec9) sono gli archivi di dati che consentono di archiviazione dei dati di struttura in raccolte di colonne correlate chiamate famiglie di colonna chiave/valore. Ad esempio, un database census potrebbe disporre di un gruppo di colonne per nome di una persona (primo, secondo nome, cognome), un gruppo per l'indirizzo dell'utente e un gruppo per le informazioni sul profilo dell'utente (tua data di nascita, sesso, ecc.). Il database è quindi possibile archiviare ogni famiglia di colonna in una partizione separata, mantenendo tutti i dati per una persona correlato per la stessa chiave. È quindi possibile leggere tutte le informazioni senza dover leggere le informazioni nome e l'indirizzo. [Cassandra](http://cassandra.apache.org/) è un database della famiglia di colonna più diffuso.
+- [Grafico database](https://msdn.microsoft.com/library/dn313285.aspx#sec10) archiviare informazioni come una raccolta di oggetti e relazioni. Lo scopo di un database di grafico è per abilitare un'applicazione da eseguire in modo efficiente le query che passano attraverso la rete di oggetti e le relazioni tra di essi. Ad esempio, gli oggetti siano dipendenti in un database delle risorse umane e potrebbe essere necessario per facilitare la query, ad esempio "trovare tutti i dipendenti che lavorano direttamente o indirettamente a Scott." [Neo4j](http://www.neo4j.org/) è un database grafico più diffusi.
 
 Rispetto ai database relazionali, le opzioni di database NoSQL offrono maggiore scalabilità e la redditività dei costi per l'archiviazione e analisi dei dati non strutturati. Il compromesso è che non forniscono le funzionalità di integrità dei dati affidabili dei database relazionali queryability RTF. NoSQL funzionerà anche per i dati di log IIS, che comporta la presenza di volumi elevati senza che sia necessario per le query di join. NoSQL non funziona bene per servizi bancari di transazioni, che richiede l'integrità dei dati assoluto e include molte relazioni con altri dati relativi agli account.
 
@@ -249,8 +249,8 @@ Di seguito sono riportate alcune linee guida su come scegliere tra i due modelli
 
 | Database SQL di Azure (PaaS) | SQL Server in una macchina virtuale (IaaS) |
 | --- | --- |
-| **I professionisti** -non è necessario creare o gestire macchine virtuali, aggiornare o patch OS o SQL. Azure esegue automaticamente. -La disponibilità elevata incorporata, con un contratto di servizio a livello di database. -A basso costo totale di proprietà (TCO) poiché si paga solo per ciò che si usa (non è necessaria alcuna licenza). -Ottimale per la gestione di un numero elevato di database più piccoli (&lt;= 500 GB). -Facili da creare in modo dinamico i nuovi database per abilitare la scalabilità orizzontale. | ***I professionisti*** - funzionalità-compatibile con il Server SQL locale. -È possibile implementare SQL Server [la disponibilità elevata tramite AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) in 2 + macchine virtuali, con contratto di servizio a livello di macchina virtuale. -Si dispone di controllo completo sulla modalità di gestione di SQL. -È possibile riutilizzare le licenze SQL già proprietari oppure paga per ora per uno. -Ottimale per la gestione di un numero inferiore ma di dimensioni maggiori (1 TB) i database. |
-| **Svantaggi** -alcune delle funzionalità gap rispetto al Server SQL locale (mancanza di [integrazione con CLR](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [supporto della compressione](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx)e così via)-limite delle dimensioni di 500 GB. | ***Svantaggi*** : gli aggiornamenti o patch (sistema operativo e SQL) sono le responsabilità del programmatore - creazione e la gestione di database sono le responsabilità del programmatore - disco IOPS (operazioni di input/output al secondo) limitato a circa 8000 (tramite le unità 16 dati). |
+| **I professionisti** -non è necessario creare o gestire macchine virtuali, aggiornare o applicare la patch OS o SQL. Azure esegue automaticamente. -La disponibilità elevata incorporata, con un contratto di servizio a livello di database. -A basso costo totale di proprietà (TCO) poiché si paga solo per ciò che si usa (non è necessaria alcuna licenza). -Ottimale per la gestione di un numero elevato di database più piccoli (&lt;= 500 GB). -Facili da creare in modo dinamico i nuovi database per abilitare la scalabilità orizzontale. | ***I professionisti*** - funzionalità-compatibile con SQL Server locale. -È possibile implementare SQL Server [la disponibilità elevata tramite AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) in 2 + macchine virtuali, con contratto di servizio a livello di macchina virtuale. -Si dispone di controllo completo sulla modalità di gestione di SQL. -È possibile riutilizzare le licenze SQL già proprietari oppure paga per ora per uno. -Ottimale per la gestione di un numero inferiore ma di dimensioni maggiori (1 TB) i database. |
+| **Svantaggi** -alcuni scenari funzionali gap rispetto al Server SQL locale (non dispongono di [integrazione con CLR](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [supporto della compressione](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx)e così via)-limite delle dimensioni di 500 GB. | ***Svantaggi*** : gli aggiornamenti o patch (sistema operativo e SQL) sono le responsabilità del programmatore - creazione e la gestione di database sono le responsabilità del programmatore - IOPS disco (operazioni di input/output al secondo) limitato a circa 8000 (tramite le unità 16 dati). |
 
 Se si desidera utilizzare SQL Server in una macchina virtuale, è possibile utilizzare la propria licenza di SQL Server oppure è possibile pagare una base oraria. Nel portale o tramite l'API REST, ad esempio, è possibile creare una nuova macchina virtuale usando un'immagine di SQL Server.
 
@@ -270,37 +270,37 @@ Per altre informazioni, vedere le seguenti risorse.
 
 Scelta di una piattaforma di database:
 
-- [Accesso ai dati per le soluzioni cloud altamente scalabili: utilizzo di SQL, NoSQL e persistenza Polyglot](http://aka.ms/dag-doc). Consente di archiviare E-book Microsoft Patterns and Practices che entra in modo approfondito i diversi tipi di dati disponibili per le applicazioni cloud.
+- [L'accesso ai dati per le soluzioni altamente scalabile: utilizzo di SQL, NoSQL e persistenza Polyglot](http://aka.ms/dag-doc). Consente di archiviare E-book Microsoft Patterns and Practices che entra in modo approfondito i diversi tipi di dati disponibili per le applicazioni cloud.
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/ff898430.aspx). Vedere Nozioni di base della coerenza dei dati, la replica dei dati e informazioni aggiuntive di sincronizzazione, il modello di tabella dell'indice, il modello di vista materializzata.
 - [BASE: Alternativa Acid](http://queue.acm.org/detail.cfm?id=1394128). L'articolo sui compromessi tra la coerenza dei dati e la scalabilità.
-- [Sette database settimane di sette: una Guida per i database moderni e lo spostamento di database NoSQL](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Libro da Eric Redmond e Jim R. Wilson. Consigliata per l'introduzione di manualmente l'intervallo di piattaforme di archiviazione di dati attualmente disponibili.
+- [Sette database nelle settimane di sette: una Guida per i database moderni e lo spostamento di database NoSQL](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Libro da Eric Redmond e Jim R. Wilson. Consigliata per l'introduzione di manualmente l'intervallo di piattaforme di archiviazione di dati attualmente disponibili.
 
 Scelta tra SQL Server e Database SQL:
 
-- [Anteprima di Premium per materiale sussidiario per Database SQL](https://msdn.microsoft.com/library/windowsazure/dn369873.aspx). Introduzione a Database SQL Premium e fornite istruzioni su come scegliere tramite il Database SQL Web e Business Edition.
+- [Anteprima della versione Premium per materiale sussidiario per Database SQL](https://msdn.microsoft.com/library/windowsazure/dn369873.aspx). Introduzione a Database SQL Premium e fornite istruzioni su come scegliere tramite il Database SQL Web e Business Edition.
 - [Linee guida e limitazioni (Database SQL di Azure)](https://msdn.microsoft.com/library/windowsazure/ff394102.aspx). Pagina del portale che si collega alla documentazione sulle limitazioni del Database SQL, tra cui quella che si concentra sulle funzionalità di SQL Server Database SQL non supporta.
 - [SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/jj823132.aspx). Pagina del portale che si collega alla documentazione sull'esecuzione di SQL Server in Azure.
 - [Scott Guthrie spiega i database SQL di Azure](https://azure.microsoft.com/documentation/videos/sql-in-azure-scottgu/). 6 minuti video di introduzione al Database SQL da Scott Guthrie.
-- [Modelli di applicazione e strategie di sviluppo per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/dn574746.aspx).
+- [I modelli di applicazione e strategie di sviluppo per SQL Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/windowsazure/dn574746.aspx).
 
 Utilizzo di Entity Framework e il Database SQL in un'app Web ASP.NET
 
 - [Introduzione a Entity Framework 6 con MVC 5](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Serie di esercitazioni di nove parti che illustra la creazione di un'applicazione MVC che usa Entity Framework e distribuisce il database in Azure e Database SQL.
-- [Distribuzione Web ASP.NET utilizzando Visual Studio](../../../../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). Parte di dodici serie di esercitazioni che va inserito in maniera più approfondita su come distribuire un database tramite Entity Framework Code First.
+- [Distribuzione di Web ASP.NET utilizzando Visual Studio](../../../../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). Parte di dodici serie di esercitazioni che va inserito in maniera più approfondita su come distribuire un database tramite Entity Framework Code First.
 - [Distribuire un'app protetta ASP.NET MVC 5 con appartenenza, OAuth e il Database SQL a un sito Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Esercitazione dettagliata che illustra la creazione di un'app web che utilizza l'autenticazione, le tabelle di applicazione sono archiviate nel database delle appartenenze, modifica dello schema del database e distribuisce l'app in Azure.
 - [Mappa del contenuto di accesso ai dati ASP.NET](https://go.microsoft.com/fwlink/p/?LinkId=282414). Collegamenti a risorse per l'utilizzo di Entity Framework e il Database SQL.
 
 Uso di MongoDB in Azure:
 
 - [MongoLab - MongoDB in Azure](http://msopentech.com/opentech-projects/mongolab-mongodb-on-windows-azure/). Pagina del portale per la documentazione sull'esecuzione di MongoDB in Azure.
-- [Creare un sito web di Azure che si connette a in esecuzione in una macchina virtuale in Azure MongoDB](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/). Esercitazione dettagliata che illustra come utilizzare un database di MongoDB in un'applicazione web ASP.NET.
+- [Creare un sito web di Azure che si connette a MongoDB in esecuzione in una macchina virtuale in Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/). Esercitazione dettagliata che illustra come utilizzare un database di MongoDB in un'applicazione web ASP.NET.
 
 HDInsight (Hadoop in Azure):
 
 - [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/). Portale di documentazione di HDInsight sul [Azure](https://azure.microsoft.com/) sito Web.
-- [Hadoop e HDInsight: dati di grandi dimensioni in Azure](https://msdn.microsoft.com/magazine/dn385705.aspx). Articolo di MSDN Magazine Bruno Terkaly e Villalobos Ricardo, Introduzione a Hadoop in Azure.
+- [Hadoop e HDInsight: i dati di grandi dimensioni in Azure](https://msdn.microsoft.com/magazine/dn385705.aspx). Articolo di MSDN Magazine Bruno Terkaly e Villalobos Ricardo, Introduzione a Hadoop in Azure.
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vedere MapReduce modello.
 
->[!div class="step-by-step"]
-[Precedente](single-sign-on.md)
-[Successivo](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [Precedente](single-sign-on.md)
+> [Successivo](data-partitioning-strategies.md)

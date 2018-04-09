@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/http-cookies
 title: I cookie HTTP in ASP.NET Web API | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: e17c51946a268aa13ec035d18dc516928c9f4419
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 363ca975cf75b635b766a53eeda87cf957eed60c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>Cookie HTTP in ASP.NET Web API
 ====================
@@ -36,7 +36,7 @@ Di seguito è riportato un esempio con attributi:
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Per restituire un cookie al server, il client di contiene un'intestazione Cookie nelle richieste successive.
+Per restituire un cookie al server, il client include un'intestazione Cookie nelle richieste successive.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
@@ -53,7 +53,7 @@ Il client restituisce più cookie con una singola intestazione Cookie.
 L'ambito e la durata di un cookie sono controllate dagli attributi seguenti nell'intestazione Set-Cookie:
 
 - **Dominio**: indica al client di dominio che deve ricevere il cookie. Ad esempio, se il dominio è "example.com", il client restituisce il cookie a ogni sottodominio di example.com. Se non specificato, il dominio è il server di origine.
-- **Percorso**: limita il cookie al percorso specificato all'interno del dominio. Se non specificato, viene utilizzato il percorso dell'URI della richiesta.
+- **Percorso**: limita il cookie nel percorso specificato all'interno del dominio. Se non specificato, viene utilizzato il percorso dell'URI della richiesta.
 - **Scadenza**: imposta una data di scadenza del cookie. Dopo la scadenza, il client elimina il cookie.
 - **Max-Age**: imposta la durata massima dei cookie. Quando viene raggiunta la durata massima, il client elimina il cookie.
 
@@ -79,7 +79,7 @@ Oggetto **CookieHeaderValue** contiene una raccolta di **CookieState** istanze. 
 
 ## <a name="structured-cookie-data"></a>Dati strutturati Cookie
 
-Molti browser Limita numero di cookie che verrà archiviano &#8212; il numero totale sia il numero per ogni dominio. Pertanto, può essere utile inserire i dati strutturati in un unico cookie, anziché impostare più cookie.
+Molti browser limitare quanti i cookie sono archivierà&#8212;il numero totale e il numero per ogni dominio. Pertanto, può essere utile inserire i dati strutturati in un unico cookie, anziché impostare più cookie.
 
 > [!NOTE]
 > RFC 6265 non definisce la struttura dei dati del cookie.

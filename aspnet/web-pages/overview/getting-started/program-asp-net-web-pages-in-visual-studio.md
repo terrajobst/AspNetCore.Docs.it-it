@@ -2,7 +2,7 @@
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 title: Programmazione ASP.NET Web Pages (Razor) tramite Visual Studio | Documenti Microsoft
 author: tfitzmac
-description: "Questa appendice spiega come è possibile utilizzare Visual Studio 2010 o Visual Web Developer 2010 Express al programma ASP.NET Web Pages con sintassi Razor."
+description: Questa appendice spiega come è possibile utilizzare Visual Studio 2010 o Visual Web Developer 2010 Express al programma ASP.NET Web Pages con sintassi Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5cfeda206eda8fb3fd769d34fb40bae2c3b65093
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programmazione di pagine Web ASP.NET (Razor) utilizzando Visual Studio
 ====================
@@ -95,9 +95,9 @@ Dopo aver creato un sito, è possibile visualizzare il funzionamento di IntelliS
 1. Nel sito Web appena creato, aprire il *cshtml* pagina.
 2. Dopo il `<h3>` tag della pagina, digitare `@ServerInfo.` (incluso il punto). Si noti come IntelliSense consente di visualizzare i metodi disponibili per il `ServerInfo` helper in un elenco a discesa. 
 
-    ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
+    ![intellisense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
 3. Selezionare il `GetHtml` metodo dall'elenco e quindi premere INVIO. IntelliSense automaticamente nel metodo. (Come con qualsiasi metodo in c#, è necessario aggiungere `()` caratteri dopo il metodo.)  
- Il codice completo per il `GetHtml` metodo è simile alla seguente:  
+   Il codice completo per il `GetHtml` metodo è simile alla seguente:  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
 4. Premere Ctrl + F5 per eseguire la pagina. Questo è l'aspetto delle pagine quando visualizzata in un browser: 
@@ -138,7 +138,7 @@ In questa sezione viene illustrato come installare Visual Web Developer Express 
 
 1. Se si dispone già l'installazione guidata piattaforma Web, è possibile scaricarlo dall'URL seguente:
 
-    [https://www.microsoft.com/Web/Downloads/Platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
+    [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Eseguire l'installazione guidata piattaforma Web.
 3. Fare clic su di **prodotti** scheda.
 

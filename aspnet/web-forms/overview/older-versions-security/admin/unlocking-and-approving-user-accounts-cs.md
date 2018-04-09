@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f22a745f42dae66cd64dc38df28c59b910c17070
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8b3d69e96513192bc73a2a6a7cbb4c6e33eb610b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>Approvazione e lo sblocco degli account utente (c#)
 ====================
@@ -77,7 +77,7 @@ Dopo l'aggiunta di questi controlli, la visualizzazione di progettazione in Visu
 
 [![Creare l'interfaccia utente per UserInformation.aspx](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
 
-**Figura 2**: creare l'interfaccia utente per `UserInformation.aspx` ([fare clic per visualizzare l'immagine ingrandita](unlocking-and-approving-user-accounts-cs/_static/image6.png))
+**Figura 2**: l'interfaccia utente per creare `UserInformation.aspx` ([fare clic per visualizzare l'immagine ingrandita](unlocking-and-approving-user-accounts-cs/_static/image6.png))
 
 
 Con l'interfaccia utente completa, l'attività successiva consiste nell'impostare il `IsApproved` casella di controllo e altri controlli in base alle informazioni dell'utente selezionato. Creare un gestore eventi per la pagina `Load` eventi e aggiungere il codice seguente:
@@ -101,7 +101,7 @@ Tornare a Visual Studio e creare gestori eventi per il `IsApproved` della casell
 Con questi gestori eventi sul posto, rivedere la pagina e non approvati un utente. Come mostrato nella figura 3, verrà visualizzato una breve messaggio nella pagina che indica che l'utente `IsApproved` proprietà è stata modificata correttamente.
 
 
-[![Chris è stato non approvato](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
+[![Chris è stato Unapproved](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
 
 **Figura 3**: Chris è stato Unapproved ([fare clic per visualizzare l'immagine ingrandita](unlocking-and-approving-user-accounts-cs/_static/image9.png))
 
@@ -119,7 +119,7 @@ Per testare la funzionalità di bloccata, tentare di eseguire l'accesso come ute
 Restituito per il `ManageUsers.aspx` pagina e fare clic sul collegamento di gestione per l'utente bloccato. Come illustrato nella figura 5, si dovrebbe essere un valore di `LastLockedOutDateLabel` pulsante Sblocca utente deve essere abilitato. Fare clic sul pulsante Sblocca utente per sbloccare l'account utente. Dopo aver sbloccato l'utente, saranno in grado di nuovo l'accesso.
 
 
-[![Dave è stato bloccato dal sistema](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
+[![Dave è stato bloccato per il sistema](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
 
 **Figura 5**: Dave è stato bloccato Out del sistema ([fare clic per visualizzare l'immagine ingrandita](unlocking-and-approving-user-accounts-cs/_static/image15.png))
 
@@ -208,12 +208,12 @@ Buona programmazione!
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](recovering-and-changing-passwords-cs.md)
-[Successivo](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](recovering-and-changing-passwords-cs.md)
+> [Successivo](building-an-interface-to-select-one-user-account-from-many-vb.md)

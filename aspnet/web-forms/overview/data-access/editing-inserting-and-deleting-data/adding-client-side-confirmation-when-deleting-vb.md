@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 title: Aggiunta di conferma dal lato Client durante l'eliminazione (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In interfacce che abbiamo creato fino a questo punto, un utente può eliminare accidentalmente dati facendo clic sul pulsante Elimina quando si intende fare clic sul pulsante Modifica. In questo t..."
+description: In interfacce che abbiamo creato fino a questo punto, un utente può eliminare accidentalmente dati facendo clic sul pulsante Elimina quando si intende fare clic sul pulsante Modifica. In questo t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3461f9ec4f139f1ea0e60a01b898e67e7ebd7f54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03ab3f9974bca7c3e08b8d3fa6fd4fc786ebed4d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Aggiunta di conferma dal lato Client durante l'eliminazione (VB)
 ====================
@@ -38,7 +38,7 @@ Il codice JavaScript `confirm(string)` funzione consente di visualizzare il rela
 
 ![Il metodo di confirm(string) JavaScript Visualizza modale, Messagebox sul lato Client](adding-client-side-confirmation-when-deleting-vb/_static/image1.png)
 
-**Figura 1**: JavaScript `confirm(string)` metodo visualizza una finestra di messaggio modale, sul lato Client
+**Figura 1**: il codice JavaScript `confirm(string)` metodo visualizza una finestra di messaggio modale, lato Client
 
 
 Durante l'invio di un form, se un valore di `false` viene restituito da un gestore eventi lato client, quindi è stata annullata l'invio del modulo. Utilizzare questa funzionalità, è possibile disporre Delete pulsante s lato client `onclick` gestore evento restituisce il valore di una chiamata a `confirm("Are you sure you want to delete this product?")`. Se l'utente fa clic su Annulla, `confirm(string)` restituirà false, in tal modo che causa l'invio del modulo annullare. Con alcun postback, è possibile eliminare il prodotto è stato fatto clic con pulsante Elimina vinto t. Se, tuttavia, l'utente fa clic su OK nella finestra di dialogo di conferma, il postback continueranno esponenziale e verrà eliminato il prodotto. Consultare [s utilizzando JavaScript `confirm()` metodo per l'invio del modulo controllo](http://www.webreference.com/programming/javascript/confirm/) per ulteriori informazioni su questa tecnica.
@@ -75,7 +75,7 @@ Con queste modifiche, è disponibile una pagina web completamente funzionale che
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>Passaggio 2: Chiamata di confirm(string) funzione da onclick di eliminare i pulsanti sul lato Client evento
 
-Con il controllo FormView creato, il passaggio finale consiste nel configurare il pulsante Elimina tali che, se si s selezionato per il visitatore, JavaScript `confirm(string)` funzione viene richiamata. Aggiunta di script sul lato client a un pulsante, LinkButton o ImageButton s lato client `onclick` evento può essere eseguito tramite l'utilizzo del `OnClientClick property`, che è una novità di ASP.NET 2.0. Poiché si vuole che il valore di `confirm(string)` restituito di funzione, è sufficiente impostare questa proprietà su:`return confirm('Are you certain that you want to delete this product?');`
+Con il controllo FormView creato, il passaggio finale consiste nel configurare il pulsante Elimina tali che, se si s selezionato per il visitatore, JavaScript `confirm(string)` funzione viene richiamata. Aggiunta di script sul lato client a un pulsante, LinkButton o ImageButton s lato client `onclick` evento può essere eseguito tramite l'utilizzo del `OnClientClick property`, che è una novità di ASP.NET 2.0. Poiché si vuole che il valore di `confirm(string)` la funzione ha restituito, è sufficiente impostare questa proprietà su: `return confirm('Are you certain that you want to delete this product?');`
 
 Dopo questa modifica la sintassi dichiarativa di eliminare LinkButton s dovrebbe essere simile al seguente:
 
@@ -90,7 +90,7 @@ Sono disponibili tutte le che s è! Figura 3 mostra una schermata di questa conf
 
 [![Un messaggio di conferma è ora visualizzato quando il pulsante Elimina](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
-**Figura 3**: conferma A viene ora visualizzato quando il pulsante Elimina ([fare clic per visualizzare l'immagine ingrandita](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))
+**Figura 3**: A conferma viene ora visualizzata quando si fa clic Delete ([fare clic per visualizzare l'immagine ingrandita](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))
 
 
 ## <a name="step-3-configuring-the-onclientclick-property-for-the-delete-button-in-a-commandfield"></a>Passaggio 3: Configurazione di proprietà OnClientClick per il pulsante Elimina in un CommandField
@@ -130,9 +130,9 @@ Con queste modifiche completate, fare clic sul pulsante Elimina in GridView Visu
 > Questa tecnica può essere usata anche per accedere a livello di codice al pulsante di eliminazione in CommandField in un controllo DetailsView. Per il controllo DetailsView, tuttavia, d crei un gestore eventi per il `DataBound` evento, poiché non dispone di DetailsView un `RowDataBound` evento.
 
 
-[![Fare clic sul pulsante di eliminazione s GridView Visualizza una finestra di dialogo di conferma personalizzata](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
+[![Facendo clic sul pulsante Elimina s GridView viene visualizzato una finestra di dialogo di conferma personalizzata](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
-**Figura 4**: fare clic sul pulsante Elimina s GridView Visualizza una finestra di dialogo di conferma personalizzato ([fare clic per visualizzare l'immagine ingrandita](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))
+**Figura 4**: fare clic sul pulsante Elimina s GridView Visualizza una finestra di dialogo di conferma personalizzata ([fare clic per visualizzare l'immagine ingrandita](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))
 
 
 ## <a name="using-templatefields"></a>Utilizzando TemplateFields
@@ -156,8 +156,8 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](implementing-optimistic-concurrency-vb.md)
-[Successivo](limiting-data-modification-functionality-based-on-the-user-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](implementing-optimistic-concurrency-vb.md)
+> [Successivo](limiting-data-modification-functionality-based-on-the-user-vb.md)

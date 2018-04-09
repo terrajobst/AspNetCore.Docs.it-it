@@ -1,5 +1,5 @@
 ---
-title: Uso di Gulp in ASP.NET Core
+title: Utilizzare Gulp in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come utilizzare Gulp in ASP.NET Core.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introduzione all'uso di Gulp in ASP.NET Core 
+# <a name="use-gulp-in-aspnet-core"></a>Utilizzare Gulp in ASP.NET Core
 
 Da [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Daniel Roth](https://github.com/danroth27), e [Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ Se è già stata creata una nuova app Web, creare un nuovo progetto applicazione
     **Esplora esecuzione attività** Mostra un elenco di attività Gulp. (Potrebbe essere necessario fare clic su di **aggiornamento** pulsante visualizzato a sinistra del nome del progetto.)
     
     ![Esplora esecuzione attività](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > Il **Task Runner Explorer** menu di scelta rapida viene visualizzata solo se *gulpfile.js* è nella directory del progetto radice.
 
 4.  Trova di sotto **attività** in **Task Runner Explorer**, fare doppio clic su **pulita**e selezionare **eseguire** dal menu a comparsa.
 
@@ -228,7 +231,7 @@ Per definire una nuova attività Gulp, modificare *gulpfile.js*.
 
     ![Eseguire innanzitutto Task Runner Explorer](using-gulp/_static/06-TaskRunner-First.png)
 
-    Si noterà che viene visualizzato il testo di output. Se si è interessati negli esempi in base a uno scenario comune, vedere le recipe Gulp.
+    Viene visualizzato il testo di output. Per esempi in base agli scenari comuni, vedere [Gulp recipe](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Definizione e l'esecuzione di attività in una serie
 
@@ -323,7 +326,7 @@ Per passare tra la compilazione per ambienti diversi, modificare il **ASPNETCORE
 
     Si noti che i collegamenti di foglio di stile puntano alle versioni dei file CSS non minimizzate.
 
-Per ulteriori informazioni relative agli ambienti di ASP.NET Core, vedere [utilizzo di più ambienti](../fundamentals/environments.md).
+Per ulteriori informazioni relative agli ambienti in ASP.NET Core, vedere [funziona con più ambienti](../fundamentals/environments.md).
 
 ## <a name="task-and-module-details"></a>Dettagli attività e il modulo
 
@@ -340,10 +343,10 @@ Per ulteriori informazioni di riferimento Gulp API, vedere [Gulp documenti API](
 
 ## <a name="gulp-recipes"></a>Gulp ricette
 
-La Comunità Gulp fornisce Gulp [ricette](https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md). Queste soluzioni sono costituiti da attività Gulp per scenari comuni.
+La community Gulp mette Gulp [recipe](https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md). Queste soluzioni sono costituiti da attività Gulp per scenari comuni.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Documentazione gulp](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
 * [Come aggregare e riduzione in ASP.NET Core](bundling-and-minification.md)
-* [Utilizzo di Grunt in ASP.NET Core](using-grunt.md)
+* [Utilizzare Grunt in ASP.NET Core](using-grunt.md)

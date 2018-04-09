@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: 'Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell''ambiente di produzione | Documenti Microsoft'
+title: "Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell'ambiente di produzione | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f3b3898bd003ace100ba05619f2c45ca808462df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell'ambiente di produzione
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -52,7 +52,7 @@ Come spiegato nel [distribuzione per l'esercitazione di ambiente di Test](deploy
 In questa sezione dell'esercitazione si creerà un'app web e il database da utilizzare per l'ambiente di gestione temporanea e verrà distribuzione di gestione temporanea e test presente prima della creazione e la distribuzione nell'ambiente di produzione.
 
 > [!NOTE]
-> La procedura seguente viene illustrato come creare un'app web in Azure App Service tramite il portale di gestione di Azure. Nella versione più recente di Azure SDK, è possibile farlo anche senza uscire da Visual Studio, tramite Esplora Server. In Visual Studio 2013, è anche possibile creare un'app web direttamente dalla finestra di dialogo di pubblicazione. Per ulteriori informazioni, vedere [creare un'app web ASP.NET in Azure App Service.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
+> La procedura seguente viene illustrato come creare un'app web in Azure App Service tramite il portale di gestione di Azure. Nella versione più recente di Azure SDK, è possibile farlo anche senza uscire da Visual Studio, tramite Esplora Server. In Visual Studio 2013, è anche possibile creare un'app web direttamente dalla finestra di dialogo di pubblicazione. Per altre informazioni, vedere [creare un'app web ASP.NET in Azure App Service.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
 
 
 1. Nel [il portale di gestione di Azure](https://manage.windowsazure.com/), fare clic su **siti Web**, quindi fare clic su **New**.
@@ -144,10 +144,10 @@ Dopo avere creato un'app web e i database per l'ambiente di gestione temporanea,
 9. 1. Selezionare **Aggiorna database**.
 
         Il **stringa di connessione remota** casella direttamente sotto **DefaultConnection** viene compilato con la stringa di connessione dal file con estensione publishsettings. La stringa di connessione include le credenziali di SQL Server, che vengono archiviate in testo normale nel *pubxml* file. Se si preferisce non archiviarli in modo permanente non esiste, è possibile rimuoverli dal profilo di pubblicazione dopo aver distribuito il database e archiviarle in Azure. Per ulteriori informazioni, vedere [come proteggere il database ASP.NET le stringhe di connessione durante la distribuzione in Azure dall'origine](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) sul blog di Scott Hanselman.
-    2. Fare clic su **configurare gli aggiornamenti di database**.
-    3. Nel **Configura Aggiornamenti Database** la finestra di dialogo, fare clic su **aggiungere Script SQL**.
-    4. Nel **aggiungere Script SQL** passare al *aspnet-data-prod.sql* script che è salvato in precedenza nella cartella della soluzione e quindi fare clic su **aprire**.
-    5. Chiudi il **Configura Aggiornamenti Database** la finestra di dialogo.
+      2. Fare clic su **configurare gli aggiornamenti di database**.
+      3. Nel **Configura Aggiornamenti Database** la finestra di dialogo, fare clic su **aggiungere Script SQL**.
+      4. Nel **aggiungere Script SQL** passare al *aspnet-data-prod.sql* script che è salvato in precedenza nella cartella della soluzione e quindi fare clic su **aprire**.
+      5. Chiudi il **Configura Aggiornamenti Database** la finestra di dialogo.
 10. In **SchoolContext** nel **database** selezionare **eseguire migrazioni Code First (esecuzione all'avvio dell'applicazione)**.
 
     Visual Studio visualizza **eseguire le migrazioni Code First** anziché **aggiornamento Database** per `DbContext` classi. Se si desidera utilizzare il provider dbDacFx anziché le migrazioni per distribuire un database a cui accede tramite un `DbContext` classe, vedere [come distribuire un database senza migrazioni Code First?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) nelle domande frequenti di distribuzione Web per Visual Studio e ASP.NET su MSDN.
@@ -296,11 +296,11 @@ Nella prossima esercitazione, verrà di aggiornare il codice dell'applicazione e
 
 > [!NOTE]
 > Mentre l'applicazione è in uso nell'ambiente di produzione deve implementare un piano di ripristino. Deve essere periodicamente backup dei database da app di produzione in un percorso di archiviazione sicura e si devono mantenere diverse generazioni di tali backup. Quando si aggiorna il database, è necessario creare una copia di backup da immediatamente prima della modifica. Quindi, se si commette un errore e non individuarla solo dopo aver distribuito nell'ambiente di produzione, sarà comunque in grado di ripristinare il database allo stato che precedente danneggiamento. Per ulteriori informazioni, vedere [Database SQL di Azure Backup e ripristino](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
-
-
+> 
+> 
 > [!NOTE]
 > In questa esercitazione di SQL Server edizione che si desidera distribuire a è il Database SQL di Azure. Durante il processo di distribuzione è simile ad altre edizioni di SQL Server, un'applicazione di produzione reale potrebbe richiedere un codice speciale per il Database SQL di Azure in alcuni scenari. Per ulteriori informazioni, vedere [utilizzo con Database SQL di Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) e [scelta tra SQL Server e Database SQL di Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
-
->[!div class="step-by-step"]
-[Precedente](setting-folder-permissions.md)
-[Successivo](deploying-a-code-update.md)
+> 
+> [!div class="step-by-step"]
+> [Precedente](setting-folder-permissions.md)
+> [Successivo](deploying-a-code-update.md)

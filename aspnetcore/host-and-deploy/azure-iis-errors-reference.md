@@ -1,7 +1,7 @@
 ---
 title: Riferimento per gli errori comuni di servizio App di Azure e IIS con ASP.NET Core
 author: guardrex
-description: "Distinguere gli errori più comuni per l'hosting di applicazioni ASP.NET Core servizio app di Azure e IIS."
+description: Distinguere gli errori più comuni per l'hosting di applicazioni ASP.NET Core servizio app di Azure e IIS.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Riferimento per gli errori comuni di servizio App di Azure e IIS con ASP.NET Core
 
@@ -30,7 +30,7 @@ Raccogliere le seguenti informazioni:
 
 Confrontare le informazioni per i seguenti errori. Se viene trovata una corrispondenza, seguire i consigli sulla risoluzione dei problemi.
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Il programma di installazione non riesce ad ottenere VC++ Ridistribuibile
 
@@ -38,11 +38,11 @@ Confrontare le informazioni per i seguenti errori. Se viene trovata una corrispo
 
 * **Installer Log Exception&#8224;:** Error 0x80072efd oppure0x80072f76: Impossibile eseguire i file EXE del pacchetto
 
-  &#8224; Il log si trova in C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
+  & #8224; Il log si trova in C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
 
 Risoluzione dei problemi:
 
-* Se il sistema non ha accesso a Internet durante l'installazione dell'aggregazione di hosting del server, questa eccezione si verifica quando il programma di installazione non riesce ad ottenere *Microsoft Visual C++ 2015 Redistributable*. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Se il programma di installazione non riesce, il server potrebbe non ricevere il runtime .NET Core necessario per ospitare una distribuzione dipendenti dal framework (protezione). Se l'hosting di un tipo di protezione, verificare che il runtime viene installato nei programmi &amp; funzionalità. Se è necessario ottenere un programma di installazione di runtime da [Scarica .NET](https://www.microsoft.com/net/download/core). Dopo aver installato il runtime, riavviare il sistema o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
+* Se il sistema non ha accesso a Internet durante l'installazione dell'aggregazione di hosting del server, questa eccezione si verifica quando il programma di installazione non riesce ad ottenere *Microsoft Visual C++ 2015 Redistributable*. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Se il programma di installazione non riesce, il server potrebbe non ricevere il runtime .NET Core necessario per ospitare una distribuzione dipendenti dal framework (protezione). Se l'hosting di un tipo di protezione, verificare che il runtime viene installato nei programmi &amp; funzionalità. Se è necessario ottenere un programma di installazione del runtime da [.NET tutti i download](https://www.microsoft.com/net/download/all). Dopo aver installato il runtime, riavviare il sistema o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>L'aggiornamento del sistema operativo ha rimosso il modulo di ASP.NET Core a 32 bit
 
@@ -138,7 +138,7 @@ Risoluzione dei problemi:
 
 * Un tipo di protezione sono stata distribuita e .NET Core installato senza il riavvio di IIS. Riavviare il server o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
-* Un tipo di protezione può essere distribuito senza installare il runtime .NET Core nel sistema host. Se il runtime .NET Core non è stato installato, eseguire il **programma di installazione di .NET Core Windows Server che ospita bundle** nel sistema. Vedere [Installare l'aggregazione di Hosting di.NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Se si tenta di installare il runtime .NET Core in un sistema senza una connessione Internet, ottenere il runtime da [Scarica .NET](https://www.microsoft.com/net/download/core) ed eseguire il programma di installazione hosting bundle per installare il modulo di base di ASP.NET. Completare l'installazione riavviando il sistema o riavviando IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
+* Un tipo di protezione può essere distribuito senza installare il runtime .NET Core nel sistema host. Se il runtime .NET Core non è stato installato, eseguire il **programma di installazione di .NET Core Windows Server che ospita bundle** nel sistema. Vedere [Installare l'aggregazione di Hosting di.NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Se si tenta di installare il runtime .NET Core in un sistema senza una connessione Internet, ottenere il runtime dal [.NET tutti i download](https://www.microsoft.com/net/download/all) ed eseguire il programma di installazione hosting bundle per installare il modulo di base di ASP.NET. Completare l'installazione riavviando il sistema o riavviando IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
 * Un tipo di protezione sono stata distribuita e *Microsoft Visual C++ 2015 Redistributable (x64)* non è installato nel sistema. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
@@ -211,6 +211,18 @@ Risoluzione dei problemi
 Risoluzione dei problemi
 
 * Verificare che il file *web.config* della sotto-applicazione non includa una sezione `<handlers>`.
+
+## <a name="stdout-log-path-incorrect"></a>percorso di log di stdout non corretto
+
+* **Browser:** app risponde normalmente.
+
+* **Registro applicazioni:** avviso: non è possibile creare stdoutLogFile \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, ErrorCode = - 2147024893.
+
+* **Registro del modulo di ASP.NET Core:** il file di registro non è stato creato
+
+Risoluzione dei problemi
+
+* Il `stdoutLogFile` percorso specificato nella `<aspNetCore>` elemento della *Web. config* non esiste. Per altre informazioni, vedere la [il reindirizzamento e la creazione di Log](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) sezione dell'argomento di riferimento di configurazione ASP.NET Core modulo.
 
 ## <a name="application-configuration-general-issue"></a>Problema generale della configurazione dell'applicazione
 

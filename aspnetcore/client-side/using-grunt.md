@@ -1,7 +1,7 @@
 ---
-title: Utilizzo di Grunt in ASP.NET Core
+title: Utilizzare Grunt in ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: c23f170b36ac1b9623835337020f2b5ac9514971
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-grunt-in-aspnet-core"></a>Utilizzo di Grunt in ASP.NET Core 
+# <a name="use-grunt-in-aspnet-core"></a>Utilizzare Grunt in ASP.NET Core
 
 Da [Noel riso](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt è un'esecuzione attività JavaScript che consente di automatizzare minimizzazione script, la compilazione di TypeScript, gli strumenti "lint" qualità del codice, pre-processori di CSS e praticamente alcun ricorrenti complessa che deve eseguire per supportare lo sviluppo di client. Grunt è completamente supportato in Visual Studio, anche se i modelli di progetto ASP.NET utilizzano Gulp per impostazione predefinita (vedere [utilizzando Gulp](using-gulp.md)).
+Grunt è un'esecuzione attività JavaScript che consente di automatizzare minimizzazione script, la compilazione di TypeScript, gli strumenti "lint" qualità del codice, pre-processori di CSS e praticamente alcun ricorrenti complessa che deve eseguire per supportare lo sviluppo di client. Grunt è completamente supportato in Visual Studio, anche se i modelli di progetto ASP.NET utilizzano Gulp per impostazione predefinita (vedere [utilizzare Gulp](using-gulp.md)).
 
 In questo esempio utilizza un progetto ASP.NET Core vuoto come punto di partenza, per mostrare come automatizzare il processo di compilazione del client da zero.
 
@@ -31,11 +31,11 @@ Nell'esempio di aver pulisce la directory di distribuzione di destinazione, comb
 
 * **grunt-pensionistici-jshint**: un plug-in che esamina la qualità del codice JavaScript.
 
-* **grunt-pensionistici-concat**: un plug-in che unisce i file in un singolo file.
+* **grunt-pensionistici-concat**: un plug-in che consente di unire i file in un singolo file.
 
 * **grunt-pensionistici uglify**: un plug-in che minimizza JavaScript per ridurre le dimensioni.
 
-* **grunt-pensionistici-watch**: un plug-in che esegue attività di file.
+* **grunt-pensionistici-watch**: un plug-in che verifica la presenza di attività di file.
 
 ## <a name="preparing-the-application"></a>Preparazione dell'applicazione
 
@@ -129,16 +129,16 @@ I pacchetti per ogni elemento devDependencies eseguirà il download, insieme a t
 
 Grunt viene configurato con un manifesto denominato *Gruntfile.js* che definisce, carica e registra le attività che possono essere eseguite manualmente o a cui è configurate per essere eseguito automaticamente in base sugli eventi in Visual Studio.
 
-1.  Fare clic sul progetto e selezionare **Aggiungi > Nuovo elemento**. Selezionare il **file di configurazione Grunt** opzione, lasciare il nome predefinito, *Gruntfile.js*, fare clic su di **Aggiungi** pulsante.
+1. Fare clic sul progetto e selezionare **Aggiungi > Nuovo elemento**. Selezionare il **file di configurazione Grunt** opzione, lasciare il nome predefinito, *Gruntfile.js*, fare clic su di **Aggiungi** pulsante.
 
-    Il codice iniziale include una definizione di modulo e `grunt.initConfig()` metodo. Il `initConfig()` viene utilizzato per impostare le opzioni per ogni pacchetto, e il resto del modulo verrà caricato e registrare le attività.
+   Il codice iniziale include una definizione di modulo e `grunt.initConfig()` metodo. Il `initConfig()` viene utilizzato per impostare le opzioni per ogni pacchetto, e il resto del modulo verrà caricato e registrare le attività.
     
-    ```javascript
-    module.exports = function (grunt) {
-      grunt.initConfig({
-      });
-    };
-    ```
+   ```javascript
+   module.exports = function (grunt) {
+     grunt.initConfig({
+     });
+   };
+   ```
 
 2. All'interno di `initConfig()` metodo, aggiungere le opzioni per il `clean` come illustrato nell'esempio di attività *Gruntfile.js* sotto. L'attività clean accetta una matrice di stringhe di directory. Questa operazione rimuove i file da wwwroot/lib e la directory temp/intera.
 
@@ -207,16 +207,16 @@ Grunt viene configurato con un manifesto denominato *Gruntfile.js* che definisce
     > [!NOTE]
     > L'opzione "-W069" è un errore generato da jshint quando JavaScript venga utilizzata la sintassi per l'assegnazione di una proprietà anziché la notazione del punto, ad esempio a racchiudere tra parentesi quadre `Tastes["Sweet"]` anziché `Tastes.Sweet`. L'opzione consente di disattivare l'avviso per consentire il resto del processo di continuare.
 
-10.  Aggiungere il `uglify` attività utilizzando il codice riportato di seguito.
+10. Aggiungere il `uglify` attività utilizzando il codice riportato di seguito.
 
     Minimizza l'attività di *combined.js* file trovato nella directory temporanea e crea il file dei risultati in wwwroot/lib che seguono la convenzione di denominazione standard  *\<nome file\>. min.js*.
     
     ```javascript
     uglify: {
-      all: {
-        src: ['temp/combined.js'],
-        dest: 'wwwroot/lib/combined.min.js'
-      }
+     all: {
+       src: ['temp/combined.js'],
+       dest: 'wwwroot/lib/combined.min.js'
+     }
     },
     ```
 
@@ -241,7 +241,7 @@ Grunt viene configurato con un manifesto denominato *Gruntfile.js* che definisce
     ![al termine di queste attività di Esplora soluzioni](using-grunt/_static/solution-explorer-after-all-tasks.png)
     
     > [!NOTE]
-    > Per ulteriori informazioni sulle opzioni per ogni pacchetto, visitare [https://www.npmjs.com/](https://www.npmjs.com/) e ricerca il nome del pacchetto nella casella di ricerca nella pagina principale. Ad esempio, è possibile cercare il pacchetto grunt-pensionistici pulire per ottenere un collegamento della documentazione che descrive tutti i relativi parametri.
+    > Per ulteriori informazioni sulle opzioni per ogni pacchetto, visitare [ https://www.npmjs.com/ ](https://www.npmjs.com/) e ricerca il nome del pacchetto nella casella di ricerca nella pagina principale. Ad esempio, è possibile cercare il pacchetto grunt-pensionistici pulire per ottenere un collegamento della documentazione che descrive tutti i relativi parametri.
 
 ### <a name="all-together-now"></a>Ora è possibile
 
@@ -255,7 +255,7 @@ La nuova attività viene visualizzato in Esplora esecuzione attività in attivit
 
 ![attività grunt alias](using-grunt/_static/alias-tasks.png)
 
-## <a name="watching-for-changes"></a>Analizzare le modifiche apportate
+## <a name="watching-for-changes"></a>Controllo per la ricerca di modifiche
 
 Oggetto `watch` attività controlla su file e directory. Le espressioni di controllo Attiva attività automaticamente se vengono rilevate modifiche. Aggiungere il codice seguente per initConfig per controllare le modifiche a \*file con estensione js nella directory TypeScript. Se viene modificato un file JavaScript, `watch` eseguirà il `all` attività.
 
@@ -292,4 +292,4 @@ Grunt è un canale potente attività che può essere utilizzato per automatizzar
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-   * [Uso di Gulp](using-gulp.md)
+   * [Usare Gulp](using-gulp.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
-title: 'Parte 5: Creazione di un''interfaccia utente dinamica con Knockout.js | Documenti Microsoft'
+title: "Parte 5: Creazione di un'interfaccia utente dinamica con Knockout.js | Documenti Microsoft"
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 20ebdb1b8ba710e0fbc6040f7cd4064b44658c53
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b63446d076fbb1143641dead788042967b996bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Parte 5: Creazione di un'interfaccia utente dinamica con Knockout.js
 ====================
@@ -54,7 +54,7 @@ Prima di definire una classe di modello di visualizzazione:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample3.js)]
 
-**ko.observableArray** è un tipo speciale di oggetto in Knockout, chiamato un *observable*. Dal [Knockout.js documentazione](http://knockoutjs.com/documentation/observables.html): observable è un "oggetto JavaScript che può inviare una notifica di sottoscrittori sulle modifiche." Quando il contenuto di un oggetto osservabile cambia, la vista viene aggiornata automaticamente in modo che corrisponda.
+**ko.observableArray** è un tipo speciale di oggetto in Knockout, chiamato un' *observable*. Dal [Knockout.js documentazione](http://knockoutjs.com/documentation/observables.html): observable è un "oggetto JavaScript che può inviare una notifica di sottoscrittori sulle modifiche." Quando il contenuto di un oggetto osservabile cambia, la vista viene aggiornata automaticamente in modo che corrisponda.
 
 Per popolare il `products` matrice, effettuare una richiesta AJAX all'API web. Tenere presente che è archiviato l'URI di base per l'API nel contenitore delle visualizzazioni (vedere [parte 4](using-web-api-with-entity-framework-part-4.md) dell'esercitazione).
 
@@ -96,6 +96,6 @@ Ecco il codice completo per la visualizzazione di amministrazione:
 
 Eseguire l'applicazione, accedere con l'account amministratore e fare clic sul collegamento "Admin". Vedere l'elenco dei prodotti e in grado di creare, aggiornare o eliminare i prodotti.
 
->[!div class="step-by-step"]
-[Precedente](using-web-api-with-entity-framework-part-4.md)
-[Successivo](using-web-api-with-entity-framework-part-6.md)
+> [!div class="step-by-step"]
+> [Precedente](using-web-api-with-entity-framework-part-4.md)
+> [Successivo](using-web-api-with-entity-framework-part-6.md)

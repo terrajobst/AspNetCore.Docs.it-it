@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 title: Convalida delle credenziali dell'utente nell'archivio utente di appartenenza (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà esaminato convalidare le credenziali dell'utente, un archivio utente di appartenenza utilizzando sia a livello di codice indica che il controllo di accesso..."
+description: In questa esercitazione verrà esaminato convalidare le credenziali dell'utente, un archivio utente di appartenenza utilizzando sia a livello di codice indica che il controllo di accesso...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f57bc8c32757c1ea25bf6bbb34539570e4c09aad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Convalida le credenziali utente nell'archivio utente di appartenenza (VB)
 ====================
@@ -46,9 +46,9 @@ Il `SqlMembershipProvider` convalida le credenziali fornite per ottenere la pass
 Consente di aggiornare la pagina di accesso (~ /`Login.aspx`) in modo che la convalida delle credenziali fornite nell'archivio utente di appartenenza framework. È stata creata la pagina di accesso nel <a id="Tutorial02"> </a> [ *una panoramica dell'autenticazione basata su form* ](../introduction/an-overview-of-forms-authentication-vb.md) esercitazione, la creazione di un'interfaccia con due caselle di testo per il nome utente e password, un Memorizzazione dei dati, casella di controllo e un pulsante di accesso (vedere la figura 1). Il codice di convalida le credenziali immesse in un elenco hardcoded di coppie di nome utente e password (Scott/password, Jisun/password e Sam/password). Nel <a id="Tutorial03"> </a> [ *configurazione dell'autenticazione form e argomenti avanzati* ](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md) esercitazione sono aggiornati di codice della pagina di accesso per archiviare informazioni aggiuntive nei moduli ticket di autenticazione `UserData` proprietà.
 
 
-[![L'account di accesso dell'interfaccia pagina include due caselle di testo, un controllo CheckBoxList e un pulsante](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
+[![Interfaccia di pagina di accesso include due caselle di testo, un CheckBoxList e un pulsante](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
 
-**Figura 1**: un pulsante interfaccia include due caselle di testo della pagina di accesso di e un controllo CheckBoxList ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))
+**Figura 1**: interfaccia include due caselle di testo della pagina account di accesso, un CheckBoxList e un pulsante ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))
 
 
 Interfaccia utente della pagina di accesso può rimangono invariato, ma è necessario sostituire il pulsante di accesso `Click` gestore dell'evento con il codice che convalida l'utente nell'archivio utente di appartenenza framework. Aggiornare il gestore dell'evento in modo che il codice viene visualizzato come segue:
@@ -71,8 +71,8 @@ Quando un visitatore raggiunge la pagina di accesso e invia le proprie credenzia
 
 Per evitare tali attacchi di forza bruta, il framework di appartenenza per bloccare un utente se sono presenti un certo numero di tentativi di accesso non riuscito entro un determinato periodo di tempo. I parametri esatti possono essere configurati tramite le impostazioni della configurazione dei provider di appartenenza due seguenti:
 
-- `maxInvalidPasswordAttempts`-Specifica il numero di password non valida tentativi consentiti per l'utente entro il periodo di tempo prima che l'account è bloccato. Il valore predefinito è 5.
-- `passwordAttemptWindow`-indica il periodo di tempo in minuti durante i quali il numero specificato di tentativi di accesso non validi causerà l'account venga bloccato. Il valore predefinito è 10.
+- `maxInvalidPasswordAttempts` -Specifica il numero di password non valida tentativi consentiti per l'utente entro il periodo di tempo prima che l'account è bloccato. Il valore predefinito è 5.
+- `passwordAttemptWindow` -indica il periodo di tempo in minuti durante i quali il numero specificato di tentativi di accesso non validi causerà l'account vengano bloccati. Il valore predefinito è 10.
 
 Se un utente è stato bloccato, Lei non può accedere fino a quando non viene sbloccato dall'amministratore il proprio account. Quando un utente viene bloccato, il `ValidateUser` metodo verrà *sempre* restituire `False`, anche se vengono fornite credenziali valide. Durante questo comportamento riduce la probabilità che un pirata informatico verrà interrotte nel sito tramite i metodi di attacchi di forza bruta, possono finire blocca un utente valido semplicemente ha dimenticato la password o accidentalmente con il tasto BLOC MAIUSC attivo o ha un giorno digitazione errato.
 
@@ -89,9 +89,9 @@ Il [controllo di accesso Web](https://msdn.microsoft.com/library/system.web.ui.w
 Consente di aggiornare `Login.aspx`, sostituendo l'interfaccia creato manualmente e con un controllo di accesso di codice. Avviare rimuovendo il markup esistente e di codice `Login.aspx`. È possibile eliminarlo definitive oppure semplicemente impostarlo come commento. Per impostare come commento markup dichiarativo, racchiuderlo tra il `<%--` e `--%>` delimitatori. È possibile immettere manualmente questi delimitatori o, come illustrato nella figura 2, è possibile selezionare il testo da impostare come commento e quindi fare clic sul commento l'icona di righe selezionate nella barra degli strumenti. Analogamente, è possibile utilizzare l'icona di righe selezionate come commento per impostare come commento il codice selezionato nella classe code-behind.
 
 
-[![Impostare come commento il Markup dichiarativo esistente e il codice sorgente in login](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
+[![Commentare il Markup dichiarativo esistente e il codice sorgente in Login. aspx](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
 
-**Figura 2**: commento Out il esistente Markup dichiarativo e codice sorgente Login ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))
+**Figura 2**: commento Out the esistente Markup dichiarativo e codice sorgente Login ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))
 
 
 > [!NOTE]
@@ -110,9 +110,9 @@ E abbiamo finito! Quando si fa clic sul pulsante Accedi del controllo di accesso
 
 Il controllo di accesso utilizza quattro fattori per determinare la pagina appropriata per reindirizzare l'utente a su un account di accesso ha esito positivo:
 
-- Se il controllo di accesso è nella pagina di accesso definito da `loginUrl` impostazione nella configurazione dell'autenticazione form; questa impostazione predefinita è`Login.aspx`
+- Indica se il controllo di accesso è nella pagina di accesso come definito dal `loginUrl` impostazione nella configurazione dell'autenticazione form; valore predefinito di questa impostazione è `Login.aspx`
 - La presenza di un `ReturnUrl` parametro querystring
-- Il valore di controllo di accesso [ `DestinationUrl` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
+- Il valore del controllo dell'account di accesso [ `DestinationUrl` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - Il `defaultUrl` valore specificato nei form di impostazioni di configurazione di autenticazione; valore predefinito di questa impostazione è Default.aspx
 
 Figura 4 illustra come il controllo di accesso utilizza questi quattro parametri per giungere a decisione pagina appropriata.
@@ -148,9 +148,9 @@ Riepilogo impostazioni delle proprietà del controllo di accesso mediante l'impo
 Dopo aver apportato queste modifiche delle proprietà, markup dichiarativo e l'aspetto del controllo di accesso dovrebbe essere simile a quanto illustrato nella figura 5.
 
 
-[![Valori delle proprietà del controllo di accesso determinano l'aspetto](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
+[![I valori delle proprietà del controllo dell'account di accesso determinano l'aspetto](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
 
-**Figura 5**: i valori determinano aspetto delle proprietà del controllo di accesso relativo ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))
+**Figura 5**: valori determinano suo aspetto le proprietà del controllo di accesso di ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))
 
 
 ### <a name="configuring-the-login-controls-layout"></a>Configurazione di Layout del controllo di accesso
@@ -167,9 +167,9 @@ Per eseguire la prima attività, è necessario convertire il controllo di access
 Si aggiorna il controllo di accesso in modo che richiede agli utenti il nome utente, password e l'indirizzo di posta elettronica solo autentica l'utente se l'indirizzo di posta elettronica fornito corrisponde l'indirizzo di posta elettronica nel file. È innanzitutto necessario convertire l'interfaccia del controllo di accesso a un modello. Smart Tag del controllo di accesso, scegliere la funzione Convert per l'opzione del modello.
 
 
-[![Converte il controllo di accesso a un modello](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
+[![Convertire il controllo di accesso a un modello](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
 
-**Figura 6**: convertire il controllo di accesso a un modello ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
+**Figura 6**: convertire un modello di controllo di accesso ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
 
 
 > [!NOTE]
@@ -179,9 +179,9 @@ Si aggiorna il controllo di accesso in modo che richiede agli utenti il nome ute
 Conversione del controllo di accesso a un modello aggiunge un `LayoutTemplate` al markup dichiarativo del controllo con gli elementi HTML e controlli Web di definizione dell'interfaccia utente. Come illustrato nella figura 7, conversione il controllo in un modello consente di rimuovere un numero di proprietà dalla finestra delle proprietà, ad esempio `TitleText`, `CreateUserUrl`e così via, in quanto questi valori vengono ignorati quando si utilizza un modello.
 
 
-[![Proprietà di un numero inferiore sono che disponibili quando il controllo di accesso viene convertito in un modello](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
+[![Le proprietà di un numero inferiore sono che disponibili quando il controllo di accesso viene convertito in un modello](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
 
-**Figura 7**: meno proprietà sono disponibili quando il controllo di accesso viene convertito in un modello ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
+**Figura 7**: le proprietà di un numero inferiore sono disponibili quando il controllo di accesso viene convertito in un modello ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
 
 
 Il markup HTML nel `LayoutTemplate` può essere modificato in base alle esigenze. Analogamente, è possibile aggiungere nuovi controlli Web per il modello. Tuttavia, è importante tale account di accesso core Web controlli rimangono nel modello e mantenere assegnato loro `ID` valori. In particolare, non rimuovere o rinominare il `UserName` o `Password` nelle caselle di testo, il `RememberMe` casella di controllo, il `LoginButton` pulsante, il `FailureText` etichetta, o `RequiredFieldValidator` controlli.
@@ -211,7 +211,7 @@ Se le credenziali fornite sono valide, quindi viene creato il ticket di autentic
 Figura 9 offre un diagramma di flusso del flusso di lavoro autenticazione.
 
 
-[![Flusso di lavoro di controllo di accesso autenticazione](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
+[![Flusso di lavoro autenticazione del controllo dell'account di accesso](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
 
 **Figura 9**: flusso di lavoro del controllo di accesso di autenticazione ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image27.png))
 
@@ -230,7 +230,7 @@ Come si può notare, la `Authenticate` gestore eventi viene passato un oggetto d
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Determinare e convalida le credenziali fornite
 
-Utilizzare il controllo di accesso [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) e [ `Password` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) per determinare le credenziali di nome utente e password immesse dall'utente. Per determinare i valori immessi in tutti i controlli Web aggiuntivi (ad esempio il `Email` TextBox abbiamo aggiunto nel passaggio precedente), utilizzare `LoginControlID.FindControl`("*`controlID`*") per ottenere un riferimento a livello di codice per il Web controllo del modello cui `ID` proprietà è uguale a  *`controlID`* . Ad esempio, per ottenere un riferimento di `Email` casella di testo, utilizzare il codice seguente:
+Utilizzare il controllo di accesso [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) e [ `Password` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) per determinare le credenziali di nome utente e password immesse dall'utente. Per determinare i valori immessi in tutti i controlli Web aggiuntivi (ad esempio il `Email` TextBox abbiamo aggiunto nel passaggio precedente), utilizzare `LoginControlID.FindControl`("*`controlID`*") per ottenere un riferimento a livello di codice per il Web controllo del modello cui `ID` proprietà è uguale a *`controlID`*. Ad esempio, per ottenere un riferimento di `Email` casella di testo, utilizzare il codice seguente:
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
@@ -252,7 +252,7 @@ Con questo codice, tentare di accedere come utente valido, immettere la corrette
 
 [![Tito non potrà accedere quando si specifica un indirizzo di posta elettronica non corretto](validating-user-credentials-against-the-membership-user-store-vb/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image28.png)
 
-**Figura 10**: Tito non Log In quando fornisce un indirizzo di posta elettronica non corretto ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))
+**Figura 10**: Tito Impossibile Log In quando fornisce un indirizzo di posta elettronica non corretto ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))
 
 
 > [!NOTE]
@@ -283,9 +283,9 @@ Il codice sopra riportato viene avviato, impostare il controllo di accesso `Fail
 Per testare questo codice, intenzionalmente tentare di accedere come un utente esistente, ma utilizzare una password errata. Eseguire l'operazione di cinque volte in una riga all'interno di un intervallo di tempo di 10 minuti e l'account verrà bloccato. Come illustrato nella figura 11, accesso successivi tentativi verranno viene sempre esito negativo (anche con la password corretta), ma verranno visualizzati più descrittivo, l'account è stato bloccato a causa di troppi tentativi di accesso non valido. Contattare l'amministratore per il messaggio di sbloccare account.
 
 
-[![Tito eseguiti troppi tentativi di accesso non validi ed è stato bloccato](validating-user-credentials-against-the-membership-user-store-vb/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image31.png)
+[![Tito eseguiti troppi tentativi di accesso non valide ed è stato bloccato](validating-user-credentials-against-the-membership-user-store-vb/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image31.png)
 
-**Figura 11**: Tito eseguita troppo numerosi tentativi non validi account di accesso ed è stato bloccato ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))
+**Figura 11**: Tito eseguita troppo numerosi tentativi non validi dell'account di accesso ed è stato bloccato ([fare clic per visualizzare l'immagine ingrandita](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -305,17 +305,17 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Visualizzazione di messaggi personalizzati da bloccato e gli utenti di Non approvato](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
 - [Analisi di ASP.NET 2.0 appartenenza, ruoli e profilo](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Procedura: Creare una pagina di accesso ASP.NET](https://msdn.microsoft.com/library/ms178331.aspx)
-- [Documentazione tecnica di controllo di accesso](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
-- [Utilizzo dei controlli di accesso](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
+- [Documentazione tecnica di controllo dell'account di accesso](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
+- [Usando i controlli di accesso](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Teresa Murphy e Michael Olivero. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](creating-user-accounts-vb.md)
-[Successivo](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-user-accounts-vb.md)
+> [Successivo](user-based-authorization-vb.md)

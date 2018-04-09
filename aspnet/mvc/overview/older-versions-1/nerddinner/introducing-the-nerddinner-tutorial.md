@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 57eedb224e26867c78cc399b89f91b95f722074d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>Introduzione dell'esercitazione NerdDinner
 ====================
@@ -63,15 +63,15 @@ Se sono interessati che frequentano dinner potranno accedere o registrare nel si
 
 Per avviare l'applicazione NerdDinner tramite File - verrà&gt;comando nuovo progetto in Visual Studio per creare un nuovo progetto ASP.NET MVC. Verranno quindi aggiunti in modo incrementale e delle funzionalità. Lungo il percorso ci occuperemo:
 
-1. [Come creare un nuovo progetto MVC ASP.NET](# "creare un nuovo progetto MVC ASP.NET")
+1. [Come creare un nuovo progetto ASP.NET MVC](# "crea un nuovo progetto MVC ASP.NET")
 2. [Come creare un database](# "creare un Database")
-3. [Come creare un modello con le convalide di regola business](# "compilare un modello con la convalida di regole Business")
-4. [Come utilizzare i controller e visualizzazioni per implementare un elenco o dettagli dell'interfaccia utente](# "utilizzano controller e visualizzazioni per implementare un'interfaccia utente/dettagli")
-5. [Come fornire CRUD (create, leggere, aggiornare ed eliminare) dati formano supporto voce](# "fornire CRUD (Create, Read, Update, Delete) dati modulo voce supporta")
-6. [Come utilizzare ViewData e implementare classi ViewModel](# "utilizzare ViewData e implementare classi ViewModel")
-7. [Come utilizzare nuovamente l'interfaccia utente utilizzando le pagine master e parziali](# "riutilizzo di interfaccia utente utilizzando pagine Master e parziali")
-8. [Come implementare il paging dei dati efficiente](# "implementare Paging dati efficiente")
-9. [Come proteggere le applicazioni tramite l'autenticazione e autorizzazione](# "applicazioni protette di tramite l'autenticazione e autorizzazione")
+3. [Come creare un modello con le convalide di regola business](# "compilare un modello con le convalide di regola Business")
+4. [Come usare controller e visualizzazioni per implementare un listato/dettagli UI](# "utilizzano controller e visualizzazioni per implementare un'interfaccia utente/dettagli")
+5. [Come fornire CRUD (create, leggere, aggiornare ed eliminare) dati formano supporto voce](# "forniscono CRUD (Create, Read, Update, Delete) dati Form voce supporta")
+6. [Come utilizzare ViewData e implementare le classi ViewModel](# "ViewData usare e implementare le classi ViewModel")
+7. [Come per il riutilizzo dell'interfaccia utente utilizzando le pagine master e parziali](# "riutilizzo di interfaccia utente utilizzando pagine Master e parziali")
+8. [Come implementare il paging dei dati efficiente](# "implementare Paging dei dati efficiente")
+9. [Come proteggere le applicazioni tramite l'autenticazione e autorizzazione](# "sicuro delle applicazioni usando autenticazione e autorizzazione")
 10. [Come utilizzare AJAX per distribuire gli aggiornamenti dinamici](# "utilizzare AJAX per inviare gli aggiornamenti dinamici")
 11. [Come utilizzare AJAX per implementare scenari di mapping](# "utilizzare AJAX per implementare scenari di Mapping")
 12. [Come abilitare unit test automatici](# "attiva Testing unità automatizzati")
@@ -80,7 +80,7 @@ Per avviare l'applicazione NerdDinner tramite File - verrà&gt;comando nuovo pro
 
 Per compilare l'applicazione, è possibile utilizzare Visual Studio 2008 o il libero Visual Web Developer 2008 Express. È possibile utilizzare SQL Server o il disponibile SQL Server Express per il database.
 
-È possibile installare ASP.NET MVC, Visual Web Developer 2008 Express e SQL Server Express (gratuitamente) tramite V2 del [installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)
+È possibile installare ASP.NET MVC, Visual Web Developer 2008 Express e SQL Server Express (gratuitamente) tramite V2 del [installazione guidata piattaforma Web Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)
 
 ### <a name="now-lets-get-started"></a>Ora è possibile iniziare subito...
 
@@ -88,5 +88,5 @@ Ora che abbiamo trattato novità NerdDinner, si riporta il nostro manicotti e sc
 
 Inizieremo con File -&gt;nuovo progetto di Visual Studio per creare l'applicazione NerdDinner.
 
->[!div class="step-by-step"]
-[Successivo](create-a-new-aspnet-mvc-project.md)
+> [!div class="step-by-step"]
+> [avanti](create-a-new-aspnet-mvc-project.md)

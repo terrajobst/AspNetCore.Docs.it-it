@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dc11072e053cbddd089e5df4bcea6d2a7af864fc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di Test
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -52,15 +52,15 @@ Per distribuire in IIS nel computer di sviluppo, è necessario che IIS e distrib
 
     Per eseguire l'installazione guidata piattaforma Web per installare IIS e distribuzione Web, utilizzare il collegamento seguente. Se è già stato installato IIS, distribuzione Web o dei relativi componenti necessari, l'installazione guidata piattaforma Web installa solo le funzionalità mancanti.
 
-    - [Installare IIS e distribuzione Web tramite WebPI](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
+   - [Installare IIS e distribuzione Web tramite WebPI](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
 
-    Verranno visualizzati messaggi che indica che verrà installato IIS 7. Il funzionamento del collegamento per IIS 8 in Windows 8, ma per Windows 8 verificare che ASP.NET 4.5 sia installato attenendosi alla procedura seguente:
+     Verranno visualizzati messaggi che indica che verrà installato IIS 7. Il funzionamento del collegamento per IIS 8 in Windows 8, ma per Windows 8 verificare che ASP.NET 4.5 sia installato attenendosi alla procedura seguente:
 
-    1. Aprire **Pannello di controllo**, **programmi e funzionalità**, **o disattivazione delle funzionalità Windows attivare**.
-    2. Espandere **Internet Information Services**, **servizi World Wide Web**, e **funzionalità per lo sviluppo di applicazioni**.
-    3. Assicurarsi che **ASP.NET 4.5** è selezionata.
+   - Aprire **Pannello di controllo**, **programmi e funzionalità**, **o disattivazione delle funzionalità Windows attivare**.
+   - Espandere **Internet Information Services**, **servizi World Wide Web**, e **funzionalità per lo sviluppo di applicazioni**.
+   - Assicurarsi che **ASP.NET 4.5** è selezionata.
 
-        ![Selezionare ASP.NET 4.5](deploying-to-iis/_static/image1.png)
+      ![Selezionare ASP.NET 4.5](deploying-to-iis/_static/image1.png)
 
 Dopo aver installato IIS, eseguire **Gestione IIS** per assicurarsi che .NET Framework versione 4 sia assegnato al pool di applicazioni predefinito.
 
@@ -114,7 +114,7 @@ Nel **Crea nuovo Database di SQL Server** finestra di dialogo immettere ". \SQLE
 
 Seguire la stessa procedura per creare un nuovo database di SQL Server Express School denominato "ContosoUniversity".
 
-**Esplora server** verranno visualizzati due nuovi database.
+**Esplora server** Mostra ora due nuovi database.
 
 ![Nuovi database in Esplora Server](deploying-to-iis/_static/image10.png)
 
@@ -177,8 +177,8 @@ Prima della pubblicazione, assicurarsi che si esegue Visual Studio in modalità 
 
     La procedura guidata passa automaticamente al **connessione** scheda.
 4. Nel **URL del servizio** immettere *localhost*.
-5. Nel **sito/applicazione** immettere *ContosoUniversity/sito Web predefinito*
-6. Nel **URL di destinazione** immettere`http://localhost/ContosoUniversity`
+5. Nel **sito/applicazione** , immettere *ContosoUniversity/sito Web predefinito*
+6. Nel **URL di destinazione** immettere `http://localhost/ContosoUniversity`
 
     Il **URL di destinazione** impostazione non è necessario. Al termine Visual Studio distribuisce l'applicazione, viene automaticamente aperto il browser predefinito per questo URL. Se non si desidera il browser per aprire automaticamente dopo la distribuzione, lasciare vuota questa casella.
 7. Fare clic su **convalida connessione** per verificare che le impostazioni siano corrette e che è possibile connettersi a IIS nel computer locale.
@@ -330,13 +330,13 @@ Verifica che il processo di distribuzione copiato il contenuto dell'applicazione
 
 Per informazioni sull'esecuzione di IIS o IIS Express in Visual Studio, vedere le risorse seguenti:
 
-- [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) nel sito IIS.net.
-- [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) sul blog di Scott Guthrie.
+- [Panoramica di IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) sul sito IIS.net.
+- [Introduzione a IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) su relativo Guthrie.
 - [Web server in Visual Studio per progetti Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 - [Principali differenze tra IIS e il Server di sviluppo ASP.NET](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) sul sito ASP.NET.
 
 Per informazioni su quali problemi possono verificarsi durante l'applicazione viene eseguita in attendibilità media, vedere [Hosting di applicazioni ASP.NET in attendibilità media](http://www.4guysfromrolla.com/articles/100307-1.aspx) sugli Guy dal sito Rolla 4.
 
->[!div class="step-by-step"]
-[Precedente](project-properties.md)
-[Successivo](setting-folder-permissions.md)
+> [!div class="step-by-step"]
+> [Precedente](project-properties.md)
+> [Successivo](setting-folder-permissions.md)

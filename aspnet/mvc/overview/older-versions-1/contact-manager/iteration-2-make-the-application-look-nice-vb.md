@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
-title: 'Iterazione #2: rendere l''applicazione nice (VB) | Documenti Microsoft'
+title: "Iterazione #2: rendere l'applicazione nice (VB) | Documenti Microsoft"
 author: microsoft
-description: "In questa iterazione, è migliorare l'aspetto dell'applicazione modificando il valore predefinito di pagina master di visualizzazione ASP.NET MVC e foglio di stile CSS."
+description: In questa iterazione, è migliorare l'aspetto dell'applicazione modificando il valore predefinito di pagina master di visualizzazione ASP.NET MVC e foglio di stile CSS.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07c4eaaf9ae5a389605a98951e970d410ca23122
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8545351b099e52533789b372903cd493f533f834
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iterazione #2: rendere l'applicazione nice (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-2-make-the-application-look-nice-vb/_static/contactmanager_2_vb1.zip)
 
@@ -44,7 +44,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5: creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6;: utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 #: utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7: la funzionalità Aggiungi Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -66,7 +66,7 @@ Ho deciso di non utilizzare un modello dalla raccolta schemi di MVC ASP.NET per 
 
 La raccolta di schemi di MVC ASP.NET è una risorsa gratuita fornita da Microsoft. La raccolta di MVC ASP.NET è disponibile all'indirizzo seguente:
 
-[https://www.ASP.NET/MVC/Gallery](https://www.asp.net/mvc/gallery)
+[https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
 La raccolta di schemi di MVC ASP.NET ospita un insieme di strutture di sito Web gratuito che sono stati creati in modo specifico per l'utilizzo in un progetto ASP.NET MVC. Schemi vengono caricati dai membri della community. Visitatori della raccolta possono votare per i progetti Preferiti (vedere la figura 2).
 
@@ -98,7 +98,7 @@ In questa esercitazione, la progettazione più diffuso nella raccolta è un prog
 
 [![La finestra di dialogo Nuovo progetto](iteration-2-make-the-application-look-nice-vb/_static/image5.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image9.png)
 
-**Figura 05**: sostituendo [NomeProgetto] con ContactManager ([fare clic per visualizzare l'immagine ingrandita](iteration-2-make-the-application-look-nice-vb/_static/image10.png))
+**Figura 05**: sostituire [NomeProgetto] con ContactManager ([fare clic per visualizzare l'immagine ingrandita](iteration-2-make-the-application-look-nice-vb/_static/image10.png))
 
 
 Dopo aver completato questi passaggi, l'applicazione web utilizzerà la nuova progettazione. La pagina nella figura 6 illustra l'aspetto dell'applicazione responsabile contatto con la progettazione di ottobre.
@@ -115,12 +115,12 @@ La raccolta di schemi di MVC ASP.NET è una buona selezione degli stili di proge
 
 Tuttavia, occorre creare una struttura completamente univoca per il sito Web. In tal caso, è opportuno utilizzare una società di progettazione del sito Web. Ho deciso di adottare questo approccio per la progettazione per l'applicazione Gestione contatti.
 
-Compresso il contatto Manager dall'iterazione 1 e inviato al progetto per la società di progettazione. Essi non possiede Visual Studio (peccato su di essi!), ma che non presentano un problema. Fossero in grado di scaricare Microsoft Visual Web Developer gratuitamente dal [https://www.asp.net](https://www.asp.net) sito Web e aprire l'applicazione di gestione di contatto in Visual Web Developer. In un paio di giorni, sono era prodotti progettazione nella figura 7.
+Compresso il contatto Manager dall'iterazione 1 e inviato al progetto per la società di progettazione. Essi non possiede Visual Studio (peccato su di essi!), ma che non presentano un problema. Fossero in grado di scaricare Microsoft Visual Web Developer gratuitamente dal [ https://www.asp.net ](https://www.asp.net) sito Web e aprire l'applicazione Gestione contatti in Visual Web Developer. In un paio di giorni, sono era prodotti progettazione nella figura 7.
 
 
 [![La finestra di dialogo Nuovo progetto](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
 
-**Figura 07**: progettazione contatto Manager di ASP.NET MVC ([fare clic per visualizzare l'immagine ingrandita](iteration-2-make-the-application-look-nice-vb/_static/image14.png))
+**Figura 07**: la progettazione di ASP.NET MVC Contact Manager ([fare clic per visualizzare l'immagine ingrandita](iteration-2-make-the-application-look-nice-vb/_static/image14.png))
 
 
 La nuova progettazione è costituita da due file principali: un nuovo file CSS e un nuovo file pagina master visualizzazione. Una pagina master visualizzazione contiene il layout e il contenuto condiviso per le visualizzazioni in un'applicazione MVC ASP.NET. Ad esempio, la pagina master visualizzazione include l'intestazione, le schede di navigazione e nel piè di pagina vengono visualizzati nella figura 7. Hanno sovrascritto i Site. master visualizzazione pagina master esistente nella cartella Views\Shared con il nuovo file Site. master dell'azienda, progettazione
@@ -163,6 +163,6 @@ Successivamente, è descritto come creare un progetto personalizzato modificando
 
 Nell'iterazione successiva, è affrontare oggetto molto importante della convalida. È consigliabile aggiungere codice di convalida per l'applicazione in modo che un utente non è possibile creare un nuovo contatto senza fornire i valori richiesti, ad esempio una persona s innanzitutto e del cognome.
 
->[!div class="step-by-step"]
-[Precedente](iteration-1-create-the-application-vb.md)
-[Successivo](iteration-3-add-form-validation-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-1-create-the-application-vb.md)
+> [Successivo](iteration-3-add-form-validation-vb.md)

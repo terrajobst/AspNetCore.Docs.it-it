@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 title: Aggiunta di una nuova categoria a DropDownList tramite jQuery UI | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16f7af1d679aace24fff86abb19740beebafe785
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Aggiunta di una nuova categoria a DropDownList tramite jQuery UI
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 Il codice HTML `Select` tag è ideale per presentare un elenco di dati di categoria predefinito, ma spesso è necessario aggiungere una nuova categoria. Si supponga che si vuole aggiungere il genere "Opera" per le categorie dal database? In questa sezione, si utilizzerà jQuery UI per aggiungere una finestra di dialogo che è possibile utilizzare per aggiungere una nuova categoria. L'immagine seguente mostra come l'interfaccia utente sarà presente nel browser.
 
@@ -36,7 +36,7 @@ Quando viene immesso un nuovo nome genre e **salvare** pulsante è premuto, si v
 2. JavaScript aggiunge i nuovi dati genre all'elenco di selezione.
 3. JavaScript rende il genere di nuovo l'elemento selezionato.
 
- Nell'immagine seguente, **Opera** è stato aggiunto al database e selezionato il **Genre** nell'elenco a discesa. 
+   Nell'immagine seguente, **Opera** è stato aggiunto al database e selezionato il **Genre** nell'elenco a discesa. 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
@@ -60,7 +60,7 @@ Eseguire l'applicazione e fare clic su di **aggiungere nuovo Genre** pulsante. N
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image4.png)
 
-Fare clic su di **salvare** pulsante. Una chiamata AJAX crea la categoria Opera e quindi popola l'elenco a discesa con Opera e imposta Opera come il genere selezionato.
+Fare clic sul pulsante **Salva**. Una chiamata AJAX crea la categoria Opera e quindi popola l'elenco a discesa con Opera e imposta Opera come il genere selezionato.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image5.png)
 
@@ -102,7 +102,7 @@ Di jQuery `$.post` riga esegue una chiamata di AJAX per l'attributo action (`/St
 3. Nella casella di ricerca, immettere GenreID.
 4. Utilizzando l'icona,   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
- individuare il tag di selezione seguente:
+   individuare il tag di selezione seguente:
 
     [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample9.html)]
 5. Espandere l'ultimo valore di opzione.
@@ -126,20 +126,20 @@ Rick.Anderson[at]Microsoft.com
 ### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [ASP.NET MVC – CSS gli elenchi a discesa esercitazione](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx) da [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
-- [Scelta](http://harvesthq.github.com/chosen/) plug-in A JavaScript che supportano la selezione multipla e filtro.
+- [Scelto](http://harvesthq.github.com/chosen/) plug-in A JavaScript che supportano la selezione multipla e filtro.
 
 ### <a name="contributors"></a>Contributors
 
 - [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
 - Jean-Sébastien Goupil
-- [Brad Wilson](http://bradwilson.typepad.com/)
+- [Blog di Brad Wilson](http://bradwilson.typepad.com/)
 
 ### <a name="reviewers"></a>Revisori
 
 - Jean-Sébastien Goupil
-- [Brad Wilson](http://bradwilson.typepad.com/)
+- [Blog di Brad Wilson](http://bradwilson.typepad.com/)
 - Mike Pope
 - Tom Dykstra
 
->[!div class="step-by-step"]
-[Precedente](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Precedente](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

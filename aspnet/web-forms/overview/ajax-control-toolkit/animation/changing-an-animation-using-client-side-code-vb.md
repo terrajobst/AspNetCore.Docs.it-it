@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 title: La modifica di un'animazione con il codice lato Client (VB) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. L'animazione può inoltre..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. L'animazione può inoltre...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83d1a21fba37d8807be467d02b5550dc7d096e6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f9b72576cc3a9e91827cfb40983821704621060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a>La modifica di un'animazione con il codice lato Client (VB)
 ====================
@@ -78,6 +78,6 @@ Il codice JavaScript seguente assegna questo descripting JSON per il `OnClick` a
 
 L'animazione viene eseguita immediatamente, senza un clic del mouse (e con markup poco) ([fare clic per visualizzare l'immagine ingrandita](changing-an-animation-using-client-side-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](executing-animations-using-client-side-code-vb.md)
-[Successivo](animating-an-updatepanel-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](executing-animations-using-client-side-code-vb.md)
+> [Successivo](animating-an-updatepanel-control-vb.md)

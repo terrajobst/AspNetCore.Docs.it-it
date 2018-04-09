@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 title: I dettagli dell'errore di registrazione con ELMAH (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Errore di registrazione moduli e gestori (ELMAH) offre un altro approccio per la registrazione degli errori di runtime in un ambiente di produzione. ELMAH è verificato un errore di open source gratuito..."
+description: Errore di registrazione moduli e gestori (ELMAH) offre un altro approccio per la registrazione degli errori di runtime in un ambiente di produzione. ELMAH è verificato un errore di open source gratuito...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 26d40d17447b3b03d17265f291b8ac246a449966
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cd91c745624f09d01a326a445bea2bb756576688
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>Dettagli di errore di registrazione con ELMAH (c#)
 ====================
@@ -68,13 +68,13 @@ Successivamente, aprire Visual Studio e aggiungere l'assembly al progetto facend
 
 Il `Elmah.dll` assembly include le classi utilizzate dal sistema ELMAH. Queste classi rientrano in una delle tre categorie:
 
-- **I moduli HTTP** -un modulo HTTP è una classe che definisce i gestori eventi per `HttpApplication` eventi, ad esempio il `Error` evento. ELMAH include più moduli HTTP, quelli più pertinenti tre da: 
+- **I moduli HTTP** -un modulo HTTP è una classe che definisca i gestori eventi per `HttpApplication` degli eventi, ad esempio il `Error` evento. ELMAH include più moduli HTTP, quelli più pertinenti tre da: 
 
-    - `ErrorLogModule`-Registra le eccezioni non gestite in un'origine di log.
-    - `ErrorMailModule`-Invia un messaggio di posta elettronica i dettagli di un'eccezione non gestita.
-    - `ErrorFilterModule`-Consente di applicare i filtri specificati dallo sviluppatore per determinare i tipi di eccezioni sono registrate e quali quelli vengono ignorati.
-- **I gestori HTTP** -un gestore HTTP è una classe che genera il markup per un particolare tipo di richiesta. ELMAH include i gestori HTTP che eseguono il rendering i dettagli dell'errore, come una pagina web, come un feed RSS o come file delimitato da virgole (CSV).
-- **Le origini di Log degli errori** - predefinita ELMAH può registrare errori di memoria, in un database di Microsoft SQL Server, a un database Microsoft Access, per un database Oracle, in un file XML, a un database SQLite o a un database DB Vista. Ad esempio l'integrità di sistema di monitoraggio, architettura del ELMAH è stato compilato utilizzando il modello di provider, vale a dire che è possibile creare e integrare facilmente i propri provider di origine di log personalizzato, se necessario.
+    - `ErrorLogModule` -Registra le eccezioni non gestite in un'origine di log.
+    - `ErrorMailModule` -Invia i dettagli dell'eccezione non gestita in un messaggio di posta elettronica.
+    - `ErrorFilterModule` -Applica i filtri specificati dallo sviluppatore per determinare quali eccezioni vengono registrate e cosa quelle vengono ignorati.
+- **I gestori HTTP** -un gestore HTTP è una classe che è responsabile della generazione il markup per un particolare tipo di richiesta. ELMAH include i gestori HTTP che eseguono il rendering i dettagli dell'errore, come una pagina web, come un feed RSS o come file delimitato da virgole (CSV).
+- **Le origini di Log degli errori** - quella ELMAH può registrare errori di memoria, in un database di Microsoft SQL Server, a un database Microsoft Access, per un database Oracle, in un file XML, a un database SQLite o a un database DB Vista. Ad esempio l'integrità di sistema di monitoraggio, architettura del ELMAH è stato compilato utilizzando il modello di provider, vale a dire che è possibile creare e integrare facilmente i propri provider di origine di log personalizzato, se necessario.
 
 ### <a name="step-2-registering-elmahs-http-module-and-handler"></a>Passaggio 2: Registrazione del ELMAH modulo HTTP e gestore
 
@@ -122,11 +122,11 @@ Il `<errorLog>` sezione definisce l'origine del registro errori, che stabilisce 
 
 Del ELMAH `SqlErrorLog` provider registra i dettagli dell'errore a un database di Microsoft SQL Server specificato. Il `SqlErrorLog` provider prevede che il database per una tabella denominata `ELMAH_Error` e tre stored procedure: `ELMAH_GetErrorsXml`, `ELMAH_GetErrorXml`, e `ELMAH_LogError`. Il download ELMAH include un file denominato `SQLServer.sql` nel `db` cartella che contiene l'oggetto T-SQL per la creazione di questa tabella e queste stored procedure. È necessario eseguire queste istruzioni sul database da utilizzare il `SqlErrorLog` provider.
 
-**Nelle figure 1** e **2** Mostra Esplora Database in Visual Studio dopo gli oggetti di database necessiti per il `SqlErrorLog` provider sono stati aggiunti.
+**Nelle figure 1** e **2** Mostra Esplora Database in Visual Studio dopo gli oggetti di database necessari per il `SqlErrorLog` provider sono stati aggiunti.
 
 [![](logging-error-details-with-elmah-cs/_static/image2.png)](logging-error-details-with-elmah-cs/_static/image1.png)
 
-**Figura 1**: il `SqlErrorLog` Provider registra gli errori di `ELMAH_Error` tabella
+**Figura 1**: il `SqlErrorLog` Provider registra gli errori per il `ELMAH_Error` tabella
 
 [![](logging-error-details-with-elmah-cs/_static/image4.png)](logging-error-details-with-elmah-cs/_static/image3.png)
 
@@ -153,7 +153,7 @@ I log degli errori **figura 3** contiene sei voci di errore. Ogni voce include i
 
 [![](logging-error-details-with-elmah-cs/_static/image9.png)](logging-error-details-with-elmah-cs/_static/image8.png)
 
-**Figura 4**: consente di visualizzare i dettagli dell'errore YSOD  
+**Figura 4**: visualizzare i dettagli dell'errore YSOD  
 ([Fare clic per visualizzare l'immagine ingrandita](logging-error-details-with-elmah-cs/_static/image10.png))
 
 [![](logging-error-details-with-elmah-cs/_static/image12.png)](logging-error-details-with-elmah-cs/_static/image11.png)
@@ -175,7 +175,7 @@ Dopo aver distribuito il sito di produzione, visitare il sito Web di produzione 
 
 [![](logging-error-details-with-elmah-cs/_static/image15.png)](logging-error-details-with-elmah-cs/_static/image14.png)
 
-**Figura 6**: per impostazione predefinita, visitatori remoti non è possibile visualizzare la pagina di errore Log Web  
+**Figura 6**: per impostazione predefinita, i visitatori remoti non è possibile visualizzare la pagina di Web Log Errore  
 ([Fare clic per visualizzare l'immagine ingrandita](logging-error-details-with-elmah-cs/_static/image16.png))
 
 Tenere presente che la configurazione di ELMAH `<security>` sezione configuriamo il `allowRemoteAccess` attributo 0, che impedisce agli utenti remoti di visualizzare il log degli errori. È importante impedire ai visitatori anonimi di visualizzare il log degli errori, come i dettagli dell'errore potrebbero rivelare vulnerabilità della sicurezza o altre informazioni riservate. Se si decide di impostare questo attributo su 1 e abilitare l'accesso remoto per il log degli errori, è importante per bloccare il `elmah.axd` percorso in modo che solo autorizzati visitatori può accedervi. Questo può essere ottenuto mediante l'aggiunta di un `<location>` elemento per il `Web.config` file.
@@ -252,11 +252,11 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 - [ELMAH - gestori e i moduli di registrazione errore](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
 - [Pagina progetto ELMAH](https://code.google.com/p/elmah/) (origine codice, gli esempi, wiki)
-- [Inserimento ELMAH in un'applicazione Web intercettare le eccezioni non gestite](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
+- [Collegare ELMAH in un Web dell'applicazione per intercettare le eccezioni non gestite](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
 - [Pagine di Log di errore di sicurezza](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
 - [Utilizzo di gestori e i moduli HTTP per creare componenti ASP.NET collegabili](https://msdn.microsoft.com/library/aa479332.aspx)
-- [Esercitazioni di sicurezza del sito Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
+- [Esercitazioni di sicurezza sito Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Precedente](logging-error-details-with-asp-net-health-monitoring-cs.md)
-[Successivo](precompiling-your-website-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](logging-error-details-with-asp-net-health-monitoring-cs.md)
+> [Successivo](precompiling-your-website-cs.md)

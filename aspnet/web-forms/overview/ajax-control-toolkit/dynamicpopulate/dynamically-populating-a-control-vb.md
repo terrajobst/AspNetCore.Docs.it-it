@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ec0b6d429f3eb4a7243201c2a91adde462cf6345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2031a80be71a406e632955583d83920dd0f3ef7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-vb"></a>Compilazione dinamica di un controllo (VB)
 ====================
@@ -55,12 +55,12 @@ Verrà quindi usato per attivare la compilazione dinamica di un pulsante HTML (c
 
 Infine, è necessario il `DynamicPopulateExtender` controllo per le operazioni transito. I seguenti attributi verranno impostati (oltre a quelli ovvi, `ID` e `runat` = `"server"`):
 
-- `TargetControlID`posizione in cui inserire il risultato da una chiamata al servizio web
-- `ServicePath`percorso del servizio web (omettere se si desidera utilizzare un metodo di pagina)
-- `ServiceMethod`nome del metodo web o del metodo di pagina
-- `ContextKey`informazioni sul contesto da inviare al servizio web
-- `PopulateTriggerControlID`elemento che attiva una chiamata al servizio web
-- `ClearContentsDuringUpdate`Se su un valore vuoto all'elemento di destinazione durante la chiamata al servizio web
+- `TargetControlID` posizione in cui inserire il risultato dalla chiamata al servizio web
+- `ServicePath` percorso del servizio web (omettere se si desidera utilizzare un metodo di pagina)
+- `ServiceMethod` nome del metodo web o del metodo di pagina
+- `ContextKey` informazioni sul contesto da inviare al servizio web
+- `PopulateTriggerControlID` elemento che attiva la chiamata del servizio web
+- `ClearContentsDuringUpdate` Se su un valore vuoto l'elemento di destinazione durante la chiamata al servizio web
 
 Come si può notare, il controllo richiede alcune informazioni, ma tutti gli elementi sul posto è piuttosto semplice. Ecco il markup per il `DynamicPopulateExtender` controllo nello scenario corrente:
 
@@ -73,6 +73,6 @@ Eseguire la pagina ASP.NET nel browser e fare clic sul pulsante. si riceverà la
 
 Un clic sul pulsante Recupera la data dal server ([fare clic per visualizzare l'immagine ingrandita](dynamically-populating-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
-[Successivo](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [Successivo](dynamically-populating-a-control-using-javascript-code-vb.md)

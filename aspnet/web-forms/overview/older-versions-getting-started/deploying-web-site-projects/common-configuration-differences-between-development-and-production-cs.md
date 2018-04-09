@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 092362e3811213047820dab08efc16e1a1e75020
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2694e0dba774a5bca13b9acc6b14c3e47226a064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Differenze di configurazione comuni tra lo sviluppo e produzione (c#)
 ====================
@@ -53,7 +53,7 @@ Quando viene visitata una pagina ASP.NET per la prima volta (o la prima volta do
 L'attributo di debug è uno degli attributi più importanti nel `<compilation>` elemento. Se il `debug` attributo è impostato su "true", assembly compilati includere i simboli di debug, che sono necessari durante il debug di un'applicazione in Visual Studio. Tuttavia, i simboli di debug aumentare le dimensioni dell'assembly e impongano i requisiti di memoria aggiuntivi quando si esegue il codice. Inoltre, quando il `debug` attributo è impostato su "true" qualsiasi contenuto restituito dalla `WebResource.axd` non nella cache, vale a dire che ogni volta che un utente visita una pagina, dovranno scaricare nuovamente il contenuto statico restituito da `WebResource.axd`.
 
 > [!NOTE]
-> `WebResource.axd`è un gestore HTTP predefinito introdotto in ASP.NET 2.0 usato dai controlli server per recuperare le risorse incorporate, ad esempio i file di script, immagini, file CSS e altro contenuto. Per ulteriori informazioni su come `WebResource.axd` works e come è possibile usarlo per accedere alle risorse incorporate dai controlli server personalizzati, vedere [accesso incorporato risorse tramite un URL mediante `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
+> `WebResource.axd` è un gestore HTTP predefinito stato introdotto in ASP.NET 2.0 usato dai controlli server per recuperare le risorse incorporate, ad esempio i file di script, immagini, file CSS e altro contenuto. Per ulteriori informazioni su come `WebResource.axd` works e come è possibile usarlo per accedere alle risorse incorporate dai controlli server personalizzati, vedere [accesso incorporato risorse tramite un URL mediante `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
 
 
 Il `<compilation>` dell'elemento `debug` attributo viene in genere impostato su "true" nell'ambiente di sviluppo. In effetti, questo attributo deve essere impostato su "true" per eseguire il debug di un'applicazione web. Se si tenta di eseguire il debug di un'applicazione ASP.NET da Visual Studio e `debug` attributo è impostato su "false", Visual Studio verrà visualizzato un messaggio che spiega che è Impossibile eseguire il debug dell'applicazione fino a quando il `debug` attributo è impostato su "true" e verrà offerta per apportare questa modifica per l'utente.
@@ -127,15 +127,15 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Stringhe di connessione illustrate](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string)
-- [@ ConnectionStrings.com le stringhe di connessione di database](http://www.connectionstrings.com/)
-- [Non eseguire le applicazioni di produzione ASP.NET con `debug="true"` abilitato](https://weblogs.asp.net/scottgu/Don_1920_t-run-production-ASP.NET-Applications-with-debug_3D001D20_true_1D20_-enabled)
+- [@ ConnectionStrings.com le stringhe di connessione al database](http://www.connectionstrings.com/)
+- [Non eseguire le applicazioni ASP.NET di produzione con `debug="true"` abilitato](https://weblogs.asp.net/scottgu/Don_1920_t-run-production-ASP.NET-Applications-with-debug_3D001D20_true_1D20_-enabled)
 - [Risponde correttamente alle eccezioni non gestite - visualizzazione di pagine di errore descrittivi](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
 - [Procedura: utilizzo un progetto di distribuzione Web di Visual Studio 2008?](../../../videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project.md)
-- [Impostazioni di configurazione della chiave durante la distribuzione di un Database](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
+- [Impostazioni di configurazione della chiave quando si distribuisce un Database](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Download di progetti di Visual Studio 2008 Web distribuzione](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [Download di progetti di Visual Studio 2005 Web distribuzione](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [Progetti di distribuzione Web di Visual Studio 2008](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [Visual Studio 2008 Web progetto supporto per la distribuzione rilasciato](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
 - [Progetti di distribuzione Web](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
->[!div class="step-by-step"]
-[Precedente](deploying-your-site-using-visual-studio-cs.md)
-[Successivo](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-your-site-using-visual-studio-cs.md)
+> [Successivo](core-differences-between-iis-and-the-asp-net-development-server-cs.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 title: Con Page Inspector in Visual Studio 2012 | Documenti Microsoft
 author: rick-anderson
-description: "In questo laboratorio pratico, sarà possibile osservare un nuovo strumento per individuare e correggere i problemi correlati alle pagine web in Visual Studio - controllo pagina. Controllo pagina è un nuovo strumento che b..."
+description: In questo laboratorio pratico, sarà possibile osservare un nuovo strumento per individuare e correggere i problemi correlati alle pagine web in Visual Studio - controllo pagina. Controllo pagina è un nuovo strumento che b...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1a9e093faae2cea1c27c582e22aebc908f78addb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Con Page Inspector in Visual Studio 2012
 ====================
-da [categorie Web Team](https://twitter.com/webcamps)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
 > In questo laboratorio pratico, sarà possibile osservare un nuovo strumento per individuare e correggere i problemi correlati alle pagine web in Visual Studio - controllo pagina.
 > 
@@ -34,11 +34,11 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > 
 > Con Page Inspector è possibile visualizzare gli elementi nei file di origine (incluso il codice lato server) che hanno prodotto il markup HTML per eseguire il rendering nel browser. Controllo pagina consente inoltre di modificare le proprietà CSS e attributi dell'elemento DOM per visualizzare le modifiche riflesse immediatamente nel browser.
 > 
-> Questa esercitazione pratica verrà illustrati le funzionalità di controllo pagina e mostrano come è possibile utilizzare per risolvere i problemi nelle applicazioni Web. **Questa esercitazione contiene due esercizi tramite flussi simili ma diverse tecnologie di destinazione. Se si è uno sviluppatore di MVC ASP.NET, seguire esercizio. Se si è un esercizio di seguire developer WebForms due**.
+> Questa esercitazione pratica verrà illustrati le funzionalità di controllo pagina e mostrano come è possibile utilizzare per risolvere i problemi nelle applicazioni Web. **Questa esercitazione contiene due esercitazioni con flussi simili ma destinato a tecnologie diverse. Se si è uno sviluppatore di MVC ASP.NET, seguire esercizio. Se si è un esercizio di seguire developer WebForms due**.
 > 
 > Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -96,12 +96,12 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex1-MVC4/Begin/** cartella.
 
-    1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. In Esplora soluzioni, individuare **cshtml** visualizzare sotto la **/visualizzazioni/Home** cartella del progetto, pulsante destro del mouse e selezionare **Visualizza in controllo pagina**.
 
     ![Selezione di un file per visualizzare in anteprima in controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image1.png "selezionando un file per visualizzare in anteprima in controllo pagina")
@@ -121,7 +121,7 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 
     Si noterà che tutti i file di origine che si siano scrivendo la pagina di indice. Questa funzionalità consente di identificare tutti gli elementi a colpo d'occhio, soprattutto quando si lavora con le visualizzazioni parziali e i modelli. Si noti che è anche possibile aprire ogni file se si fa clic sui collegamenti.
 
-    ![Scheda file](using-page-inspector-in-visual-studio-2012/_static/image3.png)
+    ![The-Files-tab](using-page-inspector-in-visual-studio-2012/_static/image3.png)
 
     *Scheda file*
 5. Fare clic su di **modalità controllo Attiva/disattiva** pulsante, si trova a sinistra delle schede.
@@ -130,7 +130,7 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 
     ![Pulsante modalità di controllo Toggle](using-page-inspector-in-visual-studio-2012/_static/image4.png)
 
-    *Pulsante modalità controllo Attiva/disattiva*
+    *Pulsante Attiva/Disattiva modalità controllo*
 6. Nel browser di controllo pagina, spostare il puntatore del mouse sugli elementi della pagina. Mentre si sposta il puntatore del mouse su un punto qualsiasi della pagina rendering, viene visualizzato il tipo di elemento e il markup di origine corrispondente o il codice viene evidenziata nell'editor di Visual Studio.
 
     ![Inspectionmodeinaction](using-page-inspector-in-visual-studio-2012/_static/image5.png)
@@ -145,13 +145,13 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Esaminare gli elementi*
-7. Fare clic su di **modalità controllo Attiva/disattiva** pulsante (![selezionare la scheda HTML per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Selezionare la scheda HTML per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.") ) per disabilitare il cursore.
+7. Fare clic sui **attiva/disattiva modalità di controllo** pulsante (![selezionare la scheda HTML per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Selezionare la scheda HTML per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.") ) per disabilitare il cursore.
 8. Selezionare il **HTML** scheda per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.
 9. Nel markup HTML, individuare l'elemento di elenco con collegamento Koala e selezionarlo.
 
     Si noti che quando si seleziona il codice, l'output corrispondente viene automaticamente evidenziato nel browser. Questa funzionalità è utile per visualizzare la modalità di rendering di un blocco HTML della pagina.
 
-    ![Se si seleziona elemento HTML della pagina](using-page-inspector-in-visual-studio-2012/_static/image8.png "elemento di selezione HTML nella pagina")
+    ![Se si seleziona elemento HTML nella pagina](using-page-inspector-in-visual-studio-2012/_static/image8.png "elemento di selezione HTML nella pagina")
 
     *Selezionare l'elemento HTML nella pagina*
 10. Fare clic su di **modalità controllo Attiva/disattiva** pulsante per attivare *modalità controllo* e fare clic sulla barra di navigazione. A destra del codice HTML, nel riquadro stili, verrà visualizzato un elenco con gli stili CSS applicati all'elemento selezionato.
@@ -161,13 +161,13 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 
     ![Discoveringstyles](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
-    *Individuazione di stili e i file di origine di un elemento selezionato*
+    *L'individuazione di stili e i file di origine di un elemento selezionato*
 11. Con il puntatore Attiva/Disattiva controllo abilitato, spostare il puntatore del mouse sotto la barra blu in primo piano e fare clic sul cerchio metà.
 
-    ![Selezione di un elemento](using-page-inspector-in-visual-studio-2012/_static/image10.png "la selezione di un elemento")
+    ![Selezione di un elemento](using-page-inspector-in-visual-studio-2012/_static/image10.png "selezionando un elemento")
 
     *Selezione di un elemento*
-12. Nel riquadro stili, individuare il **immagine di sfondo** elemento sotto il **.main contenuto** gruppo. **Deselezionare** il **immagine di sfondo** e vedere cosa accade. Si noterà che il browser rifletterà le modifiche immediatamente e il cerchio è nascosto.
+12. Nel riquadro stili, individuare il **immagine di sfondo** elemento sotto il **.main contenuto** gruppo. **Deselezionare** il **immagine di sfondo** e osservare cosa accade. Si noterà che il browser rifletterà le modifiche immediatamente e il cerchio è nascosto.
 
     > [!NOTE]
     > Le modifiche applicate nella scheda stili di controllo pagina non influenzano il foglio di stile originale. È possibile deselezionare gli stili o modificare i relativi valori come tutte le volte che si desidera, ma essi verrà ripristinati dopo l'aggiornamento della pagina.
@@ -178,7 +178,7 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 13. A questo punto, fare clic su di '**inserire qui il logo**' testo nell'intestazione usando la modalità di controllo.
 14. Nel **stili** , individuare il **font-size** CSS attributo sotto il **.site titolo** gruppo. Fare doppio clic sul valore dell'attributo e sostituire il valore di 2.3 em con **3 em**, quindi premere **invio**. Si noti che il titolo più grande.
 
-    ![Modificare i valori CSS in controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image12.png "i valori di modifica CSS in controllo pagina")
+    ![Modificare i valori CSS in controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image12.png "valori modifica CSS in controllo pagina")
 
     *Modificare i valori CSS in controllo pagina*
 15. Fare clic su di **stili traccia** scheda nel riquadro a destra del controllo pagina. Questo è un modo alternativo per vedere tutti gli stili applicati alla selezione, ordinati in base al nome dell'attributo.
@@ -215,13 +215,13 @@ In questa attività verrà utilizzato il controllo pagina ed risolvere alcuni pr
 
     Si noti che i collegamenti non vengono visualizzati nella posizione prevista a destra e vengono visualizzati come un elenco puntato. Verrà ora allineare i collegamenti a destra e modificare lo stile in conseguenza.
 
-    ![Individuazione di registro e di Log in collegamenti](using-page-inspector-in-visual-studio-2012/_static/image15.png "individuazione di registro e di Log di collegamenti")
+    ![Individuazione del registro e del Log nei collegamenti](using-page-inspector-in-visual-studio-2012/_static/image15.png "individuazione il registro e Log nei collegamenti")
 
-    *Individuazione di registro e di Log di collegamenti*
+    *Individuazione del registro e del Log nei collegamenti*
 2. Con modalità di controllo Toggle selezionato, fare clic su Chiudi per, ma non su, il collegamento di registro per aprire il relativo codice.
 
     Si noti che il codice sorgente dei collegamenti si trova nella  **\_LoginPartial.cshtml** file, non il cshtml né la \_cshtml, che sono le posizioni in cui è possibile esaminare in primo luogo. Sono stati inseriti direttamente nel file di origine corretti.
-3. Nel **stili** individuare e fare clic su di  **<section> #login</section>**  elemento, che corrisponde al contenitore HTML per questi collegamenti.
+3. Nel **stili** individuare e fare clic su di **<section> #login</section>** elemento, che corrisponde al contenitore HTML per questi collegamenti.
 
     Si noti che il **#login** stile viene automaticamente posizionato **Site** dopo aver fatto clic. Inoltre, il codice viene evidenziato.
 
@@ -242,16 +242,16 @@ In questa attività verrà utilizzato il controllo pagina ed risolvere alcuni pr
     ![Pagina aggiornata](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *Pagina aggiornata*
-6. Usando la modalità di controllo, selezionare una qualsiasi del  **&lt;li&gt;**  gli elementi che contengono il &quot;registrare&quot; e &quot;Accedi&quot; collegamenti. Quindi, fare clic su di  **&lt;sezione&gt; #login** elemento accesso **Styles. CSS** codice.
+6. Usando la modalità di controllo, selezionare una qualsiasi del **&lt;li&gt;** gli elementi che contengono il &quot;registrare&quot; e &quot;Accedi&quot; collegamenti. Quindi, fare clic su di  **&lt;sezione&gt; #login** elemento accesso **Styles. CSS** codice.
 
-    ![Lo stile di ricerca](using-page-inspector-in-visual-studio-2012/_static/image19.png "lo stile di ricerca")
+    ![Individuare lo stile](using-page-inspector-in-visual-studio-2012/_static/image19.png "lo stile di ricerca")
 
     *Lo stile di ricerca*
 7. In **Style.css**, rimuovere il commento il codice per **#login li** elementi. Lo stile che si sta aggiungendo verrà al punto di nascondere e visualizzare gli elementi orizzontalmente.
 
-    ![Modifica dello stile di collegamenti di accesso](using-page-inspector-in-visual-studio-2012/_static/image20.png "modifica dello stile di collegamenti di accesso")
+    ![Modifica dello stile i collegamenti di accesso](using-page-inspector-in-visual-studio-2012/_static/image20.png "modifica dello stile i collegamenti di accesso")
 
-    *Modifica dello stile di collegamenti di accesso*
+    *Modifica dello stile i collegamenti di accesso*
 8. Salvare **Style.css** file e fare clic su una sola volta sulla barra di cui si trova sotto l'indirizzo a ricaricare la pagina. Si noti che i collegamenti vengono visualizzati correttamente.
 
     ![Collegamenti allineato al lato destro](using-page-inspector-in-visual-studio-2012/_static/image21.png "collegamenti allineato a destra")
@@ -260,9 +260,9 @@ In questa attività verrà utilizzato il controllo pagina ed risolvere alcuni pr
 9. Infine, si modificherà il titolo di intestazione. Utilizzare la modalità di controllo fare clic su **inserire qui il logo** testo e ottenere il codice sorgente che genera.
 10. È ora  **\_cshtml**, sostituire "**inserire qui il logo**'text con'**raccolta foto**'. Salvare e aggiornare il browser di controllo pagina.
 
-    ![L'assegnazione di un nuovo titolo](using-page-inspector-in-visual-studio-2012/_static/image22.png "l'assegnazione di un nuovo titolo")
+    ![Assegnazione di un nuovo titolo](using-page-inspector-in-visual-studio-2012/_static/image22.png "assegnazione di un nuovo titolo")
 
-    *L'assegnazione di un nuovo titolo*
+    *Assegnazione di un nuovo titolo*
 
     ![PhotoGallerypage](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
@@ -287,22 +287,22 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex2-WebForms/Begin/** cartella.
 
-    1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. In Esplora soluzioni, individuare **Default.aspx** pagina, pulsante destro del mouse e selezionare **Visualizza in controllo pagina**.
 
-    ![Aprire Default.aspx con controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image24.png "aprire Default.aspx con controllo pagina")
+    ![Aprire Default. aspx con Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image24.png "aprire default. aspx con controllo pagina")
 
-    *Apertura Default.aspx con controllo pagina*
+    *Apertura default. aspx con controllo pagina*
 3. Nella finestra di controllo pagina verrà visualizzato Default.aspx.
 
-    ![Visualizzazione Default.aspx in controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image25.png "visualizzazione Default.aspx in controllo pagina")
+    ![Visualizzazione di default. aspx in controllo pagina](using-page-inspector-in-visual-studio-2012/_static/image25.png "la visualizzazione di default. aspx in controllo pagina")
 
-    *Visualizzazione Default.aspx in controllo pagina*
+    *Visualizzazione di default. aspx in controllo pagina*
 
     Lo strumento di controllo pagina è integrato nell'ambiente di Visual Studio. Il controllo contiene un browser incorporato, insieme a un profiler HTML potente che mostra il codice selezionato. Si noti che non è necessario eseguire la soluzione per visualizzare l'aspetto delle pagine.
 
@@ -319,12 +319,12 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
 
     Questo strumento consente di selezionare un elemento della pagina e vedere la relativa origine HTML, codice e aspx.
 
-    ![Pulsante modalità controllo](using-page-inspector-in-visual-studio-2012/_static/image27.png "pulsante Attiva/Disattiva modalità di controllo")
+    ![Pulsante modalità controllo Mostra/Nascondi](using-page-inspector-in-visual-studio-2012/_static/image27.png "pulsante Attiva/Disattiva modalità di controllo")
 
-    *Pulsante modalità controllo Attiva/disattiva*
+    *Pulsante Attiva/Disattiva modalità controllo*
 6. Nel browser di controllo pagina, spostare il puntatore del mouse sugli elementi della pagina. Mentre si sposta il puntatore del mouse su un punto qualsiasi della pagina rendering, viene visualizzato il tipo di elemento e il markup di origine corrispondente o il codice viene evidenziata nell'editor di Visual Studio.
 
-    ![Modalità di controllo nell'azione](using-page-inspector-in-visual-studio-2012/_static/image28.png "modalità di controllo in azione")
+    ![Modalità di controllo in azione](using-page-inspector-in-visual-studio-2012/_static/image28.png "modalità di controllo in azione")
 
     *Modalità di controllo in azione*
 
@@ -336,7 +336,7 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
     ![Esaminare gli elementi](using-page-inspector-in-visual-studio-2012/_static/image29.png "controllando gli elementi")
 
     *Esaminare gli elementi*
-7. Fare clic su di **modalità controllo Attiva/disattiva** pulsante (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), si trova nelle schede di controllo pagina, per disabilitare il cursore.
+7. Fare clic sui **attiva/disattiva modalità di controllo** pulsante (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), si trova nelle schede di controllo pagina, per disabilitare il cursore.
 8. Selezionare il **HTML** scheda per visualizzare il codice HTML eseguito il rendering nel browser di controllo pagina.
 9. Nel codice HTML, individuare l'elemento di elenco con collegamento Koala e selezionarlo.
 
@@ -350,15 +350,15 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
     > [!NOTE]
     > Poiché l'intestazione è una parte del layout del sito, controllo pagina verrà inoltre aprire file Site. master ed evidenziare il segmento di codice interessati.
 
-    ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "individuazione stili e i file di origine di un elemento selezionato")
+    ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "l'individuazione di stili e i file di origine di un elemento selezionato")
 
-    *Individuazione di stili e i file di origine di un elemento selezionato*
+    *L'individuazione di stili e i file di origine di un elemento selezionato*
 11. Con il puntatore Attiva/Disattiva controllo abilitato, spostare il puntatore del mouse sotto la barra dei menu e fare clic sul cerchio metà vuoto.
 
-    ![Selezione di un elemento](using-page-inspector-in-visual-studio-2012/_static/image33.png "la selezione di un elemento")
+    ![Selezione di un elemento](using-page-inspector-in-visual-studio-2012/_static/image33.png "selezionando un elemento")
 
     *Selezione di un elemento*
-12. Nel riquadro stili, individuare il **immagine di sfondo** elemento sotto il **.main contenuto** gruppo. **Deselezionare** il **immagine di sfondo** e vedere cosa accade. Si noterà che il browser rifletterà le modifiche immediatamente e il cerchio è nascosto.
+12. Nel riquadro stili, individuare il **immagine di sfondo** elemento sotto il **.main contenuto** gruppo. **Deselezionare** il **immagine di sfondo** e osservare cosa accade. Si noterà che il browser rifletterà le modifiche immediatamente e il cerchio è nascosto.
 
     > [!NOTE]
     > Le modifiche applicate nella scheda stili di controllo pagina non influenzano il foglio di stile originale. È possibile deselezionare gli stili o modificare i relativi valori come tutte le volte che si desidera, ma essi verrà ripristinati dopo l'aggiornamento della pagina.
@@ -369,12 +369,12 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
 13. A questo punto, fare clic su di '**il** **qui il logo'** testo nell'intestazione usando la modalità di controllo.
 14. Nel **stili** , individuare il **font-size** CSS attributo sotto il **.site titolo** gruppo. Fare doppio clic su una sola volta l'attributo per modificare il relativo valore. Il valore di sostituzione di 2.3em con **3em**, quindi premere INVIO. Si noti che il titolo più grande.
 
-    ![Modificare i valori CSS nel Page Inspector2](using-page-inspector-in-visual-studio-2012/_static/image35.png "i valori di modifica CSS in controllo pagina")
+    ![Modificare i valori CSS nel Page Inspector2](using-page-inspector-in-visual-studio-2012/_static/image35.png "valori modifica CSS in controllo pagina")
 
     *Modificare i valori CSS in controllo pagina*
 15. Fare clic su di **stili traccia** scheda nel riquadro a destra del controllo pagina. Questo è un modo alternativo per vedere tutti gli stili applicati alla selezione, ordinati in base al nome dell'attributo.
 
-    ![Traccia di stili CSS dell'elemento selezionato](using-page-inspector-in-visual-studio-2012/_static/image36.png "traccia di stili CSS dell'elemento selezionato")
+    ![La traccia di stili CSS dell'elemento selezionato](using-page-inspector-in-visual-studio-2012/_static/image36.png "la traccia di stili CSS dell'elemento selezionato")
 
     *Traccia di stili CSS dell'elemento selezionato*
 16. Un'altra funzionalità di controllo pagina è il riquadro di Layout. Utilizzando la modalità di controllo, selezionare la barra di spostamento e quindi fare clic su di **Layout** scheda nel riquadro destro. Verrà visualizzata la dimensione esatta dell'elemento selezionato, nonché le dimensioni di offset, margini, spaziatura interna e bordo. Si noti che è inoltre possibile modificare i valori da questa visualizzazione.
@@ -406,7 +406,7 @@ In questa attività, si utilizzerà il controllo pagina per risolvere alcuni pro
 
     Si noti che il collegamento non è visualizzato nella posizione prevista sulla destra. Verrà ora allineare il collegamento a destra e modificare lo stile, di conseguenza.
 
-    ![Accedi al collegamento posizionato sulla sinistra](using-page-inspector-in-visual-studio-2012/_static/image38.png "Accedi collegamento posizionata a sinistra")
+    ![Accedi al collegamento posizionato sulla sinistra](using-page-inspector-in-visual-studio-2012/_static/image38.png "Accedi al collegamento posizionata a sinistra")
 
     *Collegamento Accedi posizionata a sinistra*
 2. Con modalità di controllo Toggle selezionato, selezionare il collegamento di accesso per aprire il relativo codice.
@@ -433,16 +433,16 @@ In questa attività, si utilizzerà il controllo pagina per risolvere alcuni pro
     ![Pagina aggiornata](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *Pagina aggiornata*
-6. Usando la modalità di controllo, selezionare una qualsiasi del  **&lt;li&gt;**  gli elementi che contengono il &quot;registrare&quot; e &quot;Accedi&quot; collegamenti. Quindi, fare clic su di  **&lt;sezione&gt; #login** elemento accesso **Styles. CSS** codice.
+6. Usando la modalità di controllo, selezionare una qualsiasi del **&lt;li&gt;** gli elementi che contengono il &quot;registrare&quot; e &quot;Accedi&quot; collegamenti. Quindi, fare clic su di  **&lt;sezione&gt; #login** elemento accesso **Styles. CSS** codice.
 
-    ![Lo stile di ricerca](using-page-inspector-in-visual-studio-2012/_static/image42.png "lo stile di ricerca")
+    ![Individuare lo stile](using-page-inspector-in-visual-studio-2012/_static/image42.png "lo stile di ricerca")
 
     *Lo stile di ricerca*
 7. In **Style.css**, rimuovere il commento il codice per **#login li** elementi. Lo stile che si sta aggiungendo verrà al punto di nascondere e visualizzare gli elementi orizzontalmente.
 
-    ![Modifica dello stile di collegamenti di accesso](using-page-inspector-in-visual-studio-2012/_static/image43.png "modifica dello stile di collegamenti di accesso")
+    ![Modifica dello stile i collegamenti di accesso](using-page-inspector-in-visual-studio-2012/_static/image43.png "modifica dello stile i collegamenti di accesso")
 
-    *Modifica dello stile di collegamenti di accesso*
+    *Modifica dello stile i collegamenti di accesso*
 8. Salvare **Style.css** file e fare clic su una sola volta sulla barra di cui si trova sotto l'indirizzo a ricaricare la pagina. Si noti che i collegamenti vengono visualizzati correttamente.
 
     ![Collegamenti allineato al lato destro](using-page-inspector-in-visual-studio-2012/_static/image44.png "collegamenti allineato a destra")
@@ -474,9 +474,9 @@ Completando questa pratica, apprese come utilizza controllo pagina per visualizz
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il  **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
 
-1. Passare a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; *Visual Studio Express 2012 per Web con Windows Azure SDK*&quot;.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
 2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
 3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
 

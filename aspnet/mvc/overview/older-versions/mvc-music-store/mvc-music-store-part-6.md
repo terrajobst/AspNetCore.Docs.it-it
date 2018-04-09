@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b2083d5604741a0142f504f92779c9f931d0d6d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 328eccb4324bb10a7e8dec819a70129fc14c42c4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-using-data-annotations-for-model-validation"></a>Parte 6: Utilizzando le annotazioni dei dati per la convalida del modello
 ====================
@@ -37,12 +37,12 @@ Abbiamo un problema con la creazione e modifica di form: non dovranno più svolg
 
 Si userà gli attributi di annotazione dei dati seguenti:
 
-- **Obbligatorio** : indica che la proprietà è un campo obbligatorio
+- **Obbligatorio** – indica che la proprietà è un campo obbligatorio
 - **DisplayName** -definisce il testo che si desidera utilizzare i campi del form e i messaggi di convalida
 - **StringLength** – definisce una lunghezza massima per un campo stringa
-- **Intervallo** : fornisce un valore minimo e massimo per un campo numerico
-- **Associare** : Elenca i campi da escludere o includere durante l'associazione dei valori di parametro o modulo alle proprietà del modello
-- **ScaffoldColumn** : consente di nascondere i campi da moduli di editor
+- **Intervallo** – fornisce a un valore minimo e massimo per un campo numerico
+- **Associare** : Elenca i campi da escludere o includere quando si associano i valori di parametro o modulo alle proprietà del modello
+- **ScaffoldColumn** : consente di nascondere i campi dai form dell'editor
 
 *Nota: Per ulteriori informazioni sulla convalida del modello utilizzando gli attributi di annotazione dei dati, vedere la documentazione MSDN all'indirizzo*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
 
@@ -81,6 +81,6 @@ Digitare una sola lettera nel campo titolo soddisfa i requisiti di convalida, qu
 ![](mvc-music-store-part-6/_static/image3.png)
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-5.md)
-[Successivo](mvc-music-store-part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-5.md)
+> [Successivo](mvc-music-store-part-7.md)

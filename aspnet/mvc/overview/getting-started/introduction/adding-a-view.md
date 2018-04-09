@@ -9,17 +9,17 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21db97e635b5db580df31f46ca7f8b60a80d6f94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In questa sezione si intende modificare il `HelloWorldController` classe per utilizzare la visualizzazione dei file di modello per correttamente incapsulano il processo di generazione di risposte HTML a un client. 
 
@@ -57,7 +57,7 @@ Fare clic destro la *cshtml* file e selezionare **Visualizza nel Browser**.
 
 ![PI](adding-a-view/_static/image5.png)
 
-È anche possibile fare clic il *cshtml* file e selezionare **Visualizza in controllo pagina.** Vedere il [esercitazione controllo pagina](../../views/using-page-inspector-in-aspnet-mvc.md) per ulteriori informazioni.
+È possibile anche con il pulsante destro scegliere il *cshtml* del file e selezionare **Visualizza in controllo pagina.** Vedere il [esercitazione controllo pagina](../../views/using-page-inspector-in-aspnet-mvc.md) per ulteriori informazioni.
 
 In alternativa, eseguire l'applicazione e individuare il `HelloWorld` controller (`http://localhost:xxxx/HelloWorld`). Il `Index` metodo nel controller di non eseguire la quantità di lavoro, sufficiente eseguita l'istruzione `return View()`, quale specificato che il metodo deve usare un file di modello di visualizzazione per il rendering di una risposta nel browser. Poiché è stato specificato in modo esplicito il nome del file modello di visualizzazione da utilizzare, ASP.NET MVC impostato sul valore predefinito utilizzando il *cshtml* Visualizza file nel *\Views\HelloWorld* cartella. L'immagine seguente mostra la stringa &quot;Hello da questo modello di visualizzazione!&quot; hardcoded nella vista.
 
@@ -85,7 +85,7 @@ Quando abbiamo creato prima il *Views\HelloWorld\Index.cshtml* file contiene il 
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Il codice Razor precedente in modo esplicito nell'impostazione di pagina di layout. Esaminare il *viste\\viewstart* file, che contiene gli stessi tag Razor esatto. Il  *[viste\\viewstart](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  file definisce il layout comune che utilizzeranno tutte le visualizzazioni, pertanto è possibile commentare quel codice da rimuovere o viene disattivata la *Views\HelloWorld\ Cshtml* file.
+Il codice Razor precedente in modo esplicito nell'impostazione di pagina di layout. Esaminare il *viste\\viewstart* file, che contiene gli stessi tag Razor esatto. Il *[viste\\viewstart](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* file definisce il layout comune che utilizzeranno tutte le visualizzazioni, pertanto è possibile commentare quel codice da rimuovere o viene disattivata la *Views\HelloWorld\ Cshtml* file.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 
@@ -119,7 +119,7 @@ I controller sono responsabili di fornire qualsiasi dati o gli oggetti necessari
 
 Attualmente, il `Welcome` metodo di azione il `HelloWorldController` classe accetta un `name` e `numTimes` parametro e quindi i valori direttamente al browser di output. Per evitare che il controller di eseguire il rendering questa risposta sotto forma di stringa, è necessario modificare il controller per utilizzare invece un modello di visualizzazione. Il modello di vista genererà una risposta dinamica, il che significa che è necessario passare i bit di dati appropriati dal controller alla vista per generare la risposta. È possibile farlo con il controller di inserire i dati dinamici (parametri) necessarie per il modello di visualizzazione in un `ViewBag` oggetto che può quindi accedere il modello di visualizzazione.
 
-Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag`è un oggetto dinamico, ovvero che è possibile inserire elementi desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il [sistema di associazione del modello MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) esegue automaticamente il mapping di parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi per i parametri del metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
+Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag` è un oggetto dinamico, ovvero che è possibile inserire desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il [sistema di associazione del modello MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) esegue automaticamente il mapping di parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi per i parametri del metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
 
 [!code-csharp[Main](adding-a-view/samples/sample8.cs)]
 
@@ -151,6 +151,6 @@ Nell'esempio precedente, è stato usato un `ViewBag` oggetto per passare i dati 
 
 Che è un tipo di un &quot;M&quot; per modello, ma non il tipo di database. Creare un database di film con i concetti appresi.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-controller.md)
-[Successivo](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-controller.md)
+> [Successivo](adding-a-model.md)

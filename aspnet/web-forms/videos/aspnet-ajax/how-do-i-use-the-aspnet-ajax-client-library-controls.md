@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-client-library-controls
 msc.type: video
-ms.openlocfilehash: 713ed131938a422f7b1388c1d057dc7c0c9be6d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed54ddd5666422962b6ab8e1bfdef3db392e3084
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-aspnet-ajax-client-library-controls"></a>[Eseguire la ricerca per categorie:] Utilizzare i controlli di libreria Client AJAX ASP.NET?
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Illustra l'esperienza di programmazione sul lato client usando gli script e i controlli dalla libreria client AJAX ASP.NET. I controlli client aggiungono azioni, comportamenti e associazioni di dati all'interfaccia utente lato client.
 
-[&#9654; Guardare video (10 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-client-library-controls)
+[&#9654;Guardare video (10 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-client-library-controls)
 
->[!div class="step-by-step"]
-[Precedente](how-do-i-aspnet-ajax-enable-an-existing-web-service.md)
-[Successivo](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
+> [!div class="step-by-step"]
+> [Precedente](how-do-i-aspnet-ajax-enable-an-existing-web-service.md)
+> [Successivo](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)

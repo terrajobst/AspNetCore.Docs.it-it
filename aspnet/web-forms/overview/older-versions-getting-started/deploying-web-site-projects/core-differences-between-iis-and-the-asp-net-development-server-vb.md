@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 title: Principali differenze tra IIS e il Server di sviluppo ASP.NET (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Durante il test di un'applicazione ASP.NET localmente, probabilità sono che si utilizza il Server Web di sviluppo ASP.NET. Tuttavia, il sito Web di produzione è probabilmente pow..."
+description: Durante il test di un'applicazione ASP.NET localmente, probabilità sono che si utilizza il Server Web di sviluppo ASP.NET. Tuttavia, il sito Web di produzione è probabilmente pow...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e8ae3c0fd1d67fba6dff965704b550bdc919c6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 47b1959f9b92d161da0476b274c8154333ad80dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Differenze principali tra IIS e il Server di sviluppo ASP.NET (VB)
 ====================
@@ -61,7 +61,7 @@ Successivamente, visitare il *insegna manualmente ASP.NET 3.5 nelle 24 ore* pagi
 Distribuire l'applicazione web nell'ambiente di produzione e quindi visitare ospitato *insegna manualmente ASP.NET 3.5 nelle 24 ore* pagina verifica manuale. A questo punto la pagina di revisione del libro è visualizzato come normale o il messaggio di errore illustrato nella figura 2. Alcuni provider host web concedere autorizzazioni di scrittura per l'account del computer ASP.NET anonimo, in cui la pagina di case funzionerà senza errori. Se, tuttavia, il provider di hosting web impedisce l'accesso in scrittura per l'account anonimo una [ `UnauthorizedAccessException` eccezione](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) viene generato quando il `TYASP35.aspx` pagina tenta di scrivere la data e ora correnti per il `LastTYASP35Access.txt` file.
 
 
-[![L'Account computer predefinito usato da IIS non dispone di autorizzazioni per scrivere nel File System](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
+[![L'Account del computer predefinito usato da IIS non dispone di autorizzazioni per scrivere nel File System](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
 
 **Figura 2**: il predefinito macchina Account utilizzato da IIS Does non dispone delle autorizzazioni di scrittura nel File System ([fare clic per visualizzare l'immagine ingrandita](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image6.png))
 
@@ -94,7 +94,7 @@ con:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample4.xml)]
 
-Utilizzo del Server di sviluppo ASP.NET, visitare il sito e immettere l'URL diretto per uno dei file PDF nella barra degli indirizzi del browser. Se è stato scaricato il sito Web associato a questa esercitazione che l'URL dovrebbe risultare simile al seguente:`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+Utilizzo del Server di sviluppo ASP.NET, visitare il sito e immettere l'URL diretto per uno dei file PDF nella barra degli indirizzi del browser. Se hai scaricato il sito Web associato a questa esercitazione che l'URL dovrebbe essere simile: `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 Immettere l'URL nella barra degli indirizzi determina il browser inviare una richiesta al Server di sviluppo ASP.NET per il file. I Server di sviluppo ASP.NET trasferisce la richiesta al runtime di ASP.NET per l'elaborazione. Poiché non è stato ancora effettuato e il `Web.config` nel `PrivateDocs` cartella è configurata per negare l'accesso anonimo, il runtime di ASP.NET ci reindirizza automaticamente alla pagina di accesso, `Login.aspx` (vedere la figura 3). Quando il reindirizzamento dell'utente alla pagina di accesso, ASP.NET include un `ReturnUrl` parametro querystring che indica la pagina a cui ha tentato di visualizzare l'utente. Dopo aver completato l'accesso l'utente può essere restituito da questa pagina.
 
@@ -107,9 +107,9 @@ Immettere l'URL nella barra degli indirizzi determina il browser inviare una ric
 Ora di seguito viene illustrato questo comportamento in produzione. Distribuire l'applicazione e immettere l'URL diretto a uno dei PDF nel `PrivateDocs` cartella nell'ambiente di produzione. Verrà chiesto di specificare il browser per inviare una richiesta di IIS per il file. Poiché è richiesto un file statico, IIS recupera e restituisce il file senza richiamare il runtime di ASP.NET. Di conseguenza, si è verificato alcun controllo di autorizzazione URL eseguita. il contenuto del documento PDF apparentemente private è accessibile a qualsiasi utente che conosce l'URL diretto al file.
 
 
-[![Gli utenti anonimi è possono scaricare i file PDF privato immettendo l'URL diretto al File di](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image10.png)
+[![Gli utenti anonimi scaricare i file PDF privato immettendo l'URL diretto al File](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image10.png)
 
-**Figura 4**: anonimo gli utenti possono scaricare il privata PDF file da immettere l'URL diretto al File ([fare clic per visualizzare l'immagine ingrandita](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image12.png))
+**Figura 4**: anonimo gli utenti possono scaricare il privata PDF file da immettendo l'URL diretto al File ([fare clic per visualizzare l'immagine ingrandita](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image12.png))
 
 
 ### <a name="performing-forms-based-authentication-and-url-authentication-on-static-files-with-iis-7"></a>Eseguire l'autenticazione basata su form e l'autenticazione di URL nel file statici con IIS 7
@@ -140,6 +140,6 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Utilizzo dell'autenticazione forum ASP.NET con tutti i tipi di contenuto in IIS 7](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (Video)
 - [Server Web in Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[Precedente](common-configuration-differences-between-development-and-production-vb.md)
-[Successivo](deploying-a-database-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](common-configuration-differences-between-development-and-production-vb.md)
+> [Successivo](deploying-a-database-vb.md)

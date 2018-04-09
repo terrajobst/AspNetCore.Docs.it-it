@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 title: Pubblicazione di distribuzione di un Server di Database di configurazione per il Web | Documenti Microsoft
 author: jrjlee
-description: "In questo argomento viene descritto come configurare un server di database di SQL Server 2008 R2 per il supporto di pubblicazione e distribuzione web. Le attività descritte in questo argomento sono co..."
+description: In questo argomento viene descritto come configurare un server di database di SQL Server 2008 R2 per il supporto di pubblicazione e distribuzione web. Le attività descritte in questo argomento sono co...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Configurazione di un Server di Database per la pubblicazione di distribuzione Web
 ====================
@@ -26,7 +26,7 @@ da [Jason Lee](https://github.com/jrjlee)
 
 > In questo argomento viene descritto come configurare un server di database di SQL Server 2008 R2 per il supporto di pubblicazione e distribuzione web.
 > 
-> Le attività descritte in questo argomento sono comuni a ogni scenario di distribuzione & #x 2014; non è importante se i server web sono configurati per usare il servizio agente remoto di strumento di distribuzione Web di IIS (distribuzione Web), il gestore di distribuzione Web o distribuzione non in linea o l'applicazione è in esecuzione in un singolo server web o una farm di server. Il modo in cui si distribuisce il database può variare in base ai requisiti di sicurezza e altre considerazioni. Ad esempio, è possibile distribuire il database con o senza dati di esempio e, è possibile distribuire i mapping dei ruoli utente o configurare manualmente dopo la distribuzione. Tuttavia, la modalità di configurazione il server di database rimane invariato.
+> Le attività descritte in questo argomento sono comuni a ogni scenario di distribuzione&#x2014;non è importante se i server web sono configurati per usare il servizio agente remoto strumento di distribuzione Web IIS (distribuzione Web), il gestore di distribuzione Web o distribuzione non in linea o il applicazione è in esecuzione in un singolo server web o una farm di server. Il modo in cui si distribuisce il database può variare in base ai requisiti di sicurezza e altre considerazioni. Ad esempio, è possibile distribuire il database con o senza dati di esempio e, è possibile distribuire i mapping dei ruoli utente o configurare manualmente dopo la distribuzione. Tuttavia, la modalità di configurazione il server di database rimane invariato.
 
 
 Non è necessario installare altri prodotti o strumenti di configurazione di un server di database per supportare la distribuzione di web. Supponendo che il server di database e server web vengono eseguiti in computer diversi, è sufficiente:
@@ -65,8 +65,8 @@ Per abilitare SQL Server per comunicare su TCP/IP, utilizzare Gestione configura
 1. Nel **avviare** dal menu **tutti i programmi**, fare clic su **Microsoft SQL Server 2008 R2**, fare clic su **strumenti di configurazione**, quindi fare clic su **Gestione configurazione SQL Server**.
 2. Nel riquadro di visualizzazione albero, espandere **configurazione di rete SQL Server**, quindi fare clic su **protocolli per MSSQLSERVER**.
 
-    > [!NOTE]
-    > Se più istanze di SQL Server installato, verrà visualizzato un **protocolli per * * * [nome istanza]* elemento per ogni istanza. È necessario configurare le impostazioni di rete in modo da-istanza.
+   > [!NOTE]
+   > Se più istanze di SQL Server installato, verrà visualizzato un <strong>protocolli per</strong><em>[nome istanza]</em> elemento per ogni istanza. È necessario configurare le impostazioni di rete in modo da-istanza.
 3. Nel riquadro dei dettagli fare doppio clic su di **TCP/IP** riga e quindi fare clic su **abilitare**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ Per ulteriori informazioni su come configurare Windows Firewall per SQL Server, 
 
 ## <a name="configure-logins-and-database-permissions"></a>Configurare account di accesso e autorizzazioni di Database
 
-Quando si distribuisce un'applicazione web di Internet Information Services (IIS), l'applicazione viene eseguita utilizzando l'identità del pool di applicazioni. In un ambiente di dominio, le identità del pool di applicazioni utilizzano l'account computer del server in cui vengono eseguite per accedere alle risorse di rete. Gli account computer assumono la forma * [nome dominio]***\** * [nome macchina]***$ * * & #x 2014; ad esempio, **FABRIKAM\TESTWEB1$**. Per consentire all'applicazione web accedere a un database attraverso la rete, è necessario:
+Quando si distribuisce un'applicazione web di Internet Information Services (IIS), l'applicazione viene eseguita utilizzando l'identità del pool di applicazioni. In un ambiente di dominio, le identità del pool di applicazioni utilizzano l'account computer del server in cui vengono eseguite per accedere alle risorse di rete. Gli account computer assumono la forma <em>[nome di dominio]</em><strong>\</ strong ><em>[nome macchina]</em><strong>$</strong>&#x2014;, ad esempio, <strong>FABRIKAM\TESTWEB1$</strong>. Per consentire all'applicazione web accedere a un database attraverso la rete, è necessario:
 
 - Aggiungere un account di accesso per l'account del computer server web per l'istanza di SQL Server.
 - Eseguire il mapping di accesso dell'account computer a ruoli di database necessari (in genere **db\_datareader** e **db\_datawriter**).
@@ -231,6 +231,6 @@ Il server di database dovrebbe ora essere pronto per accettare le distribuzioni 
 
 Per istruzioni sulla distribuzione di progetti di database, vedere [progetti di Database di distribuzione](../web-deployment-in-the-enterprise/deploying-database-projects.md). Per istruzioni sulla creazione di appartenenza ai ruoli di database eseguendo uno script di post-distribuzione, vedere [distribuzione appartenenze al ruolo per gli ambienti di Test](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Per istruzioni su come soddisfare le esigenze di distribuzione univoca che implicano i database di appartenenza, vedere [la distribuzione di database di appartenenza per ambienti aziendali](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
->[!div class="step-by-step"]
-[Precedente](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[Successivo](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [Successivo](creating-a-server-farm-with-the-web-farm-framework.md)

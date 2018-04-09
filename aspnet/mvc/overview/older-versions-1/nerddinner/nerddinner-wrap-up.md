@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 title: Incapsulamento NerdDinner backup | Documenti Microsoft
 author: microsoft
-description: "Questo è il termine dell'esercitazione NerdDinner e vengono fornite informazioni su come per altre informazioni."
+description: Questo è il termine dell'esercitazione NerdDinner e vengono fornite informazioni su come per altre informazioni.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: bb55668c714532c0a9ff499511b7a47572314194
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d418f40f6d2911491c1a4f2498a4f711e9c271c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nerddinner-wrap-up"></a>Incapsulamento NerdDinner backup
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -43,11 +43,11 @@ In questa esercitazione NerdDinner è il primo capitolo della nuova [Professiona
 
 È possibile leggere il resto del libro per ulteriori informazioni su ASP.NET MVC.
 
-È anche possibile trovare grande ASP.NET MVC esercitazioni e video in: [https://www.asp.net/mvc](../../../index.md) verranno pubblicati poco altro ottimi documentazione di ASP.NET MVC. Questa pagina per includere i collegamenti alla documentazione aggiuntive man mano che diventano disponibili verrà aggiornato.
+È anche possibile trovare grande ASP.NET MVC, esercitazioni e video in: [ https://www.asp.net/mvc ](../../../index.md) verranno pubblicati poco altro ottimi documentazione di ASP.NET MVC. Questa pagina per includere i collegamenti alla documentazione aggiuntive man mano che diventano disponibili verrà aggiornato.
 
 Auguriamo,
 
 Scott
 
->[!div class="step-by-step"]
-[Precedente](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Precedente](enable-automated-unit-testing.md)

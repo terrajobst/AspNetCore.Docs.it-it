@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
-title: 'Iterazione #4: verificare l''applicazione ad accoppiamento debole (VB) | Documenti Microsoft'
+title: "Iterazione #4: verificare l'applicazione ad accoppiamento debole (VB) | Documenti Microsoft"
 author: microsoft
-description: "In questa terza iterazione, possiamo usufruire dei diversi modelli di progettazione di software per renderne più semplice gestire e modificare l'applicazione Gestione contatti. Per..."
+description: In questa terza iterazione, possiamo usufruire dei diversi modelli di progettazione di software per renderne più semplice gestire e modificare l'applicazione Gestione contatti. Per...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9c11c89710723c133a306aaf56cc8797cc036475
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d953a1b786c802c070619e553e27d88f2ded149c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iterazione #4: verificare l'applicazione ad accoppiamento debole (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
 
@@ -43,7 +43,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -88,7 +88,7 @@ In primo luogo, è necessario creare un'interfaccia che descrive tutti i metodi 
 
 Successivamente, è necessario creare una classe concreta che implementa l'interfaccia IContactManagerRepository. Poiché si sta usando Microsoft Entity Framework per accedere al database, si creerà una nuova classe denominata EntityContactManagerRepository. Questa classe è contenuta nel listato 2.
 
-**Elenco di 2 - Models\EntityContactManagerRepository.vb**
+**Listing 2 - Models\EntityContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample2.vb)]
 
@@ -140,7 +140,7 @@ Per risolvere questo problema, è possibile creare un apposito [livello di servi
 
 Il ContactManagerService è contenuta nel listato 4. Contiene la logica di convalida dalla classe controller contatto.
 
-**Elenco di 4 - Models\ContactManagerService.vb**
+**Listing 4 - Models\ContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
@@ -150,13 +150,13 @@ Si noti inoltre che il ContactManagerService implementa l'interfaccia IContactMa
 
 L'interfaccia IContactManagerService è contenuta nel listato 5.
 
-**Elenco di 5 - Models\IContactManagerService.vb**
+**Nel listato 5 - Models\IContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample5.vb)]
 
 La classe controller contatto modificata è contenuta nel listato 6. Si noti che il controller di contatto non interagisce con il repository ContactManager. Al contrario, il controller di contatto interagisce con il servizio di ContactManager. Ogni livello è isolata al massimo da altri livelli.
 
-**Elenco di 6 - Controllers\ContactController.vb**
+**Elenco 6 - Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample6.vb)]
 
@@ -176,7 +176,7 @@ Il modello di espressione Decorator consente di eseguire il wrapping di una clas
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Elenco di 8 - Models\Validation\IValidationDictionary.vb**
+**Elenco 8 - Models\Validation\IValidationDictionary.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 
@@ -196,6 +196,6 @@ Quando abbiamo creato il livello di servizio, abbiamo sfruttato il modello di es
 
 Infine, abbiamo sfruttato un modello di progettazione software denominato il modello di inserimento di dipendenze. Questo modello consente di programmare interfacce (astrazioni) anziché le classi concrete. Implementazione dello schema progettuale Dependency Injection inoltre rende il codice più verificabili. Nell'iterazione successiva, è aggiungere unit test al progetto.
 
->[!div class="step-by-step"]
-[Precedente](iteration-3-add-form-validation-vb.md)
-[Successivo](iteration-5-create-unit-tests-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-3-add-form-validation-vb.md)
+> [Successivo](iteration-5-create-unit-tests-vb.md)

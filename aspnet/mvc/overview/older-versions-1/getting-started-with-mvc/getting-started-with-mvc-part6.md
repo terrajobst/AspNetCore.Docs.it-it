@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Aggiunta di un metodo di creazione e creare vista
 ====================
@@ -65,6 +65,6 @@ Questo oggetto film quindi passato alla versione [HttpPost] del metodo di azione
 
 È non verifica se i filmati siano corretti, tuttavia, e il database non consente di salvare un filmato con nessun titolo. Sarebbe utile se è stato possibile indicare all'utente di database ha generato un errore. Successiva attività verranno eseguite tramite l'aggiunta di supporto della convalida per l'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part5.md)
-[Successivo](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part5.md)
+> [Successivo](getting-started-with-mvc-part7.md)

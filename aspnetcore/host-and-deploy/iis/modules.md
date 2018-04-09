@@ -1,5 +1,5 @@
 ---
-title: Uso di moduli IIS con ASP.NET Core
+title: Moduli IIS con ASP.NET Core
 author: guardrex
 description: Individuare i moduli IIS attivi e inattivi per le applicazioni ASP.NET Core e su come gestire i moduli IIS.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-iis-modules-with-aspnet-core"></a>Uso di moduli IIS con ASP.NET Core
+# <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -58,7 +58,7 @@ Le applicazioni ASP.NET Core sono ospitate da IIS in una configurazione di proxy
 | **Autorizzazione URL**<br>`UrlAuthorizationModule` | Yes | [Identità di ASP.NET Core](xref:security/authentication/identity) |
 | **Autenticazione di Windows**<br>`WindowsAuthenticationModule` | Yes | |
 
-&#8224; URL Rewrite Module `isFile` e `isDirectory` corrisponde ai tipi non funziona con le app ASP.NET Core a causa di modifiche in [struttura di directory](xref:host-and-deploy/directory-structure).
+&#8224;URL Rewrite Module `isFile` e `isDirectory` corrisponde ai tipi non funziona con le app ASP.NET Core a causa di modifiche nelle [struttura di directory](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Moduli gestiti
 
@@ -106,21 +106,21 @@ Se sceglie di rimuovere un modulo con un'impostazione in *Web. config*, sblocco 
 
 1. Sbloccare il modulo a livello di server. Selezionare il server IIS in Gestione IIS **connessioni** barra laterale. Aprire il **moduli** nel **IIS** area. Nell'elenco, selezionare il modulo. Nel **azioni** barra laterale a destra, selezionare **Unlock**. Sbloccare tutti moduli che si desidera rimuovere dal *Web. config* in un secondo momento.
 
-1. Distribuire l'app senza un  **\<moduli >** sezione *Web. config*. Se un'applicazione viene distribuita con un *Web. config* contenente il  **\<moduli >** sezione senza avere sbloccato la sezione prima in Gestione IIS, Configuration Manager genera un'eccezione Quando si tenta di sbloccare la sezione. Pertanto, distribuire l'app senza un  **\<moduli >** sezione.
+2. Distribuire l'app senza un  **\<moduli >** sezione *Web. config*. Se un'applicazione viene distribuita con un *Web. config* contenente il  **\<moduli >** sezione senza avere sbloccato la sezione prima in Gestione IIS, Configuration Manager genera un'eccezione Quando si tenta di sbloccare la sezione. Pertanto, distribuire l'app senza un  **\<moduli >** sezione.
 
-1. Sbloccare il  **\<moduli >** sezione *Web. config*. Nel **connessioni** barra laterale, selezionare il sito Web in **siti**. Nel **Management** area, aprire il **Editor di configurazione**. Utilizzare i controlli di spostamento selezionare il `system.webServer/modules` sezione. Nel **azioni** barra laterale a destra, selezionare questa opzione per **Unlock** la sezione.
+3. Sbloccare il  **\<moduli >** sezione *Web. config*. Nel **connessioni** barra laterale, selezionare il sito Web in **siti**. Nel **Management** area, aprire il **Editor di configurazione**. Utilizzare i controlli di spostamento selezionare il `system.webServer/modules` sezione. Nel **azioni** barra laterale a destra, selezionare questa opzione per **Unlock** la sezione.
 
-1. A questo punto, un  **\<moduli >** sezione può essere aggiunti al *Web. config* file con un  **\<rimuovere >** elemento da rimuovere il modulo da l'app. Più  **\<rimuovere >** è possibile aggiungere elementi per rimuovere più moduli. Se *Web. config* vengono apportate modifiche nel server, verificare immediatamente le stesse modifiche al progetto *Web. config* file localmente. Rimozione di un modulo in questo modo non influisce sull'utilizzo del modulo con altre applicazioni nel server.
+4. A questo punto, un  **\<moduli >** sezione può essere aggiunti al *Web. config* file con un  **\<rimuovere >** elemento da rimuovere il modulo da l'app. Più  **\<rimuovere >** è possibile aggiungere elementi per rimuovere più moduli. Se *Web. config* vengono apportate modifiche nel server, verificare immediatamente le stesse modifiche al progetto *Web. config* file localmente. Rimozione di un modulo in questo modo non influisce sull'utilizzo del modulo con altre applicazioni nel server.
 
-  ```xml
-  <configuration> 
+   ```xml
+   <configuration> 
     <system.webServer> 
       <modules> 
         <remove name="MODULE_NAME" /> 
       </modules> 
     </system.webServer> 
-  </configuration>
-  ```
+   </configuration>
+   ```
 
 Per un'installazione di IIS con i moduli predefiniti installati, utilizzare la seguente  **\<modulo >** sezione per rimuovere i moduli predefiniti.
 

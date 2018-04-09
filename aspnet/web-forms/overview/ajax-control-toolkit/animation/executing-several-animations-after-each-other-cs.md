@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 title: L'esecuzione di numerose animazioni dopo l'altro (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Consente di eseguire severa..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Consente di eseguire severa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d4322690132fe3829e3454f0aa7ff38acd8eb04
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 836f0bba890a03e74ae62c2df029b7525b34275c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-after-each-other-c"></a>L'esecuzione di numerose animazioni dopo l'altro (c#)
 ====================
@@ -43,7 +43,7 @@ Nella classe CSS associata per il pannello, definire un colore di sfondo nice e 
 
 [!code-css[Main](executing-several-animations-after-each-other-cs/samples/sample3.css)]
 
-Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un `ID`, `TargetControlID` attributo e l'obbligatoria`runat="server":`
+Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `TargetControlID` attributo e l'obbligatoria `runat="server":`
 
 [!code-aspx[Main](executing-several-animations-after-each-other-cs/samples/sample4.aspx)]
 
@@ -59,10 +59,10 @@ Quando si esegue questo script, il pannello riceve più larghi e quindi più pic
 Innanzitutto viene aumentata la larghezza ([fare clic per visualizzare l'immagine ingrandita](executing-several-animations-after-each-other-cs/_static/image3.png))
 
 
-[![Quindi l'altezza è ridotto](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
+[![Quindi viene diminuita l'altezza](executing-several-animations-after-each-other-cs/_static/image5.png)](executing-several-animations-after-each-other-cs/_static/image4.png)
 
 Quindi viene ridotto l'altezza ([fare clic per visualizzare l'immagine ingrandita](executing-several-animations-after-each-other-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Precedente](executing-several-animations-at-the-same-time-cs.md)
-[Successivo](animation-depending-on-a-condition-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](executing-several-animations-at-the-same-time-cs.md)
+> [Successivo](animation-depending-on-a-condition-cs.md)

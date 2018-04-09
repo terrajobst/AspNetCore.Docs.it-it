@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 title: 'Iterazione #5: creazione di unit test (c#) | Documenti Microsoft'
 author: microsoft
-description: "Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per o..."
+description: Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f9b2d05ec8756d68f6bd2f387c85faf03abd167e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a61b5791a40088df9d27f7b1bd37df1831ef22b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-c"></a>Iterazione #5: creare unit test (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-5-create-unit-tests-cs/_static/contactmanager_5_cs1.zip)
 
@@ -43,7 +43,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -105,9 +105,9 @@ Ad esempio, è possibile utilizzare un framework di simulare oggetto per generar
 
 Visual Studio non include un framework di simulare oggetto. Tuttavia, sono disponibili diversi framework di simulare oggetto commerciali e open source di .NET framework:
 
-1. Moq - questo framework è disponibile con la licenza BSD open source. È possibile scaricare Moq da [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
-2. Rhino Mocks, questo framework è disponibile con la licenza BSD open source. È possibile scaricare Rhino Mocks da [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
-3. Typemock parimenti - si tratta di un framework commerciale. È possibile scaricare una versione di valutazione da [http://www.typemock.com/](http://www.typemock.com/).
+1. Moq - questo framework è disponibile con la licenza BSD open source. È possibile scaricare da Moq [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
+2. Rhino Mocks, questo framework è disponibile con la licenza BSD open source. È possibile scaricare Rhino Mocks dal [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
+3. Typemock parimenti - si tratta di un framework commerciale. È possibile scaricare una versione di valutazione dal [ http://www.typemock.com/ ](http://www.typemock.com/).
 
 In questa esercitazione, ho deciso di utilizzare Moq. Tuttavia, è possibile utilizzare la stessa facilità Rhino Mocks o parimenti Typemock per la simulazione di creare oggetti per l'applicazione Gestione contatti.
 
@@ -127,7 +127,7 @@ Prima di poter utilizzare Moq, è necessario completare i passaggi seguenti:
 
 [![Riferimenti dopo l'aggiunta di Moq](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
-**Figura 02**: riferimenti dopo l'aggiunta di Moq ([fare clic per visualizzare l'immagine ingrandita](iteration-5-create-unit-tests-cs/_static/image4.png))
+**Figura 02**: i riferimenti dopo l'aggiunta di Moq ([fare clic per visualizzare l'immagine ingrandita](iteration-5-create-unit-tests-cs/_static/image4.png))
 
 
 ## <a name="creating-unit-tests-for-the-service-layer"></a>Creazione di Unit test per il livello di servizio
@@ -190,7 +190,7 @@ I restanti test di verificare che quando viene chiamato il metodo CreateContact(
 
 [![Risultati dei test](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
-**Figura 04**: risultati del Test ([fare clic per visualizzare l'immagine ingrandita](iteration-5-create-unit-tests-cs/_static/image8.png))
+**Figura 04**: i risultati del Test ([fare clic per visualizzare l'immagine ingrandita](iteration-5-create-unit-tests-cs/_static/image8.png))
 
 
 ## <a name="creating-unit-tests-for-controllers"></a>Creazione di Unit test per i controller
@@ -227,7 +227,7 @@ restituire View("Create");
 Se non si esplicita per la restituzione di una visualizzazione di proprietà ViewResult.ViewName restituisce una stringa vuota.
 
 
-**Elenco di 2 - Controllers\ContactControllerTest.cs**
+**Il listato 2 - Controllers\ContactControllerTest.cs**
 
 [!code-csharp[Main](iteration-5-create-unit-tests-cs/samples/sample6.cs)]
 
@@ -239,6 +239,6 @@ Due set di unit test è stato creato. In primo luogo, è stato testato la logica
 
 Nell'iterazione successiva, modificare è l'applicazione Gestione contatti in modo che supporti i gruppi di contatto. Questa nuova funzionalità verrà aggiunto all'applicazione mediante un processo di progettazione software denominato sviluppo basato su test.
 
->[!div class="step-by-step"]
-[Precedente](iteration-4-make-the-application-loosely-coupled-cs.md)
-[Successivo](iteration-6-use-test-driven-development-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-4-make-the-application-loosely-coupled-cs.md)
+> [Successivo](iteration-6-use-test-driven-development-cs.md)

@@ -1,7 +1,7 @@
 ---
 title: Collegamento del browser in ASP.NET Core
 author: ncarandini
-description: "Viene spiegato come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser."
+description: Viene spiegato come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,15 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: 3e62bdd180bb1f5e2ce0645a8cf13c9ffe76197e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a75a896dd7ebc488e3e9344ec705c24201924375
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core 
+# <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core
 
-Da [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson), e [Tom Dykstra](https://github.com/tdykstra)
+Dal [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson), e [Tom Dykstra](https://github.com/tdykstra)
 
 Collegamento del browser è una funzionalità di Visual Studio che crea un canale di comunicazione tra l'ambiente di sviluppo e uno o più web browser. È possibile utilizzare il collegamento del Browser per aggiornare l'applicazione web nel browser diverse contemporaneamente, che è utile per il testing e browser.
 
@@ -66,7 +66,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Per altre informazioni, vedere [Uso di più ambienti](xref:fundamentals/environments).
+Per altre informazioni, vedere [funziona con più ambienti](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Come utilizzare il collegamento del Browser
 

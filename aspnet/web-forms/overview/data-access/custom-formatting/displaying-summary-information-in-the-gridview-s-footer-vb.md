@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
-title: "Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (VB) | Documenti Microsoft"
+title: Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Le informazioni di riepilogo viene spesso visualizzate nella parte inferiore del report in una riga di riepilogo. Il controllo GridView può includere una riga di piè di pagina in cui le celle è possibile pr..."
+description: Le informazioni di riepilogo viene spesso visualizzate nella parte inferiore del report in una riga di riepilogo. Il controllo GridView può includere una riga di piè di pagina in cui le celle è possibile pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e5b7e39a44d43a857c62842ea3e1dddcacf05c9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a1a3f3c680f367395f984254da6cdcdd3c08d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (VB)
 ====================
@@ -56,7 +56,7 @@ Aprire il `SummaryDataInFooter.aspx` nella pagina di `CustomFormatting` cartella
 
 [![Aggiungere un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image4.png)
 
-**Figura 2**: aggiungere un nuovo ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image6.png))
+**Figura 2**: aggiungere un nuovo denominato ObjectDataSource `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image6.png))
 
 
 [![Avere ObjectDataSource GetCategories() metodo della classe CategoriesBLL Invoke](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image7.png)
@@ -67,9 +67,9 @@ Aprire il `SummaryDataInFooter.aspx` nella pagina di `CustomFormatting` cartella
 Dopo aver configurato il ObjectDataSource, verrà nuovamente la configurazione dell'origine dati del DropDownList guidata da cui è necessario specificare quale valore del campo dati deve essere visualizzato e quale deve corrispondere al valore del DropDownList `ListItem` s. Dispone il `CategoryName` campo visualizzato e l'utilizzo di `CategoryID` come valore.
 
 
-[![Utilizzare rispettivamente le CategoryName e i campi CategoryID come testo e il valore per gli elementi ListItem,](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
+[![Utilizzare i campi di CategoryID e CategoryName come testo e il valore per gli elementi ListItem presenti, rispettivamente](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
 
-**Figura 4**: utilizzo di `CategoryName` e `CategoryID` i campi come il `Text` e `Value` per il `ListItem` s, rispettivamente ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image12.png))
+**Figura 4**: usare il `CategoryName` e `CategoryID` i campi come il `Text` e `Value` per il `ListItem` s, rispettivamente ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image12.png))
 
 
 A questo punto si dispone di un controllo DropDownList (`Categories`) che sono elencate le categorie nel sistema. È ora necessario aggiungere un controllo GridView in cui sono elencati i prodotti appartenenti alla categoria selezionata. Prima di effettuare, tuttavia, è opportuno controllare la casella di controllo Abilita un postback automatico smart tag del DropDownList. Come descritto nel *Master-Details filtro con un DropDownList* tutorial, impostando il DropDownList `AutoPostBack` proprietà `True` la pagina verrà registrata nuovamente ogni volta che viene modificato il valore di DropDownList. In questo modo GridView l'aggiornamento, che mostra i prodotti per la categoria selezionata. Se il `AutoPostBack` è impostata su `False` (impostazione predefinita), la modifica della categoria non provocheranno un postback e pertanto non vengono aggiornate prodotti elencati.
@@ -77,7 +77,7 @@ A questo punto si dispone di un controllo DropDownList (`Categories`) che sono e
 
 [![La casella di un postback automatico Abilita del DropDownList Smart tag](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image13.png)
 
-**Figura 5**: la casella di abilitare un postback automatico del DropDownList Smart tag ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image15.png))
+**Figura 5**: la casella Abilita un postback automatico del DropDownList Smart tag ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image15.png))
 
 
 Aggiungere un controllo GridView alla pagina per visualizzare i prodotti per la categoria selezionata. Impostare il controllo GridView `ID` a `ProductsInCategory` e associarlo a un nuovo oggetto ObjectDataSource denominato `ProductsInCategoryDataSource`.
@@ -85,7 +85,7 @@ Aggiungere un controllo GridView alla pagina per visualizzare i prodotti per la 
 
 [![Aggiungere un nuovo oggetto ObjectDataSource denominato ProductsInCategoryDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image16.png)
 
-**Figura 6**: aggiungere un nuovo ObjectDataSource denominato `ProductsInCategoryDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image18.png))
+**Figura 6**: aggiungere un nuovo denominato ObjectDataSource `ProductsInCategoryDataSource` ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image18.png))
 
 
 Configurare ObjectDataSource in modo che richiama la `ProductsBLL` della classe `GetProductsByCategoryID(categoryID)` metodo.
@@ -101,7 +101,7 @@ Poiché il `GetProductsByCategoryID(categoryID)` metodo accetta un parametro di 
 
 [![Ottenere il valore del parametro categoryID da DropDownList categorie selezionate](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**Figura 8**: ottenere il  *`categoryID`*  valore del parametro da DropDownList categorie selezionate ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**Figura 8**: ottenere il *`categoryID`* valore del parametro da DropDownList categorie selezionate ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 Dopo aver completato la procedura guidata GridView avrà un BoundField per ognuna delle proprietà del prodotto. Consente di pulire questi BoundField in modo che solo il `ProductName`, `UnitPrice`, `UnitsInStock`, e `UnitsOnOrder` BoundField vengono visualizzati. È possibile aggiungere le impostazioni a livello di campo per restanti BoundField (ad esempio la formattazione di `UnitPrice` come valuta). Dopo aver apportato queste modifiche, markup dichiarativo del controllo GridView dovrebbe essere simile al seguente:
@@ -114,7 +114,7 @@ A questo punto si dispone di un report master-details completamente funzionante 
 
 [![Ottenere il valore del parametro categoryID da DropDownList categorie selezionate](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**Figura 9**: ottenere il  *`categoryID`*  valore del parametro da DropDownList categorie selezionate ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**Figura 9**: ottenere il *`categoryID`* valore del parametro da DropDownList categorie selezionate ([fare clic per visualizzare l'immagine ingrandita](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>Passaggio 2: Visualizzare un piè di pagina in GridView
@@ -177,10 +177,10 @@ Creare un `RowDataBound` gestore eventi per il controllo GridView selezionando G
 
 Per annotare un totale parziale è necessario definire le variabili all'esterno dell'ambito del gestore dell'evento. Creare le variabili a livello di pagina quattro seguenti:
 
-- `_totalUnitPrice`, di tipo`Decimal`
-- `_totalNonNullUnitPriceCount`, di tipo`Integer`
-- `_totalUnitsInStock`, di tipo`Integer`
-- `_totalUnitsOnOrder`, di tipo`Integer`
+- `_totalUnitPrice`, di tipo `Decimal`
+- `_totalNonNullUnitPriceCount`, di tipo `Integer`
+- `_totalUnitsInStock`, di tipo `Integer`
+- `_totalUnitsOnOrder`, di tipo `Integer`
 
 Successivamente, scrivere il codice per incrementare le tre variabili per ogni riga di dati rilevati nel `RowDataBound` gestore dell'evento.
 
@@ -221,7 +221,7 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-the-formview-s-templates-vb.md)

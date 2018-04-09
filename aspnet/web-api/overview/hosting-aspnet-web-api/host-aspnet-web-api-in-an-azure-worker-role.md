@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hosting ASP.NET Web API 2 a un ruolo di lavoro di Azure
 ====================
@@ -24,7 +24,7 @@ da [Mike Wasson](https://github.com/MikeWasson)
 
 > In questa esercitazione viene illustrato come ospitare API Web ASP.NET in un ruolo di lavoro di Azure, utilizzando OWIN per l'hosting indipendente framework Web API.
 > 
-> [Aprire l'interfaccia Web per .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e applicazioni web. OWIN disaccoppia l'applicazione web dal server, che rende ideale per l'hosting automatico di un'applicazione web in un processo personalizzato, all'esterno di IIS OWIN: ad esempio, all'interno di un ruolo di lavoro di Azure.
+> [Aprire l'interfaccia Web per .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e le applicazioni web. OWIN disaccoppia l'applicazione web dal server, che rende ideale per l'hosting automatico di un'applicazione web in un processo personalizzato, all'esterno di IIS OWIN: ad esempio, all'interno di un ruolo di lavoro di Azure.
 > 
 > In questa esercitazione si utilizzerà il pacchetto di HttpListener, che fornisce un server HTTP utilizzato per l'hosting indipendente applicazioni OWIN.
 > 
@@ -131,7 +131,7 @@ L'emulatore di calcolo viene assegnato un indirizzo IP locale per l'endpoint. È
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-Individuare l'indirizzo IP in distribuzioni del servizio, la distribuzione [id], i dettagli del servizio. Aprire un web browser e passare a http://*indirizzo*/test/1, dove *indirizzo* è l'indirizzo IP assegnato dall'emulatore di calcolo; ad esempio, `http://127.0.0.1:80/test/1`. È necessario visualizzare la risposta dal controller API Web:
+Individuare l'indirizzo IP in distribuzioni del servizio, la distribuzione [id], i dettagli del servizio. Aprire un web browser e passare a http://<em>indirizzo</em>/test/1, dove <em>indirizzo</em> è l'indirizzo IP assegnato dall'emulatore di calcolo; ad esempio, `http://127.0.0.1:80/test/1`. È necessario visualizzare la risposta dal controller API Web:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 

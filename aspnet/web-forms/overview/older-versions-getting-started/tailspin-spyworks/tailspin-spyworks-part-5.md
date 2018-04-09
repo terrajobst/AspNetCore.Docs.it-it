@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e205788e05a2ad94d86d4847c11c40898b1c3113
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4342e634ef8c4bcf4e0085650a28f414ab23736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-business-logic"></a>Parte 5: Logica di Business
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 5 aggiunge una logica di business.
 
 
-## <a id="_Toc260221671"></a>Aggiunta di una logica di Business
+## <a id="_Toc260221671"></a>  Aggiunta di una logica di Business
 
 Si vuole che la nostra esperienza acquisto sia disponibile ogni volta che un utente visita il sito web. Visitatori sarà in grado di cercare e aggiungere elementi al carrello, anche se non sono registrati o registrati. Quando sono pronti per l'estrazione essi verrà assegnato l'opzione di autenticazione e se non sono ancora membri saranno in grado di creare un account.
 
@@ -85,7 +85,7 @@ Supponendo che non gli errori vengono rilevati il controllo viene passato alla p
 
 Attualmente non è stata ancora implementata un gestore errori globale diventano non gestita per l'applicazione di questa eccezione, ma ci consentirà di risolvere questo a breve.
 
-Si noti inoltre l'utilizzo dell'istruzione Debug.Fail() (disponibili tramite`using System.Diagnostics;)`
+Si noti inoltre l'utilizzo dell'istruzione Debug.Fail() (disponibili tramite `using System.Diagnostics;)`
 
 È l'applicazione è in esecuzione nel debugger, questo metodo verrà visualizzata una finestra di dialogo dettagliata con informazioni sullo stato delle applicazioni insieme al messaggio di errore che si specifica.
 
@@ -187,6 +187,6 @@ In questa fase di sviluppo del progetto è stiamo preparativi per l'implementazi
 
 Prima di procedere si utilizzare Visual Studio per generare il database delle appartenenze e aggiungere un utente nel repository di appartenenza.
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-4.md)
-[Successivo](tailspin-spyworks-part-6.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-4.md)
+> [Successivo](tailspin-spyworks-part-6.md)

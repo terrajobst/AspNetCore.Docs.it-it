@@ -2,38 +2,38 @@
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 title: Sviluppo di applicazioni ASP.NET con Azure Active Directory | Documenti Microsoft
 author: Rick-Anderson
-description: "Gli strumenti Microsoft ASP.NET per Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in Azure. È possibile utilizzare Azure Authenti..."
+description: Gli strumenti Microsoft ASP.NET per Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in Azure. È possibile utilizzare Azure Authenti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2014
 ms.topic: article
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Sviluppo di applicazioni ASP.NET con Azure Active Directory
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Strumenti di Microsoft ASP.NET per Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in [Azure](https://www.windowsazure.com/home/features/web-sites/). È possibile utilizzare l'autenticazione di Azure per autenticare gli utenti di Office 365 dell'organizzazione, gli account aziendali sincronizzati da Active Directory locale o degli utenti creati in un dominio di Azure Active Directory personalizzato. Abilitazione dell'autenticazione di Windows Azure consente di configurare l'applicazione per autenticare gli utenti con un solo [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) tenant.
 > 
->  In questa esercitazione è stato scritto dal Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+>  Questa esercitazione è stato scritto dal Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
 In questa esercitazione viene illustrato come creare un'applicazione ASP.NET che è configurata per l'accesso con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Si apprenderà anche come chiamare l'API Graph per ottenere informazioni sull'utente attualmente connesso e come distribuire l'applicazione in Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express) o [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads).
+1. [Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express) oppure [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads).
 2. [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=44921) -Update 3 o versione successiva è obbligatorio.
-3. Un account Azure. [Fare clic qui](https://azure.microsoft.com/pricing/free-trial/) per una valutazione gratuita, se non si dispone già di un account.
+3. Un account Azure. [Fare clic qui](https://azure.microsoft.com/pricing/free-trial/) per una valutazione gratuita se non si dispone già di un account.
 
 ## <a name="add-a-global-administrator-to-your-active-directory"></a>Aggiungere un amministratore globale di Active Directory
 
@@ -52,7 +52,7 @@ In questa esercitazione viene illustrato come creare un'applicazione ASP.NET che
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image4.png)  
   
- Salvare la password, sarà necessario per modificare la password dopo il primo accesso. La figura seguente mostra il nuovo account di amministratore. È necessario utilizzare Azure Active Directory per l'accesso in un'applicazione, non l'account Microsoft come mostrato in questa pagina.  
+   Salvare la password, sarà necessario per modificare la password dopo il primo accesso. La figura seguente mostra il nuovo account di amministratore. È necessario utilizzare Azure Active Directory per l'accesso in un'applicazione, non l'account Microsoft come mostrato in questa pagina.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image5.png)
 
@@ -65,11 +65,11 @@ Utilizzare i passaggi seguenti [Visual Studio Express 2013 per Web](https://www.
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image6.png)
 3. Nel **Modifica autenticazione** finestra di dialogo Seleziona **account aziendali**. Queste opzioni possono essere utilizzate per registrare automaticamente l'applicazione con Azure AD, nonché di configurare automaticamente l'applicazione per l'integrazione con Azure AD. Non è necessario utilizzare il **Modifica autenticazione** finestra di dialogo per registrare e configurare l'applicazione, ma rende molto più semplice. Se si utilizza Visual Studio 2012, ad esempio, è possibile registrare l'applicazione nel portale di gestione di Azure manualmente e aggiornarne la configurazione per l'integrazione con Azure AD.  
- Nel menu a discesa, selezionare **Cloud - singola organizzazione** e **Single Sign On, lettura dati directory**. Immettere il dominio per la directory di Azure AD, ad esempio (nelle immagini seguenti) *aricka0yahoo.onmicrosoft.com*, quindi fare clic su **OK**. È possibile ottenere il nome di dominio dalla scheda domini per la Directory predefinita nel portale di azure (vedere l'immagine successiva verso il basso).   
+   Nel menu a discesa, selezionare **Cloud - singola organizzazione** e **Single Sign On, lettura dati directory**. Immettere il dominio per la directory di Azure AD, ad esempio (nelle immagini seguenti) *aricka0yahoo.onmicrosoft.com*, quindi fare clic su **OK**. È possibile ottenere il nome di dominio dalla scheda domini per la Directory predefinita nel portale di azure (vedere l'immagine successiva verso il basso).   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image7.png)  
   
- L'immagine seguente mostra il nome di dominio dal portale di Azure.  
+   L'immagine seguente mostra il nome di dominio dal portale di Azure.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
@@ -94,15 +94,15 @@ Utilizzare i passaggi seguenti [Visual Studio Express 2013 per Web](https://www.
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image13.png)  
   
- Se viene visualizzato l'errore:  
- Valore non può essere null o vuoto. Nome del parametro: linkText   
+   Se viene visualizzato l'errore:  
+   Valore non può essere null o vuoto. Nome del parametro: linkText   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image14.png)  
   
- vedere il [debug](#dbg) sezione alla fine dell'esercitazione.
+   vedere il [debug](#dbg) sezione alla fine dell'esercitazione.
 
 ## <a name="basics-of-the-graph-api"></a>Nozioni di base di API Graph
 
-[L'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) è l'interfaccia di programmazione utilizzato per eseguire CRUD e altre operazioni per gli oggetti nella directory di Azure AD. Se si seleziona un'opzione di Account aziendale per l'autenticazione quando si crea un nuovo progetto in Visual Studio 2013, l'applicazione già essere configurato per chiamare l'API Graph. In questa sezione viene brevemente di funzionamento l'API Graph.
+[L'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) è l'interfaccia di programmazione utilizzato per eseguire CRUD e altre operazioni su oggetti nelle directory di Azure AD. Se si seleziona un'opzione di Account aziendale per l'autenticazione quando si crea un nuovo progetto in Visual Studio 2013, l'applicazione già essere configurato per chiamare l'API Graph. In questa sezione viene brevemente di funzionamento l'API Graph.
 
 1. Nell'applicazione in esecuzione, fare clic sul nome dell'utente connesso nella parte superiore destra della pagina. Verrà visualizzata la pagina profilo utente, ovvero un'azione nel Controller Home. Si noterà che la tabella contiene informazioni sull'account amministratore creato in precedenza. Queste informazioni vengono archiviate nella directory e viene chiamata l'API Graph per recuperare queste informazioni durante il caricamento della pagina.   
   

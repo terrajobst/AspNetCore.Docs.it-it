@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 title: 'Parte 3: Creazione di un Controller di amministrazione | Documenti Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 6fadfb6e96ae287fc5f81516b7535e03853c7e6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 588d9d1b5d27759692cd840faabf2c3549c309d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-creating-an-admin-controller"></a>Parte 3: Creazione di un Controller di amministrazione
 ====================
@@ -71,10 +71,10 @@ La `AdminController` classe definisce i cinque metodi che implementano funzional
 | Metodo del controller | Descrizione | URI | Metodo HTTP |
 | --- | --- | --- | --- |
 | GetProducts | Ottiene tutti i prodotti. | API/prodotti | GET |
-| GetProduct | Trova un prodotto in base all'ID. | API/prodotti/*id* | GET |
-| PutProduct | Aggiorna un prodotto. | API/prodotti/*id* | PUT |
+| GetProduct | Trova un prodotto in base all'ID. | api/products/*id* | GET |
+| PutProduct | Aggiorna un prodotto. | api/products/*id* | PUT |
 | PostProduct | Crea un nuovo prodotto. | API/prodotti | INSERISCI |
-| DeleteProduct | Elimina un prodotto. | API/prodotti/*id* | DELETE |
+| DeleteProduct | Elimina un prodotto. | api/products/*id* | DELETE |
 
 Ogni metodo chiama `OrdersContext` per eseguire query sul database. Chiamano i metodi che modificano la raccolta (PUT, POST e DELETE) `db.SaveChanges` per rendere permanenti le modifiche al database. I controller vengono creati per ogni richiesta HTTP e quindi eliminati, pertanto è necessario rendere permanenti le modifiche prima che venga restituito un metodo.
 
@@ -102,6 +102,6 @@ Inviare una richiesta HTTP per "`http://localhost:*portnum*/api/admin`. La prima
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 
->[!div class="step-by-step"]
-[Precedente](using-web-api-with-entity-framework-part-2.md)
-[Successivo](using-web-api-with-entity-framework-part-4.md)
+> [!div class="step-by-step"]
+> [Precedente](using-web-api-with-entity-framework-part-2.md)
+> [Successivo](using-web-api-with-entity-framework-part-4.md)

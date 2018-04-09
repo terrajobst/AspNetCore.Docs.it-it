@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Consente di creare applicazioni a pagina singola in ASP.NET Core JavaScriptServices
 
@@ -28,7 +28,7 @@ Un'applicazione a pagina singola (SPA) è un tipo comune di applicazione web a c
 
 ## <a name="what-is-javascriptservices"></a>Che cos'è JavaScriptServices?
 
-JavaScriptServices è una raccolta di tecnologie lato client per ASP.NET Core. L'obiettivo consiste nel posizionare ASP.NET Core come piattaforma sul lato server preferita degli sviluppatori per la compilazione di stabilimenti termali.
+JavaScriptServices è una raccolta di tecnologie lato client per ASP.NET Core. L'obiettivo consiste nel posizionare ASP.NET Core come piattaforma lato server preferito degli sviluppatori per la compilazione di SPAs.
 
 JavaScriptServices è costituita da tre pacchetti NuGet distinti:
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
@@ -46,7 +46,7 @@ Gran parte dello stato attivo in questo articolo viene posizionata sull'uso del 
 
 ## <a name="what-is-spaservices"></a>Che cos'è SpaServices?
 
-SpaServices è stato creato per posizionare ASP.NET Core come piattaforma sul lato server preferita degli sviluppatori per la compilazione di stabilimenti termali. SpaServices non è necessario sviluppare stabilimenti termali con ASP.NET Core, e non è del blocco in un framework client specifico.
+SpaServices è stato creato per posizionare ASP.NET Core come piattaforma lato server preferito degli sviluppatori per la compilazione di SPAs. SpaServices non è necessario sviluppare SPAs con ASP.NET Core e non è del blocco in un framework client specifico.
 
 SpaServices fornisce infrastruttura utile, ad esempio:
 * [Rendering preliminare sul lato server](#server-prerendering)
@@ -58,11 +58,11 @@ Complessivamente, questi componenti dell'infrastruttura migliorano sia il flusso
 
 <a name="spa-services-prereqs"></a>
 
-## <a name="prerequisites-for-using-spaservices"></a>Prerequisiti per l'utilizzo di SpaServices
+## <a name="prerequisites-for-using-spaservices"></a>Prerequisiti per l'utilizzo SpaServices
 
 Per utilizzare SpaServices, installare quanto segue:
 * [Node.js](https://nodejs.org/) (versione 6 o versione successiva) con npm
-    * Per verificare questi componenti sono installati ed sono disponibile, eseguire il comando seguente dalla riga di comando:
+  * Per verificare questi componenti sono installati ed sono disponibile, eseguire il comando seguente dalla riga di comando:
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ Per utilizzare SpaServices, installare quanto segue:
 
 Nota: Se si distribuisce in un sito web di Azure, non è necessario effettuare alcuna operazione qui &mdash; Node.js è installato e disponibile negli ambienti server.
 
-* [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (o versioni successive)
-    * Se si è in Windows, può essere installato, selezionare Visual Studio 2017 **lo sviluppo multipiattaforma con .NET Core** carico di lavoro.
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * Se si è in Windows tramite Visual Studio 2017, il SDK viene installato selezionando il **lo sviluppo multipiattaforma con .NET Core** carico di lavoro.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) pacchetto NuGet
 
@@ -81,7 +82,7 @@ Nota: Se si distribuisce in un sito web di Azure, non è necessario effettuare a
 
 Un'applicazione universale (noto anche come siano isomorfi) è un'applicazione JavaScript in grado di eseguire sia sul server e client. Angolare React e altri framework comuni offre una piattaforma universale per questo stile di sviluppo di applicazioni. L'idea è prima di eseguire il rendering i componenti del framework sul server tramite Node.js e quindi delegare ulteriormente l'esecuzione del client.
 
-ASP.NET Core [gli helper di Tag](xref:mvc/views/tag-helpers/intro) fornito da SpaServices semplifica l'implementazione del rendering preliminare sul lato server chiamando le funzioni JavaScript nel server.
+ASP.NET Core [gli helper di Tag](xref:mvc/views/tag-helpers/intro) fornito da SpaServices semplifica l'implementazione del rendering lato server preliminare chiamando le funzioni JavaScript nel server.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -200,7 +201,7 @@ Dopo il caricamento dell'app nel browser, scheda Console gli strumenti di svilup
 
 ## <a name="routing-helpers"></a>Helper di routing
 
-Nella maggior parte dei stabilimenti termali basato su ASP.NET Core, è opportuno routing sul lato client oltre al routing sul lato server. I sistemi di routing SPA e MVC possono lavorare in modo indipendente senza interferenze. Se è presente, tuttavia, un bordo case che presentano problemi trovano ad affrontare: identificazione delle risposte HTTP 404.
+Nella maggior parte dei SPAs basate su ASP.NET Core, è opportuno lato client routing oltre al routing lato server. I sistemi di routing SPA e MVC possono lavorare in modo indipendente senza interferenze. Se è presente, tuttavia, un bordo case che presentano problemi trovano ad affrontare: identificazione delle risposte HTTP 404.
 
 Si consideri lo scenario in cui una route senza estensione di `/some/page` viene utilizzato. Si supponga che la richiesta non-corrispondenza una route sul lato server, ma il criterio di corrispondenza con una route sul lato client. Ora si consideri una richiesta in ingresso per `/images/user-512.png`, che in genere prevede di trovare un file di immagine nel server. Se il percorso della risorsa richiesta non corrisponde a qualsiasi route sul lato server o un file statico, è improbabile che l'applicazione sul lato client si gestisce, in genere si desidera restituire un codice di stato HTTP 404.
 
@@ -225,7 +226,7 @@ Suggerimento: Le route vengono valutate nell'ordine in cui la configurazione di 
 
 ## <a name="creating-a-new-project"></a>Crea un nuovo progetto
 
-JavaScriptServices fornisce modelli di applicazione configurati in precedenza. SpaServices viene usato in questi modelli, insieme a diversi Framework e librerie, ad esempio angolare, Aurelia, Knockout, React e dotato.
+JavaScriptServices fornisce modelli di applicazione configurati in precedenza. SpaServices viene usato in questi modelli, unitamente a diversi Framework e librerie, ad esempio angolare Aurelia, Knockout, React e dotato.
 
 Questi modelli possono essere installati tramite l'interfaccia CLI Core .NET eseguendo il comando seguente:
 
@@ -262,7 +263,7 @@ Esistono due modalità di configurazione di runtime principale:
     * Esclude i mapping di origine.
     * Ottimizza il codice sul lato client tramite l'aggregazione e di riduzione.
 
-ASP.NET Core utilizza una variabile di ambiente denominata `ASPNETCORE_ENVIRONMENT` per archiviare la modalità di configurazione. Vedere  **[l'impostazione dell'ambiente](xref:fundamentals/environments#setting-the-environment)**  per ulteriori informazioni.
+ASP.NET Core utilizza una variabile di ambiente denominata `ASPNETCORE_ENVIRONMENT` per archiviare la modalità di configurazione. Vedere **[l'impostazione dell'ambiente](xref:fundamentals/environments#setting-the-environment)** per ulteriori informazioni.
 
 ### <a name="running-with-net-core-cli"></a>In esecuzione con .NET Core CLI
 
@@ -288,7 +289,7 @@ Aprire il *csproj* file generato dal [dotnet nuovo](/dotnet/core/tools/dotnet-ne
 
 ## <a name="testing-the-app"></a>Test dell'app
 
-I modelli di SpaServices sono configurati in precedenza per eseguire test sul lato client tramite [Karma](https://karma-runner.github.io/1.0/index.html) e [Jasmine](https://jasmine.github.io/). Jasmine è un diffuso framework unit test per JavaScript, mentre Karma è un test runner per i test. Karma è configurato per funzionare con il [Webpack Dev Middleware](#webpack-dev-middleware) tale che lo sviluppatore non è necessario arrestare ed eseguire il test ogni volta che vengono apportate modifiche. Se si tratta del codice in esecuzione per il test case o test case stesso, il test viene eseguito automaticamente.
+I modelli SpaServices sono configurati in precedenza per eseguire test sul lato client tramite [Karma](https://karma-runner.github.io/1.0/index.html) e [Jasmine](https://jasmine.github.io/). Jasmine è un diffuso framework unit test per JavaScript, mentre Karma è un test runner per i test. Karma è configurato per funzionare con il [Webpack Dev Middleware](#webpack-dev-middleware) tale che lo sviluppatore non è necessario arrestare ed eseguire il test ogni volta che vengono apportate modifiche. Se si tratta del codice in esecuzione per il test case o test case stesso, il test viene eseguito automaticamente.
 
 Utilizzando l'applicazione angolare ad esempio, due casi di prova al gelsomino sono già forniti per il `CounterComponent` nel *counter.component.spec.ts* file:
 
@@ -308,7 +309,7 @@ Lo script avvia il Karma test runner, che legge le impostazioni definite nel *ka
 
 ## <a name="publishing-the-application"></a>Pubblicazione dell'applicazione
 
-Combinando le risorse sul lato client generate e gli elementi di ASP.NET Core pubblicati in un pacchetto pronte per l'utilizzo può essere complesso. Fortunatamente, SpaServices Orchestra processo intera pubblicazione con una destinazione di MSBuild personalizzata denominata `RunWebpack`:
+Combinando le risorse sul lato client generate e gli elementi di ASP.NET Core pubblicati in un pacchetto pronte per l'utilizzo può essere complesso. Fortunatamente, SpaServices Orchestra tale processo intera pubblicazione con una destinazione di MSBuild personalizzata denominata `RunWebpack`:
 
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 

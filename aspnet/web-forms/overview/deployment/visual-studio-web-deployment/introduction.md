@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1ff4cc3b0fa6ce7e6cdc833a0c2f7fea2050c4e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: introduzione
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire, pubblicare, ASP.NET web da applicazione per App Web di servizio App di Azure o un provider di hosting di terze parti, usando Visual Studio 2012 con Azure SDK per .NET. La maggior parte delle procedure sono simile per Visual Studio 2013.
 > 
@@ -54,7 +54,7 @@ Distribuzione da [controllo del codice sorgente](../../../../aspnet/overview/dev
 
 - [Integrazione continua e il recapito continuo (creazione di applicazioni Cloud del mondo reale con Windows Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
 - [Distribuire un'app web nel servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
-- [Distribuzione di applicazioni Web in scenari aziendali](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (un set più vecchio di esercitazioni scritto per Visual Studio 2010 che dispone ancora di informazioni utili per gli ambienti aziendali.)
+- [Distribuzione di applicazioni Web in scenari aziendali](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (precedente set di esercitazioni scritto per Visual Studio 2010, che dispone ancora di informazioni utili per gli ambienti aziendali.)
 
 ## <a name="using-a-third-party-hosting-provider"></a>Utilizzando un provider di hosting di terze parti
 
@@ -202,5 +202,5 @@ Le seguenti funzionalità dell'applicazione influisce su come distribuire o ciò
 
 In questa esercitazione prima della serie, aver scaricato il progetto di Visual Studio e rivedere le funzionalità del sito che influiscono sulla modalità di distribuzione dell'applicazione. Nelle esercitazioni seguenti, ci si prepara per la distribuzione mediante l'impostazione di alcuni di questi elementi devono essere gestiti automaticamente. Altri occuperà di manualmente.
 
->[!div class="step-by-step"]
-[avanti](preparing-databases.md)
+> [!div class="step-by-step"]
+> [avanti](preparing-databases.md)

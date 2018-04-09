@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 title: Aggiunta della convalida per il modello | Documenti Microsoft
 author: Rick-Anderson
-description: "Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo..."
+description: 'Nota: Una versione aggiornata di questa esercitazione è disponibile qui che utilizza ASP.NET MVC 5 e Visual Studio 2013. È più sicuro, molto più semplice seguire e demo...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6de7d279677c7bbf220b956767a97aaaff8da9a1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 39d1d9d4cb8b11f7ce5a3a85c51f652115d79db7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model"></a>Aggiunta della convalida per il modello
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -81,7 +81,7 @@ Fare clic su di **Crea nuovo** collegamento per aggiungere un nuovo film. Compil
 ![8_validationErrors](adding-validation-to-the-model/_static/image1.png)
 
 > [!NOTE]
-> per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un punto decimale, è necessario includere *globalize.js* specifici e *cultures/globalize.cultures.js* file (da [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Il codice seguente illustra le modifiche al file Views\Movies\Edit.cshtml per lavorare con i &quot;fr-FR&quot; delle impostazioni cultura:
+> per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un punto decimale, è necessario includere *globalize.js* specifici e *cultures/globalize.cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Il codice seguente illustra le modifiche al file Views\Movies\Edit.cshtml per lavorare con i &quot;fr-FR&quot; delle impostazioni cultura:
 
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
@@ -94,10 +94,10 @@ Un vantaggio è che non è necessario modificare una singola riga di codice nel 
 
 1. Scheda nel campo.
 2. Immettere il testo.
-3. Scheda.
+3. Uscire dalla scheda tramite tabulazione.
 4. Scheda nuovamente nel campo.
 5. Rimuovere il testo.
-6. Scheda.
+6. Uscire dalla scheda tramite tabulazione.
 
 La sequenza precedente verrà attivata la convalida richiesta senza dover fare clic sul pulsante Invia. Semplicemente premendo il pulsante di invio senza immettere uno dei campi verrà attivata la convalida lato client. I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile testare questo posizionando un punto di interruzione nel metodo HTTP Post o utilizzando il [strumento fiddler](http://fiddler2.com/fiddler2/) o Internet Explorer 9 [strumenti di sviluppo F12](https://msdn.microsoft.com/ie/aa740478).
 
@@ -165,6 +165,6 @@ L'immagine seguente mostra gli stessi dati visualizzati con le impostazioni cult
 
 Nella parte successiva della serie verrà esaminata l'applicazione e verranno apportati alcuni miglioramenti ai metodi `Details` e `Delete` generati automaticamente.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-new-field-to-the-movie-model-and-table.md)
-[Successivo](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-new-field-to-the-movie-model-and-table.md)
+> [Successivo](examining-the-details-and-delete-methods.md)

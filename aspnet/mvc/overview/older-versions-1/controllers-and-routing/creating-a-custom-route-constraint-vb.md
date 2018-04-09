@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41b04c1fea267e7ee9f8a0b1c2f0d4fe4bb96d15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094077fa0cb546f4cc91dbf074f8014e62b3b19c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-vb"></a>Creazione di un vincolo di Route personalizzati (VB)
 ====================
@@ -45,7 +45,7 @@ Il vincolo nel listato 1 consente di sfruttare la proprietà IsLocal esposta dal
 
 Utilizzare un vincolo personalizzato all'interno di una route definita nel file Global. asax. Il file Global. asax listato 2 utilizza il vincolo Localhost per impedire a utenti di richiedere una pagina di amministrazione, a meno che non rendono la richiesta dal server locale. Ad esempio, una richiesta per /Admin/DeleteAll avrà esito negativo quando effettuata da un server remoto.
 
-**Elenco di 2 - Global. asax**
+**Listing 2 - Global.asax**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample3.vb)]
 
@@ -53,5 +53,5 @@ Il vincolo Localhost viene utilizzato nella definizione della route Admin. Una r
 
 Si noti che la route predefinita è stata impostata come commento nel file Global. asax listato 2. Se si include la route predefinita, la route predefinita corrisponderebbe richieste per il controller di amministrazione. In tal caso, gli utenti remoti può richiamare ancora azioni del controller di amministrazione, anche se le richieste non corrispondono alla route di amministrazione.
 
->[!div class="step-by-step"]
-[Precedente](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-route-constraint-vb.md)

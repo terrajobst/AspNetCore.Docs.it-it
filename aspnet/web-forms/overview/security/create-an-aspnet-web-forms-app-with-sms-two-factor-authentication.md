@@ -2,7 +2,7 @@
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 title: Creare un Web ASP.NET form app con l'autenticazione a due fattori SMS (c#) | Documenti Microsoft
 author: Erikre
-description: "In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con autenticazione a due fattori. In questa esercitazione è stata progettata per integrare l'esercitazione intitolata Cr..."
+description: In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con autenticazione a due fattori. In questa esercitazione è stata progettata per integrare l'esercitazione intitolata Cr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: b1f0ec0fdefa12eb7f7b2714dbc224fef735f4bb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c040fd3e0592b8cfd230dcd85ed3293f0a22ba7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Creare un Web ASP.NET form app con l'autenticazione a due fattori SMS (c#)
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
-[Scaricare App di ASP.NET Web Form con messaggio di posta elettronica e autenticazione a due fattori tramite SMS](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
+[Scaricare App di ASP.NET Web Forms con messaggio di posta elettronica e l'autenticazione a due fattori tramite SMS](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
 > In questa esercitazione viene illustrato come compilare un'app Web Form ASP.NET con autenticazione a due fattori. In questa esercitazione è stata progettata per integrare l'esercitazione intitolata [creare un'app Web Form ASP.NET protetta con la registrazione utente, conferma e reimpostazione della password di posta elettronica](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md). Inoltre, in questa esercitazione è stato in base di Rick Anderson [esercitazione MVC](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md).
 
@@ -60,15 +60,15 @@ Avviare l'installazione ed eseguendo [Visual Studio Express 2013 per Web](https:
 In questa esercitazione Usa Twilio, ma è possibile utilizzare qualsiasi provider SMS.
 
 1. Creare un [Twilio](https://www.twilio.com/try-twilio) account.
-2. Dal **Dashboard** scheda dell'account di Twilio, copia il **SID di Account** e **Token di autenticazione.** Si aggiungerà li all'App in un secondo momento.
+2. Dal **Dashboard** scheda dell'account di Twilio, copia il **SID di Account** e **Token di autorizzazione.** Si aggiungerà li all'App in un secondo momento.
 3. Dal **numeri** scheda, copiare il Twilio **il numero di telefono** anche.
 4. Assicurarsi di Twilio **SID di Account**, **Token di autorizzazione** e **il numero di telefono** disponibili per l'app. Per semplificare le operazioni verranno archiviati i valori nel *Web. config* file. Quando si distribuiscono in Azure, è possibile archiviare i valori in modo sicuro nel **appSettings** scheda Configura sezione sul sito web. Inoltre, quando si aggiunge il numero di telefono, utilizzare solo numeri.   
- Si noti che è anche possibile aggiungere le credenziali SendGrid. SendGrid è un servizio di notifica di posta elettronica. Per informazioni dettagliate su come abilitare SendGrid, vedere la sezione backup Hook SendGrid dell'esercitazione intitolata [creare un'App di ASP.NET Web Forms sicura con la registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+   Si noti che è anche possibile aggiungere le credenziali SendGrid. SendGrid è un servizio di notifica di posta elettronica. Per informazioni dettagliate su come abilitare SendGrid, vedere la sezione backup Hook SendGrid dell'esercitazione intitolata [creare un'App di ASP.NET Web Forms sicura con la registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
     > [!WARNING]
-    > Sicurezza - archivio mai i dati sensibili nel codice sorgente. In questo esempio, l'account e le credenziali vengono archiviate nel **appSettings** sezione la *Web. config* file. In Azure, è possibile archiviare questi valori in modo sicuro nel  **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  scheda nel portale di Azure. Per informazioni correlate, vedere l'argomento di Rick Anderson [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Sicurezza - archivio mai i dati sensibili nel codice sorgente. In questo esempio, l'account e le credenziali vengono archiviate nel **appSettings** sezione la *Web. config* file. In Azure, è possibile archiviare questi valori in modo sicuro nel **[configura](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** scheda nel portale di Azure. Per informazioni correlate, vedere l'argomento di Rick Anderson [procedure consigliate per la distribuzione delle password e altri dati sensibili su ASP.NET e in Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 5. Configurare il `SmsService` classe il *App\_Start\IdentityConfig.cs* evidenziata in giallo modifiche al file effettuando le operazioni seguenti: 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample2.cs?highlight=5-17)]
@@ -85,7 +85,7 @@ In questa esercitazione Usa Twilio, ma è possibile utilizzare qualsiasi provide
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
- Rendendo il codice sopra riportato modificare DropDownList "Provider" che contiene le opzioni di autenticazione non ripartirà al primo valore. In questo modo all'utente di selezionare correttamente tutte le opzioni da utilizzare per l'autenticazione, non solo il primo.
+   Rendendo il codice sopra riportato modificare DropDownList "Provider" che contiene le opzioni di autenticazione non ripartirà al primo valore. In questo modo all'utente di selezionare correttamente tutte le opzioni da utilizzare per l'autenticazione, non solo il primo.
 10. In **Esplora**, fare doppio clic su *Default.aspx* e selezionare **imposta come pagina iniziale**.
 11. Per testare l'app, innanzitutto compilare l'app (**Ctrl**+**MAIUSC**+**B**) e quindi eseguire l'app (**F5**) e Selezionare **registrare** per creare un nuovo account utente o selezionare **Accedi** se l'account utente è già stato registrato.
 12. Una volta (come l'utente) hanno effettuato l'accesso, fare clic sull'ID utente (indirizzo di posta elettronica) nella barra di navigazione per visualizzare il **Gestisci Account** pagina (Manage.aspx).  
@@ -94,7 +94,7 @@ In questa esercitazione Usa Twilio, ma è possibile utilizzare qualsiasi provide
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
 14. Aggiungere il numero di telefono in cui si (come l'utente) desidera ricevere messaggi SMS (SMS) e fare clic su di **Invia** pulsante.   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
- A questo punto, l'app userà le credenziali di *Web. config* contattare Twilio. Verrà inviato un messaggio SMS (SMS) per il telefono associato all'account utente. È possibile verificare che è stato inviato il messaggio di Twilio visualizzando il dashboard Twilio.
+    A questo punto, l'app userà le credenziali di *Web. config* contattare Twilio. Verrà inviato un messaggio SMS (SMS) per il telefono associato all'account utente. È possibile verificare che è stato inviato il messaggio di Twilio visualizzando il dashboard Twilio.
 15. In pochi secondi, il telefono associato all'account utente verrà visualizzato un messaggio di testo contenente il codice di verifica. Immettere il codice di verifica e premere **Invia**.  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 
@@ -103,8 +103,8 @@ In questa esercitazione Usa Twilio, ma è possibile utilizzare qualsiasi provide
 
 A questo punto, è stata abilitata l'autenticazione a due fattori per l'app. Per un utente di utilizzare l'autenticazione a due fattori, può modificare le impostazioni tramite l'interfaccia utente. 
 
-1. Come utente dell'app è possibile abilitare l'autenticazione a due fattori per l'account specifico facendo clic sull'ID utente (alias di posta elettronica) nella barra di navigazione per visualizzare il **Gestisci Account** pagina. Quindi, fare clic su di **abilitare** collegamento per abilitare l'autenticazione a due fattori per l'account.![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image6.png)
-2. Disconnettersi e quindi eseguire nuovamente l'accesso. Se è stato abilitato posta elettronica, è possibile selezionare SMS o posta elettronica per l'autenticazione a due fattori. Se è stata abilitata tramite posta elettronica, vedere l'esercitazione intitolata [creare un'App di ASP.NET Web Forms sicura con la registrazione utente, conferma tramite posta elettronica e la reimpostazione della Password](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md).![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image7.png)
+1. Come un utente dell'app è possibile abilitare l'autenticazione a due fattori per l'account specifico facendo clic sull'ID utente (alias di posta elettronica) nella barra di navigazione per visualizzare il **Gestisci Account** pagina. Quindi, fare clic sui **abilitare** collegamento per abilitare l'autenticazione a due fattori per l'account.![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image6.png)
+2. Disconnettersi e quindi eseguire nuovamente l'accesso. Se è stato abilitato posta elettronica, è possibile selezionare SMS o posta elettronica per l'autenticazione a due fattori. Se non è stata abilitata tramite posta elettronica, vedere l'esercitazione intitolata [creare un'App di ASP.NET Web Forms sicura con la registrazione utente, conferma tramite posta elettronica e la reimpostazione della Password](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md).![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image7.png)
 3. Verrà visualizzata la pagina di autenticazione a due fattori in cui è possibile immettere il codice (da posta elettronica o SMS).![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image8.png)  
  Facendo clic su di **ricordare questo browser** casella di controllo sarà esente dalla necessità di utilizzare l'autenticazione a due fattori per l'accesso quando si utilizza il browser e dispositivi in cui è stata selezionata la casella. Fino a quando gli utenti malintenzionati non possono accedere al dispositivo, abilitare l'autenticazione a due fattori e facendo clic su di **ricordare questo browser** fornirà accedere facilmente la password di un unico passaggio, conservando al tempo strong protezione per l'autenticazione a due fattori per tutti gli accessi da dispositivi non trusted. Tale operazione può essere eseguita su qualsiasi dispositivo privata che vengono utilizzate regolarmente.
 
@@ -116,5 +116,5 @@ A questo punto, è stata abilitata l'autenticazione a due fattori per l'app. Per
 - [Distribuire un'App di form Web ASP.NET in modo sicuro con l'appartenenza, OAuth e il Database SQL a un sito Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [Serie di esercitazioni Web Form ASP.NET - aggiungere un Provider di OAuth 2.0](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
 - [ASP.NET Web Forms serie di esercitazioni - abilita SSL per il progetto](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)
-- [La conferma dell'account e Password di ripristino con identità di ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
+- [La conferma dell'account e il recupero della Password con identità di ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [Creazione di app in Facebook e l'applicazione di connessione al progetto](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md#fb)

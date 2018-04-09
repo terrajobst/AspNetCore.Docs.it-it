@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 title: Trascinamento della selezione tramite ReorderList (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo ReorderList AJAX Control Toolkit fornisce un elenco che può essere riordinato dall'utente tramite trascinamento della selezione. L'ordine dell'elenco è..."
+description: Il controllo ReorderList AJAX Control Toolkit fornisce un elenco che può essere riordinato dall'utente tramite trascinamento della selezione. L'ordine dell'elenco è...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6afecfc7330647e6f4944c507e308afec6d2401b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42464d10f119e0ba51d5eebf2a67e76e3e419bda
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a>Trascinamento della selezione tramite ReorderList (c#)
 ====================
@@ -35,16 +35,16 @@ Il `ReorderList` controllo AJAX Control Toolkit fornisce un elenco che può esse
 
 Il `ReorderList` controllo supporta l'associazione di dati da un database all'elenco. Soprattutto, supporta anche la scrittura delle modifiche all'ordine l'elemento dell'elenco all'archivio dati.
 
-Questo esempio si utilizza Microsoft SQL Server 2005 Express Edition come archivio dati. Il database è una parte facoltativa (e disponibile) di un'installazione di Visual Studio, inclusa l'edizione express. È inoltre disponibile come download separato in [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). In questo esempio, si presuppone che l'istanza di SQL Server 2005 Express Edition è stato chiamato `SQLEXPRESS` e si trova nello stesso computer come server web; questo è l'impostazione predefinita. Se il programma di installazione diverso, è necessario adattare le informazioni di connessione per il database.
+Questo esempio si utilizza Microsoft SQL Server 2005 Express Edition come archivio dati. Il database è una parte facoltativa (e disponibile) di un'installazione di Visual Studio, inclusa l'edizione express. È inoltre disponibile come download separato sotto [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). In questo esempio, si presuppone che l'istanza di SQL Server 2005 Express Edition è stato chiamato `SQLEXPRESS` e si trova nello stesso computer come server web; questo è l'impostazione predefinita. Se il programma di installazione diverso, è necessario adattare le informazioni di connessione per il database.
 
-Il modo più semplice per configurare il database è di utilizzare Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) ). Connettersi al server, fare doppio clic su `Databases` e creare un nuovo database (pulsante destro del mouse e scegliere `New Database`) denominato `Tutorials`.
+Il modo più semplice per configurare il database consiste nell'utilizzare Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) ). Connettersi al server, fare doppio clic su `Databases` e creare un nuovo database (pulsante destro del mouse e scegliere `New Database`) denominato `Tutorials`.
 
 In questo database, creare una nuova tabella denominata `AJAX` con le quattro colonne seguenti:
 
-- `id`(chiave, integer primario, identità, non NULL)
-- `char`(char (1), NULL)
-- `description`(varchar (50), NULL)
-- `position`(int, NULL)
+- `id` (chiave, integer primario, identità, non NULL)
+- `char` (char (1), NULL)
+- `description` (varchar (50), NULL)
+- `position` (int, NULL)
 
 
 [![Il layout della tabella AJAX](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
@@ -55,7 +55,7 @@ Il layout della tabella AJAX ([fare clic per visualizzare l'immagine ingrandita]
 Compilare la tabella con una coppia di valori. Si noti che il `position` colonna contiene l'ordinamento degli elementi.
 
 
-[![I dati iniziali della tabella di AJAX](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
+[![I dati iniziali della tabella AJAX](drag-and-drop-via-reorderlist-cs/_static/image5.png)](drag-and-drop-via-reorderlist-cs/_static/image4.png)
 
 I dati iniziali della tabella AJAX ([fare clic per visualizzare l'immagine ingrandita](drag-and-drop-via-reorderlist-cs/_static/image6.png))
 
@@ -86,10 +86,10 @@ Infine, un `ScriptManager` controllo Inizializza ASP.NET AJAX per la pagina:
 Eseguire questo esempio nel browser e ridisporre gli elementi dell'elenco a un bit. Quindi, ricaricare la pagina e/o esaminare il database. Le posizioni modificate sia state mantenute e vengono applicate anche in base ai valori di `position` colonna nel database e che tutto senza alcun codice, solo tramite markup.
 
 
-[![I dati delle modifiche del database in base all'ordine di elemento di elenco nuovo](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
+[![I dati delle modifiche del database in base al nuovo ordine di elemento di elenco](drag-and-drop-via-reorderlist-cs/_static/image8.png)](drag-and-drop-via-reorderlist-cs/_static/image7.png)
 
 I dati delle modifiche del database in base all'elenco nuovo elemento ordine ([fare clic per visualizzare l'immagine ingrandita](drag-and-drop-via-reorderlist-cs/_static/image9.png))
 
->[!div class="step-by-step"]
-[Precedente](using-postbacks-with-reorderlist-cs.md)
-[Successivo](using-postbacks-with-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-postbacks-with-reorderlist-cs.md)
+> [Successivo](using-postbacks-with-reorderlist-vb.md)

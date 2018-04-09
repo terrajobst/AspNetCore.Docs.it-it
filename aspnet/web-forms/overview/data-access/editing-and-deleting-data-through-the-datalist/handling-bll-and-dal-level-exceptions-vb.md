@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bd2ccb13c44d104e8945840705a21738d8abd5c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0ee0eeff08b6ba490b401540de833eecd7122a17
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>Gestione delle eccezioni BLL e DAL livello (VB)
 ====================
@@ -46,7 +46,7 @@ Prima di preoccupazione la gestione delle eccezioni che si verificano durante l'
 
 [![Restituire le informazioni sul prodotto utilizzando il metodo GetProducts()](handling-bll-and-dal-level-exceptions-vb/_static/image2.png)](handling-bll-and-dal-level-exceptions-vb/_static/image1.png)
 
-**Figura 1**: restituire le informazioni di prodotto usando il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-vb/_static/image3.png))
+**Figura 1**: restituire le informazioni prodotto utilizzando il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](handling-bll-and-dal-level-exceptions-vb/_static/image3.png))
 
 
 Dopo aver completato la procedura guidata ObjectDataSource, Visual Studio crea automaticamente un `ItemTemplate` per DataList. Sostituire con un `ItemTemplate` che consente di visualizzare ogni nome di prodotto s e prezzo e include un pulsante Modifica. Creare quindi un `EditItemTemplate` con un controllo casella di testo Web per nome, prezzo e pulsanti Aggiorna e Annulla. Infine, impostare DataList s `RepeatColumns` proprietà su 2.
@@ -143,17 +143,17 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Linee guida di progettazione delle eccezioni](https://msdn.microsoft.com/library/ms298399.aspx)
-- [Gestori (ELMAH) e i moduli di registrazione errore](http://workspaces.gotdotnet.com/elmah) (una libreria open source per la registrazione degli errori)
-- [Enterprise Library per .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (include il blocco applicazione di gestione eccezioni)
+- [Moduli di registrazione errore e i gestori (ELMAH)](http://workspaces.gotdotnet.com/elmah) (una libreria open source per la registrazione degli errori)
+- [Enterprise Library per .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (include il blocco applicativo di gestione eccezioni)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Ken Pespisa. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](performing-batch-updates-vb.md)
-[Successivo](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](performing-batch-updates-vb.md)
+> [Successivo](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)

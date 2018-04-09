@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 5b38f88283c5d2d93f0bab283dbd9451855d95e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497c2898db2e03b0650982c3ad1e6b5ac5ca639d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-views-and-viewmodels"></a>Parte 3: Viste e ViewModel
 ====================
@@ -125,7 +125,7 @@ Aggiungere quindi una stringa pubblica proprietà nome alla classe che è stata 
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample7.cs)]
 
-*Nota: nel caso si desidera sapere per, il {get; impostare;} effettua notazione uso della funzionalità di proprietà implementate automaticamente #. Ciò offre i vantaggi di una proprietà senza richiedere di dichiarare un campo sottostante.*
+*Nota: nel caso dovrai più chiederti, il {get; impostare;} effettua notazione uso della funzionalità di proprietà implementate automaticamente #. Ciò offre i vantaggi di una proprietà senza richiedere di dichiarare un campo sottostante.*
 
 Successivamente, la stessa procedura per creare una classe Album (denominata Album.cs) che dispone di un titolo e una proprietà di genere:
 
@@ -147,7 +147,7 @@ A questo punto è possibile modificare la logica per restituire un oggetto Album
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample11.cs)]
 
-*Nota: Se non si ha familiarità con c#, si potrebbe presumere che l'utilizzo di var indica che la variabile album sia ad associazione tardiva. Che non è corretto, il compilatore c# è utilizzando inferenza basato su cosa ci stiamo l'assegnazione alla variabile per determinare che tale album è di tipo Album e la compilazione la variabile locale album come tipo di un Album, per il controllo in fase di compilazione e l'editor di codice di Visual Studio supporto.*
+*Nota: Se non si ha familiarità con c#, si può presupporre che utilizzando var significa che la variabile album sia con associazione tardiva. Che non è corretto, il compilatore c# è utilizzando l'inferenza del tipo in base a ciò che è in corso assegnazione alla variabile per determinare che tale album è di tipo Album e la compilazione la variabile locale album come un tipo di Album, in modo che i risultati ottenuti controllo in fase di compilazione e l'editor di Visual Studio code supporto.*
 
 Creare ora un modello di visualizzazione che utilizza il nostro Album per generare una risposta HTML. Prima che è necessario compilare il progetto in modo che la finestra di dialogo Aggiungi visualizzazione conosce la classe Album appena creata. È possibile compilare il progetto selezionando il Debug⇨Build MvcMusicStore voce di menu (per supplementare, è possibile utilizzare il collegamento Ctrl-MAIUSC + B per compilare il progetto).
 
@@ -241,7 +241,7 @@ Html.ActionLink() dispone di diversi overload diversi per specificare le informa
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample20.cshtml)]
 
-*Nota: In questo caso, non occorre specificare il nome del controller, poiché ci stiamo solo il collegamento a un'altra azione all'interno del controller stesso che esegue il rendering della visualizzazione corrente.*
+*Nota: In questo caso, non occorre specificare il nome del controller in quanto è in corso solo il collegamento a un'altra azione all'interno del controller stesso che esegue il rendering di visualizzazione corrente.*
 
 I collegamenti alla pagina Sfoglia saranno necessario passare un parametro, tuttavia, utilizzeremo un altro overload del metodo HTML. ActionLink che accetta tre parametri:
 
@@ -262,6 +262,6 @@ Il codice HTML per l'elenco di genere è simile al seguente:
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 
 
->[!div class="step-by-step"]
-[Precedente](mvc-music-store-part-2.md)
-[Successivo](mvc-music-store-part-4.md)
+> [!div class="step-by-step"]
+> [Precedente](mvc-music-store-part-2.md)
+> [Successivo](mvc-music-store-part-4.md)

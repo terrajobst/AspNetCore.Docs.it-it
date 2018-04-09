@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurazione di un Server Web per la pubblicazione (agente remoto) di distribuzione Web
 ====================
@@ -102,7 +102,7 @@ In questo caso, è necessario installare quanto segue:
 7. Nel riquadro di spostamento, fare clic su **Server**.
 8. Nel **configurazione consigliata di IIS 7** di riga, fare clic su **Aggiungi**.
 9. Nel **2.1 dello strumento di distribuzione Web** di riga, fare clic su **Aggiungi**.
-10. Fare clic su **Installa**. L'installazione guidata piattaforma Web verrà visualizzato un elenco di prodotti & #x 2014; insieme a tutte le dipendenze associate & #x 2014; sia installato e verrà richiesto di accettare le condizioni di licenza.
+10. Fare clic su **Installa**. L'installazione guidata piattaforma Web verrà visualizzato un elenco di prodotti&#x2014;con le dipendenze associate&#x2014;sia installato e verrà richiesto di accettare le condizioni di licenza.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. Esaminare le condizioni di licenza e, se accettano le condizioni, fare clic su **accetto**.
@@ -165,7 +165,7 @@ Anche se non c'è niente di arresto dalla distribuzione del contenuto per il sit
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > Consente l'associazione del sito prima di accedere al sito localmente utilizzando l'indirizzo IP e porta o `http://localhost:85`. La seconda associazione del sito consente di accedere al sito da altri computer nel dominio utilizzando il nome del computer (ad esempio, http://testweb1:85).
+    > Consente l'associazione del sito prima di accedere al sito localmente utilizzando l'indirizzo IP e porta o `http://localhost:85`. L'associazione del sito secondo consente di accedere al sito da altri computer nel dominio utilizzando il nome del computer (ad esempio, http://testweb1:85).
 13. Nel **binding sito** la finestra di dialogo, fare clic su **Chiudi**.
 14. Nel **connessioni** riquadro, fare clic su **pool di applicazioni**.
 15. Nel **pool di applicazioni** riquadro destro il nome del pool di applicazioni e quindi fare clic su **le impostazioni di base**. Per impostazione predefinita, il nome del pool di applicazioni corrisponderà al nome del sito Web (ad esempio, **DemoSite**).
@@ -176,11 +176,11 @@ Anche se non c'è niente di arresto dalla distribuzione del contenuto per il sit
     > [!NOTE]
     > La soluzione di esempio richiede .NET Framework 4.0. Questo non è un requisito per distribuzione Web in generale.
 
-Affinché il sito Web fornire contenuto, l'identità del pool di applicazioni deve disporre delle autorizzazioni per la cartella locale che contiene il contenuto lettura. In IIS 7.5, pool di applicazioni eseguiti con un'identità di pool di applicazione univoco per impostazione predefinita (a differenza delle versioni precedenti di IIS, in cui i pool di applicazioni verrebbero in genere eseguito l'account del servizio di rete). L'identità del pool di applicazioni non è un account utente reale e non vengono visualizzati in qualsiasi elenco di utenti o i gruppi & #x 2014; al contrario, viene creato in modo dinamico quando viene avviato il pool di applicazioni. Ogni identità di pool di applicazioni viene aggiunto all'oggetto locale **IIS\_IUSRS** gruppo di sicurezza come elemento nascosto.
+Affinché il sito Web fornire contenuto, l'identità del pool di applicazioni deve disporre delle autorizzazioni per la cartella locale che contiene il contenuto lettura. In IIS 7.5, pool di applicazioni eseguiti con un'identità di pool di applicazione univoco per impostazione predefinita (a differenza delle versioni precedenti di IIS, in cui i pool di applicazioni verrebbero in genere eseguito l'account del servizio di rete). L'identità del pool non è un account utente reale e non vengono visualizzati in qualsiasi elenco di utenti o gruppi&#x2014;viene invece creata in modo dinamico quando viene avviato il pool di applicazioni. Ogni identità di pool di applicazioni viene aggiunto all'oggetto locale **IIS\_IUSRS** gruppo di sicurezza come elemento nascosto.
 
 Per concedere autorizzazioni a un'identità del pool di applicazioni in un file o una cartella, sono disponibili due opzioni:
 
-- Assegnare autorizzazioni all'identità del pool di applicazioni direttamente, utilizzando il formato **IIS AppPool\***[nome pool di applicazioni] * (ad esempio, **IIS AppPool\DemoSite**).
+- Assegnare autorizzazioni all'identità del pool di applicazioni direttamente, utilizzando il formato <strong>IIS AppPool\</ strong ><em>[nome pool di applicazioni]</em>(ad esempio, <strong>IIS AppPool\DemoSite</strong>).
 - Assegnare autorizzazioni per il **IIS\_IUSRS** gruppo.
 
 L'approccio più comune consiste nell'assegnare autorizzazioni a locale **IIS\_IUSRS** gruppo perché questo approccio consente di modificare i pool di applicazioni senza dover riconfigurare le autorizzazioni del file. La procedura successiva Usa questo approccio in base al gruppo.
@@ -198,8 +198,8 @@ L'approccio più comune consiste nell'assegnare autorizzazioni a locale **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. Nel **Seleziona utenti o gruppi** della finestra di dialogo tipo **IIS\_IUSRS**, fare clic su **Controlla nomi**, quindi fare clic su **OK**.
-6. Nel **le autorizzazioni per * * * [nome cartella]*la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il **lettura &amp; eseguire**, **visualizzazione contenuto cartella**, e **Lettura** le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su **OK**.
-7. Fare clic su **OK** per chiudere la *[nome cartella] * * * proprietà** la finestra di dialogo.
+6. Nel <strong>le autorizzazioni per</strong><em>[nome cartella]</em>la finestra di dialogo, si noti che il nuovo gruppo è stato assegnato il <strong>lettura &amp; eseguire</strong>, <strong>visualizzazione contenuto cartella contenuto</strong>, e <strong>lettura</strong> le autorizzazioni per impostazione predefinita. Lasciare invariata e fare clic su <strong>OK</strong>.
+7. Fare clic su <strong>OK</strong> per chiudere la <em>[nome cartella]</em><strong>proprietà</strong> la finestra di dialogo.
 
 Come attività finale prima di tentare di distribuire tutti i pacchetti web sul server, è necessario assicurarsi che il servizio agente di distribuzione Web è in esecuzione. Quando si distribuisce un pacchetto da un computer remoto, il servizio agente di distribuzione Web è responsabile per l'estrazione e il contenuto del pacchetto di installazione. Il servizio viene avviato per impostazione predefinita, quando si installa lo strumento di distribuzione Web e viene eseguito con l'identità del servizio di rete.
 
@@ -217,7 +217,7 @@ Come attività finale prima di tentare di distribuire tutti i pacchetti web sul 
 
 Per impostazione predefinita, il servizio agente remoto è in ascolto sulla porta TCP 80, a questo URL:
 
-http:// [*nome server*] / MSDEPLOYAGENTSERVICE
+http:// [<em>nome server</em>] / MSDEPLOYAGENTSERVICE
 
 Nella maggior parte dei casi, non sarà necessario configurare tutte le regole aggiuntive del firewall per il servizio agente remoto, perché i server web in genere l'ascolto delle richieste HTTP sulla porta 80. Se si personalizza l'installazione per l'ascolto su una porta non standard, è necessario configurare le eccezioni del firewall come richiesto.
 
@@ -233,6 +233,6 @@ A questo punto, il server web è pronto per accettare e installare i pacchetti w
 
 Per istruzioni su come configurare i file di progetto di Microsoft Build Engine (MSBuild) personalizzati per distribuire i pacchetti web al servizio agente remoto, vedere [configurazione delle proprietà di distribuzione per un ambiente di destinazione](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Precedente](scenario-configuring-a-production-environment-for-web-deployment.md)
-[Successivo](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [Precedente](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [Successivo](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

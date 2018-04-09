@@ -2,7 +2,7 @@
 uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 title: Creazione di helper HTML personalizzati (c#) | Documenti Microsoft
 author: microsoft
-description: "L'obiettivo di questa esercitazione è dimostrare come è possibile creare l'helper HTML personalizzati che è possibile utilizzare all'interno di visualizzazioni MVC. L'utilizzo degli HTML Helper..."
+description: L'obiettivo di questa esercitazione è dimostrare come è possibile creare l'helper HTML personalizzati che è possibile utilizzare all'interno di visualizzazioni MVC. L'utilizzo degli HTML Helper...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a0b6d67eb7aab51ba2b422fab0788e34255f2c8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc9aa2aa8dbc02dc01833d671c3bfd19141ba74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-html-helpers-c"></a>Creazione di helper HTML personalizzati (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
@@ -52,12 +52,12 @@ Il framework di MVC ASP.NET include il seguente set di standard helper HTML (ci�
 Si consideri ad esempio il modulo nel listato 1. Questo modulo viene eseguito il rendering con l'aiuto di due degli helper HTML standard (vedere la figura 1). Questo modulo Usa la `Html.BeginForm()` e `Html.TextBox()` metodi Helper per il rendering di un semplice form HTML.
 
 
-[![Pagina di cui è stato eseguito il rendering con helper HTML](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[![Pagina sottoposta a rendering con helper HTML](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
-**Figura 01**: pagina di cui è stato eseguito il rendering con helper HTML ([fare clic per visualizzare l'immagine ingrandita](creating-custom-html-helpers-cs/_static/image3.png))
+**Figura 01**: pagina sottoposta a rendering con helper HTML ([fare clic per visualizzare l'immagine ingrandita](creating-custom-html-helpers-cs/_static/image3.png))
 
 
-**Elenco 1:`Views\Home\Index.aspx`**
+**Elenco 1: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample1.aspx)]
 
@@ -72,7 +72,7 @@ Il `Html.TextBox()` vengono utilizzati metodi Helper nel listato 1 per il render
 
 Il framework ASP.NET MVC contiene un piccolo set di supporti. Molto probabilmente, è necessario estendere il framework MVC con helper HTML personalizzati. Nel resto di questa esercitazione, si apprenderà due metodi di creazione di helper HTML personalizzati.
 
-**Elenco di 2:`Index.aspx Source`**
+**Elenco 2: `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample2.aspx)]
 
@@ -80,7 +80,7 @@ Il framework ASP.NET MVC contiene un piccolo set di supporti. Molto probabilment
 
 Il modo più semplice per creare un nuovo HTML Helper consiste nel creare un metodo statico che restituisce una stringa. Si supponga, ad esempio, che si decide di creare un nuovo HTML Helper che esegue il rendering HTML `<label>` tag. È possibile utilizzare la classe nel listato 2 per il rendering di un `<label>` .
 
-**Elenco di 2:`Helpers\LabelHelper.cs`**
+**Elenco 2: `Helpers\LabelHelper.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample3.cs)]
 
@@ -88,7 +88,7 @@ Non c'è niente di speciale sulla classe listato 2. Il `Label()` metodo restitui
 
 La visualizzazione dell'indice modificata nel listato 3 Usa il `LabelHelper` per il rendering HTML `<label>` tag. Si noti che la visualizzazione include un `<%@ imports %>` direttiva che importa il `Application1.Helpers` dello spazio dei nomi.
 
-**Elenco di 2:`Views\Home\Index2.aspx`**
+**Elenco 2: `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample4.aspx)]
 
@@ -100,7 +100,7 @@ La classe listato 3 aggiunge un metodo di estensione per il `HtmlHelper` classe 
 
 In secondo luogo, si noti che il primo parametro del `Label()` metodo è preceduto dalla parola chiave `this`. Il primo parametro di un metodo di estensione indica la classe che estende il metodo di estensione.
 
-**Elenco di 3:`Helpers\LabelExtensions.cs`**
+**Elenco di 3: `Helpers\LabelExtensions.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample5.cs)]
 
@@ -109,12 +109,12 @@ Dopo aver creare un metodo di estensione e compilare correttamente l'applicazion
 
 [![Utilizzando il metodo di estensione Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
-**Figura 02**: utilizzando il metodo di estensione Html.Label() ([fare clic per visualizzare l'immagine ingrandita](creating-custom-html-helpers-cs/_static/image6.png))
+**Figura 02**: tramite il metodo di estensione Html.Label() ([fare clic per visualizzare l'immagine ingrandita](creating-custom-html-helpers-cs/_static/image6.png))
 
 
 La visualizzazione dell'indice modificata listato 4 utilizza il metodo di estensione Html.Label() per eseguire il rendering di tutti i relativi `<label>` tag.
 
-**Elenco di 4:`Views\Home\Index3.aspx`**
+**Elenco di 4: `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
@@ -124,6 +124,6 @@ In questa esercitazione è stato due metodi di creazione di helper HTML personal
 
 In questa esercitazione è incentrata sulla creazione di un metodo HTML Helper estremamente semplice. Tenere presente che un HTML Helper può essere complesso desiderato. È possibile compilare l'helper HTML che eseguono il rendering di contenuto complesso, ad esempio le visualizzazioni albero, menu o tabelle di dati di database.
 
->[!div class="step-by-step"]
-[Precedente](asp-net-mvc-views-overview-cs.md)
-[Successivo](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](asp-net-mvc-views-overview-cs.md)
+> [Successivo](using-the-tagbuilder-class-to-build-html-helpers-cs.md)

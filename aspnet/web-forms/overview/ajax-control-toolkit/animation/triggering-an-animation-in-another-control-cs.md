@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 title: Generazione di un'animazione in un altro controllo (c#) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Avvio in genere, un..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Avvio in genere, un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d243eebc42b66f1e86b38a1b7531e527144ea7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e94046ca70607e37c1b5ef57d5cedef67a236b94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="triggering-an-animation-in-another-control-c"></a>Generazione di un'animazione in un altro controllo (c#)
 ====================
@@ -60,10 +60,10 @@ All'interno di `<Animations>` nodo, le animazioni sul posto come al solito. Per 
 Si noti l'ordine speciale in cui vengono visualizzate le animazioni singoli. Prima di tutto, il pulsante viene disattivato quando viene eseguito l'animazione. Poiché non esiste alcun `AnimationTarget` attributo il `<EnableAction>` elemento, questa animazione viene applicata al controllo origine: il pulsante. I passaggi successivi due animazione devono essere effettuati parallelly (`<Parallel>` elemento). Entrambi hanno loro `AnimationTarget` attributi impostati `"Panel1"`, l'animazione in questo modo il pannello, non il pulsante.
 
 
-[![Un clic del mouse sul pulsante Avvia l'animazione di pannello](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
+[![Un clic del mouse sul pulsante Avvia l'animazione pannello](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)
 
 Un clic del mouse sul pulsante Avvia l'animazione di pannello ([fare clic per visualizzare l'immagine ingrandita](triggering-an-animation-in-another-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](disabling-actions-during-animation-cs.md)
-[Successivo](modifying-animations-from-the-server-side-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](disabling-actions-during-animation-cs.md)
+> [Successivo](modifying-animations-from-the-server-side-cs.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 title: Accesso ai dati del modello da un Controller | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Accesso ai dati del modello da un Controller
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In questa sezione si creerà un nuovo `MoviesController` classe e scrivere codice che recupera i dati dei film e lo visualizza in browser utilizzando un modello di visualizzazione.
 
@@ -40,15 +40,15 @@ Nel **aggiungere lo scaffolding** nella finestra di dialogo fare clic su **Contr
 - Selezionare **MovieDBContext (MvcMovie.Models)** per la classe di contesto dati.
 - Immettere il nome del Controller **MoviesController**.
 
- L'immagine seguente mostra la finestra di dialogo completata.  
+  L'immagine seguente mostra la finestra di dialogo completata.  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
 Fare clic su **Aggiungi**. (Se si verifica un errore, probabile che non è stata compilare l'applicazione prima di avviare l'aggiunta del controller.) Visual Studio crea i file e cartelle seguenti:
 
-- *Un MoviesController.cs* file nel *controller* cartella.
+- *Un MoviesController.cs* del file nel *controller* cartella.
 - Oggetto *Views\Movies* cartella.
-- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, e *cshtml* nel nuovo *Views\Movies* cartella.
+- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, e *cshtml* nella nuova *Views\Movies* cartella.
 
 Visual Studio creato automaticamente il [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (creare, leggere, aggiornare ed eliminare) i metodi di azione e le viste per l'utente (la creazione automatica delle viste e i metodi di azione CRUD è noto come scaffolding). Ora è un'applicazione web completamente funzionale che consente di creare, elencare, modificare ed eliminare le voci di film.
 
@@ -64,7 +64,7 @@ Selezionare il collegamento **Crea nuovo**. Immettere alcune informazioni dettag
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Potrebbe non essere in grado di immettere decimali o virgole nel campo Prezzo. Per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e  *Cultures/globalize.Cultures.js* file (da [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Illustrato come eseguire questa operazione nella prossima esercitazione. Per il momento, immettere solo numeri interi come 10.
+> Potrebbe non essere in grado di immettere decimali o virgole nel campo Prezzo. per supportare la convalida jQuery per inglesi che utilizzano una virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifici e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript per utilizzare `Globalize.parseFloat`. Illustrato come eseguire questa operazione nella prossima esercitazione. Per il momento, immettere solo numeri interi come 10.
 
 
 Fare clic su di **crea** pulsante fa sì che il modulo di essere inviata al server, in cui le informazioni di film vengono salvate nel database. Quindi si viene reindirizzati al */Movies* URL, in cui è possibile visualizzare il film appena creato nell'elenco.
@@ -157,6 +157,6 @@ Al termine, chiudere la connessione facendo clic *MovieDBContext* e selezionando
 
 È ora disponibile un database e alcune pagine per visualizzare, modificare, aggiornare ed eliminare dati. Nella prossima esercitazione, si sarà il resto del codice scaffolding di esaminare e aggiungere un `SearchIndex` (metodo) e un `SearchIndex` visualizzazione che consente di eseguire la ricerca di filmati in questo database. Per ulteriori informazioni sull'utilizzo di Entity Framework con MVC, vedere [la creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
->[!div class="step-by-step"]
-[Precedente](creating-a-connection-string.md)
-[Successivo](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-connection-string.md)
+> [Successivo](examining-the-edit-methods-and-edit-view.md)

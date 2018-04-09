@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 title: Aggiunta di animazione a un controllo (VB) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Questa esercitazione viene illustrato come..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Questa esercitazione viene illustrato come...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2d6971ade89405245c8d23cafb6fd8bb9468639
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3da98e478c45213875b3829e51351d03571a05b8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-animation-to-a-control-vb"></a>Aggiunta di animazione a un controllo (VB)
 ====================
@@ -51,22 +51,22 @@ Successivamente, è necessario il `AnimationExtender`. Dopo aver fornito un `ID`
 
 L'intera animazione viene applicata in modo dichiarativo, utilizzare la sintassi XML, purtroppo attualmente non è completamente supportata da IntelliSense di Visual Studio. Il nodo radice è `<Animations>;` all'interno di questo nodo sono consentiti diversi eventi che determinano quando animazione adottino sul posto:
 
-- `OnClick`(fare clic del mouse)
-- `OnHoverOut`(quando il puntatore del mouse esce da un controllo)
-- `OnHoverOver`(quando il mouse viene posizionato su un controllo, l'arresto di `OnHoverOut` animazione)
-- `OnLoad`(quando il caricamento della pagina)
-- `OnMouseOut`(quando il puntatore del mouse esce da un controllo)
-- `OnMouseOver`(quando il mouse viene posizionato su un controllo, non arrestare il `OnMouseOut` animazione)
+- `OnClick` (clic del mouse)
+- `OnHoverOut` (quando il puntatore del mouse esce da un controllo)
+- `OnHoverOver` (quando il mouse viene spostato su un controllo, l'arresto di `OnHoverOut` animazione)
+- `OnLoad` (quando il caricamento della pagina)
+- `OnMouseOut` (quando il puntatore del mouse esce da un controllo)
+- `OnMouseOver` (quando il mouse viene spostato su un controllo, non arrestare il `OnMouseOut` animazione)
 
 Il framework viene fornito con un insieme di animazioni, ognuno rappresentato da un proprio elemento XML. Di seguito è riportata una selezione:
 
-- `<Color>`(modifica di un colore)
-- `<FadeIn>`(la dissolvenza in entrata)
-- `<FadeOut>`(dissolvenza in uscita)
-- `<Property>`(modifica delle proprietà di un controllo)
-- `<Pulse>`(pulsating)
-- `<Resize>`(modifica delle dimensioni)
-- `<Scale>`(in proporzione modifica delle dimensioni)
+- `<Color>` (modifica di un colore)
+- `<FadeIn>` (la dissolvenza in entrata)
+- `<FadeOut>` (dissolvenza in uscita)
+- `<Property>` (modifica delle proprietà di un controllo)
+- `<Pulse>` (pulsating)
+- `<Resize>` (modifica delle dimensioni)
+- `<Scale>` (in modo proporzionale modifica delle dimensioni)
 
 In questo esempio, il pannello è dissolvenza in uscita. L'animazione adottano 1,5 secondi (`Duration` attributi), la visualizzazione 24 fotogrammi (passaggi animazione) al secondo (`Fps` attributs). Ecco il codice completo per il `AnimationExtender` controllo:
 
@@ -79,6 +79,6 @@ Quando si esegue questo script, il pannello viene visualizzato e dissolvenza in 
 
 Il pannello è dissolvenza in uscita ([fare clic per visualizzare l'immagine ingrandita](adding-animation-to-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](dynamically-controlling-updatepanel-animations-cs.md)
-[Successivo](executing-several-animations-at-the-same-time-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](dynamically-controlling-updatepanel-animations-cs.md)
+> [Successivo](executing-several-animations-at-the-same-time-vb.md)

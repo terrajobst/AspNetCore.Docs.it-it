@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 title: Il recupero e visualizzazione dei dati con modello di associazione e web form | Documenti Microsoft
 author: tfitzmac
-description: "Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-..."
+description: Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: e750250285fcb0088da284588d721ac21e73820c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 26873efa5dbfdbdab39a52cfb9cfd5a65c8231a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Il recupero e visualizzazione dei dati con l'associazione di modelli e web form
 ====================
@@ -31,7 +31,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > È possibile [scaricare](https://go.microsoft.com/fwlink/?LinkId=286116) il progetto completo in c# o VB. Il codice scaricabile funziona con Visual Studio 2012 o Visual Studio 2013. Usa il modello di Visual Studio 2012, è leggermente diverso rispetto al modello di Visual Studio 2013 illustrato in questa esercitazione.
 > 
 > Nell'esercitazione si esegue l'applicazione in Visual Studio. È inoltre possibile rendere l'applicazione disponibile su Internet mediante la distribuzione di un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un  
->  [Azure account di valutazione gratuita](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Per informazioni su come distribuire un progetto web di Visual Studio per App Web di servizio App di Azure, vedere il [distribuzione Web ASP.NET utilizzando Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) serie. Inoltre, tale esercitazione viene illustrato come utilizzare le migrazioni di Entity Framework Code First per distribuire il database di SQL Server in Database SQL di Azure.
+>  [senza account di valutazione Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Per informazioni su come distribuire un progetto web di Visual Studio per App Web di servizio App di Azure, vedere il [distribuzione Web ASP.NET utilizzando Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) serie. Inoltre, tale esercitazione viene illustrato come utilizzare le migrazioni di Entity Framework Code First per distribuire il database di SQL Server in Database SQL di Azure.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
 > 
@@ -182,5 +182,5 @@ In questa esercitazione, si create classi di modello di dati e generata un datab
 
 Nella prossima [esercitazione](updating-deleting-and-creating-data.md) in questa serie, verrà abilitata l'aggiornamento, eliminazione e creazione di dati.
 
->[!div class="step-by-step"]
-[Successivo](updating-deleting-and-creating-data.md)
+> [!div class="step-by-step"]
+> [avanti](updating-deleting-and-creating-data.md)

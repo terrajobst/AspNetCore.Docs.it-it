@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 title: Controlli (c#) di dati nidificati Web | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione che verrà illustrato come utilizzare un ripetitore annidate all'interno di un altro controllo Repeater. Negli esempi verranno illustrato come popolare Ripetitore interno sia d..."
+description: In questa esercitazione che verrà illustrato come utilizzare un ripetitore annidate all'interno di un altro controllo Repeater. Negli esempi verranno illustrato come popolare Ripetitore interno sia d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69fa0489ff8baed1423d29ee7bfaa3157d35a76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4957f555691efaeaafa5bcf92141e0bef1cb1de9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-c"></a>Controlli Web dati annidati (c#)
 ====================
@@ -73,7 +73,7 @@ La figura 4 Mostra stato di avanzamento quando viene visualizzato tramite un bro
 
 [![Ogni nome di categoria e la descrizione è elencato, separati da una regola orizzontale](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
 
-**Figura 4**: è elencato ogni categoria s, nome e descrizione, separati da una regola orizzontale ([fare clic per visualizzare l'immagine ingrandita](nested-data-web-controls-cs/_static/image12.png))
+**Figura 4**: è elencato ogni categoria s nome e descrizione, separati da una regola orizzontale ([fare clic per visualizzare l'immagine ingrandita](nested-data-web-controls-cs/_static/image12.png))
 
 
 ## <a name="step-2-adding-the-nested-product-repeater"></a>Passaggio 2: Aggiunta di Repeater prodotto annidati
@@ -93,14 +93,14 @@ I dati da associare al controllo Repeater interno sia accessibile in modo dichia
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>L'accesso ai dati in modo dichiarativo con un controllo ObjectDataSource e`ItemDataBound`gestore dell'evento
 
-Poiché è già stato utilizzato diffusamente in tutta questa serie di esercitazioni, la scelta più naturale per l'accesso ai dati per questo esempio consiste nell'utilizzare ObjectDataSource ObjectDataSource. Il `ProductsBLL` classe dispone di un `GetProductsByCategoryID(categoryID)` metodo che restituisce informazioni su tali prodotti che appartengono all'oggetto specificato  *`categoryID`* . Pertanto, è possibile aggiungere un ObjectDataSource per la `CategoryList` Ripetitore s `ItemTemplate` e configurarlo per accedere ai dati da questo metodo di classe s.
+Poiché è già stato utilizzato diffusamente in tutta questa serie di esercitazioni, la scelta più naturale per l'accesso ai dati per questo esempio consiste nell'utilizzare ObjectDataSource ObjectDataSource. Il `ProductsBLL` classe dispone di un `GetProductsByCategoryID(categoryID)` metodo che restituisce informazioni su tali prodotti che appartengono all'oggetto specificato *`categoryID`*. Pertanto, è possibile aggiungere un ObjectDataSource per la `CategoryList` Ripetitore s `ItemTemplate` e configurarlo per accedere ai dati da questo metodo di classe s.
 
 Sfortunatamente, t Ripetitore consentono i modelli per la modifica tramite la visualizzazione di progettazione, quindi è necessario aggiungere manualmente la sintassi dichiarativa per questo controllo ObjectDataSource. Il sintassi seguente viene illustrata la `CategoryList` Ripetitore s `ItemTemplate` dopo l'aggiunta di questo nuovo ObjectDataSource (`ProductsByCategoryDataSource`):
 
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample3.aspx)]
 
-Quando si utilizza l'approccio ObjectDataSource è necessario impostare il `ProductsByCategoryList` Ripetitore s `DataSourceID` proprietà per il `ID` di ObjectDataSource (`ProductsByCategoryDataSource`). Inoltre, si noti che il nostro ObjectDataSource ha un `<asp:Parameter>` elemento che specifica il  *`categoryID`*  valore che verrà passati il `GetProductsByCategoryID(categoryID)` metodo. Ma, come si può specificare questo valore? Idealmente, d è in grado di impostare semplicemente il `DefaultValue` proprietà del `<asp:Parameter>` elemento utilizzando la sintassi di associazione dati, come illustrato di seguito:
+Quando si utilizza l'approccio ObjectDataSource è necessario impostare il `ProductsByCategoryList` Ripetitore s `DataSourceID` proprietà per il `ID` di ObjectDataSource (`ProductsByCategoryDataSource`). Inoltre, si noti che il nostro ObjectDataSource ha un `<asp:Parameter>` elemento che specifica il *`categoryID`* valore che verrà passati il `GetProductsByCategoryID(categoryID)` metodo. Ma, come si può specificare questo valore? Idealmente, d è in grado di impostare semplicemente il `DefaultValue` proprietà del `<asp:Parameter>` elemento utilizzando la sintassi di associazione dati, come illustrato di seguito:
 
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample4.aspx)]
@@ -119,9 +119,9 @@ Questo gestore eventi avvia assicurando che abbiamo re la gestione di un dato el
 A questo gestore eventi, il `ProductsByCategoryList` Ripetitore in ogni `RepeaterItem` è associato a tali prodotti di `RepeaterItem` categoria s. Figura 5 mostra una schermata di output risultante.
 
 
-[![Ripetitore Outer Elenca ogni categoria. Quello interno sono elencati i prodotti per categoria](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
+[![Ripetitore esterno viene elencata ogni categoria; Quello interna sono elencati i prodotti per categoria](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
 
-**Figura 5**: il Ripetitore Elenca ogni categoria esterno; gli elenchi uno interna i prodotti per categoria ([fare clic per visualizzare l'immagine ingrandita](nested-data-web-controls-cs/_static/image15.png))
+**Figura 5**: il Ripetitore Elenca ogni categoria esterno; gli elenchi uno interna i prodotti per tale categoria ([fare clic per visualizzare l'immagine ingrandita](nested-data-web-controls-cs/_static/image15.png))
 
 
 ## <a name="accessing-the-products-by-category-data-programmatically"></a>Accesso a livello di codice i prodotti dai dati di categoria
@@ -133,7 +133,7 @@ Anziché ObjectDataSource per recuperare i prodotti per la categoria corrente, n
 
 Ripetitore s `DataSource` proprietà viene utilizzata la sintassi di associazione dati per indicare che i dati provengono dal `GetProductsInCategory(categoryID)` metodo. Poiché `Eval("CategoryID")` restituisce un valore di tipo `Object`, si esegue il cast dell'oggetto da un `Integer` prima di passarlo nel `GetProductsInCategory(categoryID)` metodo. Si noti che il `CategoryID` a cui si accede tramite l'associazione dati sintassi Ecco la `CategoryID` nel *outer* Ripetitore (`CategoryList`), quello che s associato ai record nel `Categories` tabella. Pertanto, è noto che `CategoryID` non può essere un database `NULL` valore, perché è ciecamente per eseguire il cast di `Eval` metodo senza verificare se è re affrontare un `DBNull`.
 
-Con questo approccio, è necessario creare il `GetProductsInCategory(categoryID)` (metodo) e recuperare il set appropriato di prodotti di base fornito  *`categoryID`* . È possibile eseguire questa operazione restituisce semplicemente il `ProductsDataTable` restituito dal `ProductsBLL` classe s `GetProductsByCategoryID(categoryID)` metodo. Consente di creare s il `GetProductsInCategory(categoryID)` metodo nella classe code-behind per il nostro `NestedControls.aspx` pagina. Eseguire questa operazione utilizzando il codice seguente:
+Con questo approccio, è necessario creare il `GetProductsInCategory(categoryID)` (metodo) e recuperare il set appropriato di prodotti di base fornito *`categoryID`*. È possibile eseguire questa operazione restituisce semplicemente il `ProductsDataTable` restituito dal `ProductsBLL` classe s `GetProductsByCategoryID(categoryID)` metodo. Consente di creare s il `GetProductsInCategory(categoryID)` metodo nella classe code-behind per il nostro `NestedControls.aspx` pagina. Eseguire questa operazione utilizzando il codice seguente:
 
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample7.cs)]
@@ -179,12 +179,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Liz Shulok. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
-[Successivo](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
+> [Successivo](displaying-data-with-the-datalist-and-repeater-controls-vb.md)

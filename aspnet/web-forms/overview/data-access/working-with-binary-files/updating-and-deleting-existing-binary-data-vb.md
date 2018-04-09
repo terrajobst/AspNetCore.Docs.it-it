@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 title: Aggiornamento ed eliminazione di dati binari esistenti (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Nelle esercitazioni precedenti è stato illustrato come il controllo GridView rende semplice per modificare ed eliminare dati di testo. In questa esercitazione viene illustrato come inoltre rendere il controllo GridView..."
+description: Nelle esercitazioni precedenti è stato illustrato come il controllo GridView rende semplice per modificare ed eliminare dati di testo. In questa esercitazione viene illustrato come inoltre rendere il controllo GridView...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 37e32167cccd1b9a98b629179cdaeb9e193f88b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Aggiornamento ed eliminazione di dati binari esistenti (VB)
 ====================
@@ -83,7 +83,7 @@ Aprire il `UploadInDetailsView.aspx` pagina. Copiare tutta la sintassi dichiarat
 
 [![Copiare il Markup dichiarativo UploadInDetailsView.aspx](updating-and-deleting-existing-binary-data-vb/_static/image8.png)](updating-and-deleting-existing-binary-data-vb/_static/image7.png)
 
-**Figura 3**: copiare il Markup dichiarativo di `UploadInDetailsView.aspx` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image9.png))
+**Figura 3**: copiare il Markup dichiarativo `UploadInDetailsView.aspx` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image9.png))
 
 
 Dopo aver copiato il markup dichiarativo e codice, visitare `UpdatingAndDeleting.aspx`. Si noterà lo stesso output e avere la stessa esperienza utente come con `UploadInDetailsView.aspx` pagina dall'esercitazione precedente.
@@ -124,7 +124,7 @@ Dopo aver configurato il ObjectDataSource, è possibile aggiungere funzionalità
 È opportuno testare la funzionalità di eliminazione. È presente una chiave esterna tra le `Products` tabella s `CategoryID` e `Categories` tabella s `CategoryID`, pertanto si verificherà un'eccezione di violazione del vincolo di chiave esterna se si tenta di eliminare una delle prime otto categorie. Per testare questa funzionalità out, aggiungere una nuova categoria, fornendo un brochure e l'immagine. La categoria di test, illustrata nella figura 6, include un file di test brochure denominato `Test.pdf` e un'immagine di prova. Figura 7 illustra GridView dopo aver aggiunto la categoria di test.
 
 
-[![Aggiungere una categoria di Test con un'immagine e Brochure](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
+[![Aggiungere una categoria di Test con un Brochure e un'immagine](updating-and-deleting-existing-binary-data-vb/_static/image17.png)](updating-and-deleting-existing-binary-data-vb/_static/image16.png)
 
 **Figura 6**: aggiungere una categoria di Test con un'immagine e Brochure ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image18.png))
 
@@ -143,7 +143,7 @@ Mentre il flusso di lavoro di eliminazione è stato rimosso il record di categor
 
 ![Il File Test.pdf non è stato eliminato dal File System s Server Web](updating-and-deleting-existing-binary-data-vb/_static/image1.gif)
 
-**Figura 8**: il `Test.pdf` File non è stato eliminato dal File System s Server Web
+**Figura 8**: il `Test.pdf` File non è stato eliminato dal File System Server s Web
 
 
 ## <a name="step-5-removing-the-deleted-category-s-brochure-file"></a>Passaggio 5: Rimuovere il File di Brochure s categoria eliminata
@@ -174,9 +174,9 @@ Come descritto nell'esercitazione una panoramica di inserimento, aggiornamento e
 Fare clic sul collegamento Configura origine dati dalla procedura guidata s ObjectDataSource e continuare con il secondo passaggio. Perché il `DataObjectMethodAttribute` utilizzato `CategoriesBLL`, l'elenco di riepilogo a discesa di aggiornamento deve essere popolato automaticamente con il `UpdateCategory` overload che accetta quattro parametri di input (per tutte le colonne, ma `Picture`). Modificarlo in modo che utilizzi l'overload con cinque parametri.
 
 
-[![Configurare ObjectDataSource per utilizzare il metodo UpdateCategory che include un parametro di immagine](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
+[![Configurare ObjectDataSource per utilizzare il metodo UpdateCategory che includa un parametro di immagine](updating-and-deleting-existing-binary-data-vb/_static/image23.png)](updating-and-deleting-existing-binary-data-vb/_static/image22.png)
 
-**Figura 9**: configurare ObjectDataSource per utilizzare il `UpdateCategory` metodo che include un parametro per `Picture` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image24.png))
+**Figura 9**: configurare ObjectDataSource per usare il `UpdateCategory` metodo che include un parametro per `Picture` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image24.png))
 
 
 ObjectDataSource ora include un valore per il relativo `UpdateMethod` proprietà nonché corrispondente `UpdateParameter` s. Come indicato nel passaggio 4, Visual Studio imposta s ObjectDataSource `OldValuesParameterFormatString` proprietà `original_{0}` quando si utilizza la configurazione guidata origine dati. Questo causare problemi con l'aggiornamento e di eliminare chiamate al metodo. Pertanto, cancellare completamente questa proprietà o ripristinare il valore predefinito, `{0}`.
@@ -199,7 +199,7 @@ Visitare la pagina tramite un browser e fare clic su uno dei pulsanti Modifica s
 
 [![GridView non dispone di un'interfaccia di modifica per BrochurePath](updating-and-deleting-existing-binary-data-vb/_static/image29.png)](updating-and-deleting-existing-binary-data-vb/_static/image28.png)
 
-**Figura 11**: GridView non dispone di un'interfaccia di modifica per `BrochurePath` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image30.png))
+**Figura 11**: GridView non dispone di un'interfaccia per la modifica `BrochurePath` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image30.png))
 
 
 ## <a name="customizing-thebrochurepaths-editing-interface"></a>Personalizzazione di`BrochurePath`s interfaccia di modifica
@@ -231,7 +231,7 @@ Sotto RadioButtonList, aggiungere un controllo FileUpload denominato `BrochureUp
 
 [![Aggiungere un controllo FileUpload RadioButtonList EditItemTemplate](updating-and-deleting-existing-binary-data-vb/_static/image32.png)](updating-and-deleting-existing-binary-data-vb/_static/image31.png)
 
-**Figura 13**: aggiungere un RadioButtonList e controllo FileUpload il `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image33.png))
+**Figura 13**: aggiungere un RadioButtonList e controllo FileUpload per il `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image33.png))
 
 
 Questo RadioButtonList fornisce tre opzioni per l'utente. L'idea è che il controllo FileUpload verrà visualizzato solo se l'ultima opzione, brochure nuovo caricamento, è selezionata. A tale scopo, creare un gestore eventi per s RadioButtonList `SelectedIndexChanged` eventi e aggiungere il codice seguente:
@@ -246,12 +246,12 @@ Con questo codice, è opportuno testare l'interfaccia di modifica. Fare clic sul
 
 [![Inizialmente, utilizzare corrente brochure che opzione è selezionata](updating-and-deleting-existing-binary-data-vb/_static/image35.png)](updating-and-deleting-existing-binary-data-vb/_static/image34.png)
 
-**Nella figura 14**: inizialmente, utilizzare corrente brochure opzione è selezionata ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image36.png))
+**Figura 14**: inizialmente, utilizzare corrente brochure opzione è selezionata ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image36.png))
 
 
 [![Scelta di caricamento brochure nuova opzione consente di visualizzare il controllo FileUpload](updating-and-deleting-existing-binary-data-vb/_static/image38.png)](updating-and-deleting-existing-binary-data-vb/_static/image37.png)
 
-**Figura 15**: scelta caricamento brochure nuova opzione consente di visualizzare il controllo FileUpload ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image39.png))
+**Figura 15**: scelta brochure nuovo caricamento opzione Visualizza il controllo FileUpload ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image39.png))
 
 
 ## <a name="saving-the-brochure-file-and-updating-thebrochurepathcolumn"></a>Salvataggio Brochure File e l'aggiornamento di`BrochurePath`colonna
@@ -264,8 +264,8 @@ Quando si fa clic sul pulsante di aggiornamento s GridView, il relativo `RowUpda
 
 I passaggi necessari per completare la quando s RadioButtonList `SelectedValue` è 3 sono praticamente identiche a quelle utilizzate dal controllo DetailsView s `ItemInserting` gestore dell'evento. Questo gestore eventi viene eseguito quando viene aggiunto un nuovo record di categoria dal controllo DetailsView in sono aggiunte le [esercitazione precedente](including-a-file-upload-option-when-adding-a-new-record-vb.md). Pertanto, behooves per effettuare il refactoring di questa funzionalità out in metodi separati. In particolare, spostato la funzionalità comuni in due metodi:
 
-- `ProcessBrochureUpload(FileUpload, out bool)`accetta come input dell'istanza di un controllo FileUpload e un valore booleano di output che specifica se l'operazione di eliminazione o modifica è deve continuare o se deve essere annullata a causa di errori di convalida. Questo metodo restituisce il percorso del file salvato o `null` se è stato salvato alcun file.
-- `DeleteRememberedBrochurePath`Elimina il file specificato dal percorso nella variabile di pagina `deletedCategorysPdfPath` se `deletedCategorysPdfPath` non `null`.
+- `ProcessBrochureUpload(FileUpload, out bool)` accetta come input dell'istanza di un controllo FileUpload e un valore booleano di output che specifica se l'operazione di modifica o eliminazione deve continuare o se deve essere annullata a causa di errori di convalida. Questo metodo restituisce il percorso del file salvato o `null` se è stato salvato alcun file.
+- `DeleteRememberedBrochurePath` Elimina il file specificato dal percorso nella variabile di pagina `deletedCategorysPdfPath` se `deletedCategorysPdfPath` non `null`.
 
 Il codice per questi due metodi segue. Si noti la somiglianza tra `ProcessBrochureUpload` e s DetailsView `ItemInserting` gestore dell'evento dall'esercitazione precedente. In questa esercitazione hai aggiornato i gestori di eventi di controllo DetailsView s per l'utilizzo di questi nuovi metodi. Scaricare il codice associato a questa esercitazione per visualizzare le modifiche ai gestori di eventi s DetailsView.
 
@@ -307,7 +307,7 @@ Conversione di ImageField in un TemplateField in questo modo genera un TemplateF
 
 [![Aggiungere un controllo FileUpload EditItemTemplate](updating-and-deleting-existing-binary-data-vb/_static/image41.png)](updating-and-deleting-existing-binary-data-vb/_static/image40.png)
 
-**Figura 17**: aggiungere un controllo FileUpload al `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image42.png))
+**Figura 17**: aggiungere un controllo con caricamento dei file per il `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](updating-and-deleting-existing-binary-data-vb/_static/image42.png))
 
 
 Dopo aver personalizzato l'interfaccia di modifica, visualizzare lo stato di avanzamento in un browser. Quando si visualizza una riga in modalità di sola lettura, l'immagine di s categoria viene visualizzata come prima, ma facendo clic sul pulsante Modifica viene eseguito il rendering della colonna immagine come testo con un controllo FileUpload.
@@ -362,11 +362,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](including-a-file-upload-option-when-adding-a-new-record-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](including-a-file-upload-option-when-adding-a-new-record-vb.md)

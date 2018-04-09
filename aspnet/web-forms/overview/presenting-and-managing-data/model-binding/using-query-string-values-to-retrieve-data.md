@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 title: Utilizzo di valori di stringa di query per filtrare i dati con l'associazione di modelli e web form | Documenti Microsoft
 author: tfitzmac
-description: "Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-..."
+description: Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 2e5328ccda019462163b984da3661f7322b738df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03d20decf0eeff6062fbc6f8dd66f644b405c7cc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Utilizzo di valori di stringa di query per filtrare i dati con l'associazione di modelli e web form
 ====================
@@ -85,6 +85,6 @@ In questa esercitazione, è stato aggiunto un collegamento con un valore di stri
 
 Nella prossima [esercitazione](adding-business-logic-layer.md), si sposta il codice dal file code-behind in un livello di logica di business e un livello di accesso ai dati.
 
->[!div class="step-by-step"]
-[Precedente](integrating-jquery-ui.md)
-[Successivo](adding-business-logic-layer.md)
+> [!div class="step-by-step"]
+> [Precedente](integrating-jquery-ui.md)
+> [Successivo](adding-business-logic-layer.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 title: Informazioni sui filtri dell'azione (VB) | Documenti Microsoft
 author: microsoft
-description: "L'obiettivo di questa esercitazione è illustrare i filtri dell'azione. Un filtro azione è un attributo che è possibile applicare a un controller intero o un'azione del controller -..."
+description: L'obiettivo di questa esercitazione è illustrare i filtri dell'azione. Un filtro azione è un attributo che è possibile applicare a un controller intero o un'azione del controller -...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483133ec5db27c2fa1ed4b463e37e17efab12e0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2796b67cba6a2ddaee7a006a170dfb7e5ff89888
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-vb"></a>Informazioni sui filtri dell'azione (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_VB.pdf)
 
@@ -45,7 +45,7 @@ Un filtro azione è un attributo. È possibile applicare la maggior parte dei fi
 
 Ad esempio, il controller di dati nel listato 1 espone un'azione denominata `Index()` che restituisce l'ora corrente. Questa azione è decorata con il `OutputCache` filtro azione. Questo filtro, il valore restituito dall'azione da memorizzare nella cache per 10 secondi.
 
-**Elenco 1:`Controllers\DataController.vb`**
+**Elenco 1: `Controllers\DataController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample1.vb)]
 
@@ -54,7 +54,7 @@ Se si richiama più volte il `Index()` azione immettendo l'URL/dati/indice nella
 
 [![Tempo memorizzati nella cache](understanding-action-filters-vb/_static/image2.png)](understanding-action-filters-vb/_static/image1.png)
 
-**Figura 01**: memorizzate nella cache ([fare clic per visualizzare l'immagine ingrandita](understanding-action-filters-vb/_static/image3.png))
+**Figura 01**: momento memorizzata nella cache ([fare clic per visualizzare l'immagine ingrandita](understanding-action-filters-vb/_static/image3.png))
 
 
 Nel listato 1, un filtro di azione singola – il `OutputCache` è applicato il filtro di azione: il `Index()` metodo. Se è necessario, è possibile applicare più filtri azione per la stessa azione. Ad esempio, è possibile applicare sia la `OutputCache` e `HandleError` filtri azione per la stessa azione.
@@ -103,21 +103,21 @@ Nella sezione successiva, si vedrà come è possibile implementare ciascuno di q
 
 Per illustrare come è possibile creare un filtro azione personalizzato, si creerà un filtro azione personalizzato che registra le fasi di elaborazione di un'azione del controller per la finestra di Output di Visual Studio. Il nostro `LogActionFilter` è contenuta nel listato 2.
 
-**Elenco di 2:`ActionFilters\LogActionFilter.vb`**
+**Elenco 2: `ActionFilters\LogActionFilter.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample2.vb)]
 
 Nel listato 2, il `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, e `OnResultExecuted()` chiamano i metodi di `Log()` metodo. Il nome del metodo e i dati della route corrente viene passato per il `Log()` metodo. Il `Log()` metodo scrive un messaggio nella finestra di Output di Visual Studio (vedere la figura 2).
 
 
-[![La scrittura nella finestra di Output di Visual Studio](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
+[![Scrittura nella finestra di Output di Visual Studio](understanding-action-filters-vb/_static/image5.png)](understanding-action-filters-vb/_static/image4.png)
 
-**Figura 02**: scrittura nella finestra di Output di Visual Studio ([fare clic per visualizzare l'immagine ingrandita](understanding-action-filters-vb/_static/image6.png))
+**Figura 02**: la scrittura nella finestra di Output di Visual Studio ([fare clic per visualizzare l'immagine ingrandita](understanding-action-filters-vb/_static/image6.png))
 
 
 Il controller Home nel listato 3 viene illustrato come è possibile applicare il filtro di azione di Log per una classe controller intero. Ogni volta che le azioni esposte dal controller Home vengono richiamate: sia il `Index()` metodo o `About()` metodo: le fasi di elaborazione azione vengono registrati nella finestra di Output di Visual Studio.
 
-**Elenco di 3:`Controllers\HomeController.vb`**
+**Elenco di 3: `Controllers\HomeController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample3.vb)]
 
@@ -127,6 +127,6 @@ In questa esercitazione sono stati introdotti i filtri azione MVC ASP.NET. È st
 
 Infine, è stato descritto come implementare un filtro azione semplice. È stato creato un filtro di azione di Log che registra le fasi di elaborazione di un'azione del controller per la finestra di Output di Visual Studio.
 
->[!div class="step-by-step"]
-[Precedente](asp-net-mvc-routing-overview-vb.md)
-[Successivo](improving-performance-with-output-caching-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](asp-net-mvc-routing-overview-vb.md)
+> [Successivo](improving-performance-with-output-caching-vb.md)

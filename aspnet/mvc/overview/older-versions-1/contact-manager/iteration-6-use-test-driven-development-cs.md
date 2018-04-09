@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
-title: 'Iterazione &#6;: utilizzare sviluppo basato su test (c#) | Documenti Microsoft'
+title: 'Iterazione 6 #: utilizzare sviluppo basato su test (c#) | Documenti Microsoft'
 author: microsoft
-description: "In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione,..."
+description: In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85426a7d4024b779848c3ffd05f2ab306152000c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 94502625f66d3eb08a24b8f2a369bf456a3367b1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="iteration-6--use-test-driven-development-c"></a>Iterazione &#6;: utilizzare sviluppo basato su test (c#)
+<a name="iteration-6--use-test-driven-development-c"></a>Iterazione 6 #: utilizzare sviluppo basato su test (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-6-use-test-driven-development-cs/_static/contactmanager_6_cs1.zip)
 
@@ -44,7 +44,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -118,7 +118,7 @@ Facendo clic sulla cartella controller nel progetto ContactManager.Tests, creare
 
 [![Aggiunta di GroupControllerTest unit test](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
-**Figura 01**: aggiunta di unit test GroupControllerTest ([fare clic per visualizzare l'immagine ingrandita](iteration-6-use-test-driven-development-cs/_static/image2.png))
+**Figura 01**: aggiungere lo unit test GroupControllerTest ([fare clic per visualizzare l'immagine ingrandita](iteration-6-use-test-driven-development-cs/_static/image2.png))
 
 
 Il primo unit test è contenuto in elenco 1. Questo test verifica che il metodo di Index () del controller gruppo restituisce un set di gruppi. Il test di verifica che una raccolta di gruppi viene restituita nella visualizzazione dati.
@@ -133,7 +133,7 @@ A questo punto, è possibile compilazione anche t il primo unit test di eseguire
 
 La classe del gruppo controller nel listato 2 contiene il livello minimo di codice necessario per passare lo unit test. L'azione Index () restituisce un elenco in modo statico codificato di gruppi (la classe del gruppo è definita nel listato 3).
 
-**Elenco di 2 - Controllers\GroupController.cs**
+**Il listato 2 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample2.cs)]
 
@@ -155,7 +155,7 @@ A questo punto sarà possibile procedere alla storia utente secondo. È necessar
 
 Il test nel listato 4 verifica che la chiamata di metodo con un nuovo gruppo aggiunge il gruppo all'elenco di gruppi restituito dal metodo Index () il metodo di creazione. In altre parole, se si crea un nuovo gruppo consigliabile sarà in grado di ottenere il nuovo gruppo dall'elenco dei gruppi restituito dal metodo Index ().
 
-**Elenco di 4 - Controllers\GroupControllerTest.cs**
+**Listato 4 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample4.cs)]
 
@@ -163,7 +163,7 @@ Il test nel listato 4 chiama il metodo metodo di creazione con un nuovo contatto
 
 Il controller di gruppo modificato nel listato 5 contiene il livello minimo di modifiche è necessario passare il nuovo test.
 
-**Elenco di 5 - Controllers\GroupController.cs**
+**Nel listato 5 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample5.cs)]
 
@@ -177,7 +177,7 @@ Questo requisito non è stato dichiarato in modo esplicito nella storia utente. 
 
 Elenco 6 contiene un nuovo test che esprime intenzione. Questo test verifica che il tentativo di creare un gruppo senza fornire risultati un nome in un messaggio di errore di convalida nello stato del modello.
 
-**Elenco di 6 - Controllers\GroupControllerTest.cs**
+**Elenco 6 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample6.cs)]
 
@@ -187,7 +187,7 @@ Per soddisfare questo test, che è necessario aggiungere una proprietà del nome
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample7.cs)]
 
-**Elenco di 8 - Controllers\GroupController.cs**
+**Elenco 8 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample8.cs)]
 
@@ -207,7 +207,7 @@ Elenco di 10 contiene i nuovi metodi aggiunti a livello di servizio ContactManag
 
 Listato 11 contiene una nuova classe FakeContactManagerRepository che implementa l'interfaccia IContactManagerRepository. A differenza della classe EntityContactManagerRepository che implementa anche l'interfaccia IContactManagerRepository, la nuova classe FakeContactManagerRepository non comunica con il database. La classe FakeContactManagerRepository Usa una raccolta in memoria come proxy per il database. Questa classe nei nostri test unità utilizzeremo come livello repository fittizio.
 
-**Elenco di 9 - Controllers\GroupController.cs**
+**Elenco 9 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample9.cs)]
 
@@ -249,7 +249,7 @@ Purtroppo, anche se è stato soddisfatto tutti i requisiti espressi il nostro un
 | **Nome colonna** | **Tipo di dati** | **Consenti valori null** |
 | --- | --- | --- |
 | Id | int | False |
-| Nome | nvarchar (50) | False |
+| nome | nvarchar (50) | False |
 
 
 Successivamente, è necessario eliminare tutti i dati dalla tabella Contacts (in caso contrario, viene acquisita t in grado di creare una relazione tra le tabelle di contatti e gruppi). Attenersi ai passaggi riportati di seguito.
@@ -299,9 +299,9 @@ Successivamente, è necessario aggiornare il modello di dati per rappresentare l
 Dopo aver completato questi passaggi, il modello di dati rappresenta sia i contatti e gruppi di tabelle. Entity Designer dovrebbe visualizzare entrambe le entità (vedere Figura 6).
 
 
-[![Entity Designer visualizzazione Group e Contact](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
+[![Finestra di progettazione entità visualizzando Group e Contact](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
-**Figura 06**: Entity Designer visualizzazione Group e Contact ([fare clic per visualizzare l'immagine ingrandita](iteration-6-use-test-driven-development-cs/_static/image12.png))
+**Figura 06**: finestra di progettazione entità visualizzando Group e Contact ([fare clic per visualizzare l'immagine ingrandita](iteration-6-use-test-driven-development-cs/_static/image12.png))
 
 
 ### <a name="creating-our-repository-classes"></a>La creazione di classi il Repository
@@ -359,6 +359,6 @@ Dopo che è stata completata la scrittura di codice sufficiente per soddisfare i
 
 Nell'iterazione successiva, l'iterazione finale - è riscrivere l'applicazione possa sfruttare i vantaggi di Ajax. Sfruttando la possibilità di Ajax, si sarà migliorare la velocità di risposta e prestazioni dell'applicazione Contact Manager.
 
->[!div class="step-by-step"]
-[Precedente](iteration-5-create-unit-tests-cs.md)
-[Successivo](iteration-7-add-ajax-functionality-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-5-create-unit-tests-cs.md)
+> [Successivo](iteration-7-add-ajax-functionality-cs.md)

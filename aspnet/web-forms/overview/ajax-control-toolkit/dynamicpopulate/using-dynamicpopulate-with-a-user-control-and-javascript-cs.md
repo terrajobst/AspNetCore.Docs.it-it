@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Utilizzo di DynamicPopulate con un controllo utente e JavaScript (c#)
 ====================
@@ -74,6 +74,6 @@ L'operazione è ora completata. La pagina si comporti come previsto: un utente f
 
 I pulsanti di opzione si trovano in un controllo utente ([fare clic per visualizzare l'immagine ingrandita](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](dynamically-populating-a-control-using-javascript-code-cs.md)
-[Successivo](dynamically-populating-a-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [Successivo](dynamically-populating-a-control-vb.md)

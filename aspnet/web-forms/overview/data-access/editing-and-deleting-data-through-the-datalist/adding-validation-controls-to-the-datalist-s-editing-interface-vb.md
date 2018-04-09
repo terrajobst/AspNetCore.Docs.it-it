@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 title: Aggiunta di controlli di convalida a DataList di modifica della interfaccia (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida EditItemTemplate del controllo DataList per fornire un int. utente di modifica più infallibile..."
+description: In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida EditItemTemplate del controllo DataList per fornire un int. utente di modifica più infallibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2daa0eaca2764dec2d6323bf1f5a4f3af2e6bbe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 46ff0b18c1ea24dd73c9e3034c1b5e53f2e6d0c2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>Aggiunta di controlli di convalida per l'interfaccia di modifica del controllo DataList (VB)
 ====================
@@ -33,7 +33,7 @@ In DataList modifica finora esercitazioni, la modifica delle interfacce di DataL
 
 In questa esercitazione si vedrà quanto sia facile aggiungere i controlli di convalida a DataList s `EditItemTemplate` per fornire un'interfaccia utente di modifica più infallibile. In particolare, in questa esercitazione accetta nell'esempio viene creato nell'esercitazione precedente e aggiunge l'interfaccia di modifica per includere la convalida appropriata.
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>Passaggio 1: La replica di esempio da[la gestione delle eccezioni BLL e DAL livello](handling-bll-and-dal-level-exceptions-vb.md)
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>Passaggio 1: La replica di esempio dal[la gestione delle eccezioni BLL e DAL livello](handling-bll-and-dal-level-exceptions-vb.md)
 
 Nel [BLL - gestione e le eccezioni di livello DAL](handling-bll-and-dal-level-exceptions-vb.md) esercitazione è stata creata una pagina elencati i nomi e i prezzi dei prodotti in un controllo DataList due colonne, modificabile. L'obiettivo di questa esercitazione è per aumentare l'interfaccia di modifica s DataList per includere i controlli di convalida. In particolare, la logica di convalida sarà:
 
@@ -72,10 +72,10 @@ Dopo avere spostato il contenuto e il codice da `ErrorHandling.aspx` a `UIValida
 Quando si crea il form di immissione dati, è importante che gli utenti immettere tutti i campi obbligatori e che tutti gli input forniti sono valori validi, formattato correttamente. Per garantire che un input s utente sono validi, ASP.NET fornisce cinque i controlli di convalida incorporate che sono progettati per convalidare il valore di un singolo controllo Web di input:
 
 - [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) assicura che è stato fornito un valore
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) convalida di un valore rispetto a un altro valore di controllo Web o un valore costante o assicura che il formato del valore s sia valido per un tipo di dati specificato
-- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) garantisce che un valore all'interno di un intervallo di valori
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) convalida di un valore rispetto a un [espressioni regolari](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) convalida di un valore rispetto a un metodo personalizzato definito dall'utente
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) convalida un valore rispetto a un altro valore di controllo Web o un valore costante o assicura che il formato del valore s sia valido per un tipo di dati specificato
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) assicura che un valore sia all'interno di un intervallo di valori
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) convalida un valore rispetto a un [espressioni regolari](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) convalida un valore rispetto a un metodo personalizzato definito dall'utente
 
 Per ulteriori informazioni su questi cinque controlli si riferiscono nuovamente al [aggiunta di controlli di convalida per la modifica e inserimento di interfacce](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) esercitazione o check-out di [sezione relativa ai controlli di convalida](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) del [Esercitazioni delle Guide rapide ASP.NET](https://quickstarts.asp.net).
 
@@ -100,7 +100,7 @@ Dopo l'impostazione di queste tre proprietà di RequiredFieldValidator la scherm
 
 [![Impostare le proprietà di testo, un messaggio di errore e un RequiredFieldValidator s ControlToValidate](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
 
-**Figura 4**: impostare s RequiredFieldValidator `ControlToValidate`, `ErrorMessage`, e `Text` proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
+**Figura 4**: impostare s RequiredFieldValidator `ControlToValidate`, `ErrorMessage`, e `Text` delle proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
 
 
 Con RequiredFieldValidator aggiunti il `EditItemTemplate`tutti che rimane consiste nell'aggiungere la convalida necessaria per il prezzo del prodotto s casella di testo. Poiché il `UnitPrice` è facoltativa quando si modifica un record, non abbiamo non è necessario aggiungere un controllo RequiredFieldValidator. Tuttavia, è necessario aggiungere un controllo CompareValidator per assicurarsi che il `UnitPrice`, se fornito, viene correttamente formattati come valuta ed è maggiore o uguale a 0.
@@ -115,9 +115,9 @@ Dopo l'aggiunta di questi due controlli di convalida, DataList s `EditItemTempla
 Dopo aver apportato queste modifiche, aprire la pagina in un browser. Se si tenta di omettere il nome o immettere un valore del prezzo non valido durante la modifica di un prodotto, viene visualizzato un asterisco accanto la casella di testo. Come illustrato nella figura 5, che include il simbolo di valuta, ad esempio $19,95 un valore del prezzo è considerato non valido. S CompareValidator `Currency` `Type` consente di separatori di cifre (ad esempio virgole o punti, a seconda delle impostazioni cultura) e un segno iniziale o meno, ma *non* consentire un simbolo di valuta. Questo comportamento potrebbe perplex gli utenti quando esegue il rendering attualmente l'interfaccia per la modifica di `UnitPrice` utilizzando il formato di valuta.
 
 
-[![Viene visualizzato un asterisco accanto a caselle di testo con Input non valido](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
+[![Viene visualizzato un asterisco accanto alle caselle di testo con Input non valido](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
 
-**Figura 5**: un asterisco visualizzato Avanti per caselle di testo con Input non valido ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
+**Figura 5**: un asterisco viene visualizzato Avanti per caselle di testo con Input non valido ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
 
 
 Durante la convalida funziona come-è, l'utente deve rimuovere manualmente il simbolo di valuta, quando si modifica un record, che non è accettabile. Inoltre, se vi sono validi gli input in cui la modifica dell'interfaccia né l'aggiornamento né Annulla pulsanti, quando selezionato, verrà richiamato un postback. In teoria, il pulsante Annulla restituirebbe DataList allo stato di pre-modifica indipendentemente dalla validità degli input utente s. Inoltre, è necessario verificare che i dati della pagina s siano validi prima di aggiornare le informazioni sul prodotto in DataList s `UpdateCommand` gestore eventi, come i controlli di convalida logica sul lato client può essere ignorata da parte degli utenti che usano browser si supporta JavaScript o avranno il supporto è disabilitato.
@@ -172,9 +172,9 @@ Oltre ai controlli di convalida di cinque, ASP.NET include il [controllo Validat
 A tale scopo, trascinare un controllo ValidationSummary dalla casella degli strumenti nella finestra di progettazione. Il percorso di t ValidationSummary controllo è importante, poiché è re prevede di configurare in modo da visualizzare solo il riepilogo come un messagebox. Dopo aver aggiunto il controllo, impostare il relativo [ `ShowSummary` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) a `False` e il relativo [ `ShowMessageBox` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) a `True`. Con l'aggiunta, eventuali errori di convalida sono riepilogati in una finestra di messaggio sul lato client (vedere Figura 6).
 
 
-[![Gli errori di convalida sono riepilogati in una finestra di messaggio sul lato Client](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
+[![Gli errori di convalida sono riepilogati in Messagebox lato Client](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
 
-**Figura 6**: di errori di convalida sono riepilogati in una finestra di messaggio sul lato Client ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
+**Figura 6**: di errori di convalida sono riepilogati in Messagebox lato Client ([fare clic per visualizzare l'immagine ingrandita](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -189,12 +189,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Dennis Patterson Ken Pespisa e Liz Shulok. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](handling-bll-and-dal-level-exceptions-vb.md)
-[Successivo](customizing-the-datalist-s-editing-interface-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](handling-bll-and-dal-level-exceptions-vb.md)
+> [Successivo](customizing-the-datalist-s-editing-interface-vb.md)

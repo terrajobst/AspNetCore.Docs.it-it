@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>Il modello ASP.NET 2.0 pagina
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > In ASP.NET 1. x, gli sviluppatori dovevano una scelta tra un modello di codice inline e un modello di codice code-behind. Codice possa essere implementata utilizzando l'attributo Src o l'attributo CodeBehind del @Page direttiva. In ASP.NET 2.0, gli sviluppatori hanno ancora una scelta tra codice inline e code-behind, ma sono stati apportati miglioramenti significativi al modello code-behind.
 
@@ -77,7 +77,7 @@ L'attributo CodeFile è la sostituzione per l'attributo CodeBehind in Visual Stu
 
 L'attributo CodeFileBaseClass viene utilizzato nei casi in cui si desidera più pagine per derivare da una singola classe di base. A causa dell'implementazione di classi parziali in ASP.NET, senza questo attributo, di una classe di base che usa i campi comuni condivisi per fare riferimento a controlli dichiarati in una pagina ASPX non funzionerà correttamente perché ASP. Il motore di compilazione reti crea automaticamente nuovi membri in base a controlli nella pagina. Pertanto, se si desidera una classe base comune per due o più pagine in ASP.NET, sarà necessario definire nell'attributo CodeFileBaseClass specificare la classe base e quindi derivare ogni classe di pagine da tale classe base. È inoltre richiesto l'attributo CodeFile quando questo attributo viene utilizzato.
 
-## <a name="compilationmode"></a>compilationMode
+## <a name="compilationmode"></a>CompilationMode
 
 Questo attributo consente di impostare la proprietà CompilationMode della pagina ASPX. La proprietà CompilationMode è un'enumerazione contenente i valori **sempre**, **Auto**, e **mai**. Il valore predefinito è **sempre**. Il **Auto** impostazione impedirà ASP.NET compilazione dinamica della pagina se possibile. Esclusione di pagine dalla compilazione dinamica migliora le prestazioni. Se, tuttavia, una pagina che è escluso contiene codice che deve essere compilato, è verrà generato un errore quando viene visualizzata la pagina.
 
@@ -135,7 +135,7 @@ Il **SomeText** attributo della direttiva @ Page imposta il valore iniziale dell
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
 
-[Aprire Video a schermo intero](the-asp-net-2-0-page-model/_static/setprop1.wmv)
+[Aprirlo Video a schermo intero](the-asp-net-2-0-page-model/_static/setprop1.wmv)
 
 
 ## <a name="new-public-properties-of-the-page-class"></a>Nuove proprietà pubblica della classe della pagina
@@ -144,11 +144,11 @@ Le proprietà pubbliche seguenti sono nuove in ASP.NET 2.0.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Restituisce il percorso relativo dell'applicazione per la pagina o il controllo. Per una pagina disponibile all'indirizzo http://app/folder/page.aspx, ad esempio, la proprietà restituisce ~ / cartella.
+Restituisce il percorso relativo dell'applicazione per la pagina o il controllo. Ad esempio, per una pagina disponibile all'indirizzo http://app/folder/page.aspx, la proprietà restituisce ~ / cartella /.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Restituisce il percorso virtuale relativo alla pagina o controllo. Per una pagina disponibile all'indirizzo http://app/folder/page.aspx, ad esempio la proprietà restituisce ~ / folder/page.aspx.
+Restituisce il percorso virtuale relativo alla pagina o controllo. Ad esempio per una pagina disponibile all'indirizzo http://app/folder/page.aspx, la proprietà restituisce ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
@@ -372,7 +372,7 @@ Il video seguente è una procedura dettagliata di un cross-page postback.
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
 
-[Aprire Video a schermo intero](the-asp-net-2-0-page-model/_static/xpage1.wmv)
+[Aprirlo Video a schermo intero](the-asp-net-2-0-page-model/_static/xpage1.wmv)
 
 
 ## <a name="more-details-on-cross-page-postbacks"></a>Ulteriori informazioni sui postback tra pagine
@@ -430,7 +430,7 @@ Il video seguente è una procedura dettagliata di una richiesta asincrona di pag
 ![](the-asp-net-2-0-page-model/_static/image3.png)
 
 
-[Aprire Video a schermo intero](the-asp-net-2-0-page-model/_static/async1.wmv)
+[Aprirlo Video a schermo intero](the-asp-net-2-0-page-model/_static/async1.wmv)
 
 
 > [!NOTE]
@@ -529,7 +529,7 @@ Dopo aver completato i passaggi precedenti, si è pronti per eseguire un callbac
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
 
-[Aprire Video a schermo intero](the-asp-net-2-0-page-model/_static/callback1.wmv)
+[Aprirlo Video a schermo intero](the-asp-net-2-0-page-model/_static/callback1.wmv)
 
 
 Gli script di callback in ASP.NET sono supportati in qualsiasi browser che supporta le chiamate XMLHttp. Che include tutti i browser moderni in uso oggi. Internet Explorer utilizza l'oggetto XMLHttp ActiveX mentre altri browser moderni (incluso il future di Internet Explorer 7) utilizzano un oggetto XMLHttp intrinseco. Per determinare a livello di codice se il browser supporta i callback, è possibile utilizzare il **Request.Browser.SupportCallback** proprietà. Questa proprietà restituirà **true** se il client richiedente supporta gli script di callback.
@@ -600,11 +600,13 @@ Utilizzare il metodo IsStartupScriptRegistered per determinare se è già stato 
 
 Ecco alcuni degli altri metodi utili della classe ClientScriptManager.
 
-| **GetCallbackEventReference** | Vedere gli script di callback in precedenza in questo modulo. |
-| --- | --- |
-| **Metodo GetPostBackClientHyperlink** | Ottiene un riferimento di JavaScript (javascript:&lt;chiamare&gt;) che può essere utilizzato per registrare nuovamente da un evento lato client. |
-| **GetPostBackEventReference** | Ottiene una stringa che può essere utilizzata per avviare un post dal client. |
-| **GetWebResourceUrl** | Restituisce un URL a una risorsa incorporata in un assembly. Deve essere usata in combinazione con **RegisterClientScriptResource**. |
-| **RegisterClientScriptResource** | Registra una risorsa Web con la pagina. Si tratta di risorse incorporato in un assembly e gestito dal gestore WebResource.axd nuovo. |
-| **RegisterHiddenField** | Registra un campo modulo nascosto nella pagina. |
-| **RegisterOnSubmitStatement** | Registra il codice sul lato client che viene eseguito quando viene inviato il form HTML. |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 Vedere gli script di callback in precedenza in questo modulo.                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                Ottiene un riferimento di JavaScript (javascript:&lt;chiamare&gt;) che può essere utilizzato per registrare nuovamente da un evento lato client.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Ottiene una stringa che può essere utilizzata per avviare un post dal client.                                    |
+|      <strong>GetWebResourceUrl</strong>       | Restituisce un URL a una risorsa incorporata in un assembly. Deve essere usata in combinazione con <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Registra una risorsa Web con la pagina. Si tratta di risorse incorporato in un assembly e gestito dal gestore WebResource.axd nuovo.      |
+|     <strong>RegisterHiddenField</strong>      |                                                 Registra un campo modulo nascosto nella pagina.                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  Registra il codice sul lato client che viene eseguito quando viene inviato il form HTML.                                   |
+

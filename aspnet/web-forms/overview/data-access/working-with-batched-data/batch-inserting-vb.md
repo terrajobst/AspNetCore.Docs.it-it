@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 title: Batch di inserimento (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Informazioni su come inserire più record di database in un'unica operazione. Il Layer dell'interfaccia utente estende GridView per consentire all'utente di immettere più di n..."
+description: Informazioni su come inserire più record di database in un'unica operazione. Il Layer dell'interfaccia utente estende GridView per consentire all'utente di immettere più di n...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-vb"></a>Batch di inserimento (VB)
 ====================
@@ -65,9 +65,9 @@ Successivamente, trascinare un controllo pulsante e GridView nel pannello. Impos
 **Figura 3**: visualizzare i dati restituiti dal `ProductsBLL` classe s `GetProducts` metodo ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image9.png))
 
 
-[![Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
+[![Impostare gli elenchi a discesa in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](batch-inserting-vb/_static/image11.png)](batch-inserting-vb/_static/image10.png)
 
-**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image12.png))
+**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE (nessuno) ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image12.png))
 
 
 Dopo aver completato la procedura guidata ObjectDataSource, Visual Studio aggiungerà BoundField e un CheckBoxField per i campi di dati di prodotto. Rimuovere tutto tranne il `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`, e `Discontinued` campi. È possibile apportare le personalizzazioni estetiche. Ho deciso di formattare il `UnitPrice` campo come valore di valuta, riordinare i campi e molti dei campi rinominati `HeaderText` valori. Configurare inoltre GridView per includere il paging e supporto per l'ordinamento selezionando le caselle di controllo Abilita Paging e Abilita ordinamento nello smart tag GridView s.
@@ -82,9 +82,9 @@ Si noti che il markup per il pulsante e GridView visualizzati all'interno di ape
 Richiedere qualche istante per visualizzare l'avanzamento attraverso un browser. Come illustrato nella figura 5, si verrà visualizzato un pulsante di spedizione del prodotto processo di sopra di un controllo GridView in cui sono elencati i prodotti dieci alla volta.
 
 
-[![GridView sono elencati i prodotti e offre l'ordinamento e Paging funzionalità](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
+[![GridView sono elencati i prodotti e offre l'ordinamento e le funzionalità di Paging](batch-inserting-vb/_static/image14.png)](batch-inserting-vb/_static/image13.png)
 
-**Figura 5**: GridView sono elencati i prodotti e offre l'ordinamento e Paging funzionalità ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image15.png))
+**Figura 5**: GridView sono elencati i prodotti e offre l'ordinamento e le funzionalità di Paging ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image15.png))
 
 
 ## <a name="step-2-creating-the-inserting-interface"></a>Passaggio 2: Creazione dell'interfaccia di inserimento
@@ -122,7 +122,7 @@ Con questo markup immesso, tornare alla visualizzazione progettazione. Questo `<
 Impostare il fornitore DropDownList s `ID` proprietà `Suppliers` e associarlo a un nuovo oggetto ObjectDataSource denominato `SuppliersDataSource`. Configura il nuovo ObjectDataSource per recuperare i dati di `SuppliersBLL` classe s `GetSuppliers` metodo e impostare l'aggiornamento scheda elenco a discesa s su (nessuno). Fare clic su Fine per completare la procedura guidata.
 
 
-[![Configurare ObjectDataSource per utilizzare il metodo di classe SuppliersBLL s GetSuppliers](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
+[![Configurare ObjectDataSource per utilizzare il metodo GetSuppliers SuppliersBLL classe s](batch-inserting-vb/_static/image20.png)](batch-inserting-vb/_static/image19.png)
 
 **Figura 7**: configurare ObjectDataSource per utilizzare il `SuppliersBLL` classe s `GetSuppliers` metodo ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image21.png))
 
@@ -130,7 +130,7 @@ Impostare il fornitore DropDownList s `ID` proprietà `Suppliers` e associarlo a
 Dispone il `Suppliers` DropDownList visualizzazione il `CompanyName` campo dati e utilizzare il `SupplierID` campo dati come relativo `ListItem` valori s.
 
 
-[![Visualizzare il campo dei dati di CompanyName e utilizzare SupplierID come valore](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
+[![Visualizzare il campo dei dati di CompanyName e utilizzare SupplierID uguale al valore](batch-inserting-vb/_static/image23.png)](batch-inserting-vb/_static/image22.png)
 
 **Figura 8**: visualizzazione di `CompanyName` campo dati e utilizzare `SupplierID` come valore ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image24.png))
 
@@ -160,7 +160,7 @@ Infine, aggiungere un controllo ValidationSummary all'interno di `InsertingInter
 A questo punto, la schermata dovrebbe essere simile alla figura 10.
 
 
-[![L'interfaccia inserimento ora include caselle di testo per i prodotti di nomi e i prezzi](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
+[![L'interfaccia inserimento ora include caselle di testo per i prodotti i nomi e sui prezzi](batch-inserting-vb/_static/image29.png)](batch-inserting-vb/_static/image28.png)
 
 **Figura 10**: l'inserimento di interfaccia ora include caselle di testo per i nomi di prodotti e i prezzi ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image30.png))
 
@@ -176,7 +176,7 @@ Figura 11 mostra la progettazione di Visual Studio dopo l'etichetta è stato agg
 
 [![Posizionare il controllo StatusLabel sopra i due controlli pannello](batch-inserting-vb/_static/image32.png)](batch-inserting-vb/_static/image31.png)
 
-**Figura 11**: sul posto di `StatusLabel` controllo di sopra di due controlli pannello ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image33.png))
+**Figura 11**: posizione il `StatusLabel` controllo di sopra di due controlli pannello ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image33.png))
 
 
 ## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>Passaggio 3: Il passaggio tra la visualizzazione e l'inserimento di interfacce
@@ -203,7 +203,7 @@ Successivamente, è possibile creare gestori eventi per i prodotti aggiungere da
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Entrambi `Click` gestori eventi è sufficiente chiamare il `ReturnToDisplayInterface` (metodo), anche se sarà restituiamo ai prodotti aggiungere da spedizione `Click` gestore dell'evento nel passaggio 4 e aggiungere il codice per salvare i prodotti. `ReturnToDisplayInterface`viene avviata restituendo il `Suppliers` e `Categories` controlli DropDownList per le prime opzioni. Le due costanti `firstControlID` e `lastControlID` contrassegnare l'inizio e fine utilizzati nei nomi di prodotto nome e il prezzo unitario nelle caselle di testo in cui l'inserimento di interfaccia e vengono utilizzati i limiti di valori di indice di controllo di `For` ciclo che imposta il `Text`proprietà dei controlli casella di testo nuovo in una stringa vuota. Infine, i pannelli `Visible` le proprietà vengono reimpostate in modo che l'interfaccia di inserimento è nascosta e l'interfaccia di visualizzazione illustrato.
+Entrambi `Click` gestori eventi è sufficiente chiamare il `ReturnToDisplayInterface` (metodo), anche se sarà restituiamo ai prodotti aggiungere da spedizione `Click` gestore dell'evento nel passaggio 4 e aggiungere il codice per salvare i prodotti. `ReturnToDisplayInterface` viene avviata restituendo il `Suppliers` e `Categories` controlli DropDownList per le prime opzioni. Le due costanti `firstControlID` e `lastControlID` contrassegnare l'inizio e fine utilizzati nei nomi di prodotto nome e il prezzo unitario nelle caselle di testo in cui l'inserimento di interfaccia e vengono utilizzati i limiti di valori di indice di controllo di `For` ciclo che imposta il `Text`proprietà dei controlli casella di testo nuovo in una stringa vuota. Infine, i pannelli `Visible` le proprietà vengono reimpostate in modo che l'interfaccia di inserimento è nascosta e l'interfaccia di visualizzazione illustrato.
 
 È opportuno testare questa pagina in un browser. Durante la prima visita la pagina verrà visualizzato l'interfaccia di visualizzazione come è stato illustrato nella figura 5. Fare clic sul pulsante elabora spedizione del prodotto. La pagina verrà postback e dovrebbe essere l'interfaccia inserimento come illustrato nella figura 12. Fare clic su entrambi i prodotti aggiungere pulsanti di spedizione o annullare nuovamente l'interfaccia di visualizzazione.
 
@@ -211,9 +211,9 @@ Entrambi `Click` gestori eventi è sufficiente chiamare il `ReturnToDisplayInter
 > Durante la visualizzazione dell'interfaccia di inserimento, è opportuno testare il CompareValidators sul prezzo unitario nelle caselle di testo. Verrà visualizzata una finestra di messaggio sul lato client di avviso quando si fa clic Aggiungi prodotti dal pulsante di spedizione con valori di valuta non valido o prezzi con un valore minore di zero.
 
 
-[![L'interfaccia di inserimento viene visualizzato dopo aver fatto clic sul pulsante di spedizione del prodotto di processo](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
+[![L'interfaccia di inserimento viene visualizzato dopo aver fatto clic sul pulsante di spedizione del prodotto processo](batch-inserting-vb/_static/image35.png)](batch-inserting-vb/_static/image34.png)
 
-**Figura 12**: l'interfaccia di inserimento viene visualizzato dopo aver fatto clic sul pulsante di spedizione del prodotto di processo ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image36.png))
+**Figura 12**: l'interfaccia di inserimento viene visualizzato dopo aver fatto clic sul pulsante di spedizione del prodotto processo ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image36.png))
 
 
 ## <a name="step-4-adding-the-products"></a>Passaggio 4: Aggiunta di prodotti
@@ -240,17 +240,17 @@ Se non viene immesso alcun prodotti, l'interfaccia di inserimento è visualizzat
 S figura 13, 14 e 15 Visualizza l'inserimento e visualizza le interfacce in azione. Nella figura 13, l'utente ha immesso un valore di prezzo unitario senza un nome di prodotto corrispondente. Nella figura 14 mostra l'interfaccia di visualizzazione dopo tre nuovi prodotti sono stati aggiunti correttamente, mentre nella figura 15 vengono illustrati due dei prodotti appena aggiunti in GridView (il terzo è nella pagina precedente).
 
 
-[![Nome di un prodotto è richiesto quando immettendo un prezzo unitario](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
+[![Un nome di prodotto è richiesto quando immettendo un prezzo unitario](batch-inserting-vb/_static/image38.png)](batch-inserting-vb/_static/image37.png)
 
-**Figura 13**: un nome di prodotto è richiesto quando immettendo un prezzo unitario ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image39.png))
-
-
-[![Sono stati aggiunti tre Veggies nuovi per il fornitore Mayumi s](batch-inserting-vb/_static/image41.png)](batch-inserting-vb/_static/image40.png)
-
-**Nella figura 14**: tre nuovi Veggies sono stati aggiunti per s Mayumi fornitore ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image42.png))
+**Figura 13**: nome del prodotto A è necessaria quando immettendo un prezzo unitario ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image39.png))
 
 
-[![I nuovi prodotti disponibili nell'ultima pagina del controllo GridView.](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
+[![Tre nuovi Veggies sono stati aggiunti per il fornitore Mayumi s](batch-inserting-vb/_static/image41.png)](batch-inserting-vb/_static/image40.png)
+
+**Figura 14**: tre nuovi Veggies sono stati aggiunti per s Mayumi fornitore ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image42.png))
+
+
+[![I nuovi prodotti sono reperibile nell'ultima pagina del controllo GridView.](batch-inserting-vb/_static/image44.png)](batch-inserting-vb/_static/image43.png)
 
 **Figura 15**: il nuovo prodotti sono disponibili nell'ultima pagina di GridView ([fare clic per visualizzare l'immagine ingrandita](batch-inserting-vb/_static/image45.png))
 
@@ -269,11 +269,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Portare i revisori per questa esercitazione sono stati Hilton Giesenow e S ren Jacob Lauritsen. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](batch-deleting-vb.md)

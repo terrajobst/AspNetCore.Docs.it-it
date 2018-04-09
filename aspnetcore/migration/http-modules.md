@@ -1,7 +1,7 @@
 ---
-title: La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core.
+title: Eseguire la migrazione di gestori HTTP e i moduli al middleware di ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/07/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: 7f08e155491b56933ae183818e9b9ee562ad8286
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>La migrazione di gestori HTTP e moduli al middleware di ASP.NET Core. 
+# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Eseguire la migrazione di gestori HTTP e i moduli al middleware di ASP.NET Core
 
 Da [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
@@ -81,7 +81,7 @@ Oltre a moduli, è possibile aggiungere i gestori per gli eventi del ciclo di vi
 
    * Ordine del middleware per le risposte è l'opposto rispetto a quello per le richieste, mentre l'ordine dei moduli è lo stesso per le richieste e risposte
 
-   * Vedere [creazione di una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
+   * Vedere [creare una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Middleware](http-modules/_static/middleware.png)
 
@@ -173,17 +173,17 @@ Il nuovo [sistema di configurazione](xref:fundamentals/configuration/index) forn
 
 * Utilizzare il [modello opzioni](xref:fundamentals/configuration/options):
 
-1.  Creare una classe che contenga le opzioni del middleware, ad esempio:
+1. Creare una classe che contenga le opzioni del middleware, ad esempio:
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
-2.  Archiviare i valori di opzione
+2. Archiviare i valori di opzione
 
-    Il sistema di configurazione consente di archiviare i valori di opzione in qualsiasi punto desiderato. Tuttavia, più siti utilizzare *appSettings. JSON*, pertanto l'utente verrà reindirizzato a tale approccio:
+   Il sistema di configurazione consente di archiviare i valori di opzione in qualsiasi punto desiderato. Tuttavia, più siti utilizzare *appSettings. JSON*, pertanto l'utente verrà reindirizzato a tale approccio:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
-    *MyMiddlewareOptionsSection* qui è un nome di sezione. Non deve essere identico al nome della classe di opzioni.
+   *MyMiddlewareOptionsSection* qui è un nome di sezione. Non deve essere identico al nome della classe di opzioni.
 
 3. Associare i valori dell'opzione con la classe di opzioni
 
@@ -191,25 +191,25 @@ Il nuovo [sistema di configurazione](xref:fundamentals/configuration/index) forn
 
     Aggiornamento del `Startup` classe:
 
-    1.  Se si utilizza *appSettings. JSON*, aggiungerlo al generatore di configurazione nel `Startup` costruttore:
+   1. Se si utilizza *appSettings. JSON*, aggiungerlo al generatore di configurazione nel `Startup` costruttore:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
-    2.  Configurare il servizio di opzioni:
+   2. Configurare il servizio di opzioni:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    3.  Associare le opzioni disponibili con la classe di opzioni:
+   3. Associare le opzioni disponibili con la classe di opzioni:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
-4.  Inserire le opzioni nel costruttore del middleware. È simile per l'inserimento di opzioni in un controller.
+4. Inserire le opzioni nel costruttore del middleware. È simile per l'inserimento di opzioni in un controller.
 
-  [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
-  Il [UseMiddleware](#http-modules-usemiddleware) metodo di estensione che aggiunge il middleware per la `IApplicationBuilder` si occupa di inserimento di dipendenze.
+   Il [UseMiddleware](#http-modules-usemiddleware) metodo di estensione che aggiunge il middleware per la `IApplicationBuilder` si occupa di inserimento di dipendenze.
 
-  Questo non è limitato a `IOptions` oggetti. In questo modo può essere inserito da qualsiasi altro oggetto che richiede il middleware.
+   Questo non è limitato a `IOptions` oggetti. In questo modo può essere inserito da qualsiasi altro oggetto che richiede il middleware.
 
 ## <a name="loading-middleware-options-through-direct-injection"></a>Il caricamento di opzioni del middleware tramite inserimento diretto
 
@@ -219,21 +219,21 @@ Questo modo si ottengono tuttavia se si desidera utilizzare il middleware stesso
 
 La soluzione consiste nell'ottenere gli oggetti di opzioni con i valori effettivi opzioni la `Startup` classe e passare direttamente in ogni istanza del middleware.
 
-1.  Aggiungere una seconda chiave da *appSettings. JSON*
+1. Aggiungere una seconda chiave da *appSettings. JSON*
 
-    Per aggiungere un secondo set di opzioni per il *appSettings. JSON* file, utilizzare una nuova chiave per identificarla in modo univoco:
+   Per aggiungere un secondo set di opzioni per il *appSettings. JSON* file, utilizzare una nuova chiave per identificarla in modo univoco:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
-2.  Recuperare i valori delle opzioni e passarle al middleware. Il `Use...` metodo di estensione (che aggiunge il middleware alla pipeline) è un punto logico per passare i valori di opzione: 
+2. Recuperare i valori delle opzioni e passarle al middleware. Il `Use...` metodo di estensione (che aggiunge il middleware alla pipeline) è un punto logico per passare i valori di opzione: 
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
-4.  Abilitare il middleware accettare un parametro di opzioni. Fornire un overload di `Use...` metodo di estensione (che accetta il parametro di opzioni e lo passa al `UseMiddleware`). Quando `UseMiddleware` viene chiamato con parametri, passa i parametri del costruttore del middleware quando viene creata un'istanza dell'oggetto middleware.
+3. Abilitare il middleware accettare un parametro di opzioni. Fornire un overload di `Use...` metodo di estensione (che accetta il parametro di opzioni e lo passa al `UseMiddleware`). Quando `UseMiddleware` viene chiamato con parametri, passa i parametri del costruttore del middleware quando viene creata un'istanza dell'oggetto middleware.
 
-    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
-    Si noti come questo include l'oggetto di opzioni in un `OptionsWrapper` oggetto. Implementa `IOptions`, come previsto dal costruttore del middleware.
+   Si noti come questo include l'oggetto di opzioni in un `OptionsWrapper` oggetto. Implementa `IOptions`, come previsto dal costruttore del middleware.
 
 ## <a name="migrating-to-the-new-httpcontext"></a>La migrazione a nuovi HttpContext
 

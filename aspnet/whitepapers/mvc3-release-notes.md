@@ -2,21 +2,21 @@
 uid: whitepapers/mvc3-release-notes
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/12/2018
     - [RemoteAttribute rinominato "Fields" proprietà "AdditionalFields"](#_Toc2_6)
     - [Rinominato "SkipRequestValidationAttribute" a "AllowHtmlAttribute"](#_Toc2_7)
     - [Metodo modificate "Html.ValidationMessage" per visualizzare il primo messaggio di errore utile](#_Toc2_8)
-    - [Predefinito @model dichiarazione di non aggiungere spazi vuoti nel documento](#_Toc2_9)
+    - [Fisso @model dichiarazione di non aggiungere spazi vuoti nel documento](#_Toc2_9)
     - [Proprietà aggiunto "FileExtensions" per i motori di visualizzazione per supportare i nomi di File specifici del motore](#_Toc2_10)
     - [Supporto predefinito "LabelFor" per generare il valore corretto per l'attributo "For"](#_Toc2_11)
     - [Metodo predefinito "RenderAction" per fornire valori espliciti precedenza durante l'associazione del modello](#_Toc2_12)
@@ -78,16 +78,16 @@ ms.lasthandoff: 02/12/2018
     - [Nuove funzionalità nella versione Beta di ASP.NET MVC 3](#0.1__Toc274034215)
     - [NuPack Package Manager](#0.1__Toc274034216)
     - [Finestra di dialogo Nuovo progetto migliorato](#0.1__Toc274034217)
-    - [Un modo semplice per specificare fortemente tipizzato modelli nelle visualizzazioni Razor](#0.1__Toc274034218)
-    - [Supporto per nuovi metodi di supporto di pagine Web ASP.NET](#0.1__Toc274034219)
+    - [Metodo semplificato per specificare fortemente tipizzate modelli nelle visualizzazioni Razor](#0.1__Toc274034218)
+    - [Supporto per nuovi metodi di supporto delle pagine Web ASP.NET](#0.1__Toc274034219)
     - [Supporto dell'attacco intrusivo nel codice delle dipendenze aggiuntive](#0.1__Toc274034220)
     - [Nuovo supporto per Ajax basate su jQuery non intrusiva](#0.1__Toc274034221)
-    - [Nuovo supporto per la convalida di jQuery non intrusiva](#0.1__Toc274034222)
-    - [Nuovo flag a livello di applicazione per la convalida del Client e di JavaScript non intrusivo](#0.1__Toc274034223)
+    - [Nuovo supporto per jQuery non intrusiva convalida](#0.1__Toc274034222)
+    - [Nuovo flag a livello applicazione per la convalida del Client e di JavaScript non intrusivo](#0.1__Toc274034223)
     - [Nuovo supporto per il codice che viene eseguito prima dell'esecuzione di viste](#0.1__Toc274034224)
     - [Nuovo supporto per la sintassi Razor VBHTML](#0.1__Toc274034225)
     - [Controllo più granulare ValidateInputAttribute](#0.1__Toc274034226)
-    - [Helper per convertire i caratteri di sottolineatura in trattini per i nomi di attributo HTML specificati l'utilizzo di oggetti anonimi](#0.1__Toc274034227)
+    - [Gli helper di convertire i caratteri di sottolineatura in trattini per i nomi di attributo HTML specificati utilizzando oggetti anonimi](#0.1__Toc274034227)
     - [Correzioni di bug](#0.1__Toc274034228)
     - [Modifiche di rilievo](#0.1__Toc274034229)
     - [Problemi noti](#0.1__Toc274034230)
@@ -218,7 +218,7 @@ Questo modello genera un file del controller che dispone di tutti i metodi di az
 
 Questo modello consente di creare rapidamente un'interfaccia utente per l'immissione di dati di lavoro. Genera il codice che gestisce una gamma di comuni requisiti e scenari, ad esempio le operazioni seguenti:
 
-- *Accesso ai dati*. Il codice generato legge e scrive le entità in un database. Funziona con l'approccio Entity Framework Code First se si sceglie una classe di contesto dati esistente o se si consente al modello di generare un nuovo *DbContext* classe. Funziona anche con l'approccio Entity Framework Database First o Model First se si sceglie un'esistente *ObjectContext* classe.
+- *L'accesso ai dati*. Il codice generato legge e scrive le entità in un database. Funziona con l'approccio Entity Framework Code First se si sceglie una classe di contesto dati esistente o se si consente al modello di generare un nuovo *DbContext* classe. Funziona anche con l'approccio Entity Framework Database First o Model First se si sceglie un'esistente *ObjectContext* classe.
 - *Convalida*. Il codice generato utilizza l'associazione di modelli ASP.NET MVC e funzionalità dei metadati in modo che invii di form vengono convalidati in base alle regole dichiarate nella classe di modello. Ciò comprende le regole di convalida incorporate, ad esempio il *necessari* e *StringLength* gli attributi e regole di convalida personalizzate.
 - *Le relazioni uno-a-molti*. Se si definiscono relazioni di chiave esterna uno-a-molti tra le classi di modello, il codice generato produrrà elenchi a discesa per selezionare le entità correlate. Ad esempio, è possibile definire le seguenti classi di modello seguenti convenzioni Entity Framework Code First: 
 
@@ -262,7 +262,7 @@ Si noti che le versioni precedenti dei browser non supportano i tag specifici di
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>Modelli di progetto includono ora Modernizr 1.7
 
-Modernizr è una libreria JavaScript che abilita il supporto di CSS 3 e HTML5 nei browser che non supportano ancora tali funzionalità. Questa libreria è disponibile come pacchetto NuGet preinstallato nei modelli per progetti ASP.NET MVC 3. Per ulteriori informazioni su Modernizr, vedere [http://www.modernizr.com/](http://www.modernizr.com/).
+Modernizr è una libreria JavaScript che abilita il supporto di CSS 3 e HTML5 nei browser che non supportano ancora tali funzionalità. Questa libreria è disponibile come pacchetto NuGet preinstallato nei modelli per progetti ASP.NET MVC 3. Per ulteriori informazioni su Modernizr, vedere [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Modelli di progetto includono le versioni aggiornate di jQuery, jQuery UI e jQuery convalida
@@ -284,7 +284,7 @@ Code First è incentrato sulla definizione del modello mediante le classi POCO (
 
 Documentazione per l'utilizzo di codice Firstwith ASP.NET MVC è disponibile nel sito Web ASP.NET gli URL seguenti:
 
-[https://www.ASP.NET/MVC/tutorials/Getting-Started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+[https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
 ### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Modelli di progetto includono le librerie JavaScript come pacchetti NuGet preinstallati
@@ -373,7 +373,7 @@ In questa sezione descrive le modifiche (nuove funzionalità e correzioni di bug
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Modelli di progetto modificato per includere jQuery 1.4.4 1.7 convalida jQuery e jQuery UI 1.8.6
 
-I modelli di progetto ASP.NET MVC 3 includono ora le versioni più recenti di jQuery, jQuery e jQuery convalida dell'interfaccia utente. jQuery UI è una novità per i modelli di progetto e fornisce i widget dell'interfaccia utente utile. Per ulteriori informazioni su jQuery UI, visitare la home page: [http://jqueryui.com/](http://jqueryui.com/).
+I modelli di progetto ASP.NET MVC 3 includono ora le versioni più recenti di jQuery, jQuery e jQuery convalida dell'interfaccia utente. jQuery UI è una novità per i modelli di progetto e fornisce i widget dell'interfaccia utente utile. Per ulteriori informazioni su jQuery UI, visitare la home page: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Classe aggiunto "AdditionalMetadataAttribute"
@@ -438,7 +438,7 @@ Quando il *Html.ValidationMessage* metodo visualizza un messaggio di convalida, 
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Predefinito @model dichiarazione di non aggiungere spazi vuoti nel documento
 
-Nelle versioni precedenti, il  *@model*  dichiarazione nella parte superiore di una vista aggiunta una riga vuota per l'output del rendering HTML. È stato risolto in modo che la dichiarazione non introduce gli spazi vuoti.
+Nelle versioni precedenti, il <em>@model</em> dichiarazione nella parte superiore di una vista aggiunta una riga vuota per l'output del rendering HTML. È stato risolto in modo che la dichiarazione non introduce gli spazi vuoti.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Proprietà aggiunto "FileExtensions" per i motori di visualizzazione per supportare i nomi di File specifici del motore
@@ -465,7 +465,7 @@ Nelle versioni precedenti, valori espliciti che sono stati passati al *RenderAct
 - Nelle versioni precedenti di ASP.NET MVC, i filtri azione sono stati creati per ogni richiesta, tranne in alcuni casi. Questo comportamento è stato mai un comportamento garantito ma semplicemente un dettaglio di implementazione e il contratto per i filtri è stato quindi considerare senza stato. In ASP.NET MVC 3, i filtri vengono memorizzati nella cache in modo più aggressivo. Pertanto, qualsiasi filtro azione personalizzata in modo non corretto di archiviare lo stato dell'istanza potrebbe essere interrotta.
 - L'ordine di esecuzione per i filtri eccezioni è stato modificato per i filtri eccezioni con lo stesso *ordine* valore. In ASP.NET MVC 2 e versioni precedenti, i filtri eccezioni il controller che ha lo stesso *ordine* valore come quelli di un metodo di azione venivano eseguiti prima dei filtri eccezioni del metodo di azione. Questo potrebbe essere in genere quando i filtri eccezioni vengono applicati senza un oggetto specificato *ordine* valore. In ASP.NET MVC 3 questo ordine è stato invertito in modo che venga eseguito per primo il gestore di eccezioni più specifico. Come nelle versioni precedenti, se il *ordine* proprietà viene specificata in modo esplicito, i filtri vengono eseguiti nell'ordine specificato.
 - Una nuova proprietà denominata *FileExtensions* è stato aggiunto per il *VirtualPathProviderViewEngine* classe di base. Quando ASP.NET cerca una visualizzazione dal percorso (non per nome), vengono considerate solo le viste con un'estensione di file contenuti nell'elenco specificato da questa nuova proprietà. Si tratta di una modifica nelle applicazioni in cui viene registrato un provider di compilazione personalizzata per abilitare un'estensione di file personalizzato per le visualizzazioni di Web Form e il provider fa riferimento a tali viste utilizzando un percorso completo anziché un nome. La soluzione alternativa consiste nel modificare il valore di *FileExtensions* proprietà da includere l'estensione di file personalizzato.
-- Implementazione della factory del controller personalizzato che implementano direttamente il *IControllerFactory* interfaccia deve fornire un'implementazione del nuovo *GetControllerSessionBehavior * * metodo aggiunto al interfaccia in questa versione*. In generale, si consiglia di non implementare questa interfaccia direttamente e invece derivare la classe da *DefaultControllerFactory*.
+- Implementazione della factory del controller personalizzato che implementano direttamente il <em>IControllerFactory</em> interfaccia deve fornire un'implementazione del nuovo <em>GetControllerSessionBehavior</em>  <em>metodo che è stato aggiunto all'interfaccia in questa versione</em>. In generale, si consiglia di non implementare questa interfaccia direttamente e invece derivare la classe da <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Problemi noti
@@ -629,11 +629,11 @@ Per disattivare la convalida della richiesta per tutte le proprietà del modello
 
 ASP.NET MVC 3 Beta è stata rilasciata il 6 ottobre 2010. Le note seguenti sono specifiche per la versione Beta e sono soggetti a eventuali aggiornamenti o modifiche a cui fa riferimento nella sezione precedente ASP.NET MVC 3 Release Candidate.
 
-## <a id="0.1__Toc274034215"></a>Nuova versione Beta di ASP.NET MVC 3 Featuresin
+## <a id="0.1__Toc274034215"></a>  Nuova versione Beta di ASP.NET MVC 3 Featuresin
 
 <a id="0.1__Default_validation_system"></a>Questa sezione vengono descritte le funzionalità che sono state introdotte nella versione Beta di ASP.NET MVC 3.
 
-### <a id="0.1__Toc274034216"></a>Gestione pacchetti NuGet
+### <a id="0.1__Toc274034216"></a>  Gestione pacchetti NuGet
 
 ASP.NET MVC 3 include Gestione pacchetti NuGet, che è uno strumento di gestione integrata pacchetto per l'aggiunta di librerie e strumenti per i progetti di Visual Studio. La maggior parte, che consente di automatizzare i passaggi che gli sviluppatori di eseguire oggi per ottenere una raccolta nel loro struttura ad albero di origine.
 
@@ -641,7 +641,7 @@ Per lavorare con NuGet come uno strumento da riga di comando, come una finestra 
 
 Per ulteriori informazioni su NuGet, leggere la [documentazione di NuGet](https://docs.microsoft.com/nuget/).
 
-### <a id="0.1__Toc274034217"></a>Finestra di dialogo Nuovo progetto migliorato
+### <a id="0.1__Toc274034217"></a>  Finestra di dialogo Nuovo progetto migliorato
 
 Quando si crea un nuovo progetto, la finestra di dialogo Nuovo progetto ora consente di specificare il motore di visualizzazione, nonché un tipo di progetto ASP.NET MVC.
 
@@ -655,7 +655,7 @@ Vuoto. Contiene un set minimo di file per un progetto ASP.NET MVC, tra cui la st
 
 Applicazioni Internet. Contiene una funzionalità di esempio che illustra come usare il provider di appartenenza in ASP.NET MVC.
 
-### <a id="0.1__Toc274034218"></a>Un modo semplice per specificare fortemente tipizzato modelli nelle visualizzazioni Razor
+### <a id="0.1__Toc274034218"></a>  Metodo semplificato per specificare fortemente tipizzate modelli nelle visualizzazioni Razor
 
 Il modo per specificare il tipo di modello per le visualizzazioni Razor fortemente tipizzate è stato semplificato utilizzando il nuovo @model direttiva per le viste CSHTML e @ModelType direttiva per le viste VBHTML. Nelle versioni precedenti di ASP.NET MVC, è necessario specificare che un modello fortemente tipizzato per Razor viste in questo modo:
 
@@ -665,7 +665,7 @@ In questa versione, è possibile utilizzare la sintassi seguente:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>Supporto per nuovi metodi di supporto di pagine Web ASP.NET
+### <a id="0.1__Toc274034219"></a>  Supporto per nuovi metodi di supporto delle pagine Web ASP.NET
 
 La nuova tecnologia di pagine Web ASP.NET include un set di metodi di supporto sono utili per l'aggiunta di funzionalità utilizzate comunemente per le visualizzazioni e controller. ASP.NET MVC 3 supporta l'utilizzo di questi metodi di supporto all'interno di controller e visualizzazioni (se appropriato). Questi metodi sono contenuti nell'assembly System.Web.Helpers. Nella tabella seguente sono elencati alcuni dei metodi di supporto di ASP.NET Web Pages.
 
@@ -681,7 +681,7 @@ Un argomento di riferimento rapido che elenca le funzioni di supporto e sintassi
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>Supporto dell'attacco intrusivo nel codice delle dipendenze aggiuntive
+### <a id="0.1__Toc274034220"></a>  Supporto dell'attacco intrusivo nel codice delle dipendenze aggiuntive
 
 Compila la versione di anteprima 1 di ASP.NET MVC 3, la versione corrente include aggiunto il supporto per due nuovi servizi e quattro i servizi esistenti e supporto migliorato per la risoluzione delle dipendenze e il localizzatore di servizi comune.
 
@@ -732,7 +732,7 @@ La nuova versione include il supporto di risoluzione dipendenza per i servizi se
 - Provider di valori. Le classi che implementano ValueProviderFactory possono essere registrate nel sistema di risoluzione dipendenza e il sistema verrà utilizzati per creare provider di valori che vengono utilizzate per il controller e durante l'associazione del modello.
 - Raccoglitori di modelli. Le classi che implementano IModelBinderProvider possono essere registrate nel sistema di risoluzione dipendenza e il sistema verrà utilizzati per creare gestori di associazione del modello utilizzati dal sistema di associazione del modello.
 
-### <a id="0.1__Toc274034221"></a>Nuovo supporto per Ajax basate su jQuery non intrusiva
+### <a id="0.1__Toc274034221"></a>  Nuovo supporto per Ajax basate su jQuery non intrusiva
 
 MVC ASP.NET include metodi helper Ajax, ad esempio le operazioni seguenti:
 
@@ -748,7 +748,7 @@ Questi metodi usano JavaScript per richiamare un metodo di azione nel server anz
 
 Questa funzionalità è abilitata per impostazione predefinita nel file Web. config di ASP.NET MVC 3 nuovi modelli di progetto, ma è disabilitata per impostazione predefinita per i progetti esistenti. Per ulteriori informazioni, vedere [aggiungere flag a livello di applicazione per la convalida del client e di JavaScript non intrusivo](#0.1_AddedApplicationWideFlagsForClientValida) più avanti in questo documento.
 
-### <a id="0.1__Toc274034222"></a>Nuovo supporto per la convalida di jQuery non intrusiva
+### <a id="0.1__Toc274034222"></a>  Nuovo supporto per jQuery non intrusiva convalida
 
 Per impostazione predefinita, ASP.NET MVC 3 Beta Usa la convalida jQuery in modo non intrusivo per eseguire la convalida lato client. Per abilitare la convalida del client non intrusiva, effettuare una chiamata simile al seguente all'interno di una vista:
 
@@ -768,7 +768,7 @@ Questa funzionalità è attivata per impostazione predefinita nel file Web. conf
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>Nuovo flag a livello di applicazione per la convalida del Client e di JavaScript non intrusivo
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Nuovo flag a livello applicazione per la convalida del Client e di JavaScript non intrusivo
 
 È possibile abilitare o disabilitare la convalida del client e JavaScript non intrusivo a livello globale tramite i membri statici della classe, come nell'esempio seguente:
 
@@ -784,7 +784,7 @@ Poiché per impostazione predefinita, è possibile abilitare queste funzionalit�
 
 Per garantire la compatibilità con le versioni precedenti, entrambe queste funzionalità sono disabilitate per impostazione predefinita.
 
-### <a id="0.1__Toc274034224"></a>Nuovo supporto per il codice che viene eseguito prima dell'esecuzione di viste
+### <a id="0.1__Toc274034224"></a>  Nuovo supporto per il codice che viene eseguito prima dell'esecuzione di viste
 
 È possibile inserire un file denominato \_viewstart.cshtml (o \_viewstart.vbhtml) nella directory delle visualizzazioni e aggiungere codice che verrà condiviso tra più viste in tale directory e nelle relative sottodirectory. Ad esempio, inserire il codice seguente nel \_viewstart.cshtml pagina nella cartella ~/Views:
 
@@ -794,7 +794,7 @@ Consente di impostare la pagina di layout per tutte le visualizzazioni all'inter
 
 Per impostazione predefinita, il codice di \_viewstart.cshtml file si applica anche alle viste in qualsiasi sottocartella. Singole sottocartelle possono tuttavia avere una propria versione di \_viewstart.cshtml file; in caso, la versione locale ha la precedenza. Ad esempio, per eseguire il codice che è comune a tutte le viste per la classe HomeController, inserire un \_viewstart.cshtml file nella cartella ~/Views/Home.
 
-### <a id="0.1__Toc274034225"></a>Nuovo supporto per la sintassi Razor VBHTML
+### <a id="0.1__Toc274034225"></a>  Nuovo supporto per la sintassi Razor VBHTML
 
 L'anteprima di ASP.NET MVC precedente è incluso il supporto per le visualizzazioni con sintassi Razor basata su c#. Queste viste utilizzano l'estensione di file. cshtml. Come parte del lavoro in corso per supportare Razor, la versione Beta di ASP.NET MVC 3 viene introdotto il supporto per la sintassi Razor in Visual Basic, che utilizza l'estensione di file. vbhtml.
 
@@ -802,7 +802,7 @@ Per un'introduzione all'uso di sintassi di Visual Basic nelle pagine VBHTML, ved
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>Controllo più granulare ValidateInputAttribute
+### <a id="0.1__Toc274034226"></a>  Controllo più granulare ValidateInputAttribute
 
 ASP.NET MVC è sempre incluso la classe ValidateInputAttribute, che richiama l'infrastruttura di convalida della richiesta ASP.NET core per assicurarsi che la richiesta in ingresso non contiene input potenzialmente dannosi. Per impostazione predefinita, la convalida dell'input è abilitato. È possibile disabilitare la convalida della richiesta utilizzando l'attributo ValidateInputAttribute, come nell'esempio seguente:
 
@@ -814,7 +814,7 @@ Ad esempio, se si sviluppa un motore di blog, è consigliabile consentire il mar
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>Helper per convertire i caratteri di sottolineatura in trattini per i nomi di attributo HTML specificati l'utilizzo di oggetti anonimi
+### <a id="0.1__Toc274034227"></a>  Gli helper di convertire i caratteri di sottolineatura in trattini per i nomi di attributo HTML specificati utilizzando oggetti anonimi
 
 Metodi helper consentono di specificare coppie nome/valore di attributo con un oggetto anonimo, come nell'esempio seguente:
 
@@ -830,7 +830,7 @@ Nell'esempio precedente viene eseguito il rendering il markup seguente quando vi
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>Correzioni di bug
+## <a id="0.1__Toc274034228"></a>  Correzioni di bug
 
 Il modello di oggetto predefinito per gli helper di modello EditorFor e DisplayFor supporta ora l'ordine specificato nella proprietà DisplayAttribute.Order. (Nelle versioni precedenti, l'impostazione dell'ordine non è stato utilizzato.)
 
@@ -838,11 +838,11 @@ A questo punto la convalida del client supporta la convalida di proprietà sotto
 
 JsonValueProviderFactory è stato registrato per impostazione predefinita.
 
-## <a id="0.1__Toc274034229"></a>Modifiche di rilievo
+## <a id="0.1__Toc274034229"></a>  Modifiche di rilievo
 
 L'ordine di esecuzione per i filtri eccezioni è stato modificato per i filtri eccezioni con lo stesso valore di ordine. In ASP.NET MVC 2 e versioni precedenti, come quelli di un metodo di azione venivano eseguiti prima dei filtri eccezioni del metodo di azione nel controller con lo stesso ordine i filtri eccezioni. Nel caso potrebbe essere in genere quando i filtri eccezioni vengono applicati senza un valore nell'ordine specificato. In ASP.NET MVC 3 questo ordine è stato invertito in modo che venga eseguito per primo il gestore di eccezioni più specifico. Come nelle versioni precedenti, se è specificata in modo esplicito la proprietà Order, i filtri vengono eseguiti nell'ordine specificato.
 
-## <a id="0.1__Toc274034230"></a>Problemi noti
+## <a id="0.1__Toc274034230"></a>  Problemi noti
 
 Durante l'installazione, la finestra di dialogo di accettazione EULA Visualizza le condizioni di licenza in una finestra che è inferiore rispetto a quello previsto.
 

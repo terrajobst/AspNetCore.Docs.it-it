@@ -1,5 +1,5 @@
 ---
-title: Usando Bower in ASP.NET Core
+title: Gestire i pacchetti sul lato client con Bower in ASP.NET Core
 author: rick-anderson
 description: La gestione dei pacchetti sul lato client con Bower.
 manager: wpickett
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Gestire i pacchetti sul lato client con Bower in ASP.NET Core
 
@@ -39,7 +39,7 @@ In questa esercitazione, verrà aggiunto il supporto per [carattere straordinari
 
 * Nel **Bower: \<nome progetto\>**  finestra, fare clic sulla scheda "Sfoglia" e quindi filtrare l'elenco di pacchetti immettendo `font-awesome` nella casella di ricerca:
 
- ![gestire i pacchetti bower](bower/_static/manage-bower-packages.png)
+  ![gestire i pacchetti bower](bower/_static/manage-bower-packages.png)
 
 * Verificare che il "salvare le modifiche a *bower. JSON*" casella di controllo è selezionata. Selezionare una versione dall'elenco a discesa e fare clic su di **installare** pulsante. Il **Output** finestra Visualizza i dettagli di installazione.
 
@@ -100,9 +100,9 @@ Una volta elencare i pacchetti nel *bower. JSON* file, Visual Studio li scariche
 
 * Salvare il *bower. JSON* file.
 
- Verificare che il progetto includa il *bootstrap* e *jQuery* directory *wwwroot/lib*. Bower utilizza il *. bowerrc* file per installare gli asset in *wwwroot/lib*.
+  Verificare che il progetto includa il *bootstrap* e *jQuery* directory *wwwroot/lib*. Bower utilizza il *. bowerrc* file per installare gli asset in *wwwroot/lib*.
 
- Nota: L'interfaccia utente di "Gestione dei pacchetti Bower" fornisce un'alternativa alla modifica dei file manuale.
+  Nota: L'interfaccia utente di "Gestione dei pacchetti Bower" fornisce un'alternativa alla modifica dei file manuale.
 
 ### <a name="enable-static-files"></a>Abilitare i file statici
 
@@ -115,12 +115,12 @@ Una volta elencare i pacchetti nel *bower. JSON* file, Visual Studio li scariche
 
 In questa sezione si creerà una pagina HTML per verificare che i pacchetti distribuiti può accedervi.
 
-* Aggiungere una nuova pagina HTML denominata *Index.html* per il *wwwroot* cartella. Nota: È necessario aggiungere il file HTML per il *wwwroot* cartella. Per impostazione predefinita, il contenuto statico non può essere visualizzato all'esterno di *wwwroot*. Vedere [utilizzo di file statici](xref:fundamentals/static-files) per ulteriori informazioni.
+* Aggiungere una nuova pagina HTML denominata *Index.html* per il *wwwroot* cartella. Nota: È necessario aggiungere il file HTML per il *wwwroot* cartella. Per impostazione predefinita, il contenuto statico non può essere visualizzato all'esterno di *wwwroot*. Vedere [lavorare con file statici](xref:fundamentals/static-files) per altre informazioni.
 
- Sostituire il contenuto di *Index.html* con il markup seguente:
+  Sostituire il contenuto di *Index.html* con il markup seguente:
 
 [!code-html[](bower/sample/Index.html)]
 
 * Eseguire l'app e passare a `http://localhost:<port>/Index.html`. In alternativa, con *Index.html* aperta, premere `Ctrl+Shift+W`. Verificare che venga applicato lo stile jumbotron, il codice jQuery risponde quando viene scelto il pulsante e che il Bootstrap cambia lo stato.
 
- ![stile Jumbotron applicato](bower/_static/jumbotron.png)
+  ![stile Jumbotron applicato](bower/_static/jumbotron.png)

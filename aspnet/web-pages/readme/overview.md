@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>File Leggimi di WebMatrix
 ====================
@@ -126,7 +126,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 - [Modifiche](#Changes)
 - [Problemi](#Issues)
 
-#### <a id="NewFeatures"></a>Nuove funzionalità
+#### <a id="NewFeatures"></a>  Nuove funzionalità
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Novità: Impostazione di configurazione aggiunta per disabilitare la gestione dei pacchetti
 
@@ -135,20 +135,20 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>Modifiche
+#### <a id="Changes"></a>  Modifiche
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Modifica: tasto "webPages:AdminFolderVirtualPath" rinominato in "asp: AdminFolderVirtualPath"
 
 > Il `webPages:AdminFolderVirtualPath` chiave che può essere aggiunti al *Web. config* file per specificare il percorso di package manager è stato rinominato per utilizzare il `asp:` dello spazio dei nomi anziché i `webPages` dello spazio dei nomi. Se si utilizza questo elemento, è necessario rinominare la cartella nel file di configurazione.
 
 
-#### <a id="Issues"></a>Problemi noti
+#### <a id="Issues"></a>  Problemi noti
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Problema: Le password degli utenti di appartenenza non riconosciuti.
 
 > L'algoritmo per la creazione e l'archiviazione delle password di appartenenza (accesso) è stato modificato per essere più sicura. Di conseguenza, le password archiviate per i membri (utenti) creati in versioni Beta di ASP.NET Razor non verrà riconosciute. 
 > 
-> **Soluzione alternativa** se il sito non è ancora stato inserito nell'ambiente di produzione, è possibile rimuovere i record utente dal database di appartenenza. Se il database è in tempo reale, è necessario rigenerare a livello di codice le password esistenti nel database delle appartenenze.
+> **Soluzione alternativa** se il sito non è ancora stato inserito nell'ambiente di produzione, rimuovere i record utente dal database delle appartenenze. Se il database è in tempo reale, è necessario rigenerare a livello di codice le password esistenti nel database delle appartenenze.
 
 
 #### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>Problema: Un comportamento imprevisto quando si utilizza una tabella utente personalizzato per l'appartenenza
@@ -165,14 +165,14 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > In alcuni casi, durante la creazione di utenti o in altro modo il sistema di appartenenze ASP.NET può determinare la pagina visualizzare l'errore *il modulo di amministrazione richiede l'accesso a ~/App\_dati*. Questo errore si verifica se è in esecuzione IIS o IIS Express con l'account non dispone delle autorizzazioni per creare e scrivere il *App\_dati* cartella nella radice del sito Web. 
 > 
-> **Soluzione alternativa** creare manualmente un *App\_dati* cartella per il sito Web. Assicurarsi che l'account di Windows a cui viene eseguito l'applicazione (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio App\_dati. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
+> **Soluzione alternativa** creare manualmente un' *App\_dati* cartella per il sito Web. Assicurarsi che l'account di Windows a cui viene eseguito l'applicazione (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio App\_dati. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
 
 
 #### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>Errore: problema "Impossibile generare un'istanza utente di SQL Server"
 
 > Se un'applicazione Web di WebMatrix utilizza SQL Server Express è in esecuzione IIS 7.5 in Windows 7 o Windows Server 2008 R2, si potrebbe essere visualizzato un errore che indica che SQL Server non è possibile recuperare il percorso dell'applicazione locale dell'utente in fase di esecuzione.
 > 
-> **Soluzione alternativa** assicurarsi che l'account di Windows a cui viene eseguito l'applicazione (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio *App\_dati*. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
+> **Soluzione alternativa** assicurarsi che l'account di Windows che l'applicazione viene eseguita con (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio *App\_dati*. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
 
 
 #### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>Problema: I file che contiene le risorse di gestione di pacchetti o le password di gestione di pacchetti sono servable in IIS 6.0 e versioni precedenti
@@ -207,7 +207,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > L'installazione di ASP.NET Web Pages non installare anche gli strumenti per Visual Studio, ad esempio i modelli di progetto e IntelliSense per le applicazioni ASP.NET Web Pages.
 > 
-> **Soluzione alternativa** per utilizzare i modelli di progetto e IntelliSense per le applicazioni di pagine Web ASP.NET in Visual Studio, installare ASP.NET MVC 3 RC tramite l'installazione guidata piattaforma Web o [programma di installazione autonomo](https://go.microsoft.com/fwlink/?LinkID=191797).
+> **Soluzione alternativa** per i modelli di progetto e IntelliSense per le applicazioni ASP.NET Web Pages in Visual Studio, installare ASP.NET MVC 3 RC tramite l'installazione guidata piattaforma Web o il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?LinkID=191797).
 
 
 #### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Problema: Lettura feed o altri dati esterni tramite un server proxy
@@ -226,7 +226,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > Se si disinstalla .NET Framework versione 4 e quindi reinstallarlo, ASP.NET Web Pages con sintassi Razor è disabilitato. Pagine con il *. cshtml* estensione non vengono eseguite correttamente. ASP.NET Web Pages registra un assembly nella directory principale macchina *Web. config* file e la rimozione di .NET Framework consente di rimuovere tale file. Reinstallare .NET Framework viene installata una nuova versione del file di configurazione, ma non aggiunge il riferimento per l'assembly di ASP.NET Web Pages.
 > 
 > **Soluzione alternativa** dopo la reinstallazione di .NET Framework, reinstallare ASP.NET Web Pages con sintassi Razor. Aggiunge l'elemento seguente per il *Web. config* file nella radice della macchina, ovvero in genere nel percorso seguente:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problema: URL senza estensione non si trova il file.cshtml/.vbhtml in IIS 7 o IIS 7.5
 
 > In IIS 7 o IIS 7.5, le richieste con un URL simile al seguente non sono in grado di trovare le pagine che hanno il *. cshtml* o *. vbhtml* estensione:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Il problema si verifica perché la riscrittura URL non è abilitata per impostazione predefinita per IIS 7 o IIS 7.5. Lo scenario probabile che è che il problema non viene visualizzato durante il test in locale utilizzando IIS Express, ma si verificano quando si distribuisce il sito Web in un sito Web di hosting.
 > 
 > **Soluzione alternativa**
@@ -253,14 +253,15 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > Le applicazioni che includono database di SQL Server Compact è possono eseguire in un computer in cui SQL Server Compact non è installato. Microsoft WebMatrix 1.0 automaticamente copia i file binari per l'utente ed esegue appropriata *Web. config* file trasformazioni.
 > 
-> **Soluzione alternativa** se è necessario copiare questi file, assicurarsi di *Web. config* modifiche al file manualmente, eseguire le operazioni seguenti:
+> **Soluzione alternativa** se è necessario copiare tali file e apportare le *Web. config* modifiche al file manualmente, eseguire le operazioni seguenti:
 > 
 > 1. Copiare gli assembly del motore di database per il *Bin* (cartelle e sottocartelle) dell'applicazione nel computer di destinazione:  
 > 
->     - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **to** *\Bin*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * a * * * \Bin\x86*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **a * * * \Bin\amd64*
+>    - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **to** *\Bin*
+>    - Copia <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>a</em></strong>\Bin\x86*
+>    - Copia <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>a</strong><em>\Bin\amd64</em>
+> 
 > 2. Nella cartella radice del sito Web, creare o aprire un *Web. config* file. (In WebMatrix 1.0, è disponibile se si fa clic su questo tipo di file **tutti** nel **scegliere un tipo di File** la finestra di dialogo.)
 > 3. Aggiungere il seguente elemento come figlio del `<configuration>` elemento (non all'interno di `<system.web>` elemento):
 > 
@@ -412,7 +413,7 @@ SQL Server Compact è il proprio file Leggimi, che è disponibile all'URL seguen
 
 Per informazioni sui problemi che comportano l'installazione di SQL Server Compact come parte di WebMatrix, vedere [problemi di installazione di WebMatrix](#Known_Issues_Installation) più indietro in questo documento.
 
-### <a id="Known_Issues_Installing_Applications"></a>L'installazione di applicazioni
+### <a id="Known_Issues_Installing_Applications"></a>  L'installazione di applicazioni
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problema: L'installazione di un'applicazione può richiedere molto tempo se cartella documenti dell'utente viene reindirizzata a una condivisione di rete
 
@@ -420,7 +421,7 @@ Per informazioni sui problemi che comportano l'installazione di SQL Server Compa
 > Nessuno. L'applicazione potrebbe richiedere qualche istante per l'installazione, ma verrà installato correttamente.
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>Pubblicazione di applicazioni
+### <a id="Known_Issues_Publishing_Applications"></a>  Pubblicazione di applicazioni
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Problema: "richiesto non è possibile acquisire le autorizzazioni" Errore durante la pubblicazione di un Database di SQL Compact
 

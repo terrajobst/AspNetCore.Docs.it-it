@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 title: Distribuzione di pacchetti Web | Documenti Microsoft
 author: jrjlee
-description: "Questo argomento viene descritto come è possibile pubblicare pacchetti di distribuzione web a un server remoto utilizzando lo strumento di distribuzione Web (Web Internet Information Services (IIS)"
+description: Questo argomento viene descritto come è possibile pubblicare pacchetti di distribuzione web a un server remoto utilizzando lo strumento di distribuzione Web (Web Internet Information Services (IIS)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-packages"></a>Distribuzione di pacchetti Web
 ====================
@@ -43,10 +43,10 @@ da [Jason Lee](https://github.com/jrjlee)
 
 Esecuzione di [*nome progetto*]*. deploy* file è il modo più semplice per distribuire un pacchetto di web. In particolare, l'uso di *. deploy* file offre i seguenti vantaggi rispetto all'uso di MSDeploy.exe direttamente:
 
-- Non è necessario specificare il percorso del pacchetto di distribuzione web & #x 2014; il *. deploy* file SA in cui è già.
-- Non è necessario specificare il percorso del *SetParameters* file & #x 2014; il *. deploy* file SA in cui è già.
-- Non è necessario specificare l'origine e i provider di destinazione MSDeploy & #x 2014; il *. deploy* file già conosca i valori da utilizzare.
-- Non è necessario specificare le impostazioni di operazione MSDeploy & #x 2014; il *. deploy* file aggiunge automaticamente i valori comunemente necessari per il comando di MSDeploy.exe.
+- Non è necessario specificare il percorso del pacchetto di distribuzione web&#x2014;il *. deploy. cmd* file già in cui lo sa.
+- Non è necessario specificare il percorso del *SetParameters* file&#x2014;il *. deploy. cmd* file già in cui lo sa.
+- Non è necessario specificare i provider di MSDeploy origine e di destinazione&#x2014;il *. deploy. cmd* file già conosca i valori da utilizzare.
+- Non è necessario specificare le impostazioni di MSDeploy operazione&#x2014;il *. deploy. cmd* file aggiunge i valori comunemente necessari al comando MSDeploy.exe automaticamente.
 
 Prima di utilizzare il *. deploy* file per distribuire un pacchetto web, è consigliabile verificare che:
 
@@ -117,7 +117,7 @@ Quando si utilizza MSDeploy.exe, è necessario fornire tre tipi principali di in
 - Oggetto **-dest** parametro che indica dove verrà i dati.
 - Oggetto **– verbo** parametro che indica il [operazione](https://technet.microsoft.com/library/dd568989(WS.10).aspx) si desidera eseguire.
 
-MSDeploy.exe si basa su [i provider di distribuzione Web](https://technet.microsoft.com/library/dd569040(WS.10).aspx) per elaborare i dati di origine e di destinazione. Distribuzione Web sono inclusi numerosi provider di rappresentare la gamma di applicazioni e le origini dati consente l'utilizzo di & #x 2014; ad esempio, esistono provider per i database di SQL Server, server web IIS, certificati, gli assembly cache (GAC) di assembly globale, vari file di configurazione diverso e molti altri tipi di dati. Entrambi i **: origine** parametro e **-dest** parametro deve specificare un provider, nel formato **: origine**: [*providerName*] = [*percorso*]. Quando si distribuisce un pacchetto web in un sito Web IIS, è consigliabile utilizzare questi valori:
+MSDeploy.exe si basa su [i provider di distribuzione Web](https://technet.microsoft.com/library/dd569040(WS.10).aspx) per elaborare i dati di origine e di destinazione. La funzionalità distribuzione Web include molti provider di rappresentare la gamma di applicazioni e le origini dati consente l'utilizzo di&#x2014;, ad esempio, esistono provider per i database di SQL Server, server web IIS, i certificati, gli assembly cache (GAC) di assembly globale, vari file di configurazione diverso e un numero elevato di altri tipi di dati. Entrambi i **: origine** parametro e **-dest** parametro deve specificare un provider, nel formato **: origine**: [*providerName*] = [*percorso*]. Quando si distribuisce un pacchetto web in un sito Web IIS, è consigliabile utilizzare questi valori:
 
 - Il **: origine** è sempre [pacchetto](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Ad esempio:
 
@@ -213,6 +213,6 @@ In questo argomento viene descritto come è possibile distribuire un pacchetto w
 
 Per istruzioni su come creare e impostare parametri di un pacchetto di distribuzione web, vedere [compilazione e creazione di pacchetti Web Application Projects](building-and-packaging-web-application-projects.md) e [configurazione dei parametri per la distribuzione di pacchetto Web](configuring-parameters-for-web-package-deployment.md). Per istruzioni su come compilare e distribuire i pacchetti web da un'istanza di Team Foundation Server (TFS), vedere [la configurazione di Team Foundation Server per la distribuzione di Web automatizzata](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Per informazioni su come personalizzare e risolvere i problemi del processo di distribuzione, vedere [esclusione dei file e cartelle da distribuzione](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
 
->[!div class="step-by-step"]
-[Precedente](configuring-parameters-for-web-package-deployment.md)
-[Successivo](deploying-database-projects.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-parameters-for-web-package-deployment.md)
+> [Successivo](deploying-database-projects.md)

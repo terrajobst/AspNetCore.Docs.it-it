@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
-title: "Più gli elementi ContentPlaceHolder e il contenuto predefinito (VB) | Documenti Microsoft"
+title: Più gli elementi ContentPlaceHolder e il contenuto predefinito (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Esamina come aggiungere più segnaposto di contenuto a una pagina master, nonché come specificare il contenuto predefinito nei segnaposto di contenuto."
+description: Esamina come aggiungere più segnaposto di contenuto a una pagina master, nonché come specificare il contenuto predefinito nei segnaposto di contenuto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ccb65f0b2f16e0c7a67787f7dfab14303daeca1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd1d8f34dba52a04c0d9f6a1961df7b97405b42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>Più gli elementi ContentPlaceHolder e il contenuto predefinito (VB)
 ====================
@@ -35,7 +35,7 @@ Come evidenziato da due controlli ContentPlaceHolder in `Site.master`, una pagin
 
 ## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>Passaggio 1: Aggiunta di controlli ContentPlaceHolder aggiuntive per la pagina Master
 
-Molti progetti di sito Web contengono numerose aree dello schermo personalizzati in base a una pagina per pagina. `Site.master`, la pagina master creata nell'esercitazione precedente contiene un solo ContentPlaceHolder all'interno di Web Form denominato `MainContent`. In particolare, questo ContentPlaceHolder si trova all'interno di `mainContent` `<div>` elemento.
+Molti progetti di sito Web contengono numerose aree dello schermo personalizzati in base a una pagina per pagina. `Site.master`, la pagina master abbiamo creato nell'esercitazione precedente contiene un solo ContentPlaceHolder all'interno di Web Form denominato `MainContent`. In particolare, questo ContentPlaceHolder si trova all'interno di `mainContent` `<div>` elemento.
 
 Figura 1 mostra `Default.aspx` quando viene visualizzato tramite un browser. L'area racchiuse in un cerchio rosso è il markup specifico della pagina corrispondente a `MainContent`.
 
@@ -70,7 +70,7 @@ Immettere alcuni contenuti nel controllo contenuto che fa riferimento il `MainCo
 Dopo aver aggiunto il markup, visitare la pagina tramite un browser. Come mostrato nella figura 3, il codice inserito nella `Content3` controllo contenuto viene visualizzato nella colonna a sinistra sotto la sezione Novità (un cerchio in rosso). Il codice inserito in `Content2` viene visualizzato nella parte destra della pagina (un cerchio blu).
 
 
-[![Nella colonna sinistra ora include contenuto specifico della pagina sotto la sezione Novità](multiple-contentplaceholders-and-default-content-vb/_static/image8.png)](multiple-contentplaceholders-and-default-content-vb/_static/image7.png)
+[![Nella colonna sinistra ora include il contenuto specifico della pagina sotto la sezione Novità](multiple-contentplaceholders-and-default-content-vb/_static/image8.png)](multiple-contentplaceholders-and-default-content-vb/_static/image7.png)
 
 **Figura 03**: il sinistra colonna ora include specifici della pagina contenuto sotto la sezione Novità ([fare clic per visualizzare l'immagine ingrandita](multiple-contentplaceholders-and-default-content-vb/_static/image9.png))
 
@@ -86,7 +86,7 @@ Per aggiungere un controllo contenuto per il `LeftColumnContent` ContentPlaceHol
 
 [![La visualizzazione di progettazione per About Mostra LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-vb/_static/image11.png)](multiple-contentplaceholders-and-default-content-vb/_static/image10.png)
 
-**Figura 04**: la visualizzazione di progettazione per `About.aspx` Mostra il `LeftColumnContent` ContentPlaceHolder ([fare clic per visualizzare l'immagine ingrandita](multiple-contentplaceholders-and-default-content-vb/_static/image12.png))
+**Figura 04**: la visualizzazione di progettazione per `About.aspx` Mostra le `LeftColumnContent` ContentPlaceHolder ([fare clic per visualizzare l'immagine ingrandita](multiple-contentplaceholders-and-default-content-vb/_static/image12.png))
 
 
 Facendo clic sul collegamento Crea contenuto personalizzato che genera l'errore necessari controllo pagina e i set di contenuto relativo `ContentPlaceHolderID` proprietà per il controllo ContentPlaceHolder `ID`. Ad esempio, facendo clic sul collegamento Crea contenuto personalizzato per `LeftColumnContent` area `About.aspx` aggiunge il seguente markup dichiarativo alla pagina:
@@ -102,7 +102,7 @@ Attualmente, `Default.aspx` contiene due controlli del contenuto per il `head` e
 
 [![Nessun contenuto viene eseguito il rendering per il LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-vb/_static/image14.png)](multiple-contentplaceholders-and-default-content-vb/_static/image13.png)
 
-**Figura 05**: nessun contenuto viene eseguito il rendering per il `LeftColumnContent` ContentPlaceHolder ([fare clic per visualizzare l'immagine ingrandita](multiple-contentplaceholders-and-default-content-vb/_static/image15.png))
+**Figura 05**: nessun contenuto verrà sottoposto a rendering per il `LeftColumnContent` ContentPlaceHolder ([fare clic per visualizzare l'immagine ingrandita](multiple-contentplaceholders-and-default-content-vb/_static/image15.png))
 
 
 ## <a name="step-3-specifying-default-content-in-the-master-page"></a>Passaggio 3: Specificare il contenuto predefinito della pagina Master
@@ -179,12 +179,12 @@ Buona programmazione!
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Suchi Banerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](creating-a-site-wide-layout-using-master-pages-vb.md)
-[Successivo](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-site-wide-layout-using-master-pages-vb.md)
+> [Successivo](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)

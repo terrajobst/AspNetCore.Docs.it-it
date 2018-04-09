@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Usare controller e visualizzazioni per implementare un'interfaccia utente/dettagli
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -62,7 +62,7 @@ Verrà inoltre aperta la nuova classe DinnersController all'interno dell'editor 
 | **URL** | **Scopo** |
 | --- | --- |
 | */Dinners/* | Visualizzare un elenco HTML di dinners future |
-| */Dinners/dettagli / [id]* | Visualizzare informazioni dettagliate su una cena specifica indicato da un parametro "id" incorporato all'interno dell'URL, che consente la corrispondenza DinnerID di dinner nel database. Ad esempio: /Dinners/Details/2 Visualizza una pagina HTML con le informazioni di Dinner il cui valore DinnerID è 2. |
+| */Dinners/Details/[id]* | Visualizzare informazioni dettagliate su una cena specifica indicato da un parametro "id" incorporato all'interno dell'URL, che consente la corrispondenza DinnerID di dinner nel database. Ad esempio: /Dinners/Details/2 Visualizza una pagina HTML con le informazioni di Dinner il cui valore DinnerID è 2. |
 
 Le implementazioni iniziale di questi URL verranno pubblicate aggiungendo due pubblico "metodi di azione" per la classe DinnersController come di seguito:
 
@@ -92,15 +92,15 @@ Le regole di routing di ASP.NET MVC predefinite sono registrate all'interno del 
 
 Le route". MapRoute() "precedente chiamata al metodo registra una regola di routing predefinita che viene eseguito il mapping degli URL in ingresso alle classi controller utilizzando il formato di URL:" / {controller} / {action} / {id} ", dove"controller"è il nome della classe controller per creare un'istanza,"azione"è il nome di un metodo pubblico da richiamare su di esso e "id" è un parametro facoltativo incorporato all'interno dell'URL che può essere passato come argomento al metodo. Il terzo parametro passato alla chiamata al metodo "MapRoute()" è un set di valori predefiniti da utilizzare per i valori di id/azione/controller nel caso in cui non sono presenti nell'URL (Controller = "Home" Action = "Index", Id = "").
 
-Di seguito è una tabella in cui viene illustrato come un'ampia gamma di URL vengono mappati mediante il valore predefinito "*/ {controller} / {action} / {id}"*regola route:
+Di seguito è una tabella in cui viene illustrato come un'ampia gamma di URL vengono mappati mediante il valore predefinito "<em>/ {controller} / {action} / {id}"</em>regola route:
 
 | **URL** | **Classe controller** | **Metodo di azione** | **Parametri passati** |
 | --- | --- | --- | --- |
-| */ Dinners/dettagli/2* | DinnersController | Details(ID) | ID = 2 |
-| */ Dinners/modifica/5* | DinnersController | Edit(ID) | ID = 5 |
-| */ Dinners/Create* | DinnersController | Metodo di creazione | N/D |
-| */ Dinners* | DinnersController | Index) | N/D |
-| */ Home* | HomeController | Index) | N/D |
+| */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
+| */Dinners/Create* | DinnersController | Metodo di creazione | N/D |
+| */Dinners* | DinnersController | Index) | N/D |
+| */Home* | HomeController | Index) | N/D |
 | */* | HomeController | Index) | N/D |
 
 Le ultime tre righe mostrano i valori predefiniti (Controller Home, = azione = indice, Id = "") in uso. Poiché il metodo "Index" viene registrato come il nome dell'azione predefinita se non è specificata, il "/ Dinners" e "/ Home" causa il metodo di azione Index () gli URL da richiamare per le classi Controller. Dal momento che il controller "Home" è registrato come controller predefinito se non è specificata, l'URL "/" genera HomeController deve essere creato e il metodo di azione Index () in modo da essere richiamato.
@@ -207,7 +207,7 @@ Inoltre viene visualizzato il nuovo modello di visualizzazione "Details" all'int
 
 Questo ci Ottiene rapidamente e fornisce un'implementazione iniziale della vista nostri Details. È quindi possibile passare e modificarlo per personalizzare l'interfaccia utente per la soddisfazione.
 
-Quando si esamina il modello Details più da vicino, verrà individuato che contiene codice HTML statico, nonché il codice per il rendering incorporato. &lt;% %&gt; parti di codice di eseguire codice quando il modello di visualizzazione esegue il rendering, e &lt;% = %&gt; parti di codice eseguirà il codice contenuto all'interno di essi e quindi eseguire il rendering il risultato nel flusso di output del modello.
+Quando si esamina il modello Details più da vicino, verrà individuato che contiene codice HTML statico, nonché il codice per il rendering incorporato. &lt;% %&gt; parti di codice eseguire codice quando il modello di visualizzazione esegue il rendering, e &lt;% = %&gt; parti di codice eseguire il codice contenuto all'interno di essi e quindi eseguire il rendering il risultato nel flusso di output del modello.
 
 La visualizzazione che accede all'oggetto modello "Dinner" che è stato passato da questo controller utilizzando una proprietà di "Modello" fortemente tipizzata, è possibile scrivere codice. Visual Studio offre con intellisense di codice completo quando si accede a questa proprietà "Modello" all'interno dell'editor:
 
@@ -301,6 +301,6 @@ Il codice sopra riportato è tutto ciò che è necessario per implementare un ni
 
 Verrà ora la maschera dati CRUD (Create, Read, Update, Delete) supporto per la modifica.
 
->[!div class="step-by-step"]
-[Precedente](build-a-model-with-business-rule-validations.md)
-[Successivo](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [Precedente](build-a-model-with-business-rule-validations.md)
+> [Successivo](provide-crud-create-read-update-delete-data-form-entry-support.md)

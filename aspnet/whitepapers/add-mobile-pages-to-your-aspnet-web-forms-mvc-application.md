@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Procedura: Aggiungere pagine per dispositivi mobili per il Web Form ASP.NET / applicazione MVC
 ====================
@@ -55,10 +55,10 @@ Il motivo per cui controlli per dispositivi mobili ASP.NET sono stati contrasseg
 
 Anche se i browser per dispositivi mobili supportano ora universalmente HTML, si dovranno affrontare comunque numerose problematiche, al fine di creare esperienze di esplorazione per dispositivi mobili:
 
-- ***La dimensione dello schermo*** : i dispositivi mobili variano notevolmente in form e gli schermi sono in genere molto inferiori rispetto a quella dei desktop. In tal caso, potrebbe essere necessario progettare il layout di pagina completamente diversa per loro.
-- ***Metodi di input*** : alcuni dispositivi dispongono di tastiere, alcuni dispongono degli stili del, mentre altri usano tocco. Potrebbe essere necessario prendere in considerazione la navigazione più dati e i meccanismi di metodi di input.
+- ***Dimensione dello schermo*** : i dispositivi mobili variano notevolmente in form e gli schermi sono in genere molto inferiori rispetto a quella dei desktop. In tal caso, potrebbe essere necessario progettare il layout di pagina completamente diversa per loro.
+- ***Metodi di input*** – alcuni dispositivi dispongono di tastiere, alcuni degli stili del, mentre altri usano tocco. Potrebbe essere necessario prendere in considerazione la navigazione più dati e i meccanismi di metodi di input.
 - ***Conformità agli standard*** – molti browser per dispositivi mobili non supportano gli standard più recenti di HTML, CSS o JavaScript.
-- ***Larghezza di banda*** : le prestazioni della rete cellulare dati variano notevolmente e alcuni utenti sono in tariffe che applicano un addebito per il megabyte.
+- ***Larghezza di banda*** : variano notevolmente le prestazioni della rete dati del cellulare e alcuni utenti finali non sono in tariffe che applicano un addebito per il megabyte.
 
 Non c'è alcuna soluzione giusto; l'applicazione sarà necessario esaminare e un comportamento diverso a seconda del dispositivo di accedervi. In base alla quale livello di supporto mobile desiderata, può trattarsi di una richiesta per gli sviluppatori web maggiore rispetto a quanto desktop "attraverso browser" mai.
 
@@ -68,26 +68,26 @@ Gli sviluppatori per raggiungere il supporto browser per dispositivi mobili per 
 
 Prima di passare ai dettagli tecnici specifici di MVC o Web Form ASP.NET, si noti che gli sviluppatori web sono in genere tre principali opzioni possibili per il supporto browser per dispositivi mobili:
 
-1. ***Non eseguire alcuna azione:*** è semplicemente possibile creare un'applicazione web standard, basata su desktop e si basano su browser per dispositivi mobili per eseguire il rendering accettabile. 
+1. ***Non eseguire alcuna operazione –*** è semplicemente possibile creare un'applicazione web standard, orientato ai desktop e si basano su browser per dispositivi mobili per eseguire il rendering accettabile. 
 
-    - **Vantaggio**: si tratta dell'opzione più economica da implementare e gestire: non è un ulteriore lavoro
+    - **Vantaggio**: è l'opzione più economica da implementare e mantenere, non un ulteriore lavoro
     - **Svantaggio**: fornisce l'esperienza dell'utente finale peggiore: 
 
         - I più recenti Smartphone possono eseguire il rendering HTML così come un browser per desktop, ma gli utenti saranno costretti ancora per ingrandire e scorrere orizzontalmente e verticalmente per utilizzare il contenuto su schermi di piccole dimensioni. Questo è lontano dal ottimale.
         - Dispositivi meno recenti e i telefoni funzionalità potrebbero non riuscire a eseguire il rendering di markup in modo soddisfacente.
         - Anche in dispositivi tablet più recenti (il cui schermate possono essere grandi come schermi di computer portatili), si applicano le regole di interazione tra diversi. Input basato sul tocco funziona meglio con i pulsanti di dimensioni maggiori e collega spread ulteriormente separati e non vi è alcun modo per passare un puntatore del mouse su un menu a comparsa.
-2. ***Risolvere il problema sul client* –** con attenzione utilizzo di CSS e [progressivo miglioramento](http://en.wikipedia.org/wiki/Progressive_enhancement) è possibile creare markup, stili e script che si adattano a qualsiasi browser li esegue. Ad esempio, con [query di supporto di CSS 3](http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/), è possibile creare un layout a più colonne che trasforma in un layout a colonna singola su dispositivi la cui schermate sono più ristretta rispetto a una soglia specifica. 
+2. ***Risolvere il problema sul client* –** con un'attenta utilizzo di CSS e [progressivo miglioramento](http://en.wikipedia.org/wiki/Progressive_enhancement) è possibile creare markup, stili e script che si adattano a qualsiasi browser li esegue. Ad esempio, con [query di supporto di CSS 3](http://www.w3.org/TR/2010/CR-css3-mediaqueries-20100727/), è possibile creare un layout a più colonne che trasforma in un layout a colonna singola su dispositivi la cui schermate sono più ristretta rispetto a una soglia specifica. 
 
     - **Vantaggio**: consente di ottimizzare il rendering per il dispositivo specifico in uso, anche per i dispositivi futuri sconosciuti in base a qualsiasi schermata e le caratteristiche di input hanno
     - **Vantaggio**: facilmente consente di condividere logica sul lato server in tutti i tipi di dispositivo, la duplicazione minima di codice o il lavoro richiesto
-    - **Svantaggio**: i dispositivi mobili sono in modo diversi dai dispositivi desktop che effettivamente è pagine per dispositivi mobili può essere completamente diverso dalle pagine desktop, con informazioni differenti. Le variazioni possono risultare inefficiente o impossibili da soddisfare in modo affidabile tramite CSS da solo, specie se si considera come incoerente dispositivi meno recenti interpretano le regole CSS. Questo vale in particolare degli attributi di CSS 3.
+    - **Svantaggio**: i dispositivi mobili sono talmente diversi dai dispositivi desktop che è effettivamente possibile pagine per dispositivi mobili può essere completamente diverso dalle pagine desktop, che mostra informazioni diverse. Le variazioni possono risultare inefficiente o impossibili da soddisfare in modo affidabile tramite CSS da solo, specie se si considera come incoerente dispositivi meno recenti interpretano le regole CSS. Questo vale in particolare degli attributi di CSS 3.
     - **Svantaggio**: non fornisce supporto per diversa logica sul lato server e i flussi di lavoro per dispositivi diversi. Mezzo CSS da solo non è possibile, ad esempio, implementare un workflow estrazione carrello acquisti semplificato per gli utenti mobili.
     - **Svantaggio**: uso non efficiente della larghezza di banda. Il server potrebbe essere necessario trasmettere il markup e stili che si applicano a tutti i dispositivi possibili, anche se il dispositivo di destinazione verrà utilizzato solo un subset di informazioni.
-3. ***Risolvere il problema nel server* :** se il server sa quale dispositivo accede, ad esempio o meno le caratteristiche del dispositivo, ad esempio le dimensioni dello schermo e il metodo di input, e se si tratta di un dispositivo mobile può essere eseguito una logica diversa e markup HTML diverso di output. 
+3. ***Risolvere il problema nel server* –** se il server sa quale dispositivo accede a tale colonna – o meno le caratteristiche del dispositivo, ad esempio le dimensioni dello schermo e il metodo di input, e se si tratta di un dispositivo mobile può essere eseguito una logica diversa e markup HTML diverso di output. 
 
     - **Vantaggio:** flessibilità massima. Non è previsto alcun limite per quanto è possibile variare la logica sul lato server per dispositivi mobili o ottimizzare il markup per il layout desiderato, specifico del dispositivo.
     - **Vantaggio:** utilizzo efficiente della larghezza di banda. È necessario solo trasmettere il markup e informazioni sugli stili che il dispositivo di destinazione che verrà utilizzata.
-    - **Svantaggi:** talvolta forza la ripetizione del lavoro richiesto o del codice (ad esempio, rendendo si creare copie simili, ma leggermente diverse delle visualizzazioni MVC pagine Web Form). Dove possibile, che verrà basta fattorizzare logica comune in un livello sottostante o il servizio, ma comunque alcune parti del markup o codice dell'interfaccia utente potrebbe essere necessario duplicato e quindi gestiti in parallelo.
+    - **Svantaggi:** volte forza la ripetizione del lavoro richiesto o del codice (ad esempio, rendendo si creare copie simili, ma leggermente diverse del pagine Web Form o le visualizzazioni MVC). Dove possibile, che verrà basta fattorizzare logica comune in un livello sottostante o il servizio, ma comunque alcune parti del markup o codice dell'interfaccia utente potrebbe essere necessario duplicato e quindi gestiti in parallelo.
     - **Svantaggi:** il rilevamento dei dispositivi non è semplice. Richiede un elenco o un database di tipi di dispositivi noti e le relative caratteristiche (che potrebbero non essere sempre aggiornati perfettamente) e non sempre corrispondono in modo accurato di ogni richiesta in ingresso. Questo documento descrive alcune opzioni e i relativi problemi in un secondo momento.
 
 Per ottenere i migliori risultati, la maggior parte degli sviluppatori trovano che devono combinare opzioni (2) e (3). Commento differenze sono più indicate sul client utilizzando CSS o JavaScript anche, mentre le differenze principali nel markup, del flusso di lavoro o dati vengono implementate in modo più efficiente in codice lato server.
@@ -124,8 +124,8 @@ Dietro le quinte, la piattaforma di ASP.NET corrisponde in ingresso *User-Agent*
 
 Mentre ASP. Supporto per il rilevamento di rete browser predefiniti saranno sufficiente per molte applicazioni, esistono due casi principali quando potrebbe non essere sufficiente:
 
-- ***Per riconoscere i dispositivi più recenti***(senza creare manualmente i file di definizione del Browser relativa). Si noti che i file di definizione del Browser .NET 4 non sono abbastanza recenti per riconoscere Apple iPad, telefoni Android, il browser Opera Mobile o Windows Phone 7.
-- ***È necessario le informazioni più dettagliate sulle funzionalità del dispositivo***. Potrebbe essere necessario conoscere il metodo di input di un dispositivo (ad esempio, tastierino vs tocco) o quali audio formati il browser supporta. Queste informazioni non sono disponibile nei file di definizione del Browser standard.
+- ***Per riconoscere i dispositivi più recenti***(senza creare manualmente i file di definizione del Browser per essi). Si noti che i file di definizione del Browser .NET 4 non sono abbastanza recenti per riconoscere Apple iPad, telefoni Android, il browser Opera Mobile o Windows Phone 7.
+- ***Sono necessarie informazioni più dettagliate sulle funzionalità del dispositivo***. Potrebbe essere necessario conoscere il metodo di input di un dispositivo (ad esempio, tastierino vs tocco) o quali audio formati il browser supporta. Queste informazioni non sono disponibile nei file di definizione del Browser standard.
 
 Il [ *File di risorsa universale Wireless* progetto (WURFL)](http://wurfl.sourceforge.net/) gestisce più aggiornate e dettagliate informazioni sui dispositivi mobili in uso oggi.
 
@@ -185,7 +185,7 @@ Si noti che l'autenticazione form su alcuni presupposti in cui è possibile rein
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- Questo codice si presuppone che la pagina è un controllo di accesso server chiamato LoginUser, come il modello di progetto predefinito.
+  Questo codice si presuppone che la pagina è un controllo di accesso server chiamato LoginUser, come il modello di progetto predefinito.
 
 ### <a name="working-with-output-caching"></a>Utilizzo di memorizzazione nella cache di Output
 
@@ -213,7 +213,7 @@ Per altri suggerimenti su come ottimizzare il markup e CSS per i browser per dis
 
 Poiché il modello Model-View-Controller separa la logica dell'applicazione (in controller) dalla logica di presentazione (nelle viste), è possibile scegliere da uno degli approcci seguenti per la gestione di supporto per dispositivi mobili nel codice sul lato server:
 
-1. ***Utilizzare lo stesso controller e visualizzazioni per i browser desktop e mobili, ma il rendering di visualizzazioni con layout di Razor diversi a seconda di tipo di dispositivo *.** Questa opzione funziona meglio se si sta visualizzando dati identici in tutti i dispositivi, ma desidera semplicemente specificare diversi fogli di stile CSS o modificare alcuni elementi HTML di livello superiore per dispositivi mobili.
+1. ***Utilizzare lo stesso controller e visualizzazioni per i browser desktop e mobili, ma il rendering di visualizzazioni con layout di Razor diversi a seconda del tipo di dispositivo *.** Questa opzione funziona meglio se si sta visualizzando dati identici in tutti i dispositivi, ma desidera semplicemente specificare diversi fogli di stile CSS o modificare alcuni elementi HTML di livello superiore per dispositivi mobili.
 2. ***Utilizzare gli stessi controller per i browser desktop e mobili, ma il rendering di visualizzazioni diverse a seconda del tipo di dispositivo***. Questa opzione funziona meglio se è attiva la visualizzazione all'incirca gli stessi dati e fornire la stesse dei flussi di lavoro per gli utenti finali, ma desidera eseguire il rendering di markup HTML molto diversi per soddisfare il dispositivo in uso.
 3. ***Creare aree separate per i browser desktop e mobile, implementazione indipendente controller e visualizzazioni per ogni *.** Questa opzione funziona meglio se si sta visualizzare schermate molto diverse, che contiene informazioni diverse e che l'utente attraverso diversi flussi di lavoro ottimizzato per il relativo tipo di dispositivo. Ciò può significare alcuni ripetizione di codice, ma è possibile ridurre al minimo eseguendo il factoring logica comune in un servizio o il livello sottostante.
 
@@ -243,7 +243,7 @@ Successivamente, si noti che aggiungendo un secondo HomeController all'applicazi
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Dopo l'errore entra di stoccaggio e l'URL http://*yoursite*/ raggiungerà la home page del desktop e http://*yoursite*/mobile/ raggiungerà la home page di dispositivi mobili.
+Dopo l'errore entra di stoccaggio e l'URL http://<em>yoursite</em>/ raggiungerà la home page del desktop e http://<em>yoursite</em>/mobile/ raggiungerà la home page di dispositivi mobili.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Reindirizzamento visitatori mobili al portale mobile
 

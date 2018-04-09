@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/performance/scaleout-with-sql-server
-title: "Scalabilità orizzontale SignalR con SQL Server | Documenti Microsoft"
+title: Scalabilità orizzontale SignalR con SQL Server | Documenti Microsoft
 author: MikeWasson
 description: Versioni del software utilizzato in questo argomento di Visual Studio 2013 .NET 4.5 SignalR le versioni precedenti di versione 2 di questo argomento per informazioni sulle versioni precedenti di...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: 18ce212f5cb7849d522248f9c462b5b48e3487ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b3189c36fc076333c0c6007bd039b12e03d63bc8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="signalr-scaleout-with-sql-server"></a>Scalabilità orizzontale SignalR con SQL Server
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
 > 
@@ -62,7 +62,7 @@ Prima di passare all'esercitazione dettagliata, ecco una rapida panoramica delle
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
- Questo codice consente di configurare backplane con i valori predefiniti per [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [delle prestazioni di SignalR: metriche di scalabilità orizzontale](signalr-performance.md#scaleout_metrics). 
+   Questo codice consente di configurare backplane con i valori predefiniti per [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [delle prestazioni di SignalR: metriche di scalabilità orizzontale](signalr-performance.md#scaleout_metrics). 
 
 ## <a name="configure-the-database"></a>Configurare il Database
 
@@ -97,7 +97,7 @@ Se è stata abilitata la traccia, le tracce verranno visualizzata anche se Servi
 Creare un'applicazione di SignalR una di queste esercitazioni:
 
 - [Introduzione a SignalR 2.0](../getting-started/tutorial-getting-started-with-signalr.md)
-- [Guida introduttiva a SignalR 2.0 e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+- [Introduzione a SignalR 2.0 e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
 Successivamente, verrà modificata l'applicazione di chat per il supporto di scalabilità orizzontale con SQL Server. In primo luogo, aggiungere il pacchetto SignalR.SqlServer NuGet al progetto. In Visual Studio, dal **strumenti** dal menu **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, immettere il comando seguente:
 

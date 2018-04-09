@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: 'Distribuzione di un''applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 di 12 | Documenti Microsoft'
+title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 di 12 | Documenti Microsoft"
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual riceventi...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e2d430bd8e07ed7d97d11a00c61d90beeac005f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 di 12
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Scaricare il progetto Starter](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET, pubblicare, progetto di applicazione web che include un database di SQL Server Compact con Visual Studio 2012 RC o Visual Studio Express 2012 RC per Web. Se si installa l'aggiornamento di pubblicazione Web, è anche possibile utilizzare Visual Studio 2010. Per un'introduzione alla serie, vedere [la prima esercitazione di serie](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
@@ -36,7 +36,7 @@ In questa esercitazione viene illustrato come impostare i due database di SQL Se
 Per l'accesso al database, l'applicazione Contoso University richiede il seguente software che deve essere distribuito con l'applicazione perché non è incluso in .NET Framework:
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (motore di database).
-- [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (che rendono il sistema di appartenenze ASP.NET utilizzare SQL Server Compact)
+- [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (che consentono il sistema di appartenenze ASP.NET utilizzare SQL Server Compact)
 - [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First con le migrazioni).
 
 La struttura del database e alcune (non tutte) dei dati in due dell'applicazione devono essere distribuiti anche i database. In genere, quando si sviluppa un'applicazione, immettere i dati di test in un database che non si desidera distribuire in un sito in tempo reale. Tuttavia, è anche possibile immettere alcuni dati di produzione che si desidera distribuire. In questa esercitazione si configurerà il progetto University Contoso in modo che il software necessario e i dati corretti vengano inclusi quando si distribuisce.
@@ -67,7 +67,7 @@ Tuttavia, inoltre è necessario tenere presenti alcune limitazioni. SQL Server C
 
 I collegamenti puntano alle versioni correnti di questi pacchetti, che potrebbero essere più recenti rispetto a ciò che viene installato nel progetto di avvio che per questa esercitazione è stato scaricato. Per la distribuzione in un provider di hosting, assicurarsi che si utilizza Entity Framework 5.0 o versione successiva. Versioni precedenti di migrazioni Code First richiedono l'attendibilità totale e molti provider di hosting, l'applicazione verrà eseguita in attendibilità Media. Per ulteriori informazioni sull'attendibilità media, vedere il [distribuzione in IIS come ambiente di Test](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) esercitazione.
 
-Installazione dei pacchetti NuGet in genere si occupa di tutto ciò che occorre per distribuire questo software con l'applicazione. In alcuni casi, ciò comporta attività quali la modifica del file Web. config e l'aggiunta di script di PowerShell che vengono eseguiti ogni volta che si compila la soluzione. **Se si desidera aggiungere il supporto per queste funzionalità (ad esempio SQL Server Compact e di Entity Framework) senza usare NuGet, assicurarsi che il risultato è noto installazione dei pacchetti NuGet in modo che è possibile eseguire manualmente le stesse operazioni.**
+Installazione dei pacchetti NuGet in genere si occupa di tutto ciò che occorre per distribuire questo software con l'applicazione. In alcuni casi, ciò comporta attività quali la modifica del file Web. config e l'aggiunta di script di PowerShell che vengono eseguiti ogni volta che si compila la soluzione. **Se si desidera aggiungere il supporto per queste funzionalità (ad esempio SQL Server Compact ed Entity Framework) senza usare NuGet, assicurarsi che il risultato è noto installazione dei pacchetti NuGet in modo che è possibile eseguire manualmente le stesse operazioni.**
 
 Vi è un'eccezione in NuGet non prestare attenzione di tutto ciò che è necessario effettuare per garantire una corretta distribuzione. Il pacchetto SqlServerCompact NuGet aggiunge uno script di post-compilazione per il progetto in cui vengono copiati gli assembly nativi per *x86* e *amd64* le sottocartelle in un progetto *bin* cartella, ma lo script non include le cartelle nel progetto. Di conseguenza, distribuzione Web non verrà copiata li al sito web di destinazione a meno che non si manualmente includerli nel progetto. (Questo comportamento risultante dalla configurazione di distribuzione predefinita; non verrà usata in queste esercitazioni, è anche possibile modificare l'impostazione che controlla questo comportamento. È l'impostazione che è possibile modificare **solo i file necessari per eseguire l'applicazione** in **gli elementi da distribuire** sul **pubblicazione/creazione pacchetto Web** scheda della finestra di **progetto Proprietà** finestra. Modifica questa impostazione non in genere è consigliabile, perché ciò può impedire la distribuzione di molti file altre nell'ambiente di produzione di quelli necessari non esiste. Per ulteriori informazioni sulle alternative, vedere il [configurazione delle proprietà di progetto](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md) esercitazione.)
 
@@ -190,7 +190,7 @@ Accedere come "admin" utilizzando la password "Pa$ w0rd" (si noti il numero zero
 Quando si distribuisce un sito per la prima volta, è comune per escludere la maggior parte o tutti gli account utente creati per il test. In questo caso, verrà distribuita un account amministratore e nessun account utente. Anziché eliminare manualmente gli account di prova, si creerà un nuovo database di appartenenza che è solo un account utente amministratore che è necessario nell'ambiente di produzione.
 
 > [!NOTE]
-> Il database delle appartenenze archivia un hash della password dell'account. Per distribuire gli account da un computer a un altro, è necessario assicurarsi che la routine hash non generano hash diverso nel server di destinazione rispetto a nel computer di origine. Gli hash stesso verrà generato quando si utilizza ASP.NET Universal Providers, purché non modificare l'algoritmo predefinito. L'algoritmo predefinito è HMACSHA256 e viene specificato nella **convalida** attributo del  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  elemento nel file Web. config.
+> Il database delle appartenenze archivia un hash della password dell'account. Per distribuire gli account da un computer a un altro, è necessario assicurarsi che la routine hash non generano hash diverso nel server di destinazione rispetto a nel computer di origine. Gli hash stesso verrà generato quando si utilizza ASP.NET Universal Providers, purché non modificare l'algoritmo predefinito. L'algoritmo predefinito è HMACSHA256 e viene specificato nella **convalida** attributo del **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** elemento nel file Web. config.
 
 
 Database delle appartenenze non è gestito da migrazioni Code First e non vi è alcun inizializzatore automatica che esegue il seeding del database con gli account di prova (quanto accade per il database School). Pertanto, per mantenere i dati di test disponibile ti una copia del database di test prima di creare una nuova.
@@ -245,6 +245,6 @@ Entrambi i database e motore di database SQL Server Compact sono ora pronti per 
 
 Per ulteriori informazioni su NuGet, vedere [gestire raccolte di progetto con NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) e [documentazione di NuGet](http://docs.nuget.org/docs/start-here/overview). Se non si desidera usare NuGet, è necessario apprendere come analizzare un pacchetto NuGet per determinare cosa accade quando viene installato. (Ad esempio, è possibile configurare *Web. config* trasformazioni, configurare gli script di PowerShell da eseguire in fase di compilazione e così via.) Per ulteriori informazioni sull'uso di NuGet, vedere in particolare [la creazione e pubblicazione di un pacchetto](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) e [File di configurazione e le trasformazioni di codice sorgente](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Precedente](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-[Successivo](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [!div class="step-by-step"]
+> [Precedente](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+> [Successivo](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c31ba3382b9dbe22a6826b9f858944c223efdd9d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c120a102b117433b6774f2ea7800f1c4a609f8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-c"></a>Creazione di un vincolo di Route personalizzati (c#)
 ====================
@@ -45,7 +45,7 @@ Il vincolo nel listato 1 consente di sfruttare la proprietà IsLocal esposta dal
 
 Utilizzare un vincolo personalizzato all'interno di una route definita nel file Global. asax. Il file Global. asax listato 2 utilizza il vincolo Localhost per impedire a utenti di richiedere una pagina di amministrazione, a meno che non rendono la richiesta dal server locale. Ad esempio, una richiesta per /Admin/DeleteAll avrà esito negativo quando effettuata da un server remoto.
 
-**Elenco di 2 - Global. asax**
+**Listing 2 - Global.asax**
 
 [!code-csharp[Main](creating-a-custom-route-constraint-cs/samples/sample3.cs)]
 
@@ -53,6 +53,6 @@ Il vincolo Localhost viene utilizzato nella definizione della route Admin. Una r
 
 Si noti che la route predefinita è stata impostata come commento nel file Global. asax listato 2. Se si include la route predefinita, la route predefinita corrisponderebbe richieste per il controller di amministrazione. In tal caso, gli utenti remoti può richiamare ancora azioni del controller di amministrazione, anche se le richieste non corrispondono alla route di amministrazione.
 
->[!div class="step-by-step"]
-[Precedente](creating-a-route-constraint-cs.md)
-[Successivo](asp-net-mvc-controller-overview-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-route-constraint-cs.md)
+> [Successivo](asp-net-mvc-controller-overview-vb.md)

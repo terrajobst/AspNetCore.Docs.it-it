@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
-title: "Creazione di un modello di dati più complesso per un'applicazione ASP.NET MVC (4 di 10) | Documenti Microsoft"
+title: Creazione di un modello di dati più complesso per un'applicazione ASP.NET MVC (4 di 10) | Documenti Microsoft
 author: tdykstra
 description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 con Code First di Entity Framework 5 e Visual Studio...
 ms.author: aspnetcontent
@@ -12,44 +12,44 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: accb5ddab8df67dfa29038541dc0cd72eaac173c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8f01b33c18ce77d91ee2f0db5e561b047c1891c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Creazione di un modello di dati più complesso per un'applicazione ASP.NET MVC (4 di 10)
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 [Scaricare il progetto completato](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 4 utilizzando Code First di Entity Framework 5 e Visual Studio 2012. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). È possibile avviare la serie di esercitazioni dall'inizio o [scaricare un progetto di avvio per questo capitolo](building-the-ef5-mvc4-chapter-downloads.md) e iniziare da qui.
 > 
 > > [!NOTE] 
 > > 
-> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Se si esegue un problema, è possibile risolvere, [scaricare il capitolo completato](building-the-ef5-mvc4-chapter-downloads.md) e provare a riprodurre il problema. In genere, è possibile trovare la soluzione al problema di mediante un confronto tra il codice per il codice completato. Per alcuni errori comuni e su come risolverli, vedere [errori e soluzioni alternative.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
 
 Nelle esercitazioni precedenti è stato utilizzato un modello di dati semplici che è stato composto da tre entità. In questa esercitazione si aggiungeranno ulteriori entità e relazioni e verrà personalizzato il modello di dati specificando le regole di mapping del database, convalida e formattazione. Si noterà due modi per personalizzare il modello di dati: aggiungendo attributi alle classi di entità e aggiungendo codice alla classe contesto di database.
 
-Al termine dell'operazione, le classi di entità verranno costituiscono il modello di dati completato che è illustrato nella figura seguente:
+Al termine dell'operazione le classi di entità verranno incluse nel modello di dati completato, illustrato nella figura seguente:
 
 ![School_class_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>Personalizzare il modello di dati utilizzando gli attributi
+## <a name="customize-the-data-model-by-using-attributes"></a>Personalizzare il modello di dati usando gli attributi
 
-In questa sezione si noterà come personalizzare il modello di dati utilizzando gli attributi che specificano la formattazione, convalida e regole di mapping del database. Quindi in diversi nelle sezioni seguenti si creeranno completo `School` modello di dati aggiungendo gli attributi alle classi è già create e la creazione di nuove classi per i tipi di entità rimanenti nel modello.
+In questa sezione si apprenderà come personalizzare il modello di dati usando attributi che specificano regole di formattazione, convalida e mapping del database. Quindi in diversi nelle sezioni seguenti si creeranno completo `School` modello di dati aggiungendo gli attributi alle classi è già create e la creazione di nuove classi per i tipi di entità rimanenti nel modello.
 
 ### <a name="the-datatype-attribute"></a>L'attributo di tipo di dati
 
-Per le date di registrazione studenti, tutte le pagine web attualmente Visualizza il tempo insieme alla data, anche se tutto è rilevante per questo campo è la data. Utilizzando gli attributi di annotazione dei dati, è possibile apportare una modifica che in ogni visualizzazione che mostra i dati per correggere il formato di visualizzazione del codice. Per vedere un esempio di come eseguire l'operazione, verrà aggiunto un attributo di `EnrollmentDate` proprietà la `Student` classe.
+Per le date di iscrizione degli studenti, tutte le pagine Web attualmente visualizzano l'ora oltre alla data, anche se l'unico elemento rilevante di questo campo è la data. Mediante gli attributi di annotazione dei dati è possibile modificare il codice per correggere il formato di visualizzazione in tutte le visualizzazioni che visualizzano i dati. Per un esempio di come eseguire questa operazione si aggiunge un attributo alla proprietà `EnrollmentDate` nella classe `Student`.
 
 In *Models\Student.cs*, aggiungere un `using` istruzione per il `System.ComponentModel.DataAnnotations` dello spazio dei nomi e aggiungere `DataType` e `DisplayFormat` gli attributi di `EnrollmentDate` proprietà, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,13-14)]
 
-Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributo viene utilizzato per specificare un tipo di dati che è più specifico di tipo intrinseco del database. In questo caso si vuole inserire solo tenere traccia delle date, non la data e ora. Il [enumerazione DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) fornisce per molti tipi di dati, ad esempio *data, ora, numero di telefono, valuta, EmailAddress* e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, un `mailto:` possibile creare un collegamento per [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), e un selettore data può essere fornito per [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) nei browser che supportano [HTML5](http://html5.org/). Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributi genera HTML 5 [dati -](http://ejohn.org/blog/html-5-data-attributes/) (si pronuncia *dash dati*) gli attributi che è in grado di riconoscere i browser HTML 5. Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributi non forniscono alcuna convalida.
+Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributo viene utilizzato per specificare un tipo di dati che è più specifico di tipo intrinseco del database. In questo caso si vuole tenere traccia solo della data e non di data e ora. Il [enumerazione DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) fornisce per molti tipi di dati, ad esempio *data, ora, numero di telefono, valuta, EmailAddress* e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, un `mailto:` possibile creare un collegamento per [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), e un selettore data può essere fornito per [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) nei browser che supportano [HTML5](http://html5.org/). Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributi genera HTML 5 [dati -](http://ejohn.org/blog/html-5-data-attributes/) (si pronuncia *dash dati*) gli attributi che è in grado di riconoscere i browser HTML 5. Il [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) attributi non forniscono alcuna convalida.
 
 `DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, viene visualizzato il campo dei dati in base ai formati predefiniti in base al server [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
@@ -75,7 +75,7 @@ Eseguire nuovamente la pagina di indice per studenti e notare che volte non veng
 
 ### <a name="the-stringlengthattribute"></a>L'elemento StringLengthAttribute
 
-È anche possibile specificare le regole di convalida dei dati e i messaggi utilizzando gli attributi. Si supponga che si desidera garantire che gli utenti non immettere più di 50 caratteri per un nome. Per aggiungere questa limitazione, è necessario [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) gli attributi di `LastName` e `FirstMidName` proprietà, come illustrato nell'esempio seguente:
+È anche possibile specificare le regole di convalida dei dati e i messaggi utilizzando gli attributi. Ad esempio si supponga di voler limitare a 50 il numero massimo di caratteri che gli utenti possono immettere per un nome. Per aggiungere questa limitazione, è necessario [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) gli attributi di `LastName` e `FirstMidName` proprietà, come illustrato nell'esempio seguente:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample3.cs?highlight=10,12)]
 
@@ -91,7 +91,7 @@ Eseguire l'applicazione e fare clic su di **studenti** scheda. Viene visualizzat
 
 Il modello di database è stato modificato in modo che richiede una modifica nello schema del database e di Entity Framework ha rilevato che. Utilizzare le migrazioni per aggiornare lo schema senza perdere i dati aggiunti al database tramite l'interfaccia utente. Se è stato modificato i dati che è stati creati dal `Seed` (metodo), che verranno modificate allo stato originale perché il [AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) metodo che si sta utilizzando il `Seed` metodo. ([AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) è equivalente a un'operazione "upsert" da terminologia dei database.)
 
-In Package Manager Console (PMC), immettere i comandi seguenti:
+Nella console di Gestione pacchetti immettere i comandi seguenti:
 
 [!code-console[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample4.cmd)]
 
@@ -103,9 +103,9 @@ Eseguire il **crea** pagina e immettere il nome di più di 50 caratteri. Non app
 
 ### <a name="the-column-attribute"></a>L'attributo di colonna
 
-Inoltre, è possibile utilizzare gli attributi per controllare il mapping tra le classi e le proprietà per il database. Si supponga che sia stato usato il nome `FirstMidName` per il nome del primo campo perché il campo può contenere anche un cognome. Ma si desidera che la colonna di database sia denominato `FirstName`, perché gli utenti che scrittura di query ad hoc sul database sono abituati a tale nome. Per rendere questo mapping, è possibile utilizzare il `Column` attributo.
+È possibile usare gli attributi anche per controllare il mapping delle classi e delle proprietà nel database. Si supponga di aver usato il nome `FirstMidName` per il campo first-name (Nome) perché il campo potrebbe contenere anche un secondo nome. Tuttavia si vuole che la colonna di database sia denominata `FirstName`, perché gli utenti che scrivono query ad hoc per il database sono abituati a tale nome. Per eseguire questo mapping è possibile usare l'attributo `Column`.
 
-Il `Column` attributo specifica che quando viene creato il database, la colonna del `Student` tabella in cui viene eseguito il mapping per il `FirstMidName` proprietà verrà denominata `FirstName`. In altre parole, quando il codice fa riferimento a `Student.FirstMidName`, i dati provengono dal o aggiornati nel `FirstName` colonna del `Student` tabella. Se non si specificano nomi di colonna, essi sono assegnato lo stesso nome come nome della proprietà.
+L'attributo `Column` specifica che quando viene creato il database, la colonna della tabella `Student` mappata sulla proprietà `FirstMidName` verrà denominata `FirstName`. In altri termini, quando il codice fa riferimento a `Student.FirstMidName` i dati provengono dalla colonna `FirstName` della tabella `Student` o vengono aggiornati in tale colonna. Se non si specificano nomi di colonna, essi sono assegnato lo stesso nome come nome della proprietà.
 
 Aggiungere un tramite l'istruzione per [System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.aspx) e l'attributo del nome di colonna per il `FirstMidName` proprietà, come illustrato nel codice evidenziato seguente:
 
@@ -137,7 +137,7 @@ Creare *Models\Instructor.cs*, sostituendo il codice del modello con il codice s
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Si noti che molte proprietà sono la stessa nella `Student` e `Instructor` entità. Nel [implementazione ereditarietà](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md) esercitazione più avanti in questa serie, sarà il refactoring tramite ereditarietà per eliminare questa ridondanza.
+Si noti che molte proprietà sono uguali nelle entità `Student` e `Instructor`. Nel [implementazione ereditarietà](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md) esercitazione più avanti in questa serie, sarà il refactoring tramite ereditarietà per eliminare questa ridondanza.
 
 ### <a name="the-required-and-display-attributes"></a>Obbligatorio e visualizzare gli attributi
 
@@ -145,7 +145,7 @@ Gli attributi di `LastName` proprietà specificare che si tratta di un campo obb
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Il [StringLength attributo](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) imposta la lunghezza massima del database e fornisce lato client e lato server della convalida di ASP.NET MVC. È inoltre possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun impatto sullo schema di database. Il [attributo obbligatorio](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) non è necessario per i tipi di valore, ad esempio DateTime, int, double e float. Tipi di valore non sono assegnati un valore null, in modo che siano necessari implicitamente. È possibile rimuovere il [attributo obbligatorio](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) e sostituirlo con un parametro di lunghezza minima per il `StringLength` attributo:
+Il [StringLength attributo](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) imposta la lunghezza massima del database e fornisce lato client e lato server della convalida di ASP.NET MVC. È anche possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun effetto sullo schema del database. Il [attributo obbligatorio](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) non è necessario per i tipi di valore, ad esempio DateTime, int, double e float. Tipi di valore non sono assegnati un valore null, in modo che siano necessari implicitamente. È possibile rimuovere il [attributo obbligatorio](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) e sostituirlo con un parametro di lunghezza minima per il `StringLength` attributo:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample9.cs?highlight=2)]
 
@@ -155,13 +155,13 @@ Il [StringLength attributo](https://msdn.microsoft.com/library/system.componentm
 
 ### <a name="the-fullname-calculated-property"></a>La proprietà calcolata FullName
 
-`FullName`è una proprietà calcolata che restituisce un valore che viene creato concatenando due altre proprietà. Pertanto ha solo un `get` della funzione di accesso e nessun `FullName` colonna verrà generata nel database.
+`FullName` è una proprietà calcolata che restituisce un valore creato concatenando altre due proprietà. Pertanto ha solo un `get` della funzione di accesso e nessun `FullName` colonna verrà generata nel database.
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
 ### <a name="the-courses-and-officeassignment-navigation-properties"></a>Corsi di e le proprietà di navigazione OfficeAssignment
 
-Il `Courses` e `OfficeAssignment` sono proprietà di navigazione. Come spiegato in precedenza, vengono in genere definiti come [virtuale](https://msdn.microsoft.com/library/9fkccyh4(v=vs.110).aspx) in modo che sia possibile usufruire di una funzionalità di Entity Framework chiamata [caricamento lazy](https://msdn.microsoft.com/magazine/hh205756.aspx). Inoltre, se una proprietà di navigazione può contenere più entità, il tipo deve implementare il [ICollection&lt;T&gt; ](https://msdn.microsoft.com/library/92t2ye13.aspx) interfaccia. (Ad esempio [IList&lt;T&gt; ](https://msdn.microsoft.com/library/5y536ey6.aspx) ma non qualifica [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/library/9eekhta0.aspx) perché `IEnumerable<T>` non implementa [Aggiungi ](https://msdn.microsoft.com/library/63ywd54z.aspx).
+Le proprietà `Courses` e `OfficeAssignment` sono proprietà di navigazione. Come spiegato in precedenza, vengono in genere definiti come [virtuale](https://msdn.microsoft.com/library/9fkccyh4(v=vs.110).aspx) in modo che sia possibile usufruire di una funzionalità di Entity Framework chiamata [caricamento lazy](https://msdn.microsoft.com/magazine/hh205756.aspx). Inoltre, se una proprietà di navigazione può contenere più entità, il tipo deve implementare il [ICollection&lt;T&gt; ](https://msdn.microsoft.com/library/92t2ye13.aspx) interfaccia. (Ad esempio [IList&lt;T&gt; ](https://msdn.microsoft.com/library/5y536ey6.aspx) ma non qualifica [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/library/9eekhta0.aspx) perché `IEnumerable<T>` non implementa [Aggiungi ](https://msdn.microsoft.com/library/63ywd54z.aspx).
 
 Un docente può indicare un numero qualsiasi di corsi, pertanto `Courses` è definito come una raccolta di `Course` entità. Regole business è stato un docente può solo avere al massimo un ufficio, pertanto `OfficeAssignment` è definito come una singola `OfficeAssignment` entità (che può essere `null` se non viene assegnato).
 
@@ -179,7 +179,7 @@ Compilare il progetto, che consente di salvare le modifiche e di verifica che no
 
 ### <a name="the-key-attribute"></a>L'attributo chiave
 
-È una relazione uno-a-zero-o-uno tra il `Instructor` e `OfficeAssignment` entità. L'assegnazione dell'ufficio esiste solo in relazione a istruttore viene assegnato a, e pertanto la chiave primaria è anche la chiave esterna per il `Instructor` entità. Ma Entity Framework non riconoscono automaticamente `InstructorID` del database primario chiave di questa entità perché il relativo nome non rispetta il `ID` o *classname* `ID` convenzione di denominazione. Pertanto, il `Key` attributo viene utilizzato per identificare come la chiave:
+È una relazione uno-a-zero-o-uno tra il `Instructor` e `OfficeAssignment` entità. L'assegnazione dell'ufficio esiste solo in relazione a istruttore viene assegnato a, e pertanto la chiave primaria è anche la chiave esterna per il `Instructor` entità. Ma Entity Framework non riconoscono automaticamente `InstructorID` del database primario chiave di questa entità perché il relativo nome non rispetta il `ID` o *classname* `ID` convenzione di denominazione. Per identificare l'entità come chiave viene usato l'attributo `Key`:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample14.cs)]
 
@@ -207,7 +207,7 @@ In *Models\Course.cs*, sostituire il codice aggiunto in precedenza con il codice
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample15.cs)]
 
-L'entità corso ha una proprietà di chiave esterna `DepartmentID` che punta al correlata `Department` entità e prevede un `Department` proprietà di navigazione. Entity Framework non è necessario aggiungere una proprietà di chiave esterna per il modello di dati quando si dispone di una proprietà di navigazione per un'entità correlata. Entity Framework crea automaticamente le chiavi esterne nel database ovunque siano necessarie. Ma con la chiave esterna nel modello di dati è possibile eseguire gli aggiornamenti più semplice ed efficiente. Ad esempio, quando si recupera un'entità course per consentire la modifica di `Department` entità è null se non si caricarlo, pertanto quando si aggiorna l'entità course, è necessario recuperare prima la `Department` entità. Quando la proprietà di chiave esterna `DepartmentID` viene incluso nel modello di dati, non è necessario recuperare il `Department` entità prima di aggiornare.
+L'entità corso ha una proprietà di chiave esterna `DepartmentID` che punta al correlata `Department` entità e prevede un `Department` proprietà di navigazione. In Entity Framework non è necessario aggiungere una proprietà di chiave esterna al modello di dati se è disponibile una proprietà di navigazione per un'entità correlata. Entity Framework crea automaticamente le chiavi esterne nel database ovunque siano necessarie. Tuttavia il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Ad esempio, quando si recupera un'entità course per consentire la modifica di `Department` entità è null se non si caricarlo, pertanto quando si aggiorna l'entità course, è necessario recuperare prima la `Department` entità. Quando la proprietà di chiave esterna `DepartmentID` viene incluso nel modello di dati, non è necessario recuperare il `Department` entità prima di aggiornare.
 
 ### <a name="the-databasegenerated-attribute"></a>L'attributo DatabaseGenerated
 
@@ -215,19 +215,19 @@ Il [DatabaseGenerated attributo](https://msdn.microsoft.com/library/system.compo
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-Per impostazione predefinita, Entity Framework si presuppone che i valori di chiave primaria vengono generati dal database. Che è quello desiderato nella maggior parte degli scenari. Tuttavia, per `Course` entità, verrà usare un numero di corso specificato dall'utente, ad esempio una serie di 1000 per reparto, una serie di 2000 per un altro reparto e così via.
+Per impostazione predefinita, Entity Framework si presuppone che i valori di chiave primaria vengono generati dal database. Questa è la condizione ottimale nella maggior parte degli scenari. Tuttavia, per `Course` entità, verrà usare un numero di corso specificato dall'utente, ad esempio una serie di 1000 per reparto, una serie di 2000 per un altro reparto e così via.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Chiave esterna e le proprietà di navigazione
 
 La proprietà di chiave esterna e le proprietà di navigazione nel `Course` entità riflettere le relazioni seguenti:
 
-- Un corso viene assegnato a un reparto, pertanto non c'è un `DepartmentID` chiave esterna e un `Department` proprietà di navigazione per i motivi indicati in precedenza. 
+- Un corso viene assegnato a un solo reparto, pertanto sono presenti una chiave esterna `DepartmentID` e una proprietà di navigazione `Department` per i motivi indicati in precedenza. 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
-- Un corso può avere qualsiasi numero di studenti, pertanto la `Enrollments` proprietà di navigazione è una raccolta: 
+- Un corso può avere un numero qualsiasi di studenti iscritti, pertanto la proprietà di navigazione `Enrollments` è una raccolta: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample18.cs)]
-- Un corso può dedicare da istruttori più, pertanto la `Instructors` proprietà di navigazione è una raccolta: 
+- Un corso può essere impartito da più insegnanti, pertanto la proprietà di navigazione `Instructors` è una raccolta: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample19.cs)]
 
@@ -245,21 +245,21 @@ In precedenza è stato utilizzato il [colonna attributo](https://msdn.microsoft.
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample21.cs)]
 
-Mapping della colonna in genere non è necessario, poiché Entity Framework in genere seleziona il tipo di dati di SQL Server appropriato in base al tipo CLR definito per la proprietà. CLR `decimal` mapping a un Server SQL del tipo `decimal` tipo. Ma in questo caso, si sa che è possibile che la colonna verrà contenente gli importi in valuta e [money](https://msdn.microsoft.com/library/ms179882.aspx) è più appropriato per tale tipo di dati.
+Mapping della colonna in genere non è necessario, poiché Entity Framework in genere seleziona il tipo di dati di SQL Server appropriato in base al tipo CLR definito per la proprietà. Il tipo CLR `decimal` esegue il mapping a un tipo SQL Server `decimal`. Ma in questo caso, si sa che è possibile che la colonna verrà contenente gli importi in valuta e [money](https://msdn.microsoft.com/library/ms179882.aspx) è più appropriato per tale tipo di dati.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Chiave esterna e le proprietà di navigazione
 
-Le proprietà di navigazione e di chiave esterne rifletteranno le relazioni seguenti:
+Le proprietà di chiave esterna e le proprietà di navigazione riflettono le relazioni seguenti:
 
-- Un reparto può non avere o un amministratore e un amministratore è sempre un docente. Pertanto il `InstructorID` proprietà è inclusa come chiave esterna per il `Instructor` entità e un punto interrogativo viene aggiunto dopo il `int` digitare designazione per contrassegnare la proprietà come nullable. La proprietà di navigazione è denominata `Administrator` ma contiene un `Instructor` entità: 
+- Un reparto può avere o meno un amministratore e un amministratore è sempre un insegnante. Pertanto il `InstructorID` proprietà è inclusa come chiave esterna per il `Instructor` entità e un punto interrogativo viene aggiunto dopo il `int` digitare designazione per contrassegnare la proprietà come nullable. La proprietà di navigazione è denominata `Administrator` ma contiene un `Instructor` entità: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample22.cs)]
 - Un reparto può avere molti corsi, pertanto non c'è un `Courses` proprietà di navigazione: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
- > [!NOTE]
- > Per convenzione, Entity Framework consente l'eliminazione a catena per chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può comportare le regole delete cascade circolare, verrà generata un'eccezione quando viene eseguito il codice di inizializzatore. Ad esempio, se non è stato definito il `Department.InstructorID` proprietà ammette valori null, si otterrebbe il seguente messaggio di eccezione quando viene eseguito l'inizializzatore: "la relazione referenziale comporterà un riferimento ciclico non è consentito." Se le regole business necessario `InstructorID` proprietà come non nullable, è necessario utilizzare l'API fluent seguente per disabilitare eliminazione a catena della relazione: 
+  > [!NOTE]
+  > Per convenzione, Entity Framework consente l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può comportare le regole delete cascade circolare, verrà generata un'eccezione quando viene eseguito il codice di inizializzatore. Ad esempio, se non è stato definito il `Department.InstructorID` proprietà ammette valori null, si otterrebbe il seguente messaggio di eccezione quando viene eseguito l'inizializzatore: "la relazione referenziale comporterà un riferimento ciclico non è consentito." Se le regole business necessario `InstructorID` proprietà come non nullable, è necessario utilizzare l'API fluent seguente per disabilitare eliminazione a catena della relazione: 
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
@@ -280,12 +280,12 @@ In *Models\Student.cs*, sostituire il codice aggiunto in precedenza con il codic
 
 ### <a name="foreign-key-and-navigation-properties"></a>Chiave esterna e le proprietà di navigazione
 
-La proprietà di chiave esterna e le proprietà di navigazione rifletteranno le relazioni seguenti:
+Le proprietà di chiave esterna e le proprietà di navigazione riflettono le relazioni seguenti:
 
-- È un record di registrazione per un singolo corso, pertanto non c'è un `CourseID` proprietà di chiave esterna e un `Course` proprietà di navigazione: 
+- Un record di iscrizione è relativo a un singolo corso, pertanto sono presenti una proprietà di chiave esterna `CourseID` e una proprietà di navigazione `Course`: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample27.cs)]
-- È un record di registrazione per un singolo studente, pertanto non c'è un `StudentID` proprietà di chiave esterna e un `Student` proprietà di navigazione: 
+- Un record di iscrizione è relativo a un singolo studente, pertanto sono presenti una proprietà di chiave esterna `StudentID` e una proprietà di navigazione `Student`: 
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample28.cs)]
 
@@ -293,7 +293,7 @@ La proprietà di chiave esterna e le proprietà di navigazione rifletteranno le 
 
 È una relazione molti-a-molti tra la `Student` e `Course` entità e `Enrollment` entità funziona come una tabella di join molti-a-molti *con payload* nel database. Ciò significa che il `Enrollment` tabella contiene dati aggiuntivi oltre a chiavi esterne per tabelle unite in join (in questo caso, una chiave primaria e una `Grade` proprietà).
 
-Nella figura seguente viene illustrato l'aspetto queste relazioni in un diagramma di entità. (Questo diagramma è stato generato utilizzando il [Power Tools di Entity Framework](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); la creazione del diagramma non fa parte dell'esercitazione, appena viene utilizzato come un'illustrazione.)
+La figura seguente illustra l'aspetto di queste relazioni in un diagramma di entità. (Questo diagramma è stato generato utilizzando il [Power Tools di Entity Framework](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); la creazione del diagramma non fa parte dell'esercitazione, appena viene utilizzato come un'illustrazione.)
 
 ![Student-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
 
@@ -309,9 +309,9 @@ Una tabella di join è necessario nel database, tuttavia, come illustrato nel di
 
 Entity Framework crea automaticamente il `CourseInstructor` e si leggere e aggiornare indirettamente mediante la lettura e aggiornamento di `Instructor.Courses` e `Course.Instructors` le proprietà di navigazione.
 
-## <a name="entity-diagram-showing-relationships"></a>Entità diagramma che illustra le relazioni
+## <a name="entity-diagram-showing-relationships"></a>Diagramma dell'entità che visualizza le relazioni
 
-Nella figura seguente viene illustrato il diagramma che strumenti di Entity Framework Power creare per il modello School completato.
+La figura seguente visualizza il diagramma creato da Entity Framework Power Tools per il modello School completato.
 
 ![School_data_model_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
@@ -321,9 +321,9 @@ Oltre alle linee di relazione molti-a-molti (\* a \*) e le linee di relazione un
 
 Successivamente, verrà aggiunto nuove entità per il `SchoolContext` classe e personalizzare alcune del mapping tramite [API fluent](https://msdn.microsoft.com/data/jj591617) chiamate. (L'API è "Microsoft Office fluent" in quanto viene spesso utilizzato mettendo una serie di chiamate al metodo in una singola istruzione).
 
-In questa esercitazione si utilizzerà l'API fluent solo per mapping del database che si può fare con gli attributi. Tuttavia, è possibile utilizzare anche l'API fluent per specificare la maggior parte della formattazione, convalida e regole di mapping che è possibile eseguire utilizzando gli attributi. Alcuni attributi, ad esempio `MinimumLength` non può essere applicata con l'API fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, si applica solo una regola di convalida sul lato client e server
+In questa esercitazione si utilizzerà l'API fluent solo per mapping del database che si può fare con gli attributi. È tuttavia possibile usare l'API Fluent anche per specificare la maggior parte delle regole di formattazione, convalida e mapping specificabili tramite gli attributi. Alcuni attributi quali `MinimumLength` non possono essere applicati con l'API Fluent. Come accennato in precedenza, `MinimumLength` non modifica lo schema, si applica solo una regola di convalida sul lato client e server
 
-Alcuni sviluppatori preferiscono utilizzare l'API fluent esclusivamente in modo che mantengano le classi di entità "pulito". È possibile combinare gli attributi e l'API fluent se si desidera, e sono disponibili alcune personalizzazioni che è possono solo tramite l'API fluent, ma in genere di è consigliabile scegliere uno di questi due approcci e usare in che modo coerente il più possibile.
+Alcuni sviluppatori preferiscono usare solo l'API Fluent, per dare un aspetto "ordinato" alle classi di entità. È possibile usare un misto di attributi e API Fluent e alcune personalizzazioni sono eseguibili solo mediante l'API Fluent, ma in generale è consigliabile scegliere uno dei due approcci e usarlo in modo il più possibile coerente.
 
 Per aggiungere nuove entità per i dati del modello e di eseguire il mapping del database che non è stata svolta utilizzando gli attributi, sostituire il codice in *DAL\SchoolContext.cs* con il codice seguente:
 
@@ -341,7 +341,7 @@ Il codice seguente viene fornito un esempio di come è possibile utilizzare API 
 
 Per informazioni relative alle operazioni vengono eseguite le istruzioni "fluent API" dietro le quinte, vedere il [API Fluent](https://blogs.msdn.com/b/aspnetue/archive/2011/05/04/entity-framework-code-first-tutorial-supplement-what-is-going-on-in-a-fluent-api-call.aspx) post di blog.
 
-## <a name="seed-the-database-with-test-data"></a>Valore di inizializzazione del Database con dati di Test
+## <a name="seed-the-database-with-test-data"></a>Assegnare valori di inizializzazione al database con dati di test
 
 Sostituire il codice di *Migrations\Configuration.cs* file con il codice seguente per fornire i dati iniziali per le nuove entità creata.
 
@@ -361,7 +361,7 @@ Da PMC, immettere il `add-migration` comando:
 
 Se si tenta di aggiornare il database a questo punto, si otterrà l'errore seguente:
 
-*L'istruzione ALTER TABLE è in conflitto con il vincolo FOREIGN KEY "FK\_dbo. Corso\_dbo. Reparto\_DepartmentID ". Si è verificato il conflitto in una tabella del database "ContosoUniversity", "dbo. Reparto", colonna 'DepartmentID'.*
+*L'istruzione ALTER TABLE è in conflitto con il vincolo FOREIGN KEY "si intende\_dbo. Corso\_dbo. Reparto\_DepartmentID ". Si è verificato il conflitto in una tabella del database "ContosoUniversity", "dbo. Reparto", colonna 'DepartmentID'.*
 
 Modificare il &lt; *timestamp&gt;\_Chap4.cs* file e apportare le modifiche di codice seguente (è possibile aggiungere un'istruzione SQL e modificare un `AddColumn` istruzione):
 
@@ -395,10 +395,10 @@ Fare doppio clic sul `CourseInstructor` tabella e selezionare **Mostra dati tabe
 
 ## <a name="summary"></a>Riepilogo
 
-È ora disponibile un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente si verranno fornite altre informazioni sui vari modi per accedere ai dati correlati.
+Ora sono presenti un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente si verranno fornite altre informazioni sui vari modi per accedere ai dati correlati.
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [mappa del contenuto ASP.NET dati accesso](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Precedente](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Successivo](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Precedente](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Successivo](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

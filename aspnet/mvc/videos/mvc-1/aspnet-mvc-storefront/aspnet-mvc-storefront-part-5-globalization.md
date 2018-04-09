@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization
 msc.type: video
-ms.openlocfilehash: c36b20dee3fee0b024dd3096d7dbfceb6ca06282
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d1271f23af3809ee68b1239fff1e0b33b251d217
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-5-globalization"></a>ASP.NET MVC vetrina parte 5: globalizzazione
 ====================
@@ -24,8 +24,8 @@ da [mare Conery](https://github.com/robconery)
 
 Rob Conery funziona con Damien Guard per effettuare il refactoring del database per risolvere i problemi di globalizzazione e dati di test.
 
-[&#9654; Guardare video (minuti 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-5-globalization)
+[&#9654;Guardare video (minuti 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-5-globalization)
 
->[!div class="step-by-step"]
-[Precedente](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
-[Successivo](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)
+> [!div class="step-by-step"]
+> [Precedente](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
+> [Successivo](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)

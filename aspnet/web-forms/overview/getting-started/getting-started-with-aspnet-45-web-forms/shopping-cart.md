@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>Carrello acquisti
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -66,7 +66,7 @@ Più indietro in questa serie di esercitazioni, è definito lo schema per i dati
     ![Shopping Cart - Aggiungi finestra di dialogo Nuovo elemento](shopping-cart/_static/image2.png)
 3. Denominare la nuova classe *CartItem.cs*.
 4. Fare clic su **Aggiungi**.  
- Il nuovo file di classe viene visualizzato nell'editor.
+   Il nuovo file di classe viene visualizzato nell'editor.
 5. Sostituire il codice predefinito con il codice seguente:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ Come accennato in precedenza, si creerà una pagina di elaborazione denominata *
 #### <a name="to-create-the-add-to-cart-functionality"></a>Per creare Add To Cart funzionalità:
 
 1. In **Esplora**, fare doppio clic su di **WingtipToys**del progetto, fare clic su **Aggiungi**  - &gt; **nuovo elemento**.  
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Aggiungere una nuova pagina standard (Web Form) per l'applicazione denominata *AddToCart.aspx*. 
 
     ![Shopping Cart - aggiungere Web Form](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ Come menzionato in precedenza, un utente `ID` viene utilizzato per identificare 
 Il *ShoppingCart.aspx* pagina verrà visualizzati i prodotti che l'utente ha aggiunto al carrello acquisti. Fornirà anche la possibilità di aggiungere, rimuovere e aggiornare gli elementi nel carrello acquisti.
 
 1. In **Esplora**, fare doppio clic su **WingtipToys**, fare clic su **Aggiungi**  - &gt; **nuovo elemento**.  
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Aggiungere una nuova pagina (Web Form) che include una pagina master selezionando **Web Form mediante pagina Master**. Denominare la nuova pagina *ShoppingCart.aspx*.
 3. Selezionare **Site. master** per collegare la pagina master per l'oggetto appena creato *aspx* pagina.
 4. Nel *ShoppingCart.aspx* pagina, sostituire il codice esistente con il markup seguente:   
@@ -308,7 +308,7 @@ Prima del rendering della pagina in formato HTML, il `Page_PreRender` viene gene
  Il *ShoppingCart.aspx* viene visualizzata la pagina con il totale dell'ordine.
 4. Selezionare **piani** dal menu di navigazione di categoria.
 5. Fare clic su di **Add To Cart** collegamento accanto a prima del prodotto.
-6. Imposta la quantità del primo elemento nel carrello acquisti a 3 e si seleziona il **rimuovere elemento** casella di controllo del secondo elemento.<a id="a"></a>
+6. Impostare la quantità del primo elemento nel carrello acquisti su 3 e selezionare il **Rimuovi elemento** casella di controllo del secondo elemento.<a id="a"></a>
 7. Fare clic su di **aggiornare** pulsante per aggiornare la pagina carrello degli acquisti e visualizzare il nuovo totale dell'ordine. 
 
     ![Carrello acquisti - aggiornamento del carrello](shopping-cart/_static/image9.png)
@@ -323,6 +323,6 @@ Il carrello acquisti supporta l'aggiunta, eliminazione e aggiornamento degli ele
 
 [Panoramica dello stato della sessione ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[Precedente](display_data_items_and_details.md)
-[Successivo](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [Precedente](display_data_items_and_details.md)
+> [Successivo](checkout-and-payment-with-paypal.md)

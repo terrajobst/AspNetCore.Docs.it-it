@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>L'autenticazione degli utenti con autenticazione basata su form (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come utilizzare l'attributo [Authorize] per proteggere una password pagine specifiche nell'applicazione MVC. Informazioni su come utilizzare lo strumento Amministrazione sito Web per creare e gestire utenti e ruoli. Inoltre informazioni su come configurare l'archiviazione delle informazioni sui ruoli e account di utente.
 
@@ -67,13 +67,13 @@ Ad esempio, il controller nel listato 1 espone un'azione denominata CompanySecre
 
 Se si richiama l'azione CompanySecrets() immettendo l'URL /Home/CompanySecrets nella barra degli indirizzi del browser, non si è un utente autenticato, quindi si verrà reindirizzati alla visualizzazione account di accesso automaticamente (vedere Figura 5).
 
-**Figura 5: la visualizzazione di account di accesso**
+**Figura 5 – la visualizzazione di account di accesso**
 
 ![clip_image010](authenticating-users-with-forms-authentication-cs/_static/image5.jpg)
 
 Immettere il nome utente e password, è possibile utilizzare la visualizzazione di account di accesso. Se non si è un utente registrato, è possibile scegliere di **registrare** collegamento per passare al registro (vedere la figura 6). È possibile utilizzare la visualizzazione del registro per creare un nuovo account utente.
 
-**Figura 6: la visualizzazione del Registro**
+**Figura 6: la visualizzazione di registro**
 
 ![clip_image012](authenticating-users-with-forms-authentication-cs/_static/image6.jpg)
 
@@ -87,7 +87,7 @@ Dopo aver eseguito correttamente, è possibile visualizzare il CompanySecrets (v
 
 Limitare l'accesso a un'azione del controller per un particolare set di utenti o di un particolare set di ruoli utente, è possibile utilizzare l'attributo [Authorize]. Ad esempio, il controller Home modificato nel listato 2 contiene due nuove azioni denominate StephenSecrets() e AdministratorSecrets().
 
-**Elenco di 2 – controllers\homecontroller.cs.**
+**Elenco 2 – controllers\homecontroller.cs.**
 
 [!code-csharp[Main](authenticating-users-with-forms-authentication-cs/samples/sample2.cs)]
 
@@ -107,7 +107,7 @@ Utilizzo del database di SQL Express predefinito è appropriato quando si svilup
 
 Il primo passaggio consiste nel database di produzione per aggiungere tutti gli oggetti di database necessari (tabelle e stored procedure). È il modo più semplice per aggiungere questi oggetti in un nuovo database in modo da sfruttare l'installazione guidata di ASP.NET SQL Server (vedere la figura 8). È possibile avviare questo strumento, aprire il Prompt dei comandi di Visual Studio 2008 dal gruppo di programmi Microsoft Visual Studio 2008 e di eseguire il comando seguente dal prompt dei comandi:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **Figura 8: l'installazione guidata di ASP.NET SQL Server**
 
@@ -152,5 +152,5 @@ Dopo aver creato l'account di accesso necessarie, è necessario eseguire il mapp
 
 In questa esercitazione è stato descritto come utilizzare l'autenticazione basata su form quando si compila un'applicazione MVC ASP.NET. In primo luogo, è stato descritto come creare nuovi utenti e ruoli che possono sfruttare lo strumento Amministrazione sito Web. Successivamente, è stato descritto come utilizzare l'attributo [Authorize] per impedire agli utenti non autorizzati di richiamare le azioni del controller. Infine, è stato descritto come configurare l'applicazione MVC per archiviare informazioni su utenti e ruoli in un database di produzione.
 
->[!div class="step-by-step"]
-[Successivo](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [avanti](authenticating-users-with-windows-authentication-cs.md)

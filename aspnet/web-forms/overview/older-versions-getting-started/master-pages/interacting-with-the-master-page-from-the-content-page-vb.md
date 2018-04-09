@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 title: L'interazione con la pagina Master dalla pagina contenuta (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Viene illustrato come chiamare i metodi, impostare le proprietà e così via della pagina Master dal codice nella pagina di contenuto."
+description: Viene illustrato come chiamare i metodi, impostare le proprietà e così via della pagina Master dal codice nella pagina di contenuto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9020115e6348d30350f8fff493efe88bd0d4c37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e92e7abbc69a0998d7563db0d5b206d7ba3d6be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>L'interazione con la pagina Master dalla pagina contenuta (VB)
 ====================
@@ -64,9 +64,9 @@ Passaggio 1 illustra la visualizzazione di cinque più di recente aggiunti prodo
 Aprire la pagina master Site. master e aggiungere un'etichetta e un controllo GridView per il `leftContent` `<div>`. Cancellare il contenuto dell'etichetta `Text` impostata, il relativo `EnableViewState` proprietà `False`e il relativo `ID` proprietà `GridMessage`; impostare il controllo GridView `ID` proprietà `RecentProducts`. Dalla finestra di progettazione, quindi espandere smart tag di GridView e scegliere di associarlo a una nuova origine dati. Verrà avviata la configurazione guidata origine dati. Poiché il database Northwind di `App_Data` cartella è un database di Microsoft SQL Server, scegliere di creare un SqlDataSource selezionando (vedere Figura 1); nome SqlDataSource `RecentProductsDataSource`.
 
 
-[![Associare un controllo SqlDataSource denominato RecentProductsDataSource di GridView](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
+[![Associare un controllo SqlDataSource denominato RecentProductsDataSource controllo GridView.](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
 
-**Figura 01**: associare un controllo SqlDataSource denominato GridView `RecentProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))
+**Figura 01**: associare un controllo SqlDataSource denominato di GridView `RecentProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))
 
 
 Il passaggio successivo viene richiesto di specificare quali database a cui connettersi. Scegliere il `NORTHWIND.MDF` database file nell'elenco a discesa e fare clic su Avanti. Poiché questa è la prima volta, abbiamo utilizzato il database, la procedura guidata propone di archiviare la stringa di connessione in `Web.config`. È di archiviare la stringa di connessione utilizzando il nome `NorthwindConnectionString`.
@@ -74,7 +74,7 @@ Il passaggio successivo viene richiesto di specificare quali database a cui conn
 
 [![Connettersi al Database Northwind](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
 
-**Figura 02**: connettersi al Northwind Database ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))
+**Figura 02**: la connessione al Northwind Database ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))
 
 
 La configurazione guidata origine dati fornisce due modalità con cui è possibile specificare la query utilizzata per recuperare i dati:
@@ -90,9 +90,9 @@ Poiché si desidera restituire che solo cinque aggiunto più di recente prodotti
 Il `TOP 5` (parola chiave) restituisce solo i primi cinque record della query. Il `Products` chiave primaria della tabella, `ProductID`, è un `IDENTITY` colonna che potremo verificare che ogni nuovo prodotto aggiunta alla tabella avrà un valore maggiore di quello della voce precedente. Pertanto, ordinare i risultati da `ProductID` in ordine decrescente restituisce i prodotti a partire da più di recente quelle create.
 
 
-[![Restituire i cinque prodotti aggiunti più di recente](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
+[![Restituisce i cinque prodotti aggiunti più di recente](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
 
-**Figura 03**: restituire i cinque più recentemente aggiunto prodotti ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))
+**Figura 03**: restituisce i cinque più recentemente aggiunto prodotti ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))
 
 
 Dopo aver completato la procedura guidata, Visual Studio genera due BoundField di GridView visualizzare il `ProductName` e `UnitPrice` i campi restituiti dal database. A questo punto markup dichiarativo della pagina master deve includere codice simile al seguente:
@@ -202,9 +202,9 @@ Il `Master` proprietà restituisce un oggetto di tipo [ `MasterPage` ](https://m
 Ora che abbiamo eseguito il cast di fortemente tipizzato `Page.Master` proprietà per il tipo di sito si può fare riferimento le proprietà e metodi specifici del sito. Come illustrato nella figura 7, la proprietà pubblica `GridMessageText` viene visualizzato nell'elenco a discesa IntelliSense.
 
 
-[![In IntelliSense vengono mostrate le proprietà pubbliche e i metodi di pagina Master](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
+[![In IntelliSense vengono mostrate la pagina Master proprietà e metodi pubblici](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
 
-**Figura 07**: IntelliSense mostra le proprietà pubbliche e i metodi di pagina Master ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))
+**Figura 07**: in IntelliSense vengono mostrate le proprietà pubbliche e i metodi di nostra pagina Master ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))
 
 
 > [!NOTE]
@@ -225,7 +225,7 @@ Utilizzare il [ `@MasterType` direttiva](https://msdn.microsoft.com/library/ms22
 Questa direttiva indica al motore ASP.NET per aggiungere un riferimento fortemente tipizzata per la pagina master tramite una proprietà denominata `Master`. Con il `@MasterType` direttiva sul posto, è possibile chiamare il `Site.master` generale della pagina proprietà e metodi pubblici direttamente tramiti il `Master` proprietà senza cast.
 
 > [!NOTE]
-> Se si omette il `@MasterType` direttiva, la sintassi `Page.Master` e `Master` restituiscono la stessa cosa: un oggetto fortemente tipizzato alla pagina principale della pagina. Se si include il `@MasterType` direttiva quindi `Master` restituisce un riferimento fortemente tipizzata per la pagina master specificata. `Page.Master`, tuttavia, restituisce comunque un riferimento fortemente tipizzato. Per esaminare più completa perché questo è il caso e come `Master` proprietà viene creata quando il `@MasterType` direttiva è inclusa, vedere [K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx)del post di blog [ `@MasterType` in ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx).
+> Se si omette il `@MasterType` direttiva, la sintassi `Page.Master` e `Master` restituiscono la stessa cosa: un oggetto fortemente tipizzato alla pagina principale della pagina. Se si include il `@MasterType` direttiva quindi `Master` restituisce un riferimento fortemente tipizzata per la pagina master specificata. `Page.Master`, tuttavia, ancora restituisce un riferimento non fortemente tipizzato. Per esaminare più completa perché questo è il caso e come `Master` proprietà viene creata quando il `@MasterType` direttiva è inclusa, vedere [K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx)del post di blog [ `@MasterType` in ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx).
 
 
 ### <a name="updating-the-master-page-after-adding-a-new-product"></a>Aggiornamento della pagina Master dopo l'aggiunta di un nuovo prodotto
@@ -240,9 +240,9 @@ Il codice precedente utilizza entrambi i fortemente tipizzato `Page.Master` prop
 Figura 8 viene illustrata la `AddProduct.aspx` pagina immediatamente dopo un nuovo prodotto - Scott Soda - è stato aggiunto al database. Si noti che il nome di prodotto appena aggiunto è indicato nell'etichetta della pagina master e che il controllo GridView è stato aggiornato per includere il prodotto e prezzo corrispondente.
 
 
-[![Etichetta della pagina Master e GridView Mostra il prodotto appena aggiunto](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
+[![Etichetta della pagina Master e GridView mostrano il prodotto Just-aggiunta](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
 
-**Figura 08**: etichetta della pagina Master e GridView Mostra il prodotto Just-Added ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))
+**Figura 08**: etichetta della pagina Master e GridView mostrano il prodotto Just-Added ([fare clic per visualizzare l'immagine ingrandita](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -263,16 +263,16 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Pagine Master ASP.NET: Suggerimenti, consigli e trap](http://www.odetocode.com/articles/450.aspx)
 - [`@MasterType` in ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
 - [Il passaggio di informazioni tra il contenuto e pagine Master](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
-- [Utilizzo dei dati nelle esercitazioni ASP.NET](../../data-access/index.md)
+- [Utilizzo di dati nelle esercitazioni ASP.NET](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Zack Jones. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Zack Jones. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](control-id-naming-in-content-pages-vb.md)
-[Successivo](interacting-with-the-content-page-from-the-master-page-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](control-id-naming-in-content-pages-vb.md)
+> [Successivo](interacting-with-the-content-page-from-the-master-page-vb.md)

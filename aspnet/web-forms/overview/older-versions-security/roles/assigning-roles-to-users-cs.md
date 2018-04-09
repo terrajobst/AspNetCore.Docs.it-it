@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 title: L'assegnazione di ruoli agli utenti (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione che verranno create due pagine ASP.NET per agevolare la gestione degli utenti a cui appartengono a quali ruoli. La prima pagina includerà strutture per vedere quali..."
+description: In questa esercitazione che verranno create due pagine ASP.NET per agevolare la gestione degli utenti a cui appartengono a quali ruoli. La prima pagina includerà strutture per vedere quali...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d2b427e6fccfc82eab535200ba6878ab41b72e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0518cd04f6b7f055a413b2b236712965451839c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="assigning-roles-to-users-c"></a>L'assegnazione di ruoli agli utenti (c#)
 ====================
@@ -62,7 +62,7 @@ Questa definizione CSS indica al browser per visualizzare l'etichetta di un cara
 
 [![La proprietà dell'etichetta CssClass comporta un tipo di carattere di grandi dimensioni, di colore rosso](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
 
-**Figura 1**: l'etichetta `CssClass` proprietà comporta un grande, il tipo di carattere rosso ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image3.png))
+**Figura 1**: l'etichetta `CssClass` risultati della proprietà in un grande, tipo di carattere rosso ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image3.png))
 
 
 Successivamente, aggiungere un controllo DropDownList alla pagina, impostare il relativo `ID` proprietà `UserList`e impostare il relativo `AutoPostBack` proprietà su True. Si utilizzerà questo DropDownList per elencare tutti gli utenti nel sistema. Questo DropDownList verrà associata a una raccolta di oggetti MembershipUser. Dal momento che DropDownList per visualizzare le proprietà UserName dell'oggetto MembershipUser (e utilizzarlo come valore degli elementi dell'elenco), impostare il DropDownList `DataTextField` e `DataValueField` proprietà su "UserName".
@@ -98,7 +98,7 @@ Con questo codice, dedicare alcuni minuti per visitare la pagina tramite un brow
 
 [![Nella pagina vengono visualizzati gli utenti e ruoli](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
 
-**Figura 2**: la pagina Visualizza gli utenti e i ruoli ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image6.png))
+**Figura 2**: nella pagina vengono visualizzati gli utenti e ruoli ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image6.png))
 
 
 ### <a name="checking-the-roles-the-selected-user-belongs-to"></a>Controllare i ruoli utente selezionato appartiene a
@@ -138,9 +138,9 @@ Il codice sopra riportato viene avviato facendo riferimento a livello di codice 
 È opportuno testare questa pagina tramite un browser. Selezionare utente Tito e quindi aggiungervi Tito supervisori sia agli amministratori di ruoli.
 
 
-[![È stato aggiunto tito agli amministratori e ai ruoli supervisori](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
+[![Tito è stato aggiunto per gli amministratori e ruoli supervisori](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
 
-**Figura 3**: Tito è stato aggiunto agli amministratori e ai ruoli supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image9.png))
+**Figura 3**: È stato aggiunto Tito agli amministratori e ai ruoli supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image9.png))
 
 
 Successivamente, selezionare utente Bruce dall'elenco a discesa. È un postback e caselle di controllo del ripetitore vengono aggiornati tramite il `CheckRolesForSelectedUser`. Poiché Bruce non ancora appartiene ad alcun ruolo, le due caselle di controllo siano deselezionate. Successivamente, aggiungere Bruce al ruolo supervisori.
@@ -172,7 +172,7 @@ Le ultime due righe nel `BindRolesToList` metodo sono stati aggiunti al set di r
 
 [![I ruoli vengono visualizzati in RoleList DropDownList](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
 
-**Figura 5**: il ruoli vengono visualizzati nel `RoleList` DropDownList ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image15.png))
+**Figura 5**: ruoli di vengono visualizzati nel `RoleList` DropDownList ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image15.png))
 
 
 ### <a name="displaying-the-users-that-belong-to-the-selected-role"></a>Visualizzare gli utenti che appartengono al ruolo selezionato
@@ -192,7 +192,7 @@ Con questo codice nella posizione, la `RolesUserList` GridView deve visualizzare
 
 [![GridView Elenca gli utenti che appartengono al ruolo selezionato](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
 
-**Figura 6**: il GridView Elenca quelli gli utenti che appartengono al ruolo selezionato ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image18.png))
+**Figura 6**: il GridView sono elencati quelli gli utenti che appartengono al ruolo selezionato ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image18.png))
 
 
 ### <a name="removing-users-from-the-selected-role"></a>Rimozione di utenti dal ruolo selezionato
@@ -295,7 +295,7 @@ Selezionare quindi la "Aggiungi/Rimuovi `WizardSteps`..." opzione Smart Tag del 
 
 [![Aggiungere il](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
 
-**Figura 11**: aggiungere "Specificare ruoli" `WizardStep` per CreateUserWizard ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image33.png))
+**Figura 11**: aggiungere "Specificare ruoli" `WizardStep` a CreateUserWizard ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image33.png))
 
 
 Dopo questa modifica markup dichiarativo del CreateUserWizard dovrebbe essere simile al seguente:
@@ -323,15 +323,15 @@ Visitare questa pagina tramite un browser. Il primo passaggio CreateUserWizard �
 
 [![Creare un nuovo utente denominato Wanda](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
 
-**Figura 12**: creare un nuovo Wanda di nome utente ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image36.png))
+**Figura 12**: creare un nuovo Wanda denominato di utente ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image36.png))
 
 
 Fare clic sul pulsante "Create User". CreateUserWizard chiama internamente il `Membership.CreateUser` (metodo), la creazione del nuovo account utente, quindi avanza al passaggio successivo, "specificare ruoli". Di seguito sono elencati i ruoli del sistema. Selezionare la casella di controllo supervisori e fare clic su Avanti.
 
 
-[![Assicurarsi di un membro del ruolo supervisori Wanda](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
+[![Rendere membro del ruolo mentre per i supervisori Wanda](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
 
-**Figura 13**: rendere Wanda un membro del ruolo supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image39.png))
+**Figura 13**: impostare Wanda come membro del ruolo mentre per i supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image39.png))
 
 
 Fare clic su Avanti provoca un postback e gli aggiornamenti di `ActiveStep` al passaggio "Completa". Nel `ActiveStepChanged` gestore dell'evento, a cui è assegnato al ruolo supervisori l'account utente creato di recente. Per verificarlo, tornare al `UsersAndRoles.aspx` pagina e selezionare i supervisori dal `RoleList` DropDownList. Come mostrato nella figura 14, i supervisori sono ora costituiti da tre utenti: Bruce Tito e Wanda.
@@ -339,7 +339,7 @@ Fare clic su Avanti provoca un postback e gli aggiornamenti di `ActiveStep` al p
 
 [![Bruce Tito e Wanda sono tutti i supervisori](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
 
-**Nella figura 14**: Bruce Tito e Wanda sono tutti i supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image42.png))
+**Figura 14**: Bruce Tito e Wanda sono tutti i supervisori ([fare clic per visualizzare l'immagine ingrandita](assigning-roles-to-users-cs/_static/image42.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -357,17 +357,17 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Panoramica dello strumento Amministrazione sito Web ASP.NET](https://msdn.microsoft.com/library/ms228053.aspx)
-- [Esame di ASP. L'appartenenza, ruoli e profilo di rete](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Strumento Amministrazione sito Web in sequenza](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [Esame ASP. Appartenenza, ruoli e profilo di rete](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [In sequenza il proprio strumento Amministrazione sito Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali...
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](creating-and-managing-roles-cs.md)
-[Successivo](role-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-and-managing-roles-cs.md)
+> [Successivo](role-based-authorization-cs.md)

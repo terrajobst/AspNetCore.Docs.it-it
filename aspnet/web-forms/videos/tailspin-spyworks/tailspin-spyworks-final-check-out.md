@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-final-check-out
 msc.type: video
-ms.openlocfilehash: 34350feed96ff8df8b3777221b24d8108dd0a0f7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 36c915ea297802045745ba66d00c740df1f0b2ad
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tailspin-spyworks---final-check-out"></a>Estrarre Tailspin Spyworks - finale
 ====================
@@ -24,8 +24,8 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Joe Stagner inserisce l'ordine del cliente durante l'estrazione finale del processo per l'applicazione Web Form di esempio Tailspin Spyworks.
 
-[&#9654; Guardare video (minuti 37)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-final-check-out)
+[&#9654;Guardare video (minuti 37)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-final-check-out)
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-migrate-the-shopping-cart.md)
-[Successivo](tailspin-spyworks-adding-user-product-reviews.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-migrate-the-shopping-cart.md)
+> [Successivo](tailspin-spyworks-adding-user-product-reviews.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
 title: Modifica del codice Web Forms ASP.NET in Visual Studio 2013 | Documenti Microsoft
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Codice modifica Web Forms ASP.NET in Visual Studio 2013
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 In molte pagine Web Form ASP.NET, scrivere codice in Visual Basic, c# o un altro linguaggio. L'editor di codice in Visual Studio consentono di scrivere rapidamente codice senza commettere errori. Inoltre, l'editor fornisce metodi per creare codice riutilizzabile per ridurre la quantità di lavoro, che è necessario eseguire.
 
@@ -46,7 +46,7 @@ Per completare questa procedura dettagliata, è necessario:
     >   
     > Se si utilizza Visual Studio, questa procedura dettagliata si presuppone che sia selezionato il **lo sviluppo Web** raccolta di impostazioni la prima volta che viene avviato Visual Studio. Per ulteriori informazioni, vedere [come: Seleziona impostazioni ambiente di sviluppo Web](https://msdn.microsoft.com/library/ff521558.aspx).
 
- Per un'introduzione a Visual Studio e ASP.NET, vedere [la creazione di una pagina Web Form ASP.NET 4.5 basic in Visual Studio 2013](creating-a-basic-web-forms-page.md).   
+  Per un'introduzione a Visual Studio e ASP.NET, vedere [la creazione di una pagina Web Form ASP.NET 4.5 basic in Visual Studio 2013](creating-a-basic-web-forms-page.md).   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Creazione di un progetto di applicazione Web e una pagina
@@ -59,7 +59,7 @@ In questa parte della procedura dettagliata, si verrà creato un progetto di app
 
 1. Aprire Microsoft Visual Studio.
 2. Nel menu **File** selezionare **Nuovo progetto**.  
-    ![Dal Menu file](code-editing-in-web-forms-pages/_static/image1.png)
+    ![Menu file](code-editing-in-web-forms-pages/_static/image1.png)
 
     Verrà visualizzata la finestra di dialogo **Nuovo progetto** .
 3. Selezionare il **modelli**  - &gt; **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra.
@@ -83,7 +83,7 @@ Quando si crea una nuova applicazione Web Form mediante la **applicazione Web AS
 1. In **Esplora soluzioni**, fare doppio clic sul nome dell'applicazione Web (in questa esercitazione è il nome dell'applicazione **BasicWebSite**), quindi fare clic su **Aggiungi**  - &gt; **Nuovo elemento**.   
 Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare il **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra. Selezionare quindi **Web Form** dal centro elenco e denominarlo *FirstWebPage*.   
-    ![Aggiungere la finestra di dialogo Nuovo elemento](code-editing-in-web-forms-pages/_static/image4.png)
+    ![Aggiungi finestra di dialogo Nuovo elemento](code-editing-in-web-forms-pages/_static/image4.png)
 3. Fare clic su **Aggiungi** per aggiungere la pagina Web Form al progetto.  
  Visual Studio crea la nuova pagina e viene aperto.
 4. Quindi, impostare la nuova pagina come pagina di avvio predefinito. In **Esplora**, fare doppio clic su nuova pagina denominata *FirstWebPage* e selezionare **imposta come pagina iniziale**. Alla successiva esecuzione di questa applicazione per testare l'avanzamento, si visualizzerà automaticamente la nuova pagina nel browser.
@@ -98,19 +98,19 @@ L'editor di codice in Visual Studio consente di evitare errori quando si scrive 
 
 
 1. In **progettazione** visualizzare, fare doppio clic sulla pagina vuota per creare un gestore per il **carico** evento per la pagina.   
-Si utilizza il gestore dell'evento solo come punto di scrivere codice.
+   Si utilizza il gestore dell'evento solo come punto di scrivere codice.
 2. All'interno del gestore, digitare la seguente riga che contiene un errore e premere **invio**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- Quando si preme **invio**, editor di codice inserito sottolineature ondulate di colore verde e rossi (comunemente chiamare &quot;ondulate&quot; righe) con aree del codice che presentano problemi. Una sottolineatura verde indica un avviso. Una linea rossa ondulata indica un errore che è necessario correggere. 
+   Quando si preme **invio**, editor di codice inserito sottolineature ondulate di colore verde e rossi (comunemente chiamare &quot;ondulate&quot; righe) con aree del codice che presentano problemi. Una sottolineatura verde indica un avviso. Una linea rossa ondulata indica un errore che è necessario correggere. 
 
     Posiziona il puntatore del mouse su `myStr` per visualizzare una descrizione comando indicante sull'avviso. Inoltre, tenere il puntatore del mouse sulla sottolineatura rossa per visualizzare il messaggio di errore.
 
     La figura seguente mostra il codice con le sottolineature.
 
     ![Testo di benvenuto in visualizzazione Progettazione](code-editing-in-web-forms-pages/_static/image5.png "testo di benvenuto in visualizzazione Progettazione")  
- È necessario correggere l'errore mediante l'aggiunta di un punto e virgola `;` alla fine della riga. L'avviso semplicemente che informa che non è stato utilizzato il `myStr` ancora variabile.  
+   È necessario correggere l'errore mediante l'aggiunta di un punto e virgola `;` alla fine della riga. L'avviso semplicemente che informa che non è stato utilizzato il `myStr` ancora variabile.  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ In questa parte della procedura dettagliata, verrà scritto un codice semplice e
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- Il codice crea un **ArrayList** oggetto utilizza un ciclo per caricarla con i valori e quindi utilizza un altro ciclo per visualizzare il contenuto del **ArrayList** oggetto.
+   Il codice crea un **ArrayList** oggetto utilizza un ciclo per caricarla con i valori e quindi utilizza un altro ciclo per visualizzare il contenuto del **ArrayList** oggetto.
 4. Premere **CTRL + F5** per eseguire la pagina e quindi fare clic su di **pulsante** per assicurarsi che verrà visualizzato il seguente output:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]
@@ -192,6 +192,6 @@ Ogni linguaggio che si utilizza Visual Studio presenta lievi differenze nella mo
 Questa procedura dettagliata è state illustrate le funzionalità di base dell'editor di codice di Visual Studio 2010 per la correzione degli errori nel codice, il refactoring del codice, la ridenominazione di variabili e l'inserimento di frammenti di codice nel codice. Altre funzionalità dell'editor può rendere più semplice e rapido lo sviluppo di applicazioni. Può, ad esempio, essere necessario:
 
 - Altre informazioni sulle funzionalità di IntelliSense, ad esempio la modifica delle opzioni di IntelliSense e la Gestione frammenti di codice per frammenti di codice in linea. Per altre informazioni, vedere [Using IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx) (Uso di IntelliSense).
-- Informazioni su come creare frammenti di codice. Per ulteriori informazioni, vedere [creazione e utilizzo dei frammenti di codice IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
-- Ulteriori informazioni sulle funzionalità specifiche di Visual Basic di frammenti di codice IntelliSense, ad esempio i frammenti di codice di personalizzazione e la risoluzione dei problemi. Per ulteriori informazioni, vedere [frammenti di codice IntelliSense di Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- Informazioni su come creare frammenti di codice. Per altre informazioni, vedere [creazione e utilizzo dei frammenti di codice IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
+- Ulteriori informazioni sulle funzionalità specifiche di Visual Basic di frammenti di codice IntelliSense, ad esempio i frammenti di codice di personalizzazione e la risoluzione dei problemi. Per altre informazioni, vedere [frammenti di codice IntelliSense di Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx)
 - Altre informazioni su c#-funzionalità specifiche di IntelliSense, ad esempio il refactoring e frammenti di codice. Per ulteriori informazioni, vedere [Visual c# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).

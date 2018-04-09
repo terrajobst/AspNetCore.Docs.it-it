@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 title: Creazione di layout di pagina con pagine Master di visualizzazione (c#) | Documenti Microsoft
 author: microsoft
-description: "In questa esercitazione imparare a creare un layout di pagina comune per più pagine dell'applicazione per sfruttare i vantaggi della visualizzazione pagine master. È possibile utilizzare un..."
+description: In questa esercitazione imparare a creare un layout di pagina comune per più pagine dell'applicazione per sfruttare i vantaggi della visualizzazione pagine master. È possibile utilizzare un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5d564b7e562435e8c6b1151287cbb1aec3d6bd10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82500a311e1110713a60604027d018ba16539b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-c"></a>Creazione di layout di pagina con pagine Master di visualizzazione (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_CS.pdf)
 
@@ -40,9 +40,9 @@ In questa esercitazione imparare a creare una nuova pagina master di visualizzaz
 Iniziamo creando una pagina master che definisce un layout a due colonne. Aggiungere una nuova pagina master visualizzazione a un progetto MVC facendo cartella Views\Shared selezionando l'opzione di menu **Aggiungi, elemento nuovo**e selezionando il **pagina Master visualizzazione MVC** modello (vedere la figura 1).
 
 
-[![Aggiunta di una pagina master di visualizzazione](creating-page-layouts-with-view-master-pages-cs/_static/image2.png)](creating-page-layouts-with-view-master-pages-cs/_static/image1.png)
+[![Aggiunta di una pagina master visualizzazione](creating-page-layouts-with-view-master-pages-cs/_static/image2.png)](creating-page-layouts-with-view-master-pages-cs/_static/image1.png)
 
-**Figura 01**: aggiunta di una pagina master di visualizzazione ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image3.png))
+**Figura 01**: aggiunta di una pagina master visualizzazione ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image3.png))
 
 
 È possibile creare più di una pagina master di visualizzazione in un'applicazione. Ogni pagina master visualizzazione è possibile definire un layout di pagina diversa. Ad esempio, è necessario determinate pagine di un layout a due colonne e le altre pagine di un layout a tre colonne.
@@ -51,7 +51,7 @@ Una pagina master di visualizzazione è molto simile a una visualizzazione ASP.N
 
 Ad esempio, la pagina master visualizzazione nel listato 1 definisce un layout a due colonne. Contiene due `<contentplaceholder>` tag. Un `<ContentPlaceHolder>` per ogni colonna.
 
-**Elenco 1:`Views\Shared\Site.master`**
+**Elenco 1: `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample1.aspx)]
 
@@ -60,7 +60,7 @@ Il corpo della visualizzazione pagina master nel listato 1 contiene due `<div>` 
 
 [![Visualizzazione in anteprima una pagina master nella finestra di progettazione](creating-page-layouts-with-view-master-pages-cs/_static/image5.png)](creating-page-layouts-with-view-master-pages-cs/_static/image4.png)
 
-**Figura 02**: anteprima di una pagina master nella finestra di progettazione ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image6.png))
+**Figura 02**: la visualizzazione in anteprima una pagina master nella finestra di progettazione ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image6.png))
 
 
 ### <a name="creating-a-view-content-page"></a>Creazione di una pagina di visualizzazione del contenuto
@@ -68,9 +68,9 @@ Il corpo della visualizzazione pagina master nel listato 1 contiene due `<div>` 
 Dopo aver creato una pagina master di visualizzazione, è possibile creare vista di uno o più pagine di contenuto in base alla pagina di visualizzazione master. Ad esempio, è possibile creare una pagina contenuta visualizzazione di indice per il controller Home facendo cartella Views\Home selezionando **Aggiungi, elemento nuovo**, se si seleziona il **pagina contenuto visualizzazione MVC** modello, immettere il nome Index.aspx e fare clic su di **Aggiungi** pulsante (vedere la figura 3).
 
 
-[![Aggiunta di una pagina di visualizzazione del contenuto](creating-page-layouts-with-view-master-pages-cs/_static/image8.png)](creating-page-layouts-with-view-master-pages-cs/_static/image7.png)
+[![Aggiunta di una pagina contenuto visualizzazione](creating-page-layouts-with-view-master-pages-cs/_static/image8.png)](creating-page-layouts-with-view-master-pages-cs/_static/image7.png)
 
-**Figura 03**: aggiunta di una pagina di visualizzazione del contenuto ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image9.png))
+**Figura 03**: aggiunta di una pagina contenuto visualizzazione ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image9.png))
 
 
 Dopo aver fatto clic sul pulsante Aggiungi viene visualizzata una nuova finestra di dialogo che consente di selezionare una pagina master per associare la pagina di visualizzazione del contenuto (vedere la figura 4). È possibile passare alla pagina Site. master visualizzazione master creato nella sezione precedente.
@@ -83,7 +83,7 @@ Dopo aver fatto clic sul pulsante Aggiungi viene visualizzata una nuova finestra
 
 Dopo aver creato una nuova pagina contenuto visualizzazione della pagina master Site. master, ottenere il file di listato 2.
 
-**Elenco di 2:`Views\Home\Index.aspx`**
+**Elenco 2: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample2.aspx)]
 
@@ -97,14 +97,14 @@ Non è necessario eseguire l'override di ogni `<asp:ContentPlaceHolder>` tag da 
 
 Ad esempio, la visualizzazione dell'indice modificata nel listato 3 contiene solo due `<asp:Content>` tag. Ogni il `<asp:Content>` tag include del testo.
 
-**Elenco di 3:`Views\Home\Index.aspx (modified)`**
+**Elenco di 3: `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample3.aspx)]
 
 Quando viene richiesta la visualizzazione nel listato 3, rendering della pagina nella figura 5. Si noti che la visualizzazione esegue il rendering di una pagina con due colonne. Si noti inoltre che il contenuto pagina della visualizzazione del contenuto viene unito con il contenuto della pagina master visualizzazione
 
 
-[![La pagina di indice Visualizza contenuta](creating-page-layouts-with-view-master-pages-cs/_static/image14.png)](creating-page-layouts-with-view-master-pages-cs/_static/image13.png)
+[![La pagina di indice visualizzazione contenuto](creating-page-layouts-with-view-master-pages-cs/_static/image14.png)](creating-page-layouts-with-view-master-pages-cs/_static/image13.png)
 
 **Figura 05**: pagina contenuto visualizzazione l'indice ([fare clic per visualizzare l'immagine ingrandita](creating-page-layouts-with-view-master-pages-cs/_static/image15.png))
 
@@ -127,7 +127,7 @@ Quando la visualizzazione dell'indice viene eseguito il rendering nel browser, v
 
 È un approccio alternativo alla modifica del contenuto della pagina master da una pagina di contenuto di visualizzazione per eseguire il wrapping l'area che si desidera modificare un `<asp:ContentPlaceHolder>` tag. Si supponga, ad esempio, che si desidera modificare non solo il titolo, ma anche il tag meta, eseguito il rendering da una pagina di visualizzazione master. La pagina di visualizzazione master listato 4 contiene un `<asp:ContentPlaceHolder>` tag relativo `<head>` tag.
 
-**Elenco di 4:`Views\Shared\Site2.master`**
+**Elenco di 4: `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample5.aspx)]
 
@@ -135,7 +135,7 @@ Si noti che il `<asp:ContentPlaceHolder>` tag listato 4 include il contenuto pre
 
 La pagina di visualizzazione del contenuto nel listato 5 esegue l'override di `<asp:ContentPlaceHolder>` tag per visualizzare un titolo personalizzato e metatag personalizzati.
 
-**Elenco di 5:`Views\Home\Index2.aspx`**
+**Elenco 5: `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample6.aspx)]
 
@@ -143,6 +143,6 @@ La pagina di visualizzazione del contenuto nel listato 5 esegue l'override di `<
 
 In questa esercitazione viene fornita un'introduzione di base per visualizzare le pagine master e pagine di contenuto. È stato descritto come creare nuova vista pagine master e visualizzazione di pagine di contenuto basati su di essi. È inoltre esaminato come è possibile modificare il contenuto di una pagina master di visualizzazione da una pagina contenuto visualizzazione specifica.
 
->[!div class="step-by-step"]
-[Precedente](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
-[Successivo](passing-data-to-view-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [Successivo](passing-data-to-view-master-pages-cs.md)

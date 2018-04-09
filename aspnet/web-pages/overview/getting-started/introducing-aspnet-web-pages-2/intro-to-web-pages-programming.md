@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 title: 'Introduzione a ASP.NET Web Pages: programmazione di concetti di base | Documenti Microsoft'
 author: tfitzmac
-description: "In questa esercitazione fornisce una panoramica di come programma in ASP.NET Web Pages con sintassi Razor. Si apprenderà: la sintassi \"Razor\" di base utilizzato per pr..."
+description: 'In questa esercitazione fornisce una panoramica di come programma in ASP.NET Web Pages con sintassi Razor. Si apprenderà: la sintassi "Razor" di base utilizzato per pr...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/17/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Introduzione a ASP.NET Web Pages - nozioni di base sulla programmazione
 ====================
@@ -103,7 +103,7 @@ Non si è limitato alle variabili, tuttavia. In alcuni casi, il carattere @ prec
 
 - @(un\*b) esegue il rendering del prodotto delle informazioni presenti nelle variabili di un a e b. (Il \* operatore: moltiplicazione.)
 - @(tecnologia + "" + prodotto) Visualizza i valori in una tecnologia di variabili e il prodotto dopo concatenarle e aggiunta di uno spazio tra. L'operatore (+) per la concatenazione di stringhe è lo stesso come operatore per l'aggiunta di numeri. ASP.NET in genere è possibile indicare se si sta lavorando con numeri o stringhe e consente di eseguire l'operazione di destra con l'operatore +.
-- @Request.Urlesegue il rendering la proprietà Url dell'oggetto della richiesta. L'oggetto richiesta contiene informazioni sulla richiesta corrente dal browser e naturalmente la proprietà Url contiene l'URL della richiesta corrente.
+- @Request.Url esegue il rendering la proprietà Url dell'oggetto della richiesta. L'oggetto richiesta contiene informazioni sulla richiesta corrente dal browser e naturalmente la proprietà Url contiene l'URL della richiesta corrente.
 
 L'esempio è inoltre progettato per mostrare che è possibile eseguire il lavoro in modi diversi. È possibile eseguire calcoli nel blocco di codice nella parte superiore, inserire i risultati in una variabile e quindi eseguire il rendering la variabile nel markup. Oppure è possibile eseguire calcoli in un diritto di espressione nel markup. L'approccio adottato dipende dalle operazioni eseguite e, in alcuni casi, delle proprie preferenze.
 
@@ -165,7 +165,7 @@ Ecco alcuni esempi di condizioni, è possibile verificare in un'istruzione:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-È possibile testare le variabili in base a valori o espressioni utilizzando un *operatore logico* o *operatore di confronto*: uguale a (= =), maggiore di (&gt;), minore di (&lt;), maggiore o uguale a (&gt;=) e minore o uguale a (&lt;=). Il! = operatore significa non è uguale a, ad esempio, se (un! = 0) significa *se* *un**non è uguale a 0*.
+È possibile testare le variabili in base a valori o espressioni utilizzando un <em>operatore logico</em> o <em>operatore di confronto</em>: uguale a (= =), maggiore di (&gt;), minore di (&lt;), maggiore o uguale a (&gt;=) e minore o uguale a (&lt;=). Il! = operatore significa non è uguale a, ad esempio, se (un! = 0) significa <em>se</em> <em>un</em><em>non è uguale a 0</em>.
 
 > [!NOTE]
 > Verificare che si nota che l'operatore di confronto uguale a (= =) non è identico a quello =. I = operatore viene usato solo per assegnare valori (var un = 2). Se si combinano questi operatori di, si ottiene un errore o si otterrà alcuni risultati imprevisti.
@@ -207,7 +207,7 @@ Eseguire la pagina e fare clic su **Invia**. Questa volta non visualizzare solo 
 
 ### <a name="testing-the-value-of-a-query-string"></a>Verifica del valore di una stringa di query
 
-Un test di altre. Questa volta, si aggiungerà un se blocco che consente di verificare un valore denominato show che possono essere passati nella stringa di query. (Come segue: ' http://localhost:43097/TestRazorPart2.cshtml`?show=true`) si modificherà la pagina in modo che il messaggio in cui è stato visualizzati ("È la prima volta...", ecc.) viene visualizzata solo se il valore di show è true.
+Un test di altre. Questa volta, si aggiungerà un se blocco che consente di verificare un valore denominato show che possono essere passati nella stringa di query. (Come segue: 'http://localhost:43097/TestRazorPart2.cshtml`?show=true`) si modificherà la pagina in modo che il messaggio è stato visualizzati ("This is la prima volta..." e così via) viene visualizzata solo se il valore di show è true.
 
 Nella parte inferiore (ma interno), il blocco di codice nella parte superiore della pagina, aggiungere quanto segue:
 
@@ -231,7 +231,7 @@ Il test di esamina la proprietà di stringa di query dell'oggetto della richiest
 
 > [!TIP] 
 > 
-> **Tipi di dati e i metodi di metodo**
+> **Tipi di dati e i metodi As()**
 > 
 > È stato detto solo fino a questo punto quando si crea una variabile, utilizzare la funzione VAR (parola chiave). Che non però l'intera sequenza. Per modificare i valori, per aggiungere i numeri, o concatenare stringhe, o confrontare le date o di test per true o false, c# deve utilizzare a una rappresentazione interna appropriata del valore. C# può *in genere* scoprire quale deve essere tale rappresentazione (vale a dire, cosa *tipo* i dati sono) in base alle operazioni eseguite con i valori. E quindi, tuttavia, non può che. In caso contrario, è necessario aiutare indicando come c# devono rappresentare i dati in modo esplicito. Esegue il metodo AsBool, indica in c# che un valore stringa "true" o "false" deve essere considerato come un valore booleano. Sono disponibili metodi simili per rappresentare le stringhe come altri tipi, nonché come AsInt (considera come un numero intero), AsDateTime (considera come una data/ora), AsFloat (considera come numero a virgola mobile) e così via. Quando si utilizza queste informazioni come metodi (), c# non può rappresentare il valore di stringa come richiesto, verrà visualizzato un errore.
 
@@ -259,7 +259,7 @@ Nel caso in cui non si è certi interamente di le modifiche appena apportate, di
 
 Eseguire la pagina. Nessun messaggio, infatti showMessage è false, nel markup if(showMessage) test restituisce false.
 
-Fare clic su **inviare**. Viene visualizzato, la data e ora, ma ancora alcun messaggio.
+Fare clic su **Invia**. Viene visualizzato, la data e ora, ma ancora alcun messaggio.
 
 Nel browser, passare alla casella URL e aggiungere quanto segue alla fine dell'URL:? Mostra = true e quindi premere INVIO.
 
@@ -281,7 +281,7 @@ Le pagine Web ASP.NET dispone di alcuni helper compilato. Tuttavia, molte funzio
 
 In questa parte dell'esercitazione, verrà installato un helper che consente di visualizzare l'immagine Gravatar ("avatar riconosciuto a livello globale"). Si apprenderà due operazioni. Uno viene illustrato come trovare e installare un file di supporto. Si apprenderà inoltre come un helper semplifica eseguire un'operazione in caso contrario è necessario eseguire con una grande quantità di codice che è necessario scrivere manualmente.
 
-È possibile registrare la propria Gravatar nel sito Web Gravatar in [http://www.gravatar.com/](http://www.gravatar.com/), ma non è essenziale per creare un account Gravatar per eseguire questa parte dell'esercitazione.
+È possibile registrare la propria Gravatar nel sito Web Gravatar al [ http://www.gravatar.com/ ](http://www.gravatar.com/), ma non è essenziale per creare un account Gravatar per eseguire questa parte dell'esercitazione.
 
 In WebMatrix, fare clic su di **NuGet** pulsante.
 
@@ -357,9 +357,9 @@ L'esercitazione successiva presentato l'utilizzo di un database. In tale esercit
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introduzione alla programmazione Web ASP.NET con sintassi Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Helper di Twitter](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[Precedente](getting-started.md)
-[Successivo](displaying-data.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started.md)
+> [Successivo](displaying-data.md)

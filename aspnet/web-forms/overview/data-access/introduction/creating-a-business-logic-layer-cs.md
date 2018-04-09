@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 title: Creazione di un livello di logica di Business (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si vedrà come centralizzare le regole business in un livello Business (LOGIC) che funge da intermediario per lo scambio di dati tra t..."
+description: In questa esercitazione si vedrà come centralizzare le regole business in un livello Business (LOGIC) che funge da intermediario per lo scambio di dati tra t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7518ddd11a05a9e3d5df85e3cf6ceffa09a25060
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6e73e9e68e4abb0d382baa7da925c167809e417a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-business-logic-layer-c"></a>Creazione di un livello di logica di Business (c#)
 ====================
@@ -36,7 +36,7 @@ In questa esercitazione vedremo come centralizzare le regole business in un live
 
 ![Il livello Business LOGIC separa il livello di presentazione dal livello di accesso ai dati e impone le regole di Business](creating-a-business-logic-layer-cs/_static/image1.png)
 
-**Figura 1**: il livello Business LOGIC separa il livello di presentazione dal livello di accesso ai dati e impone le regole di Business
+**Figura 1**: il livello Business LOGIC separa il livello di presentazione dal livello di accesso ai dati e impone le regole Business
 
 
 ## <a name="step-1-creating-the-bll-classes"></a>Passaggio 1: Creazione di classi BLL
@@ -61,13 +61,13 @@ Successivamente, aggiungere metodi a ognuna delle classi a capo semplicemente i 
 
 Per il `ProductsBLL` è necessario aggiungere un totale di sette metodi di classe:
 
-- `GetProducts()`Restituisce tutti i prodotti
-- `GetProductByProductID(productID)`Restituisce il prodotto con l'ID prodotto specificato
-- `GetProductsByCategoryID(categoryID)`Restituisce tutti i prodotti dalla categoria specificata
-- `GetProductsBySupplier(supplierID)`Restituisce tutti i prodotti dal fornitore specificato
-- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)`Inserisce un nuovo prodotto nel database utilizzando i valori passati aggiuntivo. Restituisce il `ProductID` valore del record appena inserito
-- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)`Aggiorna un prodotto esistente nel database utilizzando i valori passati. Restituisce `true` se è stata aggiornata in modo preciso una riga, `false` in caso contrario
-- `DeleteProduct(productID)`Elimina il prodotto specificato dal database
+- `GetProducts()` Restituisce tutti i prodotti
+- `GetProductByProductID(productID)` Restituisce il prodotto con l'ID prodotto specificato
+- `GetProductsByCategoryID(categoryID)` Restituisce tutti i prodotti dalla categoria specificata
+- `GetProductsBySupplier(supplierID)` Restituisce tutti i prodotti dal fornitore specificato
+- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)` Inserisce un nuovo prodotto nel database utilizzando i valori passati aggiuntivo. Restituisce il `ProductID` valore del record appena inserito
+- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` Aggiorna un prodotto esistente nel database utilizzando i valori passati in. Restituisce `true` se è stata aggiornata in modo preciso una riga, `false` in caso contrario
+- `DeleteProduct(productID)` Elimina il prodotto specificato dal database
 
 ProductsBLL.cs
 
@@ -205,12 +205,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Liz Shulok, Dennis Patterson, Carlos Santos e Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](creating-a-data-access-layer-cs.md)
-[Successivo](master-pages-and-site-navigation-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-data-access-layer-cs.md)
+> [Successivo](master-pages-and-site-navigation-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>Parte 4: Elenco di prodotti
 ====================
@@ -27,7 +27,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 > Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 4 viene illustrata l'elenco di prodotti con il controllo GridView.
 
 
-## <a id="_Toc260221670"></a>Elenco di prodotti con il controllo GridView
+## <a id="_Toc260221670"></a>  Elenco di prodotti con il controllo GridView
 
 Esaminiamo implementazione page ProductsList.aspx "Facendo clic" nella soluzione, selezionare "Aggiungi" e "New Item".
 
@@ -100,6 +100,6 @@ Il database contiene una tabella denominata "ShoppingCart". Quando viene generat
 
 È inoltre importante notare che si creeranno un carrello semplice e incorporare la logica di carrello degli acquisti con la visualizzazione del carrello acquisti. È possibile anche scegliere di implementare nostro carrello acquisti in un livello di Business completamente separate.
 
->[!div class="step-by-step"]
-[Precedente](tailspin-spyworks-part-3.md)
-[Successivo](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [Precedente](tailspin-spyworks-part-3.md)
+> [Successivo](tailspin-spyworks-part-5.md)

@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b85645eebf2822b33df944692736ea9d9b69b9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Ottimizzazione delle prestazioni con Entity Framework 4.0 in un'applicazione Web 4 ASP.NET
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > Questa serie di esercitazioni si basa sull'applicazione web di Contoso University creando il [introduzione di Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serie di esercitazioni. Se non ha completato le esercitazioni precedenti, come punto di partenza per questa esercitazione è possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) che consente di creare. È anche possibile [scaricare l'applicazione](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creati tramite la serie di esercitazioni completo. Nel caso di problemi con le esercitazioni, è possibile registrarli per il [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -54,15 +54,15 @@ Per avviare l'esercitazione, avviare Visual Studio e aprire l'applicazione web d
 
 Esistono diversi modi di Entity Framework può caricare i dati correlati alle proprietà di navigazione di un'entità:
 
-- *Caricamento lazy*. Durante la lettura di entità, non recuperare i dati correlati. La prima volta che si tenta di accedere a una proprietà di navigazione, viene tuttavia recuperati automaticamente i dati necessari per la proprietà di navigazione. Di conseguenza, più query inviate al database, ovvero uno per l'entità stessa e uno ogni volta che i dati per l'entità correlati deve essere recuperato. 
+- *Caricamento lazy*. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si tenta di accedere a una proprietà di navigazione, tuttavia, i dati necessari per quest'ultima vengono recuperati automaticamente. Di conseguenza, più query inviate al database, ovvero uno per l'entità stessa e uno ogni volta che i dati per l'entità correlati deve essere recuperato. 
 
     [![Image05](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image2.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image1.png)
 
-*Caricamento eager*. Durante la lettura di entità, i dati correlati vengono recuperati con essa. Ciò comporta in genere una query singola join che recupera tutti i dati necessari. Per specificare il caricamento non differito, utilizzare il `Include` (metodo), come visto già in queste esercitazioni.
+*Caricamento eager*. Quando l'entità viene letta, i dati correlati corrispondenti vengono recuperati insieme ad essa. Ciò in genere ha come risultato una query join singola che recupera tutti i dati necessari. Per specificare il caricamento non differito, utilizzare il `Include` (metodo), come visto già in queste esercitazioni.
 
 [![Image07](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image4.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image3.png)
 
-- *Caricamento esplicito*. È simile al caricamento lazy, ad eccezione del fatto che vengano recuperate in modo esplicito i dati correlati nel codice. non avviene automaticamente quando si accede a una proprietà di navigazione. Caricare i dati correlati manualmente tramite il `Load` metodo della proprietà di navigazione per le raccolte oppure utilizzare il `Load` metodo della proprietà di riferimento per le proprietà che contengono un singolo oggetto. (Ad esempio, si chiama il `PersonReference.Load` per caricare il `Person` proprietà di navigazione di un `Department` entità.)
+- *Caricamento esplicito* È simile al caricamento lazy, ad eccezione del fatto che vengano recuperate in modo esplicito i dati correlati nel codice. non avviene automaticamente quando si accede a una proprietà di navigazione. Caricare i dati correlati manualmente tramite il `Load` metodo della proprietà di navigazione per le raccolte oppure utilizzare il `Load` metodo della proprietà di riferimento per le proprietà che contengono un singolo oggetto. (Ad esempio, si chiama il `PersonReference.Load` per caricare il `Person` proprietà di navigazione di un `Department` entità.)
 
     [![Image06](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
@@ -76,7 +76,7 @@ In generale, se si conosce sono necessari i dati correlati per ogni entità cari
 
 In un'applicazione web, il caricamento lazy può essere di relativamente scarso valore comunque, perché le azioni dell'utente che interessano la necessità di dati correlati vengono eseguite in browser che dispone di alcuna connessione al contesto dell'oggetto a cui il rendering della pagina. D'altra parte, quando si databind un controllo, è in genere conoscere quali i dati necessari e pertanto è in genere migliore per scegliere caricamento eager o il caricamento posticipato in base alle quali è appropriato in ogni scenario.
 
-Inoltre, un controllo con associazione a dati potrebbe utilizzare un oggetto entità dopo aver eliminato il contesto dell'oggetto. In tal caso, un tentativo di caricamento lazy una proprietà di navigazione avrà esito negativo. Il messaggio di errore visualizzato è ovvia:&quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+Inoltre, un controllo con associazione a dati potrebbe utilizzare un oggetto entità dopo aver eliminato il contesto dell'oggetto. In tal caso, un tentativo di caricamento lazy una proprietà di navigazione avrà esito negativo. Il messaggio di errore visualizzato è ovvia: &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
 Il `EntityDataSource` controllo Disabilita il caricamento lazy per impostazione predefinita. Per il `ObjectDataSource` controllo che si sta utilizzando per l'esercitazione corrente (o per accedere al contesto dell'oggetto codice della pagina), esistono diversi modi per rendere lazy caricamento disabilitato per impostazione predefinita. Quando si crea un'istanza di un contesto dell'oggetto, è possibile disabilitarla. Ad esempio, è possibile aggiungere la riga seguente al metodo del costruttore del `SchoolRepository` classe:
 
@@ -187,7 +187,7 @@ Ripristinare il codice originale il `GetDepartmentsByName` (metodo) e quindi ese
 
 In Visual Studio, selezionare il **Debug** menu, quindi **IntelliTrace**e quindi **eventi IntelliTrace**.
 
-[![Image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
+[![image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
 Nel **IntelliTrace** finestra, fare clic su **Interrompi tutto**.
 
@@ -252,20 +252,20 @@ Visual Studio genera un file di codice che crea le visualizzazioni, denominato *
 Per ulteriori informazioni sulle viste generate in precedenza, vedere le risorse seguenti:
 
 - [Procedura: generare in anticipo le visualizzazioni per migliorare le prestazioni di Query](https://msdn.microsoft.com/library/bb896240.aspx) nel sito web MSDN. Viene illustrato come utilizzare il `EdmGen.exe` strumento da riga di comando per pregenerare le visualizzazioni.
-- [L'isolamento delle prestazioni con viste a precompilata/Pre-generated in Entity Framework 4](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx) sul blog di Windows Server AppFabric Team di consulenza clienti.
+- [Isolamento delle prestazioni con precompilata/Pre-generated le viste in Entity Framework 4](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx) sul blog di Windows Server AppFabric Team di consulenza clienti.
 
 Introduzione a migliorare le prestazioni in un'applicazione web ASP.NET che usa Entity Framework è stata completata. Per altre informazioni, vedere le seguenti risorse:
 
 - [Considerazioni sulle prestazioni (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) nel sito web MSDN.
-- [Post correlati alle prestazioni nel blog del Team di Entity Framework](https://blogs.msdn.com/b/adonet/archive/tags/performance/).
-- [EF opzioni di unione e query compilate](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx). Post di blog che spiega i comportamenti imprevisti delle query compilate e unione Opzioni, ad esempio `NoTracking`. Se si prevede di usare le query compilate o modificare le impostazioni di opzione di unione nell'applicazione, prima leggere.
+- [Correlati alle prestazioni post nel blog del Team di Entity Framework](https://blogs.msdn.com/b/adonet/archive/tags/performance/).
+- [Le query compilate e opzioni di unione EF](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx). Post di blog che spiega i comportamenti imprevisti delle query compilate e unione Opzioni, ad esempio `NoTracking`. Se si prevede di usare le query compilate o modificare le impostazioni di opzione di unione nell'applicazione, prima leggere.
 - [Entità correlate Framework post nel blog del Team di consulenza clienti di modellazione e dati](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/). Include i post su query compilate e tramite il Profiler di Visual Studio 2010 per individuare i problemi di prestazioni.
-- [Thread del forum Entity Framework con suggerimenti per migliorare le prestazioni delle query estremamente complesse](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
+- [Thread del forum Entity Framework con suggerimenti di miglioramento delle prestazioni delle query estremamente complesse](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
 - [Suggerimenti per la gestione dello stato di ASP.NET](https://msdn.microsoft.com/library/z1hkazw7.aspx).
 - [Utilizzo di Entity Framework e ObjectDataSource: il Paging personalizzato](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx). Post di blog che si basa sull'applicazione ContosoUniversity creati in queste esercitazioni viene illustrato come implementare il paging nel *Departments.aspx* pagina.
 
 L'esercitazione successiva esamina alcuni importanti miglioramenti apportati a Entity Framework introdotte nella versione 4.
 
->[!div class="step-by-step"]
-[Precedente](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
-[Successivo](what-s-new-in-the-entity-framework-4.md)
+> [!div class="step-by-step"]
+> [Precedente](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [Successivo](what-s-new-in-the-entity-framework-4.md)

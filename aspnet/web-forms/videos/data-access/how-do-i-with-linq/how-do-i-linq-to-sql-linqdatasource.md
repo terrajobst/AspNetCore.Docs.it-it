@@ -12,20 +12,20 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource
 msc.type: video
-ms.openlocfilehash: 78e9f89510731c3b719480d1d2bf3a8cf50e3f12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 303fe392330d5f58852f5ce6e75b684ec82afab5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="how-do-i-linq-to-sql-linqdatasource"></a>[Eseguire la ricerca per categorie:] LINQ to SQL: LinqDataSource
+<a name="how-do-i-linq-to-sql-linqdatasource"></a>[How Do I:] LINQ to SQL: LinqDataSource
 ====================
 da [Scott Stanfield](https://github.com/scottstanfield)
 
 Il nuovo controllo: LinqDataSource asp .NET 3.5 semplifica associazione a elementi dell'interfaccia utente. In effetti, nessun codice è stato scritto o danneggiato nella realizzazione di questo video. Eseguire una query, aggiornare, eliminare, paging, l'ordinamento e fatto tramite LINQ e LinqDataSource.
 
-[&#9654; Guardare video (minuti 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-linqdatasource)
+[&#9654;Guardare video (minuti 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-linqdatasource)
 
->[!div class="step-by-step"]
-[Precedente](how-do-i-linq-to-sql-updating-the-database.md)
-[Successivo](how-do-i-linq-to-sql-custom-linqdatasource.md)
+> [!div class="step-by-step"]
+> [Precedente](how-do-i-linq-to-sql-updating-the-database.md)
+> [Successivo](how-do-i-linq-to-sql-custom-linqdatasource.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: cf81d351aef45af3640f5d113eb3619911e03606
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Accesso ai dati del modello da un Controller
 ====================
@@ -63,6 +63,6 @@ La creazione collegamenti non necessari, pertanto è verranno eliminati in quest
 
 È ora disponibile un elenco semplice dei dati del film. Tuttavia, se si fa clic sul collegamento "Crea nuovo", si verrà generato un errore perché non è collegato. Si implementa un metodo di azione Create e consentire agli utenti di immettere nuovi film nel database.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part4.md)
-[Successivo](getting-started-with-mvc-part6.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part4.md)
+> [Successivo](getting-started-with-mvc-part6.md)

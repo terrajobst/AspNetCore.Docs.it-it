@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b51089057ad1e14901cb09589534d6e575261c3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Aggiunta di colonne aggiuntive DataTable (VB)
 ====================
@@ -41,9 +41,9 @@ In questa esercitazione verranno esaminati come estendere lo schema di s una Dat
 
 Nel *la creazione di nuove Stored procedure per gli oggetti TableAdapter s DataSet tipizzato* esercitazione è stato creato un set di dati tipizzato denominato `NorthwindWithSprocs`. Attualmente, questo set di dati contiene due DataTable: `ProductsDataTable` e `EmployeesDataTable`. Il `ProductsTableAdapter` ha tre metodi seguenti:
 
-- `GetProducts`-la query principale, che restituisce tutti i record di `Products` tabella
-- `GetProductsByCategoryID(categoryID)`-Restituisce tutti i prodotti con l'oggetto specificato *categoryID*.
-- `GetProductByProductID(productID)`-Restituisce il prodotto specifico con l'oggetto specificato *productID*.
+- `GetProducts` -la query principale, che restituisce tutti i record di `Products` tabella
+- `GetProductsByCategoryID(categoryID)` -Restituisce tutti i prodotti con l'oggetto specificato *categoryID*.
+- `GetProductByProductID(productID)` -Restituisce il prodotto specifico con l'oggetto specificato *productID*.
 
 La query principale e altri due metodi restituiscono lo stesso set di campi di dati, vale a dire tutte le colonne dal `Products` tabella. Sono non disponibili le sottoquery correlate o `JOIN` s recupera i dati correlati di `Categories` o `Suppliers` tabelle. Pertanto, il `ProductsDataTable` include una colonna corrispondente per ciascun campo il `Products` tabella.
 
@@ -62,7 +62,7 @@ Verrà aggiunta una nuova colonna alla tabella di dati denominato Column1 di tip
 
 [![Impostare le proprietà di tipo di dati e il nome della nuova colonna s](adding-additional-datatable-columns-vb/_static/image5.png)](adding-additional-datatable-columns-vb/_static/image4.png)
 
-**Figura 2**: impostare la nuova colonna di s `Name` e `DataType` proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image6.png))
+**Figura 2**: impostare la nuova colonna s `Name` e `DataType` delle proprietà ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image6.png))
 
 
 Come illustrato nella figura 2, sono disponibili proprietà aggiuntive che è possibile impostare, ad esempio se i valori nella colonna devono essere univoci, se la colonna è una colonna a incremento automatico, o meno database `NULL` sono consentiti valori e così via. Lasciare i valori impostati sui valori predefiniti.
@@ -109,7 +109,7 @@ Dopo aver immesso il `SELECT` query e fare clic su Avanti, la procedura guidata 
 Infine, vengono richieste per denominare metodi dell'oggetto TableAdapter. Lasciare entrambi il riempimento di un oggetto DataTable e restituire un DataTable caselle di controllo selezionata e il nome dei metodi `FillWithPriceQuartile` e `GetProductsWithPriceQuartile`.
 
 
-[![Metodi di nomi ai TableAdapter e fare clic su Fine.](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
+[![Metodi di nomi ai TableAdapter e fare clic su Fine](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
 
 **Figura 6**: nomi dei metodi s TableAdapter e fare clic su Fine ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image18.png))
 
@@ -155,10 +155,10 @@ Con l'aggiunta di BLL completare è nuovamente pronto per creare una pagina ASP.
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLLWithSprocs](adding-additional-datatable-columns-vb/_static/image24.png)](adding-additional-datatable-columns-vb/_static/image23.png)
 
-**Figura 9**: configurare ObjectDataSource per utilizzare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image25.png))
+**Figura 9**: configurare ObjectDataSource per usare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image25.png))
 
 
-[![Recuperare informazioni sul prodotto dal metodo GetProductsWithPriceQuartile](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
+[![Recuperare le informazioni sul prodotto dal metodo GetProductsWithPriceQuartile](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
 
 **Figura 10**: recuperare informazioni sui prodotti dal `GetProductsWithPriceQuartile` metodo ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image28.png))
 
@@ -175,14 +175,14 @@ Dopo queste modifiche, il markup dichiarativo s GridView e ObjectDataSource dovr
 Figura 11 Mostra questa pagina quando visitato tramite un browser. Si noti che, inizialmente, i prodotti vengono ordinati in base i prezzi in ordine decrescente con ogni prodotto assegnato un appropriato `PriceQuartile` valore. Naturalmente questi dati possono essere ordinati per altri criteri con il valore della colonna prezzo Quartile ancora che riflette la valutazione del prodotto s rispetto al prezzo (vedere Figura 12).
 
 
-[![I prodotti vengono ordinati i prezzi](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
+[![I prodotti vengono ordinati in base i prezzi](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
 
 **Figura 11**: il prodotti vengono ordinati in base i prezzi ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image31.png))
 
 
-[![I prodotti vengono ordinati in base ai nomi](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
+[![I prodotti vengono ordinati con i relativi nomi](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
 
-**Figura 12**: il prodotti vengono ordinati in base ai nomi ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image34.png))
+**Figura 12**: il prodotti vengono ordinati con i relativi nomi ([fare clic per visualizzare l'immagine ingrandita](adding-additional-datatable-columns-vb/_static/image34.png))
 
 
 > [!NOTE]
@@ -209,12 +209,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Randy Schmidt, Goor Luisa, Bernadette Leigh e Hilton Giesenow. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](updating-the-tableadapter-to-use-joins-vb.md)
-[Successivo](working-with-computed-columns-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](updating-the-tableadapter-to-use-joins-vb.md)
+> [Successivo](working-with-computed-columns-vb.md)

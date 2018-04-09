@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
@@ -53,7 +53,7 @@ Il nuovo file di indice è già aperto e pronto per la modifica. Aggiungere il t
 
 Eseguire l'applicazione e visitare [ `http://localhost:xx/HelloWorld` ](http://localhostxx) nuovamente nel browser. Il metodo di indice nel nostro controller in questo esempio non è stata eseguita alcuna operazione, ma ha chiamato "View() restituito" indica che si desidera utilizzare un file di modello di visualizzazione per il rendering di una risposta al client. Poiché non è stato specificato il nome del file modello di visualizzazione da utilizzare in modo esplicito, ASP.NET MVC specificata utilizzando il file di visualizzazione Index.aspx all'interno della cartella \Views\HelloWorld. È ora possibile visualizzare la stringa che è codificato nella visualizzazione.
 
-[![Indice - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
+[![Index - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
 
 È buona. Si noti tuttavia che il titolo del Browser è indicato "Index" e il titolo di grandi dimensioni nella pagina è indicato "Applicazione MVC." È necessario modificare quelle.
 
@@ -101,7 +101,7 @@ Anche se è su più righe, metodo di completamento dell'installazione è piuttos
 
 A questo punto è necessario un modello di visualizzazione iniziale. Fare clic con il metodo di completamento dell'installazione e selezionare Aggiungi visualizzazione. Questa volta, si verrà controllo "Crea visualizzazione fortemente tipizzata" e selezionare la classe WelcomeViewModel dall'elenco a discesa. Questa nuova vista conosceranno solo WelcomeViewModels e non altri tipi di oggetti.
 
-> *Nota: È necessario disporre di una volta dopo l'aggiunta del WelcomeViewModel per venga visualizzata nell'elenco a discesa compilati.*
+> *Nota: È necessario avere compilato una volta dopo l'aggiunta di WelcomeViewModel per visualizzato nell'elenco a discesa.*
 
 
 Ecco la finestra di dialogo Aggiungi visualizzazione quale deve essere simile. Fare clic sul pulsante Aggiungi. ![Aggiungere che un cerchio di visualizzazione](getting-started-with-mvc-part3/_static/image10.png)
@@ -120,6 +120,6 @@ Eseguire l'applicazione e visitare `http://localhost:xx/HelloWorld/Welcome?name=
 
 Che è un tipo di una "M" per il modello, ma non il tipo di database. Prendiamo elementi appreso e creare un database di film.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part2.md)
-[Successivo](getting-started-with-mvc-part4.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part2.md)
+> [Successivo](getting-started-with-mvc-part4.md)

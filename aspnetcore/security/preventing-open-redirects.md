@@ -1,5 +1,5 @@
 ---
-title: Prevenzione degli attacchi di reindirizzamento aperto in un'applicazione ASP.NET di base
+title: Impedire attacchi di reindirizzamento open in ASP.NET Core
 author: ardalis
 description: Viene illustrato come evitare attacchi di reindirizzamento aprire un'applicazione ASP.NET di base
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: d6cd65a2516c4d5e41428f0c1f2dbbe913ac2123
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Prevenzione degli attacchi di reindirizzamento aperto in un'applicazione ASP.NET di base
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Impedire attacchi di reindirizzamento open in ASP.NET Core
 
 Un'app web che reindirizza a un URL che viene specificato tramite la richiesta, ad esempio i dati di stringa di query o i form può essere alterata potenzialmente per reindirizzare gli utenti a un URL esterno, dannoso. Questo tipo di manomissione viene chiamato un attacco di reindirizzamento aperto.
 
@@ -31,7 +31,7 @@ Poiché l'URL di destinazione è specificato nella stringa di query della richie
 
 Un utente malintenzionato potrebbe sviluppare un attacco che consente l'accesso utente non autorizzato a informazioni riservate sull'applicazione o le credenziali di un utente. Per avviare l'attacco, essi convincere l'utente di fare clic su un collegamento alla pagina di accesso del sito, con un `returnUrl` valore querystring aggiunto all'URL. Ad esempio, il [NerdDinner.com](http://nerddinner.com) , scritto per ASP.NET MVC, l'applicazione di esempio include tali una pagina di accesso qui: ``http://nerddinner.com/Account/LogOn?returnUrl=/Home/About``. L'attacco quindi questi passaggi:
 
-1. Utente fa clic su un collegamento a ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (si noti che secondo URL è nerddi**n**effettivamente non nerddi**nn**er).
+1. Utente fa clic su un collegamento a ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (si noti che secondo URL è nerddi**n**er, non nerddi**nn**er).
 2. L'utente accede correttamente.
 3. L'utente viene reindirizzato (per il sito) ``http://nerddiner.com/Account/LogOn`` (sito dannoso simile sito reale).
 4. L'utente accede nuovamente (dando dannoso le proprie credenziali del sito) e viene reindirizzato al sito effettivo.
@@ -57,11 +57,11 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect``verrà generata un'eccezione se viene specificato un URL non locali. In caso contrario, si comporta esattamente come il ``Redirect`` metodo.
+``LocalRedirect`` verrà generata un'eccezione se è stato specificato un URL non locali. In caso contrario, si comporta esattamente come il ``Redirect`` metodo.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Utilizzare il [IsLocalUrl](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iurlhelper#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metodo per testare gli URL prima di reindirizzamento:
+Utilizzare il [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metodo per testare gli URL prima di reindirizzamento:
 
 Nell'esempio seguente viene illustrato come controllare se un URL è locale prima di reindirizzamento.
 

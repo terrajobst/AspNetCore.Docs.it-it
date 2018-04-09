@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 title: Aggiunta di una colonna di GridView di caselle di controllo (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà illustrato come aggiungere una colonna di caselle di controllo a un controllo GridView per fornire all'utente un modo molto intuitivo per selezionare più righe di G...."
+description: In questa esercitazione verrà illustrato come aggiungere una colonna di caselle di controllo a un controllo GridView per fornire all'utente un modo molto intuitivo per selezionare più righe di G....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4468f7e0c142fa432e58d4c686dd79d3b38612ad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: beb28de901805e07365f336192d20e914eeebb1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Aggiunta di una colonna di GridView di caselle di controllo (VB)
 ====================
@@ -46,7 +46,7 @@ Prima di preoccupazione aggiunta di una colonna di caselle di controllo, consent
 
 [![Creare un nuovo oggetto ObjectDataSource denominato ProductsDataSource](adding-a-gridview-column-of-checkboxes-vb/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image3.png)
 
-**Figura 2**: creare un nuovo ObjectDataSource denominato `ProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png))
+**Figura 2**: creare un nuovo denominato ObjectDataSource `ProductsDataSource` ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png))
 
 
 [![Configurare ObjectDataSource per recuperare i dati utilizzando il metodo GetProducts()](adding-a-gridview-column-of-checkboxes-vb/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image5.png)
@@ -54,9 +54,9 @@ Prima di preoccupazione aggiunta di una colonna di caselle di controllo, consent
 **Figura 3**: configurare ObjectDataSource per recuperare dati usando il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image6.png))
 
 
-[![Impostare gli elenchi a discesa nell'aggiornamento, inserimento ed eliminare le schede su (nessuno)](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
+[![Impostare gli elenchi a discesa in UPDATE, INSERT ed eliminare le tabulazioni su (nessuno)](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
 
-**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))
+**Figura 4**: impostare l'elenco a discesa sono elencati nelle schede DELETE, INSERT e UPDATE (nessuno) ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))
 
 
 Dopo aver completato la configurazione guidata origine dati, Visual Studio crea automaticamente BoundColumns e una con per i campi di dati relativi al prodotto. Ad esempio eseguita nell'esercitazione precedente, rimuovere tutto tranne il `ProductName`, `CategoryName`, e `UnitPrice` BoundField e modificare il `HeaderText` le proprietà per prodotto, categoria e prezzo. Configurare il `UnitPrice` BoundField in modo che il relativo valore viene formattato come valuta. Configurare inoltre GridView per supportare il paging selezionando la casella di controllo Abilita Paging lo smart tag.
@@ -112,9 +112,9 @@ Il `Rows` proprietà restituisce una raccolta di `GridViewRow` istanze di tale s
 Con l'aggiunta di questo gestore eventi, facendo clic sul pulsante Elimina prodotti selezionati a questo punto viene visualizzato il `ProductID` s dei prodotti selezionati.
 
 
-[![Quando viene scelto il pulsante di prodotti di selezionato eliminare ProductIDs di prodotti selezionati sono elencati](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
+[![Quando si fa clic sul pulsante prodotti eliminare selezionato ProductIDs di prodotti selezionati sono elencati](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
 
-**Figura 8**: quando l'eliminazione selezionata prodotti pulsante i prodotti selezionati `ProductID` sono elencati ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png))
+**Figura 8**: quando l'eliminazione selezionato prodotti fa clic sul pulsante i prodotti selezionati `ProductID` sono elencati ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png))
 
 
 ## <a name="step-4-adding-check-all-and-uncheck-all-buttons"></a>Passaggio 4: Aggiunta di selezionare tutte e deselezionare tutti i pulsanti
@@ -139,9 +139,9 @@ Successivamente, creare `Click` gestori eventi per il `CheckAll` e `UncheckAll` 
 Con questo codice, fare clic sul pulsante Seleziona tutto provoca un postback e controlla tutte le caselle di controllo GridView. Analogamente, facendo clic su deselezionare tutto Deseleziona tutte le caselle di controllo. Figura 9 viene visualizzata la schermata dopo aver verificato il pulsante Seleziona tutto.
 
 
-[![Il controllo che pulsante tutti scegliere Seleziona tutte le caselle di controllo](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
+[![Facendo clic su Controlla che tutti i pulsante Seleziona tutte le caselle di controllo](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
 
-**Figura 9**: facendo clic su di controllare tutti pulsante Seleziona tutte le caselle di controllo ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png))
+**Figura 9**: fare clic su di controllare tutti i pulsante Seleziona tutte le caselle di controllo ([fare clic per visualizzare l'immagine ingrandita](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png))
 
 
 > [!NOTE]
@@ -158,8 +158,8 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](adding-a-gridview-column-of-radio-buttons-vb.md)
-[Successivo](inserting-a-new-record-from-the-gridview-s-footer-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-gridview-column-of-radio-buttons-vb.md)
+> [Successivo](inserting-a-new-record-from-the-gridview-s-footer-vb.md)

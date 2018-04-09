@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Autenticazione e autorizzazione per gli hub di SignalR
 ====================
-da [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+dal [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > In questo argomento viene descritto come limitare gli utenti o i ruoli possono accedere i metodi dell'hub. 
 > 
@@ -52,10 +52,10 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 - [Passare le informazioni di autenticazione client](#passauth)
 - [Opzioni di autenticazione per i client .NET](#authoptions)
 
-    - [Cookie di autenticazione basata su form](#cookie)
+    - [Cookie con autenticazione basata su form](#cookie)
     - [Autenticazione di Windows](#windows)
     - [Intestazione di connessione](#header)
-    - [Certificato](#certificate)
+    - [certificato](#certificate)
 
 <a id="authorizeattribute"></a>
 
@@ -73,10 +73,10 @@ In alternativa, è possibile specificare che un hub contenga un metodo disponibi
 
 Negli esempi seguenti scenari di autorizzazione diversi:
 
-- `[Authorize]`: solo gli utenti autenticati
-- `[Authorize(Roles = "Admin,Manager")]`: solo gli utenti nei ruoli specificati autenticati
-- `[Authorize(Users = "user1,user2")]`: solo gli utenti con i nomi utente specificati autenticati
-- `[Authorize(RequireOutgoing=false)]`: solo gli utenti autenticati possono richiamare l'hub, ma le chiamate dal server ai client non sono limitate per l'autorizzazione, ad esempio, quando solo determinati utenti possono inviare un messaggio ma non tutti gli altri utenti possono ricevere il messaggio. La proprietà RequireOutgoing può essere applicata solo all'intero hub, non sui metodi di persone all'interno dell'hub. Quando RequireOutgoing non è impostata su false, solo gli utenti che soddisfano il requisito di autorizzazione vengono chiamati dal server.
+- `[Authorize]` : solo gli utenti autenticati
+- `[Authorize(Roles = "Admin,Manager")]` : solo gli utenti nei ruoli specificati autenticati
+- `[Authorize(Users = "user1,user2")]` : solo gli utenti con i nomi utente specificati autenticati
+- `[Authorize(RequireOutgoing=false)]` : solo gli utenti autenticati possono richiamare l'hub, ma le chiamate dal server ai client non sono limitate per l'autorizzazione, ad esempio, quando solo determinati utenti possono inviare un messaggio, ma tutti gli altri utenti possono ricevere il messaggio. La proprietà RequireOutgoing può essere applicata solo all'intero hub, non sui metodi di persone all'interno dell'hub. Quando RequireOutgoing non è impostata su false, solo gli utenti che soddisfano il requisito di autorizzazione vengono chiamati dal server.
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Quando il client .NET interagisce con un hub che utilizza l'autenticazione basat
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-L'applicazione console invia le credenziali da **www.contoso.com/RemoteLogin** che potrebbe fare riferimento a una pagina vuota che contiene il file code-behind seguente.
+L'applicazione console invia le credenziali da <strong>www.contoso.com/RemoteLogin</strong> che potrebbe fare riferimento a una pagina vuota che contiene il file code-behind seguente.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

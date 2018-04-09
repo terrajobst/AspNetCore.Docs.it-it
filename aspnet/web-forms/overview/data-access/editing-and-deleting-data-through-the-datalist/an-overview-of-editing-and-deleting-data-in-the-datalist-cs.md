@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 title: Una panoramica di modifica ed eliminazione dei dati in DataList (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Quando il controllo DataList non dispone di modifica predefinite e l'eliminazione di funzionalità, in questa esercitazione si vedrà come creare un controllo DataList che supporta la modifica e l'eliminazione o..."
+description: Quando il controllo DataList non dispone di modifica predefinite e l'eliminazione di funzionalità, in questa esercitazione si vedrà come creare un controllo DataList che supporta la modifica e l'eliminazione o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b3067c5a6bcf81a35f66d43886c9b116a0ef7d8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: be86707980b11453ef78fdbddead73ab9808b54d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>Una panoramica di modifica ed eliminazione dei dati in DataList (c#)
 ====================
@@ -64,7 +64,7 @@ Come in altre cartelle, `Default.aspx` nel `EditDeleteDataList` cartella vengono
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
 
 
 Infine, aggiungere le pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo il report Master-Details DataList e Repeater `<siteMapNode>`:
@@ -77,7 +77,7 @@ Dopo aver aggiornato `Web.sitemap`, dedicare alcuni minuti per visualizzare il s
 
 ![Mappa del sito include ora le voci per DataList modifica ed eliminazione delle esercitazioni](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image5.png)
 
-**Figura 3**: mappa del sito include ora le voci per DataList modifica ed eliminazione delle esercitazioni
+**Figura 3**: mappa del sito include ora le voci per DataList modifica ed eliminazione esercitazioni
 
 
 ## <a name="step-2-examining-techniques-for-updating-and-deleting-data"></a>Passaggio 2: Esaminare le tecniche per l'aggiornamento ed eliminazione dei dati
@@ -94,10 +94,10 @@ Purtroppo, DataList non è disponibile alcuna di queste funzionalità predefinit
 
 Utilizzando queste proprietà ed eventi, sono disponibili quattro approcci che è possibile utilizzare per aggiornare ed eliminare dati da DataList:
 
-1. **Utilizzando le tecniche di 1. x ASP.NET** DataList esisteva prima di ASP.NET 2.0 e ObjectDataSources ed è stata in grado di aggiornare ed eliminare dati interamente a livello di. Questa tecnica. fossi completamente ObjectDataSource e richiede che l'associazione dati a DataList direttamente dal livello di logica di Business, sia per il recupero di dati da visualizzare e durante l'aggiornamento o eliminazione di un record.
-2. **Utilizzando un singolo controllo ObjectDataSource nella pagina di selezione, aggiornamento ed eliminazione** quando DataList non dispone di GridView s inerente modifica ed eliminazione di funzionalità, s non esiste alcun motivo è possibile t non aggiungerli nostra. Con questo approccio, è utilizzare ObjectDataSource come negli esempi di GridView, ma è necessario creare un gestore eventi per il controllo DataList s `UpdateCommand` evento in cui è impostato il parametri s ObjectDataSource e chiamare il relativo `Update()` metodo.
-3. **Utilizzo di un controllo ObjectDataSource per la selezione, ma aggiornamento ed eliminazione direttamente con il livello Business LOGIC** quando si utilizza l'opzione 2, è necessario scrivere codice nel `UpdateCommand` evento, l'assegnazione di valori di parametro e così via. È invece possibile soffermeremo con ObjectDataSource per la selezione, ma eseguire le chiamate di aggiornamento ed eliminazione direttamente in base al livello Business LOGIC (ad esempio, con opzione 1). Ritengo, l'aggiornamento dei dati tramite l'interfaccia direttamente con il livello Business LOGIC comporta il codice più leggibile rispetto all'assegnazione s ObjectDataSource `UpdateParameters` e chiamando il relativo `Update()` metodo.
-4. **Tramite mezzi dichiarativa tramite più ObjectDataSources** i tre approcci precedenti tutti richiedono un po' di codice. Se d invece mantenere utilizzati come la sintassi dichiarativa molto possibile, un'opzione finale consiste nell'includere più ObjectDataSources nella pagina. Il primo ObjectDataSource recupera i dati da BLL e lo associa DataList. Per l'aggiornamento, un altro ObjectDataSource viene aggiunto, ma direttamente all'interno di DataList s `EditItemTemplate`. Per includere l'eliminazione di supporto, ancora un altro ObjectDataSource sarebbe necessari nel `ItemTemplate`. Con questo approccio, questi incorporati usano ObjectDataSource `ControlParameters` per associare in modo dichiarativo i parametri di s ObjectDataSource ai controlli di input utente (invece di dover specificare a livello di codice in DataList s `UpdateCommand` gestore dell'evento). Questo approccio richiede ancora un po' di codice, è necessario chiamare l'incorporato s ObjectDataSource `Update()` o `Delete()` comando ma richiede molto meno di con le altre tre approcci. In questo caso lo svantaggio è la più ObjectDataSources riempire la pagina, pregiudicare la leggibilità complessiva.
+1. **Uso di tecniche 1.x ASP.NET** DataList esisteva prima di ASP.NET 2.0 e ObjectDataSources ed è stata in grado di aggiornare ed eliminare dati interamente a livello di. Questa tecnica. fossi completamente ObjectDataSource e richiede che l'associazione dati a DataList direttamente dal livello di logica di Business, sia per il recupero di dati da visualizzare e durante l'aggiornamento o eliminazione di un record.
+2. **Utilizzando un singolo controllo ObjectDataSource nella pagina di selezione, aggiornamento ed eliminazione** quando DataList non dispone di GridView s inerente modificano e si eliminano le funzionalità, s non esiste alcun motivo è possibile t non aggiungerli nostra. Con questo approccio, è utilizzare ObjectDataSource come negli esempi di GridView, ma è necessario creare un gestore eventi per il controllo DataList s `UpdateCommand` evento in cui è impostato il parametri s ObjectDataSource e chiamare il relativo `Update()` metodo.
+3. **Utilizzo di un controllo ObjectDataSource per la selezione, ma aggiornamento ed eliminazione direttamente con il livello Business LOGIC** quando si utilizza l'opzione 2, è necessario scrivere codice nel `UpdateCommand` evento, assegnazione di valori di parametro e così via. È invece possibile soffermeremo con ObjectDataSource per la selezione, ma eseguire le chiamate di aggiornamento ed eliminazione direttamente in base al livello Business LOGIC (ad esempio, con opzione 1). Ritengo, l'aggiornamento dei dati tramite l'interfaccia direttamente con il livello Business LOGIC comporta il codice più leggibile rispetto all'assegnazione s ObjectDataSource `UpdateParameters` e chiamando il relativo `Update()` metodo.
+4. **Tramite mezzi dichiarativa tramite più ObjectDataSources** tre approcci precedenti tutti richiedono un bit di codice. Se d invece mantenere utilizzati come la sintassi dichiarativa molto possibile, un'opzione finale consiste nell'includere più ObjectDataSources nella pagina. Il primo ObjectDataSource recupera i dati da BLL e lo associa DataList. Per l'aggiornamento, un altro ObjectDataSource viene aggiunto, ma direttamente all'interno di DataList s `EditItemTemplate`. Per includere l'eliminazione di supporto, ancora un altro ObjectDataSource sarebbe necessari nel `ItemTemplate`. Con questo approccio, questi incorporati usano ObjectDataSource `ControlParameters` per associare in modo dichiarativo i parametri di s ObjectDataSource ai controlli di input utente (invece di dover specificare a livello di codice in DataList s `UpdateCommand` gestore dell'evento). Questo approccio richiede ancora un po' di codice, è necessario chiamare l'incorporato s ObjectDataSource `Update()` o `Delete()` comando ma richiede molto meno di con le altre tre approcci. In questo caso lo svantaggio è la più ObjectDataSources riempire la pagina, pregiudicare la leggibilità complessiva.
 
 Se è necessario utilizzare solo uno di questi approcci, d è scegliere l'opzione 1 poiché offre la massima flessibilità e DataList è stato originariamente progettato per supportare questo pattern. Mentre DataList è stato esteso per lavorare con i controlli origine dati di ASP.NET 2.0, non dispone di tutti i punti di estendibilità o le funzionalità dei dati di ASP.NET 2.0 ufficiale controlli Web (GridView, DetailsView e FormView). Opzioni 2 a 4 non sono tuttavia senza merito.
 
@@ -112,12 +112,12 @@ Aprire il `Basics.aspx` nella pagina di `EditDeleteDataList` cartella e dalla vi
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLL](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
 
-**Figura 4**: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
+**Figura 4**: configurare ObjectDataSource per usare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
 
 
 [![Restituire le informazioni sul prodotto utilizzando il metodo GetProducts()](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
 
-**Figura 5**: restituire le informazioni di prodotto usando il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
+**Figura 5**: restituire le informazioni prodotto utilizzando il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
 
 
 DataList, ad esempio GridView, non è progettato per l'inserimento di nuovi dati. Pertanto, selezionare opzione (nessuno) dall'elenco a discesa nella scheda Inserisci. Inoltre scegliere (nessuno) per le schede UPDATE e DELETE perché gli aggiornamenti e le eliminazioni verranno eseguite a livello di codice tramite il livello Business LOGIC.
@@ -125,7 +125,7 @@ DataList, ad esempio GridView, non è progettato per l'inserimento di nuovi dati
 
 [![Verificare che l'elenco a discesa sono elencati in ObjectDataSource s INSERT, UPDATE ed eliminare le schede siano impostate su (nessuno)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
 
-**Figura 6**: verificare che l'elenco a discesa sono elencati nelle ObjectDataSource s INSERT, UPDATE, eliminare schede e siano impostati su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
+**Figura 6**: confermare che l'elenco a discesa sono elencati nelle ObjectDataSource s INSERT, UPDATE, DELETE schede e siano impostati su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
 
 
 Dopo aver configurato il ObjectDataSource, fare clic su Fine, tornare alla finestra di progettazione. Come è illustrata negli esempi precedenti, durante il completamento della configurazione di ObjectDataSource, Visual Studio automaticamente ve crea un `ItemTemplate` per DropDownList, visualizzando tutti i campi dati. Sostituire `ItemTemplate` con una che visualizza solo il nome del prodotto s e il prezzo. Inoltre, impostare il `RepeatColumns` proprietà su 2.
@@ -144,7 +144,7 @@ Richiedere qualche istante per visualizzare l'avanzamento attraverso un browser.
 
 [![I nomi di prodotti e i prezzi vengono visualizzati in un controllo DataList due colonne](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
 
-**Figura 7**: di nomi di prodotti e i prezzi vengono visualizzati in un controllo DataList due colonne ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
+**Figura 7**: il nomi di prodotti e i prezzi vengono visualizzati in un controllo DataList due colonne ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
 
 
 > [!NOTE]
@@ -164,7 +164,7 @@ DataList, d'altra parte, esegue il rendering di elementi utilizzando i modelli. 
 Il `EditItemTemplate` possono essere creati in modo dichiarativo o tramite la finestra di progettazione (selezionando l'opzione di modifica modelli dallo smart tag DataList s). Per utilizzare l'opzione di modifica modelli, innanzitutto fare clic sul collegamento di modifica modelli nello smart tag e quindi selezionare il `EditItemTemplate` elemento dall'elenco a discesa.
 
 
-[![Consenso esplicito per l'utilizzo di EditItemTemplate s DataList](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
+[![Optare per l'uso con EditItemTemplate s DataList](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
 
 **Figura 8**: optare per l'utilizzo di DataList s `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image20.png))
 
@@ -172,7 +172,7 @@ Il `EditItemTemplate` possono essere creati in modo dichiarativo o tramite la fi
 Successivamente, digitare il nome di prodotto: e prezzo: e quindi trascinare due controlli TextBox dalla casella degli strumenti nel `EditItemTemplate` interfaccia nella finestra di progettazione. Impostare le caselle di testo `ID` proprietà `ProductName` e `UnitPrice`.
 
 
-[![Aggiungere una casella di testo per il nome del prodotto s e il prezzo](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
+[![Aggiungere una casella di testo per il prodotto s nome e il prezzo](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
 
 **Figura 9**: aggiungere una casella di testo per il nome di prodotto e prezzo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image23.png))
 
@@ -185,7 +185,7 @@ Successivamente, digitare il nome di prodotto: e prezzo: e quindi trascinare due
 
 ![Associare il ProductName e campi dati UnitPrice alle proprietà del testo delle caselle di testo](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image24.png)
 
-**Figura 10**: associare il `ProductName` e `UnitPrice` campi dati di `Text` le proprietà delle caselle di testo
+**Figura 10**: associare il `ProductName` e `UnitPrice` campi dati per il `Text` le proprietà delle caselle di testo
 
 
 Si noti il modo in cui utilizza la finestra di dialogo Modifica DataBindings nella figura 10 *non* includono la casella di controllo di associazione dati bidirezionale che è presente quando si modifica un TemplateField in GridView o DetailsView o un modello in FormView. Il valore immesso nel controllo di input Web venga assegnato automaticamente al s ObjectDataSource corrispondente è consentita la funzionalità di associazione dati bidirezionale `InsertParameters` o `UpdateParameters` durante l'inserimento o aggiornamento dei dati. DataList non supporta l'associazione dati bidirezionale come vedremo più avanti in questa esercitazione, dopo l'utente effettua proprio cambia ed è pronto per aggiornare i dati, è necessario accedere a livello di programmazione di queste caselle di testo `Text` proprietà e passare i valori per il appropriato `UpdateProduct` metodo la `ProductsBLL` classe.
@@ -201,9 +201,9 @@ Tenere presente che questi eventi vengono generati *oltre a* il `ItemCommand` ev
 Aggiungere il `EditItemTemplate` due controlli pulsante Web, uno cui `CommandName` è impostato su Update e altri dispositivi impostato su Annulla. Dopo l'aggiunta di questi due controlli pulsante Web nella finestra di progettazione dovrebbe essere simile al seguente:
 
 
-[![Aggiungere l'aggiornamento e annullamento EditItemTemplate](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
+[![Aggiungere aggiornamento pulsanti EditItemTemplate e Annulla](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
 
-**Figura 11**: aggiungere aggiornare e annullare i pulsanti per la `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
+**Figura 11**: aggiungere aggiornare e annullare i pulsanti per il `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
 
 
 Con il `EditItemTemplate` completo markup dichiarativo DataList s dovrebbe essere simile al seguente:
@@ -218,9 +218,9 @@ A questo punto il nostro DataList è definita tramite un'interfaccia di modifica
 Dopo aver aggiunto il pulsante Modifica, richiedere qualche istante per visualizzare la pagina tramite un browser. Con l'aggiunta, ogni voce del prodotto deve includere un pulsante Modifica.
 
 
-[![Aggiungere l'aggiornamento e annullamento EditItemTemplate](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
+[![Aggiungere aggiornamento pulsanti EditItemTemplate e Annulla](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
 
-**Figura 12**: aggiungere aggiornare e annullare i pulsanti per la `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
+**Figura 12**: aggiungere aggiornare e annullare i pulsanti per il `EditItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
 
 
 Fare clic sul pulsante provoca un postback, ma *non* portare il prodotto di elenco in modalità di modifica. Per rendere modificabile il prodotto, è necessario:
@@ -238,9 +238,9 @@ Il `EditCommand` gestore dell'evento viene passato un oggetto di tipo `DataListC
 Dopo aver aggiunto il gestore eventi, rivedere la pagina in un browser. Fare clic sul pulsante Modifica ora esegue il prodotto selezionato modificabile (vedere Figura 13).
 
 
-[![Fare clic su consente di pulsante di modifica del prodotto modificabile](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
+[![Scegliere la rende pulsante Modifica il prodotto modificabile](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
 
-**Figura 13**: fare clic sul pulsante Modifica inserisce una copia modificabile di prodotto ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
+**Figura 13**: fare clic sul pulsante Modifica rende il prodotto modificabile ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
 
 
 ## <a name="step-6-saving-the-user-s-changes"></a>Passaggio 6: Il salvataggio delle modifiche s utente
@@ -249,7 +249,7 @@ La selezione prodotto modificato s, aggiornamento o pulsanti Annulla non esegue 
 
 Per eseguire il rendering di tutti gli elementi nella modalità di sola lettura DataList, è necessario:
 
-1. Impostare DataList s [ `EditItemIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) all'indice di un inesistente `DataListItem` indice. `-1`è una scelta sicura, poiché il `DataListItem` gli indici iniziano da `0`.
+1. Impostare DataList s [ `EditItemIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) all'indice di un inesistente `DataListItem` indice. `-1` è una scelta sicura, poiché il `DataListItem` gli indici iniziano da `0`.
 2. Riassociare i dati di DataList. Non essendo `DataListItem` `ItemIndex` es corrispondono a DataList s `EditItemIndex`, DataList intero verrà eseguito il rendering in una modalità di sola lettura.
 
 Questa procedura può essere eseguita con il codice del gestore eventi seguente:
@@ -263,7 +263,7 @@ Con l'aggiunta, fare clic su Annulla pulsante restituisce DataList allo stato di
 
 1. Accedere a livello di codice il nome immesso dall'utente del prodotto e prezzo, nonché il prodotto modificato s `ProductID`.
 2. Avviare il processo di aggiornamento chiamando il metodo appropriato `UpdateProduct` overload nella `ProductsBLL` classe.
-3. Impostare DataList s [ `EditItemIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) all'indice di un inesistente `DataListItem` indice. `-1`è una scelta sicura, poiché il `DataListItem` gli indici iniziano da `0`.
+3. Impostare DataList s [ `EditItemIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) all'indice di un inesistente `DataListItem` indice. `-1` è una scelta sicura, poiché il `DataListItem` gli indici iniziano da `0`.
 4. Riassociare i dati di DataList. Non essendo `DataListItem` `ItemIndex` es corrispondono a DataList s `EditItemIndex`, DataList intero verrà eseguito il rendering in una modalità di sola lettura.
 
 I passaggi 1 e 2 sono responsabili per il salvataggio delle modifiche s; l'utente i passaggi 3 e 4 riportano DataList stato pre-modifica dopo le modifiche sono state salvate e sono identiche ai passaggi eseguiti nel `CancelCommand` gestore dell'evento.
@@ -288,15 +288,15 @@ Con il `EditCommand`, `CancelCommand`, e `UpdateCommand` completare i gestori ev
 
 [![Quando si trovano in modalità di sola lettura prima visita la pagina, tutti i prodotti](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
 
-**Nella figura 14**: durante la prima visita la pagina, tutti i prodotti sono in modalità di sola lettura ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
+**Figura 14**: durante la prima visita la pagina, tutti i prodotti sono in modalità di sola lettura ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
 
 
 [![Per aggiornare un prodotto s nome o il prezzo, fare clic sul pulsante Modifica](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
 
-**Figura 15**: per aggiornare un nome di prodotto o un prezzo, fare clic sul pulsante Modifica ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
+**Figura 15**: per aggiornare un prodotto s nome o il prezzo, fare clic sul pulsante Modifica ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
 
 
-[![Dopo la modifica del valore, fare clic su Aggiorna per tornare alla modalità di sola lettura](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
+[![Dopo aver modificato il valore, fare clic su Aggiorna per tornare alla modalità di sola lettura](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
 
 **Figura 16**: dopo la modifica del valore, fare clic su Aggiorna per tornare alla modalità di sola lettura ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image42.png))
 
@@ -339,11 +339,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Ken Pespisa Randy Schmidt. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](performing-batch-updates-cs.md)
+> [!div class="step-by-step"]
+> [avanti](performing-batch-updates-cs.md)

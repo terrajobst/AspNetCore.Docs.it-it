@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 title: Creazione ed esecuzione di una distribuzione di File di comando | Documenti Microsoft
 author: jrjlee
-description: "In questo argomento viene descritto come compilare un file di comando che consentirà di eseguire una distribuzione utilizzando il file di progetto di Microsoft Build Engine (MSBuild) come un unico passaggio, re..."
+description: In questo argomento viene descritto come compilare un file di comando che consentirà di eseguire una distribuzione utilizzando il file di progetto di Microsoft Build Engine (MSBuild) come un unico passaggio, re...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Creazione ed esecuzione di un File di comando di distribuzione
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come compilare un file di comando che consentirà di eseguire una distribuzione utilizzando il file di progetto di Microsoft Build Engine (MSBuild) come un processo passo-passo e ripetibile.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [Contact Manager](the-contact-manager-solution.md) #x 2014; & soluzione per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager](the-contact-manager-solution.md) soluzione&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [comprendere il processo di compilazione](understanding-the-build-process.md), in cui il processo di compilazione è controllato da due progetti #x 2014; & file contenente una compilare le istruzioni che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [comprendere il processo di compilazione](understanding-the-build-process.md), in cui il processo di compilazione è controllato da due file di progetto&#x2014;contenente uno istruzioni che si applicano a ogni ambiente di destinazione e quella che contiene le impostazioni di compilazione e distribuzione specifici dell'ambiente di compilazione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="process-overview"></a>Panoramica del processo
 
@@ -40,7 +40,7 @@ In questo argomento si apprenderà come creare ed eseguire un file di comando ch
 
 ## <a name="create-an-msbuild-command"></a>Creare un comando di MSBuild
 
-Come descritto in [comprendere il processo di compilazione](understanding-the-build-process.md), il file di progetto specifici dell'ambiente & #x 2014; ad esempio, *Env Dev.proj*& #x 2014; è progettato per essere importato nel indipendenti dall'ambiente *Publish.proj* file in fase di compilazione. Insieme, questi due file forniscono un set completo di istruzioni che indicano come compilare e distribuire la soluzione di MSBuild.
+Come descritto in [comprendere il processo di compilazione](understanding-the-build-process.md), il file di progetto specifici dell'ambiente&#x2014;, ad esempio, *Env Dev.proj*&#x2014;è progettato per essere importato nell'ambiente indipendente *Publish.proj* file in fase di compilazione. Insieme, questi due file forniscono un set completo di istruzioni che indicano come compilare e distribuire la soluzione di MSBuild.
 
 Il *Publish.proj* file Usa un **importare** elemento per importare il file di progetto specifici dell'ambiente.
 
@@ -92,7 +92,7 @@ Dopo aver creato un file di comando per l'ambiente di destinazione, è possibile
 5. Se questa è la prima volta, aver distribuito la soluzione per questo ambiente, è necessario aggiungere l'account del computer server web di test per il **db\_datawriter** e **db\_datareader**ruoli per il **ContactManager** database. Questa procedura è descritta [configurare un Server di Database per la pubblicazione di distribuzione Web](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > È sufficiente assegnare queste autorizzazioni, quando si crea il database. Per impostazione predefinita, il processo di compilazione non sarà possibile ricreare il database in ogni distribuzione & #x 2014; ma confrontare il database esistente per lo schema più recente e apportare solo le modifiche necessarie. Di conseguenza, è solo necessario eseguire il mapping di questi ruoli del database la prima volta che si distribuisce la soluzione.
+    > È sufficiente assegnare queste autorizzazioni, quando si crea il database. Per impostazione predefinita, il processo di compilazione non sarà possibile ricreare il database in tutte le distribuzioni del&#x2014;ma verrà confrontare il database esistente per lo schema più recente e apportare solo le modifiche necessarie. Di conseguenza, è solo necessario eseguire il mapping di questi ruoli del database la prima volta che si distribuisce la soluzione.
 6. Aprire Internet Explorer e passare all'URL dell'applicazione responsabile contatto (ad esempio, `http://testweb1:85/ContactManager/`).
 7. Verificare che l'applicazione funzioni come previsto ed è in grado di aggiungere contatti.
 
@@ -118,6 +118,6 @@ Un file di comando per la pubblicazione in un ambiente di gestione temporanea pu
 
 È anche possibile personalizzare il processo di compilazione per ogni ambiente si esegue l'override di proprietà o impostando vari altri parametri nel comando di MSBuild. Per ulteriori informazioni, vedere [alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
->[!div class="step-by-step"]
-[Precedente](deploying-database-projects.md)
-[Successivo](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-database-projects.md)
+> [Successivo](manually-installing-web-packages.md)

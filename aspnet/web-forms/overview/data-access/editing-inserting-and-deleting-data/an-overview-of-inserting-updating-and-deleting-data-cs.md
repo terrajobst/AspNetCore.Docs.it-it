@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 title: Cenni preliminari di inserimento, aggiornamento ed eliminazione di dati (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si vedrà come eseguire il mapping di Insert () un ObjectDataSource, Update (), e le classi metodi Delete () per i metodi di BLL, nonché come eseguire la configu..."
+description: In questa esercitazione si vedrà come eseguire il mapping di Insert () un ObjectDataSource, Update (), e le classi metodi Delete () per i metodi di BLL, nonché come eseguire la configu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dbd111f79eda6006cb9aed59d8fd0b0342415833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Cenni preliminari di inserimento, aggiornamento ed eliminazione di dati (c#)
 ====================
@@ -60,7 +60,7 @@ Prima di iniziare l'esplorazione di inserire, aggiornare ed eliminare dati, inna
 
 ![Aggiungere le pagine ASP.NET per le esercitazioni relative alla modifica di dati](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image4.png)
 
-**Figura 2**: aggiungere le pagine ASP.NET per le esercitazioni relative alla modifica di dati
+**Figura 2**: aggiungere le pagine ASP.NET per le esercitazioni relative alla modifica dei dati
 
 
 Come in altre cartelle, `Default.aspx` nel `EditInsertDelete` cartella elencherà le esercitazioni nella relativa sezione. Tenere presente che il `SectionLevelTutorialListing.ascx` controllo utente fornisce questa funzionalità. Pertanto, aggiungere il controllo utente `Default.aspx` trascinandolo da Esplora soluzioni in visualizzazione Progettazione della pagina.
@@ -68,7 +68,7 @@ Come in altre cartelle, `Default.aspx` nel `EditInsertDelete` cartella elencher�
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image6.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image5.png)
 
-**Figura 3**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))
+**Figura 3**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image7.png))
 
 
 Infine, aggiungere le pagine come voci per il `Web.sitemap` file. In particolare, aggiungere il markup seguente dopo la formattazione personalizzata `<siteMapNode>`:
@@ -93,7 +93,7 @@ Aprire il `Basics.aspx` pagina, trascinare un ObjectDataSource dalla casella deg
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image10.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image9.png)
 
-**Figura 5**: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))
+**Figura 5**: configurare ObjectDataSource per usare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image11.png))
 
 
 Nella schermata successiva è possibile specificare quali metodi del `ProductsBLL` classe viene eseguito il mapping di ObjectDataSource `Select()`, `Insert()`, `Update()`, e `Delete()` selezionando la scheda appropriata e scegliendo il metodo dall'elenco a discesa. Figura 6, che dovrebbe essere familiare a questo punto, viene eseguito il mapping di ObjectDataSource `Select()` metodo il `ProductsBLL` della classe `GetProducts()` metodo. Il `Insert()`, `Update()`, e `Delete()` metodi possono essere configurati selezionando la scheda appropriata dall'elenco nella parte superiore.
@@ -109,17 +109,17 @@ Nelle figure 7, 8 e 9 Mostra UPDATE, INSERT e DELETE di ObjectDataSource schede.
 
 [![Eseguire il mapping Update () metodo di ObjectDataSource al metodo UpdateProduct della classe ProductBLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image16.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image15.png)
 
-**Figura 7**: eseguire il mapping di ObjectDataSource `Update()` metodo il `ProductBLL` della classe `UpdateProduct` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))
+**Figura 7**: eseguire il mapping di ObjectDataSource `Update()` metodo per il `ProductBLL` della classe `UpdateProduct` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image17.png))
 
 
 [![Eseguire il mapping Insert () metodo di ObjectDataSource al metodo AddProduct della classe ProductBLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image19.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image18.png)
 
-**Figura 8**: eseguire il mapping di ObjectDataSource `Insert()` metodo il `ProductBLL` Add della classe `Product` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))
+**Figura 8**: eseguire il mapping di ObjectDataSource `Insert()` metodo per il `ProductBLL` Add della classe `Product` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image20.png))
 
 
-[![Eseguire il mapping al metodo DeleteProduct della classe ProductBLL metodo Delete () di ObjectDataSource](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
+[![Eseguire il mapping Delete () metodo di ObjectDataSource al metodo DeleteProduct della classe ProductBLL](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image22.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image21.png)
 
-**Figura 9**: eseguire il mapping di ObjectDataSource `Delete()` metodo il `ProductBLL` della classe `DeleteProduct` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))
+**Figura 9**: eseguire il mapping di ObjectDataSource `Delete()` metodo per il `ProductBLL` della classe `DeleteProduct` metodo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image23.png))
 
 
 Si può notare che gli elenchi a discesa nelle schede UPDATE, INSERT e DELETE dispone già di questi metodi selezionati. Grazie all'uso dei dati si tratta di `DataObjectMethodAttribute` che decora i metodi di `ProducstBLL`. Ad esempio, il metodo DeleteProduct ha la firma seguente:
@@ -192,7 +192,7 @@ Per aggiungere funzionalità di eliminazione a un controllo GridView, passare al
 
 ![Verificare l'abilitazione di eliminazione di casella di controllo](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
 
-**Figura 10**: controllare l'abilitazione di eliminazione di casella di controllo
+**Figura 10**: verificare l'abilitazione di eliminazione di casella di controllo
 
 
 La casella di controllo Abilita eliminazione dallo smart tag aggiunge un CommandField a GridView. Il CommandField esegue il rendering di una colonna in GridView con pulsanti per l'esecuzione di uno o più delle seguenti attività: la selezione di un record, la modifica di un record e l'eliminazione di un record. Si è osservato in precedenza CommandField nell'azione con la selezione dei record nel [Master/dettaglio con un controllo DetailView per i dettagli di Master GridView selezionabile](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) esercitazione.
@@ -205,7 +205,7 @@ Il CommandField contiene un numero di `ShowXButton` le proprietà che indicano l
 A questo punto, può sembrare strano, è stata completata con l'aggiunta del supporto di eliminazione a GridView. Come mostrato nella figura 11, quando visitare questa pagina tramite un browser di una colonna di pulsanti di eliminazione è presente.
 
 
-[![Il CommandField aggiunge una colonna di pulsanti di eliminazione](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
+[![Il CommandField aggiunge una colonna di pulsanti di Delete](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
 
 **Figura 11**: il CommandField aggiunge una colonna di eliminare i pulsanti ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image27.png))
 
@@ -221,7 +221,7 @@ Se, durante il tentativo di eliminare un prodotto, verrà generata un'eccezione 
 
 [![Verificare che la proprietà OldValuesParameterFormatString è stata cancellata](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image29.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image28.png)
 
-**Figura 12**: verificare che il `OldValuesParameterFormatString` proprietà è stata deselezionata Out ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))
+**Figura 12**: verificare che il `OldValuesParameterFormatString` proprietà è stata cancellata Out ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image30.png))
 
 
 Anche se è stato rimosso il `OldValuesParameterFormatString` proprietà, è comunque verrà generata un'eccezione durante il tentativo di eliminare un prodotto con il messaggio: "*l'istruzione DELETE in conflitto con il vincolo di riferimento ' FK\_ordine\_dettagli \_Prodotti*. " Il database Northwind contiene un vincolo di chiave esterna tra la `Order Details` e `Products` vale a dire che un prodotto non può essere eliminato dal sistema se sono presenti uno o più record nella tabella di `Order Details` tabella. Poiché ogni prodotto nel database Northwind dispone di almeno un record in `Order Details`, fino a quando non è prima di eliminare i record di dettagli ordine associato del prodotto non è possibile eliminare tutti i prodotti.
@@ -229,7 +229,7 @@ Anche se è stato rimosso il `OldValuesParameterFormatString` proprietà, è com
 
 [![Un vincolo Foreign Key impedisce l'eliminazione dei prodotti](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image32.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image31.png)
 
-**Figura 13**: un vincolo Foreign Key impedisce l'eliminazione dei prodotti ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))
+**Figura 13**: un vincolo Foreign Key impedisce l'eliminazione di prodotti ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image33.png))
 
 
 Per questa esercitazione, si sarà sufficiente eliminare tutti i record di `Order Details` tabella. In un'applicazione reale è necessario uno:
@@ -238,12 +238,12 @@ Per questa esercitazione, si sarà sufficiente eliminare tutti i record di `Orde
 - Aumentare la `DeleteProduct` per includere la logica per eliminare i dettagli dell'ordine del prodotto specificato (metodo)
 - Modificare la query SQL utilizzata dal TableAdapter per includere l'eliminazione di dettagli dell'ordine del prodotto specificato
 
-Solo eliminare tutti i record di `Order Details` per aggirare il vincolo di chiave esterno nella tabella. Accedere a Esplora Server in Visual Studio, fare clic su di `NORTHWND.MDF` nodo e scegliere Nuova Query. Quindi, nella finestra query eseguire l'istruzione SQL seguente:`DELETE FROM [Order Details]`
+Solo eliminare tutti i record di `Order Details` per aggirare il vincolo di chiave esterno nella tabella. Accedere a Esplora Server in Visual Studio, fare clic su di `NORTHWND.MDF` nodo e scegliere Nuova Query. Quindi, nella finestra query, eseguire l'istruzione SQL seguente: `DELETE FROM [Order Details]`
 
 
 [![Eliminare tutti i record dalla tabella Dettagli ordine](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
 
-**Nella figura 14**: eliminare tutti i record di `Order Details` tabella ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))
+**Figura 14**: Elimina tutti i record il `Order Details` tabella ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image36.png))
 
 
 Dopo aver cancellato di `Order Details` tabella facendo clic sul pulsante Elimina eliminerà il prodotto senza errori. Se facendo clic sul pulsante Elimina non elimina il prodotto, verificare che il controllo GridView `DataKeyNames` proprietà è impostata per il campo chiave primaria (`ProductID`).
@@ -275,7 +275,7 @@ Controllando semplicemente la casella di controllo Abilita modifica smart tag de
 
 ![Verificare l'abilitazione, la casella di controllo di modifica](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image37.png)
 
-**Figura 15**: controllare l'abilitazione, la casella di controllo di modifica
+**Figura 15**: verificare l'abilitazione di casella di controllo di modifica
 
 
 Controllare la casella di controllo Abilita modifica aggiungerà un CommandField (se necessario) e impostare il relativo `ShowEditButton` proprietà `true`. Come abbiamo visto prima il CommandField contiene un numero di `ShowXButton` le proprietà che indicano le serie di pulsanti vengono visualizzati nel CommandField. La casella di controllo Abilita modifica aggiunge il `ShowEditButton` proprietà per il CommandField esistente:
@@ -286,9 +286,9 @@ Controllare la casella di controllo Abilita modifica aggiungerà un CommandField
 Questo è tutto per l'aggiunta del supporto di modificando rudimentale. Come illustrato di seguito Figure16, l'interfaccia di modifica è piuttosto essenziale è costituita dall'ogni BoundField cui `ReadOnly` è impostata su `false` (predefinito) viene visualizzato come una casella di testo. Sono inclusi i campi come `CategoryID` e `SupplierID`, che sono chiavi ad altre tabelle.
 
 
-[![Pulsante di modifica s Chai facendo clic su Visualizza la riga in modalità di modifica](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
+[![Facendo clic sul pulsante Modifica s Chai viene visualizzata la riga in modalità di modifica](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image38.png)
 
-**Figura 16**: s Chai fare clic sul pulsante Modifica viene visualizzata la riga in modalità di modifica ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))
+**Figura 16**: s Chai facendo clic sul pulsante Modifica consente di visualizzare la riga in modalità di modifica ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image40.png))
 
 
 Oltre a chiedere agli utenti di modificare direttamente i valori di chiave esterna, l'interfaccia dell'interfaccia modifica risulta mancante nei modi seguenti:
@@ -375,9 +375,9 @@ Di seguito è illustrato il markup dichiarativo per il controllo FormView `ItemT
 La figura 22 illustra il controllo FormView `ItemTemplate` quando viene visualizzato tramite un browser. Ogni campo di prodotto viene elencato con i pulsanti nella parte inferiore di New, Edit e Delete.
 
 
-[![ItemTemplate FormView predefinito Elenca ogni campo di prodotto con nuovi, modificare ed eliminare i pulsanti](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
+[![ItemTemplate disporranno delle FormView Elenca ogni campo Product insieme ai nuovi, modificare ed eliminare i pulsanti](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image55.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image54.png)
 
-**Figura 22**: l'impostazione predefinita FormView `ItemTemplate` Elenca ogni prodotto campo lungo con New, Edit e Delete pulsanti ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))
+**Figura 22**: il controllo FormView disporranno delle `ItemTemplate` Elenca ogni prodotto campo lungo con New, Edit e Delete pulsanti ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image56.png))
 
 
 Come con GridView e DetailsView, fare clic sul pulsante Elimina o qualsiasi pulsante, LinkButton o ImageButton cui `CommandName` proprietà è impostata su Delete causa un postback, popola di ObjectDataSource `DeleteParameters` basato sul controllo FormView `DataKeyNames`valore e richiama il ObjectDataSource `Delete()` metodo.
@@ -399,9 +399,9 @@ Il nostro `EditItemTemplate`, a questo punto, verrà generata un'eccezione viene
 Nella figura 23 Mostra FormView in un browser dopo che il pulsante Modifica è stato fatto clic Chai. Si noti che il `SupplierName` e `CategoryName` campi visualizzati di `ItemTemplate` non sono più presenti, come è stato rimosso dal `EditItemTemplate`. Quando si fa clic sul pulsante Aggiorna FormView procede attraverso la stessa sequenza di passaggi come i controlli GridView e DetailsView.
 
 
-[![Per impostazione predefinita, EditItemTemplate Mostra ogni campo modificabile prodotto come una casella di testo o di una casella di controllo](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
+[![Per impostazione predefinita il EditItemTemplate Mostra ogni campo modificabile prodotto come una casella di testo o una casella di controllo](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image58.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image57.png)
 
-**Nella figura 23**: per impostazione predefinita il `EditItemTemplate` Mostra ogni prodotto campo modificabile come una casella di testo o di una casella di controllo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))
+**Nella figura 23**: per impostazione predefinita, il `EditItemTemplate` Mostra ogni prodotto campo modificabile come una casella di testo o una casella di controllo ([fare clic per visualizzare l'immagine ingrandita](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image59.png))
 
 
 Quando il pulsante Inserisci viene selezionato il controllo FormView `ItemTemplate` viene utilizzata un postback. Tuttavia, i dati non sono associati a FormView perché viene aggiunto un nuovo record. Il `InsertItemTemplate` interfaccia include i controlli Web per l'aggiunta di un nuovo record con i pulsanti Inserisci e Annulla. Il valore predefinito `InsertItemTemplate` generato da Visual Studio contiene una casella di testo per ogni campo di valori non booleani e una casella di controllo per ogni campo di valore Boolean, simile a generazione automatica `EditItemTemplate`dell'interfaccia. I controlli casella di testo hanno loro `Text` proprietà associato al valore di loro corrispondente campo di dati mediante l'associazione dati bidirezionale.
@@ -440,7 +440,7 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[avanti](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [!div class="step-by-step"]
+> [avanti](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

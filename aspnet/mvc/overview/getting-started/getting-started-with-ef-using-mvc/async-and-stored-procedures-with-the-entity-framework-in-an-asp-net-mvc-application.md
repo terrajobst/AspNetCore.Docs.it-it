@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84cf427c7da7905444568ac34534e9ed98a7d8c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async e Stored procedure con Entity Framework in un'applicazione MVC ASP.NET
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 [Scaricare il progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [Scarica il PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 5 con Visual Studio 2013 e Code First di Entity Framework 6. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni ASP.NET MVC 5 con Visual Studio 2013 e Code First di Entity Framework 6. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Nelle esercitazioni precedenti è stato descritto come leggere e aggiornare i dati utilizzando il modello di programmazione sincrona. In questa esercitazione viene visualizzato come implementare il modello di programmazione asincrono. Codice asincrono consente a un'applicazione di prestazioni migliori perché rende un migliore utilizzo delle risorse del server.
@@ -33,7 +33,7 @@ In questa esercitazione viene illustrato anche come utilizzare stored procedure 
 
 Infine, si sarà ridistribuire l'applicazione in Azure, insieme a tutte le modifiche di database che sono stati implementati dopo la prima volta che è stato distribuito.
 
-Le illustrazioni seguenti mostrano alcune delle pagine che verranno utilizzate.
+Le figure seguenti illustrano alcune delle pagine che verranno usate.
 
 ![Pagina reparti](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
@@ -41,7 +41,7 @@ Le illustrazioni seguenti mostrano alcune delle pagine che verranno utilizzate.
 
 ## <a name="why-bother-with-asynchronous-code"></a>Perché preoccuparsi di codice asincrono
 
-Un server web ha un numero limitato di thread disponibili, e in situazioni di carico elevato tutti i thread disponibili potrebbero essere in uso. In questo caso, il server non è possibile elaborare nuove richieste fino a quando non verranno liberati i thread. Con il codice sincrono, molti thread può essere vincolato mentre sono in realtà non sono svolgere alcuna operazione perché in attesa di completamento dei / o. Con il codice asincrono, quando un processo è in attesa dei / o di completamento, il thread viene liberato per il server da utilizzare per l'elaborazione di altre richieste. Di conseguenza, codice asincrono consente alle risorse di server da utilizzare in modo più efficiente e il server è abilitato per gestire più traffico senza ritardi.
+Per un server Web è disponibile un numero limitato di thread e in situazioni di carico elevato tutti i thread disponibili potrebbero essere in uso. In queste circostanze il server non può elaborare nuove richieste finché i thread non saranno liberi. Con il codice sincrono, può succedere che molti thread siano vincolati nonostante in quel momento non stiano eseguendo alcuna operazione. Rimangono tuttavia in attesa che l'operazione I/O sia completata. Con il codice asincrono, se un processo è in attesa del completamento dell'operazione I/O, il thread viene liberato e il server lo può usare per l'elaborazione di altre richieste. Di conseguenza, codice asincrono consente alle risorse di server da utilizzare in modo più efficiente e il server è abilitato per gestire più traffico senza ritardi.
 
 Nelle versioni precedenti di .NET, scrittura e il test di codice asincrono è complesso, errore soggetto e difficili da eseguire il debug. In .NET 4.5, è pertanto molto più semplice che devono essere scritti in genere codice asincrono a meno che non esista un motivo non a scrittura, test e debug di codice asincrono. Codice asincrono che presenta una piccola quantità di overhead, ma il potenziale miglioramento delle prestazioni in situazioni con traffico ridotto il calo di prestazioni è irrilevante, mentre per le situazioni di traffico elevato, è sostanziale.
 
@@ -99,7 +99,7 @@ Tutto ciò che funziona esattamente come gli altri controller, ma in questo cont
 Alcuni aspetti da tenere in considerazione quando si utilizza la programmazione asincrona con Entity Framework:
 
 - Il codice asincrono non è thread-safe. In altre parole, in altre parole, non tenta di eseguire più operazioni in parallelo utilizzando la stessa istanza di contesto.
-- Se si desidera sfruttare i vantaggi delle prestazioni del codice asincrono, assicurarsi che qualsiasi libreria di pacchetti in uso (ad esempio per il paging), usano anche il metodo async se esse chiamano metodi di Entity Framework che vengono generate query da inviare al database.
+- Se si vogliono sfruttare i vantaggi del codice asincrono in termini di prestazioni, verificare che i pacchetti della libreria impiegati, ad esempio per il paging, usino la modalità asincrona per chiamare i metodi di Entity Framework che generano query da inviare al database.
 
 ## <a name="use-stored-procedures-for-inserting-updating-and-deleting"></a>Utilizzare le stored procedure per l'inserimento, aggiornamento ed eliminazione
 
@@ -117,16 +117,16 @@ Alcuni sviluppatori e amministratori preferiscono utilizzare stored procedure pe
     Aprire *migrazioni\&lt; timestamp&gt;\_DepartmentSP.cs* per visualizzare il codice di `Up` metodo che crea Insert, Update e Delete stored procedure:
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
-- Nella Console di gestione pacchetti, immettere il comando seguente:
+3. Nella Console di gestione pacchetti, immettere il comando seguente:
 
-    `update-database`
-- Eseguire l'applicazione in modalità di debug, fare clic su di **reparti** scheda e quindi fare clic su **Crea nuovo**.
-- Immettere i dati per una nuova categoria e quindi fare clic su **crea**.
+     `update-database`
+4. Eseguire l'applicazione in modalità di debug, fare clic su di **reparti** scheda e quindi fare clic su **Crea nuovo**.
+5. Immettere i dati per una nuova categoria e quindi fare clic su **crea**.
 
-    ![Creare reparto](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-- In Visual Studio, esaminare i registri di **Output** finestra per verificare che una stored procedure è stata usata per inserire una nuova riga reparto.
+     ![Creare reparto](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+6. In Visual Studio, esaminare i registri di **Output** finestra per verificare che una stored procedure è stata usata per inserire una nuova riga reparto.
 
-    ![Reparto Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+     ![Reparto Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 Codice crea prima i nomi delle procedure predefinito archiviato. Se si utilizza un database esistente, si potrebbe essere necessario personalizzare i nomi di stored procedure per utilizzare le stored procedure già definite nel database. Per informazioni su come eseguire questa operazione, vedere [Entity Framework prima Insert/Update/Delete Stored procedure codice](https://msdn.microsoft.com/data/dn468673).
 
@@ -152,6 +152,6 @@ In questa esercitazione si è visto come migliorare l'efficienza di server scriv
 
 Collegamenti ad altre risorse di Entity Framework, vedere il [accesso ai dati ASP.NET - risorse](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Precedente](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Successivo](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Precedente](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Successivo](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

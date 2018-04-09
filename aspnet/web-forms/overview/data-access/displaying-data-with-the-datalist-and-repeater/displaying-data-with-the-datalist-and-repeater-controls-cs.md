@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 title: Visualizzazione di dati con DataList e Repeater (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Nelle esercitazioni precedenti è stato utilizzato il controllo GridView per visualizzare i dati. A partire da questa esercitazione, si esamina la creazione di modelli di report comuni con..."
+description: Nelle esercitazioni precedenti è stato utilizzato il controllo GridView per visualizzare i dati. A partire da questa esercitazione, si esamina la creazione di modelli di report comuni con...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42203bdd7c22f3885eecab36dbd710d371107285
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a329ff5d598156e613e3b5ef370d9d1147e4ea61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Visualizzazione di dati con DataList e Repeater (c#)
 ====================
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione, lasciare s innanzitutto è opportuno agg
 
 ![Creare una cartella DataListRepeaterBasics e aggiungere le pagine ASP.NET dell'esercitazione](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image1.png)
 
-**Figura 1**: creare un `DataListRepeaterBasics` cartella e aggiungere le pagine ASP.NET dell'esercitazione
+**Figura 1**: creare un `DataListRepeaterBasics` cartella e aggiungere le pagine ASP.NET Tutorial
 
 
 Aprire il `Default.aspx` pagina e trascinare il `SectionLevelTutorialListing.ascx` controllo utente dal `UserControls` cartella nell'area di progettazione. Questo controllo utente, creata nel [pagine Master e esplorazione del sito](../introduction/master-pages-and-site-navigation-cs.md) esercitazione enumera la mappa del sito e visualizza le esercitazioni dalla sezione corrente in un elenco puntato.
@@ -56,7 +56,7 @@ Aprire il `Default.aspx` pagina e trascinare il `SectionLevelTutorialListing.asc
 
 [![Aggiungere il controllo utente SectionLevelTutorialListing.ascx Default.aspx](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image2.png)
 
-**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente in `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))
+**Figura 2**: aggiungere il `SectionLevelTutorialListing.ascx` controllo utente al `Default.aspx` ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))
 
 
 Per visualizzare l'elenco puntato le esercitazioni di DataList e Repeater che verrà creata, è necessario aggiungerli alla mappa del sito. Aprire il `Web.sitemap` file e aggiungere il markup seguente dopo il tag di nodo all'aggiunta di pulsanti personalizzata mappa del sito:
@@ -90,7 +90,7 @@ Da DataList s smart tag, aggiungere un nuovo oggetto ObjectDataSource e configur
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLL](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
 
-**Figura 6**: configurare ObjectDataSource per utilizzare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))
+**Figura 6**: configurare ObjectDataSource per usare il `ProductsBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))
 
 
 [![Recuperare informazioni su tutti i prodotti con il metodo GetProducts](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image15.png)
@@ -125,7 +125,7 @@ Pertanto, quando si lavora con DataList, che fornisce l'opzione di modifica dei 
 
 [![Ogni prodotto s Output viene eseguito il rendering tramite DataList s ItemTemplate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
 
-**Figura 8**: ogni prodotto Output è sottoposto a rendering utilizzando DataList s `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))
+**Figura 8**: ogni prodotto s Output è sottoposto a rendering utilizzando DataList s `ItemTemplate` ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))
 
 
 ## <a name="step-3-improving-the-appearance-of-the-datalist"></a>Passaggio 3: Migliorare l'aspetto del controllo DataList
@@ -161,12 +161,12 @@ Con l'aggiunta di questo file di interfaccia, l'aspetto di DataList s è stata a
 
 Oltre al `ItemTemplate`, DataList supporta sei altri modelli facoltativi:
 
-- `HeaderTemplate`Se fornito, aggiunge all'output una riga di intestazione e viene utilizzato per eseguire il rendering di questa riga
-- `AlternatingItemTemplate`usato per il rendering di elementi alternativi
-- `SelectedItemTemplate`utilizzato per il rendering dell'elemento selezionato; l'elemento selezionato è l'elemento il cui indice corrisponde a DataList s [ `SelectedIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate`utilizzato per il rendering dell'elemento da modificare
-- `SeparatorTemplate`Se fornito, aggiunge un separatore tra ogni elemento e viene utilizzato per eseguire il rendering di questo tipo di separatore
-- `FooterTemplate`-Se fornito, aggiunge all'output una riga di piè di pagina e viene utilizzato per eseguire il rendering di questa riga
+- `HeaderTemplate` Se fornito, aggiunge all'output una riga di intestazione e viene utilizzato per eseguire il rendering di questa riga
+- `AlternatingItemTemplate` usato per il rendering degli elementi alternati
+- `SelectedItemTemplate` utilizzato per il rendering dell'elemento selezionato; l'elemento selezionato è l'elemento il cui indice corrisponde a DataList s [ `SelectedIndex` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` utilizzato per il rendering dell'elemento in fase di modifica
+- `SeparatorTemplate` Se fornito, aggiunge un separatore tra ogni elemento e viene utilizzato per eseguire il rendering di questo separatore
+- `FooterTemplate` -Se fornito, aggiunge all'output una riga di piè di pagina e viene utilizzato per eseguire il rendering di questa riga
 
 Quando si specifica il `HeaderTemplate` o `FooterTemplate`, DataList aggiunge una riga di intestazione o piè di pagina aggiuntiva per l'output sottoposto a rendering. Ad esempio con GridView s intestazioni e piè di pagina righe, l'intestazione e piè di pagina in un controllo DataList non associati a dati. Pertanto, l'associazione dati sintassi di `HeaderTemplate` o `FooterTemplate` che tenta di accedere ai dati associati restituirà una stringa vuota.
 
@@ -210,11 +210,11 @@ Caso un'origine dal browser durante la visita di esempio DataList dalla figura 1
 
 Cosa accade se si desidera creare un elemento HTML t `<table>`, anche se? Per il controllo totale e completato il markup generato da un controllo Web, è necessario utilizzare il controllo Repeater. Ad esempio DataList, Repeater viene costruito basato su modelli. Ripetitore, tuttavia, offre solo cinque modelli seguenti:
 
-- `HeaderTemplate`Se specificato, viene aggiunto il markup specificato prima gli elementi
-- `ItemTemplate`usato per il rendering di elementi
-- `AlternatingItemTemplate`Se specificato, utilizzato per eseguire il rendering degli elementi alternati
-- `SeparatorTemplate`Se fornito, viene aggiunto il markup specificato tra ogni elemento
-- `FooterTemplate`-Se fornito, aggiunge il tag specificato dopo gli elementi
+- `HeaderTemplate` Se fornito, viene aggiunto il markup specificato prima gli elementi
+- `ItemTemplate` usato per il rendering di elementi
+- `AlternatingItemTemplate` Se specificato, usato per eseguire il rendering degli elementi alternati
+- `SeparatorTemplate` Se fornito, viene aggiunto il markup specificato tra ogni elemento
+- `FooterTemplate` -Se fornito, aggiunge il tag specificato dopo gli elementi
 
 In ASP.NET 1. x, Ripetitore controllo usate per visualizzare un elenco puntato i cui dati provengono da un'origine dati. In tal caso, il `HeaderTemplate` e `FooterTemplates` conterrà l'apertura e chiusura `<ul>` tag, rispettivamente, mentre il `ItemTemplate` conterrebbe `<li>` elementi con la sintassi di associazione dati. Questo approccio può comunque essere utilizzato in ASP.NET 2.0 come abbiamo visto nei due esempi nel [pagine Master e esplorazione del sito](../introduction/master-pages-and-site-navigation-cs.md) esercitazione:
 
@@ -230,9 +230,9 @@ Ripetitore funge da un blocco catch tutti i dati di controllo Web. Se non è un 
 A tale scopo, avviare mediante il trascinamento dalla casella degli strumenti nella finestra di progettazione sopra DataList informazioni prodotto di un controllo Repeater. Come con DataList, Repeater vengono inizialmente visualizzate come una casella di colore grigio fino a quando non sono stati definiti i modelli.
 
 
-[![Aggiungere un controllo Repeater nella finestra di progettazione](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
+[![Aggiungere un ripetitore nella finestra di progettazione](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
 
-**Figura 13**: aggiungere un controllo Repeater nella finestra di progettazione ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))
+**Figura 13**: aggiungere un ripetitore nella finestra di progettazione ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))
 
 
 Solo una delle opzioni qui s nello smart tag Ripetitore s: Scegli origine dati. Scegliere di creare un nuovo oggetto ObjectDataSource e configurarlo per utilizzare il `CategoriesBLL` classe s `GetCategories` metodo.
@@ -240,12 +240,12 @@ Solo una delle opzioni qui s nello smart tag Ripetitore s: Scegli origine dati. 
 
 [![Creare un nuovo oggetto ObjectDataSource](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image36.png)
 
-**Nella figura 14**: creare un nuovo oggetto ObjectDataSource ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))
+**Figura 14**: creare un nuovo oggetto ObjectDataSource ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))
 
 
 [![Configurare ObjectDataSource per utilizzare la classe CategoriesBLL](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
 
-**Figura 15**: configurare ObjectDataSource per utilizzare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))
+**Figura 15**: configurare ObjectDataSource per usare il `CategoriesBLL` classe ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))
 
 
 [![Recuperare informazioni su tutte le categorie utilizzando il metodo GetCategories](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
@@ -268,7 +268,7 @@ Poiché il `<td>Category X</td>` testo è quella che si ripete, questo nome verr
 Ripetitore genera il markup come specificato per i modelli, semplicemente, non meno preciso. Figura 17 mostra l'output di s Ripetitore quando viene visualizzato tramite un browser.
 
 
-[![Una singola riga di HTML &lt;tabella&gt; Elenca ogni categoria in una colonna separata](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
+[![Una singola riga HTML &lt;tabella&gt; Elenca ogni categoria in una colonna separata](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
 
 **Figura 17**: A riga singola HTML `<table>` Elenca ogni categoria in una colonna separata ([fare clic per visualizzare l'immagine ingrandita](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image47.png))
 
@@ -312,11 +312,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Yaakov Ellis, Liz Shulok, Randy Schmidt e Stacy Park. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](formatting-the-datalist-and-repeater-based-upon-data-cs.md)
+> [!div class="step-by-step"]
+> [avanti](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

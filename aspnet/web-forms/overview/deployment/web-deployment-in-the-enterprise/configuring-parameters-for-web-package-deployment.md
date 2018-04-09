@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7be08f1a1fb7232911a44cf64e2e784dbb95ff48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Configurazione dei parametri per la distribuzione di pacchetto Web
 ====================
@@ -92,7 +92,7 @@ Per informazioni dettagliate su come creare un *Parameters. XML* file, vedere [p
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modificare il File SetParameters
 
-Se si intende distribuire manualmente il pacchetto dell'applicazione web & #x 2014; eseguendo il *. deploy* file o tramite l'esecuzione di MSDeploy.exe dalla riga di comando & #x 2014; non è necessario eseguire per impedire all'utente di modificare manualmente il *SetParameters* file prima della distribuzione. Tuttavia, se si lavora in una soluzione aziendale, potrebbe essere necessario distribuire un pacchetto di applicazione web come parte di un processo di compilazione e distribuzione più grande e automatizzato. In questo scenario, è necessario Microsoft Build Engine (MSBuild) per modificare il *SetParameters* file automaticamente. È possibile farlo tramite il MSBuild **XmlPoke** attività.
+Se si prevede di distribuire manualmente il pacchetto di applicazione web&#x2014;eseguendo il *. deploy. cmd* file oppure eseguendo MSDeploy.exe dalla riga di comando&#x2014;Nessun elemento da impedire all'utente di modificare manualmente il  *SetParameters* file prima della distribuzione. Tuttavia, se si lavora in una soluzione aziendale, potrebbe essere necessario distribuire un pacchetto di applicazione web come parte di un processo di compilazione e distribuzione più grande e automatizzato. In questo scenario, è necessario Microsoft Build Engine (MSBuild) per modificare il *SetParameters* file automaticamente. È possibile farlo tramite il MSBuild **XmlPoke** attività.
 
 Il [soluzione di esempio Contact Manager](the-contact-manager-solution.md) viene illustrato questo processo. Gli esempi di codice che seguono sono stati modificati per mostrare solo i dettagli che sono rilevanti per questo esempio.
 
@@ -148,6 +148,6 @@ Per informazioni su come creare pacchetti web, vedere [compilazione e creazione 
 
 Per ulteriori informazioni generali su parametrizzazione nella distribuzione Web, vedere [Web distribuire parametrizzazione nell'azione](https://go.microsoft.com/?linkid=9805119) (post di blog).
 
->[!div class="step-by-step"]
-[Precedente](building-and-packaging-web-application-projects.md)
-[Successivo](deploying-web-packages.md)
+> [!div class="step-by-step"]
+> [Precedente](building-and-packaging-web-application-projects.md)
+> [Successivo](deploying-web-packages.md)

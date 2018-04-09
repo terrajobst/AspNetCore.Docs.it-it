@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: 810c90aa68bf83b9aa19976466bbaa77149b1caf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34fcc15b4801cbe4126c91317fedcaf81d25b9df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel"></a>Come ricerca per categorie: personalizzare la gestione di ASP.NET AJAX UpdatePanel
 ====================
@@ -24,8 +24,8 @@ da [Rob Windsor](https://twitter.com/robwindsor)
 
 Quando si verifica un errore durante l'elaborazione di un postback generato da un UpdatePanel AJAX ASP.NET, PageRequestManager lato client viene visualizzato un avviso (.NET 2.0 o 3.0) o semplicemente generare nuovamente l'eccezione (.NET 3.5 o versione successiva). In entrambi i casi, l'esperienza per l'utente finale è minore ottimale. In questo video Rob Windsor verrà illustrato come risolvere questo problema, personalizzare la gestione degli errori associati a UpdatePanel
 
-[&#9654; Guardare video (17 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel)
+[&#9654;Guardare video (17 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel)
 
->[!div class="step-by-step"]
-[Precedente](set-up-your-development-environment-for-aspnet-20.md)
-[Successivo](how-do-i-use-aspnet-ajax-client-templates.md)
+> [!div class="step-by-step"]
+> [Precedente](set-up-your-development-environment-for-aspnet-20.md)
+> [Successivo](how-do-i-use-aspnet-ajax-client-templates.md)

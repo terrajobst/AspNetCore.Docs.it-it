@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4ca745fa068b1813e01b131d53a0199cc47d5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95e7c555a52c8c3b765a6fffab15276491cf5714
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-c"></a>Panoramica di ASP.NET MVC Controller (c#)
 ====================
@@ -75,7 +75,7 @@ Tutti questi risultati di azioni ereditano dalla classe ActionResult.
 
 Nella maggior parte dei casi, un'azione del controller restituisce un ViewResult. Ad esempio, l'azione del controller di indice nel listato 2 restituisce un ViewResult.
 
-**Elenco di 2 - Controllers\BookController.cs**
+**Il listato 2 - Controllers\BookController.cs**
 
 [!code-csharp[Main](aspnet-mvc-controllers-overview-cs/samples/sample2.cs)]
 
@@ -100,7 +100,7 @@ In tal caso, se si desidera restituire una visualizzazione nel browser, chiamare
 
 Il risultato dell'azione ContentResult è speciale. È possibile utilizzare il risultato dell'azione ContentResult per restituire il risultato di un'azione come testo normale. Ad esempio, il metodo Index () nel listato 4 restituisce un messaggio come testo normale e non come HTML.
 
-**Elenco di 4 - Controllers\StatusController.cs**
+**Listato 4 - Controllers\StatusController.cs**
 
 [!code-csharp[Main](aspnet-mvc-controllers-overview-cs/samples/sample4.cs)]
 
@@ -108,7 +108,7 @@ Quando viene richiamata l'azione StatusController.Index(), una vista non viene r
 
 Se un'azione del controller restituisce un risultato non risultato di un'azione, ad esempio, una data o un numero intero, quindi il risultato viene inserito in un ContentResult automaticamente. Ad esempio, quando viene richiamata l'azione Index () di WorkController listato 5, la data viene restituita come un ContentResult automaticamente.
 
-**Elenco di 5 - WorkController.cs**
+**Nel listato 5 - WorkController.cs**
 
 [!code-csharp[Main](aspnet-mvc-controllers-overview-cs/samples/sample5.cs)]
 
@@ -118,6 +118,6 @@ L'azione Index () nel listato 5 restituisce un oggetto DateTime. Il framework di
 
 Lo scopo di questa esercitazione è stato per un'introduzione ai concetti del controller, le azioni del controller e i risultati dell'azione controller MVC ASP.NET. Nella prima sezione, è stato descritto come aggiungere nuovi controller per un progetto ASP.NET MVC. Successivamente, si è appreso pubblici come metodi di un controller vengono esposti all'universo come azioni del controller. Infine, abbiamo parlato i diversi tipi di risultati dell'azione che possono essere restituiti da un'azione del controller. In particolare, è descritto come restituire un ViewResult RedirectToActionResult e ContentResult da un'azione del controller.
 
->[!div class="step-by-step"]
-[Precedente](creating-an-action-vb.md)
-[Successivo](creating-custom-routes-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-an-action-vb.md)
+> [Successivo](creating-custom-routes-cs.md)

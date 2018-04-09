@@ -1,7 +1,7 @@
 ---
-title: Utilizzo di una cache distribuita in ASP.NET Core
+title: Utilizzare una cache distribuita in ASP.NET Core
 author: ardalis
-description: "Imparare a usare ASP.NET Core distribuita la memorizzazione nella cache per migliorare le prestazioni dell'applicazione e la scalabilità, in particolare in un ambiente di farm di server o cloud."
+description: Imparare a usare ASP.NET Core distribuita la memorizzazione nella cache per migliorare le prestazioni dell'applicazione e la scalabilità, in particolare in un ambiente di farm di server o cloud.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Utilizzo di una cache distribuita in ASP.NET Core
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Utilizzare una cache distribuita in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Le cache distribuite possono migliorare le prestazioni e scalabilità delle appl
 
 ## <a name="what-is-a-distributed-cache"></a>Che cos'è una cache distribuita
 
-Una cache distribuita è condiviso da più server di app (vedere [nozioni fondamentali di memorizzazione nella cache](memory.md#caching-basics)). Le informazioni nella cache non vengono memorizzate nella memoria del server web singole e i dati memorizzati nella cache sono disponibili a tutti i server dell'app. Ciò offre diversi vantaggi:
+Una cache distribuita è condiviso da più server di app (vedere [nozioni di base Cache](memory.md#caching-basics)). Le informazioni nella cache non vengono memorizzate nella memoria del server web singole e i dati memorizzati nella cache sono disponibili a tutti i server dell'app. Ciò offre diversi vantaggi:
 
 1. Dati memorizzati nella cache sono coerenti in tutti i server web. Gli utenti non visualizzati risultati diversi a seconda di quale web server gestisce la richiesta
 
@@ -95,7 +95,7 @@ Nell'esempio di codice, un `RedisCache` implementazione viene utilizzata quando 
 [!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> Per installare Redis sul computer locale, installare il pacchetto chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) ed eseguire `redis-server` da un prompt dei comandi.
+> Per installare Redis sul computer locale, installare il pacchetto chocolatey [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) ed eseguire `redis-server` da un prompt dei comandi.
 
 ## <a name="using-a-sql-server-distributed-cache"></a>Utilizzo di un Server SQL cache distribuita
 
@@ -138,7 +138,7 @@ Quando si decide quale implementazione di `IDistributedCache` diritto per l'app,
 
 * [Redis Cache in Azure](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Database SQL in Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Memorizzazione nella cache in memoria](xref:performance/caching/memory)
+* [Cache in memoria](xref:performance/caching/memory)
 * [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)

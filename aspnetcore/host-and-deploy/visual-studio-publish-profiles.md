@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64c96f572c42c56480cfe2bd58f926d54eddf35e
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio profili di pubblicazione per la distribuzione di app ASP.NET Core
 
@@ -91,7 +91,7 @@ Quando MSBuild o Visual Studio carica un progetto, vengono eseguite le seguenti 
 * Calcolare i file da pubblicare
 * Pubblicare i file nella destinazione
 
-### <a name="compute-project-items"></a>Calcolare gli elementi del progetto
+## <a name="compute-project-items"></a>Calcolare gli elementi del progetto
 
 Quando viene caricato il progetto, vengono calcolati gli elementi del progetto (file). L'attributo `item type` determina la modalità di elaborazione del file. Per impostazione predefinita, i file *cs* sono inclusi nell'elenco di elementi `Compile`. I file presenti nell'elenco di elementi `Compile` vengono compilati.
 
@@ -197,11 +197,12 @@ La pubblicazione guidata supporta le seguenti destinazioni di pubblicazione:
 Per altre informazioni vedere [Quali sono le opzioni di pubblicazione più adatte?](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options)
 
 Quando si crea un profilo di pubblicazione con Visual Studio, un *proprietà/PublishProfiles/\<nome pubblicazione > pubxml* viene creato il file MSBuild. Questo file *.pubxml* è un file MSBuild e contiene le impostazioni di configurazione della pubblicazione. Questo file può essere modificato per personalizzare la compilazione e processo di pubblicazione. Questo file viene letto dal processo di pubblicazione. `<LastUsedBuildConfiguration>` è uno speciale perché è una proprietà globale e non deve essere in qualsiasi file che viene importato nella compilazione. Per altre informazioni vedere [MSBuild: how to set the configuration property](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) (MSBuild: come impostare la proprietà di configurazione).
+
 Il *pubxml* file non deve essere verificato nel controllo del codice sorgente perché dipende il *User* file. Il file *.user* non deve mai essere selezionato nel controllo del codice sorgente perché può contenere informazioni riservate ed è valido solo per un unico utente e computer.
 
 Le informazioni riservate (come la password di pubblicazione) sono crittografate a livello di ogni utente/computer e archiviate nel file *Properties/PublishProfiles/\<publish name>.pubxml.user*. Poiché questo file può contenere informazioni riservate, **non** deve essere selezionato nel controllo del codice sorgente.
 
-Per una panoramica su come pubblicare un'app web in ASP.NET Core vedere [Host e distribuire](index.md). [Host e distribuire](index.md) è un progetto open source in https://github.com/aspnet/websdk.
+Per una panoramica su come pubblicare un'app web in ASP.NET Core vedere [Host e distribuire](index.md). [Ospitare e distribuire](index.md) è un progetto open source in https://github.com/aspnet/websdk.
 
 `dotnet publish` cartella, MSDeploy, può essere usata e [KUDU](https://github.com/projectkudu/kudu/wiki) profili di pubblicazione:
  
@@ -444,7 +445,7 @@ MSBuild file.
 
 Per altri campioni di distribuzione vedere [WebSDK Readme](https://github.com/aspnet/websdk).
 
-### <a name="run-a-target-before-or-after-publishing"></a>Eseguire una destinazione prima o dopo la pubblicazione
+## <a name="run-a-target-before-or-after-publishing"></a>Eseguire una destinazione prima o dopo la pubblicazione
 
 L'elemento predefinito `BeforePublish` e `AfterPublish` destinazioni possono essere utilizzate per eseguire una destinazione, prima o dopo la destinazione di pubblicazione. È possibile aggiungere il markup seguente al profilo di pubblicazione per registrare messaggi nell'output di console prima e dopo la pubblicazione:
 
@@ -455,6 +456,16 @@ L'elemento predefinito `BeforePublish` e `AfterPublish` destinazioni possono ess
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
     <Message Text="Inside AfterPublish" Importance="high" />
 </Target>
+```
+
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>La pubblicazione in un server utilizzando un certificato non attendibile
+
+Aggiungere il `<AllowUntrustedCertificate>` proprietà con un valore di `True` per il profilo di pubblicazione:
+
+```xml
+<PropertyGroup>
+  <AllowUntrustedCertificate>True</AllowUntrustedCertificate>
+</PropertyGroup>
 ```
 
 ## <a name="the-kudu-service"></a>Servizio Kudu
@@ -471,4 +482,4 @@ Selezionare la voce di menu [Console di debug](https://github.com/projectkudu/ku
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) semplifica la distribuzione di App web e siti Web ai server IIS.
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): problemi di file e funzionalità di richiesta per la distribuzione.
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): I problemi di file e richiedere le funzionalità per la distribuzione.

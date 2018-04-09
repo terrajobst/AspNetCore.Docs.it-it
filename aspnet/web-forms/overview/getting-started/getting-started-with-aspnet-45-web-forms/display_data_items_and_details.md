@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>Visualizzazione dei dati degli elementi e i dettagli
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -131,7 +131,7 @@ Questo codice Usa un **FormView** controllo per visualizzare informazioni dettag
 Per connettere il markup precedente del database, è necessario aggiungere il codice aggiuntivo per il *ProductDetails.aspx* codice.
 
 1. In **Esplora**, fare doppio clic su *ProductDetails.aspx* e quindi fare clic su **Visualizza codice**.  
- Il *ProductDetails.aspx.cs* file verrà visualizzato.
+   Il *ProductDetails.aspx.cs* file verrà visualizzato.
 2. Sostituire il codice esistente con il seguente:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -160,6 +160,6 @@ In questa esercitazione della serie è necessario aggiungere markup e il codice 
 
 [Il recupero e visualizzazione dei dati con l'associazione di modelli e web form](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[Precedente](ui_and_navigation.md)
-[Successivo](shopping-cart.md)
+> [!div class="step-by-step"]
+> [Precedente](ui_and_navigation.md)
+> [Successivo](shopping-cart.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 title: Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 di Web Form - parte 8 | Documenti Microsoft
 author: tdykstra
-description: "L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio..."
+description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 035cce022d1b3697b825a96487529dbc9675d90e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 8
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -91,7 +91,7 @@ In genere, si desidera personalizzare la funzionalità di Dynamic Data. Ad esemp
 
 In **Esplora**, fare doppio clic su di **ContosoUniversity** progetto, selezionare **Aggiungi riferimento**e aggiungere un riferimento a `System.ComponentModel.DataAnnotations`.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
 
 Nel *DAL* cartella, creare un nuovo file di classe, denominarlo *Student.cs*e sostituire il codice del modello in essa contenuti con il codice seguente.
 
@@ -101,7 +101,7 @@ Questo codice crea una classe parziale per il `Student` entità. Il `MetadataTyp
 
 Gli attributi applicati alle proprietà nella classe di metadati specificano la formattazione, i messaggi di errore, regole e convalida. Gli attributi riportati di seguito saranno disponibili i seguenti risultati:
 
-- `EnrollmentDate`verrà visualizzato come una data (senza un tempo).
+- `EnrollmentDate` verrà visualizzato come una data (senza un tempo).
 - Entrambi i campi nome devono essere di 25 caratteri o meno in lunghezza e un messaggio di errore personalizzato viene fornita.
 - Sono necessari entrambi i campi nome e viene fornito un messaggio di errore personalizzato.
 
@@ -124,13 +124,13 @@ Dopo che è stato impostato queste regole di convalida e formattazione nei metad
 Si conclude così questa serie di esercitazioni sui concetti introduttivi di Entity Framework. Per altre risorse che consentono di imparare a usare Entity Framework, continuare con [la prima esercitazione della serie di esercitazioni di Entity Framework successiva](../continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md) o i siti seguenti:
 
 - [Domande frequenti su Entity Framework](http://www.ef-faq.org/introduction.html)
-- [Blog del Team di Entity Framework](https://blogs.msdn.com/b/adonet/)
+- [Il blog del Team di Entity Framework](https://blogs.msdn.com/b/adonet/)
 - [Entity Framework in MSDN Library](https://msdn.microsoft.com/library/bb399572.aspx)
 - [Entity Framework nel centro per sviluppatori MSDN dati](https://msdn.microsoft.com/data/ef.aspx)
-- [Panoramica del controllo Server Web EntityDataSource in MSDN Library](https://msdn.microsoft.com/library/cc488502.aspx)
+- [Cenni preliminari sul controllo Server Web EntityDataSource in MSDN Library](https://msdn.microsoft.com/library/cc488502.aspx)
 - [Controllo EntityDataSource API reference in MSDN Library](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [Forum di Entity Framework in MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
+- [Forum su Entity Framework in MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Blog di Julie Lerman](http://thedatafarm.com/blog/)
 
->[!div class="step-by-step"]
-[Precedente](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](the-entity-framework-and-aspnet-getting-started-part-7.md)

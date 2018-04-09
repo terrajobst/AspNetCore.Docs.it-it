@@ -1,5 +1,5 @@
 ---
-title: Provider di archiviazione chiavi
+title: Provider di archiviazione chiavi in ASP.NET Core
 author: rick-anderson
 description: Informazioni sui provider di archiviazione chiavi in ASP.NET Core e su come configurare i percorsi di archiviazione chiavi.
 manager: wpickett
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 83e02a19e465b3ff81a0c0c62c2c8b090bfab052
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e8b7804e93b812c2e710ab15510c2fbaa7c4866d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-providers"></a>Provider di archiviazione chiavi
+# <a name="key-storage-providers-in-aspnet-core"></a>Provider di archiviazione chiavi in ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-providers"></a>
 
 Per impostazione predefinita il sistema di protezione dati [utilizza un approccio euristico](xref:security/data-protection/configuration/default-settings) per determinare dove deve essere mantenuti chiavi crittografiche. Lo sviluppatore può eseguire l'override l'euristica e specificare manualmente il percorso.
 
 > [!NOTE]
-> Se si specifica un percorso esplicito persistenza chiave, il sistema di protezione dati verrà annullare la registrazione alla crittografia della chiave predefinita al meccanismo di rest che ha fornito l'approccio euristico, pertanto non è più chiavi verranno crittografate a riposo. Si consiglia di che è inoltre [specifica un meccanismo di crittografia della chiave esplicita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) per applicazioni di produzione.
+> Se si specifica un percorso esplicito persistenza chiave, il sistema di protezione dati verrà annullare la registrazione alla crittografia della chiave predefinita al meccanismo di rest che ha fornito l'approccio euristico, pertanto non è più chiavi verranno crittografate a riposo. Si consiglia di che è inoltre [specifica un meccanismo di crittografia della chiave esplicita](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers) per applicazioni di produzione.
 
 Il sistema di protezione dati viene fornito con diversi provider di archiviazione della chiave nella casella.
 
@@ -36,7 +36,7 @@ sc.AddDataProtection()
        .PersistKeysToFileSystem(new DirectoryInfo(@"c:\temp-keys\"));
    ```
 
-Il `DirectoryInfo` può puntare a una directory sul computer locale oppure può puntare a una cartella in una condivisione di rete. Se si fa riferimento a una directory sul computer locale e lo scenario è che solo le applicazioni nel computer locale saranno necessario usare questo repository, è consigliabile utilizzare [Windows DPAPI](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi. In caso contrario è consigliabile utilizzare un [certificato x. 509](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi.
+Il `DirectoryInfo` può puntare a una directory sul computer locale oppure può puntare a una cartella in una condivisione di rete. Se si fa riferimento a una directory sul computer locale e lo scenario è che solo le applicazioni nel computer locale saranno necessario usare questo repository, è consigliabile utilizzare [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi. In caso contrario è consigliabile utilizzare un [certificato x. 509](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi.
 
 ## <a name="azure-and-redis"></a>Azure e Redis
 
@@ -84,7 +84,7 @@ In alcuni casi l'app potrebbe non avere accesso in scrittura nel file System. Si
        .PersistKeysToRegistry(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Sample\keys"));
    ```
 
-Se si utilizza il Registro di sistema come un meccanismo di persistenza, è consigliabile utilizzare [Windows DPAPI](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi.
+Se si utilizza il Registro di sistema come un meccanismo di persistenza, è consigliabile utilizzare [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) per crittografare le chiavi inattivi.
 
 ## <a name="custom-key-repository"></a>Archivio chiave personalizzato
 

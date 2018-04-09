@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection
 msc.type: video
-ms.openlocfilehash: 9d908ccfc030bb90e9d27dd03222e55a94991a0a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a915d6594d81151d87ee82d67af4105b009c7605
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-13-dependency-injection"></a>ASP.NET MVC parte vetrina 13: Inserimento di dipendenze
 ====================
@@ -24,8 +24,8 @@ da [mare Conery](https://github.com/robconery)
 
 Si tratta di una sessione di sviluppo comune con Jeremy Miller di CodeBetter/StructureMap, in cui ha illustra i vantaggi e svantaggi di, Dependency Injection.
 
-[&#9654; Guardare video (58 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-13-dependency-injection)
+[&#9654;Guardare video (58 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-13-dependency-injection)
 
->[!div class="step-by-step"]
-[Precedente](aspnet-mvc-storefront-part-12-mocking.md)
-[Successivo](aspnet-mvc-storefront-part-14-rich-client-interaction.md)
+> [!div class="step-by-step"]
+> [Precedente](aspnet-mvc-storefront-part-12-mocking.md)
+> [Successivo](aspnet-mvc-storefront-part-14-rich-client-interaction.md)

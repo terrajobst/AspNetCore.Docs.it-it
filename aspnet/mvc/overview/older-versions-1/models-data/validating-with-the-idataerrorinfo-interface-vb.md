@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1439d470a7fa3cb1171dbdd0b7eec6a6aa52912d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60df0f934432484e0c97e0caef25c15605beb14f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-the-idataerrorinfo-interface-vb"></a>Convalida con l'interfaccia IDataErrorInfo (VB)
 ====================
@@ -45,7 +45,7 @@ In questa esercitazione userà il database MoviesDB e la tabella di database di 
 In questa esercitazione, usare Microsoft Entity Framework per generare classi di modello il database. La classe di film generata da Entity Framework viene visualizzata nella figura 1.
 
 
-[![L'entità del film](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
+[![L'entità di film](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
 
 **Figura 01**: entità del filmato ([fare clic per visualizzare l'immagine ingrandita](validating-with-the-idataerrorinfo-interface-vb/_static/image2.png))
 
@@ -59,7 +59,7 @@ In questa esercitazione, usare Microsoft Entity Framework per generare classi di
 
 Si utilizzano controller Home per filmati elenco e creare nuovi film. Il codice per questa classe è contenuto in elenco 1.
 
-**Elenco 1 - Controllers\HomeController.vb**
+**Listing 1 - Controllers\HomeController.vb**
 
 [!code-vb[Main](validating-with-the-idataerrorinfo-interface-vb/samples/sample1.vb)]
 
@@ -76,16 +76,16 @@ La proprietà IsValid restituisce false quando si verifica un errore di convalid
 La classe film viene generata da Entity Framework. Se si espande il file MoviesDBModel.edmx nella finestra Esplora soluzioni e apre il file MoviesDBModel.Designer.vb nell'Editor di codice, è possibile visualizzare il codice per la classe filmato (vedere la figura 2).
 
 
-[![Il codice per l'entità del film](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
+[![Il codice per l'entità di film](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
 
-**Figura 02**: il codice per l'entità del filmato ([fare clic per visualizzare l'immagine ingrandita](validating-with-the-idataerrorinfo-interface-vb/_static/image4.png))
+**Figura 02**: il codice per l'entità filmato ([fare clic per visualizzare l'immagine ingrandita](validating-with-the-idataerrorinfo-interface-vb/_static/image4.png))
 
 
 La classe film è una classe parziale. Ciò significa che è possibile aggiungere un'altra classe parziale con lo stesso nome per estendere la funzionalità della classe film. La logica di convalida verrà aggiunto alla nuova classe parziale.
 
 Aggiungere la classe nel listato 2 nella cartella Models.
 
-**Elenco di 2 - Models\Movie.vb**
+**Listing 2 - Models\Movie.vb**
 
 [!code-vb[Main](validating-with-the-idataerrorinfo-interface-vb/samples/sample3.vb)]
 
@@ -141,7 +141,7 @@ Il DefaultModelBinder controlla anche la proprietà IDataErrorInfo.Error. Questa
 
 La classe film aggiornata nel listato 4 implementa l'interfaccia IDataErrorInfo.
 
-**Elenco di 4 - Models\Movie.vb (implementa IDataErrorInfo)**
+**Listato 4 - Models\Movie.vb (implementa IDataErrorInfo)**
 
 [!code-vb[Main](validating-with-the-idataerrorinfo-interface-vb/samples/sample7.vb)]
 
@@ -161,6 +161,6 @@ Si noti che il valore DateReleased viene convalidato automaticamente. Poiché la
 
 In questa esercitazione è stato descritto come utilizzare l'interfaccia IDataErrorInfo per generare messaggi di errore di convalida. In primo luogo, è creata una classe film parziale che estende la funzionalità di classe parziale film generata da Entity Framework. Successivamente, è stata aggiunta logica di convalida per i film classe OnTitleChanging() e OnDirectorChanging() metodi parziali. Infine, abbiamo implementato IDataErrorInfo (interfaccia) per esporre questi messaggi di convalida per il framework di MVC ASP.NET.
 
->[!div class="step-by-step"]
-[Precedente](performing-simple-validation-vb.md)
-[Successivo](validating-with-a-service-layer-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](performing-simple-validation-vb.md)
+> [Successivo](validating-with-a-service-layer-vb.md)

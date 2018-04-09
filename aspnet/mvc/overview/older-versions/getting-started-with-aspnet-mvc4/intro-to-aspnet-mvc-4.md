@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 title: Introduzione a ASP.NET MVC 4 | Documenti Microsoft
 author: Rick-Anderson
-description: "Una versione aggiornata, se in questa esercitazione è disponibile qui con Visual Studio 2013. Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti rispetto t..."
+description: Una versione aggiornata, se in questa esercitazione è disponibile qui con Visual Studio 2013. Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti rispetto t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 519bac22ba2607931c5f3123b9b567859a2b3d1c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Introduzione a ASP.NET MVC 4
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Una versione aggiornata se è disponibile in questa esercitazione [qui](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti introdotti in questa esercitazione.
 > 
@@ -31,7 +31,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 > - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
 > 
-> Se si utilizza Visual Studio 2010 anziché Visual Web Developer 2010, installare il [installer WPI per ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392) e: [prerequisiti di Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
+> Se si usa Visual Studio 2010 anziché Visual Web Developer 2010, installare il [programma di installazione WPI per ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392) e il: [prerequisiti di Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
 > 
 > Un progetto di Visual Web Developer con il codice sorgente c# è disponibile a complemento di questo argomento. [Scaricare la versione c#](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
@@ -88,5 +88,5 @@ F5 fa sì che Visual Studio avviare IIS Express ed eseguire l'applicazione web. 
 
 Subito tale modello predefinito consente principale, contatti e sulle pagine. Inoltre fornisce il supporto per registrare e accedere e collegamenti a Facebook e Twitter. Il passaggio successivo consiste nella modifica il funzionamento di questa applicazione e un po' informazioni su ASP.NET MVC. Chiudere il browser e modificare il codice.
 
->[!div class="step-by-step"]
-[avanti](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [avanti](adding-a-controller.md)

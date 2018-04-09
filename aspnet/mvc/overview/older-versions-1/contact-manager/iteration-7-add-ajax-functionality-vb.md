@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
-title: "Iterazione #7: la funzionalità Aggiungi Ajax (VB) | Documenti Microsoft"
+title: 'Iterazione #7: la funzionalità Aggiungi Ajax (VB) | Documenti Microsoft'
 author: microsoft
-description: "Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax."
+description: Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa50fdea8ac165be3f8e96322ec049196a511ebe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d961ee39d7b87a31c7208645148b45c7b0c563
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-vb"></a>Iterazione #7: la funzionalità Aggiungi Ajax (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-7-add-ajax-functionality-vb/_static/contactmanager_7_vb1.zip)
 
@@ -97,7 +97,7 @@ Aggiungere il codice JavaScript seguente include all'interno di &lt;head&gt; tag
 Consente di iniziare modificando la visualizzazione dell'indice in modo che solo facendo clic su un gruppo di contatti Aggiorna l'area di visualizzazione che elenca i contatti s. La casella di colore rossa nella figura 1 contiene l'area che si desidera aggiornare.
 
 
-[![L'aggiornamento solo contatti](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
+[![L'aggiornamento solo i contatti](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
 
 **Figura 01**: l'aggiornamento solo i contatti ([fare clic per visualizzare l'immagine ingrandita](iteration-7-add-ajax-functionality-vb/_static/image2.png))
 
@@ -112,7 +112,7 @@ Si noti che nel listato 1 parziale include un modello diverso rispetto alla visu
 
 La visualizzazione dell'indice aggiornata è contenuta nel listato 2.
 
-**Elenco di 2 - Views\Contact\Index.aspx**
+**Il listato 2 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample3.aspx)]
 
@@ -148,7 +148,7 @@ Esistono diversi modi che è possibile indicare a un utente che lavoro viene ese
 
 Verrà utilizzata la libreria jQuery è inclusa con il framework di MVC ASP.NET di Microsoft, per creare gli effetti di animazione. La visualizzazione dell'indice aggiornata è contenuta in elenco 4.
 
-**Elenco di 4 - Views\Contact\Index.aspx**
+**Listato 4 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample6.aspx)]
 
@@ -176,7 +176,7 @@ Cronologia del browser ASP.NET AJAX, è necessario eseguire tre operazioni:
 
 La visualizzazione dell'indice aggiornata è contenuta nel listato 5.
 
-**Elenco di 5 - Views\Contact\Index.aspx**
+**Nel listato 5 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample8.aspx)]
 
@@ -206,7 +206,7 @@ Può essere tentati di ignorare la pagina Conferma eliminazione ed eliminare un 
 
 Il collegamento di eliminazione è contenuto nel ContactList parziale. Una versione aggiornata del ContactList parziale è contenuta nel listato 6.
 
-**Elenco di 6 - Views\Contact\ContactList.ascx**
+**Elenco 6 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample10.aspx)]
 
@@ -243,5 +243,5 @@ Successivamente, abbiamo utilizzato gli effetti di animazione jQuery per dissolv
 
 Infine, abbiamo creato un collegamento di eliminazione che supporta le operazioni DELETE HTTP. Eseguendo eliminazioni Ajax, è consentire agli utenti di eliminare i record di database senza richiedere all'utente di richiedere una pagina di conferma eliminazione aggiuntive.
 
->[!div class="step-by-step"]
-[Precedente](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-6-use-test-driven-development-vb.md)

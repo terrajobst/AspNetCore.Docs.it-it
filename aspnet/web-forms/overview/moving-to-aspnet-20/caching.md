@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/caching
 title: Caching | Microsoft Docs
 author: microsoft
-description: "La comprensione della memorizzazione nella cache è importante per un'applicazione ASP.NET buone prestazioni. ASP.NET 1. x disponibili tre diverse opzioni per la memorizzazione nella cache; cache di output,..."
+description: La comprensione della memorizzazione nella cache è importante per un'applicazione ASP.NET buone prestazioni. ASP.NET 1. x disponibili tre diverse opzioni per la memorizzazione nella cache; cache di output,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>Memorizzazione nella cache
 ====================
@@ -59,7 +59,7 @@ Per invalidare l'elemento che è stato inserito in precedenza, rimuovere semplic
 
 Si noti che la chiave dell'elemento che funge da chiave della cache deve essere lo stesso come il valore aggiunto per la matrice delle chiavi della cache.
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>Basate sul polling dipendenze della Cache SQL*(detto anche le dipendenze basate su tabella)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Dipendenze della Cache SQL basate sul polling<em>(detto anche le dipendenze basate su tabella)</em>
 
 SQL Server 7 e 2000 utilizzare il modello di polling per le dipendenze della cache SQL. Il modello di polling viene utilizzato un trigger in una tabella di database che viene attivata quando si modifica dei dati nella tabella. Che devono attivare aggiornamenti un **changeId** nella tabella che ASP.NET verifica periodicamente la notifica. Se il **changeId** campo è stato aggiornato, ASP.NET riconosce che i dati sono stati modificati e non invalida i dati memorizzati nella cache.
 
@@ -237,12 +237,13 @@ Gli attributi seguenti sono disponibili nel &lt;cache&gt; elemento:
 
 Gli attributi seguenti sono disponibili per il &lt;outputCache&gt; elemento.
 
-| **Attributo** | **Descrizione** |
-| --- | --- |
-| **enableOutputCache** | Parametro facoltativo **booleano** attributo. Abilita o disabilita la cache di output della pagina. Se disabilitato, non le pagine vengono memorizzati nella cache, indipendentemente dalle impostazioni a livello di codice o dichiarative. Valore predefinito è **true**. |
-| **enableFragmentCache** | Parametro facoltativo **booleano** attributo. Abilita o disabilita la cache dei frammenti di applicazione. Se disabilitato, non le pagine vengono memorizzati nella cache indipendentemente la [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) direttiva o la memorizzazione nella cache del profilo utilizzato. Include un'intestazione cache-control che indica che i server proxy upstream, così come i client del browser non devono tentare di output delle pagine della cache. Valore predefinito è **false**. |
-| **sendCacheControlHeader** | Parametro facoltativo **booleano** attributo. Ottiene o imposta un valore che indica se il **cache-controllo: private** intestazione viene inviata dal modulo di cache di output per impostazione predefinita. Valore predefinito è **false**. |
-| **omitVaryStar** | Parametro facoltativo **booleano** attributo. Abilita o disabilita l'invio di un Http "**Vary: \*** " intestazione nella risposta. Con l'impostazione predefinita false, un "**Vary: \*** " intestazione viene inviata per le pagine nella cache di output. Quando viene inviato l'intestazione Vary, consente di diversa versioni da memorizzare nella cache in base alle quali è specificato nell'intestazione Vary. Ad esempio, *Vary: utente-agenti* archivierà versioni diverse di una pagina in base all'agente utente invio della richiesta. Valore predefinito è **false**. |
+
+|       <strong>Attributo</strong>        |                                                                                                                                                                                                                                                       <strong>Descrizione</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          Parametro facoltativo <strong>booleano</strong> attributo. Abilita o disabilita la cache di output della pagina. Se disabilitato, non le pagine vengono memorizzati nella cache, indipendentemente dalle impostazioni a livello di codice o dichiarative. Valore predefinito è <strong>true</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                Parametro facoltativo <strong>booleano</strong> attributo. Abilita o disabilita la cache dei frammenti di applicazione. Se disabilitato, non le pagine vengono memorizzati nella cache indipendentemente la [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) direttiva o la memorizzazione nella cache del profilo utilizzato. Include un'intestazione cache-control che indica che i server proxy upstream, così come i client del browser non devono tentare di output delle pagine della cache. Valore predefinito è <strong>false</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      Parametro facoltativo <strong>booleano</strong> attributo. Ottiene o imposta un valore che indica se il <strong>cache-controllo: private</strong> intestazione viene inviata dal modulo di cache di output per impostazione predefinita. Valore predefinito è <strong>false</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | Parametro facoltativo <strong>booleano</strong> attributo. Abilita/disabilita l'invio di un Http "<strong>Vary: \</ strong ><em>" intestazione nella risposta. Con l'impostazione predefinita false, un "</em>* Vary: \* <strong>" intestazione viene inviata per le pagine nella cache di output. Quando viene inviato l'intestazione Vary, consente di diversa versioni da memorizzare nella cache in base alle quali è specificato nell'intestazione Vary. Ad esempio <em>Vary: utente-agenti</em> archivierà versioni diverse di una pagina in base all'agente utente crea la richiesta. Valore predefinito è * * false</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>Il &lt;outputCacheSettings&gt; elemento
 

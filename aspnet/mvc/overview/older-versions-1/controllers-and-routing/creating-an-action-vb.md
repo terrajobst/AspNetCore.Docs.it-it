@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d1d355599c17df597f9c08d9d7f129fffc1a2e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c77e4738444c61d60bdd78a50b36f98be41fc271
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-action-vb"></a>Creazione di un'azione (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su come aggiungere una nuova azione a un controller MVC ASP.NET. Informazioni sui requisiti per un metodo da un'azione.
 
@@ -31,7 +31,7 @@ L'obiettivo di questa esercitazione è illustrare come è possibile creare una n
 
 Aggiungere una nuova azione a un controller aggiungendo un nuovo metodo al controller. Ad esempio, il controller nel listato 1 contiene un'azione denominata index () e un'azione denominata sayHello (). Entrambi i metodi vengono esposti come azioni.
 
-**Elenco 1 - Controllers\HomeController.vb**
+**Listing 1 - Controllers\HomeController.vb**
 
 [!code-vb[Main](creating-an-action-vb/samples/sample1.vb)]
 
@@ -53,17 +53,17 @@ Quando si aggiunge un metodo che non violi questi requisiti per un controller, i
 
 Se è necessario creare un metodo pubblico in una classe controller e non si desidera esporre il metodo come un'azione del controller, quindi è possibile impedire che il metodo richiamato utilizzando il &lt;NonAction&gt; attributo. Ad esempio, il controller nel listato 2 contiene un metodo pubblico denominato CompanySecrets() decorata con il &lt;NonAction&gt; attributo.
 
-**Elenco di 2 - Controllers\WorkController.vb**
+**Listing 2 - Controllers\WorkController.vb**
 
 [!code-vb[Main](creating-an-action-vb/samples/sample2.vb)]
 
 Se si tenta di richiamare l'azione del controller CompanySecrets() digitando /Work/CompanySecrets nella barra degli indirizzi del browser si otterrà il messaggio di errore nella figura 1.
 
 
-[![Richiama un metodo NonAction](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
+[![Richiamare un metodo NonAction](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
 
 **Figura 01**: chiamata di un metodo NonAction ([fare clic per visualizzare l'immagine ingrandita](creating-an-action-vb/_static/image2.png))
 
->[!div class="step-by-step"]
-[Precedente](creating-a-controller-vb.md)
-[Successivo](aspnet-mvc-controllers-overview-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-controller-vb.md)
+> [Successivo](aspnet-mvc-controllers-overview-cs.md)

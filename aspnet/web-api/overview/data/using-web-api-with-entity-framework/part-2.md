@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
 title: Aggiungere modelli e controller | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="add-models-and-controllers"></a>Aggiungere modelli e controller
 ====================
@@ -84,8 +84,8 @@ Nel **nuovo contesto dati** finestra di dialogo, lasciare il nome predefinito e 
 
 Fare clic su **Aggiungi** per completare il **Aggiungi Controller** finestra di dialogo. La finestra di dialogo aggiunge due classi al progetto:
 
-- `AuthorsController`definisce un controller API Web. Il controller implementa l'API REST utilizzato dai client per eseguire operazioni CRUD su nell'elenco degli autori.
-- `BookServiceContext`gestisce gli oggetti di entità in fase di esecuzione, che include la compilazione di oggetti con i dati da un database, il rilevamento delle modifiche e rendere persistenti i dati al database. Eredita da `DbContext`.
+- `AuthorsController` definisce un controller API Web. Il controller implementa l'API REST utilizzato dai client per eseguire operazioni CRUD su nell'elenco degli autori.
+- `BookServiceContext` gestisce gli oggetti entità durante la fase di esecuzione, che include la compilazione di oggetti con i dati da un database, il rilevamento delle modifiche e rendere persistenti i dati al database. Eredita da `DbContext`.
 
 ![](part-2/_static/image7.png)
 
@@ -93,6 +93,6 @@ A questo punto, generare di nuovo il progetto. Ora accedere tramite gli stessi p
 
 ![](part-2/_static/image8.png)
 
->[!div class="step-by-step"]
-[Precedente](part-1.md)
-[Successivo](part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](part-1.md)
+> [Successivo](part-3.md)

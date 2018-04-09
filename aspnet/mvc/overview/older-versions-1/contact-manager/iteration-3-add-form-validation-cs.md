@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 title: 'Iterazione #3: aggiunta della convalida del form (c#) | Documenti Microsoft'
 author: microsoft
-description: "Nella terza iterazione, è aggiungere la convalida di form di base. È impedire agli utenti di inviare un modulo senza completare i campi modulo necessari. È inoltre possibile convalidare emai..."
+description: Nella terza iterazione, è aggiungere la convalida di form di base. È impedire agli utenti di inviare un modulo senza completare i campi modulo necessari. È inoltre possibile convalidare emai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b9353c32b2839fd760513982c5742bb8f521e94a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iterazione #3: aggiunta della convalida del form (c#)
 ====================
@@ -44,7 +44,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -56,7 +56,7 @@ In questa seconda iterazione dell'applicazione Contact Manager, è aggiungere la
 
 [![La finestra di dialogo Nuovo progetto](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
-**Figura 01**: un form con la convalida ([fare clic per visualizzare l'immagine ingrandita](iteration-3-add-form-validation-cs/_static/image2.png))
+**Figura 01**: un form con convalida ([fare clic per visualizzare l'immagine ingrandita](iteration-3-add-form-validation-cs/_static/image2.png))
 
 
 In questa iterazione, la logica di convalida è aggiungere direttamente per le azioni del controller. In generale, questo non è il modo consigliato per aggiungere la convalida a un'applicazione MVC ASP.NET. Un approccio migliore consiste nell'inserire la logica di convalida s un'applicazione in un apposito [livello di servizio](http://martinfowler.com/eaaCatalog/serviceLayer.html). Nell'iterazione successiva, è effettuare il refactoring l'applicazione di gestione di contatto per rendere più gestibile l'applicazione.
@@ -101,7 +101,7 @@ Al momento, crea mai visualizzati messaggi di errore di convalida perché non è
 
 Il metodo di metodo di creazione modificato nel listato 2 contiene una nuova sezione che convalida le proprietà della classe di contatto, prima che venga inserito il nuovo contatto nel database.
 
-**Elenco di 2 - Controllers\ContactController.cs (Create con la convalida)**
+**Il listato 2 - Controllers\ContactController.cs (Create con la convalida)**
 
 [!code-csharp[Main](iteration-3-add-form-validation-cs/samples/sample3.cs)]
 
@@ -118,7 +118,7 @@ Dopo che vengono eseguite le regole di convalida, viene controllata la propriet�
 
 > [!NOTE] 
 > 
-> Le espressioni regolari per convalidare l'indirizzo di posta elettronica e numero di telefono dal repository di espressione regolare in stato [ *http://regexlib.com*](http://regexlib.com)
+> Ho le espressioni regolari per convalidare l'indirizzo di posta elettronica e numero di telefono dal repository di espressione regolare in [*http://regexlib.com*](http://regexlib.com)
 
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Aggiunta di logica di convalida per l'azione di modifica
@@ -139,6 +139,6 @@ In questa iterazione, la logica di convalida è aggiunto all'applicazione Gestio
 
 Nell'iterazione successiva, è eseguire il refactoring la logica di convalida e la logica di accesso ai database da questo controller. Verrà usufruire dei principi di progettazione software diversi per consentirci di creare un'applicazione più regime di controllo e più gestibile.
 
->[!div class="step-by-step"]
-[Precedente](iteration-2-make-the-application-look-nice-cs.md)
-[Successivo](iteration-4-make-the-application-loosely-coupled-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-2-make-the-application-look-nice-cs.md)
+> [Successivo](iteration-4-make-the-application-loosely-coupled-cs.md)

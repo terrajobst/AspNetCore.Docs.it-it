@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 title: Aggiunta di una vista (c#) | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero..."
+description: In questa esercitazione verrà fornite le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 46d5494e668dfe156aeb6647ded83e6ce5366714
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50ce4a2024ffd9e2bbb5526717052d486689ff38
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-c"></a>Aggiunta di una vista (c#)
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > È disponibile una versione aggiornata di questa esercitazione [qui](../../../getting-started/introduction/getting-started.md) che utilizza ASP.NET MVC 5 e Visual Studio 2013. È molto più semplice da seguire, più sicuro e vengono illustrate altre funzionalità.
@@ -77,7 +77,7 @@ In primo luogo, si desidera modificare il titolo "My Application MVC" nella part
 
 [![_LayoutCshtml](adding-a-view/_static/image8.png)](adding-a-view/_static/image7.png)
 
-Modelli di layout consentono di specificare il layout di contenitore HTML del sito in un'unica posizione e quindi applicarlo in più pagine del sito. Si noti il `@RenderBody()` nella parte inferiore del file. `RenderBody`è un segnaposto in cui tutte le pagine di visualizzazione specifica che crei visualizzati "wrapping" nella pagina di layout. Modificare l'intestazione del titolo nel modello di layout da "My MVC Application" a "MVC film App".
+Modelli di layout consentono di specificare il layout di contenitore HTML del sito in un'unica posizione e quindi applicarlo in più pagine del sito. Si noti il `@RenderBody()` nella parte inferiore del file. `RenderBody` è un segnaposto in cui tutte le pagine di visualizzazione specifica che crei visualizzati, "wrapping" nella pagina di layout. Modificare l'intestazione del titolo nel modello di layout da "My MVC Application" a "MVC film App".
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml)]
 
@@ -113,7 +113,7 @@ I controller sono responsabili di fornire qualsiasi dati o gli oggetti necessari
 
 Attualmente, il `Welcome` metodo di azione il `HelloWorldController` classe accetta un `name` e `numTimes` parametro e quindi i valori direttamente al browser di output. Per evitare che il controller di eseguire il rendering questa risposta sotto forma di stringa, è necessario modificare il controller per utilizzare invece un modello di visualizzazione. Il modello di vista genererà una risposta dinamica, il che significa che è necessario passare i bit di dati appropriati dal controller alla vista per generare la risposta. È possibile farlo con il controller di inserire i dati dinamici che richiede il modello di visualizzazione di un `ViewBag` oggetto che può quindi accedere il modello di visualizzazione.
 
-Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag`è un oggetto dinamico, ovvero che è possibile inserire elementi desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
+Restituito per il *HelloWorldController.cs* file e modificare il `Welcome` metodo per aggiungere un `Message` e `NumTimes` valore per il `ViewBag` oggetto. `ViewBag` è un oggetto dinamico, ovvero che è possibile inserire desiderati. il `ViewBag` oggetto dispone di alcuna proprietà definito fino a quando non si inserisce un elemento all'interno. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
 
 [!code-csharp[Main](adding-a-view/samples/sample6.cs)]
 
@@ -141,6 +141,6 @@ A questo punto dati viene portati dall'URL e passati automaticamente al controll
 
 Queste operazioni hanno riguardato un tipo di "M" per modello, ma non il tipo di database. Creare un database di film con i concetti appresi.
 
->[!div class="step-by-step"]
-[Precedente](adding-a-controller.md)
-[Successivo](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-a-controller.md)
+> [Successivo](adding-a-model.md)

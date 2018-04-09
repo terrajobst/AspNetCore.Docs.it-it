@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
 title: Sito MVC Database prima di pubblicare in Azure | Documenti Microsoft
 author: tfitzmac
-description: "Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri..."
+description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Sito MVC Database prima di pubblicare in Azure
 ====================
@@ -52,8 +52,7 @@ Creare un nome univoco per l'app web. Si conosceranno che il nome è univoco se 
 
 I valori di connessione sono ora impostati. È possibile lasciare invariati i questi valori.
 
-![
-          connection](publish-to-azure/_static/image5.png)
+![connection](publish-to-azure/_static/image5.png)
 
 Scegliere **Avanti**.
 
@@ -167,5 +166,5 @@ Per un esempio introduttivo dello sviluppo Code First, vedere [Introduzione a AS
 
 Per un esempio più avanzato, vedere [creazione di un modello di dati di Entity Framework per applicazioni ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Si noti che l'API DbContext utilizzabili per lavorare con i dati nel primo Database è identico API utilizzata per l'utilizzo di dati di Code First. Anche se si prevede di utilizzare Database First, è possibile imparare a gestire scenari più complessi, ad esempio la lettura e aggiornamento dei dati correlati, gestione dei conflitti di concorrenza, e così via da un'esercitazione Code First. L'unica differenza è in modalità di creazione di database, classe del contesto e le classi di entità.
 
->[!div class="step-by-step"]
-[Precedente](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Precedente](enhancing-data-validation.md)

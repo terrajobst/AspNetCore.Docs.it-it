@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 title: Nozioni fondamentali sulla sicurezza e il supporto di ASP.NET (c#) | Documenti Microsoft
 author: rick-anderson
-description: "Questa è la prima esercitazione di una serie di esercitazioni che esaminerà le tecniche per l'autenticazione degli utenti tramite un web form, autorizzare l'accesso alle partic..."
+description: Questa è la prima esercitazione di una serie di esercitazioni che esaminerà le tecniche per l'autenticazione degli utenti tramite un web form, autorizzare l'accesso alle partic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4080e3ccaffefd02c76b89a77e320e963f854961
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2b89a8b0dd88505c1d63054db508590c26684158
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-basics-and-aspnet-support-c"></a>Nozioni fondamentali sulla sicurezza e il supporto di ASP.NET (c#)
 ====================
@@ -108,14 +108,14 @@ Si verrà approfondita l'autenticazione basata su form in modo molto più dettag
 
 In ASP.NET sono disponibili due modalità per determinare se un utente specifico dispone di autorizzazioni sufficienti per accedere a un file specifico o una directory:
 
-- **Autorizzazione del file** : poiché le pagine ASP.NET e servizi web vengono implementati come file che risiedono nel sistema di file del server web, accesso a questi file possono essere specificati tramite elenchi di controllo di accesso (ACL). Autorizzazione del file viene utilizzato più di frequente con l'autenticazione di Windows perché gli ACL sono le autorizzazioni valide per gli account di Windows. Quando si utilizza l'autenticazione basata su form, vengono eseguite tutte le richieste a livello di sistema di file e sistema operativo dello stesso account di Windows, indipendentemente dall'utente visita il sito.
-- **Autorizzazione URL**-con l'autorizzazione URL, lo sviluppatore specifica le regole di autorizzazione in Web. config. Queste regole di autorizzazione specificano quali utenti o ruoli sono autorizzati ad accedere o non autorizzati l'accesso a determinate pagine o la directory dell'applicazione.
+- **Autorizzazione del file** - poiché le pagine ASP.NET e servizi web vengono implementati come file che risiedono nel file system del server web, l'accesso a questi file possono essere specificati tramite elenchi di controllo di accesso (ACL). Autorizzazione del file viene utilizzato più di frequente con l'autenticazione di Windows perché gli ACL sono le autorizzazioni valide per gli account di Windows. Quando si utilizza l'autenticazione basata su form, vengono eseguite tutte le richieste a livello di sistema di file e sistema operativo dello stesso account di Windows, indipendentemente dall'utente visita il sito.
+- **Autorizzazione URL**-con l'autorizzazione URL, lo sviluppatore della pagina specifica le regole di autorizzazione in Web. config. Queste regole di autorizzazione specificano quali utenti o ruoli sono autorizzati ad accedere o non autorizzati l'accesso a determinate pagine o la directory dell'applicazione.
 
 Autorizzazione del file e l'autorizzazione URL definire le regole di autorizzazione per l'accesso a una particolare pagina ASP.NET o per tutte le pagine ASP.NET in una directory specifica. L'utilizzo di queste tecniche è possibile indicare ASP.NET per negare le richieste a una pagina specifica per un particolare utente o consentire l'accesso a un set di utenti e negare l'accesso a tutti gli altri. Per quanto riguarda gli scenari in cui tutti gli utenti possono accedere alla pagina, ma la funzionalità della pagina dipende dall'utente? Ad esempio, molti siti che supportano gli account utente dispongono di pagine che consentono di visualizzare dati per gli utenti autenticati e gli utenti anonimi o contenuti diversi. Un utente anonimo potrebbe essere visualizzato un collegamento per accedere al sito, mentre un utente autenticato verrà invece visualizzato un messaggio, quali, Bentornato, *Username* insieme a un collegamento per la disconnessione. Un altro esempio: quando si visualizza un elemento in corrispondenza di un sito di vendita all'asta vedrai informazioni diverse a seconda che si tratti di una procedura di asta l'elemento o di uno di essi.
 
 Tali modifiche a livello di pagina possono essere eseguite in modo dichiarativo o a livello di codice. Per visualizzare contenuti diversi per anonimo rispetto agli utenti autenticati, basta trascinare un [controllo LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) nella pagina e immettere il contenuto appropriato nel relativo modelli AnonymousTemplate e LoggedInTemplate. In alternativa, è possibile a livello di programmazione determinare se la richiesta corrente viene autenticata, identità dell'utente e i ruoli appartengono a (se presente). Quindi visualizzare o nascondere colonne nei pannelli o una griglia nella pagina, è possibile utilizzare queste informazioni.
 
-Questa serie include tre esercitazioni che concentrano sulle autorizzazioni. ***Autorizzazione basata sull'utente***viene illustrato come limitare l'accesso a una o più pagine in una directory per l'account utente specifico. ***Autorizzazione ruolo base*** esamina specificando le regole di autorizzazione il ruolo a livello; infine, il ***la visualizzazione del contenuto in base all'attualmente registrati In utente*** esercitazione viene esaminata la modifica di un particolare contenuto della pagina e funzionalità in base all'utente visita la pagina. Per ulteriori informazioni su ASP. Opzioni di autorizzazione di rete, vedere [autorizzazione ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
+Questa serie include tre esercitazioni che concentrano sulle autorizzazioni. ***Autorizzazione basata sull'utente***esamina come limitare l'accesso a una o più pagine in una directory per gli account utente specifico; ***Autorizzazione basata su ruolo*** fornendo le regole di autorizzazione il ruolo a livello; infine, vengono esaminati i ***la visualizzazione contenuto basato su utente l'accesso attualmente connesso*** esercitazione viene esaminata la modifica di un particolare pagina contenuto e alle funzionalità basate sull'utente visita la pagina. Per ulteriori informazioni su ASP. Opzioni di autorizzazione di rete, vedere [autorizzazione ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
 
 
 ## <a name="user-accounts-and-roles"></a>Account utente e ruoli
@@ -137,13 +137,13 @@ Il framework di appartenenza utilizza il [modello provider](http://aspnet.4guysf
 
 Microsoft sono disponibili due classi di provider di appartenenze in .NET Framework:
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -implementa l'API di appartenenza nei server Active Directory e Active Directory ADAM (Application Mode).
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -implementa l'API di appartenenza nei server Active Directory e Active Directory ADAM Application Mode ().
 - [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -implementa l'API di appartenenza in un database di SQL Server.
 
 Questa serie di esercitazioni incentrato esclusivamente sul SqlMembershipProvider.
 
 
-[![Il modello consente diverse implementazioni del Provider per essere facilmente collegato nel Framework di&lt;/ sicuro&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
+[![Il modello consente diverse implementazioni del Provider per essere facilmente collegato nel Framework di&lt;/ strong&gt;](security-basics-and-asp-net-support-cs/_static/image4.png)](security-basics-and-asp-net-support-cs/_static/image3.png)
 
 **Figura 03**: il modello consente diverse implementazioni del Provider per essere facilmente collegato nel Framework di ([fare clic per visualizzare l'immagine ingrandita](security-basics-and-asp-net-support-cs/_static/image5.png))
 
@@ -174,8 +174,8 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [ASP.NET 2.0 appartenenza, ruoli, autenticazione basata su form e risorse di sicurezza](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [Linee guida ASP.NET 2.0 di sicurezza](https://msdn.microsoft.com/library/ms998258.aspx)
+- [ASP.NET 2.0 appartenenza, ruoli, autenticazione basata su form e le risorse di sicurezza](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
+- [Linee guida ASP.NET 2.0 sicurezza](https://msdn.microsoft.com/library/ms998258.aspx)
 - [Autenticazione ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx)
 - [Autorizzazione ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Cenni preliminari sui controlli di accesso ASP.NET](https://msdn.microsoft.com/library/ms178329.aspx)
@@ -183,16 +183,16 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [In che modo ricerca per categorie: protette del sito mediante l'appartenenza e ruoli?](https://asp.net/learn/videos/video-45.aspx) (Video)
 - [Introduzione all'appartenenza](https://msdn.microsoft.com/library/yh26yfzy.aspx)
 - [MSDN Security Developer Center](https://msdn.microsoft.com/security/default.aspx)
-- [Professional ASP.NET 2.0 sicurezza, l'appartenenza e gestione dei ruoli](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
+- [Professional ASP.NET 2.0 sicurezza, l'appartenenza e gestione dei ruoli](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (codice ISBN: 978-0-7645-9698-8)
 - [Toolkit del provider](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stato in questa esercitazione serie è stato esaminato da diversi validi revisori. Lead revisori per questa esercitazione includono Alicja Maziarz, John Suru e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[avanti](an-overview-of-forms-authentication-cs.md)
+> [!div class="step-by-step"]
+> [avanti](an-overview-of-forms-authentication-cs.md)

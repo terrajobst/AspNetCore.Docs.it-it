@@ -1,7 +1,7 @@
 ---
-title: "Estendibilità della crittografia core"
+title: Estendibilità della crittografia dei componenti di base in ASP.NET Core
 author: rick-anderson
-description: Spiega IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer e la factory di primo livello.
+description: Informazioni sulle IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer e la factory di primo livello.
 manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: ead4012236244d88cff0b0520d000d89f93f3355
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="core-cryptography-extensibility"></a>Estendibilità della crittografia core
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>Estendibilità della crittografia dei componenti di base in ASP.NET Core
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
@@ -123,7 +123,7 @@ La differenza principale tra IAuthenticatedEncryptor e IAuthenticatedEncryptorDe
 
 Il descrittore di può essere serializzato tramite la routine ExportToXml. Questa routine restituisce un XmlSerializedDescriptorInfo che contiene due proprietà: la rappresentazione di XElement del descrittore e il tipo che rappresenta un [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) che può essere utilizzato per ripristinare il descrittore di base di XElement corrispondente.
 
-Il descrittore serializzato può contenere informazioni riservate, ad esempio chiavi crittografiche. Il sistema di protezione dati include il supporto incorporato per crittografare le informazioni prima di è resa persistente nell'archivio. Per sfruttare i vantaggi di questo, è necessario il descrittore di contrassegnare l'elemento che contiene informazioni riservate con il nome dell'attributo "requiresEncryption" (xmlns "http://schemas.asp.net/2015/03/dataProtection"), valore "true".
+Il descrittore serializzato può contenere informazioni riservate, ad esempio chiavi crittografiche. Il sistema di protezione dati include il supporto incorporato per crittografare le informazioni prima di è resa persistente nell'archivio. Per sfruttare i vantaggi di questo, il descrittore deve contrassegnare l'elemento che contiene informazioni riservate con il nome di attributo "requiresEncryption" (xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), valore "true".
 
 >[!TIP]
 > È un'API di supporto per l'impostazione di questo attributo. Chiamare il metodo di estensione che XElement.markasrequiresencryption() si trova nello spazio dei nomi Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.
@@ -161,7 +161,7 @@ AlgorithmConfiguration può essere paragonato alla factory di primo livello. La 
 
 Quando viene chiamato CreateNewDescriptor, nuovo materiale della chiave viene creato esclusivamente per la chiamata e viene generato un nuovo IAuthenticatedEncryptorDescriptor che include il materiale della chiave e le informazioni algoritmiche necessarie per utilizzare il materiale di riferimento. Il materiale della chiave potrebbe creato in software (e in memoria), viene creato e potrebbe essere contenuta all'interno di un modulo di protezione hardware e così via. Il punto essenziale è che le due chiamate a CreateNewDescriptor mai devono essere create istanze IAuthenticatedEncryptorDescriptor equivalente.
 
-Il tipo AlgorithmConfiguration funge da punto di ingresso per le routine di creazione della chiave, ad esempio [rollover automatico della chiave](../implementation/key-management.md#key-expiration-and-rolling). Per modificare l'implementazione per tutte le chiavi future, impostare la proprietà AuthenticatedEncryptorConfiguration in KeyManagementOptions.
+Il tipo AlgorithmConfiguration funge da punto di ingresso per le routine di creazione della chiave, ad esempio [rollover automatico della chiave](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Per modificare l'implementazione per tutte le chiavi future, impostare la proprietà AuthenticatedEncryptorConfiguration in KeyManagementOptions.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -173,6 +173,6 @@ IAuthenticatedEncryptorConfiguration può essere paragonato alla factory di prim
 
 Quando viene chiamato CreateNewDescriptor, nuovo materiale della chiave viene creato esclusivamente per la chiamata e viene generato un nuovo IAuthenticatedEncryptorDescriptor che include il materiale della chiave e le informazioni algoritmiche necessarie per utilizzare il materiale di riferimento. Il materiale della chiave potrebbe creato in software (e in memoria), viene creato e potrebbe essere contenuta all'interno di un modulo di protezione hardware e così via. Il punto essenziale è che le due chiamate a CreateNewDescriptor mai devono essere create istanze IAuthenticatedEncryptorDescriptor equivalente.
 
-Il tipo IAuthenticatedEncryptorConfiguration funge da punto di ingresso per le routine di creazione della chiave, ad esempio [rollover automatico della chiave](../implementation/key-management.md#key-expiration-and-rolling). Per modificare l'implementazione per tutte le chiavi future, registrare un singleton IAuthenticatedEncryptorConfiguration nel contenitore dei servizi.
+Il tipo IAuthenticatedEncryptorConfiguration funge da punto di ingresso per le routine di creazione della chiave, ad esempio [rollover automatico della chiave](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Per modificare l'implementazione per tutte le chiavi future, registrare un singleton IAuthenticatedEncryptorConfiguration nel contenitore dei servizi.
 
 ---

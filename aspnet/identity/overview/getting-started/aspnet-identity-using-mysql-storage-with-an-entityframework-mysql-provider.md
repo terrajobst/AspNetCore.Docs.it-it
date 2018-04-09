@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
-title: "Identità di ASP.NET: Uso di archiviazione di MySQL con un Provider di MySQL EntityFramework (c#) | Documenti Microsoft"
+title: 'Identità di ASP.NET: Uso di archiviazione di MySQL con un Provider di MySQL EntityFramework (c#) | Documenti Microsoft'
 author: maumar
 description: In questa esercitazione viene illustrato come sostituire il meccanismo di archiviazione di dati predefinito per ASP.NET Identity EntityFramework (provider SQL client) con un essere ampliati o ridotti MySQL...
 ms.author: aspnetcontent
@@ -8,19 +8,19 @@ manager: wpickett
 ms.date: 12/10/2013
 ms.topic: article
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 6018b4f62f95f9abffece536f345d7a16d052aac
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: Uso di archiviazione di MySQL con un Provider di EntityFramework MySQL (c#)
 ====================
-da [Maurycy Markowski](https://github.com/maumar), [Raquel Soares De Almeida](https://github.com/raquelsa), [Robert McMurray](https://github.com/rmcmurray)
+dal [Maurycy Markowski](https://github.com/maumar), [Raquel Soares De Almeida](https://github.com/raquelsa), [Robert McMurray](https://github.com/rmcmurray)
 
 > In questa esercitazione viene illustrato come sostituire il meccanismo di archiviazione di dati predefinito per [ **ASP.NET Identity** ](introduction-to-aspnet-identity.md) con EntityFramework (provider SQL client) con un provider MySQL.
 
@@ -42,23 +42,23 @@ Al termine di questa esercitazione, è un'applicazione MVC con l'identità ASP.N
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.png)
 3. Nel **scegliere e componente aggiuntivo** procedura guidata, selezionare **MySQL Database ClearDB**e quindi fare clic su di **successivo** freccia nella parte inferiore del riquadro:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.png)
 4. Mantenere il valore predefinito **libero** pianificare, modificare il **nome** a **IdentityMySQLDatabase**, selezionare l'area che è più vicino è e quindi fare clic su di **Avanti** freccia nella parte inferiore del riquadro:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.png)
 5. Fare clic su di **acquisto** segno di spunta per completare la creazione del database.  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.png)
 6. Dopo aver creato il database, è possibile gestirlo dal **componenti aggiuntivi** scheda nel portale di gestione. Per recuperare le informazioni di connessione per il database, fare clic su **le informazioni di connessione** nella parte inferiore della pagina:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image10.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image9.png)
 7. Copiare la stringa di connessione facendo clic sul pulsante Copia per il **CONNECTIONSTRING** campo e salvarlo, si utilizzerà queste informazioni più avanti in questa esercitazione per l'applicazione MVC:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image12.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image11.png)
 
 ## <a name="creating-an-mvc-application-project"></a>Creazione di un progetto di applicazione MVC
@@ -68,15 +68,15 @@ Per completare i passaggi descritti in questa sezione dell'esercitazione, è nec
 1. Aprire Visual Studio 2103.
 2. Fare clic su **nuovo progetto** dal **avviare** pagina oppure è possibile fare clic su di **File** menu e quindi **nuovo progetto**:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.jpg)
 3. Quando il **nuovo progetto** è visualizzata la finestra di dialogo, espandere **Visual c#** nell'elenco dei modelli, fare clic su **Web**e selezionare **applicazione Web ASP.NET**. Denominare il progetto **IdentityMySQLDemo** e quindi fare clic su **OK**:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image14.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image13.png)
 4. Nel **nuovo progetto ASP.NET** finestra di dialogo Seleziona il **MVC** templatewith le opzioni predefinite; in questo modo configurare **singoli account utente di** come metodo di autenticazione. Fare clic su **OK**:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image16.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image15.png)
 
 ## <a name="configure-entityframework-to-work-with-a-mysql-database"></a>Configurare EntityFramework per lavorare con un database MySQL
@@ -88,11 +88,11 @@ L'applicazione MVC che è stato creato dal modello di Visual Studio 2013 contien
 1. Aprire il progetto MVC in Visual Studio 2013.
 2. Fare clic su **strumenti**, quindi fare clic su **Gestione pacchetti libreria**, quindi fare clic su **Package Manager Console**:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image18.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image17.png)
 3. Il **Package Manager Console** verranno visualizzati nella parte inferiore di Visual Studio. Tipo &quot; **pacchetto di aggiornamento EntityFramework** &quot; e premere INVIO:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image20.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image19.png)
 
 ### <a name="install-the-mysql-provider-for-entityframework"></a>Installare il provider di MySQL per EntityFramework
@@ -161,28 +161,28 @@ Dopo aver completato i passaggi descritti nelle sezioni precedenti, è necessari
 1. Premere **Ctrl + F5** per compilare ed eseguire l'applicazione web.
 2. Fare clic su di **registrare** scheda nella parte superiore della pagina:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.jpg)
 3. Immettere un nuovo nome utente e una password e quindi fare clic su **registrare**:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image24.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image23.png)
 4. A questo punto in cui vengono create le tabelle di ASP.NET Identity nel Database di MySQL e l'utente è registrato e connesso all'applicazione:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.jpg)
 
 ### <a name="installing-mysql-workbench-tool-to-verify-the-data"></a>Installazione dello strumento di MySQL Workbench per verificare i dati
 
-1. Installare il **MySQL Workbench** dello strumento la [pagina di download di MySQL](http://dev.mysql.com/downloads/windows/installer/)
+1. Installare il **MySQL Workbench** dello strumento la [pagina dei download di MySQL](http://dev.mysql.com/downloads/windows/installer/)
 2. Nell'installazione guidata: **Selezione funzionalità** , selezionare **MySQL Workbench** in **applicazioni** sezione.
 3. Avviare l'app e aggiungere una nuova connessione utilizzando i dati di stringa di connessione del database MySQL Azure creato al colmare di questa esercitazione.
-4. Dopo avere stabilito la connessione, controllare il **ASP.NET Identity** le tabelle create nel **IdentityMySQLDatabase.**
+4. Dopo avere stabilito la connessione, controllare la **ASP.NET Identity** le tabelle create nel **IdentityMySQLDatabase.**
 5. Si noterà che tutte le identità di ASP.NET necessari le tabelle vengono create come illustrato nell'immagine riportata di seguito:  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.jpg)
 6. Controllare il **aspnetusers** per l'istanza di tabella per cercare le voci di registrazione di nuovi utenti.  
   
- [Fare clic sull'immagine seguente per espanderlo. ]  
+   [Fare clic sull'immagine seguente per espanderlo. ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image26.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image25.png)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 title: Utilizzo della classe TagBuilder per compilare l'helper HTML (VB) | Documenti Microsoft
 author: StephenWalther
-description: "Stephen Walther presenta una classe di utilità nel framework di MVC ASP.NET denominato la classe TagBuilder. È possibile utilizzare facilmente la classe TagBuilder per..."
+description: Stephen Walther presenta una classe di utilità nel framework di MVC ASP.NET denominato la classe TagBuilder. È possibile utilizzare facilmente la classe TagBuilder per...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 2b72e08dff646f66252f210543230186cab6e641
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Utilizzo della classe TagBuilder per compilare l'helper HTML (VB)
 ====================
@@ -63,7 +63,7 @@ Si noti come il metodo di TagBuilder.MergeAttribute() viene utilizzato per aggiu
 
 Dopo aver creato il supporto di immagine, è possibile utilizzare l'helper in visualizzazioni MVC ASP.NET come uno degli altri helper HTML standard. La visualizzazione nel listato 2 utilizza l'helper di immagine da visualizzare due volte la stessa immagine di Xbox (vedere la figura 1). L'helper Image() viene chiamato con e senza una raccolta di attributi HTML.
 
-**Elenco di 2 – Home\Index.aspx**
+**Elenco 2 – Home\Index.aspx**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-vb/samples/sample2.aspx)]
 
@@ -79,6 +79,6 @@ Si noti che è necessario importare lo spazio dei nomi associato all'helper imma
 
 In un'applicazione Visual Basic, lo spazio dei nomi predefinito è lo stesso nome dell'applicazione.
 
->[!div class="step-by-step"]
-[Precedente](creating-custom-html-helpers-vb.md)
-[Successivo](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-custom-html-helpers-vb.md)
+> [Successivo](creating-page-layouts-with-view-master-pages-vb.md)

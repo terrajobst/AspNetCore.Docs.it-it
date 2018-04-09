@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>Distribuzione di una compilazione specifica
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come distribuire i pacchetti web e gli script di database da una compilazione precedente specifica a una nuova destinazione, ad esempio un ambiente di gestione temporanea o produzione.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione e distribuzione è controllato da due file di progetto & #x 2014; o ne contenente le istruzioni di compilazione che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione e distribuzione è controllato da due file di progetto&#x2014;uno contenente le istruzioni di compilazione che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="task-overview"></a>Panoramica di Task
 
@@ -54,13 +54,13 @@ Nel [soluzione di esempio](../web-deployment-in-the-enterprise/the-contact-manag
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Se si desidera che il file di progetto per distribuire pacchetti web e gli script di database da un percorso diverso & #x 2014; ad esempio l'output di un precedente compilazione TFS & #x 2014; è sufficiente eseguire l'override di **OutputRoot** proprietà. Impostare il valore della proprietà nella cartella di compilazione rilevanti nel server di Team Build. Se si stesse eseguendo MSBuild dalla riga di comando, è possibile specificare un valore per **OutputRoot** come argomento della riga di comando:
+Se si desidera che i file di progetto per distribuire i pacchetti web e script da una posizione diversa del database&#x2014;desidera che gli output di una compilazione TFS precedente&#x2014;è sufficiente eseguire l'override di **OutputRoot** proprietà. Impostare il valore della proprietà nella cartella di compilazione rilevanti nel server di Team Build. Se si stesse eseguendo MSBuild dalla riga di comando, è possibile specificare un valore per **OutputRoot** come argomento della riga di comando:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-In pratica, tuttavia, è inoltre desidera ignorare il **compilare** destinazione & #x 2014; è presente alcun punto nella creazione di una soluzione se non si prevede di utilizzare gli output di compilazione. È possibile eseguire questa operazione specificando le destinazioni da eseguire dalla riga di comando:
+In pratica, tuttavia, si sarebbe anche desidera ignorare il **compilare** destinazione&#x2014;non è disponibile alcun punto nella compilazione della soluzione se non si prevede di utilizzare gli output di compilazione. È possibile eseguire questa operazione specificando le destinazioni da eseguire dalla riga di comando:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ Tuttavia, nella maggior parte dei casi, è opportuno creare una logica di distri
 
 La procedura seguente viene descritto come creare una definizione di compilazione che consente agli utenti per le distribuzioni di trigger in un ambiente di gestione temporanea con un unico comando.
 
-In questo caso, non si desidera la definizione di compilazione per creare qualsiasi elemento & #x 2014; si desidera che venga eseguita la logica di distribuzione nel file di progetto personalizzati. Il *Publish.proj* file include la logica condizionale che ignora il **compilare** di destinazione se il file è in esecuzione in Team Build. Questa operazione viene eseguita la valutazione incorporati **BuildingInTeamBuild** proprietà, viene impostata automaticamente su **true** se si esegue il file di progetto in Team Build. Di conseguenza, è possibile saltare il processo di compilazione e l'esecuzione del file di progetto per distribuire una compilazione esistente.
+In questo caso, non si desidera la definizione di compilazione per creare qualsiasi elemento&#x2014;si desidera che venga eseguita la logica di distribuzione nel file di progetto personalizzati. Il *Publish.proj* file include la logica condizionale che ignora il **compilare** di destinazione se il file è in esecuzione in Team Build. Questa operazione viene eseguita la valutazione incorporati **BuildingInTeamBuild** proprietà, viene impostata automaticamente su **true** se si esegue il file di progetto in Team Build. Di conseguenza, è possibile saltare il processo di compilazione e l'esecuzione del file di progetto per distribuire una compilazione esistente.
 
 **Per creare una definizione di compilazione per attivare manualmente la distribuzione**
 
@@ -133,6 +133,6 @@ In questo argomento viene descritto come pubblicare le risorse di distribuzione,
 
 Per ulteriori informazioni sulla creazione di definizioni di compilazione, vedere [creare una definizione di compilazione di base](https://msdn.microsoft.com/library/ms181716.aspx) e [definire il processo di compilazione](https://msdn.microsoft.com/library/ms181715.aspx). Per informazioni aggiuntive nelle build di Accodamento messaggi, vedere [accodare una compilazione](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Precedente](creating-a-build-definition-that-supports-deployment.md)
-[Successivo](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-build-definition-that-supports-deployment.md)
+> [Successivo](configuring-permissions-for-team-build-deployment.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Introduzione a ASP.NET Web Pages - creazione di un Layout coerenza
 ====================
@@ -149,7 +149,7 @@ Aprire il *Movies.cshtml* pagina nuovamente. Nel codice nella parte superiore, a
 
 Il `Page` oggetto è disponibile in tutti *. cshtml* pagine ed è a questo scopo, in particolare per condividere informazioni tra una pagina e il layout.
 
-Aprire il*\_cshtml* pagina. Modifica il `<title>` elemento in modo che questo markup:
+Aprire il<em>\_cshtml</em> pagina. Modifica il `<title>` elemento in modo che questo markup:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -235,8 +235,8 @@ Nella prossima esercitazione, si apprenderà come pubblicare il sito Internet in
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - [Creazione di un aspetto coerente](https://go.microsoft.com/fwlink/?LinkID=202891) , ovvero un articolo che fornisce alcune informazioni dettagliate sull'utilizzo dei layout. Viene inoltre descritto come passare un valore a una pagina di layout che mostra o nasconde la parte del contenuto.
-- [Pagine di Layout con Razor annidati](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) , Mike Brind blog, un esempio di come nidificare le pagine di layout. (Include il download delle pagine).
+- [Pagine di Layout con Razor annidati](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) , Mike Brind blog, un esempio di come annidare le pagine di layout. (Include il download delle pagine).
 
->[!div class="step-by-step"]
-[Precedente](deleting-data.md)
-[Successivo](publishing.md)
+> [!div class="step-by-step"]
+> [Precedente](deleting-data.md)
+> [Successivo](publishing.md)

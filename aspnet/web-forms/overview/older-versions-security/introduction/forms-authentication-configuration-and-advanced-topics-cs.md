@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 title: Argomenti avanzati (c#) e configurazione dell'autenticazione form | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà esaminare le varie impostazioni di autenticazione form e come modificarli tramite l'elemento di form. Ciò comporterà un dettagliate..."
+description: In questa esercitazione verrà esaminare le varie impostazioni di autenticazione form e come modificarli tramite l'elemento di form. Ciò comporterà un dettagliate...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Configurazione dell'autenticazione form e argomenti avanzati (c#)
 ====================
@@ -41,21 +41,22 @@ Il sistema di autenticazione form in ASP.NET offre una serie di impostazioni di 
 
 Tabella 1 sono riepilogate le proprietà che possono essere personalizzate tramite la &lt;form&gt; elemento. Poiché il file Web. config è un file XML, i nomi di attributo nella colonna sinistra maiuscole e minuscole.
 
-| **Attributo** | **Descrizione** |
-| --- | --- |
-| cookieless | Questo attributo specifica in quali condizioni è memorizzato il ticket di autenticazione in un cookie e viene incorporato nell'URL. Valori consentiti sono: UseCookies; UseUri; Rilevamento automatico; e UseDeviceProfile (impostazione predefinita). Passaggio 2 esamina questa impostazione in modo più dettagliato. |
-| defaultUrl | Indica l'URL che gli utenti vengono reindirizzati a dopo l'accesso dalla pagina di accesso se è presente alcun valore RedirectUrl specificato nella stringa di query. Il valore predefinito è default. aspx. |
-| dominio | Quando si utilizza il ticket di autenticazione basato su cookie, questa impostazione specifica il valore di dominio del cookie. Il valore predefinito è una stringa vuota, provocando il browser da usare il dominio da cui è stato rilasciato (ad esempio www.yourdomain.com). In questo caso, il cookie verrà **non** da inviare quando apportato richieste per i sottodomini, ad esempio admin.yourdomain.com. Se si desidera che il cookie deve essere passato a tutti i sottodomini è necessario personalizzare l'attributo di dominio se è impostato su <sottodominio>.nomedominio.com. |
-| enableCrossAppRedirects | Valore booleano che indica se gli utenti autenticati sono memorizzati quando reindirizzato all'URL in altre applicazioni web nello stesso server. Il valore predefinito è false. |
-| loginUrl | L'URL della pagina di accesso. Il valore predefinito è login.aspx. |
-| name | Quando si utilizza il ticket di autenticazione basato su cookie, il nome del cookie. Il valore predefinito è. ASPXAUTH. |
-| path | Quando si utilizza il ticket di autenticazione basato su cookie, questa impostazione specifica l'attributo di percorso del cookie. L'attributo path consente a uno sviluppatore limitare l'ambito di un cookie a una gerarchia di directory specifico. Il valore predefinito è /, che informa il browser invii il cookie di ticket di autenticazione a qualsiasi richiesta eseguita al dominio. |
-| protezione | Indica le tecniche utilizzate per proteggere il ticket di autenticazione form. I valori consentiti sono: tutte (predefinito); Crittografia; None; e la convalida. Queste impostazioni sono illustrate in dettaglio nel passaggio 3. |
-| requireSSL | Valore booleano che indica se è necessaria una connessione SSL per trasmettere il cookie di autenticazione. Il valore predefinito è false. |
-| slidingExpiration | Valore booleano che indica che se il timeout del cookie di autenticazione viene reimpostato ogni volta che l'utente visita il sito durante una singola sessione. Il valore predefinito è true. I criteri di timeout ticket di autenticazione verrà discusso più dettagliatamente nella specifica sezione di valore di Timeout del Ticket. |
-| timeout | Specifica il tempo, espresso in minuti, trascorso il quale il cookie di ticket di autenticazione scade. Il valore predefinito è 30. I criteri di timeout ticket di autenticazione verrà discusso più dettagliatamente nella specifica sezione di valore di Timeout del Ticket. |
 
-**Tabella 1**: un riepilogo di &lt;form&gt; attributi dell'elemento
+| <strong>Attributo</strong> |                                                                                                                                                                                                                                     <strong>Descrizione</strong>                                                                                                                                                                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         cookieless         |                                                                                                                Questo attributo specifica in quali condizioni è memorizzato il ticket di autenticazione in un cookie e viene incorporato nell'URL. Valori consentiti sono: UseCookies; UseUri; Rilevamento automatico; e UseDeviceProfile (impostazione predefinita). Passaggio 2 esamina questa impostazione in modo più dettagliato.                                                                                                                |
+|         defaultUrl         |                                                                                                                                                         Indica l'URL che gli utenti vengono reindirizzati a dopo l'accesso dalla pagina di accesso se è presente alcun valore RedirectUrl specificato nella stringa di query. Il valore predefinito è default. aspx.                                                                                                                                                         |
+|           dominio           | Quando si utilizza il ticket di autenticazione basato su cookie, questa impostazione specifica il valore di dominio del cookie. Il valore predefinito è una stringa vuota, provocando il browser da usare il dominio da cui è stato rilasciato (ad esempio www.yourdomain.com). In questo caso, il cookie verrà <strong>non</strong> da inviare quando apportato richieste per i sottodomini, ad esempio admin.yourdomain.com. Se si desidera che il cookie deve essere passato a tutti i sottodomini è necessario personalizzare l'attributo di dominio se è impostato su <sottodominio>.nomedominio.com. |
+|  enableCrossAppRedirects   |                                                                                                                                                                   Valore booleano che indica se gli utenti autenticati sono memorizzati quando reindirizzato all'URL in altre applicazioni web nello stesso server. Il valore predefinito è false.                                                                                                                                                                   |
+|          loginUrl          |                                                                                                                                                                                                                      L'URL della pagina di accesso. Il valore predefinito è login.aspx.                                                                                                                                                                                                                      |
+|            name            |                                                                                                                                                                                                   Quando si utilizza il ticket di autenticazione basato su cookie, il nome del cookie. Il valore predefinito è. ASPXAUTH.                                                                                                                                                                                                   |
+|            path            |                                                                             Quando si utilizza il ticket di autenticazione basato su cookie, questa impostazione specifica l'attributo di percorso del cookie. L'attributo path consente a uno sviluppatore limitare l'ambito di un cookie a una gerarchia di directory specifico. Il valore predefinito è /, che informa il browser invii il cookie di ticket di autenticazione a qualsiasi richiesta eseguita al dominio.                                                                              |
+|         protezione         |                                                                                                                                            Indica le tecniche utilizzate per proteggere il ticket di autenticazione form. I valori consentiti sono: tutte (predefinito); Crittografia; None; e la convalida. Queste impostazioni sono illustrate in dettaglio nel passaggio 3.                                                                                                                                            |
+|         requireSSL         |                                                                                                                                                                                Valore booleano che indica se è necessaria una connessione SSL per trasmettere il cookie di autenticazione. Il valore predefinito è false.                                                                                                                                                                                |
+|     slidingExpiration      |                                                                                                 Valore booleano che indica che se il timeout del cookie di autenticazione viene reimpostato ogni volta che l'utente visita il sito durante una singola sessione. Il valore predefinito è true. I criteri di timeout ticket di autenticazione verrà discusso più dettagliatamente nella specifica sezione di valore di Timeout del Ticket.                                                                                                 |
+|          timeout           |                                                                                                                               Specifica il tempo, espresso in minuti, trascorso il quale il cookie di ticket di autenticazione scade. Il valore predefinito è 30. I criteri di timeout ticket di autenticazione verrà discusso più dettagliatamente nella specifica sezione di valore di Timeout del Ticket.                                                                                                                               |
+
+**Tabella 1**: un riepilogo del &lt;form&gt; attributi dell'elemento
 
 In ASP.NET 2.0 e versioni successive, l'impostazione predefinita i valori di autenticazione form sono hardcoded nella classe FormsAuthenticationConfiguration in .NET Framework. Su base dall'applicazione nel file Web. config, è necessario applicare le modifiche. Questo comportamento è diverso da ASP.NET 1. x, in cui i valori di autenticazione moduli predefiniti sono stati archiviati nel file Machine. config (e pertanto può essere modificati mediante la modifica di Machine. config). Mentre per l'argomento di ASP.NET 1. x, è opportuno ricordare che un numero di impostazioni di sistema di autenticazione form avere valori predefiniti diversi in ASP.NET 2.0 e oltre a ASP.NET 1. x. Se si esegue la migrazione dell'applicazione da un ambiente di 1. x ASP.NET, è importante essere a conoscenza di queste differenze. Consultare [il &lt;form&gt; documentazione tecnica elemento](https://msdn.microsoft.com/library/1d3t3c61.aspx) per un elenco delle differenze.
 
@@ -86,17 +87,17 @@ La scadenza definisce un'ora assoluta in futuro in cui scade il ticket di autent
 La figura 1 illustra il flusso di lavoro quando la proprietà slidingExpiration viene impostata su false e di timeout è impostato su 30. Si noti che il ticket di autenticazione generato al momento dell'accesso contiene la data di scadenza e questo valore non viene aggiornato nelle richieste successive. Se FormsAuthenticationModule rileva che il ticket è scaduto, lo ignora e lo considera la richiesta anonima.
 
 
-[![Una rappresentazione grafica di slidingExpiration di scadenza quando del Ticket di autenticazione dei form è false](forms-authentication-configuration-and-advanced-topics-cs/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image1.png)
+[![Una rappresentazione grafica dei slidingExpiration scadenza quando del Ticket di autenticazione dei form è false](forms-authentication-configuration-and-advanced-topics-cs/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image1.png)
 
-**Figura 01**: una rappresentazione grafica di slidingExpiration di scadenza quando del Ticket di autenticazione dei form è false ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image3.png))
+**Figura 01**: una rappresentazione grafica dei slidingExpiration scadenza quando del Ticket di autenticazione dei form è false ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image3.png))
 
 
 La figura 2 mostra il flusso di lavoro quando slidingExpiration viene impostata su true e il timeout è impostato su 30. Quando viene ricevuta una richiesta autenticata (con un ticket non scadute) viene aggiornata la scadenza del timeout numero di minuti in futuro.
 
 
-[![Una rappresentazione grafica dei Ticket di autenticazione form quando slidingExpiration è true](forms-authentication-configuration-and-advanced-topics-cs/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image4.png)
+[![Una rappresentazione grafica del Ticket di autenticazione form quando viene soddisfatta slidingExpiration](forms-authentication-configuration-and-advanced-topics-cs/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image4.png)
 
-**Figura 02**: una rappresentazione grafica del Ticket di autenticazione form quando slidingExpiration è true ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image6.png))
+**Figura 02**: una rappresentazione grafica del Ticket di autenticazione form quando viene soddisfatta slidingExpiration ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image6.png))
 
 
 Quando si utilizza il ticket di autenticazione basato su cookie (impostazione predefinita), questa discussione diventa più complicata, poiché i cookie possono essere anche i propri oggetti scaduti nella specificato. Scadenza di un cookie (o assenza) indica al browser quando il cookie deve essere eliminato. Se il cookie non dispone di una scadenza, verrà eliminato quando il browser viene chiuso. Se è presente una scadenza, tuttavia, il cookie rimane memorizzato nel computer dell'utente fino alla data e intervallo di tempo specificato in scadenza. Quando un cookie viene eliminato definitivamente dal browser, non viene inviato al server web. Pertanto, l'eliminazione di un cookie è analoga all'utente dal sito di registrazione.
@@ -166,7 +167,7 @@ Salvare le modifiche a Default.aspx e quindi vi accede tramite un browser. Acced
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-SomePage.aspx l'URL nel collegamento è stato automaticamente convertito in un URL che è incluso il ticket di autenticazione - non è necessario scrivere codice. Il ticket di autenticazione form verrà automaticamente incorporato nell'URL per tutti i collegamenti ipertestuali che inizia con http:// o /. Non è importante se il collegamento ipertestuale viene visualizzato in una chiamata a Response. Redirect, in un controllo collegamento ipertestuale o un elemento ancoraggio HTML (ad esempio, &lt;href = "…"&gt;... &lt;/a&gt;). Fino a quando l'URL non è un elemento come http://www.someserver.com/SomePage.aspx o /SomePage.aspx, il ticket di autenticazione form verrà incorporato per noi.
+SomePage.aspx l'URL nel collegamento è stato automaticamente convertito in un URL che è incluso il ticket di autenticazione - non è necessario scrivere codice. Il ticket di autenticazione form verrà automaticamente incorporato nell'URL per tutti i collegamenti ipertestuali che inizia con http:// o /. Non è importante se il collegamento ipertestuale viene visualizzato in una chiamata a Response. Redirect, in un controllo collegamento ipertestuale o un elemento ancoraggio HTML (ad esempio, &lt;href = "…"&gt;... &lt;/a&gt;). Fino a quando l'URL non è simile a http://www.someserver.com/SomePage.aspx o /SomePage.aspx, i form ticket di autenticazione verranno incorporati automaticamente.
 
 > [!NOTE]
 > Ticket di autenticazione form senza cookie rispettare gli stessi criteri di timeout ticket di autenticazione basato su cookie. Tuttavia, il ticket di autenticazione senza cookie sono più inclini a attacchi di tipo replay poiché il ticket di autenticazione è incorporato direttamente nell'URL. Si supponga un utente visita un sito Web, accesso e quindi Incolla l'URL in un messaggio di posta elettronica a un collega. Se il collega fa clic sul collegamento prima che venga raggiunta la scadenza, questi verranno registrati come l'utente che ha inviato il messaggio di posta elettronica.
@@ -183,9 +184,9 @@ Per garantire l'autenticità del ticket, il sistema di autenticazione form deve 
 Quando la creazione (o la modifica) un ticket, il sistema di autenticazione form crea un MAC e lo collega a dati del ticket. Quando arriva una richiesta successiva, il sistema di autenticazione form confronta i dati di MAC e il ticket per convalidare l'autenticità dei dati del ticket. La figura 3 illustra graficamente il flusso di lavoro.
 
 
-[![Autenticità del Ticket viene garantita tramite un MAC](forms-authentication-configuration-and-advanced-topics-cs/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image7.png)
+[![Viene verificato se autenticità del Ticket tramite un MAC](forms-authentication-configuration-and-advanced-topics-cs/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image7.png)
 
-**Figura 03**: viene garantita autenticità del Ticket tramite un MAC ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image9.png))
+**Figura 03**: viene verificato se autenticità del Ticket tramite un MAC ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image9.png))
 
 
 Le misure di sicurezza vengono applicate al ticket di autenticazione dipende dall'impostazione di protezione nel &lt;form&gt; elemento. L'impostazione di protezione può essere assegnato a uno dei tre valori seguenti:
@@ -214,7 +215,7 @@ Una trattazione completa di queste opzioni di crittografia e convalida e i profe
 
 Per impostazione predefinita, le chiavi usate per la crittografia e convalida vengono generate automaticamente per ogni applicazione e tali chiavi vengono archiviate in Autorità di sicurezza locale (LSA). In breve, le impostazioni predefinite garantiscono che le chiavi univoche di un server web dal server web e applicazioni per l'applicazione. Di conseguenza, questo comportamento predefinito non funzionerà per i due scenari seguenti:
 
-- **Web farm** : in un [farm web](http://en.wikipedia.org/wiki/Web_farm) scenario, una singola applicazione web è ospitato in più server web ai fini della scalabilità e ridondanza. Ogni richiesta in ingresso viene inviato a un server nella farm, vale a dire tutta la durata della sessione dell'utente, diversi server può essere utilizzato per gestire le varie richieste. Di conseguenza, ogni server deve utilizzare le stesse chiavi di crittografia e convalida in modo che il ticket di autenticazione form creato, crittografato e convalidato in un server può essere decrittografato e convalidato su un altro server nella farm.
+- **Web farm** - in un [farm web](http://en.wikipedia.org/wiki/Web_farm) scenario, una singola applicazione web è ospitato in più server web ai fini della scalabilità e ridondanza. Ogni richiesta in ingresso viene inviato a un server nella farm, vale a dire tutta la durata della sessione dell'utente, diversi server può essere utilizzato per gestire le varie richieste. Di conseguenza, ogni server deve utilizzare le stesse chiavi di crittografia e convalida in modo che il ticket di autenticazione form creato, crittografato e convalidato in un server può essere decrittografato e convalidato su un altro server nella farm.
 - **Tra l'applicazione di condivisione Ticket** -un singolo server web può ospitare più applicazioni ASP.NET. Se è necessario per queste applicazioni di condividere un ticket di autenticazione form singolo diverse, è fondamentale che le chiavi di crittografia e convalida corrispondano.
 
 Quando si lavora in una web farm, l'impostazione o condividere il ticket di autenticazione tra più applicazioni sullo stesso server, sarà necessario configurare il &lt;machineKey&gt; elemento applicazioni interessate in modo che i relativi decryptionKey e i valori di validationKey individuare le corrispondenze.
@@ -240,7 +241,7 @@ Per archiviare i dati dell'utente nel ticket di autenticazione, è necessario sc
 Ogni volta che è necessario accedere ai dati archiviati nel ticket, è possibile eseguire il selezionandola FormsAuthenticationTicket della richiesta corrente e la deserializzazione della proprietà UserData. Nel caso la data di nascita e datore di lavoro di esempio di nome, è necessario suddividere la stringa di UserData in due sottostringhe in base al delimitatore (|).
 
 
-[![Informazioni utente aggiuntive possono essere archiviati nel Ticket di autenticazione](forms-authentication-configuration-and-advanced-topics-cs/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image10.png)
+[![Le informazioni utente aggiuntive possono essere archiviate nel Ticket di autenticazione](forms-authentication-configuration-and-advanced-topics-cs/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image10.png)
 
 **Figura 04**: aggiuntive utente le informazioni possono essere archiviati nel Ticket di autenticazione ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image12.png))
 
@@ -306,7 +307,7 @@ Figura 5 mostra una schermata di questa visualizzazione in azione. Accedere come
 
 [![Vengono visualizzati l'attualmente registrati dell'utente aziendale e il titolo](forms-authentication-configuration-and-advanced-topics-cs/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image13.png)
 
-**Figura 05**: vengono visualizzati il attualmente registrati dell'utente aziendale e il titolo ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image15.png))
+**Figura 05**: vengono visualizzati il attualmente registrati dell'utente aziendale e titolo ([fare clic per visualizzare l'immagine ingrandita](forms-authentication-configuration-and-advanced-topics-cs/_static/image15.png))
 
 
 > [!NOTE]
@@ -411,10 +412,10 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Sezionando l'autenticazione basata su form](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
+- [Sezionando autenticazione basata su form](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
 - [Spiegazione: Autenticazione basata su form in ASP.NET 2.0](https://msdn.microsoft.com/library/aa480476.aspx)
-- [Procedura: Proteggere l'autenticazione basata su form in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
-- [Professional ASP.NET 2.0 sicurezza, l'appartenenza e gestione dei ruoli](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
+- [Procedura: Proteggere autenticazione basata su form in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
+- [Professional ASP.NET 2.0 sicurezza, l'appartenenza e gestione dei ruoli](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (codice ISBN: 978-0-7645-9698-8)
 - [Protezione dei controlli di accesso](https://msdn.microsoft.com/library/ms178346.aspx)
 - [Il &lt;autenticazione&gt; elemento](https://msdn.microsoft.com/library/532aee0e.aspx)
 - [Il &lt;form&gt; elemento per &lt;autenticazione&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
@@ -432,12 +433,12 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Alicja Maziarz. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Precedente](an-overview-of-forms-authentication-cs.md)
-[Successivo](security-basics-and-asp-net-support-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](an-overview-of-forms-authentication-cs.md)
+> [Successivo](security-basics-and-asp-net-support-vb.md)

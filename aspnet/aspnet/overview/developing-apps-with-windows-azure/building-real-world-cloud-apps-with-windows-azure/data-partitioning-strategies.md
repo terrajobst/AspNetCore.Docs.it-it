@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 title: Dati (creazione di applicazioni con Azure Cloud del mondo reale) strategie di partizionamento | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: dca016cb6293a346f5622cc272e510b182c86d58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9ff7f37a03d8d3dfab50e8007a6645bb0d88f453
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Dati (creazione di applicazioni con Azure Cloud del mondo reale) strategie di partizionamento
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sulla serie, vedere [primo capitolo](introduction.md).
 
@@ -106,13 +106,13 @@ Documentazione:
 
 Video
 
-- [Operatore alternativo: Compilazione di servizi Cloud resilienti e scalabili](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Vedere la discussione di partizionamento in episodio 7.
-- [Compilazione Big: Apprese dai clienti di Windows Azure - parte I](https://channel9.msdn.com/Events/Build/2012/3-029). Mark Simms vengono descritti gli schemi di partizionamento, strategie di partizionamento orizzontale, come l'implementazione di partizionamento orizzontale e le federazioni di Database SQL, a partire da 19:49. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
+- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta i concetti generali e i principi architetturali in modo molto accessibile e interessano con storie ricavate dall'esperienza di Microsoft Team (CAT, Customer Advisory) con i clienti effettivi. Vedere la discussione di partizionamento in episodio 7.
+- [Compilazione Big: Insegnamenti appresi dai clienti di Microsoft Azure - parte I](https://channel9.msdn.com/Events/Build/2012/3-029). Mark Simms vengono descritti gli schemi di partizionamento, strategie di partizionamento orizzontale, come l'implementazione di partizionamento orizzontale e le federazioni di Database SQL, a partire da 19:49. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure.
 
 Codice di esempio:
 
-- [Sviluppo di servizi in Windows Azure cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Applicazione di esempio che include un database partizionato. Per una descrizione dello schema di partizionamento orizzontale implementato, vedere [DAL: partizionamento orizzontale di RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) nel blog di Windows Azure.
+- [Sviluppo di servizi in Microsoft Azure cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Applicazione di esempio che include un database partizionato. Per una descrizione dello schema di partizionamento orizzontale implementato, vedere [DAL: partizionamento orizzontale di RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) nel blog di Windows Azure.
 
->[!div class="step-by-step"]
-[Precedente](data-storage-options.md)
-[Successivo](unstructured-blob-storage.md)
+> [!div class="step-by-step"]
+> [Precedente](data-storage-options.md)
+> [Successivo](unstructured-blob-storage.md)

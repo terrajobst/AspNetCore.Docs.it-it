@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Esecuzione di una distribuzione "Cosa accade se"
 ====================
@@ -27,9 +27,9 @@ da [Jason Lee](https://github.com/jrjlee)
 > In questo argomento viene descritto come eseguire "cosa accade se" (o simulato) usando lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) e un VSDBCMD distribuzioni. Ciò consente di determinare gli effetti della logica di distribuzione in un ambiente di destinazione specifico prima di distribuire effettivamente l'applicazione.
 
 
-In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni utilizza una soluzione di esempio & #x 2014; il [soluzione responsabile contatto](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, Windows realistico Servizio di Communication Foundation (WCF) e un progetto di database.
+In questo argomento fa parte di una serie di esercitazioni basate su requisiti di distribuzione dell'organizzazione di una società fittizia denominata Fabrikam, Inc. Questa serie di esercitazioni Usa una soluzione di esempio&#x2014;il [Contact Manager soluzione](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;per rappresentare un'applicazione web con un livello di complessità, tra cui un'applicazione ASP.NET MVC 3, una comunicazione Windows realistico Servizio Foundation (WCF) e un progetto di database.
 
-Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione e distribuzione è controllato da due file di progetto & #x 2014; o ne contenente le istruzioni di compilazione che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
+Il metodo di distribuzione il fulcro di queste esercitazioni si basa sul progetto file split approccio descritto in [informazioni sui File di progetto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), in cui il processo di compilazione e distribuzione è controllato da due file di progetto&#x2014;uno contenente le istruzioni di compilazione che si applicano a ogni ambiente di destinazione e quella contenente impostazioni specifiche dell'ambiente di compilazione e distribuzione. In fase di compilazione, il file di progetto specifici dell'ambiente viene unito nel file di progetto indipendenti dall'ambiente in modo da formare un set completo di istruzioni di compilazione.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Esecuzione di una distribuzione "Cosa accade se" per i pacchetti Web
 
@@ -41,7 +41,7 @@ Distribuzione Web sono incluse funzionalità che consente di eseguire le distrib
 
 Poiché una distribuzione "cosa accade se" non modifica effettivamente nel server di destinazione, cosa può sempre fare stimare se una distribuzione avrà esito positivo.
 
-Come descritto in [distribuzione di pacchetti Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), è possibile distribuire i pacchetti web tramite distribuzione Web in due modi & #x 2014, tramite l'utilità della riga di comando MSDeploy.exe direttamente o tramite l'esecuzione di *. deploy* file che genera il processo di compilazione.
+Come descritto in [distribuzione di pacchetti Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), è possibile distribuire pacchetti web tramite distribuzione Web in due modi&#x2014;con l'utilità della riga di comando MSDeploy.exe direttamente o tramite l'esecuzione di *. deploy. cmd* file che genera il processo di compilazione.
 
 Se si utilizza MSDeploy.exe direttamente, è possibile eseguire una distribuzione "cosa accade se" aggiungendo il **– whatif** flag al comando. Ad esempio, per valutare a che cosa accadrebbe se è stato distribuito il pacchetto ContactManager.Mvc.zip in un ambiente di gestione temporanea, il comando di MSDeploy sarà analogo al seguente:
 
@@ -122,7 +122,7 @@ La fase successiva consiste nel parametrizzare qualsiasi distribuzione Web e VSD
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-Analogamente, la destinazione successiva utilizza l'utilità VSDBCMD per distribuire un database. Per impostazione predefinita, un **/dd** commutatore non è incluso. Ciò significa che VSDBCMD genera uno script di distribuzione ma non verrà distribuito il database di & #x 2014; in altre parole, uno scenario "cosa accade se". Se il **WhatIf** proprietà non è impostata su **true**, **/dd** viene aggiunta l'opzione e VSDBCMD verrà distribuito il database.
+Analogamente, la destinazione successiva utilizza l'utilità VSDBCMD per distribuire un database. Per impostazione predefinita, un **/dd** commutatore non è incluso. Ciò significa che VSDBCMD genera uno script di distribuzione ma non verrà distribuito il database&#x2014;in altre parole, uno scenario "cosa accade se". Se il **WhatIf** proprietà non è impostata su **true**, **/dd** viene aggiunta l'opzione e VSDBCMD verrà distribuito il database.
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ In questo argomento viene descritto come eseguire le distribuzioni "cosa accade 
 
 Per ulteriori informazioni sulla sintassi della riga di comando di distribuzione Web, vedere [Web Deploy operazione Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Per informazioni aggiuntive sulle opzioni della riga di comando quando si utilizza il *. deploy* file, vedere [procedura: installare un pacchetto di distribuzione tramite il File deploy](https://msdn.microsoft.com/library/ff356104.aspx). Per ulteriori informazioni sulla sintassi della riga di comando VSDBCMD, vedere [riferimento della riga di comando per VSDBCMD. EXE (distribuzione e importazione dello Schema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
->[!div class="step-by-step"]
-[Precedente](advanced-enterprise-web-deployment.md)
-[Successivo](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [Precedente](advanced-enterprise-web-deployment.md)
+> [Successivo](customizing-database-deployments-for-multiple-environments.md)

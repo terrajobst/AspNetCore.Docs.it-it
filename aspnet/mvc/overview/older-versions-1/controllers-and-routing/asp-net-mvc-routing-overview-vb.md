@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4c74e61b1a0d5f5020154756e34dd2fa507034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3de0e21552a4aa03aa21f21a4e26028f1475f3e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-vb"></a>Panoramica di Routing di ASP.NET MVC (VB)
 ====================
@@ -37,7 +37,7 @@ In secondo luogo e soprattutto, nel file Global. asax dell'applicazione viene cr
 
 Il file di listato 1 contiene il file Global. asax predefinito per un'applicazione MVC ASP.NET.
 
-**Elenco 1 - Global.asax.vb**
+**Listing 1 - Global.asax.vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
 
@@ -47,15 +47,15 @@ La tabella di route predefinita contiene una singola route (denominata valore pr
 
 Si supponga che si immette l'URL seguente nella barra degli indirizzi del web browser:
 
-/ Home/Index/3
+/Home/Index/3
 
 La route predefinita esegue il mapping di questo URL per i parametri seguenti:
 
-- Controller Home =
+- controller = Home
 
 - Azione = indice
 
-- ID = 3
+- id = 3
 
 Quando si richiede il 3/indice/URL /Home, viene eseguito il codice seguente:
 
@@ -65,11 +65,11 @@ La route predefinita include le impostazioni predefinite per tutti e tre i param
 
 Ecco alcuni esempi di come la route predefinita esegue il mapping degli URL per le azioni del controller. Si supponga che si immette l'URL seguente nella barra degli indirizzi del browser:
 
-/ Home
+/Home
 
 A causa di valori di parametro predefiniti della route predefinito, immettere l'URL verrà causa l'index () del metodo della classe HomeController listato 2 da chiamare.
 
-**Elenco di 2 - HomeController.vb**
+**Listing 2 - HomeController.vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample2.vb)]
 
@@ -85,7 +85,7 @@ Il metodo Index () nel listato 3 non accetta parametri. L'URL di /Home causerà 
 
 L'URL di /Home corrisponde anche il metodo Index () della classe HomeController listato 4.
 
-**Elenco di 4 - HomeController.vb (operazione sull'indice con il parametro ammette valori null)**
+**Listato 4 - HomeController.vb (operazione sull'indice con il parametro ammette valori null)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample4.vb)]
 
@@ -93,14 +93,14 @@ Listato 4, il metodo Index () ha un parametro di tipo Integer. Poiché il parame
 
 Infine, richiamare il metodo Index () nel listato 5 con l'URL di /Home genera un'eccezione perché il parametro Id *non* un parametro ammette valori null. Se si tenta di richiamare il metodo Index () restituito l'errore visualizzato nella figura 1.
 
-**Elenco di 5 - HomeController.vb (operazione sull'indice con il parametro Id)**
+**Nel listato 5 - HomeController.vb (operazione sull'indice con il parametro Id)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
 
 
-[![Richiamare un'azione del controller che prevede un valore di parametro](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+[![Richiamare un'azione del controller che è previsto un valore di parametro](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
 
-**Figura 01**: richiamare un'azione del controller che prevede un valore di parametro ([fare clic per visualizzare l'immagine ingrandita](asp-net-mvc-routing-overview-vb/_static/image2.png))
+**Figura 01**: richiamare un'azione del controller che è previsto un valore di parametro ([fare clic per visualizzare l'immagine ingrandita](asp-net-mvc-routing-overview-vb/_static/image2.png))
 
 
 URL /Home/indice/3, d'altra parte, funziona perfettamente con l'azione del controller di indice nel listato 5. /Home/Index/3 la richiesta, il metodo Index () essere chiamato con un parametro Id con il valore 3.
@@ -109,6 +109,6 @@ URL /Home/indice/3, d'altra parte, funziona perfettamente con l'azione del contr
 
 L'obiettivo di questa esercitazione è stata per fornire una breve introduzione al Routing di ASP.NET. Abbiamo esaminato la tabella di route predefinita che ottiene con una nuova applicazione MVC ASP.NET. Si è appreso come la route predefinita esegue il mapping degli URL per le azioni del controller.
 
->[!div class="step-by-step"]
-[Precedente](creating-an-action-cs.md)
-[Successivo](understanding-action-filters-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-an-action-cs.md)
+> [Successivo](understanding-action-filters-vb.md)

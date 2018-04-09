@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 title: Utilizzo di TemplateFields nel controllo DetailsView (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Le stesse funzionalità TemplateFields disponibili con GridView sono anche disponibili con il controllo DetailsView. In questa esercitazione, verrà visualizzato un prodotto..."
+description: Le stesse funzionalità TemplateFields disponibili con GridView sono anche disponibili con il controllo DetailsView. In questa esercitazione, verrà visualizzato un prodotto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b368a651253a569865bb92fa93d3462f88d8935f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 67009460477dcc3d1e966220b446a47d6e5b6f5a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-detailsview-control-vb"></a>Utilizzo di TemplateFields nel controllo DetailsView (VB)
 ====================
@@ -40,7 +40,7 @@ Le stesse funzionalità TemplateFields disponibili con GridView sono anche dispo
 
 [![Due TemplateFields vengono utilizzati per personalizzare la visualizzazione](using-templatefields-in-the-detailsview-control-vb/_static/image2.png)](using-templatefields-in-the-detailsview-control-vb/_static/image1.png)
 
-**Figura 1**: TemplateFields due vengono utilizzati per personalizzare la visualizzazione ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image3.png))
+**Figura 1**: due TemplateFields vengono utilizzati per personalizzare la visualizzazione ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image3.png))
 
 
 Iniziamo!
@@ -54,7 +54,7 @@ Aprire il `DetailsViewTemplateField.aspx` pagina e trascinare un controllo Detai
 
 [![Aggiungere un nuovo controllo ObjectDataSource che richiama il metodo GetProducts()](using-templatefields-in-the-detailsview-control-vb/_static/image5.png)](using-templatefields-in-the-detailsview-control-vb/_static/image4.png)
 
-**Figura 2**: aggiungere un nuovo controllo ObjectDataSource che Invoke il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image6.png))
+**Figura 2**: aggiungere un nuovo controllo ObjectDataSource tale Invoke il `GetProducts()` metodo ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image6.png))
 
 
 Per questo report è possibile rimuovere il `ProductID`, `SupplierID`, `CategoryID`, e `ReorderLevel` BoundField. Successivamente, riordinare il BoundField in modo che il `CategoryName` e `SupplierName` BoundField vengono visualizzati immediatamente dopo il `ProductName` BoundField. È possibile regolare la `HeaderText` proprietà e le proprietà di formattazione per il BoundField come si ritengono appropriato. Come in GridView, queste modifiche BoundField livello possono essere eseguite tramite la finestra di dialogo campi (accessibile facendo clic sul collegamento Modifica campi nello smart tag del controllo DetailsView.) o tramite la sintassi dichiarativa. Infine, cancellare il DetailsView `Height` e `Width` i valori delle proprietà per consentire il controllo DetailsView controllare per espandere i dati visualizzati in base e selezionare la casella di controllo Abilita Paging nello smart tag.
@@ -69,7 +69,7 @@ Richiedere qualche istante per visualizzare la pagina tramite un browser. A ques
 
 [![I dettagli del prodotto vengono visualizzati tramite una serie di BoundField](using-templatefields-in-the-detailsview-control-vb/_static/image8.png)](using-templatefields-in-the-detailsview-control-vb/_static/image7.png)
 
-**Figura 3**: sono il prodotto disponibili dettagli utilizzando una serie di BoundField ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image9.png))
+**Figura 3**: sono riportati i dettagli del prodotto di utilizzando una serie di BoundField ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image9.png))
 
 
 ## <a name="step-2-combining-the-price-units-in-stock-and-units-on-order-into-one-row"></a>Passaggio 2: La combinazione della prezzo, unità In magazzino e le unità nell'ordine in una riga
@@ -115,7 +115,7 @@ Per il `UnitPrice` utilizzare il formato valuta specificato selezionando il valo
 
 [![Formattare il prezzo come valuta](using-templatefields-in-the-detailsview-control-vb/_static/image20.png)](using-templatefields-in-the-detailsview-control-vb/_static/image19.png)
 
-**Figura 7**: formattare il prezzo come valuta ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image21.png))
+**Figura 7**: il prezzo come valuta di formato ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image21.png))
 
 
 In modo dichiarativo, la formattazione specifica è indicata come secondo parametro nel `Bind` o `Eval` metodi. Le impostazioni effettuate solo tramite il risultato della finestra di progettazione nell'espressione di associazione dati seguenti nel markup dichiarativo:
@@ -129,7 +129,7 @@ A questo punto è stato visualizzato e formattato il `UnitPrice` dati campo al p
 
 Aggiungere il markup statico, i controlli Web di etichetta e sintassi di associazione dati in modo che il prezzo e TemplateField inventario vengono visualizzate le informazioni di prezzo e inventario come segue:
 
-*Prezzo unitario*  
+*UnitPrice*  
 (**In magazzino / ordine:** *UnitsInStock* / *UnitsOnOrder*)
 
 Dopo l'esecuzione di questa attività markup dichiarativo di DetailsView dovrebbe essere simile al seguente:
@@ -140,9 +140,9 @@ Dopo l'esecuzione di questa attività markup dichiarativo di DetailsView dovrebb
 Con queste modifiche è stato consolidato le informazioni di prezzo e inventario in una sola riga di DetailsView.
 
 
-[![Viene visualizzato il prezzo e informazioni di inventario in una riga singola](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
+[![I prezzi e le informazioni di inventario vengano visualizzati in una singola riga](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
 
-**Figura 8**: informazioni sull'inventario e il prezzo viene visualizzato in una riga singola ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image24.png))
+**Figura 8**: le informazioni di inventario e il prezzo viene visualizzato in una riga singola ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image24.png))
 
 
 ## <a name="step-3-customizing-the-discontinued-field-information"></a>Passaggio 3: Personalizzazione delle informazioni del campo non più supportate
@@ -178,9 +178,9 @@ Con questo metodo di formattazione completato, è comunque chiamarlo dal Templat
 In questo modo il `DisplayDiscontinuedAsYESorNO` metodo da richiamare quando il rendering di DetailsView, passando il `ProductRow` dell'istanza `Discontinued` valore. Poiché il `Eval` il metodo restituisce un valore di tipo `Object`, ma la `DisplayDiscontinuedAsYESorNO` metodo prevede un parametro di input di tipo `Boolean`, verrà eseguito il cast di `Eval` metodi di un valore restituiscono per `Boolean`. Il `DisplayDiscontinuedAsYESorNO` metodo restituirà quindi "YES" o "NO" a seconda del valore riceve. Il valore restituito è contenuto in questo controllo DetailsView riga (vedere la figura 10).
 
 
-[![I valori yes o NO vengono ora visualizzati nella riga sospeso](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
+[![I valori yes o NO sono ora visualizzati nella riga Discontinued](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
 
-**Figura 10**: i valori YES o NO vengono ora visualizzati nella riga Discontinued ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image30.png))
+**Figura 10**: i valori YES o NO sono ora visualizzati nella riga Discontinued ([fare clic per visualizzare l'immagine ingrandita](using-templatefields-in-the-detailsview-control-vb/_static/image30.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -199,12 +199,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Dan Jagers. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](using-templatefields-in-the-gridview-control-vb.md)
-[Successivo](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-templatefields-in-the-gridview-control-vb.md)
+> [Successivo](using-the-formview-s-templates-vb.md)

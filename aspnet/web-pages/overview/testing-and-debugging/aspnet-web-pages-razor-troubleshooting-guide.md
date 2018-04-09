@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Pagine Web ASP.NET (Razor) Troubleshooting Guide
 ====================
@@ -50,7 +50,7 @@ Un'ampia gamma di problemi può impedire *. cshtml* e *. vbhtml* pagine da esegu
 
 ### <a name="http-error-403---forbidden-access-is-denied"></a>Errore HTTP 403 - accesso negato: Accesso negato
 
-*Non si dispone dell'autorizzazione per visualizzare la directory o la pagina utilizzando le credenziali fornite.*
+*Non si dispone delle autorizzazioni necessarie per visualizzare la directory o la pagina utilizzando le credenziali fornite.*
 
 Questo errore può verificarsi se il server non è in esecuzione la versione corretta di .NET Framework. Assicurarsi che il computer che esegue il server (locale o remota) disponga almeno .NET Framework 4. Assicurarsi inoltre che l'applicazione è configurato per eseguire la versione corretta.
 
@@ -141,15 +141,15 @@ Sostituire i valori appropriati per `your-SMTP-server-name`e così via. Alcuni d
 
     oppure
 
-    *Un tentativo di connessione non riuscita perché l'entità connesso non ha risposto correttamente dopo un periodo di tempo o stabilire una connessione non è riuscita perché l'host connesso non ha risposto*
+    *Un tentativo di connessione non riuscito perché l'entità connesso non ha risposto correttamente dopo un periodo di tempo o stabilire una connessione non è riuscita perché l'host connesso non ha risposto*
 
     Questo errore indica in genere che l'applicazione non riuscito a connettersi al server SMTP. Controllare il nome del server e il numero di porta.
-- *Cassetta postale non disponibile. Risposta del server: 5.1.0 &lt; someuser@invaliddomain &gt; mittente rifiutato: il dominio del mittente non valido*
+- <em>Cassetta postale non disponibile. Risposta del server: 5.1.0 &lt; someuser@invaliddomain &gt; mittente rifiutato: dominio mittente non valido</em>
 
     Questo messaggio può indicare che il `From` indirizzo non è corretto o mancante.
-- *La stringa specificata non è nel formato richiesto per un indirizzo di posta elettronica.*
+- *La stringa specificata non è conforme al formato previsto per un indirizzo di posta elettronica.*
 
-    Questo errore potrebbe indicare che il valore di `To` o `From` proprietà non sono riconosciute come indirizzi di posta elettronica. (ASP.NET non è possibile verificare che l'indirizzo di posta elettronica sia valido, ma solo la 's nel formato corretto, ad esempio  *name@domain.com* .)
+    Questo errore potrebbe indicare che il valore di `To` o `From` proprietà non sono riconosciute come indirizzi di posta elettronica. (ASP.NET non è possibile verificare che l'indirizzo di posta elettronica sia valido, ma solo la 's nel formato corretto, ad esempio *name@domain.com*.)
 
 > [!NOTE]
 > Rimuovere il markup che viene visualizzato l'errore (`@errorMessage`) prima di pubblicare la pagina in un sito in tempo reale. Non è consigliabile per consentire agli utenti di vedere i messaggi di errore che si ottiene da un server.

@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: "Middleware OWIN in IIS è integrata pipeline | Documenti Microsoft"
+title: Middleware OWIN in IIS è integrata pipeline | Documenti Microsoft
 author: Praburaj
-description: "In questo articolo viene illustrato come eseguire i componenti middleware OWIN (OMCs) nella pipeline integrata di IIS e come impostare l'evento pipeline un OMC viene eseguito su. È necessario..."
+description: In questo articolo viene illustrato come eseguire i componenti middleware OWIN (OMCs) nella pipeline integrata di IIS e come impostare l'evento pipeline un OMC viene eseguito su. È necessario...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware OWIN della pipeline integrata di IIS
 ====================
-da [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+dal [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questo articolo viene illustrato come eseguire i componenti middleware OWIN (OMCs) nella pipeline integrata di IIS e come impostare l'evento pipeline un OMC viene eseguito su. È necessario rivedere [una panoramica del progetto Katana](an-overview-of-project-katana.md) e [OWIN avvio classe rilevamento](owin-startup-class-detection.md) prima di leggere questa esercitazione. In questa esercitazione è stato scritto dal Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Chris Ross Praburaj Thiagarajan e Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 
@@ -83,13 +83,13 @@ Componenti di middleware Owin (OMC) possono essere configurati per eseguire gli 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- le chiamate a `app.UseStageMarker` passando `Authenticate` o `PostAuthenticate` non sarà possibile applicare e non verrà generata alcuna eccezione. Eseguire durante la fase più recente, che per impostazione predefinita è OMCs `PreHandlerExecute`. Affinché vengano eseguiti in precedenza, vengono utilizzati i marcatori di fase. Se si specificano l'ordine marcatori di fase, si arrotondare al marcatore della precedente. In altre parole, l'aggiunta di un marcatore di fasi afferma "Esegui entro fase X". Esecuzione dell'OMC al marcatore di fasi primo aggiunto successivamente nella pipeline OWIN.
+   le chiamate a `app.UseStageMarker` passando `Authenticate` o `PostAuthenticate` non sarà possibile applicare e non verrà generata alcuna eccezione. Eseguire durante la fase più recente, che per impostazione predefinita è OMCs `PreHandlerExecute`. Affinché vengano eseguiti in precedenza, vengono utilizzati i marcatori di fase. Se si specificano l'ordine marcatori di fase, si arrotondare al marcatore della precedente. In altre parole, l'aggiunta di un marcatore di fasi afferma "Esegui entro fase X". Esecuzione dell'OMC al marcatore di fasi primo aggiunto successivamente nella pipeline OWIN.
 4. La prima fase il numero di chiamate al `app.UseStageMarker` wins. Ad esempio, se si passa l'ordine di `app.UseStageMarker` chiamate dall'esempio precedente:
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- Verrà visualizzata la finestra di output: 
+   Verrà visualizzata la finestra di output: 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- Il OMCs eseguiti nel `AuthenticateRequest` fase, perché l'ultima OMC registrato con il `Authenticate` evento e `Authenticate` evento precede tutti gli altri eventi.
+   Il OMCs eseguiti nel `AuthenticateRequest` fase, perché l'ultima OMC registrato con il `Authenticate` evento e `Authenticate` evento precede tutti gli altri eventi.

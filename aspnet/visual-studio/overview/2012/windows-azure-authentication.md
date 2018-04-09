@@ -2,25 +2,25 @@
 uid: visual-studio/overview/2012/windows-azure-authentication
 title: Windows Azure Authentication | Documenti Microsoft
 author: Rick-Anderson
-description: "Gli strumenti Microsoft ASP.NET per Windows Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in siti Web di Microsoft Azure..."
+description: Gli strumenti Microsoft ASP.NET per Windows Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in siti Web di Microsoft Azure...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2013
 ms.topic: article
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09cb37ceb0132958a48f5f3a5d52dc46c6f0a78d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure Authentication
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Strumenti di Microsoft ASP.NET per Windows Azure Active Directory rende più semplice per abilitare l'autenticazione per applicazioni web ospitate in [siti Web di Azure](https://www.windowsazure.com/home/features/web-sites/). È possibile utilizzare l'autenticazione di Windows Azure per autenticare gli utenti di Office 365 dell'organizzazione, gli account aziendali sincronizzati da Active Directory locale o degli utenti creati in un dominio di Windows Azure Active Directory personalizzato. Abilitazione dell'autenticazione di Windows Azure consente di configurare l'applicazione per autenticare gli utenti con un solo [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) tenant.
 > 
@@ -35,7 +35,7 @@ Da [Rick Anderson](https://github.com/Rick-Anderson)
 
 - Visual Studio 2012 o [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)
 - [Estensioni per Visual Studio 2012 degli strumenti Web](https://go.microsoft.com/fwlink/?LinkID=282228&amp;clcid=0x409) o [estensioni degli strumenti Web per Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkID=282231&amp;clcid=0x409)
-- [Strumenti di Microsoft ASP.NET per Windows Azure Active Directory: Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282306) o [degli strumenti Microsoft ASP.NET per Windows Azure Active Directory: Visual Studio Express 2012 per Web](https://go.microsoft.com/fwlink/?LinkId=282652)
+- [Strumenti di Microsoft ASP.NET per Windows Azure Active Directory Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282306) o [degli strumenti Microsoft ASP.NET per Windows Azure Active Directory: Visual Studio Express 2012 per Web](https://go.microsoft.com/fwlink/?LinkId=282652)
 
 ## <a name="create-an-aspnet-web-application-with-visual-studio-2012"></a>Creare un'applicazione Web ASP.NET con Visual Studio 2012
 
@@ -50,7 +50,7 @@ Se non si dispone di un tenant esistente di Windows Azure Active Directory (ad e
 
 1. Dal menu progetto selezionare **abilitare l'autenticazione di Windows Azure**:  
   
- ![](windows-azure-authentication/_static/image2.png)
+   ![](windows-azure-authentication/_static/image2.png)
 
 2. Immettere il dominio per il tenant di Windows Azure Active Directory (ad esempio, contoso.onmicrosoft.com) e fare clic su **abilitare**:
 
@@ -58,7 +58,7 @@ Se non si dispone di un tenant esistente di Windows Azure Active Directory (ad e
 
 3. Nell'autenticazione Web finestra di dialogo di accesso come amministratore per il tenant di Windows Azure Active Directory:  
   
- ![](windows-azure-authentication/_static/image4.png)
+   ![](windows-azure-authentication/_static/image4.png)
 
 ![](windows-azure-authentication/_static/image5.png)
 
@@ -72,7 +72,7 @@ Verrà visualizzata la finestra di dialogo di **dominio**, **Id entità applicaz
 Dopo l'applicazione è stato correttamente eseguito il provisioning, è possibile fare clic su **continua ad aggiornare Web. config con le impostazioni selezionate**. Se si desidera continuare a sviluppare l'applicazione durante l'attesa per il provisioning viene eseguita, è possibile fare clic su **Chiudi per ricordare le impostazioni nel file di progetto**. La volta successiva che richiami abilitare l'autenticazione di Windows Azure, deselezionare la casella di controllo di provisioning, si noterà che le stesse impostazioni ed è possibile fare clic su **continua**, quindi fare clic su, **applicare queste impostazioni in Web. config**.
 
 1. Attendere mentre l'applicazione è configurata per l'autenticazione di Windows Azure e il provisioning con Windows Azure Active Directory.
-2. Dopo l'autenticazione di Windows Azure è stata abilitata per l'applicazione, fare clic su **Chiudi:** 
+2. Dopo l'autenticazione di Windows Azure è stato abilitato per l'applicazione, fare clic su **Chiudi:** 
 
     ![](windows-azure-authentication/_static/image7.png)
 3. Premere F5 per eseguire l'applicazione. Si dovrebbe ottenere automaticamente reindirizzati alla pagina di accesso. Utilizzare le credenziali dell'utente principio directory eseguire l'accesso all'applicazione...  
@@ -80,7 +80,7 @@ Dopo l'applicazione è stato correttamente eseguito il provisioning, è possibil
     ![](windows-azure-authentication/_static/image1.jpg)
 4. Poiché l'applicazione è attualmente in uso un certificato di prova autofirmato si riceverà un avviso dal browser che il certificato non è stato emesso da un'autorità di certificazione.
 
-    Questo avviso può essere tranquillamente ignorato durante lo sviluppo locale, fare clic su **continua per questo sito Web:** 
+    Questo avviso può essere tranquillamente ignorato durante lo sviluppo locale, fare clic su **continua con il sito Web:** 
 
     ![](windows-azure-authentication/_static/image8.png)
 5. Sono ora correttamente eseguito l'accesso all'applicazione mediante l'autenticazione di Windows Azure.
@@ -161,11 +161,11 @@ Questa situazione può verificarsi se è già stato effettuato con alcuni altri 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Strumenti di Microsoft ASP.NET per Windows Azure Active Directory: Visual Studio 2012](https://blogs.msdn.com/b/vbertocci/archive/2013/02/18/microsoft-asp-net-tools-for-windows-azure-active-directory-visual-studio-2012.aspx) – Vittorio Bertocci
-- [Windows Azure funzionalità: identità](https://docs.microsoft.com/azure/active-directory/)
+- [Strumenti di Microsoft ASP.NET per Windows Azure Active Directory Visual Studio 2012](https://blogs.msdn.com/b/vbertocci/archive/2013/02/18/microsoft-asp-net-tools-for-windows-azure-active-directory-visual-studio-2012.aspx) – Vittorio Bertocci
+- [Windows le funzionalità di Azure: identità](https://docs.microsoft.com/azure/active-directory/)
 - [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/library/hh967619.aspx)
 - [Windows Azure Active Directory: sviluppare applicazioni per l'organizzazione](https://activedirectory.windowsazure.com/Develop/Single-Tenant.aspx)
 - [Windows Azure Active Directory: sviluppare App per più organizzazioni](https://activedirectory.windowsazure.com/Develop/Multi-Tenant.aspx)
-- [Modalità di implementazione di single sign-on con Windows Azure Active Directory](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)
+- [Come implementare single sign-on con Windows Azure Active Directory](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)
 - [Single Sign-On con Windows Azure Active Directory: un approfondimento](https://blogs.msdn.com/b/vbertocci/archive/2012/07/05/single-sign-on-with-windows-azure-active-directory-a-deep-dive.aspx) – Vittorio Bertocci
 - [Utilizzo di ADFS 2.0 per implementare e gestire single sign-on](https://technet.microsoft.com/library/jj205462.aspx)

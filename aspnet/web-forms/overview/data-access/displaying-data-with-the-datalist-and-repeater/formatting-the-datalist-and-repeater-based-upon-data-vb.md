@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 title: Formattazione di DataList e Repeater sulla base dei dati (VB) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà esaminare esempi di come si formatta l'aspetto dei controlli DataList e Repeater, tramite l'utilizzo di funzioni di formattazione con..."
+description: In questa esercitazione verrà esaminare esempi di come si formatta l'aspetto dei controlli DataList e Repeater, tramite l'utilizzo di funzioni di formattazione con...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 174a68cf0785b33c85139d57ede9717ce7e135e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Formattazione di DataList e Repeater sulla base dei dati (VB)
 ====================
@@ -33,8 +33,8 @@ Come illustrato nell'esercitazione precedente, DataList offre una serie di propr
 
 Spesso, tuttavia, come devono essere formattati i dati varia a seconda dei dati stessi. Ad esempio, quando si elencano i prodotti potrebbe essere opportuno visualizzare le informazioni sul prodotto in un colore grigio chiaro se non è più disponibile o si può decidere di evidenziare il `UnitsInStock` valore se è zero. Come abbiamo visto nelle esercitazioni precedenti, il controllo GridView, DetailsView e FormView offrono due modi diversi per formattare l'aspetto in base ai relativi dati:
 
-- **Il `DataBound` evento** creare un gestore eventi per l'oggetto appropriato `DataBound` evento, che viene generato dopo aver associati i dati per ogni elemento (per GridView era il `RowDataBound` evento; per il DataList e Repeater è il `ItemDataBound`evento). In tal caso gestore, solo i dati associati può essere esaminati e formattazione decisioni apportate. Abbiamo esaminato questa tecnica nel [formattazione basato su dati personalizzati](../custom-formatting/custom-formatting-based-upon-data-vb.md) esercitazione.
-- **Le funzioni nei modelli di formattazione** quando si utilizzano i controlli di DetailsView o GridView o un modello nel controllo FormView TemplateFields, è possibile aggiungere una funzione di formattazione per la classe code-behind s pagina ASP.NET, il livello di logica di Business o qualsiasi altra libreria di classi che è accessibile dall'applicazione web. Questa funzione formattazione può accettare un numero arbitrario di parametri di input, ma deve restituire il codice HTML per eseguire il rendering nel modello. Funzioni di formattazione sono stati prima esaminate nel [TemplateFields utilizzo nel controllo GridView](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) esercitazione.
+- **Il `DataBound` evento** creare un gestore eventi per l'oggetto appropriato `DataBound` evento, che viene attivato dopo aver associati i dati per ogni elemento (per GridView era il `RowDataBound` evento; per il DataList e Repeater è il `ItemDataBound`evento). In tal caso gestore, solo i dati associati può essere esaminati e formattazione decisioni apportate. Abbiamo esaminato questa tecnica nel [formattazione basato su dati personalizzati](../custom-formatting/custom-formatting-based-upon-data-vb.md) esercitazione.
+- **Le funzioni nei modelli di formattazione** quando si utilizza TemplateFields i controlli di DetailsView o GridView o un modello nel controllo FormView, è possibile aggiungere una funzione di formattazione per la classe code-behind pagina s ASP.NET, il livello di logica di Business o qualsiasi altra libreria di classi che è accessibile dall'applicazione web. Questa funzione formattazione può accettare un numero arbitrario di parametri di input, ma deve restituire il codice HTML per eseguire il rendering nel modello. Funzioni di formattazione sono stati prima esaminate nel [TemplateFields utilizzo nel controllo GridView](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md) esercitazione.
 
 Entrambe queste tecniche di formattazione disponibili con i controlli DataList e Repeater. In questa esercitazione verrà esaminare esempi di utilizzo di entrambe le tecniche per entrambi i controlli.
 
@@ -42,19 +42,19 @@ Entrambe queste tecniche di formattazione disponibili con i controlli DataList e
 
 Quando dati sono associati a un controllo DataList, da un controllo origine dati o mediante l'assegnazione a livello di programmazione di dati al controllo s `DataSource` proprietà e chiamando il relativo `DataBind()` (metodo), s DataList `DataBinding` evento viene generato, l'origine di dati enumerato, e ogni record di dati è associato al controllo DataList. Per ogni record nell'origine dati, crea DataList un [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) oggetto quindi associato al record corrente. Durante questo processo, DataList genera due eventi:
 
-- **`ItemCreated`**viene generato dopo il `DataListItem` è stato creato
-- **`ItemDataBound`**viene generato dopo il record corrente è stato associato per il`DataListItem`
+- **`ItemCreated`** viene generato dopo il `DataListItem` è stato creato
+- **`ItemDataBound`** viene generato dopo il record corrente è stato associato per il `DataListItem`
 
 Di seguito viene illustrato il processo di associazione dati per il controllo DataList.
 
 1. DataList s [ `DataBinding` evento](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) generato
 2. L'associazione dati per il controllo DataList  
   
- Per ogni record nell'origine dati 
+   Per ogni record nell'origine dati 
 
     1. Creare un `DataListItem` oggetto
     2. Attivare il [ `ItemCreated` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. Associare il record per il`DataListItem`
+    3. Associare il record per il `DataListItem`
     4. Attivare il [ `ItemDataBound` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Aggiungere il `DataListItem` per il `Items` raccolta
 
@@ -120,9 +120,9 @@ Per applicare la formattazione, è sufficiente impostare i due controlli etichet
 Con il `ItemDataBound` completata dal gestore di evento, rivedere il `Formatting.aspx` pagina in un browser. Come illustrato nella figura 2, i prodotti con prezzo in $20.00 hanno nome e i relativi prezzi evidenziato.
 
 
-[![Tali prodotti minore di $20.00 sono evidenziati](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
+[![Tali prodotti meno di $20.00 sono evidenziati](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
-**Figura 2**: quelli prodotti minore di $20.00 sono evidenziati ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
+**Figura 2**: quelli prodotti inferiore a $20.00 sono evidenziati ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
 
 
 > [!NOTE]
@@ -132,7 +132,7 @@ Con il `ItemDataBound` completata dal gestore di evento, rivedere il `Formatting
 Il `RepeaterItem` che costituiscono il controllo Repeater, tuttavia, t don offrono tali proprietà a livello di stile. Pertanto, l'applicazione della formattazione personalizzata per il controllo Repeater richiede che l'applicazione di proprietà di stile per i controlli Web all'interno dei modelli Ripetitore s, solo come abbiamo visto nella figura 2.
 
 
-[![Viene evidenziato l'intero elemento del prodotto per i prodotti in $20.00](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
+[![Per i prodotti in $20.00 viene evidenziato l'intero elemento del prodotto](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
 **Figura 3**: viene evidenziato l'intero elemento prodotto per i prodotti in $20.00 ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
 
@@ -144,9 +144,9 @@ Nel *TemplateFields utilizzo nel controllo GridView* esercitazione è stato illu
 Per illustrare le funzioni di formattazione, s consentono di disporre delle informazioni di prodotto includono il testo [DISCONTINUED] accanto al nome del prodotto s se si s non più disponibile. Consentono di s necessario, inoltre, se il giallo evidenziato prezzo è minore di $20.00 s (come nel `ItemDataBound` esempio di gestore eventi); se il prezzo è $20.00 o superiore, consentono s non visualizzare il prezzo effettivo, ma chiamare invece il testo, eseguire per un'offerta di prezzo. La figura 4 mostra una schermata dei prodotti Elenca le regole di formattazione applicate.
 
 
-[![Per i prodotti costosi, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
+[![Per i prodotti dispendiosa, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
-**Figura 4**: per i prodotti costosi, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
+**Figura 4**: per i prodotti dispendiosa, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))
 
 
 ## <a name="step-1-create-the-formatting-functions"></a>Passaggio 1: Creare le funzioni di formattazione
@@ -172,7 +172,7 @@ Con le funzioni di formattazione aggiunte per la classe code-behind di pagine AS
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
-In DataList s `ItemTemplate` il `ProductNameLabel` controllo etichetta Web attualmente vengono visualizzati il nome del prodotto s assegnando il relativo `Text` proprietà il risultato di `<%# Eval("ProductName") %>`. Per avere Visualizza il nome e il testo [DISCONTINUED], se necessario, aggiornare la sintassi dichiarativa in modo che invece assegna il `Text` il valore della proprietà del `DisplayProductNameAndDiscontinuedStatus` metodo. In tal caso, è necessario passare il nome del prodotto s e i valori obsoleti utilizzando il `Eval("columnName")` sintassi. `Eval`Restituisce un valore di tipo `Object`, ma la `DisplayProductNameAndDiscontinuedStatus` metodo prevede parametri di input di tipo `String` e `Boolean`; pertanto, è necessario eseguire il cast di valori restituiti dal `Eval` metodo ai tipi di parametro di input previsto, come illustrato di seguito:
+In DataList s `ItemTemplate` il `ProductNameLabel` controllo etichetta Web attualmente vengono visualizzati il nome del prodotto s assegnando il relativo `Text` proprietà il risultato di `<%# Eval("ProductName") %>`. Per avere Visualizza il nome e il testo [DISCONTINUED], se necessario, aggiornare la sintassi dichiarativa in modo che invece assegna il `Text` il valore della proprietà del `DisplayProductNameAndDiscontinuedStatus` metodo. In tal caso, è necessario passare il nome del prodotto s e i valori obsoleti utilizzando il `Eval("columnName")` sintassi. `Eval` Restituisce un valore di tipo `Object`, ma la `DisplayProductNameAndDiscontinuedStatus` metodo prevede parametri di input di tipo `String` e `Boolean`; pertanto, è necessario eseguire il cast di valori restituiti dal `Eval` metodo ai tipi di parametro di input previsto, come illustrato di seguito:
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
@@ -185,9 +185,9 @@ Per visualizzare il prezzo, è possibile impostare semplicemente il `UnitPriceLa
 Con le chiamate alle funzioni di formattazione sul posto, richiedere qualche istante per visualizzare l'avanzamento in un browser. La schermata dovrebbe essere simile alla figura 5, con i prodotti non più supportati, incluso il testo [DISCONTINUED] e i prodotti con costo più di $20.00 con i relativi prezzi sostituito con il testo, chiamata di un'offerta di prezzo.
 
 
-[![Per i prodotti costosi, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
+[![Per i prodotti dispendiosa, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
-**Figura 5**: per i prodotti costosi, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
+**Figura 5**: per i prodotti dispendiosa, il prezzo viene sostituito con il testo,. chiamare per un'offerta di prezzo ([fare clic per visualizzare l'immagine ingrandita](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))
 
 
 ## <a name="summary"></a>Riepilogo
@@ -200,12 +200,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Yaakov Ellis Randy Schmidt e Liz Shulok. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
-[Successivo](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [Successivo](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

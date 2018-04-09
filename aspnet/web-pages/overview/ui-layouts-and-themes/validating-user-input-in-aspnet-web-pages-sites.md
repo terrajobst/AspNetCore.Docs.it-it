@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 3bde2a4ea69577ebcbe3e9e89a7ee07e6ece8dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34f703e6db70ac79c22f4a50d4cfd4e2326b4c74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Convalida dell'Input utente in siti Web di ASP.NET di pagine (Razor)
 ====================
@@ -83,15 +83,15 @@ In ASP.NET Web Pages 2, è possibile utilizzare il `Validator` helper per verifi
     Per verificare i campi obbligatori, utilizzare `Validation.RequireField(field, [error message])` (per un singolo campo) o `Validation.RequireFields(field1, field2, ...))` (per un elenco di campi). Per altri tipi di convalida, utilizzare `Validation.Add(field, ValidationType)`. Per `ValidationType`, è possibile utilizzare queste opzioni:
 
     `Validator.DateTime ([error message])`  
-`Validator.Decimal([error message])`  
-`Validator.EqualsTo(otherField [, error message])`  
-`Validator.Float([error message])`  
-`Validator.Integer([error message])`  
-`Validator.Range(min, max [, error message])`  
-`Validator.RegEx(pattern [, error message])`  
-`Validator.Required([error message])`  
-`Validator.StringLength(length)`  
-`Validator.Url([error message])`
+   `Validator.Decimal([error message])`  
+   `Validator.EqualsTo(otherField [, error message])`  
+   `Validator.Float([error message])`  
+   `Validator.Integer([error message])`  
+   `Validator.Range(min, max [, error message])`  
+   `Validator.RegEx(pattern [, error message])`  
+   `Validator.Required([error message])`  
+   `Validator.StringLength(length)`  
+   `Validator.Url([error message])`
 3. Quando viene inviata la pagina, controllare se la convalida ha superato controllando `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
@@ -122,7 +122,7 @@ Per impostazione predefinita, viene convalidata l'input dell'utente dopo l'invio
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
- Due delle librerie sono può essere caricato da una rete di distribuzione di contenuti (CDN), non è necessariamente in modo che nel computer o server. Tuttavia, è necessario disporre di una copia locale di *jquery.validate.unobtrusive.js*. Se sta non ancora lavorando con un modello di WebMatrix (ad esempio **Starter Site** ) che include la libreria, creare un sito di pagine Web che si basa sul **Starter Site**. Quindi copiare la *. js* file al sito corrente.
+   Due delle librerie sono può essere caricato da una rete di distribuzione di contenuti (CDN), non è necessariamente in modo che nel computer o server. Tuttavia, è necessario disporre di una copia locale di *jquery.validate.unobtrusive.js*. Se sta non ancora lavorando con un modello di WebMatrix (ad esempio **Starter Site** ) che include la libreria, creare un sito di pagine Web che si basa sul **Starter Site**. Quindi copiare la *. js* file al sito corrente.
 2. Nel markup di ogni elemento che sta effettuando la convalida, aggiungere una chiamata a `Validation.For(field)`. Questo metodo genera gli attributi utilizzati per la convalida lato client. (Anziché la creazione di codice JavaScript, il metodo genera attributi quali `data-val-...`. Questi attributi supportano la convalida client non intrusiva che utilizza jQuery per eseguire il lavoro.)
 
 La pagina seguente mostra come aggiungere funzionalità di convalida client all'esempio illustrato in precedenza.
@@ -184,7 +184,7 @@ In questo caso, si desidera assicurarsi che il valore passato alla pagina (qui, 
 
 > [!NOTE] 
 > 
-> **Importante** convalidare sempre i valori che si ottiene da *qualsiasi* origine, inclusi i valori del campo del form, i valori di stringa di query e i valori dei cookie. È facile per gli utenti di modificare questi valori (ad esempio, per finalità dannose). È pertanto necessario verificare questi valori per proteggere l'applicazione.
+> **Importante** convalidare sempre i valori che vengono recuperate dal *qualsiasi* origine, inclusi i valori del campo del form, i valori di stringa di query e valori dei cookie. È facile per gli utenti di modificare questi valori (ad esempio, per finalità dannose). È pertanto necessario verificare questi valori per proteggere l'applicazione.
 
 
 Nell'esempio seguente viene illustrato come convalidare un valore che viene passato una stringa di query. Il codice verifica che il valore non sia vuoto e che sia un numero intero.

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 title: Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e ASP.NET 4 di Web Form - parte 6 | Documenti Microsoft
 author: tdykstra
-description: "L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio..."
+description: L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET tramite Entity Framework. È l'applicazione di esempio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 164c2002a119420555d2c7065c5a79a5f433a725
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b76be25501275ba676c9a9acca8e73333439ee70
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Guida introduttiva a Database di Entity Framework 4.0 prima di tutto e form ASP.NET Web 4 - parte 6
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > L'applicazione web di Contoso University esempio viene illustrato come creare applicazioni Web Form ASP.NET utilizzando il Entity Framework 4.0 e Visual Studio 2010. Per informazioni sulle serie di esercitazioni, vedere [la prima esercitazione di serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -43,7 +43,7 @@ Un database può archiviare informazioni sugli oggetti correlati in una tabella 
 
 Per i corsi, il `School` database utilizza un modello diverso. Corsi online e in loco corsi vengono archiviati in tabelle separate, ognuna delle quali dispone di una chiave esterna che punta al `Course` tabella. Informazioni comuni a entrambi i tipi di corso vengono archiviate solo nel `Course` tabella.
 
-[![image12](the-entity-framework-and-aspnet-getting-started-part-6/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image3.png)
+[![Image12](the-entity-framework-and-aspnet-getting-started-part-6/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image3.png)
 
 È possibile configurare il modello di dati di Entity Framework in modo che `OnlineCourse` e `OnsiteCourse` entità ereditano il `Course` entità. Questo modello di generazione di una struttura di ereditarietà di entità da tabelle separate per ogni tipo, con ogni tabella separata di una tabella che archivia i dati comuni a tutti i tipi, viene denominato *tabella per tipo* ereditarietà (tabella per tipo).
 
@@ -57,7 +57,7 @@ Criteri di ereditarietà della tabella per gerarchia offrono in genere prestazio
 
 ## <a name="adding-instructor-and-student-entities"></a>Aggiunta di entità Instructor e Student
 
-Aprire il *SchoolModel* file, fare doppio clic su un'area non occupata nella finestra di progettazione, seleziona **Aggiungi**, quindi selezionare **entità***.*
+Aprire la <em>SchoolModel</em> del file, fare doppio clic su un'area non occupata nella finestra di progettazione, seleziona <strong>Add</strong>, quindi selezionare <strong>entità</strong><em>.</em>
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
@@ -83,7 +83,7 @@ Ripetere la procedura per spostare il `EnrollmentDate` proprietà il `Person` en
 
 Ora che un `Person` entità include solo le proprietà comuni a `Instructor` e `Student` entità (ad eccezione delle proprietà di navigazione, che non si spostano), l'entità può essere utilizzato solo come un'entità di base nella struttura di ereditarietà. Pertanto, è necessario assicurare che non sia mai considerata come entità indipendenti. Fare doppio clic sul `Person` entità, selezionare **proprietà**e quindi il **proprietà** finestra modificare il valore della **astratta** proprietà  **True**.
 
-[![image06](the-entity-framework-and-aspnet-getting-started-part-6/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image15.png)
+[![Image06](the-entity-framework-and-aspnet-getting-started-part-6/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image15.png)
 
 ## <a name="mapping-instructor-and-student-entities-to-the-person-table"></a>Mapping di entità Instructor e Student alla tabella Person
 
@@ -95,7 +95,7 @@ Fare doppio clic su di `Instructor` entità e selezionare **tabella Mapping**. N
 
 Fare clic su **aggiungere una condizione**, quindi selezionare **HireDate**.
 
-[![image09](the-entity-framework-and-aspnet-getting-started-part-6/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image19.png)
+[![Image09](the-entity-framework-and-aspnet-getting-started-part-6/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image19.png)
 
 Modifica **operatore** a **è** e **valore / proprietà** a **non Null**.
 
@@ -111,7 +111,7 @@ Al momento della creazione le pagine web che utilizzano dati student e instructo
 
 Nella finestra di progettazione Visual Studio, è possibile specificare tipo di entità che un `EntityDataSource` controllo è necessario selezionare nel **EntityTypeFilter** casella di riepilogo a discesa del `Configure Data Source` procedura guidata, come illustrato nell'esempio seguente.
 
-[![image13](the-entity-framework-and-aspnet-getting-started-part-6/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image23.png)
+[![Image13](the-entity-framework-and-aspnet-getting-started-part-6/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image23.png)
 
 E il **proprietà** finestra è possibile rimuovere `Where` valori della clausola che non sono più necessari, come illustrato nell'esempio seguente.
 
@@ -161,6 +161,6 @@ In seguito a queste modifiche, è stato migliorato manutenibilità dell'applicaz
 
 Abbiamo visto come implementare un modello di ereditarietà in Entity Framework. Nell'esercitazione seguente, si apprenderà come usare stored procedure per avere maggiore controllo sulla modalità di Entity Framework accede al database.
 
->[!div class="step-by-step"]
-[Precedente](the-entity-framework-and-aspnet-getting-started-part-5.md)
-[Successivo](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Precedente](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [Successivo](the-entity-framework-and-aspnet-getting-started-part-7.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9be242d238c627a9557fe7ff7e596974e5b7d1c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>L'invio di posta elettronica dal sito Web ASP.NET (Razor) pagine
 ====================
@@ -48,7 +48,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 
 Sono disponibili tutti i tipi di motivi per cui si potrebbe essere necessario per inviare posta elettronica dal sito Web. È possibile inviare messaggi di conferma per gli utenti oppure è possibile inviare notifiche a se stessi (ad esempio, che ha registrato un nuovo utente.) Il `WebMail` helper rende più semplice per inviare posta elettronica.
 
-Utilizzare il `WebMail` supporto, è necessario avere accesso a un server SMTP. (SMTP è l'acronimo di *Simple Mail Transfer Protocol*.) Un server SMTP è un server di posta elettronica che inoltra solo i messaggi per il destinatario server &#8212; è il lato di posta elettronica in uscita. Se si utilizza un provider di hosting per il sito Web, probabilmente procedere alla configurazione con messaggio di posta elettronica e in modo da capire che cos'è il nome del server SMTP. Se si lavora all'interno di una rete aziendale, un amministratore o il reparto IT può in genere fornire le informazioni relative a un server SMTP da utilizzare. Se si lavora da casa, potrebbe anche essere in grado di eseguire una prova utilizzando il provider di posta elettronica normale, che è possibile indicare il nome del server SMTP. In genere necessario:
+Utilizzare il `WebMail` supporto, è necessario avere accesso a un server SMTP. (SMTP è l'acronimo di *Simple Mail Transfer Protocol*.) Un server SMTP è un server di posta elettronica che inoltra solo i messaggi al server del destinatario &#8212; è il lato in uscita del messaggio di posta elettronica. Se si utilizza un provider di hosting per il sito Web, probabilmente procedere alla configurazione con messaggio di posta elettronica e in modo da capire che cos'è il nome del server SMTP. Se si lavora all'interno di una rete aziendale, un amministratore o il reparto IT può in genere fornire le informazioni relative a un server SMTP da utilizzare. Se si lavora da casa, potrebbe anche essere in grado di eseguire una prova utilizzando il provider di posta elettronica normale, che è possibile indicare il nome del server SMTP. In genere necessario:
 
 - Il nome del server SMTP.
 - Il numero di porta. Questo è quasi sempre 25. Tuttavia, il provider potrebbe essere necessario l'utilizzo della porta 587. Se si utilizza protocollo sockets layer (SSL) per la posta elettronica, potrebbe essere una porta diversa. Verificare con il provider di posta elettronica.
@@ -82,27 +82,27 @@ In questa procedura creare due pagine. La prima pagina dispone di un form che co
 
     > [!NOTE] 
     > 
-    > **Importante** quando viene visualizzato un messaggio di errore da un oggetto eccezione (`ex` nel codice), eseguire *non* regolarmente passare tale messaggio tramite agli utenti. Oggetti eccezione spesso includono informazioni che gli utenti non devono essere visualizzati e che può essere anche una vulnerabilità di sicurezza. Ecco perché questo codice include la variabile `debuggingFlag` che viene utilizzata come opzione per visualizzare il messaggio di errore e perché la variabile per impostazione predefinita è impostata su false. È necessario impostare la variabile su true (e pertanto visualizzare il messaggio di errore) *solo* se si riscontra un problema con l'invio di posta elettronica ed è necessario eseguire il debug. Dopo avere risolto eventuali problemi, impostare `debuggingFlag` reimpostata su false.
+    > **Importante** quando si ottiene un messaggio di errore da un oggetto eccezione (`ex` nel codice), eseguire *non* regolarmente passare tale messaggio tramite agli utenti. Oggetti eccezione spesso includono informazioni che gli utenti non devono essere visualizzati e che può essere anche una vulnerabilità di sicurezza. Ecco perché questo codice include la variabile `debuggingFlag` che viene utilizzata come opzione per visualizzare il messaggio di errore e perché la variabile per impostazione predefinita è impostata su false. È necessario impostare la variabile su true (e pertanto visualizzare il messaggio di errore) *solo* se si riscontra un problema con l'invio di posta elettronica ed è necessario eseguire il debug. Dopo avere risolto eventuali problemi, impostare `debuggingFlag` reimpostata su false.
 
     Modificare le impostazioni correlate nel codice di posta elettronica seguenti:
 
-    - Impostare `your-SMTP-host` sul nome del server SMTP che è possibile accedere.
-    - Impostare `your-user-name-here` per il nome utente per l'account del server SMTP.
-    - Impostare `your-account-password` la password per l'account del server SMTP.
-    - Impostare `your-email-address-here` sul proprio indirizzo di posta elettronica. Si tratta dell'indirizzo di posta elettronica da cui viene inviato il messaggio. (Alcuni provider di posta elettronica non consentono di specificare un altro `From` indirizzi e utilizzerà il nome utente come il `From` indirizzo.)
+   - Impostare `your-SMTP-host` sul nome del server SMTP che è possibile accedere.
+   - Impostare `your-user-name-here` per il nome utente per l'account del server SMTP.
+   - Impostare `your-account-password` la password per l'account del server SMTP.
+   - Impostare `your-email-address-here` sul proprio indirizzo di posta elettronica. Si tratta dell'indirizzo di posta elettronica da cui viene inviato il messaggio. (Alcuni provider di posta elettronica non consentono di specificare un altro `From` indirizzi e utilizzerà il nome utente come il `From` indirizzo.)
 
-    > [!TIP] 
-    > 
-    > <a id="configuring_email_settings"></a>
-    > ### <a name="configuring-email-settings"></a>Configurazione delle impostazioni di posta elettronica
-    > 
-    > Può essere un problema in alcuni casi, per assicurarsi di avere le impostazioni corrette per il server SMTP, numero di porta e così via. Di seguito sono riportati alcuni suggerimenti:
-    > 
-    > - Il nome del server SMTP è spesso simile `smtp.provider.com` o `smtp.provider.net`. Tuttavia, se si pubblica il sito per un provider di hosting, il nome del server SMTP a questo punto potrebbe essere `localhost`. Questo avviene perché dopo avere pubblicato e il sito è in esecuzione nel server del provider, il server di posta elettronica potrebbe essere locale dal punto di vista dell'applicazione. Questa modifica nei nomi di server potrebbe indicare che si desidera modificare il nome del server SMTP come parte del processo di pubblicazione.
-    > - In genere, il numero di porta è 25. Tuttavia, alcuni provider richiedono l'utilizzo della porta 587 o alcune altre porte.
-    > - Assicurarsi di utilizzare le credenziali corrette. Se il sito è stato pubblicato in un provider di hosting, utilizzare le credenziali che il provider ha specificamente indicato per la posta elettronica. Questi potrebbero essere diversi dalle credenziali che utilizzare per la pubblicazione.
-    > - In alcuni casi non è necessario credenziali affatto. Se si invia posta elettronica usando l'account personale, provider di posta elettronica potrebbe essere già conoscere le credenziali. Dopo la pubblicazione, potrebbe essere necessario utilizzare credenziali diverse rispetto a quando si testa il computer locale.
-    > - Se il provider di posta elettronica utilizza la crittografia, è necessario impostare `WebMail.EnableSsl` a `true`.
+     > [!TIP] 
+     > 
+     > <a id="configuring_email_settings"></a>
+     > ### <a name="configuring-email-settings"></a>Configurazione delle impostazioni di posta elettronica
+     > 
+     > Può essere un problema in alcuni casi, per assicurarsi di avere le impostazioni corrette per il server SMTP, numero di porta e così via. Di seguito sono riportati alcuni suggerimenti:
+     > 
+     > - Il nome del server SMTP è spesso simile `smtp.provider.com` o `smtp.provider.net`. Tuttavia, se si pubblica il sito per un provider di hosting, il nome del server SMTP a questo punto potrebbe essere `localhost`. Questo avviene perché dopo avere pubblicato e il sito è in esecuzione nel server del provider, il server di posta elettronica potrebbe essere locale dal punto di vista dell'applicazione. Questa modifica nei nomi di server potrebbe indicare che si desidera modificare il nome del server SMTP come parte del processo di pubblicazione.
+     > - In genere, il numero di porta è 25. Tuttavia, alcuni provider richiedono l'utilizzo della porta 587 o alcune altre porte.
+     > - Assicurarsi di utilizzare le credenziali corrette. Se il sito è stato pubblicato in un provider di hosting, utilizzare le credenziali che il provider ha specificamente indicato per la posta elettronica. Questi potrebbero essere diversi dalle credenziali che utilizzare per la pubblicazione.
+     > - In alcuni casi non è necessario credenziali affatto. Se si invia posta elettronica usando l'account personale, provider di posta elettronica potrebbe essere già conoscere le credenziali. Dopo la pubblicazione, potrebbe essere necessario utilizzare credenziali diverse rispetto a quando si testa il computer locale.
+     > - Se il provider di posta elettronica utilizza la crittografia, è necessario impostare `WebMail.EnableSsl` a `true`.
 4. Eseguire il *EmailRequest.cshtml* pagina in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.)
 5. Immettere il nome e una descrizione del problema e quindi scegliere il **Invia** pulsante. Si viene reindirizzati al *ProcessRequest.cshtml* pagina, che conferma il messaggio e che invia un messaggio di posta elettronica. 
 
@@ -140,4 +140,4 @@ In questa procedura creare due pagine. La prima pagina dispone di un form che co
 
 - [Guida alla risoluzione dei problemi delle pagine Web ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
 - [Simple Mail Transfer Protocol](https://msdn.microsoft.com/library/aa480435.aspx)
-- [Personalizzazione del comportamento a livello di sito per le pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Personalizzazione del comportamento a livello di sito per ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906)

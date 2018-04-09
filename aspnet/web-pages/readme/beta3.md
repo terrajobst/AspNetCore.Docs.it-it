@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5ef7a6f44758cf94fc19d6fbab3cc4b7bce8e8e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Una matrice e file Leggimi versione Beta 3 di Web ASP.NET (Razor) pagine Web
 ====================
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/24/2018
 
 - [Panoramica](#Overview)
 - [Installazione](#Installation_Notes)
-- [Nuove funzionalità, le modifiche e problemi noti nella versione Beta 3](#Known_Issues)
+- [Nuove caratteristiche, modifiche e problemi noti nella versione Beta 3](#Known_Issues)
 
     - [Problemi di installazione di WebMatrix](#Known_Issues_Installation)
     - [ASP.NET Web Pages](#Known_Issues_ASPNET)
@@ -220,7 +220,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > Se un'applicazione Web di WebMatrix utilizza SQL Server Express è in esecuzione IIS 7.5 in Windows 7 o Windows Server 2008 R2, si potrebbe essere visualizzato un errore che indica che SQL Server non è possibile recuperare il percorso dell'applicazione locale dell'utente in fase di esecuzione.
 > 
-> **Soluzione alternativa** assicurarsi che l'account di Windows a cui viene eseguito l'applicazione (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio *App\_dati*. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
+> **Soluzione alternativa** assicurarsi che l'account di Windows che l'applicazione viene eseguita con (in genere un servizio di rete) disponga delle autorizzazioni di lettura/scrittura per le cartelle radice dell'applicazione e per le sottocartelle, ad esempio *App\_dati*. Informazioni più dettagliate sono disponibili nell'articolo della Knowledge Base [problemi istanze utente di SQL Server Express e progetti di applicazione Web ASP.net](https://support.microsoft.com/kb/2002980).
 
 
 #### <a name="issue-in-visual-studio-namespaces-for-custom-assemblies-dlls-are-not-imported-automatically"></a>Problema: In Visual Studio, gli spazi dei nomi per gli assembly personalizzati (DLL) non vengono importati automaticamente
@@ -235,7 +235,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > L'installazione di ASP.NET Web Pages non installare anche gli strumenti per Visual Studio, ad esempio i modelli di progetto e IntelliSense per le applicazioni ASP.NET Web Pages.
 > 
-> **Soluzione alternativa** per utilizzare i modelli di progetto e IntelliSense per le applicazioni di pagine Web ASP.NET in Visual Studio, installare ASP.NET MVC 3 RC tramite l'installazione guidata piattaforma Web o [programma di installazione autonomo](https://go.microsoft.com/fwlink/?LinkID=191797).
+> **Soluzione alternativa** per i modelli di progetto e IntelliSense per le applicazioni ASP.NET Web Pages in Visual Studio, installare ASP.NET MVC 3 RC tramite l'installazione guidata piattaforma Web o il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?LinkID=191797).
 
 
 #### <a name="issue-lthelpergt-class-cannot-be-found-error"></a>Problema: "&lt;helper&gt; Impossibile trovare la classe" errore
@@ -254,7 +254,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 
 > Questa situazione può verificarsi se il provider di hosting è installato l'assembly di ASP.NET Web Pages versione Beta 1 nella cache globale dell'applicazione del server (GAC). Gli assembly nella GAC ottenere la precedenza rispetto agli assembly installati localmente nel *Bin* cartella.
 > 
-> **Soluzione alternativa** contattare il provider di hosting per confermare che gli errori visualizzati sono a causa di un conflitto tra le versioni del provider degli assembly e quelle in uso. In questo caso, chiedere al provider di hosting di aggiornare gli assembly nella Global Assembly Cache del server.
+> **Soluzione alternativa** rivolgersi al servizio di hosting per confermare che gli errori visualizzati sono a causa di un conflitto tra le versioni del provider degli assembly e quelle in uso. In questo caso, chiedere al provider di hosting di aggiornare gli assembly nella Global Assembly Cache del server.
 
 
 #### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Problema: Lettura feed o altri dati esterni tramite un server proxy
@@ -283,9 +283,9 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > Se si disinstalla .NET Framework versione 4 e quindi reinstallarlo, ASP.NET Web Pages con sintassi Razor è disabilitato. Pagine con il *. cshtml* estensione non vengono eseguite correttamente. ASP.NET Web Pages registra un assembly nella directory principale macchina *Web. config* file e la rimozione di .NET Framework consente di rimuovere tale file. Reinstallare .NET Framework viene installata una nuova versione del file di configurazione, ma non aggiunge il riferimento per l'assembly di ASP.NET Web Pages.
 > 
 > **Soluzione alternativa** dopo la reinstallazione di .NET Framework, reinstallare ASP.NET Web Pages con sintassi Razor. Aggiunge l'elemento seguente per il *Web. config* file nella radice della macchina, ovvero in genere nel percorso seguente:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
@@ -302,9 +302,9 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problema: URL senza estensione non si trova il file.cshtml/.vbhtml in IIS 7 o IIS 7.5
 
 > In IIS 7 o IIS 7.5, le richieste con un URL simile al seguente non sono in grado di trovare le pagine che hanno il *. cshtml* o *. vbhtml* estensione:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Il problema si verifica perché la riscrittura URL non è abilitata per impostazione predefinita per IIS 7 o IIS 7.5. Lo scenario probabile che è che il problema non viene visualizzato durante il test in locale utilizzando IIS Express, ma si verificano quando si distribuisce il sito Web in un sito Web di hosting.
 > 
 > **Soluzione alternativa**
@@ -336,7 +336,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > Le applicazioni che includono database di SQL Server Compact è possono eseguire in un computer in cui SQL Server Compact non è installato. Microsoft WebMatrix Beta 3 automaticamente copia i file binari per l'utente ed esegue appropriata *Web. config* file trasformazioni.
 > 
-> **Soluzione alternativa** se è necessario copiare questi file, assicurarsi di *Web. config* modifiche al file manualmente, eseguire le operazioni seguenti:
+> **Soluzione alternativa** se è necessario copiare tali file e apportare le *Web. config* modifiche al file manualmente, eseguire le operazioni seguenti:
 > 
 > 1. Copiare gli assembly del motore di database per il *Bin* (cartelle e sottocartelle) dell'applicazione nel computer di destinazione: 
 > 
@@ -344,7 +344,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 >     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **a** *\Bin\x86*
 >     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **a** *\Bin\amd64*
 > 2. Nella cartella radice del sito Web, creare o aprire un *Web. config* file. (Nella versione Beta 3 di WebMatrix, è disponibile se si fa clic su questo tipo di file **tutti** nel **scegliere un tipo di File** la finestra di dialogo.)
-> 3. Aggiungere il seguente elemento come figlio del  **&lt;configurazione&gt;**  elemento (non all'interno di  **&lt;System. Web&gt;**  elemento):
+> 3. Aggiungere il seguente elemento come figlio del **&lt;configurazione&gt;** elemento (non all'interno di **&lt;System. Web&gt;** elemento):
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -366,21 +366,21 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 
 > **Soluzione alternativa**  
 > Utilizzare il `Encryption Mode` proprietà la `SqlCeConnection` classe per crittografare i file di database di SQL Server Compact 4.0. Nell'esempio seguente viene illustrato come creare un database di SQL Server Compact 4.0 crittografati con la `Encryption Mode` proprietà:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
 > Per modificare la modalità di crittografia di un database di SQL Server Compact 4.0 esistente, eseguire le operazioni seguenti:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
 > Per crittografare un database di SQL Server Compact 4.0 non crittografato, procedere come segue:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
 
@@ -450,7 +450,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 
 > Quando si esegue un report per un sito, se si immette testo nella *filtro dall'URL* casella e fare clic su *ricerca*, non accade nulla. Infatti, questo controllo non è funzionale il *Group By* stato del report è impostato su *tipo di problema*, ovvero il valore predefinito.
 > 
-> **Soluzione alternativa** nel *Group By* scheda della barra multifunzione, fare clic su *URL* per raggruppare le voci per l'URL di origine. La casella di testo e un pulsante per filtrare le voci sono funzionale in questo stato.
+> **Soluzione alternativa** nella *Group By* scheda della barra multifunzione, fare clic su *URL* per raggruppare le voci per il relativo URL di origine. La casella di testo e un pulsante per filtrare le voci sono funzionale in questo stato.
 
 
 #### <a name="issue-wcf-applications-fail-to-run-with-iis-express"></a>Problema: Le applicazioni WCF non è possibile eseguire con IIS Express
@@ -461,7 +461,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > 
 > Questo errore si verifica poiché WCF non supporta la versione Beta di IIS Express per impostazione predefinita.
 > 
-> **Soluzione alternativa** utilizzare una delle seguenti soluzioni alternative (soluzione alternativa &#2; richiede Microsoft Windows Vista o versione successiva):
+> **Soluzione alternativa** utilizzare una delle seguenti soluzioni alternative (soluzione alternativa 2 # richiede Microsoft Windows Vista o versione successiva):
 > 
 > 
 > 1. Copia il *Microsoft.Web.dll* e *Microsoft.Web.Administration.dll* assembly dal percorso di installazione di WebMatrix per la *bin* directory di WCF applicazione. Per impostazione predefinita, WebMatrix è installato nel *Microsoft WebMatrix* sottocartella il sistema *programmi* cartella.
@@ -502,7 +502,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > **Soluzione alternativa**  
 > Avviare WebMatrix Beta 3 come utente con privilegi amministrativi. Per ulteriori informazioni, vedere l'articolo della Knowledge Base seguente:  
 >   
-> [Un'applicazione che viene avviata da un utente non amministrativi non può essere in ascolto per il traffico HTTP del computer in cui l'applicazione è in esecuzione in Windows Vista, Windows Server 2003 o Windows XP.](https://support.microsoft.com/kb/939786)
+> [Non può restare in attesa di un'applicazione che viene avviata da un utente non amministratore per il traffico HTTP del computer in cui l'applicazione è in esecuzione in Windows Vista, Windows Server 2003 o Windows XP.](https://support.microsoft.com/kb/939786)
 
 
 #### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>Problema: Google Chrome non è disponibile come opzione di esecuzione
@@ -537,7 +537,7 @@ In questa sezione del documento vengono descritte le nuove funzionalità, le mod
 > Impostare in modo esplicito il tipo di dati per i parametri, ad esempio `SqlDbType` o `DbType`. Ciò è fondamentale nel caso di tipi di dati BLOB (`image` e `ntext`). Utilizzare codice simile al seguente:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
 
 

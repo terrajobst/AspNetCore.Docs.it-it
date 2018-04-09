@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: "Distribuzione Web ASP.NET utilizzando Visual Studio: le proprietà del progetto | Documenti Microsoft"
+title: 'Distribuzione Web ASP.NET utilizzando Visual Studio: le proprietà del progetto | Documenti Microsoft'
 author: tdykstra
 description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b6dbcc8d40c168a49513ef6b549f9ec7fa5097
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: le proprietà del progetto
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto di avvio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
 
@@ -46,8 +46,8 @@ Quando viene visualizzata la finestra, per impostazione predefinita che mostra i
 Con **attiva (rilascio)** o **versione** selezionata, vengono visualizzati i valori che vengono applicati quando si distribuisce tramite la configurazione della build di rilascio:
 
 - Nel **gli elementi da distribuire** casella **solo i file necessari per eseguire l'applicazione** è selezionata. Altre opzioni sono **tutti i file in questo progetto** o **tutti i file nella cartella di progetto**. Lasciando invariata la selezione predefinita evitare la distribuzione di file del codice sorgente, ad esempio. Questa impostazione è il motivo perché le cartelle che contengono i file binari di SQL Server Compact devono essere incluso nel progetto. Per ulteriori informazioni su questa impostazione, vedere **perché non tutti i file nella cartella di progetto vengono distribuiti?** in [domande frequenti sulla distribuzione di ASP.NET Web applicazione progetto](https://msdn.microsoft.com/library/ee942158.aspx).
-- **I simboli di debug Exclude generato** è selezionata. È non verrà eseguito il debug quando si utilizza questa configurazione della build.
-- **Includere tutti i database configurati nella scheda Pubblicazione/creazione pacchetto SQL** è selezionata. Specifica se Visual Studio verrà distribuito al database e i file. Anche se la casella di controllo etichetta menziona solo il **pubblicazione/creazione pacchetto SQL** scheda, deselezionare questa casella di controllo Disattiva anche la distribuzione di database che è configurata nel profilo di pubblicazione. È necessario effettuare che in un secondo momento, pertanto la casella di controllo deve rimanere selezionata. Il **pubblicazione/creazione pacchetto SQL** scheda viene usata per un metodo che non è possibile utilizzare queste esercitazioni di pubblicazione di database legacy.
+- **I simboli di debug Exclude generato** sia selezionata. È non verrà eseguito il debug quando si utilizza questa configurazione della build.
+- **Includere tutti i database configurati nella scheda Pubblicazione/creazione pacchetto SQL** sia selezionata. Specifica se Visual Studio verrà distribuito al database e i file. Anche se la casella di controllo etichetta menziona solo il **pubblicazione/creazione pacchetto SQL** scheda, deselezionare questa casella di controllo Disattiva anche la distribuzione di database che è configurata nel profilo di pubblicazione. È necessario effettuare che in un secondo momento, pertanto la casella di controllo deve rimanere selezionata. Il **pubblicazione/creazione pacchetto SQL** scheda viene usata per un metodo che non è possibile utilizzare queste esercitazioni di pubblicazione di database legacy.
 - Il **impostazioni pacchetto di distribuzione Web** sezione non è applicabile poiché si utilizza un solo clic pubblicare in queste esercitazioni.
 
 Modifica il **configurazione** casella a discesa di Debug per visualizzare le impostazioni predefinite per le build di Debug. I valori sono identici, tranne **Escludi generati i simboli di debug** viene cancellato in modo che è possibile eseguire il debug quando si distribuisce una build di Debug.
@@ -68,6 +68,6 @@ In **Esplora**, fare doppio clic su di *Elmah* cartella, selezionare **Aggiungi 
 
 Tutte le attività di configurazione di distribuzione sono stati completati. Nella prossima esercitazione, verrà di distribuire il sito Contoso University nell'ambiente di testing e di testarlo.
 
->[!div class="step-by-step"]
-[Precedente](web-config-transformations.md)
-[Successivo](deploying-to-iis.md)
+> [!div class="step-by-step"]
+> [Precedente](web-config-transformations.md)
+> [Successivo](deploying-to-iis.md)

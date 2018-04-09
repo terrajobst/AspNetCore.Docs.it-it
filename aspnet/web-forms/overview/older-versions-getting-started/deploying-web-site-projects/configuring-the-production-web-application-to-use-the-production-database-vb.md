@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 title: Configurazione dell'applicazione Web di produzione per usare il Database di produzione (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Come illustrato nelle esercitazioni precedenti, non è insolito che le informazioni di configurazione in modo diverso tra gli ambienti di sviluppo e produzione. Si tratta es..."
+description: Come illustrato nelle esercitazioni precedenti, non è insolito che le informazioni di configurazione in modo diverso tra gli ambienti di sviluppo e produzione. Si tratta es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b1741807fe02b4e60db7098cfd46922d3ba50ccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Configurazione dell'applicazione Web di produzione per usare il Database di produzione (VB)
 ====================
@@ -71,7 +71,7 @@ Successivamente, specificare le varie informazioni di connessione del database (
 
 Il database di ambiente di produzione dovrebbe ora essere elencato in Esplora Server. Selezionare il database da Esplora Server e passare alla finestra Proprietà. Non esiste, si noterà una proprietà denominata stringa di connessione con la stringa di connessione di database s. Presupponendo che si utilizza un database di Microsoft SQL Server di produzione e il provider SqlClient la stringa di connessione dovrebbe essere simile al seguente:
 
-**Origine dati =*serverName*; Catalogo iniziale =*databaseName*; Persist Security Info = True; ID utente =*username*; Password = * password***
+<strong>Origine dati =<em>serverName</em>; Catalogo iniziale =<em>databaseName</em>; Persist Security Info = True; ID utente =<em>username</em>; Password =*password</strong>*
 
 Dove *serverName*, *databaseName*, *username*, e *password* sono con i valori per il nome del server di database, il database nome e il nome utente e la password è fornito dall'azienda host web.
 
@@ -152,6 +152,6 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Spostare le impostazioni dal File Web. config](http://www.asp101.com/tips/index.asp?id=154)
 - [Documentazione tecnica per il &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[Precedente](deploying-a-database-vb.md)
-[Successivo](configuring-a-website-that-uses-application-services-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-a-database-vb.md)
+> [Successivo](configuring-a-website-that-uses-application-services-vb.md)

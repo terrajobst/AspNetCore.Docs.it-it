@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
-title: 'Iterazione #1: creare l''applicazione (VB) | Documenti Microsoft'
+title: "Iterazione #1: creare l'applicazione (VB) | Documenti Microsoft"
 author: microsoft
-description: "Nella prima iterazione, verranno create Contact Manager in modo più semplice possibile. Viene aggiunto il supporto per le operazioni di database basic: creazione, lettura, aggiornamento e D...."
+description: 'Nella prima iterazione, verranno create Contact Manager in modo più semplice possibile. Viene aggiunto il supporto per le operazioni di database basic: creazione, lettura, aggiornamento e D....'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 11d3d4f174207f5370849fdf4517f272b4b6bc6b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52029816bd9f37c3d5c3321d3c5e60599314a33b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-vb"></a>Iterazione #1: creare l'applicazione (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scaricare il codice](iteration-1-create-the-application-vb/_static/contactmanager_1_vb1.zip)
 
@@ -43,7 +43,7 @@ In questa serie di esercitazioni, si compila un'intera applicazione di gestione 
 
 - Iterazione #5 - creare unit test. Nella quinta iterazione, si rende l'applicazione di più facile da gestire e modificare tramite l'aggiunta di unit test. È simulare il nostro classi del modello di dati e generare unit test per i controller e logica di convalida.
 
-- Iterazione &#6; - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
+- Iterazione 6 # - utilizzare sviluppo basato su test. In questa iterazione sesto è aggiungere nuove funzionalità per l'applicazione scrivendo unit test prima e la scrittura di codice per gli unit test. In questa iterazione, è aggiungere gruppi di contatti.
 
 - Iterazione #7 - aggiunta di funzionalità Ajax. Nella settima iterazione, è migliorare la velocità di risposta e prestazioni dell'applicazione aggiunta del supporto per Ajax.
 
@@ -67,7 +67,7 @@ In questa iterazione, è la procedura seguente:
 
 Nelle applicazioni ASP.NET MVC, è necessario disporre di Visual Studio 2008 o Visual Web Developer 2008 installato nel computer (Visual Web Developer è una versione gratuita di Visual Studio che non include tutte le funzionalità avanzate di Visual Studio). È possibile scaricare la versione di valutazione di Visual Studio 2008 o Visual Web Developer dall'indirizzo seguente:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
@@ -76,15 +76,15 @@ Nelle applicazioni ASP.NET MVC, è necessario disporre di Visual Studio 2008 o V
 
 Framework di MVC ASP.NET. È possibile scaricare il framework ASP.NET MVC dall'indirizzo seguente:
 
-[https://www.ASP.NET/MVC](../../../index.md)
+[https://www.asp.net/mvc](../../../index.md)
 
 In questa esercitazione, verrà usato il Framework di entità di Microsoft per accedere a un database. Entity Framework è incluso in .NET Framework 3.5 Service Pack 1. È possibile scaricare questo service pack dal percorso seguente:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang = en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 In alternativa all'esecuzione di ognuno di questi download uno alla volta, è possibile sfruttare l'installazione guidata piattaforma Web (PI Web). È possibile scaricare l'installazione guidata piattaforma Web dall'indirizzo seguente:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 ## <a name="aspnet-mvc-project"></a>Progetto ASP.NET MVC
 
@@ -96,7 +96,7 @@ Assicurarsi di disporre di .NET Framework 3.5 sia selezionata nell'elenco a disc
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image1.jpg)](iteration-1-create-the-application-vb/_static/image1.png)
 
-**Figura 01**: finestra di dialogo Nuovo progetto il ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image2.png))
+**Figura 01**: finestra di dialogo Nuovo progetto di ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image2.png))
 
 
 Applicazione MVC ASP.NET il **Crea progetto Unit Test** viene visualizzata la finestra. È possibile utilizzare questa finestra di dialogo per indicare che si desidera creare e aggiungere un progetto di unit test alla soluzione quando si crea un'applicazione ASP.NET MVC. Anche se è stata acquisita t la creazione di unit test in questa iterazione, è necessario selezionare l'opzione **Sì, crea un progetto di unit test** perché si prevede di aggiungere unit test in un'iterazione successiva. Aggiunta di un progetto di Test quando si crea un nuovo progetto ASP.NET MVC è molto più semplice rispetto all'aggiunta di un progetto di Test dopo aver creato il progetto ASP.NET MVC.
@@ -116,7 +116,7 @@ Applicazione MVC ASP.NET viene visualizzata nella finestra Esplora soluzioni di 
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image3.jpg)](iteration-1-create-the-application-vb/_static/image5.png)
 
-**Figura 03**: finestra di Esplora soluzioni ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image6.png))
+**Figura 03**: finestra Esplora soluzioni ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image6.png))
 
 
 ## <a name="deleting-the-project-sample-files"></a>L'eliminazione dei file di esempio di progetto
@@ -146,7 +146,7 @@ Creare un nuovo database facendo clic con il App\_cartella dati nella finestra E
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image4.jpg)](iteration-1-create-the-application-vb/_static/image7.png)
 
-**Figura 04**: creazione di un nuovo database di Microsoft SQL Server Express ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image8.png))
+**Figura 04**: crea un nuovo database di Microsoft SQL Server Express ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image8.png))
 
 
 Dopo aver creato il nuovo database, il database viene visualizzato nell'App\_cartella di dati nella finestra Esplora soluzioni. Fare doppio clic sul file di ContactManager.mdf per aprire la finestra di Esplora Server e connettersi al database.
@@ -175,7 +175,7 @@ Dopo aver creato il nuovo database, il database viene visualizzato nell'App\_car
 | FirstName | nvarchar (50) | False |
 | LastName | nvarchar (50) | False |
 | Telefono | nvarchar (50) | False |
-| Posta elettronica | nvarchar (255) | False |
+| Email | nvarchar (255) | False |
 
 
 La prima colonna, la colonna Id, è speciale. È necessario contrassegnare la colonna Id come una colonna Identity e una colonna chiave primaria. Si indica che una colonna è una colonna di identità mediante l'espansione delle proprietà di colonna (aspetto nella parte inferiore della figura 6) e individuare la proprietà specifica identità di scorrimento. Impostare il **(identità)** il valore della proprietà **Sì**.
@@ -252,7 +252,7 @@ Creare la classe controller Home facendo clic sulla cartella controller nella fi
 
 Quando si crea il controller Home, si ottiene la classe nel listato 1.
 
-**Elenco 1 - Controllers\HomeController.vb**
+**Listing 1 - Controllers\HomeController.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample1.vb)]
 
@@ -262,7 +262,7 @@ Per visualizzare i record nella tabella di database dei contatti, è necessario 
 
 Il controller Home contiene già un'azione Index (). È necessario modificare questo metodo in modo che risulti simile listato 2.
 
-**Elenco di 2 - Controllers\HomeController.vb**
+**Listing 2 - Controllers\HomeController.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample2.vb)]
 
@@ -277,7 +277,7 @@ Creare la visualizzazione dell'indice facendo clic il metodo Index () e selezion
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image12.jpg)](iteration-1-create-the-application-vb/_static/image23.png)
 
-**Figura 12**: aggiunta della visualizzazione dell'indice ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image24.png))
+**Figura 12**: aggiunta della visualizzazione di indice ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image24.png))
 
 
 Nel **Aggiungi visualizzazione** finestra di dialogo, selezionare la casella di controllo con etichettata **creare una visualizzazione fortemente tipizzata**. Selezionare la classe dati visualizzazione ContactManager.Contact e l'elenco di visualizzazione del contenuto. Selezionando queste opzioni genera una visualizzazione che consente di visualizzare un elenco di record di contatto.
@@ -298,14 +298,14 @@ Il corpo della vista indice contiene un ciclo foreach che scorre ogni contatto r
 
 È necessario apportare una modifica per la visualizzazione dell'indice. Poiché è non stiamo creando una visualizzazione dettagli, è possibile rimuovere il collegamento di dettagli. Trovare e rimuovere il codice seguente la visualizzazione dell'indice:
 
-{ID elemento =. %} ID)&gt;
+{.id = item.Id})%&gt;
 
 Dopo aver modificato la visualizzazione dell'indice, è possibile eseguire l'applicazione Gestione contatti. Selezionare l'opzione di menu Debug, Avvia debug o premere F5. La prima volta che si esegue l'applicazione, di ottenere la finestra di dialogo nella figura 14. Selezionare l'opzione **modificare il file Web. config per abilitare il debug** e fare clic sul pulsante OK.
 
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image14.jpg)](iteration-1-create-the-application-vb/_static/image27.png)
 
-**Nella figura 14**: abilitazione del debug ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image28.png))
+**Figura 14**: abilitazione del debug ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image28.png))
 
 
 La visualizzazione dell'indice viene restituita per impostazione predefinita. Questa vista sono elencati tutti i dati dalla tabella di database contatti (vedere Figura 15).
@@ -324,7 +324,7 @@ Per consentire agli utenti di creare nuovi contatti, è necessario aggiungere du
 
 I nuovi metodi di metodo di creazione che è necessario aggiungere al controller Home sono contenuti nel listato 4.
 
-**Elenco di 4 - Controllers\HomeController.vb (con i metodi di creazione)**
+**Listato 4 - Controllers\HomeController.vb (con Crea metodi)**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample4.vb)]
 
@@ -349,12 +349,12 @@ Nel **Aggiungi visualizzazione** finestra di dialogo Seleziona il **ContactManag
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image17.jpg)](iteration-1-create-the-application-vb/_static/image33.png)
 
-**Figura 17**: visualizzare una pagina esplosi ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image34.png))
+**Figura 17**: una pagina visualizzata esplodere ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image34.png))
 
 
 Crea visualizzazione contiene i campi del form per ogni proprietà della classe di contatto. Il codice per la visualizzazione di creazione è incluso nell'elenco di 5.
 
-**Elenco di 5 - Views\Home\Create.aspx**
+**Nel listato 5 - Views\Home\Create.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample5.aspx)]
 
@@ -363,14 +363,14 @@ Dopo avere modificato i metodo di creazione metodi e aggiungere la visualizzazio
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image18.jpg)](iteration-1-create-the-application-vb/_static/image35.png)
 
-**Figura 18**: The Create View ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image36.png))
+**Figura 18**: il Create View ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image36.png))
 
 
 ## <a name="editing-contacts"></a>Modifica di contatti
 
 Aggiunta della funzionalità per la modifica di record di un contatto è molto simile all'aggiunta di funzionalità per la creazione di nuovi record dei contatti. In primo luogo, è necessario aggiungere due nuovi metodi di modifica per la classe controller Home. Questi nuovi metodi Edit() sono contenuti nel listato 6.
 
-**Elenco di 6 - Controllers\HomeController.vb (con i metodi di modifica)**
+**Elenco 6 - Controllers\HomeController.vb (con i metodi di modifica)**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample6.vb)]
 
@@ -390,7 +390,7 @@ Entity Framework viene utilizzato per salvare il contatto modificato nel databas
 
 Quando si fa clic sul pulsante Aggiungi, viene generata automaticamente una nuova visualizzazione di modifica. Il form HTML generato contiene i campi corrispondenti a ogni proprietà della classe contatto (vedere listato 7).
 
-**Elenco 7 - Views\Home\Edit.aspx**
+**Listing 7 - Views\Home\Edit.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample7.aspx)]
 
@@ -405,7 +405,7 @@ Se si desidera eliminare i contatti è necessario aggiungere due azioni Delete (
 
 I due nuovi metodi Delete () sono contenuti nel listato 8.
 
-**Elenco di 8 - Controllers\HomeController.vb (metodi di eliminazione)**
+**Elenco 8 - Controllers\HomeController.vb (metodi Delete)**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample8.vb)]
 
@@ -419,7 +419,7 @@ Il primo metodo Delete () restituisce un modulo di conferma per eliminazione di 
 
 È necessario modificare la visualizzazione dell'indice in modo che contenga un collegamento per l'eliminazione di record dei contatti (vedere Figura 21). È necessario aggiungere il codice seguente alla stessa cella di tabella che contiene il collegamento di modifica:
 
-{ID elemento =. %} ID)&gt;
+{.id = item.Id})%&gt;
 
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image21.jpg)](iteration-1-create-the-application-vb/_static/image41.png)
@@ -439,7 +439,7 @@ A differenza nel caso le visualizzazioni elenco, crea e modifica, la finestra di
 
 Il contenuto della visualizzazione di eliminazione è contenuto nel listato 9. Questa vista contiene un modulo che conferma o meno un contatto specifico deve essere eliminato (vedere Figura 21).
 
-**Elenco di 9 - Views\Home\Delete.aspx**
+**Elenco 9 - Views\Home\Delete.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample9.aspx)]
 
@@ -452,7 +452,7 @@ Questo problema è abbastanza semplice da risolvere. In primo luogo, è necessar
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image23.jpg)](iteration-1-create-the-application-vb/_static/image45.png)
 
-**Nella figura 23**: il Refactoring di un nome del controller ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image46.png))
+**Nella figura 23**: un nome del controller di Refactoring ([fare clic per visualizzare l'immagine ingrandita](iteration-1-create-the-application-vb/_static/image46.png))
 
 
 [![La finestra di dialogo Nuovo progetto](iteration-1-create-the-application-vb/_static/image24.jpg)](iteration-1-create-the-application-vb/_static/image47.png)
@@ -472,7 +472,7 @@ Dopo aver apportato questa modifica, l'applicazione non disporrà più un contro
 
 È necessario aggiornare la route predefinita nel file Global. asax per utilizzare il controller di contatto anziché il controller Home. Aprire il file Global. asax e modificare il controller predefinito utilizzato per la route predefinita (vedere Listato 10).
 
-**Elenco di 10 - Global.asax.vb**
+**Listing 10 - Global.asax.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample10.vb)]
 
@@ -490,6 +490,6 @@ In secondo luogo, non è stata implementata alcuna convalida del form. Ad esempi
 
 Infine e in particolare, l'iterazione corrente dell'applicazione Contact Manager essere facilmente modificata o mantenuto. Ad esempio, la logica di accesso del database è salvata destro in azioni il controller. Ciò significa che non è possibile modificare il codice di accesso ai dati senza modificare il controller. Nelle iterazioni successive, è esplorare i modelli di progettazione software che è possibile implementare per rendere più flessibile per modificare il responsabile del contatto.
 
->[!div class="step-by-step"]
-[Precedente](iteration-7-add-ajax-functionality-cs.md)
-[Successivo](iteration-2-make-the-application-look-nice-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](iteration-7-add-ajax-functionality-cs.md)
+> [Successivo](iteration-2-make-the-application-look-nice-vb.md)

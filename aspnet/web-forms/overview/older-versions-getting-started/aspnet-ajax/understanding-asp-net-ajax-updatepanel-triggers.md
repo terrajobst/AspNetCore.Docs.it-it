@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 title: Informazioni sui trigger UpdatePanel ASP.NET AJAX | Documenti Microsoft
 author: scottcate
-description: "Quando si utilizza l'editor di codice in Visual Studio, è possibile notare (da IntelliSense) che sono presenti due elementi figlio di un controllo UpdatePanel. Uno dei CO..."
+description: Quando si utilizza l'editor di codice in Visual Studio, è possibile notare (da IntelliSense) che sono presenti due elementi figlio di un controllo UpdatePanel. Uno dei CO...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2008
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Informazioni sui trigger UpdatePanel ASP.NET AJAX
 ====================
-da [Scott Care](https://github.com/scottcate)
+da [Scott categorie](https://github.com/scottcate)
 
 [Scarica il PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
@@ -57,17 +57,17 @@ Analogamente, il `<asp:PostBackTrigger>` elemento può essere usato per i trigge
 
 *Markup discendenti:*
 
-| **Tag** | **Descrizione** |
+| **tag** | **Descrizione** |
 | --- | --- |
-| &lt;ASP: AsyncPostBackTrigger appartenente&gt; | Specifica un controllo e l'evento che causa un aggiornamento parziale della pagina per l'UpdatePanel che contiene un riferimento al trigger. |
-| &lt;ASP: PostBackTrigger&gt; | Specifica un controllo e l'evento che causa un aggiornamento completo di pagina (un aggiornamento a pagina intera). Questo tag può essere utilizzato per forzare un aggiornamento completo quando un controllo in caso contrario verrà generato per il rendering parziale. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Specifica un controllo e l'evento che causa un aggiornamento parziale della pagina per l'UpdatePanel che contiene un riferimento al trigger. |
+| &lt;asp:PostBackTrigger&gt; | Specifica un controllo e l'evento che causa un aggiornamento completo di pagina (un aggiornamento a pagina intera). Questo tag può essere utilizzato per forzare un aggiornamento completo quando un controllo in caso contrario verrà generato per il rendering parziale. |
 
-## <a name="walkthrough-cross-updatepanel-triggers"></a>*Procedura dettagliata: Tra UpdatePanel trigger*
+## <a name="walkthrough-cross-updatepanel-triggers"></a>*Procedura dettagliata: UpdatePanel tra trigger*
 
 1. Creare una nuova pagina ASP.NET con un oggetto di ScriptManager impostata per attivare il rendering parziale. Aggiungere due UpdatePanel a questa pagina, nel primo, includere un controllo etichetta (Label1) e due controlli Button (Button1 e Button2). Button1 deve indicare fare clic per aggiornare i valori e Button2 deve indicare fare clic per aggiornare questo o un valore lungo le righe. In secondo UpdatePanel, includere solo un controllo etichetta (Label2), ma impostare la proprietà ForeColor su un valore diverso da quello predefinito per distinguerli.
 2. Impostare la proprietà UpdateMode di entrambi i tag per UpdatePanel **condizionale**.
 
-**Elenco 1: Markup aspx:** 
+**Elenco 1: Markup per default. aspx:** 
 
 [!code-aspx[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample1.aspx)]
 
@@ -119,7 +119,7 @@ Il `<triggers>` funzionalità corrisponde ai valori inizializzati nella chiamata
 
 Ad esempio, aggiungere due controlli aggiuntivi per la pagina, lasciando un controllo all'esterno di UpdatePanel interamente e in uscita da uno all'interno di un UpdatePanel. Si verrà aggiungere un controllo casella di controllo all'interno di UpdatePanel superiore e rilasciare un DropDownList con un numero di colori definiti all'interno dell'elenco. Ecco il nuovo tag:
 
-**Elenco di 3: Markup nuovo**
+**Elenco di 3: Nuovo Markup**
 
 [!code-aspx[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample3.aspx)]
 
@@ -149,12 +149,12 @@ Per ridurre il potenziale per il carico di elaborazione di server, è consigliab
 
 Esaminando il funzionamento interno del form di ASP.NET AJAX, registrare il modello di intercettazione, siamo in grado di determinare che utilizza il framework già fornito da ASP.NET. In questo modo, mantiene la massima compatibilità con i controlli progettato utilizzando lo stesso framework e intrusione minima su qualsiasi aggiuntive JavaScript scritta per la pagina.
 
-## <a name="bio"></a>Biografia
+## <a name="bio"></a>Bio
 
-Rob Paveza è uno sviluppatore di applicazioni .NET senior presso Terralever ([www.terralever.com](http://www.terralever.com)), una società di marketing interattiva iniziale in Tempe, AZ Egli può essere raggiunto al [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), e il suo blog si trova in [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
+Rob Paveza è uno sviluppatore di applicazioni .NET senior presso Terralever ([www.terralever.com](http://www.terralever.com)), una società di marketing interattiva iniziale in Tempe, AZ Egli può essere raggiunto al [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), e si trova al suo blog [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
 
 Categoria Scott lavora con tecnologie Web di Microsoft dal 1997 ed è il vicepresidente myKB.com ([www.myKB.com](http://www.myKB.com)) in cui si è specializzato nella scrittura ASP.NET basato su applicazioni con stato attivo sulle soluzioni Software Knowledge Base. Scott possano essere contattati tramite posta elettronica al [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o il suo blog all'indirizzo [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Precedente](understanding-partial-page-updates-with-asp-net-ajax.md)
-[Successivo](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [Precedente](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [Successivo](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

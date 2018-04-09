@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
-title: "Novità di Web Form in ASP.NET 4.5 | Documenti Microsoft"
+title: Novità di Web Form in ASP.NET 4.5 | Documenti Microsoft
 author: rick-anderson
 description: La nuova versione di Web Form ASP.NET introduce una serie di miglioramenti finalizzate soprattutto a migliorare l'esperienza utente quando si lavora con dati. Nelle versioni precedenti di...
 ms.author: aspnetcontent
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Novità di Web Form in ASP.NET 4.5
 ====================
-da [categorie Web Team](https://twitter.com/webcamps)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
 > La nuova versione di Web Form ASP.NET introduce una serie di miglioramenti finalizzate soprattutto a migliorare l'esperienza utente quando si lavora con dati.
 > 
@@ -40,9 +40,9 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > - Nuovi elementi HTML5 con attributi che rappresentano un URL ora supportano runat =&quot;server&quot;. Di conseguenza, è possibile utilizzare le convenzioni ASP.NET nei percorsi URL, ad esempio il ~ (operatore) per rappresentare la radice dell'applicazione (ad esempio, &lt;video runat =&quot;server&quot; src =&quot;~/myVideo.wmv&quot; &gt; &lt;/video&gt;).
 > - Il controllo UpdatePanel è stato risolto per supportare i campi di input di registrazione HTML5.
 > 
-> Nel portale di ASP.NET ufficiale, è possibile trovare ulteriori esempi delle nuove funzionalità in ASP.NET 4.5 WebForms: [novità in ASP.NET 4.5 e Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
+> Nel portale di ufficiale ASP.NET è possibile trovare ulteriori esempi delle nuove funzionalità in ASP.NET WebForms 4.5: [novità in ASP.NET 4.5 e Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ In questa attività, si scoprirà nuovi fortemente tipizzata binding disponibili
 
 1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex1-ModelBinding/Begin/** cartella.
 
-    1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire il **Customers** pagina. Inserire un elenco non numerato nel controllo principale e includere un controllo repeater per elencare ogni cliente. Impostare il nome del ripetitore **customersRepeater** come illustrato nel codice seguente.
 
     Nelle versioni precedenti di Web Form, quando si utilizza l'associazione dati per generare il valore di un membro di un oggetto si è l'associazione dati, utilizzare un'espressione di associazione dati, insieme a una chiamata al metodo Eval, passando il nome del membro come stringa.
@@ -156,12 +156,12 @@ In questa attività, si scoprirà nuovi fortemente tipizzata binding disponibili
     > [!NOTE]
     > Membro dell'elemento funziona per l'associazione unidirezionale. Se si desidera eseguire l'associazione bidirezionale utilizzare il **BindItem** membro.
 
-    ![Supporto di IntelliSense nell'associazione fortemente tipizzato](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "supporto IntelliSense nell'associazione fortemente tipizzati")
+    ![Supporto di IntelliSense nell'associazione fortemente tipizzato](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "supporto IntelliSense nell'associazione fortemente tipizzato")
 
-    *Supporto di IntelliSense nell'associazione fortemente tipizzati*
+    *Supporto di IntelliSense nell'associazione fortemente tipizzato*
 10. Premere **F5** per eseguire la soluzione e passare alla pagina clienti per assicurarsi che le modifiche funzionino come previsto.
 
-    ![Visualizzazione Dettagli cliente](whats-new-in-web-forms-in-aspnet-45/_static/image3.png "Elenca i dettagli del cliente")
+    ![Elenca i dettagli del cliente](whats-new-in-web-forms-in-aspnet-45/_static/image3.png "dettagli cliente elenco")
 
     *Elenca i dettagli del cliente*
 11. Chiudere il browser e tornare a Visual Studio.
@@ -199,7 +199,7 @@ Per ulteriori informazioni su questo, si utilizzerà un GridView per visualizzar
     > Nelle versioni precedenti di Web Form ASP.NET, abilitazione ordinamento e paging utilizzando la logica di repository all'interno di un contesto di origine dati dell'oggetto, è necessario scrivere codice personalizzato e la ricezione di tutti i parametri necessari. A questo punto, come i metodi di associazione di dati possono restituire IQueryable e rappresenta una query ancora per l'esecuzione, ASP.NET può essere usato per modificare la query per aggiungere un ordinamento e i parametri di paging.
 6. Premere **F5** per avviare il debug del sito e passare alla pagina prodotti. Si noterà che GridView viene popolato con le categorie restituite dal metodo GetCategories.
 
-    ![Popolamento di un controllo GridView mediante associazione di modelli](whats-new-in-web-forms-in-aspnet-45/_static/image4.png "un GridView con utilizzo di associazione di modelli di popolamento")
+    ![Popolamento di un controllo GridView mediante associazione di modelli](whats-new-in-web-forms-in-aspnet-45/_static/image4.png "popolamento di un controllo GridView mediante associazione di modelli")
 
     *Popolamento di un controllo GridView mediante associazione di modelli*
 7. Premere **MAIUSC**+**F5** interrompere il debug.
@@ -212,7 +212,7 @@ Associazione di modelli non solo consente di specificare metodi personalizzati p
 - Controlli della pagina
 - Valori di stringa di query
 - Visualizzare i dati
-- Stato della sessione
+- Stato sessione
 - Cookie
 - Dati del modulo registrato
 - Stato di visualizzazione
@@ -246,9 +246,9 @@ In questa attività si aggiornerà il GridView per filtrare i risultati dalla qu
     > Uno degli obiettivi di funzionalità di associazione dati consiste nel ridurre la quantità di codice che deve essere scritto per l'interazione di pagina. Oltre a provider di valori [controllo], è possibile utilizzare altri provider di associazione di modelli nei parametri del metodo. L'introduzione di attività sono elencati alcuni di essi.
 6. Premere **F5** per avviare il debug del sito e passare alla pagina prodotti. Selezionare un numero di prodotti nell'elenco a discesa e notare come GridView è aggiornato.
 
-    ![Filtro GridView con un valore di elenco a discesa](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "filtro GridView con un valore di riepilogo")
+    ![Filtro GridView con un valore di elenco a discesa](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "filtro GridView con un valore di elenco a discesa")
 
-    *Filtro GridView con un valore di riepilogo*
+    *Filtro GridView con un valore di elenco a discesa*
 7. Terminare il debug.
 
 <a id="Task_4_-_Using_Model_Binding_for_Filtering"></a>
@@ -283,16 +283,16 @@ In questa attività si aggiungerà un secondo figlio GridView per visualizzare i
     > Si noti che il **[QueryString]** attributo viene utilizzato per riempire il parametro del metodo da un parametro di productId nella stringa di query.
 6. Premere **F5** per avviare il debug del sito e passare alla pagina prodotti. Selezionare qualsiasi categoria GridView le categorie e i prodotti di GridView viene aggiornata.
 
-    ![Con i prodotti della categoria selezionata](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "che mostra i prodotti della categoria selezionata")
+    ![Visualizzare i prodotti della categoria selezionata](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "che mostri i prodotti della categoria selezionata")
 
-    *Con i prodotti della categoria selezionata*
+    *Visualizzare i prodotti della categoria selezionata*
 7. Fare clic su di **vista** collegamento su un prodotto per aprire la pagina ProductDetails.aspx.
 
     Si noti che la pagina sta recuperando il prodotto con SelectMethod utilizzando il parametro productId dalla stringa di query.
 
-    ![Visualizzazione dei dettagli prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "visualizzando i dettagli del prodotto")
+    ![Visualizzare i dettagli del prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "visualizzando i dettagli del prodotto")
 
-    *Visualizzazione dei dettagli del prodotto*
+    *Visualizzare i dettagli del prodotto*
 
     > [!NOTE]
     > La possibilità di immettere una descrizione HTML verrà implementata nell'esercizio successivo.
@@ -321,9 +321,9 @@ Nell'attività precedente è stata utilizzata l'associazione di modelli principa
     > L'esercizio successivo verrà illustrato l'utilizzo del ModelState.IsValid per convalidare i dati immessi dall'utente quando si modifica l'oggetto.
 3. Esecuzione del sito e passare alla pagina prodotti. Modificare una categoria. Digitare un nuovo nome e quindi fare clic su **aggiornamento** per rendere permanenti le modifiche.
 
-    ![La modifica di categorie](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "Modifica categorie")
+    ![Modifica di categorie](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "Modifica categorie")
 
-    *La modifica delle categorie*
+    *Modifica di categorie*
 
 <a id="Exercise2"></a>
 
@@ -341,12 +341,12 @@ In questa sezione verrà abilitata la convalida non intrusiva ASP.NET per confro
 
 1. Aprire **Visual Studio 2012** e aprire il **iniziare** soluzione si trova nel **Source\Ex2 Validation\Begin** cartella di questa esercitazione. In alternativa, è possibile continuare a lavorare in una soluzione esistente nell'esercizio precedente.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, in Esplora soluzioni, fare clic su di **WebFormsLab** progetto **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, in Esplora soluzioni, fare clic su di **WebFormsLab** progetto **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Premere **F5** per avviare l'applicazione web. Passare ai clienti di pagina e fare clic il **aggiungere un nuovo cliente** collegamento.
 3. Nella pagina del browser e scegliere **Visualizza origine** opzione per aprire il codice HTML generato dall'applicazione.
 
@@ -368,15 +368,15 @@ In questa sezione verrà abilitata la convalida non intrusiva ASP.NET per confro
 7. Aprire **CustomerDetails.aspx** e premere **F5** per avviare l'applicazione Web.
 8. Premere il tasto F12 per aprire Strumenti di sviluppo di Internet Explorer. Una volta aperto gli strumenti di sviluppo, selezionare la scheda di script. Selezionare **CustomerDetails.aspx** nel menu e prendere nota che gli script necessari per l'esecuzione di jQuery nella pagina sono stati caricati nel browser dal sito locale.
 
-    ![Il caricamento di jQuery JavaScript file direttamente dal server IIS locale](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "jQuery JavaScript di caricamento file direttamente dal server IIS locale")
+    ![Il caricamento di jQuery JavaScript file direttamente dal server IIS locale](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "durante il caricamento di jQuery JavaScript file direttamente dal server IIS locale")
 
-    *Caricare i file JavaScript jQuery direttamente dal server IIS locale*
+    *Il caricamento dei file di JavaScript jQuery direttamente dal server IIS locale*
 9. Chiudere il browser per tornare a Visual Studio. Aprire il **Site. master** file nuovo e individuare il **ScriptManager**. Aggiungere l'attributo **EnableCdn** proprietà con il valore **True**. Questa operazione forzerà jQuery deve essere caricata dall'URL online, non dall'URL del sito locale.
 10. Aprire **CustomerDetails.aspx** in Visual Studio. Premere il tasto F5 per eseguire il sito. Una volta aperto Internet Explorer, premere il tasto F12 per aprire gli strumenti di sviluppo. Selezionare il **Script** scheda e quindi esaminare l'elenco a discesa. Si noti che non vengono caricati i file JavaScript jQuery non è più da sito locale, ma piuttosto dalla rete CDN di jQuery online.
 
-    ![Il caricamento di jQuery JavaScript file dalla rete CDN](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "jQuery JavaScript di caricamento file dalla rete CDN")
+    ![Il caricamento di jQuery JavaScript file dalla rete CDN](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "durante il caricamento di jQuery JavaScript file dalla rete CDN")
 
-    *Caricare i file JavaScript jQuery dalla rete CDN*
+    *Il caricamento dei file di JavaScript jQuery dalla rete CDN*
 11. Aprire il codice di origine della pagina HTML utilizzando l'opzione di origine di visualizzazione nel browser. Si noti che abilitando la convalida non intrusiva ASP.NET ha sostituito il codice JavaScript inserito con dati - \*attributi.
 
     ![Codice di convalida non intrusivo](whats-new-in-web-forms-in-aspnet-45/_static/image13.png "codice di convalida non intrusivo")
@@ -481,7 +481,7 @@ La funzionalità di convalida richiesta ASP.NET fornisce un certo livello di pro
 1. Premere **Ctrl + F5** per avviare il sito senza eseguire il debug e passare alla pagina prodotti. Selezionare una categoria, quindi scegliere il **modifica** collegamento in uno qualsiasi dei prodotti.
 2. Digitare una descrizione contenente contenuto potenzialmente dannoso, ad esempio, inclusi i tag HTML. Prendere nota dell'eccezione generata a causa la convalida della richiesta.
 
-    ![Modifica di un prodotto con contenuto potenzialmente dannoso](whats-new-in-web-forms-in-aspnet-45/_static/image18.png "la modifica di un prodotto con contenuto potenzialmente dannoso")
+    ![Modifica di un prodotto con contenuto potenzialmente dannoso](whats-new-in-web-forms-in-aspnet-45/_static/image18.png "modifica di un prodotto con contenuto potenzialmente dannoso")
 
     *Modifica di un prodotto con contenuto potenzialmente dannoso*
 
@@ -497,15 +497,15 @@ La funzionalità di convalida richiesta ASP.NET fornisce un certo livello di pro
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample29.aspx)]
 6. Premere **F5** per eseguire l'applicazione web. Riaprire la pagina del prodotto di modifica e completare una descrizione del prodotto, inclusi i tag HTML. Si noti che è ora possibile aggiungere contenuto HTML e la descrizione.
 
-    ![Richiedere la convalida disabilitata per la descrizione del prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "disabilitata per la descrizione del prodotto di convalida della richiesta")
+    ![Richiedere la convalida disabilitata per la descrizione del prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "disabilitata per la descrizione del prodotto di convalida delle richieste")
 
-    *Convalida della richiesta disabilitata per la descrizione del prodotto*
+    *Convalida delle richieste disabilitata per la descrizione del prodotto*
 
     > [!NOTE]
     > In un'applicazione di produzione, è consigliabile puro il codice HTML immesso dall'utente per assicurarsi che vengano immessi solo provvisoria tag HTML (ad esempio, vi sono non &lt;script&gt; tag). A tale scopo, è possibile utilizzare [libreria di protezione di Microsoft Web](https://www.nuget.org/packages/AntiXSS).
 7. Modificare di nuovo il prodotto. Nel campo Nome digitare il codice HTML e fare clic su **salvare**. Si noti che la convalida richiesta è disabilitata solo per il campo di descrizione e il resto dei campi re ancora convalidato rispetto al contenuto potenzialmente pericoloso.
 
-    ![Abilitato con il resto dei campi di convalida delle richieste](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "abilitata in altri campi di convalida della richiesta")
+    ![Convalida abilitata nel resto dei campi della richiesta](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "convalida abilitata nel resto dei campi della richiesta")
 
     *Convalida delle richieste abilitata nel resto dei campi*
 
@@ -535,12 +535,12 @@ In questa attività, aggiornare la pagina dei dettagli del prodotto per consenti
 
 1. Aprire **Visual Studio 2012** e caricare il **iniziare** soluzione si trova **Source\Ex3 Async\Begin** dalla cartella dell'ambiente di test. In alternativa, è possibile continuare a lavorare nella soluzione esistente da esercizi precedenti.
 
-    1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, in Esplora soluzioni, fare clic su di **WebFormsLab** del progetto e selezionare **Gestisci pacchetti NuGet**.
-    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
-    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, in Esplora soluzioni, fare clic su di **WebFormsLab** del progetto e selezionare **Gestisci pacchetti NuGet**.
+   2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
+   3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
-    > [!NOTE]
-    > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > [!NOTE]
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Aprire il **ProductDetails.aspx** pagina di origine e aggiungere un campo in ItemTemplate del controllo FormView per mostrare l'immagine di prodotto.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ In questa attività, aggiornare la pagina dei dettagli del prodotto per consenti
     (- Frammento di codice *Web Form Lab - Ex03 - UpdateProductImage chiamata*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Eseguire l'applicazione e provare a caricare un'immagine per un prodotto. Ad esempio, è possibile utilizzare l'URL dell'immagine seguente da Office Clip arte: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Eseguire l'applicazione e provare a caricare un'immagine per un prodotto. Ad esempio, è possibile utilizzare l'URL dell'immagine da Office Clip arti seguenti: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![L'impostazione di un'immagine per un prodotto](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "l'impostazione di un'immagine per un prodotto")
 
@@ -580,7 +580,9 @@ Operazioni lunghe ed elaborate nel sito web sono ottimi candidati per la program
 1. Aprire il **ProductDetails.aspx** pagina. Aggiungere il **Async** attributo la **pagina** elemento e impostarlo su **true**. Questo attributo indica ad ASP.NET di implementare l'interfaccia IHttpAsyncHandler.
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. Aggiungere un'etichetta nella parte inferiore della pagina per visualizzare i dettagli dei thread di esecuzione della pagina.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -608,9 +610,9 @@ Operazioni lunghe ed elaborate nel sito web sono ottimi candidati per la program
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample40.xml)]
 7. Premere **F5** per eseguire l'applicazione e caricare un'immagine per il prodotto. Si noti l'ID di thread in cui il codice di inizio e fine potrebbe essere diverso. Questo avviene perché l'esecuzione di attività asincrone in un thread separato dal pool di thread ASP.NET. Al completamento dell'attività, ASP.NET inserisce l'attività in coda e assegna di thread disponibili.
 
-    ![Scaricare un'immagine in modo asincrono](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "scaricare un'immagine in modo asincrono")
+    ![Download di un'immagine in modo asincrono](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "scaricare un'immagine in modo asincrono")
 
-    *Scaricare un'immagine in modo asincrono*
+    *Download di un'immagine in modo asincrono*
 
 > [!NOTE]
 > Inoltre, è possibile distribuire l'applicazione Azure seguente [pubblicazione appendice b: un'applicazione ASP.NET MVC 4 con distribuzione Web](#AppendixB).
@@ -636,9 +638,9 @@ In questa esercitazione pratica individuati e illustrati i concetti seguenti:
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il  **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
 
-1. Passare a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; *Visual Studio Express 2012 per Web con Azure SDK*&quot;.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Azure SDK</em>&quot;.
 2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
 3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
 
@@ -718,7 +720,7 @@ Questa appendice mostra come creare un nuovo sito web dal portale di Azure e pub
 7. Nel **Dashboard** nella pagina di **riepilogo rapido** fare clic su di **Scarica profilo di pubblicazione** collegamento.
 
     > [!NOTE]
-    > Il *profilo di pubblicazione* contiene tutte le informazioni necessarie per pubblicare un'applicazione web in Azure per ogni metodo di pubblicazione abilitato. Il profilo di pubblicazione contiene gli URL, le credenziali dell'utente e le stringhe di database necessari per connettersi a e l'autenticazione in ognuno degli endpoint per cui è abilitato un metodo di pubblicazione. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express per Web** e **Microsoft Visual Studio 2012** supportano la lettura dei profili di pubblicazione per automatizzare la configurazione di queste applicazioni per pubblicazione di applicazioni web in Azure.
+    > Il *profilo di pubblicazione* contiene tutte le informazioni necessarie per pubblicare un'applicazione web in Azure per ogni metodo di pubblicazione abilitato. Il profilo di pubblicazione contiene gli URL, le credenziali dell'utente e le stringhe di database necessari per connettersi a e l'autenticazione in ognuno degli endpoint per cui è abilitato un metodo di pubblicazione. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express per Web** e **Microsoft Visual Studio 2012** supportano la lettura dei profili di pubblicazione per automatizzare la configurazione di questi programmi per pubblicazione di applicazioni web in Azure.
 
     ![Profilo di pubblicazione del sito web di download](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "profilo di pubblicazione del sito web di download")
 
@@ -782,14 +784,14 @@ Se l'applicazione viene utilizzato SQL Server database, è necessario creare un 
     *Configurazione della distribuzione Web*
 5. Configurare la connessione al database come segue:
 
-    - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
-    - In **nome utente** digitare il nome di accesso di amministratore di server.
-    - In **Password** digitare la password dell'account di accesso amministratore server.
-    - Digitare un nuovo nome di database.
+   - Nel **nome Server** digitare l'URL server di Database SQL utilizzando il *tcp:* prefisso.
+   - In **nome utente** digitare il nome di accesso di amministratore di server.
+   - In **Password** digitare la password dell'account di accesso amministratore server.
+   - Digitare un nuovo nome di database.
 
-    ![Configurazione di stringa di connessione di destinazione](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "configurazione stringa di connessione di destinazione")
+     ![Configurazione di stringa di connessione di destinazione](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "configurazione stringa di connessione di destinazione")
 
-    *Configurazione di stringa di connessione di destinazione*
+     *Configurazione di stringa di connessione di destinazione*
 6. Fare quindi clic su **OK**. Quando viene richiesto di creare il database fare clic su **Sì**.
 
     ![Creazione del database](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "creazione della stringa di database")

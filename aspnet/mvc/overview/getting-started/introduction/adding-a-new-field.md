@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-new-field
 title: Aggiunta di un nuovo campo | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0dac798eba586cdcc232cedd262e610b954004df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
 ====================
 da [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 In questa sezione si userà le migrazioni di Entity Framework Code First per eseguire la migrazione di alcune modifiche alle classi di modello, pertanto la modifica venga applicata al database.
 
@@ -62,7 +62,7 @@ In questo modo consente di aggiungere la seguente istruzione using:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Codice viene chiamato prima di migrazioni di `Seed` metodo dopo ogni migrazione (la chiamata al metodo **update-database** nella Console di gestione pacchetti), e questo metodo aggiorna le righe che sono già state inserite o li inserisce se sono non esistono ancora.
 > 
@@ -71,15 +71,15 @@ In questo modo consente di aggiungere la seguente istruzione using:
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
 > Poiché il [valore di inizializzazione](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) metodo viene eseguito con ogni tipo di migrazione, è possibile inserire solo dati, in quanto le righe che si sta tentando di aggiungere già sarà disponibile dopo la migrazione prima che crea il database. Il "[upsert](http://en.wikipedia.org/wiki/Upsert)" operazione impedisce gli errori che accadrebbe se si tenta di inserire una riga già esistente, ma esegue l'override di qualsiasi modifica ai dati apportate durante il test dell'applicazione. I dati di test in alcune tabelle è possibile evitare di raggiungere tale obiettivo: in alcuni casi quando si modificano i dati durante il test le proprie modifiche rimangano dopo gli aggiornamenti del database. In questo caso si desidera eseguire un'operazione di inserimento condizionale: inserire una riga solo se non esiste già.   
->   
+> 
 > Il primo parametro passato per il [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo consente di specificare la proprietà da utilizzare per verificare se esiste già una riga. Per i dati di test filmato che si desidera fornire, il `Title` proprietà può essere utilizzata per questo scopo poiché ogni libro nell'elenco è univoco:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
 > Questo codice si presuppone che i titoli siano univoci. Se si aggiunge manualmente un titolo duplicato, si otterrà la seguente eccezione alla successiva che si eseguire la migrazione.   
->   
+> 
 >  *La sequenza contiene più di un elemento*  
->   
+> 
 > Per ulteriori informazioni sul [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodo, vedere [prestare attenzione con EF 4.3 AddOrUpdate metodo](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
@@ -135,7 +135,7 @@ Eseguire l'applicazione e passare il */Movies* URL. Quando si esegue questa oper
 
 ![](adding-a-new-field/_static/image9.png)  
   
-Il modello di esecuzione del backup il contesto 'MovieDBContext' è stato modificato dopo la creazione del database. È consigliabile utilizzare migrazioni Code First per aggiornare il database (https://go.microsoft.com/fwlink/?LinkId=238269).
+Il modello di esecuzione del backup il contesto 'MovieDBContext' è stato modificato dopo la creazione del database. Provare a utilizzare migrazioni Code First per aggiornare il database (https://go.microsoft.com/fwlink/?LinkId=238269).
 
 ![](adding-a-new-field/_static/image10.png)
 
@@ -191,6 +191,6 @@ Ora che il progetto utilizza le migrazioni, non è necessario eliminare il datab
 
 In questa sezione è stato illustrato come è possibile modificare gli oggetti del modello e sincronizzare il database con le modifiche. È stato inoltre un modo per popolare un database appena creato con dati di esempio in modo è possibile provare gli scenari. Questo è solo una rapida introduzione alle Code First, vedere [la creazione di un modello di dati di Entity Framework per un'applicazione MVC ASP.NET](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) per un'esercitazione più completa sull'oggetto. Successivamente, si esaminerà come è possibile aggiungere la logica di convalida più completa per le classi di modello e abilitare alcune regole di business da applicare.
 
->[!div class="step-by-step"]
-[Precedente](adding-search.md)
-[Successivo](adding-validation.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-search.md)
+> [Successivo](adding-validation.md)

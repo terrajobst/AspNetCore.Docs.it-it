@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: a1de177fcd41c925a85e5aab9a0d236249b7da0b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 64093b9fcfa9047145de8f8b142f72fa1515f248
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -62,7 +62,7 @@ Quando si utilizza qualsiasi tipo di middleware di autenticazione, il Middleware
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Richiamare il [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metodo `Startup.Configure` prima di chiamare [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) o simile middleware lo schema di autenticazione:
+Richiamare il [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metodo `Startup.Configure` prima di chiamare [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) o simile middleware di schema di autenticazione. Configurare il middleware di inoltrare il `X-Forwarded-For` e `X-Forwarded-Proto` intestazioni:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -75,7 +75,7 @@ app.UseAuthentication();
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Richiamare il [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metodo `Startup.Configure` prima di chiamare [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) e [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) o schema di autenticazione simili middleware:
+Richiamare il [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metodo `Startup.Configure` prima di chiamare [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) e [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) o schema di autenticazione simili middleware. Configurare il middleware di inoltrare il `X-Forwarded-For` e `X-Forwarded-Proto` intestazioni:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -94,6 +94,8 @@ app.UseFacebookAuthentication(new FacebookOptions()
 ---
 
 Se non [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) specificato per il middleware, le intestazioni predefinite per l'inoltro sono `None`.
+
+Configurazione aggiuntiva potrebbe essere necessaria per le app ospitate dietro a servizi di bilanciamento del carico e server proxy. Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-nginx"></a>Installare Nginx
 
@@ -144,7 +146,7 @@ server {
 Con il precedente server di configurazione predefiniti e di file Nginx accetta traffico pubblico sulla porta 80 con intestazione host `example.com` o `*.example.com`. Le richieste non corrisponda a questi host non ottenere inoltrate a Kestrel. Nginx inoltra le richieste corrispondenti a Kestrel in `http://localhost:5000`. Vedere [come nginx elabora una richiesta](https://nginx.org/docs/http/request_processing.html) per ulteriori informazioni.
 
 > [!WARNING]
-> L'impossibilità di specificare una corretta [direttiva nome_server](https://nginx.org/docs/http/server_names.html) espone l'app a vulnerabilità di sicurezza. Associazione con caratteri jolly sottodominio (ad esempio, `*.example.com`) non comporta il rischio di sicurezza se è possibile controllare il dominio padre intero (in contrapposizione a `*.com`, che è vulnerabile). Vedere [rfc7230 sezione-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) per ulteriori informazioni.
+> L'impossibilità di specificare una corretta [direttiva nome_server](https://nginx.org/docs/http/server_names.html) espone l'app a vulnerabilità di sicurezza. Associazione con caratteri jolly sottodominio (ad esempio, `*.example.com`) non comporta il rischio di sicurezza se è possibile controllare il dominio padre intero (in contrapposizione a `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di RFC7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.
 
 Una volta stabilita la configurazione di Nginx, eseguire `sudo nginx -t` per verificare la sintassi dei file di configurazione. Se il test di file di configurazione ha esito positivo, forzare Nginx per rendere effettive le modifiche eseguendo `sudo nginx -s reload`.
 

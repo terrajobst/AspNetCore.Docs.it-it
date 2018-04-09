@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0bbf6dc0be8a96ecd47b8620a6ba3220b50f10d4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 30653a147bd3bf581af27220e11cdecc2f89fc4a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="get-started-with-the-ajax-control-toolkit-vb"></a>Introduzione a AJAX Control Toolkit (VB)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Informazioni su tutte le che necessarie per iniziare l'utilizzo di AJAX Control Toolkit.
 
@@ -40,9 +40,9 @@ Il [AJAX Control Toolkit](http://devexpress.com/act) è un progetto open source 
 Dopo aver scaricato il file, è necessario sbloccare il file. Il file, selezionare le proprietà e scegliere il **Unblock** pulsante (vedere la figura 2).
 
 
-[![Il file ZIP di Toolkit controllo AJAX di sblocco](get-started-with-the-ajax-control-toolkit-vb/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image3.png)
+[![Il file ZIP Toolkit controllo AJAX di sblocco](get-started-with-the-ajax-control-toolkit-vb/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-vb/_static/image3.png)
 
-**Figura 02**: il file ZIP di Toolkit controllo AJAX di sblocco ([fare clic per visualizzare l'immagine ingrandita](get-started-with-the-ajax-control-toolkit-vb/_static/image4.png))
+**Figura 02**: il file ZIP Toolkit controllo AJAX di sblocco ([fare clic per visualizzare l'immagine ingrandita](get-started-with-the-ajax-control-toolkit-vb/_static/image4.png))
 
 
 Dopo aver sbloccato il file, è possibile decomprimere il file: il pulsante destro e selezionare il **Estrai tutto** opzione di menu. A questo punto, sono pronti aggiungere il toolkit nella casella degli strumenti di Visual Studio e Visual Web Developer.
@@ -89,6 +89,6 @@ Se si usa una versione precedente del Toolkit e ora devono essere spostati in un
 - I file binari, eliminare la versione precedente dell'assembly AjaxControlToolkit. dll dalla cartella Bin del sito Web.
 - Gli elementi della casella degli strumenti - eliminare la scheda AJAX Control Toolkit e seguire i passaggi precedenti per creare di nuovo la scheda con la nuova versione dell'assembly AjaxControlToolkit. dll.
 
->[!div class="step-by-step"]
-[Precedente](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
-[Successivo](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
+> [Successivo](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

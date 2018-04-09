@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 671d1bbf661dfb3e56c6ccd67ce0d383990918d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-data-access-layer"></a>Creare il livello di accesso ai dati
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -68,13 +68,13 @@ In questa esercitazione, verrà inizialmente tramite l'aggiunta di classi di ent
 
     ![Creare il livello di accesso ai dati - nuovo elemento Menu](create_the_data_access_layer/_static/image1.png)
 
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. In **Visual c#** dal **installato** riquadro a sinistra, seleziona **codice**. 
 
     ![Creare il livello di accesso ai dati - nuovo elemento Menu](create_the_data_access_layer/_static/image2.png)
 3. Selezionare **classe** dal riquadro centrale e denominare la nuova classe *Product.cs*.
 4. Fare clic su **Aggiungi**.  
- Il nuovo file di classe viene visualizzato nell'editor.
+   Il nuovo file di classe viene visualizzato nell'editor.
 5. Sostituire il codice predefinito con il codice seguente:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
@@ -95,7 +95,7 @@ Per iniziare a utilizzare le classi per accedere ai dati, è necessario definire
 Questa procedura consente di aggiungere una nuovo contesto classe c# per il *modelli* cartella.
 
 1. Fare doppio clic su di *modelli* cartella e quindi selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare **classe** dal riquadro centrale, denominarla *ProductContext.cs* e fare clic su **Aggiungi**.
 3. Sostituire il codice predefinito contenuto nella classe con il codice seguente:   
 
@@ -182,12 +182,12 @@ Nella prossima esercitazione, si sarà aggiornare l'interfaccia utente, aggiunge
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Panoramica di Entity Framework](https://msdn.microsoft.com/library/bb399567.aspx)   
-[Guida introduttiva a ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
+[Guida per principianti a ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
 [Prima di sviluppo con Entity Framework di codice](http://www.msteched.com/2010/Europe/DEV212) (video)   
 [Primo relazioni Fluent API del codice](https://msdn.microsoft.com/data/hh134698)   
-[Codice prima le annotazioni dei dati](https://msdn.microsoft.com/data/gg193958)  
-[Miglioramenti di produttività per Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
+[Annotazioni dei dati prima di codice](https://msdn.microsoft.com/data/gg193958)  
+[Miglioramenti per la produttività per Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
->[!div class="step-by-step"]
-[Precedente](create-the-project.md)
-[Successivo](ui_and_navigation.md)
+> [!div class="step-by-step"]
+> [Precedente](create-the-project.md)
+> [Successivo](ui_and_navigation.md)

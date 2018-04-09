@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 52fc0b89343236b70f8a2e013ad8a33431ae3d2d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04b39902aae05d815eb11ec7b7163988d017f78c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="working-with-computed-columns-vb"></a>Utilizzo delle colonne calcolate (VB)
 ====================
@@ -51,7 +51,7 @@ Aprire il `Suppliers` definizione tabella facendo clic su di `Suppliers` tabella
 Si noti che le stringhe possono essere concatenate in SQL utilizzando il `+` operatore. Il `CASE` istruzione può essere utilizzata come un'istruzione condizionale in un linguaggio di programmazione tradizionali. Nell'espressione di `CASE` istruzione può essere letto come: se `ContactTitle` non `NULL` quindi output il `ContactTitle` valore concatenato con una virgola, in caso contrario emit nulla. Per ulteriori informazioni sulle utilità del `CASE` istruzione, vedere [Power di SQL `CASE` istruzioni](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Anziché utilizzare un `CASE` istruzione qui avremmo potuto in alternativa utilizzare `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Restituisce *checkExpression* se è non NULL, in caso contrario restituisce *replacementValue*. Durante uno `ISNULL` o `CASE` funzionerà in questo caso, vi sono più complessi scenari in cui la flessibilità del `CASE` istruzione non può corrispondere a `ISNULL`.
+> Anziché utilizzare un `CASE` istruzione qui avremmo potuto in alternativa utilizzare `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) Restituisce *checkExpression* se è diverso da NULL, in caso contrario restituirà *replacementValue*. Durante uno `ISNULL` o `CASE` funzionerà in questo caso, vi sono più complessi scenari in cui la flessibilità del `CASE` istruzione non può corrispondere a `ISNULL`.
 
 
 Dopo aver aggiunto la colonna calcolata la schermata dovrebbe essere simile all'immagine riportata nella figura 1.
@@ -82,9 +82,9 @@ Prima di iniziare lavoro nel livello di accesso ai dati, s consentono di richied
 Come illustrato nella figura 2, i risultati includono `FullContactName`, quali gli elenchi di `CompanyName`, `ContactName`, e `ContactTitle` colonne utilizzando il formato `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![Il FullContactName utilizza il formato ContactName (ContactTitle, CompanyName)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
+[![Il FullContactName utilizza ContactName formato (ContactTitle, CompanyName)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
-**Figura 2**: il `FullContactName` utilizza il formato `ContactName` (`ContactTitle`, `CompanyName`) ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image6.png))
+**Figura 2**: il `FullContactName` Usa il formato `ContactName` (`ContactTitle`, `CompanyName`) ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image6.png))
 
 
 ## <a name="step-3-adding-thesupplierstableadapterto-the-data-access-layer"></a>Passaggio 3: Aggiunta di`SuppliersTableAdapter`a livello di accesso ai dati
@@ -100,9 +100,9 @@ Consente di s per questa esercitazione, aggiungere un nuovo TableAdapter e fare 
 Aprire il `NorthwindWithSprocs` set di dati nel `~/App_Code/DAL` cartella. Pulsante destro del mouse nella finestra di progettazione e scegliere il menu di scelta rapida aggiungere un nuovo TableAdapter. Verrà avviata la configurazione guidata TableAdapter. Specificare il database per i dati di query (`NORTHWNDConnectionString` da `Web.config`) e fare clic su Avanti. Poiché non è stata ancora creata alcuna stored procedure per l'esecuzione di query o la modifica di `Suppliers` tabella, selezionare la creazione di nuove stored procedure opzione in modo che la procedura guidata verrà creati automaticamente e fare clic su Avanti.
 
 
-[![Scegliere la crea nuove stored procedure opzione](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
+[![Scegliere Crea nuove stored procedure. opzione](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
-**Figura 3**: scegliere la crea nuove stored procedure opzione ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image9.png))
+**Figura 3**: scegliere Crea nuove stored procedure. opzione ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image9.png))
 
 
 Il passaggio successivo ci richiesto per la query principale. Immettere la query seguente, che restituisce il `SupplierID`, `CompanyName`, `ContactName`, e `ContactTitle` colonne per ogni fornitore. Si noti che questa query intenzionalmente consente di omettere la colonna calcolata (`FullContactName`); verrà aggiornato per includere la colonna nel passaggio 4 la stored procedure corrispondente.
@@ -115,7 +115,7 @@ Dopo aver immesso la query principale e facendo clic su Avanti, la procedura gui
 
 [![Personalizzare i nomi delle Stored procedure generata automaticamente](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
-**Figura 4**: personalizzare i nomi delle Stored procedure Auto-Generated ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image12.png))
+**Figura 4**: personalizzare i nomi delle Stored procedure del Auto-Generated ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image12.png))
 
 
 Il passaggio successivo della procedura guidata consente di denominare metodi s dell'oggetto TableAdapter e specificare i modelli utilizzati per accedere e aggiornare dati. Lasciare tutti i tre caselle di controllo selezionate, ma non rinominare il `GetData` metodo `GetSuppliers`. Fare clic su Fine per completare la procedura guidata.
@@ -153,7 +153,7 @@ Successivamente, tornare alla finestra di progettazione set di dati, fare clic s
 Fare clic su Fine per completare la procedura guidata. Verrà aggiunta automaticamente una colonna corrispondente per il `SuppliersDataTable`. La configurazione guidata TableAdapter è abbastanza per rilevare che il `FullContactName` colonna è una colonna calcolata e pertanto in sola lettura. Di conseguenza, imposta la colonna s `ReadOnly` proprietà `true`. Per verificare questa condizione, selezionare la colonna dal `SuppliersDataTable` e quindi passare alla finestra delle proprietà (vedere la figura 7). Si noti che il `FullContactName` colonna s `DataType` e `MaxLength` proprietà vengono inoltre impostate di conseguenza.
 
 
-[![La colonna FullContactName è contrassegnata come di sola lettura](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
+[![La colonna FullContactName è contrassegnata come sola lettura](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
 **Figura 7**: il `FullContactName` colonna è contrassegnata come di sola lettura ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image21.png))
 
@@ -165,7 +165,7 @@ Per questa esercitazione si creerà una pagina ASP.NET che consente di visualizz
 Fare clic su di `SuppliersTableAdapter` nella struttura del set di dati e scegliere l'opzione Aggiungi Query dal menu di scelta rapida. Come è stato fatto nel passaggio 3, consentire alla procedura guidata genera una nuova stored procedure per noi selezionando l'opzione di creare nuove stored procedure (vedere la figura 3 per una schermata di questo passaggio della procedura guidata). Poiché questo metodo restituirà un record con più colonne, indicano che si desidera utilizzare una query SQL che è un'istruzione SELECT che restituisce righe e fare clic su Avanti.
 
 
-[![Scegliere l'istruzione SELECT che restituisce righe, opzione](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
+[![Scegliere l'istruzione SELECT che restituisce righe opzione](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
 
 **Figura 8**: scegliere l'istruzione SELECT che restituisce righe opzione ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image24.png))
 
@@ -186,7 +186,7 @@ Nella schermata successiva viene chiesto di specificare un nome di stored proced
 Infine, le richieste guidata us per i dati di accedere ai modelli e i nomi di metodo da utilizzare per l'oggetto TableAdapter. Lasciare le caselle di controllo sia selezionate, ma non rinominare il `FillBy` e `GetDataBy` metodi `FillBySupplierID` e `GetSupplierBySupplierID`, rispettivamente.
 
 
-[![Nome di FillBySupplierID metodi TableAdapter e GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
+[![Nome FillBySupplierID i metodi TableAdapter e GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
 **Figura 10**: nome i metodi TableAdapter `FillBySupplierID` e `GetSupplierBySupplierID` ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image30.png))
 
@@ -215,7 +215,7 @@ Con la colonna calcolata aggiunta a di `Suppliers` tabella e DAL e BLL aggiornat
 
 [![Configurare ObjectDataSource per utilizzare la classe SuppliersBLLWithSprocs](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
-**Figura 11**: configurare ObjectDataSource per utilizzare il `SuppliersBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image33.png))
+**Figura 11**: configurare ObjectDataSource per usare il `SuppliersBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](working-with-computed-columns-vb/_static/image33.png))
 
 
 Sono disponibili solo due metodi definiti nel `SuppliersBLLWithSprocs` classe: `GetSuppliers` e `UpdateSupplier`. Assicurarsi che questi due metodi sono specificati nella finestra selezione aggiornare schede, rispettivamente e fare clic su Fine per completare la configurazione di ObjectDataSource.
@@ -261,12 +261,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Geisenow Hilton e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](adding-additional-datatable-columns-vb.md)
-[Successivo](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-additional-datatable-columns-vb.md)
+> [Successivo](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)

@@ -1,5 +1,5 @@
 ---
-title: Integrazione di test in ASP.NET Core
+title: Test di integrazione in ASP.NET Core
 author: ardalis
 description: Come utilizzare l'integrazione di ASP.NET Core test per garantire che i componenti di un'applicazione funzionano correttamente.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="integration-testing-in-aspnet-core"></a>Integrazione di test in ASP.NET Core
+# <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
 
@@ -151,4 +151,4 @@ Seguendo questo refactoring, si è certi che l'applicazione web continui a funzi
 
 * [Testing unità](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Middleware](xref:fundamentals/middleware/index)
-* [Test dei controller](xref:mvc/controllers/testing)
+* [Test controller](xref:mvc/controllers/testing)

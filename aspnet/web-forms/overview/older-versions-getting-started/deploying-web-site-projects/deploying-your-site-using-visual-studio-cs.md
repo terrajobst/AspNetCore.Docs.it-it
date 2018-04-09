@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c0c32c3dd24be5edfea3e17695753973f3fad30a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f06e2fe1fdfb03b106466a1792f6381495f76096
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>La distribuzione del sito utilizzando Visual Studio (c#)
 ====================
@@ -50,7 +50,7 @@ Avviare il progetto strumento Copia sito Web facendo clic sull'icona Copia sito 
 
 [![Interfaccia utente dello strumento Copia sito Web è diviso in due riquadri](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
 
-**Figura 1**: del sito Web dell'interfaccia utente dello strumento Copia la è suddiviso in due riquadri ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-visual-studio-cs/_static/image3.png))
+**Figura 1**: sito Web dell'interfaccia utente dello strumento Copia la è suddiviso in due riquadri ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-visual-studio-cs/_static/image3.png))
 
 
 Per distribuire il sito è necessario innanzitutto connettersi al provider host web. Fare clic sul pulsante Connetti nella parte superiore dell'interfaccia utente Copia sito Web. Verrà visualizzata la finestra di dialogo Apri sito Web mostrata nella figura 2.
@@ -60,7 +60,7 @@ Per distribuire il sito è necessario innanzitutto connettersi al provider host 
 - **File System** -selezionare questa opzione per distribuire il sito in una cartella o condivisione di rete accessibile dal computer.
 - **IIS locale** -utilizzare questa opzione per distribuire il sito al server web IIS installato nel computer.
 - **Sito FTP** -connettersi a un sito web remoto tramite FTP.
-- **Sito remoto** -connettersi a un sito Web remoto utilizzando le estensioni del Server di FrontPage.
+- **Sito remoto** -connettersi a un sito Web remoto utilizza estensioni del Server di FrontPage.
 
 Supporta la maggior parte dei provider di host web FTP, ma meno offre il supporto delle estensioni del Server di FrontPage. Per questo motivo, ho selezionato l'opzione del sito FTP e quindi immettere le informazioni di connessione come illustrato nella figura 2.
 
@@ -75,7 +75,7 @@ Dopo la connessione, lo strumento Copia sito Web carica i file nel sito remoto n
 Aggiungere una nuova pagina al progetto BookReviewsWSP e distribuirlo in modo che possiamo vedere lo strumento Copia sito Web. Creare una nuova pagina ASP.NET in Visual Studio nella directory radice denominata `Privacy.aspx`. Impostare la pagina della pagina master `Site.master` e aggiungere l'informativa sulla privacy del sito in questa pagina. Figura 3 mostra Visual Studio dopo aver creata questa pagina.
 
 
-[![Aggiungere una nuova pagina denominata &lt;codice&gt;Privacy.aspx&lt;/codice&gt; alla cartella radice del sito Web](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
+[![Aggiungere una nuova pagina denominata &lt;codice&gt;Privacy.aspx&lt;/code&gt; alla cartella radice del sito Web](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
 
 **Figura 3**: aggiungere una nuova pagina denominata `Privacy.aspx` alla cartella radice del sito Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-visual-studio-cs/_static/image9.png))
 
@@ -83,7 +83,7 @@ Aggiungere una nuova pagina al progetto BookReviewsWSP e distribuirlo in modo ch
 Successivamente, tornare all'interfaccia utente di Copia sito Web. Come illustrato nella figura 4, il riquadro sinistro include ora i nuovi file - `Policy.aspx` e `Policy.aspx.cs`. Inoltre, questi file sono contrassegnati con un'icona di freccia e una stato della nuova, che indica l'esistenza del sito locale, ma non sul sito remoto.
 
 
-[![Lo strumento Copia sito Web include il nuovo &lt;codice&gt;Privacy.aspx&lt;/codice&gt; pagina nel relativo riquadro di sinistra](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
+[![Lo strumento Copia sito Web include il nuovo &lt;codice&gt;Privacy.aspx&lt;/code&gt; pagina nel relativo riquadro di sinistra](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
 
 **Figura 4**: lo strumento Copia sito Web include il nuovo `Privacy.aspx` pagina nel relativo riquadro di sinistra ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-visual-studio-cs/_static/image12.png))
 
@@ -93,7 +93,7 @@ Per distribuire il nuovo file, selezionarli e quindi fare clic sull'icona di fre
 Con l'elenco di nuovi file, lo strumento Copia sito Web evidenzia tutti i file che differiscono tra i siti locali e remoti. Per vedere un esempio pratico, ripristinare il `Privacy.aspx` pagina e aggiungere alcune altre parole l'informativa sulla privacy. Salvare la pagina e quindi tornare allo strumento Copia sito Web. Come illustrato nella figura 5, il `Privacy.aspx` pagina nel riquadro di sinistra lo stato di modificato che indica che è sincronizzato con il sito remoto.
 
 
-[![Lo strumento Copia sito Web indica che il &lt;codice&gt;Privacy.aspx&lt;/codice&gt; pagina è stata modificata.](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
+[![Lo strumento Copia sito Web indica che il &lt;codice&gt;Privacy.aspx&lt;/code&gt; pagina è stata modificata](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
 
 **Figura 5**: lo strumento Copia sito Web indica che il `Privacy.aspx` pagina è stata modificata ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-visual-studio-cs/_static/image15.png))
 
@@ -150,11 +150,11 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [Copia sito Web con lo strumento Copia sito Web](https://msdn.microsoft.com/library/1cc82atw.aspx)
-- [Come ricerca per categorie: distribuire un sito Web tramite lo strumento Copia sito Web](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
+- [Come ricerca per categorie: distribuire un sito Web mediante lo strumento Copia sito Web](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
 - [Procedura: Pubblicare progetti di applicazione Web](https://msdn.microsoft.com/library/aa983453.aspx)
 - [Procedura: Pubblicazione di siti Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
-- [Il programma di installazione e distribuzione di progetti in Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
+- [Progetti di installazione e distribuzione in Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
->[!div class="step-by-step"]
-[Precedente](deploying-your-site-using-an-ftp-client-cs.md)
-[Successivo](common-configuration-differences-between-development-and-production-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](deploying-your-site-using-an-ftp-client-cs.md)
+> [Successivo](common-configuration-differences-between-development-and-production-cs.md)

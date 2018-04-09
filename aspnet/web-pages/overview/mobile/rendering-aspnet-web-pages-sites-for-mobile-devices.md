@@ -2,7 +2,7 @@
 uid: web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 title: Il rendering di ASP.NET Web Pages siti (Razor) per i dispositivi mobili | Documenti Microsoft
 author: tfitzmac
-description: "In questo articolo viene descritto come creare pagine in un sito di pagine Web ASP.NET (Razor) che verrà eseguito il rendering in modo appropriato nei dispositivi mobili. Si apprenderà: come è..."
+description: 'In questo articolo viene descritto come creare pagine in un sito di pagine Web ASP.NET (Razor) che verrà eseguito il rendering in modo appropriato nei dispositivi mobili. Si apprenderà: come è...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: 899bbdef82d689be81cd77ea6805e0484fb614aa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 641798c5b835be959d02dd0d854b61ca21d83016
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Il rendering di siti (Razor) le pagine Web ASP.NET per dispositivi mobili
 ====================
@@ -40,7 +40,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 
 Le pagine Web ASP.NET consente di creare visualizzazioni personalizzate per il rendering del contenuto su dispositivi mobili o altri dispositivi.
 
-Il modo più semplice per creare la pagina specifico del dispositivo in un sito ASP.NET Web Pages è utilizzando un modello di denominazione dei file simile al seguente: *FileName. **Mobile**. cshtml*. È possibile creare due versioni di una pagina (ad esempio, uno denominato *MyFile.cshtml* e uno denominato *MyFile.Mobile.cshtml*). In fase di esecuzione, quando un dispositivo mobile richiede *MyFile.cshtml*, ASP.NET esegue il rendering del contenuto dalla *MyFile.Mobile.cshtml*. In caso contrario, *MyFile.cshtml* viene eseguito il rendering.
+Il modo più semplice per creare la pagina specifico del dispositivo in un sito ASP.NET Web Pages è utilizzando un modello di denominazione dei file simile al seguente: <em>FileName.</em> <em>Mobile</em><em>. cshtml</em>. È possibile creare due versioni di una pagina (ad esempio, uno denominato <em>MyFile.cshtml</em> e uno denominato <em>MyFile.Mobile.cshtml</em>). In fase di esecuzione, quando un dispositivo mobile richiede <em>MyFile.cshtml</em>, ASP.NET esegue il rendering del contenuto dalla <em>MyFile.Mobile.cshtml</em>. In caso contrario, <em>MyFile.cshtml</em> viene eseguito il rendering.
 
 Nell'esempio seguente viene illustrato come attivare il rendering di dispositivi mobili mediante l'aggiunta di una pagina contenuto per i dispositivi mobili. *Page1.cshtml* contiene contenuto più di una barra laterale di navigazione. *Page1.Mobile.cshtml* contiene lo stesso contenuto, ma omette l'intestazione laterale.
 

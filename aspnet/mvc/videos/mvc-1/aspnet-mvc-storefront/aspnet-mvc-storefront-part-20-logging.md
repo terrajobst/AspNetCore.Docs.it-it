@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging
 msc.type: video
-ms.openlocfilehash: c21d0a528cc604e2b94a89d64ba0cc1600eb4e36
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3fd55ed8819fe31e798a3abd523508533a53358
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-20-logging"></a>ASP.NET MVC vetrina parte 20: registrazione
 ====================
@@ -24,8 +24,8 @@ da [mare Conery](https://github.com/robconery)
 
 In questo episodio che plug-in registrazione - qualcosa che probabilmente deve sono state implementate prima.
 
-[&#9654; Guardare video (minuti 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-20-logging)
+[&#9654;Guardare video (minuti 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-20-logging)
 
->[!div class="step-by-step"]
-[Precedente](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
-[Successivo](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
+> [!div class="step-by-step"]
+> [Precedente](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
+> [Successivo](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

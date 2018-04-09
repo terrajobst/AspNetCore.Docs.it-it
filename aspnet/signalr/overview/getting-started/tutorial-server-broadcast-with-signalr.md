@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Esercitazione: Server Broadcast con SignalR 2 | Documenti Microsoft'
 author: tdykstra
-description: "In questa esercitazione viene illustrato come creare un'applicazione web che utilizza ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione server significa che comune d'..."
+description: In questa esercitazione viene illustrato come creare un'applicazione web che utilizza ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione server significa che comune d'...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Esercitazione: Server Broadcast con SignalR 2
 ====================
-da [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
+dal [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > In questa esercitazione viene illustrato come creare un'applicazione web che utilizza ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione server significa che le comunicazioni inviate ai client vengono avviate dal server. Questo scenario richiede un approccio di programmazione diverso rispetto a scenari peer-to-peer, ad esempio le applicazioni di chat, in cui vengono inizializzate le comunicazioni inviate ai client da una o più dei client.
 > 
@@ -65,7 +65,7 @@ L'applicazione che compili nella prima parte di questa esercitazione consente di
 
 ![Versione iniziale di StockTicker](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-Periodicamente in modo casuale il server per aggiornare i prezzi azionari e inserisce gli aggiornamenti a tutti i client connessi. Nel browser, i numeri e simboli di **modificare** e  **%**  colonne modificate in modo dinamico in risposta a notifiche dal server. Se si apre browser aggiuntive per lo stesso URL, sono visualizzate contemporaneamente gli stessi dati e le stesse modifiche ai dati.
+Periodicamente in modo casuale il server per aggiornare i prezzi azionari e inserisce gli aggiornamenti a tutti i client connessi. Nel browser, i numeri e simboli di **modificare** e **%** colonne modificate in modo dinamico in risposta a notifiche dal server. Se si apre browser aggiuntive per lo stesso URL, sono visualizzate contemporaneamente gli stessi dati e le stesse modifiche ai dati.
 
 In questa esercitazione include le sezioni seguenti:
 
@@ -146,7 +146,7 @@ Si desidera solo un'istanza della classe StockTicker in esecuzione sul server, p
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Archiviare l'istanza singleton in un campo statico
 
-    Il codice inizializza statica \_campo di istanza sottostante alla proprietà di istanza con un'istanza della classe e questa è l'unica istanza della classe che può essere creata, perché il costruttore è contrassegnato come privato. [L'inizializzazione differita](https://msdn.microsoft.com/library/dd997286.aspx) viene utilizzato per il \_campo di istanza, non per motivi di prestazioni, ma per garantire che la creazione dell'istanza è affidabile.
+    Il codice inizializza statica \_campo di istanza sottostante alla proprietà di istanza con un'istanza della classe e questa è l'unica istanza della classe che può essere creata, perché il costruttore è contrassegnato come privato. [L'inizializzazione differita](https://msdn.microsoft.com/library/dd997286.aspx) viene utilizzato per il \_campo di istanza, non per motivi di prestazioni, ma per garantire che la creazione di istanza è affidabile.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
@@ -218,7 +218,7 @@ Il codice del server di configurazione è stata completata. Nella sezione succes
 
     I tag di script specificano il file di script jQuery, il file di script SignalR core, il file di script proxy SignalR e un file di script StockTicker che verrà creato in un secondo momento. Il file di script proxy SignalR, che specifica l'URL "hub signalr /", viene generato dinamicamente e definisce i metodi del proxy per i metodi della classe di Hub, in questo caso per StockTickerHub.GetAllStocks. Se si preferisce, è possibile generare manualmente questo file JavaScript utilizzando [SignalR utilità](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) e disabilitare la creazione dinamica di file nella chiamata al metodo MapHubs.
 3. > [!IMPORTANT]
- > Assicurarsi che il file di JavaScript fa riferimento *StockTicker.html* siano corretti. Vale a dire, assicurarsi che la versione di jQuery nel tag di script (1.10.2 nell'esempio) sia identica a quella del jQuery del progetto *script* cartella e assicurarsi che la versione di SignalR il tag di script è identico per SignalR versione del progetto *script* cartella. Se necessario, modificare i nomi dei file nei tag script.
+   > Assicurarsi che il file di JavaScript fa riferimento *StockTicker.html* siano corretti. Vale a dire, assicurarsi che la versione di jQuery nel tag di script (1.10.2 nell'esempio) sia identica a quella del jQuery del progetto *script* cartella e assicurarsi che la versione di SignalR il tag di script è identico per SignalR versione del progetto *script* cartella. Se necessario, modificare i nomi dei file nei tag script.
 4. In **Esplora**, fare doppio clic su *StockTicker.html*, quindi fare clic su **imposta come pagina iniziale**.
 5. Creare un nuovo file JavaScript nella cartella del progetto e denominarla *StockTicker.js*...
 6. Sostituire il codice del modello con il codice seguente:
@@ -280,10 +280,10 @@ Il codice del server di configurazione è stata completata. Nella sezione succes
 
 SignalR è una funzione di registrazione predefiniti che è possibile abilitare sul client per facilitare la risoluzione dei problemi. In questa sezione abilitare la registrazione e vedere esempi che illustrano come registri può sapere quale dei seguenti metodi di trasporto SignalR utilizza:
 
-- [WebSocket](http://en.wikipedia.org/wiki/WebSocket), supportata da IIS 8 e i browser correnti.
+- [I WebSocket](http://en.wikipedia.org/wiki/WebSocket), supportata da IIS 8 e i browser correnti.
 - [Gli eventi inviati al server](http://en.wikipedia.org/wiki/Server-sent_events), supportata dal browser diverso da Internet Explorer.
 - [Forever frame](http://en.wikipedia.org/wiki/Comet_(programming)#Hidden_iframe), supportato da Internet Explorer.
-- [Polling prolungato AJAX](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling)supportati da tutti i browser.
+- [AJAX polling prolungato](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling), supportato da tutti i browser.
 
 Per ogni connessione specifica, SignalR sceglie il metodo migliore di trasporto che supportano sia il server e client.
 

@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 title: '[Eseguire la ricerca per categorie:] Introduzione a ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: "Si noti che ASP.NET AJAX è incluso come parte di .NET 3.5, pertanto la parte dell'installazione di questo video è pertinente solo se si utilizza .NET Framework versione 2..."
+description: Si noti che ASP.NET AJAX è incluso come parte di .NET 3.5, pertanto la parte dell'installazione di questo video è pertinente solo se si utilizza .NET Framework versione 2...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/23/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-get-started-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: ec18b244afa26d0289a837c455b3fd17e6f741c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e35ab81c61d67b7a42508e61060da52efbd46713
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Eseguire la ricerca per categorie:] Introduzione a ASP.NET AJAX?
 ====================
@@ -24,7 +24,7 @@ da [Joe Stagner](https://github.com/JoeStagner)
 
 Si noti che ASP.NET AJAX è incluso come parte di .NET 3.5, pertanto la parte dell'installazione di questo video è pertinente solo se si utilizza .NET Framework versione 2.0.
 
-[&#9654; Guardare video (minuti 7)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
+[&#9654;Guardare video (7 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-aspnet-ajax)
 
->[!div class="step-by-step"]
-[Successivo](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)
+> [!div class="step-by-step"]
+> [avanti](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

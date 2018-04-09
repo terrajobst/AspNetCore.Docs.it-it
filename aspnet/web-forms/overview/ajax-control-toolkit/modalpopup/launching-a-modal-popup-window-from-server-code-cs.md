@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc2ccf8153de4f2633cc46ebbee2da199ba9d06e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04bb056ee29065a472a70d480568b897a789ae59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a>Avviando una finestra Popup modale dal codice Server (c#)
 ====================
@@ -68,9 +68,9 @@ Il `pageLoad()` JavaScript è una funzione speciale che viene eseguita una volta
 Il `$find()` funzione esegue la ricerca di un elemento denominato nella pagina e non prevede l'ID lato server come parametro. Pertanto, `$find("mpe")` restituisce la rappresentazione di client del controllo ModalPopup; relativo `show()` metodo consente la finestra popup visualizzata.
 
 
-[![Il popup modale viene visualizzato quando si fa clic su uno dei pulsanti](launching-a-modal-popup-window-from-server-code-cs/_static/image2.png)](launching-a-modal-popup-window-from-server-code-cs/_static/image1.png)
+[![Viene visualizzata la finestra popup modale quando si fa clic su uno dei pulsanti](launching-a-modal-popup-window-from-server-code-cs/_static/image2.png)](launching-a-modal-popup-window-from-server-code-cs/_static/image1.png)
 
 Il popup modale viene visualizzato quando si fa clic su uno dei pulsanti ([fare clic per visualizzare l'immagine ingrandita](launching-a-modal-popup-window-from-server-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Successivo](using-modalpopup-with-a-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [avanti](using-modalpopup-with-a-repeater-control-cs.md)

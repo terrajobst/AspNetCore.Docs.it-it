@@ -16,4 +16,4 @@ Istruzioni:
 1. Accesso dell'utente a uno dei tre app. Il cookie di autenticazione è condivisa tra le app. Si noti che l'utente è connesso automaticamente in altri due app.
 1. Disconnettersi da una qualsiasi delle App per utente. Si noti che l'utente viene automaticamente disconnesso le altre due applicazioni.
 
-In questo esempio illustra le funzionalità descritte nel [cookie tra le app di condivisione](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) argomento.
+In questo esempio vengono illustrate le funzionalità descritte nel [condividere i cookie tra le app](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) argomento.

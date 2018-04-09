@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>L'appartenenza e l'amministrazione
 ====================
-Da [Erik Reitan](https://github.com/Erikre)
+da [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -29,7 +29,7 @@ Da [Erik Reitan](https://github.com/Erikre)
 
 In questa esercitazione viene illustrato come aggiornare l'applicazione di esempio Wingtip Toys per aggiungere un ruolo personalizzato e utilizzare ASP.NET Identity. Viene inoltre illustrato come implementare una pagina di amministrazione da cui l'utente con un ruolo personalizzato è possibile aggiungere e rimuovere i prodotti dal sito Web.
 
-[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) è il sistema di appartenenze utilizzato per compilare un'applicazione web ASP.NET ed è disponibile in ASP.NET 4.5. Identità di ASP.NET viene utilizzato il modello di progetto di Web Form di Visual Studio 2013, nonché i modelli per [ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web API](../../../../web-api/index.md), e [applicazione a pagina singola ASP.NET](../../../../single-page-application/index.md). È anche possibile installare il sistema di identità ASP.NET mediante NuGet quando si inizia con un'applicazione Web vuota. Tuttavia, in questa serie di esercitazioni è utilizzare il **Web Form**projecttemplate, che include il sistema di identità di ASP.NET. ASP.NET Identity rende più facile da integrare dati di profilo per ogni utente con dati dell'applicazione. ASP.NET Identity, inoltre, consente di scegliere il modello di persistenza per i profili utente nell'applicazione. È possibile archiviare i dati in un database di SQL Server o un altro archivio dati, tra cui *NoSQL* archivi dati, ad esempio tabelle di archiviazione Windows Azure.
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) è il sistema di appartenenze consente di compilare un'applicazione web ASP.NET ed è disponibile in ASP.NET 4.5. Identità di ASP.NET viene utilizzato il modello di progetto di Web Form di Visual Studio 2013, nonché i modelli per [ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web API](../../../../web-api/index.md), e [applicazione a pagina singola ASP.NET](../../../../single-page-application/index.md). È anche possibile installare il sistema di identità ASP.NET mediante NuGet quando si inizia con un'applicazione Web vuota. Tuttavia, in questa serie di esercitazioni è utilizzare il **Web Form**projecttemplate, che include il sistema di identità di ASP.NET. ASP.NET Identity rende più facile da integrare dati di profilo per ogni utente con dati dell'applicazione. ASP.NET Identity, inoltre, consente di scegliere il modello di persistenza per i profili utente nell'applicazione. È possibile archiviare i dati in un database di SQL Server o un altro archivio dati, tra cui *NoSQL* archivi dati, ad esempio tabelle di archiviazione Windows Azure.
 
 In questa esercitazione si basa sull'esercitazione precedente denominata "Checkpoint e pagamento PayPal" della serie di esercitazioni Wingtip Toys.
 
@@ -66,14 +66,14 @@ Utilizzo di ASP.NET Identity, è possibile aggiungere un ruolo personalizzato e 
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. Si noti che `AddUserAndRole` è sottolineato in rosso. Fare doppio clic sul codice AddUserAndRole.  
- La lettera "A" all'inizio del metodo evidenziato apparirà sottolineata.
+   La lettera "A" all'inizio del metodo evidenziato apparirà sottolineata.
 7. Passare il mouse sulla lettera "A" e scegliere l'interfaccia utente che consente di generare uno stub di metodo per il `AddUserAndRole` metodo. 
 
     ![L'appartenenza e Advministration - genera Stub metodo](membership-and-administration/_static/image1.png)
 8. Scegliere l'opzione denominata:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Aprire il *RoleActions.cs* file dal *logica* cartella.  
- Il `AddUserAndRole` metodo è stato aggiunto al file di classe.
+   Il `AddUserAndRole` metodo è stato aggiunto al file di classe.
 10. Modificare il *RoleActions.cs* file rimuovendo il `NotImplementedeException` e aggiungere il codice evidenziato in giallo, in modo che venga visualizzato come segue:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ Successivamente, si creerà una cartella denominata *Admin* applicazione di esem
 1. Fare doppio clic sul nome del progetto (**Wingtip Toys**) in **Esplora** e selezionare **Aggiungi**  - &gt; **nuova cartella**.
 2. Denominare la nuova cartella *Admin*.
 3. Fare doppio clic su di *Admin* cartella e quindi selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
-4. Selezionare il **Visual c#** - &gt; **Web** gruppo di modelli a sinistra. Selezionare dall'elenco al centro, **Web Form con pagina Master**, denominarla *AdminPage.aspx***,** e quindi selezionare **Aggiungi**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+4. Selezionare il <strong>Visual c#</strong> - &gt; <strong>Web</strong> gruppo di modelli a sinistra. Selezionare dall'elenco al centro, <strong>Web Form con pagina Master</strong>, denominarla <em>AdminPage.aspx</em><strong>,</strong> e quindi selezionare <strong>Aggiungi</strong>.
 5. Selezionare il *Site. master* file della pagina master e quindi scegliere **OK**.
 
 #### <a name="add-a-webconfig-file"></a>Aggiungere un File Web. config
@@ -129,8 +129,8 @@ Successivamente, si creerà una cartella denominata *Admin* applicazione di esem
 Aggiungendo un *Web. config* file per il *Admin* cartella, è possibile limitare l'accesso alla pagina contenuta nella cartella.
 
 1. Fare doppio clic su di *Admin* cartella e selezionare **Aggiungi**  - &gt; **nuovo elemento**.  
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
-2. Nell'elenco di modelli web di Visual c#, selezionare **File di configurazione Web**dall'elenco al centro, accettare il nome predefinito di *Web. config***,** e quindi selezionare **Aggiungere**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+2. Nell'elenco di modelli web di Visual c#, selezionare <strong>File di configurazione Web</strong>dall'elenco al centro, accettare il nome predefinito di <em>Web. config</em><strong>,</strong> e quindi selezionare <strong>Aggiungere</strong>.
 3. Sostituire il contenuto nel documento XML esistente di *Web. config* file con le operazioni seguenti:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Finora, aver creato il ruolo "canEdit" e aggiungere un utente di "canEditUser", 
 Nel codice che sono stati immessi per il *AdminPage.aspx.cs* file code-behind, una classe denominata `AddProducts` esegue il lavoro effettivo dell'aggiunta di prodotti nel database. Questa classe non esiste ancora, quindi verrà creato ora.
 
 1. In **Esplora**, fare doppio clic su di *logica* cartella e quindi selezionare **Aggiungi**  - &gt; **nuovo elemento**.   
- Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
+   Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
 2. Selezionare il **Visual c#**  - &gt; **codice** gruppo di modelli a sinistra. Selezionare quindi **classe**dal centro elenco e denominarlo *AddProducts.cs*.   
- Viene visualizzato il nuovo file di classe.
+   Viene visualizzato il nuovo file di classe.
 3. Sostituire il codice esistente con quello seguente:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -235,15 +235,15 @@ Il `Page_Load` gestore eventi controlla il valore di stringa di query e determin
 È possibile eseguire l'applicazione per vedere come è possibile aggiungere, delete e update elementi nel carrello acquisti. Il totale di carrello acquisti rifletterà il costo totale di tutti gli elementi nel carrello acquisti.
 
 1. In Esplora soluzioni, premere **F5** per eseguire l'applicazione di esempio Wingtip Toys.  
- Il browser viene visualizzata e viene illustrato il *Default.aspx* pagina.
+   Il browser viene visualizzata e viene illustrato il *Default.aspx* pagina.
 2. Fare clic su di **Accedi** collegamento nella parte superiore della pagina. 
 
     ![L'appartenenza e amministrazione - Accedi collegamento](membership-and-administration/_static/image2.png)
 
- Il *Login.aspx* viene visualizzata la pagina.
+   Il *Login.aspx* viene visualizzata la pagina.
 3. Utilizzare il seguente nome utente e la password:  
- Nome utente:canEditUser@wingtiptoys.com  
- Password: Pa$ $word1 
+   Nome utente: canEditUser@wingtiptoys.com  
+   Password: Pa$$word1 
 
     ![L'appartenenza e amministrazione - pagina di accesso](membership-and-administration/_static/image3.png)
 4. Fare clic su di **Accedi** pulsante nella parte inferiore della pagina.
@@ -254,7 +254,7 @@ Il `Page_Load` gestore eventi controlla il valore di stringa di query e determin
 
     ![L'appartenenza e amministrazione - pagina di amministrazione](membership-and-administration/_static/image5.png)
 
- Si noti che vengono visualizzati i messaggi di campo obbligatorio.
+   Si noti che vengono visualizzati i messaggi di campo obbligatorio.
 7. Aggiungere i dettagli per un nuovo prodotto e quindi scegliere il **Add Product** pulsante. 
 
     ![L'appartenenza e amministrazione - Aggiungi prodotto](membership-and-administration/_static/image6.png)
@@ -268,7 +268,7 @@ Il `Page_Load` gestore eventi controlla il valore di stringa di query e determin
     ![L'appartenenza e amministrazione - Rimuovi prodotto](membership-and-administration/_static/image8.png)
 12. Selezionare **prodotti** dal menu di spostamento superiore per confermare che il prodotto è stato rimosso.
 13. Fare clic su **disconnettersi** esista la modalità di amministrazione.   
- Si noti che il riquadro di spostamento superiore non viene più visualizzato il **Admin** voce di menu.
+    Si noti che il riquadro di spostamento superiore non viene più visualizzato il **Admin** voce di menu.
 
 ## <a name="summary"></a>Riepilogo
 
@@ -276,11 +276,11 @@ In questa esercitazione aggiunto un ruolo personalizzato e un utente appartenent
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[Web. config - elemento di autorizzazione](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
+[Web. config - elemento authorization](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
 [Identità di ASP.NET](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
-[Distribuire un'App di moduli Web ASP.NET in modo sicuro con appartenenza, OAuth e il Database SQL a un sito Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Distribuire un'App di moduli Web ASP.NET in modo sicuro con l'appartenenza, OAuth e il Database SQL a un sito Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Precedente](checkout-and-payment-with-paypal.md)
-[Successivo](url-routing.md)
+> [!div class="step-by-step"]
+> [Precedente](checkout-and-payment-with-paypal.md)
+> [Successivo](url-routing.md)

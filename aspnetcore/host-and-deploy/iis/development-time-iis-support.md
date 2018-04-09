@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -24,8 +24,7 @@ Questo articolo descrive [Visual Studio](https://www.visualstudio.com/vs/) suppo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio 2017 15.3 o versione successiva
-* ASP.NET e il carico di lavoro Sviluppo Web *o* il carico di lavoro Sviluppo multipiattaforma .NET Core
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>Abilitare IIS
 
@@ -45,7 +44,7 @@ Avviare il programma di installazione di Visual Studio. Selezionare il **fase di
 
 Creare un nuovo profilo di avvio per aggiungere il supporto IIS in fase di sviluppo. In **Esplora soluzioni** di Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **Proprietà**. Selezionare la scheda **Debug**. Selezionare **IIS** nell'elenco a discesa **Avvia**. Verificare che la funzionalità **Avvia browser** sia abilitata con l'URL corretto.
 
-![Finestra delle proprietà del progetto con la scheda Debug selezionata. Le impostazioni Profilo e Avvia sono impostate su IIS. La funzionalità Avvia browser è abilitata con l'indirizzo http://localhost/WebApplication2. Lo stesso indirizzo viene visualizzato anche nel campo URL dell'app nell'area Impostazioni server Web con l'opzione Abilita autenticazione anonima attivata.](development-time-iis-support/_static/project_properties.png)
+![Finestra delle proprietà del progetto con la scheda Debug selezionata. Le impostazioni Profilo e Avvia sono impostate su IIS. La funzionalità di browser di avvio è abilitata con l'indirizzo http://localhost/WebApplication2. Lo stesso indirizzo viene visualizzato anche nel campo URL dell'app nell'area Impostazioni server Web con l'opzione Abilita autenticazione anonima attivata.](development-time-iis-support/_static/project_properties.png)
 
 In alternativa, aggiungere manualmente un profilo di avvio per il [launchSettings.json](http://json.schemastore.org/launchsettings) file nell'app:
 

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
 title: 'Database di Entity Framework prima con ASP.NET MVC: modifica del Database | Documenti Microsoft'
 author: tfitzmac
-description: "Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri..."
+description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 1ffe753812e5eef817f03ab488a28ae5fcefd41e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63ee8768a43dbdac80922e3adbedd3378c10da73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>Database di Entity Framework prima con ASP.NET MVC: modifica del Database
 ====================
@@ -63,6 +63,6 @@ Le viste contengono ora la proprietà MiddleName.
 
 Nella sezione successiva, si aggiungerà codice per personalizzare la visualizzazione per la visualizzazione dei dettagli di un record di studenti.
 
->[!div class="step-by-step"]
-[Precedente](generating-views.md)
-[Successivo](customizing-a-view.md)
+> [!div class="step-by-step"]
+> [Precedente](generating-views.md)
+> [Successivo](customizing-a-view.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Servizi di autenticazione esterno con ASP.NET Web API (c#)
 ====================
@@ -119,7 +119,7 @@ Nelle sezioni seguenti, si apprenderà come abilitare ognuno dei servizi di aute
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Abilitazione dell'autenticazione di Facebook
 
-Utilizzano Facebook autenticazione è necessario creare un account sviluppatore di Facebook e il progetto richiederà un ID applicazione e una chiave privata da Facebook per il funzionamento. Per informazioni sulla creazione di un account sviluppatore di Facebook e ottenere l'ID dell'applicazione e una chiave privata, vedere [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Utilizzano Facebook autenticazione è necessario creare un account sviluppatore di Facebook e il progetto richiederà un ID applicazione e una chiave privata da Facebook per il funzionamento. Per informazioni sulla creazione di un account sviluppatore di Facebook e ottenere l'ID dell'applicazione e una chiave privata, vedere [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Una volta ottenuta l'ID dell'applicazione e una chiave privata, attenersi alla procedura seguente per abilitare l'autenticazione di Facebook per l'applicazione web:
 
@@ -180,7 +180,7 @@ Per abilitare l'autenticazione di Google per l'applicazione web, attenersi alla 
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Abilitazione dell'autenticazione di Microsoft
 
-L'autenticazione di Microsoft è necessario creare un account sviluppatore, e richiede un ID client e il segreto client per il funzionamento. Per informazioni sulla creazione di un account sviluppatore di Microsoft e ottenere l'ID client e il segreto client, vedere [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070).
+L'autenticazione di Microsoft è necessario creare un account sviluppatore, e richiede un ID client e il segreto client per il funzionamento. Per informazioni sulla creazione di un account sviluppatore di Microsoft e ottenere l'ID client e il segreto client, vedere [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070).
 
 Una volta ottenuta la chiave di consumer e un segreto del cliente, attenersi alla procedura seguente per abilitare l'autenticazione di Microsoft per l'applicazione web:
 
@@ -212,7 +212,7 @@ Una volta ottenuta la chiave di consumer e un segreto del cliente, attenersi all
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Abilitazione dell'autenticazione di Twitter
 
-L'autenticazione è necessario creare un account sviluppatore, e richiede una chiave utente e il segreto del cliente per il funzionamento di Twitter. Per informazioni sulla creazione di un account sviluppatore Twitter e ottenere il codice e il segreto del cliente, vedere [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+L'autenticazione è necessario creare un account sviluppatore, e richiede una chiave utente e il segreto del cliente per il funzionamento di Twitter. Per informazioni sulla creazione di un account sviluppatore di Twitter e ottenere il codice del cliente e il segreto del cliente, vedere [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Una volta ottenuta la chiave di consumer e un segreto del cliente, attenersi alla procedura seguente per abilitare l'autenticazione di Twitter per l'applicazione web:
 
@@ -260,19 +260,21 @@ Alcuni provider di autenticazione esterno non supportano il test dell'applicazio
 
 - Aggiungere un nome FQDN statico mapping nel file HOSTS:
 
-    1. Aprire un prompt dei comandi con privilegi elevati in Windows.
-    2. Digitare il comando seguente:
+  1. Aprire un prompt dei comandi con privilegi elevati in Windows.
+  2. Digitare il comando seguente:
 
-        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
-    3. Aggiungere una voce simile alla seguente al file HOSTS:
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
+  3. Aggiungere una voce simile alla seguente al file HOSTS:
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. Salvare e chiudere il file HOSTS.
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. Salvare e chiudere il file HOSTS.
+
 - Configurare il progetto di Visual Studio per usare il FQDN:
 
-    1. Quando il progetto è aperto in Visual Studio 2013, fare clic su di **progetto** menu, quindi selezionare le proprietà del progetto. Ad esempio, è possibile selezionare **WebApplication1 proprietà**.
-    2. Selezionare il **Web** scheda.
-    3. Immettere il nome FQDN per il **Url progetto**. Ad esempio, immettere <kbd>http://www.wingtiptoys.com</kbd> se che era il mapping del nome di dominio completo che è stato aggiunto al file HOSTS.
+  1. Quando il progetto è aperto in Visual Studio 2013, fare clic su di **progetto** menu, quindi selezionare le proprietà del progetto. Ad esempio, è possibile selezionare **WebApplication1 proprietà**.
+  2. Selezionare il **Web** scheda.
+  3. Immettere il nome FQDN per il <strong>Url progetto</strong>. Ad esempio, immettere <kbd> <http://www.wingtiptoys.com> </kbd> se che era il mapping del nome FQDN che è stato aggiunto al file HOSTS.
+
 - Configurare IIS Express per usare il FQDN per l'applicazione:
 
     1. Aprire un prompt dei comandi con privilegi elevati in Windows.
@@ -283,14 +285,14 @@ Alcuni provider di autenticazione esterno non supportano il test dell'applicazio
 
         <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
- Dove **WebApplication1** è il nome del progetto e **bindingInformation** contiene il numero di porta e il nome di dominio completo che si desidera utilizzare per il test.
+  Dove **WebApplication1** è il nome del progetto e **bindingInformation** contiene il numero di porta e il nome di dominio completo che si desidera utilizzare per il test.
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>Come ottenere le impostazioni dell'applicazione per l'autenticazione di Microsoft
 
 Il collegamento di un'applicazione a Windows Live per Microsoft Authentication è un processo semplice. Se un'applicazione a Windows Live non è già collegato, è possibile utilizzare la procedura seguente:
 
-1. Passare a [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) e immettere il nome dell'account Microsoft e la password, quando richiesto, quindi fare clic su **Accedi**:
+1. Passare a [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) e immettere il nome dell'account Microsoft e la password, quando richiesto, quindi fare clic su **Accedi**:
 
     [![](external-authentication-services/_static/image64.png "Fare clic per espandere l'immagine")](external-authentication-services/_static/image63.png)
 2. Immettere il nome e la lingua dell'applicazione quando viene richiesto e quindi fare clic su **accettare**:
@@ -303,7 +305,7 @@ Il collegamento di un'applicazione a Windows Live per Microsoft Authentication �
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Facoltativo: Disabilitare la registrazione locale
 
-La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il  *\_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante dovrebbe essere come nell'esempio di codice seguente:
+La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il * \_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante dovrebbe essere come nell'esempio di codice seguente:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi relativi a ASP.NET Core nel servizio App di Azure
 
 Di [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 In questo articolo vengono fornite istruzioni su come diagnosticare un ASP.NET Core problema di avvio di app utilizzando gli strumenti di diagnostica del servizio App di Azure. Per ulteriori suggerimenti sulla risoluzione dei problemi, vedere [Panoramica di diagnostica di Azure App Service](/azure/app-service/app-service-diagnostics) e [procedura: monitorare le App in Azure App Service](/azure/app-service/web-sites-monitor) nella documentazione di Azure.
 
@@ -105,9 +105,9 @@ Il log di stdout ASP.NET Core modulo spesso registra i messaggi di errore utile 
 1. Selezionare **salvare** per salvare il file.
 
 > [!WARNING]
-> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare.
+> Mancata possibilità di disabilitazione del log di stdout può causare un errore di applicazione o server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare. Utilizzare solo stdout la registrazione per la risoluzione dei problemi di avvio dell'app.
 >
-> Per la routine registrazione in un'applicazione ASP.NET di base, utilizzare una libreria di registrazione che limita dimensioni file di log e ruota i log. Per ulteriori informazioni, vedere [provider di log di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
+> Per generale registrare in un'applicazione ASP.NET Core dopo l'avvio, utilizzare una libreria di registrazione che limita dimensioni file di log e ruota i log. Per ulteriori informazioni, vedere [provider di log di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ## <a name="common-startup-errors"></a>Errori più comuni di avvio 
 

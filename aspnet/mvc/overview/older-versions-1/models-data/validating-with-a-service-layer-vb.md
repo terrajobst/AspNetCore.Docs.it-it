@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
 title: Convalida con un livello di servizio (VB) | Documenti Microsoft
 author: StephenWalther
-description: "Informazioni su come spostare la logica di convalida le azioni del controller e in un livello di servizio separato. In questa esercitazione, Stephen Walther illustra come è..."
+description: Informazioni su come spostare la logica di convalida le azioni del controller e in un livello di servizio separato. In questa esercitazione, Stephen Walther illustra come è...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5a8f1dd888c7fa6a3353b7b748a0ffa30b94149c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bb1191b663f863bf881def620efab4f2f03edc56
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-a-service-layer-vb"></a>Convalida con un livello di servizio (VB)
 ====================
@@ -39,7 +39,7 @@ Ad esempio, listato 1 contiene un repository semplice denominato il ProductRepos
 
 Il controller nel listato 2 utilizza il livello di repository in entrambe le proprietà Index () e il metodo di creazione di azioni. Si noti che il controller non contiene alcuna logica di database. Creazione di un livello di repository consente di mantenere una netta separazione delle problematiche. I controller sono responsabili della logica di controllo di flusso dell'applicazione e il repository è responsabile della logica di accesso ai dati.
 
-**Elenco di 2 - Controllers\ProductController.vb**
+**Listing 2 - Controllers\ProductController.vb**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample2.vb)]
 
@@ -51,13 +51,13 @@ Un livello di servizio è un ulteriore livello di un'applicazione MVC ASP.NET ch
 
 Ad esempio, il livello di servizio prodotto listato 3 ha un metodo CreateProduct(). Il metodo CreateProduct() chiama il metodo ValidateProduct() per convalidare un nuovo prodotto prima di passare il prodotto nel repository di prodotto.
 
-**Elenco di 3 - Models\ProductService.vb**
+**Listing 3 - Models\ProductService.vb**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample3.vb)]
 
 Il controller di prodotto è stato aggiornato nel listato 4 per utilizzare il livello di servizio anziché al livello del repository. Il livello di controller comunica con il livello di servizio. Il livello di servizio comunica con il livello di repository. Ogni livello è una responsabilità separata.
 
-**Elenco di 4 - Controllers\ProductController.vb**
+**Listing 4 - Controllers\ProductController.vb**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample4.vb)]
 
@@ -71,13 +71,13 @@ Si desidera isolare il livello di servizio di livello il controller quanto possi
 
 Nel listato 5, il livello di servizio è stato aggiornato in modo che non utilizzi più lo stato del modello. Utilizza invece qualsiasi classe che implementa l'interfaccia IValidationDictionary.
 
-**Elenco di 5 - Models\ProductService.vb (separato)**
+**Listing 5 - Models\ProductService.vb (decoupled)**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample5.vb)]
 
 L'interfaccia IValidationDictionary è definito nel listato 6. Questa semplice interfaccia dispone di un singolo metodo e una singola proprietà.
 
-**Elenco di 6 - Models\IValidationDictionary.cs**
+**Elenco 6 - Models\IValidationDictionary.cs**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample6.vb)]
 
@@ -89,7 +89,7 @@ La classe nel listato 7, la classe ModelStateWrapper, denominato implementa l'in
 
 Infine, il controller aggiornato nel listato 8 Usa il ModelStateWrapper quando si crea il livello di servizio nel relativo costruttore.
 
-**Elenco di 8 - Controllers\ProductController.vb**
+**Elenco 8 - Controllers\ProductController.vb**
 
 [!code-vb[Main](validating-with-a-service-layer-vb/samples/sample8.vb)]
 
@@ -99,6 +99,6 @@ Utilizzando il IValidationDictionary interfaccia e la classe ModelStateWrapper c
 
 L'obiettivo di questa esercitazione è stata per illustrare un approccio per eseguire la convalida in un'applicazione MVC ASP.NET. In questa esercitazione è stato descritto come spostare tutta la logica di convalida, i controller e in un livello di servizio separato. È stato inoltre descritto come isolare il livello di servizio dal livello del controller tramite la creazione di una classe ModelStateWrapper.
 
->[!div class="step-by-step"]
-[Precedente](validating-with-the-idataerrorinfo-interface-vb.md)
-[Successivo](validation-with-the-data-annotation-validators-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](validating-with-the-idataerrorinfo-interface-vb.md)
+> [Successivo](validation-with-the-data-annotation-validators-vb.md)

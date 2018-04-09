@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b25234f82c46437d853d1ab5b240f8a688995ccc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c7d8477d6d9d235749d88d0b657d60454298e53
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-vb"></a>Pagine master e ASP.NET AJAX (VB)
 ====================
@@ -107,9 +107,9 @@ Tornare al `ShowRandomProduct.aspx`. Dalla finestra di progettazione, trascinare
 La prima attività consiste nel visualizzare informazioni su un prodotto selezionato in modo casuale all'interno di UpdatePanel. Per iniziare, trascinare un controllo DetailsView in UpdatePanel. Impostare il controllo DetailsView `ID` proprietà `ProductInfo` e cancellare il `Height` e `Width` proprietà. Espandere tag smart di DetailsView e, dall'elenco a discesa Scegli origine dati, scegliere di associare il controllo DetailsView a un nuovo controllo SqlDataSource denominato `RandomProductDataSource`.
 
 
-[![Associare il controllo DetailsView a un nuovo controllo SqlDataSource](master-pages-and-asp-net-ajax-vb/_static/image8.png)](master-pages-and-asp-net-ajax-vb/_static/image7.png)
+[![Associare un nuovo controllo SqlDataSource controllo DetailsView.](master-pages-and-asp-net-ajax-vb/_static/image8.png)](master-pages-and-asp-net-ajax-vb/_static/image7.png)
 
-**Figura 03**: associare il controllo DetailsView a un nuovo controllo SqlDataSource ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image9.png))
+**Figura 03**: eseguire il binding di DetailsView a un nuovo controllo SqlDataSource ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image9.png))
 
 
 Configurare il controllo SqlDataSource per la connessione al database Northwind tramite il `NorthwindConnectionString` (che è stato creato nell'interazione con la pagina Master dall'esercitazione pagina contenuto [SKM2]). Quando l'istruzione select di configurazione scegliere di specificare un'istruzione SQL personalizzata e quindi immettere la query seguente:
@@ -122,7 +122,7 @@ Il `TOP 1` parola chiave nel `SELECT` clausola restituisce solo il primo record 
 
 [![Configurare SqlDataSource per restituire un singolo Record selezionato in modo casuale](master-pages-and-asp-net-ajax-vb/_static/image11.png)](master-pages-and-asp-net-ajax-vb/_static/image10.png)
 
-**Figura 04**: configurare SqlDataSource per restituire una singola, in modo casuale i Record selezionati ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image12.png))
+**Figura 04**: configurare SqlDataSource per restituire una singola, in modo casuale Record selezionato ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image12.png))
 
 
 Dopo aver completato la procedura guidata, Visual Studio crea un BoundField per le due colonne restituite dalla query precedente. Markup dichiarativo della pagina a questo punto dovrebbe essere simile al seguente:
@@ -133,7 +133,7 @@ Dopo aver completato la procedura guidata, Visual Studio crea un BoundField per 
 La figura 5 mostra il `ShowRandomProduct.aspx` pagina quando viene visualizzato tramite un browser. Fare clic sul pulsante Aggiorna del browser per ricaricare la pagina. verrà visualizzato il `ProductName` e `UnitPrice` i valori per un nuovo record selezionato in modo casuale.
 
 
-[![Viene visualizzato il nome di un prodotto casuale e prezzo](master-pages-and-asp-net-ajax-vb/_static/image14.png)](master-pages-and-asp-net-ajax-vb/_static/image13.png)
+[![Nome e il prezzo del prodotto casuale viene visualizzato](master-pages-and-asp-net-ajax-vb/_static/image14.png)](master-pages-and-asp-net-ajax-vb/_static/image13.png)
 
 **Figura 05**: nome e il prezzo del prodotto casuale A viene visualizzato ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image15.png))
 
@@ -167,7 +167,7 @@ Con questa modifica è completa, la pagina include l'ora in cui che è stato car
 **Figura 06**: in modo casuale selezionato prodotto viene visualizzato al caricamento della pagina ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image18.png))
 
 
-[![Ogni 15 secondi, viene visualizzato un nuovo in modo casuale selezionato prodotto](master-pages-and-asp-net-ajax-vb/_static/image20.png)](master-pages-and-asp-net-ajax-vb/_static/image19.png)
+[![Ogni 15 secondi viene visualizzato un nuovo in modo casuale selezionato prodotto](master-pages-and-asp-net-ajax-vb/_static/image20.png)](master-pages-and-asp-net-ajax-vb/_static/image19.png)
 
 **Figura 07**: ogni 15 secondi, viene visualizzato un nuovo in modo casuale selezionato prodotto ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image21.png))
 
@@ -184,9 +184,9 @@ Per aggiungere personalizzazioni ScriptManager correlate in base a una pagina pe
 
 Per visualizzare il controllo ScriptManagerProxy in azione, si aumentano l'UpdatePanel in `ShowRandomProduct.aspx` per includere un pulsante che utilizza uno script sul lato client per sospendere o riprendere il controllo Timer. Il controllo Timer ha tre metodi sul lato client che è possibile utilizzare per ottenere questa funzionalità desiderata:
 
-- `_startTimer()`-Avvia il controllo Timer
-- `_raiseTick()`-, in tal modo il controllo Timer "tick" postback e generare l'evento Tick nel server
-- `_stopTimer()`-Interrompe il controllo Timer
+- `_startTimer()` -Avvia il controllo Timer
+- `_raiseTick()` -Determina il controllo Timer "tick", in tal modo postback e generare l'evento Tick nel server
+- `_stopTimer()` -Interrompe il controllo Timer
 
 Creare un file JavaScript con una variabile denominata `timerEnabled` e una funzione denominata `ToggleTimer`. Il `timerEnabled` variabile indica se il controllo Timer è attualmente abilitato o disabilitato, il valore predefinito è true. Il `ToggleTimer` funzione accetta due parametri di input: un riferimento per il lato client e il pulsante di sospensione/ripresa `id` valore del controllo Timer. Questa funzione attiva o disattiva il valore di `timerEnabled`, ottiene un riferimento al controllo Timer, avvia o arresta il Timer (a seconda del valore di `timerEnabled`) e aggiorna il testo del pulsante visualizzato "Sospensione" o "Resume". Questa funzione verrà chiamata ogni volta che viene scelto il pulsante di sospensione/ripresa.
 
@@ -195,12 +195,12 @@ Iniziare creando una nuova cartella nel sito Web denominato `Scripts`. Successiv
 
 [![Aggiungere un nuovo File JavaScript alla cartella degli script](master-pages-and-asp-net-ajax-vb/_static/image23.png)](master-pages-and-asp-net-ajax-vb/_static/image22.png)
 
-**Figura 08**: aggiungere un nuovo File di JavaScript per il `Scripts` cartella ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image24.png))
+**Figura 08**: aggiungere un nuovo File di JavaScript e il `Scripts` cartella ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image24.png))
 
 
-[![È stato aggiunto un nuovo File di JavaScript per il sito Web](master-pages-and-asp-net-ajax-vb/_static/image26.png)](master-pages-and-asp-net-ajax-vb/_static/image25.png)
+[![Un nuovo JavaScript File è stato aggiunto al sito Web](master-pages-and-asp-net-ajax-vb/_static/image26.png)](master-pages-and-asp-net-ajax-vb/_static/image25.png)
 
-**Figura 09**: è stato aggiunto un nuovo File di JavaScript per il sito Web ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image27.png))
+**Figura 09**: un nuovo JavaScript File è stato aggiunto al sito Web ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image27.png))
 
 
 Successivamente, aggiungere il seguente script per il `TimerScript.js` file:
@@ -228,14 +228,14 @@ Il `ScriptReference` voce indica ScriptManagerProxy da includere un riferimento 
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample10.aspx)]
 
-Consente di visualizzare un pulsante con il testo "Sospensione". Ogni volta che viene selezionato, la funzione JavaScript `ToggleTimer` viene chiamato, passando un riferimento al pulsante e `id` valore del controllo Timer (`ProductTimer`). Si noti la sintassi per ottenere il `id` valore del controllo Timer. `<%=ProductTimer.ClientID%>`Genera il valore di `ProductTimer` del controllo Timer `ClientID` proprietà. Nella denominazione ID controllo nell'esercitazione di pagine di contenuto [SKM3] descritto le differenze tra il lato server `ID` valore e il lato client risulta `id` valore e come `ClientID` restituisce lato client `id`.
+Consente di visualizzare un pulsante con il testo "Sospensione". Ogni volta che viene selezionato, la funzione JavaScript `ToggleTimer` viene chiamato, passando un riferimento al pulsante e `id` valore del controllo Timer (`ProductTimer`). Si noti la sintassi per ottenere il `id` valore del controllo Timer. `<%=ProductTimer.ClientID%>` Genera il valore di `ProductTimer` del controllo Timer `ClientID` proprietà. Nella denominazione ID controllo nell'esercitazione di pagine di contenuto [SKM3] descritto le differenze tra il lato server `ID` valore e il lato client risulta `id` valore e come `ClientID` restituisce lato client `id`.
 
 Figura 11 Mostra questa pagina, alla prima visita tramite un browser. Il Timer è attualmente in esecuzione e aggiorna le informazioni del prodotto visualizzato ogni 15 secondi. Figura 12 illustra la schermata dopo aver scelto il pulsante Pausa. Facendo clic sul pulsante Sospendi, arresta il Timer e aggiorna il testo del pulsante per "Resume". Le informazioni sul prodotto aggiornare (e continuare ad aggiornare ogni 15 secondi) dopo che l'utente fa clic su Riprendi.
 
 
-[![Fare clic sul pulsante Sospendi per arrestare il Timer di controllo](master-pages-and-asp-net-ajax-vb/_static/image32.png)](master-pages-and-asp-net-ajax-vb/_static/image31.png)
+[![Fare clic sul pulsante Sospendi per arrestare il controllo Timer](master-pages-and-asp-net-ajax-vb/_static/image32.png)](master-pages-and-asp-net-ajax-vb/_static/image31.png)
 
-**Figura 11**: fare clic sul pulsante Sospendi per arrestare il Timer di controllo ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image33.png))
+**Figura 11**: fare clic sul pulsante Sospendi per arrestare il controllo Timer ([fare clic per visualizzare l'immagine ingrandita](master-pages-and-asp-net-ajax-vb/_static/image33.png))
 
 
 [![Fare clic sul pulsante di ripristino per riavviare il Timer](master-pages-and-asp-net-ajax-vb/_static/image35.png)](master-pages-and-asp-net-ajax-vb/_static/image34.png)
@@ -264,12 +264,12 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](interacting-with-the-content-page-from-the-master-page-vb.md)
-[Successivo](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](interacting-with-the-content-page-from-the-master-page-vb.md)
+> [Successivo](specifying-the-master-page-programmatically-vb.md)

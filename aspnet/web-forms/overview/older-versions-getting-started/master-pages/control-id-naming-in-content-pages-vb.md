@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9523fe5b241b6ff45927f142eb844a716822336b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 288afbb6851e23de4725f9e6351ae12ccecefaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>ID di controllo di denominazione nelle pagine di contenuto (VB)
 ====================
@@ -103,7 +103,7 @@ Figura 4 illustra questo comportamento. Per determinare il rendering `id` del `A
 
 ![Gli attributi di id di rendering sono valori basati sull'ID dei contenitori di denominazione](control-id-naming-in-content-pages-vb/_static/image6.png)
 
-**Figura 04**: il rendering `id` gli attributi sono basate sul `ID` i valori dei contenitori di denominazione
+**Figura 04**: il rendering `id` attributi sono basate sul `ID` i valori dei contenitori di denominazione
 
 
 > [!NOTE]
@@ -117,11 +117,11 @@ Poiché il master per la pagina stessa serve come un contenitore di denominazion
 
 Si noti che il `id` attributo include entrambi della pagina master `ID` valore (`ctl00`) e `ID` valore del controllo etichetta Web (`DateDisplay`).
 
-## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>Passaggio 3: A livello di codice che fa riferimento tramite i controlli Web`FindControl`
+## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>Passaggio 3: A livello di codice che fanno riferimento a controlli Web tramite`FindControl`
 
 Ogni controllo server ASP.NET include un `FindControl("controlID")` metodo che cerca i discendenti del controllo per un controllo denominato *controlID*. Se ad esempio un controllo viene trovato, viene restituito; Se non viene trovato alcun controllo corrispondente, `FindControl` restituisce `Nothing`.
 
-`FindControl`è utile negli scenari in cui è necessario un controllo di accesso ma non è un riferimento diretto a esso. Quando si lavora con dati Web controlli quali GridView, ad esempio, una volta definiti i controlli all'interno dei campi del controllo GridView nella sintassi dichiarativa, ma in fase di esecuzione viene creata un'istanza del controllo per ogni riga GridView. Di conseguenza, i controlli generati in fase di esecuzione esistono, ma non è un riferimento diretto disponibile dalla classe code-behind. Di conseguenza è necessario utilizzare `FindControl` a livello di codice con un controllo specifico all'interno dei campi del controllo GridView. (Per ulteriori informazioni sull'utilizzo `FindControl` per accedere ai controlli all'interno di modelli del controllo Web di dati, vedere [formattazione basato su dati personalizzati](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Questo stesso scenario si verifica quando l'aggiunta di controlli Web in modo dinamico a un Web Form, un argomento trattato in [la creazione di interfacce utente di immissione dati dinamico](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` è utile negli scenari in cui è necessario accedere a un controllo ma non è un riferimento diretto a esso. Quando si lavora con dati Web controlli quali GridView, ad esempio, una volta definiti i controlli all'interno dei campi del controllo GridView nella sintassi dichiarativa, ma in fase di esecuzione viene creata un'istanza del controllo per ogni riga GridView. Di conseguenza, i controlli generati in fase di esecuzione esistono, ma non è un riferimento diretto disponibile dalla classe code-behind. Di conseguenza è necessario utilizzare `FindControl` a livello di codice con un controllo specifico all'interno dei campi del controllo GridView. (Per ulteriori informazioni sull'utilizzo `FindControl` per accedere ai controlli all'interno di modelli del controllo Web di dati, vedere [formattazione basato su dati personalizzati](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Questo stesso scenario si verifica quando l'aggiunta di controlli Web in modo dinamico a un Web Form, un argomento trattato in [la creazione di interfacce utente di immissione dati dinamico](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Per illustrare l'utilizzo di `FindControl` metodo per la ricerca per i controlli all'interno di una pagina di contenuto, creare un gestore eventi per il `SubmitButton`del `Click` evento. Nel gestore eventi, aggiungere il codice seguente, che a livello di codice fa riferimento il `Age` casella di testo e `Results` etichetta utilizzando il `FindControl` (metodo) e quindi viene visualizzato un messaggio in `Results` in base all'input dell'utente.
 
@@ -138,7 +138,7 @@ Dopo aver immesso il codice, visitare il `IDIssues.aspx` pagina tramite un brows
 
 [![Viene generata un'eccezione NullReferenceException](control-id-naming-in-content-pages-vb/_static/image8.png)](control-id-naming-in-content-pages-vb/_static/image7.png)
 
-**Figura 05**: A `NullReferenceException` viene generato ([fare clic per visualizzare l'immagine ingrandita](control-id-naming-in-content-pages-vb/_static/image9.png))
+**Figura 05**: un `NullReferenceException` viene generato ([fare clic per visualizzare l'immagine ingrandita](control-id-naming-in-content-pages-vb/_static/image9.png))
 
 
 Se si imposta un punto di interruzione `SubmitButton_Click` si noterà che entrambe le chiamate al gestore dell'evento `FindControl` restituire `Nothing`. Il `NullReferenceException` viene generato quando si tenta di accedere il `Age` della casella di testo `Text` proprietà.
@@ -203,9 +203,9 @@ Aggiungere il codice seguente per il `PageExtensionMethods.vb` file per definire
 Con questo codice, ripristinare il `IDIssues.aspx` classe code-behind della pagina e impostare come commento corrente `FindControl` chiamate al metodo. Sostituirli con chiamate a `Page.FindControlRecursive("controlID")`. È interessante sui metodi di estensione che sono visualizzate direttamente all'interno di elenchi a discesa IntelliSense. Come illustrato nella figura 7, quando si digita `Page` e quindi fare clic su periodo, il `FindControlRecursive` metodo è incluso nell'elenco a discesa con gli altri IntelliSense `Control` metodi della classe.
 
 
-[![Nei IntelliSense elenchi a discesa sono inclusi i metodi di estensione](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
+[![I metodi di estensione sono inclusi in elenchi di discesa IntelliSense](control-id-naming-in-content-pages-vb/_static/image14.png)](control-id-naming-in-content-pages-vb/_static/image13.png)
 
-**Figura 07**: metodi di estensione sono inclusi in elenchi di discesa IntelliSense ([fare clic per visualizzare l'immagine ingrandita](control-id-naming-in-content-pages-vb/_static/image15.png))
+**Figura 07**: i metodi di estensione sono inclusi in elenchi di discesa IntelliSense ([fare clic per visualizzare l'immagine ingrandita](control-id-naming-in-content-pages-vb/_static/image15.png))
 
 
 Immettere il codice seguente nel `SubmitButton_Click` gestore dell'evento e quindi provare a visitare la pagina, immettere la tua età e fare clic sul pulsante "Invia". Come illustrato nella figura 6, l'output risultante verrà visualizzato il messaggio, "anni age!"
@@ -214,7 +214,7 @@ Immettere il codice seguente nel `SubmitButton_Click` gestore dell'evento e quin
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample13.vb)]
 
 > [!NOTE]
-> Poiché i metodi di estensione rappresentano una novità di c# 3.0 e Visual Basic 9, se si utilizza Visual Studio 2005 non è possibile utilizzare i metodi di estensione. In alternativa, è necessario implementare la `FindControlRecursive` metodo in una classe helper. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) è un esempio in post di blog il suo [Maser le pagine ASP.NET e `FindControl` ](http://www.west-wind.com/WebLog/posts/5127.aspx).
+> Poiché i metodi di estensione rappresentano una novità di c# 3.0 e Visual Basic 9, se si utilizza Visual Studio 2005 non è possibile utilizzare i metodi di estensione. In alternativa, è necessario implementare la `FindControlRecursive` metodo in una classe helper. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) è un esempio in suo post di blog [pagine Maser ASP.NET e `FindControl` ](http://www.west-wind.com/WebLog/posts/5127.aspx).
 
 
 ## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>Passaggio 4: Il corretto utilizzo`id`valore nello Script sul lato Client dell'attributo
@@ -256,21 +256,21 @@ Buona programmazione!
 
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
-- [Pagine Master ASP.NET e`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Creazione di interfacce utente di immissione dati dinamici](https://msdn.microsoft.com/library/aa479330.aspx)
-- [Estensione delle funzionalità di tipo di Base con i metodi di estensione](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
+- [Pagine Master ASP.NET e `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [Creazione di interfacce utente voce Dynamic Data](https://msdn.microsoft.com/library/aa479330.aspx)
+- [Estendere le funzionalità di tipo di Base con i metodi di estensione](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [Procedura: Fare riferimento a contenuto della pagina Master ASP.NET](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [Pagine master: Suggerimenti, consigli e trap](http://www.odetocode.com/articles/450.aspx)
-- [Utilizzo di Script sul lato Client](https://msdn.microsoft.com/library/aa479302.aspx)
+- [Utilizzo degli Script lato Client](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft fin dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 3.5 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott può essere raggiunto al [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Suchi Barnerjee. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Precedente](urls-in-master-pages-vb.md)
-[Successivo](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](urls-in-master-pages-vb.md)
+> [Successivo](interacting-with-the-master-page-from-the-content-page-vb.md)

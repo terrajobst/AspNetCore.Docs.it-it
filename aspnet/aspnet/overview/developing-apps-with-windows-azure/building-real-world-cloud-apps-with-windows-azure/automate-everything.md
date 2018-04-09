@@ -2,27 +2,27 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 title: Automatizzare tutti gli elementi (creazione di applicazioni Cloud del mondo reale con Azure) | Documenti Microsoft
 author: MikeWasson
-description: "Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile..."
+description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatizzare tutti gli elementi (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [E-book di Download](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni introduttive per l'e-book, vedere [primo capitolo](introduction.md).
 
@@ -128,11 +128,11 @@ La prima cosa lo script è creare l'app web tramite la chiamata di `New-AzureWeb
 
 ### <a name="create-the-storage-account"></a>Creare l'account di archiviazione
 
-Quindi lo script principale viene eseguito il *New AzureStorage.ps1* uno script, specificando "*&lt;websitename&gt;*archiviazione" per il nome di account di archiviazione, e la stessa posizione data center come l'app web.
+Quindi lo script principale viene eseguito il <em>New AzureStorage.ps1</em> uno script, specificando "<em>&lt;websitename&gt;</em>archiviazione" per il nome di account di archiviazione, e la stessa posizione data center come l'app web.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
-*Nuovo AzureStorage.ps1* chiamate di `New-AzureStorageAccount` cmdlet per creare l'account di archiviazione e restituisce l'account del nome e l'accesso ai valori di chiave. L'applicazione sono necessari questi valori per accedere ai BLOB e code nell'account di archiviazione.
+*Nuovo AzureStorage.ps1* chiama il `New-AzureStorageAccount` per creare l'account di archiviazione e restituisce l'account del nome e l'accesso ai valori delle chiavi. L'applicazione sono necessari questi valori per accedere ai BLOB e code nell'account di archiviazione.
 
 [!code-powershell[Main](automate-everything/samples/sample5.ps1?highlight=2)]
 
@@ -158,7 +158,7 @@ Script di creazione del database recupera l'indirizzo IP del computer di svilupp
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`è una funzione nello script che chiama il `ConvertTo-SecureString` cmdlet per crittografare la password e restituisce un `PSCredential` oggetto dello stesso tipo che il `Get-Credential` cmdlet restituisce.
+    `New-PSCredentialFromPlainText` è una funzione nello script che chiama la `ConvertTo-SecureString` cmdlet per crittografare la password e restituisce un `PSCredential` dell'oggetto, lo stesso tipo che il `Get-Credential` cmdlet restituisce.
 - Crea il database dell'applicazione e il database delle appartenenze utilizzando il `New-AzureSqlDatabase` cmdlet.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -256,14 +256,14 @@ Nel [capitolo successivo](source-control.md) verrà esaminare il codice sorgente
 ## <a name="resources"></a>Risorse
 
 - [Installare e configurare Windows PowerShell per Azure](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). Viene illustrato come installare i cmdlet PowerShell di Azure e come installare il certificato che è necessario nel computer in uso per la gestione di Azure dell'account. Questo è un ottimo punto di partenza poiché dispone anche di collegamenti a risorse per l'apprendimento di PowerShell.
-- [Script Center di Azure](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Portale WindowsAzure.com alle risorse per lo sviluppo di script per la gestione di servizi di Azure, con collegamenti alle informazioni esercitazioni introduttive, codice di origine e la documentazione di riferimento cmdlet e script di esempio
+- [Centro per Script Azure](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Portale WindowsAzure.com alle risorse per lo sviluppo di script per la gestione di servizi di Azure, con collegamenti alle informazioni esercitazioni introduttive, codice di origine e la documentazione di riferimento cmdlet e script di esempio
 - [Weekend Scripter: Introduzione a Azure e PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/06/22/weekend-scripter-getting-started-with-windows-azure-and-powershell.aspx). In un blog dedicato a Windows PowerShell, questo post fornisce un'ottima introduzione all'utilizzo di PowerShell per le funzioni di gestione di Azure.
 - [Installare e configurare l'interfaccia della riga di comando multipiattaforma Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Guida introduttiva di esercitazione per un framework di scripting Azure che funziona sul Mac e Linux, nonché Windows sistemi.
 - [Sezione strumenti da riga di comando dell'argomento scaricare Azure SDK e strumenti](https://azure.microsoft.com/downloads/). Pagina del portale per la documentazione e download correlati agli strumenti da riga di comando per Azure.
-- [Automazione di tutti gli elementi e le raccolte di gestione di Azure .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Scott Hanselman introduce l'API di gestione .NET per Azure.
-- [Utilizzo di script di Windows PowerShell per la pubblicazione in ambienti di Test e Dev](https://msdn.microsoft.com/library/azure/dn642480.aspx). Documentazione MSDN che spiega come usare script di Visual Studio genera automaticamente per i progetti web di pubblicazione.
+- [Automazione di tutti gli elementi con le librerie di gestione di Azure e .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Scott Hanselman introduce l'API di gestione .NET per Azure.
+- [Utilizza script di Windows PowerShell per pubblicare in ambienti di Test e Dev](https://msdn.microsoft.com/library/azure/dn642480.aspx). Documentazione MSDN che spiega come usare script di Visual Studio genera automaticamente per i progetti web di pubblicazione.
 - [PowerShell Tools per Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Estensione di Visual Studio che aggiunge il supporto lingua per Windows PowerShell in Visual Studio.
 
->[!div class="step-by-step"]
-[Precedente](introduction.md)
-[Successivo](source-control.md)
+> [!div class="step-by-step"]
+> [Precedente](introduction.md)
+> [Successivo](source-control.md)

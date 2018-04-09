@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 title: Configurazione di un sito Web che utilizza i servizi delle applicazioni (c#) | Documenti Microsoft
 author: rick-anderson
-description: "ASP.NET versione 2.0 è stato introdotto una serie di servizi delle applicazioni, che fanno parte di .NET Framework e vengono usati come blocco predefinito di un gruppo di servizi,..."
+description: ASP.NET versione 2.0 è stato introdotto una serie di servizi delle applicazioni, che fanno parte di .NET Framework e vengono usati come blocco predefinito di un gruppo di servizi,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3f2b8e395505c1d13b914399b8de2196f0ba230a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: da4ef328e3461e96fbb0cdca156ce1b9a076748f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Configurazione di un sito Web che utilizza i servizi delle applicazioni (c#)
 ====================
@@ -33,8 +33,8 @@ ASP.NET versione 2.0 è stata introdotta una serie di *servizi delle applicazion
 
 - **L'appartenenza** : un'API per la creazione e gestione degli account utente.
 - **Ruoli** : un'API per la classificazione degli utenti in gruppi.
-- **Profilo** : un'API per la memorizzazione di contenuto personalizzato, specifico dell'utente.
-- **Mappa del sito** : un'API per la definizione di una struttura logica del sito s sotto forma di una gerarchia, che può quindi essere visualizzata tramite i controlli di navigazione, ad esempio menu e controlli di navigazione.
+- **Profilo** : un'API per l'archiviazione dei contenuti personalizzato, specifico dell'utente.
+- **Mappa del sito** : un'API per la definizione di una struttura logica del sito s sotto forma di una gerarchia, che può quindi essere visualizzata tramite i controlli di navigazione, ad esempio menu e percorsi di navigazione.
 - **Personalizzazione** : un'API per la gestione delle preferenze di personalizzazione, generalmente utilizzate con [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Monitoraggio integrità** : un'API per il monitoraggio delle prestazioni, sicurezza, gli errori e altre metriche di integrità di sistema per un'applicazione web in esecuzione.
   
@@ -120,7 +120,7 @@ In "Selezionare il Server e Database" schermata verranno richieste informazioni 
 > Dopo aver immesso le credenziali e il server di database si potrebbe verificarsi un errore quando si espande l'elenco di riepilogo a discesa del database. Il `aspnet_regsql.exe` strumento query il `sysdatabases` tabella di sistema per recuperare un elenco di database nel server, ma alcune web che ospita i server di database di bloccare le società in modo che queste informazioni non sono disponibile pubblicamente. Se si verifica questo errore è possibile digitare il nome del database direttamente nell'elenco a discesa.
 
 
-[![Specificare lo strumento con le informazioni di connessione del Database s](configuring-a-website-that-uses-application-services-cs/_static/image5.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image4.jpg)
+[![Fornire lo strumento con le informazioni di connessione del Database s](configuring-a-website-that-uses-application-services-cs/_static/image5.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image4.jpg)
 
 **Figura 2**: fornire informazioni di connessione s strumento con il Database ([fare clic per visualizzare l'immagine ingrandita](configuring-a-website-that-uses-application-services-cs/_static/image6.jpg))
 
@@ -138,7 +138,7 @@ Per verificare che gli oggetti di database di servizi applicazione sono stati ag
 
 [![Verificare che gli oggetti di Database sono stati aggiunti al Database di produzione](configuring-a-website-that-uses-application-services-cs/_static/image11.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image10.jpg)
 
-**Figura 4**: verificare che gli oggetti di Database sono stati aggiunti al Database di produzione ([fare clic per visualizzare l'immagine ingrandita](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
+**Figura 4**: confermare che gli oggetti di Database sono stati aggiunti al Database di produzione ([fare clic per visualizzare l'immagine ingrandita](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
 
 
 È necessario utilizzare il `aspnet_regsql.exe` strumento quando si distribuisce l'applicazione web per la prima volta o per la prima volta, dopo avere avviato utilizzando i servizi delle applicazioni. Dopo aver installato questi oggetti di database nel database di produzione vengono acquisite t dovranno essere nuovamente aggiunto o modificato.
@@ -193,13 +193,13 @@ Buona programmazione!
 Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, vedere le risorse seguenti:
 
 - [*ASP.NET SQL Server Registration Tool (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
-- [*Creazione del Database di servizi di applicazione per SQL Server*](https://msdn.microsoft.com/library/x28wfk74.aspx)
+- [*Creazione del Database di servizi dell'applicazione per SQL Server*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*Creazione dello Schema di appartenenza in SQL Server*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md)
 - [*Esaminare l'appartenenza ASP.NET s, ruoli e profilo*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [*Proprio strumento Amministrazione sito Web in sequenza*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [*Esercitazioni di sicurezza del sito Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Panoramica dello strumento di amministrazione sito Web*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
+- [*In sequenza il propria strumento Amministrazione sito Web*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [*Esercitazioni di sicurezza sito Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
+- [*Panoramica dello strumento Amministrazione sito Web*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
->[!div class="step-by-step"]
-[Precedente](configuring-the-production-web-application-to-use-the-production-database-cs.md)
-[Successivo](strategies-for-database-development-and-deployment-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](configuring-the-production-web-application-to-use-the-production-database-cs.md)
+> [Successivo](strategies-for-database-development-and-deployment-cs.md)

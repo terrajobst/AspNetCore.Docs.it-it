@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 title: Animazione in base a una condizione (VB) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se è un'animazione..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se è un'animazione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc8600f33f9c27e1045f5083a126b9d2d1e90303
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d3a648ff8299c9720e9f34522f271595ab1b9bc9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animation-depending-on-a-condition-vb"></a>Animazione in base a una condizione (VB)
 ====================
@@ -45,7 +45,7 @@ Nella classe CSS associata per il pannello, definire un colore di sfondo nice e 
 
 [!code-css[Main](animation-depending-on-a-condition-vb/samples/sample3.css)]
 
-Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un `ID`, `TargetControlID` attributo e l'obbligatoria`runat="server":`
+Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `TargetControlID` attributo e l'obbligatoria `runat="server":`
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ Si noti che il segno di minore di (`<`) nei `ConditionScript` attributo deve ess
 
 Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo non ha l'esecuzione del secondo animazione, il primo ([fare clic per visualizzare l'immagine ingrandita](animation-depending-on-a-condition-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](executing-several-animations-after-each-other-vb.md)
-[Successivo](picking-one-animation-out-of-a-list-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](executing-several-animations-after-each-other-vb.md)
+> [Successivo](picking-one-animation-out-of-a-list-vb.md)

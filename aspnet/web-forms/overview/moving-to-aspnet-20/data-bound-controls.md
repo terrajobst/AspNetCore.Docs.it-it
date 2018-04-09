@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ebb0f9a7a2f071b7bf7aa3855920f1a5784a61f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-bound-controls"></a>Controlli con associazione a dati
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > La maggior parte delle applicazioni ASP.NET si basano su un certo grado di presentazione dei dati da un'origine dati back-end. Controlli con associazione a dati sono stati una parte fondamentale dell'interazione con i dati in applicazioni Web dinamiche. ASP.NET 2.0 vengono introdotti alcuni miglioramenti sostanziali in termini di controlli con associazione a dati, ad esempio, una nuova classe BaseDataBoundControl e sintassi dichiarativa.
 
@@ -152,7 +152,7 @@ Nella tabella seguente elenca i tipi di campo colonna diversa che possono essere
 | ImageField | Visualizza un'immagine per ogni elemento nel controllo GridView. |
 | TemplateField | Visualizza il contenuto definito dall'utente per ogni elemento nel controllo GridView in base a un modello specificato. Questo tipo di campo colonna consente di creare un campo colonna personalizzato. |
 
-Per definire una raccolta di campi di colonna in modo dichiarativo, aggiungere prima di apertura e chiusura  **&lt;colonne&gt;**  tag tra i tag di apertura e chiusura del controllo GridView. Successivamente, elencare i campi di colonna che si desidera includere tra l'apertura e chiusura  **&lt;colonne&gt;**  tag. Le colonne specificate vengono aggiunte alla raccolta di colonne nell'ordine elencato. Il **colonne** collection archivia tutti i campi nel controllo e consente di gestire a livello di codice i campi colonna nel controllo GridView, la colonna.
+Per definire una raccolta di campi di colonna in modo dichiarativo, aggiungere prima di apertura e chiusura **&lt;colonne&gt;** tag tra i tag di apertura e chiusura del controllo GridView. Successivamente, elencare i campi di colonna che si desidera includere tra l'apertura e chiusura **&lt;colonne&gt;** tag. Le colonne specificate vengono aggiunte alla raccolta di colonne nell'ordine elencato. Il **colonne** collection archivia tutti i campi nel controllo e consente di gestire a livello di codice i campi colonna nel controllo GridView, la colonna.
 
 In combinazione con i campi colonna generati automaticamente, è possono visualizzare i campi colonna dichiarati in modo esplicito. Quando vengono utilizzati i valori dei campi colonna dichiarati in modo esplicito vengono visualizzati per primi, aggiungendo i campi colonna generata automaticamente.
 
@@ -341,7 +341,7 @@ Ogni riga di dati nel controllo DetailsView viene creato mediante la dichiarazio
 
 Per impostazione predefinita, la proprietà AutoGenerateRows è impostata su **true**, che genera automaticamente un oggetto campo riga associato per ogni campo di tipo associabile nell'origine dati. Tipi associabili validi sono String, DateTime, Decimal, Guid e il set di tipi primitivi. Ogni campo viene quindi visualizzato in una riga come testo, nell'ordine in cui ogni campo viene visualizzato nell'origine dati.
 
-Generare automaticamente le righe fornisce un modo rapido e semplice per visualizzare tutti i campi nel record. Tuttavia, per l'utilizzo del controllo DetailsView controllo funzionalità avanzate che è necessario dichiarare in modo esplicito i campi riga da includere nel controllo DetailsView. Per dichiarare i campi riga, impostare innanzitutto la **AutoGenerateRows** proprietà **false**. Successivamente, aggiungere di apertura e chiusura  **&lt;campi&gt;**  tag tra i tag di apertura e chiusura del controllo DetailsView. Infine, elencare i campi riga che si desidera includere tra l'apertura e chiusura  **&lt;campi&gt;**  tag. I campi riga specificati vengono aggiunti alla raccolta di campi nell'ordine elencato. Il **campi** raccolta consente di gestire a livello di codice i campi riga nel controllo DetailsView.
+Generare automaticamente le righe fornisce un modo rapido e semplice per visualizzare tutti i campi nel record. Tuttavia, per l'utilizzo del controllo DetailsView controllo funzionalità avanzate che è necessario dichiarare in modo esplicito i campi riga da includere nel controllo DetailsView. Per dichiarare i campi riga, impostare innanzitutto la **AutoGenerateRows** proprietà **false**. Successivamente, aggiungere di apertura e chiusura **&lt;campi&gt;** tag tra i tag di apertura e chiusura del controllo DetailsView. Infine, elencare i campi riga che si desidera includere tra l'apertura e chiusura **&lt;campi&gt;** tag. I campi riga specificati vengono aggiunti alla raccolta di campi nell'ordine elencato. Il **campi** raccolta consente di gestire a livello di codice i campi riga nel controllo DetailsView.
 
 > [!NOTE]
 > I campi non vengono aggiunti alla raccolta di campi riga generati automaticamente.
@@ -434,11 +434,11 @@ Il controllo Menu può essere associato a qualsiasi origine dati gerarchici, ad 
 
 Si noti che un solo siteMapNode elemento radice, in questo caso, l'elemento iniziale. Diversi attributi possono essere configurati per ogni siteMapNode. Gli attributi utilizzati più di frequente sono:
 
-- **URL** specifica l'URL da visualizzare quando un utente fa clic sulla voce di menu. Se questo attributo non è presente, il nodo registrerà semplicemente quando fa clic su.
+- **URL** specifica l'URL da visualizzare quando un utente sceglie la voce di menu. Se questo attributo non è presente, il nodo registrerà semplicemente quando fa clic su.
 - **titolo** specifica il testo che viene visualizzato nella voce di menu.
 - **Descrizione** utilizzato come documentazione per il nodo. Visualizza anche come descrizione comando quando si passa il mouse sul nodo.
 - **siteMapFile** consente sitemaps annidati. Questo attributo deve puntare a un file sitemap ASP.NET ben formato.
-- **ruoli** consente l'aspetto di un nodo di essere controllato tramite la rimozione della protezione ASP.NET.
+- **ruoli** consente l'aspetto di un nodo per essere controllato tramite la rimozione della protezione ASP.NET.
 
 Si noti che anche se questi attributi sono tutti facoltativi, il comportamento del menu di scelta potrebbe non essere quelli previsti se non sono specificati. Ad esempio, se il *url* attributo viene specificato, ma il *descrizione* attributo non è, il nodo non saranno visibile e che sarà presente alcun modo per passare all'URL specificato.
 
@@ -701,16 +701,16 @@ Questo esercizio si presuppone che SQL Server in esecuzione in locale e che il d
 16. Fare clic su di **Modifica colonne** collegare e verificare che **generare automaticamente campi** è selezionata.
 17. Fare clic su **OK**.
 18. Con il controllo GridView selezionato, fare clic sul pulsante accanto al **DataKeyNames** proprietà nel riquadro proprietà.
-19. Selezionare **ProductID** dal **i campi dati disponibili** elenco e fare clic su di  **&gt;**  pulsante per aggiungerlo.
+19. Selezionare **ProductID** dal **i campi dati disponibili** elenco e fare clic su di **&gt;** pulsante per aggiungerlo.
 20. Fare clic su OK.
 21. Aggiungere un nuovo controllo SqlDataSource per la pagina.
 22. Modificare l'ID del controllo SqlDataSource per **dettagli**.
 23. Scegliere dal menu Attività SqlDataSource **Configura origine dati**.
 24. Scegliere **Northwind** dall'elenco a discesa scegliere **Avanti**.
-25. Selezionare **prodotti** dal **nome** elenco a discesa e controllare il  **\***  nella casella di controllo di **colonne** listbox.
+25. Selezionare <strong>prodotti</strong> dal <strong>nome</strong> elenco a discesa e controllare il <strong> \</ strong > * casella di controllo il <strong>colonne</strong> listbox.
 26. Fare clic su di **dove** pulsante.
 27. Selezionare **ProductID** dal **colonna** elenco a discesa.
-28. Selezionare  **=**  nell'elenco a discesa operatore.
+28. Selezionare **=** nell'elenco a discesa operatore.
 29. Selezionare **controllo** dal **origine** elenco a discesa.
 30. Selezionare **GridView1** dal **ID controllo** elenco a discesa.
 31. Fare clic su di **Aggiungi** pulsante per aggiungere la clausola WHERE.

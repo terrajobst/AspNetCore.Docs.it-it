@@ -1,5 +1,5 @@
 ---
-title: Applicazione HTTPS in un'applicazione ASP.NET di base
+title: Applicare HTTPS in una base di ASP.NET
 author: rick-anderson
 description: Viene illustrato come richiedere HTTPS/TLS in un Core di ASP.NET web app.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: dc320faf0048200412f131ea816f33f29ac023e1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2ebb975e1ea17698cee13ca00d3f5df4a5135e38
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="enforcing-https-in-an-aspnet-core-app"></a>Applicazione HTTPS in un'applicazione ASP.NET di base
+# <a name="enforce-https-in-an-aspnet-core"></a>Applicare HTTPS in una base di ASP.NET
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 

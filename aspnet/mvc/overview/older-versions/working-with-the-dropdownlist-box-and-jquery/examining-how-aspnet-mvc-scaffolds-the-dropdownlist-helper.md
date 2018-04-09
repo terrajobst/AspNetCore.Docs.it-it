@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
-title: "Esaminare la modalità ASP.NET MVC scaffolds del DropDownList Helper | Documenti Microsoft"
+title: Esaminare la modalità ASP.NET MVC scaffolds del DropDownList Helper | Documenti Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: abd9b5c09e942b966eb3eaaebe1b315c30b8e0c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 09d2d7a0df5e8ffa14160b7d3c16b1e9da905fa1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Esaminare la modalità ASP.NET MVC scaffolds del DropDownList Helper
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 In **Esplora**, fare doppio clic su di *controller* cartella e quindi selezionare **Aggiungi Controller**. Denominare il controller **StoreManagerController**. Impostare le opzioni per il **Aggiungi Controller** finestra di dialogo come illustrato nell'immagine seguente.
 
@@ -74,9 +74,9 @@ Il `Create` metodo aggiunge due [SelectList](https://msdn.microsoft.com/library/
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *elementi*: un [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di generi restituito dal `db.Genres`.
+1. *gli elementi*: un [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) contenenti gli elementi nell'elenco. Nell'esempio precedente, l'elenco di generi restituito dal `db.Genres`.
 2. *dataValueField*: il nome della proprietà di **IEnumerable** elenco che contiene il valore della chiave. Nell'esempio precedente, `GenreId` e `ArtistId`.
-3. *dataTextField*: il nome della proprietà di **IEnumerable** elenco che contiene le informazioni da visualizzare. In entrambi artisti e la tabella genre il `name` campo viene usato.
+3. *dataTextField*: il nome della proprietà di **IEnumerable** elenco contenente le informazioni da visualizzare. In entrambi artisti e la tabella genre il `name` campo viene usato.
 
 Aprire il *Views\StoreManager\Create.cshtml* file ed esaminare il `Html.DropDownList` markup di supporto per il campo genre.
 
@@ -206,6 +206,6 @@ Alcuni sviluppatori preferiscono l'approccio ViewModel. Altri si consideri il co
 
 In questa sezione aver acquisito tre approcci per l'utilizzo di **DropDownList** con i dati di categoria. Nella sezione successiva, vi mostreremo come aggiungere una nuova categoria.
 
->[!div class="step-by-step"]
-[Precedente](using-the-dropdownlist-helper-with-aspnet-mvc.md)
-[Successivo](adding-a-new-category-to-the-dropdownlist-using-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Precedente](using-the-dropdownlist-helper-with-aspnet-mvc.md)
+> [Successivo](adding-a-new-category-to-the-dropdownlist-using-jquery-ui.md)

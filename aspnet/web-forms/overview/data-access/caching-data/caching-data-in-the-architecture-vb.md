@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 title: La memorizzazione nella cache i dati dell'architettura della finestra (VB) | Documenti Microsoft
 author: rick-anderson
-description: "Nell'esercitazione precedente è stato descritto come applicare la memorizzazione nella cache a livello di presentazione. In questa esercitazione è imparare a sfruttare il nostro architectu a più livelli..."
+description: Nell'esercitazione precedente è stato descritto come applicare la memorizzazione nella cache a livello di presentazione. In questa esercitazione è imparare a sfruttare il nostro architectu a più livelli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 08f83c129d589859723249becb818386bfff19bf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>Memorizzazione nella cache i dati dell'architettura della finestra (VB)
 ====================
@@ -50,7 +50,7 @@ Per altre classi separate correttamente CL dalle classi DAL e BLL, s consentono 
 
 ![Aggiungere una nuova cartella denominata CL e una classe denominata ProductsCL.vb](caching-data-in-the-architecture-vb/_static/image2.png)
 
-**Figura 2**: aggiungere una nuova cartella denominata `CL` e una classe denominata`ProductsCL.vb`
+**Figura 2**: aggiungere una nuova cartella denominata `CL` e una classe denominata `ProductsCL.vb`
 
 
 Il `ProductsCL` classe deve includere lo stesso set di metodi di accesso e modifica di dati come presente nella relativa classe di livello di logica di Business corrispondente (`ProductsBLL`). Anziché creare tutti questi metodi, s consentono solo compilazione qui un paio di acquisire familiarità con i modelli utilizzati da CL. In particolare, verrà aggiunto il `GetProducts()` e `GetProductsByCategoryID(categoryID)` metodi nel passaggio 3 e un `UpdateProduct` overload nel passaggio 4. È possibile aggiungere altri `ProductsCL` metodi e `CategoriesCL`, `EmployeesCL`, e `SuppliersCL` classi in base alle esigenze specifiche.
@@ -62,7 +62,7 @@ ObjectDataSource la memorizzazione nella cache sono stati illustrati nell'eserci
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-Il [ `Cache` classe](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` metodo](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) ha un numero di overload. `Cache("key") = value`e `Cache.Insert(key, value)` sono sinonimi ed entrambi aggiungere un elemento alla cache utilizzando la chiave specificata senza una scadenza definita. In genere, è necessario specificare una scadenza quando si aggiunge un elemento alla cache, come una dipendenza, una scadenza basati sull'ora o entrambi. Utilizzare uno degli altri `Insert` overload del metodo s per fornire informazioni dipendenza - o basate sul tempo di scadenza.
+Il [ `Cache` classe](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` metodo](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) ha un numero di overload. `Cache("key") = value` e `Cache.Insert(key, value)` sono sinonimi ed entrambi aggiungere un elemento alla cache utilizzando la chiave specificata senza una scadenza definita. In genere, è necessario specificare una scadenza quando si aggiunge un elemento alla cache, come una dipendenza, una scadenza basati sull'ora o entrambi. Utilizzare uno degli altri `Insert` overload del metodo s per fornire informazioni dipendenza - o basate sul tempo di scadenza.
 
 Metodi s necessario per verificare se i dati richiesti nella cache e, in tal caso, il livello di memorizzazione nella cache restituirlo da qui. Se i dati richiesti non sono presente nella cache, deve essere richiamato il metodo BLL appropriato. Il valore restituito deve essere memorizzato nella cache e quindi restituito, come illustrato nel seguente diagramma di sequenza.
 
@@ -113,7 +113,7 @@ Il `GetCacheItem(key)` e `AddCacheItem(key, value)` metodi di interfaccia con la
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample6.vb)]
 
-`GetCacheItem(key)`non utilizzare *chiave* valore come specificato, ma le chiamate di `GetCacheKey(key)` metodo, che restituisce il *chiave* preceduto da ProductsCache-. Il `MasterCacheKeyArray`, che contiene la stringa ProductsCache, viene utilizzato anche dal `AddCacheItem(key, value)` (metodo), come si vedrà solo temporaneamente.
+`GetCacheItem(key)` non utilizza *chiave* valore come specificato, ma che invece chiamate di `GetCacheKey(key)` metodo, che restituisce il *chiave* anteposta una n ProductsCache-. Il `MasterCacheKeyArray`, che contiene la stringa ProductsCache, viene utilizzato anche dal `AddCacheItem(key, value)` (metodo), come si vedrà solo temporaneamente.
 
 Da una classe code-behind ASP.NET pagina s, la cache dei dati è possibile accedere tramite il `Page` classe s [ `Cache` proprietà](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)e consente una sintassi simile `Cache("key") = value`, come illustrato nel passaggio 2. Da una classe all'interno dell'architettura, la cache dei dati è possibile accedere utilizzando `HttpRuntime.Cache` o `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)del post di blog [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) note il vantaggio lieve miglioramento delle prestazioni di `HttpRuntime` anziché `HttpContext.Current`; di conseguenza, `ProductsCL` utilizza `HttpRuntime`.
 
@@ -126,7 +126,7 @@ Se l'elemento non viene trovato nella cache, il `ProductsCL` metodi della classe
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`Specifica la durata basati sul tempo di 60 secondi in futuro mentre [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) non indica che sono s alcuna scadenza. Durante questo `Insert` overload del metodo dispone di parametri di input per entrambi un assoluto e scorrevoli scadenza, è possibile specificare solo uno dei due. Se si tenta di specificare un tempo assoluto e un intervallo di tempo, il `Insert` metodo genererà un' `ArgumentException` eccezione.
+`DateTime.Now.AddSeconds(CacheDuration)` Specifica la scadenza basati sull'ora 60 secondi in futuro mentre [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) non indica che in questo caso s alcuna scadenza. Durante questo `Insert` overload del metodo dispone di parametri di input per entrambi un assoluto e scorrevoli scadenza, è possibile specificare solo uno dei due. Se si tenta di specificare un tempo assoluto e un intervallo di tempo, il `Insert` metodo genererà un' `ArgumentException` eccezione.
 
 > [!NOTE]
 > Questa implementazione del `AddCacheItem(key, value)` metodo attualmente presenta alcuni difetti. Viene affrontare e risolvere questi problemi nel passaggio 4.
@@ -150,7 +150,7 @@ Aggiornamento s consentono di `AddCacheItem(key, value)` metodo in modo che ogni
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`è una matrice di stringhe che contiene un singolo valore, ProductsCache. Innanzitutto, un elemento della cache viene aggiunto alla cache e assegnato la data e ora correnti. Se l'elemento della cache esiste già, viene aggiornata. Successivamente, viene creata una dipendenza della cache. Il [ `CacheDependency` classe](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) costruttore s è un numero di overload, ma quella utilizzata in questa pagina prevede due `String` matrice di input. Il primo criterio specifica il set di file da utilizzare come dipendenze. Poiché non abbiamo da usare eventuali dipendenze basate su file, il valore t `Nothing` viene utilizzato per il primo parametro di input. Il secondo parametro di input specifica il set di chiavi della cache da utilizzare come dipendenze. In questo caso specifichiamo la dipendenza, `MasterCacheKeyArray`. Il `CacheDependency` viene quindi passato il `Insert` metodo.
+`MasterCacheKeyArray` è una matrice di stringhe che contiene un singolo valore, ProductsCache. Innanzitutto, un elemento della cache viene aggiunto alla cache e assegnato la data e ora correnti. Se l'elemento della cache esiste già, viene aggiornata. Successivamente, viene creata una dipendenza della cache. Il [ `CacheDependency` classe](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) costruttore s è un numero di overload, ma quella utilizzata in questa pagina prevede due `String` matrice di input. Il primo criterio specifica il set di file da utilizzare come dipendenze. Poiché non abbiamo da usare eventuali dipendenze basate su file, il valore t `Nothing` viene utilizzato per il primo parametro di input. Il secondo parametro di input specifica il set di chiavi della cache da utilizzare come dipendenze. In questo caso specifichiamo la dipendenza, `MasterCacheKeyArray`. Il `CacheDependency` viene quindi passato il `Insert` metodo.
 
 Con questa modifica `AddCacheItem(key, value)`, invaliding la cache è semplice come rimuovendo la dipendenza.
 
@@ -162,17 +162,17 @@ Con questa modifica `AddCacheItem(key, value)`, invaliding la cache è semplice 
 Metodi e le classi di memorizzazione nella cache di livello s utilizzabile per funzionare con i dati utilizzando le tecniche è ve esaminate in queste esercitazioni. Per illustrare l'utilizzo dei dati memorizzati nella cache, salvare le modifiche per il `ProductsCL` classe e quindi aprire il `FromTheArchitecture.aspx` nella pagina di `Caching` cartella e aggiungere un controllo GridView. Da GridView s smart tag, creare un nuovo oggetto ObjectDataSource. Nel primo passaggio s guidata dovrebbe essere il `ProductsCL` classe come una delle opzioni nell'elenco a discesa.
 
 
-[![La classe ProductsCL è incluso nell'elenco di riepilogo a discesa oggetto Business](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
+[![La classe ProductsCL è incluso nell'elenco a discesa oggetto Business](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
 
-**Figura 4**: il `ProductsCL` classe è inclusa nell'elenco di riepilogo a discesa oggetto Business ([fare clic per visualizzare l'immagine ingrandita](caching-data-in-the-architecture-vb/_static/image6.png))
+**Figura 4**: il `ProductsCL` classe è inclusa nell'elenco a discesa oggetto Business ([fare clic per visualizzare l'immagine ingrandita](caching-data-in-the-architecture-vb/_static/image6.png))
 
 
 Dopo aver selezionato `ProductsCL`, fare clic su Avanti. L'elenco a discesa nella scheda Seleziona ha due elementi - `GetProducts()` e `GetProductsByCategoryID(categoryID)` e la scheda aggiornamento è l'unico `UpdateProduct` rapporto di overload. Scegliere il `GetProducts()` metodo dalla scheda Seleziona e `UpdateProducts` metodo di aggiornamento e fare clic su Fine.
 
 
-[![Sono elencati i metodi della classe ProductsCL s negli elenchi di riepilogo a discesa](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
+[![Sono racchiusi l'elenco a discesa sono elencati i metodi della classe ProductsCL s](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
 
-**Figura 5**: il `ProductsCL` sono elencati i metodi della classe s negli elenchi di riepilogo a discesa ([fare clic per visualizzare l'immagine ingrandita](caching-data-in-the-architecture-vb/_static/image9.png))
+**Figura 5**: il `ProductsCL` sono racchiusi l'elenco a discesa sono elencati i metodi della classe s ([fare clic per visualizzare l'immagine ingrandita](caching-data-in-the-architecture-vb/_static/image9.png))
 
 
 Dopo aver completato la procedura guidata, Visual Studio verrà impostato il s ObjectDataSource `OldValuesParameterFormatString` proprietà `original_{0}` e aggiungere i campi appropriati a GridView. Modifica il `OldValuesParameterFormatString` proprietà sul valore predefinito, `{0}`e configurare il controllo GridView per supportare il paging, l'ordinamento e la modifica. Poiché il `UploadProducts` overload utilizzato da CL accetta solo il nome del prodotto modificato s e il prezzo, limitare il GridView in modo che solo questi campi sono modificabili.
@@ -198,12 +198,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](caching-data-with-the-objectdatasource-vb.md)
-[Successivo](caching-data-at-application-startup-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](caching-data-with-the-objectdatasource-vb.md)
+> [Successivo](caching-data-at-application-startup-vb.md)

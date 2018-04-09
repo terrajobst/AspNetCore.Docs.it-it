@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Introduzione all'uso di un Database in ASP.NET Web Pages siti (Razor)
 ====================
@@ -361,7 +361,7 @@ In questa sezione viene illustrato come consentire agli utenti di eliminare un p
 6. Fare clic su di **eliminare** collegamento per uno dei prodotti. Il *DeleteProduct.cshtml* viene visualizzata la pagina per confermare che si desidera eliminare il record.
 7. Fare clic su di **eliminare** pulsante. Viene eliminato il record di prodotto e la pagina viene aggiornata con un elenco di aggiornamenti del prodotto.
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>Connessione a un Database

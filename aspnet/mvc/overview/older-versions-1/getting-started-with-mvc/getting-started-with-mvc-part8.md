@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a0b64ce00fc5ee6d49990f1d4d93a154c467bf5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Aggiunta di una colonna al modello
 ====================
@@ -43,7 +43,7 @@ Verrà avviata il "aggiornamento guidato". Fare clic sulla scheda di aggiornamen
 
 Dopo aver fatto clic su Fine, è possibile visualizzare che la nuova colonna di classificazione è stato aggiunto all'entità nel modello in esame film.
 
-[![Entità di film](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![Entità film](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
 È stato aggiunto a una colonna nel modello di database, ma le visualizzazioni non sa su di esso.
 
@@ -77,11 +77,11 @@ Dopo aver fatto clic su Crea, è inviata alla pagina di indice in cui si nuovi f
 
 In questa esercitazione di base ottenuto è iniziato le controller, associarli a viste e al passaggio dati hardcoded. Quindi è creato e progettato un Database e inserire alcuni dati in. Abbiamo recuperati i dati dal database e viene visualizzato in una tabella HTML. Quindi è stato aggiunto un modulo di creazione per consentire all'utente di aggiungere dati al database stessi da all'interno dell'applicazione Web. È l'aggiunta di convalida, quindi effettuata la convalida di utilizzare JavaScript sul lato client. Infine, è modificato il database per includere una nuova colonna di dati, quindi aggiornare le due pagine per creare e visualizzare questi nuovi dati.
 
-Si consiglia per continuare con l'esercitazione di livello intermedio ora "[negozio MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" nonché numerosi video e risorse in [https://asp.net/mvc](https://asp.net/mvc) per ulteriori informazioni su ASP.NET MVC.
+È possibile ora invita gli utenti per continuare con l'esercitazione di livello intermedio "[negozio MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)", nonché numerosi video e risorse [ https://asp.net/mvc ](https://asp.net/mvc) per ulteriori informazioni su ASP.NET MVC!
 
 Buona lettura.
 
-- Scott Hanselman - [http://hanselman.com](http://hanselman.com) e [ @shanselman ](http://twitter.com/shanselman) su Twitter.
+- Scott Hanselman - [ http://hanselman.com ](http://hanselman.com) e [ @shanselman ](http://twitter.com/shanselman) su Twitter.
 
->[!div class="step-by-step"]
-[Precedente](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Precedente](getting-started-with-mvc-part7.md)

@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
 title: 'Lab pratico: Le applicazioni Web in tempo reale con SignalR | Documenti Microsoft'
 author: rick-anderson
-description: "Applicazioni Web in tempo reale offrono la possibilità di effettuare il push del contenuto ai client connessi non appena si verifica in tempo reale sul lato server. Per gli sviluppatori ASP.NET, ASP..."
+description: Applicazioni Web in tempo reale offrono la possibilità di effettuare il push del contenuto ai client connessi non appena si verifica in tempo reale sul lato server. Per gli sviluppatori ASP.NET, ASP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
@@ -12,29 +12,29 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a2bc120ded18ad2302fd6c5cde65a5323e86ca8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Lab pratico: Le applicazioni Web in tempo reale con SignalR
 ====================
-da [categorie Web Team](https://twitter.com/webcamps)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
 [Download Web categorie Kit di formazione](http://aka.ms/webcamps-training-kit)
 
 > Applicazioni Web in tempo reale offrono la possibilità di effettuare il push del contenuto ai client connessi non appena si verifica in tempo reale sul lato server. Per gli sviluppatori ASP.NET, **ASP.NET SignalR** è una raccolta per aggiungere funzionalità web in tempo reale alle applicazioni. Consente di usufruire dei trasporti diversi, il trasporto disponibile meglio assegnato il client e più disponibile il trasporto del server di selezione automatica. Consente di usufruire del **WebSocket**, un'API di HTML5 che consente la comunicazione bidirezionale tra il browser e server.
 > 
-> **SignalR** fornisce inoltre un'API semplice di alto livello per l'esecuzione di server per client RPC (chiamata di funzioni JavaScript nei browser dei client dal codice .NET sul lato server) nell'applicazione ASP.NET, nonché l'aggiunta di utili hook per la gestione connessione, ad esempio connettere/disconnettere gli eventi, le connessioni di raggruppamento e autorizzazione.
+> **SignalR** fornisce inoltre un'API semplice di alto livello per l'esecuzione di server per client RPC (chiamata di funzioni JavaScript nei browser dei client dal codice .NET sul lato server) in un'applicazione ASP.NET, nonché l'aggiunta utili hook per la gestione connessione, ad esempio connettere/disconnettere gli eventi, le connessioni di raggruppamento e autorizzazione.
 > 
-> **SignalR** è un'astrazione su alcuni dei trasporti che sono necessari per svolgere il lavoro in tempo reale tra client e server. Oggetto **SignalR** connessione viene avviato come HTTP e quindi viene promosso a un **WebSocket** connessione, se disponibile. **WebSocket** è il trasporto ideale per **SignalR**, in quanto rende l'utilizzo più efficiente della memoria del server, ha la latenza più bassa e le funzionalità più sottostante (ad esempio la comunicazione full duplex tra client e Server), ma ha anche i requisiti più rigidi: **WebSocket** richiede che il server utilizzino **Windows Server 2012** o **Windows 8**, insieme a **.NET framework 4.5**. Se non vengono soddisfatti questi requisiti, **SignalR** tenterà di utilizzare altri trasporti per rendere le connessioni (ad esempio *Ajax polling prolungato*).
+> **SignalR** è un'astrazione su alcuni dei trasporti che sono necessari per svolgere il lavoro in tempo reale tra client e server. Oggetto **SignalR** connessione viene avviato come HTTP e quindi viene promosso a un **WebSocket** connessione, se disponibile. **WebSocket** è il trasporto ideale per **SignalR**, dal momento che semplifica l'utilizzo più efficiente della memoria del server, la latenza più bassa, che ha le funzionalità più sottostante (ad esempio la comunicazione full duplex tra client e Server), ma include anche i requisiti più rigidi: **WebSocket** richiede che il server utilizzino **Windows Server 2012** oppure **Windows 8**, insieme a **.NET framework 4.5**. Se non vengono soddisfatti questi requisiti, **SignalR** tenterà di utilizzare altri trasporti per rendere le connessioni (ad esempio *Ajax polling prolungato*).
 > 
 > Il **SignalR** API contiene due modelli per la comunicazione tra client e server: **connessioni permanenti** e **hub**. Oggetto **connessione** rappresenta un endpoint di tipo semplice per l'invio singolo destinatario, raggruppati o trasmissione di messaggi. Oggetto **Hub** è una pipeline più alto livello basata sull'API di connessione che consente il client e server chiamare i metodi direttamente tra loro.
 > 
 > ![Architettura di SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -117,7 +117,7 @@ In questa attività verrà passare attraverso l'applicazione e verificare come v
 
     ![Registrare collegamento](real-time-web-applications-with-signalr/_static/image3.png "collegamento registra")
 
-    *Collegamento di registro*
+    *Registrare collegamento*
 4. Nel **registrare** pagina, immettere un **nome utente** e **Password**, quindi fare clic su **registrare**.
 
     ![Registrazione di un utente](real-time-web-applications-with-signalr/_static/image4.png "registrazione di un utente")
@@ -126,19 +126,19 @@ In questa attività verrà passare attraverso l'applicazione e verificare come v
 5. L'applicazione Registra nuovo account e l'utente è autenticato e reindirizzato alla home page che mostra la prima domanda quiz.
 6. Aprire il **statistiche** pagina in una nuova finestra e inserire il **Home** pagina e **statistiche** pagina side-by-side.
 
-    ![Windows side-by-side](real-time-web-applications-with-signalr/_static/image5.png "lato da windows lato")
+    ![Windows side-by-side](real-time-web-applications-with-signalr/_static/image5.png "lato da windows side")
 
     *Windows side-by-side*
 7. Nel **Home** pagina, rispondere alla domanda facendo clic su una delle opzioni.
 
-    ![Per rispondere a una domanda](real-time-web-applications-with-signalr/_static/image6.png "rispondere")
+    ![Rispondendo a una domanda](real-time-web-applications-with-signalr/_static/image6.png "rispondere")
 
-    *Per rispondere a una domanda*
+    *Rispondendo a una domanda*
 8. Dopo aver fatto clic su uno dei pulsanti, la risposta dovrebbe essere visualizzato.
 
     ![Risposta corretta](real-time-web-applications-with-signalr/_static/image7.png "risposta corretta")
 
-    *Domanda ha risposto correttamente*
+    *Domanda risposta correttamente*
 9. Si noti che le informazioni fornite nella pagina delle statistiche sono obsolete. Aggiornare la pagina per visualizzare i risultati aggiornati.
 
     ![Pagina statistiche](real-time-web-applications-with-signalr/_static/image8.png "pagina statistiche")
@@ -156,19 +156,19 @@ In questa attività verrà aggiunta SignalR alla soluzione e inviare gli aggiorn
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample1.ps1)]
 
-    ![Installazione del pacchetto SignalR](real-time-web-applications-with-signalr/_static/image9.png "SignalR installazione del pacchetto")
+    ![Installazione del pacchetto SignalR](real-time-web-applications-with-signalr/_static/image9.png "installazione del pacchetto SignalR")
 
-    *Installazione del pacchetto di SignalR*
+    *Installazione del pacchetto SignalR*
 
-    > [!NOTE]
-    > Quando si installa **SignalR** versione di pacchetti di NuGet 2.0.2 da una nuova applicazione MVC 5, è necessario aggiornare manualmente **OWIN** dei pacchetti alla versione 2.0.1 (o versione successiva) prima di installare SignalR. A tale scopo, è possibile eseguire lo script seguente nel **Package Manager Console**:
-    > 
-    > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
-    > 
-    > In una versione futura di SignalR, dipendenze OWIN verranno aggiornate automaticamente.
+   > [!NOTE]
+   > Quando si installa **SignalR** versione di pacchetti di NuGet 2.0.2 da una nuova applicazione MVC 5, è necessario aggiornare manualmente **OWIN** dei pacchetti alla versione 2.0.1 (o versione successiva) prima di installare SignalR. A tale scopo, è possibile eseguire lo script seguente nel **Package Manager Console**:
+   > 
+   > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
+   > 
+   > In una versione futura di SignalR, dipendenze OWIN verranno aggiornate automaticamente.
 3. In **Esplora**, espandere il **script** cartella e notare che SignalR *js* file sono stati aggiunti alla soluzione.
 
-    ![Fa riferimento a SignalR JavaScript](real-time-web-applications-with-signalr/_static/image10.png "SignalR JavaScript fa riferimento a")
+    ![Fa riferimento a SignalR JavaScript](real-time-web-applications-with-signalr/_static/image10.png "fa riferimento a SignalR JavaScript")
 
     *Riferimenti di SignalR JavaScript*
 4. In **Esplora**, fare doppio clic su di **GeekQuiz** progetto, selezionare **Aggiungi** | **nuova cartella**e denominarla  **Gli hub**.
@@ -179,9 +179,9 @@ In questa attività verrà aggiunta SignalR alla soluzione e inviare gli aggiorn
     *Aggiungi nuovo elemento*
 6. Nel **Aggiungi nuovo elemento** la finestra di dialogo, seleziona il **Visual c# | Web | SignalR** nodo nel riquadro a sinistra, seleziona **classe Hub SignalR (v2)** dal riquadro centrale, denominare il file **StatisticsHub.cs** e fare clic su **Aggiungi**.
 
-    ![Casella di dialogo Aggiungi nuovo elemento](real-time-web-applications-with-signalr/_static/image12.png "casella di dialogo Aggiungi nuovo elemento")
+    ![Finestra di dialogo Aggiungi nuovo elemento](real-time-web-applications-with-signalr/_static/image12.png "finestra di dialogo Aggiungi nuovo elemento")
 
-    *Aggiungere una finestra di dialogo Nuovo elemento*
+    *Aggiungi finestra di dialogo Nuovo elemento*
 7. Sostituire il codice di **StatisticsHub** classe con il codice seguente.
 
     (- Frammento di codice *StatisticsHubClass RealTimeSignalR - Ex1 -*)
@@ -241,9 +241,9 @@ In questa attività si eseguirà la soluzione per verificare che la visualizzazi
 2. Aprire il **statistiche** pagina in una nuova finestra e inserire il **Home** pagina e **statistiche** pagina side-by-side, come descritto nell'attività 1.
 3. Nel **Home** pagina, rispondere alla domanda facendo clic su una delle opzioni.
 
-    ![Per rispondere a un'altra domanda](real-time-web-applications-with-signalr/_static/image13.png "per rispondere a un'altra domanda")
+    ![Rispondendo a un'altra domanda](real-time-web-applications-with-signalr/_static/image13.png "rispondendo a un'altra domanda")
 
-    *Per rispondere a un'altra domanda*
+    *Rispondendo a un'altra domanda*
 4. Dopo aver fatto clic su uno dei pulsanti, la risposta dovrebbe essere visualizzato. Si noti che le informazioni sulle statistiche nella pagina viene aggiornate automaticamente dopo la risposta alla domanda con le informazioni aggiornate senza la necessità di aggiornare la pagina intera.
 
     ![Pagina statistiche aggiornata dopo la risposta](real-time-web-applications-with-signalr/_static/image14.png "pagina statistiche aggiornata dopo la risposta")
@@ -253,7 +253,7 @@ In questa attività si eseguirà la soluzione per verificare che la visualizzazi
 <a id="Exercise2"></a>
 ### <a name="exercise-2-scaling-out-using-sql-server"></a>Esercizio 2: Scalabilità orizzontale mediante SQL Server
 
-Quando si ridimensiona un'applicazione web, in genere è possibile scegliere tra *scalabilità* e *la scalabilità orizzontale* opzioni. *Applicare la scalabilità verticale* comporta l'utilizzo di un server più grande, con più risorse (CPU, RAM e così via) durante *scalabilità* comporta l'aggiunta di più server per gestire il carico. Il problema con il secondo è che i client possono ottenere indirizzati al server diversi. Un client connesso a un server non riceverà i messaggi inviati da un altro server.
+Quando si ridimensiona un'applicazione web, in genere è possibile scegliere tra *scalabilità* e *la scalabilità orizzontale* opzioni. *Applicare la scalabilità verticale* comporta l'utilizzo di un server più grande, con più risorse (CPU, RAM e così via) durante *scalare in orizzontale* comporta l'aggiunta di più server per gestire il carico. Il problema con il secondo è che i client possono ottenere indirizzati al server diversi. Un client connesso a un server non riceverà i messaggi inviati da un altro server.
 
 È possibile risolvere questi problemi usando un componente chiamato *backplane*per inoltrare i messaggi tra server. Con un backplane è abilitato, ogni istanza dell'applicazione invia messaggi al backplane e li inoltra backplane alle altre istanze dell'applicazione.
 
@@ -272,8 +272,8 @@ Per ulteriori informazioni sull'uso di backplane SignalR, leggere questo [artico
 > [!NOTE]
 > Esistono alcuni scenari in cui un backplane può diventare un collo di bottiglia. Ecco alcuni scenari tipici di SignalR:
 > 
-> - [Trasmissione server](tutorial-server-broadcast-with-signalr.md) (ad esempio, le quotazioni di borsa): i ripiani posteriori delle funziona anche per questo scenario, perché il server controlla la frequenza con cui vengono inviati i messaggi.
-> - [Client-client](tutorial-getting-started-with-signalr.md) (ad esempio, chat): In questo scenario, backplane potrebbe essere un collo di bottiglia se il numero di messaggi viene ridimensionato con il numero di client; ovvero se si estende la quantità di messaggi client proporzionalmente all'aumentare del join.
+> - [Trasmissione server](tutorial-server-broadcast-with-signalr.md) (ad esempio quotazioni di borsa): i ripiani posteriori delle funziona anche per questo scenario, perché il server controlla la frequenza con cui vengono inviati i messaggi.
+> - [Da client](tutorial-getting-started-with-signalr.md) (ad esempio, chat): In questo scenario, backplane potrebbe essere un collo di bottiglia se il numero di messaggi viene ridimensionato con il numero di client; vale a dire, se la velocità dei messaggi aumenta proporzionalmente man mano i client si aggiungono.
 > - [In tempo reale ad alta frequenza](tutorial-high-frequency-realtime-with-signalr.md) (ad esempio, giochi in tempo reale): un backplane non è consigliato per questo scenario.
 
 
@@ -288,9 +288,9 @@ In questa attività si eseguiranno 2 istanze di **appassionato Quiz** simulando 
 
 1. Aprire il **Begin.sln** soluzione si trova nel **origine/Ex2-ScalingOutWithSQLServer/inizio** cartella. Una volta caricato, si noterà nel **Esplora Server** che la soluzione include due progetti con nomi diversi ma le strutture. Ciò consente di simulare in esecuzione due istanze della stessa applicazione sul computer locale.
 
-    ![Iniziare soluzione simulando 2 istanze del Quiz appassionato](real-time-web-applications-with-signalr/_static/image16.png "soluzione simulando 2 istanze del Quiz appassionato di iniziare")
+    ![Iniziare soluzione simulando 2 istanze del Quiz appassionato](real-time-web-applications-with-signalr/_static/image16.png "iniziare soluzione simulando 2 istanze del Quiz appassionato")
 
-    *Soluzione simulando 2 istanze del Quiz appassionato di iniziare*
+    *Iniziare soluzione simulando 2 istanze del Quiz appassionato*
 2. Aprire la pagina delle proprietà della soluzione facendo clic sul nodo della soluzione e selezionando **proprietà**. In **progetto di avvio**selezionare **più progetti di avvio** e modificare il **azione** valore per entrambi i progetti per *avviare*.
 
     ![Avviare più progetti](real-time-web-applications-with-signalr/_static/image17.png "avviare più progetti")
@@ -316,12 +316,12 @@ In questa attività si creerà un database che verrà utilizzato come un backpla
 1. In **Visual Studio**, Apri menu **vista** e selezionare **Esplora oggetti di SQL Server**.
 2. Connettersi all'istanza di LocalDB facendo clic con il **SQL Server** nodo e selezionando **aggiungere SQL Server...**  opzione.
 
-    ![Aggiunta di un'istanza del Server SQL](real-time-web-applications-with-signalr/_static/image20.png "aggiunta di un'istanza SQL Server")
+    ![Aggiunta di un'istanza del Server SQL](real-time-web-applications-with-signalr/_static/image20.png "aggiunta di un'istanza di SQL Server")
 
     *Aggiunta di un'istanza di SQL Server in Esplora oggetti di SQL Server*
 3. Impostare il **nome server** a *(localdb) \v11.0* e lasciare **l'autenticazione di Windows** come modalità di autenticazione. Fare clic su **Connetti** per continuare.
 
-    ![Connessione a LocalDB](real-time-web-applications-with-signalr/_static/image21.png "connessione a LocalDB")
+    ![Connessione a LocalDB](real-time-web-applications-with-signalr/_static/image21.png "la connessione a LocalDB")
 
     *Connessione a LocalDB*
 4. Ora che si è connessi all'istanza di LocalDB, sarà necessario creare un database che rappresenterà il backplane di SQL Server per SignalR. A tale scopo, fare doppio clic su di **database** nodo e selezionare **aggiungere un nuovo Database**.
@@ -331,7 +331,7 @@ In questa attività si creerà un database che verrà utilizzato come un backpla
     *Aggiunge un nuovo database*
 5. Impostare il nome del database *SignalR* e fare clic su **OK** per la sua creazione.
 
-    ![Creazione del database SignalR](real-time-web-applications-with-signalr/_static/image23.png "la creazione del database di SignalR")
+    ![Creazione del database SignalR](real-time-web-applications-with-signalr/_static/image23.png "creazione del database di SignalR")
 
     *Creazione del database di SignalR*
 
@@ -349,7 +349,7 @@ In questa attività si creerà un database che verrà utilizzato come un backpla
     ![La ricerca dello stato di Service Broker](real-time-web-applications-with-signalr/_static/image25.png "la ricerca dello stato di Service Broker")
 
     *La ricerca dello stato di Service Broker*
-8. Se il valore della **è\_broker\_abilitato** colonna del database è &quot;0&quot;, usare il comando seguente per abilitarlo. Sostituire  **&lt;del DATABASE&gt;**  con il nome è impostato quando si crea il database (ad esempio: SignalR).
+8. Se il valore della **è\_broker\_abilitato** colonna del database è &quot;0&quot;, usare il comando seguente per abilitarlo. Sostituire **&lt;del DATABASE&gt;** con il nome è impostato quando si crea il database (ad esempio: SignalR).
 
     [!code-sql[Main](real-time-web-applications-with-signalr/samples/sample12.sql)]
 
@@ -369,7 +369,7 @@ In questa attività si configurerà **appassionato Quiz** per connettersi al bac
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. Ripetere il passaggio precedente, ma questa volta per progetto **GeekQuiz2**.
-3. Per configurare il backplane di SQL Server, aprire il **Startup.cs** file del **GeekQuiz** del progetto e aggiungere il codice seguente per il **configura** metodo. Sostituire  **&lt;del DATABASE&gt;**  con il nome del database utilizzato per la creazione di backplane di SQL Server. Ripetere questo passaggio per la **GeekQuiz2** progetto.
+3. Per configurare il backplane di SQL Server, aprire il **Startup.cs** file del **GeekQuiz** del progetto e aggiungere il codice seguente per il **configura** metodo. Sostituire **&lt;del DATABASE&gt;** con il nome del database utilizzato per la creazione di backplane di SQL Server. Ripetere questo passaggio per la **GeekQuiz2** progetto.
 
     (- Frammento di codice *StartupConfiguration RealTimeSignalR - Ex2 -*)
 

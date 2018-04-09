@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 title: Personalizzazione DataList di modifica della interfaccia (c#) | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione si creerà un'interfaccia di modifica più completa per DataList, che include controlli DropDownList e una casella di controllo."
+description: In questa esercitazione si creerà un'interfaccia di modifica più completa per DataList, che include controlli DropDownList e una casella di controllo.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ffd649bc5a1af4d211c8b331004cb39c7a591d7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad603b7cb80d2266e84d4a521a1748a1e09a5bed
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-datalists-editing-interface-c"></a>Personalizzazione modifica interfaccia del controllo DataList (c#)
 ====================
@@ -52,7 +52,7 @@ Prima è possibile creare l'interfaccia di DataList s modificabile, è necessari
 
 [![Impostare gli elenchi di elenco a discesa di schede DELETE, INSERT e UPDATE su (nessuno)](customizing-the-datalist-s-editing-interface-cs/_static/image5.png)](customizing-the-datalist-s-editing-interface-cs/_static/image4.png)
 
-**Figura 2**: impostare l'aggiornamento, inserimento ed eliminare Elenca elenco a discesa di schede su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image6.png))
+**Figura 2**: impostare l'aggiornamento, inserimento ed eliminare elenchi di elenco a discesa schede su (nessuno) ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image6.png))
 
 
 Dopo aver configurato il ObjectDataSource, Visual Studio creerà predefinito `ItemTemplate` per DataList che elenca il nome e il valore per ognuno dei campi di dati restituito. Modificare il `ItemTemplate` in modo che nel modello sono elencati il nome del prodotto in un `<h4>` elemento con il nome di categoria, nome del fornitore, prezzo e lo stato non più supportato. Inoltre, aggiungere un pulsante di modifica, assicurandosi che il relativo `CommandName` proprietà è impostata su Modifica. Il markup dichiarativo per my `ItemTemplate` segue:
@@ -63,9 +63,9 @@ Dopo aver configurato il ObjectDataSource, Visual Studio creerà predefinito `It
 Il codice precedente viene disposto il prodotto di informazioni usando un &lt;h4&gt; titolo per il nome del prodotto s e quattro colonne `<table>` per i campi rimanenti. Il `ProductPropertyLabel` e `ProductPropertyValue` classi CSS, definite in `Styles.css`, sono state illustrate nelle esercitazioni precedenti. Figura 3 Mostra stato di avanzamento quando viene visualizzato tramite un browser.
 
 
-[![Viene visualizzato il nome, fornitore, categoria, lo stato sospeso e prezzo di ogni prodotto](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
+[![Viene visualizzato il nome, fornitore, categoria, lo stato non più disponibile e prezzo di ogni prodotto](customizing-the-datalist-s-editing-interface-cs/_static/image8.png)](customizing-the-datalist-s-editing-interface-cs/_static/image7.png)
 
-**Figura 3**: viene visualizzato il nome, fornitore, categoria, lo stato sospeso e prezzo di ogni prodotto ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image9.png))
+**Figura 3**: viene visualizzato il nome, fornitore, categoria, lo stato non più disponibile e prezzo di ogni prodotto ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image9.png))
 
 
 ## <a name="step-2-adding-the-web-controls-to-the-editing-interface"></a>Passaggio 2: Aggiungere controlli Web per l'interfaccia di modifica
@@ -85,12 +85,12 @@ Successivamente, DropDownList s smart tag, selezionare l'opzione Scegli origine 
 
 [![Creare un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](customizing-the-datalist-s-editing-interface-cs/_static/image14.png)](customizing-the-datalist-s-editing-interface-cs/_static/image13.png)
 
-**Figura 5**: creare un nuovo ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image15.png))
+**Figura 5**: creare un nuovo denominato ObjectDataSource `CategoriesDataSource` ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image15.png))
 
 
 [![Configurare la visualizzazione di s DropDownList e il valore di campi](customizing-the-datalist-s-editing-interface-cs/_static/image17.png)](customizing-the-datalist-s-editing-interface-cs/_static/image16.png)
 
-**Figura 6**: configurare DropDownList s, visualizzazione e i campi di valore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image18.png))
+**Figura 6**: configurare le s DropDownList visualizzato e i campi di valore ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image18.png))
 
 
 Ripetere questa serie di passaggi per creare un controllo DropDownList per i fornitori. Impostare il `ID` per questo DropDownList per `Suppliers` e il nome relativo ObjectDataSource `SuppliersDataSource`.
@@ -105,9 +105,9 @@ Infine, aggiungere i pulsanti Annulla e di aggiornamento. Tenere presente che pe
 [!code-aspx[Main](customizing-the-datalist-s-editing-interface-cs/samples/sample2.aspx)]
 
 
-[![L'interfaccia di modifica è cui Out come l'interfaccia di sola lettura](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
+[![Non è più l'interfaccia di modifica cui valido, ad esempio l'interfaccia di sola lettura](customizing-the-datalist-s-editing-interface-cs/_static/image20.png)](customizing-the-datalist-s-editing-interface-cs/_static/image19.png)
 
-**Figura 7**: non è più l'interfaccia di modifica cui valido come l'interfaccia di sola lettura ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image21.png))
+**Figura 7**: non è più l'interfaccia di modifica cui valido, ad esempio l'interfaccia di sola lettura ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image21.png))
 
 
 ## <a name="step-3-creating-the-editcommand-and-cancelcommand-event-handlers"></a>Passaggio 3: Creazione EditCommand e gestori eventi CancelCommand
@@ -154,7 +154,7 @@ Il codice inizia consultando la `Page.IsValid` proprietà per assicurarsi che tu
 
 ## <a name="step-6-handling-null-categoryid-and-supplierid-values"></a>Passaggio 6: Gestire CategoryID NULL e valori di ID fornitore
 
-Consente di Northwind `NULL` valori per il `Products` tabella s `CategoryID` e `SupplierID` colonne. Tuttavia, la modifica t interfaccia contenere attualmente `NULL` valori. Se si tenta di modificare un prodotto che ha un `NULL` valore per uno relativo `CategoryID` o `SupplierID` colonne, si otterrà un `ArgumentOutOfRangeException` con un messaggio di errore simile a: *'Categorie' ha un SelectedValue di cui non è valido perché non è presente nell'elenco di elementi.* Inoltre, s non esiste attualmente non è possibile modificare una categoria di prodotto s o un fornitore valore da un non -`NULL` valore un `NULL` uno.
+Consente di Northwind `NULL` valori per il `Products` tabella s `CategoryID` e `SupplierID` colonne. Tuttavia, la modifica t interfaccia contenere attualmente `NULL` valori. Se si tenta di modificare un prodotto che ha un `NULL` valore per la relativa `CategoryID` o `SupplierID` colonne, verrà creata un' `ArgumentOutOfRangeException` con un messaggio di errore simile al: *'Categorie' ha un SelectedValue che non è valido perché non è presente nell'elenco di elementi.* Inoltre, s non esiste attualmente non è possibile modificare una categoria di prodotto s o un fornitore valore da un non -`NULL` valore un `NULL` uno.
 
 Per supportare `NULL` valori per la categoria e un fornitore controlli DropDownList, è necessario aggiungere un ulteriore `ListItem`. Si va scelto di usare (nessuno) come il `Text` valore per questo `ListItem`, ma è possibile modificare per qualcos'altro (ad esempio una stringa vuota) se d desiderato. Infine, ricordare di impostare i controlli DropDownList `AppendDataBoundItems` a `True`; se si procede in questo modo, le categorie e fornitori associati a DropDownList sovrascriverà l'oggetto aggiunto in modo statico `ListItem`.
 
@@ -172,7 +172,7 @@ Richiedere qualche istante per visualizzare l'avanzamento attraverso un browser.
 
 [![Le categorie e i controlli DropDownList Suppliers includono (nessuno) opzione](customizing-the-datalist-s-editing-interface-cs/_static/image29.png)](customizing-the-datalist-s-editing-interface-cs/_static/image28.png)
 
-**Figura 10**: il `Categories` e `Suppliers` controlli DropDownList includono (nessuno) opzione ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image30.png))
+**Figura 10**: il `Categories` e `Suppliers` controlli DropDownList includono un (None) opzione ([fare clic per visualizzare l'immagine ingrandita](customizing-the-datalist-s-editing-interface-cs/_static/image30.png))
 
 
 Per salvare opzione (nessuno) come database `NULL` valore, è necessario restituire il `UpdateCommand` gestore dell'evento. Modifica il `categoryIDValue` e `supplierIDValue` variabili integer ammette valori null e assegnare loro un valore diverso da `Nothing` solo se i dispositivi DropDownList `SelectedValue` non è una stringa vuota:
@@ -192,12 +192,12 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Dennis Patterson e David Suru Randy Schmidt. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
-[Successivo](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
+> [Successivo](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)

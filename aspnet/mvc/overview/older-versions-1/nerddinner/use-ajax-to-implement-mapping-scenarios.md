@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: cc55560ce691826b6d52971b16d0515ed73d72a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b3f1e46886c4c1f054e43768b0a44695d71bf09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>Utilizzare AJAX per implementare scenari di Mapping
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 [Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
@@ -115,7 +115,7 @@ Per concludere l'implementazione di AJAX, aggiungere una mappa alla home page de
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-Inizieremo mediante l'implementazione di supporto all'interno di questo livello di repository database e i dati per eseguire una ricerca in base alla posizione radius per Dinners. È possibile usare il nuovo [geospatial caratteristiche di SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) per implementare questa, o in alternativa è possibile usare un approccio di funzione SQL Gary Dryden descritto nell'articolo: [http://www.codeproject.com/KB/cs/ distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) e problema Rob Conery sull'utilizzo di LINQ to SQL qui: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+Inizieremo mediante l'implementazione di supporto all'interno di questo livello di repository database e i dati per eseguire una ricerca in base alla posizione radius per Dinners. È possibile usare il nuovo [geospatial caratteristiche di SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) per implementare questa, o in alternativa è possibile usare un approccio di funzione SQL Gary Dryden citata nell'articolo qui: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) e Rob Conery problema sull'utilizzo con LINQ to SQL qui: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
 Per implementare questa tecnica, si verrà aprire "Esplora Server" all'interno di Visual Studio, selezionare il database NerdDinner e quindi fare clic sul nodo secondario "funzioni" in essa contenute e scegliere di creare una nuovo "funzione a valori scalari":
 
@@ -193,6 +193,6 @@ Facendo clic titolo Dinner bolla o sul lato destro nell'elenco HTML verrà visua
 
 Ora sono state implementate tutte le funzionalità di applicazione dell'applicazione NerdDinner. Verrà ora esaminata come è possibile abilitare automatizzata unit test di esso.
 
->[!div class="step-by-step"]
-[Precedente](use-ajax-to-deliver-dynamic-updates.md)
-[Successivo](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Precedente](use-ajax-to-deliver-dynamic-updates.md)
+> [Successivo](enable-automated-unit-testing.md)

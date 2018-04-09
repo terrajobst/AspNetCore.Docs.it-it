@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 title: La disabilitazione delle azioni durante l'animazione (VB) | Documenti Microsoft
 author: wenz
-description: "Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Supporta inoltre l'azione..."
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Supporta inoltre l'azione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f68d27f60e9b224a7cc0d598962553afeb3f28f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9e2a0517800e90788bb67c1d75482a3d9340674b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-vb"></a>La disabilitazione delle azioni durante l'animazione (VB)
 ====================
@@ -58,10 +58,10 @@ Anche possibile abilitare nuovamente al pulsante dopo l'animazione, utilizzando 
 Tuttavia in questo scenario specifico questo sarebbe inutile poiché pulsante Dissolvenza in uscita e non è visibile alla fine dell'animazione.
 
 
-[![Il pulsante è disabilitato, non appena l'animazione è in esecuzione](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
+[![Il pulsante è disabilitato, non appena viene eseguito l'animazione](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
 
 Il pulsante è disabilitato, non appena viene eseguita l'animazione ([fare clic per visualizzare l'immagine ingrandita](disabling-actions-during-animation-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Precedente](animating-in-response-to-user-interaction-vb.md)
-[Successivo](triggering-an-animation-in-another-control-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](animating-in-response-to-user-interaction-vb.md)
+> [Successivo](triggering-an-animation-in-another-control-vb.md)
