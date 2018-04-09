@@ -12,74 +12,74 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-<a name="part-8-final-pages-exception-handling-and-conclusion"></a><span data-ttu-id="9fa52-104">Parte 8: Pagine finale, gestione delle eccezioni e conclusione</span><span class="sxs-lookup"><span data-stu-id="9fa52-104">Part 8: Final Pages, Exception Handling, and Conclusion</span></span>
+<a name="part-8-final-pages-exception-handling-and-conclusion"></a><span data-ttu-id="87db5-104">Parte 8: Pagine finale, gestione delle eccezioni e conclusione</span><span class="sxs-lookup"><span data-stu-id="87db5-104">Part 8: Final Pages, Exception Handling, and Conclusion</span></span>
 ====================
-<span data-ttu-id="9fa52-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="9fa52-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="87db5-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="87db5-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-> <span data-ttu-id="9fa52-106">Tailspin Spyworks viene illustrato come particolarmente semplice è creare potenti applicazioni scalabili per la piattaforma .NET.</span><span class="sxs-lookup"><span data-stu-id="9fa52-106">Tailspin Spyworks demonstrates how extraordinarily simple it is to create powerful, scalable applications for the .NET platform.</span></span> <span data-ttu-id="9fa52-107">Illustra come usare le nuove caratteristiche in ASP.NET 4 per creare un archivio online, inclusi gli acquisti, estrazione e l'amministrazione.</span><span class="sxs-lookup"><span data-stu-id="9fa52-107">It shows off how to use the great new features in ASP.NET 4 to build an online store, including shopping, checkout, and administration.</span></span>
+> <span data-ttu-id="87db5-106">Tailspin Spyworks viene illustrato come particolarmente semplice è creare potenti applicazioni scalabili per la piattaforma .NET.</span><span class="sxs-lookup"><span data-stu-id="87db5-106">Tailspin Spyworks demonstrates how extraordinarily simple it is to create powerful, scalable applications for the .NET platform.</span></span> <span data-ttu-id="87db5-107">Illustra come usare le nuove caratteristiche in ASP.NET 4 per creare un archivio online, inclusi gli acquisti, estrazione e l'amministrazione.</span><span class="sxs-lookup"><span data-stu-id="87db5-107">It shows off how to use the great new features in ASP.NET 4 to build an online store, including shopping, checkout, and administration.</span></span>
 > 
-> <span data-ttu-id="9fa52-108">Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks.</span><span class="sxs-lookup"><span data-stu-id="9fa52-108">This tutorial series details all of the steps taken to build the Tailspin Spyworks sample application.</span></span> <span data-ttu-id="9fa52-109">Parte 8 aggiunge una pagina di contatto, sulla pagina e la gestione delle eccezioni.</span><span class="sxs-lookup"><span data-stu-id="9fa52-109">Part 8 adds a contact page, about page, and exception handling.</span></span> <span data-ttu-id="9fa52-110">Questa è la conclusione della serie.</span><span class="sxs-lookup"><span data-stu-id="9fa52-110">This is the conclusion of the series.</span></span>
+> <span data-ttu-id="87db5-108">Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks.</span><span class="sxs-lookup"><span data-stu-id="87db5-108">This tutorial series details all of the steps taken to build the Tailspin Spyworks sample application.</span></span> <span data-ttu-id="87db5-109">Parte 8 aggiunge una pagina di contatto, sulla pagina e la gestione delle eccezioni.</span><span class="sxs-lookup"><span data-stu-id="87db5-109">Part 8 adds a contact page, about page, and exception handling.</span></span> <span data-ttu-id="87db5-110">Questa è la conclusione della serie.</span><span class="sxs-lookup"><span data-stu-id="87db5-110">This is the conclusion of the series.</span></span>
 
 
-## <a id="_Toc260221680"></a><span data-ttu-id="9fa52-111">Contattare pagina (invio messaggio di posta elettronica da ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="9fa52-111">Contact Page (Sending email from ASP.NET)</span></span>
+## <a id="_Toc260221680"></a>  <span data-ttu-id="87db5-111">Contattare pagina (invio messaggio di posta elettronica da ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="87db5-111">Contact Page (Sending email from ASP.NET)</span></span>
 
-<span data-ttu-id="9fa52-112">Creare una nuova pagina denominata ContactUs.aspx</span><span class="sxs-lookup"><span data-stu-id="9fa52-112">Create a new page named ContactUs.aspx</span></span>
+<span data-ttu-id="87db5-112">Creare una nuova pagina denominata ContactUs.aspx</span><span class="sxs-lookup"><span data-stu-id="87db5-112">Create a new page named ContactUs.aspx</span></span>
 
-<span data-ttu-id="9fa52-113">Utilizzando la finestra di progettazione, creare il formato seguente, preso nota speciale per includere il ToolkitScriptManager e il controllo dell'Editor dal AjaxdControlToolkit.</span><span class="sxs-lookup"><span data-stu-id="9fa52-113">Using the designer, create the following form taking special note to include the ToolkitScriptManager and the Editor control from the AjaxdControlToolkit.</span></span> <span data-ttu-id="9fa52-114">.</span><span class="sxs-lookup"><span data-stu-id="9fa52-114">.</span></span>
+<span data-ttu-id="87db5-113">Utilizzando la finestra di progettazione, creare il formato seguente, preso nota speciale per includere il ToolkitScriptManager e il controllo dell'Editor dal AjaxdControlToolkit.</span><span class="sxs-lookup"><span data-stu-id="87db5-113">Using the designer, create the following form taking special note to include the ToolkitScriptManager and the Editor control from the AjaxdControlToolkit.</span></span> <span data-ttu-id="87db5-114">.</span><span class="sxs-lookup"><span data-stu-id="87db5-114">.</span></span>
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 
-<span data-ttu-id="9fa52-115">Fare doppio clic sul pulsante "Invia" per generare un gestore eventi click nel file code-behind e implementare un metodo per inviare le informazioni di contatto come un messaggio di posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="9fa52-115">Double click on the "Submit" button to generate a click event handler in the code behind file and implement a method to send the contact information as an email.</span></span>
+<span data-ttu-id="87db5-115">Fare doppio clic sul pulsante "Invia" per generare un gestore eventi click nel file code-behind e implementare un metodo per inviare le informazioni di contatto come un messaggio di posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="87db5-115">Double click on the "Submit" button to generate a click event handler in the code behind file and implement a method to send the contact information as an email.</span></span>
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample1.cs)]
 
-<span data-ttu-id="9fa52-116">Questo codice si presuppone che il file Web. config contiene una voce nella sezione di configurazione che specifica il server SMTP da utilizzare per l'invio di posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="9fa52-116">This code requires that your web.config file contain an entry in the configuration section that specifies the SMTP server to use for sending mail.</span></span>
+<span data-ttu-id="87db5-116">Questo codice si presuppone che il file Web. config contiene una voce nella sezione di configurazione che specifica il server SMTP da utilizzare per l'invio di posta elettronica.</span><span class="sxs-lookup"><span data-stu-id="87db5-116">This code requires that your web.config file contain an entry in the configuration section that specifies the SMTP server to use for sending mail.</span></span>
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a><span data-ttu-id="9fa52-117">Informazioni sulla pagina</span><span class="sxs-lookup"><span data-stu-id="9fa52-117">About Page</span></span>
+## <a id="_Toc260221681"></a>  <span data-ttu-id="87db5-117">Informazioni sulla pagina</span><span class="sxs-lookup"><span data-stu-id="87db5-117">About Page</span></span>
 
-<span data-ttu-id="9fa52-118">Creare una pagina denominata AboutUs. aspx e aggiungere il contenuto desiderato.</span><span class="sxs-lookup"><span data-stu-id="9fa52-118">Create a page named AboutUs.aspx and add whatever content you like.</span></span>
+<span data-ttu-id="87db5-118">Creare una pagina denominata AboutUs. aspx e aggiungere il contenuto desiderato.</span><span class="sxs-lookup"><span data-stu-id="87db5-118">Create a page named AboutUs.aspx and add whatever content you like.</span></span>
 
-## <a id="_Toc260221682"></a><span data-ttu-id="9fa52-119">Gestore di eccezioni globale</span><span class="sxs-lookup"><span data-stu-id="9fa52-119">Global Exception Handler</span></span>
+## <a id="_Toc260221682"></a>  <span data-ttu-id="87db5-119">Gestore eccezioni globale</span><span class="sxs-lookup"><span data-stu-id="87db5-119">Global Exception Handler</span></span>
 
-<span data-ttu-id="9fa52-120">Infine, in tutta l'applicazione è stata generata un'eccezione di eccezioni ed esistono circostanze impreviste che fredde anche eccezioni causa non gestita nell'applicazione web.</span><span class="sxs-lookup"><span data-stu-id="9fa52-120">Lastly, throughout the application we have thrown exceptions and there are unforeseen circumstances that cold also cause unhandled exceptions in our web application.</span></span>
+<span data-ttu-id="87db5-120">Infine, in tutta l'applicazione è stata generata un'eccezione di eccezioni ed esistono circostanze impreviste che fredde anche eccezioni causa non gestita nell'applicazione web.</span><span class="sxs-lookup"><span data-stu-id="87db5-120">Lastly, throughout the application we have thrown exceptions and there are unforeseen circumstances that cold also cause unhandled exceptions in our web application.</span></span>
 
-<span data-ttu-id="9fa52-121">Non si desidera mai un'eccezione non gestita da visualizzare per un visitatore di un sito web.</span><span class="sxs-lookup"><span data-stu-id="9fa52-121">We never want an unhandled exception to be displayed to a web site visitor.</span></span>
+<span data-ttu-id="87db5-121">Non si desidera mai un'eccezione non gestita da visualizzare per un visitatore di un sito web.</span><span class="sxs-lookup"><span data-stu-id="87db5-121">We never want an unhandled exception to be displayed to a web site visitor.</span></span>
 
 ![](tailspin-spyworks-part-8/_static/image2.jpg)
 
-<span data-ttu-id="9fa52-122">Oltre ad avere un'esperienza utente terribili eccezioni non gestite possono essere anche un problema di sicurezza.</span><span class="sxs-lookup"><span data-stu-id="9fa52-122">Apart from being a terrible user experience unhandled exceptions can also be a security problem.</span></span>
+<span data-ttu-id="87db5-122">Oltre ad avere un'esperienza utente terribili eccezioni non gestite possono essere anche un problema di sicurezza.</span><span class="sxs-lookup"><span data-stu-id="87db5-122">Apart from being a terrible user experience unhandled exceptions can also be a security problem.</span></span>
 
-<span data-ttu-id="9fa52-123">Per risolvere questo problema verrà implementato un gestore eccezioni globale.</span><span class="sxs-lookup"><span data-stu-id="9fa52-123">To solve this problem we will implement a global exception handler.</span></span>
+<span data-ttu-id="87db5-123">Per risolvere questo problema verrà implementato un gestore eccezioni globale.</span><span class="sxs-lookup"><span data-stu-id="87db5-123">To solve this problem we will implement a global exception handler.</span></span>
 
-<span data-ttu-id="9fa52-124">A tale scopo, aprire il file Global. asax e annotare il seguente gestore eventi generati in precedenza.</span><span class="sxs-lookup"><span data-stu-id="9fa52-124">To do this, open the Global.asax file and note the following pre-generated event handler.</span></span>
+<span data-ttu-id="87db5-124">A tale scopo, aprire il file Global. asax e annotare il seguente gestore eventi generati in precedenza.</span><span class="sxs-lookup"><span data-stu-id="87db5-124">To do this, open the Global.asax file and note the following pre-generated event handler.</span></span>
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample3.cs)]
 
-<span data-ttu-id="9fa52-125">Aggiungere il codice per implementare l'applicazione\_gestore degli errori come indicato di seguito.</span><span class="sxs-lookup"><span data-stu-id="9fa52-125">Add code to implement the Application\_Error handler as follows.</span></span>
+<span data-ttu-id="87db5-125">Aggiungere il codice per implementare l'applicazione\_gestore degli errori come indicato di seguito.</span><span class="sxs-lookup"><span data-stu-id="87db5-125">Add code to implement the Application\_Error handler as follows.</span></span>
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample4.cs)]
 
-<span data-ttu-id="9fa52-126">Quindi aggiungere una pagina denominata aspx alla soluzione e aggiungere questo frammento di markup.</span><span class="sxs-lookup"><span data-stu-id="9fa52-126">Then add a page named Error.aspx to the solution and add this markup snippet.</span></span>
+<span data-ttu-id="87db5-126">Quindi aggiungere una pagina denominata aspx alla soluzione e aggiungere questo frammento di markup.</span><span class="sxs-lookup"><span data-stu-id="87db5-126">Then add a page named Error.aspx to the solution and add this markup snippet.</span></span>
 
 [!code-aspx[Main](tailspin-spyworks-part-8/samples/sample5.aspx)]
 
-<span data-ttu-id="9fa52-127">Ora nella pagina\_caricare estrazione del gestore eventi i messaggi di errore dall'oggetto Request.</span><span class="sxs-lookup"><span data-stu-id="9fa52-127">Now in the Page\_Load event handler extract the error messages from the Request Object.</span></span>
+<span data-ttu-id="87db5-127">Ora nella pagina\_caricare estrazione del gestore eventi i messaggi di errore dall'oggetto Request.</span><span class="sxs-lookup"><span data-stu-id="87db5-127">Now in the Page\_Load event handler extract the error messages from the Request Object.</span></span>
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a><span data-ttu-id="9fa52-128">Conclusione</span><span class="sxs-lookup"><span data-stu-id="9fa52-128">Conclusion</span></span>
+## <a id="_Toc260221683"></a>  <span data-ttu-id="87db5-128">Conclusione</span><span class="sxs-lookup"><span data-stu-id="87db5-128">Conclusion</span></span>
 
-<span data-ttu-id="9fa52-129">Abbiamo visto che ASP.NET WebForms rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via.</span><span class="sxs-lookup"><span data-stu-id="9fa52-129">We've seen that ASP.NET WebForms makes it easy to create a sophisticated website with database access, membership, AJAX, etc.</span></span> <span data-ttu-id="9fa52-130">abbastanza rapidamente.</span><span class="sxs-lookup"><span data-stu-id="9fa52-130">pretty quickly.</span></span>
+<span data-ttu-id="87db5-129">Abbiamo visto che ASP.NET WebForms rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via.</span><span class="sxs-lookup"><span data-stu-id="87db5-129">We've seen that ASP.NET WebForms makes it easy to create a sophisticated website with database access, membership, AJAX, etc.</span></span> <span data-ttu-id="87db5-130">abbastanza rapidamente.</span><span class="sxs-lookup"><span data-stu-id="87db5-130">pretty quickly.</span></span>
 
-<span data-ttu-id="9fa52-131">Probabilmente questa esercitazione è state ricevute gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate Web Form ASP.NET!</span><span class="sxs-lookup"><span data-stu-id="9fa52-131">Hopefully this tutorial has given you the tools you need to get started building your own ASP.NET WebForms applications!</span></span>
+<span data-ttu-id="87db5-131">Probabilmente questa esercitazione è state ricevute gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate Web Form ASP.NET!</span><span class="sxs-lookup"><span data-stu-id="87db5-131">Hopefully this tutorial has given you the tools you need to get started building your own ASP.NET WebForms applications!</span></span>
 
->[!div class="step-by-step"]
-[<span data-ttu-id="9fa52-132">Precedente</span><span class="sxs-lookup"><span data-stu-id="9fa52-132">Previous</span></span>](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [<span data-ttu-id="87db5-132">Precedente</span><span class="sxs-lookup"><span data-stu-id="87db5-132">Previous</span></span>](tailspin-spyworks-part-7.md)

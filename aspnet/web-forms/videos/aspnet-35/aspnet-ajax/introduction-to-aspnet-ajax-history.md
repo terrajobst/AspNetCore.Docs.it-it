@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history
 msc.type: video
-ms.openlocfilehash: 0253cb3e366a21fe1850667ec988e75c53cec959
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 455099914c12b425b172d00b0e8dfc62d5c74a6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="introduction-to-aspnet-ajax-history"></a><span data-ttu-id="a2c63-104">Introduzione alla cronologia di ASP.NET Ajax</span><span class="sxs-lookup"><span data-stu-id="a2c63-104">Introduction to ASP.NET Ajax History</span></span>
+<a name="introduction-to-aspnet-ajax-history"></a><span data-ttu-id="9e577-104">Introduzione alla cronologia di ASP.NET Ajax</span><span class="sxs-lookup"><span data-stu-id="9e577-104">Introduction to ASP.NET Ajax History</span></span>
 ====================
-<span data-ttu-id="a2c63-105">da [Bertrand Le Roy](https://github.com/bleroy)</span><span class="sxs-lookup"><span data-stu-id="a2c63-105">by [Bertrand Le Roy](https://github.com/bleroy)</span></span>
+<span data-ttu-id="9e577-105">da [Bertrand Le Roy](https://github.com/bleroy)</span><span class="sxs-lookup"><span data-stu-id="9e577-105">by [Bertrand Le Roy](https://github.com/bleroy)</span></span>
 
-<span data-ttu-id="a2c63-106">Informazioni su come l'anteprima di estensioni di ASP.NET consente di controllare il pulsante Indietro del Browser in Ajax.</span><span class="sxs-lookup"><span data-stu-id="a2c63-106">Learn how the ASP.NET Extensions Preview allows control over the Browser back button in Ajax.</span></span> <span data-ttu-id="a2c63-107">**Sono disponibili in ASP.NET AJAX Extensions il [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (dicembre 2007).**</span><span class="sxs-lookup"><span data-stu-id="a2c63-107">**ASP.NET AJAX Extensions are available in the [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (December 2007).**</span></span>
+<span data-ttu-id="9e577-106">Informazioni su come l'anteprima di estensioni di ASP.NET consente di controllare il pulsante Indietro del Browser in Ajax.</span><span class="sxs-lookup"><span data-stu-id="9e577-106">Learn how the ASP.NET Extensions Preview allows control over the Browser back button in Ajax.</span></span> <span data-ttu-id="9e577-107">**Sono disponibili in ASP.NET AJAX Extensions il [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (dicembre 2007).**</span><span class="sxs-lookup"><span data-stu-id="9e577-107">**ASP.NET AJAX Extensions are available in the [ASP.NET 3.5 Extensions Preview](https://www.asp.net/downloads/35-sp1#find) (December 2007).**</span></span>
 
-[<span data-ttu-id="a2c63-108">&#9654; Guardare video (14 minuti)</span><span class="sxs-lookup"><span data-stu-id="a2c63-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-ajax-history)
+[<span data-ttu-id="9e577-108">&#9654;Guardare video (14 minuti)</span><span class="sxs-lookup"><span data-stu-id="9e577-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-ajax-history)
 
->[!div class="step-by-step"]
-<span data-ttu-id="a2c63-109">[Precedente](adonet-data-services-with-aspnet-ajax-support.md)
-[Successivo](using-script-combining-to-improve-ajax-performance.md)</span><span class="sxs-lookup"><span data-stu-id="a2c63-109">[Previous](adonet-data-services-with-aspnet-ajax-support.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="9e577-109">[Precedente](adonet-data-services-with-aspnet-ajax-support.md)
+> [Successivo](using-script-combining-to-improve-ajax-performance.md)</span><span class="sxs-lookup"><span data-stu-id="9e577-109">[Previous](adonet-data-services-with-aspnet-ajax-support.md)
 [Next](using-script-combining-to-improve-ajax-performance.md)</span></span>

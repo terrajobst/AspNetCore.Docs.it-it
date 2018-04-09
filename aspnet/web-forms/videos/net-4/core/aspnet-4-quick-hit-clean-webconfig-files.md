@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/core/aspnet-4-quick-hit-clean-webconfig-files
 msc.type: video
-ms.openlocfilehash: a1faeda2f05cbbacd51f503bdd0cebf47691471e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b08482aaa8d485e1addaedb47dbe28fa4d0286ee
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="aspnet-4-quick-hit---clean-webconfig-files"></a><span data-ttu-id="c8ee5-104">In ASP.NET 4 "Rapido riscontri" - pulire i file Web. config</span><span class="sxs-lookup"><span data-stu-id="c8ee5-104">ASP.NET 4 "Quick Hit" - Clean Web.Config Files</span></span>
+<a name="aspnet-4-quick-hit---clean-webconfig-files"></a><span data-ttu-id="d021e-104">In ASP.NET 4 "Rapido riscontri" - pulire i file Web. config</span><span class="sxs-lookup"><span data-stu-id="d021e-104">ASP.NET 4 "Quick Hit" - Clean Web.Config Files</span></span>
 ====================
-<span data-ttu-id="c8ee5-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c8ee5-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="d021e-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="d021e-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="c8ee5-106">In questo video verranno visualizzati come elementi di configurazione principali sono stati spostati nel file Machine. config.</span><span class="sxs-lookup"><span data-stu-id="c8ee5-106">In this video you will see how the major configuration elements have been moved to the machine.config file.</span></span> <span data-ttu-id="c8ee5-107">In questo modo il file Web. config nelle applicazioni ASP.NET 4 per essere vuoto o contenere un numero minimo di righe.</span><span class="sxs-lookup"><span data-stu-id="c8ee5-107">This allows the Web.config file in ASP.NET 4 applications to either be empty or contain a minimum number of lines.</span></span>
+<span data-ttu-id="d021e-106">In questo video verranno visualizzati come elementi di configurazione principali sono stati spostati nel file Machine. config.</span><span class="sxs-lookup"><span data-stu-id="d021e-106">In this video you will see how the major configuration elements have been moved to the machine.config file.</span></span> <span data-ttu-id="d021e-107">In questo modo il file Web. config nelle applicazioni ASP.NET 4 per essere vuoto o contenere un numero minimo di righe.</span><span class="sxs-lookup"><span data-stu-id="d021e-107">This allows the Web.config file in ASP.NET 4 applications to either be empty or contain a minimum number of lines.</span></span>
 
-[<span data-ttu-id="c8ee5-108">&#9654; Guardare video (2 minuti)</span><span class="sxs-lookup"><span data-stu-id="c8ee5-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
+[<span data-ttu-id="d021e-108">&#9654;Guardare video (2 minuti)</span><span class="sxs-lookup"><span data-stu-id="d021e-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
 
->[!div class="step-by-step"]
-<span data-ttu-id="c8ee5-109">[Precedente](aspnet-4-quick-hit-auto-start.md)
-[Successivo](aspnet-4-quick-hit-predictable-client-ids.md)</span><span class="sxs-lookup"><span data-stu-id="c8ee5-109">[Previous](aspnet-4-quick-hit-auto-start.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="d021e-109">[Precedente](aspnet-4-quick-hit-auto-start.md)
+> [Successivo](aspnet-4-quick-hit-predictable-client-ids.md)</span><span class="sxs-lookup"><span data-stu-id="d021e-109">[Previous](aspnet-4-quick-hit-auto-start.md)
 [Next](aspnet-4-quick-hit-predictable-client-ids.md)</span></span>
