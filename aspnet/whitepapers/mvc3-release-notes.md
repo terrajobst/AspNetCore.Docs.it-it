@@ -16,7 +16,7 @@ ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -269,7 +269,7 @@ Modernizr è una libreria JavaScript che abilita il supporto di CSS 3 e HTML5 ne
 
 I modelli di progetto includono ora le versioni seguenti degli script jQuery:
 
-- 1.5.1 jQuery
+- jQuery 1.5.1
 - 1.8 convalida jQuery
 - jQuery UI 1.8.11
 
@@ -481,7 +481,7 @@ Nelle versioni precedenti, valori espliciti che sono stati passati al *RenderAct
 - L'installazione di ASP.NET MVC 3 RC 2 non aggiornare NuGet, se già installato. Per aggiornare NuGet, passare a Visual Studio Extension manager e vengono visualizzati gli aggiornamenti disponibili. È possibile aggiornare NuGet alla versione più recente da qui.
 
 <a id="TOC_ASP_NET_3_RC"></a>
-## <a name="aspnet-mvc-3-release-candidate"></a>Versione finale candidata di ASP.NET MVC 3
+## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 Release Candidate
 
 ASP.NET MVC versione finale candidata è stata rilasciata il 9 novembre 2010.
 
@@ -625,7 +625,7 @@ Per disattivare la convalida della richiesta per tutte le proprietà del modello
 - Quando si modifica una visualizzazione Razor (cshtml file), la voce di menu Vai al Controller in Visual Studio non sarà disponibile ed non esistono alcun frammenti di codice.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>Versione Beta di ASP.NET MVC 3
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
 
 ASP.NET MVC 3 Beta è stata rilasciata il 6 ottobre 2010. Le note seguenti sono specifiche per la versione Beta e sono soggetti a eventuali aggiornamenti o modifiche a cui fa riferimento nella sezione precedente ASP.NET MVC 3 Release Candidate.
 
@@ -672,7 +672,7 @@ La nuova tecnologia di pagine Web ASP.NET include un set di metodi di supporto s
 | **Helper** | **Descrizione** |
 | --- | --- |
 | Grafico | Esegue il rendering di un grafico all'interno di una vista. Contiene i metodi, ad esempio Chart.ToWebImage Chart.Save e Chart.Write. |
-| Livello di crittografia | Utilizza algoritmi per creare correttamente hash salt e hash delle password. |
+| Crypto | Utilizza algoritmi per creare correttamente hash salt e hash delle password. |
 | WebGrid | Esegue il rendering di una raccolta di oggetti (in genere, i dati da un database) come una griglia. Supporta l'ordinamento e paging. |
 | WebImage | Esegue il rendering di un'immagine. |
 | WebMail | Invia un messaggio di posta elettronica. |

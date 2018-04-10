@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: Caching | Microsoft Docs
+title: La memorizzazione nella cache | Documenti Microsoft
 author: microsoft
 description: La comprensione della memorizzazione nella cache è importante per un'applicazione ASP.NET buone prestazioni. ASP.NET 1. x disponibili tre diverse opzioni per la memorizzazione nella cache; cache di output,...
 ms.author: aspnetcontent
@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>Memorizzazione nella cache
 ====================
@@ -196,7 +196,7 @@ La chiamata al metodo WriteSubstitution causa cache sul lato client per cache di
 
 AdRotator controllo server implementa il supporto per la sostituzione post-cache internamente. Se si inserisce un controllo AdRotator nella pagina, verrà eseguito il rendering di annunci univoci per ogni richiesta, indipendentemente dal fatto che viene memorizzata nella cache della pagina padre. Di conseguenza, una pagina che include un controllo AdRotator viene solo memorizzata nella cache sul lato server.
 
-## <a name="controlcachepolicy-class"></a>Classe ControlCachePolicy
+## <a name="controlcachepolicy-class"></a>ControlCachePolicy Class
 
 La classe ControlCachePolicy consente di controllare a livello di codice del frammento di memorizzazione nella cache utilizzando i controlli utente. ASP.NET consente di incorporare controlli utente all'interno di un [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx) istanza. La classe BasePartialCachingControl rappresenta un controllo utente è abilitata la cache di output.
 

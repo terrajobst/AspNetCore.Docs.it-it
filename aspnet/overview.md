@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 03/12/2010
 ms.topic: article
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-msc.legacyurl: 
+msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 0ba7814d4004b17e678eab9a2a41a6d6f34773e1
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="aspnet-overview"></a>Panoramica di ASP.NET
 
@@ -38,7 +38,7 @@ Di seguito viene fornita una panoramica dei diversi Framework e alcune idee su c
 
 |   | Se si ha esperienza | Stile di sviluppo | Esperienza | 
 |-----------|----------------------|-----------------------------------------------------|----------------|
-| Web Form | Windows Form, WPF, .NET | Sviluppo rapido utilizzando una libreria completa di controlli che incapsulano codice HTML | Sviluppo rapido di applicazioni di livello intermedio, avanzate |
+| Web Form | Win Forms, WPF, .NET | Sviluppo rapido utilizzando una libreria completa di controlli che incapsulano codice HTML | Sviluppo rapido di applicazioni di livello intermedio, avanzate |
 | MVC       | Ruby su Guide, .NET  | Controllo completo su markup HTML, codice e markup separati e più semplice la scrittura di test. La scelta migliore per le applicazioni per dispositivi mobili e a pagina singola (SPA). | Livello intermedio, avanzate |
 | Pagine Web  | Classica ASP, PHP     | Markup HTML e il codice insieme nello stesso file | Nuovi, di livello intermedio |
 

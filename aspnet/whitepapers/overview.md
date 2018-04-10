@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 11/15/2011
 ms.topic: article
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers
 msc.type: content
 ms.openlocfilehash: ba9fda509605025754dc9753266f86585f38b089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whitepapers"></a>Whitepaper
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/24/2018
 
 Informazioni correlate per ASP.NET 4 e Visual Studio 2010.
 
-[Note sulla versione di ASP.NET MVC 4](mvc4-beta-release-notes.md "note sulla versione mvc4")
+[Note sulla versione di ASP.NET MVC 4](mvc4-beta-release-notes.md "mvc4--note sulla versione")
 
 Questo documento descrive le nuove funzionalità e miglioramenti introdotti in ASP.NET MVC 4 Developer Preview per Visual Studio 2010, nonché note sull'installazione e i problemi noti.
 
@@ -42,19 +42,19 @@ Questo documento descrive le nuove funzionalità e miglioramenti introdotti in A
 
 Questo documento vengono descritte le nuove funzionalità e miglioramenti introdotti in ASP.NET MVC 3, nonché i problemi noti e note di installazione.
 
-[In ASP.NET 4 e Cenni preliminari sullo sviluppo di Visual Studio 2010 Web](aspnet4/index.md "aspnet4")
+[Cenni preliminari sullo sviluppo di Visual Studio 2010 Web e ASP.NET 4](aspnet4/index.md "aspnet4")
 
 Numero di modifiche interessanti per ASP.NET saranno disponibili in .NET Framework versione 4. Questo documento offre una panoramica delle numerose delle nuove funzionalità incluse nella prossima versione.
 
-[Modifiche di rilievo di Beta 2 di ASP.NET 4](aspnet4/breaking-changes.md "modifiche di rilievo")
+[Modifiche di rilievo Beta 2 di ASP.NET 4](aspnet4/breaking-changes.md "modifiche di rilievo")
 
 Questo documento descrive le modifiche apportate per la versione di .NET Framework 4 versione Beta 2 (ovvero, la versione di ASP.NET 4 Beta 2) che può influire sulle applicazioni che sono state create con versioni precedenti, tra cui la versione Beta 1 di ASP.NET 4.
 
-[Novità di ASP.NET MVC 2](what-is-new-in-aspnet-mvc.md "novità di ASP.NET mvc")
+[Novità in ASP.NET MVC 2](what-is-new-in-aspnet-mvc.md "ciò che è stato introdotto in ASP.NET mvc")
 
 Questo documento descrive le nuove funzionalità e miglioramenti introdotti in ASP.NET MVC 2.
 
-[L'aggiornamento di un'applicazione ASP.NET MVC 1.0 per ASP.NET MVC 2](aspnet-mvc2-upgrade-notes.md "note aspnet-mvc2-aggiornamento")
+[L'aggiornamento di un'applicazione ASP.NET MVC 1.0 per ASP.NET MVC 2](aspnet-mvc2-upgrade-notes.md "aspnet-mvc2-aggiornamento-note")
 
 ASP.NET MVC 2 può essere installato in modo affiancato con ASP.NET MVC 1.0 nello stesso server. Questo offre flessibilità agli sviluppatori dell'applicazione scegliere quando eseguire l'aggiornamento di un'applicazione MVC ASP.NET 1.0 per ASP.NET MVC 2. Questo documento viene fornita la descrizione sia come eseguire l'aggiornamento manuale e con una procedura guidata Visual...
 
@@ -91,7 +91,7 @@ In questa procedura viene illustrato come utilizzare la gestione dei ruoli di AS
 
 In questa procedura viene illustrato come configurare e utilizzare l'autenticazione di Windows in un'applicazione Web ASP.NET. L'autenticazione di Windows è la scelta migliore quando gli utenti fanno parte del dominio di Windows. Questo approccio consente di utilizzare un archivio di identità già esistente...
 
-[Eseguire una revisione del codice di sicurezza per il codice gestito (attività di base)](https://msdn.microsoft.com/library/ms998364.aspx)
+[Eseguire una revisione del codice di sicurezza per il codice gestito (linea di base attività)](https://msdn.microsoft.com/library/ms998364.aspx)
 
 In questa procedura viene illustrato come eseguire le revisioni del codice di sicurezza. Questo modulo vengono presentati i passaggi coinvolti nelle attività e tecniche per analizzare i risultati ottenuti. Utilizzare questa procedura con "elenco di domande di sicurezza: codice (.NET Framework 2.0) gestito"...
 
@@ -103,7 +103,7 @@ In questa procedura viene illustrato come eseguire una verifica della distribuzi
 
 La delega Kerberos consente di passare un'identità autenticata attraverso vari livelli di un'applicazione per supportare l'autenticazione a valle e l'autorizzazione. In questa procedura illustra le operazioni di configurazione necessarie per ottenere questo risultato.
 
-[Utilizzare la rappresentazione e delega in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
+[Usare la rappresentazione e delega in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
 
 In questa procedura viene illustrato come e quando è necessario utilizzare la rappresentazione in applicazioni ASP.NET 2.0. Per impostazione predefinita, la rappresentazione è stata disattivata ed è possibile accedere alle risorse utilizzando l'identità del processo dell'applicazione Web ASP.NET. Tuttavia, è possibile usare...
 
@@ -129,7 +129,7 @@ In questa procedura viene illustrato come utilizzare l'autenticazione basata su 
 
 In questa procedura viene illustrato come è possibile utilizzare l'autenticazione basata su form con il provider di appartenenze di SQL Server. Autenticazione basata su form con SQL Server è più applicabile in situazioni in cui gli utenti dell'applicazione non fanno parte del dominio di Windows, e di conseguenza,...
 
-[Creazione di oggetti GenericPrincipal con autenticazione basata su form in ASP.NET 1.1](https://msdn.microsoft.com/library/aa302399.aspx)
+[Creare oggetti GenericPrincipal con autenticazione basata su form in ASP.NET 1.1](https://msdn.microsoft.com/library/aa302399.aspx)
 
 In questa procedura viene illustrato come creare e gestire oggetti GenericPrincipal e FormsIdentity quando si utilizza l'autenticazione basata su form.
 
@@ -147,7 +147,7 @@ In questa procedura viene illustrato come implementare l'autenticazione basata s
 
 Questo documento descrive la funzionalità di ASP.NET in cui, per impostazione predefinita, l'applicazione viene impedito di elaborazione del contenuto HTML non codificato di inviata al server di convalida delle richieste. Questa funzionalità di convalida richiesta può essere disabilitata quando l'applicazione sia stata...
 
-[Evitare Cross-Site Scripting in ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx)
+[Impedire l'esecuzione di script tra siti in ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx)
 
 In questa procedura viene illustrato come è possibile proteggere le applicazioni ASP.NET da attacchi di script utilizzando tecniche di convalida dell'input corretto e l'output di codifica. Vengono inoltre descritti numerosi altri meccanismi di protezione che è possibile utilizzare in...
 
@@ -155,13 +155,13 @@ In questa procedura viene illustrato come è possibile proteggere le applicazion
 
 In questa procedura vengono illustrati diversi modi per proteggere l'applicazione ASP.NET da attacchi SQL injection. Attacchi SQL injection possono verificarsi quando un'applicazione utilizza l'input per creare istruzioni SQL dinamiche o quando vengono utilizzate stored procedure per la connessione per il...
 
-[Utilizzare le espressioni regolari per limitare l'Input in ASP.NET](https://msdn.microsoft.com/library/ms998267.aspx)
+[Utilizzare espressioni regolari per vincolare un Input in ASP.NET](https://msdn.microsoft.com/library/ms998267.aspx)
 
 In questa procedura viene illustrato come è possibile utilizzare espressioni regolari all'interno delle applicazioni ASP.NET per vincolare un input non attendibile. Le espressioni regolari sono utili per convalidare i campi di testo, ad esempio nomi, indirizzi, i numeri di telefono e altre informazioni utente. È possibile usare...
 
 ### <a name="code-access-security"></a>Sicurezza per l'accesso al codice
 
-[Utilizzare la sicurezza di accesso di codice in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998326.aspx)
+[Utilizzare la sicurezza dall'accesso di codice in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998326.aspx)
 
 In questa procedura viene illustrato come selezionare un livello di attendibilità appropriato per l'applicazione e se necessario, come per creare un personalizzati ASP.NET codice accesso file criteri di sicurezza per definire un oggetto personalizzato di attendibilità livello. È possibile utilizzare l'attendibilità di sicurezza di accesso di codice diverso...
 
@@ -213,7 +213,7 @@ In questa procedura viene illustrato come creare una libreria di classi gestita 
 
 In questa procedura viene illustrato come creare una libreria di classi gestita per fornire funzionalità di crittografia per le applicazioni. Consente a un'applicazione scegliere l'algoritmo di crittografia. Gli algoritmi supportati includono DES, Triple DES, RC2 e Rijndael.
 
-[Archiviare una stringa di connessione crittografata nel Registro di sistema in ASP.NET 1.1](https://msdn.microsoft.com/library/aa302406.aspx)
+[Archiviare una stringa di connessione crittografata nel Registro di sistema ASP.NET 1.1](https://msdn.microsoft.com/library/aa302406.aspx)
 
 Le applicazioni è possono scegliere di archiviare dati crittografati, ad esempio le stringhe di connessione e credenziali dell'account del Registro di sistema. In questa procedura viene illustrato come archiviare e recuperare le stringhe crittografate nel Registro di sistema.
 
@@ -230,7 +230,7 @@ In questa procedura viene illustrato come utilizzare DPAPI in un'applicazione We
 
 Questi white paper vengono fornite istruzioni dettagliate per l'installazione e configurazione di ASP.NET sul server.
 
-[Creare un Account di servizio per ASP.NET 2.0 applicazione](https://msdn.microsoft.com/library/ms998297.aspx)
+[Creare un Account del servizio per ASP.NET 2.0 applicazione](https://msdn.microsoft.com/library/ms998297.aspx)
 
 In questa procedura viene illustrato come creare e configurare un account di servizio con privilegi minimi personalizzato per eseguire un'applicazione Web ASP.NET. Per impostazione predefinita, viene eseguita un'applicazione ASP.NET in Microsoft Windows Server 2003 e IIS 6.0 usando il servizio di rete predefinite...
 
@@ -246,15 +246,15 @@ In questa procedura viene illustrato come configurare le applicazioni Web ASP.NE
 
 In questa procedura viene illustrato come utilizzare l'account NT AUTHORITY\Network Service del computer per l'accesso locale e risorse di rete. Per impostazione predefinita in Windows Server 2003, applicazioni ASP.NET vengono eseguite utilizzando l'identità dell'account. È un privilegi minimi...
 
-[Utilizzare la transizione di protocollo e la delega vincolata in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998355.aspx)
+[Utilizzare Protocol Transition and Constrained Delegation in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998355.aspx)
 
 In questa procedura viene illustrato come configurare e usare la transizione di protocollo e la delega vincolata per consentire all'applicazione ASP.NET per accedere alle risorse di rete durante la rappresentazione del chiamante originale. Sistema operativo Microsoft® Windows® 2000...
 
-[Esecuzione di ASP.NET Side-by-Side di .NET Framework 1.0 e 1.1](side-by-side-with-10.md "side-by-side con 1.0")
+[L'esecuzione di ASP.NET Side-by-Side di .NET Framework 1.0 e 1.1](side-by-side-with-10.md "side-by-side con 1.0")
 
 Questo white paper viene descritto come installare sia .NET 1.0 e 1.1 di .NET nel computer, consentendo di un'applicazione Web ASP.NET per l'esecuzione su entrambe le versioni di framework.
 
-[Accesso negato ASP.NET in IIS directory](denied-access-to-iis-directories.md "negato l'accesso alla directory di iis")
+[ASP.NET negato l'accesso a directory IIS](denied-access-to-iis-directories.md "negato l'accesso a directory di iis")
 
 Questo white paper vengono descritte le operazioni da eseguire se una richiesta all'applicazione ASP.NET restituisce l'errore "accesso negato a *nomedirectory* directory. Impossibile avviare il monitoraggio delle modifiche alla directory."
 
@@ -262,11 +262,11 @@ Questo white paper vengono descritte le operazioni da eseguire se una richiesta 
 
 Sebbene Windows Server 2003 include sia IIS 6.0 e ASP.NET 1.1, questi componenti sono disabilitati per impostazione predefinita. Questo white paper viene descritto come abilitare IIS 6.0 e ASP.NET 1.1 e consiglia diverse impostazioni di configurazione per ottenere ottimale...
 
-[Correzione di errore "Applicazione Server non disponibile" dopo aver applicato l'aggiornamento della sicurezza per Internet Explorer](ms03-32-issue.md "ms03-32-problema")
+[Correzione di errore 'Applicazione Server non disponibile' dopo aver applicato l'aggiornamento della sicurezza per Internet Explorer](ms03-32-issue.md "ms03-32-problema")
 
 Questo documento descrive la patch che corregge un problema con l'aggiornamento della sicurezza MS03-32 per Internet Explorer che influisce sulle applicazioni ASP.NET 1.0 in esecuzione in Windows XP Professional.
 
-[Creare un Account personalizzato per l'esecuzione di ASP.NET 1.1](https://msdn.microsoft.com/library/aa302396.aspx)
+[Creare un Account personalizzato per eseguire ASP.NET 1.1](https://msdn.microsoft.com/library/aa302396.aspx)
 
 Applicazioni Web ASP.NET in genere eseguite con l'account ASPNET predefinito. In alcuni casi, si consiglia invece di utilizzare un account personalizzato. Questo articolo viene illustrato come creare un account locale con privilegiato minimi per eseguire applicazioni Web ASP.NET. ...
 
@@ -284,7 +284,7 @@ In questa procedura viene illustrato come utilizzare il Windows Data Protection 
 
 In questa procedura viene illustrato come utilizzare il provider di configurazione protetta RSA e Aspnet\_strumento regiis.exe per crittografare sezioni dei file di configurazione. È possibile utilizzare Aspnet\_strumento regiis.exe per crittografare dati sensibili, ad esempio le stringhe di connessione, contenuti nel...
 
-[Utilizzare la rappresentazione e delega in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
+[Usare la rappresentazione e delega in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
 
 In questa procedura viene illustrato come e quando è necessario utilizzare la rappresentazione in applicazioni ASP.NET 2.0. Per impostazione predefinita, la rappresentazione è stata disattivata ed è possibile accedere alle risorse utilizzando l'identità del processo dell'applicazione Web ASP.NET. Tuttavia, è possibile usare...
 
@@ -293,11 +293,11 @@ In questa procedura viene illustrato come e quando è necessario utilizzare la r
 
 Quando ASP.NET viene utilizzato con un'ampia gamma di database, i white paper esaminare in modo specifico la connessione di applicazioni ASP.NET a SQL Server.
 
-[Connettersi a SQL Server utilizzando l'autenticazione di SQL in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx)
+[Connettersi a SQL Server con l'autenticazione di SQL in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx)
 
 In questa procedura viene illustrato come connettere un'applicazione ASP.NET in modo sicuro a Microsoft® SQL Server™, quando l'autenticazione di accesso di database utilizza l'autenticazione di SQL native. Autenticazione di Windows è il modo consigliato per connettersi a SQL Server perché si...
 
-[Connettersi a SQL Server utilizzando l'autenticazione di Windows in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998292.aspx)
+[Connettersi a SQL Server con l'autenticazione di Windows in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998292.aspx)
 
 In questa procedura viene illustrato come connettersi a SQL Server 2000 utilizzando un account del servizio Windows da un'applicazione ASP.NET versione 2.0. È necessario utilizzare l'autenticazione di Windows anziché l'autenticazione di SQL ogni volta che è possibile per evitare l'archiviazione delle credenziali in...
 
@@ -314,7 +314,7 @@ Case study seguenti viene descritto il processo utilizzato per eseguire la migra
 
 Questi white paper illustra una serie di argomenti relativi a ASP.NET.
 
-[Utilizzare il monitoraggio dello stato in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx)
+[Utilizzare il monitoraggio dello stato di ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx)
 
 In questa procedura viene illustrato come utilizzare per instrumentare l'applicazione per un evento personalizzato di monitoraggio dello stato. Per creare un evento di monitoraggio dello stato personalizzato, è possibile creare una classe che deriva da System.Web.Management.WebBaseEvent, configurare il &lt;healthMonitoring&gt; ...
 
@@ -326,6 +326,6 @@ Questa procedura descrive la gestione delle patch, inclusi come mantenere single
 
 I controlli Server ASP.NET per Silverlight ("controlli Silverlight ASP.NET"), che sono i controlli ASP.NET MediaPlayer e Silverlight, sono stati rimossi da Silverlight SDK per Silverlight versione 3. Questo documento fornisce istruzioni per gli sviluppatori che lavorano con tali ASP.NET...
 
-[Creazione di applicazioni Web ad alte prestazioni](https://devexpress.com/act)
+[Compilazione di applicazioni Web ad alte prestazioni](https://devexpress.com/act)
 
 Informazioni su come utilizzare le nuove funzionalità nella libreria ASP.NET Ajax per compilare applicazioni Web a prestazioni elevate

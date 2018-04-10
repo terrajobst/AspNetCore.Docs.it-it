@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
 ms.openlocfilehash: bc5f40746ad6b1ed8a74bcb75def9ff8f08fb789
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
@@ -96,7 +96,7 @@ La rete CDN consentono di utilizzare il nome di dominio microsoft.com ed è stat
 
 Per utilizzare correttamente i file .vsdoc con Visual Studio 2008, è necessario assicurarsi di disporre di Visual Studio 2008 SP1 installato e l'installazione dell'hotfix per i file vsdoc. È possibile ottenere questi da qui:
 
-- [Scaricare Visual Studio 2008 SP1](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "scaricare Visual Studio 2008 SP1")
+- [Download Visual Studio 2008 SP1](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "Download Visual Studio 2008 SP1")
 - [Scaricare l'hotfix .vsdoc per Visual Studio 2008 SP1](https://code.msdn.microsoft.com/KB958502/Release/ProjectReleases.aspx?ReleaseId=1736 "scaricare .vsdoc hotfix per Visual Studio 2008 SP1")
 
 Visual Studio 2010 supporta file .vsdoc senza tutte le patch aggiuntive.
@@ -621,8 +621,8 @@ Le versioni della libreria di convalida jQuery seguenti sono ospitate in questa 
 - [jQuery convalida 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate versione 1.8.1")
 - [jQuery convalida 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate versione 1.8")
 - [jQuery convalida 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate versione 1.7")
-- [jQuery convalida 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery convalida 1.6")
-- [jQuery convalida 1.5.5](jquery-validate/cdnjqueryvalidate155.md "1.5.5 convalida jQuery")
+- [jQuery Validate 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery Validate 1.6")
+- [jQuery Validate 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery Validate 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
@@ -672,13 +672,13 @@ Le versioni seguenti di plug-in del ciclo di jQuery sono ospitate in questa rete
 
 Le seguenti versioni di jQuery DataTable plug-in sono ospitate in questa rete CDN. Fare clic su ogni collegamento per visualizzare l'elenco effettivo dei file.
 
-- [jQuery DataTable 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTable 1.10.5")
-- [jQuery DataTable 1.10.4](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTable 1.10.4")
-- [jQuery DataTable 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTable 1.9.4")
+- [jQuery DataTables 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTables 1.10.5")
+- [jQuery DataTables 1.10.4](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
+- [jQuery DataTables 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables 1.9.4")
 - [jQuery DataTable 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTable 1.9.3")
 - [jQuery DataTable 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTable 1.9.2")
-- [jQuery DataTable 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTable 1.9.1")
-- [jQuery DataTable alla 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTable alla 1.9.0")
+- [jQuery DataTables 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
+- [jQuery DataTables 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
 - [jQuery DataTable 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTable 1.8.2")
 
 <a id="Modernizr_Releases_on_the_CDN_8"></a>
@@ -1046,7 +1046,7 @@ Le seguenti versioni di [getbootstrap.com](http://getbootstrap.com "getbootstrap
 
 Le seguenti versioni di [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") TouchCarousel Bootstrap versioni sono ospitate nella rete CDN:
 
-#### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel versione 0.8.0
+#### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel version 0.8.0
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/css/bootstrap-touch-carousel.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/js/bootstrap-touch-carousel.js

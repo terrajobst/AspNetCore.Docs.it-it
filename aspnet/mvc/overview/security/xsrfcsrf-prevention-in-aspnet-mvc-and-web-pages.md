@@ -2,7 +2,7 @@
 uid: mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 title: Prevenzione di XSRF/CSRF in ASP.NET MVC e pagine Web | Documenti Microsoft
 author: Rick-Anderson
-description: "Falsificazione della richiesta tra siti tra (noto anche come XSRF o CSRF) è un attacco contro applicazioni ospitate da web in base al quale un sito web in grado di influenzare il interacti..."
+description: Falsificazione della richiesta tra siti tra (noto anche come XSRF o CSRF) è un attacco contro applicazioni ospitate da web in base al quale un sito web in grado di influenzare il interacti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2013
@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 6cf30daa7ed966b11405cec715c5bc803b567249
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Prevenzione di XSRF/CSRF in ASP.NET MVC e pagine Web
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Richiesta intersito forgery (noto anche come XSRF o CSRF) è un attacco contro applicazioni ospitate da web in base al quale un sito web in grado di influenzare l'interazione tra un browser del client e un sito web considerato attendibile da tale browser. Questi attacchi sono possibili perché browser invierà i token di autenticazione automaticamente con ogni richiesta a un sito web. L'esempio canonico è un cookie di autenticazione, ad esempio, ASP. Ticket di autenticazione basata su form della rete. Tuttavia, i siti web che utilizzano qualsiasi meccanismo di autenticazione persistente (ad esempio l'autenticazione di Windows, Basic e così via) può essere assegnato da tali attacchi.
 > 
@@ -77,16 +77,16 @@ Il *token di campo* viene archiviato come un `<input type="hidden" />` e contien
 
 I payload dei token anti-XSRF vengono crittografati e firmati, pertanto non è possibile visualizzare il nome utente quando si utilizzano strumenti per esaminare i token. Quando l'applicazione web è la destinazione è 4.0 di ASP.NET, servizi di crittografia forniti dal [MachineKey.Encode](https://msdn.microsoft.com/library/system.web.security.machinekey.encode.aspx) routine. Quando l'applicazione web è destinato a ASP.NET 4.5 o forniti da servizi di crittografia, maggiore di [MachineKey.Protect](https://msdn.microsoft.com/library/system.web.security.machinekey.protect(v=vs.110)) routine, che offre prestazioni migliori, estensibilità e sicurezza. Post di blog seguente per ulteriori informazioni, vedere:
 
-- [Miglioramenti di crittografia in ASP.NET 4.5, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
-- [Miglioramenti di crittografia in ASP.NET 4.5, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
-- [Miglioramenti di crittografia in ASP.NET 4.5, pt. 3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
+- [Miglioramenti della crittografici in ASP.NET 4.5, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
+- [Miglioramenti della crittografici in ASP.NET 4.5, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
+- [Miglioramenti della crittografici in ASP.NET 4.5, pt. 3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
 
 ## <a name="generating-the-tokens"></a>Generazione di token
 
 Per generare il token anti-XSRF, chiamare il [ @Html.AntiForgeryToken ](https://msdn.microsoft.com/library/dd470175.aspx) metodo da una visualizzazione MVC o @AntiForgery.GetHtml() da una pagina Razor. Il runtime eseguirà quindi i passaggi seguenti:
 
 1. Se la richiesta HTTP corrente contiene già un token di sessione di anti-XSRF (il cookie di anti-XSRF \_ \_RequestVerificationToken), il token di sicurezza viene estratto da esso. Se la richiesta HTTP non contiene un token di sessione di anti-XSRF o estrazione del token di sicurezza non riesce, verrà generato un nuovo token anti-XSRF casuale.
-2. Un token di campo di anti-XSRF viene generato usando il token di sicurezza dal passaggio (1) e l'identità dell'utente corrente connesso. (Per ulteriori informazioni su come determinare l'identità dell'utente, vedere il  **[scenari con un supporto speciale](#_Scenarios_with_special)**  sezione riportata di seguito.) Inoltre, se un [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) è configurato, il runtime chiamerà relativo [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) (metodo) e includere la stringa restituita nel token di campo. (Vedere il  **[configurazione e l'estensibilità](#_Configuration_and_extensibility)**  sezione per ulteriori informazioni.)
+2. Un token di campo di anti-XSRF viene generato usando il token di sicurezza dal passaggio (1) e l'identità dell'utente corrente connesso. (Per ulteriori informazioni su come determinare l'identità dell'utente, vedere il **[scenari con un supporto speciale](#_Scenarios_with_special)** sezione riportata di seguito.) Inoltre, se un [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) è configurato, il runtime chiamerà relativo [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) (metodo) e includere la stringa restituita nel token di campo. (Vedere il **[configurazione e l'estensibilità](#_Configuration_and_extensibility)** sezione per ulteriori informazioni.)
 3. Se un nuovo token anti-XSRF è stato generato nel passaggio (1), un token di sessione nuovo verrà creato per contenere la e verrà aggiunto alla raccolta di cookie HTTP in uscita. Il token di campo dal passaggio (2) verrà incapsulato in un `<input type="hidden" />` elemento e il markup HTML sarà il valore restituito di `Html.AntiForgeryToken()` o `AntiForgery.GetHtml()`.
 
 ## <a name="validating-the-tokens"></a>Convalida i token
@@ -108,9 +108,9 @@ A partire con il Runtime di Stack Web ASP.NET v2, qualsiasi *HttpAntiForgeryExce
 - Il token di sessione e i token di campo sono stati scambiati.
 - Il token di sessione e un token di campo contengono token di sicurezza non corrispondenti.
 - Il nome utente incorporato all'interno di token di campo non corrisponde a nome utente di accesso dell'utente corrente.
-- Il  *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*  metodo restituito *false*.
+- Il *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)* metodo restituito *false*.
 
-Le funzionalità di anti-XSRF possono inoltre eseguire ulteriori controlli durante la generazione di token o la convalida e potrebbero verificarsi errori durante questi controlli di eccezioni. Vedere il [WIF / ACS / basata sulle attestazioni autenticazione](#_WIF_ACS) e  **[configurazione e l'estensibilità](#_Configuration_and_extensibility)**  sezioni per ulteriori informazioni.
+Le funzionalità di anti-XSRF possono inoltre eseguire ulteriori controlli durante la generazione di token o la convalida e potrebbero verificarsi errori durante questi controlli di eccezioni. Vedere il [WIF / ACS / basata sulle attestazioni autenticazione](#_WIF_ACS) e **[configurazione e l'estensibilità](#_Configuration_and_extensibility)** sezioni per ulteriori informazioni.
 
 <a id="_Scenarios_with_special"></a>
 
@@ -139,10 +139,10 @@ Molte delle distribuzioni che usano l'autenticazione basata sulle attestazioni u
 
 Durante la generazione o la convalida di un token, il Runtime di ASP.NET Web Stack tenterà in fase di esecuzione dell'associazione per i tipi:
 
-- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35`(Per il SDK WIF.)
-- `System.Security.Claims.ClaimsIdentity`(Per .NET 4.5).
+- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35` (Per il SDK WIF.)
+- `System.Security.Claims.ClaimsIdentity` (Per .NET 4.5).
 
-Se questi tipi esistono e se l'utente corrente *IIIIdentity* implementa o sottoclassi uno di questi tipi, si utilizzerà la funzionalità di anti-XSRF (provider di identità, identificatore del nome) tupla al posto del nome utente durante la generazione e convalida i token. Se tale tupla non è presente, la richiesta avrà esito negativo con un errore che descrive allo sviluppatore di come configurare il sistema di anti-XSRF per comprendere il meccanismo di autenticazione basata sulle attestazioni specifico in uso. Vedere il  **[configurazione e l'estensibilità](#_Configuration_and_extensibility)**  sezione per ulteriori informazioni.
+Se questi tipi esistono e se l'utente corrente *IIIIdentity* implementa o sottoclassi uno di questi tipi, si utilizzerà la funzionalità di anti-XSRF (provider di identità, identificatore del nome) tupla al posto del nome utente durante la generazione e convalida i token. Se tale tupla non è presente, la richiesta avrà esito negativo con un errore che descrive allo sviluppatore di come configurare il sistema di anti-XSRF per comprendere il meccanismo di autenticazione basata sulle attestazioni specifico in uso. Vedere il **[configurazione e l'estensibilità](#_Configuration_and_extensibility)** sezione per ulteriori informazioni.
 
 ### <a name="oauth--openid-authentication"></a>OAuth / OpenID autenticazione
 
@@ -175,7 +175,7 @@ Lo sviluppatore può configurare il sistema di anti-XSRF dal applicazione\_Start
 
 ### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
-Il  *[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*  tipo consente agli sviluppatori di estendere il comportamento del sistema anti-XSRF, dati aggiuntivi di andata e ritorno in ogni token. Il *GetAdditionalData* metodo viene chiamato ogni volta che viene generato un token di campo e il valore restituito è incorporato all'interno del token generato. Un responsabile dell'implementazione può restituire un timestamp, un parametro nonce o qualsiasi altro valore che lei desidera da questo metodo.
+Il *[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)* tipo consente agli sviluppatori di estendere il comportamento del sistema anti-XSRF, dati aggiuntivi di andata e ritorno in ogni token. Il *GetAdditionalData* metodo viene chiamato ogni volta che viene generato un token di campo e il valore restituito è incorporato all'interno del token generato. Un responsabile dell'implementazione può restituire un timestamp, un parametro nonce o qualsiasi altro valore che lei desidera da questo metodo.
 
 Analogamente, il *ValidateAdditionalData* metodo viene chiamato ogni volta che viene convalidato un token di campo e la stringa "dati aggiuntivi" che è stata incorporata all'interno del token viene passata al metodo. La routine di convalida è possibile implementare un timeout (controllando l'ora corrente con l'ora in cui è stato archiviato quando è stato creato il token), un parametro nonce controllo routine o qualsiasi altra desiderata logica.
 
@@ -191,4 +191,4 @@ Gli sviluppatori Web devono continuare ad assicurarsi che il sito non sia vulner
 
 ## <a name="acknowledgment"></a>Riconoscimento
 
-[@LeviBroderick](https://twitter.com/LeviBroderick), che ha scritto la maggior parte del codice della sicurezza ASP.NET la maggior parte di queste informazioni.
+[@LeviBroderick](https://twitter.com/LeviBroderick), che ha scritto gran parte del codice della sicurezza ASP.NET la maggior parte di queste informazioni.

@@ -16,7 +16,7 @@ ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="bundling-and-minification"></a>Bundling and Minification
 ====================
@@ -55,7 +55,7 @@ Dopo la minimizzazione, la funzione viene ridotto al seguente:
 
 Oltre a rimuovere i commenti e gli spazi vuoti non necessari, i seguenti parametri e i nomi delle variabili sono stati rinominati (abbreviato) come indicato di seguito:
 
-| **Original** | **Rinominato** |
+| **Originale** | **Rinominato** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |
@@ -170,10 +170,10 @@ La tabella seguente illustra i file aggiunti a un bundle utilizzando il caratter
 
 | **Call** | **Eccezione generata o i file aggiunti** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Includere ("~/Scripts/Common/\*. js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Eccezione di modello non valido. Il carattere jolly è consentito solo nel prefisso o suffisso. |
 | Includere ("~/Scripts/Common/\*og.\*") | Eccezione di modello non valido. È consentito un solo carattere jolly. |
-| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
+| "Includono (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
 | "Includono (" ~/Scripts/Common/\*") | Eccezione di modello non valido. Un segmento con carattere jolly pure non è valido. |
 | IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
 | IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |

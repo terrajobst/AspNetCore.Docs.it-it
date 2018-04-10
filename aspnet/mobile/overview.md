@@ -8,22 +8,22 @@ manager: wpickett
 ms.date: 01/28/2011
 ms.topic: article
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /mobile
 msc.type: content
 ms.openlocfilehash: de05ede5b7b41f0c44c867b51faf2310ac9fc514
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="mobile-apps--sites-with-aspnet"></a>App per dispositivi mobili e i siti con ASP.NET
 ====================
 ## <a name="develop-mobile-apps"></a>Sviluppare App per dispositivi mobili
 
 
-### <a name="cloud-connected-mobile-apps---create-a-web-service-with-azure-web-apps-and-webjobshttpsmsdnmicrosoftcommagazinemt185572part-1"></a>[App per dispositivi mobili connessi cloud - creare un servizio Web con le applicazioni Web di Azure e processi Web](https://msdn.microsoft.com/magazine/mt185572)(parte 1)
+### <a name="cloud-connected-mobile-apps---create-a-web-service-with-azure-web-apps-and-webjobshttpsmsdnmicrosoftcommagazinemt185572part-1"></a>[App per dispositivi mobili connessi cloud - creare un servizio Web con le applicazioni Web di Azure e i processi Web](https://msdn.microsoft.com/magazine/mt185572)(parte 1)
 
 Nella prima parte di un articolo in due parti, gli autori esplorare alcuni dei problemi per la creazione di un cloud back-end che aggrega ed elabora i dati e la gestisce per client mobili.
 
@@ -43,7 +43,7 @@ In questa esercitazione end-to-end viene illustrato come creare un'applicazione 
 Introduzione all'uso di servizi mobili di Azure con ASP.NET Web API. In questa esercitazione viene illustrato come creare un'applicazione di servizi mobili dal portale di gestione di Azure.
 
 
-### <a name="authentication-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-userswtmcidzumoaspnet"></a>[Autenticazione di servizi mobili di Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
+### <a name="authentication-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-userswtmcidzumoaspnet"></a>[Autenticazione in servizi mobili di Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
 
 In questa esercitazione viene illustrato come autenticare gli utenti di servizi mobili di Azure dall'app.
 
@@ -56,7 +56,7 @@ Utilizzare i servizi mobili di Azure per inviare notifiche push a un dispositivo
 ## <a name="develop-mobile-sites"></a>Sviluppare siti per dispositivi mobili
 
 
-### <a name="deploy-an-mobile-friendly-aspnet-mvc-5-web-application-on-windows-azure-web-siteshttpsdocsmicrosoftcomazureapp-service-webweb-sites-dotnet-deploy-aspnet-mvc-mobile-app"></a>[Distribuire un'applicazione Web Mobile-Friendly ASP.NET MVC 5 nei siti Web di Azure di Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-mobile-app)
+### <a name="deploy-an-mobile-friendly-aspnet-mvc-5-web-application-on-windows-azure-web-siteshttpsdocsmicrosoftcomazureapp-service-webweb-sites-dotnet-deploy-aspnet-mvc-mobile-app"></a>[Distribuire un'applicazione Web Mobile-Friendly ASP.NET MVC 5 in siti Web di Azure di Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-mobile-app)
 
 Questa esercitazione viene illustrato come distribuire un'applicazione MVC 5 in un sito web di Windows Azure e creare visualizzazioni mobile descrittivi utilizzando Progettazione Bootstrap reattiva le nozioni di base.
 
@@ -76,11 +76,11 @@ In questa procedura vengono descritti vari modi per fornire pagine ottimizzate p
 Collegamenti per gli emulatori e simulatori che è possibile utilizzare per testare le applicazioni web per dispositivi mobili
 
 
-### <a name="mobile-web-sites-with-aspnet-mvc-and-the-mobile-browser-definition-filehttpwwwhanselmancomblogmixmobilewebsiteswithaspnetmvcandthemobilebrowserdefinitionfileaspx"></a>[Siti Web con ASP.NET MVC e i File di definizione del Browser per dispositivi mobili per dispositivi mobili](http://www.hanselman.com/blog/MixMobileWebSitesWithASPNETMVCAndTheMobileBrowserDefinitionFile.aspx)
+### <a name="mobile-web-sites-with-aspnet-mvc-and-the-mobile-browser-definition-filehttpwwwhanselmancomblogmixmobilewebsiteswithaspnetmvcandthemobilebrowserdefinitionfileaspx"></a>[Siti Web per dispositivi mobili con ASP.NET MVC e File di definizione del Browser per dispositivi mobili](http://www.hanselman.com/blog/MixMobileWebSitesWithASPNETMVCAndTheMobileBrowserDefinitionFile.aspx)
 
 In questa discussione presentata in occasione della conferenza MIX Microsoft, Scott Hanselman illustra come è possibile creare siti Web di dispositivo mobile descrittivi mediante ASP.NET MVC.
 
 
-### <a name="develop-iphone-applications-with-aspnethttplabscomponentonecomiphone"></a>[Sviluppo di applicazioni per iPhone con ASP.NET](http://labs.componentone.com/iPhone/)
+### <a name="develop-iphone-applications-with-aspnethttplabscomponentonecomiphone"></a>[Sviluppo di applicazioni iPhone con ASP.NET](http://labs.componentone.com/iPhone/)
 
 ComponentOne Studio per iPhone è una famiglia di controlli ASP.NET che simulano l'aspetto di iPhone e iPod touch interfacce utente quando è sottoposto a rendering in Safari Mobile.

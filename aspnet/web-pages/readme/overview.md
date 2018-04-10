@@ -16,7 +16,7 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="webmatrix-readme"></a>File Leggimi di WebMatrix
 ====================
@@ -98,7 +98,7 @@ ms.lasthandoff: 04/06/2018
 > Quando si installa SQL Server Compact 4.0 in un computer a 64 bit e il computer dispone solo di .NET Framework 3.5 SP1 Client Profile installato, gli assembly gestiti per SQL Server Compact 4.0 non vengono inseriti in global assembly cache (GAC). Gli assembly gestiti che non sono installati nella Global Assembly Cache sono:
 > 
 > - *SqlServerCe* (provider ADO.NET)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
 > 
 > **Soluzione alternativa**  
 > Disinstallare SQL Server Compact 4.0. Scaricare e installare la versione completa di .NET Framework 3.5 SP1 dal percorso seguente:  

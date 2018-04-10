@@ -16,11 +16,11 @@ ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Estrazione e pagamento PayPal
 ====================
-da [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -391,7 +391,7 @@ Il **DetailsView** controllo viene utilizzato per visualizzare i dettagli dell'o
 > 
 > **Suggerimento**
 > 
-> Nel markup del *CheckoutReview.aspx* pagina, si noti che il `<ItemStyle>` tag è utilizzato per modificare lo stile degli elementi all'interno di **DetailsView** controllo nella parte inferiore della pagina. Visualizzando la pagina in **visualizzazione Progettazione** (selezionando **progettazione** nell'angolo inferiore sinistro di Visual Studio), quindi selezionando il **DetailsView** controllo e selezionando il  **Smart Tag** (l'icona freccia nella parte superiore destra del controllo), sarà in grado di visualizzare il **Attività DetailsView**.
+> Nel markup del *CheckoutReview.aspx* pagina, si noti che il `<ItemStyle>` tag è utilizzato per modificare lo stile degli elementi all'interno di **DetailsView** controllo nella parte inferiore della pagina. Visualizzando la pagina in **visualizzazione Progettazione** (selezionando **progettazione** nell'angolo inferiore sinistro di Visual Studio), quindi selezionando il **DetailsView** controllo e selezionando il ** Smart Tag** (l'icona freccia nella parte superiore destra del controllo), sarà in grado di visualizzare il **Attività DetailsView**.
 > 
 > ![Estrazione e pagamento PayPal - modificare i campi](checkout-and-payment-with-paypal/_static/image18.png)
 > 
@@ -425,7 +425,7 @@ Se l'utente decide di annullare l'acquisto, verranno indirizzati al *CheckoutCan
 
 ### <a name="handle-purchase-errors"></a>Gestire gli errori di acquisto
 
-Errori durante il processo di acquisto verranno gestiti dal *CheckoutError.aspx* pagina. Il code-behind del *CheckoutStart.aspx* pagina il *CheckoutReview.aspx* pagina e *CheckoutComplete.aspx* ciascuna pagina verrà reindirizzata al  *CheckoutError.aspx* pagina se si verifica un errore.
+Errori durante il processo di acquisto verranno gestiti dal *CheckoutError.aspx* pagina. Il code-behind del *CheckoutStart.aspx* pagina il *CheckoutReview.aspx* pagina e *CheckoutComplete.aspx* ciascuna pagina verrà reindirizzata al * CheckoutError.aspx* pagina se si verifica un errore.
 
 1. Aprire la pagina denominata *CheckoutError.aspx* nel *estrazione* cartella.
 2. Sostituire il codice esistente con il seguente:   
@@ -502,7 +502,7 @@ Esaminando i dati aggiornati nel database dell'applicazione di esempio Wingtip T
 10. Esaminare il `OrderId` e `Username` i valori di **OrderDetails** tabella. Si noti che questi valori corrispondono il `OrderId` e `Username` valori inclusi nel **ordini** tabella.
 11. Chiudi il **OrderDetails** finestra della tabella.
 12. Il file di database Wingtip Toys (*Wingtiptoys.mdf*) e selezionare **chiusura connessione**.
-13. Se non viene visualizzato il **Esplora** finestra, fare clic su **Esplora soluzioni** nella parte inferiore del **Esplora Server** finestra per visualizzare il **Esplora soluzioni**  nuovamente.
+13. Se non viene visualizzato il **Esplora** finestra, fare clic su **Esplora soluzioni** nella parte inferiore del **Esplora Server** finestra per visualizzare il **Esplora soluzioni ** nuovamente.
 
 ## <a name="summary"></a>Riepilogo
 

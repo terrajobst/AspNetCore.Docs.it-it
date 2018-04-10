@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Utilizzo dei file in un sito Web di ASP.NET di pagine (Razor)
 ====================
@@ -133,9 +133,9 @@ Questa procedura viene illustrato come leggere e visualizzare i dati che è stat
 
     Il codice per eseguire questa operazione è all'interno di un `if` istruzione. Quando si desidera leggere un file, è consigliabile utilizzare il `File.Exists` metodo per determinare innanzitutto se il file è disponibile. Il codice verifica inoltre se il file è vuoto.
 
-    Il corpo della pagina contiene due `foreach` cicli, uno annidato all'interno di altro. Esterna `foreach` ciclo Ottiene una riga alla volta dal file di dati. In questo caso, le righe sono definite da interruzioni di riga nel file di &#8212; ogni elemento di dati è sulla riga corrispondente. Il ciclo esterno crea un nuovo elemento (`<li>` elemento) all'interno di un elenco ordinato (`<ol>` elemento).
+    Il corpo della pagina contiene due `foreach` cicli, uno annidato all'interno di altro. Esterna `foreach` ciclo Ottiene una riga alla volta dal file di dati. In questo caso, le righe vengono definite da interruzioni di riga nel file &#8212; , ogni elemento di dati è su una riga. Il ciclo esterno crea un nuovo elemento (`<li>` elemento) all'interno di un elenco ordinato (`<ol>` elemento).
 
-    Il ciclo interno divide ogni riga di dati in elementi (campi) con una virgola come delimitatore. (In base all'esempio precedente, ciò significa che ogni riga contiene tre campi &#8212; il nome, cognome e indirizzo di posta elettronica, separati da virgola). Il ciclo interno crea anche un `<ul>` elementi di elenco e visualizza un elenco per ogni campo nella riga di dati.
+    Il ciclo interno divide ogni riga di dati in elementi (campi) con una virgola come delimitatore. (In base l'esempio precedente, ciò significa che ogni riga contiene tre campi &#8212; il nome, cognome e indirizzo di posta elettronica, separati da una virgola.) Il ciclo interno crea anche un `<ul>` elementi di elenco e visualizza un elenco per ogni campo nella riga di dati.
 
     Il codice viene illustrato come utilizzare due tipi di dati, una matrice e `char` tipo di dati. La matrice è necessaria perché il `File.ReadAllLines` metodo restituisce i dati sotto forma di matrice. Il `char` tipo di dati è necessario perché il `Split` metodo restituisce un `array` in cui ogni elemento è del tipo `char`. (Per informazioni sulle matrici, vedere [Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
 3. Eseguire la pagina in un browser. I dati che immessi per gli esempi precedenti viene visualizzati. 
@@ -194,7 +194,7 @@ Il `FileUpload` supporto consente agli utenti di caricare i file nel sito Web. L
 
     Le proprietà impostate per il `FileUpload` helper specificare che una singola casella per il file da caricare e che il pulsante submit per leggere **caricare**. (Si aggiungeranno caselle più avanti in questo articolo.)
 
-    Quando l'utente fa clic **caricare**, ottiene il file e lo salva il codice nella parte superiore della pagina. Il `Request` oggetto normalmente utilizzato per ottenere i valori dai campi modulo dispone anche di un `Files` matrice che contiene i file di () che sono stati caricati. È possibile ottenere i singoli file tra posizioni specifiche nella matrice &#8212; ad esempio, per ottenere il primo file caricato, ottenere `Request.Files[0]`, per ottenere il secondo file, si ottiene `Request.Files[1]`e così via. (Tenere presente che nella programmazione, il conteggio in genere inizia in corrispondenza di zero).
+    Quando l'utente fa clic **caricare**, ottiene il file e lo salva il codice nella parte superiore della pagina. Il `Request` oggetto normalmente utilizzato per ottenere i valori dai campi modulo dispone anche di un `Files` matrice che contiene i file di () che sono stati caricati. È possibile ottenere singoli file tra posizioni specifiche nella matrice &#8212; , ad esempio, per ottenere il primo file caricato, si ottiene `Request.Files[0]`, per ottenere il secondo file, viene visualizzato `Request.Files[1]`e così via. (Tenere presente che nella programmazione, il conteggio in genere inizia in corrispondenza di zero).
 
     Quando si recupera un file caricato, viene inserita in una variabile (in questo caso, `uploadedFile`) in modo da poterli modificare. Per determinare il nome del file caricato, viene visualizzato solo il relativo `FileName` proprietà. Tuttavia, quando l'utente carica un file, `FileName` contiene il nome dell'utente originale, che include l'intero percorso. Potrebbe essere simile al seguente:
 
@@ -238,7 +238,7 @@ Nell'esempio precedente, consentire agli utenti di caricare un file. Ma è possi
 
     ![[immagine]](working-with-files/_static/image11.jpg)
 
-    Per elaborare i file che l'utente carica, il codice utilizza la stessa tecnica di base utilizzati nell'esempio precedente &#8212; ottenere un file da `Request.Files` e quindi salvarlo. (Compresi i vari elementi necessario ottenere il nome file corretti e il percorso.) Questa volta l'innovazione è che l'utente sta per caricare più file e non si conosce molti. Per individuare, è possibile ottenere `Request.Files.Count`.
+    Per elaborare i file che l'utente carica, il codice Usa la stessa tecnica di base utilizzato nell'esempio precedente &#8212; ottenere un file da `Request.Files` e quindi salvare il file. (Compresi i vari elementi necessario ottenere il nome file corretti e il percorso.) Questa volta l'innovazione è che l'utente sta per caricare più file e non si conosce molti. Per individuare, è possibile ottenere `Request.Files.Count`.
 
     Con questo numero di disponibilità, è possibile scorrere in ciclo `Request.Files`, recuperare, a sua volta di ogni file e salvarlo. Quando si desidera eseguire un ciclo noto il numero di volte tramite una raccolta, è possibile utilizzare un `for` ciclo, simile al seguente:
 

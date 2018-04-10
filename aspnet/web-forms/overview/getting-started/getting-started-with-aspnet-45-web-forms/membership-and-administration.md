@@ -16,11 +16,11 @@ ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="membership-and-administration"></a>L'appartenenza e l'amministrazione
 ====================
-da [Erik Reitan](https://github.com/Erikre)
+by [Erik Reitan](https://github.com/Erikre)
 
 [Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -277,7 +277,7 @@ In questa esercitazione aggiunto un ruolo personalizzato e un utente appartenent
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Web. config - elemento authorization](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[Identità di ASP.NET](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
 [Distribuire un'App di moduli Web ASP.NET in modo sicuro con l'appartenenza, OAuth e il Database SQL a un sito Web di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)
 

@@ -16,7 +16,7 @@ ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Procedura: Aggiungere pagine per dispositivi mobili per il Web Form ASP.NET / applicazione MVC
 ====================
@@ -104,7 +104,7 @@ Il prerequisito di chiave per tutte le tecniche sul lato server per supportare i
 - Metodo di input (mouse o tastiera, tocco, tastierino, joystick,...)
 - La dimensione dello schermo (fisicamente e, in pixel)
 - Formati di dati e i supporti supportati
-- Etc.
+- E così via.
 
 Si consiglia di prendere decisioni in base alle caratteristiche del numero di modello, in quanto, quindi è in grado di gestire dispositivi futuri.
 

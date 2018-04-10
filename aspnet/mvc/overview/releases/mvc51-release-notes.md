@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/mvc51-release-notes
-title: "Novità di ASP.NET MVC 5.1 | Documenti Microsoft"
+title: Novità di ASP.NET MVC 5.1 | Documenti Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/mvc51-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: be10486c9fd39738f44cdda4fedb409058017601
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whats-new-in-aspnet-mvc-51"></a>Novità di ASP.NET MVC 5.1
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 In questo argomento vengono descritte le novità di ASP.NET Web MVC 5.1.
 
@@ -54,7 +54,7 @@ Le funzionalità di runtime vengono rilasciate come pacchetti NuGet in Raccolta 
 <a id="documentation"></a>
 ## <a name="documentation"></a>Documentazione
 
-Esercitazioni e altre informazioni su ASP.NET MVC 5.1 RTM sono disponibili dal sito web ASP.NET (https://www.asp.net). 
+Esercitazioni e altre informazioni su ASP.NET MVC 5.1 RTM sono disponibili dal sito web ASP.NET ( https://www.asp.net). 
 
 <a id="new-features"></a>
 ## <a name="new-features-in-aspnet-mvc-51"></a>Nuove funzionalità in ASP.NET MVC 5.1

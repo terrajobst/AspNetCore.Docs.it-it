@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -185,13 +185,13 @@ Le [aree](controllers/areas.md) consentono di suddividere un'app Web ASP.NET Cor
 
 Oltre a essere una piattaforma ideale per la creazione di siti Web, ASP.NET Core MVC include un ottimo supporto per la creazione di API Web. È possibile creare servizi destinati a un'ampia gamma di client, tra cui browser e dispositivi mobili.
 
-Il framework include il supporto per la negoziazione del contenuto HTTP con il supporto predefinito per la [formattazione dei dati](models/formatting.md) come JSON o XML. È possibile scrivere [formattatori personalizzati](advanced/custom-formatters.md) per aggiungere il supporto per i propri formati.
+Il framework include il supporto per la negoziazione del contenuto HTTP con supporto incorporato per [formattare dati](xref:web-api/advanced/formatting) come JSON o XML. È possibile scrivere [formattatori personalizzati](xref:web-api/advanced/custom-formatters) per aggiungere il supporto per i propri formati.
 
 Usare la generazione di collegamenti per abilitare il supporto per l'ipermedia. È possibile abilitare facilmente il supporto per la [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) in modo da poter condividere le proprie API Web tra più applicazioni Web.
 
 ### <a name="testability"></a>Testabilità
 
-L'uso delle interfacce e dell'inserimento di dipendenze rende il framework adatto al testing unità. Il framework include inoltre funzionalità come TestHost e il provider InMemory per Entity Framework grazie alle quali i [test di integrazione](../testing/integration-testing.md) risultano semplici e veloci. Altre informazioni sui [test della logica dei controller](controllers/testing.md).
+Utilizzo del framework di interfacce e inserimento di dipendenze rendono ideali per gli unit test e il framework include le funzionalità (ad esempio, un provider TestHost e InMemory per Entity Framework) che rendono [i test di integrazione](../testing/integration-testing.md) rapido e facile anche. Altre informazioni, vedere [come testare la logica di controller](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Motore di visualizzazione Razor
 

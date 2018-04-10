@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -48,7 +48,7 @@ Le visualizzazioni consentono di stabilire una [progettazione **S**eparation **o
 
 Le visualizzazioni specifiche di un controller vengono create nella cartella *Views/[ControllerName]*. Le visualizzazioni condivise tra i controller vengono inserite nella cartella *Views/Shared*. Per creare una visualizzazione aggiungere un nuovo file e assegnargli lo stesso nome dell'azione del controller a essa associata con l'estensione *cshtml*. Per creare una visualizzazione che corrisponda all'azione *About* nel controller *Home*, creare un file *About.cshtml* nella cartella *Views/Home*:
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 Il markup *Razor* inizia con il simbolo `@`. Eseguire le istruzioni C# inserendo il codice C# entro i [blocchi di codice Razor](xref:mvc/views/razor#razor-code-blocks) racchiusi tra le parentesi graffe (`{ ... }`). Vedere ad esempio l'assegnazione di "About" a `ViewData["Title"]` illustrato sopra. È possibile visualizzare i valori in HTML facendo semplicemente riferimento al valore con il simbolo `@`. Vedere il contenuto degli elementi `<h2>` e `<h3>` riportati sopra.
 
@@ -60,7 +60,7 @@ Le visualizzazioni vengono in genere restituite da azioni come [ViewResult](/asp
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 Quando viene restituita questa azione, il rendering della visualizzazione *About.cshtml* nell'ultima sezione corrisponderà alla pagina Web seguente:
 
@@ -92,7 +92,7 @@ In base al comportamento predefinito, il metodo `View` (`return View();`) restit
 
 La restituzione implicita di `ViewResult` con `return View();` o il passaggio esplicito del nome della visualizzazione al metodo `View` con `return View("<ViewName>");` non sono rilevanti. In entrambi i casi, l'individuazione delle visualizzazioni cercherà un file di visualizzazione corrispondente in quest'ordine:
 
-   1. *Views/\[ControllerName]\[ViewName].cshtml*
+   1. *Viste /\[ControllerName] /\[ViewName]. cshtml*
    1. *Views/Shared/\[ViewName].cshtml*
 
 È possibile fornire il percorso di un file di visualizzazione anziché il nome di una visualizzazione. Se si usa un percorso assoluto che inizia alla radice dell'app (che inizia facoltativamente con "/" o "~/") è necessario specificare l'estensione *cshtml*:

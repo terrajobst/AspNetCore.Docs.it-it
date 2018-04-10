@@ -16,7 +16,7 @@ ms.openlocfilehash: 90ae866d82c4dbfd5c3e209c3d397df42d162515
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>La distribuzione del sito utilizzando un Client FTP (VB)
 ====================
@@ -77,7 +77,7 @@ Figura 1 mostra FileZilla dopo avere copiati i file necessari. FileZilla Visuali
 **Figura 1**: usare un FTP Client per copiare i file necessari da Your Desktop nel server Web a Provider di hosting Web ([fare clic per visualizzare l'immagine ingrandita](deploying-your-site-using-an-ftp-client-vb/_static/image3.png))
 
 
-Dopo la distribuzione del sito è opportuno testare il sito. Se è stato acquistato un nome di dominio e configurato le impostazioni DNS in modo corretto, è possibile visitare il sito, immettere il nome di dominio. In alternativa, il provider di hosting web deve avere ha fornito un URL al sito, che avrà un aspetto simile *accountname*. *webhostprovider*. com o *webhostprovider*. com /*accountname*. Ad esempio, l'URL per l'account su ASP.NET di sconto è: `http://httpruntime.web703.discountasp.net`.
+Dopo la distribuzione del sito è opportuno testare il sito. Se è stato acquistato un nome di dominio e configurato le impostazioni DNS in modo corretto, è possibile visitare il sito, immettere il nome di dominio. In alternativa, il provider di hosting web deve avere ha fornito un URL al sito, che avrà un aspetto simile *accountname*.* webhostprovider*. com o *webhostprovider*. com /*accountname*. Ad esempio, l'URL per l'account su ASP.NET di sconto è: `http://httpruntime.web703.discountasp.net`.
 
 Figura 2 mostra il sito recensioni distribuito. Si noti che lo sto visualizzando nel ASP di sconto. I server della rete, in `http://httpruntime.web703.discountasp.net`. In questo momento chiunque disponga di una connessione a Internet potrebbe visualizzare il sito Web. Come previsto, il sito esegue la ricerca e si comporta come avveniva quando eseguire il test nell'ambiente di sviluppo.
 

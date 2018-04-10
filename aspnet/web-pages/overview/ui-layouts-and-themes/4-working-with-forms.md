@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Utilizzo di form HTML nei siti ASP.NET Web Pages (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "Un modulo è una sezione di un documento HTML in cui inserire i controlli di input dell'utente, ad esempio elenchi a discesa, caselle di controllo, pulsanti di opzione e caselle di testo. È necessario utilizzare moduli CO..."
+description: Un modulo è una sezione di un documento HTML in cui inserire i controlli di input dell'utente, ad esempio elenchi a discesa, caselle di controllo, pulsanti di opzione e caselle di testo. È necessario utilizzare moduli CO...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Utilizzo di form HTML in siti Web di ASP.NET di pagine (Razor)
 ====================
@@ -73,7 +73,7 @@ Per elaborare il form, Aggiungi il codice che legge i valori dei campi inviati e
 
     ![Schermata che mostra i valori immessi visualizzati nella pagina.](4-working-with-forms/_static/image2.jpg)
 
-    Esaminare il codice per la pagina. Utilizzare innanzitutto la `IsPost` metodo per determinare se viene inviata la pagina & #8212, vale a dire, se un utente ha selezionato il **Invia** pulsante. Se questa è una richiesta post, `IsPost` restituisce true. Questo è il modo standard nelle pagine Web ASP.NET per determinare se si lavora con una richiesta iniziale (una richiesta GET) o un postback (una richiesta POST). (Per ulteriori informazioni su GET e POST, vedere "HTTP GET e POST e l'istruzione IsPost Property" barra laterale in [Introduzione a ASP.NET Web Pages di programmazione utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Esaminare il codice per la pagina. Utilizzare innanzitutto la `IsPost` metodo per determinare se viene inviata la pagina &#8212; vale a dire, se un utente ha selezionato il **Invia** pulsante. Se questa è una richiesta post, `IsPost` restituisce true. Questo è il modo standard nelle pagine Web ASP.NET per determinare se si lavora con una richiesta iniziale (una richiesta GET) o un postback (una richiesta POST). (Per ulteriori informazioni su GET e POST, vedere "HTTP GET e POST e l'istruzione IsPost Property" barra laterale in [Introduzione a ASP.NET Web Pages di programmazione utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
     Successivamente, si otterranno i valori che viene compilato dal `Request.Form` oggetto e inserirli in variabili per un momento successivo. Il `Request.Form` oggetto contiene tutti i valori che sono stati inviati con la pagina, ognuna identificata da una chiave. La chiave è l'equivalente di `name` attributo del campo del form che si desidera leggere. Ad esempio, per leggere il `companyname` campo (casella di testo), utilizzare `Request.Form["companyname"]`.
 
@@ -89,7 +89,7 @@ Per elaborare il form, Aggiungi il codice che legge i valori dei campi inviati e
 > 
 > La codifica HTML sostituisce questi caratteri riservati con un codice di browser di interpretare come simbolo corretto. Ad esempio, il `<` viene sostituito con `&lt;` e `>` viene sostituito con `&gt;`. Il browser esegue il rendering di queste stringhe di sostituzione come i caratteri che si desidera visualizzare.
 > 
-> È consigliabile utilizzare ogni volta che si visualizzare stringhe codificate in formato HTML (input) che è stato creato da un utente. In caso contrario, un utente può provare a ottenere la pagina web per eseguire uno script dannoso o altre operazioni che compromette la sicurezza del sito o che non si desidera. (Ciò è particolarmente importante se accettano input dell'utente archiviare identificabile e visualizzare in un secondo momento &#8212; ad esempio, come un commento di blog, utente esaminare, o che qualcosa di simile).
+> È consigliabile utilizzare ogni volta che si visualizzare stringhe codificate in formato HTML (input) che è stato creato da un utente. In caso contrario, un utente può provare a ottenere la pagina web per eseguire uno script dannoso o altre operazioni che compromette la sicurezza del sito o che non si desidera. (Ciò è particolarmente importante se si accettano input dell'utente, archiviarlo identificabile e quindi visualizzarla in un secondo momento &#8212; , ad esempio, come un commento di blog, revisione utente o molto simile a quello.)
 > 
 > Per evitare questi problemi, ASP.NET Web Pages automaticamente codifica in HTML qualsiasi testo contenuto che si output dal codice. Ad esempio, quando si visualizza il contenuto di una variabile o un'espressione che utilizza, ad esempio di codice `@MyVar`, ASP.NET Web Pages codifica automaticamente l'output.
 

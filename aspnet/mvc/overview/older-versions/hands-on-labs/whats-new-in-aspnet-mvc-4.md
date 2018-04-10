@@ -16,7 +16,7 @@ ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Novità di ASP.NET MVC 4
 
@@ -687,7 +687,7 @@ Questo esercizio illustra i concetti fondamentali dell'operazione asincrona in A
 ~~~
 6. Sostituire il **client. GetAsync()** chiamata con la versione completa async utilizzando parola chiave await come illustrato di seguito.
 
-    (- Frammento di codice *ASP.NET MVC 4 Lab - Ex04 - GetAsync*)
+    (Code Snippet - *ASP.NET MVC 4 Lab - Ex04 - GetAsync*)
 
 
 ~~~
@@ -700,7 +700,7 @@ Questo esercizio illustra i concetti fondamentali dell'operazione asincrona in A
 ~~~
 7. Modificare il codice per continuare con l'implementazione asincrona, sostituendo le righe con il nuovo codice, come illustrato di seguito
 
-    (- Frammento di codice *ASP.NET MVC 4 Lab - Ex04 - ReadAsStringAsync*)
+    (Code Snippet - *ASP.NET MVC 4 Lab - Ex04 - ReadAsStringAsync*)
 
 
 ~~~

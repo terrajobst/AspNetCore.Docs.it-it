@@ -16,7 +16,7 @@ ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Cenni preliminari sullo sviluppo di Visual Studio 2010 Web e di ASP.NET 4
 ====================
@@ -87,10 +87,10 @@ ms.lasthandoff: 04/06/2018
 
 **[Distribuzione di applicazioni con Visual Studio 2010 Web](#0.2__Toc253429292 "_Toc253429292")**  
 [Web imballaggio](#0.2__Toc253429293 "_Toc253429293")  
-[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
+[Trasformazione Web. config](#0.2__Toc253429294 "_Toc253429294")  
 [Distribuzione del database](#0.2__Toc253429295 "_Toc253429295")  
 [Pubblicazione per le applicazioni Web con un clic](#0.2__Toc253429296 "_Toc253429296")  
-[Le risorse](#0.2__Toc253429297 "_Toc253429297")
+[Resources](#0.2__Toc253429297 "_Toc253429297")
 
 **[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
@@ -579,9 +579,9 @@ Il codice nell'esempio viene eseguito il mapping della route per una pagina fisi
 
 Il *MapPageRoute* metodo supporta l'overload del metodo seguente:
 
-- *MapPageRoute (stringa routeName routeUrl stringa, stringa physicalFile, checkPhysicalUrlAccess bool)*
-- *MapPageRoute (routeName stringa, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, i valori predefiniti RouteValueDictionary)*
-- *MapPageRoute (stringa routeName, routeUrl stringa, stringa physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary i valori predefiniti, vincoli RouteValueDictionary)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary defaults)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary defaults, RouteValueDictionary constraints)*
 
 Il *checkPhysicalUrlAccess* parametro specifica se la route deve verificare le autorizzazioni di sicurezza per la pagina fisica viene eseguito il routing (in questo caso, Search. aspx) e le autorizzazioni per l'URL in ingresso (in questo caso, eseguire la ricerca / {searchterm}). Se il valore di *checkPhysicalUrlAccess* è *false*, verranno verificate solo le autorizzazioni dell'URL in ingresso. Queste autorizzazioni sono definite nel `Web.config` file utilizzando le impostazioni, ad esempio le operazioni seguenti:
 
@@ -591,7 +591,7 @@ Nella configurazione di esempio, accesso negato alla pagina fisica `search.aspx`
 
 #### <a name="reading-routing-information-in-a-web-forms-page"></a>Lettura di informazioni di Routing in una pagina Web Form
 
-Nel codice della pagina fisica Web Form, è possibile accedere alle informazioni di routing ha estratto dall'URL (o altre informazioni che è aggiunto un altro oggetto di *RouteData* oggetto) utilizzando due nuove proprietà:  *HttpRequest.RequestContext* e *Page.RouteData*. (*Page.RouteData* esegue il wrapping *HttpRequest.RequestContext.RouteData*.) Nell'esempio seguente viene illustrato come utilizzare *Page.RouteData*.
+Nel codice della pagina fisica Web Form, è possibile accedere alle informazioni di routing ha estratto dall'URL (o altre informazioni che è aggiunto un altro oggetto di *RouteData* oggetto) utilizzando due nuove proprietà:  *HttpRequest.RequestContext* e *Page.RouteData*. (*Page.RouteData* wraps *HttpRequest.RequestContext.RouteData*.) Nell'esempio seguente viene illustrato come utilizzare *Page.RouteData*.
 
 [!code-csharp[Main](overview/samples/sample41.cs)]
 
@@ -722,7 +722,7 @@ La selezione persistente è stata inizialmente supportata solo nei progetti di d
 
 <a id="0.2__Toc253429263"></a><a id="0.2__Toc243304637"></a>
 
-### <a name="aspnet-chart-control"></a>ASP.NET Chart Control
+### <a name="aspnet-chart-control"></a>Controllo ASP.NET Chart
 
 ASP.NET *grafico* controllo espande le offerte di visualizzazione dei dati in .NET Framework. Utilizzo di *grafico* controllo, è possibile creare pagine ASP.NET che sono grafici intuitivi e visivamente accattivanti per eseguire complesse analisi statistica e finanziaria. ASP.NET *grafico* controllo è stato introdotto come componente aggiuntivo per la versione di .NET Framework versione 3.5 SP1 ed è parte della versione di .NET Framework 4.
 
@@ -807,7 +807,7 @@ L'opzione di espressione di proprietà consente di definire un confronto per un 
 
 [!code-aspx[Main](overview/samples/sample63.aspx)]
 
-#### <a name="customexpression"></a>CustomExpression
+#### <a name="customexpression"></a>Espressione personalizzata
 
 Infine, è possibile specificare un'espressione personalizzata da utilizzare con il *QueryExtender* controllo. Questa opzione consente di chiamare una funzione nella pagina che definisce la logica di filtro personalizzato. Nell'esempio seguente viene illustrato come specificare in modo dichiarativo un'espressione personalizzata nel *QueryExtender* controllo.
 
@@ -984,8 +984,8 @@ ASP.NET 2.0 e versioni successive, eseguire il rendering campi nascosti specific
 
 Per impostazione predefinita, i seguenti controlli server Web ASP.NET che supportano i modelli vengono automaticamente eseguito il wrapping in una tabella esterna che viene utilizzata per applicare gli stili in linea:
 
-- *Controllo FormView*
-- *Login*
+- *FormView*
+- *Account di accesso*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Wizard*
