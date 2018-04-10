@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 title: ASP.NET MVC Visualizza panoramica (c#) | Documenti Microsoft
 author: StephenWalther
-description: "Che cos'è una visualizzazione MVC ASP.NET e differenza da una pagina HTML? In questa esercitazione, Stephen Walther vengono introdotte le visualizzazioni e viene illustrato come è possibile t..."
+description: Che cos'è una visualizzazione MVC ASP.NET e differenza da una pagina HTML? In questa esercitazione, Stephen Walther vengono introdotte le visualizzazioni e viene illustrato come è possibile t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9de095b0621af3b6166a2e1cbcb1c63c26a88aa2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5217994168ebac32a4a9754ae09e63e120804813
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC Visualizza panoramica (c#)
 ====================
@@ -35,13 +35,13 @@ MVC ASP.NET vengono eseguito il mapping alle richieste del browser di applicazio
 
 Elenco 1 contiene un controller semplice denominato HomeController. La classe HomeController espone due azioni del controller denominate Index () e Details().
 
-**Elenco 1 - HomeController. cs**
+**Elenco 1 - HomeController.cs**
 
 [!code-csharp[Main](asp-net-mvc-views-overview-cs/samples/sample1.cs)]
 
 È possibile richiamare la prima azione, l'azione Index (), digitando il seguente URL nella barra degli indirizzi del browser:
 
-/ Home/Index
+/Home/Index
 
 È possibile richiamare la seconda azione, l'azione Details(), digitando l'indirizzo nel browser:
 
@@ -78,13 +78,13 @@ Una vista è uno standard (documento HTML che può includere script X). Gli scri
 
 Ad esempio, la visualizzazione nel listato 2 Visualizza la data e ora correnti.
 
-**Elenco di 2 - \Views\Home\Index.aspx**
+**Il listato 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample2.aspx)]
 
 Si noti che il corpo della pagina HTML nel listato 2 contiene lo script seguente:
 
-&lt;% Library; % Response.Write(DateTime.Now)&gt;
+&lt;% Response.Write(DateTime.Now);%&gt;
 
 Utilizzare i delimitatori di script &lt;% e %&gt; per contrassegnare l'inizio e alla fine di uno script. Questo script viene scritto in c#. Visualizza la data e ora correnti, chiamare il metodo Response per il rendering del contenuto nel browser. I delimitatori di script &lt;% e %&gt; può essere usato per eseguire una o più istruzioni.
 
@@ -102,7 +102,7 @@ Per rendere più semplice aggiungere contenuto a una vista, è possibile sfrutta
 
 Ad esempio, la visualizzazione nel listato 4 sfrutta i vantaggi dei tre helper HTML, gli helper BeginForm() TextBox() e Password()-consente di generare un account di accesso formano (vedere Figura 1).
 
-**Elenco di 4 - \Views\Home\Login.aspx**
+**Listato 4 - \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
@@ -118,7 +118,7 @@ Si noti che utilizzare i delimitatori di script &lt;% = % e&gt; quando si chiama
 
 Utilizzo di metodi HTML Helper è facoltativo. Essi semplificano la vita riducendo la quantità di HTML e script che è necessario scrivere. La visualizzazione nel listato 5 esegue il rendering lo stesso formato esatto di visualizzazione nel listato 4 senza utilizzare l'helper HTML.
 
-**Elenco di 5 - \Views\Home\Login.aspx**
+**Nel listato 5 - \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample5.aspx)]
 
@@ -128,7 +128,7 @@ Utilizzo di metodi HTML Helper è facoltativo. Essi semplificano la vita riducen
 
 Visualizzare i dati consentono di passare i dati da un controller a una visualizzazione. Pensare a visualizzare i dati come un pacchetto che si invia tramite posta elettronica. Tutti i dati passati da un controller a una vista devono essere inviati tramite questo pacchetto. Ad esempio, il controller nel listato 6 aggiunge un messaggio per visualizzare i dati.
 
-**Elenco di 6 - ProductController.cs**
+**Elenco 6 - ProductController.cs**
 
 [!code-csharp[Main](asp-net-mvc-views-overview-cs/samples/sample6.cs)]
 
@@ -152,5 +152,5 @@ Nel listato 7, abbiamo sfruttato Visualizza dati per passare un messaggio string
 
 In questa esercitazione viene fornita una breve introduzione a ASP.NET MVC viste, visualizzare i dati e gli helper HTML. Nella prima sezione, è stato descritto come aggiungere nuove visualizzazioni per il progetto. Si è appreso che è necessario aggiungere una visualizzazione nella cartella corretta per chiamarlo da un controller specifico. Successivamente, abbiamo parlato l'argomento di helper HTML. Si è appreso come helper HTML consentono di generare facilmente il contenuto HTML standard. Infine, è stato descritto come sfruttare i vantaggi dei dati di visualizzazione per passare dati da un controller di una vista.
 
->[!div class="step-by-step"]
-[Successivo](creating-custom-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [avanti](creating-custom-html-helpers-cs.md)

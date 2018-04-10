@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5a860c8ab6ad7ff04de2175900491d532db782d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (c#)
 ====================
@@ -31,7 +31,7 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Utilizzano di database, come s di Microsoft SQL Server 2005 il [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) per l'inserimento, modifica e il recupero dei dati. La maggior parte dei sistemi di database includono costrutti per raggruppare una serie di istruzioni SQL che può quindi essere eseguito come singola unità riutilizzabile. Stored procedure sono un esempio. Un vantaggio è *funzioni definite dall'utente*(UDF), un costrutto che verranno esaminati in dettaglio nel passaggio 9.
 
-In sostanza, SQL è progettato per l'utilizzo di set di dati. Il `SELECT`, `UPDATE`, e `DELETE` intrinsecamente istruzioni si applicano a tutti i record della tabella corrispondente e sono limitate solo dalle loro `WHERE` clausole. Ancora sono disponibili molte funzionalità progettate per l'utilizzo di un record alla volta e per la modifica di dati scalare. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) consentono un set di record di ciclo tramite uno alla volta. Funzioni di manipolazione come stringa `LEFT`, `CHARINDEX`, e `PATINDEX` funzionano con dati scalari. SQL include inoltre istruzioni del flusso di controllo come `IF` e `WHILE`.
+In sostanza, SQL è progettato per l'utilizzo di set di dati. Il `SELECT`, `UPDATE`, e `DELETE` intrinsecamente istruzioni si applicano a tutti i record della tabella corrispondente e sono limitate solo dalle loro `WHERE` clausole. Ancora sono disponibili molte funzionalità progettate per l'utilizzo di un record alla volta e per la modifica di dati scalare. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) consentono un set di record nel ciclo tramite uno alla volta. Funzioni di manipolazione come stringa `LEFT`, `CHARINDEX`, e `PATINDEX` funzionano con dati scalari. SQL include inoltre istruzioni del flusso di controllo come `IF` e `WHILE`.
 
 Prima di Microsoft SQL Server 2005, stored procedure e funzioni definite dall'utente può essere definita solo come una raccolta di istruzioni T-SQL. SQL Server 2005, tuttavia, è stato progettato per fornire l'integrazione con il [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), ovvero il runtime utilizzato da tutti gli assembly .NET. Di conseguenza, le stored procedure e funzioni definite dall'utente in un database di SQL Server 2005 possono essere creati utilizzando codice gestito. È possibile creare una stored procedure o funzione definita dall'utente, ovvero come un metodo in una classe c#. In questo modo le stored procedure e funzioni definite dall'utente per usare la funzionalità di .NET Framework e dalle classi personalizzate.
 
@@ -41,7 +41,7 @@ In questa esercitazione che verrà esaminato come creare gestito stored procedur
 > Oggetti di database gestiti offrono alcuni vantaggi rispetto alla controparte SQL. Ricchezza del linguaggio e conoscenza e la capacità di riutilizzare la logica e il codice esistente sono i principali vantaggi correlati. Oggetti di database gestiti ma potrebbero essere meno efficiente quando si lavora con set di dati che non coinvolgono quantità logica procedurale. Per una descrizione più dettagliata sui vantaggi dell'utilizzo di codice gestito e T-SQL, consultare il [vantaggi dell'utilizzo di codice gestito per creare oggetti di Database](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
 
-## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>Passaggio 1: Spostare il Database Northwind di`App_Data`
+## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>Passaggio 1: Spostare il Database Northwind fuori`App_Data`
 
 Tutte le esercitazioni finora stato utilizzato un file di database Microsoft SQL Server 2005 Express Edition in applicazione web s `App_Data` cartella. L'inserimento del database in `App_Data` semplificata di distribuzione ed esecuzione di queste esercitazioni come tutti i file sono stati individuati all'interno di una directory e non richieste ulteriori passaggi di configurazione per eseguire il test dell'esercitazione.
 
@@ -54,7 +54,7 @@ Avviare SQL Server Management Studio. Come illustrato nella figura 1, Management
 
 ![Connettersi all'istanza appropriata del Database](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image1.png)
 
-**Figura 1**: connettersi all'istanza appropriata del Database
+**Figura 1**: connettersi all'istanza del Database appropriato
 
 
 Una volta che è già connessa, nella finestra di Esplora oggetti verranno elencate le informazioni relative all'istanza di database di SQL Server 2005 Express Edition, compresi i database, informazioni di sicurezza, opzioni di gestione e così via.
@@ -64,7 +64,7 @@ Una volta che è già connessa, nella finestra di Esplora oggetti verranno elenc
 
 [![Connettersi all'istanza appropriata del Database](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
 
-**Figura 2**: connettersi all'istanza appropriata del Database ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))
+**Figura 2**: la connessione all'istanza appropriata del Database ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))
 
 
 > [!NOTE]
@@ -102,7 +102,7 @@ Un progetto SQL Server è associato a un determinato database. Di conseguenza, d
 
 ![Associare il progetto di SQL Server con il Database Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image9.png)
 
-**Figura 5**: associare il progetto di SQL Server con il Database Northwind
+**Figura 5**: associare il progetto di SQL Server al Database Northwind
 
 
 Per eseguire il debug di stored procedure gestite e funzioni definite dall'utente, verrà creata nel progetto, è necessario abilitare il supporto per la connessione di debug SQL/CLR. Ogni volta che l'associazione di un progetto SQL Server con un nuovo database (come nella figura 5), Visual Studio viene chiesto di specificare se si vuole abilitare il debug SQL/CLR per la connessione (vedere Figura 6). Fare clic su Sì.
@@ -178,7 +178,7 @@ Fare clic sull'icona Esegui sulla barra degli strumenti per eseguire la query pr
 
 [![Aggiornare il livello di compatibilità del Database Northwind s](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
 
-**Figura 9**: aggiornare il Northwind Database s a livello di compatibilità ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))
+**Figura 9**: aggiornare il Northwind Database s livello di compatibilità ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))
 
 
 Dopo aver aggiornato il livello di compatibilità, ridistribuire il progetto di SQL Server. Questa volta la distribuzione deve essere completata senza errori.
@@ -219,7 +219,7 @@ Se si esegue nuovamente la `exec sp_configure` si noterà che l'istruzione prece
 Completato la configurazione di clr abilitato, si è pronti per l'esecuzione gestita `GetDiscontinuedProducts` stored procedure. Nella finestra query immettere ed eseguire il comando `exec` `GetDiscontinuedProducts`. Richiama la stored procedure fa sì che il codice gestito corrispondente nel `GetDiscontinuedProducts` metodo da eseguire. Questo codice genera un `SELECT` query per restituire tutti i prodotti che non sono più disponibili e restituisce i dati all'applicazione chiamante, ovvero SQL Server Management Studio in questa istanza. Management Studio riceve i risultati e li visualizza nella finestra dei risultati.
 
 
-[![Il GetDiscontinuedProducts Stored Procedure restituisce tutti i prodotti sospesi](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
+[![GetDiscontinuedProducts Stored Procedure restituisce tutti i prodotti sospesi](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
 
 **Figura 13**: il `GetDiscontinuedProducts` Stored Procedure restituisce prodotti sospesi ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))
 
@@ -242,9 +242,9 @@ Il `GetProductsWithPriceLessThan` codice e la definizione di metodo s rispecchia
 Dopo aver aggiunto questo codice, ridistribuire il progetto di SQL Server. Successivamente, tornare a SQL Server Management Studio e aggiornare la cartella di Stored procedure. Si noterà una nuova voce `GetProductsWithPriceLessThan`. Da una finestra query, immettere ed eseguire il comando `exec GetProductsWithPriceLessThan 25`, che verrà elenco di tutti i prodotti di minore di $25, come mostrato nella figura 14.
 
 
-[![Vengono visualizzati i prodotti in $25](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
+[![I prodotti in $25 vengono visualizzati](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
 
-**Nella figura 14**: vengono visualizzati i prodotti in $25 ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))
+**Figura 14**: vengono visualizzati i prodotti in $25 ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))
 
 
 ## <a name="step-6-calling-the-managed-stored-procedure-from-the-data-access-layer"></a>Passaggio 6: Chiamare la Stored Procedure gestita dal livello di accesso ai dati
@@ -262,7 +262,7 @@ Aggiunta di un nuovo metodo avvia la configurazione guidata Query TableAdapter, 
 
 [![Scegliere l'utilizzo di stored procedure opzione esistente](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
 
-**Figura 15**: scegliere esistenti utilizzare stored procedure opzione ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))
+**Figura 15**: scegliere Usa esistente store procedure opzione ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))
 
 
 Nella schermata successiva ci richiesto per la stored procedure che verrà richiamato il metodo. Scegliere il `GetDiscontinuedProducts` stored procedure gestita dall'elenco a discesa e scegliere "Avanti".
@@ -270,7 +270,7 @@ Nella schermata successiva ci richiesto per la stored procedure che verrà richi
 
 [![Selezionare il GetDiscontinuedProducts gestito Stored Procedure](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
 
-**Figura 16**: selezionare il `GetDiscontinuedProducts` Stored Procedure gestite ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))
+**Figura 16**: selezionare il `GetDiscontinuedProducts` Stored Procedure gestita ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))
 
 
 Viene quindi chiesto di specificare se la stored procedure restituisce righe, un singolo valore o nulla. Poiché `GetDiscontinuedProducts` restituisce il set di righe prodotto non più disponibile, scegliere la prima opzione (tabulare) e fare clic su Avanti.
@@ -286,7 +286,7 @@ Schermata della procedura guidata finale consente di specificare i modelli di ac
 
 [![Nome FillByDiscontinued i metodi e GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
 
-**Figura 18**: i metodi di nome `FillByDiscontinued` e `GetDiscontinuedProducts` ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))
+**Figura 18**: nome i metodi `FillByDiscontinued` e `GetDiscontinuedProducts` ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))
 
 
 Ripetere questi passaggi per creare metodi denominati `FillByPriceLessThan` e `GetProductsWithPriceLessThan` nel `ProductsTableAdapter` per il `GetProductsWithPriceLessThan` stored procedure gestita.
@@ -317,10 +317,10 @@ Aprire il `ManagedFunctionsAndSprocs.aspx` nella pagina di `AdvancedDAL` cartell
 
 [![Configurare ObjectDataSource per utilizzare la classe ProductsBLLWithSprocs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
 
-**Figura 20**: configurare ObjectDataSource per utilizzare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))
+**Figura 20**: configurare ObjectDataSource per usare il `ProductsBLLWithSprocs` classe ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))
 
 
-[![Scegliere il metodo GetDiscontinuedProducts dall'elenco a discesa nella scheda Seleziona](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
+[![Scegliere il metodo GetDiscontinuedProducts nell'elenco di riepilogo a discesa nella scheda Seleziona](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
 
 **Figura 21**: scegliere il `GetDiscontinuedProducts` metodo dall'elenco a discesa nella scheda selezionare ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))
 
@@ -381,7 +381,7 @@ Ho aggiunto i `udf_GetProductsByCategoryID` funzione definita dall'utente al dat
 
 [![Il ProductID, ProductName e CategoryID sono elencati per ogni bevande](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
 
-**Figura 24**: il `ProductID`, `ProductName`, e `CategoryID` elencati per ogni bevande ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))
+**Figura 24**: il `ProductID`, `ProductName`, e `CategoryID` sono elencati per ogni bevande ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))
 
 
 > [!NOTE]
@@ -395,9 +395,9 @@ Il `udf_ComputeInventoryValue` e `udf_GetProductsByCategoryID` funzioni definite
 Per aggiungere una funzione definita dall'utente gestito per il `ManagedDatabaseConstructs` del progetto, fare clic sul nome del progetto in Esplora soluzioni e scegliere di aggiungere un nuovo elemento. Selezionare il modello definito dall'utente nella finestra di dialogo Aggiungi nuovo elemento e denominare il nuovo file di funzione definita dall'utente `udf_ComputeInventoryValue_Managed.cs`.
 
 
-[![Aggiungere una nuova funzione definita dall'utente gestito per il progetto ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
+[![Aggiungere una nuova funzione definita dall'utente gestito al progetto ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
 
-**Figura 25**: aggiungere un nuovo gestito funzione definita dall'utente per il `ManagedDatabaseConstructs` progetto ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
+**Figura 25**: aggiungere un nuovo gestiti funzione definita dall'utente per il `ManagedDatabaseConstructs` progetto ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
 
 
 Il modello di funzione definita dall'utente crea un `partial` classe denominata `UserDefinedFunctions` con un metodo il cui nome è lo stesso nome di file s della classe (`udf_ComputeInventoryValue_Managed`, in questa istanza). Questo metodo è decorato con il [ `SqlFunction` attributo](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), che contrassegna il metodo come una funzione definita dall'utente gestito.
@@ -424,8 +424,8 @@ Ora che è stata creata la funzione definita dall'utente gestito, è pronti dist
 
 Dopo avere distribuito il progetto, tornare a SQL Server Management Studio e aggiornare la cartella di funzioni a valori scalari. È ora necessario visualizzate due voci:
 
-- `dbo.udf_ComputeInventoryValue`-UDF T-SQL creato nel passaggio 9, e
-- `dbo.udf ComputeInventoryValue_Managed`-la funzione definita dall'utente gestito creato nel passaggio 10 che è stato appena distribuito.
+- `dbo.udf_ComputeInventoryValue` -T-SQL UDF creato nel passaggio 9, e
+- `dbo.udf ComputeInventoryValue_Managed` -la funzione definita dall'utente gestito creato nel passaggio 10 che è stato appena distribuito.
 
 Per testare questa funzione definita dall'utente gestito, eseguire la query seguente da Management Studio:
 
@@ -464,7 +464,7 @@ Dopo che è già digitato lo script precedente in `Test.sql`, avviare il debug d
 
 [![È stato raggiunto il punto di interruzione nel metodo GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
 
-**Figura 28**: il punto di interruzione di `GetProductsWithPriceLessThan` è stato raggiunto il metodo ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))
+**Figura 28**: il punto di interruzione nel `GetProductsWithPriceLessThan` è stato raggiunto il metodo ([fare clic per visualizzare l'immagine ingrandita](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))
 
 
 Affinché un oggetto di database SQL da sottoporre a debug tramite un'applicazione client, è fondamentale che il database deve essere configurato per supportare il debug dell'applicazione. Fare clic sul database in Esplora Server e verificare che sia selezionata l'opzione di debug dell'applicazione. Inoltre, è necessario configurare l'applicazione ASP.NET per l'integrazione con il Debugger di SQL e per disabilitare il pool di connessioni. Questi passaggi sono stati descritti in dettaglio nel passaggio 2 del [il debug di Stored procedure](debugging-stored-procedures-cs.md) esercitazione.
@@ -558,23 +558,23 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 - [Vantaggi e svantaggi delle funzioni definite dall'utente](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
 - [Creazione di oggetti di SQL Server 2005 nel codice gestito](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Creazione di trigger, utilizzare il codice gestito in SQL Server 2005](http://www.15seconds.com/issue/041006.htm)
+- [Creazione di trigger utilizzando codice gestito in SQL Server 2005](http://www.15seconds.com/issue/041006.htm)
 - [Procedura: Creare ed eseguire un CLR di SQL Server Stored Procedure](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
 - [Procedura: Creare ed eseguire una funzione definita dall'utente di CLR di SQL Server](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
-- [Procedura: Modificare il `Test.sql` Script per eseguire oggetti SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
+- [Procedura: Modificare il `Test.sql` Script da eseguire oggetti SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [Funzioni definite dall'introduzione all'utente](http://www.sqlteam.com/item.asp?ItemID=1955)
-- [Il codice gestito e SQL Server 2005 (Video)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
+- [Codice gestito e SQL Server 2005 (Video)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [Riferimento a Transact-SQL](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
 - [Procedura dettagliata: Creazione di una Stored Procedure nel codice gestito](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata S ren Jacob Lauritsen. Oltre a questo articolo, S ren inoltre creato il progetto di Visual c# Express Edition incluso in questo articolo s di download per compilare manualmente gli oggetti di database gestito. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Precedente](debugging-stored-procedures-cs.md)
-[Successivo](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](debugging-stored-procedures-cs.md)
+> [Successivo](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)

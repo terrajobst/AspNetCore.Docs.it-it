@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>Creazione dello Schema di appartenenza in SQL Server (c#)
 ====================
@@ -45,8 +45,8 @@ Dati di un'applicazione ASP.NET sono solitamente archiviati in un numero di tabe
 
 È consigliabile individuare lo schema di appartenenza nello stesso database i dati dell'applicazione per i motivi seguenti:
 
-- **Manutenibilità** un'applicazione i cui dati vengono incapsulati in un database non è più facile da comprendere, gestire e distribuire un'applicazione che dispone di due database separati.
-- **Integrità relazionale** individuando le tabelle correlate appartenenza nello stesso database, come l'applicazione di tabelle, è possibile stabilire [vincoli di chiave esterna](http://en.wikipedia.org/wiki/Foreign_key) tra le chiavi primarie nel Tabelle correlate di appartenenza e applicazione correlata.
+- **Manutenibilità** un'applicazione i cui dati sono incapsulati in un database non è più facile da comprendere, gestire e distribuire un'applicazione che ha due database separati.
+- **Integrità relazionale** individuando le tabelle correlate appartenenza nello stesso database come applicazione tabelle, è possibile stabilire [vincoli di chiave esterna](http://en.wikipedia.org/wiki/Foreign_key) tra le chiavi primarie nel Le tabelle correlate appartenenza e applicazione correlata.
 
 Separazione i dati di archivio e l'applicazione dell'utente in database separati ha senso solo se sono presenti più applicazioni che ogni utilizzare database separati, ma devono condividere un archivio utente comune.
 
@@ -63,7 +63,7 @@ In Esplora soluzioni, fare clic su di `App_Data` cartella e scegliere Aggiungi n
 
 [![Aggiungere un nuovo Database SQL denominato Database SecurityTutorials.mdf nella cartella App_Data](creating-the-membership-schema-in-sql-server-cs/_static/image2.png)](creating-the-membership-schema-in-sql-server-cs/_static/image1.png)
 
-**Figura 1**: aggiungere un nuovo Database SQL denominato `SecurityTutorials.mdf` Database il `App_Data` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image3.png))
+**Figura 1**: aggiungere un nuovo Database SQL denominato `SecurityTutorials.mdf` del Database per il `App_Data` cartella ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image3.png))
 
 
 Aggiunta di un database per il `App_Data` cartella lo include automaticamente nella vista Esplora Database. (Nella versione edizione non Express di Visual Studio, Esplora Database è denominato Esplora Server.) Passare a Esplora Database ed espandere l'appena aggiunti `SecurityTutorials` database. Se non è possibile visualizzare Esplora Database sullo schermo, passare al menu Visualizza e scegliere Esplora Database oppure premere Ctrl + Alt + S. Come illustrato nella figura 2, il `SecurityTutorials` database è vuoto, contiene alcuna tabella, non le visualizzazioni e Nessuna stored procedure.
@@ -108,7 +108,7 @@ Per iniziare, chiudere Visual Studio per assicurarsi che tutti i blocchi imposti
 
 [![Connettersi all'istanza di SQL Server 2005 Express Edition](creating-the-membership-schema-in-sql-server-cs/_static/image8.png)](creating-the-membership-schema-in-sql-server-cs/_static/image7.png)
 
-**Figura 3**: connettersi all'istanza di SQL Server 2005 Express Edition ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image9.png))
+**Figura 3**: la connessione all'istanza di SQL Server 2005 Express Edition ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image9.png))
 
 
 Dopo la connessione all'istanza di SQL Server 2005 Express Edition, Management Studio consente di visualizzare le cartelle per i database, le impostazioni di sicurezza, gli oggetti Server e così via. Se si espande la scheda di database si noterà che il `SecurityTutorials.mdf` database *non* registrato nell'istanza del database, è necessario collegare prima il database.
@@ -121,7 +121,7 @@ Pulsante destro del mouse sulla cartella database e scegliere Connetti dal menu 
 **Figura 4**: collegare il `SecurityTutorials.mdf` Database ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image12.png))
 
 
-[![Il Database SecurityTutorials.mdf viene visualizzato nella cartella di database](creating-the-membership-schema-in-sql-server-cs/_static/image14.png)](creating-the-membership-schema-in-sql-server-cs/_static/image13.png)
+[![Il Database SecurityTutorials.mdf visualizzato nella cartella di database](creating-the-membership-schema-in-sql-server-cs/_static/image14.png)](creating-the-membership-schema-in-sql-server-cs/_static/image13.png)
 
 **Figura 5**: il `SecurityTutorials.mdf` Database visualizzato nella cartella di database ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image15.png))
 
@@ -129,7 +129,7 @@ Pulsante destro del mouse sulla cartella database e scegliere Connetti dal menu 
 Come illustrato nella figura 5, il `SecurityTutorials.mdf` database ha un nome piuttosto abstruse. Modificare il più significativo (e più facile da digitare) nome. Pulsante destro del mouse sul database, scegliere Rinomina dal menu di scelta rapida e rinominarlo `SecurityTutorialsDatabase`. Ciò non modifica il nome del file, solo il nome del database viene utilizzato per identificare se stessa a SQL Server.
 
 
-[![Rinominare il Database per SecurityTutorialsDatabase](creating-the-membership-schema-in-sql-server-cs/_static/image17.png)](creating-the-membership-schema-in-sql-server-cs/_static/image16.png)
+[![Rinominare il Database a SecurityTutorialsDatabase](creating-the-membership-schema-in-sql-server-cs/_static/image17.png)](creating-the-membership-schema-in-sql-server-cs/_static/image16.png)
 
 **Figura 6**: rinominare il Database in `SecurityTutorialsDatabase`([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image18.png))
 
@@ -151,21 +151,21 @@ Esecuzione di `aspnet_regsql.exe` strumento senza gli argomenti della riga di co
 Il secondo passaggio della procedura guidata viene chiesto se si desidera aggiungere i servizi delle applicazioni o rimuoverli. Poiché si desidera aggiungere tabelle, viste e stored procedure necessarie per il `SqlMembershipProvider`, scegliere Configura SQL Server per l'opzione dei servizi dell'applicazione. In un secondo momento, se si desidera rimuovere questo schema dal database, eseguire nuovamente questa procedura guidata, ma scegliere invece le informazioni sui servizi di installazione applicazione da un'opzione di database esistente.
 
 
-[![Scegliere la configurazione di SQL Server per l'opzione di servizi di applicazione](creating-the-membership-schema-in-sql-server-cs/_static/image23.png)](creating-the-membership-schema-in-sql-server-cs/_static/image22.png)
+[![Scegliere la configurazione di SQL Server per l'opzione di servizi dell'applicazione](creating-the-membership-schema-in-sql-server-cs/_static/image23.png)](creating-the-membership-schema-in-sql-server-cs/_static/image22.png)
 
-**Figura 8**: scegliere di configurare SQL Server per l'opzione dei servizi dell'applicazione ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image24.png))
+**Figura 8**: scegliere Configura SQL Server per l'opzione dei servizi dell'applicazione ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image24.png))
 
 
 Il terzo passaggio richiesto per le informazioni sul database: il nome del server, le informazioni di autenticazione e il nome del database. Se si segue insieme a questa esercitazione e aver aggiunto il `SecurityTutorials.mdf` database `App_Data`, collegato a `localhost\InstanceName`e sua ridenominazione in `SecurityTutorialsDatabase`, quindi utilizzare i valori seguenti:
 
-- Server:`localhost\InstanceName`
+- Server: `localhost\InstanceName`
 - Autenticazione di Windows
-- Database:`SecurityTutorialsDatabase`
+- Database: `SecurityTutorialsDatabase`
 
 
-[![Immettere le informazioni del Database](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
+[![Immettere le informazioni sul Database](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
 
-**Figura 9**: immettere le informazioni del Database ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image27.png))
+**Figura 9**: immettere le informazioni sul Database ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image27.png))
 
 
 Dopo aver immesso le informazioni sul database, fare clic su Avanti. Il passaggio finale vengono riepilogati i passaggi che verranno eseguiti. Fare clic su Avanti per installare i servizi delle applicazioni e quindi scegliere Fine per completare la procedura guidata.
@@ -201,10 +201,10 @@ I framework di appartenenza e i ruoli sono progettati in modo che un singolo arc
 
 [![Gli account utente possono essere partizionati tra più applicazioni](creating-the-membership-schema-in-sql-server-cs/_static/image32.png)](creating-the-membership-schema-in-sql-server-cs/_static/image31.png)
 
-**Figura 11**: utente account possono essere partizionati tra più applicazioni ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
+**Figura 11**: utente account potrebbero essere partizionate tra più applicazioni ([fare clic per visualizzare l'immagine ingrandita](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-Il `aspnet_Applications` tabella è ciò che definisce tali partizioni. Ogni applicazione che utilizza il database per archiviare informazioni sull'account utente è rappresentato da una riga in questa tabella. Il `aspnet_Applications` tabella contiene quattro colonne: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, e `Description`. `ApplicationId`è di tipo [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) e chiave primaria della tabella. `ApplicationName` fornisce un nome semplice umane univoco per ogni applicazione.
+Il `aspnet_Applications` tabella è ciò che definisce tali partizioni. Ogni applicazione che utilizza il database per archiviare informazioni sull'account utente è rappresentato da una riga in questa tabella. Il `aspnet_Applications` tabella contiene quattro colonne: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, e `Description`. `ApplicationId` è di tipo [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) e chiave primaria della tabella; `ApplicationName` fornisce un nome descrittivo umane univoco per ogni applicazione.
 
 Le altre tabelle correlate di appartenenza e ruolo collegano nuovamente il `ApplicationId` campo `aspnet_Applications`. Ad esempio, il `aspnet_Users` tabella che contiene un record per ogni account utente, è un `ApplicationId` campo di chiave esterna; deriva per il `aspnet_Roles` tabella. Il `ApplicationId` campo in queste tabelle consente di specificare la partizione applicativa l'account utente o ruolo a cui appartiene.
 
@@ -216,7 +216,7 @@ Informazioni sull'account utente si trova in due tabelle: `aspnet_Users` e `aspn
 - `UserName`
 - `ApplicationId`
 
-`UserId`è la chiave primaria (e di tipo `uniqueidentifier`). `UserName`è di tipo `nvarchar(256)` e, e la password, costituiscono le credenziali dell'utente. (La password dell'utente viene archiviata nel `aspnet_Membership` tabella.) `ApplicationId` l'account utente è collegato a una specifica applicazione in `aspnet_Applications`. Vi è un raggruppamento [ `UNIQUE` vincolo](https://msdn.microsoft.com/library/ms191166.aspx) sul `UserName` e `ApplicationId` colonne. Ciò garantisce che una determinata applicazione ogni nome utente è univoco, ma consente per lo stesso `UserName` da utilizzare in applicazioni diverse.
+`UserId` è la chiave primaria (e di tipo `uniqueidentifier`). `UserName` è di tipo `nvarchar(256)` e, e la password, modo in cui le credenziali dell'utente. (La password dell'utente viene archiviata nel `aspnet_Membership` tabella.) `ApplicationId` l'account utente è collegato a una specifica applicazione in `aspnet_Applications`. Vi è un raggruppamento [ `UNIQUE` vincolo](https://msdn.microsoft.com/library/ms191166.aspx) sul `UserName` e `ApplicationId` colonne. Ciò garantisce che una determinata applicazione ogni nome utente è univoco, ma consente per lo stesso `UserName` da utilizzare in applicazioni diverse.
 
 Il `aspnet_Membership` tabella include informazioni sull'account utente aggiuntivi, ad esempio la password dell'utente, indirizzo di posta elettronica, l'ultimo account di accesso data e ora e così via. È presente una corrispondenza tra i record di `aspnet_Users` e `aspnet_Membership` tabelle. Questa relazione è garantita tramite la `UserId` campo `aspnet_Membership`, che funge da chiave primaria della tabella. Ad esempio il `aspnet_Users` tabella `aspnet_Membership` include un `ApplicationId` campo che consente di associare queste informazioni per una determinata partizione applicativa.
 
@@ -224,13 +224,13 @@ Il `aspnet_Membership` tabella include informazioni sull'account utente aggiunti
 
 Informazioni relative alle password viene archiviati nel `aspnet_Membership` tabella. Il `SqlMembershipProvider` consente la password da archiviare nel database di utilizzando una delle tre tecniche seguenti:
 
-- **Deselezionare** -la password viene archiviata nel database come testo normale. Fortemente scoraggiare utilizzando questa opzione. Se il database è compromesso, sia esso un dispositivo da un pirata informatico che consente di trovare una porta o un scontento dipendente che ha accesso al database, le credenziali dell'utente ogni singolo esistono per il prelievo.
-- **L'hashing** -password viene eseguito l'hashing mediante un algoritmo di hash unidirezionale e un valore salt generato casualmente. Questo valore con hash (con il valore salt) viene archiviato nel database.
+- **Cancella** -la password viene archiviata nel database come testo normale. Fortemente scoraggiare utilizzando questa opzione. Se il database è compromesso, sia esso un dispositivo da un pirata informatico che consente di trovare una porta o un scontento dipendente che ha accesso al database, le credenziali dell'utente ogni singolo esistono per il prelievo.
+- **Eseguito l'hashing** -password vengono eseguito l'hashing mediante un algoritmo di hash unidirezionale e un valore salt generato casualmente. Questo valore con hash (con il valore salt) viene archiviato nel database.
 - **Crittografati** -una versione crittografata della password viene archiviata nel database.
 
 La tecnica di archiviazione della password utilizzata varia a seconda di `SqlMembershipProvider` le impostazioni specificate in `Web.config`. Verranno esaminati personalizzazione di `SqlMembershipProvider` impostazioni nel passaggio 4. Il comportamento predefinito consiste nell'archiviare l'hash della password.
 
-Le colonne responsabile per la memorizzazione della password sono `Password`, `PasswordFormat`, e `PasswordSalt`. `PasswordFormat`è un campo di tipo `int` il cui valore indica la tecnica usata per archiviare la password: 0 per cancellare, 1 per Hashed; 2 per la crittografia. `PasswordSalt`viene assegnata una stringa generata in modo casuale indipendentemente dalla tecnica di archiviazione di password utilizzata; il valore di `PasswordSalt` viene utilizzato solo quando il calcolo dell'hash della password. Infine, il `Password` colonna contiene i dati di password effettiva, ovvero la password in testo normale, l'hash della password o la password crittografata.
+Le colonne responsabile per la memorizzazione della password sono `Password`, `PasswordFormat`, e `PasswordSalt`. `PasswordFormat` è un campo di tipo `int` il cui valore indica la tecnica usata per archiviare la password: 0 per cancellare, 1 per Hashed; 2 di Encrypted. `PasswordSalt` viene assegnata una stringa generata in modo casuale indipendentemente dalla tecnica di archiviazione password usata; il valore di `PasswordSalt` viene utilizzato solo quando il calcolo dell'hash della password. Infine, il `Password` colonna contiene i dati di password effettiva, ovvero la password in testo normale, l'hash della password o la password crittografata.
 
 Tabella 1 illustra queste tre colonne aspetto per le varie tecniche di archiviazione quando si archiviano le password MySecret! .
 
@@ -240,7 +240,7 @@ Tabella 1 illustra queste tre colonne aspetto per le varie tecniche di archiviaz
 | L'hashing | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
 | Crittografato | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
-**Tabella 1**: i valori di esempio per i campi correlati alla Password per l'archiviazione MySecret la Password.
+**Tabella 1**: i valori di esempio per i campi correlati alla Password quando si archiviano le Password MySecret!
 
 > [!NOTE]
 > La crittografia specifica o un algoritmo hash utilizzato dal `SqlMembershipProvider` è determinato dalle impostazioni di `<machineKey>` elemento. Descritto nel passaggio 3 di questo elemento di configurazione di <a id="Tutorial3"> </a> [ *configurazione dell'autenticazione form e argomenti avanzati* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) esercitazione.
@@ -254,7 +254,7 @@ Il framework di ruoli consente agli sviluppatori di definire un set di ruoli e s
 - `RoleName`
 - `ApplicationId`
 
-`RoleId`è la chiave primaria (e di tipo `uniqueidentifier`). `RoleName` è di tipo `nvarchar(256)`. E `ApplicationId` l'account utente è collegato a una specifica applicazione in `aspnet_Applications`. Vi è un raggruppamento `UNIQUE` vincolo il `RoleName` e `ApplicationId` colonne, garantendo che una determinata applicazione il nome del ruolo sia univoco.
+`RoleId` è la chiave primaria (e di tipo `uniqueidentifier`). `RoleName` è di tipo `nvarchar(256)`. E `ApplicationId` l'account utente è collegato a una specifica applicazione in `aspnet_Applications`. Vi è un raggruppamento `UNIQUE` vincolo il `RoleName` e `ApplicationId` colonne, garantendo che una determinata applicazione il nome del ruolo sia univoco.
 
 Il `aspnet_UsersInRoles` tabella funge da un mapping tra utenti e ruoli. Sono presenti solo due colonne - `UserId` e `RoleId` -insieme che costituiscono una chiave primaria composta.
 
@@ -276,7 +276,7 @@ Oltre al `name` e `type` gli attributi, la `<add>` elemento contiene attributi c
 > Tutti i valori predefiniti indicati nella tabella 2 fare riferimento ai valori predefiniti definiti nel `SqlMembershipProvider` classe. Si noti che non tutte le impostazioni di configurazione in `AspNetSqlMembershipProvider` corrispondono ai valori predefiniti del `SqlMembershipProvider` classe. Ad esempio, se non specificato in un provider di appartenenze di `requiresUniqueEmail` definizione delle impostazioni predefinite su true. Tuttavia, il `AspNetSqlMembershipProvider` esegue l'override di questo valore predefinito, in modo esplicito specificando un valore di `false`.
 
 
-| **Impostazione&lt;\_o3a\_p /&gt;** | **Descrizione&lt;\_o3a\_p /&gt;** |
+| **L'impostazione&lt;\_o3a\_p /&gt;** | **Descrizione&lt;\_o3a\_p /&gt;** |
 | --- | --- |
 | `ApplicationName` | Tenere presente che il framework di appartenenza consente per un archivio utente singolo essere partizionati tra più applicazioni. Questa impostazione indica il nome della partizione di applicazione utilizzata dal provider di appartenenze. Se questo valore non è specificato in modo esplicito, è impostato, in fase di esecuzione, il valore del percorso radice virtuale dell'applicazione. |
 | `commandTimeout` | Specifica il valore di timeout del comando SQL (in secondi). Il valore predefinito è 30. |
@@ -313,8 +313,8 @@ Come si può notare, la stringa di connessione definisce una posizione del datab
 
 Se non è stato specificato le informazioni di provider di appartenenze dell'applicazione `Web.config` file, l'applicazione utilizza il provider di appartenenze predefinito registrato, `AspNetSqlMembershipProvider`. Se il `~/App_Data/aspnet.mdf` database non esiste, il runtime di ASP.NET verrà automaticamente creato e aggiungere lo schema di servizi di applicazione. Tuttavia, non si desidera utilizzare il `aspnet.mdf` database; invece, si desidera utilizzare il `SecurityTutorials.mdf` database creati nel passaggio 2. Questa modifica può essere eseguita in uno dei due modi:
 
-- **Specificare un valore per il * * *`LocalSqlServer`* * * il nome di stringa di connessione in * * *`Web.config`* * *.** Sovrascrivendo il `LocalSqlServer` valore di nome di stringa di connessione in `Web.config`, è possibile utilizzare il provider di appartenenze predefinito registrato (`AspNetSqlMembershipProvider`) e fare in modo funzionare correttamente con il `SecurityTutorials.mdf` database. Questo approccio è appropriato se si è contenuto con le impostazioni di configurazione specificate da `AspNetSqlMembershipProvider`. Per ulteriori informazioni su questa tecnica, vedere [Scott Guthrie](https://weblogs.asp.net/scottgu/)del post di blog, [la configurazione di servizi applicativi di ASP.NET 2.0 per utilizzare SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Aggiungere un nuovo provider registrati di tipo * * *`SqlMembershipProvider`* * * e configurare il * * *`connectionStringName`* * * impostazione in modo che punti al * * *`SecurityTutorials.mdf`* * * database.** Questo approccio è utile negli scenari in cui si desidera personalizzare altre proprietà di configurazione oltre alla stringa di connessione di database. In progetti io uso sempre questo approccio a causa di sua flessibilità e la leggibilità.
+- <strong>Specificare un valore per il</strong><strong>`LocalSqlServer`</strong><strong>nome di stringa di connessione in</strong><strong>`Web.config`</strong><strong>.</strong> Sovrascrivendo il `LocalSqlServer` valore di nome di stringa di connessione in `Web.config`, è possibile utilizzare il provider di appartenenze predefinito registrato (`AspNetSqlMembershipProvider`) e fare in modo funzionare correttamente con il `SecurityTutorials.mdf` database. Questo approccio è appropriato se si è contenuto con le impostazioni di configurazione specificate da `AspNetSqlMembershipProvider`. Per ulteriori informazioni su questa tecnica, vedere [Scott Guthrie](https://weblogs.asp.net/scottgu/)del post di blog, [la configurazione di servizi applicativi di ASP.NET 2.0 per utilizzare SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Aggiungere un nuovo provider di tipo registrato</strong><strong>`SqlMembershipProvider`</strong><strong>e configurare il relativo</strong><strong>`connectionStringName`</strong><strong>impostazione in modo che punti al</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>database.</strong> Questo approccio è utile negli scenari in cui si desidera personalizzare altre proprietà di configurazione oltre alla stringa di connessione di database. In progetti io uso sempre questo approccio a causa di sua flessibilità e la leggibilità.
 
 Per poter aggiungere un nuovo provider registrato che fa riferimento il `SecurityTutorials.mdf` database, è innanzitutto necessario aggiungere un valore di stringa di connessione appropriata nel `<connectionStrings>` sezione `Web.config`. Il markup seguente aggiunge una nuova stringa di connessione denominata `SecurityTutorialsConnectionString` che fa riferimento a SQL Server 2005 Express Edition `SecurityTutorials.mdf` database il `App_Data` cartella.
 
@@ -357,7 +357,7 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 - [Il `<membership>` elemento](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [Il `<providers>` elemento per l'appartenenza](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Utilizzando `<clear />` quando si aggiunge provider](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
-- [Si lavora direttamente con il`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
+- [Utilizzo diretto di `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Video di formazione su argomenti contenuti in questa esercitazione
 
@@ -367,11 +367,11 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ### <a name="about-the-author"></a>Informazioni sull'autore
 
-Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autore di più libri e fondatore di 4GuysFromRolla, ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è  *[SAM insegna manualmente ASP.NET 2.0 nelle 24 ore](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott può essere raggiunto al [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o tramite il suo blog all'indirizzo [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Ringraziamenti speciali
 
 Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata Alicja Maziarz. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[avanti](creating-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [avanti](creating-user-accounts-cs.md)

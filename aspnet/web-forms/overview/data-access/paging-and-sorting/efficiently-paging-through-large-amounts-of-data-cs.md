@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
-title: "In modo efficiente il Paging grandi quantità di dati (c#) | Documenti Microsoft"
+title: In modo efficiente il Paging grandi quantità di dati (c#) | Documenti Microsoft
 author: rick-anderson
-description: "L'opzione di paging predefinita di un controllo di presentazione di dati non è adatta quando si lavora con grandi quantità di dati, come il retriev di controllo origine dati sottostante..."
+description: L'opzione di paging predefinita di un controllo di presentazione di dati non è adatta quando si lavora con grandi quantità di dati, come il retriev di controllo origine dati sottostante...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac16cc79f2ed6b62bf676553a374180cd0165632
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ea1fd06f8eb7c53c3e9e7fb10c46974eb2af2acd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-c"></a>In modo efficiente il Paging grandi quantità di dati (c#)
 ====================
@@ -31,8 +31,8 @@ da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Come descritto nell'esercitazione precedente, è possibile implementare il paging in uno dei due modi:
 
-- **Paging predefinito** può essere implementata controllando semplicemente l'opzione Abilita Paging nei dati di controllo Web s smart tag; tuttavia, ogni volta che si visualizza una pagina di dati, ObjectDataSource recupera *tutti* dei record, anche anche se solo un sottoinsieme di essi vengono visualizzati nella pagina
-- **Il Paging personalizzato** migliora le prestazioni delle predefinito paging recuperando solo i record dal database che devono essere visualizzate per la particolare pagina di dati richiesto dall'utente; tuttavia, il paging personalizzato comporta un maggiore impegno per implementare del paging predefinito
+- **Paging predefinito** possono essere implementati semplicemente selezionando l'opzione Abilita Paging nei dati di controllo Web s smart tag; tuttavia, ogni volta che si visualizza una pagina di dati, ObjectDataSource recupera *tutti* dei record, anche anche se solo un sottoinsieme di essi vengono visualizzati nella pagina
+- **Il Paging personalizzato** migliora le prestazioni di impostazione predefinita, il paging recuperando solo i record dal database che devono essere visualizzati per pagina specifica di dati richiesto dall'utente; tuttavia, il paging personalizzato implica un po' più impegno per implementare rispetto del paging predefinito
 
 Grazie alla facilità di controllo solo implementazione una casella di controllo e si stanno completata. paging predefinito è un'opzione attraente. Proprio approccio ve na durante il recupero di tutti i record, tuttavia, rende una scelta inverosimile quando il paging sufficientemente grandi quantità di dati o per i siti con molti utenti simultanei. In tali circostanze, è necessario attivare su personalizzato per fornire un sistema di risposta di paging.
 
@@ -48,9 +48,9 @@ Quando il paging dei dati, i record precisi visualizzati in una pagina variano a
 
 Esistono tre variabili che indicano quali record devono essere recuperati e la modalità di rendering dell'interfaccia di paging:
 
-- **Indice di riga iniziale** l'indice della prima riga nella pagina di dati da visualizzare; indice può essere calcolato moltiplicando l'indice della pagina per i record da visualizzare per ogni pagina e l'aggiunta di uno. Ad esempio, quando il paging i 10 record alla volta, per la prima pagina (il cui indice della pagina è 0), indice di riga iniziale è 0 \* 10 + 1 o 1, per la seconda pagina (il cui indice della pagina è 1), indice di riga iniziale è 1 \* 10 + 1 , o 11.
+- **Indice di riga iniziale** l'indice della prima riga nella pagina di dati da visualizzare; questo può essere calcolato moltiplicando l'indice della pagina per i record da visualizzare per ogni pagina e aggiunta di uno. Ad esempio, quando il paging i 10 record alla volta, per la prima pagina (il cui indice della pagina è 0), indice di riga iniziale è 0 \* 10 + 1 o 1, per la seconda pagina (il cui indice della pagina è 1), indice di riga iniziale è 1 \* 10 + 1 , o 11.
 - **Numero massimo di righe** il numero massimo di record da visualizzare per pagina. Questa variabile viene considerata numero massimo di righe perché per l'ultima pagina può essere un numero di record restituito rispetto alle dimensioni di pagina. Ad esempio, quando lo scorrimento di record di 81 prodotti 10 per ogni pagina, la pagina nona e finale avrà un solo record. Nessuna pagina, tuttavia, verrà visualizzati più record rispetto al valore massimo di righe.
-- **Totale Record** il numero totale di record il paging tramite. Mentre t questa variabile non è necessario per determinare i record da recuperare per una determinata pagina, definiscono l'interfaccia di paging. Ad esempio, se sono presenti 81 prodotti il paging tramite, l'interfaccia di paging in grado di visualizzare i numeri di pagina nove nell'interfaccia di paging.
+- **Totale Record** il numero totale di record mediante il paging. Mentre t questa variabile non è necessario per determinare i record da recuperare per una determinata pagina, definiscono l'interfaccia di paging. Ad esempio, se sono presenti 81 prodotti il paging tramite, l'interfaccia di paging in grado di visualizzare i numeri di pagina nove nell'interfaccia di paging.
 
 Con il paging predefinito, indice di riga iniziale viene calcolata come prodotto tra l'indice della pagina e le dimensioni della pagina più uno, mentre il numero massimo di righe è semplicemente le dimensioni della pagina. Poiché paging predefinito recupera tutti i record dal database durante il rendering di qualsiasi pagina di dati, l'indice per ogni riga è noto, rendendo lo spostamento alla riga di indice di riga iniziale un'attività banale. Inoltre, il numero totale di Record è immediatamente disponibile, come s semplicemente il numero di record di DataTable (o qualsiasi oggetto viene utilizzato per archiviare i risultati di database).
 
@@ -91,7 +91,7 @@ Dopo che indica il tipo di query da utilizzare, è quindi necessario specificare
 
 ![Utilizzo di SELECT Count da Query di prodotti](efficiently-paging-through-large-amounts-of-data-cs/_static/image3.png)
 
-**Figura 3**: utilizza il conteggio Seleziona (\*) Query prodotti da
+**Figura 3**: utilizza il conteggio SELECT (\*) Query prodotti da
 
 
 Infine, specificare il nome del metodo. Come s menzionati in precedenza, consentono di utilizzare `TotalNumberOfProducts`.
@@ -99,7 +99,7 @@ Infine, specificare il nome del metodo. Come s menzionati in precedenza, consent
 
 ![Nome di TotalNumberOfProducts DAL metodo](efficiently-paging-through-large-amounts-of-data-cs/_static/image4.png)
 
-**Figura 4**: nome di TotalNumberOfProducts DAL metodo
+**Figura 4**: assegnare un nome di TotalNumberOfProducts DAL metodo
 
 
 Dopo aver fatto clic su Fine, la procedura guidata aggiungerà il `TotalNumberOfProducts` DAL metodo. I metodi di restituzione scalari DAL restituiscono tipi nullable, nel caso in cui il risultato della query SQL `NULL`. Il nostro `COUNT` query, tuttavia, restituirà sempre un non -`NULL` valore; in ogni caso, il metodo DAL restituisce un intero che ammette valori null.
@@ -119,12 +119,12 @@ Questo non è una richiesta di verifica se è già presente una colonna nella ta
 
 Sono disponibili due tecniche generali consente di associare in modo efficiente un indice di riga con i dati per il paging, consentendo il sottoinsieme preciso di record da recuperare:
 
-- **Utilizzo di SQL Server 2005 s `ROW_NUMBER()` (parola chiave)** nuova per SQL Server 2005, il `ROW_NUMBER()` parola chiave associa un valore di pertinenza di ogni record restituito basato sull'ordinamento di alcuni. Questa classificazione è utilizzabile come un indice di riga per ogni riga.
-- **Utilizzando una variabile di tabella e `SET ROWCOUNT`**  s di SQL Server [ `SET ROWCOUNT` istruzione](https://msdn.microsoft.com/library/ms188774.aspx) può essere usato per specificare il numero totale di record deve elaborare una query prima della chiusura; [le variabili di tabella](http://www.sqlteam.com/item.asp?ItemID=9454) sono variabili locali di T-SQL che possono contenere dati tabulari, akin a [tabelle temporanee](http://www.sqlteam.com/item.asp?ItemID=2029). Questo approccio funziona anche con Microsoft SQL Server 2005 e SQL Server 2000 (mentre il `ROW_NUMBER()` approccio funziona solo con SQL Server 2005).  
+- **Utilizzo di SQL Server 2005 s `ROW_NUMBER()` parola chiave** familiarità con SQL Server 2005, il `ROW_NUMBER()` parola chiave associa un valore di pertinenza di ogni record restituito basato sull'ordinamento di alcuni. Questa classificazione è utilizzabile come un indice di riga per ogni riga.
+- **Utilizzando una variabile di tabella e `SET ROWCOUNT`**  SQL Server s [ `SET ROWCOUNT` istruzione](https://msdn.microsoft.com/library/ms188774.aspx) può essere usato per specificare il numero di record totale deve elaborare una query prima di interrompere; [le variabili di tabella](http://www.sqlteam.com/item.asp?ItemID=9454) sono variabili locali di T-SQL che possono contenere dati tabulari, akin a [tabelle temporanee](http://www.sqlteam.com/item.asp?ItemID=2029). Questo approccio funziona anche con Microsoft SQL Server 2005 e SQL Server 2000 (mentre il `ROW_NUMBER()` approccio funziona solo con SQL Server 2005).  
   
- L'idea è creare una variabile di tabella con un `IDENTITY` colonna e le colonne per le chiavi primarie della tabella, il paging tramite cui i dati. Successivamente, il contenuto della tabella i cui dati il paging tramite viene archiviato nella variabile di tabella, in tal modo associazione di un indice di riga sequenziali (tramite il `IDENTITY` colonna) per ogni record nella tabella. Dopo aver compilata la variabile di tabella, una `SELECT` istruzione nella variabile di tabella, unito alla tabella sottostante, è possibile eseguire per estrarre i record specifici. Il `SET ROWCOUNT` istruzione viene utilizzata per limitare in modo intelligente il numero di record che devono essere copiate in una variabile di tabella.  
+  L'idea è creare una variabile di tabella con un `IDENTITY` colonna e le colonne per le chiavi primarie della tabella, il paging tramite cui i dati. Successivamente, il contenuto della tabella i cui dati il paging tramite viene archiviato nella variabile di tabella, in tal modo associazione di un indice di riga sequenziali (tramite il `IDENTITY` colonna) per ogni record nella tabella. Dopo aver compilata la variabile di tabella, una `SELECT` istruzione nella variabile di tabella, unito alla tabella sottostante, è possibile eseguire per estrarre i record specifici. Il `SET ROWCOUNT` istruzione viene utilizzata per limitare in modo intelligente il numero di record che devono essere copiate in una variabile di tabella.  
   
- Questa efficienza approccio s è in base al numero di pagina richiesto, come il `SET ROWCOUNT` valore viene assegnato il valore di indice di riga iniziale più il numero massimo di righe. Durante la suddivisione tra le pagine numerate basso, ad esempio il primo alcune pagine di dati in questo approccio è molto efficiente. Tuttavia, produce prestazioni simili a paging predefinito durante il recupero di una pagina alla fine.
+  Questa efficienza approccio s è in base al numero di pagina richiesto, come il `SET ROWCOUNT` valore viene assegnato il valore di indice di riga iniziale più il numero massimo di righe. Durante la suddivisione tra le pagine numerate basso, ad esempio il primo alcune pagine di dati in questo approccio è molto efficiente. Tuttavia, produce prestazioni simili a paging predefinito durante il recupero di una pagina alla fine.
 
 Questa esercitazione l'implementazione personalizzata tramite paging le `ROW_NUMBER()` (parola chiave). Per ulteriori informazioni sull'utilizzo della variabile di tabella e `SET ROWCOUNT` tecnica, vedere [più efficiente metodo per il Paging tramite grandi set di risultati](http://www.4guysfromrolla.com/webtech/042606-1.shtml).
 
@@ -133,7 +133,7 @@ Il `ROW_NUMBER()` (parola chiave) associato un valore di pertinenza di ogni reco
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample3.sql)]
 
-`ROW_NUMBER()`Restituisce un valore numerico che specifica l'ordine di priorità per ogni record per quanto riguarda l'ordine indicato. Ad esempio, per visualizzare il rango per ogni prodotto, ordinata dalle più costosa minimi, è possibile usare la query seguente seguente:
+`ROW_NUMBER()` Restituisce un valore numerico che specifica l'ordine di priorità per ogni record per quanto riguarda l'ordine indicato. Ad esempio, per visualizzare il rango per ogni prodotto, ordinata dalle più costosa minimi, è possibile usare la query seguente seguente:
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample4.sql)]
@@ -147,7 +147,7 @@ Figura 5 Mostra questa query risultati s quando eseguito tramite la finestra di 
 
 
 > [!NOTE]
-> `ROW_NUMBER()`è solo una delle molte nuove funzioni di rango disponibili in SQL Server 2005. Per una descrizione più dettagliata di `ROW_NUMBER()`, insieme alle altre funzioni di rango, leggere [restituzione di risultati classificati con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
+> `ROW_NUMBER()` è solo una delle molte nuove funzioni di rango disponibili in SQL Server 2005. Per una descrizione più dettagliata di `ROW_NUMBER()`, insieme alle altre funzioni di rango, leggere [restituzione di risultati classificati con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
 
 
 Quando i risultati di classificazione da specificato `ORDER BY` colonna il `OVER` clausola (`UnitPrice`, nell'esempio precedente), è necessario ordinare i risultati in SQL Server. Questa è un'operazione rapida se è un indice cluster per le colonne vengono ordinati i risultati da, o se esiste una copertura di indice, ma può essere più costosi da risolvere in caso contrario. Per migliorare le prestazioni per le query sufficientemente grande, considerare l'aggiunta di un indice non cluster per la colonna da cui i risultati vengono ordinati in base. Vedere [funzioni di rango e le prestazioni in SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) per un'analisi più approfondita delle considerazioni sulle prestazioni.
@@ -163,7 +163,7 @@ Estensione di un bit ulteriormente questo concetto, che possiamo utilizzare ques
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
-> Come verrà illustrato più avanti in questa esercitazione, il  *`StartRowIndex`*  fornito da ObjectDataSource è indicizzato a partire da zero, mentre il `ROW_NUMBER()` valore restituito da SQL Server 2005 viene indicizzato a partire da 1. Pertanto, il `WHERE` clausola restituisce i record in cui `PriceRank` è rigorosamente maggiore  *`StartRowIndex`*  e minore o uguale a  *`StartRowIndex`*   +  *`MaximumRows`*.
+> Come verrà illustrato più avanti in questa esercitazione, il *`StartRowIndex`* fornito da ObjectDataSource è indicizzato a partire da zero, mentre il `ROW_NUMBER()` valore restituito da SQL Server 2005 viene indicizzato a partire da 1. Pertanto, il `WHERE` clausola restituisce i record in cui `PriceRank` è rigorosamente maggiore *`StartRowIndex`* e minore o uguale a *`StartRowIndex`*  +  *`MaximumRows`*.
 
 
 Ora che vi viene descritto come `ROW_NUMBER()` può essere utilizzato per recuperare una particolare pagina di dati in base ai valori di indice di riga iniziale e massimo di righe, è ora necessario implementare la logica come metodi in DAL e BLL.
@@ -175,7 +175,7 @@ Nella sezione precedente abbiamo creato il metodo DAL come un'istruzione SQL ad 
 
 ![Aggiungere una nuova Stored Procedure per i prodotti di Paging](efficiently-paging-through-large-amounts-of-data-cs/_static/image6.png)
 
-**Figura 6**: aggiungere una nuova Stored Procedure per i prodotti di Paging
+**Figura 6**: aggiungere una nuova Stored Procedure per il Paging con i prodotti
 
 
 Questa stored procedure deve accettare due parametri di input di interi - `@startRowIndex` e `@maximumRows` e utilizzare il `ROW_NUMBER()` funzione ordinati di `ProductName` campo, restituendo soltanto le righe maggiore rispetto al `@startRowIndex` e minore di o uguale a `@startRowIndex`  +  `@maximumRow` s. Immettere il seguente script in nuova stored procedure e quindi fare clic sull'icona Salva per aggiungere la stored procedure nel database.
@@ -188,13 +188,13 @@ Dopo aver creato la stored procedure, richiedere qualche istante per testarlo. F
 
 ![Immettere un valore per il @startRowIndex e @maximumRows parametri](efficiently-paging-through-large-amounts-of-data-cs/_static/image7.png)
 
-**Figura 7**: immettere un valore per il @startRowIndex e @maximumRows parametri
+<strong>Figura 7</strong>: immettere un valore per il @startRowIndex e @maximumRows parametri
 
 
 Dopo la scelta di questi valori di parametri di input, la finestra di Output verrà visualizzati i risultati. Figura 8 mostra i risultati per il passaggio 10 per entrambi i `@startRowIndex` e `@maximumRows` parametri.
 
 
-[![Il record che verrebbero visualizzati nella seconda pagina di dati vengono restituiti.](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
+[![Il record che verrebbero visualizzati nella seconda pagina di dati vengono restituiti](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **Figura 8**: il record che verrebbero visualizzati nella seconda pagina di dati vengono restituiti ([fare clic per visualizzare l'immagine ingrandita](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))
 
@@ -220,7 +220,7 @@ Nella schermata successiva viene richiesto il tipo di dati viene restituito dall
 
 ![Indicare che la Stored Procedure restituisce dati in formato tabulare](efficiently-paging-through-large-amounts-of-data-cs/_static/image13.png)
 
-**Figura 11**: indicare che la Stored Procedure restituisce dati in formato tabulare
+**Figura 11**: indicare che la Stored Procedure restituisce dati tabulari
 
 
 Infine, indicare i nomi dei metodi che si desidera avere creato. Come con le esercitazioni precedenti, proseguo e crea un oggetto DataTable di metodi usando il riempimento di entrambi e Restituisci un DataTable. Denominare il primo metodo `FillPaged` e il secondo `GetProductsPaged`.
@@ -245,7 +245,7 @@ Con i metodi BLL e per l'accesso a un determinato subset di record completo, è 
 
 ![Configurare ObjectDataSource per utilizzare il metodo di classe ProductsBLL s GetProductsPaged](efficiently-paging-through-large-amounts-of-data-cs/_static/image15.png)
 
-**Figura 13**: configurare ObjectDataSource per utilizzare il metodo di classe ProductsBLL s GetProductsPaged
+**Figura 13**: configurare ObjectDataSource per utilizzare il metodo GetProductsPaged ProductsBLL classe s
 
 
 Poiché è nuovamente la creazione di un controllo GridView di sola lettura, dedicare alcuni minuti per impostare l'elenco di riepilogo a discesa metodo nell'istruzione INSERT, UPDATE ed eliminare le schede su (nessuno).
@@ -255,7 +255,7 @@ Successivamente, la procedura guidata ObjectDataSource richiede Microsoft per le
 
 ![Lasciare le origini di parametro di Input come nessuno](efficiently-paging-through-large-amounts-of-data-cs/_static/image16.png)
 
-**Nella figura 14**: lasciare le origini di parametro di Input come nessuno
+**Figura 14**: lasciare le origini di parametro di Input come nessuno
 
 
 Dopo aver completato la procedura guidata ObjectDataSource, GridView conterrà un BoundField o CheckBoxField per ognuno dei campi dati di prodotto. È possibile personalizzare l'aspetto di GridView s secondo necessità. Si va scelto per visualizzare solo il `ProductName`, `CategoryName`, `SupplierName`, `QuantityPerUnit`, e `UnitPrice` BoundField. Inoltre, configurare GridView per supportare il paging selezionando la casella di controllo Abilita Paging smart tag. Dopo aver apportato queste modifiche, il markup dichiarativo GridView e ObjectDataSource dovrebbe essere simile al seguente:
@@ -268,17 +268,17 @@ Se si visita la pagina tramite un browser, tuttavia, GridView non è alcun eleme
 
 ![GridView non è visualizzato](efficiently-paging-through-large-amounts-of-data-cs/_static/image17.png)
 
-**Figura 15**: il GridView non è visualizzato
+**Figura 15**: GridView non è visualizzati
 
 
 GridView non è disponibile perché ObjectDataSource è attualmente in uso 0 come valori per entrambe le `GetProductsPaged` `startRowIndex` e `maximumRows` i parametri di input. Di conseguenza, la query SQL risultante non restituisce Nessun record e pertanto non viene visualizzato il controllo GridView.
 
 Per risolvere questo problema, è necessario configurare ObjectDataSource per utilizzare il paging personalizzato. Questo può essere eseguito nei passaggi seguenti:
 
-1. **Impostare il s ObjectDataSource `EnablePaging` proprietà `true`**  indica a ObjectDataSource che è necessario passare il `SelectMethod` due parametri aggiuntivi: uno per specificare l'indice di riga iniziale ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)) e uno per specificare il numero massimo di righe ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
-2. **Impostare s ObjectDataSource `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà conseguenza** il `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà indicano i nomi dei parametri di input passati il `SelectMethod` per scopi di paging personalizzata . Per impostazione predefinita, questi nomi di parametro sono `startIndexRow` e `maximumRows`, per questo motivo, quando si crea il `GetProductsPaged` metodo in BLL, si usa questi valori per i parametri di input. Se si sceglie di utilizzare nomi di parametro diversi per s BLL `GetProductsPaged` metodo, ad esempio `startIndex` e `maxRows`, ad esempio, è necessario imposta il s ObjectDataSource `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà conseguenza (ad esempio startIndex per `StartRowIndexParameterName` e maxRows per `MaximumRowsParameterName`).
-3. **Impostare il s ObjectDataSource [ `SelectCountMethod` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) sul nome del metodo che restituisce il totale numero di record in corso di paging tramite (`TotalNumberOfProducts`)** tenere presente che la `ProductsBLL` classe s `TotalNumberOfProducts`il metodo restituisce il numero totale di record il paging tramite un metodo DAL che viene eseguito un `SELECT COUNT(*) FROM Products` query. Queste informazioni sono necessarie da ObjectDataSource per correttamente il rendering dell'interfaccia di paging.
-4. **Rimuovere il `startRowIndex` e `maximumRows` `<asp:Parameter>` elementi da ObjectDataSource s Markup dichiarativo** quando si configura ObjectDataSource mediante la procedura guidata, Visual Studio automaticamente aggiunto due `<asp:Parameter>` gli elementi per il `GetProductsPaged` metodo s parametri di input. Impostando `EnablePaging` a `true`, questi parametri verranno passati automaticamente; se sono visualizzate anche nella sintassi dichiarativa, un tentativo di passare ObjectDataSource *quattro* parametri per il `GetProductsPaged` (metodo) e due parametri per il `TotalNumberOfProducts` metodo. Se si dimentica di rimuoverli `<asp:Parameter>` elementi, durante la visita la pagina tramite un browser, si otterrà un messaggio di errore: *ObjectDataSource 'ObjectDataSource1' Impossibile trovare un metodo non generico 'TotalNumberOfProducts' con parametri: startRowIndex, maximumRows*.
+1. **Impostare s ObjectDataSource `EnablePaging` proprietà da `true`**  ciò indica a ObjectDataSource che deve passare per il `SelectMethod` due parametri aggiuntivi: uno per specificare l'indice di riga iniziale ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)) e uno per specificare il numero massimo di righe ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
+2. **Impostare s ObjectDataSource `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà conseguenza** il `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà indicano i nomi dei parametri di input passati il `SelectMethod` per scopi di paging personalizzata. Per impostazione predefinita, questi nomi di parametro sono `startIndexRow` e `maximumRows`, per questo motivo, quando si crea il `GetProductsPaged` metodo in BLL, si usa questi valori per i parametri di input. Se si sceglie di utilizzare nomi di parametro diversi per s BLL `GetProductsPaged` metodo, ad esempio `startIndex` e `maxRows`, ad esempio, è necessario imposta il s ObjectDataSource `StartRowIndexParameterName` e `MaximumRowsParameterName` proprietà conseguenza (ad esempio startIndex per `StartRowIndexParameterName` e maxRows per `MaximumRowsParameterName`).
+3. **Impostare il s ObjectDataSource [ `SelectCountMethod` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) sul nome del metodo che restituisce il totale numero di record in fase di paging tramite (`TotalNumberOfProducts`)** si tenga presente che la `ProductsBLL` classe s `TotalNumberOfProducts`metodo restituisce il numero totale di record mediante un metodo DAL che viene eseguito il paging una `SELECT COUNT(*) FROM Products` query. Queste informazioni sono necessarie da ObjectDataSource per correttamente il rendering dell'interfaccia di paging.
+4. **Rimuovere il `startRowIndex` e `maximumRows` `<asp:Parameter>` elementi da ObjectDataSource s Markup dichiarativo** quando si configura il ObjectDataSource tramite la procedura guidata, Visual Studio aggiunte automaticamente due `<asp:Parameter>` elementi per il `GetProductsPaged` metodo s parametri di input. Impostando `EnablePaging` a `true`, questi parametri verranno passati automaticamente; se sono visualizzate anche nella sintassi dichiarativa, un tentativo di passare ObjectDataSource *quattro* parametri per il `GetProductsPaged` (metodo) e due parametri per il `TotalNumberOfProducts` metodo. Se si dimentica di rimuoverli `<asp:Parameter>` elementi, durante la visita la pagina tramite un browser, si otterrà un messaggio di errore: *ObjectDataSource 'ObjectDataSource1' Impossibile trovare un metodo non generico 'TotalNumberOfProducts' con parametri: startRowIndex, maximumRows*.
 
 Dopo aver apportato queste modifiche, la sintassi dichiarativa s ObjectDataSource dovrebbe essere simile al seguente:
 
@@ -296,9 +296,9 @@ Si noti che il `EnablePaging` e `SelectCountMethod` sono state impostate e `<asp
 Dopo aver apportato queste modifiche, visitare la pagina tramite un browser. Dovrebbe essere 10 prodotti nell'elenco, ordinato in ordine alfabetico. È opportuno esaminare i dati una pagina alla volta. Anche se non vi è alcuna differenza visual dal punto di vista s dell'utente finale tra paging predefinito e il paging personalizzato, in modo più efficiente il paging personalizzato pagine grandi quantità di dati recupera solo i record che devono essere visualizzati per una determinata pagina.
 
 
-[![I dati, ordinato in base al prodotto, nome, è di paging utilizzando Paging personalizzato](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
+[![I dati, ordinato in base al prodotto s nome, è di paging utilizzando Paging personalizzata](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
-**Figura 17**: dei dati, ordinato in base al prodotto, nome, è di paging utilizzando Paging personalizzato ([fare clic per visualizzare l'immagine ingrandita](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))
+**Figura 17**: dei dati, ordinato in base al prodotto s nome, è di paging utilizzando Paging personalizzata ([fare clic per visualizzare l'immagine ingrandita](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))
 
 
 > [!NOTE]
@@ -312,7 +312,7 @@ Facendo clic sull'ultimo collegamento di pagina provoca un postback e indica al 
 L'implementazione personalizzata di paging corrente richiede che l'ordine con cui i dati viene eseguito il paging tramite venga specificato in modo statico durante la creazione di `GetProductsPaged` stored procedure. Tuttavia, si potrebbe hanno evidenziato che lo smart tag s di GridView contiene una casella di controllo Abilita ordinamento oltre all'opzione Abilita Paging. Purtroppo, aggiungere il supporto dell'ordinamento GridView con l'implementazione personalizzata di paging corrente solo ordinare i record nella pagina visualizzata dei dati. Ad esempio, se si configura il controllo GridView per supportare anche il paging e quindi, quando si visualizzano la prima pagina di dati, ordinare in base al nome di prodotto in ordine decrescente, verrà invertire l'ordine dei prodotti nella pagina 1. Come mostrato nella figura 18, ad esempio Leoni Carnarvon Mostra come prima del prodotto durante l'ordinamento in ordine alfabetico inverso, che ignora i 71 altri prodotti che seguono in ordine alfabetico; Leoni Carnarvon, il tipo di ordinamento vengono considerati solo i record nella prima pagina.
 
 
-[![Solo i dati visualizzati nella pagina corrente è ordinato.](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
+[![Solo i dati visualizzati nella pagina corrente viene ordinato](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **Figura 18**: solo i dati visualizzati nella pagina corrente viene ordinato ([fare clic per visualizzare l'immagine ingrandita](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))
 
@@ -326,7 +326,7 @@ Se è la funzionalità di eliminazione in un controllo GridView viene eseguito i
 In seguito all'eliminazione del prodotto ultimo, GridView *deve* automaticamente passare alla pagina ottava e tale funzionalità viene esposto con paging predefinito. Con il paging personalizzato, tuttavia, dopo aver eliminato l'ultimo prodotto nell'ultima pagina, GridView semplicemente scomparirà dalla schermata completamente. Il motivo esatto *perché* questo errore si verifica un po' esula dall'ambito di questa esercitazione, vedere [l'eliminazione dell'ultimo Record nell'ultima pagina da un controllo GridView con Paging personalizzata](http://scottonwriting.net/sowblog/posts/7326.aspx) per i dettagli di basso livello per l'origine di Questo problema. In breve, s a causa la sequenza di passaggi che vengono eseguiti dal controllo GridView. quando si fa clic sul pulsante Elimina seguente:
 
 1. Eliminare il record
-2. Ottenere i record appropriati da visualizzare per l'oggetto specificato `PageIndex` e`PageSize`
+2. Ottenere i record da visualizzare per l'oggetto specificato `PageIndex` e `PageSize`
 3. Verificare che il `PageIndex` non superi il numero di pagine di dati nell'origine dati; se, riduce automaticamente s GridView `PageIndex` proprietà
 4. Associare la pagina appropriata di dati a GridView mediante i record ottenuti nel passaggio 2
 
@@ -358,7 +358,7 @@ Un articolo di essi, [il Paging personalizzato in ASP.NET 2.0 con SQL Server 200
 |  | **Avg. Durata (sec)** | **Letture** |
 | --- | --- | --- |
 | **Paging SQL Profiler predefinito** | 1.411 | 383 |
-| **Personalizzato Paging SQL Profiler** | 0.002 | 29 |
+| **Profiler SQL il Paging personalizzato** | 0.002 | 29 |
 | **Traccia di ASP.NET Paging predefinita** | 2.379 | *N/A* |
 | **Traccia di ASP.NET il Paging personalizzato** | 0.029 | *N/A* |
 
@@ -377,8 +377,8 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Precedente](paging-and-sorting-report-data-cs.md)
-[Successivo](sorting-custom-paged-data-cs.md)
+> [!div class="step-by-step"]
+> [Precedente](paging-and-sorting-report-data-cs.md)
+> [Successivo](sorting-custom-paged-data-cs.md)

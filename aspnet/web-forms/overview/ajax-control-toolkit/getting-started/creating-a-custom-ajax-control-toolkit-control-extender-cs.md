@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 title: Creazione di un AJAX personalizzata controllo Extender controllo Toolkit (c#) | Documenti Microsoft
 author: microsoft
-description: "Estensioni personalizzate consentono di personalizzare ed estendere le funzionalità dei controlli ASP.NET senza dover creare nuove classi."
+description: Estensioni personalizzate consentono di personalizzare ed estendere le funzionalità dei controlli ASP.NET senza dover creare nuove classi.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2ae03484dd1161c65b77f4718bb8cedb5abfdd82
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dc058d1d19df880109352caf2dc7d1860121a104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>Creazione di un'estensione di controllo Toolkit controllo AJAX personalizzati (c#)
 ====================
-da [Microsoft](https://github.com/microsoft)
+by [Microsoft](https://github.com/microsoft)
 
 > Estensioni personalizzate consentono di personalizzare ed estendere le funzionalità dei controlli ASP.NET senza dover creare nuove classi.
 
@@ -84,7 +84,7 @@ Dopo aver completato questi passaggi, la finestra Esplora simile nella figura 1.
 
 [![Soluzione con progetto libreria di classe e il sito Web](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image7.png)
 
-**Figura 01**: soluzione di progetto libreria di classe e il sito Web ([fare clic per visualizzare l'immagine ingrandita](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image9.png))
+**Figura 01**: soluzione con progetto libreria di classe e il sito Web ([fare clic per visualizzare l'immagine ingrandita](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image9.png))
 
 
 Successivamente, è necessario aggiungere tutti i riferimenti all'assembly necessari al progetto libreria di classi:
@@ -135,7 +135,7 @@ Infine, si noti che l'estensione personalizzata include una proprietà denominat
 
 Consente di proseguire e implementare il codice per l'estensione DisabledButton s. Il codice per questa estensione è reperibile nel listato 2.
 
-**Elenco di 2 - DisabledButtonExtender.cs**
+**Il listato 2 - DisabledButtonExtender.cs**
 
 [!code-csharp[Main](creating-a-custom-ajax-control-toolkit-control-extender-cs/samples/sample2.cs)]
 
@@ -167,7 +167,7 @@ Tenere presente che è necessario compilare il file di JavaScript nel listato 3 
 
 È disponibile una classe ultimo che è necessario creare per completare l'estensione. È necessario creare la classe della finestra di progettazione nel listato 4. Questa classe è necessaria per rendere il programma di estensione si comportano in modo corretto con progettazione di Visual Studio e Visual Web Developer.
 
-**Elenco di 4 - DisabledButtonDesigner.cs**
+**Listato 4 - DisabledButtonDesigner.cs**
 
 [!code-csharp[Main](creating-a-custom-ajax-control-toolkit-control-extender-cs/samples/sample4.cs)]
 
@@ -198,7 +198,7 @@ Successivamente, è necessario creare una nuova pagina ASP.NET. Attenersi ai pas
 2. Trascinare uno ScriptManager nella pagina.
 3. Trascinare un controllo casella di testo della pagina.
 4. Trascinare un controllo pulsante di pagina.
-5. Nella finestra Proprietà modificare la proprietà ID pulsante sul valore *btnSave* e la proprietà di testo per il valore *salvare\**.
+5. Nella finestra Proprietà modificare la proprietà ID pulsante sul valore <em>btnSave</em> e la proprietà di testo per il valore *salvare\**.
   
 
 Una pagina è stata creata con un controllo pulsante e casella di testo ASP.NET standard.
@@ -229,7 +229,7 @@ Infine, è possibile impostare le proprietà dell'oggetto di estensione Disabled
 Quando si esegue la pagina (premendo F5), il controllo Button è inizialmente disabilitato. Non appena si inizia a immettere il testo nella casella di testo, il pulsante di controllo è abilitato (vedere Figura 7).
 
 
-[![L'estensione DisabledButton in azione](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image25.png)
+[![Il programma di estensione DisabledButton in azione](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image25.png)
 
 **Figura 07**: DisabledButton l'estensione nell'azione ([fare clic per visualizzare l'immagine ingrandita](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image27.png))
 
@@ -238,6 +238,6 @@ Quando si esegue la pagina (premendo F5), il controllo Button è inizialmente di
 
 L'obiettivo di questa esercitazione è illustrare come è possibile estendere AJAX Control Toolkit con controlli extender personalizzato. In questa esercitazione è stato creato un semplice oggetto extender DisabledButton. Questa estensione è implementato mediante la creazione di una classe DisabledButtonExtender, un comportamento DisabledButtonBehavior JavaScript e una classe DisabledButtonDesigner. Un insieme simile di passaggi è seguire quando si crea un'estensione di controllo personalizzato.
 
->[!div class="step-by-step"]
-[Precedente](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
-[Successivo](get-started-with-the-ajax-control-toolkit-vb.md)
+> [!div class="step-by-step"]
+> [Precedente](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+> [Successivo](get-started-with-the-ajax-control-toolkit-vb.md)
