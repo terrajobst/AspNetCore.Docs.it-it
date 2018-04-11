@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: f6646a92e75b79d2193e9cbca7fa8ac8e26dc429
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 12a179287ec302994380e0faf4b843596f8c2f4e
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Eseguire l'hosting di ASP.NET Core nei contenitori Docker
 
@@ -32,7 +32,7 @@ Informazioni su termini e definizioni relativi alla tecnologia Docker.
 [Contenitori, immagini e registri di Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
 Informazioni sulle modalità con cui le immagini del contenitore Docker vengono archiviate in un registro immagini per una distribuzione uniforme nei diversi ambienti.
 
-[Compilazione di immagini Docker per applicazioni .NET Core](/dotnet/articles/core/docker/building-net-docker-images)  
+[Compilare immagini Docker per applicazioni .NET Core](/dotnet/articles/core/docker/building-net-docker-images)  
 Informazioni sulle procedure per compilare un'app di ASP.NET Core e inserirla in un contenitore Docker. Si analizzano le immagini Docker gestite da Microsoft e si esaminano casi d'uso.
 
 [Visual Studio Tools per Docker](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
@@ -40,3 +40,6 @@ Informazioni su come Visual Studio 2017 supporta la compilazione, il debug e l'e
 
 [Pubblicare in un'immagine Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
 Informazioni su come usare Visual Studio Tools per l'estensione Docker per distribuire un'app ASP.NET Core in un host Docker in Azure tramite PowerShell.
+
+[Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer)  
+Potrebbero essere necessari interventi di configurazione aggiuntivi per le app ospitate dietro a server proxy e a servizi di bilanciamento del carico. Il passaggio delle richieste attraverso un proxy spesso oscura le informazioni sulla richiesta originale, ad esempio lo schema e l'indirizzo IP del client. Potrebbe essere necessario inoltrare alcune informazioni sulla richiesta manualmente all'app.

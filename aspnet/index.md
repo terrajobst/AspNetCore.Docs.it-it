@@ -3,12 +3,12 @@ uid: index
 layout: HubPage
 ms.topic: hub-page
 title: Documentazione di ASP.NET | Microsoft Docs
-description: 
-ms.openlocfilehash: 4ab928b65bc91a24d02cd0450e143cd6bd3b639b
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+description: ''
+ms.openlocfilehash: cc887183fba9d3c46fbb1068d13d612a3e1806e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>ASP.NET Core è un nuovo framework .NET open source e multipiattaforma per la compilazione di moderne applicazioni Web basate sul cloud in Windows, Mac o Linux.</p>
-                                    <p>[Informazioni sui vantaggi di ASP.NET Core e ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) per scegliere la soluzione più adatta alle proprie esigenze.</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">Informazioni sui vantaggi di ASP.NET Core e ASP.NET</a> per scegliere la soluzione più adatta alle proprie esigenze.</p>
                                 </div>
                             </li>
                             <li>
@@ -153,7 +153,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>Esercitazioni in primo piano | [Visualizza tutte le esercitazioni su ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/)</p>
+                                    <p>Esercitazioni in primo piano | <a href="https://docs.microsoft.com/aspnet/core/tutorials/" data-raw-source="[View all ASP.NET Core tutorials](https://docs.microsoft.com/aspnet/core/tutorials/)">Visualizza tutte le esercitazioni su ASP.NET Core</a></p>
                                 </div>
                             </li>
                             <li>
@@ -291,7 +291,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>ASP.NET è una piattaforma Web matura che fornisce tutti i servizi necessari per la compilazione di applicazioni Web basate su server di livello aziendale usando .NET in Windows.</p>
-                                    <p>[Informazioni sui vantaggi di ASP.NET Core e ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) per scegliere la soluzione più adatta alle proprie esigenze.</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">Informazioni sui vantaggi di ASP.NET Core e ASP.NET</a> per scegliere la soluzione più adatta alle proprie esigenze.</p>
                                 </div>
                             </li>
                             <li>
@@ -568,7 +568,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>Esercitazioni in primo piano | [Visualizza tutte le esercitazioni su ASP.NET](https://docs.microsoft.com/aspnet/tutorials/)</p>
+                                    <p>Esercitazioni in primo piano | <a href="https://docs.microsoft.com/aspnet/tutorials/" data-raw-source="[View all ASP.NET tutorials](https://docs.microsoft.com/aspnet/tutorials/)">Visualizza tutte le esercitazioni su ASP.NET</a></p>
                                 </div>
                             </li>
                             <li>

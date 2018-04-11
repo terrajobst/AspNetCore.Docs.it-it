@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 76433f814d6850a449434c29eb0bd27570ce193a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -23,7 +23,7 @@ Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://tw
 
 Questa esercitazione illustra come compilare un'app ASP.NET Core 2.x che consente agli utenti di accedere tramite OAuth 2.0 con le credenziali dai provider di autenticazione esterni.
 
-I provider di [Facebook](facebook-logins.md), [Twitter](twitter-logins.md), [Google](google-logins.md), e [Microsoft](microsoft-logins.md) vengono trattati nelle sezioni seguenti. Altri provider sono disponibili nei pacchetti di terze parti, ad esempio [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) e [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
+I provider di [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), e [Microsoft](xref:security/authentication/microsoft-logins) vengono trattati nelle sezioni seguenti. Altri provider sono disponibili nei pacchetti di terze parti, ad esempio [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) e [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 ![Icone di social media per Facebook, Twitter, Google + e Windows](index/_static/social.png)
 
@@ -58,7 +58,7 @@ OAuth 2.0 richiede l'uso di SSL per l'autenticazione tramite il protocollo HTTPS
 
 Nota: i progetti creati tramite i modelli di progetto **Applicazione Web** o **API Web** per ASP.NET Core 2.x vengono configurati automaticamente per attivare SSL e avviarlo con l'URL https se l'opzione **Account utente singoli** è stata selezionata l'opzione su **Modifica finestra di dialogo di autenticazione** nella procedura guidata del progetto, come illustrato in precedenza.
 
-* Richiedere SSL sul sito seguendo la procedura descritta nell'argomento [Applicazione SSL in un'app ASP.NET Core](xref:security/enforcing-ssl).
+* Richiedere SSL per il sito seguendo la procedura descritta nell'argomento [Enforce SSL in an ASP.NET Core app](xref:security/enforcing-ssl) (Imporre SSL in un'app ASP.NET Core).
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Usare SecretManager per archiviare i token assegnati dai provider di accesso
 
@@ -72,11 +72,11 @@ Seguire la procedura nell'argomento [Archiviazione sicura di segreti dell'app du
 
 Usare gli argomenti seguenti per configurare l'applicazione per usare i rispettivi provider:
 
-* Istruzioni di [Facebook](facebook-logins.md)
-* Istruzioni di [Twitter](twitter-logins.md)
-* Istruzioni di [Google](google-logins.md)
-* Istruzioni di [Microsoft](microsoft-logins.md)
-* Istruzioni di [altri provider](other-logins.md)
+* Istruzioni di [Facebook](xref:security/authentication/facebook-logins)
+* Istruzioni di [Twitter](xref:security/authentication/twitter-logins)
+* Istruzioni di [Google](xref:security/authentication/google-logins)
+* Istruzioni di [Microsoft](xref:security/authentication/microsoft-logins)
+* Istruzioni di [altri provider](xref:security/authentication/otherlogins)
 
 ## <a name="optionally-set-password"></a>Impostare facoltativamente la password
 

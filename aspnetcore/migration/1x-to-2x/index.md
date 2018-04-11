@@ -1,7 +1,7 @@
 ---
-title: Migrazione da ASP.NET Core 1.x a 2.0
+title: Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0
 author: scottaddie
-description: "In questo articolo vengono illustrati i prerequisiti e i passaggi più comuni per la migrazione di un progetto di ASP.NET Core 1.x su ASP.NET 2.0 Core."
+description: In questo articolo vengono illustrati i prerequisiti e i passaggi più comuni per la migrazione di un progetto di ASP.NET Core 1.x su ASP.NET 2.0 Core.
 manager: wpickett
 ms.author: scaddie
 ms.date: 10/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: ebc4efdedd60c38280a0d37b20313e09671f7f9d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4b7a13b31340f01c4f1527f602b925d3ac4e8241
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrazione da ASP.NET Core 1.x a 2.0
+# <a name="migrate-from-aspnet-core-1x-to-20"></a>Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0
 
 Di [Scott Addie](https://github.com/scottaddie)
 
@@ -179,7 +179,7 @@ Se si usa Application Insights SDK direttamente, continuare a farlo. Il [metapac
 <a name="auth-and-identity"></a>
 
 ## <a name="adopt-authenticationidentity-improvements"></a>Adottare i miglioramenti di autenticazione/identità
-ASP.NET Core 2.0 ha un nuovo modello di autenticazione e un numero di modifiche significative per ASP.NET Identity Core. Se il progetto è stato creato con Account utente abilitati o se è stata aggiunta manualmente l'autenticazione o l'identità, vedere [Migrazione di autenticazione e identità ad ASP.NET 2.0 Core](xref:migration/1x-to-2x/identity-2x).
+ASP.NET Core 2.0 ha un nuovo modello di autenticazione e un numero di modifiche significative per ASP.NET Identity Core. Se il progetto è stato creato con l'autenticazione Account utente individuali abilitata o se è stata aggiunta manualmente l'autenticazione o l'identità, vedere [Eseguire la migrazione di autenticazione e identità ad ASP.NET 2.0 Core](xref:migration/1x-to-2x/identity-2x).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -30,9 +30,9 @@ Il middleware è un software che viene assemblato in una pipeline dell'applicazi
 
 Per compilare la pipeline delle richieste vengono usati i delegati di richiesta. I delegati di richiesta gestiscono ogni richiesta HTTP.
 
-I delegati di richiesta vengono configurati tramite i metodi di estensione [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions), [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) e [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). È possibile specificare un singolo delegato di richiesta inline come metodo anonimo (chiamato middleware inline) o definirlo in una classe riutilizzabile. Le classi riutilizzabili o i metodi anonimi inline costituiscono il *middleware* o sono *componenti middleware*. Ogni componente middleware della pipeline delle richieste è responsabile della chiamata del componente successivo della pipeline o di un eventuale corto circuito della catena.
+I delegati di richiesta vengono configurati tramite i metodi di estensione [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions), [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) e [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). È possibile specificare un singolo delegato di richiesta inline come metodo anonimo (chiamato middleware inline) o definirlo in una classe riutilizzabile. Le classi riutilizzabili o i metodi anonimi inline costituiscono il *middleware* o sono *componenti middleware*. Ogni componente del middleware è responsabile della chiamata del componente seguente nella pipeline o del corto circuito della catena, se necessario.
 
-In [Migrazione dei moduli HTTP nel middleware](xref:migration/http-modules) sono descritte le differenze tra le pipeline delle richieste in ASP.NET Core e in ASP.NET 4.x e sono riportati altri esempi di middleware.
+In [Eseguire la migrazione di moduli HTTP in middleware](xref:migration/http-modules) sono descritte le differenze tra le pipeline delle richieste in ASP.NET Core e in ASP.NET 4.x e sono riportati altri esempi di middleware.
 
 ## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Creazione di una pipeline middleware con IApplicationBuilder
 
@@ -109,7 +109,7 @@ public void Configure(IApplicationBuilder app)
 
 Nel codice precedente poiché `UseExceptionHandler` è il primo componente middleware aggiunto alla pipeline, il componente consente di rilevare le eccezioni che si verificano nelle chiamate successive.
 
-Il middleware dei file statici viene chiamato nella prima parte della pipeline in moda che possa gestire le richieste ed eseguire un corto circuito senza passare attraverso i componenti rimanenti. Il middleware dei file statici **non** offre controlli di autorizzazione. I file serviti dal sever, inclusi i file in *wwwroot*, sono disponibili pubblicamente. Vedere [Uso dei file statici](xref:fundamentals/static-files) per un approccio per proteggere i file statici.
+Il middleware dei file statici viene chiamato nella prima parte della pipeline in moda che possa gestire le richieste ed eseguire un corto circuito senza passare attraverso i componenti rimanenti. Il middleware dei file statici **non** offre controlli di autorizzazione. I file serviti dal sever, inclusi i file in *wwwroot*, sono disponibili pubblicamente. Vedere [Usare file statici](xref:fundamentals/static-files) per un approccio per proteggere i file statici.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -261,7 +261,7 @@ public class MyMiddleware
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Migrazione di moduli HTTP in middleware](xref:migration/http-modules)
+* [Eseguire la migrazione di moduli HTTP in middleware](xref:migration/http-modules)
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Funzionalità di richiesta](xref:fundamentals/request-features)
 * [Attivazione del middleware basata sulla factory](xref:fundamentals/middleware/extensibility)

@@ -1,5 +1,5 @@
 ---
-title: Usare i modelli di applicazione a pagina singola
+title: Usare i modelli di applicazione a pagina singola con ASP.NET Core
 author: SteveSandersonMS
 description: Informazioni su come installare e iniziare a usare i modelli di progetto per applicazioni a pagina singola di ASP.NET Core.
 manager: wpickett
@@ -11,20 +11,20 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 63b56de101199e9ea0d66d89d2dd7288e47902f6
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: eda4817de007f3c3184b2ba6ed6c97989ff17da5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-single-page-application-templates"></a>Usare i modelli di applicazione a pagina singola
+# <a name="use-the-single-page-application-templates-with-aspnet-core"></a>Usare i modelli di applicazione a pagina singola con ASP.NET Core
 
 > [!NOTE]
 > La versione rilasciata di .NET Core 2.0.x SDK include i modelli di progetto precedenti per Angular, React e React con Redux. Questa documentazione non riguarda i modelli di progetto precedenti. Questa documentazione si riferisce ai modelli Angular, React e React con Redux più recenti che possono essere installati manualmente in ASP.NET Core 2.0. I modelli sono inclusi per impostazione predefinita in ASP.NET Core 2.1.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [.NET Core SDK](https://www.microsoft.com/net/download), versione 2.0.0 o successive
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Node.js](https://nodejs.org), versione 6 o successive
 
 ## <a name="installation"></a>Installazione

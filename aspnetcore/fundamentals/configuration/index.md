@@ -1,7 +1,7 @@
 ---
 title: Configurazione in ASP.NET Core
 author: rick-anderson
-description: "È possibile usare l'API di configurazione per configurare un'app ASP.NET Core in diversi modi."
+description: È possibile usare l'API di configurazione per configurare un'app ASP.NET Core in diversi modi.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f272f9629ab1f9e7f7643cafd0d45f19340d5284
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-an-aspnet-core-app"></a>Configurare un'app ASP.NET Core
+# <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
@@ -48,7 +48,7 @@ L'app legge e visualizza le impostazioni di configurazione seguenti:
 
 [!code-json[](index/sample/ConfigJson/appsettings.json)]
 
-La configurazione è costituita da un elenco gerarchico di coppie nome-valore in cui i nodi sono separati dai due punti. Per recuperare un valore, accedere all'indicizzatore `Configuration` con la chiave dell'elemento corrispondente:
+La configurazione è costituita da un elenco gerarchico di coppie nome-valore in cui i nodi sono separati dai due punti (`:`). Per recuperare un valore, accedere all'indicizzatore `Configuration` con la chiave dell'elemento corrispondente:
 
 [!code-csharp[](index/sample/ConfigJson/Program.cs?range=21-22)]
 
@@ -105,15 +105,15 @@ Quando l'ambiente è impostato su `Staging`, il metodo `Configure` seguente legg
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-
-L'ambiente è in genere impostato su `Development`, `Staging` o `Production`. Per altre informazioni, vedere [Working with multiple environments](xref:fundamentals/environments) (Utilizzo con più ambienti).
+L'ambiente è in genere impostato su `Development`, `Staging` o `Production`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments).
 
 Considerazioni sulla configurazione:
 
-* `IOptionsSnapshot` può ricaricare i dati di configurazione in caso di modifiche. Per altre informazioni, vedere [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).
+* [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) può ricaricare i dati di configurazione in caso di modifiche.
 * Le chiavi di configurazione **non** rispettano la distinzione tra maiuscole e minuscole.
-* Non archiviare **mai** la password o altri dati sensibili nel codice del provider di configurazione o in file di configurazione di testo normale. Non usare i segreti di produzione in ambienti di sviluppo o di test. Specificare i segreti all'esterno del progetto in modo che non possano essere inavvertitamente inviati a un repository del codice sorgente. Altre informazioni sull'[uso di più ambienti](xref:fundamentals/environments) e sulla gestione dell'[archiviazione sicura dei segreti delle app durante lo sviluppo](xref:security/app-secrets).
-* Se non è possibile usare i due punti (`:`) nelle variabili di ambiente nel sistema, sostituire i due punti (`:`) con un doppio carattere di sottolineatura (`__`).
+* Non archiviare **mai** la password o altri dati sensibili nel codice del provider di configurazione o in file di configurazione di testo normale. Non usare i segreti di produzione in ambienti di sviluppo o di test. Specificare i segreti all'esterno del progetto in modo che non possano essere inavvertitamente inviati a un repository del codice sorgente. Altre informazioni su [come usare più ambienti](xref:fundamentals/environments) e sulla gestione dell'[archiviazione sicura dei segreti delle app durante lo sviluppo](xref:security/app-secrets).
+* Per i valori di configurazione gerarchici specificati nelle variabili di ambiente, i due punti (`:`) potrebbero non funzionare in tutte le piattaforme. Il doppio carattere di sottolineatura (`__`) è supportato da tutte le piattaforme.
+* Durante l'interazione con l'API di configurazione, i due punti (`:`) funzionano in tutte le piattaforme.
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>Provider in memoria e associazione a una classe POCO
 
@@ -234,8 +234,7 @@ Il [provider di configurazione CommandLine](/aspnet/core/api/microsoft.extension
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Impostazione e uso del provider di configurazione CommandLine
 
-# <a name="basic-configurationtabbasicconfiguration"></a>[Configurazione di base](#tab/basicconfiguration)
-
+#### <a name="basic-configurationtabbasicconfiguration"></a>[Configurazione di base](#tab/basicconfiguration/)
 Per attivare la configurazione della riga di comando, chiamare il metodo di estensione `AddCommandLine` su un'istanza di [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
@@ -264,8 +263,7 @@ Per eseguire l'override della configurazione fornita da altri provider di config
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Le tipiche app ASP.NET Core 2.x usano il metodo statico `CreateDefaultBuilder` per compilare l'host:
 
 [!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
@@ -282,14 +280,12 @@ Se tutte le condizioni precedenti sono vere, gli argomenti della riga di comando
 
 L'app ASP.NET Core 2.x può usare [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) anziché `CreateDefaultBuilder`. Quando si usa `WebHostBuilder`, impostare manualmente la configurazione con [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Per altre informazioni, vedere la scheda ASP.NET Core 1.x.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Creare un oggetto [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) e chiamare il metodo `AddCommandLine` per usare il provider di configurazione CommandLine. Chiamando il provider per ultimo, gli argomenti della riga di comando passati in fase di esecuzione possono eseguire l'override della configurazione impostata da altri provider di configurazione chiamati in precedenza. Applicare la configurazione a [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) con il metodo `UseConfiguration`:
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
----
-
+* * *
 ### <a name="arguments"></a>Argomenti
 
 Gli argomenti passati alla riga di comando devono essere conformi a uno dei due formati indicati nella tabella seguente:
@@ -413,9 +409,52 @@ Left: 1988
 
 Un file *web.config* è obbligatorio per l'hosting di app in IIS o IIS Express. Le impostazioni in *web.config* consentono al [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) di avviare l'app e configurare altre impostazioni e moduli di IIS. Se il file *web.config* file non è presente e il file di progetto include `<Project Sdk="Microsoft.NET.Sdk.Web">`, la pubblicazione del progetto crea un file *web.config* nell'output pubblicato (cartella *publish*). Per altre informazioni, vedere [Host ASP.NET Core on Windows with IIS](xref:host-and-deploy/iis/index#webconfig-file) (Host ASP.NET Core in Windows con IIS).
 
-## <a name="accessing-configuration-during-startup"></a>Accesso alla configurazione durante l'avvio
+## <a name="access-configuration-during-startup"></a>Accedere alla configurazione durante l'avvio
 
 Per accedere alla configurazione in `ConfigureServices` o `Configure` durante l'avvio, vedere gli esempi nell'argomento [Avvio dell'applicazione](xref:fundamentals/startup).
+
+## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Accedere alla configurazione in una pagina Razor Pages o in una visualizzazione MVC
+
+Per accedere alle impostazioni di configurazione in una pagina Razor Pages o in una visualizzazione MVC, aggiungere un [direttiva using](xref:mvc/views/razor#using) ([Informazioni di riferimento su C#: direttiva using](/dotnet/csharp/language-reference/keywords/using-directive)) per lo [spazio dei nomi Microsoft.Extensions.Configuration](/dotnet/api/microsoft.extensions.configuration) e inserire [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) nella pagina o nella visualizzazione.
+
+In una pagina Razor Pages:
+
+```cshtml
+@page
+@model IndexModel
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+    <h1>Access configuration in a Razor Pages page</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
+
+In una visualizzazione MVC:
+
+```cshtml
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index View</title>
+</head>
+<body>
+    <h1>Access configuration in an MVC view</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
@@ -429,7 +468,7 @@ Per accedere alla configurazione in `ConfigureServices` o `Configure` durante l'
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Opzioni](xref:fundamentals/configuration/options)
-* [Uso di più ambienti](xref:fundamentals/environments)
+* [Usare più ambienti](xref:fundamentals/environments)
 * [Archiviazione sicura di segreti dell'app durante lo sviluppo](xref:security/app-secrets)
 * [Hosting in ASP.NET Core](xref:fundamentals/hosting)
 * [Inserimento dipendenze](xref:fundamentals/dependency-injection)

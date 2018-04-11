@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
 Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un [servizio di piattaforma di cloud computing Microsoft](https://azure.microsoft.com/) per l'hosting di app Web, inclusa ASP.NET Core.
-
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>Risorse utili
 
@@ -57,6 +55,10 @@ Con ASP.NET Core 2.0 e versioni successive, tre pacchetti del [metapacchetto Mic
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) esegue [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) per aggiungere i provider di registrazione diagnostica del servizio app di Azure nel pacchetto `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) offre implementazioni di logger per il supporto dei registri di diagnostica del servizio app di Azure e delle funzionalità del flusso di registrazione.
 
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
+
+Il middleware di integrazione di IIS, che consente di configurare il middleware delle intestazioni inoltrate, e il modulo ASP.NET Core sono configurati per inoltrare lo schema (HTTP/HTTPS) e l'indirizzo IP remoto di origine della richiesta. Potrebbero essere necessari interventi di configurazione aggiuntivi per le app ospitate dietro ulteriori server proxy e servizi di bilanciamento del carico. Per altre informazioni, vedere [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
+
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
@@ -89,6 +91,62 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 
 Per altre informazioni, vedere [Provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers).
 
+## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Distribuire la versione di anteprima di ASP.NET Core in Servizio app di Azure
+
+Le app in anteprima di ASP.NET Core possono essere distribuite in Servizio app di Azure con gli approcci seguenti:
+
+* [Installare l'estensione del sito di anteprima](#site-x)
+* [Distribuire l'app autonoma](#self)
+* [Usare Docker con app Web per contenitori](#docker)
+
+In caso di problemi con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+
+<a name="site-x"></a>
+### <a name="install-the-preview-site-extention"></a>Installare l'estensione del sito di anteprima
+
+* Dal portale di Azure passare al pannello Servizi App.
+* Immettere "est" nella casella di ricerca.
+* Selezionare **Estensioni**.
+* Seleziona "Aggiungi".
+
+![Pannello dell'app Azure con i passaggi precedenti](index/_static/x1.png)
+
+* Selezionare **ASP.NET Core Runtime Extensions** (Estensioni runtime di ASP.NET Core).
+* Selezionare **OK** > **OK**.
+
+Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core 2.1. È possibile verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello Servizi app:
+
+* Immettere "con" nella casella di ricerca.
+* Selezionare **Console**.
+* Immettere `dotnet --info` nella console.
+
+![Pannello dell'app Azure con i passaggi precedenti](index/_static/cons.png)
+
+L'immagine precedente era aggiornata al momento della redazione di questo articolo. Potrebbe essere visualizzata una versione diversa.
+
+`dotnet --info` consente di visualizzare il percorso dell'estensione del sito in cui è stata installata l'anteprima. Mostra che l'app è in esecuzione dall'estensione del sito invece che dal percorso predefinito *ProgramFiles*. Se viene visualizzato *ProgramFiles*, riavviare il sito ed eseguire `dotnet --info`.
+
+#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Usare l'estensione del sito di anteprima con un modello ARM
+
+Se si usa un modello ARM per creare e distribuire le applicazioni, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Ad esempio:
+
+[!code-json[Main](index/sample/arm.json?highlight=2)]
+
+<a name="self"></a>
+### <a name="deploy-the-app-self-contained"></a>Distribuire l'app autonoma
+
+È possibile distribuire un'[app autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che include il runtime di anteprima quando viene distribuita. Per la distribuzione di un'app autonoma:
+
+* Non è necessario preparare il sito.
+* È necessario pubblicare l'applicazione in modo diverso rispetto a quanto richiesto per la distribuzione di un'app quando l'SDK è installato nel server.
+
+Le app autonome sono un'opzione per tutte le applicazioni .NET Core.
+
+<a name="docker"></a>
+### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
+
+L'[hub di Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima 2.1. È possibile usarle come immagine di base e distribuirle in app Web per contenitori come di consueto.
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Panoramica di App Web (video di 5 minuti)](/azure/app-service/app-service-web-overview)
@@ -101,5 +159,5 @@ Il servizio app di Azure in Windows Server usa [Internet Information Services (I
 * [Host ASP.NET Core in Windows con IIS](xref:host-and-deploy/iis/index)
 * [Introduzione al modulo di ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Utilizzo dei moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Libreria di Microsoft TechNet: Windows Server](/windows-server/windows-server-versions)

@@ -1,7 +1,7 @@
 ---
 title: Introduzione a Razor Pages in ASP.NET Core
 author: Rick-Anderson
-description: "Informazioni su come Razor Pages in ASP.NET Core semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine rispetto a MVC."
+description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine rispetto a MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -25,16 +25,9 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-<a name="prerequisites"></a>
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="aspnet-core-20-prerequisites"></a>Prerequisiti di ASP.NET Core 2.0
-
-Installare [.NET Core](https://www.microsoft.com/net/core) 2.0.0 o versione successiva.
-
-Se si usa Visual Studio, installare [Visual Studio](https://www.visualstudio.com/vs/) 2017 versione 15.3 o versione successiva con i carichi di lavoro seguenti:
-
-* **Sviluppo ASP.NET e Web**
-* **Sviluppo multipiattaforma .NET Core**
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 <a name="rpvs17"></a>
 
@@ -44,7 +37,7 @@ Se si usa Visual Studio, installare [Visual Studio](https://www.visualstudio.com
 
 Per istruzioni dettagliate su come creare un progetto Razor Pages con Visual Studio, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Eseguire `dotnet new razor` dalla riga di comando.
 
@@ -54,7 +47,7 @@ Aprire il file *CSPROJ* generato da Visual Studio per Mac.
 
 Eseguire `dotnet new razor` dalla riga di comando.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
 
 Eseguire `dotnet new razor` dalla riga di comando.
 
@@ -175,7 +168,11 @@ Il file *Pages/Edit.cshtml*:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-La prima riga contiene la direttiva `@page "{id:int}"`. Il vincolo di routing `"{id:int}"` indica alla pagina di accettare le richieste inviate alla pagina che contengono i dati della route `int`. Se una richiesta inviata alla pagina non contiene dati della route che possono essere convertiti in un oggetto `int`, il runtime restituisce un errore HTTP 404 (non trovato).
+La prima riga contiene la direttiva `@page "{id:int}"`. Il vincolo di routing `"{id:int}"` indica alla pagina di accettare le richieste inviate alla pagina che contengono i dati della route `int`. Se una richiesta inviata alla pagina non contiene dati della route che possono essere convertiti in un oggetto `int`, il runtime restituisce un errore HTTP 404 (non trovato). Per rendere l'ID facoltativo, aggiungere `?` al vincolo di route:
+
+ ```cshtml
+@page "{id:int?}"
+```
 
 Il file *Pages/Edit.cshtml.cs*:
 
@@ -317,7 +314,7 @@ La generazione di URL per le pagine supporta i nomi relativi. La tabella seguent
 | RedirectToPage("../Index") | *Pages/Index* |
 | RedirectToPage("Index")  | *Pages/Customers/Index* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, e `RedirectToPage("../Index")` sono *nomi relativi*. Il parametro `RedirectToPage` è *combinato* con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, e `RedirectToPage("../Index")` sono <em>nomi relativi</em>. Il parametro `RedirectToPage` è <em>combinato</em> con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
 
 Il collegamento dei nomi relativi è utile quando si compilano siti con una struttura complessa. Se si usano i nomi relativi per il collegamento tra le pagine in una cartella, è possibile rinominare tale cartella. Tutti i collegamenti continuano a funzionare perché non includono il nome della cartella.
 
@@ -423,4 +420,4 @@ services.AddMvc()
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Convenzioni di autorizzazione di Razor Pages](xref:security/authorization/razor-pages-authorization)
 * [Route personalizzata di Razor Pages e provider di modelli di pagina](xref:mvc/razor-pages/razor-pages-convention-features)
-* [Unità di Razor Pages e test di integrazione](xref:testing/razor-pages-testing)
+* [Unit test e test di integrazione per Razor Pages](xref:testing/razor-pages-testing)

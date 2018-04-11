@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -85,6 +85,10 @@ services.Configure<IISOptions>(options =>
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
 | `ForwardClientCertificate`     | `true`  | Se è `true` ed è presente l’intestazione della richiesta `MS-ASPNETCORE-CLIENTCERT`, `HttpContext.Connection.ClientCertificate` viene popolato. |
 
+### <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
+
+Il middleware di integrazione di IIS, che consente di configurare il middleware delle intestazioni inoltrate, e il modulo ASP.NET Core sono configurati per inoltrare lo schema (HTTP/HTTPS) e l'indirizzo IP remoto di origine della richiesta. Potrebbero essere necessari interventi di configurazione aggiuntivi per le app ospitate dietro ulteriori server proxy e servizi di bilanciamento del carico. Per altre informazioni, vedere [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
+
 ### <a name="webconfig-file"></a>File web.config
 
 Il file *web.config* configura il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). La creazione, la trasformazione e la pubblicazione di *web.config* vengono gestite da .NET Core Web SDK (`Microsoft.NET.Sdk.Web`), impostato all'inizio del file di progetto:
@@ -97,7 +101,7 @@ Se nel progetto non è presente un file *web.config*, il file viene creato con i
 
 Se nel progetto è presente un file *web.config*, il file viene trasformato con il valore di *processPath* e gli *argomenti* corretti per la configurazione del modulo ASP.NET Core, quindi viene spostato nell'output pubblicato. La trasformazione non modifica le impostazioni di configurazione di IIS incluse nel file.
 
-Il file *web.config* può fornire ulteriori impostazioni di configurazione di IIS che controllano i moduli IIS attivi. Per informazioni sui moduli IIS in grado di elaborare le richieste con le app di ASP.NET Core, vedere l'argomento [Uso dei moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules).
+Il file *web.config* può fornire ulteriori impostazioni di configurazione di IIS che controllano i moduli IIS attivi. Per informazioni sui moduli IIS in grado di elaborare le richieste con le app di ASP.NET Core, vedere l'argomento [Moduli IIS](xref:host-and-deploy/iis/modules).
 
 Per impedire che Web SDK trasformi il file *web.config*, usare la proprietà **\<IsTransformWebConfigDisabled >** nel file di progetto:
 
@@ -167,7 +171,11 @@ Abilitare **Console di gestione IIS** e **Servizi Web**.
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Installare l'aggregazione di Hosting di.NET Core Windows Server
 
-1. Installare l'[aggregazione di Hosting di.NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting) nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se nel sistema non è presente una connessione a Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare l'aggregazione di Hosting di .NET Core Windows Server.
+1. Installare l'*aggregazione di Hosting di.NET Core Windows Server* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se nel sistema non è presente una connessione a Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare l'aggregazione di Hosting di .NET Core Windows Server.
+
+   1. Passare alla [pagina di tutti i download per .NET](https://www.microsoft.com/net/download/all).
+   1. Selezionare il runtime di .NET Core non di anteprima più recente nell'elenco (**.NET Core** > **Runtime** > **.NET Core Runtime x.y.z**). A meno che non si preveda di utilizzare software in anteprima, evitare i runtime con la parola "preview" nel testo del collegamento.
+   1. Nella pagina di download del runtime di .NET Core in **Windows**, selezionare il collegamento **Server Hosting Installer** per scaricare il *bundle per l'hosting di Windows Server in .NET Core*.
 
    **Importante**: Se l'aggregazione di hosting viene installata prima di IIS, è necessario riparare l'installazione dell'aggregazione. Eseguire di nuovo il programma di Installazione dell'aggregazione di hosting dopo l'Installazione di IIS.
    
@@ -278,7 +286,7 @@ Se il gruppo di chiavi viene archiviato in memoria quando l'app viene riavviata:
 
 * Tutti i token di autenticazione basati su cookie vengono invalidati. 
 * Gli utenti devono ripetere l'accesso alla richiesta successiva. 
-* Tutti i dati protetti con il gruppo di chiavi non possono più essere decrittografati. Possono essere inclusi i [token CSRF](xref:security/anti-request-forgery#how-does-aspnet-core-mvc-address-csrf) e i [cookie TempData di ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
+* Tutti i dati protetti con il gruppo di chiavi non possono più essere decrittografati. Possono essere inclusi i [token CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) e i [cookie TempData di ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
 
 Per configurare la protezione dati in IIS in modo da rendere permanente il gruppo di chiavi, usare **uno** degli approcci seguenti:
 
@@ -288,7 +296,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
   Per le installazioni IIS autonome non web farm è possibile usare lo [script PowerShell Data Protection Provision-AutoGenKeys.ps1 (Provisioning di protezione dati-AutoGenKeys.ps1)](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) per ogni pool di app usato con un'app ASP.NET Core. Questo script crea una chiave del Registro di sistema nel registro HKLM accessibile solo all'account del processo di lavoro del pool di applicazioni dell'app. Le chiavi vengono crittografate a riposo tramite DPAPI con una chiave a livello del computer.
 
-  In scenari di web farm un'app può essere configurata in modo da usare un percorso UNC in cui archiviare il proprio gruppo di chiavi di protezione dati. Per impostazione predefinita, le chiavi di protezione dati non vengono crittografate. Assicurarsi che le autorizzazioni file per la condivisione di rete siano limitate all'account di Windows in cui viene eseguita l'app. È possibile usare un certificato X509 per la protezione delle chiavi inattive. Considerare l'implementazione di un meccanismo per consentire agli utenti di caricare i certificati: inserire i certificati nell'archivio certificati attendibili dell'utente e assicurarsi che siano disponibili in tutti i computer in cui viene eseguita l'app dell'utente. Vedere [Configurazione della protezione dati](xref:security/data-protection/configuration/overview) per altri dettagli.
+  In scenari di web farm un'app può essere configurata in modo da usare un percorso UNC in cui archiviare il proprio gruppo di chiavi di protezione dati. Per impostazione predefinita, le chiavi di protezione dati non vengono crittografate. Assicurarsi che le autorizzazioni file per la condivisione di rete siano limitate all'account di Windows in cui viene eseguita l'app. È possibile usare un certificato X509 per la protezione delle chiavi inattive. Considerare l'implementazione di un meccanismo per consentire agli utenti di caricare i certificati: inserire i certificati nell'archivio certificati attendibili dell'utente e assicurarsi che siano disponibili in tutti i computer in cui viene eseguita l'app dell'utente. Vedere [Configurare la protezione dati di ASP.NET Core](xref:security/data-protection/configuration/overview) per altri dettagli.
 
 * **Configurare il pool di applicazioni IIS per caricare il profilo utente**
 
@@ -348,7 +356,7 @@ Per altre informazioni sulla configurazione del modulo di ASP.NET Core, vedere l
 
 La configurazione di IIS è influenzata dalla sezione **\<system.webServer>** di *web.config* per le funzionalità IIS valide per una configurazione proxy inverso. Se IIS è configurato a livello di server per l'uso della compressione dinamica, l'elemento **\<urlCompression>** nel file *web.config* dell'app può disabilitare questa impostazione.
 
-Per altre informazioni, vedere la [guida di riferimento per la configurazione di \<system.webServer>](/iis/configuration/system.webServer/), la [guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e [Uso dei moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules). Per impostare variabili di ambiente per singole app in esecuzione in pool di applicazioni isolate (supportati per IIS 10.0 o versioni successive), vedere la sezione *Comando AppCmd.exe* dell'argomento [Variabili di ambiente \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) nella documentazione di riferimento di IIS.
+Per altre informazioni, vedere la [guida di riferimento per la configurazione di \<system.webServer>](/iis/configuration/system.webServer/), la [guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e [Moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules). Per impostare variabili di ambiente per singole app in esecuzione in pool di applicazioni isolate (supportati per IIS 10.0 o versioni successive), vedere la sezione *Comando AppCmd.exe* dell'argomento [Variabili di ambiente \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) nella documentazione di riferimento di IIS.
 
 ## <a name="configuration-sections-of-webconfig"></a>Sezioni di configurazione di web.config
 
@@ -407,7 +415,7 @@ Per altre informazioni, vedere l'argomento [icacls](/windows-server/administrati
 * [Errori comuni di Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Introduzione al modulo di ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Utilizzo dei moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Moduli IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Introduzione a ASP.NET Core](../index.md)
 * [Il sito IIS ufficiale di Microsoft](https://www.iis.net/)
 * [Libreria di Microsoft TechNet: Windows Server](/windows-server/windows-server-versions)
