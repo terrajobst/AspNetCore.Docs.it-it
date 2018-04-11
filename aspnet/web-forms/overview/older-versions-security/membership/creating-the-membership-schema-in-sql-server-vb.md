@@ -16,7 +16,7 @@ ms.openlocfilehash: 44458e8022f1f0d52cf136ad7fbaa5dd1f546632
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Creazione dello Schema di appartenenza in SQL Server (VB)
 ====================
@@ -229,7 +229,7 @@ Le colonne responsabile per la memorizzazione della password sono `Password`, `P
 
 Tabella 1 illustra queste tre colonne aspetto per le varie tecniche di archiviazione quando si archiviano le password MySecret! .
 
-| **Archiviazione tecnica&lt;\_o3a\_p /&gt;** | **Password&lt;\_o3a\_p /&gt;** | **Elemento PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
+| **Archiviazione tecnica&lt;\_o3a\_p /&gt;** | **Password&lt;\_o3a\_p /&gt;** | **PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
 | --- | --- | --- | --- |
 | Cancella | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
 | L'hashing | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
