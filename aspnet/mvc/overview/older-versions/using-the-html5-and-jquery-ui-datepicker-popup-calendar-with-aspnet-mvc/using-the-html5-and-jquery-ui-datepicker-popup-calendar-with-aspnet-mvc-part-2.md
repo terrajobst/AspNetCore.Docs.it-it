@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 title: Utilizzo di HTML5 e jQuery UI Datepicker Popup Calendar with ASP.NET MVC - parte 2 | Documenti Microsoft
 author: Rick-Anderson
-description: "In questa esercitazione verrà fornite le nozioni di base lavorare con modelli di editor, modelli di visualizzazione e il calendario di jQuery UI datepicker popup in una macchina virtuale di ASP.NET..."
+description: In questa esercitazione verrà fornite le nozioni di base lavorare con modelli di editor, modelli di visualizzazione e il calendario di jQuery UI datepicker popup in una macchina virtuale di ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/29/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 69fbaa7761c97895ffee770f6feb9ce6b745d186
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84112316a9ace732cb7d75d7cbaeb071c72de822
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>Utilizzo di HTML5 e jQuery UI Datepicker Popup Calendar with ASP.NET MVC - parte 2
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > In questa esercitazione verrà fornite le nozioni di base lavorare con modelli di editor, modelli di visualizzazione e il calendario di jQuery UI datepicker popup in un'applicazione Web ASP.NET MVC.
 
@@ -77,7 +77,7 @@ Selezionare il **Crea come visualizzazione parziale** casella di controllo. Assi
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image2.png)
 
-Fare clic su **Aggiungi**. Oggetto *DateTime.cshtml* modello viene creato nel *Views\Shared\DisplayTemplates.*.
+Fare clic su **Aggiungi**. Oggetto *DateTime.cshtml* modello viene creato nel *Views\Shared\DisplayTemplates*.
 
 La figura seguente mostra il *viste* cartella **Esplora** dopo il `DateTime` editor e visualizzare i modelli vengono creati.
 
@@ -133,7 +133,7 @@ Si noti che il `ReleaseDate` proprietà Visualizza ora la data e ora in caratter
 
 Restituito per il `UIHint` attributo il *Movie.cs* file e impostarlo come commento il *LoudDateTime.cshtml* modello non può essere utilizzato. Eseguire di nuovo l'applicazione. La data di rilascio non viene visualizzata grandi e verde. Verifica che il *Views\Shared\DisplayTemplates\DateTime.cshtml* modello viene utilizzato nelle visualizzazioni dei dettagli e di indice.
 
-Come accennato in precedenza, è inoltre possibile applicare un modello in una vista, che consente di applicare il modello a una singola istanza di alcuni dati. Aprire il *Views\Movies\Details.cshtml* visualizzazione. Aggiungere `"LoudDateTime"` come secondo parametro del [HTML. DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) chiamata per il `ReleaseDate` campo. Il codice completo è simile al seguente:
+Come accennato in precedenza, è inoltre possibile applicare un modello in una vista, che consente di applicare il modello a una singola istanza di alcuni dati. Aprire il *Views\Movies\Details.cshtml* visualizzazione. Aggiungere `"LoudDateTime"` come secondo parametro del [HTML. DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) chiamata per il `ReleaseDate` campo. Ecco il codice completo:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample9.cshtml)]
 
@@ -147,6 +147,6 @@ Verificare che la pagina di indice film stia utilizzando il *Views\Shared\Displa
 
 Nella sezione successiva, si creerà un modello per un tipo complesso.
 
->[!div class="step-by-step"]
-[Precedente](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-[Successivo](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+> [!div class="step-by-step"]
+> [Precedente](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
+> [Successivo](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)

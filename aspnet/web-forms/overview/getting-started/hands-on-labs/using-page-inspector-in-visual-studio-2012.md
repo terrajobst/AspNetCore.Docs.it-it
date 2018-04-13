@@ -16,7 +16,7 @@ ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Con Page Inspector in Visual Studio 2012
 ====================
@@ -121,7 +121,7 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
 
     Si noterà che tutti i file di origine che si siano scrivendo la pagina di indice. Questa funzionalità consente di identificare tutti gli elementi a colpo d'occhio, soprattutto quando si lavora con le visualizzazioni parziali e i modelli. Si noti che è anche possibile aprire ogni file se si fa clic sui collegamenti.
 
-    ![The-Files-tab](using-page-inspector-in-visual-studio-2012/_static/image3.png)
+    ![Scheda file](using-page-inspector-in-visual-studio-2012/_static/image3.png)
 
     *Scheda file*
 5. Fare clic su di **modalità controllo Attiva/disattiva** pulsante, si trova a sinistra delle schede.
