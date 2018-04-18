@@ -24,5 +24,5 @@ ms.lasthandoff: 11/10/2017
 
 
 - [Creazione di NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)](creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)
-- [Successivo Visualizza Controller Framework superiore del modello del America](americas-next-top-model-view-controller-framework.md)
+- [Framework Model View Controller per America's Next Top Model](americas-next-top-model-view-controller-framework.md)
 - [Esperto di incendio nero trasportatore suggerimenti](ninja-on-fire-black-belt-tips.md)

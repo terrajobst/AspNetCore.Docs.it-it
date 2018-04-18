@@ -11,7 +11,7 @@ ms.topic: article
 uid: mvc/views/overview
 ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
 ---
@@ -64,7 +64,7 @@ Le visualizzazioni vengono in genere restituite da azioni come [ViewResult](/asp
 
 Quando viene restituita questa azione, il rendering della visualizzazione *About.cshtml* nell'ultima sezione corrisponderà alla pagina Web seguente:
 
-![Rendering della pagina About nel browser Edge](overview/_static/about-page.png)
+![Rendering della pagina About nel browser Microsoft Edge](overview/_static/about-page.png)
 
 Il metodo helper `View` ha diversi overload. È possibile specificare:
 

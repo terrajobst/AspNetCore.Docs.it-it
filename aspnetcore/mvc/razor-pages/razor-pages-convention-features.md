@@ -1,7 +1,7 @@
 ---
-title: "Funzionalità di convenzione di route e app per Razor Pages in ASP.NET Core"
+title: Funzionalità di convenzione di route e app per Razor Pages in ASP.NET Core
 author: guardrex
-description: "Informazioni su come le funzionalità di convenzione di route e del provider di modello di app consentono di controllare routing, rilevamento ed elaborazione delle pagine."
+description: Informazioni su come le funzionalità di convenzione di route e del provider di modello di app consentono di controllare routing, rilevamento ed elaborazione delle pagine.
 manager: wpickett
 ms.author: riande
 ms.date: 10/23/2017
@@ -127,7 +127,7 @@ Si noti che l'URL generato per il collegamento **Contatto** nella pagina sottopo
 
 Visitare la pagina di contatto nella route normale, `/Contact`, o nella route personalizzata `/TheContactPage`. Se si specifica un segmento di route `text` aggiuntivo, la pagina visualizza il segmento codificato in formato HTML specificato dall'utente:
 
-![Esempio di browser Edge in cui viene specificato un segmento di route facoltativo 'text' corrispondente a 'TextValue' nell'URL. La pagina sottoposta a rendering visualizza il valore del segmento 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![Esempio di browser Microsoft Edge in cui viene specificato un segmento di route facoltativo 'text' corrispondente a 'TextValue' nell'URL. La pagina sottoposta a rendering visualizza il valore del segmento 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Convenzioni per le azioni del modello di pagina
 
