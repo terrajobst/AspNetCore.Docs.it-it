@@ -18,11 +18,11 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
 ---
-<a name="talks"></a><span data-ttu-id="701e8-103">Discussioni</span><span class="sxs-lookup"><span data-stu-id="701e8-103">Talks</span></span>
+<a name="talks"></a><span data-ttu-id="5744e-103">Discussioni</span><span class="sxs-lookup"><span data-stu-id="5744e-103">Talks</span></span>
 ====================
-> <span data-ttu-id="701e8-104">ASP.NET MVC 1 discussioni</span><span class="sxs-lookup"><span data-stu-id="701e8-104">ASP.NET MVC 1 Talks</span></span>
+> <span data-ttu-id="5744e-104">ASP.NET MVC 1 discussioni</span><span class="sxs-lookup"><span data-stu-id="5744e-104">ASP.NET MVC 1 Talks</span></span>
 
 
-- [<span data-ttu-id="701e8-105">Creazione di NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="701e8-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>](creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)
-- [<span data-ttu-id="701e8-106">Successivo Visualizza Controller Framework superiore del modello del America</span><span class="sxs-lookup"><span data-stu-id="701e8-106">America's Next Top Model View Controller Framework</span></span>](americas-next-top-model-view-controller-framework.md)
-- [<span data-ttu-id="701e8-107">Esperto di incendio nero trasportatore suggerimenti</span><span class="sxs-lookup"><span data-stu-id="701e8-107">Ninja on Fire Black Belt Tips</span></span>](ninja-on-fire-black-belt-tips.md)
+- [<span data-ttu-id="5744e-105">Creazione di NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="5744e-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>](creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)
+- [<span data-ttu-id="5744e-106">Framework Model View Controller per America's Next Top Model</span><span class="sxs-lookup"><span data-stu-id="5744e-106">America's Next Top Model View Controller Framework</span></span>](americas-next-top-model-view-controller-framework.md)
+- [<span data-ttu-id="5744e-107">Esperto di incendio nero trasportatore suggerimenti</span><span class="sxs-lookup"><span data-stu-id="5744e-107">Ninja on Fire Black Belt Tips</span></span>](ninja-on-fire-black-belt-tips.md)
