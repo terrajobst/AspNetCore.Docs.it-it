@@ -1,48 +1,56 @@
 ---
 title: Struttura di directory ASP.NET Core
 author: guardrex
-description: Vedere la struttura di directory delle applicazioni ASP.NET di base pubblicate.
+description: Informazioni sulla struttura di directory dell'App ASP.NET Core pubblicate.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/15/2017
+ms.date: 04/09/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 2a6ee4fefcc6d23b1c893a40b7b1be9edfcf9732
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ac9b777bcc7f4a8634161fc1347a4d0fdc3b4784
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="aspnet-core-directory-structure"></a>Struttura di directory ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Nella directory dell'applicazione ASP.NET Core *pubblicare*, è costituito da file dell'applicazione, i file di configurazione, asset statico, pacchetti e il runtime (per applicazioni indipendenti).
+In ASP.NET Core, la directory dell'applicazione pubblicata *pubblicare*, è costituito da file dell'applicazione, file di configurazione, asset statico, pacchetti e la fase di esecuzione (per [distribuzioni indipendente](/dotnet/core/deploying/#self-contained-deployments-scd)).
 
 
-|            Tipo di App            |                                                                                                                                                                                                                                                     Struttura di directory                                                                                                                                                                                                                                                      |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Distribuzione dipendenti dal framework | <ul><li>Pubblicazione\*<ul><li>registri\* (se incluso in publishOptions)</li><li>Refs\*</li><li>Runtime\*</li><li>Viste\* (se incluso in publishOptions)</li><li>wwwroot\* (se incluso in publishOptions)</li><li>.dll (file)</li><li>myapp.deps.json</li><li>myapp.dll</li><li>myapp.pdb</li><li>MyApp. PrecompiledViews.dll (se precompilazione visualizzazioni Razor)</li><li>MyApp. PrecompiledViews.pdb (se precompilazione visualizzazioni Razor)</li><li>myapp.runtimeconfig.json</li><li>Web. config (se incluso in publishOptions)</li></ul></li></ul> |
-|   Distribuzione autonoma    |          <ul><li>Pubblicazione\*<ul><li>registri\* (se incluso in publishOptions)</li><li>Refs\*</li><li>Viste\* (se incluso in publishOptions)</li><li>wwwroot\* (se incluso in publishOptions)</li><li>.dll (file)</li><li>myapp.deps.json</li><li>myapp.exe</li><li>myapp.pdb</li><li>MyApp. PrecompiledViews.dll (se precompilazione visualizzazioni Razor)</li><li>MyApp. PrecompiledViews.pdb (se precompilazione visualizzazioni Razor)</li><li>myapp.runtimeconfig.json</li><li>Web. config (se incluso in publishOptions)</li></ul></li></ul>           |
+| Tipo di App | Struttura di directory |
+| -------- | ------------------- |
+| [Distribuzione dipendenti dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Pubblicazione&dagger;<ul><li>registri&dagger; (facoltativo, a meno che deve ricevere i log di stdout)</li><li>Viste&dagger; (app MVC; se non sono precompilate viste)</li><li>Pagine&dagger; (MVC o pagine Razor App; se le pagine non vengono precompilate)</li><li>Wwwroot&dagger;</li><li>*\.file DLL</li><li>\<nome assembly >. deps.json</li><li>\<nome assembly >. dll</li><li>\<assembly-name > con estensione pdb</li><li>\<nome assembly >. PrecompiledViews.dll</li><li>\<nome assembly >. PrecompiledViews.pdb</li><li>\<nome assembly >. runtimeconfig.json</li><li>Web. config (distribuzioni IIS)</li></ul></li></ul> |
+| [Distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Pubblicazione&dagger;<ul><li>registri&dagger; (facoltativo, a meno che deve ricevere i log di stdout)</li><li>Refs&dagger;</li><li>Viste&dagger; (app MVC; se non sono precompilate viste)</li><li>Pagine&dagger; (MVC o pagine Razor App; se le pagine non vengono precompilate)</li><li>Wwwroot&dagger;</li><li>\*file DLL</li><li>\<nome assembly >. deps.json</li><li>\<nome assembly > .exe</li><li>\<assembly-name > con estensione pdb</li><li>\<nome assembly >. PrecompiledViews.dll</li><li>\<nome assembly >. PrecompiledViews.pdb</li><li>\<nome assembly >. runtimeconfig.json</li><li>Web. config (distribuzioni IIS)</li></ul></li></ul> |
 
-\* Indica una directory
+&dagger;Indica una directory
 
-Il contenuto del *pubblicare* directory rappresenta il *percorso radice del contenuto*, denominati anche il *percorso base dell'applicazione*, della distribuzione. Verrà assegnato qualsiasi nome di *pubblicare* directory nella distribuzione, il percorso viene utilizzato come percorso fisico del server l'applicazione ospitata. Il *wwwroot* directory, se presente, contiene solo gli asset statici. Il *registri* directory può essere inclusi nella distribuzione creazione del progetto e aggiungendo il `<Target>` elemento mostrata di seguito per il *csproj* file oppure creando fisicamente la directory sul Server.
+Il *pubblicare* directory rappresenta il *percorso radice del contenuto*, definita anche la *percorso base dell'applicazione*, della distribuzione. Qualsiasi nome viene fornito per il *pubblicare* directory dell'applicazione distribuita nel server, il relativo percorso viene utilizzato come percorso fisico del server per l'applicazione ospitata.
 
-```xml
-<Target Name="CreateLogsFolder" AfterTargets="Publish">
-  <MakeDir Directories="$(PublishDir)Logs" 
-           Condition="!Exists('$(PublishDir)Logs')" />
-  <WriteLinesToFile File="$(PublishDir)Logs\.log" 
-                    Lines="Generated file" 
-                    Overwrite="True" 
-                    Condition="!Exists('$(PublishDir)Logs\.log')" />
-</Target>
-```
+Il *wwwroot* directory, se presente, contiene solo gli asset statici.
 
-Il `<MakeDir>` elemento crea un oggetto vuoto *registri* cartella nell'output pubblicato. L'elemento Usa il `PublishDir` proprietà per determinare il percorso di destinazione per la creazione della cartella. Diversi metodi di distribuzione, ad esempio di distribuzione Web, ignorano le cartelle vuote durante la distribuzione. Il `<WriteLinesToFile>` elemento genera un file nel *registri* cartella, che garantisce la distribuzione della cartella in cui il server. Si noti che la creazione di cartelle può avere comunque esito negativo se il processo di lavoro non dispone dell'accesso in scrittura alla cartella di destinazione.
+Stdout *registri* directory è possibile creare la distribuzione utilizzando uno dei due approcci seguenti:
 
-La directory di distribuzione è necessarie autorizzazioni di lettura/esecuzione, mentre il *registri* directory richiede autorizzazioni di lettura/scrittura. Directory aggiuntive in cui verranno scritto asset richiedono autorizzazioni di lettura/scrittura.
+* Aggiungere il seguente `<Target>` elemento al file di progetto:
+
+   ```xml
+   <Target Name="CreateLogsFolder" AfterTargets="Publish">
+     <MakeDir Directories="$(PublishDir)Logs" 
+              Condition="!Exists('$(PublishDir)Logs')" />
+     <WriteLinesToFile File="$(PublishDir)Logs\.log" 
+                       Lines="Generated file" 
+                       Overwrite="True" 
+                       Condition="!Exists('$(PublishDir)Logs\.log')" />
+   </Target>
+   ```
+
+   Il `<MakeDir>` elemento crea un oggetto vuoto *registri* cartella nell'output pubblicato. L'elemento Usa il `PublishDir` proprietà per determinare il percorso di destinazione per la creazione della cartella. Diversi metodi di distribuzione, ad esempio di distribuzione Web, ignorano le cartelle vuote durante la distribuzione. Il `<WriteLinesToFile>` elemento genera un file nel *registri* cartella, che garantisce la distribuzione della cartella in cui il server. Si noti che la creazione di cartelle può avere comunque esito negativo se il processo di lavoro non dispone dell'accesso in scrittura alla cartella di destinazione.
+
+* Creare fisicamente il *registri* directory nel server nella distribuzione.
+
+La directory di distribuzione richiede le autorizzazioni di lettura/esecuzione. Il *registri* directory è necessarie autorizzazioni di lettura/scrittura. Directory aggiuntive in cui vengono scritti i file richiedono autorizzazioni di lettura/scrittura.

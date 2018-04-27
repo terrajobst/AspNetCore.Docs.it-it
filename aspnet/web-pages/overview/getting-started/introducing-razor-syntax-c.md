@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 48f49f40a6fc0c6a0c664873879f9f61080132ea
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introduzione alla programmazione Web ASP.NET utilizzando la sintassi Razor (c#)
 ====================
@@ -58,7 +58,7 @@ Il `@` carattere venga espressioni inline, blocchi di singola istruzione e blocc
 
 Si tratta di queste istruzioni aspetto analogo al seguente quando la pagina viene eseguita in un browser:
 
-![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
+![Razor Img1](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -95,7 +95,7 @@ All'interno di un blocco di codice, ogni istruzione di codice completo deve term
 
 Il risultato visualizzato in un browser:
 
-![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor Img3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Racchiudere i valori letterali stringa tra virgolette doppie
@@ -114,7 +114,7 @@ Per incorporare le virgolette doppie, usare un valore letterale di stringa verba
 
 Di seguito è riportato il risultato dell'utilizzo di questi esempi in una pagina:
 
-![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Razor Img4](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
 > Si noti che il `@` carattere viene utilizzato per contrassegnare i valori letterali di stringa verbatim in c# e per contrassegnare il codice in pagine ASP.NET.
@@ -142,7 +142,7 @@ Spesso si utilizzerà il `Request` dell'oggetto, che fornisce informazioni quali
 
 Il risultato visualizzato in un browser:
 
-![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
+![Razor Img5](introducing-razor-syntax-c/_static/image5.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. È possibile scrivere codice che prende decisioni
 
@@ -154,7 +154,7 @@ L'istruzione `if(IsPost)` è un modo abbreviato di scrittura `if(IsPost == true)
 
 Il risultato visualizzato in un browser (dopo aver fatto clic **Invia**):
 
-![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
+![Razor Img6](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
@@ -187,7 +187,7 @@ In questa procedura viene illustrato come creare una pagina che illustra le tecn
     - Il `<form>` tag include un `method="post"` attributo. Specifica che quando l'utente fa clic **Aggiungi**, la pagina verrà inviata al server utilizzando il metodo HTTP POST. Quando viene inviata la pagina, il `if(IsPost)` test restituisce true e condizionale viene eseguito, Visualizza il risultato dell'aggiunta di numeri di codice.
 3. Salvare la pagina ed eseguirlo in un browser. (Assicurarsi che la pagina è selezionata nel **file** dell'area di lavoro prima di eseguirlo.) Immettere due numeri interi, quindi scegliere il **Aggiungi** pulsante. 
 
-    ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
+    ![Razor Img7](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>Concetti relativi alla programmazione di base
 
@@ -209,7 +209,7 @@ La sintassi Razor è basata su una tecnologia Microsoft chiamato ASP.NET, che a 
 
 La sintassi Razor consente tutte le potenzialità di ASP.NET, ma utilizzando una sintassi semplificata che è più facile apprendere se principianti e che consente di aumentare la produttività se si è esperti. Anche se questa sintassi è semplice da usare, la relazione della famiglia con ASP.NET e .NET Framework significa che quando i siti Web sono più sofisticati, la potenza dei framework più grande disponibile.
 
-![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
+![Razor Img8](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
@@ -343,35 +343,84 @@ Per convertire i valori in numeri interi, si chiama il `AsInt` metodo. Se la con
 
 Nella tabella seguente sono elencati alcuni metodi di conversione e di test comuni per le variabili.
 
-
-|   <strong>Metodo</strong>    |                                                                              <strong>Descrizione</strong>                                                                              |                         <strong>Esempio</strong>                         |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                      Converte una stringa che rappresenta un numero intero (ad esempio "593") in un intero.                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
-|     `AsBool(), IsBool()`     |                                                    Converte una stringa come &quot;true&quot; o &quot;false&quot; in un tipo Boolean.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
-|    `AsFloat(), IsFloat()`    |                                    Converte una stringa che contiene un valore decimale come &quot;1.3&quot; o &quot;7.439&quot; un numero a virgola mobile.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
-|  `AsDecimal(), IsDecimal()`  | Converte una stringa che contiene un valore decimale come &quot;1.3&quot; o &quot;7.439&quot; in un numero decimale. (In ASP.NET, un numero decimale è più preciso rispetto a un numero a virgola mobile). |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
-| `AsDateTime(), IsDateTime()` |                                                Converte una stringa che rappresenta un valore di data e ora per ASP.NET `DateTime` tipo.                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
-|         `ToString()`         |                                                                       Converte qualsiasi altro tipo di dati in una stringa.                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+0x%2 riga:::::: colonna 0x%2 <strong>(metodo)</strong> ::: colonna-end:::::: colonna::: <strong>descrizione</strong> ::: colonna-end:::::: colonna::: <strong>esempio</strong> ::: colonna-end:::::: fine riga:::
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `AsInt(), IsInt()` ::: colonna-end:::::: colonna::: converte una stringa che rappresenta un numero intero (ad esempio, "593") in un intero.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `AsBool(), IsBool()` ::: colonna-end:::::: colonna::: converte una stringa, ad esempio &quot;true&quot; o &quot;false&quot; a un tipo Boolean.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `AsFloat(), IsFloat()` ::: colonna-end::: 0x%2 colonna::: converte una stringa che contiene un valore decimale, ad esempio &quot;1.3&quot; o &quot;7.439&quot; un numero a virgola mobile.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `AsDecimal(), IsDecimal()` ::: colonna-end::: 0x%2 colonna::: converte una stringa che contiene un valore decimale, ad esempio &quot;1.3&quot; o &quot;7.439&quot; in un numero decimale. (In ASP.NET, un numero decimale è più preciso rispetto a un numero a virgola mobile). ::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `AsDateTime(), IsDateTime()` ::: colonna-end:::::: colonna::: converte una stringa che rappresenta un valore data e ora per ASP.NET `DateTime` tipo.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `ToString()` ::: colonna-end:::::: colonna::: converte qualsiasi altro tipo di dati in una stringa.
+::: colonna-end::: 0x%2 colonna: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    ::: colonna-end::: 0x%2 riga-end:
 
 ## <a name="operators"></a>Operatori
 
 Un operatore è una parola chiave o un carattere che indica il tipo di comando da eseguire in un'espressione di ASP.NET. Linguaggio c# (e la sintassi Razor che si basa su di esso) supporta molti operatori, ma è sufficiente riconoscere alcune per iniziare. Nella tabella seguente sono riepilogati gli operatori più comuni.
 
 
-|   <strong>Operator</strong>    |                                                                     <strong>Descrizione</strong>                                                                     |                        <strong>Esempi</strong>                         |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|        `+` `-` `*` `/`         |                                                            Matematici (operatori) utilizzati nelle espressioni numeriche.                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
-|              `=`               |                                    Assegnazione. Assegna il valore sul lato destro di un'istruzione per l'oggetto sul lato sinistro.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
-|              `==`              |                      Uguaglianza. Restituisce `true` se i valori sono uguali. (Si noti la differenza tra il `=` operatore e `==` operatore.)                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
-|              `!=`              |                                                       Disuguaglianza. Restituisce `true` se i valori non sono uguali.                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
-|          `< > <= >=`           |                                               Meno-maggiore,-, minore di o uguale e maggiore di o uguale a.                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
-|              `+`               | Concatenazione, viene utilizzata per unire più stringhe. ASP.NET riconosce la differenza tra questo operatore e operatore di addizione in base al tipo di dati dell'espressione. |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
-|           `+=` `-=`            |                                   Gli operatori di incremento e decremento, quali l'addizione e sottrazione di 1, rispettivamente, da una variabile.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
-|              `.`               |                                                  Punto. Utilizzato per distinguere gli oggetti e proprietà e metodi.                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
-|              `()`              |                                              Parentesi. Utilizzato per le espressioni di raggruppamento e per passare parametri a metodi.                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-|              `[]`              |                                                    Le parentesi quadre. Utilizzato per accedere ai valori alle raccolte o matrici.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
-|              `!`               |               No. Inverte una `true` valore `false` e viceversa. In genere utilizzato come un modo abbreviato per verificare la presenza di `false` (ovvero, per non `true`).               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
-| `&&` <code>&#124;&#124;</code> |                                                   AND logico e che vengono utilizzati per collegare le condizioni.                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
+0x%2 riga:::::: colonna 0x%2 <strong>operatore</strong> ::: colonna-end:::::: colonna::: <strong>descrizione</strong> ::: colonna-end:::::: colonna::: <strong>esempi</strong> ::: colonna-end:::::: fine riga:::
+* * *
+0x%2 riga:::::: colonna 0x%2 `+` `-` `*` `/` ::: colonna-end:::::: colonna 0x%2 matematici (operatori) utilizzati nelle espressioni numeriche.
+::: colonna-end::: 0x%2 colonna: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `=` ::: colonna-end:::::: colonna::: assegnazione. Assegna il valore sul lato destro di un'istruzione per l'oggetto sul lato sinistro.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `==` ::: colonna-end:::::: colonna::: uguaglianza. Restituisce `true` se i valori sono uguali. (Notare la distinzione tra i `=` operatore e il `==` operatore.)::: colonna-end:::::: colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `!=` ::: colonna-end:::::: colonna 0x%2 disuguaglianza. Restituisce `true` se i valori non sono uguali.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna::: `< > <= >=` ::: colonna-end:::::: colonna 0x%2 meno-maggiore,-rispetto a, minore di-than-or-equal e maggiore di o uguale.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `+` ::: colonna-end:::::: colonna::: concatenazione, viene usata per aggiungere le stringhe. ASP.NET riconosce la differenza tra questo operatore e operatore di addizione in base al tipo di dati dell'espressione.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `+=` `-=` ::: colonna-end:::::: colonna::: gli operatori di incremento e decremento, che di addizione e sottrazione 1 (rispettivamente) da una variabile.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `.` ::: colonna-end:::::: colonna 0x%2 punto. Utilizzato per distinguere gli oggetti e proprietà e metodi.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `()` ::: colonna-end:::::: colonna 0x%2 tra parentesi. Utilizzato per le espressioni di raggruppamento e per passare parametri a metodi.
+::: colonna-end::: 0x%2 colonna: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `[]` ::: colonna-end:::::: colonna 0x%2 tra parentesi quadre. Utilizzato per accedere ai valori alle raccolte o matrici.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga:::::: colonna 0x%2 `!` ::: colonna-end:::::: colonna 0x%2 non. Inverte una `true` valore `false` e viceversa. In genere utilizzato come un modo abbreviato per verificare la presenza di `false` (ovvero, per non `true`).
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
+* * *
+0x%2 riga::: 0x%2 colonna 0x%2 `&&` <code>&#124;&#124;</code> ::: colonna-end:::::: colonna::: logico e in alternativa, che permettono di collegare le condizioni di.
+::: colonna-end::: 0x%2 colonna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    ::: colonna-end::: 0x%2 riga-end:
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Utilizzo di File e i percorsi delle cartelle nel codice

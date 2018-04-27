@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a11ed13c709830795ebfd0e658d3f2fd2fd5a458
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Creare siti Web efficaci e reattive con Bootstrap e ASP.NET Core
 
@@ -81,7 +81,7 @@ Il modello predefinito utilizza un set di `<div>` elementi per il rendering di u
 </button>
 ```
 
-Include inoltre il nome dell'applicazione, che viene visualizzata nella parte superiore sinistra. Il menu di navigazione principale viene eseguito il rendering per il `<ul>` elemento all'interno del tag div, secondo e i collegamenti per circa, Home e contattare. Collegamenti aggiuntivi per l'account di accesso e di registro vengono aggiunti per la riga loginpartial nella riga 29. Di sotto di spostamento, il corpo principale di ogni pagina viene eseguito il rendering in un altro `<div>`, contrassegnata con le classi "container" e "contenuto del corpo". Nel file layout predefinito semplice illustrato di seguito, il contenuto della pagina di cui esegue il rendering specifica visualizzazione associata con la pagina e quindi una semplice `<footer>` viene aggiunto alla fine del `<div>` elemento. È possibile visualizzare come predefinito sulla pagina viene visualizzata utilizzando questo modello:
+Include inoltre il nome dell'applicazione, che viene visualizzata nella parte superiore sinistra. Il menu di navigazione principale viene eseguito il rendering per il `<ul>` elemento all'interno del tag div, secondo e i collegamenti per circa, Home e contattare. Di sotto di spostamento, il corpo principale di ogni pagina viene eseguito il rendering in un altro `<div>`, contrassegnata con le classi "container" e "contenuto del corpo". Nel file layout predefinito semplice illustrato di seguito, il contenuto della pagina di cui esegue il rendering specifica visualizzazione associata con la pagina e quindi una semplice `<footer>` viene aggiunto alla fine del `<div>` elemento. È possibile visualizzare come predefinito sulla pagina viene visualizzata utilizzando questo modello:
 
 ![Informazioni sulla pagina](bootstrap/_static/about-page-wide.png)
 
@@ -115,9 +115,9 @@ Successivamente, aggiungere ulteriori `<div>` elementi per ogni colonna e specif
 
 Prefisso di classe CSS | Livello di dispositivo | Larghezza
 :---: | :---: | :---:
-col-xs- | Telefoni | < 768px
+col-xs: | Telefoni | < 768px
 col-sm - | Tablet | >= 768px
-col-md- | Desktop | >= 992px
+col-md - | Desktop | >= 992px
 col-lg - | Consente di visualizzare Desktop più grande | >= 1200px
 
 Quando si specificano due colonne entrambi con "6-md-col" layout risultante sarà due colonne con risoluzioni desktop, ma queste due colonne verranno disposti in verticale quando sottoposto a rendering in dispositivi di piccole dimensioni (o una finestra del browser più ristretta su un computer desktop), consentendo agli utenti di visualizzare facilmente contenuto senza dover scorrere orizzontalmente.
@@ -146,7 +146,7 @@ Le classi del pulsante predefinito e i colori vengono visualizzati nella figura 
 
 ### <a name="badges"></a>Notifiche
 
-Badge, consultare le didascalie di piccole dimensioni, in genere numeriche accanto a un elemento di navigazione. È possibile indicare un numero di messaggi o notifiche in attesa o la presenza di aggiornamenti. Specifica di tale badge è semplice come l'aggiunta di un <span> contenente il testo, con una classe di "notifica":
+Badge, consultare le didascalie di piccole dimensioni, in genere numeriche accanto a un elemento di navigazione. È possibile indicare un numero di messaggi o notifiche in attesa o la presenza di aggiornamenti. Specifica di tale badge è semplice come l'aggiunta di un `<span>` contenente il testo, con una classe di "notifica":
 
 ![badge con tema](bootstrap/_static/theme-badges.png)
 
@@ -158,7 +158,7 @@ Potrebbe essere necessario visualizzare un tipo di notifica, avviso o messaggio 
 
 ### <a name="navbars-and-menus"></a>Menu e barre di spostamento
 
-Il layout include già una barra di spostamento standard, ma il tema Bootstrap supporta opzioni di stile aggiuntive. È anche possibile scegliere di visualizzare la barra di spostamento in verticale anziché in orizzontale se è preferibile che, navigazione secondarie nonché come aggiungere gli elementi nel menu a comparsa. Menu di spostamento semplice, ad esempio elenchi di schede, vengono compilati in cima <ul> elementi. È possibile crearli in poche parole fornendo solo le classi CSS "nav" e "nav schede":
+Il layout include già una barra di spostamento standard, ma il tema Bootstrap supporta opzioni di stile aggiuntive. È anche possibile scegliere di visualizzare la barra di spostamento in verticale anziché in orizzontale se è preferibile che, navigazione secondarie nonché come aggiungere gli elementi nel menu a comparsa. Menu di spostamento semplice, come le strisce di scheda, vengono compilati in cima `<ul>` elementi. È possibile crearli in poche parole fornendo solo le classi CSS "nav" e "nav schede":
 
 ![elenchi di schede con tema](bootstrap/_static/theme-tabstrips.png)
 

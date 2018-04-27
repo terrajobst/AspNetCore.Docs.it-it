@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Riferimento per gli errori comuni di servizio App di Azure e IIS con ASP.NET Core
 
@@ -42,7 +42,7 @@ Confrontare le informazioni per i seguenti errori. Se viene trovata una corrispo
 
 Risoluzione dei problemi:
 
-* Se il sistema non ha accesso a Internet durante l'installazione dell'aggregazione di hosting del server, questa eccezione si verifica quando il programma di installazione non riesce ad ottenere *Microsoft Visual C++ 2015 Redistributable*. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Se il programma di installazione non riesce, il server potrebbe non ricevere il runtime .NET Core necessario per ospitare una distribuzione dipendenti dal framework (protezione). Se l'hosting di un tipo di protezione, verificare che il runtime viene installato nei programmi &amp; funzionalità. Se è necessario ottenere un programma di installazione del runtime da [.NET tutti i download](https://www.microsoft.com/net/download/all). Dopo aver installato il runtime, riavviare il sistema o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
+* Se il sistema non dispone dell'accesso a Internet durante l'installazione del pacchetto di Hosting, questa eccezione si verifica quando il programma di installazione viene impedito di ottenere il *Microsoft Visual C++ 2015 Redistributable*. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Se il programma di installazione non riesce, il server potrebbe non ricevere il runtime .NET Core necessario per ospitare una distribuzione dipendenti dal framework (protezione). Se l'hosting di un tipo di protezione, verificare che il runtime viene installato nei programmi &amp; funzionalità. Se è necessario ottenere un programma di installazione del runtime da [.NET tutti i download](https://www.microsoft.com/net/download/all). Dopo aver installato il runtime, riavviare il sistema o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>L'aggiornamento del sistema operativo ha rimosso il modulo di ASP.NET Core a 32 bit
 
@@ -50,7 +50,7 @@ Risoluzione dei problemi:
 
 Risoluzione dei problemi:
 
-* I file non appartenenti al sistema operativo presenti nella directory **C:\Windows\SysWOW64\inetsrv** non vengono mantenuti durante un aggiornamento del sistema operativo. Se è installato il modulo di base di ASP.NET precedenti a questo problema viene rilevato un aggiornamento del sistema operativo e quindi qualsiasi pool di applicazioni viene eseguito in modalità a 32 bit dopo un aggiornamento del sistema operativo. Dopo un aggiornamento del sistema operativo, ripristinare il Modulo di ASP.NET Core. Vedere [Installare l'aggregazione di Hosting di.NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Selezionare **ripristino** quando si esegue il programma di installazione.
+* I file non appartenenti al sistema operativo presenti nella directory **C:\Windows\SysWOW64\inetsrv** non vengono mantenuti durante un aggiornamento del sistema operativo. Se è installato il modulo di base di ASP.NET precedenti a questo problema viene rilevato un aggiornamento del sistema operativo e quindi qualsiasi pool di applicazioni viene eseguito in modalità a 32 bit dopo un aggiornamento del sistema operativo. Dopo un aggiornamento del sistema operativo, ripristinare il Modulo di ASP.NET Core. Vedere [installa il bundle di Hosting di .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Selezionare **ripristino** quando si esegue il programma di installazione.
 
 ## <a name="platform-conflicts-with-rid"></a>La piattaforma è in conflitto con RID
 
@@ -114,11 +114,11 @@ Risoluzione dei problemi:
 
 * Verificare che sia abilitato il ruolo appropriato. Vedere [Configurazione di IIS](xref:host-and-deploy/iis/index#iis-configuration).
 
-* Controllare **Programmi &amp; Funzionalità** e confermare che il **Modulo di Microsoft ASP.NET Core** sia stato installato. Se il **modulo Microsoft ASP.NET Core** non è presente nell'elenco dei programmi installati, installare il modulo. Vedere [Installare l'aggregazione di Hosting di.NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
+* Controllare **Programmi &amp; Funzionalità** e confermare che il **Modulo di Microsoft ASP.NET Core** sia stato installato. Se il **modulo Microsoft ASP.NET Core** non è presente nell'elenco dei programmi installati, installare il modulo. Vedere [installare il Bundle di Hosting di .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Assicurarsi che il **Pool di applicazioni** > **modello di processo** > **identità** è impostato su **ApplicationPoolIdentity** o l'identità personalizzato ha le autorizzazioni corrette per accedere alla cartella di distribuzione dell'app.
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>ProcessPath non corretto, variabile di percorso mancante, aggregazione di hosting non installata, sistema/IIS non riavviato, VC Redistributable non installato o violazione dell'accesso a dotnet.exe
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>ProcessPath non corretto, variabile di percorso mancante, il Bundle di Hosting non è installato, sistema/IIS non viene riavviato, VC Redistributable non è installato o dotnet.exe violazione di accesso
 
 * **Browser:** errore HTTP 502.5 - errore del processo
 
@@ -138,7 +138,7 @@ Risoluzione dei problemi:
 
 * Un tipo di protezione sono stata distribuita e .NET Core installato senza il riavvio di IIS. Riavviare il server o riavviare IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
-* Un tipo di protezione può essere distribuito senza installare il runtime .NET Core nel sistema host. Se il runtime .NET Core non è stato installato, eseguire il **programma di installazione di .NET Core Windows Server che ospita bundle** nel sistema. Vedere [Installare l'aggregazione di Hosting di.NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Se si tenta di installare il runtime .NET Core in un sistema senza una connessione Internet, ottenere il runtime dal [.NET tutti i download](https://www.microsoft.com/net/download/all) ed eseguire il programma di installazione hosting bundle per installare il modulo di base di ASP.NET. Completare l'installazione riavviando il sistema o riavviando IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
+* Un tipo di protezione può essere distribuito senza installare il runtime .NET Core nel sistema host. Se il runtime .NET Core non è stato installato, eseguire la **programma di installazione del Bundle di Hosting di .NET Core** nel sistema. Vedere [installare il Bundle di Hosting di .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Se si tenta di installare il runtime .NET Core in un sistema senza una connessione Internet, ottenere il runtime dal [.NET tutti i download](https://www.microsoft.com/net/download/all) ed eseguire il programma di installazione di Hosting Bundle per installare il modulo di base di ASP.NET. Completare l'installazione riavviando il sistema o riavviando IIS eseguendo **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi.
 
 * Un tipo di protezione sono stata distribuita e *Microsoft Visual C++ 2015 Redistributable (x64)* non è installato nel sistema. Ottenere da un programma di installazione di [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4cb2cf5b22ed9f5b84638b5f8c4b07d99a17ce1c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -487,37 +487,6 @@ Un buon metodo per raccogliere e visualizzare i log consiste nell'usare l'[utili
 Per configurare PerfView per la raccolta degli eventi registrati da questo provider, aggiungere la stringa `*Microsoft-Extensions-Logging` nell'elenco **Provider aggiuntivi** (non dimenticare l'asterisco all'inizio della stringa).
 
 ![Provider aggiuntivi di PerfView](index/_static/perfview-additional-providers.png)
-
-L'acquisizione di eventi su Nano Server richiede operazioni di configurazione aggiuntive:
-
-* Connettere la sessione remota di PowerShell a Nano Server:
-
-  ```powershell
-  Enter-PSSession [name]
-  ```
-
-* Creare una sessione ETW:
-
-  ```powershell
-  New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
-  ```
-
-* Aggiungere i provider ETW per [CLR](/dotnet/framework/performance/clr-etw-providers), ASP.NET Core e altri in base alle esigenze. Il GUID del provider ASP.NET Core è `3ac73b97-af73-50e9-0822-5da4367920d0`. 
-
-  ```powershell
-  Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
-  Add-EtwTraceProvider -Guid "{3ac73b97-af73-50e9-0822-5da4367920d0}" -SessionName MyAppTrace
-  ```
-
-* Eseguire il sito e tutte le azioni per cui si desidera registrare le informazioni.
-
-* Arrestare la sessione di traccia al termine:
-
-  ```powershell
-  Stop-EtwTraceSession -Name "MyAppTrace"
-  ```
-
-Il file risultante *C:\trace.etl* può essere analizzato con PerfView come in altre edizioni di Windows.
 
 <a id="eventlog"></a>
 ### <a name="the-windows-eventlog-provider"></a>Provider EventLog di Windows

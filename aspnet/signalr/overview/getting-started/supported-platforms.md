@@ -5,18 +5,18 @@ author: pfletcher
 description: In questo articolo descrive i client e server supportate da SignalR.
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 06/10/2014
+ms.date: 04/18/2018
 ms.topic: article
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4d3dc028ff67d0a9cfa03627b5f98f6541ecfff8
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 <a name="supported-platforms"></a>Piattaforme supportate
 ====================
@@ -37,8 +37,9 @@ Il componente server di SignalR può essere ospitato su una vasta gamma di confi
 
 ### <a name="supported-server-operating-systems"></a>Sistemi operativi server supportati
 
-Il componente server di SignalR può essere ospitato nei seguenti sistemi operativi client o server. Si noti che per SignalR usare i WebSocket, Windows Server 2012 o Windows 8 è necessario (WebSocket può essere utilizzato nei siti Web di Windows Azure, purché la versione del sito di .NET framework è impostata su 4.5 e WebSocket è abilitata nella pagina di configurazione del sito).
+Il componente server di SignalR può essere ospitato nei seguenti sistemi operativi client o server. Si noti che per SignalR usare i WebSocket, Windows Server 2012, Windows Server 2016 o Windows 8 è necessario (WebSocket può essere utilizzato in siti Web di Microsoft Azure, come versione di .NET framework del sito è impostata su 4.5 e WebSocket è abilitato nel sito Pagina di configurazione).
 
+- Windows Server 2016
 - Windows Server 2012
 - Windows Server 2008 r2
 - Windows 10
@@ -93,7 +94,7 @@ Oltre ai che richiedono alcuni browser, i trasporti diversi utilizzati SignalR h
 | ForeverFrame | 8+ | N/D | N/D | N/D | 4.1 |
 | Polling lungo | 8+ | corrente - 1 | corrente - 1 | corrente - 1 | 4.1 |
 
-\*: 6 + richiesta per la funzionalità completa.
+\*: 6 + necessari per la funzionalità completa.
 
 #### <a name="unsupported-browsers"></a>Browser non supportati
 
@@ -125,12 +126,12 @@ SignalR può essere utilizzato nelle applicazioni Windows Store e Windows Phone 
 
 **Windows Store e requisiti di trasporto di Windows Phone**
 
-| Trasporto | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone/ .NET |
+| Trasporto | Windows Store / .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / .NET |
 | --- | --- | --- | --- | --- |
-| Oggetti WebSocket | N/D | Win8+ | 8+ | N/D |
-| Forever Frame | N/D | Win8+ | 7.5+ | N/D |
-| Eventi inviati al server | Win8+ | N/D | N/D | 8+ |
-| Polling lungo | Win8+ | Win8+ | 7.5+ | 8+ |
+| Oggetti WebSocket | N/D | Win8 + | 8+ | N/D |
+| Forever Frame | N/D | Win8 + | 7.5+ | N/D |
+| Eventi inviati al server | Win8 + | N/D | N/D | 8+ |
+| Polling lungo | Win8 + | Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

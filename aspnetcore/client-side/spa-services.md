@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Consente di creare applicazioni a pagina singola in ASP.NET Core JavaScriptServices
 
@@ -166,7 +166,7 @@ Il *webpack.config.js* file `output.publicPath` proprietà indica il middleware 
 
 ## <a name="hot-module-replacement"></a>Sostituzione di un modulo a caldo
 
-Si consideri di Webpack [sostituzione di un modulo a caldo](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) funzionalità (HMR) come un'evoluzione del [Webpack Dev Middleware](#webpack-dev-middleware). HMR introduce gli stessi vantaggi, ma ulteriormente semplifica il flusso di lavoro di sviluppo aggiornando automaticamente il contenuto della pagina dopo la compilazione delle modifiche. Non confondere con un aggiornamento del browser, che potrebbe interferire con la stato in memoria corrente e la sessione di debug di SPA. È presente un collegamento in tempo reale tra il servizio Webpack Dev Middleware e il browser, il che significa che le modifiche vengono inviate al browser.
+Si consideri di Webpack [sostituzione di un modulo a caldo](https://webpack.js.org/concepts/hot-module-replacement/) funzionalità (HMR) come un'evoluzione del [Webpack Dev Middleware](#webpack-dev-middleware). HMR introduce gli stessi vantaggi, ma ulteriormente semplifica il flusso di lavoro di sviluppo aggiornando automaticamente il contenuto della pagina dopo la compilazione delle modifiche. Non confondere con un aggiornamento del browser, che potrebbe interferire con la stato in memoria corrente e la sessione di debug di SPA. È presente un collegamento in tempo reale tra il servizio Webpack Dev Middleware e il browser, il che significa che le modifiche vengono inviate al browser.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -226,7 +226,7 @@ Suggerimento: Le route vengono valutate nell'ordine in cui la configurazione di 
 
 ## <a name="creating-a-new-project"></a>Crea un nuovo progetto
 
-JavaScriptServices fornisce modelli di applicazione configurati in precedenza. SpaServices viene usato in questi modelli, unitamente a diversi Framework e librerie, ad esempio angolare Aurelia, Knockout, React e dotato.
+JavaScriptServices fornisce modelli di applicazione configurati in precedenza. SpaServices viene usato in questi modelli, unitamente a diversi Framework e librerie, ad esempio angolare React e Redux.
 
 Questi modelli possono essere installati tramite l'interfaccia CLI Core .NET eseguendo il comando seguente:
 
@@ -239,11 +239,8 @@ Viene visualizzato un elenco dei modelli SPA disponibili:
 | Modelli                                 | Nome breve | Linguaggio | Tag        |
 |:------------------------------------------|:-----------|:---------|:------------|
 | MVC ASP.NET Core con Angular             | angular    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core con Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core con Knockout.js         | knockout   | [C#]     | Web/MVC/SPA |
 | MVC ASP.NET Core con React.js            | react      | [C#]     | Web/MVC/SPA |
 | MVC ASP.NET Core con React.js e il ritorno  | reactredux | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core con Vue.js              | dotato        | [C#]     | Web/MVC/SPA | 
 
 Per creare un nuovo progetto utilizzando uno dei modelli di SPA, inclusa la **nome breve** del modello nella [dotnet nuovo](/dotnet/core/tools/dotnet-new) comando. Il comando seguente crea un'applicazione angolare con ASP.NET MVC di base configurato per il lato server:
 
@@ -295,7 +292,7 @@ Utilizzando l'applicazione angolare ad esempio, due casi di prova al gelsomino s
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Aprire il prompt dei comandi nella radice del progetto ed eseguire il comando seguente:
+Aprire il prompt dei comandi nel *ClientApp* directory. Eseguire il comando seguente:
 
 ```console
 npm test
