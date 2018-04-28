@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a3527b54d1936bc14e32a1828ac3a2be625107ba
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013
 ====================
@@ -179,7 +179,7 @@ Dopo aver installato i prerequisiti, si è pronti per iniziare a creare il nuovo
 
 Il download è un <em>zip</em> file. Per visualizzare il progetto completato crea questa serie di esercitazioni, trovare e selezionare il <em>c#</em>cartella la <em>zip</em> file. Salvare il <em>c#</em> la cartella in cartella consentono di lavorare con progetti di Visual Studio 2013. Per impostazione predefinita, la cartella di progetti di Visual Studio 2013 è la seguente:
 
-<strong>C:\Users\</ strong ><strong><em>&lt;nomeutente&gt;</em></strong><strong>\Documents\Visual 2013\Projects Studio</strong>
+<strong>C:\Users&#92;</strong><strong><em>&lt;nomeutente&gt;</em></strong><strong>\Documents\Visual 2013\Projects Studio</strong>
 
 Rinominare il ***c#*** cartella ***WingtipToys***.
 

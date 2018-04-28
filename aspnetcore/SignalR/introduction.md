@@ -1,21 +1,21 @@
 ---
 title: Introduzione a ASP.NET Core SignalR
 author: rachelappel
-description: Informazioni su come la libreria di ASP.NET SignalR Core semplifica l'aggiunta di funzionalità web in tempo reale alle applicazioni.
+description: Informazioni su come la libreria di ASP.NET SignalR Core semplifica l'aggiunta di funzionalità in tempo reale alle app.
 manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/07/2018
+ms.date: 04/25/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: fa9b10201b5dc0e67bcd6d1321a3737e2025fda4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 190dfe9eac95be646b458870ac4ee95f681f45d7
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Introduzione a ASP.NET Core SignalR
 
@@ -51,20 +51,17 @@ La connessione tra il client e server è persistente, a differenza di una connes
 
 Estrae SignalR su diverse tecniche per la compilazione di applicazioni web in tempo reale. [WebSocket](https://tools.ietf.org/html/rfc7118) è il trasporto ottimale, ma altre tecniche quali eventi Server-Sent e di Polling lungo possono essere usati quando quelli non sono disponibili. SignalR verranno automaticamente rilevate e inizializzare il trasporto appropriato in base alle funzionalità supportate nel server e client.
 
-## <a name="hubs-and-endpoints"></a>Hub e endpoint
+## <a name="hubs"></a>Hub
 
-SignalR utilizza hub e gli endpoint per la comunicazione tra client e server. L'API di hub copre la maggior parte degli scenari.
+SignalR utilizza hub per le comunicazioni tra client e server.
 
-Un hub è una pipeline di alto livello basata sull'Endpoint API che consente il client e server chiamare i metodi tra loro. SignalR gestisce la distribuzione tra i limiti della macchina automaticamente, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Gli hub di consentono il passaggio di parametri fortemente tipizzati per metodi, che consente l'associazione del modello. SignalR fornisce due protocolli di hub incorporato: un protocollo di testo in base a JSON e un protocollo binario in base a [MessagePack](https://msgpack.org/).  In genere, MessagePack crea messaggi più piccoli rispetto all'utilizzo di JSON. Deve supportare i browser meno recenti [livello XHR 2](https://caniuse.com/#feat=xhr2) per fornire il supporto del protocollo MessagePack.
+Un hub è una pipeline di alto livello che consente il client e server chiamare i metodi di reciproca. SignalR gestisce la distribuzione tra i limiti della macchina automaticamente, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Gli hub di consentono il passaggio di parametri fortemente tipizzati per metodi, che consente l'associazione del modello. SignalR fornisce due protocolli di hub incorporato: un protocollo di testo in base a JSON e un protocollo binario in base a [MessagePack](https://msgpack.org/).  In genere, MessagePack crea messaggi più piccoli rispetto all'utilizzo di JSON. Deve supportare i browser meno recenti [livello XHR 2](https://caniuse.com/#feat=xhr2) per fornire il supporto del protocollo MessagePack.
 
 Gli hub di chiamare il codice sul lato client mediante l'invio di messaggi mediante il trasporto attivo. I messaggi contengono il nome e i parametri del metodo sul lato client. Gli oggetti inviati come parametri di metodo vengono deserializzati mediante il protocollo configurato. Il client tenta di corrispondere al nome a un metodo nel codice sul lato client. Quando si verifica una corrispondenza, viene eseguito il metodo di client utilizzando i dati del parametro deserializzato.
 
-Gli endpoint forniscono un'API simile socket non elaborata, che consente di leggere e scrivere dal client. È attivo agli sviluppatori di gestire il raggruppamento, la trasmissione e altre funzioni. L'API di hub si basa sul livello di endpoint.
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-Il diagramma seguente mostra la relazione tra hub, endpoint e i client.
-
-![Mappa di SignalR](introduction/_static/signalr-core-architecture.png)
-
-## <a name="related-resources"></a>Risorse correlate
-
-[Introduzione a SignalR per ASP.NET Core](xref:signalr/get-started)
+* [Introduzione a SignalR per ASP.NET Core](xref:signalr/get-started)
+* [Piattaforme supportate](xref:signalr/supported-platforms)
+* [Hub](xref:signalr/hubs)
+* [Client JavaScript](xref:signalr/javascript-client)
