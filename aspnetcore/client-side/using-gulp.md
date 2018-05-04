@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Utilizzare Gulp in ASP.NET Core
 
@@ -64,7 +64,7 @@ Il codice sopra riportato specifica i moduli di nodo sono necessari. Il `require
 | gulp        | Il sistema di compilazione flusso Gulp. Per ulteriori informazioni, vedere [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Un modulo di eliminazione del nodo. Per ulteriori informazioni, vedere [rimraf](https://www.npmjs.com/package/rimraf). |
 | gulp concat | Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per ulteriori informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat). |
-| gulp-cssmin | Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| gulp cssmin | Un modulo che minimizza file CSS. Per ulteriori informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
 | uglify gulp | Un modulo che minimizza *. js* file. Per ulteriori informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
 
 Dopo aver importati i moduli necessari, è possibile specificare le attività. Di seguito sono riportate le sei attività registrato, rappresentato dal codice seguente:
@@ -102,7 +102,7 @@ Nella tabella seguente viene fornita una spiegazione delle attività specificato
 |Nome attività|Descrizione|
 |--- |--- |
 |Pulisci: js|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.js minimizzata.|
-|clean:css|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.css minimizzata.|
+|Pulisci: css|Attività che usa il modulo di eliminazione del nodo rimraf per rimuovere la versione del file site.css minimizzata.|
 |Pulire|Un'attività che chiama il `clean:js` attività, aggiungendo il `clean:css` attività.|
 |min:js|Attività che minimizza e concatena tutti i file con estensione js all'interno della cartella js. I. min.js i file vengono esclusi.|
 |min:css|Attività che minimizza e concatena tutti i file con estensione CSS all'interno della cartella di css. I. min.css i file vengono esclusi.|
@@ -267,7 +267,7 @@ IntelliSense offre il completamento del codice, descrizioni dei parametri e altr
 
 ![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Per ulteriori informazioni su IntelliSense, vedere [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
+Per ulteriori informazioni su IntelliSense, vedere [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Ambienti di sviluppo, gestione temporanea e produzione
 
@@ -337,7 +337,7 @@ Un'attività Gulp è registrata con un nome di funzione. Se è necessario esegui
 |attività  |`gulp.task(name[, deps], fn) { }`|Il `task` funzione crea un'attività. Il `name` parametro definisce il nome dell'attività. Il `deps` parametro contiene una matrice di attività da completare prima dell'esecuzione di questa attività. Il `fn` parametro rappresenta una funzione di callback che esegue le operazioni dell'attività.|
 |Espressioni di controllo |`gulp.watch(glob [, opts], tasks) { }`|Il `watch` funzione consente di monitorare le attività di file e viene eseguito quando si verifica una modifica di file. Il `glob` parametro è un `string` o `array` che determina quali sono i file da controllare. Il `opts` parametro fornisce controllo Opzioni aggiuntive del file.|
 |src   |`gulp.src(globs[, options]) { }`|Il `src` funzione fornisce i file che corrispondono ai valori glob. Il `glob` parametro è un `string` o `array` che determina quali sono i file da leggere. Il `options` parametro fornisce opzioni aggiuntive del file.|
-|dest  |`gulp.dest(path[, options]) { }`|Il `dest` funzione definisce una posizione in cui è possano scrivere file. Il `path` parametro è una stringa o una funzione che determina la cartella di destinazione. Il `options` parametro è un oggetto che specifica le opzioni di cartella di output.|
+|distruttore  |`gulp.dest(path[, options]) { }`|Il `dest` funzione definisce una posizione in cui è possano scrivere file. Il `path` parametro è una stringa o una funzione che determina la cartella di destinazione. Il `options` parametro è un oggetto che specifica le opzioni di cartella di output.|
 
 Per ulteriori informazioni di riferimento Gulp API, vedere [Gulp documenti API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
 

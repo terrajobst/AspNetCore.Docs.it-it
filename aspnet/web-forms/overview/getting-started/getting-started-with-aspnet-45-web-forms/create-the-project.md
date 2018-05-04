@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="create-the-project"></a>Creare il progetto
 ====================
@@ -52,7 +52,10 @@ In questa esercitazione è creare, esaminare e si esegue il progetto predefinito
 
     > [!NOTE]
     > È il nome del progetto in questa serie di esercitazioni **WingtipToys**. È consigliabile utilizzare questo *esatta* nome del progetto in modo che il codice fornito in tutta la serie di esercitazioni funzioni come previsto.
-6. Selezionare quindi il **Web Form** modello e scegliere il **Crea progetto** pulsante.  
+
+6. Fare clic su di **Modifica autenticazione** pulsante. Selezionare **singoli account utente** e fare clic sui **OK** pulsante.
+
+7. Selezionare il **Web Form** modello, quindi scegliere il **OK** pulsante.
 
     ![Creare il progetto - nuovo modello di progetto](create-the-project/_static/image3.png)
 

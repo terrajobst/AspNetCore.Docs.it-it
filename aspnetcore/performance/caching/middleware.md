@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -33,7 +33,7 @@ In `ConfigureServices`, aggiungere il middleware per la raccolta di servizio.
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
-Configurare l'applicazione per utilizzare il middleware con il `UseResponseCaching` metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione della richiesta. L'app di esempio aggiunge un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) intestazione risposta che memorizza nella cache le risposte memorizzabile nella cache per un massimo di 10 secondi. L'esempio invia un [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) intestazione per configurare il middleware per fornire una risposta memorizzata nella cache solo se il [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) intestazione delle richieste successive corrisponda a quello della richiesta originale.
+Configurare l'applicazione per utilizzare il middleware con il `UseResponseCaching` metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione della richiesta. L'app di esempio aggiunge un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) intestazione risposta che memorizza nella cache le risposte memorizzabile nella cache per un massimo di 10 secondi. L'esempio invia un [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) intestazione per configurare il middleware per fornire una risposta memorizzata nella cache solo se il [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) intestazione delle richieste successive corrisponda a quello della richiesta originale. Nell'esempio di codice seguente [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) e [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) richiedono un `using` istruzione per il [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) spazio dei nomi.
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
@@ -88,9 +88,9 @@ La memorizzazione nella cache dal middleware di risposta viene configurato utili
 | Header | Dettagli |
 | ------ | ------- |
 | Autorizzazione | Se l'intestazione esiste, non è memorizzato nella cache la risposta. |
-| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>Min-nuova</li><li>must-revalidate</li><li>no-cache</li><li>no-store</li><li>solo se-memorizzato nella cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite `max-stale`, il middleware non esegue alcuna azione.<br>&#8225;`proxy-revalidate`ha lo stesso effetto `must-revalidate`.<br><br>Per ulteriori informazioni, vedere [RFC 7231: richiesta direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>Min-nuova</li><li>deve-revalidate</li><li>no-cache</li><li>No-archivio</li><li>solo se-memorizzato nella cache</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite `max-stale`, il middleware non esegue alcuna azione.<br>&#8225;`proxy-revalidate`ha lo stesso effetto `must-revalidate`.<br><br>Per ulteriori informazioni, vedere [RFC 7231: richiesta direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | Oggetto `Pragma: no-cache` intestazione nella richiesta produce lo stesso effetto `Cache-Control: no-cache`. Questa intestazione viene sottoposto a override dalle direttive rilevanti nel `Cache-Control` intestazione, se presente. Considerati per la compatibilità con HTTP/1.0. |
-| Set-Cookie | Se l'intestazione esiste, non è memorizzato nella cache la risposta. |
+| Set-Cookie | Se l'intestazione esiste, non è memorizzato nella cache la risposta. Middleware nella pipeline di elaborazione della richiesta che consente di impostare uno o più cookie impedisce il Middleware di memorizzazione nella cache della risposta di memorizzazione nella cache la risposta (ad esempio, il [basato su cookie provider TempData](xref:fundamentals/app-state#tempdata)).  |
 | Variare | Il `Vary` intestazione viene utilizzata per variare la risposta memorizzata nella cache da un'altra intestazione. Ad esempio, nella cache le risposte codificando includendo il `Vary: Accept-Encoding` intestazione, che memorizza nella cache le risposte per le richieste con intestazioni `Accept-Encoding: gzip` e `Accept-Encoding: text/plain` separatamente. Una risposta con un valore di intestazione di `*` non venga mai memorizzata. |
 | Scadenza | Una risposta considerata non aggiornata da questa intestazione non è memorizzata o recuperata a meno che non viene sottoposto a override da altri `Cache-Control` intestazioni. |
 | If-None-Match | L'intera risposta viene servita dalla cache, se il valore non `*` e `ETag` della risposta non corrisponde ad alcuno dei valori forniti. In caso contrario, viene fornita una risposta 304 (non modificato). |
@@ -130,13 +130,13 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 * Il `Set-Cookie` intestazione non deve essere presente.
 * `Vary` parametri dell'intestazione devono essere valido e non è uguale a `*`.
 * Il `Content-Length` valore di intestazione (se impostato) deve corrispondere alle dimensioni del corpo della risposta.
-* Il [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) non viene utilizzato.
+* Il [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) non viene utilizzato.
 * La risposta non deve essere non aggiornata come specificato da di `Expires` intestazione e il `max-age` e `s-maxage` direttive di memorizzare nella cache.
 * La memorizzazione nel buffer di risposta deve essere completata correttamente e le dimensioni della risposta devono essere minore di o predefinito `SizeLimit`.
 * La risposta deve essere memorizzabile nella cache in base al [7234 RFC](https://tools.ietf.org/html/rfc7234) specifiche. Ad esempio, il `no-store` direttiva non deve essere presente nei campi di intestazione di richiesta o risposta. Vedere *sezione 3: archiviare le risposte nella cache* di [7234 RFC](https://tools.ietf.org/html/rfc7234) per informazioni dettagliate.
 
 > [!NOTE]
-> Il sistema non riproducibili per generare i token di protezione per evitare Cross-Site Request Forgery (CSRF) attacks set il `Cache-Control` e `Pragma` intestazioni per `no-cache` in modo che non sono memorizzati nella cache le risposte.
+> Il sistema non riproducibili per generare i token di protezione per evitare Cross-Site Request Forgery (CSRF) attacks set il `Cache-Control` e `Pragma` intestazioni per `no-cache` in modo che non sono memorizzati nella cache le risposte. Per informazioni su come disabilitare i token non riproducibili per elementi del form HTML, vedere [configurazione di ASP.NET Core non riproducibili](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
