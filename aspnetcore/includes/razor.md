@@ -4,4 +4,4 @@ Questa esercitazione illustra lo sviluppo Web per ASP.NET Core MVC con i control
 * È più semplice da seguire.
 * Riguarda più funzionalità.
 
-Se si è scelto di eseguire questa esercitazione nella versione per [Razor Pages](xref:tutorials/razor-pages/razor-pages-start), lasciare una nota per spiegare il motivo.
+Se si è scelto di eseguire questa esercitazione nella versione per [Razor Pages](xref:tutorials/razor-pages/razor-pages-start), lasciare una nota per spiegare il motivo in [questo problema di GitHub](https://github.com/aspnet/Docs/issues/6146).

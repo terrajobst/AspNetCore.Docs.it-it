@@ -110,6 +110,7 @@
 ## [Avvio dell'applicazione](fundamentals/startup.md)
 ## [Inserimento di dipendenze (servizi)](fundamentals/dependency-injection.md)
 ## [Middleware](xref:fundamentals/middleware/index)
+### [Middleware](xref:fundamentals/middleware/index)
 ### [Middleware basato su factory](xref:fundamentals/middleware/extensibility)
 ### [Middleware basato su factory con contenitore di terze parti](xref:fundamentals/middleware/extensibility-third-party-container)
 ## [Usare file statici](fundamentals/static-files.md)
@@ -117,6 +118,7 @@
 ## [Middleware di riscrittura URL](fundamentals/url-rewriting.md)
 ## [Usare più ambienti](fundamentals/environments.md)
 ## [Configurazione e opzioni](xref:fundamentals/configuration/index)
+### [Configurazione](xref:fundamentals/configuration/index)
 ### [Opzioni](xref:fundamentals/configuration/options)
 ## [Registrazione](xref:fundamentals/logging/index)
 ### [Registrazione con LoggerMessage](xref:fundamentals/logging/loggermessage)
@@ -130,6 +132,7 @@
 ### [HTTP.sys](fundamentals/servers/httpsys.md)
 ## [Globalizzazione e localizzazione](xref:fundamentals/localization)
 ### [Configurare la localizzazione dell'oggetto portabile con Orchard Core](xref:fundamentals/portable-object-localization)
+## [Inizializzare richieste HTTP](xref:fundamentals/http-requests)
 ## [Funzionalità di richiesta](fundamentals/request-features.md)
 ## [Attività in background con servizi ospitati](xref:fundamentals/hosted-services)
 ## [Primitives](xref:fundamentals/primitives/index)
@@ -140,10 +143,14 @@
 ## [Scegliere tra .NET Core e .NET Framework](/dotnet/articles/standard/choosing-core-framework-server)
 ## [Scegliere tra ASP.NET Core e ASP.NET](choose-aspnet-framework.md)
 
+# [Razor Pages](xref:mvc/razor-pages/index)
+## [Modalità di filtro per pagine Razor](xref:mvc/razor-pages/filter)
+## [Creare una libreria di classi Razor](xref:mvc/razor-pages/ui-class)
+## [Funzionalità di convenzione di route e app](xref:mvc/razor-pages/razor-pages-convention-features)
+## [Razor SDK](xref:mvc/razor-pages/sdk)
+
+
 # [MVC](mvc/overview.md)
-## [Razor Pages](xref:mvc/razor-pages/index)
-### [Sintassi Razor](mvc/views/razor.md)
-### [Funzionalità di convenzione di route e app](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Associazione di modelli](mvc/models/model-binding.md)
 ### [Convalida modello](mvc/models/validation.md)
 ## [Visualizzazioni](mvc/views/overview.md)
@@ -221,6 +228,9 @@
 ## [Introduzione](xref:signalr/introduction)
 ## [Introduzione](xref:signalr/get-started)
 ## [Hub](xref:signalr/hubs)
+## [Client JavaScript](xref:signalr/javascript-client)
+## [Pubblicare in Azure](xref:signalr/publish-to-azure-web-app)
+## [Piattaforme supportate](xref:signalr/supported-platforms)
 
 # [Dispositivi mobili](xref:mobile/index)
 ## [Creare servizi back-end per app native per dispositivi mobili](xref:mobile/native-mobile-backend)
@@ -348,7 +358,7 @@
 ## [Da ASP.NET Core 1.x a 2.0](xref:migration/1x-to-2x/index)
 ### [Autenticazione e identità](xref:migration/1x-to-2x/identity-2x)
 
-# [Riferimento API](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
+# [Riferimento API](/dotnet/api/?view=aspnetcore-2.0)
 
 # [Note sulla versione 2.0](aspnetcore-2.0.md)
 ## [Note sulla versione 1.1](aspnetcore-1.1.md)

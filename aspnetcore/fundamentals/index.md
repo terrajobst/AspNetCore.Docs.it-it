@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: b74870c93ea0120e43931bb75f47bab19a6de201
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -77,7 +77,7 @@ La radice del contenuto è il percorso di base per i contenuti usati dall'applic
 
 La radice Web di un'app è la directory del progetto contenente risorse statiche pubbliche, come ad esempio CSS, JavaScript e i file di immagine.
 
-## <a name="dependency-injection-services"></a>Inserimento delle dipendenze (servizi)
+## <a name="dependency-injection-services"></a>Inserimento di dipendenze (servizi)
 
 Un servizio è un componente destinato a un uso comune in un'app. I servizi sono resi disponibili tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include nativo **si**/nPer **o**f **C**contenitore ontrollo (IoC) che supporta [inserimento costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore nativo predefinito. Oltre al suo ampio beneficio di accoppiamento, l'inserimento delle dipendenze rende disponibili i servizi in tutta l'app. Un esempio è dato dalla [registrazione](xref:fundamentals/logging/index).
 
@@ -98,6 +98,10 @@ ASP.NET Core include un'ampia gamma di middleware incorporato:
 I middleware basati su [OWIN](http://owin.org) sono disponibili per le app ASP.NET Core ed è possibile scrivere il proprio middleware personalizzato.
 
 Per altre informazioni, vedere [Middleware](xref:fundamentals/middleware/index) e [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) (Interfaccia Web aperta per .NET (OWIN).
+
+## <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
+
+Per informazioni sull'uso di `IHttpClientFactory` per accedere alle istanze di `HttpClient` per effettuare richieste HTTP, vedere [Inizializzare richieste HTTP](xref:fundamentals/http-requests).
 
 ## <a name="environments"></a>Ambienti
 
