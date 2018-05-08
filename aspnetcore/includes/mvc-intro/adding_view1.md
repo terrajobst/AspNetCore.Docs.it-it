@@ -8,6 +8,6 @@ Si crea un file di modello di vista usando Razor. I modelli di vista basati su R
 
 Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded nella classe controller. Nella classe `HelloWorldController` sostituire il metodo `Index` con il codice seguente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-Il codice precedente restituisce un oggetto `View`. Usa un modello di vista per generare una risposta HTML al browser. I metodi controller, noti anche come metodi di azione, ad esempio il metodo `Index` descritto in precedenza, restituiscono in genere un [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) (o una classe derivata da `ActionResult`) e non un tipo come una stringa.
+Il codice precedente restituisce un oggetto `View`. Usa un modello di vista per generare una risposta HTML al browser. I metodi controller, noti anche come metodi di azione, ad esempio il metodo `Index` descritto in precedenza, restituiscono in genere un [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (o una classe derivata da `ActionResult`) e non un tipo come una stringa.

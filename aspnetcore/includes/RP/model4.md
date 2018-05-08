@@ -19,7 +19,7 @@ dotnet aspnet-codegenerator razorpage -h
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 * Eseguire il test del collegamento **Crea**.
 
- ![Pagina Crea](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Pagina Crea](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

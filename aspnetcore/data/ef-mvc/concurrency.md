@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core MVC con EF Core - Concorrenza - 8 di 10
 author: tdykstra
-description: "Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente."
+description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Gestione dei conflitti di concorrenza - Esercitazione di EF Core con ASP.NET Core MVC (8 di 10)
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC con EF Core - Concorrenza - 8 di 10
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -89,7 +89,7 @@ Nella parte restante di questa esercitazione si aggiunge una proprietà di rilev
 
 In *Models/Department.cs* aggiungere una proprietà di rilevamento denominata RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 L'attributo `Timestamp` specifica che questa colonna viene inclusa nella clausola Where dei comandi Update e Delete inviati al database. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server usavano un tipo di dati SQL `timestamp` prima che questo fosse sostituito dalla notazione SQL `rowversion`. Il tipo .NET per `rowversion` è una matrice di byte.
 
@@ -120,7 +120,7 @@ Eseguire lo scaffolding di un controller e di visualizzazioni Departments come g
 
 Nel file *DepartmentsController.cs*, convertire tutte e quattro le ricorrenze di "FirstMidName" in "FullName" in modo che gli elenchi a discesa degli amministratori di reparto contengano il nome completo dell'insegnante anziché solo il cognome.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Aggiornare la visualizzazione Departments Index (Indice reparti)
 
@@ -128,7 +128,7 @@ Il motore di scaffolding crea una colonna RowVersion nella vista Index, ma quest
 
 Sostituire il codice in *Views/Departments/Index.cshtml* con il codice seguente:
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Questo codice imposta come intestazione "Departments" (Reparti), elimina la colonna RowVersion e visualizza il nome completo anziché solo il cognome dell'amministratore.
 
@@ -136,11 +136,11 @@ Questo codice imposta come intestazione "Departments" (Reparti), elimina la colo
 
 Sia nel metodo HttpGet `Edit` che nel metodo `Details`, aggiungere `AsNoTracking`. Nel metodo HttpGet `Edit` aggiungere il caricamento eager per Administrator.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 Sostituire il codice esistente del metodo HttpPost `Edit` con il codice seguente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 Il codice inizia con la lettura del reparto da aggiornare. Se il metodo `SingleOrDefaultAsync` restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice usa i valori del modulo registrato per creare un'entità reparto, in modo che la pagina di modifica possa essere visualizzata nuovamente con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità del reparto se si visualizza solo un messaggio di errore senza visualizzare di nuovo i campi del reparto.
 
@@ -154,19 +154,19 @@ Quando in seguito Entity Framework crea un comando SQL UPDATE, il comando includ
 
 Il codice del blocco catch di tale eccezione ottiene l'entità Department interessata con i valori aggiornati dalla proprietà `Entries` nell'oggetto eccezione.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 La raccolta `Entries` ha un solo oggetto `EntityEntry`.  È possibile usare tale oggetto per ottenere i nuovi valori immessi dall'utente e i valori del database corrente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 Il codice aggiunge un messaggio di errore personalizzato per ogni colonna che ha valori di database diversi da ciò che l'utente ha immesso nella pagina Edit (per brevità qui viene riportato un solo campo).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Infine il codice imposta il valore `RowVersion` di `departmentToUpdate` sul nuovo valore recuperato dal database. Questo nuovo valore `RowVersion` viene archiviato nel campo nascosto quando viene visualizzata nuovamente la pagina Edit (Modifica). Quando l'utente torna a fare clic su **Salva** vengono rilevati solo gli errori di concorrenza che si verificano dopo la nuova visualizzazione della pagina Edit (Modifica).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 L'istruzione `ModelState.Remove` è necessaria perché `ModelState` presenta il valore obsoleto `RowVersion`. Nella visualizzazione, il valore `ModelState` di un campo ha la precedenza sui valori di proprietà del modello quando entrambi gli elementi sono presenti.
 
@@ -178,7 +178,7 @@ In *Views/Departments/Edit.cshtml* apportare le modifiche seguenti:
 
 * Aggiungere un'opzione "Select Administrator" (Seleziona amministratore) all'elenco a discesa.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Eseguire il test dei conflitti di concorrenza presente nella pagina Edit
 
@@ -208,13 +208,13 @@ Per la pagina Delete (Elimina), Entity Framework rileva conflitti di concorrenza
 
 In *DepartmentsController.cs*, sostituire il metodo HttpGet `Delete` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 Il metodo accetta un parametro facoltativo che indica se la pagina viene nuovamente visualizzata dopo un errore di concorrenza. Se questo flag è true e il reparto specificato non esiste più significa che è stato eliminato da un altro utente. In questo caso, il codice esegue il reindirizzamento alla pagina Index.  Se questo flag è true e il reparto esiste, è stato modificato da un altro utente. In questo caso il codice invia un messaggio di errore alla vista usando `ViewData`.  
 
 Sostituire il codice nel metodo HttpPost `Delete` (denominato `DeleteConfirmed`) con il codice seguente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 Nel codice sottoposto a scaffolding appena sostituito, questo metodo accettava solo un ID record:
 
@@ -239,7 +239,7 @@ Se viene rilevato un errore di concorrenza, il codice visualizza nuovamente la p
 
 In *Views/Departments/Delete.cshtml*, sostituire il codice sottoposto a scaffolding con il codice seguente, che aggiunge un campo messaggio di errore e campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche sono evidenziate.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 Questa impostazione determina le modifiche seguenti:
 
@@ -269,16 +269,16 @@ Facoltativamente è possibile pulire il codice di scaffolding nelle visualizzazi
 
 Sostituire il codice in *Views/Departments/Details.cshtml* per eliminare la colonna RowVersion e visualizzare il nome completo di Administrator (Amministratore).
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Sostituire il codice in *Views/Departments/Create.cshtml* per aggiungere all'elenco a discesa un'opzione Select (Seleziona).
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Riepilogo
 
 Questo argomento completa l'introduzione alla gestione dei conflitti di concorrenza. Per altre informazioni su come gestire i conflitti di concorrenza in EF Core, vedere [Conflitti di concorrenza](https://docs.microsoft.com/ef/core/saving/concurrency). L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per le entità Instructor (Insegnante) e Student (Studente).
 
->[!div class="step-by-step"]
-[Precedente](update-related-data.md)
-[Successivo](inheritance.md)  
+> [!div class="step-by-step"]
+> [Precedente](update-related-data.md)
+> [Successivo](inheritance.md)  

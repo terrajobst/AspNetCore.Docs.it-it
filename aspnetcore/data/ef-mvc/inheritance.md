@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10"
+title: ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
 author: tdykstra
-description: "Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core."
+description: Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 25d4292e325e208ee08f4a7bb8d06580809f9e40
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Ereditarietà - Esercitazione di EF Core con ASP.NET Core MVC (9 di 10)
+# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -60,23 +60,23 @@ Questa esercitazione illustra come implementare l'ereditarietà tabella per gera
 
 Nella cartella Models creare Person.cs e sostituire il codice del modello con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
+[!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
 ## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Modificare le classi Student e Instructor in modo da stabilire l'ereditarietà da Person
 
 In *Instructor.cs* derivare la classe Instructor dalla classe Person e rimuovere i campi chiave e nome. Il codice sarà simile all'esempio seguente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
 Apportare le stesse modifiche in *Student.cs*.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
 ## <a name="add-the-person-entity-type-to-the-data-model"></a>Aggiungere il tipo di entità Person al modello di dati
 
 Aggiungere il tipo di entità Person a *SchoolContext.cs*. Le nuove righe sono evidenziate.
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
 L'ereditarietà tabella per gerarchia in Entity Framework è stata configurata. Come si vedrà, quando il database verrà aggiornato conterrà una tabella Person invece delle tabelle Student e Instructor.
 
@@ -92,7 +92,7 @@ Non eseguire ancora il comando `database update`. Questo comando determinerà la
 
 Aprire *Migrations/\<timestamp>_Inheritance.cs* e sostituire il metodo `Up` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
+[!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
 Questo codice esegue le attività di aggiornamento del database seguenti:
 
@@ -143,6 +143,6 @@ Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mo
 
 È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](https://docs.microsoft.com/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
 
->[!div class="step-by-step"]
-[Precedente](concurrency.md)
-[Successivo](advanced.md)  
+> [!div class="step-by-step"]
+> [Precedente](concurrency.md)
+> [Successivo](advanced.md)  

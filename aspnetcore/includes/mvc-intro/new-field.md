@@ -4,13 +4,13 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa esercitazione si aggiungerà un nuovo campo alla tabella `Movies`. Verrà eliminato il database e verrà creato un nuovo database quando si modifica lo schema (aggiunta di un nuovo campo). Questo flusso di lavoro funziona correttamente già in fase di sviluppo, se non sono disponibili dati di produzione da conservare.
 
-Dopo che l'app è stata distribuita e i dati disponibili devono essere conservati, non è possibile eliminare il database quando è necessario modificare lo schema. [Migrazioni Code First](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) di Entity Framework consente di aggiornare lo schema e migrare il database senza perdere i dati. Si tratta di una funzionalità comune quando si usa SQL Server; SQLlite non supporta molte operazioni dello schema di migrazione e sono possibili solo migrazioni molto semplici. Per altre informazioni vedere [SQLite Limitations](https://docs.microsoft.com/ef/core/providers/sqlite/limitations) (Limitazioni di SQLite).
+Dopo che l'app è stata distribuita e i dati disponibili devono essere conservati, non è possibile eliminare il database quando è necessario modificare lo schema. [Migrazioni Code First](/ef/core/get-started/aspnetcore/new-db) di Entity Framework consente di aggiornare lo schema e migrare il database senza perdere i dati. Si tratta di una funzionalità comune quando si usa SQL Server; SQLlite non supporta molte operazioni dello schema di migrazione e sono possibili solo migrazioni molto semplici. Per altre informazioni vedere [SQLite Limitations](/ef/core/providers/sqlite/limitations) (Limitazioni di SQLite).
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Aggiunta di una proprietà Rating al modello Movie
 
 Aprire il file *Models/Movie.cs* e aggiungere una proprietà `Rating`:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 Poiché è stato aggiunto un nuovo campo alla classe `Movie`, è necessario anche aggiornare l'elenco di elementi di associazione in modo da includere questa nuova proprietà. In *MoviesController.cs* aggiornare l'attributo `[Bind]` per i metodi di azione `Create` e `Edit` in modo da includere la proprietà `Rating`:
 
@@ -22,7 +22,7 @@ Poiché è stato aggiunto un nuovo campo alla classe `Movie`, è necessario anch
 
 Modificare il file */Views/Movies/Index.cshtml* e aggiungere un campo `Rating`:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 Aggiornare */Views/Movies/Create.cshtml* con un campo `Rating`.
 
@@ -48,7 +48,7 @@ In questa esercitazione il database verrà eliminato e verrà creato di nuovo qu
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni `new Movie`.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Aggiungere il campo `Rating` alla vista `Edit`, `Details` e `Delete`.
 

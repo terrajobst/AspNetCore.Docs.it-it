@@ -4,7 +4,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 L'oggetto `MovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` nel file *Startup.cs*:
 
-[!code-csharp[Main](code/Startup.cs?name=snippet2&highlight=6-8)]
+[!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
 
 ## <a name="sqlite"></a>SQLite
 
@@ -20,7 +20,7 @@ Per gestire e visualizzare un database SQLite, sono disponibili numerosi strumen
 
 Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituire il codice generato con il seguente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](code/Models/SeedData.cs)]
 
 Se sono presenti film nel database, l'inizializzatore del valore di inizializzazione viene restituito.
 
@@ -36,10 +36,10 @@ if (context.Movie.Any())
 
 Aggiungere l'inizializzatore del valore di inizializzazione al metodo `Main` nel file *Program.cs*:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 ### <a name="test-the-app"></a>Eseguire il test dell'app
 
 Eliminare tutti i record del database; verrà quindi eseguito il metodo di inizializzazione. Arrestare e avviare l'app per inizializzare il database.
-   
+
 L'app mostra i dati inizializzati.

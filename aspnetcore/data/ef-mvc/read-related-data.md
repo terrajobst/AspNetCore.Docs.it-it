@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core MVC con EF Core - Leggere dati correlati - 6 di 10
 author: tdykstra
-description: "In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione."
+description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 6ee4b0db5bf4d1781ce44f1aff8331680ca8686c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lettura di dati correlati - Esercitazione su EF Core con ASP.NET Core MVC (6 di 10)
+# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core - Leggere dati correlati - 6 di 10
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -65,7 +65,7 @@ Aprire *CoursesController.cs* ed esaminare il metodo `Index`. Lo scaffolding aut
 
 Sostituire il metodo `Index` con il codice seguente, che usa un nome più appropriato per l'`IQueryable` che restituisce entità Course (`courses` anziché `schoolContext`):
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Aprire *Views/Courses/Index.cshtml* e sostituire il codice del modello con il codice seguente. Le modifiche sono evidenziate:
 
@@ -107,7 +107,7 @@ La pagina Instructors (Insegnanti) mostra i dati di tre tabelle diverse. Verrà 
 
 Nella cartella *SchoolViewModels* creare *InstructorIndexData.cs* e sostituire il codice esistente con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Creare il controller e le visualizzazioni per gli insegnanti
 
@@ -117,31 +117,31 @@ Creare un controller per gli insegnanti con azioni di lettura/scrittura EF come 
 
 Aprire *InstructorsController.cs* e aggiungere un'istruzione using tramite lo spazio dei nomi ViewModel:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Sostituire il metodo Index con il codice seguente per eseguire il caricamento eager di dati correlati e inserirlo nel modello di visualizzazione.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 Il metodo accetta dati di route facoltativi (`id`) e un parametro di stringa di query (`courseID`) che forniscono i valori relativi all'ID dell'insegnante e del corso selezionati. I parametri sono forniti dai collegamenti ipertestuali **Select** (Seleziona) nella pagina.
 
 Il codice inizia creando un'istanza del modello di visualizzazione e inserendola nell'elenco degli insegnanti. Il codice specifica il caricamento eager delle proprietà di navigazione `Instructor.OfficeAssignment` e `Instructor.CourseAssignments`. All'interno della proprietà `CourseAssignments` viene caricata la proprietà `Course` e all'interno di questa vengono caricate le proprietà `Enrollments` e `Department`, e all'interno di ogni entità `Enrollment` viene caricata la proprietà `Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Dato che la visualizzazione richiede sempre l'entità OfficeAssignment, è più efficiente recuperare quest'ultima nella stessa query. Le entità Course sono necessarie quando viene selezionato un insegnante nella pagina Web. Un'unica query, quindi, è più efficiente di più query solo se nella maggior parte dei casi la pagina viene visualizzata con un corso selezionato.
 
 Il codice ripete `CourseAssignments` e `Course` perché da `Course` sono necessarie due proprietà. La prima stringa delle chiamate `ThenInclude` ottiene `CourseAssignment.Course`, `Course.Enrollments` e `Enrollment.Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 A questo punto nel codice, un'altra chiamata `ThenInclude` riguarda le proprietà di navigazione di `Student`, che non sono necessarie. Ma chiamando `Include` il codice ricomincia con le proprietà di `Instructor`. È quindi necessario ripetere la sequenza, questa volta specificando `Course.Department` anziché `Course.Enrollments`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 Il codice seguente viene eseguito quando è stato selezionato un insegnante. L'insegnante selezionato viene recuperato dall'elenco di insegnanti nel modello di visualizzazione. La proprietà `Courses` del modello di visualizzazione viene quindi caricata con le entità Course dalla proprietà di navigazione `CourseAssignments` di tale insegnante.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 Il metodo `Where` restituisce una raccolta, ma in questo caso i criteri passati a tale metodo hanno come risultato la restituzione di una sola entità Instructor. Il metodo `Single` converte la raccolta in un'entità Instructor singola, che consente l'accesso alla proprietà `CourseAssignments` di tale entità. La proprietà `CourseAssignments` contiene entità `CourseAssignment`, di cui si vogliono solo le entità `Course` correlate.
 
@@ -159,7 +159,7 @@ Invece di:
 
 Se è stato selezionato un corso, questo viene quindi recuperato dall'elenco dei corsi nel modello di visualizzazione. La proprietà `Enrollments` del modello di visualizzazione viene quindi caricata con le entità Enrollment dalla proprietà di navigazione `Enrollments` di tale corso.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Modificare la visualizzazione dell'indice degli insegnanti
 
@@ -231,7 +231,7 @@ Quando è stato recuperato l'elenco degli insegnanti in *InstructorsController.c
 
 Si supponga che gli utenti vogliano visualizzare solo raramente le iscrizioni per un corso e un insegnante selezionati. In tal caso, è consigliabile caricare i dati delle iscrizioni solo se richiesti. Per vedere un esempio di come eseguire il caricamento esplicito, sostituire il metodo `Index` con il codice seguente, che rimuove il caricamento eager per Enrollments e carica questa proprietà in modo esplicito. Le modifiche al codice sono evidenziate.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 Il nuovo codice rilascia le chiamate al metodo *ThenInclude* per i dati delle iscrizioni dal codice che recupera entità Instructor. Se sono selezionati un insegnante e un corso, il codice evidenziato recupera le entità Enrollment per il corso selezionato e le entità Student per ogni Enrollment.
 

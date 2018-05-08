@@ -1,5 +1,5 @@
 
-## <a name="test-the-app"></a>Eseguire il test dell'applicazione
+## <a name="test-the-app"></a>Eseguire il test dell'app
 
 * Eseguire l'app e toccare il collegamento **Mvc film**.
 * Toccare il collegamento **Crea nuovo** e creare un filmato.
@@ -12,7 +12,7 @@
 
 * In alcune impostazioni locali è necessario specificare il formato di data. Vedere il codice evidenziato di seguito.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
 
 `DataAnnotations` verrà trattato più avanti nell'esercitazione.
 

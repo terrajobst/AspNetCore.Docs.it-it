@@ -1,6 +1,6 @@
 Sostituire il contenuto del file di vista Razor *Views/HelloWorld/Index.cshtml* con quanto segue:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Passare a `http://localhost:xxxx/HelloWorld`. Il metodo `Index` in `HelloWorldController` non ha eseguito molte operazioni; ha eseguito l'istruzione `return View();` che ha specificato che il metodo deve usare un file di modello della vista per eseguire il rendering di una risposta al browser. Poiché non è stato specificato in modo esplicito il nome del file di modello della vista, MVC imposta come predefinito il file della vista *Index.cshtml* nella cartella */Views/HelloWorld*. L'immagine seguente mostra la stringa "Hello from our View Template!" hardcoded nella vista.
 
@@ -18,11 +18,11 @@ I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Modificare il titolo e il collegamento di menu nel file di layout
 
-Nell'elemento del titolo cambiare `MvcMovie` in `Movie App`. Modificare il testo di ancoraggio nel modello di layout da `MvcMovie` a `Mvc Movie` e il controller da `Home` a `Movies`, come evidenziato di seguito:
+Nell'elemento del titolo cambiare `MvcMovie` in `Movie App`. Modificare il testo di ancoraggio nel modello di layout da `MvcMovie` a `Movie App` e il controller da `Home` a `Movies`, come evidenziato di seguito:
 
 Nota: la versione di ASP.NET 2.0 Core è leggermente diversa. Non contiene `@inject ApplicationInsights` e `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > Il controller `Movies` non è stato ancora implementato e quindi, se si fa clic su questo collegamento, verrà visualizzato un errore 404 (Non trovato).
@@ -73,7 +73,7 @@ Renderli leggermente diversi in modo da poter esaminare la parte specifica di ap
 
 Salvare le modifiche e passare a `http://localhost:xxxx/HelloWorld`. Si noti che il titolo del browser, l'intestazione primaria e le intestazioni secondarie sono cambiati. Se le modifiche non sono visibili nel browser, è possibile che si stia visualizzando il contenuto memorizzato nella cache. Premere CTRL + F5 nel browser per forzare il caricamento della risposta dal server. Il titolo del browser viene creato con il valore `ViewData["Title"]` impostato nel modello di vista *Index.cshtml* e la stringa "- Movie App" aggiuntiva viene aggiunta nel file di layout.
 
-Si noti anche come il contenuto del modello di vista *Index.cshtml* sia stato unito con il modello di vista *Views/Shared/_Layout.cshtml* e sia stata inviata una singola risposta HTML al browser. I modelli di layout rendono molto semplice apportare modifiche che si applicano a tutte le pagine dell'applicazione. Per altre informazioni, vedere [Layout](../../mvc/views/layout.md).
+Si noti anche come il contenuto del modello di vista *Index.cshtml* sia stato unito con il modello di vista *Views/Shared/_Layout.cshtml* e sia stata inviata una singola risposta HTML al browser. I modelli di layout rendono molto semplice apportare modifiche che si applicano a tutte le pagine dell'applicazione. Per altre informazioni, vedere [Layout](xref:mvc/views/layout).
 
 ![Vista dell'elenco di film](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
@@ -89,7 +89,7 @@ Attualmente il metodo `Welcome` nella classe `HelloWorldController` accetta un p
 
 Tornare al file *HelloWorldController.cs* e modificare il metodo `Welcome` in modo da aggiungere un valore `Message` e `NumTimes` al dizionario `ViewData`. Il dizionario `ViewData` è un oggetto dinamico, ovvero è possibile inserirvi gli elementi desiderati; l'oggetto `ViewData` non dispone di proprietà definite fino a quando non si inserisce un elemento al suo interno. Il sistema di [associazione di modelli MVC](xref:mvc/models/model-binding) esegue il mapping dei parametri denominati (`name` e `numTimes`) dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Il file *HelloWorldController.cs* completo avrà un aspetto simile al seguente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 L'oggetto di dizionario `ViewData` contiene i dati che verranno passati alla vista. 
 
@@ -97,7 +97,7 @@ Creare un modello di vista Welcome denominato *Views/HelloWorld/Welcome.cshtml*.
 
 Si creerà un ciclo nel modello di vista *Welcome.cshtml* che visualizza la stringa "Hello" `NumTimes`. Sostituire il contenuto di *Views/HelloWorld/Welcome.cshtml* con quanto segue:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Salvare le modifiche e passare all'URL seguente:
 
