@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 5a8a035ff3f127d01655888d4f83a871645b0bf5
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -79,7 +79,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Se non [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) specificato per il middleware, le intestazioni predefinite per l'inoltro sono `None`.
 
-Configurazione aggiuntiva potrebbe essere necessaria per le app ospitate dietro a servizi di bilanciamento del carico e server proxy. Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
+Potrebbero essere necessari interventi di configurazione aggiuntivi per le app ospitate dietro a server proxy e a servizi di bilanciamento del carico. Per altre informazioni, vedere [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-apache"></a>Installare Apache
 
@@ -189,6 +189,13 @@ WantedBy=multi-user.target
 
 > [!NOTE]
 > **Utente** &mdash; se l'utente *apache* non viene usata dalla configurazione, è necessario creare prima l'utente e specificato le proprietà appropriate per i file.
+
+> [!NOTE]
+> Alcuni valori (ad esempio, stringhe di connessione SQL) devono utilizzare caratteri di escape per i provider di configurazione leggere le variabili di ambiente. Utilizzare il comando seguente per generare un valore correttamente con caratteri di escape da utilizzare nel file di configurazione:
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 Salvare il file e attivare il servizio:
 

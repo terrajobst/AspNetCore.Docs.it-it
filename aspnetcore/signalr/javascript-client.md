@@ -6,22 +6,20 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 04/06/2018
+ms.date: 05/09/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/javascript-client
-ms.openlocfilehash: d2530fe3c4b47687d3ef4015624499d96fea2d7b
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: HT
+ms.openlocfilehash: 1701d9ac5222bf64f9690c1cecdf54ef95fe4a49
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Client ASP.NET Core SignalR JavaScript
 
 [Rachel Appel](http://twitter.com/rachelappel)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 La libreria client di ASP.NET Core SignalR JavaScript consente agli sviluppatori di chiamare il codice dell'hub sul lato server.
 
@@ -58,7 +56,7 @@ In genere, i browser caricare le connessioni appartenenti allo stesso dominio de
 
 Per impedire la lettura dei dati sensibili da un altro sito, di un sito dannoso [connessioni cross-origin](xref:security/cors) sono disabilitati per impostazione predefinita. Per consentire una richiesta multiorigine, abilitarla nel `Startup` classe.
 
-[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-34,55)]
+[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-35,56)]
 
 ## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub da client
 
@@ -100,9 +98,9 @@ Traccia log lato client installazione passando un logger e il tipo di evento per
 * `signalR.LogLevel.Information` : Messaggi di stato senza errori. Registri `Information`, `Warning`, e `Error` i messaggi.
 * `signalR.LogLevel.Trace` : I messaggi di traccia. Registra tutti gli elementi, inclusi i dati trasportati tra hub e client.
 
-Usare la `configureLogging` metodo su `HubConnectionBuilder` per configurare il livello di registrazione. I messaggi vengono registrati nella console del Browser.
+Usare la `configureLogging` metodo su `HubConnectionBuilder` per configurare il livello di registrazione. I messaggi vengono registrati nella console del browser.
 
-[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=11)]
+[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ## <a name="related-resources"></a>Risorse correlate
 

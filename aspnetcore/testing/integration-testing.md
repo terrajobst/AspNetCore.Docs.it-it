@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac3a9e00edfd4c736ee1e7d5c0c724c3e52d0b6b
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -43,7 +43,7 @@ Per ottenere l'impostazione per test di integrazione di esecuzione, è necessari
 
 ### <a name="the-test-host"></a>L'Host di Test
 
-ASP.NET Core include un host di test che può essere aggiunti ai progetti di test di integrazione e utilizzato per l'host ASP.NET Core applicazioni, prova a soddisfare le richieste senza la necessità di un host web reale. L'esempio fornito include un progetto di test di integrazione che è stato configurato per utilizzare [xUnit](https://xunit.github.io) e l'Host di Test. Usa il `Microsoft.AspNetCore.TestHost` pacchetto NuGet.
+ASP.NET Core include un host di test che può essere aggiunti ai progetti di test di integrazione e utilizzato per l'host ASP.NET Core applicazioni, prova a soddisfare le richieste senza la necessità di un host web reale. L'esempio fornito include un progetto di test di integrazione che è stato configurato per utilizzare [xUnit](https://xunit.github.io) e l'Host di Test. Usa il [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/) pacchetto NuGet.
 
 Una volta il `Microsoft.AspNetCore.TestHost` pacchetto è incluso nel progetto, sarà possibile creare e configurare un `TestServer` nei test. Il test seguente mostra come verificare che una richiesta effettuata nella radice di un sito restituisce "Hello World!" e deve essere eseguito correttamente con il valore predefinito il modello Web vuoto di ASP.NET Core creato da Visual Studio.
 
