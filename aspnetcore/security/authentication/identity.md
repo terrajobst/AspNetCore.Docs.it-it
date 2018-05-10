@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: f9215767bf9a7c8b43b474848ba7dff7c3ddaf24
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cf63766dc4ae94d784190d6dbc7b5beb57342f42
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità su ASP.NET Core
 
@@ -49,7 +49,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
    # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
-   Se si utilizza l'interfaccia CLI Core .NET, creare il nuovo progetto utilizzando ``dotnet new mvc --auth Individual``. Questo comando crea un nuovo progetto con lo stesso codice di modello di identità che Visual Studio crea.
+   Se si utilizza l'interfaccia CLI Core .NET, creare il nuovo progetto utilizzando `dotnet new mvc --auth Individual`. Questo comando crea un nuovo progetto con lo stesso codice di modello di identità che Visual Studio crea.
 
    Il progetto creato contiene il `Microsoft.AspNetCore.Identity.EntityFrameworkCore` pacchetto, che mantiene i dati di identità e schema a SQL Server utilizzando [Entity Framework Core](https://docs.microsoft.com/ef/).
 
@@ -88,30 +88,30 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
    ![Applicare le migrazioni pagina](identity/_static/apply-migrations.png)
 
-   In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria.  Per utilizzare un database in memoria, aggiungere il pacchetto ``Microsoft.EntityFrameworkCore.InMemory`` pall'App e modificare la chiamata dell'applicazione a ``AddDbContext`` in ``ConfigureServices`` come indicato di seguito:
+   In alternativa, è possibile verificare l'utilizzo di ASP.NET Identity Core con l'app senza un database persistente utilizzando un database in memoria.  Per utilizzare un database in memoria, aggiungere il pacchetto `Microsoft.EntityFrameworkCore.InMemory` pall'App e modificare la chiamata dell'applicazione a `AddDbContext` in `ConfigureServices` come indicato di seguito:
 
    ```csharp
    services.AddDbContext<ApplicationDbContext>(options =>
        options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
    ```
 
-   Quando l'utente sceglie il collegamento**registrare** il metodo azione``Register`` viene richiamato nell ``AccountController``. L'azione``Register`` crea l'utente chiamandoconsente all'utente chiamando  `CreateAsync` sull'oggetto  `_userManager`(fornito all ``AccountController`` tramite dependency injection):
+   Quando l'utente sceglie il collegamento**registrare** il metodo azione`Register` viene richiamato nell `AccountController`. L'azione`Register` crea l'utente chiamandoconsente all'utente chiamando  `CreateAsync` sull'oggetto  `_userManager`(fornito all `AccountController` tramite dependency injection):
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
-   Se l'utente è stato creato correttamente, l'utente è connesso tramite la chiamata al metodo ``_signInManager.SignInAsync``.
+   Se l'utente è stato creato correttamente, l'utente è connesso tramite la chiamata al metodo `_signInManager.SignInAsync`.
 
    **Nota:** vedere [account conferma](xref:security/authentication/accconfirm#prevent-login-at-registration) per la procedura impedire l'accesso immediato al momento della registrazione.
 
 4. Accedi.
 
-   Gli utenti possono accedere facendo clic sul collegamento**Accedi** nella parte superiore del sito, o possono essere reindirizzati alla pagina di accesso se si tenta di accedere ad una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il metodo di azione``AccountController``nell ``Login``viene invocato.
+   Gli utenti possono accedere facendo clic sul collegamento**Accedi** nella parte superiore del sito, o possono essere reindirizzati alla pagina di accesso se si tenta di accedere ad una parte del sito che richiede l'autorizzazione. Quando l'utente invia il form nella pagina di accesso, il metodo di azione`AccountController`nell `Login`viene invocato.
 
-   L'azione ``Login`` chiama ``PasswordSignInAsync`` sul ``_signInManager`` oggetto (fornito all ``AccountController`` tramite dependency injection).
+   L'azione `Login` chiama `PasswordSignInAsync` sul `_signInManager` oggetto (fornito all `AccountController` tramite dependency injection).
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
 
-   La classe base ``Controller`` espone una proprietà  ``User`` a cui è possibile accedere dai metodi del controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
+   La classe base `Controller` espone una proprietà  `User` a cui è possibile accedere dai metodi del controller. Ad esempio, è possibile enumerare `User.Claims` e prendere decisioni di autorizzazione. Per ulteriori informazioni, vedere [autorizzazione](xref:security/authorization/index).
 
 5. Effettuare la disconnessione.
 
@@ -149,7 +149,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
     l template di progetto predefinito per l'*applicazione Web di ASP.NET Core* consente agli utenti di accedere a qualsiasi azione nell'applicazione senza effettuare l'accesso. Per verificare il funzionamento di ASP.NET Identity, aggiungere un attributo `[Authorize]` all'azione `About` del controller `Home`.
 
-    ```cs
+    ```csharp
     [Authorize]
     public IActionResult About()
     {
@@ -166,7 +166,7 @@ In questo argomento, imparerai ad usare ASP.NET Identity Core per aggiungere le 
 
     Aprire una finestra di comando e passare alla radice del progetto directory contenente il `.csproj` file. Eseguire il [dotnet eseguire](/dotnet/core/tools/dotnet-run) comando per eseguire l'app:
 
-    ```cs
+    ```csharp
     dotnet run 
     ```
 

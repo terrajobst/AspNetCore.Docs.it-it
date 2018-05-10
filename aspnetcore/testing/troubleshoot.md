@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: a75dc666621600e1e2fe36c29acbe7484bae9229
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Risolvere i progetti ASP.NET Core
 
@@ -24,13 +24,13 @@ I collegamenti seguenti forniscono informazioni aggiuntive sulla risoluzione dei
 * [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot)
 * [Risolvere i problemi di ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot)
 * [Errori comuni di Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
-* [YouTube: La diagnosi dei problemi nelle applicazioni ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [YouTube: Diagnosing issues in ASP.NET Core Applications](https://www.youtube.com/watch?v=RYI0DHoIVaA) (Problemi di diagnosi nelle applicazioni ASP.NET Core)
 
 <a name="sdk"></a>
 ## <a name="net-core-sdk-warnings"></a>Avvisi di .NET core SDK
 
-### <a name="both-the-32-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Entrambi 32 e 64 bit di .NET Core SDK siano installate le versioni
-Nel **nuovo progetto** finestra di dialogo per ASP.NET Core, si potrebbe vedere il seguente avviso vengono visualizzati nella parte superiore: 
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Entrambe le versioni a 64 bit del SDK .NET Core e a 32 bit installate
+Nel **nuovo progetto** dialogo ASP.NET Core, si potrebbe notare l'avviso seguente: 
 
     Both 32 and 64 bit versions of the .NET Core SDK are installed. Only templates from the 64 bit version(s) installed at C:\Program Files\dotnet\sdk\" will be displayed.
 
@@ -45,12 +45,24 @@ Questo avviso viene visualizzato quando (x86) 32 bit sia versioni a 64 bit (x64)
 Disinstallare il SDK dei componenti di base .NET a 32 bit per evitare questo avviso. Disinstallare dal **Pannello di controllo** > **programmi e funzionalità** > **Disinstalla o modifica programma**. Se si comprende perché l'avviso viene generato e le relative implicazioni, è possibile ignorare l'avviso.
 
 ### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK viene installato in più posizioni
-Nel **nuovo progetto** finestra di dialogo per ASP.NET Core venga visualizzato il seguente messaggio di avviso vengono visualizzati nella parte superiore: 
+Nel **nuovo progetto** finestra di dialogo per ASP.NET Core venga visualizzato l'avviso seguente: 
 
  .NET Core SDK è installato in più posizioni. Solo i modelli dal SDK installato in "c:\Programmi\Microsoft Files\dotnet\sdk\' verranno visualizzati.
 
 ![Uno screenshot della finestra di dialogo OneASP.NET che mostra il messaggio di avviso](troubleshoot/_static/multiplelocations.png)
 
-Questo messaggio viene visualizzato perché sono presenti almeno un'installazione di .NET Core SDK in una directory all'esterno di * c:\Programmi\Microsoft Files\dotnet\sdk\*. In genere che si verifica quando il SDK di .NET Core è stato distribuito in una macchina mediante copia/incolla anziché il programma di installazione MSI.
+Questo messaggio viene visualizzato quando si dispone di almeno un'installazione di .NET Core SDK in una directory all'esterno di * c:\Programmi\Microsoft Files\dotnet\sdk\*. In genere che si verifica quando il SDK di .NET Core è stato distribuito in una macchina mediante copia/incolla anziché il programma di installazione MSI.
 
 Disinstallare il SDK dei componenti di base .NET a 32 bit per evitare questo avviso. Disinstallare dal **Pannello di controllo** > **programmi e funzionalità** > **Disinstalla o modifica programma**. Se si comprende perché l'avviso viene generato e le relative implicazioni, è possibile ignorare l'avviso.
+
+### <a name="no-net-core-sdks-were-detected"></a>Nessun SDK di .NET Core sono stato rilevato
+Nel **nuovo progetto** finestra di dialogo per ASP.NET Core venga visualizzato l'avviso seguente: 
+
+**Nessun SDK di .NET Core sono stato rilevato, verificare che siano incluse nella variabile di ambiente 'PATH'**
+
+![Uno screenshot della finestra di dialogo OneASP.NET che mostra il messaggio di avviso](troubleshoot/_static/NoNetCore.png)
+
+Questo avviso viene visualizzato quando la variabile di ambiente `PATH` non fa riferimento a qualsiasi .NET Core SDK nel computer. Per risolvere questo problema:
+
+* Installare o verificare che sia installato il SDK dei componenti di base di .NET.
+* Verificare il `PATH` variabile di ambiente punta alla posizione è installato SDK. Il programma di installazione in genere imposta la `PATH`.

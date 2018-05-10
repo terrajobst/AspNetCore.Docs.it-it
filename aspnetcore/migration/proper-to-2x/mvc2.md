@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f8e9d3c222bdd5491e946f286bbdf71a2d26ab10
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core 2.0
 
@@ -150,7 +150,7 @@ In ASP.NET Core i file statici vengono archiviati nella "radice Web" (*&lt;radic
 
 Ad esempio, un asset immagine nella cartella *wwwroot/images* è accessibile al browser in corrispondenza di una posizione come `http://<app>/images/<imageFileName>`.
 
-**Nota:** per la documentazione più dettagliata di gestione dei file statici in ASP.NET Core, vedere [utilizzare i file statici in ASP.NET Core](xref:fundamentals/static-files).
+**Nota:** per la documentazione più dettagliata di gestione dei file statici in ASP.NET Core, vedere [file statici](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

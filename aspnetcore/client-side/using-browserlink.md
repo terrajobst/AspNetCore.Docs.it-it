@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: a75a896dd7ebc488e3e9344ec705c24201924375
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 0496f9df35956b8fe7ca9fcc7c03df33437d5a87
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core
 
@@ -66,7 +66,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Per altre informazioni, vedere [funziona con più ambienti](xref:fundamentals/environments).
+Per altre informazioni, vedere [utilizzare più ambienti](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Come utilizzare il collegamento del Browser
 
@@ -104,7 +104,7 @@ Passare il mouse sopra il controllo barra degli strumenti di collegamento del Br
 
 Modificare la visualizzazione dell'indice e tutti i browser connessi vengono aggiornati quando si fa clic sul pulsante Aggiorna collegamento Browser:
 
-![browsers-sync-to-changes](using-browserlink/_static/browsers-sync-to-changes.png)
+![browser sincronizzazione di modifiche](using-browserlink/_static/browsers-sync-to-changes.png)
 
 Collegamento del browser funziona anche con i browser che si avvia dall'esterno di Visual Studio e accedere all'URL dell'applicazione.
 
@@ -116,11 +116,11 @@ Aprire il Dashboard di collegamento Browser dal menu per gestire la connessione 
 
 Se non è connesso alcun browser, è possibile avviare una sessione di debug non selezionando il *Visualizza nel Browser* collegamento:
 
-![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connessioni](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 In caso contrario, i browser connessi sono mostrati con il percorso della pagina da cui viene visualizzata ogni browser:
 
-![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-due connessioni](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Se si desidera, è possibile fare clic sul nome di un browser elencati per aggiornare il browser singolo.
 

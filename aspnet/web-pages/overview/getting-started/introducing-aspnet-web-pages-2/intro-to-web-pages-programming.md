@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 60115dd06a27bf856427953de29e993194afb991
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Introduzione a ASP.NET Web Pages - nozioni di base sulla programmazione
 ====================
@@ -207,7 +207,7 @@ Eseguire la pagina e fare clic su **Invia**. Questa volta non visualizzare solo 
 
 ### <a name="testing-the-value-of-a-query-string"></a>Verifica del valore di una stringa di query
 
-Un test di altre. Questa volta, si aggiungerà un se blocco che consente di verificare un valore denominato show che possono essere passati nella stringa di query. (Come segue: 'http://localhost:43097/TestRazorPart2.cshtml`?show=true`) si modificherà la pagina in modo che il messaggio è stato visualizzati ("This is la prima volta..." e così via) viene visualizzata solo se il valore di show è true.
+Un test di altre. Questa volta, si aggiungerà un se blocco che consente di verificare un valore denominato show che possono essere passati nella stringa di query. (Come segue: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) si modificherà la pagina in modo che il messaggio è stato visualizzati ("This is la prima volta..." e così via) viene visualizzata solo se il valore di show è true.
 
 Nella parte inferiore (ma interno), il blocco di codice nella parte superiore della pagina, aggiungere quanto segue:
 

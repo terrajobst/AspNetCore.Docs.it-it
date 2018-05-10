@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: 5bb89401ac54b54810fe5724b293ae8ed7e5afef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ead4f96aa0041cd919caa972d3bb05bd94a857b3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Eseguire la migrazione di configurazione di ASP.NET Core
 
 [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
-Nell'articolo precedente, abbiamo iniziato [eseguire la migrazione di un progetto MVC ASP.NET ad ASP.NET MVC Core](mvc.md). In questo articolo è la migrazione di configurazione.
+Nell'articolo precedente, abbiamo iniziato [eseguire la migrazione di un progetto MVC ASP.NET ad ASP.NET MVC Core](xref:migration/mvc). In questo articolo è la migrazione di configurazione.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
@@ -29,9 +29,9 @@ ASP.NET Core non utilizzerà più il *Global. asax* e *Web. config* file utilizz
 
 Il *Web. config* file è stato sostituito anche in ASP.NET Core. Configurazione stessa ora può essere configurati, come parte della procedura di avvio dell'applicazione descritto in *Startup.cs*. Configurazione può ancora utilizzare file XML, ma in genere i progetti ASP.NET Core verranno posizionati i valori di configurazione in un file in formato JSON, ad esempio *appSettings. JSON*. Sistema di configurazione di ASP.NET Core inoltre facilmente accessibili le variabili di ambiente, che possono fornire un [più sicura e affidabile la posizione di](xref:security/app-secrets) per valori specifici dell'ambiente. Ciò vale soprattutto per i segreti come stringhe di connessione e le chiavi API che non devono essere verificate nel controllo del codice sorgente. Vedere [configurazione](xref:fundamentals/configuration/index) per ulteriori informazioni sulla configurazione di ASP.NET Core.
 
-Per questo articolo, si inizierà con il progetto ASP.NET Core parzialmente migrati da [l'articolo precedente](mvc.md). Configurazione del programma di installazione, aggiungere il seguente costruttore e proprietà per il *Startup.cs* file si trova nella radice del progetto:
+Per questo articolo, si inizierà con il progetto ASP.NET Core parzialmente migrato da [articolo precedente](xref:migration/mvc). Configurazione del programma di installazione, aggiungere il seguente costruttore e proprietà per il *Startup.cs* file si trova nella radice del progetto:
 
-[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
+[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-16)]
 
 Si noti che a questo punto, il *Startup.cs* file non verrà compilato, come è necessario aggiungere il seguente `using` istruzione:
 
@@ -48,7 +48,6 @@ Aggiungere un *appSettings. JSON* file nella radice del progetto utilizzando il 
 Il progetto ASP.NET MVC incluso la stringa di connessione di database richiesti in *Web. config*, nel `<connectionStrings>` elemento. Nel progetto ASP.NET di base, verrà conservata nel *appSettings. JSON* file. Aprire *appSettings. JSON*e si noti che include le operazioni seguenti:
 
 [!code-json[](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
-
 
 Nella riga evidenziata illustrata in precedenza, modificare il nome del database da **_CHANGE_ME** per il nome del database.
 

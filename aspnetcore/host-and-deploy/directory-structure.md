@@ -1,7 +1,7 @@
 ---
 title: Struttura di directory ASP.NET Core
 author: guardrex
-description: Informazioni sulla struttura di directory dell'App ASP.NET Core pubblicate.
+description: Informazioni sulla struttura di directory delle app ASP.NET Core pubblicate.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ac9b777bcc7f4a8634161fc1347a4d0fdc3b4784
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-directory-structure"></a>Struttura di directory ASP.NET Core
 
@@ -34,7 +34,7 @@ Il *pubblicare* directory rappresenta il *percorso radice del contenuto*, defini
 
 Il *wwwroot* directory, se presente, contiene solo gli asset statici.
 
-Stdout *registri* directory è possibile creare la distribuzione utilizzando uno dei due approcci seguenti:
+Stdout *registri* directory può essere creata per la distribuzione utilizzando uno dei due approcci seguenti:
 
 * Aggiungere il seguente `<Target>` elemento al file di progetto:
 

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Bundle e minifiy asset statici in ASP.NET Core
 
@@ -77,7 +77,7 @@ I modelli di progetto MVC e pagine Razor forniscono un *bundleconfig.json* file 
 
 Opzioni di configurazione includono:
 
-* `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **required**
+* `outputFileName`: Il nome del file di bundle all'output. Può contenere un percorso relativo di *bundleconfig.json* file. **Obbligatorio**
 * `inputFiles`: Una matrice di file da raggruppare. Questi sono i percorsi relativi al file di configurazione. **parametro facoltativo**, * comporta un valore vuoto in un file di output vuoto. [il glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
 * `minify`: Le opzioni di riduzione per il tipo di output. **parametro facoltativo**, *impostazione predefinita: `minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.
@@ -313,5 +313,5 @@ In alternativa, Esplora esecuzione attività di Visual Studio può essere utiliz
 
 * [Usare Gulp](xref:client-side/using-gulp)
 * [Usare Grunt](xref:client-side/using-grunt)
-* [Con più ambienti di lavoro](xref:fundamentals/environments)
+* [Utilizzare più ambienti](xref:fundamentals/environments)
 * [Helper tag](xref:mvc/views/tag-helpers/intro)

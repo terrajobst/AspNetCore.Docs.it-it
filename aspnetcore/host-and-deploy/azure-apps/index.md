@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
@@ -51,7 +51,7 @@ Individuare le limitazioni di esecuzione di runtime di Servizio app di Azure app
 
 Con ASP.NET Core 2.0 e versioni successive, tre pacchetti del [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage) offrono funzionalità di registrazione automatica per le app distribuite nel servizio app di Azure:
 
-* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) usa [IHostingStartup](xref:host-and-deploy/platform-specific-configuration) per fornire l'integrazione di ASP.NET Core con il servizio app di Azure. La funzionalità di registrazione aggiunte vengono fornite dal pacchetto `Microsoft.AspNetCore.AzureAppServicesIntegration`.
+* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) usa [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) per fornire l'integrazione di ASP.NET Core con il servizio app di Azure. La funzionalità di registrazione aggiunte vengono fornite dal pacchetto `Microsoft.AspNetCore.AzureAppServicesIntegration`.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) esegue [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) per aggiungere i provider di registrazione diagnostica del servizio app di Azure nel pacchetto `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) offre implementazioni di logger per il supporto dei registri di diagnostica del servizio app di Azure e delle funzionalità del flusso di registrazione.
 
@@ -95,14 +95,13 @@ Per altre informazioni, vedere [Provider di archiviazione chiavi](xref:security/
 
 Le app in anteprima di ASP.NET Core possono essere distribuite in Servizio app di Azure con gli approcci seguenti:
 
-* [Installare l'estensione del sito di anteprima](#site-x)
-* [Distribuire l'app autonoma](#self)
-* [Usare Docker con app Web per contenitori](#docker)
+* [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension)
+* [Distribuire l'app autonoma](#deploy-the-app-self-contained)
+* [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers)
 
-In caso di problemi con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>Installare l'estensione del sito di anteprima
+### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
 
 * Dal portale di Azure passare al pannello Servizi App.
 * Immettere "est" nella casella di ricerca.
@@ -111,10 +110,10 @@ In caso di problemi con l'estensione del sito di anteprima, aprire un problema i
 
 ![Pannello dell'app Azure con i passaggi precedenti](index/_static/x1.png)
 
-* Selezionare **ASP.NET Core Runtime Extensions** (Estensioni runtime di ASP.NET Core).
-* Selezionare **OK** > **OK**.
+* Selezionare **ASP.NET Core 2.1 (x86) Runtime** (Runtime ASP.NET Core 2.1 (x86)) o **ASP.NET Core 2.1 (x64) Runtime** (Runtime ASP.NET Core 2.1 (x64)).
+* Scegliere **OK**. Selezionare di nuovo **OK**.
 
-Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core 2.1. È possibile verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello Servizi app:
+Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core 2.1. Verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello **Servizi app**:
 
 * Immettere "con" nella casella di ricerca.
 * Selezionare **Console**.
@@ -126,26 +125,24 @@ L'immagine precedente era aggiornata al momento della redazione di questo artico
 
 `dotnet --info` consente di visualizzare il percorso dell'estensione del sito in cui è stata installata l'anteprima. Mostra che l'app è in esecuzione dall'estensione del sito invece che dal percorso predefinito *ProgramFiles*. Se viene visualizzato *ProgramFiles*, riavviare il sito ed eseguire `dotnet --info`.
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Usare l'estensione del sito di anteprima con un modello ARM
+**Usare l'estensione del sito di anteprima con un modello ARM**
 
-Se si usa un modello ARM per creare e distribuire le applicazioni, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Ad esempio:
+Se per creare e distribuire le app si usa un modello ARM, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Ad esempio:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
 ### <a name="deploy-the-app-self-contained"></a>Distribuire l'app autonoma
 
-È possibile distribuire un'[app autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che include il runtime di anteprima quando viene distribuita. Per la distribuzione di un'app autonoma:
+È possibile distribuire un'[app autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che porti il runtime di anteprima nella distribuzione. Per la distribuzione di un'app autonoma:
 
 * Non è necessario preparare il sito.
-* È necessario pubblicare l'applicazione in modo diverso rispetto a quanto richiesto per la distribuzione di un'app quando l'SDK è installato nel server.
+* L'app deve essere pubblicata in modo diverso rispetto a quando la pubblicazione riguarda una distribuzione dipendente dal framework con il runtime condiviso e l'host nel server.
 
-Le app autonome sono un'opzione per tutte le applicazioni .NET Core.
+Le app autonome sono un'opzione per tutte le app ASP.NET Core.
 
-<a name="docker"></a>
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
 
-L'[hub di Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima 2.1. È possibile usarle come immagine di base e distribuirle in app Web per contenitori come di consueto.
+L'[hub di Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima 2.1. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

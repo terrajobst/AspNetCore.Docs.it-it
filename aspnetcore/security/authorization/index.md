@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: ef275011cdd87b1d0c861de735d89d064574be5a
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="authorization-in-aspnet-core"></a>Autorizzazione in ASP.NET Core
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 02/20/2018
 * [Autorizzazione basata sulle attestazioni](xref:security/authorization/claims)
 
 * [Autorizzazione basata sui criteri](xref:security/authorization/policies)
+
+* [Provider di criteri di autorizzazione personalizzati](xref:security/authorization/iauthorizationpolicyprovider)
 
 * [Inserimento di dipendenze nei gestori di requisiti](xref:security/authorization/dependencyinjection)
 
