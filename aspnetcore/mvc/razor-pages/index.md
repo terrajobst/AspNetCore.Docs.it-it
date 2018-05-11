@@ -5,16 +5,16 @@ description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/12/2017
+ms.date: 5/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -208,6 +208,13 @@ Il metodo `OnPostDeleteAsync`:
 * Chiama `RedirectToPage` per reindirizzare alla pagina di indice radice (`/Index`).
 
 ::: moniker range=">= aspnetcore-2.1"
+
+## <a name="mark-page-properties-required"></a>Contrassegnare le proprietà della pagina con Required
+
+Le proprietà di `PageModel` possono essere decorate con l'attributo con [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
+
+[!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Gestire le richieste HEAD con il gestore OnGet
 
 In genere, per le richieste HEAD viene creato e chiamato un gestore HEAD:
@@ -226,9 +233,10 @@ services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
 
-`SetCompatibilityVersion` imposta effettivamente l'opzione di Razor Pages `AllowMappingHeadRequestsToGetHandler` su `true`. Per questo comportamento è previsto il consenso esplicito fino al rilascio di ASP.NET Core 3.0 Preview 1 o versioni successive. Ogni versione principale di ASP.NET Core adotta tutti i comportamenti della versione patch della versione precedente.
+`SetCompatibilityVersion` imposta effettivamente l'opzione di Razor Pages `AllowMappingHeadRequestsToGetHandler` su `true`.
 
-Il consenso esplicito globale per il comportamento per le versioni patch 2.1-2.x può essere evitato con una configurazione di app che mappa le richieste HEAD al gestore GET. Impostare l'opzione di Razor Pages `AllowMappingHeadRequestsToGetHandler` su `true` senza chiamare `SetCompatibilityVersion` in `Startup.Configure`:
+Anziché acconsentire esplicitamente a tutti i comportamenti 2.1 con `SetCompatibilityVersion`, è possibile accettare comportamenti specifici. Il codice seguente consente di accettare le richieste HEAD di mapping nel gestore GET.
+
 
 ```csharp
 services.AddMvc()
@@ -267,7 +275,7 @@ La proprietà [Layout](xref:mvc/views/layout#specifying-a-layout) proprietà vie
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
-**Nota**: il layout è nella cartella *Pages*. Le pagine cercano altre visualizzazioni (layout, modelli, righe parzialmente eseguite) in modo gerarchico, partendo dalla stessa cartella della pagina corrente. Un layout nella cartella *Pages* può essere usato da qualsiasi pagina Razor della cartella *Pages*.
+Il layout è nella cartella *Pages* (Pagine). Le pagine cercano altre visualizzazioni (layout, modelli, righe parzialmente eseguite) in modo gerarchico, partendo dalla stessa cartella della pagina corrente. Un layout nella cartella *Pages* può essere usato da qualsiasi pagina Razor della cartella *Pages*.
 
 Si consiglia di **non** inserire il file di layout nella cartella *Views/Shared*. *Views/Shared* è un modello destinato alle visualizzazioni MVC. Le pagine Razor devono basarsi sulla gerarchia di cartelle, non su convenzioni di percorso.
 
@@ -299,7 +307,7 @@ Il file *Pages/_ViewImports.cshtml* file imposta il seguente spazio dei nomi:
 
 Lo spazio dei nomi generato per la pagina Razor *Pages/Customers/Edit.cshtml* corrisponde al file code-behind. La direttiva `@namespace` è stata progettata in modo che le classi C# aggiunte a un progetto e il codice generato dalle pagine *funzionino* senza dover aggiungere una direttiva `@using` per il file code-behind.
 
-**Nota:** `@namespace` funziona anche con le normali visualizzazioni Razor.
+`@namespace` *Funziona anche con le normali visualizzazioni Razor.*
 
 Il file di visualizzazione *Pages/Create.cshtml* originale:
 
@@ -350,6 +358,42 @@ La generazione di URL per le pagine supporta i nomi relativi. La tabella seguent
 `RedirectToPage("Index")`, `RedirectToPage("./Index")`, e `RedirectToPage("../Index")` sono <em>nomi relativi</em>. Il parametro `RedirectToPage` è <em>combinato</em> con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Il collegamento dei nomi relativi è utile quando si compilano siti con una struttura complessa. Se si usano i nomi relativi per il collegamento tra le pagine in una cartella, è possibile rinominare tale cartella. Tutti i collegamenti continuano a funzionare perché non includono il nome della cartella.
+
+::: moniker range=">= aspnetcore-2.1"
+## <a name="viewdata-attribute"></a>Attributo viewData
+
+È possibile passare i dati a una pagina tramite [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati da [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+
+Nell'esempio seguente `AboutModel` contiene una proprietà `Title` decorata con `[ViewData]`. La proprietà `Title` è impostata sul titolo della pagina About (Informazioni):
+
+```csharp
+public class AboutModel : PageModel
+{
+    [ViewData]
+    public string Title { get; } = "About";
+
+    public void OnGet()
+    {
+    }
+}
+```
+
+Nella pagina About (Informazioni) accedere alla proprietà `Title` come proprietà del modello:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+Nel layout il titolo viene letto dal dizionario ViewData:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 
