@@ -4,16 +4,16 @@ author: ardalis
 description: Informazioni su come eseguire la migrazione di un'implementazione di API Web di ASP.NET Web API a ASP.NET MVC di base.
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 059e1bc54c57e502ad01fd50d9899dfd0671037f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8d842877e49e317323d453e71ebb3302245f388d
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET Web API per ASP.NET Core
 
@@ -36,7 +36,7 @@ In *Global.asax.cs*, viene effettuata una chiamata a `WebApiConfig.Register`:
 [!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-Questa classe consente di configurare [routing degli attributi](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), anche se non è effettivamente utilizzato nel progetto. Configura inoltre la tabella di routing viene utilizzato da ASP.NET Web API. In questo caso, si otterranno gli URL in base al formato ASP.NET Web API */api/ {controller} / {id}*, con *{id}* sia facoltativo.
+Questa classe consente di configurare [routing degli attributi](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), anche se non è effettivamente utilizzato nel progetto. Viene inoltre configurata la tabella di routing, viene utilizzata da ASP.NET Web API. In questo caso, si otterranno gli URL in base al formato ASP.NET Web API */api/ {controller} / {id}*, con *{id}* sia facoltativo.
 
 Il *ProductsApp* progetto include un solo controller semplice, che eredita da `ApiController` ed espone due metodi:
 
@@ -116,6 +116,37 @@ Una volta queste modifiche sono state effettuate e non utilizzati tramite istruz
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 A questo punto debba essere in grado di eseguire il progetto di migrazione e passare a */api/prodotti*; e, è necessario visualizzare l'elenco completo dei 3 prodotti. Passare a */api/products/1* dovrebbe essere visualizzata prima del prodotto.
+
+## <a name="microsoftaspnetcoremvcwebapicompatshim"></a>Microsoft.AspNetCore.Mvc.WebApiCompatShim
+
+È uno strumento utile durante la migrazione ASP.NET Web API progetti ASP.NET Core di [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) libreria. Lo shim di compatibilità estende ASP.NET Core per consentire un numero di diverse convenzioni di Web API 2 da utilizzare. Nell'esempio vengono trasferita in precedenza in questo documento è abbastanza semplice che lo shim di compatibilità non è necessario. Per progetti di grandi dimensioni, può essere utile per temporaneamente per colmare il divario API tra ASP.NET Core e ASP.NET Web API 2 usano lo shim di compatibilità.
+
+Lo shim di compatibilità di Web API deve essere utilizzata come una misura temporanea per facilitare la migrazione dei progetti di grandi dimensioni API Web per ASP.NET Core. Nel corso del tempo, i progetti devono essere aggiornati per l'utilizzo di modelli ASP.NET Core invece di basarsi sullo shim di compatibilità. 
+
+Le funzionalità di compatibilità incluse in Microsoft.AspNetCore.Mvc.WebApiCompatShim includono:
+
+* Aggiunge un `ApiController` tipo in modo che i tipi di base dei controller non dovranno essere aggiornati.
+* Consente l'associazione di modelli di stile di API Web. ASP.NET MVC modello associazione funzioni di base in modo simile a MVC 5, per impostazione predefinita. Le modifiche di shim di compatibilità del modello di associazione per essere più simile alle convenzioni di associazione modello API Web 2. Ad esempio, i tipi complessi vengono associati automaticamente dal corpo della richiesta.
+* Estende l'associazione di modelli in modo che le azioni del controller possono accettare parametri di tipo `HttpRequestMessage`.
+* Aggiunge i formattatori dei messaggi che consente di azioni per restituire i risultati di tipo `HttpResponseMessage`.
+* Aggiunge metodi di risposta aggiuntivi che le azioni di Web API 2 potrebbero essere usata per servire risposte:
+    * Generatori HttpResponseMessage:
+        * `CreateResponse<T>`
+        * `CreateErrorResponse`
+    * Metodi di azione risultati:
+        * `BadResuestErrorMessageResult`
+        * `ExceptionResult`
+        * `InternalServerErrorResult`
+        * `InvalidModelStateResult`
+        * `NegotiatedContentResult`
+        * `ResponseMessageResult`
+* Aggiunge un'istanza di `IContentNegotiator` al contenitore dell'app e rende contenuti tipi correlati alla negoziazione dal [webapi](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) disponibili. Sono inclusi tipi, ad esempio `DefaultContentNegotiator`, `MediaTypeFormatter`e così via.
+
+Per usare lo shim di compatibilità, è necessario:
+
+* Riferimento di [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) pacchetto NuGet.
+* Registrare i servizi del shim di compatibilità con contenitore dell'app chiamando `services.AddWebApiConventions()` dell'applicazione `Startup.ConfigureServices` metodo.
+* Definire le route di Web API specifiche utilizzando `MapWebApiRoute` nella `IRouteBuilder` dell'applicazione `IApplicationBuilder.UseMvc` chiamare.
 
 ## <a name="summary"></a>Riepilogo
 
