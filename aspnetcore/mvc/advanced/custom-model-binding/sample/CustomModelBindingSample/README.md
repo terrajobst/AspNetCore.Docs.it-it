@@ -1,5 +1,12 @@
-# <a name="custom-model-binding-demo"></a><span data-ttu-id="9c650-101">Demo di associazione di modelli personalizzati</span><span class="sxs-lookup"><span data-stu-id="9c650-101">Custom Model Binding Demo</span></span>
+# <a name="custom-model-binding-demo"></a>Demo di associazione di modelli personalizzati
 
-<span data-ttu-id="9c650-102">È possibile testare `ByteArrayModelBinder` eseguendo l'applicazione e la registrazione di una stringa con codifica base64 per l'endpoint ImageController (/api/immagine/).</span><span class="sxs-lookup"><span data-stu-id="9c650-102">You can test the `ByteArrayModelBinder` by running the application and POSTing a base64-encoded string to the ImageController endpoint (/api/image/).</span></span> <span data-ttu-id="9c650-103">È necessario specificare il file e le proprietà filename nella richiesta Corpo come dati del modulo (usando Postman o uno strumento simile).</span><span class="sxs-lookup"><span data-stu-id="9c650-103">You should specify the file and filename proparties in the request Body as form-data (using Postman or a similar tool).</span></span> <span data-ttu-id="9c650-104">È possibile usare [questa stringa di esempio](Base64String.txt).</span><span class="sxs-lookup"><span data-stu-id="9c650-104">You can use [this sample string](Base64String.txt).</span></span> <span data-ttu-id="9c650-105">Il risultato verrà salvato nella cartella wwwroot/images/upload con il filename specificato.</span><span class="sxs-lookup"><span data-stu-id="9c650-105">The result will be saved in the wwwroot/images/upload folder with the filename you specified.</span></span>
+Testare `ByteArrayModelBinder` eseguendo l'app e registrando una stringa con codifica base64 per l'endpoint `ImageController` (`/api/image/`). Specificare il file e le proprietà filename nella richiesta Corpo come dati del modulo (usando [Postman](https://www.getpostman.com/) o uno strumento simile). È possibile usare [questa stringa di esempio](Base64String.txt). Il risultato è salvato nella cartella *wwwroot/images/upload* con il filename specificato.
 
-<span data-ttu-id="9c650-106">Per testare l'esempio di associazione personalizzata, provare i seguenti endpoint: /api/authors/1 /api/authors/2 (non trovato) /api/boundauthors/1 /api/boundauthors/2 (non trovato) /api/boundauthors/get/2 /api/boundauthors/get/1 (nessun contenuto) - questa azione non verifica i valori null e restituisce un valore non trovato</span><span class="sxs-lookup"><span data-stu-id="9c650-106">To test the custom binding example, try the following endpoints: /api/authors/1 /api/authors/2 (NOT FOUND) /api/boundauthors/1 /api/boundauthors/2 (NOT FOUND) /api/boundauthors/get/1 /api/boundauthors/get/2 (NO CONTENT) - this action doesn't check for null and return a Not Found</span></span>
+Per testare l'esempio di associazione personalizzata, provare i seguenti endpoint:
+
+* /api/authors/1
+* /api/authors/2 (NOT FOUND)
+* /api/boundauthors/1
+* /api/boundauthors/2 (NOT FOUND)
+* /api/boundauthors/get/1
+* /api/boundauthors/get/2 (NO CONTENT) &ndash; Azione che non verifica la presenza di valori null e restituisce *404 Not Found*.
