@@ -1,23 +1,24 @@
 ---
-title: Aggiunta di un modello a un'app di pagine Razor con Visual Studio per Mac
+title: Aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio Code
 author: rick-anderson
-description: Aggiunta di un modello a un'app di pagine Razor in ASP.NET Core con Visual Studio per Mac
+description: Informazioni su come aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio Code.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 9600392b47fb8b1dded06faefaff1bf87d67af4e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 20282b491162e9f35e40702655532a78edceb89a
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-code"></a>Aggiunta di un modello a un'app di pagine Razor in ASP.NET Core con Visual Studio Code
+# <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio Code
 
-[!INCLUDE[model1](../../includes/RP/model1.md)]
+[!INCLUDE [model1](../../includes/RP/model1.md)]
 
 ## <a name="add-a-data-model"></a>Aggiungere un modello di dati
 
@@ -25,10 +26,11 @@ ms.lasthandoff: 01/30/2018
 * Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
 * Aggiungere il codice seguente al file *Modelli/Movie.cs*:
 
-[!INCLUDE[model 2](../../includes/RP/model2.md)]
-[!INCLUDE[model 2a](../../includes/RP/model2a.md)]
+[!INCLUDE [model 2](../../includes/RP/model2.md)]
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
+[!INCLUDE [model 2a](../../includes/RP/model2a.md)]
+
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
 
 Compilare il progetto per verificare che non ci siano errori.
 
@@ -41,9 +43,9 @@ Modificare il file *RazorPagesMovie.csproj*:
 * Selezionare **File** > **Apri file** e selezionare il file *RazorPagesMovie.csproj*.
 * Aggiungere il riferimento allo strumento per `Microsoft.EntityFrameworkCore.Tools.DotNet` al secondo **\<ItemGroup >**:
 
-[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
+[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
 
-[!INCLUDE[model 3](../../includes/RP/model3.md)]
+[!INCLUDE [model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
 ### <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
@@ -72,8 +74,10 @@ Se viene visualizzato l'errore:
 
 Chiudere Visual Studio ed eseguire nuovamente il comando.
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)] L'esercitazione successiva illustra i file creati dallo scaffolding.
+[!INCLUDE [model 4](../../includes/RP/model4.md)]
 
->[!div class="step-by-step"]
-[Indietro: Introduzione](xref:tutorials/razor-pages-vsc/razor-pages-start)
-[Avanti: pagine Razor create tramite scaffolding](xref:tutorials/razor-pages-vsc/page)
+L'esercitazione successiva illustra i file creati tramite scaffolding.
+
+> [!div class="step-by-step"]
+> [Precedente: Introduzione](xref:tutorials/razor-pages-vsc/razor-pages-start)
+> [Successivo: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages-vsc/page)

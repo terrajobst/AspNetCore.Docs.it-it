@@ -1,7 +1,7 @@
 ---
 title: Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 author: rick-anderson
-description: Introduzione ad ASP.NET Core MVC e Visual Studio
+description: Informazioni introduttive su ASP.NET Core MVC e Visual Studio
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 05a2323851c58c95667066a74c11f1d015405e6f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Questa esercitazione mostra i concetti fondamentali di creazione di un'app Web ASP.NET Core MVC usando [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/). 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -31,12 +31,7 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
-
-Installare gli elementi seguenti:
-
-- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva
-- [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -67,5 +62,5 @@ Il modello predefinito include collegamenti **Home page, Informazioni su** e **C
 
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
->[!div class="step-by-step"]
-[avanti](adding-controller.md)  
+> [!div class="step-by-step"]
+> [avanti](adding-controller.md)  

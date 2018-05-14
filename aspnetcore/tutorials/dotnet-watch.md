@@ -1,5 +1,5 @@
 ---
-title: Sviluppo di app ASP.NET Core con dotnet watch
+title: Sviluppare app ASP.NET Core con dotnet watch
 author: rick-anderson
 description: Questa esercitazione illustra come installare e usare lo strumento watcher per file dell'interfaccia della riga di comando di .NET Core (dotnet watch) in un'applicazione ASP.NET Core.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c3ece3a5b936b2ea7b7772eee10e598cb557b361
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Sviluppo di app ASP.NET Core con dotnet watch
+# <a name="develop-aspnet-core-apps-using-dotnet-watch"></a>Sviluppare app ASP.NET Core con dotnet watch
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
@@ -95,7 +95,7 @@ Verificare che `http://localhost:<port number>/api/math/product?a=4&b=5` restitu
 
 1. Modificare il metodo `Product` di *MathController.cs* di nuovo in modo che restituisca la somma e salvare il file.
 1. In una shell dei comandi passare alla cartella *WebAppTests*.
-1. Eseguire `dotnet restore`.
+1. Eseguire [dotnet restore](/dotnet/core/tools/dotnet-restore).
 1. Eseguire `dotnet watch test`. L'output indica che un test non è stato superato e che il watcher è in attesa di modifiche ai file:
 
      ```console

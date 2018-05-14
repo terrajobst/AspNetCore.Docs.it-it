@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un modello a un'app ASP.NET Core MVC
+title: Aggiungere un modello a un'app ASP.NET Core MVC con Visual Studio per Mac
 author: rick-anderson
 description: Aggiungere un modello a una app semplice di ASP.NET Core.
 manager: wpickett
@@ -10,13 +10,15 @@ ms.prod: .net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: bf4d5d289266b585cbdfbb70c7482620fd4ced54
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Aggiungere un modello a un'app ASP.NET Core MVC con Visual Studio per Mac
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Modelli* e scegliere **Aggiungi** > **Nuovo file**. 
 * Nella finestra di dialogo **Nuovo file**:
@@ -27,7 +29,7 @@ ms.lasthandoff: 01/30/2018
 
 Aggiungere le proprietà seguenti alla classe `Movie`:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 Il campo `ID` è richiesto dal database per la chiave primaria.
 
@@ -41,17 +43,17 @@ Compilare il progetto per verificare che non ci siano errori. L'app **M**VC disp
 
 - Aggiungere i pacchetti NuGet evidenziati seguenti al file *MvcMovie.csproj*:
              
-  [!code-csharp[Main](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
+  [!code-csharp[](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
 
 - Salvare il file.
 
-- Creare un file *Models/MvcMovieContext.cs* e aggiungere la classe `MvcMovieContext` seguente: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
+- Creare un file *Models/MvcMovieContext.cs* e aggiungere la classe `MvcMovieContext` seguente: [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
    
-- Aprire il file *Startup.cs* e aggiungere due using: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
+- Aprire il file *Startup.cs* e aggiungere due using: [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
 
 - Aggiungere il contesto del database al file *Startup.cs*:
 
-   [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
+   [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
 
   Indica a Entity Framework quali classi di modello sono incluse nel modello di dati. Si sta definendo un *set di entità* di oggetti filmato, che verranno rappresentati nel database come tabella di un filmato.
 
@@ -96,9 +98,9 @@ La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wik
   * Passare alla cartella *Viste*, selezionare *Viste\Filmati*, quindi selezionare **Apri**.
   * Nella finestra di dialogo **Select files to add from Movies** (Seleziona file da aggiungere dai filmati), selezionare **Include All** (Includi tutto) e quindi **OK**.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 È ora disponibile un database e alcune pagine per visualizzare, modificare, aggiornare ed eliminare dati. Nella prossima esercitazione verrà utilizzato il database.
 
@@ -107,6 +109,6 @@ La creazione automatica di metodi di azione e visualizzazioni [CRUD](https://wik
 * [Helper tag](xref:mvc/views/tag-helpers/intro)
 * [Globalizzazione e localizzazione](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Precedente - Aggiunta di una vista](adding-view.md)
-[Successivo - Utilizzo del linguaggio SQL](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Precedente - Aggiunta di una vista](adding-view.md)
+> [Successivo - Utilizzo del linguaggio SQL](working-with-sql.md)  

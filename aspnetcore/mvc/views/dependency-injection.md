@@ -1,7 +1,7 @@
 ---
-title: Inserimento di dipendenze nelle visualizzazioni
+title: Inserimento di dipendenze nelle visualizzazioni in ASP.NET Core
 author: ardalis
-description: 
+description: Informazioni sulle modalità con cui ASP.NET Core supporta l'inserimento di dipendenze nelle visualizzazioni MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 690fdd0fd841341d17de48c0a8c9af121da220de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-into-views"></a>Inserimento di dipendenze nelle visualizzazioni
+# <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserimento di dipendenze nelle visualizzazioni in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
 
@@ -31,15 +31,15 @@ Sintassi per `@inject`: `@inject <type> <name>`
 
 Esempio di `@inject` in azione:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 
 Questa visualizzazione presenta un elenco di istanze di `ToDoItem`, nonché un riepilogo con statistiche generali. Il riepilogo è popolato dal servizio `StatisticsService` inserito. Questo servizio è registrato per l'inserimento di dipendenze in `ConfigureServices` in *Startup.cs*:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Startup.cs?highlight=6,7&range=15-22)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Startup.cs?highlight=6,7&range=15-22)]
 
 `StatisticsService` esegue alcuni calcoli per il set di istanze di `ToDoItem`, a cui accede tramite un repository:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,25)]
 
 Il repository di esempio usa una raccolta in memoria. L'implementazione illustrata in precedenza, che opera su tutti i dati in memoria, non è consigliata per set di dati di grandi dimensioni a cui si accede in remoto.
 
@@ -53,7 +53,7 @@ L'inserimento di visualizzazioni può essere utile per popolare le opzioni negli
 
 Un approccio alternativo consiste nell'ottenere le opzioni inserendo i servizi direttamente nella visualizzazione. In questo modo la quantità di codice necessario per il controller viene ridotta al minimo, dato che la logica di costruzione di questo elemento di visualizzazione viene spostata nella visualizzazione stessa. L'azione del controller per la visualizzazione di un modulo di modifica del profilo deve solo passare l'istanza del profilo al modulo:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Controllers/ProfileController.cs?highlight=9,19)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Controllers/ProfileController.cs?highlight=9,19)]
 
 Il form HTML usato per aggiornare queste preferenze include elenchi a discesa per tre delle proprietà:
 
@@ -61,11 +61,11 @@ Il form HTML usato per aggiornare queste preferenze include elenchi a discesa pe
 
 Questi elenchi vengono popolati da un servizio inserito nella visualizzazione:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Profile/Index.cshtml?highlight=4,16,17,21,22,26,27)]
+[!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Profile/Index.cshtml?highlight=4,16,17,21,22,26,27)]
 
 `ProfileOptionsService` è un servizio a livello di interfaccia utente progettato per fornire solo i dati necessari per il modulo:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
 >[!TIP]
 > Non si deve dimenticare di registrare i tipi che si richiederanno tramite l'inserimento di dipendenze nel metodo `ConfigureServices` in *Startup.cs*.
@@ -78,7 +78,7 @@ Oltre all'inserimento di nuovi servizi, questa tecnica può essere usata anche p
 
 Come si può notare, i campi predefiniti includono `Html`, `Component`, e `Url`, nonché il servizio `StatsService` inserito. Se ad esempio si vogliono sostituire gli helper HTML predefiniti con helper personalizzati, è possibile farlo facilmente tramite `@inject`:
 
-[!code-html[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
+[!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
 
 Se si vuole estendere i servizi esistenti, è sufficiente usare questa tecnica mentre si eredita dall'implementazione esistente o si esegue il wrapping di quest'ultima con un'implementazione personalizzata.
 

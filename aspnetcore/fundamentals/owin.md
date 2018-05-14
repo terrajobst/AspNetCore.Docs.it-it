@@ -1,5 +1,5 @@
 ---
-title: Open Web Interface for .NET (OWIN)
+title: Open Web Interface for .NET (OWIN) con ASP.NET Core
 author: ardalis
 description: Informazioni su come ASP.NET Core supporta Open Web Interface for .NET (OWIN) che consente ai server Web di disaccoppiare le app Web.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 3ff7b6e02284b4f6c61bf5d31013b4edfe8f7f29
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-open-web-interface-for-net-owin"></a>Introduzione a Open Web Interface for .NET (OWIN)
+# <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) con ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -80,10 +80,10 @@ public void Configure(IApplicationBuilder app)
 ```csharp
 app.UseOwin(pipeline =>
 {
-    pipeline(next =>
+    pipeline(async (next) =>
     {
         // do something before
-        return OwinHello;
+        await OwinHello(new OwinEnvironment(HttpContext));
         // do something after
     });
 });
@@ -95,7 +95,7 @@ app.UseOwin(pipeline =>
 
 I server basati su OWIN possono ospitare applicazioni ASP.NET. Un server di questo tipo è [Nowin](https://github.com/Bobris/Nowin), un server Web OWIN per .NET. Nell'esempio di questo articolo è stato incluso un progetto che fa riferimento a Nowin e lo usa per creare un oggetto `IServer` in grado di eseguire l'hosting automatico di ASP.NET Core.
 
-[!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
+[!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
 `IServer` è un'interfaccia che richiede una proprietà `Features` e un metodo `Start`.
 
@@ -134,10 +134,9 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-A questo punto, per eseguire un'applicazione ASP.NET usando questo server personalizzato, sarà necessario chiamare l'estensione in *Program.cs*:
+Con questa configurazione, chiamare l'estensione in *Program.cs* per eseguire un'app ASP.NET Core usando questo server personalizzato:
 
 ```csharp
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -162,7 +161,6 @@ namespace NowinSample
         }
     }
 }
-
 ```
 
 Altre informazioni sui [server](servers/index.md) ASP.NET.

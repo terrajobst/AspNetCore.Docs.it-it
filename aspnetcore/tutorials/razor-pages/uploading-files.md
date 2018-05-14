@@ -1,21 +1,22 @@
 ---
-title: Caricamento di file in una pagina Razor in ASP.NET Core
+title: Caricare file in una pagina Razor in ASP.NET Core
 author: guardrex
 description: Informazioni su come caricare i file in una pagina Razor.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 5f86164b3d227e55e11244da7600394809b6a4a7
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Caricamento di file in una pagina Razor in ASP.NET Core
+# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Caricare file in una pagina Razor in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -47,7 +48,7 @@ Prestare attenzione quando si offre agli utenti la possibilità di caricare file
 
 Creare una pagina Razor per gestire una coppia di caricamenti di file. Aggiungere una classe `FileUpload`, che è associata alla pagina per ottenere i dati di pianificazione. Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **FileUpload** e aggiungere le proprietà seguenti:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
 La classe ha una proprietà per il titolo della pianificazione e una proprietà per ognuna delle due versioni della pianificazione. Tutte e tre le proprietà sono obbligatorie e il titolo deve avere una lunghezza compresa fra 3 e 60 caratteri.
 
@@ -55,20 +56,44 @@ La classe ha una proprietà per il titolo della pianificazione e una proprietà 
 
 Per evitare la duplicazione del codice per l'elaborazione dei file di pianificazione caricati, è necessario per prima cosa aggiungere un metodo helper statico. Creare una cartella *Utilità* nell'app e aggiungere un file *FileHelpers.cs* con il contenuto seguente. Il metodo helper, `ProcessFormFile`, accetta [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) e [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) e restituisce una stringa contenente le dimensioni e il contenuto del file. Il tipo di contenuto e la lunghezza vengono controllati. Se il file non supera un controllo di convalida, viene aggiunto un errore a `ModelState`.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
 
 ### <a name="save-the-file-to-disk"></a>Salvare il file su disco
 
-L'app di esempio salva il contenuto del file in un campo del database. Per salvare il contenuto del file su disco, usare un [FileStream](/dotnet/api/system.io.filestream):
+L'app di esempio salva i file caricati in campi di database. Per salvare un file su disco, usare un [FileStream](/dotnet/api/system.io.filestream). L'esempio seguente copia un file gestito da `FileUpload.UploadPublicSchedule` in un `FileStream` in un metodo `OnPostAsync`. `FileStream` scrive il file su disco in corrispondenza del `<PATH-AND-FILE-NAME>` specificato:
 
 ```csharp
-using (var fileStream = new FileStream(filePath, FileMode.Create))
+public async Task<IActionResult> OnPostAsync()
 {
-    await formFile.CopyToAsync(fileStream);
+    // Perform an initial check to catch FileUpload class attribute violations.
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    var filePath = "<PATH-AND-FILE-NAME>";
+
+    using (var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+        await FileUpload.UploadPublicSchedule.CopyToAsync(fileStream);
+    }
+
+    return RedirectToPage("./Index");
 }
 ```
 
 Il processo di lavoro deve disporre delle autorizzazioni di scrittura per il percorso specificato da `filePath`.
+
+> [!NOTE]
+> Il `filePath` *deve* includere il nome del file. Se il nome file non è specificato, viene generata un'eccezione [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception) in fase di esecuzione.
+
+> [!WARNING]
+> Non mantenere mai i file caricati nello stessa struttura directory in cui si trova l'app.
+>
+> Il codice di esempio non include alcuna protezione lato server contro il caricamento di file dannosi. Per informazioni sulla riduzione della superficie di attacco quando si accettano file dagli utenti, vedere le risorse seguenti:
+>
+> * [Caricamento di file senza restrizioni](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Protezione di Azure: Verificare i controlli appropriati quando si accettano file dagli utenti](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Salvare il file in Archiviazione BLOB di Azure
 
@@ -78,7 +103,7 @@ Per caricare il contenuto del file in Archiviazione Blob di Azure, vedere [Intro
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Schedule** e aggiungere le proprietà seguenti:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
 
 La classe usa gli attributi `Display` e `DisplayFormat`, che producono titoli descrittivi e la formattazione quando viene eseguito il rendering dei dati di pianificazione.
 
@@ -86,7 +111,7 @@ La classe usa gli attributi `Display` e `DisplayFormat`, che producono titoli de
 
 Specificare un `DbSet` in `MovieContext` (*Models/MovieContext.cs*) per le pianificazioni:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Aggiungere la tabella Schedule al database
 
@@ -105,7 +130,7 @@ Update-Database
 
 Nella cartella *Pages* creare una cartella *Schedules*. Nella cartella *Schedules* creare una pagina denominata *Index.cshtml* per il caricamento di una pianificazione con il contenuto seguente:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
 
 Ogni gruppo di moduli include un oggetto **\<label>** ovvero un'etichetta che visualizza il nome di ogni proprietà della classe. Gli attributi `Display` del modello `FileUpload` specificano i valori di visualizzazione per le etichette. Ad esempio, il nome visualizzato della proprietà `UploadPublicSchedule` è impostato con `[Display(Name="Public Schedule")]` e pertanto viene visualizzato "Public Schedule" nell'etichetta quando viene eseguito il rendering del modulo.
 
@@ -115,43 +140,43 @@ Ogni gruppo di moduli include una convalida **\<span>**. Se l'input dell'utente 
 
 Aggiungere il modello di pagina *Index.cshtml.cs* nella cartella *Schedules*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
 Il modello di pagina (`IndexModel` in *Index.cshtml.cs*) associa la classe `FileUpload`:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
 
 Il modello usa anche un elenco delle pianificazioni, `IList<Schedule>`, per visualizzare le pianificazioni archiviate nel database nella pagina:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
 
 Quando la pagina viene caricata con `OnGetAsync`, la tabella `Schedules` viene popolata dal database e usata per generare una tabella HTML di pianificazioni caricate:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
 Quando il modulo viene pubblicato nel server, viene eseguito il controllo di `ModelState`. Se la convalida dà esito negativo, `Schedule` viene ricompilata, e il rendering della pagina genera uno o più messaggi di convalida che indicano il motivo per cui la convalida non è riuscita. Se la convalida ha esisto positivo, le proprietà `FileUpload` vengono usate in *OnPostAsync* per completare il caricamento del file per le due versioni della pianificazione e per creare un nuovo oggetto `Schedule` per archiviare i dati. La pianificazione viene quindi salvata nel database:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
 ## <a name="link-the-file-upload-razor-page"></a>Aggiungere un collegamento alla pagina Razor di caricamento file
 
 Aprire *_Layout.cshtml* e aggiungere un collegamento alla barra di navigazione per accedere alla pagina di caricamento dei file:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Aggiungere una pagina per confermare l'eliminazione della pianificazione
 
 Quando l'utente fa clic per eliminare una pianificazione, viene offerta la possibilità di annullare l'operazione. Aggiungere una pagina di conferma dell'eliminazione (*Delete.cshtml*) nella cartella *Schedules*:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
 Il modello di pagina *Delete.cshtml.cs* carica una singola pianificazione identificata da `id` nei dati della route della richiesta. Aggiungere il file *Delete.cshtml.cs* nella cartella *Schedules*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 
 Il metodo `OnPostAsync` gestisce l'eliminazione della pianificazione tramite `id`:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
 
 Dopo aver completato l'eliminazione della pianificazione, `RedirectToPage` invia nuovamente l'utente alla pagina delle pianificazioni *Index.cshtml*.
 
@@ -179,12 +204,12 @@ L'utente può scegliere il collegamento **Eliminazione** per accedere alla scher
 
 Per risolvere i problemi relativi al caricamento di `IFormFile`, vedere [Caricamento di file in ASP.NET Core: Risoluzione dei problemi](xref:mvc/models/file-uploads#troubleshooting).
 
-Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Getting started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un ottimo completamento per questa esercitazione.
+Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Get started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un complemento ideale per questa esercitazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Caricamento di file in ASP.NET Core](xref:mvc/models/file-uploads)
 * [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile)
 
->[!div class="step-by-step"]
-[Articolo Precedente: Convalida](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Articolo Precedente: Convalida](xref:tutorials/razor-pages/validation)

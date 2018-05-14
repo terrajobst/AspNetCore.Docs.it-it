@@ -9,17 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14d8dd0a5e6a99bacce3bf50b0468b20e0dddb96
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e5c213a682c9bf7c64c40fad630cacfff24e23bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio
+# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs) e [Rachel Appel](https://twitter.com/rachelappel)
 
-Vedere [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Pubblicare in Azure da Visual Studio per Mac) se si usa un Mac.
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+
+Se si lavora in macOS, vedere [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Pubblicare in Azure da Visual Studio per Mac).
+
+Per risolvere un problema di distribuzione del Servizio app, vedere [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot).
 
 ## <a name="set-up"></a>Impostare
 
@@ -185,3 +189,4 @@ Al termine del test dell'app accedere al [portale di Azure](https://portal.azure
 * [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 * [Gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/)
+* [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot)

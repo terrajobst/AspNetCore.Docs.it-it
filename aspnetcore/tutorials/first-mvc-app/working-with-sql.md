@@ -1,7 +1,7 @@
 ---
-title: Utilizzo di SQL Server Local DB
+title: Utilizzare SQL Server Local DB in ASP.NET Core
 author: rick-anderson
-description: Utilizzo di SQL Server Local DB con un'app MVC semplice
+description: Informazioni sull'uso di SQL Server Local DB in una semplice app ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: a0aa6fdfa51650628021a4ba6d0533e7e0e39200
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3f69657cb21e163bdf00fb1faea98889046e9b45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb"></a>Utilizzo di SQL Server Local DB
+# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Utilizzare SQL Server Local DB in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 L'oggetto `MvcMovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` nel file *Startup.cs*:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
 Il sistema di [configurazione](xref:fundamentals/configuration/index) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale ottiene la stringa di connessione dal file *appSettings.JSON*:
 
-[!code-json[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
 Quando si distribuisce l'app in un server di test o di produzione, è possibile usare una variabile di ambiente o un altro approccio per impostare la stringa di connessione su un SQL Server reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
 
@@ -55,7 +55,7 @@ Si noti l'icona a forma di chiave accanto a `ID`. Per impostazione predefinita, 
 
 Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituire il codice generato con il seguente:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
 Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
@@ -69,20 +69,17 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>Aggiungere l'inizializzatore del valore di inizializzazione
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Aggiungere l'inizializzatore del valore di inizializzazione al metodo `Main` nel file *Program.cs*:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Aggiungere l'inizializzatore del valore di inizializzazione alla fine del metodo `Configure` nel file *Startup.cs*.
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
----
-
+* * *
 Eseguire il test dell'app
 
 * Eliminare tutti i record nel database. È possibile eseguire questa operazione con i collegamenti di eliminazione nel browser o da SSOX.
@@ -94,13 +91,13 @@ Eseguire il test dell'app
 
     ![Menu di scelta rapida](working-with-sql/_static/stopIIS.png)
 
-   * Se Visual Studio è in esecuzione in modalità non di debug, premere F5 per attivare la modalità di debug
-   * Se Visual Studio è in esecuzione in modalità di debug, arrestare il debugger e premere F5
-   
+    * Se Visual Studio è in esecuzione in modalità non di debug, premere F5 per attivare la modalità di debug
+    * Se Visual Studio è in esecuzione in modalità di debug, arrestare il debugger e premere F5
+
 L'app mostra i dati inizializzati.
 
 ![App per i film MVC aperta in Microsoft Edge con i dati sui film](working-with-sql/_static/m55.png)
 
->[!div class="step-by-step"]
-[Precedente](adding-model.md)
-[Successivo](controller-methods-views.md)  
+> [!div class="step-by-step"]
+> [Precedente](adding-model.md)
+> [Successivo](controller-methods-views.md)  

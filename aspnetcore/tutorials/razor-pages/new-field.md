@@ -1,21 +1,22 @@
 ---
-title: Aggiunta di un nuovo campo a una pagina Razor
+title: Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 author: rick-anderson
 description: Illustra come aggiungere un nuovo campo a una pagina Razor con Entity Framework Core
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 36412e9d1f3143f0d1999d0e754e6627f0984ad5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 45a39defc9480b0e4fe85ae7ed6bfa654a35264a
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="adding-a-new-field-to-a-razor-page"></a>Aggiunta di un nuovo campo a una pagina Razor
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,13 +28,13 @@ Quando si usa Code First di Entity Framework per creare automaticamente un datab
 
 Aprire il file *Models/Movie.cs* e aggiungere una proprietà `Rating`:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 Compilare l'app (CTRL+MAIUSC+B).
 
 Modificare *Pages/Movies/Index.cshtml* e aggiungere un campo `Rating`:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
 
 Aggiungere il campo `Rating` alle pagine Delete (Elimina) e Details (Dettagli).
 
@@ -43,7 +44,7 @@ Aggiornare *Create.cshtml* con un campo `Rating`. È possibile copiare e incolla
 
 Il codice seguente mostra il file *Create.cshtml* con un campo `Rating`:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
 
 Aggiungere il campo `Rating` alla pagina Edit (Modifica).
 
@@ -67,7 +68,7 @@ Per questa esercitazione usare Migrazioni Code First.
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni blocco `new Movie`.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 Vedere il [file SeedData.cs completato](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
 
@@ -102,6 +103,6 @@ Il nome "Rating" è arbitrario e viene usato per denominare il file di migrazion
 
 Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. Se il database non viene inizializzato, arrestare IIS Express e quindi eseguire l'app.
 
->[!div class="step-by-step"]
-[Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
-[Successivo: Aggiunta della funzionalità di convalida](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
+> [Successivo: Aggiunta della funzionalità di convalida](xref:tutorials/razor-pages/validation)

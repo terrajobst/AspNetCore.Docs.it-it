@@ -1,7 +1,7 @@
 ---
-title: Razor Pages con EF Core - Leggere dati correlati - 6 di 8
+title: Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 author: rick-anderson
-description: "In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione."
+description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lettura di dati correlati - Razor Pages con EF Core (6 di 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
 Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In questa esercitazione vengono letti e visualizzati dati correlati. I dati correlati sono dati che EF Core carica all'interno delle proprietà di navigazione.
 
@@ -37,22 +37,22 @@ Esistono diversi modi con cui EF Core può caricare i dati correlati nelle propr
 
 * [Caricamento eager](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Il caricamento eager si verifica quando una query per un solo tipo di entità carica anche entità correlate. Quando l'entità viene letta, vengono recuperati i dati correlati corrispondenti. Ciò in genere ha come risultato una query join singola che recupera tutti i dati necessari. Per alcuni tipi di caricamento eager, EF Core genera più query. La generazione di più query può essere più efficiente rispetto al caso di alcune query in EF6, in cui era presente una singola query. Il caricamento eager viene specificato con i metodi `Include` e `ThenInclude`.
 
- ![Esempio di caricamento eager](read-related-data/_static/eager-loading.png)
+  ![Esempio di caricamento eager](read-related-data/_static/eager-loading.png)
  
- Il caricamento eager invia più query quando è inclusa una navigazione di raccolte:
+  Il caricamento eager invia più query quando è inclusa una navigazione di raccolte:
 
- * Una query per la query principale 
- * Una query per ogni raccolta "perimetrale" nell'albero del caricamento.
+  * Una query per la query principale 
+  * Una query per ogni raccolta "perimetrale" nell'albero del caricamento.
 
 * Query separate con `Load`: i dati possono essere recuperati in query separate ed EF Core "corregge" le proprietà di navigazione. "Corregge" significa che EF Core popola automaticamente le proprietà di navigazione. Le query separate con `Load` sono più simili a un caricamento esplicito che a un caricamento eager.
 
- ![Esempio di query separate](read-related-data/_static/separate-queries.png)
+  ![Esempio di query separate](read-related-data/_static/separate-queries.png)
 
- Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
+  Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
 
 * [Caricamento esplicito](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Ad esempio:
 
- ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
+  ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
 * [Caricamento lazy](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core attualmente non supporta il caricamento lazy](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si accede a una proprietà di navigazione, i dati necessari per quest'ultima vengono recuperati automaticamente. Ogni volta che si accede a una proprietà di navigazione per la prima volta, viene inviata una query al database.
 
@@ -76,9 +76,9 @@ Per visualizzare il nome del dipartimento assegnato in un elenco dei corsi:
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Eseguire il comando seguente:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
+  ```
 
 Il comando precedente esegue lo scaffolding del modello `Course`. Aprire il progetto in Visual Studio.
 
@@ -89,7 +89,7 @@ Compilare il progetto. La compilazione genera errori simili al seguente:
  argument of type 'SchoolContext' could be found (are you missing a using directive or
  an assembly reference?)`
 
- Convertire globalmente `_context.Course` in `_context.Courses` (ovvero aggiungere una "s" a `Course`). Vengono trovate e aggiornate sette occorrenze.
+ Convertire a livello globale `_context.Course` in `_context.Courses` (ovvero aggiungere una "s" a `Course`). Vengono trovate e aggiornate sette occorrenze.
 
 Aprire *Pages/Courses/Index.cshtml.cs* ed esaminare il metodo `OnGetAsync`. Il motore di scaffolding ha specificato il caricamento eager per la proprietà di navigazione `Department`. Il metodo `Include` specifica il caricamento eager.
 
@@ -97,7 +97,7 @@ Eseguire l'app e selezionare il collegamento **Courses** (Corsi). La colonna dei
 
 Aggiornare il metodo `OnGetAsync` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
 Il codice precedente aggiunge `AsNoTracking`. `AsNoTracking` migliora le prestazioni, perché le entità restituite non vengono registrate, dato che non vengono aggiornate nel contesto corrente.
 
@@ -124,17 +124,17 @@ Eseguire l'app e selezionare la scheda **Courses** (Corsi) per visualizzare l'el
 
 Il metodo `OnGetAsync` carica i dati correlati con il metodo `Include`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-L'operatore `Select` carica solo i dati correlati necessari. Per singoli elementi, ad esempio per `Department.Name` usa un INNER JOIN SQL. Per le raccolte, usa un altro accesso al database, ma anche l'operatore `Include` esegue la stessa operazione sulle raccolte.
+L'operatore `Select` carica solo i dati correlati necessari. Per singoli elementi, ad esempio per `Department.Name` usa un INNER JOIN SQL. Per le raccolte usa un altro accesso al database, ma anche l'operatore `Include` fa lo stesso sulle raccolte.
 
 Il codice seguente carica dati correlati con il metodo `Select`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 `CourseViewModel`:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
 Per un esempio completo, vedere [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs).
 
@@ -148,7 +148,7 @@ In questa sezione viene creata la pagina Instructors (Insegnanti).
 Questa pagina legge e visualizza dati correlati nei modi seguenti:
 
 * L'elenco di insegnanti visualizza dati correlati provenienti dall'entità `OfficeAssignment`, Office (Ufficio) nella figura precedente. Tra le entità `Instructor` e `OfficeAssignment` c'è una relazione uno-a-zero-o-uno. Per le entità `OfficeAssignment` viene usato il caricamento eager. Il caricamento eager è in genere più efficiente quando i dati correlati devono essere visualizzati. In questo caso, devono essere visualizzate le assegnazioni di ufficio degli insegnanti.
-* Quando l'utente seleziona un insegnante (Harui nella figura precedente), vengono visualizzate le entità `Course` correlate. Tra le entità `Instructor` e `Course` esiste una relazione molti-a-molti. Per le entità `Course` e le entità `Department` corrispondenti viene usato il caricamento eager. In questo caso, query separate potrebbero essere più efficienti, perché sono necessari solo i corsi per l'insegnante selezionato. Questo esempio illustra come usare il caricamento eager per le proprietà di navigazione di entità all'interno di proprietà di navigazione.
+* Quando l'utente seleziona un insegnante (Harui nella figura precedente), vengono visualizzate le entità `Course` correlate. Tra le entità `Instructor` e `Course` esiste una relazione molti-a-molti. Il caricamento eager viene usato per le entità `Course` e le entità `Department` correlate. In questo caso, query separate potrebbero essere più efficienti, perché sono necessari solo i corsi per l'insegnante selezionato. Questo esempio illustra come usare il caricamento eager per le proprietà di navigazione di entità all'interno di proprietà di navigazione.
 * Quando l'utente seleziona un corso (Chemistry (Chimica) nella figura precedente), vengono visualizzati i dati correlati dell'entità `Enrollments`. Nella figura precedente, vengono visualizzati il voto e il nome degli studenti. Tra le entità `Course` e `Enrollment` esiste una relazione uno-a-molti.
 
 ### <a name="create-a-view-model-for-the-instructor-index-view"></a>Creare un modello per la visualizzazione dell'indice degli insegnanti
@@ -157,7 +157,7 @@ La pagina Instructors (Insegnanti) mostra i dati di tre tabelle diverse. Viene c
 
 Nella cartella *SchoolViewModels* creare *InstructorIndexData.cs* con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>Scaffolding del modello Instructor
 
@@ -165,9 +165,9 @@ Nella cartella *SchoolViewModels* creare *InstructorIndexData.cs* con il codice 
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Eseguire il comando seguente:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
+  ```
 
 Il comando precedente esegue lo scaffolding del modello `Instructor`. Aprire il progetto in Visual Studio.
 
@@ -179,13 +179,13 @@ Eseguire l'app e passare alla pagina Instructors (Insegnanti).
 
 Sostituire *Pages/Instructors/Index.cshtml.cs* con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 Il metodo `OnGetAsync` accetta i dati di route facoltativi per l'ID dell'insegnante selezionato.
 
 Esaminare la query nella pagina *Pages/Instructors/Index.cshtml*:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
 La query ha due istruzioni Include, che riguardano:
 
@@ -201,7 +201,7 @@ Aggiornare *Pages/Instructors/Index.cshtml* con il markup seguente:
 
 Il markup precedente apporta le modifiche seguenti:
 
-* Aggiorna la direttiva `page` da `@page` a `@page "{id:int?}"`. `"{id:int?}"` è un modello di route. Il modello di route cambia le stringhe di query di tipo integer nell'URL in dati di route. Se ad esempio si fa clic su sul collegamento **Select** (Seleziona) per un insegnante, la direttiva della pagina genera un URL come il seguente:
+* Aggiorna la direttiva `page` da `@page` a `@page "{id:int?}"`. `"{id:int?}"` è un modello di route. Il modello di route cambia le stringhe di query di tipo integer nell'URL in dati di route. Se ad esempio si fa clic su sul collegamento **Select** (Seleziona) per un insegnante con la sola direttiva `@page`, viene generato un URL come il seguente:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -248,17 +248,17 @@ Fare clic sul collegamento **Select** (Seleziona). Lo stile delle righe cambia.
 
 Aggiornare il metodo `OnGetAsync` in *Pages/Instructors/Index.cshtml.cs* con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Esaminare la query aggiornata:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 La query precedente aggiunge l'entità `Department`.
 
 Il codice seguente viene eseguito quando viene selezionato un insegnante (`id != null`). L'insegnante selezionato viene recuperato dall'elenco di insegnanti nel modello di visualizzazione. La proprietà `Courses` del modello di visualizzazione viene caricata con le entità `Course` dalla proprietà di navigazione `CourseAssignments` di tale insegnante.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
 Il metodo `Where` restituisce una raccolta. Nel metodo `Where` precedente viene restituita una sola entità `Instructor`. Il metodo `Single` converte la raccolta in un'unica entità `Instructor`. L'entità `Instructor` consente l'accesso alla proprietà `CourseAssignments`. `CourseAssignments` consente l'accesso alle entità `Course` correlate.
 
@@ -271,11 +271,11 @@ Il metodo `Single` viene usato in una raccolta quando quest'ultima ha un solo el
 
 Il codice seguente popola la proprietà `Enrollments` del modello di visualizzazione quando è selezionato un corso:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
 Aggiungere il markup seguente alla fine della pagina Razor *Pages/Courses/Index.cshtml*:
 
-[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-)]
+[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
 Quando è selezionato un insegnante, il markup precedente visualizza un elenco dei corsi correlati all'insegnante stesso.
 
@@ -289,7 +289,7 @@ In questa sezione, l'app viene aggiornata in modo da visualizzare i dati degli s
 
 Aggiornare la query nel metodo `OnGetAsync` in *Pages/Instructors/Index.cshtml.cs* con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Aggiornare *Pages/Instructors/Index.cshtml*. Aggiungere il markup seguente alla fine del file:
 
@@ -305,7 +305,7 @@ Aggiornare la pagina e selezionare un insegnante. Selezionare un corso per visua
 
 Il metodo `Single` può passare la condizione `Where` anziché chiamare il metodo `Where` separatamente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
 L'approccio `Single` precedente non offre alcun vantaggio rispetto all'uso di `Where`. Alcuni sviluppatori preferiscono lo stile dell'approccio `Single`.
 
@@ -313,13 +313,13 @@ L'approccio `Single` precedente non offre alcun vantaggio rispetto all'uso di `W
 
 Il codice corrente specifica il caricamento eager per `Enrollments` e `Students`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Si supponga che gli utenti richiedano raramente la visualizzazione delle iscrizioni a un corso. In questo caso, per ottimizzare il funzionamento dell'app è utile caricare i dati delle iscrizioni solo se vengono richiesti. In questa sezione, viene eseguito l'aggiornamento di `OnGetAsync` in modo da usare il caricamento esplicito di `Enrollments` e `Students`.
 
 Aggiornare `OnGetAsync` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 Il codice precedente rilascia le chiamate del metodo *ThenInclude* per i dati delle iscrizioni e degli studenti. Se è selezionato un corso, il codice evidenziato recupera:
 

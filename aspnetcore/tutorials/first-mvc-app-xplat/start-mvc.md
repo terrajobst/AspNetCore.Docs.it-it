@@ -1,7 +1,7 @@
 ---
-title: Introduzione a ASP.NET Core MVC in Mac, Linux o Windows
+title: Introduzione ad ASP.NET Core MVC in macOS, Linux o Windows
 author: rick-anderson
-description: Introduzione ad ASP.NET Core MVC e Visual Studio Code in Mac, Linux e Windows
+description: Informazioni introduttive su ASP.NET Core MVC e Visual Studio Code in macOS, Linux e Windows
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 4771555b66f328a819f17a32eb3959f9ecf33d44
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 50fbd54c6b0cc1146271afda7e45a0dab590dd7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Introduzione a ASP.NET Core MVC in Mac, Linux o Windows
+# <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>Introduzione ad ASP.NET Core MVC in macOS, Linux o Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Questa esercitazione mostra i concetti fondamentali di compiplazione di un'app Web ASP.NET Core MVC tramite [Visual Studio Code](https://code.visualstudio.com) (VS Code). Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni. 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Sono disponibili 3 versioni dell'esercitazione:
 
@@ -29,15 +29,9 @@ Sono disponibili 3 versioni dell'esercitazione:
 * Windows: [Creare un'app ASP.NET Core MVC con Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux e Windows: [Creare un'app ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc) 
 
-## <a name="install-vs-code-and-net-core"></a>Installare VS Code e .NET Core
+## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione richiede il [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva. Vedere [il pdf](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) per la versione ASP.NET Core 1.1.
-
-Installare gli elementi seguenti:
-
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva.
-* [Visual Studio Code](https://code.visualstudio.com)
-* VS Code [estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-a-web-app-with-dotnet"></a>Creare un'app web con dotnet
 
@@ -75,9 +69,9 @@ Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC
 - [Terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Tasti di scelta rapida](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Tasti di scelta rapida di Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Tasti di scelta rapida di macOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Tasti di scelta rapida di Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Tasti di scelta rapida di Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
->[!div class="step-by-step"]
-[Successivo - Aggiungere un controller](adding-controller.md)
+> [!div class="step-by-step"]
+> [Successivo - Aggiungere un controller](adding-controller.md)

@@ -1,5 +1,5 @@
 ---
-title: Razor Pages con EF Core - CRUD - 2 di 8
+title: Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 author: rick-anderson
 description: Illustra come creare, leggere, aggiornare ed eliminare con EF Core
 manager: wpickett
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: b3f170ad35bcff7c662fb0205b0bff2e98b4724c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Create, Read, Update e Delete - EF Core con Razor Pages (2 di 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
-[Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In questa esercitazione viene esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) con scaffolding.
 
@@ -36,7 +36,7 @@ Le pagine Index e Details ottengono e visualizzano i dati richiesti con il metod
 
 ## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a>Sostituire SingleOrDefaultAsync con FirstOrDefaultAsync
 
-Il codice generato usa [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) per recuperare l'entità richiesta. [FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) è più efficace nel recupero di una sola entità:
+Il codice generato usa [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) per recuperare l'entità richiesta. [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) è più efficace nel recupero di una sola entità:
 
 * A meno che il codice non necessiti di verificare che non sia presente più di un'entità restituita dalla query. 
 * `SingleOrDefaultAsync` recupera una maggior quantità di dati ed esegue operazioni non necessarie.
@@ -51,7 +51,7 @@ Sostituire globalmente `SingleOrDefaultAsync` con `FirstOrDefaultAsync`. `Single
 <a name="FindAsync"></a>
 ### <a name="findasync"></a>FindAsync
 
-Nella maggior parte del codice con scaffolding è possibile usare [FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) al posto di `FirstOrDefaultAsync` o `SingleOrDefaultAsync`. 
+Nella maggior parte del codice con scaffolding è possibile usare [FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) al posto di `FirstOrDefaultAsync` o `SingleOrDefaultAsync`. 
 
 `FindAsync`:
 
@@ -59,14 +59,14 @@ Nella maggior parte del codice con scaffolding è possibile usare [FindAsync](ht
 * È semplice e conciso.
 * È ottimizzato per la ricerca di una singola entità.
 * Può offrire migliori prestazioni, ma raramente nei normali scenari Web.
-* Usa in modo implicito [FirstAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) anziché [SingleAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
+* Usa in modo implicito [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) anziché [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 Se si vuole usare Include per includere altre entità, l'uso di Find non è più appropriato. Ciò significa che potrebbe essere necessario abbandonare Find e passare a una query durante la creazione dell'app.
 
 ## <a name="customize-the-details-page"></a>Personalizzare la pagina Details
 
 Passare alla pagina `Pages/Students`. I collegamenti **Edit**, **Details** e **Delete** vengono generati dall'[helper del tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) nel file *Pages/Students/Index.cshtml*.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
 
 Selezionare un collegamento Details. L'URL è nel formato `http://localhost:5000/Students/Details?id=2`. L'ID studente viene passato tramite una stringa di query (`?id=2`).
 
@@ -90,9 +90,9 @@ Il codice con scaffolding della pagina Students Index non include la proprietà 
 
 Il metodo `OnGetAsync` del file *Pages/Students/Details.cshtml.cs* usa il metodo `FirstOrDefaultAsync` per recuperare una singola entità `Student`. Aggiungere il codice evidenziato seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
 
-I metodi `Include` e `ThenInclude` fanno in modo che il contesto carichi la proprietà di navigazione `Student.Enrollments` e la proprietà di navigazione `Enrollment.Course` all'interno di ogni registrazione. Questi metodi sono esaminati in dettaglio nell'esercitazione sulla lettura dei dati correlati.
+I metodi `Include` e `ThenInclude` fanno in modo che il contesto carichi la proprietà di navigazione `Student.Enrollments` e la proprietà di navigazione `Enrollment.Course` all'interno di ogni registrazione. Questi metodi vengono esaminati in dettaglio nell'esercitazione sulla lettura dei dati correlati.
 
 Il metodo `AsNoTracking` migliora le prestazioni negli scenari in cui le entità restituite non vengono aggiornate nel contesto corrente. `AsNoTracking` è descritto più avanti in questa esercitazione.
 
@@ -101,7 +101,7 @@ Il metodo `AsNoTracking` migliora le prestazioni negli scenari in cui le entità
 Aprire *Pages/Students/Details.cshtml*. Per visualizzare un elenco delle registrazioni, aggiungere il codice evidenziato seguente:
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Se dopo aver incollato il codice il rientro è errato, premere CTRL-K-D per correggerlo.
 
@@ -113,16 +113,16 @@ Eseguire l'app, selezionare la scheda **Students** e fare clic sul collegamento 
 
 Aggiornare il metodo `OnPostAsync` in *Pages/Students/Create.cshtml.cs* con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
-Esaminare il codice [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_):
+Esaminare il codice [TryUpdateModelAsync](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_):
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
 
-Nel codice precedente `TryUpdateModelAsync<Student>` tenta di aggiornare l'oggetto `emptyStudent` usando i valori di modulo inviati dalla proprietà [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) in [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` aggiorna solo le proprietà elencate (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
+Nel codice precedente `TryUpdateModelAsync<Student>` tenta di aggiornare l'oggetto `emptyStudent` usando i valori di modulo inviati dalla proprietà [PageContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) in [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` aggiorna solo le proprietà elencate (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
 
 Nell'esempio precedente:
 
@@ -134,7 +134,7 @@ Nell'esempio precedente:
 
 L'uso di `TryUpdateModel` per l'aggiornamento dei campi con i valori inviati è una procedura di sicurezza consigliata poiché impedisce l'overposting. Ad esempio, si supponga che l'entità Student includa una proprietà `Secret` che la pagina Web non deve aggiornare o aggiungere:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
+[!code-csharp[](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
 Anche se l'app non include un campo `Secret` nella pagina Razor Create o Update, un hacker potrebbe impostare il valore `Secret` tramite overposting. Un hacker potrebbe usare uno strumento come Fiddler oppure scrivere codice JavaScript per inviare un valore di modulo `Secret`. Il codice originale non limita i campi usati dallo strumento di associazione di modelli durante la creazione di un'istanza di Student.
 
@@ -149,15 +149,15 @@ Il valore "OverPost" è stato aggiunto alla proprietà `Secret` della riga inser
 
 Un modello di visualizzazione contiene in genere un subset delle proprietà incluse nel modello usato dall'applicazione. Il modello di applicazione è spesso chiamato modello di dominio. Il modello di dominio contiene in genere tutte le proprietà richieste dall'entità corrispondente nel database. Il modello di visualizzazione contiene solo le proprietà necessarie per il livello di interfaccia utente, ad esempio la pagina Create. Oltre al modello di visualizzazione, alcune app usano un modello di associazione o un modello di input per passare i dati dalla classe del modello di pagina di Razor Pages al browser e viceversa. Si consideri il modello di visualizzazione `Student` seguente:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
+[!code-csharp[](intro/samples/cu/Models/StudentVM.cs)]
 
 I modelli di visualizzazione rappresentano un altro metodo per impedire l'overposting. Il modello di visualizzazione contiene solo le proprietà da visualizzare o aggiornare.
 
 Il codice seguente usa il modello di visualizzazione `StudentVM` per creare un nuovo studente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-Il metodo [SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) imposta i valori di questo oggetto leggendo i valori di un altro oggetto [PropertyValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues). `SetValues` usa la corrispondenza dei nomi di proprietà. Poiché il tipo di modello di visualizzazione non deve essere correlato al tipo di modello, è sufficiente che abbia proprietà corrispondenti.
+Il metodo [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) imposta i valori di questo oggetto leggendo i valori di un altro oggetto [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues). `SetValues` usa la corrispondenza dei nomi di proprietà. Poiché il tipo di modello di visualizzazione non deve essere correlato al tipo di modello, è sufficiente che abbia proprietà corrispondenti.
 
 Se si usa `StudentVM` è necessario che [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) venga aggiornato per l'uso di `StudentVM` anziché `Student`.
 
@@ -165,15 +165,15 @@ In Razor Pages la classe derivata `PageModel` è il modello di visualizzazione.
 
 ## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit
 
-Aggiornare il modello di pagina per la pagina Edit:
+Aggiornare il modello di pagina per la pagina Edit. Le modifiche principali sono evidenziate:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 
 Le modifiche al codice sono simili alla pagina Create con alcune eccezioni:
 
 * `OnPostAsync` include un parametro `id` facoltativo.
 * Lo studente corrente viene recuperato dal database senza creare uno studente vuoto.
-* `FirstOrDefaultAsync` è stato sostituito con [FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` è una scelta ottimale quando si seleziona un'entità dalla chiave primaria. Per altre informazioni, vedere [FindAsync](#FindAsync).
+* `FirstOrDefaultAsync` è stato sostituito con [FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` è una scelta ottimale quando si seleziona un'entità dalla chiave primaria. Per altre informazioni, vedere [FindAsync](#FindAsync).
 
 ### <a name="test-the-edit-and-create-pages"></a>Testare le pagine Edit e Create
 
@@ -203,11 +203,11 @@ In un'app Web il `DbContext` che legge un'entità e visualizza i dati viene elim
 
 In questa sezione viene aggiunto un codice per implementare un messaggio di errore personalizzato quando la chiamata a `SaveChanges` ha esito negativo. Aggiungere una stringa per i possibili messaggi di errore:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
 Sostituire il metodo `OnGetAsync` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
 Il codice precedente contiene il parametro facoltativo `saveChangesError`. `saveChangesError` indica se il metodo è stato chiamato dopo un errore di eliminazione dell'oggetto Student. L'operazione di eliminazione potrebbe non riuscire a causa di problemi di rete temporanei. Gli errori di rete temporanei sono più probabili nel cloud. `saveChangesError` ha valore false quando `OnGetAsync` della pagina Delete viene chiamato dall'interfaccia utente. Quando `OnGetAsync` viene chiamato da `OnPostAsync` (perché l'operazione di eliminazione ha avuto esito negativo), il parametro `saveChangesError` ha valore true.
 
@@ -215,7 +215,7 @@ Il codice precedente contiene il parametro facoltativo `saveChangesError`. `save
 
 Sostituire `OnPostAsync` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
 
 Il codice precedente recupera l'entità selezionata, quindi chiama il metodo `Remove` per impostare lo stato dell'entità su `Deleted`. Quando viene chiamato `SaveChanges`, viene generato un comando SQL DELETE. Se `Remove` ha esito negativo:
 
@@ -226,7 +226,7 @@ Il codice precedente recupera l'entità selezionata, quindi chiama il metodo `Re
 
 Aggiungere il messaggio di errore evidenziato seguente alla pagina Razor Delete.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
 
 Eseguire il test di Delete.
 
@@ -242,6 +242,6 @@ Verificare che la pagina Razor contenga la direttiva `@page` corretta. Ad esempi
 
 Ogni pagina Razor deve includere la direttiva `@page`.
 
->[!div class="step-by-step"]
-[Precedente](xref:data/ef-rp/intro)
-[Successivo](xref:data/ef-rp/sort-filter-page)
+> [!div class="step-by-step"]
+> [Precedente](xref:data/ef-rp/intro)
+> [Successivo](xref:data/ef-rp/sort-filter-page)

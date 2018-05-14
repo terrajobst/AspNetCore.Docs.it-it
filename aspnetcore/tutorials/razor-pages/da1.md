@@ -1,21 +1,22 @@
 ---
-title: Aggiornare le pagine generate
+title: Aggiornare le pagine generate in un'app ASP.NET Core
 author: rick-anderson
-description: Aggiornare le pagine generate con una migliore visualizzazione.
+description: Informazioni su come aggiornare le pagine generate in un'app ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: a1bb1ab1e4fac9c634f4048947ac3f934af3d625
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 5c188799b7a42bcd5e9d5eab8dfe8cdad8002fe5
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="update-the-generated-pages"></a>Aggiornare le pagine generate
+# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aggiornare le pagine generate in un'app ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,7 +28,7 @@ Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentaz
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate nel codice seguente:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
 
 Fare clic con il pulsante destro del mouse su una riga rossa ondulata > **Azioni rapide e refactoring**.
 
@@ -39,8 +40,8 @@ Selezionare `using System.ComponentModel.DataAnnotations;`.
 
   Visual Studio aggiunge `using System.ComponentModel.DataAnnotations;`.
 
-[!INCLUDE[model1](../../includes/RP/da2.md)]
+[!INCLUDE [model1](../../includes/RP/da2.md)]
 
->[!div class="step-by-step"]
-[Precedente: Utilizzo di SQL Server Local DB](xref:tutorials/razor-pages/sql)
-[Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
+> [!div class="step-by-step"]
+> [Precedente: Utilizzo di SQL Server Local DB](xref:tutorials/razor-pages/sql)
+> [Aggiungere la funzionalità di ricerca](xref:tutorials/razor-pages/search)

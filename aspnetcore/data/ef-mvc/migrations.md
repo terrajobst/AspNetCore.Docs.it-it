@@ -1,21 +1,21 @@
 ---
 title: ASP.NET Core MVC con EF Core - Migrazioni - 4 di 10
 author: tdykstra
-description: "In questa esercitazione si inizia a usare la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati in un'applicazione ASP.NET Core MVC."
+description: In questa esercitazione si inizia a usare la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati in un'applicazione ASP.NET Core MVC.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migrazioni - Esercitazione su EF Core con ASP.NET Core MVC (4 di 10)
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC con EF Core - Migrazioni - 4 di 10
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -43,7 +43,7 @@ I numeri di versione dell'esempio erano quelli correnti nel momento in cui l'ese
 
 Nel file *appsettings.json* cambiare il nome del database nella stringa di connessione digitando ContosoUniversity2 o un altro nome non ancora adottato nel computer in uso.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Questa modifica configura il progetto in modo che la prima migrazione crei un nuovo database. Questa operazione non è necessaria per iniziare a usare le migrazioni, ma si capirà più avanti perché è utile eseguirla.
 
@@ -91,7 +91,7 @@ Se viene visualizzato il messaggio di errore "*Impossibile accedere al file  Con
 
 Quando è stato eseguito il comando `migrations add`, EF ha generato il codice che crea il database da zero. Questo codice si trova nella cartella *Migrations*, nel file denominato *\<timestamp>_InitialCreate.cs*. Il metodo `Up` della classe `InitialCreate` crea le tabelle di database che corrispondono ai set di entità del modello di dati, e il metodo `Down` le elimina, come illustrato nell'esempio seguente.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 Le migrazioni chiamano il metodo `Up` per implementare le modifiche al modello di dati per una migrazione. Quando si immette un comando per annullare l'aggiornamento, le migrazioni chiamano il metodo `Down`.
 
@@ -99,15 +99,13 @@ Questo codice è per la migrazione iniziale creata al momento dell'immissione de
 
 Se la migrazione iniziale è stata creata quando il database esisteva già, il codice di creazione del database viene generato ma non è necessario eseguirlo perché il database corrisponde già al modello di dati. Quando si distribuisce l'app in un altro ambiente in cui il database non esiste ancora, questo codice verrà eseguito per creare il database, è consigliabile quindi testarlo prima. Ecco perché in precedenza è stato modificato il nome del database nella stringa di connessione: per far sì che le migrazioni possano crearne uno nuovo da zero.
 
-## <a name="examine-the-data-model-snapshot"></a>Esaminare lo snapshot del modello di dati
+## <a name="the-data-model-snapshot"></a>Snapshot del modello di dati
 
-Le migrazioni creano anche uno *snapshot* dello schema del database corrente in *Migrations/SchoolContextModelSnapshot.cs*. Ecco come viene visualizzato il codice:
+Le migrazioni creano uno *snapshot* dello schema del database corrente in *Migrations/SchoolContextModelSnapshot.cs*. Quando si aggiunge una migrazione, EF determina le modifiche apportate confrontando il modello di dati con il file dello snapshot.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Quando si elimina una migrazione, usare il comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migrazione e garantisce che lo snapshot venga reimpostato correttamente.
 
-Poiché lo schema di database corrente è rappresentato nel codice, non è necessario che EF Core interagisca con il database per creare le migrazioni. Quando si aggiunge una migrazione, EF determina le modifiche apportate confrontando il modello di dati con il file dello snapshot. EF interagisce con il database solo quando è necessario aggiornarlo. 
-
-Il file di snapshot deve rimanere sincronizzato con le migrazioni che lo creano, pertanto non è possibile rimuovere una migrazione solo eliminando il file denominato *\<timestamp>_\<nomemigrazione>.cs*. Se si elimina tale file, le migrazioni rimanenti non saranno sincronizzate con il file dello snapshot del database. Per eliminare l'ultima migrazione aggiunta, usare il comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+Per altre informazioni sull'uso del file di snapshot, vedere [EF Core Migrations in Team Environments](/ef/core/managing-schemas/migrations/teams) (Migrazioni EF Core in ambienti team).
 
 ## <a name="apply-the-migration-to-the-database"></a>Applicare la migrazione al database
 
@@ -167,6 +165,6 @@ Per altre informazioni sui comandi della console di Gestione pacchetti, vedere [
 
 In questa esercitazione è stato spiegato come creare e applicare una prima migrazione. Nella prossima esercitazione verranno illustrati argomenti più avanzati espandendo il modello di dati. Lungo il percorso verranno create e applicate altre migrazioni.
 
->[!div class="step-by-step"]
-[Precedente](sort-filter-page.md)
-[Successivo](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [Precedente](sort-filter-page.md)
+> [Successivo](complex-data-model.md)  

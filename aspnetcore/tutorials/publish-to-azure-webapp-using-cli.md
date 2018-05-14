@@ -12,15 +12,17 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0418a2695d3afb6dc2c55b8f694a97d62239835f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Distribuire un'applicazione ASP.NET Core in Servizio app di Azure dalla riga di comando
+# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Pubblicare un'app ASP.NET Core in Azure con gli strumenti della riga di comando
 
 Di [Cam Soper](https://twitter.com/camsoper)
+
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Questa esercitazione illustra come compilare e distribuire un'applicazione ASP.NET Core in Servizio app di Microsoft Azure usando gli strumenti della riga di comando.  Al termine, sarà disponibile un'applicazione Web compilata in ASP.NET MVC Core ospitata come app Web di Servizio app di Azure.  Questa esercitazione è scritta tramite gli strumenti della riga di comando di Windows, ma può essere applicata anche agli ambienti macOS e Linux.  
 
@@ -35,7 +37,7 @@ In questa esercitazione si imparerà a:
 Per completare questa esercitazione, è necessario disporre di:
 
 * Una [sottoscrizione di Microsoft Azure](https://azure.microsoft.com/free/)
-* [.NET Core](https://www.microsoft.com/net/download/core)
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * Client della riga di comando [Git](https://www.git-scm.com/)
 
 ## <a name="create-a-web-application"></a>Creare un'applicazione Web

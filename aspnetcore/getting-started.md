@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad ASP.NET Core 2.0
+title: Introduzione ad ASP.NET Core
 author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 manager: wpickett
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: eb1fd748029743ca6991927cc95b612ed1975338
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
 > [!NOTE]
-> Queste istruzioni sono relative alla versione più recente di ASP.NET Core. Per iniziare con una versione precedente, vedere la [versione 1.1 di questa esercitazione](xref:getting-started-1.1).
+> Queste istruzioni sono relative alla versione più recente di ASP.NET Core. Vedere [Introduzione ad ASP.NET Core 1.1](xref:getting-started-1.1) per la versione 1.1 di questo documento.
 
-1. Installare [.NET Core](https://www.microsoft.com/net/core/).
+1. Installare [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
 2. Creare un nuovo progetto .NET Core.
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/30/2018
     dotnet new razor -o aspnetcoreapp
     ```
     
-4. Eseguire l'app.
+3. Eseguire l'app.
 
     Usare i comandi seguenti per eseguire l'app:
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 01/30/2018
     dotnet run
     ```
 
-5. Passare a [http://localhost:5000](http://localhost:5000)
+4. Passare a [http://localhost:5000](http://localhost:5000)
 
-6. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is @DateTime.Now " (Buongiorno mondo! L'ora nel server è):
+5. Aprire <em>Pages/About.cshtml</em> e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is @DateTime.Now " (Buongiorno mondo! L'ora nel server è):
 
-    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-7. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
+6. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

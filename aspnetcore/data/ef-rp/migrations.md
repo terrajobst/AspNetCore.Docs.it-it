@@ -1,7 +1,7 @@
 ---
-title: Razor Pages con EF Core - Migrazioni - 4 di 8
+title: Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 author: rick-anderson
-description: "In questa esercitazione si inizia a usare la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati in un'app ASP.NET Core MVC."
+description: In questa esercitazione si inizia a usare la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati in un'app ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migrazioni: esercitazione su EF Core con Razor Pages (4 di 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
 Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 In questa esercitazione viene usata la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati.
 
@@ -52,7 +52,7 @@ I numeri di versione dell'esempio precedente erano quelli correnti nel momento i
 
 Nel file *appsettings.json* modificare il nome del database nella stringa di connessione in ContosoUniversity2.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Se si modifica il nome del database nella stringa di connessione, la prima migrazione crea un nuovo database. Viene creato un nuovo database poiché un database con quel nome non esiste. La modifica della stringa di connessione non è obbligatoria per iniziare a usare le migrazioni.
 
@@ -100,7 +100,7 @@ Se viene visualizzato il messaggio di errore "Compilazione non riuscita.", esegu
 
 Il comando `migrations add` di EF Core ha generato codice da cui creare il database. Questo codice di migrazioni si trova nel file *Migrations\<timestamp>_InitialCreate.cs*. Il metodo `Up` della classe `InitialCreate` crea le tabelle di database che corrispondono al set di entità del modello di dati. Il metodo `Down` le elimina, come illustrato nell'esempio seguente:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
 Le migrazioni chiamano il metodo `Up` per implementare le modifiche al modello di dati per una migrazione. Quando si immette un comando per annullare l'aggiornamento, le migrazioni chiamano il metodo `Down`.
 
@@ -115,15 +115,13 @@ Quando l'app viene distribuita in un nuovo ambiente, è necessario eseguire il c
 
 In precedenza è stata modificata la stringa di connessione per usare un nuovo nome per il database. Il database specificato non esiste, pertanto viene creato dalle migrazioni.
 
-### <a name="examine-the-data-model-snapshot"></a>Esaminare lo snapshot del modello di dati
+### <a name="the-data-model-snapshot"></a>Snapshot del modello di dati
 
-Le migrazioni creano uno *snapshot* dello schema del database corrente in *Migrations/SchoolContextModelSnapshot.cs*:
+Le migrazioni creano uno *snapshot* dello schema del database corrente in *Migrations/SchoolContextModelSnapshot.cs*. Quando si aggiunge una migrazione, EF determina le modifiche apportate confrontando il modello di dati con il file dello snapshot.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Quando si elimina una migrazione, usare il comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migrazione e garantisce che lo snapshot venga reimpostato correttamente.
 
-Poiché lo schema di database corrente è rappresentato nel codice, non è necessario che EF Core interagisca con il database per creare le migrazioni. Quando si aggiunge una migrazione, EF Core determina le modifiche apportate confrontando il modello di dati con il file dello snapshot. EF Core interagisce con il database solo quando è necessario aggiornarlo.
-
-Il file dello snapshot deve essere sincronizzato con le migrazioni che lo hanno creato. Non è possibile rimuovere una migrazione eliminando il file denominato *\<timestamp>_\<nomemigrazione>.cs*. Se tale file viene eliminato, le migrazioni rimanenti non sono sincronizzate con il file dello snapshot del database. Per eliminare l'ultima migrazione aggiunta, usare il comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+Per altre informazioni sull'uso del file di snapshot, vedere [EF Core Migrations in Team Environments](/ef/core/managing-schemas/migrations/teams) (Migrazioni EF Core in ambienti team).
 
 ## <a name="remove-ensurecreated"></a>Rimuovere EnsureCreated
 
@@ -181,15 +179,15 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Per ridurre il livello di dettaglio nei messaggi di log, è possibile modificare i livelli di log del file *appsettings.Development.json*. Per altre informazioni, vedere [Come creare log](xref:fundamentals/logging/index).
+Per ridurre il livello di dettaglio nei messaggi di log, modificare i livelli di log del file *appsettings.Development.json*. Per altre informazioni, vedere [Come creare log](xref:fundamentals/logging/index).
 
 Per controllare il database, usare **Esplora oggetti di SQL Server**. Si noti l'aggiunta di una tabella `__EFMigrationsHistory`. La tabella `__EFMigrationsHistory` tiene traccia di quali migrazioni sono state applicate al database. Visualizzare i dati nella tabella `__EFMigrationsHistory`: viene visualizzata una riga per la prima migrazione. Nell'ultimo log nell'esempio di output della CLI precedente viene visualizzata l'istruzione INSERT che crea tale riga.
 
 Eseguire l'app e verificare che tutto funzioni.
 
-## <a name="appling-migrations-in-production"></a>Applicazione delle migrazioni nell'ambiente di produzione
+## <a name="applying-migrations-in-production"></a>Applicazione delle migrazioni nell'ambiente di produzione
 
-È consigliabile fare in modo che le app nell'ambiente di produzione **non** chiamino [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) all'avvio dell'applicazione. L'elemento `Migrate` non deve essere chiamato da un'app nella server farm. Ad esempio, se l'app è stata distribuita in un cloud con scale-out, ovvero se sono in esecuzione più istanze dell'app.
+È consigliabile fare in modo che le app nell'ambiente di produzione **non** chiamino [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) all'avvio dell'applicazione. L'elemento `Migrate` non deve essere chiamato da un'app nella server farm. Ad esempio, se l'app è stata distribuita in un cloud con scale-out, ovvero se sono in esecuzione più istanze dell'app.
 
 La migrazione del database deve essere eseguita come parte della distribuzione e in modo controllato. Gli approcci alla migrazione di database in ambiente di produzione includono:
 
@@ -224,7 +222,7 @@ https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/S
 L'app genera l'eccezione seguente:
 
 ```text
-`SqlException: Cannot open database "ContosoUniversity" requested by the login.
+SqlException: Cannot open database "ContosoUniversity" requested by the login.
 The login failed.
 Login failed for user 'user name'.
 ```
@@ -236,6 +234,6 @@ Se il comando `update` restituisce l'errore "Compilazione non riuscita.":
 * Eseguire nuovamente il comando.
 * Lasciare un messaggio in fondo alla pagina.
 
->[!div class="step-by-step"]
-[Precedente](xref:data/ef-rp/sort-filter-page)
-[Successivo](xref:data/ef-rp/complex-data-model)
+> [!div class="step-by-step"]
+> [Precedente](xref:data/ef-rp/sort-filter-page)
+> [Successivo](xref:data/ef-rp/complex-data-model)

@@ -1,7 +1,7 @@
 ---
-title: Gestione delle richieste con controller in ASP.NET Core MVC
+title: Gestire le richieste con controller in ASP.NET Core MVC
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Gestione delle richieste con controller in ASP.NET Core MVC
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Gestire le richieste con controller in ASP.NET Core MVC
 
-Di [Steve Smith](https://ardalis.com/) e [Scott Addie](https://github.com/scottaddie)
+[Steve Smith](https://ardalis.com/) e [Scott Addie](https://github.com/scottaddie)
 
 I controller, le azioni e risultati delle azioni sono parti fondamentali dello sviluppo di app tramite ASP.NET Core MVC.
 
@@ -54,7 +54,7 @@ Le azioni possono restituire qualsiasi valore, ma spesso restituiscono un'istanz
 
 ### <a name="controller-helper-methods"></a>Metodi helper dei controller
 
-I controller in genere ereditano dalla classe [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), anche se questo non è obbligatorio. La derivazione da `Controller` consente l'accesso a tre categorie di metodi helper:
+I controller in genere ereditano dalla classe [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), anche se questo non è obbligatorio. La derivazione da `Controller` consente l'accesso a tre categorie di metodi helper:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Metodi risultanti in un corpo della risposta vuoto
 
@@ -76,7 +76,7 @@ All'interno di questa categoria sono presenti due tipi di risultati: reindirizza
 
 La maggior parte dei metodi helper di questa categoria includono una proprietà `ContentType`, che consente di impostare l'intestazione della risposta `Content-Type` in modo da descrivere il corpo della risposta.
 
-All'interno di questa categoria sono presenti due tipi di risultato: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:mvc/models/formatting).
+All'interno di questa categoria sono presenti due tipi di risultato: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
 
 * **Visualizza**
 
@@ -90,7 +90,7 @@ All'interno di questa categoria sono presenti due tipi di risultato: [visualizza
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metodi risultanti in un corpo della risposta non vuoto formattato in un tipo di contenuto negoziato con il client
 
-Questa categoria è più nota come **negoziazione del contenuto**. La [negoziazione del contenuto](xref:mvc/models/formatting#content-negotiation) si applica ogni volta che un'azione restituisce un tipo [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) o qualcosa di diverso da un'implementazione di [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult). Anche un'azione che restituisce un'implementazione non di `IActionResult` (ad esempio, `object`) restituisce una risposta formattata.
+Questa categoria è più nota come **negoziazione del contenuto**. La [negoziazione del contenuto](xref:web-api/advanced/formatting#content-negotiation) si applica ogni volta che un'azione restituisce un tipo [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) o qualcosa di diverso da un'implementazione di [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Anche un'azione che restituisce un'implementazione non di `IActionResult` (ad esempio, `object`) restituisce una risposta formattata.
 
 Alcuni metodi helper di questo tipo sono `BadRequest`, `CreatedAtRoute` e `Ok`. Alcuni esempi di questi metodi sono, rispettivamente, `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` e `return Ok(value);`. Si noti che `BadRequest` e `Ok` eseguono la negoziazione del contenuto solo quando viene passato loro un valore. Se non viene loro passato alcun valore, fungono invece da tipi di risultato codice di stato HTTP. Il metodo `CreatedAtRoute`, d'altra parte, esegue sempre la negoziazione del contenuto, perché tutti gli overload di questo metodo richiedono che venga passato un valore.
 
@@ -101,7 +101,7 @@ Le applicazioni condividono in genere parti del flusso di lavoro. Tra gli esempi
 La maggior parte degli attributi di filtro, ad esempio `[Authorize]`, può essere applicata a livello di controller o di azione, a seconda del livello di granularità desiderato.
 
 La gestione degli errori e la memorizzazione nella cache delle risposte rappresentano spesso problemi di montaggio incrociato:
-   * [Gestione degli errori](xref:mvc/controllers/filters#exception-filters)
+   * [Gestire gli errori](xref:mvc/controllers/filters#exception-filters)
    * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 
-Molti problemi di montaggio incrociato possono essere gestiti tramite filtri o [middleware](xref:fundamentals/middleware) personalizzato.
+Molti problemi di montaggio incrociato possono essere gestiti tramite filtri o [middleware](xref:fundamentals/middleware/index) personalizzato.

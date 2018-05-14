@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 57ff9db2edbf307f2442443dc14e69b0498f7475
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 76ba257abfb11e0c2950b974f837c6ae5818a6a1
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Attivazione del middleware basata su factory in ASP.NET Core
 
@@ -35,8 +35,8 @@ I vantaggi sono:
 
 L'app di esempio illustra il middleware attivato da:
 
-* Convenzione (`ConventionalMiddleware`). Per altre informazioni sull'attivazione del middleware basata su convenzione, vedere l'argomento [Middleware](xref:fundamentals/middleware/index).
-* Un'implementazione di [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) (`IMiddlewareMiddleware`). La [classe MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory) predefinita attiva il middleware.
+* Convenzione. Per altre informazioni sull'attivazione del middleware basata su convenzione, vedere l'argomento [Middleware](xref:fundamentals/middleware/index).
+* Un'implementazione [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware). La [classe MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory) predefinita attiva il middleware.
 
 Le implementazioni del middleware funzionano in modo identico e registrano il valore specificato da un parametro di stringa di query (`key`). I middleware usano un contesto di database inserito, ovvero un servizio con ambito, per registrare il valore di stringa di query in un database in memoria.
 
@@ -46,15 +46,15 @@ Le implementazioni del middleware funzionano in modo identico e registrano il va
 
 Middleware attivato da convenzione:
 
-[!code-csharp[Main](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
 Middleware attivato da `MiddlewareFactory`:
 
-[!code-csharp[Main](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
 
 Vengono create estensioni per i middleware:
 
-[!code-csharp[Main](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
 Non è possibile passare gli oggetti al middleware attivato da factory con `UseMiddleware`:
 
@@ -69,11 +69,11 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 
 Il middleware attivato da factory viene aggiunto al contenitore predefinito in *Startup.cs*:
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
 
 Entrambi i middleware vengono registrati nella pipeline di elaborazione della richiesta in `Configure`:
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
@@ -84,3 +84,4 @@ L'implementazione predefinita di `IMiddlewareFactory`, [MiddlewareFactory](/dotn
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Middleware](xref:fundamentals/middleware/index)
+* [Attivazione del middleware con un contenitore di terze parti](xref:fundamentals/middleware/extensibility-third-party-container)

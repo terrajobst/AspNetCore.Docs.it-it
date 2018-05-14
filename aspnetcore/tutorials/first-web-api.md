@@ -4,24 +4,29 @@ author: rick-anderson
 description: Compilare un'API Web con ASP.NET Core MVC e Visual Studio per Windows
 manager: wpickett
 ms.author: riande
-ms.date: 08/15/2017
+ms.custom: mvc
+ms.date: 04/27/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1146132693681eca8f92beb00ebabd7296534688
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 962c24a7e654328df7e8893e589e45b19e87b931
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-#<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
+
 Questa esercitazione consente di creare un'API Web per la gestione di un elenco di elementi di tipo "attività" e non un'interfaccia utente (UI).
 
-Sono disponibili 3 versioni dell'esercitazione:
+Sono disponibili tre versioni di questa esercitazione:
 
 * Windows: API Web con Visual Studio per Windows (questa esercitazione)
 * macOS: [API Web con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
@@ -33,27 +38,21 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE[install 2.0](../includes/install2.0.md)]
-
-Vedere [questo PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) per la versione ASP.NET Core 1.1.
+[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-In Visual Studio selezionare il menu **File** > **Nuovo** > **Progetto**.
+Seguire questa procedura in Visual Studio:
 
-Selezionare il modello di progetto **Applicazione Web ASP.NET Core (.NET Core)**. Assegnare il nome `TodoApi` al progetto e scegliere **OK**.
-
-![Finestra di dialogo Nuovo progetto](first-web-api/_static/new-project.png)
-
-Nella finestra di dialogo **Nuova Applicazione Web ASP.NET Core - TodoApi**, selezionare il modello **API Web**. Scegliere **OK**. **Non** selezionare **Abilita supporto Docker**.
-
-![Finestra di dialogo Nuova Applicazione Web ASP.NET Core con il modello di progetto API Web selezionato tra i modelli ASP.NET Core](first-web-api/_static/web-api-project.png)
+* Scegliere **Nuovo** > **Progetto** dal menu **File**.
+* Selezionare il modello **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome *TodoApi* e fare clic su **OK**.
+* Nella finestra di dialogo **Nuova Applicazione Web ASP.NET Core - TodoApi** scegliere la versione per ASP.NET Core. Selezionare il modello **API**, quindi scegliere **OK**. **Non** selezionare **Abilita supporto Docker**.
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. In Chrome, Microsoft Edge e Firefox viene visualizzato l'output seguente:
+In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:<port>/api/values`, dove `<port>` è un numero di porta selezionato a caso. In Chrome, Microsoft Edge e Firefox viene visualizzato l'output seguente:
 
-```
+```json
 ["value1","value2"]
 ```
 
@@ -61,15 +60,16 @@ In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browse
 
 Un modello è un oggetto che rappresenta i dati nell'app. In questo caso l'unico modello è un elemento attività.
 
-Aggiungere una cartella denominata "Models". In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
-Nota: è possibile inserire le classi del modello in qualsiasi punto del progetto. ma per convenzione viene usata la cartella *Models*.
+> [!NOTE]
+> È possibile inserire le classi del modello in qualsiasi punto del progetto. ma per convenzione viene usata la cartella *Models*.
 
-Aggiungere una classe `TodoItem`. Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare il nome `TodoItem` alla classe, quindi selezionare **Aggiungi**.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere**Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e fare clic su **Aggiungi**.
 
 Aggiornare la classe `TodoItem` con il codice seguente:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoItem.cs)]
 
 Il database genera `Id` quando viene creato un `TodoItem`.
 
@@ -77,17 +77,17 @@ Il database genera `Id` quando viene creato un `TodoItem`.
 
 Il *contesto di database* è la classe principale che coordina le funzionalità di Entity Framework per un determinato modello di dati. Questa classe viene creata mediante derivazione dalla classe `Microsoft.EntityFrameworkCore.DbContext`.
 
-Aggiungere una classe `TodoContext`. Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare il nome `TodoContext` alla classe, quindi selezionare **Aggiungi**.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere**Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoContext* e fare clic su **Aggiungi**.
 
 Sostituire la classe con il codice seguente:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>Aggiungere un controller
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella *Controllers*. Selezionare **Aggiungi** > **Nuovo elemento**. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare il modello **Classe controller API Web**. Assegnare alla classe il nome `TodoController`.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella *Controllers*. Selezionare **Aggiungi** > **Nuovo elemento**. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare il modello **API Controller Class** (Classe controller API). Assegnare alla classe il nome *TodoController* e fare clic su **Aggiungi**.
 
 ![Finestra di dialogo Aggiungi nuovo elemento con controller nella casella di ricerca e controller API Web selezionato](first-web-api/_static/new_controller.png)
 
@@ -97,9 +97,10 @@ Sostituire la classe con il codice seguente:
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:port/api/values`, dove *port* è un numero di porta selezionato a caso. Passare al controller `Todo` all'indirizzo `http://localhost:port/api/todo`.
+In Visual Studio premere CTRL+F5 per avviare l'app. Visual Studio apre un browser e naviga all'indirizzo `http://localhost:<port>/api/values`, dove `<port>` è un numero di porta selezionato a caso. Passare al controller `Todo` all'indirizzo `http://localhost:<port>/api/todo`.
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
+[!INCLUDE[jQuery](../includes/webApi/add-jquery.md)]
 
+[!INCLUDE[next steps](../includes/webApi/next.md)]

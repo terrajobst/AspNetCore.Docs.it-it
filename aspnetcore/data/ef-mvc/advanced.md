@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core MVC con EF Core - Argomenti avanzati - 10 di 10
 author: tdykstra
-description: "Questa esercitazione presenta diversi argomenti che è utile tenere presente dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET che usano Entity Framework Core."
+description: Questa esercitazione presenta argomenti utili dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 655f60116cbfe1dd81b7e2855906446b919b6489
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Argomenti avanzati - Esercitazione su EF Core con ASP.NET Core MVC (10 di 10)
+# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC con EF Core - Argomenti avanzati - 10 di 10
 
-[Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
 
@@ -41,7 +41,7 @@ La classe `DbSet<TEntity>` offre un metodo che è possibile usare per eseguire u
 
 In *DepartmentsController.cs* nel metodo `Details` sostituire il codice che recupera un reparto con una chiamata al metodo `FromSql`, come illustrato nel codice evidenziato seguente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 Per verificare il corretto funzionamento del nuovo codice, selezionare la scheda **Departments** e quindi **Dettagli** per uno dei reparti.
 
@@ -53,11 +53,11 @@ In precedenza è stata creata una griglia delle statistiche degli studenti per l
 
 In *HomeController.cs* sostituire il metodo `About` con il codice seguente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 Aggiungere un'istruzione using:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
 Eseguire l'app e passare alla pagina About. Vengono visualizzati gli stessi dati visualizzati in precedenza.
 
@@ -71,9 +71,9 @@ Si supponga che gli amministratori di Contoso University vogliano eseguire modif
 
 In *CoursesContoller.cs* aggiungere i metodi UpdateCourseCredits per HttpGet e HttpPost:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 Quando il controller elabora una richiesta HttpGet, non viene restituito alcun elemento in `ViewData["RowsAffected"]` e la visualizzazione mostra una casella di testo vuota e un pulsante di invio, come illustrato nella figura precedente.
 
@@ -85,7 +85,7 @@ Nella finestra di dialogo **Aggiungi nuovo elemento** fare clic su **ASP.NET** i
 
 In *Views/Courses/UpdateCourseCredits.cshtml* sostituire il codice del modello con il codice seguente:
 
-[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 Eseguire il metodo `UpdateCourseCredits` selezionando la scheda **Courses**, quindi aggiungendo "/UpdateCourseCredits" alla fine dell'URL nella barra degli indirizzi del browser (ad esempio: `http://localhost:5813/Courses/UpdateCourseCredits`). Immettere un numero nella casella di testo:
 
@@ -182,7 +182,7 @@ Per eseguire il reverse engineering di un modello di dati contenente classi di e
 
 La [terza esercitazione di questa serie](sort-filter-page.md) descrive come scrivere codice LINQ impostando come hardcoded i nomi di colonna in un'istruzione `switch`. Se la selezione viene effettuata tra due colonne, il funzionamento è corretto, ma in presenza di numerose colonne il codice potrebbe diventare troppo lungo. Per risolvere il problema, è possibile usare il metodo `EF.Property` per specificare il nome della proprietà come stringa. Per provare questo approccio, sostituire il metodo `Index` in `StudentsController` con il codice seguente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -192,7 +192,7 @@ Per altre informazioni su EF Core, vedere la [documentazione di Entity Framework
 
 Per informazioni su come distribuire un'app Web, vedere [Hosting e distribuzione](xref:host-and-deploy/index).
 
-Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio sull'autenticazione e l'autorizzazione, vedere la [documentazione di ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio sull'autenticazione e l'autorizzazione, vedere la [documentazione di ASP.NET Core](xref:index).
 
 ## <a name="acknowledgments"></a>Ringraziamenti
 
@@ -244,5 +244,5 @@ Soluzione:
 
 Controllare la stringa di connessione. Se il file di database è stato eliminato manualmente, modificare il nome del database nella stringa di costruzione per riniziare con un nuovo database.
 
->[!div class="step-by-step"]
-[Precedente](inheritance.md)
+> [!div class="step-by-step"]
+> [Precedente](inheritance.md)

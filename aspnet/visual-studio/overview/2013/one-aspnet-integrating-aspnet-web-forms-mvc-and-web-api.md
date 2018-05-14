@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: 'Laboratorio pratico: Un ASP.NET: l''integrazione di Web Form ASP.NET, MVC e Web API | Documenti Microsoft'
+title: "Laboratorio pratico: Un ASP.NET: l'integrazione di Web Form ASP.NET, MVC e Web API | Documenti Microsoft"
 author: rick-anderson
-description: "ASP.NET è un framework per la compilazione di siti Web, applicazioni e servizi con le tecnologie specializzate, ad esempio MVC, API Web e altri. Con l'espansione h ASP.NET..."
+description: ASP.NET è un framework per la compilazione di siti Web, applicazioni e servizi con le tecnologie specializzate, ad esempio MVC, API Web e altri. Con l'espansione h ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -161,7 +161,7 @@ In questa attività verranno eseguire la soluzione generata, esplorare l'app e a
     *URL brevi*
 
     > [!NOTE]
-    > Come si può notare, l'URL viene modificato per **o contattare**. A partire da **ASP.NET 4**, funzionalità di routing di URL sono stati aggiunti a un Web Form, pertanto è possibile scrivere come URL  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  anziché  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Per ulteriori informazioni fare riferimento a [Routing degli URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Come si può notare, l'URL viene modificato per **o contattare**. A partire da **ASP.NET 4**, funzionalità di routing di URL sono stati aggiunti a un Web Form, pertanto è possibile scrivere come URL *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* anziché  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Per ulteriori informazioni fare riferimento a [Routing degli URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Verrà ora illustrato il flusso di autenticazione integrato nell'applicazione. A tale scopo, fare clic su **registrare** nell'angolo superiore destro della pagina.
 
     ![Registrazione di un nuovo utente](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)

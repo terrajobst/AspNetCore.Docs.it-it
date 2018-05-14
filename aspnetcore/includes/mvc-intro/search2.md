@@ -1,39 +1,39 @@
 <!--
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
 ![Index view](../../tutorials/first-mvc-app/search/_static/ghost.png)
 
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
 --> 
 
 Il metodo `Index` precedente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
 
 Il metodo `Index` aggiornato con il parametro `id`:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_SearchID)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_SearchID)]
 
 È ora possibile passare il titolo della ricerca come dati di route (un segmento di URL), anziché come valore della stringa di query.
 
 ![Vista Index con la parola ghost aggiunta all'URL e un elenco restituito di due film: Ghostbusters e Ghostbusters 2](../../tutorials/first-mvc-app/search/_static/g2.png)
 
-Tuttavia, non è possibile supporre che gli utenti modifichino l'URL ogni volta che desiderano cercare un film. A questo punto si aggiungerà l'interfaccia utente per filtrare i film. Se è stata modificata la firma del metodo `Index` per testare come passare il parametro `ID` associato alla route, impostarlo di nuovo in modo che accetti un parametro denominato `searchString`:
+Tuttavia, non è possibile supporre che gli utenti modifichino l'URL ogni volta che desiderano cercare un film. A questo punto si aggiungeranno elementi dell'interfaccia utente per filtrare i film. Se è stata modificata la firma del metodo `Index` per testare come passare il parametro `ID` associato alla route, impostarlo di nuovo in modo che accetti un parametro denominato `searchString`:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_1stSearch)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_1stSearch)]
 
 Aprire il file *Views/Movies/Index.cshtml* e aggiungere il markup `<form>` evidenziato di seguito:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexForm1.cshtml?highlight=10-16&range=4-21)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexForm1.cshtml?highlight=10-16&range=4-21)]
 
-Il tag `<form>` HTML usa l'[helper tag del modulo](../../mvc/views/working-with-forms.md) e quindi quando si invia il modulo, la stringa di filtro viene registrata nell'azione `Index` del controller di film. Salvare le modifiche e quindi testare il filtro.
+Il tag `<form>` HTML usa l'[helper tag del modulo](xref:mvc/views/working-with-forms) e quindi quando si invia il modulo, la stringa di filtro viene registrata nell'azione `Index` del controller di film. Salvare le modifiche e quindi testare il filtro.
 
 ![Vista Index con la parola ghost digitata nella casella di testo del filtro del titolo](../../tutorials/first-mvc-app/search/_static/filter.png)
 
@@ -41,7 +41,7 @@ Non è presente alcun overload del metodo `[HttpPost]` `Index` come previsto. No
 
 È possibile aggiungere il metodo `[HttpPost] Index` seguente.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_SearchPost)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_SearchPost)]
 
 Il parametro `notUsed` viene usato per creare un overload per il metodo `Index`. Questo aspetto verrà trattato in una fase successiva dell'esercitazione.
 
@@ -53,6 +53,6 @@ Tuttavia, anche se si aggiunge questa versione `[HttpPost]` del metodo `Index`, 
 
 ![Scheda di rete degli strumenti di sviluppo in Microsoft Edge che mostra il corpo di una richiesta con un valore searchString di ghost](../../tutorials/first-mvc-app/search/_static/f12_rb.png)
 
-È possibile esaminare il parametro di ricerca e il token [XSRF](../../security/anti-request-forgery.md) nel corpo della richiesta. Si noti, come indicato nell'esercitazione precedente, che l'[helper tag del modulo](../../mvc/views/working-with-forms.md) genera un token antifalsificazione [XSRF](../../security/anti-request-forgery.md). Poiché non si stanno modificando i dati, non è necessario convalidare il token nel metodo del controller.
+È possibile esaminare il parametro di ricerca e il token [XSRF](xref:security/anti-request-forgery) nel corpo della richiesta. Si noti, come indicato nell'esercitazione precedente, che l'[helper tag del modulo](xref:mvc/views/working-with-forms) genera un token antifalsificazione [XSRF](xref:security/anti-request-forgery). Poiché non si stanno modificando i dati, non è necessario convalidare il token nel metodo del controller.
 
 Poiché il parametro di ricerca si trova nel corpo della richiesta e non nell'URL, non è possibile acquisire queste informazioni sulla ricerca da usare come segnalibro o condividerle con altri utenti. È possibile risolvere il problema specificando che la richiesta deve essere `HTTP GET`.

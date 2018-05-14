@@ -1,7 +1,7 @@
 ---
 title: Routing in ASP.NET Core
 author: ardalis
-description: "Descrizione del modo in cui la funzionalità di routing di ASP.NET Core è responsabile del mapping di una richiesta in ingresso a un gestore di route."
+description: Descrizione del modo in cui la funzionalità di routing di ASP.NET Core è responsabile del mapping di una richiesta in ingresso a un gestore di route.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -22,13 +22,13 @@ Di [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/)
 La funzionalità di routing è responsabile dell'esecuzione del mapping di una richiesta in ingresso a un gestore di route. Le route sono definite nell'app ASP.NET e vengono configurate all'avvio dell'app. Una route può facoltativamente estrarre valori dall'URL contenuto nella richiesta e questi valori possono quindi essere usati per l'elaborazione della richiesta. Usando le informazioni sulla route dell'app ASP.NET, la funzionalità di routing è anche in grado di generare URL che eseguono il mapping ai gestori di route. Di conseguenza, il routing è in grado di trovare un gestore di route in base a un URL oppure l'URL corrispondente a un gestore di route specifico in base alle informazioni del gestore di route.
 
 >[!IMPORTANT]
-> Questo documento descrive il routing di basso livello di ASP.NET Core. Per il routing di ASP.NET Core MVC, vedere [Routing alle azioni del controller](../mvc/controllers/routing.md)
+> Questo documento descrive il routing di basso livello di ASP.NET Core. Per il routing di ASP.NET Core MVC, vedere [Route ad azioni del controller](../mvc/controllers/routing.md)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali sul routing
 
-Il routing usa le *route* (implementazioni di [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) per:
+Il routing usa le *route* (implementazioni di [IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter)) per:
 
 * eseguire il mapping di richieste in ingresso ai *gestori di route*
 
@@ -88,7 +88,7 @@ Il routing specifica la classe `Route` come implementazione standard di `IRouter
 
 La maggior parte delle applicazioni crea le route chiamando `MapRoute` o uno dei metodi di estensione simili definiti per `IRouteBuilder`. Questi metodi creano tutti un'istanza di `Route` e la aggiungono alla raccolta di route.
 
-Nota: `MapRoute` non accetta un parametro del gestore di route, aggiunge solo le route che verranno gestite da `DefaultHandler`. Poiché il gestore predefinito è un oggetto `IRouter`, può decidere di non gestire la richiesta. Ad esempio, ASP.NET MVC viene in genere configurato come un gestore predefinito che gestisce solo le richieste che corrispondono a un'azione e un controller disponibili. Per altre informazioni sul routing per MVC, vedere [Routing alle azioni del controller](../mvc/controllers/routing.md).
+Nota: `MapRoute` non accetta un parametro del gestore di route, aggiunge solo le route che verranno gestite da `DefaultHandler`. Poiché il gestore predefinito è un oggetto `IRouter`, può decidere di non gestire la richiesta. Ad esempio, ASP.NET MVC viene in genere configurato come un gestore predefinito che gestisce solo le richieste che corrispondono a un'azione e un controller disponibili. Per altre informazioni sul routing per MVC, vedere [Route ad azioni del controller](../mvc/controllers/routing.md).
 
 Questo è un esempio di una chiamata `MapRoute` usata da una tipica definizione di route di ASP.NET MVC:
 
@@ -187,7 +187,7 @@ Aggiungere il pacchetto NuGet "Microsoft.AspNetCore.Routing".
 
 Aggiungere il routing al contenitore del servizio in *Startup.cs*:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Le route devono essere configurate nel metodo `Configure` della classe `Startup`. Nell'esempio seguente vengono usate queste API:
 
@@ -321,7 +321,7 @@ La tabella seguente illustra alcuni vincoli di route con il relativo comportamen
 
 ## <a name="regular-expressions"></a>Espressioni regolari 
 
-Il framework di ASP.NET Core aggiunge `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressioni regolari. Vedere l'articolo sull'[enumerazione RegexOptions](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) per una descrizione di questi membri.
+Il framework di ASP.NET Core aggiunge `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressioni regolari. Vedere l'articolo sull'[enumerazione RegexOptions](/dotnet/api/system.text.regularexpressions.regexoptions) per una descrizione di questi membri.
 
 Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Ad esempio, per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, è necessario digitare i caratteri `\` come `\\` nel file di origine C# per eseguire l'escape del carattere di escape `\` della stringa, a meno che non si usino [valori letterali stringa verbatim](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Raddoppiare i caratteri `{`, `}`, '[' e ']' per eseguire l'escape dei caratteri di delimitazione dei parametri di routing.  Nella tabella che segue sono riportate due espressioni regolari con la relativa versione dopo l'escape.
 
@@ -351,7 +351,7 @@ Per limitare un parametro a un set noto di valori possibili, usare un'espression
 
 L'esempio seguente illustra come generare un collegamento a una route usando un dizionario di valori di route e un oggetto `RouteCollection`.
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 L'oggetto `VirtualPath` generato alla fine dell'esempio precedente è `/package/create/123`.
 

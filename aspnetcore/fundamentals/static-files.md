@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Usare i file statici in ASP.NET Core
 
@@ -31,20 +31,17 @@ I file statici vengono archiviati nella directory radice Web del progetto. La di
 
 L'host Web dell'app deve conoscere la directory radice del contenuto.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Il metodo `WebHost.CreateDefaultBuilder` imposta la radice del contenuto nella directory corrente:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Impostare la radice del contenuto nella directory corrente richiamando [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) all'interno di `Program.Main`:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
-
+* * *
 I file statici sono accessibili tramite un percorso relativo alla radice Web. Ad esempio, il modello di progetto **Applicazione Web** contiene varie cartelle all'interno della cartella *wwwroot*:
 
 * **wwwroot**
@@ -52,7 +49,7 @@ I file statici sono accessibili tramite un percorso relativo alla radice Web. Ad
   * **images**
   * **js**
 
-Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >*. Ad esempio, *http://localhost:9189/images/banner3.svg*.
+Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >*. Ad esempio: *http://localhost:9189/images/banner3.svg*.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -236,9 +233,9 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 > [!WARNING]
 > L'uso di `UseDirectoryBrowser` e `UseStaticFiles` può comportare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
 
-* Gli URL per il contenuto esposto con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione tra maiuscole e minuscole e a limitazione di caratteri del file system sottostante. Ad esempio, in Windows viene fatta distinzione tra maiuscole e minuscole, al contrario di Mac e Linux.
+* Gli URL per il contenuto esposto con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione tra maiuscole e minuscole e a limitazione di caratteri del file system sottostante. Ad esempio, in Windows viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene in macOS e Linux.
 
-* Le app ASP.NET Core ospitate in IIS usano il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) per inoltrare tutte le richieste all'app, incluse le richieste di file statici. Non viene usato il gestore di file statici di IIS. Non è possibile gestire le richieste se non sono state prima gestite dal modulo ASP.NET Core.
+* Le app ASP.NET Core ospitate in IIS usano il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) per inoltrare tutte le richieste all'app, incluse le richieste di file statici. Non viene usato il gestore di file statici di IIS. Non è possibile gestire le richieste se queste non sono state prima gestite dal modulo.
 
 * Completare la procedura seguente in Gestione IIS per rimuovere il gestore di file statici di IIS a livello di server o di sito Web:
     1. Passare alla funzionalità **Moduli**.

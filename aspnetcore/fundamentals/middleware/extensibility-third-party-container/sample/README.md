@@ -1,0 +1,3 @@
+# <a name="aspnet-core-middleware-extensibility-sample"></a>Esempio di estendibilità del middleware di ASP.NET Core
+
+In questo esempio viene illustrato l'utilizzo di [IMiddleware](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddleware) e [IMiddlewareFactory](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) con [Simple Injector](https://simpleinjector.org), un contenitore di inserimento delle dipendenze di terze parti. In questo esempio vengono illustrate le funzionalità descritte in [Attivazione del middleware con un contenitore di terze parti in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/extensibility-third-party-container).

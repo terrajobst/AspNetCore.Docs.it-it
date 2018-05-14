@@ -1,19 +1,19 @@
 ---
 title: Implementazione del server Web WebListener in ASP.NET Core
 author: rick-anderson
-description: "Presentazione di WebListener, un server Web per ASP.NET Core in Windows. Basato sul driver in modalità kernel Http.Sys, WebListener è un'alternativa a Kestrel che consente la connessione diretta a Internet senza IIS."
+description: Informazioni su WebListener, un server Web per ASP.NET Core in Windows che può essere usato per la connessione diretta a Internet senza IIS.
 manager: wpickett
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cd2e477824d916afcf1a7901e935dd465a466922
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web WebListener in ASP.NET Core
 
@@ -78,7 +78,7 @@ Sono anche disponibili le [Impostazioni del Registro di sistema HTTP. sys](https
 
 * Installare il pacchetto NuGet [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/), che installa anche [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) come dipendenza.
 
-* Chiamare il metodo di estensione `UseWebListener` in [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) nel metodo `Main`, specificando le [opzioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) e le [impostazioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) necessarie di WebListener, come illustrato nell'esempio seguente:
+* Chiamare il metodo di estensione `UseWebListener` in [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) nel metodo `Main`, specificando le [opzioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) e le [impostazioni](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) necessarie di WebListener, come illustrato nell'esempio seguente:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -87,6 +87,9 @@ Sono anche disponibili le [Impostazioni del Registro di sistema HTTP. sys](https
   Per impostazione predefinita ASP.NET Core è associato a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile usare il metodo di estensione `UseURLs`, l'argomento della riga di comando `urls` o il sistema di configurazione di ASP.NET Core. Per altre informazioni, vedere [Hosting](../../fundamentals/hosting.md).
 
   WebListener usa i [formati di stringa di prefisso di Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). WebListener non richiede un formato specifico per le stringhe di prefisso.
+
+  > [!WARNING]
+  > Le associazioni con caratteri jolly di livello superiore (`http://*:80/` e `http://+:80`) **non** devono essere usate, poiché possono introdurre vulnerabilità a livello di sicurezza nell'app. Questo concetto vale sia per i caratteri jolly sicuri che vulnerabili. Usare nomi host espliciti al posto di caratteri jolly. L'associazione con caratteri jolly del sottodominio (ad esempio, `*.mysub.com`) non costituisce un rischio per la sicurezza se viene controllato l'intero dominio padre (a differenza di `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di RFC7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.
 
   > [!NOTE]
   > Assicurarsi di specificare le stesse stringhe di prefisso in `UseUrls` che vengono pre-registrate nel server. 

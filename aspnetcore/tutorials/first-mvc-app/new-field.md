@@ -1,7 +1,7 @@
 ---
-title: Aggiunta di un nuovo campo
+title: Aggiungere un nuovo campo a un'app ASP.NET Core
 author: rick-anderson
-description: 
+description: Informazioni sull'uso di Migrazioni Code First di Entity Framework per aggiungere un nuovo campo a un modello ed eseguire la migrazione di questa modifica in un database.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: f8a5f9528d899f75aaabfbca38f075a27763567f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a314115459fedb9561694604509856503c023a5c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-new-field"></a>Aggiunta di un nuovo campo
+# <a name="add-a-new-field-to-an-aspnet-core-app"></a>Aggiungere un nuovo campo a un'app ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,7 +27,7 @@ Quando si usa Code First di Entity Framework per creare automaticamente un datab
 
 Aprire il file *Models/Movie.cs* e aggiungere una proprietà `Rating`:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 Compilare l'app (CTRL+MAIUSC+B).
 
@@ -41,7 +41,7 @@ Poiché è stato aggiunto un nuovo campo alla classe `Movie`, è necessario anch
 
 Modificare il file */Views/Movies/Index.cshtml* e aggiungere un campo `Rating`:
 
-[!code-HTML[Main](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 Aggiornare */Views/Movies/Create.cshtml* con un campo `Rating`. È possibile copiare e incollare il "gruppo di moduli" precedente e aggiornare i campi usando intelliSense. IntelliSense funziona con gli [helper tag](xref:mvc/views/tag-helpers/intro). Nota: nella versione RTM di Visual Studio 2017 è necessario installare [Servizi di linguaggio Razor](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices) per intelliSense di Razor. Il problema verrà risolto nella versione successiva.
 
@@ -65,7 +65,7 @@ Per questa esercitazione si userà Migrazioni Code First.
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni `new Movie`.
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Compilare la soluzione.
 
@@ -86,6 +86,6 @@ Se si eliminano tutti i record nel database, il database verrà inizializzato e 
 
 Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. Aggiungere anche il campo `Rating` ai modelli di vista `Edit`, `Details` e `Delete`.
 
->[!div class="step-by-step"]
-[Precedente](search.md)
-[Successivo](validation.md)  
+> [!div class="step-by-step"]
+> [Precedente](search.md)
+> [Successivo](validation.md)  

@@ -1,5 +1,5 @@
 ---
-title: Configurare la localizzazione degli oggetti portabili
+title: Configurare la localizzazione degli oggetti portabili in ASP.NET Core
 author: sebastienros
 description: Questo articolo presenta i file degli oggetti portabili e descrive i passaggi per l'uso dei file in un'applicazione ASP.NET Core con il framework Orchard Core.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: fbf2afd6fbc07c8068a21be15816aa45618f28d6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-portable-object-localization-with-orchard-core"></a>Configurare la localizzazione degli oggetti portabili con Orchard Core
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>Configurare la localizzazione degli oggetti portabili in ASP.NET Core
 
 [Sébastien Ros](https://github.com/sebastienros) e [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -74,21 +74,21 @@ Aggiungere un riferimento al pacchetto NuGet `OrchardCore.Localization.Core`. È
 
 Il file *.csproj* contiene ora una riga simile alla seguente (il numero di versione può variare):
 
-[!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
+[!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
 ### <a name="registering-the-service"></a>Registrazione del servizio
 
 Aggiungere i servizi necessari al metodo `ConfigureServices` di *Startup.cs*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
 Aggiungere il middleware necessario al metodo `Configure` di *Startup.cs*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
 Aggiungere il codice seguente alla visualizzazione Razor desiderata. In questo esempio viene usata *About.cshtml*.
 
-[!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
 Viene inserita un'istanza `IViewLocalizer` che viene usata per tradurre il testo "Hello world!".
 
@@ -96,7 +96,7 @@ Viene inserita un'istanza `IViewLocalizer` che viene usata per tradurre il testo
 
 Creare un file denominato *<culture code>.po* nella cartella radice dell'applicazione. In questo esempio il nome file è *fr.po* poiché viene usata la lingua francese:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 Il file memorizza la stringa da tradurre e la stringa tradotta in francese. Le traduzioni vengono ripristinate alla relativa impostazione cultura, se necessario. In questo esempio viene usato il file *fr.po* se le impostazioni cultura richieste sono `fr-FR` o `fr-CA`.
 
@@ -133,7 +133,7 @@ Non tutte le lingue condividono le stesse regole. La lingua ceca, ad esempio, ha
 
 Creare il file `cs.po` come descritto di seguito e notare che la pluralizzazione richiede tre traduzioni diverse:
 
-[!code-text[Main](localization/sample/POLocalization/cs.po)]
+[!code-text[](localization/sample/POLocalization/cs.po)]
 
 Per accettare le localizzazioni ceche, aggiungere `"cs"` all'elenco delle impostazioni cultura supportate nel metodo `ConfigureServices`:
 
@@ -206,7 +206,7 @@ Con `msgctxt` impostato in questo modo, la traduzione del testo si verifica quan
 
 Quando nessuna voce corrisponde al contesto di file specificato, il meccanismo di fallback di Orchard Core cerca un file PO appropriato senza contesto. Presupponendo che non sia stato definito alcun contesto di file specifico per *Views/Home/Contact.cshtml*, il passaggio a `/Home/Contact?culture=fr-FR` carica un file PO come:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 ### <a name="changing-the-location-of-po-files"></a>Modifica della posizione dei file PO
 

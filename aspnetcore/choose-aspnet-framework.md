@@ -4,54 +4,55 @@ author: rick-anderson
 description: Informazioni su come scegliere tra ASP.NET e ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 09/30/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 232e82ed66ff2363230ff09d435db1074c02b53b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e6ac9f54ef623895b81eea33d90791e5f0ad5120
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/20/2018
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>Scegliere tra ASP.NET e ASP.NET Core 
+# <a name="choose-between-aspnet-and-aspnet-core"></a>Scegliere tra ASP.NET e ASP.NET Core
 
-Indipendentemente dall'applicazione web che si sta creando, ASP.NET dispone di una soluzione per l'utente: da applicazioni web aziendali destinate a Windows Server, a piccoli contenitori di Linux destinati ai microservizi, passando per tutto ciò che è compreso tra i due elementi.
+Indipendentemente dall'app Web che si sta creando, ASP.NET dispone di una soluzione per tutti: da app Web aziendali destinate a Windows Server a piccoli contenitori di Linux destinati ai microservizi, passando per tutto ciò che è compreso tra i due elementi.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core è un framework open source, multipiattaforma per la compilazione di moderne applicazioni web basate su cloud in Windows, Mac OS o Linux.
+ASP.NET Core è un framework open source, multipiattaforma per la compilazione di moderne app Web basate sul cloud in Windows, Mac OS o Linux.
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET è un framework consolidato che fornisce tutti i servizi necessari per la compilazione di applicazioni Web basate su server di livello aziendale su Windows.
+ASP.NET è un framework consolidato che offre tutti i servizi necessari per la compilazione di app Web di livello aziendale basate su server in Windows.
 
 ## <a name="which-one-is-right-for-me"></a>Quale è adatta alle mie esigenze?
 
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Compilare per Windows, Mac OS o Linux|Compilare per Windows|
-|[Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di un'interfaccia utente Web con ASP.NET Core 2.0. Vedere anche [MVC](xref:mvc/overview) e [Web API](xref:tutorials/first-web-api)|Usare [Web Form](https://docs.microsoft.com/aspnet/web-forms), [SignalR](https://docs.microsoft.com/aspnet/signalr), [MVC](https://docs.microsoft.com/aspnet/mvc), [Web API](https://docs.microsoft.com/aspnet/web-api/), o [Pagine Web](https://docs.microsoft.com/aspnet/web-pages)|
+|[Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di un'interfaccia utente Web da ASP.NET Core 2.x. Vedere anche [MVC](xref:mvc/overview), [API Web](xref:tutorials/first-web-api) e [SignalR](xref:signalr/introduction).|Usare [Web Form](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), o [Pagine Web](/aspnet/web-pages)|
 |Più versioni per computer|Una versione per computer|
 |Sviluppare con Visual Studio, [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/), o [Visual Studio Code](https://code.visualstudio.com/) tramite C# o F#|Sviluppare con Visual Studio tramite C#, VB o F#|
 |Prestazioni più elevate rispetto ad ASP.NET|Buone prestazioni|
-|[Scegliere .NET Framework o Runtime di .NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server)|Usare runtime .NET Framework|
+|[Scegliere .NET Framework o Runtime di .NET Core](/dotnet/articles/standard/choosing-core-framework-server)|Usare runtime .NET Framework|
 
 ## <a name="aspnet-core-scenarios"></a>Scenari ASP.NET Core
 
 <!-- update link to Razor Pages mvc movie series when done -->
-* [Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di un'interfaccia utente Web con ASP.NET Core 2.0.
+* [Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di un'interfaccia utente Web da ASP.NET Core 2.x.
 * [Siti Web](xref:tutorials/first-mvc-app/index)
 * [API](xref:tutorials/first-web-api)
+* [In tempo reale](xref:signalr/index)
 
 ## <a name="aspnet-scenarios"></a>Scenari ASP.NET
 
-* [Siti Web](https://docs.microsoft.com/aspnet/mvc)
-* [API](https://docs.microsoft.com/aspnet/web-api)
-* [In tempo reale](https://docs.microsoft.com/aspnet/signalr)
+* [Siti Web](/aspnet/mvc)
+* [API](/aspnet/web-api)
+* [In tempo reale](/aspnet/signalr)
 
 ## <a name="resources"></a>Risorse
 
-* [Introduzione ad ASP.NET](https://docs.microsoft.com/aspnet/overview)
+* [Introduzione ad ASP.NET](/aspnet/overview)
 * [Introduzione a ASP.NET Core](xref:index)

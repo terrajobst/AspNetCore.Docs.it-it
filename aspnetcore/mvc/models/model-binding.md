@@ -1,7 +1,7 @@
 ---
-title: Associazione di modelli
+title: Associazione di modelli in ASP.NET Core
 author: rachelappel
-description: Informazioni sull'associazione di modelli in ASP.NET Core MVC
+description: Informazioni su come l'associazione di modelli in ASP.NET Core MVC esegue il mapping dei dati dalle richieste HTTP ai parametri dei metodi di azione.
 manager: wpickett
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: rachelap
@@ -10,15 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/model-binding
-ms.openlocfilehash: d64d2792d7c682f9112133be1b9d129b2fc8a048
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f416bda1d7bccdfa922ba598a411ef1d150e3111
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="model-binding"></a>Associazione di modelli
+# <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
-Di [Rachel Appel](https://github.com/rachelappel)
+[Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>Introduzione all'associazione di modelli
 

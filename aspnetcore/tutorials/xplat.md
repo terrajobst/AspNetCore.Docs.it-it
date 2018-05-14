@@ -9,30 +9,30 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: edec4d95715ae0965a80a656e16178db0b1874cd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 097d63d5be5bd83c688a7f377d8ed45ffdd43ff8
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="aspnet-core-cross-platform-tutorials"></a>Esercitazioni multipiattaforma di ASP.NET Core
+# <a name="aspnet-core-tutorials"></a>Esercitazioni di ASP.NET Core
 
 Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni ASP.NET Core:
 
 ## <a name="build-web-apps"></a>Creare app Web
 
-[Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di una nuova app di interfaccia utente Web con ASP.NET Core 2.0.
+[Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di una nuova app di interfaccia utente Web con ASP.NET Core 2.0 e versioni successive.
 
 * [Introduzione a Razor Pages in ASP.NET Core](xref:mvc/razor-pages/index)
 * Creare un'app web Razor Pages con ASP.NET Core
 
-   * [Razor Pages in Mac](xref:tutorials/razor-pages-mac/index)
+   * [Razor Pages in macOS](xref:tutorials/razor-pages-mac/index)
    * [Razor Pages con VS Code](xref:tutorials/razor-pages-vsc/index)  
 
 * Creare un'app Web ASP.NET Core MVC
 
    * [App Web con Visual Studio per Mac](first-mvc-app-mac/index.md)
-   * [App Web con Visual Studio Code in Mac o Linux](first-mvc-app-xplat/index.md)
+   * [App Web con Visual Studio Code in macOS o Linux](first-mvc-app-xplat/index.md)
 
 ## <a name="build-web-apis"></a>Creare API Web
 * Creare un'API Web con ASP.NET Core

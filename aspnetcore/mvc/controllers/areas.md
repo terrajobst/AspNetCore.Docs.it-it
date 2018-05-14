@@ -1,7 +1,7 @@
 ---
-title: Aree
+title: Aree in ASP.NET Core
 author: rick-anderson
-description: Illustra come usare le aree.
+description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni).
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: 1ade49de3f6c58edc4ea7b06bc593b3db797081c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 61527eb350b5aba9cb37b1de5acdeae1287bf073
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="areas"></a>Aree
+# <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
 Di [Dhananjay Kumar](https://twitter.com/debug_mode) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -125,7 +125,7 @@ Dopo aver definito la gerarchia di cartelle, è necessario informare MVC che ogn
    }
    ```
 
-Impostare la definizione di una route che funzioni con le aree appena create. L'articolo [Routing ad azioni del controller](routing.md) descrive in dettaglio come creare definizioni di route, nonché come usare route convenzionali rispetto a route di attributi. In questo esempio verrà usata una route convenzionale. A tale scopo, aprire il file *Startup.cs* e modificarlo aggiungendo la definizione di route denominata `areaRoute` riportata di seguito.
+Impostare la definizione di una route che funzioni con le aree appena create. L'articolo [Route ad azioni del controller](routing.md) descrive in dettaglio come creare definizioni di route, nonché come usare route convenzionali rispetto a route di attributi. In questo esempio verrà usata una route convenzionale. A tale scopo, aprire il file *Startup.cs* e modificarlo aggiungendo la definizione di route denominata `areaRoute` riportata di seguito.
 
 ```csharp
 ...

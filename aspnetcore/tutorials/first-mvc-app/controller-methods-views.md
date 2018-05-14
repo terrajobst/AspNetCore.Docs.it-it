@@ -1,7 +1,7 @@
 ---
-title: Metodi e viste del controller
+title: Metodi e viste del controller in ASP.NET Core
 author: rick-anderson
-description: Utilizzo di metodi, viste e DataAnnotations del controller
+description: Informazioni su come usare metodi, visualizzazioni e DataAnnotations del controller in ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 200f02f9815966653b3b46918737c60d11f11d5a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="controller-methods-and-views"></a>Metodi e viste del controller
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Metodi e viste del controller in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -25,7 +25,7 @@ Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentaz
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate di seguito:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
 
 Fare clic con il pulsante destro del mouse su una riga rossa ondulata **> Azioni rapide e refactoring**.
 
@@ -44,12 +44,12 @@ Rimuovere le istruzioni `using` che non sono necessarie. Per impostazione predef
 
 Il codice aggiornato:
 
-[!code-csharp[Main](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
+[!code-csharp[](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
 
 <!-- include start -->
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
 
->[!div class="step-by-step"]
-[Precedente](working-with-sql.md)
-[Successivo](search.md)  
+> [!div class="step-by-step"]
+> [Precedente](working-with-sql.md)
+> [Successivo](search.md)  

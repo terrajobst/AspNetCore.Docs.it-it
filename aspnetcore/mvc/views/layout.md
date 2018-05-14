@@ -1,7 +1,7 @@
 ---
-title: Layout
+title: Layout in ASP.NET Core
 author: ardalis
-description: 
+description: Informazioni su come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni in un'applicazione ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8e89c8e6cf18c47abb6bf432cdc6bb6b97e8aeb0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="layout"></a>Layout
+# <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
 
@@ -37,13 +37,13 @@ Questo layout definisce un modello di livello superiore per le visualizzazioni i
 
 Esempio di `_Layout.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Definizione di un layout
 
 Le visualizzazioni Razor hanno una proprietà `Layout`. Le visualizzazioni singole specificano un layout impostando la seguente proprietà:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 Il layout specificato può utilizzare un percorso completo (esempio: `/Views/Shared/_Layout.cshtml`) o un nome parziale (esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cerca il file di layout tramite il processo di individuazione standard. Viene innanzitutto cercata la cartella associata al controller, seguita dalla cartella `Shared`. Questo processo di individuazione è identico a quello utilizzato per individuare le [visualizzazioni parziali](partial.md).
 
@@ -99,7 +99,7 @@ Il file non supporta altre funzionalità di Razor, come le funzioni e le definiz
 
 Esempio di file `_ViewImports.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 Il file `_ViewImports.cshtml` per un'applicazione ASP.NET Core MVC viene generalmente posizionato nella cartella `Views`. È possibile collocare un file `_ViewImports.cshtml` in qualsiasi cartella, nel qual caso verrà applicato unicamente alle visualizzazioni all'interno di tale cartella e nelle relative sottocartelle. I file `_ViewImports` vengono elaborati a partire dal livello radice e successivamente per ogni cartella collegata al percorso della visualizzazione stessa, pertanto le impostazioni specificate al livello radice possono essere sottoposte a override a livello di cartella.
 
@@ -127,7 +127,7 @@ Se si dispone di un codice che è necessario eseguire prima di ogni visualizzazi
 
 Esempio di file `_ViewStart.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Il file precedente specifica che tutte le visualizzazioni useranno il layout `_Layout.cshtml`.
 

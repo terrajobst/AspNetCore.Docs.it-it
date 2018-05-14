@@ -1,7 +1,7 @@
 ---
-title: Razor Pages con EF Core - Concorrenza - 8 di 8
+title: Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 author: rick-anderson
-description: "Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente."
+description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
 it-it/
 
-# <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>Gestione dei conflitti di concorrenza - EF Core con Razor Pages (8 di 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) e [Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Se si verificano problemi che non è possibile risolvere, scaricare l'[app completa per questa fase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8).
 
@@ -57,38 +57,38 @@ La concorrenza ottimistica include le opzioni seguenti:
 
 * È possibile tenere traccia della proprietà che un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
 
- Con questo scenario non si registra la perdita di dati. I due utenti hanno aggiornato proprietà diverse. Quando un utente torna a visualizzare il reparto English (Inglese), visualizza sia le modifiche di Jane sia quelle di John. Questo metodo di aggiornamento riduce il numero di conflitti che possono comportare la perdita di dati. Questo approccio: * Non evita la perdita di dati se vengono apportate modifiche concorrenti alla stessa proprietà.
+  Con questo scenario non si registra la perdita di dati. I due utenti hanno aggiornato proprietà diverse. Quando un utente torna a visualizzare il reparto English (Inglese), visualizza sia le modifiche di Jane sia quelle di John. Questo metodo di aggiornamento riduce il numero di conflitti che possono comportare la perdita di dati. Questo approccio: * Non evita la perdita di dati se vengono apportate modifiche concorrenti alla stessa proprietà.
         * Risulta in genere poco pratico in un'app Web. Richiede la manutenzione di un volume importante di codice statico per tenere traccia di tutti i valori recuperati e i nuovi valori. La gestione di grandi quantità di codice statico può ridurre le prestazioni dell'applicazione.
         * Può rendere più complesse le app rispetto al rilevamento della concorrenza in un'entità.
 
 * È possibile consentire che la modifica di John sovrascriva la modifica di Jane.
 
- Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Se non si configura nessun codice per la gestione della concorrenza, la priorità client viene applicata automaticamente.
+  Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Se non si configura nessun codice per la gestione della concorrenza, la priorità client viene applicata automaticamente.
 
 * È possibile impedire che la modifica di John venga implementata nel database. In genere l'app: * Visualizza un messaggio di errore.
         * Visualizza lo stato corrente dei dati.
         * Consente all'utente di riapplicare le modifiche.
 
- Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
+  Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
 
 ## <a name="handling-concurrency"></a>Gestione della concorrenza 
 
 Quando una proprietà è configurata come [token di concorrenza](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF Core verifica che la proprietà non sia stata modificata dopo il suo recupero. La verifica viene eseguita quando si chiama [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_).
-* Se la proprietà è stata modificata dopo il recupero, viene generata un'eccezione [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0). 
+* EF Core verifica che la proprietà non sia stata modificata dopo il suo recupero. La verifica viene eseguita quando si chiama [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_).
+* Se la proprietà è stata modificata dopo il recupero, viene generata un'eccezione [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0). 
 
 Il database e il modello di dati devono essere configurati per supportare la generazione di `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Rilevamento dei conflitti di concorrenza per una proprietà
 
-È possibile rilevare i conflitti di concorrenza a livello delle proprietà con l'attributo [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0). L'attributo può essere applicato a più proprietà del modello. Per altre informazioni, vedere [Data Annotations-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations) (Annotazioni dei dati - ConcurrencyCheck).
+È possibile rilevare i conflitti di concorrenza a livello delle proprietà con l'attributo [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0). L'attributo può essere applicato a più proprietà del modello. Per altre informazioni, vedere [Data Annotations-ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations) (Annotazioni dei dati - ConcurrencyCheck).
 
 L'attributo `[ConcurrencyCheck]` non viene usato in questa esercitazione.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Rilevamento dei conflitti di concorrenza per una riga
 
-Per rilevare i conflitti di concorrenza si aggiunge al modello una colonna di rilevamento [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion`:
+Per rilevare i conflitti di concorrenza si aggiunge al modello una colonna di rilevamento [rowversion](/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion`:
 
 * È specifica per SQL Server. È possibile che altri database non dispongano di una funzionalità simile.
 * Viene usata per determinare che un'entità non è stata modificata dopo il suo recupero dal database. 
@@ -105,9 +105,9 @@ In EF Core quando nessuna riga è stata aggiornata da un comando `Update` o `Del
 
 In *Models/Department.cs* aggiungere una proprietà di rilevamento denominata RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-L'attributo [Timestamp](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) specifica che questa colonna è inclusa nella clausola `Where` dei comandi `Update` e `Delete`. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server usavano un tipo di dati SQL `timestamp` prima che questo fosse sostituito dal tipo SQL `rowversion`.
+L'attributo [Timestamp](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) specifica che questa colonna è inclusa nella clausola `Where` dei comandi `Update` e `Delete`. L'attributo viene chiamato `Timestamp` perché le versioni precedenti di SQL Server usavano un tipo di dati SQL `timestamp` prima che questo fosse sostituito dal tipo SQL `rowversion`.
 
 L'API Fluent può anche specificare la proprietà di rilevamento:
 
@@ -127,7 +127,7 @@ Il codice evidenziato seguente visualizza la notazione T-SQL che verifica che è
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) restituisce il numero delle righe interessate dall'ultima istruzione. Se non viene aggiornata nessuna riga, EF Core genera `DbUpdateConcurrencyException`.
+[@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) restituisce il numero delle righe interessate dall'ultima istruzione. Se non viene aggiornata nessuna riga, EF Core genera `DbUpdateConcurrencyException`.
 
 Il codice T-SQL generato da EF Core è visibile nella finestra di output di Visual Studio.
 
@@ -147,7 +147,7 @@ I comandi precedenti:
 * Aggiungono il file di migrazione *Migrations/{timestamp}_RowVersion.cs*.
 * Aggiornano il file *Migrations/SchoolContextModelSnapshot.cs*. L'aggiornamento aggiunge al metodo `BuildModel` il codice evidenziato seguente:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Eseguono migrations per aggiornare il database.
 
@@ -158,9 +158,9 @@ I comandi precedenti:
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Eseguire il comando seguente:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
 
 Il comando precedente esegue lo scaffolding del modello `Department`. Aprire il progetto in Visual Studio.
 
@@ -171,7 +171,7 @@ Compilare il progetto. La compilazione genera errori simili al seguente:
  argument of type 'SchoolContext' could be found (are you missing a using directive or
  an assembly reference?)`
 
- Convertire globalmente `_context.Department` in `_context.Departments` (ovvero aggiungere una "s" a `Department`). Vengono trovate e aggiornate sette occorrenze.
+ Convertire a livello globale `_context.Department` in `_context.Departments` (ovvero aggiungere una "s" a `Department`). Vengono trovate e aggiornate sette occorrenze.
 
 ### <a name="update-the-departments-index-page"></a>Aggiornare la pagina Departments Index (Indice reparti)
 
@@ -193,9 +193,9 @@ Aggiornare *pages\departments\edit.cshtml.cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Per rilevare un problema di concorrenza, [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) viene aggiornato con il valore `rowVersion` dall'entità dalla quale stato recuperato. EF Core genera un comando SQL UPDATE con una clausola WHERE contenente il valore `RowVersion` originale. Se il comando UPDATE non ha effetto su nessuna riga (nessuna riga ha il valore originale `RowVersion`), viene generata un'eccezione `DbUpdateConcurrencyException`.
+Per rilevare un problema di concorrenza, [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) viene aggiornato con il valore `rowVersion` dall'entità dalla quale stato recuperato. EF Core genera un comando SQL UPDATE con una clausola WHERE contenente il valore `RowVersion` originale. Se il comando UPDATE non ha effetto su nessuna riga (nessuna riga ha il valore originale `RowVersion`), viene generata un'eccezione `DbUpdateConcurrencyException`.
 
-[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
+[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
 Nel codice precedente, `Department.RowVersion` è il valore al momento del recupero dell'entità. `OriginalValue` è il valore presente nel database quando in questo metodo è stato chiamato `FirstOrDefaultAsync`.
 
@@ -305,8 +305,8 @@ Per informazioni su come ereditare un modello di dati, vedere [Ereditarietà](xr
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Concurrency Tokens in EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency) (Token di concorrenza in EF Core)
-* [Handling concurrency in EF Core](https://docs.microsoft.com/ef/core/saving/concurrency) (Gestione della concorrenza in EF Core)
+* [Concurrency Tokens in EF Core](/ef/core/modeling/concurrency) (Token di concorrenza in EF Core)
+* [Gestione della concorrenza in EF Core](/ef/core/saving/concurrency)
 
->[!div class="step-by-step"]
-[Precedente](xref:data/ef-rp/update-related-data)
+> [!div class="step-by-step"]
+> [Precedente](xref:data/ef-rp/update-related-data)

@@ -1,7 +1,7 @@
 ---
-title: Routing ad azioni del controller
+title: Routing ad azioni del controller in ASP.NET Core
 author: rick-anderson
-description: 
+description: Informazioni su come ASP.NET Core MVC usa middleware di routing per verificare la corrispondenza degli URL delle richieste in ingresso ed eseguirne il mapping alle azioni.
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: d87cb50871b956c51045558d2e4f076de4211f81
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 28fe62128d0a094fa08e866a270aed26080b1e51
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="routing-to-controller-actions"></a>Routing ad azioni del controller
+# <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
 Di [Ryan Nowak](https://github.com/rynowak) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -386,11 +386,11 @@ Nelle route con attributi si può configurare un ordine usando la proprietà `Or
 
 Per praticità, le route con attributi supportano la *sostituzione dei token* eseguita racchiudendo i token tra parentesi quadre (`[`, `]`). I token `[action]`, `[area]` e `[controller]` vengono sostituiti con i valori di nome dell'azione, nome dell'area e nome del controller dall'azione in cui è definita la route. In questo esempio le azioni possono stabilire la corrispondenza dei percorsi URL come descritto nei commenti:
 
-[!code-csharp[Main](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
+[!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
 La sostituzione dei token avviene come ultimo passaggio della creazione delle route con attributi. L'esempio precedente si comporterà come il codice seguente:
 
-[!code-csharp[Main](routing/sample/main/Controllers/ProductsController2.cs?range=7-11,13-17,20-22)]
+[!code-csharp[](routing/sample/main/Controllers/ProductsController2.cs?range=7-11,13-17,20-22)]
 
 Le route con attributi possono anche essere combinate con l'ereditarietà. Ciò risulta particolarmente efficace se combinato con la sostituzione dei token.
 
@@ -403,7 +403,7 @@ public class ProductsController : MyBaseController
    [HttpGet] // Matches '/api/Products'
    public IActionResult List() { ... }
 
-   [HttpPost("{id}")] // Matches '/api/Products/{id}'
+   [HttpPut("{id}")] // Matches '/api/Products/{id}'
    public IActionResult Edit(int id) { ... }
 }
 ```
@@ -499,7 +499,7 @@ L'attributo dell'esempio precedente imposta automaticamente `Template` su `"api/
 
 Il *modello applicativo* è un modello a oggetti creato all'avvio con tutti i metadati usati da MVC per indirizzare ed eseguire le azioni. Il *modello applicativo* include tutti i dati raccolti da attributi di route (attraverso `IRouteTemplateProvider`). È possibile scrivere *convenzioni* per modificare il modello applicativo in fase di avvio per personalizzare il comportamento del routing. Questa sezione illustra un semplice esempio di personalizzazione del routing con il modello applicativo.
 
-[!code-csharp[Main](routing/sample/main/NamespaceRoutingConvention.cs)]
+[!code-csharp[](routing/sample/main/NamespaceRoutingConvention.cs)]
 
 <a name="routing-mixed-ref-label"></a>
 
@@ -522,7 +522,7 @@ L'interfaccia `IUrlHelper` è l'elemento sottostante dell'infrastruttura tra MVC
 
 In questo esempio l'interfaccia `IUrlHelper` viene usata attraverso la proprietà `Controller.Url` per generare un URL a un'altra azione.
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationController.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationController.cs?name=snippet_1)]
 
 Se l'applicazione usa la route convenzionale predefinita, il valore della variabile `url` sarà la stringa del percorso URL `/UrlGeneration/Destination`. Il percorso URL viene creato dal routing combinando i valori di route della richiesta corrente (valori di ambiente) con i valori passati a `Url.Action` e sostituendo tali valori nel modello di route:
 
@@ -540,9 +540,9 @@ Nell'esempio di `Url.Action` precedente si presuppone che il routing sia convenz
 
 Questo esempio usa il routing con attributi:
 
-[!code-csharp[Main](routing/sample/main/StartupUseMvc.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/StartupUseMvc.cs?name=snippet_1)]
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerAttr.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationControllerAttr.cs?name=snippet_1)]
 
 MVC compila una tabella di ricerca di tutte le azioni indirizzate con attributi e stabilisce la corrispondenza dei valori `controller` e `action` per selezionare il modello di route da usare per la generazione di URL. Nell'esempio precedente viene generato `custom/url/to/destination`.
 
@@ -560,7 +560,7 @@ Il routing tenta di usare i valori nei valori di ambiente per ottenere le inform
 
 Anche gli overload di `Url.Action` di maggiore durata accettano anche un oggetto *valori di route* aggiuntivo per specificare i valori per i parametri di route diversi da `controller` e `action`. In genere viene usato con `id` come `Url.Action("Buy", "Products", new { id = 17 })`. Per convenzione l'oggetto *valori di route* è in genere un oggetto di tipo anonimo, ma può anche essere un `IDictionary<>` o un *normale oggetto .NET*. I valori di route aggiuntivi che non corrispondono a parametri di route vengono inseriti nella stringa di query.
 
-[!code-csharp[Main](routing/sample/main/Controllers/TestController.cs)]
+[!code-csharp[](routing/sample/main/Controllers/TestController.cs)]
 
 > [!TIP]
 > Per creare un URL assoluto, usare un overload che accetta un `protocol`: `Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
@@ -571,7 +571,7 @@ Anche gli overload di `Url.Action` di maggiore durata accettano anche un oggetto
 
 Il codice precedente illustra come generare un URL passando il nome del controller e dell'azione. `IUrlHelper` specifica anche la famiglia di metodi `Url.RouteUrl`. Questi metodi sono simili a `Url.Action`, ma non copiano i valori correnti di `action` e `controller` nei valori di route. L'uso più comune consiste nello specificare un nome di route per usare un percorso specifico per generare l'URL, in genere *senza* specificare un nome di controller o azione.
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
 <a name="routing-gen-urls-html-ref-label"></a>
 
@@ -631,11 +631,11 @@ Le [aree](areas.md) sono una funzionalità di MVC che consente di organizzare le
 
 Nell'esempio seguente MVC viene configurato in modo da usare la route convenzionale predefinita e una *route di area* per un'area denominata `Blog`:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet1)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet1)]
 
 Nella corrispondenza di un percorso URL come `/Manage/Users/AddUser` la prima route produrrà i valori di route `{ area = Blog, controller = Users, action = AddUser }`. Il valore di route `area` è generato da un valore predefinito per `area`, infatti la route creata da `MapAreaRoute` equivale alla seguente:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet2)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet2)]
 
 `MapAreaRoute` crea una route che usa sia un valore predefinito che un vincolo per `area` usando il nome di area specificato, in questo caso `Blog`. Il valore predefinito assicura che la route generi sempre `{ area = Blog, ... }`, il vincolo richiede il valore `{ area = Blog, ... }` per la generazione di URL.
 
@@ -644,15 +644,15 @@ Nella corrispondenza di un percorso URL come `/Manage/Users/AddUser` la prima ro
 
 Se si usa l'esempio precedente, i valori di route corrispondono all'azione seguente:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 
 `AreaAttribute` è ciò che denota un controller come parte di un'area, questo controller in particolare si trova nell'area `Blog`. I controller senza un attributo `[Area]` non sono membri di alcuna area e **non** corrispondono quando il valore di route `area` viene specificato dal routing. Nell'esempio seguente solo il primo controller indicato può corrispondere ai valori di route `{ area = Blog, controller = Users, action = AddUser }`.
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Zebra/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Zebra/Controllers/UsersController.cs)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Controllers/UsersController.cs)]
 
 > [!NOTE]
 > Lo spazio dei nomi di ogni controller viene indicato qui per motivi di completezza, per evitare conflitti di denominazione nei controller e la generazione di errori del compilatore. Gli spazi dei nomi delle classi non hanno effetto sul routing di MVC.
@@ -664,9 +664,9 @@ I primi due controller sono membri di aree e corrispondono solo quando viene spe
 
 Quando si esegue un'azione all'interno di un'area, il valore di route per `area` sarà disponibile come *valore di ambiente* per il routing da usare per la generazione di URL. Ciò significa che per impostazione predefinita le aree funzionano *temporaneamente* per la generazione di URL, come illustrato nell'esempio seguente.
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 
 <a name="iactionconstraint-ref-label"></a>
 

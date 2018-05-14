@@ -1,5 +1,5 @@
 ---
-title: Gestione degli errori in ASP.NET Core
+title: Gestire gli errori in ASP.NET Core
 author: ardalis
 description: Informazioni su come gestire gli errori nelle applicazioni ASP.NET Core.
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 5443cbeb1ef95c579e5fc12b625babbfa27c7ec2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-error-handling-in-aspnet-core"></a>Introduzione alla gestione degli errori in ASP.NET Core
+# <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykstra/)
 
@@ -28,7 +28,7 @@ Questo articolo descrive gli approcci comuni per la gestione degli errori nelle 
 
 Per configurare un'app in modo che visualizzi una pagina contenente informazioni dettagliate sulle eccezioni, installare il pacchetto NuGet `Microsoft.AspNetCore.Diagnostics` e aggiungere una riga al [metodo Configure della classe Startup](startup.md):
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 Inserire `UseDeveloperExceptionPage` prima di qualsiasi middleware in cui si desidera rilevare le eccezioni, ad esempio `app.UseMvc`.
 
@@ -51,7 +51,7 @@ Questa richiesta non include cookie. Se li includesse, verrebbero visualizzati n
 
 Può essere utile configurare una pagina di gestione delle eccezioni da usare quando l'app non è in esecuzione nell'ambiente `Development`.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 In un'app MVC non decorare esplicitamente il metodo dell'azione di gestione degli errori con attributi di metodo HTTP, ad esempio `HttpGet`. L'uso di verbi espliciti può impedire ad alcune richieste di raggiungere il metodo.
 
@@ -65,39 +65,44 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Configurazione delle tabelle codici di stato
 
-Per impostazione predefinita, l'app non fornisce una tabella codici di stato completa per i codici di stato HTTP, ad esempio 500 (Errore interno del server) o 404 (Non trovato). È possibile configurare `StatusCodePagesMiddleware` aggiungendo una riga al metodo `Configure`:
+Per impostazione predefinita, un'app non offre una tabella codici di stato completa per i codici di stato HTTP, ad esempio *404 Non trovato*. Per includere tabelle codici di stato, configurare il middleware delle tabelle codici di stato aggiungendo una riga al metodo `Startup.Configure`:
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-Per impostazione predefinita, il middleware aggiunge gestori di solo testo semplici per i codici di stato comuni, ad esempio 404:
+Per impostazione predefinita, il middleware delle tabelle codici di stato aggiunge gestori di solo testo semplici per i codici di stato comuni, ad esempio 404:
 
 ![Pagina 404](error-handling/_static/default-404-status-code.png)
 
-Il middleware supporta metodi di estensione diversi. Un metodo accetta espressioni lambda, mentre un altro metodo accetta un tipo di contenuto e una stringa di formato.
+Il middleware supporta vari metodi di estensione. Un metodo accetta un'espressione lambda:
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+
+Un altro metodo accetta un tipo di contenuto e una stringa di formato:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Sono disponibili anche metodi di estensione di reindirizzamento. Un metodo invia un codice di stato 302 al client, mentre un altro metodo restituisce il codice di stato originale al client ma esegue anche il gestore per l'URL di reindirizzamento.
+Sono disponibili anche metodi di estensione di reindirizzamento e ripetizione dell'esecuzione. Il metodo di reindirizzamento invia un codice di stato 302 al client:
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+
+Il metodo di ripetizione dell'esecuzione restituisce il codice di stato originale al client, ma esegue anche il gestore per l'URL di reindirizzamento:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Se è necessario disabilitare le tabelle codici di stato per determinate richieste, è possibile farlo:
+Le tabelle codici di stato possono essere disabilitate per richieste specifiche in un metodo del gestore Razor Pages o in un controller MVC. Per disabilitare le tabelle codici di stato, provare a recuperare [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) dalla raccolta [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) della richiesta e disabilitare la funzionalità, se disponibile:
 
 ```csharp
-var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
+var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
+
 if (statusCodePagesFeature != null)
 {
-  statusCodePagesFeature.Enabled = false;
+    statusCodePagesFeature.Enabled = false;
 }
 ```
 
@@ -109,13 +114,15 @@ Tenere anche presente che dopo che le intestazioni per una risposta sono state i
 
 ## <a name="server-exception-handling"></a>Gestione delle eccezioni del server
 
-Oltre alla logica di gestione delle eccezioni nell'app, il [server](servers/index.md) che ospita l'app esegue una parte della gestione delle eccezioni. Se il server rileva un'eccezione prima dell'invio delle intestazioni, il server invia una risposta 500 Errore interno del server senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Tutte le eccezioni vengono gestite dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate, middleware di gestione delle eccezioni o filtri configurati non hanno effetto su questo comportamento.
+Oltre alla logica di gestione delle eccezioni nell'app, il [server](servers/index.md) che ospita l'app esegue una parte della gestione delle eccezioni. Se rileva un'eccezione prima dell'invio delle intestazioni, il server invia una risposta *500 Errore interno del server* senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Tutte le eccezioni vengono gestite dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate, middleware di gestione delle eccezioni o filtri configurati non hanno effetto su questo comportamento.
 
 ## <a name="startup-exception-handling"></a>Gestione delle eccezioni durante l'avvio
 
 Solo il livello di hosting può gestire le eccezioni che si verificano durante l'avvio dell'app. È possibile [configurare il comportamento dell'host in risposta agli errori durante l'avvio](hosting.md#detailed-errors) usando `captureStartupErrors` e la chiave `detailedErrors`.
 
-L'hosting può visualizzare solo una pagina di errore per un errore di avvio acquisito se l'errore si verifica dopo l'associazione indirizzo host/porta. Se un'associazione ha esito negativo per qualsiasi ragione, il livello di hosting registra un'eccezione critica, il processo dotnet viene interrotto e non viene visualizzata alcuna pagina di errore.
+L'hosting può visualizzare solo una pagina di errore per un errore di avvio acquisito se l'errore si verifica dopo l'associazione indirizzo host/porta. Se un'associazione ha esito negativo per qualsiasi ragione, il livello di hosting registra un'eccezione critica, il processo dotnet viene interrotto e non viene visualizzata alcuna pagina di errore quando l'app è in esecuzione nel server [Kestrel](xref:fundamentals/servers/kestrel).
+
+Se durante l'esecuzione su [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) non è possibile avviare il processo, viene restituito un codice *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Seguire i consigli sulla risoluzione dei problemi in [Risolvere i problemi di ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot).
 
 ## <a name="aspnet-mvc-error-handling"></a>Gestione degli errori di ASP.NET MVC
 
@@ -132,7 +139,7 @@ I filtri delle eccezioni possono essere configurati a livello globale o per sing
 
 La [convalida del modello](../mvc/models/validation.md) avviene prima di richiamare ogni azione del controller ed è responsabilità del metodo di azione controllare `ModelState.IsValid` e rispondere in modo appropriato.
 
-Alcune app scelgono di seguire una convenzione standard per gestire gli errori di convalida del modello. In tal caso un [filtro](../mvc/controllers/filters.md) può essere l'elemento adatto in cui implementare tali criteri. È consigliabile testare il comportamento delle azioni con gli stati del modello non validi. Altre informazioni sui [test della logica dei controller](../mvc/controllers/testing.md).
+Alcune app scelgono di seguire una convenzione standard per gestire gli errori di convalida del modello. In tal caso un [filtro](../mvc/controllers/filters.md) può essere l'elemento adatto in cui implementare tali criteri. È consigliabile testare il comportamento delle azioni con gli stati del modello non validi. Altre informazioni sono disponibili in [Test della logica dei controller](../mvc/controllers/testing.md).
 
 
 

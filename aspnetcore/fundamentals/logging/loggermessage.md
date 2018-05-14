@@ -1,7 +1,7 @@
 ---
 title: Registrazione a prestazioni elevate con LoggerMessage in ASP.NET Core
 author: guardrex
-description: "Informazioni su come usare le funzionalità di LoggerMessage per creare delegati inseribili nella cache che richiedono un numero minore di allocazioni di oggetti rispetto ai metodi di estensione del logger per scenari di registrazione a prestazioni elevate."
+description: Informazioni su come usare LoggerMessage per creare delegati inseribili nella cache che richiedono un numero minore di allocazioni di oggetti per scenari di registrazione a prestazioni elevate.
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registrazione a prestazioni elevate con LoggerMessage in ASP.NET Core
 
@@ -34,19 +34,11 @@ L'app di esempio illustra le funzionalità di `LoggerMessage` con un sistema di 
 
 [Define(LogLevel, EventId, String)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) crea un delegato `Action` per la registrazione di un messaggio. Gli overload `Define` permettono il passaggio di un massimo di sei parametri di tipo in una stringa di formato denominata (modello).
 
-## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
-
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) crea un delegato `Func` per definire un [ambito del log](xref:fundamentals/logging/index#log-scopes). Gli overload `DefineScope` permettono il passaggio di un massimo di tre parametri di tipo in una stringa di formato denominata (modello).
-
-## <a name="message-template-named-format-string"></a>Modello di messaggio (stringa di formato denominata)
-
-La stringa specificata nei metodi `Define` e `DefineScope` è un modello e non una stringa interpolata. I segnaposto vengono inseriti nell'ordine in cui sono specificati i tipi. I nomi dei segnaposto nel modello devono essere descrittivi e coerenti tra i modelli. Vengono usati come nomi di proprietà all'interno dei dati di log strutturati. Per i nomi dei segnaposto è consigliabile usare la [convenzione Pascal](/dotnet/standard/design-guidelines/capitalization-conventions). Ad esempio, `{Count}`, `{FirstName}`.
-
-## <a name="implementing-loggermessagedefine"></a>Implementazione di LoggerMessage.Define
+La stringa specificata nel metodo `Define` è un modello e non una stringa interpolata. I segnaposto vengono inseriti nell'ordine in cui sono specificati i tipi. I nomi dei segnaposto nel modello devono essere descrittivi e coerenti tra i modelli. Vengono usati come nomi di proprietà all'interno dei dati di log strutturati. Per i nomi dei segnaposto è consigliabile usare la [convenzione Pascal](/dotnet/standard/design-guidelines/capitalization-conventions). Ad esempio, `{Count}`, `{FirstName}`.
 
 Ogni messaggio di log è un elemento `Action` contenuto in un campo statico creato da `LoggerMessage.Define`. Ad esempio, l'app di esempio crea un campo per descrivere un messaggio di log per una richiesta GET per la pagina di indice (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
 Per `Action`, specificare:
 
@@ -60,17 +52,17 @@ Una richiesta per la pagina di indice dell'app di esempio imposta:
 * L'ID evento su `1` con il nome del metodo `IndexPageRequested`.
 * Il modello di messaggio (stringa di formato denominata) su una stringa.
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
 Negli archivi di log strutturati è possibile che venga usato il nome evento quando viene specificato con l'ID evento per arricchire la registrazione. Ad esempio, [Serilog](https://github.com/serilog/serilog-extensions-logging) usa il nome evento.
 
 `Action` viene richiamato attraverso un metodo di estensione fortemente tipizzato. Il metodo `IndexPageRequested` registra un messaggio per la richiesta GET di una pagina di indice nell'app di esempio:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
 `IndexPageRequested` viene chiamato nel logger nel metodo `OnGetAsync` in *Pages/Index.cshtml.cs*:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
 Esaminare l'output della console dell'app:
 
@@ -82,19 +74,19 @@ info: LoggerMessageSample.Pages.IndexModel[1]
 
 Per passare i parametri in un messaggio di log, definire un massimo di sei tipi durante la creazione del campo statico. L'app di esempio registra una stringa quando viene aggiunta un'offerta definendo un tipo `string` per il campo `Action`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
 Il modello di messaggio di log del delegato riceve i valori dei segnaposto dai tipi specificati. L'app di esempio definisce un delegato per l'aggiunta di un'offerta dove il parametro dell'offerta è un elemento `string`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
 Il metodo di estensione statico per l'aggiunta di un'offerta, `QuoteAdded`, riceve il valore dell'argomento dell'offerta e lo passa al delegato `Action`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
 Nel modello della pagina di indice (*Pages/Index.cshtml.cs*) viene chiamato `QuoteAdded` per registrare il messaggio:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
 Esaminare l'output della console dell'app:
 
@@ -106,17 +98,17 @@ info: LoggerMessageSample.Pages.IndexModel[2]
 
 L'app di esempio implementa un modello `try`&ndash;`catch` per l'eliminazione dell'offerta. Per un'operazione di eliminazione con esito positivo, viene registrato un messaggio informativo. Per un'operazione di eliminazione con la generazione di un'eccezione, viene registrato un messaggio di errore. Il messaggio di log per un'operazione di eliminazione con esito negativo include l'analisi dello stack dell'eccezione (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
 Si noti come l'eccezione viene passata al delegato in `QuoteDeleteFailed`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
 Nel modello di pagina per la pagina di indice l'eliminazione di un'offerta con esito positivo chiama il metodo `QuoteDeleted` nel logger. Quando non viene trovata un'offerta per l'eliminazione, viene generata un'eccezione `ArgumentNullException`. L'eccezione viene intercettata dall'istruzione `try`&ndash;`catch` e registrata chiamando il metodo `QuoteDeleteFailed` nel logger nel blocco `catch` (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
 Quando un'offerta viene eliminata, esaminare l'output della console dell'app:
 
@@ -141,7 +133,11 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>Implementazione di LoggerMessage.DefineScope
+## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
+
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) crea un delegato `Func` per definire un [ambito del log](xref:fundamentals/logging/index#log-scopes). Gli overload `DefineScope` permettono il passaggio di un massimo di tre parametri di tipo in una stringa di formato denominata (modello).
+
+Come avviene per il metodo `Define`, la stringa specificata nel metodo `DefineScope` è un modello e non una stringa interpolata. I segnaposto vengono inseriti nell'ordine in cui sono specificati i tipi. I nomi dei segnaposto nel modello devono essere descrittivi e coerenti tra i modelli. Vengono usati come nomi di proprietà all'interno dei dati di log strutturati. Per i nomi dei segnaposto è consigliabile usare la [convenzione Pascal](/dotnet/standard/design-guidelines/capitalization-conventions). Ad esempio, `{Count}`, `{FirstName}`.
 
 Definire un [ambito del log](xref:fundamentals/logging/index#log-scopes) da applicare a una serie di messaggi di log usando il metodo [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope).
 
@@ -149,7 +145,7 @@ L'app di esempio include un pulsante **Clear All** (Cancella tutto) per eliminar
 
 Abilitare `IncludeScopes` nelle opzioni del logger della console:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
+[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Nelle app ASP.NET Core 2.0 è necessario impostare `IncludeScopes` per abilitare gli ambiti di log. L'impostazione di `IncludeScopes` tramite i file di configurazione *appsettings* è una funzionalità prevista per ASP.NET Core 2.1.
 
@@ -157,19 +153,19 @@ L'app di esempio cancella gli altri provider e aggiunge filtri per ridurre l'out
 
 Per creare un ambito di log, aggiungere un campo per inserire un delegato `Func` per l'ambito. L'app di esempio crea un campo denominato `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
 Usare `DefineScope` per creare il delegato. È possibile specificare un massimo di tre tipi da usare come argomenti di modello quando viene richiamato il delegato. L'app di esempio usa un modello di messaggio che include il numero di offerte eliminate (un tipo `int`):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
 Specificare un metodo di estensione statico per il messaggio di log. Includere i parametri di tipo per le proprietà denominate visualizzate nel modello di messaggio. L'app di esempio accetta un numero `count` di offerte da eliminare e restituisce `_allQuotesDeletedScope`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
 L'ambito esegue il wrapping delle chiamate di estensione di registrazione in un blocco `using`:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
 Esaminare i messaggi di log nell'output della console dell'app. Il risultato seguente mostra tre offerte eliminate con il messaggio di ambito di log incluso:
 

@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9155bd54bc211c8be0678065e857f73d8a139365
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introduzione all'uso di helper tag nei moduli in ASP.NET Core
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette) e [Jerrie Pelser](https://github.com/jerriep)
 
@@ -40,15 +40,15 @@ L'helper tag [Form](https://www.w3.org/TR/html401/interact/forms.html):
 
 Esempio:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
 L'helper tag Form precedente genera il codice HTML seguente:
 
 ```HTML
 <form method="post" action="/Demo/Register">
-     <!-- Input and Submit elements -->
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
-    </form>
+    <!-- Input and Submit elements -->
+    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+</form>
 ```
 
 Il runtime MVC genera il valore dell'attributo `action` dagli attributi `asp-controller` e `asp-action` dell'helper tag Form. L'helper tag Form genera anche un [token di verifica della richiesta](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) nascosto per impedire richieste intersito false, in caso di uso con l'attributo `[ValidateAntiForgeryToken]` nel metodo azione HTTP Post. La protezione di un Form HTML puro da richieste intersito false è difficile, e l'helper tag Form offre questo servizio.
@@ -57,9 +57,9 @@ Il runtime MVC genera il valore dell'attributo `action` dagli attributi `asp-con
 
 L'attributo `asp-route` degli helper tag può anche generare un markup per l'attributo `action` HTML. Un'app con una [route](../../fundamentals/routing.md) denominata `register` può usare il markup seguente per la pagina di registrazione:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si crea una nuova app Web con *account utente singoli*) contengono l'attributo [asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms):
+Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si crea una nuova app Web con *account utente singoli*) contengono l'attributo [asp-route-returnurl](xref:mvc/views/working-with-forms):
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -84,11 +84,11 @@ L'helper tag Input:
 
 * Genera gli attributi HTML `id` e `name` per il nome dell'espressione specificata nell'attributo `asp-for`. `asp-for="Property1.Property2"` è equivalente a `m => m.Property1.Property2`. Il nome dell'espressione viene usato come valore dell'attributo `asp-for`. Per altre informazioni, vedere la sezione [Nomi delle espressioni](#expression-names).
 
-* Imposta il valore dell'attributo HTML `type` in base agli attributi relativi al tipo di modello e all'[annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
+* Imposta il valore dell'attributo HTML `type` in base agli attributi relativi al tipo di modello e all'[annotazione dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
 
 * Non sovrascrive il valore dell'attributo HTML `type` se è già stato specificato
 
-* Genera attributi di convalida [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) da attributi di [annotazione dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
+* Genera attributi di convalida [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) da attributi di [annotazione dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
 
 * Sovrappone una funzionalità di helper HTML con `Html.TextBoxFor` e `Html.EditorFor`. Per i dettagli, vedere la sezione **Alternative helper HTML per l'helper tag Input**.
 
@@ -117,7 +117,7 @@ L'helper tag `Input` imposta l'attributo HTML `type` in base al tipo .NET. La ta
 |Single, Double|type="number"|
 
 
-La tabella seguente illustra alcuni attributi di [annotazioni dei dati](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comuni di cui l'helper tag Input esegue il mapping a tipi di input specifici (non tutti gli attributi di convalida sono elencati):
+La tabella seguente illustra alcuni attributi di [annotazioni dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comuni di cui l'helper tag Input esegue il mapping a tipi di input specifici (non tutti gli attributi di convalida sono elencati):
 
 
 |Attributo|Tipo Input|
@@ -133,9 +133,9 @@ La tabella seguente illustra alcuni attributi di [annotazioni dei dati](https://
 
 Esempio:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
 Il codice precedente genera il codice HTML seguente:
 
@@ -189,17 +189,22 @@ Genera quanto segue:
 
 Con le proprietà delle raccolte, `asp-for="CollectionProperty[23].Member"` genera lo stesso nome di `asp-for="CollectionProperty[i].Member"` se il valore di `i` è `23`.
 
+Quando ASP.NET Core MVC calcola il valore di `ModelExpression`, analizza diverse origini, tra cui `ModelState`. Considerare `<input type="text" asp-for="@Name" />`. L'attributo `value` calcolato è il primo valore non Null da:
+
+* Voce `ModelState` con chiave "Name".
+* Risultato dell'espressione `Model.Name`.
+
 ### <a name="navigating-child-properties"></a>Esplorazione delle proprietà figlio
 
 È anche possibile passare alle proprietà figlio tramite il percorso delle proprietà del modello di visualizzazione. Si consideri una classe modello più complessa contenente una proprietà `Address` figlio.
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
 Nella visualizzazione, viene eseguita l'associazione a `Address.AddressLine1`:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
 Per `Address.AddressLine1` viene generato il codice HTML seguente:
 
@@ -211,7 +216,7 @@ Per `Address.AddressLine1` viene generato il codice HTML seguente:
 
 Esempio di modello contenente una matrice di `Colors`:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
 Metodo di azione:
 
@@ -225,23 +230,23 @@ public IActionResult Edit(int id, int colorIndex)
 
 Il codice Razor seguente illustra come accedere a un elemento `Color` specifico:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
 Modello *Views/Shared/EditorTemplates/String.cshtml*:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
 Esempio di uso di `List<T>`:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
 Il codice Razor seguente illustra come eseguire l'iterazione in una raccolta:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
 Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
 
 >[!NOTE]
@@ -264,9 +269,9 @@ Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 Esempio:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
 Viene generato il codice HTML seguente:
 
@@ -300,9 +305,9 @@ Rispetto a un elemento etichetta HTML puro, `Label Tag Helper` offre i vantaggi 
 
 Esempio:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
 Per l'elemento `<label>` viene generato il codice HTML seguente:
 
@@ -370,9 +375,9 @@ Se si verifica un errore di convalida sul lato server, ad esempio quando la conv
 
 Nell'esempio seguente, il modello di dati viene decorato con attributi `DataAnnotation` e genera messaggi di errore di convalida per l'elemento `<input>`.  Quando si verifica un errore di convalida, l'helper tag di convalida visualizza il messaggio di errore:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
 Codice HTML generato (se il modello è valido):
 
@@ -403,23 +408,23 @@ Codice HTML generato (se il modello è valido):
 
 `Select Tag Helper` `asp-for` specifica il nome della proprietà di modello per l'elemento [select](https://www.w3.org/wiki/HTML/Elements/select) e `asp-items` specifica gli elementi [option](https://www.w3.org/wiki/HTML/Elements/option).  Ad esempio:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 Esempio:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
 Il metodo `Index` inizializza `CountryViewModel`, imposta il paese selezionato e lo passa alla visualizzazione `Index`.
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 Il metodo `Index` di HTTP POST visualizza la selezione:
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
 Visualizzazione `Index`:
 
-[!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
+[!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
 Che genera il codice HTML seguente (con "CA" selezionato):
 
@@ -440,7 +445,7 @@ Che genera il codice HTML seguente (con "CA" selezionato):
 
 Il valore dell'attributo `asp-for` rappresenta un caso speciale e non richiede un prefisso `Model`, che invece è richiesto dagli altri attributi di helper tag, ad esempio `asp-items`
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 ### <a name="enum-binding"></a>Associazione di enum
 
@@ -448,17 +453,17 @@ Spesso è comodo usare `<select>` con una proprietà `enum` e generare gli eleme
 
 Esempio:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
 Il metodo `GetEnumSelectList` genera un oggetto `SelectList` per un enum.
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
 Per ottenere un'interfaccia utente più completa, è possibile decorare l'elenco di enumeratori con l'attributo `Display`:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
 Viene generato il codice HTML seguente:
 
@@ -484,7 +489,7 @@ L'elemento HTML [ \<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) v
 
 `CountryViewModelGroup` suddivide gli elementi `SelectListItem` nei gruppi "North America" ed "Europe":
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
 I due gruppi sono illustrati di seguito:
 
@@ -515,11 +520,11 @@ Codice HTML generato:
 
 L'helper tag Select genera automaticamente l'attributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) se la proprietà specificata nell'attributo `asp-for` è `IEnumerable`. Dato, ad esempio, il modello seguente:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
 Con la visualizzazione seguente:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
 Viene generato il codice HTML seguente:
 
@@ -543,17 +548,17 @@ Viene generato il codice HTML seguente:
 
 Se si usa l'opzione "not specified" in più pagine, è possibile creare un modello per evitare di ripetere lo stesso codice HTML:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
 Modello *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
 L'aggiunta di elementi HTML [ \<option>](https://www.w3.org/wiki/HTML/Elements/option) non è limitata al caso relativo a *nessuna selezione*. La visualizzazione e il metodo di azione seguenti, ad esempio, generano codice HTML simile al codice precedente:
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 L'elemento `<option>` corretto viene selezionato (con l'attributo `selected="selected"`) a seconda del valore `Country` corrente.
 
@@ -578,4 +583,4 @@ L'elemento `<option>` corretto viene selezionato (con l'attributo `selected="sel
 * [Associazione di modelli](xref:mvc/models/model-binding)
 * [Convalida del modello](xref:mvc/models/validation)
 * [Interfaccia IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [Frammenti di codice per questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)
+* [Frammenti di codice per questo documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

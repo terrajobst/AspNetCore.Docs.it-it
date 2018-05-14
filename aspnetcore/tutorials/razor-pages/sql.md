@@ -1,31 +1,32 @@
 ---
-title: Utilizzo di SQL Server Local DB e ASP.NET Core
+title: Usare SQL Server Local DB e ASP.NET Core
 author: rick-anderson
 description: Descrive l'utilizzo di SQL Server Local DB e ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 3bec0b7b547443dbb20c7e3a7422262c05f93975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d1a345fe8c61f6e07ebbe53de6d53e18d6f4c851
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Utilizzo di SQL Server Local DB e ASP.NET Core
+# <a name="work-with-sql-server-localdb-and-aspnet-core"></a>Usare SQL Server Local DB e ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Joe Audette](https://twitter.com/joeaudette) 
 
 L'oggetto `MovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` nel file *Startup.cs*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
 
 Il sistema di [configurazione](xref:fundamentals/configuration/index) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale ottiene la stringa di connessione dal file *appSettings.JSON*:
 
-[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 Quando si distribuisce l'app in un server di test o di produzione, è possibile usare una variabile di ambiente o un altro approccio per impostare la stringa di connessione su un SQL Server reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
 
@@ -54,7 +55,7 @@ Si noti l'icona a forma di chiave accanto a `ID`. Per impostazione predefinita, 
 
 Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituire il codice generato con il seguente:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
 
 Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
@@ -69,7 +70,7 @@ if (context.Movie.Any())
 
 Aggiungere l'inizializzatore del valore di inizializzazione alla fine del metodo `Main` nel file *Program.cs*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 Eseguire il test dell'app
 
@@ -82,8 +83,8 @@ Eseguire il test dell'app
 
     ![Menu di scelta rapida](sql/_static/stopIIS.png)
 
-   * Se Visual Studio è in esecuzione in modalità non di debug, premere F5 per attivare la modalità di debug.
-   * Se Visual Studio è in esecuzione in modalità di debug, arrestare il debugger e premere F5.
+    * Se Visual Studio è in esecuzione in modalità non di debug, premere F5 per attivare la modalità di debug.
+    * Se Visual Studio è in esecuzione in modalità di debug, arrestare il debugger e premere F5.
    
 L'app visualizza i dati sottoposti a seed:
 
@@ -91,6 +92,6 @@ L'app visualizza i dati sottoposti a seed:
 
 L'esercitazione successiva consentirà di pulire la presentazione dei dati.
 
->[!div class="step-by-step"]
-[Articolo precedente: Pagine Razor di scaffolding](xref:tutorials/razor-pages/page)
-[Articolo successivo: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
+> [!div class="step-by-step"]
+> [Articolo precedente: Pagine Razor di scaffolding](xref:tutorials/razor-pages/page)
+> [Articolo successivo: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
