@@ -3,23 +3,24 @@ title: Aggiornare le pagine generate
 author: rick-anderson
 description: Aggiornare le pagine generate con una migliore visualizzazione.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/da1
-ms.openlocfilehash: a2b440356be222914f6ac97eef950c6d5376f5a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: a8217917ab11a0dee42d71b4912d74e1e320446e
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-[!INCLUDE[model1](../../includes/RP/da1.md)]
+[!INCLUDE [model1](../../includes/RP/da1.md)]
 
-[!INCLUDE[model1](../../includes/RP/da2.md)]
+[!INCLUDE [model1](../../includes/RP/da2.md)]
 
->[!div class="step-by-step"]
-<span data-ttu-id="a4a73-103">[Precedente: Utilizzo di SQLite](xref:tutorials/razor-pages-mac/sql)
-[Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages-mac/search)</span><span class="sxs-lookup"><span data-stu-id="a4a73-103">[Previous: Working with SQLlite](xref:tutorials/razor-pages-mac/sql)
-[Adding Search](xref:tutorials/razor-pages-mac/search)</span></span>
+> [!div class="step-by-step"]
+> <span data-ttu-id="a93a4-103">[Precedente: Utilizzare SQLite](xref:tutorials/razor-pages-mac/sql)
+> [Aggiungere la funzionalità di ricerca](xref:tutorials/razor-pages-mac/search)</span><span class="sxs-lookup"><span data-stu-id="a93a4-103">[Previous: Work with SQLlite](xref:tutorials/razor-pages-mac/sql)
+[Add search](xref:tutorials/razor-pages-mac/search)</span></span>
