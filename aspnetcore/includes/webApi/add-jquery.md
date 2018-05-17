@@ -2,7 +2,7 @@
 
 In questa sezione viene aggiunta una pagina HTML che usa jQuery per chiamare l'API Web. jQuery avvia la richiesta e aggiorna la pagina con i dettagli ottenuti dalla risposta dell'API.
 
-Configurare il progetto in modo che gestisca i file statici e consenta il mapping di file predefinito. Questa funzionalità si ottiene chiamando i metodi di estensione [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) e [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in *Startup.Configure*. Per altre informazioni, vedere [Usare i file statici in ASP.NET Core](xref:fundamentals/static-files).
+Configurare il progetto in modo che gestisca i file statici e consenta il mapping di file predefinito. Questa funzionalità si ottiene chiamando i metodi di estensione [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) e [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in *Startup.Configure*. Per altre informazioni, vedere [File statici](xref:fundamentals/static-files).
 
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup2.cs?name=snippet_Configure&highlight=3-4)]
 

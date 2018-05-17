@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 19e862ef01655b24ba4d323b8f5f012de1455424
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a0b96f480aaa3941cf63b25780c5a1d9d4b2dbb0
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configurazione di account di accesso esterno Facebook in ASP.NET Core
 
@@ -70,7 +70,8 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Configurare l'autenticazione di Facebook
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Aggiungere il servizio di Facebook nel `ConfigureServices` metodo il *Startup.cs* file:
 
 ```csharp
@@ -87,7 +88,8 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Installare il [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pacchetto.
 
 * Per installare il pacchetto con Visual Studio 2017, fare clic sul progetto e scegliere **Gestisci pacchetti NuGet**.
@@ -105,7 +107,8 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
-* * *
+---
+
 Vedere il [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) riferimento API per altre informazioni sulle opzioni di configurazione supportati dall'autenticazione di Facebook. Opzioni di configurazione possono essere utilizzate per:
 
 * Richiedere informazioni diverse relative all'utente.

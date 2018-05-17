@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 929c73c314a15e7003853d3996158d1328e597cb
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -141,14 +141,6 @@ Un file di risorse è un meccanismo utile per la separazione delle stringhe loca
     Visual Studio visualizza il file *Welcome.es.resx*.
 
     ![Esplora soluzioni con il file di risorse Welcome per lo spagnolo (es)](localization/_static/se.png)
-
-<a name="error"></a>
-
-Se si usa Visual Studio 2017 Preview versione 15.3, viene visualizzato un indicatore di errore nell'editor delle risorse. Rimuovere il valore *ResXFileCodeGenerator* dalla griglia delle proprietà *Strumento personalizzato* per evitare questo messaggio di errore:
-
-![Editor di resx](localization/_static/err.png)
-
-In alternativa, è possibile ignorare questo errore. Ci auguriamo di risolvere il problema nella prossima versione.
 
 ## <a name="resource-file-naming"></a>Denominazione dei file di risorse
 

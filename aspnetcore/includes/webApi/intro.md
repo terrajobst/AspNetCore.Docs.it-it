@@ -10,8 +10,6 @@ Questa esercitazione consente di creare l'API seguente:
 |PUT /api/todo/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
 |DELETE /api/todo/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuno | nessuno|
 
-<br>
-
 Il diagramma seguente mostra la struttura base dell'app.
 
 ![Il client è rappresentato da una casella a sinistra e invia una richiesta e riceve una risposta dall'applicazione, una casella a destra. Nella riquadro dell'applicazione tre caselle rappresentano il controller, il modello e il livello di accesso ai dati. La richiesta viene ricevuta dal controller dell'applicazione e vengono eseguite operazioni di lettura/scrittura tra il controller e il livello di accesso ai dati. Il modello viene serializzato e restituito al client nella risposta.](../../tutorials/first-web-api/_static/architecture.png)

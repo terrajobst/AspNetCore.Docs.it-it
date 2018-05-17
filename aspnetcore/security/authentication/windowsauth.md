@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 876e1ab67fd283a9a8788bb2c7ef0ec111075794
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a481951812e3498a1172dea98aaa162149b86f2b
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -84,17 +84,20 @@ Avviare l'app per verificare l'autenticazione di Windows sia funzionante.
 
 ## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>Abilitare l'autenticazione di Windows con HTTP.sys o WebListener
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Sebbene Kestrel non supporta l'autenticazione di Windows, è possibile utilizzare [HTTP.sys](xref:fundamentals/servers/httpsys) per supportare gli scenari indipendenti che in Windows. Nell'esempio seguente consente di configurare dell'host dell'applicazione web per l'utilizzo di HTTP.sys con l'autenticazione di Windows:
 
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Sebbene Kestrel non supporta l'autenticazione di Windows, è possibile utilizzare [WebListener](xref:fundamentals/servers/weblistener) per supportare gli scenari indipendenti che in Windows. Nell'esempio seguente consente di configurare dell'host dell'applicazione web per utilizzare WebListener con l'autenticazione di Windows:
 
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
-* * *
+---
+
 ## <a name="work-with-windows-authentication"></a>Usare l'autenticazione di Windows
 
 Lo stato di configurazione dell'accesso anonimo determina il modo in cui il `[Authorize]` e `[AllowAnonymous]` attributi vengono usati nell'app. Nelle due sezioni seguenti illustrano come gestire gli stati di configurazione non consentite e sono consentite dell'accesso anonimo.

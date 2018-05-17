@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 8ad2a63ce007a68eac3b607db454c6b4fc834444
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e0bca48fcaa9a29847fdda714698ed8562d30707
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 
@@ -138,13 +138,16 @@ Il contenuto del *secrets.json* file non vengono crittografati. Il *secrets.json
 
 Aggiungere `AuthMessageSenderOptions` al contenitore del servizio alla fine del `ConfigureServices` metodo il *Startup.cs* file:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
-* * *
+---
+
 ### <a name="configure-the-authmessagesender-class"></a>Configurare la classe AuthMessageSender
 
 In questa esercitazione viene illustrato come aggiungere le notifiche di posta elettronica tramite [SendGrid](https://sendgrid.com/), ma è possibile inviare tramite posta elettronica tramite SMTP e altri meccanismi.
@@ -163,22 +166,26 @@ Vedere [iniziare gratuitamente con SendGrid](https://sendgrid.com/free/) per reg
 
 #### <a name="configure-sendgrid"></a>Configurare SendGrid
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Per configurare SendGrid, aggiungere codice analogo al seguente nella *Services/EmailSender.cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 * Aggiungere il codice nel *Services/MessageServices.cs* simile al seguente per configurare SendGrid:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
-* * *
+---
+
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Abilitare il ripristino di conferma e la password di account
 
 Il modello presenta il codice per il ripristino di conferma e la password di account. Trovare il `OnPostAsync` metodo *Pages/Account/Register.cshtml.cs*.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Impedire che i nuovi utenti registrati automaticamente l'accesso da impostare come commento la riga seguente:
 
 ```csharp
@@ -189,7 +196,8 @@ Il metodo completo viene visualizzato con la riga modificata evidenziata:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Per abilitare la conferma dell'account, rimuovere il commento nel codice seguente:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
@@ -208,7 +216,8 @@ Rimuovere il commento modulo *Views/Account/ForgotPassword.cshtml*. È possibile
 
 [!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
-* * *
+---
+
 ## <a name="register-confirm-email-and-reset-password"></a>Registrare, posta elettronica di conferma e reimpostare la password
 
 Eseguire l'app web e testare la conferma dell'account e il flusso di ripristino password.

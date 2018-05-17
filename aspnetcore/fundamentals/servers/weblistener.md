@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: cd2e477824d916afcf1a7901e935dd465a466922
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d40243454632550147a7d42ab26a8f1d2d100db2
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web WebListener in ASP.NET Core
 
@@ -148,7 +148,7 @@ netsh http add urlacl url=https://+:443/ user=Users
 L'esempio seguente illustra come assegnare un certificato SSL:
 
 ```console
-netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}".
+netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}".
 ```
 
 Di seguito è riportata la documentazione di riferimento ufficiale:

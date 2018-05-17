@@ -107,7 +107,7 @@ Il filtro verrà esteso **ActionFilterAttributeClass** ed eseguire l'override **
 
 Questa soluzione di negozio dispone di una nuova tabella di modello di dati per la registrazione del sito, **ActionLog**, con i seguenti campi: nome del controller che ha ricevuto una richiesta, l'azione chiamate, indirizzo IP del Client e timestamp.
 
-![Modello di dati. Tabella ActionLog. ] (aspnet-mvc-4-custom-action-filters/_static/image1.png "Modello di dati. Tabella ActionLog.")
+![Modello di dati. Tabella ActionLog. ](aspnet-mvc-4-custom-action-filters/_static/image1.png "Modello di dati. Tabella ActionLog.")
 
 *Modello di dati - tabella ActionLog*
 

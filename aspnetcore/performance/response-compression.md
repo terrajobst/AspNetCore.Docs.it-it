@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: bde0522de0c70be637b903c3bbced8c0be814c31
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cae81a04e41dc7fcbacec975e63171f633fccecf
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware di compressione di risposta per ASP.NET Core
 
@@ -24,6 +24,7 @@ Di [Luke Latham](https://github.com/guardrex)
 Larghezza di banda di rete è una risorsa limitata. Riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso in modo significativo. Un modo per ridurre le dimensioni di payload consiste nella compressione delle risposte di un'app.
 
 ## <a name="when-to-use-response-compression-middleware"></a>Quando utilizzare il Middleware di compressione risposta
+
 Utilizzare le tecnologie di compressione risposta basata sul server in IIS, Apache o Nginx. Le prestazioni del middleware probabilmente non corrisponderanno a quello dei moduli server. [Server HTTP. sys](xref:fundamentals/servers/httpsys) e [Kestrel](xref:fundamentals/servers/kestrel) attualmente non offre il supporto della compressione incorporata.
 
 Utilizzare il Middleware di compressione risposta quando si è:
@@ -37,6 +38,7 @@ Utilizzare il Middleware di compressione risposta quando si è:
   * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Compressione di risposta
+
 In genere, le risposte compresse in modo nativo possono trarre vantaggio dalla compressione di risposta. Le risposte compresse in modo nativo in genere includono: CSS, JavaScript, HTML, XML e JSON. Non deve comprimere asset compresso in modo nativo, ad esempio i file PNG. Se si tenta di comprimere ulteriormente una risposta compressa in modo nativo, qualsiasi lieve riduzione aggiuntiva in fase di dimensioni e la trasmissione verrà probabilmente essere rimane in ombra base al tempo impiegato per elaborare la compressione. Non comprimere i file più piccoli di circa 150-1000 byte (a seconda del contenuto del file e l'efficienza della compressione). L'overhead di compressione di file di piccole dimensioni può produrre un file compresso più grande del file non compresso.
 
 Quando un client può elaborare il contenuto compresso, il client deve informare il server delle rispettive funzionalità inviando il `Accept-Encoding` intestazione con la richiesta. Quando un server invia il contenuto compresso, deve includere informazioni di `Content-Encoding` intestazione nella modalità di codifica risposta compressa. Designazioni di codifica del contenuto supportati dal middleware vengono visualizzati nella tabella seguente.
@@ -72,22 +74,28 @@ Le intestazioni coinvolti nella richiesta, invio, la memorizzazione nella cache 
 | `Vary`             | Quando vengono inviati dal server con un valore di `Accept-Encoding` ai client e proxy, il `Vary` intestazione indica al client o proxy di memorizzazione nella cache (variare) le risposte in base al valore del `Accept-Encoding` intestazione della richiesta. Il risultato di restituzione del contenuto con il `Vary: Accept-Encoding` intestazione è che entrambi compressi e decompressi risposte memorizzate nella cache separatamente. |
 
 È possibile esplorare le funzionalità del Middleware di compressione risposta con il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples). Nell'esempio viene illustrato:
+
 * La compressione delle risposte di app con gzip e provider di compressione personalizzata.
 * Come aggiungere un tipo MIME per l'elenco predefinito di tipi MIME per la compressione.
 
 ## <a name="package"></a>Pacchetto
+
 Per includere il middleware nel progetto, aggiungere un riferimento di [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pacchetto oppure utilizzare il [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) pacchetto. Questa funzionalità è disponibile per le app destinate ad ASP.NET Core 1.1 o versione successiva.
 
 ## <a name="configuration"></a>Configurazione
+
 Il codice seguente viene illustrato come abilitare il Middleware di compressione di risposta con la compressione gzip predefinita e per i tipi MIME predefiniti.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
-* * *
+---
+
 > [!NOTE]
 > Utilizzare uno strumento come [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) per impostare il `Accept-Encoding` intestazione della richiesta ed esaminare le intestazioni di risposta, dimensioni e corpo.
 
@@ -100,7 +108,9 @@ Inviare una richiesta per l'app di esempio con il `Accept-Encoding: gzip` intest
 ![Finestra di Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore gzip. Le intestazioni possono variare e Content-Encoding vengono aggiunti alla risposta. La risposta è compresso.](response-compression/_static/request-compressed.png)
 
 ## <a name="providers"></a>Provider
+
 ### <a name="gzipcompressionprovider"></a>GzipCompressionProvider
+
 Utilizzare il `GzipCompressionProvider` per comprimere le risposte con gzip. Questo è il provider di compressione predefinito se non è specificato. È possibile impostare livello con la compressione di `GzipCompressionProviderOptions`. 
 
 Il provider di compressione gzip per impostazione predefinita il livello di compressione più veloce (`CompressionLevel.Fastest`), che potrebbe non produrre la compressione più efficiente. Se si desidera usare la compressione più efficiente, è possibile configurare il middleware per la compressione ottimale.
@@ -111,15 +121,18 @@ Il provider di compressione gzip per impostazione predefinita il livello di comp
 | `CompressionLevel.NoCompression` | Non deve essere eseguita alcuna compressione.                                                                           |
 | `CompressionLevel.Optimal`       | Le risposte devono essere compressi in modo ottimale, anche se la compressione richiede più tempo per completare.                |
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
-* * *
+---
+
 ## <a name="mime-types"></a>MIME (tipi)
+
 Il middleware specifica un set predefinito di tipi MIME per la compressione:
 * `text/plain`
 * `text/css`
@@ -132,37 +145,46 @@ Il middleware specifica un set predefinito di tipi MIME per la compressione:
 
 È possibile sostituire o aggiungere tipi MIME con le opzioni del Middleware di compressione di risposta. Si noti che con caratteri jolly MIME tipi, ad esempio `text/*` non sono supportate. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e consente di comprimere e serve ASP.NET Core immagine del banner (*banner.svg*).
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
-* * *
+---
+
 ### <a name="custom-providers"></a>Provider personalizzati
+
 È possibile creare le implementazioni di compressione personalizzata con `ICompressionProvider`. Il `EncodingName` rappresenta il contenuto di cui la codifica `ICompressionProvider` produce. Il middleware utilizza queste informazioni per scegliere il provider in base all'elenco specificato nella `Accept-Encoding` intestazione della richiesta.
 
 Usando l'app di esempio, il client invia una richiesta con la `Accept-Encoding: mycustomcompression` intestazione. Il middleware utilizza l'implementazione della compressione personalizzata e restituisce la risposta con un `Content-Encoding: mycustomcompression` intestazione. Il client deve essere in grado di decomprimere la codifica personalizzata in ordine per un'implementazione personalizzata di compressione funzionare.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
-* * *
+---
+
 Inviare una richiesta per l'app di esempio con il `Accept-Encoding: mycustomcompression` intestazione e osservare le intestazioni di risposta. Il `Vary` e `Content-Encoding` le intestazioni sono presenti nella risposta. L'esempio non è compressa il corpo della risposta (non illustrato). Non è un'implementazione della compressione nel `CustomCompressionProvider` classe dell'esempio. Tuttavia, nell'esempio viene illustrato dove si implementa un algoritmo di compressione.
 
 ![Finestra di Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore mycustomcompression. Le intestazioni possono variare e Content-Encoding vengono aggiunti alla risposta.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>Compressione con protocollo sicuro
+
 Le risposte compresse tramite connessioni protette possono essere controllate con i `EnableForHttps` opzione, è disabilitato per impostazione predefinita. Utilizzo di compressione con pagine generate in modo dinamico può causare problemi di sicurezza, ad esempio il [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) e [violazione](https://wikipedia.org/wiki/BREACH_(security_exploit)) attacchi.
 
 ## <a name="adding-the-vary-header"></a>Aggiunta di intestazione Vary
+
 Quando la compressione delle risposte in base il `Accept-Encoding` intestazione, vi sono potenzialmente più versioni compresse della risposta e una versione non compressa. Per indicare di cache del client e del proxy che più versioni esistano e devono essere archiviate, il `Vary` intestazione viene aggiunto con un `Accept-Encoding` valore. In ASP.NET Core 1. x, aggiunta di `Vary` intestazione nella risposta viene eseguita manualmente. In ASP.NET Core 2. x, il middleware aggiunge il `Vary` intestazione automaticamente quando la risposta è compresso.
 
 **ASP.NET Core solo 1. x**
@@ -170,19 +192,24 @@ Quando la compressione delle risposte in base il `Accept-Encoding` intestazione,
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema di middleware dietro un proxy inverso Nginx
+
 Quando una richiesta viene inviata da Nginx, il `Accept-Encoding` intestazione viene rimosso. Ciò impedisce il middleware di compressione della risposta. Per ulteriori informazioni, vedere [NGINX: la compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Questo problema viene rilevato da [scoprire la compressione di tipo pass-through per Nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Utilizzo con la compressione dinamica di IIS
+
 Se si dispone di un active modulo di compressione dinamica IIS configurata a livello di server che si desidera disabilitare per un'app, è possibile farlo con un componente aggiuntivo per il *Web. config* file. Per altre informazioni, vedere [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Disabilitazione di moduli IIS).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
+
 Utilizzare uno strumento come [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/), che consente di impostare il `Accept-Encoding` intestazione della richiesta ed esaminare le intestazioni di risposta, dimensioni e corpo. Il Middleware di compressione risposta comprime le risposte che soddisfano le condizioni seguenti:
+
 * Il `Accept-Encoding` è presente con un valore di intestazione `gzip`, `*`, o codifica personalizzata che corrisponde a un provider di compressione personalizzata che è stata stabilita. Il valore non deve essere `identity` o hanno un valore di qualità (qvalue, `q`) impostazione pari a 0 (zero).
 * Il tipo MIME (`Content-Type`) deve essere impostata e deve corrispondere a un tipo MIME configurato nel `ResponseCompressionOptions`.
 * La richiesta non deve includere il `Content-Range` intestazione.
 * La richiesta deve utilizzare il protocollo non sicuro (http), a meno che un protocollo sicuro (https) viene configurato nelle opzioni del Middleware di compressione di risposta. *Si noti il pericolo [descritto in precedenza](#compression-with-secure-protocol) durante l'abilitazione della compressione del contenuto protetta.*
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)
 * [Mozilla Developer Network: Codifica](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)

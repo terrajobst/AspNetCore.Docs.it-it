@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 0a04f5762a35426f342b58b8b60288c66c057ae7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
-ms.translationtype: MT
+ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app in fase di sviluppo in ASP.NET Core
 
@@ -41,7 +41,8 @@ Lo strumento di gestione Secret archivia i dati sensibili per operazioni di svil
 
 ## <a name="installing-the-secret-manager-tool"></a>Installazione dello strumento di gestione segreto
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Fare clic sul progetto in Esplora soluzioni e selezionare **modifica \<project_name\>csproj** dal menu di scelta rapida. Aggiungere la riga evidenziata per il *csproj* e salvataggio dei file per ripristinare il pacchetto NuGet associato:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -58,7 +59,8 @@ Salvataggio modificato *csproj* anche file viene aperto un `secrets.json` file n
 }
 ```
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 Aggiungere `Microsoft.Extensions.SecretManager.Tools` per il *csproj* file ed eseguire [ripristino dotnet](/dotnet/core/tools/dotnet-restore). È possibile utilizzare gli stessi passaggi per installare lo strumento di gestione di segreto tramite riga di comando.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -94,7 +96,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 Inoltre, è possibile utilizzare lo strumento di gestione di segreto per elenco, rimuovere e cancellare i segreti dell'app.
 
-* * *
+---
+
 ## <a name="accessing-user-secrets-via-configuration"></a>L'accesso a informazioni riservate dell'utente tramite la configurazione
 
 Segreto Manager segreti sono accessibili tramite il sistema di configurazione. Aggiungere il `Microsoft.Extensions.Configuration.UserSecrets` pacchetto ed eseguire [ripristino dotnet](/dotnet/core/tools/dotnet-restore).

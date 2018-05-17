@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: afff36ffc232b00389c52d9e751ae398555c9656
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -234,7 +234,8 @@ Il [provider di configurazione CommandLine](/dotnet/api/microsoft.extensions.con
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Impostazione e uso del provider di configurazione CommandLine
 
-#### <a name="basic-configurationtabbasicconfiguration"></a>[Configurazione di base](#tab/basicconfiguration/)
+# <a name="basic-configurationtabbasicconfiguration"></a>[Configurazione di base](#tab/basicconfiguration/)
+
 Per attivare la configurazione della riga di comando, chiamare il metodo di estensione `AddCommandLine` su un'istanza di [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
@@ -263,7 +264,8 @@ Per eseguire l'override della configurazione fornita da altri provider di config
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Le tipiche app ASP.NET Core 2.x usano il metodo statico `CreateDefaultBuilder` per compilare l'host:
 
 [!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
@@ -280,12 +282,14 @@ Se tutte le condizioni precedenti sono vere, gli argomenti della riga di comando
 
 L'app ASP.NET Core 2.x può usare [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) anziché `CreateDefaultBuilder`. Quando si usa `WebHostBuilder`, impostare manualmente la configurazione con [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Per altre informazioni, vedere la scheda ASP.NET Core 1.x.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Creare un oggetto [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) e chiamare il metodo `AddCommandLine` per usare il provider di configurazione CommandLine. Chiamando il provider per ultimo, gli argomenti della riga di comando passati in fase di esecuzione possono eseguire l'override della configurazione impostata da altri provider di configurazione chiamati in precedenza. Applicare la configurazione a [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) con il metodo `UseConfiguration`:
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
-* * *
+---
+
 ### <a name="arguments"></a>Argomenti
 
 Gli argomenti passati alla riga di comando devono essere conformi a uno dei due formati indicati nella tabella seguente:

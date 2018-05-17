@@ -1,6 +1,6 @@
 ---
 title: Host ASP.NET Core in un servizio Windows
-author: tdykstra
+author: rick-anderson
 description: Informazioni su come pubblicare un'applicazione ASP.NET Core in un servizio Windows.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: b0b27f274de1ca88b20bf582127132527b553ce0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 29f83ee585c73aeb57a09f70ea8e28650c05ce69
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host ASP.NET Core in un servizio Windows
 
@@ -46,13 +46,15 @@ Questa sezione illustra le modifiche minime necessarie per configurare un proget
 
    * Se il codice chiama `UseContentRoot`, utilizzare un percorso per il percorso di pubblicazione anziché `Directory.GetCurrentDirectory()`.
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,12)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,14)]
 
-   * * *
+   ---
 
 3. Pubblicare l'app in una cartella. Utilizzare [dotnet pubblicare](/dotnet/articles/core/tools/dotnet-publish) o [profilo di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) che pubblica una cartella.
 
@@ -77,13 +79,16 @@ Questa sezione illustra le modifiche minime necessarie per configurare un proget
 
 È più semplice testare ed eseguire il debug durante l'esecuzione all'esterno di un servizio, pertanto è facoltativa per aggiungere il codice che chiama `RunAsService` solo in determinate condizioni. Ad esempio, eseguire l'app come un'applicazione console con un `--console` argomento della riga di comando o se il debugger è collegato:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
 
-* * *
+---
+
 ## <a name="handle-stopping-and-starting-events"></a>Gestire l'arresto e avvio degli eventi
 
 Per gestire `OnStarting`, `OnStarted`, e `OnStopping` degli eventi, apportare le modifiche aggiuntive seguenti:
@@ -98,20 +103,23 @@ Per gestire `OnStarting`, `OnStarted`, e `OnStopping` degli eventi, apportare le
 
 3. In `Program.Main`, chiamare il nuovo metodo di estensione, `RunAsCustomService`, invece di `RunAsService`:
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=24)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=26)]
 
-   * * *
+   ---
+
 Se l'oggetto personalizzato `WebHostService` codice richiede un servizio dall'inserimento di dipendenze (ad esempio un logger), scaricarlo dal `Services` proprietà di `IWebHost`:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Server proxy e scenari di servizio di bilanciamento di carico
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
 
-Servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o il bilanciamento del carico potrebbero richiedere un'ulteriore configurazione. Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
+Servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o il bilanciamento del carico potrebbero richiedere un'ulteriore configurazione. Per altre informazioni, vedere [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="acknowledgments"></a>Ringraziamenti
 

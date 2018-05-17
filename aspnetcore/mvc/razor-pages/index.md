@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -214,6 +214,8 @@ Il metodo `OnPostDeleteAsync`:
 Le proprietà di `PageModel` possono essere decorate con l'attributo con [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
+Per altre informazioni, vedere [Convalida del modello](xref:mvc/models/validation).
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Gestire le richieste HEAD con il gestore OnGet
 
@@ -418,7 +420,7 @@ Il modello di pagina *Pages/Customers/Index.cshtml.cs* applica l'attributo `[Tem
 public string Message { get; set; }
 ```
 
-Per altre informazioni, vedere [TempData](xref:fundamentals/app-state#temp).
+Per altre informazioni, vedere [TempData](xref:fundamentals/app-state#tempdata).
 
 <a name="mhpp"></a>
 ## <a name="multiple-handlers-per-page"></a>Più gestori per pagina

@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 title: La convalida in ASP.NET Web API del modello | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 409a91eceb8baa48a7dded1b850d59a27cec2c60
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>Convalida del modello in ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Quando un client invia dati per l'API web, spesso si desidera convalidare i dati
 
 ## <a name="data-annotations"></a>Annotazioni dei dati
 
-In ASP.NET Web API, è possibile utilizzare gli attributi di [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) dello spazio dei nomi per impostare le regole di convalida per le proprietà nel modello. Prendere in considerazione il modello seguente:
+In ASP.NET Web API, è possibile utilizzare gli attributi di [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) dello spazio dei nomi per impostare le regole di convalida per le proprietà nel modello. Prendere in considerazione il modello seguente:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 
@@ -54,7 +54,7 @@ Lo stato del modello è valido, perché un valore valido per queste proprietà �
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample5.cs?highlight=1-2)]
 
-**"Registrazione eccessiva"**: un client può inoltre inviare *più* dati tempo del previsto. Ad esempio:
+**"Registrazione eccessiva"**: un client può inoltre inviare *ulteriori* dati da quello previsto. Ad esempio:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample6.json)]
 

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a3d49315fbb62eb1a42eb1b30885dc19a81c0a91
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Bundle e minifiy asset statici in ASP.NET Core
 
@@ -220,22 +220,28 @@ Specificare i file da includere nelle pagine usando il [Helper di Tag di ambient
 
 Nell'esempio `environment` tag esegue il rendering di file CSS non elaborati durante l'esecuzione nel `Development` ambiente:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
-* * *
+---
+
 Nell'esempio `environment` tag esegue il rendering di file CSS in dotazione e minimizzati durante l'esecuzione in un ambiente diverso da `Development`. Ad esempio, in esecuzione in `Production` o `Staging` attiva il rendering di tali fogli di stile:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
-* * *
+---
+
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Utilizzare bundleconfig.json da Gulp
 
 Vi sono casi in cui come aggregare e minimizzazione flusso di lavoro un'app richiede un'ulteriore elaborazione. Sono esempi di ottimizzazione dell'immagine, busting cache e l'elaborazione di risorse della rete CDN. Per soddisfare questi requisiti, è possibile convertire il flusso di lavoro come aggregare e riduzione per l'utilizzo di Gulp.
@@ -313,5 +319,5 @@ In alternativa, Esplora esecuzione attività di Visual Studio può essere utiliz
 
 * [Usare Gulp](xref:client-side/using-gulp)
 * [Usare Grunt](xref:client-side/using-grunt)
-* [Utilizzare più ambienti](xref:fundamentals/environments)
+* [Usare più ambienti](xref:fundamentals/environments)
 * [Helper tag](xref:mvc/views/tag-helpers/intro)

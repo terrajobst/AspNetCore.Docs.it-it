@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c40209e3b3f2b5bf28450bb2a88cbe40e9e23230
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Utilizzare una cache distribuita in ASP.NET Core
 
@@ -56,7 +56,7 @@ Aggiunge un elemento (come `byte[]`) alla cache utilizzando una chiave di string
 
 Aggiorna un elemento nella cache in base alla relativa chiave, reimpostare il timeout di scadenza scorrevole (se presente).
 
-**Remove, RemoveAsync**
+**Rimuovere, RemoveAsync**
 
 Rimuove una voce della cache in base alla relativa chiave.
 
@@ -132,7 +132,7 @@ Come tutte le implementazioni di cache, l'app deve ottenere e impostare i valori
 
 ## <a name="recommendations"></a>Suggerimenti
 
-Quando si decide quale implementazione di `IDistributedCache` diritto per l'app, scegliere tra Redis e SQL Server in base all'infrastruttura esistente e ambiente, i requisiti di prestazioni ed esperienza del team. Se il team è più in grado di utilizzare con Redis, è un'ottima scelta. Se SQL Server preferita dal team, è possibile la certezza che anche l'implementazione. Si noti che una soluzione di memorizzazione nella cache tradizionale archivia dati in memoria che consente il recupero veloce dei dati. È necessario archiviare i dati utilizzati in una cache e archiviare tutti i dati in un archivio permanente di back-end, ad esempio SQL Server o di archiviazione di Azure. Cache redis è una soluzione di memorizzazione nella cache che consente una velocità effettiva elevata e latenza bassa rispetto alle Cache SQL.
+Quando si decide quale implementazione di `IDistributedCache` diritto per l'app, scegliere tra Redis e SQL Server in base all'infrastruttura esistente e ambiente, i requisiti di prestazioni ed esperienza del team. Se il team è più in grado di utilizzare con Redis, è un'ottima scelta. Se SQL Server preferita dal team, è possibile la certezza che anche l'implementazione. Si noti che una tradizionale soluzione di memorizzazione nella cache vengono archiviati i dati in memoria che consente il recupero veloce dei dati. È necessario archiviare i dati utilizzati in una cache e archiviare tutti i dati in un archivio permanente di back-end, ad esempio SQL Server o di archiviazione di Azure. Cache redis è una soluzione di memorizzazione nella cache che consente una velocità effettiva elevata e latenza bassa rispetto alle Cache SQL.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

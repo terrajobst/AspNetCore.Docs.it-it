@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Utilizzare il modello di progetto Angular con ASP.NET Core
 
@@ -39,12 +39,14 @@ cd my-new-app
 
 Eseguire l'app da Visual Studio o l'interfaccia CLI di .NET Core:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Aprire generato *csproj* file ed eseguire l'app come al solito da qui.
 
 Il processo di compilazione consente di ripristinare le dipendenze di npm alla prima esecuzione, che può richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
 
-#### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con un valore di `Development`. In Windows (in istruzioni non PowerShell), eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS, eseguire `export ASPNETCORE_Environment=Development`.
 
 Eseguire [compilazione dotnet](/dotnet/core/tools/dotnet-build) di verificare l'applicazione venga compilata correttamente. Alla prima esecuzione, il processo di compilazione consente di ripristinare le dipendenze di npm, che possono richiedere alcuni minuti. Le compilazioni successive sono molto più veloce.
@@ -57,9 +59,10 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app viene avviata un'istanza del server CLI angolare in background. Viene registrato un messaggio simile al seguente: <em>NG in tempo reale il Server di sviluppo è in ascolto su localhost:&lt;otherport&gt;, aprire il browser sul http://localhost: &lt;otherport&gt; /</em> . Ignorare questo messaggio&mdash;ha <strong>non</strong> l'URL per l'applicazione ASP.NET Core e CLI angolare combinato.
+L'app viene avviata un'istanza del server CLI angolare in background. Viene registrato un messaggio simile al seguente: <em>NG in tempo reale il Server di sviluppo è in ascolto su localhost:&lt;otherport&gt;, aprire il browser sul http://localhost:&lt; otherport&gt; /</em>  . Ignorare questo messaggio&mdash;ha <strong>non</strong> l'URL per l'applicazione ASP.NET Core e CLI angolare combinato.
 
-* * *
+---
+
 Il modello di progetto crea un'applicazione ASP.NET Core e un'app angolare. L'applicazione ASP.NET di base deve essere utilizzato per l'accesso ai dati, l'autorizzazione e altri problemi sul lato server. L'app angolare, che si trovano nel *ClientApp* sottodirectory, dovrà essere utilizzato per tutti i problemi dell'interfaccia utente.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
