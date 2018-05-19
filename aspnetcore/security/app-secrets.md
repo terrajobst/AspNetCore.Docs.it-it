@@ -12,7 +12,7 @@ ms.topic: article
 uid: security/app-secrets
 ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
 ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/17/2018
 ---
