@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7887d81366cc166ad89308b22ad7cc6af0263111
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC è consigliabile risorse
 ====================
@@ -42,7 +42,6 @@ da [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="new-featured-content"></a>Nuovo contenuto in primo piano
 
 - [Selezione di impostazioni cultura per la localizzazione in ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [Layout di annidamento in MVC](http://astutelogic.com/nesting-layouts-in-mvc/) da Moroni Russell
 - [Crea un'applicazione ASP.NET MVC 5 con Facebook e Google OAuth2 Sign-on](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [MVC ASP.NET informazioni sui filtri e gli attributi](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Ciclo di vita di un'applicazione ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
@@ -91,7 +90,7 @@ da [Rick Anderson](https://github.com/Rick-Anderson)
 - [Come compilare (e non compilare) una funzionalità di "Memorizza password" sicuro](http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html) dalla risposta Troy
 - Video: [il nuovo modello di autenticazione per le applicazioni Cloud da Lucas Adams, Stuart Kwan, dispositivi mobili e Web](https://channel9.msdn.com/Events/Build/2014/2-601)
 - [Video: Creazione Enterprise e App Web SaaS e API Web mediante Azure Active Directory per Sign In by Vittorio Bertocci](https://channel9.msdn.com/Events/Build/2014/3-599)
-- [ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
+- [Identità ASP.NET 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
 - [MVC ASP.NET informazioni sui filtri e gli attributi](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Identità di ASP.NET MVC 5: Estensione e modifica di ruoli](http://typecastexception.com/post/2014/02/13/ASPNET-MVC-5-Identity-Extending-and-Modifying-Roles.aspx)
 - [Token antifalsificazione usando MVC, API Web e AngularJS](http://www.novanet.no/blog/olav-nybo/dates/2013/12/anti-forgery-tokens-using-mvc-web-api-and-angularjs/)
@@ -208,7 +207,7 @@ da [Rick Anderson](https://github.com/Rick-Anderson)
 
 <a id="jQueryAjaxJSON"></a>
 
-## <a name="jquery-ajax-json-javascript"></a>jQuery, Ajax, JSON, JavaScript
+## <a name="jquery-ajax-json-javascript"></a>jQuery, JavaScript Ajax, JSON,
 
 - [Creare un JavascriptResult per ASP.NET MVC](http://tostring.it/2014/01/14/create-a-javascriptresult-for-asp-net-mvc/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+override%2Ftostring%2Fit+%28override.tostring.it%29)
 - [Passaggio dei dati lato Server .NET a JavaScript](http://blog.mariusschulz.com/2014/02/05/passing-net-server-side-data-to-javascript) da Marius Schulz
