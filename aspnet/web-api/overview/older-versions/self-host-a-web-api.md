@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/self-host-a-web-api
 title: Self-hosting ASP.NET Web API 1 (c#) | Documenti Microsoft
 author: MikeWasson
-description: "ASP.NET Web API non richiede IIS. Automatica, è possibile ospitare un'API web nel proprio processo host. In questa esercitazione viene illustrato come ospitare un'API web all'interno di una console applic..."
+description: ASP.NET Web API non richiede IIS. Automatica, è possibile ospitare un'API web nel proprio processo host. In questa esercitazione viene illustrato come ospitare un'API web all'interno di una console applic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="75c9e-116">Avviare Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina.</span><span class="sxs-lookup"><span data-stu-id="75c9e-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="75c9e-117">O dal **File** dal menu **New** e quindi **progetto**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="75c9e-118">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="75c9e-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="75c9e-119">In **Visual c#**selezionare **Windows**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="75c9e-120">Nell'elenco dei modelli di progetto, selezionare **applicazione Console**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="75c9e-121">Denominare il progetto &quot;SelfHost&quot; e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="75c9e-118">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="75c9e-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="75c9e-119">In **Visual c#** selezionare **Windows**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="75c9e-120">Nell'elenco dei modelli di progetto, selezionare **applicazione Console**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="75c9e-121">Denominare il progetto &quot;SelfHost&quot; e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="75c9e-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 

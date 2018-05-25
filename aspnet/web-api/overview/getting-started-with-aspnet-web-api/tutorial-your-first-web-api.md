@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Introduzione a ASP.NET Web API 2 (c#)
 author: MikeWasson
-description: "HTTP non è disponibile solo per mettere a disposizione le pagine web. È anche una potente piattaforma per la compilazione di API che espongono servizi e dei dati. HTTP è semplice e flessibile e ubiq..."
+description: HTTP non è disponibile solo per mettere a disposizione le pagine web. È anche una potente piattaforma per la compilazione di API che espongono servizi e dei dati. HTTP è semplice e flessibile e ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="e669c-121">Avviare Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina.</span><span class="sxs-lookup"><span data-stu-id="e669c-121">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="e669c-122">O dal **File** dal menu **New** e quindi **progetto**.</span><span class="sxs-lookup"><span data-stu-id="e669c-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="e669c-123">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="e669c-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="e669c-124">In **Visual c#**selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="e669c-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="e669c-125">Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**.</span><span class="sxs-lookup"><span data-stu-id="e669c-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="e669c-126">Denominare il progetto "ProductsApp" e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="e669c-126">Name the project "ProductsApp" and click **OK**.</span></span>
+<span data-ttu-id="e669c-123">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="e669c-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="e669c-124">In **Visual c#** selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="e669c-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="e669c-125">Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**.</span><span class="sxs-lookup"><span data-stu-id="e669c-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="e669c-126">Denominare il progetto "ProductsApp" e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="e669c-126">Name the project "ProductsApp" and click **OK**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 03/15/2018
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-<span data-ttu-id="e669c-183">Nel **Aggiungi nuovo elemento** finestra di dialogo Seleziona il **Web** nodo **Visual c#**e quindi selezionare il **pagina HTML** elemento.</span><span class="sxs-lookup"><span data-stu-id="e669c-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="e669c-184">Denominare la pagina &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="e669c-184">Name the page &quot;index.html&quot;.</span></span>
+<span data-ttu-id="e669c-183">Nel **Aggiungi nuovo elemento** finestra di dialogo Seleziona il **Web** nodo **Visual c#** e quindi selezionare il **pagina HTML** elemento.</span><span class="sxs-lookup"><span data-stu-id="e669c-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="e669c-184">Denominare la pagina &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="e669c-184">Name the page &quot;index.html&quot;.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 title: Using Web API with ASP.NET Web Forms | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/01/2017
 
 <span data-ttu-id="80990-111">Avviare Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina.</span><span class="sxs-lookup"><span data-stu-id="80990-111">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="80990-112">O dal **File** dal menu **New** e quindi **progetto**.</span><span class="sxs-lookup"><span data-stu-id="80990-112">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="80990-113">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="80990-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="80990-114">In **Visual c#**selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="80990-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="80990-115">Nell'elenco dei modelli di progetto, selezionare **applicazioni Web Form ASP.NET**.</span><span class="sxs-lookup"><span data-stu-id="80990-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="80990-116">Immettere un nome per il progetto e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="80990-116">Enter a name for the project and click **OK**.</span></span>
+<span data-ttu-id="80990-113">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="80990-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="80990-114">In **Visual c#** selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="80990-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="80990-115">Nell'elenco dei modelli di progetto, selezionare **applicazioni Web Form ASP.NET**.</span><span class="sxs-lookup"><span data-stu-id="80990-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="80990-116">Immettere un nome per il progetto e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="80990-116">Enter a name for the project and click **OK**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
