@@ -58,7 +58,7 @@ Se un'immagine è già disponibile sul sito e si desidera visualizzarla in una p
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-In alcuni casi, tuttavia, è necessario essere in grado di visualizzare le immagini in modo dinamico &#8212; ovvero, non si conosce quale immagine da visualizzare fino a quando la pagina è in esecuzione.
+In alcuni casi, tuttavia, è necessario essere in grado di visualizzare le immagini in modo dinamico & #8212; ovvero, non si conosce quale immagine da visualizzare fino a quando la pagina è in esecuzione.
 
 La procedura descritta in questa sezione viene illustrato come visualizzare un'immagine al momento in cui gli utenti specificano il nome del file di immagine da un elenco di nomi di immagini. Essi selezionare il nome dell'immagine da un elenco a discesa e quando l'invio della pagina, viene visualizzata l'immagine che è selezionate.
 
@@ -109,7 +109,7 @@ Nell'esempio precedente è stato illustrato come visualizzare un'immagine in mod
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    Non si desidera tutte queste informazioni di percorso, anche se &#8212; si desidera semplicemente il nome del file effettivo (*SamplePhoto1.jpg*). È possibile rimuovere solo il file da un percorso utilizzando il `Path.GetFileName` metodo, simile al seguente:
+    Non si desidera tutte queste informazioni di percorso, anche se & #8212; si desidera semplicemente il nome del file effettivo (*SamplePhoto1.jpg*). È possibile rimuovere solo il file da un percorso utilizzando il `Path.GetFileName` metodo, simile al seguente:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 

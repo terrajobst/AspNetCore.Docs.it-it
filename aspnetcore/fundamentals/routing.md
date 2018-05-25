@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -74,7 +74,7 @@ Le route usano principalmente i valori di route specificati da `Values` e `Ambie
 
 Suggerimento: considerare `Values` come un set di override per `AmbientValues`. La generazione di URL tenta di usare nuovamente i valori di route della richiesta corrente per semplificare la generazione di URL per i collegamenti che usano la stessa route o gli stessi valori di route.
 
-L'output di `GetVirtualPath` è un oggetto `VirtualPathData`. `VirtualPathData` è parallelo di `RouteData`, contiene l'oggetto `VirtualPath` per l'URL di output, nonché alcune proprietà aggiuntive che devono essere impostate dalla route.
+L'output di `GetVirtualPath` è un oggetto `VirtualPathData`. `VirtualPathData` è parallelo di `RouteData`, contiene `VirtualPath` per l'URL di output e alcune proprietà aggiuntive che devono essere impostate dalla route.
 
 La proprietà `VirtualPathData.VirtualPath` contiene il *percorso virtuale* prodotto dalla route. On base alle esigenze specifiche può essere necessario elaborare ulteriormente il percorso. Ad esempio, per eseguire il rendering in HTML dell'URL generato, è necessario anteporre il percorso di base dell'applicazione.
 

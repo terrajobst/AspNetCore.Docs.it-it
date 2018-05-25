@@ -76,7 +76,7 @@ In questa sezione viene illustrato come creare un'applicazione ASP.NET MVC 4, ag
       6. Fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Classe**e creare una nuova classe c# denominata **ChatHub.cs**. Utilizzare questa classe come un hub di SignalR server che invia messaggi a tutti i client.
 
 > [!NOTE]
-> Se si utilizza Visual Studio 2012 e aver installato il [aggiornamento ASP.NET e Web strumenti 2012.2](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), è possibile utilizzare il nuovo modello di elemento di SignalR per creare la classe di hub. A tale scopo, fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Nuovo elemento**selezionare **classe Hub SignalR (v1)**e il nome della classe **ChatHub.cs**.
+> Se si utilizza Visual Studio 2012 e aver installato il [aggiornamento ASP.NET e Web strumenti 2012.2](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), è possibile utilizzare il nuovo modello di elemento di SignalR per creare la classe di hub. A tale scopo, fare doppio clic su di **hub** cartella, fare clic su **Aggiungi | Nuovo elemento**selezionare **classe Hub SignalR (v1)** e il nome della classe **ChatHub.cs**.
 
 
 1. Sostituire il codice di **ChatHub** classe con il codice seguente.

@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 title: Supporto di opzioni Query OData in ASP.NET Web API 2 | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/04/2013
@@ -26,7 +26,7 @@ OData definisce i parametri che possono essere usati per modificare una query OD
 
 `http://localhost/Products?$orderby=Name`
 
-La specifica OData chiama questi parametri *opzioni query*. È possibile abilitare le opzioni di query OData per qualsiasi controller API Web nel progetto &#8212; il controller non è necessario essere un endpoint OData. Questo offre un modo pratico per aggiungere funzionalità di filtro e ordinamento a qualsiasi applicazione Web API.
+La specifica OData chiama questi parametri *opzioni query*. È possibile abilitare le opzioni di query OData per qualsiasi controller API Web nel progetto & #8212; il controller non è necessario essere un endpoint OData. Questo offre un modo pratico per aggiungere funzionalità di filtro e ordinamento a qualsiasi applicazione Web API.
 
 Prima di abilitare le opzioni di query, leggere l'argomento [OData Security Guidance Center](odata-security-guidance.md).
 

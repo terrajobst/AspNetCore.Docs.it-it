@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 title: Using Web API with ASP.NET Web Forms | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ Per utilizzare l'API Web in un'applicazione Web Form, sono disponibili due passa
 
 Avviare Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina. O dal **File** dal menu **New** e quindi **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazioni Web Form ASP.NET**. Immettere un nome per il progetto e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazioni Web Form ASP.NET**. Immettere un nome per il progetto e fare clic su **OK**.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 

@@ -10,7 +10,7 @@ La tabella seguente elenca i file e le cartelle nel progetto. Per questa esercit
 
 | File o cartella              | Scopo |
 | ----------------- | ------------ | 
-| wwwroot | Contiene file statici. Vedere [Usare file statici](xref:fundamentals/static-files). |
+| wwwroot | Contiene file statici. Vedere [File statici](xref:fundamentals/static-files). |
 | Pages | Cartella per [Pagine Razor](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Configurazione](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Ospita](xref:fundamentals/hosting) l'app ASP.NET Core.|

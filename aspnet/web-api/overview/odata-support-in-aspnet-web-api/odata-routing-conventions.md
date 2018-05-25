@@ -147,7 +147,7 @@ Attualmente le convenzioni predefinite non comprendono tutti i possibili OData U
 
 Per entrambi i metodi, se non si applica la convenzione a tale richiesta, è possibile che il metodo deve restituire null.
 
-Il **ODataPath** parametro rappresenta il percorso della risorsa OData analizzato. Contiene un elenco di  **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  istanze, uno per ogni segmento del percorso della risorsa. **ODataPathSegment** è una classe astratta; ogni tipo di segmento è rappresentato da una classe che deriva da **ODataPathSegment**.
+Il **ODataPath** parametro rappresenta il percorso della risorsa OData analizzato. Contiene un elenco di **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** istanze, uno per ogni segmento del percorso della risorsa. **ODataPathSegment** è una classe astratta; ogni tipo di segmento è rappresentato da una classe che deriva da **ODataPathSegment**.
 
 Il **ODataPath.TemplatePath** proprietà è una stringa che rappresenta la concatenazione di tutti i segmenti di percorso. Ad esempio, se l'URI è `/Products(1)/Supplier`, il modello di percorso è &quot;~/entityset/key/navigation&quot;. Si noti che i segmenti non corrispondono direttamente a segmenti URI. Ad esempio, la chiave di entità (1) è rappresentata come propria **ODataPathSegment**.
 
@@ -169,7 +169,7 @@ Note:
 
 1. La derivazione da **EntitySetRoutingConvention**, in quanto il **SelectController** è appropriato per questa convenzione di routing nuovo metodo nella classe. Ciò significa che non è necessario implementare nuovamente **SelectController**.
 2. La convenzione si applica solo alle richieste GET, e solo quando il modello di percorso è &quot;~/entityset/key/navigation/key&quot;.
-3. Il nome dell'azione è &quot;ottenere {EntityType}&quot;, dove *{EntityType}* è il tipo della raccolta di navigazione. Ad esempio, &quot;GetSupplier&quot;. È possibile utilizzare qualsiasi convenzione di denominazione che si desidera &#8212; Assicurarsi che le azioni del controller corrispondono.
+3. Il nome dell'azione è &quot;ottenere {EntityType}&quot;, dove *{EntityType}* è il tipo della raccolta di navigazione. Ad esempio, &quot;GetSupplier&quot;. È possibile utilizzare qualsiasi convenzione di denominazione che si desidera & #8212; Assicurarsi che le azioni del controller corrispondono.
 4. L'azione accetta due parametri denominati *chiave* e *relatedKey*. (Per un elenco di alcuni nomi di parametro predefiniti, vedere [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Il passaggio successivo consiste nell'aggiunta la convenzione di nuovo all'elenco di convenzioni di routing. Ciò si verifica durante la configurazione, come illustrato nel codice seguente:

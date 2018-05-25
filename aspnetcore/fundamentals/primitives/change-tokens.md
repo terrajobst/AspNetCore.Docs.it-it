@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Rilevare le modifiche apportate con i token di modifica in ASP.NET Core
 
@@ -108,7 +108,7 @@ Il costruttore della classe implementata, `ConfigurationMonitor`, registra un ca
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` fornisce il token. `InvokeChanged` è il metodo di callback. L'elemento `state` in questa istanza è una stringa che descrive lo stato di monitoraggio. Vengono usate due proprietà:
+`config.GetReloadToken()` fornisce il token. `InvokeChanged` è il metodo di callback. L'elemento `state` in questa istanza è un riferimento all'istanza `IConfigurationMonitor` usata per accedere allo stato di monitoraggio. Vengono usate due proprietà:
 
 * `MonitoringEnabled` indica se il callback deve eseguire il proprio codice personalizzato.
 * `CurrentState` descrive lo stato di monitoraggio corrente per l'uso nell'interfaccia utente.
@@ -116,7 +116,6 @@ Il costruttore della classe implementata, `ConfigurationMonitor`, registra un ca
 Il metodo `InvokeChanged` è simile all'approccio precedente, ad eccezione del fatto che:
 
 * Non esegue il proprio codice a meno che `MonitoringEnabled` non sia impostato su `true`.
-* Imposta la stringa della proprietà `CurrentState` su un messaggio descrittivo che registra la data e l'ora in cui è stato eseguito il codice.
 * Annota l'elemento `state` corrente nell'output `WriteConsole`.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -201,7 +200,6 @@ var compositeChangeToken =
 
 * [Cache in memoria](xref:performance/caching/memory)
 * [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 * [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

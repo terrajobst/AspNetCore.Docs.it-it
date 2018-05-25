@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -155,7 +155,7 @@ Per altre informazioni, vedere [File statici](xref:fundamentals/static-files).
 
 Le app ASP.NET Core configurano e avviano un *host*, che è responsabile della gestione dell'avvio e della durata delle app.
 
-Per altre informazioni, vedere [Hosting](xref:fundamentals/hosting).
+Per altre informazioni, vedere [Hosting in ASP.NET Core](xref:fundamentals/host/index).
 
 ## <a name="session-and-application-state"></a>Stato di sessione e applicazione
 
@@ -189,7 +189,7 @@ Per altre informazioni, vedere [Funzionalità di richiesta](xref:fundamentals/re
 
 Le attività in background vengono implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice).
 
-Per altre informazioni, vedere [Attività in background con servizi ospitati](xref:fundamentals/hosted-services).
+Per altre informazioni, vedere [Attività in background con servizi ospitati](xref:fundamentals/host/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 

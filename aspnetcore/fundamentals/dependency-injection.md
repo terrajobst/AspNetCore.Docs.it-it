@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -72,7 +72,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>Uso dei servizi forniti dal framework
 
-Il metodo `ConfigureServices` nella classe `Startup` è responsabile della definizione dei servizi che verranno usati dall'applicazione, incluse le funzionalità di piattaforma come Entity Framework Core e ASP.NET Core MVC. Inizialmente, l'interfaccia `IServiceCollection` fornita a `ConfigureServices` ha i seguenti servizi definiti (in base alla [modalità di configurazione dell'host](xref:fundamentals/hosting)):
+Il metodo `ConfigureServices` nella classe `Startup` è responsabile della definizione dei servizi che verranno usati dall'applicazione, incluse le funzionalità di piattaforma come Entity Framework Core e ASP.NET Core MVC. Inizialmente, l'interfaccia `IServiceCollection` fornita a `ConfigureServices` ha i seguenti servizi definiti (in base alla [modalità di configurazione dell'host](xref:fundamentals/host/index)):
 
 | Tipo di servizio | Durata |
 | ----- | ------- |
@@ -231,11 +231,11 @@ Quando l'app viene eseguita nell'ambiente di sviluppo in ASP.NET Core 2.0 o vers
 * I servizi con ambito non vengano risolti direttamente o indirettamente dal provider di servizi radice.
 * I servizi con ambito non vengano inseriti direttamente o indirettamente in singleton.
 
-Il provider di servizi radice viene creato con la chiamata di [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider). La durata del provider di servizi radice corrisponde alla durata dell'app/server quando il provider viene avviato con l'app e viene eliminato alla chiusura dell'app.
+Il provider di servizi radice venga creato con la chiamata di [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider). La durata del provider di servizi radice corrisponde alla durata dell'app/server quando il provider viene avviato con l'app e viene eliminato alla chiusura dell'app.
 
 I servizi con ambito vengono eliminati dal contenitore che li ha creati. Se un servizio con ambito viene creato nel contenitore radice, la durata del servizio viene di fatto convertita in singleton, perché il servizio viene eliminato solo dal contenitore radice alla chiusura dell'app/server. La convalida degli ambiti servizio rileva queste situazioni nel contesto della chiamata di `BuildServiceProvider`.
 
-Per altre informazioni, vedere [Scope validation](xref:fundamentals/hosting#scope-validation) (Convalida dell'ambito) nell'argomento relativo all'hosting.
+Per altre informazioni, vedere [Convalida dell'ambito](xref:fundamentals/host/web-host#scope-validation) nell'argomento relativo all'host Web.
 
 ## <a name="request-services"></a>Servizi di richiesta
 
@@ -245,7 +245,7 @@ I servizi disponibili all'interno di una richiesta ASP.NET da `HttpContext` veng
 
 I servizi di richiesta rappresentano i servizi configurati e richiesti come parte dell'applicazione. Quando gli oggetti specificano le dipendenze, le dipendenze sono soddisfatte dai tipi individuati in `RequestServices`, non in `ApplicationServices`.
 
-In genere, è consigliabile non usare queste proprietà direttamente e richiedere invece i tipi necessari alle classi tramite il costruttore della classe e lasciare che il framework inserisca le dipendenze. Si ottengono classi più facili da testare (vedere [Test e debug](../testing/index.md)) e abbinate in modo più libero.
+In genere, è consigliabile non usare queste proprietà direttamente e richiedere invece i tipi necessari alle classi tramite il costruttore della classe e lasciare che il framework inserisca le dipendenze. Si ottengono classi più facili da testare (vedere [Test e debug](xref:testing/index)) e abbinate in modo più libero.
 
 > [!NOTE]
 > È consigliabile richiedere le dipendenze come parametri del costruttore per l'accesso alla raccolta `RequestServices`.
@@ -351,13 +351,15 @@ Quando si usa l'inserimento di dipendenze, tenere presente le raccomandazioni se
 
 * Evitare l'accesso statico a `HttpContext`.
 
-> [!NOTE]
-> È tuttavia possibile che in alcuni casi queste raccomandazioni debbano essere ignorate. Le eccezioni sono rare, in genere casi speciali all'interno del framework.
+È tuttavia possibile che in alcuni casi queste raccomandazioni debbano essere ignorate. Le eccezioni sono rare, in genere casi speciali all'interno del framework.
 
-Tenere presente che l'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli oggetti statici/globali. Se l'inserimento di dipendenze viene usato con l'accesso agli oggetti statico i vantaggi non saranno evidenti.
+L'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli oggetti statici/globali. Se l'inserimento di dipendenze viene usato con l'accesso agli oggetti statico i vantaggi non saranno evidenti.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* [Inserimento di dipendenze in visualizzazioni](xref:mvc/views/dependency-injection)
+* [Inserimento di dipendenze in controller](xref:mvc/controllers/dependency-injection)
+* [Inserimento di dipendenze nei gestori di requisiti](xref:security/authorization/dependencyinjection)
 * [Avvio dell'applicazione](xref:fundamentals/startup)
 * [Test e debug](xref:testing/index)
 * [Attivazione del middleware basata sulla factory](xref:fundamentals/middleware/extensibility)

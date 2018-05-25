@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -58,7 +58,7 @@ La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è im
 
 `?: operator` è noto anche come operatore ternario.
 
-Queste due istruzioni consentono alla visualizzazione di impostare i collegamenti ipertestuali dell'intestazione di colonna come indicato di seguito:
+Queste due istruzioni consentono alla pagina di impostare i collegamenti ipertestuali delle intestazioni di colonna come indicato di seguito:
 
 | Ordinamento corrente | Collegamento ipertestuale cognome | Collegamento ipertestuale data |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ Il metodo usa LINQ to Entities per specificare la colonna in base alla quale ese
 
 `OnGetAsync` può essere reso dettagliato con un numero elevato di colonne.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Aggiungere collegamenti ipertestuali delle intestazioni di colonna alla visualizzazione Student Index (Indice degli studenti)
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Aggiungere collegamenti ipertestuali delle intestazioni di colonna alla pagina Student Index (Indice degli studenti)
 
 Sostituire il codice in *Students/Index.cshtml*, con il codice evidenziato seguente:
 
@@ -133,9 +133,9 @@ Il codice precedente assicura che i risultati applichino la distinzione tra maiu
 
 Si verifica una riduzione delle prestazioni per la chiamata di `ToUpper`. Il codice `ToUpper` aggiunge una funzione nella clausola WHERE dell'istruzione TSQL SELECT. La funzione aggiunta impedisce all'ottimizzazione di usare un indice. Dato che SQL viene installato con l'impostazione che non fa distinzione tra maiuscole e minuscole, è consigliabile evitare di chiamare `ToUpper` quando non è necessario.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Aggiungere una casella di ricerca alla visualizzazione Student Index (Indice degli studenti)
+### <a name="add-a-search-box-to-the-student-index-page"></a>Aggiungere una casella di ricerca alla pagina Student Index (Indice degli studenti)
 
-In *Views/Student/Index.cshtml* aggiungere il codice evidenziato seguente per creare un pulsante **Search** (Ricerca) e riquadri diversi.
+In *Pages/Student/Index.cshtml* aggiungere il codice evidenziato seguente per creare un pulsante **Search** (Ricerca) e riquadri diversi.
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -267,7 +267,7 @@ Nota: il comando LINQ `group` attualmente non è supportato da Entity Framework 
 
 ### <a name="modify-the-about-razor-page"></a>Modificare la pagina Razor About (Informazioni)
 
-Sostituire il codice nel file *Views/Home/About.cshtml* con il codice seguente:
+Sostituire il codice nel file *Pages/About.cshtml* con il codice seguente:
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

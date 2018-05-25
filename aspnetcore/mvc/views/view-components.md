@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -21,9 +21,11 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Introduzione ai componenti di visualizzazione
+## <a name="view-components"></a>Componenti di visualizzazione
 
-I componenti di visualizzazione sono una nuova funzionalità di ASP.NET Core MVC, hanno aspetti comuni con le visualizzazioni parziali, ma sono molto più efficienti. I componenti di visualizzazione non usano l'associazione di modelli. Dipendono soltanto dai dati specificati in fase di chiamata. Un componente di visualizzazione:
+I componenti di visualizzazione hanno aspetti comuni con le visualizzazioni parziali, ma sono molto più efficienti. I componenti di visualizzazione non usano l'associazione di modelli. Dipendono soltanto dai dati specificati in fase di chiamata. Questo articolo è stato scritto usando ASP.NET Core MVC. I componenti di visualizzazione funzionano comunque anche con Razor Pages.
+
+Un componente di visualizzazione:
 
 * Esegue il rendering di un blocco anziché di un'intera risposta.
 * Include la stessa separazione dei concetti e gli stessi vantaggi per i test individuati nel controller e nella visualizzazione.

@@ -24,4 +24,4 @@ da Tim Ammann
 
 I video viene illustrato l'utilizzo del controllo pagina in applicazioni web ASP.NET MVC. [Leggere l'esercitazione](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[&#9654; Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[& #9654; Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

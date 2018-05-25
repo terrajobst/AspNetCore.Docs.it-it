@@ -11,17 +11,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 670663b963f4207da793afff44d55b85ba58b7f8
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 786c333980db89a9a5a60dc70c0bd1998ca159cd
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Helper tag Partial in ASP.NET Core
 
 Di [Scott Addie](https://github.com/scottaddie)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
@@ -89,4 +87,4 @@ In questo esempio il valore di `ViewData["IsNumberReadOnly"]` determina se il ca
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Visualizzazioni parziali](xref:mvc/views/partial)
-* [Dati con tipizzazione debole (ViewData e ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-and-viewbag)
+* [Dati con tipizzazione debole (ViewData, attributo ViewData e ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)

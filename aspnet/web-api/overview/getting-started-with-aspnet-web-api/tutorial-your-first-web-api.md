@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Introduzione a ASP.NET Web API 2 (c#)
 author: MikeWasson
-description: "HTTP non è disponibile solo per mettere a disposizione le pagine web. È anche una potente piattaforma per la compilazione di API che espongono servizi e dei dati. HTTP è semplice e flessibile e ubiq..."
+description: HTTP non è disponibile solo per mettere a disposizione le pagine web. È anche una potente piattaforma per la compilazione di API che espongono servizi e dei dati. HTTP è semplice e flessibile e ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ In questa esercitazione si utilizzerà ASP.NET Web API per creare una web API ch
 
 Avviare Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina. O dal **File** dal menu **New** e quindi **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**. Denominare il progetto "ProductsApp" e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**. Denominare il progetto "ProductsApp" e fare clic su **OK**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -126,7 +126,7 @@ In Esplora soluzioni, fare clic sul progetto e selezionare **Aggiungi**, quindi 
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-Nel **Aggiungi nuovo elemento** finestra di dialogo Seleziona il **Web** nodo **Visual c#**e quindi selezionare il **pagina HTML** elemento. Denominare la pagina &quot;index.html&quot;.
+Nel **Aggiungi nuovo elemento** finestra di dialogo Seleziona il **Web** nodo **Visual c#** e quindi selezionare il **pagina HTML** elemento. Denominare la pagina &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

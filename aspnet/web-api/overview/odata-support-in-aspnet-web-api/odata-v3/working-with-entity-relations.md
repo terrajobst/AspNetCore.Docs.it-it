@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
 title: Supporto Entity Relations in OData v3 con Web API 2 | Documenti Microsoft
 author: MikeWasson
-description: "La maggior parte dei set di dati definiscono le relazioni tra entità: sono presenti ordini; un libro può avere autori; prodotti siano fornitori. Utilizzo di OData, i client è possono navigare nei..."
+description: 'La maggior parte dei set di dati definiscono le relazioni tra entità: sono presenti ordini; un libro può avere autori; prodotti siano fornitori. Utilizzo di OData, i client è possono navigare nei...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,7 +68,7 @@ Per supportare questa richiesta, aggiungere il metodo seguente alla `ProductsCon
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-Il *chiave* parametro è la chiave del prodotto. Il metodo restituisce l'entità correlata &#8212;in questo caso, un `Supplier` istanza. Il nome del metodo e il nome di parametro sono importanti. In generale, se la proprietà di navigazione è denominata "X", è necessario aggiungere un metodo denominato "GetX". Il metodo deve accettare un parametro denominato "*chiave*" che corrisponde al tipo di dati della chiave dell'elemento padre.
+Il *chiave* parametro è la chiave del prodotto. Il metodo restituisce l'entità correlata & #8212 in questo caso, un `Supplier` istanza. Il nome del metodo e il nome di parametro sono importanti. In generale, se la proprietà di navigazione è denominata "X", è necessario aggiungere un metodo denominato "GetX". Il metodo deve accettare un parametro denominato "*chiave*" che corrisponde al tipo di dati della chiave dell'elemento padre.
 
 È anche importante includere il **[FromOdataUri]** attributo la *chiave* parametro. Questo attributo indica l'API Web per utilizzare le regole di sintassi di OData quando analizza la chiave dall'URI della richiesta.
 

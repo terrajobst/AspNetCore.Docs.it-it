@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -101,7 +101,7 @@ Aggiornare il metodo `OnGetAsync` con il codice seguente:
 
 Il codice precedente aggiunge `AsNoTracking`. `AsNoTracking` migliora le prestazioni, perché le entità restituite non vengono registrate, dato che non vengono aggiornate nel contesto corrente.
 
-Aggiornare *Views/Courses/Index.cshtml* con il markup evidenziato seguente:
+Aggiornare *Pages/Courses/Index.cshtml* con il markup evidenziato seguente:
 
 [!code-html[](intro/samples/cu/Pages/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
@@ -249,6 +249,10 @@ Fare clic sul collegamento **Select** (Seleziona). Lo stile delle righe cambia.
 Aggiornare il metodo `OnGetAsync` in *Pages/Instructors/Index.cshtml.cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
+
+Aggiungere `public int CourseID { get; set; }`
+
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_1&highlight=12)]
 
 Esaminare la query aggiornata:
 

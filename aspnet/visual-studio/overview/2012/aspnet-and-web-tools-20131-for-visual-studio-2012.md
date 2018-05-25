@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Dopo aver apportato questa modifica, la selezione di F5 consente di passare alla
 
 Dopo l'aggiornamento a 3 Razor di ASP.NET o ASP.NET MVC 5, la notazione tilde(~) potrebbe non funzionare correttamente se si utilizza la riscrittura URL. URL rewrite interessa la notazione tilde(~) negli elementi HTML quali &lt;A /&gt;, &lt;SCRIPT /&gt;, &lt;collegamento /&gt;, e di conseguenza la tilde non viene eseguito il mapping alla directory radice.
 
-Ad esempio, se si riscrivono le richieste per **asp.net/content** a **asp.net**, l'attributo href nel &lt;href = "~/content/" /&gt; si risolve in **/content/ contenuto /** anziché  **/** . Per eliminare questa modifica, è possibile impostare il **IIS\_WasUrlRewritten** contesto su false in ogni pagina Web o in **applicazione\_BeginRequest** in Global. asax.
+Ad esempio, se si riscrivono le richieste per **asp.net/content** a **asp.net**, l'attributo href nel &lt;href = "~/content/" /&gt; si risolve in **/content/ contenuto /** anziché **/**. Per eliminare questa modifica, è possibile impostare il **IIS\_WasUrlRewritten** contesto su false in ogni pagina Web o in **applicazione\_BeginRequest** in Global. asax.
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Modelli

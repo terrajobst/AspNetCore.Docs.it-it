@@ -11,17 +11,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 30ac239a38376feecffc3010387ec5e0009b6db6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
 
 Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) e [Steve Gordon](https://github.com/stevejgordon)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 È possibile registrare e usare `IHttpClientFactory` per configurare e creare istanze di [HttpClient](/dotnet/api/system.net.http.httpclient) in un'app. I vantaggi offerti sono i seguenti:
 
@@ -77,7 +75,7 @@ Un client tipizzato accetta il parametro `HttpClient` nel proprio costruttore:
 
 [!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Nel codice precedente la configurazione viene spostata nel client tipizzato. L'oggetto `HttpClient` viene esposto come una proprietà pubblica. È possibile definire metodi di API specifiche che espongono la funzionalità `HttpClient`. Il metodo `GetLatestDocsIssue` incapsula il codice necessario per eseguire una query e individuare il problema più recente pubblicato in un repository GitHub.
+Nel codice precedente la configurazione viene spostata nel client tipizzato. L'oggetto `HttpClient` viene esposto come una proprietà pubblica. È possibile definire metodi di API specifiche che espongono la funzionalità `HttpClient`. Il metodo `GetAspNetDocsIssues` incapsula il codice necessario per eseguire una query e analizzare gli ultimi problemi aperti in un repository GitHub.
 
 Per registrare un client tipizzato è possibile usare il metodo di estensione `AddHttpClient` generico all'interno di `ConfigureServices`, specificando la classe del client tipizzato:
 

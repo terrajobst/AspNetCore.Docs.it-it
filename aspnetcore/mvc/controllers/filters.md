@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 24e754daa68d5247fa444e87ba733891c908d32c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://githu
 I *filtri* in ASP.NET Core MVC consentono di eseguire codice prima o dopo fasi specifiche della pipeline di elaborazione della richiesta.
 
 > [!IMPORTANT]
-> Questo argomento **non** si applica a Razor Pages. ASP.NET Core 2.1 preview e le versioni successive supportano [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) per Razor Pages. Per ulteriori informazioni, vedere [Metodi di filtro per Razor Pages](xref:mvc/razor-pages/filter).
+> Questo argomento **non** si applica a Razor Pages. ASP.NET Core 2.1 e le versioni successive supportano [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) per Razor Pages. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:mvc/razor-pages/filter).
 
  I filtri predefiniti gestiscono attività, ad esempio:
  

@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 title: Routing e la selezione di azione in ASP.NET Web API | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012
@@ -152,7 +152,7 @@ Con lo sfondo, di seguito è l'algoritmo di selezione dell'azione.
     4. Se più di un'azione soddisfa questi criteri, selezionare quella con la maggior parte delle corrispondenze di parametro.
 4. Ignorare le azioni con il **[NonAction]** attributo.
 
-Passaggio &#3; è probabilmente il più intuitive. L'idea di base è che un parametro è possibile ottenere il valore dell'URI, dal corpo della richiesta o da un'associazione personalizzata. Per i parametri forniti dall'URI, si desidera assicurarsi che l'URI contiene effettivamente un valore per il parametro, nel percorso (tramite il dizionario della route) o nella stringa di query.
+Passaggio 3 # è probabilmente il più intuitive. L'idea di base è che un parametro è possibile ottenere il valore dell'URI, dal corpo della richiesta o da un'associazione personalizzata. Per i parametri forniti dall'URI, si desidera assicurarsi che l'URI contiene effettivamente un valore per il parametro, nel percorso (tramite il dizionario della route) o nella stringa di query.
 
 Ad esempio, si consideri l'azione seguente:
 

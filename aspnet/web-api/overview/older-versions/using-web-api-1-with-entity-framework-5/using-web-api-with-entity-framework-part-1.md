@@ -71,7 +71,7 @@ Il diagramma seguente illustra come gli oggetti di dominio sono rappresentati a 
 
 Dal **avviare** pagina, fare clic su **nuovo progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto "ProductStore" e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto "ProductStore" e fare clic su **OK**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

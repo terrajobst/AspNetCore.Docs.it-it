@@ -4,23 +4,23 @@ author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 10/18/2017
+ms.custom: mvc
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e814277663ff5a964171a71ebb6e0f094e0ddc60
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
-> [!NOTE]
-> Queste istruzioni sono relative alla versione più recente di ASP.NET Core. Vedere [Introduzione ad ASP.NET Core 1.1](xref:getting-started-1.1) per la versione 1.1 di questo documento.
+::: moniker range=">= aspnetcore-2.0"
 
-1. Installare [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
+1. Installare [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].
 
 2. Creare un nuovo progetto .NET Core.
 
@@ -29,28 +29,67 @@ ms.lasthandoff: 04/06/2018
     ```terminal
     dotnet new razor -o aspnetcoreapp
     ```
-    
-3. Eseguire l'app.
 
-    Usare i comandi seguenti per eseguire l'app:
+3. Eseguire l'app con i comandi seguenti:
 
     ```terminal
     cd aspnetcoreapp
     dotnet run
     ```
 
-4. Passare a [http://localhost:5000](http://localhost:5000)
+4. Passare a [http://localhost:5000](http://localhost:5000).
 
-5. Aprire <em>Pages/About.cshtml</em> e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is @DateTime.Now " (Buongiorno mondo! L'ora nel server è):
+5. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is@DateTime.Now" (Buongiorno mondo! L'ora nel server è):
 
-    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 6. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
 
-### <a name="next-steps"></a>Passaggi successivi
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end
 
-Per le esercitazioni, introduttive, vedere [Esercitazioni di ASP.NET Core](tutorials/index.md)
+::: moniker range="<= aspnetcore-1.1"
 
-Per un'introduzione ai concetti e all'architettura di ASP.NET Core, vedere [Introduzione ad ASP.NET Core](index.md) e [Nozioni fondamentali di ASP.NET Core](fundamentals/index.md).
+1. Installare il **programma di installazione di SDK** per SDK 1.0.4 dalla [pagina di tutti i download di .NET Core](https://www.microsoft.com/net/download/all).
 
-Un'app ASP.NET Core può usare la libreria di classi base e il runtime di .NET Framework o .NET Core. Per altre informazioni, vedere [Scelta di .NET Core o .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
+2. Creare una cartella per un nuovo progetto .NET Core.
+
+   In macOS e Linux aprire una finestra del terminale. In Windows aprire un prompt dei comandi.
+
+   ```terminal
+   mkdir aspnetcoreapp
+   cd aspnetcoreapp
+   ```
+
+3. Se è installata una versione SDK successiva nel computer in uso, creare un file *global.json* per selezionare l'SDK 1.0.4.
+
+   ```json
+   {
+     "sdk": { "version": "1.0.4" }
+   }
+   ```
+
+4. Creare un nuovo progetto .NET Core.
+
+   ```terminal
+   dotnet new web
+   ```
+
+5. Ripristinare i pacchetti.
+
+    ```terminal
+    dotnet restore
+    ```
+
+6. Eseguire l'app.
+
+   ```terminal
+   dotnet run
+   ```
+
+   Il comando [dotnet run](/dotnet/core/tools/dotnet-run) compila prima l'app se necessario.
+
+7. Passare a `http://localhost:5000`.
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end

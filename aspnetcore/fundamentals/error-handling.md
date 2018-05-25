@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 5443cbeb1ef95c579e5fc12b625babbfa27c7ec2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 3ff3a17d14d9ed7c438399191ffe3cf93d555d49
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -26,14 +26,14 @@ Questo articolo descrive gli approcci comuni per la gestione degli errori nelle 
 
 ## <a name="the-developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 
-Per configurare un'app in modo che visualizzi una pagina contenente informazioni dettagliate sulle eccezioni, installare il pacchetto NuGet `Microsoft.AspNetCore.Diagnostics` e aggiungere una riga al [metodo Configure della classe Startup](startup.md):
+Per configurare un'app in modo che visualizzi una pagina contenente informazioni dettagliate sulle eccezioni, installare il pacchetto NuGet `Microsoft.AspNetCore.Diagnostics` e aggiungere una riga al [metodo Configure della classe Startup](xref:fundamentals/startup):
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 Inserire `UseDeveloperExceptionPage` prima di qualsiasi middleware in cui si desidera rilevare le eccezioni, ad esempio `app.UseMvc`.
 
 >[!WARNING]
-> Abilitare la pagina delle eccezioni per gli sviluppatori **solo quando l'app è in esecuzione nell'ambiente di sviluppo** per non condividere pubblicamente le informazioni dettagliate sulle eccezioni quando l'app è in esecuzione nell'ambiente di produzione. [Altre informazioni sulla configurazione degli ambienti](environments.md).
+> Abilitare la pagina delle eccezioni per gli sviluppatori **solo quando l'app è in esecuzione nell'ambiente di sviluppo** per non condividere pubblicamente le informazioni dettagliate sulle eccezioni quando l'app è in esecuzione nell'ambiente di produzione. [Altre informazioni sulla configurazione degli ambienti](xref:fundamentals/environments).
 
 Per visualizzare la pagina delle eccezioni per gli sviluppatori, eseguire l'applicazione di esempio con l'ambiente impostato su `Development` e aggiungere `?throw=true` all'URL di base dell'app. La pagina include diverse schede con informazioni sull'eccezione e sulla richiesta. La prima scheda include un'analisi dello stack. 
 
@@ -114,11 +114,11 @@ Tenere anche presente che dopo che le intestazioni per una risposta sono state i
 
 ## <a name="server-exception-handling"></a>Gestione delle eccezioni del server
 
-Oltre alla logica di gestione delle eccezioni nell'app, il [server](servers/index.md) che ospita l'app esegue una parte della gestione delle eccezioni. Se rileva un'eccezione prima dell'invio delle intestazioni, il server invia una risposta *500 Errore interno del server* senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Tutte le eccezioni vengono gestite dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate, middleware di gestione delle eccezioni o filtri configurati non hanno effetto su questo comportamento.
+Oltre alla logica di gestione delle eccezioni nell'app, il [server](xref:fundamentals/servers/index) che ospita l'app esegue una parte della gestione delle eccezioni. Se rileva un'eccezione prima dell'invio delle intestazioni, il server invia una risposta *500 Errore interno del server* senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Tutte le eccezioni vengono gestite dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate, middleware di gestione delle eccezioni o filtri configurati non hanno effetto su questo comportamento.
 
 ## <a name="startup-exception-handling"></a>Gestione delle eccezioni durante l'avvio
 
-Solo il livello di hosting può gestire le eccezioni che si verificano durante l'avvio dell'app. È possibile [configurare il comportamento dell'host in risposta agli errori durante l'avvio](hosting.md#detailed-errors) usando `captureStartupErrors` e la chiave `detailedErrors`.
+Solo il livello di hosting può gestire le eccezioni che si verificano durante l'avvio dell'app. Con [Host Web](xref:fundamentals/host/web-host) è possibile [configurare il comportamento dell'host in risposta agli errori durante l'avvio](xref:fundamentals/host/web-host#detailed-errors) usando `captureStartupErrors` e le chiavi `detailedErrors`.
 
 L'hosting può visualizzare solo una pagina di errore per un errore di avvio acquisito se l'errore si verifica dopo l'associazione indirizzo host/porta. Se un'associazione ha esito negativo per qualsiasi ragione, il livello di hosting registra un'eccezione critica, il processo dotnet viene interrotto e non viene visualizzata alcuna pagina di errore quando l'app è in esecuzione nel server [Kestrel](xref:fundamentals/servers/kestrel).
 
@@ -130,16 +130,16 @@ Le app [MVC](xref:mvc/overview) includono alcune opzioni aggiuntive per la gesti
 
 ### <a name="exception-filters"></a>Filtri eccezioni
 
-I filtri delle eccezioni possono essere configurati a livello globale o per singolo controller o azione in un'app MVC. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro e non vengono chiamate e non vengono chiamate in altro modo. Per altre informazioni sui filtri delle eccezioni, vedere [Filtri](../mvc/controllers/filters.md).
+I filtri delle eccezioni possono essere configurati a livello globale o per singolo controller o azione in un'app MVC. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro e non vengono chiamate e non vengono chiamate in altro modo. Per altre informazioni sui filtri delle eccezioni, vedere [Filtri](xref:mvc/controllers/filters).
 
 >[!TIP]
 > I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MV, ma non sono flessibili come il middleware di gestione degli errori. Per i casi generici è preferibile usare il middleware e usare invece i filtri solo quando è necessario gestire gli errori *in modo diverso* in base all'azione MVC scelta.
 
 ### <a name="handling-model-state-errors"></a>Gestione degli errori dello stato del modello
 
-La [convalida del modello](../mvc/models/validation.md) avviene prima di richiamare ogni azione del controller ed è responsabilità del metodo di azione controllare `ModelState.IsValid` e rispondere in modo appropriato.
+La [convalida del modello](xref:mvc/models/validation) avviene prima di richiamare ogni azione del controller ed è responsabilità del metodo di azione controllare `ModelState.IsValid` e rispondere in modo appropriato.
 
-Alcune app scelgono di seguire una convenzione standard per gestire gli errori di convalida del modello. In tal caso un [filtro](../mvc/controllers/filters.md) può essere l'elemento adatto in cui implementare tali criteri. È consigliabile testare il comportamento delle azioni con gli stati del modello non validi. Altre informazioni sono disponibili in [Test della logica dei controller](../mvc/controllers/testing.md).
+Alcune app scelgono di seguire una convenzione standard per gestire gli errori di convalida del modello. In tal caso un [filtro](xref:mvc/controllers/filters) può essere l'elemento adatto in cui implementare tali criteri. È consigliabile testare il comportamento delle azioni con gli stati del modello non validi. Altre informazioni sono disponibili in [Test della logica dei controller](xref:mvc/controllers/testing).
 
 
 

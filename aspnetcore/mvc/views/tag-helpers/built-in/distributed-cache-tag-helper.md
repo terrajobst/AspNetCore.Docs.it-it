@@ -9,23 +9,21 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 929156633048b8ee68a66290f44b12026a08c8c9
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 9c1d91fc185a0afecf59af8927ddf6f25eff29ab
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Helper tag di cache distribuita in ASP.NET Core
 
 Di [Peter Kellner](http://peterkellner.net) 
 
-
 L'helper tag di cache distribuita consente di migliorare notevolmente le prestazioni dell'app ASP.NET Core memorizzandone il contenuto in un'origine cache distribuita.
 
-L'helper tag di cache distribuita eredita dalla stessa classe di base da cui eredita l'helper tag di cache.  Tutti gli attributi associati all'helper tag di cache funzionano anche nell'helper tag di cache distribuita.
+L'helper tag di cache distribuita eredita dalla stessa classe di base da cui eredita l'helper tag di cache. Tutti gli attributi associati all'helper tag di cache funzionano anche nell'helper tag di cache distribuita.
 
-
-L'helper tag di cache distribuita segue il **principio delle dipendenze esplicite** noto come **inserimento del costruttore**.  In particolare, il contenitore di interfaccia `IDistributedCache` viene passato con il costruttore dell'helper tag di cache distribuita.  Se non è stata creata nessuna implementazione concreta specifica di `IDistributedCache` in `ConfigureServices`, disponibile in genere in startup.cs, l'helper tag di cache distribuita usa per l'archiviazione dei dati lo stesso provider in memoria usato dall'helper tag di cache di base.
+L'helper tag di cache distribuita segue il **principio delle dipendenze esplicite** noto come **inserimento del costruttore**. In particolare, il contenitore di interfaccia `IDistributedCache` viene passato con il costruttore dell'helper tag di cache distribuita. Se non è stata creata nessuna implementazione concreta specifica di `IDistributedCache` in `ConfigureServices`, disponibile in genere in startup.cs, l'helper tag di cache distribuita usa per l'archiviazione dei dati lo stesso provider in memoria usato dall'helper tag di cache di base.
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Attributi dell'helper per tag di cache distribuita
 
@@ -43,7 +41,7 @@ Per le definizioni, vedere Helper tag di cache. L'helper tag di cache distribuit
 |----------------   |----------------   |
 | stringa    | "my-distributed-cache-unique-key-101"     |
 
-L'attributo `name` obbligatorio viene usato come chiave per la cache archiviata per ogni istanza di un helper tag di cache distribuita.  A differenza dell'helper tag di cache di base, che assegna una chiave a ogni istanza di helper tag di cache in base al nome della pagina Razor e alla posizione dell'helper tag nella pagina Razor, nell'helper tag di cache distribuita la chiave è basata solo sull'attributo `name`.
+L'attributo `name` obbligatorio viene usato come chiave per la cache archiviata per ogni istanza di un helper tag di cache distribuita. A differenza dell'helper tag di cache di base, che assegna una chiave a ogni istanza di helper tag di cache in base al nome della pagina Razor e alla posizione dell'helper tag nella pagina Razor, nell'helper tag di cache distribuita la chiave è basata solo sull'attributo `name`
 
 Esempio di uso:
 
@@ -55,15 +53,9 @@ Esempio di uso:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Implementazioni IDistributedCache dell'helper tag di cache distribuita
 
-Esistono due implementazioni di `IDistributedCache` integrate in ASP.NET Core.  Una è basata su **SQL Server** e l'altra è basata su **Redis**. I dettagli di queste implementazioni sono disponibili nella risorsa "Uso di una cache distribuita" citata di seguito. Entrambe le implementazioni implicano l'impostazione di un'istanza di `IDistributedCache` in **startup.cs** di ASP.NET Core.
+Esistono due implementazioni di `IDistributedCache` integrate in ASP.NET Core. Una è basata su SQL Server e l'altra su Redis. I dettagli di queste implementazioni sono disponibili in <xref:performance/caching/distributed>. Entrambe le implementazioni implicano l'impostazione di un'istanza di `IDistributedCache` in *Startup.cs* di ASP.NET Core.
 
 Nessun attributo di tag è associato specificamente all'uso di un'implementazione specifica di `IDistributedCache`.
-
-
-
-- - -
-
-
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

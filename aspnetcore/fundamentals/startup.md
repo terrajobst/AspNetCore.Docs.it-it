@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 8dd632a2c888e65c6420e0fed7acf6fa15173b3d
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Avvio dell'applicazione in ASP.NET Core
 
@@ -64,9 +64,10 @@ Per le funzionalità che richiedono l'installazione sostanziale, sono disponibil
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-::: moniker range=">= aspnetcore-2.1" 
+::: moniker range=">= aspnetcore-2.1"
 
 <a name="setcompatibilityversion"></a>
+
 ### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion per ASP.NET Core MVC 
 
 Il metodo `SetCompatibilityVersion` consente a un'app di acconsentire o rifiutare esplicitamente modifiche potenzialmente importanti del comportamento introdotte in ASP.NET Core MVC 2.1+. Queste modifiche potenzialmente importanti del comportamento riguardano in genere il funzionamento del sottosistema MVC e la modalità con cui il **codice dell'utente** viene chiamato dal runtime. Se si acconsente esplicitamente, si ottiene il comportamento più recente e il comportamento a lungo termine di ASP.NET Core.
@@ -156,6 +157,10 @@ L'ordine di esecuzione del middleware viene impostato in base all'ordine delle r
 
 * Più implementazioni `IStartupFilter` possono interagire con gli stessi oggetti. Se l'ordinamento è un fattore importante, ordinare le registrazioni di servizio `IStartupFilter` in un ordine corrispondente a quello di esecuzione dei relativi middleware.
 * Le librerie possono aggiungere middleware con una o più implementazioni `IStartupFilter` che viene eseguito prima o dopo altri middleware dell'app registrati con `IStartupFilter`. Per richiamare un middleware `IStartupFilter` prima di un middleware aggiunto da `IStartupFilter` di una libreria, posizionare la registrazione dei servizi prima dell'aggiunta della libreria al contenitore di servizi. Per richiamarlo in un secondo momento, posizionare la registrazione dei servizi dopo l'aggiunta della libreria.
+
+## <a name="adding-configuration-at-startup-from-an-external-assembly"></a>Aggiunta di elementi di configurazione all'avvio da un assembly esterno
+
+Un' implementazione [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) consente l'aggiunta di miglioramenti a un'app all'avvio, da un assembly esterno alla classe `Startup` dell'app. Per altre informazioni, vedere [Migliorare un'app da un assembly esterno](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

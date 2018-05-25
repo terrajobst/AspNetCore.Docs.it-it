@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: 'Lab pratico: Compilare un''applicazione a pagina singola (SPA) con ASP.NET Web API e Angular.js | Documenti Microsoft'
+title: "Lab pratico: Compilare un'applicazione a pagina singola (SPA) con ASP.NET Web API e Angular.js | Documenti Microsoft"
 author: rick-anderson
 description: Nelle applicazioni web tradizionali, il client (browser) avvia la comunicazione con il server richiedendo una pagina. Il server elabora quindi la richiesta...
 ms.author: aspnetcontent
@@ -153,13 +153,13 @@ In questa attività si inizierà creando un nuovo progetto MVC ASP.NET con suppo
 
     > [!NOTE]
     > Il **Authorize** filtro controlla se l'utente viene autenticato. Se l'utente non è autenticato, viene restituito il codice di stato HTTP 401 (Unauthorized) senza richiamare l'azione. È possibile applicare il filtro a livello globale, a livello di controller o al livello di singole azioni.
-9. A questo punto si personalizzerà il layout delle pagine web e la personalizzazione. A tale scopo, aprire il  **\_cshtml** file all'interno di **viste | Condiviso** cartella e aggiornare il contenuto del  **&lt;titolo&gt;**  elemento sostituendo *applicazione ASP.NET* con *appassionato Quiz* .
+9. A questo punto si personalizzerà il layout delle pagine web e la personalizzazione. A tale scopo, aprire il  **\_cshtml** file all'interno di **viste | Condiviso** cartella e aggiornare il contenuto del **&lt;titolo&gt;** elemento sostituendo *applicazione ASP.NET* con *appassionato Quiz* .
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
 10. Nello stesso file, aggiornare la barra di navigazione rimuovendo il *su* e *contatto* collegamenti e ridenominazione il *Home* collegare *riprodurre*. Inoltre, rinominare il *nome applicazione* collegare *appassionato Quiz*. Il codice HTML per la barra di spostamento dovrebbe essere simile al codice seguente.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Aggiornare il piè di pagina della pagina di layout sostituendo *applicazione ASP.NET* con *appassionato Quiz*. A tale scopo, sostituire il contenuto del  **&lt;piè di pagina&gt;**  elemento con il codice evidenziato di seguito.
+11. Aggiornare il piè di pagina della pagina di layout sostituendo *applicazione ASP.NET* con *appassionato Quiz*. A tale scopo, sostituire il contenuto del **&lt;piè di pagina&gt;** elemento con il codice evidenziato di seguito.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
@@ -421,7 +421,7 @@ In questa attività si utilizzerà CSS3 proprietà per eseguire le animazioni RT
 5. Individuare il **nascondere parte posteriore riquadro durante capovolto** commento. Lo stile sotto il commento nasconde il lato posteriore delle facce quando essi sono lontani Visualizzatore impostando il **faccia posteriore visibilità** proprietà CSS *nascosto*.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Aprire il **BundleConfig.cs** file all'interno di **App\_avviare** cartella e aggiungere il riferimento al **Flip.css** file nel  **&quot;~/Content/css&quot;**  bundle di stile
+6. Aprire il **BundleConfig.cs** file all'interno di **App\_avviare** cartella e aggiungere il riferimento al **Flip.css** file nel **&quot;~/Content/css&quot;** bundle di stile
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
 7. Premere **F5** per eseguire la soluzione e accedere con le credenziali.

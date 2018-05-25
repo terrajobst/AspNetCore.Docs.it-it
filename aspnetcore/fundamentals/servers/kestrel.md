@@ -1,26 +1,26 @@
 ---
 title: Implementazione del server Web Kestrel in ASP.NET Core
-author: tdykstra
-description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core basato su libuv.
+author: rick-anderson
+description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/02/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1709d26f5dfe40d178da70c286d328982f2c39a0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 251385b268e75cfadb815c293be52176297ed3e4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
 Di [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher) e [Stephen Halter](https://twitter.com/halter73)
 
-Kestrel è un [server Web per ASP.NET Core](xref:fundamentals/servers/index) multipiattaforma basato su [libuv](https://github.com/libuv/libuv), una libreria di I/O asincrona multipiattaforma. Kestrel è il server Web incluso per impostazione predefinita nei modelli di progetto di ASP.NET Core.
+Kestrel è un [server Web per ASP.NET Core](xref:fundamentals/servers/index) multipiattaforma. Kestrel è il server Web incluso per impostazione predefinita nei modelli di progetto di ASP.NET Core.
 
 Kestrel supporta le funzionalità seguenti:
 
@@ -34,7 +34,7 @@ Kestrel è supportato in tutte le piattaforme e le versioni supportate da .NET C
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Quando usare Kestrel con un proxy inverso
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 È possibile usare Kestrel da solo o con un *server proxy inverso*, ad esempio IIS, Nginx o Apache. Un server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel dopo alcune operazioni di gestione preliminari.
 
@@ -44,7 +44,7 @@ Kestrel è supportato in tutte le piattaforme e le versioni supportate da .NET C
 
 È consigliabile usare Kestrel con un server proxy inverso, a meno che non venga esposto solo a una rete interna.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Se un'app accetta solo le richieste provenienti da una rete interna, è possibile usare Kestrel direttamente come server dell'app.
 
@@ -56,7 +56,7 @@ Se si espone l'app a Internet, è necessario usare IIS, Nginx o Apache come *ser
 
 Per motivi di sicurezza, un proxy inverso è obbligatorio per le distribuzioni perimetrali, ovvero le distribuzioni esposte al traffico Internet. Le versioni 1.x di Kestrel non hanno una struttura completa di difesa contro gli attacchi, ad esempio timeout appropriati, limiti di dimensioni e limiti di connessioni simultanee.
 
-* * *
+---
 
 Esiste uno scenario con proxy inverso quando diverse app condividono lo stesso IP e la stessa porta in un unico server. Kestrel non supporta questo scenario perché non supporta la condivisione dello stesso IP e della stessa porta tra più processi. Quando Kestrel è configurato per restare in ascolto su una porta, gestisce tutto il traffico per tale porta indipendentemente dall'intestazione host delle richieste. Un proxy inverso che può condividere le porte può eseguire l'inoltro delle richieste a Kestrel su un unico IP e un'unica porta.
 
@@ -72,7 +72,7 @@ Anche se un server proxy inverso non è necessario, può risultare utile per i m
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Come usare Kestrel nelle app ASP.NET Core
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 Il pacchetto [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) è incluso nel metapacchetto [Microsoft.AspNetCore.All](xref:fundamentals/metapackage).
 
@@ -80,7 +80,7 @@ I modelli di progetto ASP.NET Core usano Kestrel per impostazione predefinita. I
 
 [!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Installare il pacchetto NuGet [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/).
 
@@ -88,11 +88,11 @@ Chiamare il metodo di estensione [UseKestrel](/dotnet/api/microsoft.aspnetcore.h
 
 [!code-csharp[](kestrel/samples/1.x/Program.cs?name=snippet_Main&highlight=13-19)]
 
-* * *
+---
 
 ### <a name="kestrel-options"></a>Opzioni Kestrel
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 Il server Web Kestrel dispone di opzioni di configurazione dei vincoli che risultano particolarmente utili nelle distribuzioni con connessione Internet. Alcuni limiti importanti che possono essere personalizzati:
 
@@ -109,9 +109,11 @@ Impostare questi e altri vincoli nella proprietà [Limits](/dotnet/api/microsoft
 
 È possibile impostare il numero massimo di connessioni TCP aperte simultaneamente per l'intera app con il codice seguente:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3-4)]
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3)]
 
 È previsto un limite separato per le connessioni che sono state aggiornate da HTTP o HTTPS a un altro protocollo (ad esempio su una richiesta WebSocket). Dopo l'aggiornamento di una connessione, questa non viene conteggiata per il limite `MaxConcurrentConnections`.
+
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=4)]
 
 Per impostazione predefinita, il numero massimo di connessioni è illimitato (null).
 
@@ -151,7 +153,7 @@ Anche per la risposta è prevista una velocità minima. Il codice per impostare 
 
 L'esempio seguente visualizza come configurare la velocità minima dei dati in *Program.cs*:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-9)]
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-7)]
 
 È possibile configurare la velocità per ogni singola richiesta nel middleware:
 
@@ -163,18 +165,18 @@ Per informazioni su altre opzioni e limiti di Kestrel, vedere:
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits)
 * [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions)
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Per informazioni su opzioni e limiti di Kestrel, vedere:
 
 * [KestrelServerOptions class](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions?view=aspnetcore-1.1) (Classe KestrelServerOptions)
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserverlimits?view=aspnetcore-1.1)
 
-* * *
+---
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 ::: moniker range="= aspnetcore-2.0"
 Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Chiamare i metodi [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) oppure [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) su [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) per configurare i prefissi URL e le porte per Kestrel. Anche `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di configurazione dell'host `urls` e la variabile di ambiente `ASPNETCORE_URLS` funzionano, ma con le limitazioni indicate più avanti nella sezione.
@@ -194,9 +196,9 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>()
     .Build();
 ```
+
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
-[!INCLUDE[](~/includes/2.1.md)]
 
 Per impostazione predefinita, ASP.NET Core è associato a:
 
@@ -218,10 +220,10 @@ Anche `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di config
 
 Configurazione di `KestrelServerOptions` in ASP.NET Core 2.1:
 
-**ConfigureEndpointDefaults(Action<ListenOptions>)**  
+**ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)**  
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint specificato. Se si chiama `ConfigureEndpointDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
-**ConfigureHttpsDefaults(Action<HttpsConnectionAdapterOptions>)**  
+**ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)**  
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
 **Configure(IConfiguration)**  
@@ -274,7 +276,7 @@ Specificare gli URL usando gli elementi seguenti:
 * La chiave di configurazione dell'host `urls`.
 * Il metodo di estensione `UseUrls`.
 
-Per altre informazioni, vedere [URL del server](xref:fundamentals/hosting#server-urls) e [Override della configurazione](xref:fundamentals/hosting#overriding-configuration).
+Per altre informazioni, vedere [URL del server](xref:fundamentals/host/web-host#server-urls) e [Override della configurazione](xref:fundamentals/host/web-host#override-configuration).
 
 Il valore specificato usando i metodi seguenti può essere uno o più endpoint HTTP e HTTPS (HTTPS se è disponibile un certificato predefinito). Configurare il valore come un elenco delimitato da punto e virgola (ad esempio, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
@@ -429,6 +431,7 @@ WebHost.CreateDefaultBuilder()
         });
     });
 ```
+
 ::: moniker-end
 
 **Associazione a un socket TCP**
@@ -477,7 +480,7 @@ Questi metodi sono utili se si vuole che il codice funzioni con server diversi d
 
 Quando si usa IIS, le associazioni di URL per le associazioni di override di IIS vengono impostate mediante `Listen` o `UseUrls`. Per altre informazioni, vedere l'articolo [Introduzione al modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Configurare i prefissi URL e le porte per l'uso di Kestrel:
 
@@ -486,19 +489,56 @@ Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000
 * La chiave di configurazione dell'host `urls`
 * Il sistema di configurazione di ASP.NET Core, inclusa la variabile di ambiente `ASPNETCORE_URLS`
 
-Per altre informazioni su questi metodi, vedere [Hosting](xref:fundamentals/hosting).
+Per altre informazioni su questi metodi, vedere [Hosting](xref:fundamentals/host/index).
 
 **Configurazione degli endpoint IIS**
 
 Quando si usa IIS, le associazioni di URL per le associazioni di override di IIS vengono impostate mediante `UseUrls`. Per altre informazioni, vedere l'articolo [Introduzione al modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
-* * *
+---
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="transport-configuration"></a>Configurazione del trasporto
+
+Con la versione ASP.NET Core 2.1, il trasporto predefinito di Kestrel non si basa più su Libuv, ma su socket gestiti. Si tratta di una modifica importante per le app ASP.NET 2.0 Core che vengono aggiornate alla versione 2.1, che chiamano [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) e dipendono da uno dei pacchetti seguenti:
+
+* [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (riferimento diretto al pacchetto)
+* [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+
+Per i progetti ASP.NET Core 2.1 o versioni successive che usano il metapacchetto `Microsoft.AspNetCore.App` e richiedono l'uso di Libuv:
+
+* Aggiungere una dipendenza per il pacchetto [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) al file di progetto dell'app:
+
+    ```xml
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
+                    Version="2.1.0" />
+    ```
+
+* Chiamare [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):
+
+    ```csharp
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseLibuv()
+                .UseStartup<Startup>();
+    }
+    ```
+
+::: moniker-end
 
 ### <a name="url-prefixes"></a>Prefissi URL
 
 Se si usa `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di configurazione dell'host `urls` o la variabile di ambiente `ASPNETCORE_URLS`, i prefissi URL possono avere uno dei formati seguenti.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 Sono validi solo i prefissi URL HTTP. Kestrel non supporta SSL quando la configurazione delle associazioni URL viene eseguita con `UseUrls`.
 
@@ -510,7 +550,6 @@ Sono validi solo i prefissi URL HTTP. Kestrel non supporta SSL quando la configu
 
   `0.0.0.0` è un caso speciale che esegue l'associazione a tutti gli indirizzi IPv4.
 
-
 * Indirizzo IPv6 con numero di porta
 
   ```
@@ -518,7 +557,6 @@ Sono validi solo i prefissi URL HTTP. Kestrel non supporta SSL quando la configu
   ```
 
   `[::]` è l'equivalente IPv6 di `0.0.0.0` per IPv4.
-
 
 * Nome host con numero di porta
 
@@ -542,7 +580,7 @@ Sono validi solo i prefissi URL HTTP. Kestrel non supporta SSL quando la configu
 
   Se è specificato `localhost`, Kestrel tenta l'associazione alle interfacce di loopback sia IPv4 che IPv6. Se la porta richiesta è in uso da parte di un altro servizio in una delle due interfacce di loopback, Kestrel non viene avviato. Se una delle due interfacce di loopback non è disponibile per qualsiasi altro motivo (in genere perché IPv6 non è supportato), Kestrel registra un avviso.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 * Indirizzo IPv4 con numero di porta
 
@@ -620,7 +658,7 @@ var host = new WebHostBuilder()
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
-* * *
+---
 
 ## <a name="host-filtering"></a>Filtro host
 

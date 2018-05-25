@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: 2cbebb12ccd1098e1950aa7eeb22fab4ffc689e6
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [!INCLUDE[](~/includes/2.1-SDK.md)] include MSBuild SDK di `Microsoft.NET.Sdk.Razor` (Razor SDK). Il Razor SDK:
 
@@ -66,7 +64,7 @@ Le proprietà e gli elementi seguenti vengono utilizzati per configurare gli inp
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Elementi della voce (file *cshtml*) che sono input per le destinazioni di generazione del codice. |
 | RazorCompile                                  | Elementi della voce (file cs) che sono input per le destinazioni di compilazione Razor. Usare questo ItemGroup per specificare ulteriori file da compilare nell'assembly Razor. |
-| RazorAssemblyAttribute                        | Elementi della voce usati per attributi di generazione del codice per l'assembly Razor. Ad esempio:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
+| RazorTargetAssemblyAttribute                  | Elementi della voce usati per attributi di generazione del codice per l'assembly Razor. Ad esempio:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Elementi della voce aggiunti come risorse incorporate all'assembly Razor generato |
 
 | Proprietà                                      | Descrizione                                                                   |

@@ -10,21 +10,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: 731d37a8f4983b18ded114f05470f8a408deb7cd
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 44091ab8ab5d69a5975e191fd00fca1d1d957238
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile tramite il progetto di libreria di classi Razor in ASP.NET Core.
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-È possibile compilare in una libreria di classi Razor visualizzazioni, pagine, controller, modelli di pagine e modelli di dati Razor. La libreria di classi Razor può essere inclusa nel pacchetto e riutilizzata. Le applicazioni possono includere la libreria di classi Razor ed eseguire l'override delle visualizzazioni e pagine in essa contenute. Quando viene trovata una visualizzazione, visualizzazione parziale o pagina Razor sia nell'app Web che nella libreria di classi Razor, il markup Razor (file con estensione *cshtml*) nell'app Web ha la precedenza.
+È possibile compilare in una libreria di classi Razor visualizzazioni, pagine, controller, modelli di pagine e modelli di dati Razor. La libreria di classi Razor può essere inclusa nel pacchetto e usata nuovamente. Le applicazioni possono includere la libreria di classi Razor ed eseguire l'override delle visualizzazioni e pagine in essa contenute. Quando viene trovata una visualizzazione, visualizzazione parziale o pagina Razor sia nell'app Web che nella libreria di classi Razor, il markup Razor (file con estensione *cshtml*) nell'app Web ha la precedenza.
 
 Questa funzionalità richiede [!INCLUDE[](~/includes/2.1-SDK.md)]
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/ui-class/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 

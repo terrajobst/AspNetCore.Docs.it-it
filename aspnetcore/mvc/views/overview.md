@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -21,7 +21,7 @@ Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardr
 
 Questo documento illustra le visualizzazioni usate nelle applicazioni ASP.NET Core MVC. Per informazioni relative a Razor Pages, vedere [Introduzione a Razor Pages](xref:mvc/razor-pages/index).
 
-Nello schema **M**odel-**V**iew-**C**ontroller (MVC) la *visualizzazione* gestisce la presentazione dei dati dell'app e l'interazione dell'utente. Una visualizzazione è un modello HTML con [markup Razor](xref:mvc/views/razor) incorporato. Il markup Razor è il codice che interagisce con il markup HTML per produrre una pagina Web che viene inviata al client.
+Nello schema MVC la *visualizzazione* gestisce la presentazione dei dati dell'app e l'interazione dell'utente. Una visualizzazione è un modello HTML con [markup Razor](xref:mvc/views/razor) incorporato. Il markup Razor è il codice che interagisce con il markup HTML per produrre una pagina Web che viene inviata al client.
 
 In ASP.NET Core MVC le visualizzazioni sono file con estensione *cshtml* che usano il [linguaggio di programmazione C#](/dotnet/csharp/) nel markup Razor. I file di visualizzazione sono in genere raggruppati in cartelle denominate per ognuno dei [controller](xref:mvc/controllers/actions) dell'app. Le cartelle vengono archiviate in una cartella *Views* alla radice dell'app:
 
@@ -37,7 +37,7 @@ I [componenti di visualizzazione](xref:mvc/views/view-components) sono simili al
 
 ## <a name="benefits-of-using-views"></a>Vantaggi dell'uso delle visualizzazioni
 
-Le visualizzazioni consentono di stabilire una [progettazione **S**eparation **o**f **C**oncerns (SoC)](http://deviq.com/separation-of-concerns/) all'interno di un'app MVC separando il markup dell'interfaccia utente da altre parti dell'app. La progettazione SoC rende l'app modulare offrendo diversi vantaggi:
+Le visualizzazioni consentono di stabilire una [separazione dei concetti](http://deviq.com/separation-of-concerns/) all'interno di un'app MVC separando il markup dell'interfaccia utente da altre parti dell'app. La progettazione SoC rende l'app modulare offrendo diversi vantaggi:
 
 * L'app risulta più facile da gestire perché è organizzata meglio. Le visualizzazioni sono in genere raggruppate per funzionalità dell'app. Individuare le visualizzazioni correlate quando si lavora su una funzionalità risulterà quindi più semplice.
 * Le parti dell'app sono a regime di controllo libero. È possibile compilare e aggiornare le visualizzazioni dell'app separatamente dai componenti di logica di business e accesso ai dati. È possibile modificare le visualizzazioni dell'app senza dover necessariamente aggiornare altre parti dell'app.
@@ -123,7 +123,16 @@ Per manutenibilità e chiarezza, seguire le procedure consigliate relative all'o
 
 ## <a name="passing-data-to-views"></a>Passaggio dei dati alle visualizzazioni
 
-Per passare i dati alle visualizzazioni è possibile usare diversi approcci. L'approccio più efficace consiste nello specificare un tipo di [modello](xref:mvc/models/model-binding) nella visualizzazione. Questo modello è comunemente noto come *viewmodel*. Un'istanza del tipo viewmodel viene passato alla visualizzazione dall'azione.
+Passare i dati alle visualizzazioni usando diversi approcci:
+
+* Dati fortemente tipizzati: viewmodel
+* Dati con tipizzazione debole
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>Dati fortemente tipizzati: (viewmodel)
+
+L'approccio più efficace consiste nello specificare un tipo di [modello](xref:mvc/models/model-binding) nella visualizzazione. Questo modello è comunemente noto come *viewmodel*. Un'istanza del tipo viewmodel viene passato alla visualizzazione dall'azione.
 
 L'uso di un viewmodel per passare i dati a una visualizzazione consente a quest'ultima di trarre vantaggio dal controllo con tipizzazione *forte*. L'espressione *tipizzazione forte* o *fortemente tipizzato* indica che ogni variabile e costante ha un tipo definito in modo esplicito, ad esempio, `string`, `int` o `DateTime`. La validità dei tipi usati in una visualizzazione viene verificata in fase di compilazione.
 
@@ -162,7 +171,7 @@ public IActionResult Contact()
 }
 ```
 
-Non ci sono limitazioni ai tipi di modello che è possibile fornire a una visualizzazione. È consigliabile usare viewmodel **P**lain **O**ld **C**LR **O**bject (POCO) per i quali non siano stati definiti comportamenti (metodi) o ne siano stati definiti solo alcuni. Le classi viewmodel sono in genere archiviate nella cartella *Models* o in una cartella *ViewModels* separata alla radice dell'app. Il viewmodel *Address* usato nell'esempio precedente è un viewmodel POCO archiviato in un file denominato *Address.cs*:
+Non ci sono limitazioni ai tipi di modello che è possibile fornire a una visualizzazione. È consigliabile usare viewmodel Plain Old CLR Object (POCO) per i quali non siano stati definiti comportamenti (metodi) o ne siano stati definiti solo alcuni. Le classi viewmodel sono in genere archiviate nella cartella *Models* o in una cartella *ViewModels* separata alla radice dell'app. Il viewmodel *Address* usato nell'esempio precedente è un viewmodel POCO archiviato in un file denominato *Address.cs*:
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> Nulla impedisce di usare le stesse classi per i tipi viewmodel e i tipi del modello aziendale. L'uso di modelli separati consente tuttavia la variazione delle visualizzazioni indipendentemente dalle parti relative alla logica di business e all'accesso ai dati dell'app. La separazione di modelli e viewmodel offre anche vantaggi in termini di sicurezza quando i modelli usano l'[associazione di modelli](xref:mvc/models/model-binding) e la [convalida](xref:mvc/models/validation) per i dati inviati all'app dall'utente.
-
+Nulla impedisce di usare le stesse classi per i tipi viewmodel e i tipi del modello aziendale. L'uso di modelli separati consente tuttavia la variazione delle visualizzazioni indipendentemente dalle parti relative alla logica di business e all'accesso ai dati dell'app. La separazione di modelli e viewmodel offre anche vantaggi in termini di sicurezza quando i modelli usano l'[associazione di modelli](xref:mvc/models/model-binding) e la [convalida](xref:mvc/models/validation) per i dati inviati all'app dall'utente.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Dati con tipizzazione debole (ViewData e ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Dati con tipizzazione debole (ViewData, attributo ViewData e ViewBag)
 
-Nota: `ViewBag` non è disponibile in Razor Pages.
+`ViewBag` *non è disponibile in Razor Pages.*
 
 Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno accesso a una raccolta di dati *con tipizzazione debole* o *debolmente tipizzata*. A differenza della tipizzazione forte, la *tipizzazione debole*, o l'espressione *debolmente tipizzato*, indica che il tipo di dati in uso non viene dichiarato in modo esplicito. È possibile usare la raccolta di dati con tipizzazione debole per passare piccole quantità di dati da e verso i controller e le visualizzazioni.
 
@@ -199,7 +206,6 @@ Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno access
 È possibile fare riferimento a questa raccolta tramite le proprietà `ViewData` o `ViewBag` nei controller e nelle visualizzazioni. La proprietà `ViewData` è un dizionario di oggetti con tipizzazione debole. La proprietà `ViewBag` è un wrapper di `ViewData` che offre proprietà dinamiche per la raccolta `ViewData` sottostante.
 
 `ViewData` e `ViewBag` vengono risolte in modo dinamico in fase di esecuzione. Poiché non offrono il controllo del tipo in fase di compilazione, entrambe sono in genere più soggette a errori rispetto all'uso di un elemento viewmodel. Per questo motivo, alcuni sviluppatori preferiscono non usare mai `ViewData` e `ViewBag` o usarle il meno possibile.
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ Lavorare con i dati in una visualizzazione:
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**Attributo ViewData**
+
+Un altro approccio che usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) è [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati dal dizionario.
+
+Nell'esempio seguente il controller Home contiene una proprietà `Title` decorata con `[ViewData]`. Il metodo `About` imposta il titolo per la visualizzazione About (Informazioni):
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+Nella visualizzazione About (Informazioni) accedere alla proprietà `Title` come proprietà del modello:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+Nel layout il titolo viene letto dal dizionario ViewData:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **ViewBag**
 
-Nota: `ViewBag` non è disponibile in Razor Pages.
+`ViewBag` *non è disponibile in Razor Pages.*
 
 `ViewBag` è un oggetto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) che consente l'accesso dinamico agli oggetti archiviati in `ViewData`. `ViewBag` può risultare più comodo da usare poiché non richiede l'esecuzione del cast. Nell'esempio seguente viene illustrato come usare `ViewBag` con lo stesso risultato che si ottiene con l'uso di `ViewData` descritto in precedenza:
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **Uso simultaneo di ViewData e ViewBag**
 
-Nota: `ViewBag` non è disponibile in Razor Pages.
+`ViewBag` *non è disponibile in Razor Pages.*
 
 Dal momento che `ViewData` e `ViewBag` fanno riferimento alla stessa raccolta `ViewData` sottostante, è possibile usare `ViewData` e `ViewBag` e combinarle durante la lettura e la scrittura dei valori.
 

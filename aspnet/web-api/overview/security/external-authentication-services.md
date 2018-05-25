@@ -90,7 +90,7 @@ Avviare Visual Studio 2013 selezionare **nuovo progetto** dalla pagina iniziale.
 
 [![](external-authentication-services/_static/image6.png "Fare clic per espandere l'immagine")](external-authentication-services/_static/image5.png)
 
-Quando il **nuovo progetto** è visualizzata la finestra di dialogo, selezionare **installato** **modelli** espandere **Visual c#**. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**. Immettere un nome per il progetto e fare clic su **OK**.
+Quando il **nuovo progetto** è visualizzata la finestra di dialogo, selezionare **installato** **modelli** espandere **Visual c#**. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET**. Immettere un nome per il progetto e fare clic su **OK**.
 
 [![](external-authentication-services/_static/image8.png "Fare clic per espandere l'immagine")](external-authentication-services/_static/image7.png)
 
@@ -305,7 +305,7 @@ Il collegamento di un'applicazione a Windows Live per Microsoft Authentication �
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Facoltativo: Disabilitare la registrazione locale
 
-La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il * \_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante dovrebbe essere come nell'esempio di codice seguente:
+La funzionalità di registrazione locale corrente di ASP.NET non impedisce la creazione di account; membro di programmi automatizzati (componenti) ad esempio, utilizzando una tecnologia di convalida e di prevenzione bot come [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Per questo motivo, è necessario rimuovere il collegamento di modulo e la registrazione di account di accesso locale nella pagina di accesso. A tale scopo, aprire il  *\_cshtml* pagina nel progetto e quindi impostare come commento le righe per il pannello di accesso locale e il collegamento di registrazione. Nella pagina risultante dovrebbe essere come nell'esempio di codice seguente:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

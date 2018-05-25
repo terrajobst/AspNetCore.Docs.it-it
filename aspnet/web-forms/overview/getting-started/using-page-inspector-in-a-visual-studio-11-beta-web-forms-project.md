@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 title: Con Page Inspector per Visual Studio 2012, in ASP.NET Web Forms | Documenti Microsoft
 author: rick-anderson
-description: "Controllo pagina per Visual Studio 2012 è uno strumento di sviluppo web con un browser integrato. Selezionare un elemento nel browser integrato e controllo pagina..."
+description: Controllo pagina per Visual Studio 2012 è uno strumento di sviluppo web con un browser integrato. Selezionare un elemento nel browser integrato e controllo pagina...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -63,7 +63,7 @@ Controllo pagina viene fornito con Microsoft Web Developer Tools. La versione pi
 
 ## <a name="create-a-web-application"></a>Creare un'applicazione Web
 
-Creare innanzitutto un'applicazione web che verrà utilizzato il controllo pagina con. In Visual Studio, scegliere **File** &gt; **nuovo progetto**. A sinistra, espandere **Visual c#**selezionare **Web**, quindi selezionare **applicazioni Web Form ASP.NET**.
+Creare innanzitutto un'applicazione web che verrà utilizzato il controllo pagina con. In Visual Studio, scegliere **File** &gt; **nuovo progetto**. A sinistra, espandere **Visual c#** selezionare **Web**, quindi selezionare **applicazioni Web Form ASP.NET**.
 
 ![Nuova applicazione Web Form](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
@@ -249,7 +249,7 @@ Quando si digita il primo carattere di ogni parola in una proprietà separati da
 
 ![IntelliSense filtrato i valori](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Digitare i due punti. Quando si esegue l'operazione, viene inserito il nome completo del colore di sfondo della proprietà. Tipo  **#**  o **rgb (**, e viene visualizzata la barra di selezione colore:
+Digitare i due punti. Quando si esegue l'operazione, viene inserito il nome completo del colore di sfondo della proprietà. Tipo **#** o **rgb (**, e viene visualizzata la barra di selezione colore:
 
 ![Barra di selezione dei colori CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 
