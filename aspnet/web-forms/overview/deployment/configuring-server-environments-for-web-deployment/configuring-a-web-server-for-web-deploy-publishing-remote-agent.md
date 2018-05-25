@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
-ms.translationtype: HT
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 05/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurazione di un Server Web per la pubblicazione (agente remoto) di distribuzione Web
 ====================
 da [Jason Lee](https://github.com/jrjlee)
 
-[Scarica il PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[Scaricare PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > In questo argomento viene descritto come configurare un server web Internet Information Services (IIS) per supportare la pubblicazione sul web e distribuzione tramite il servizio agente remoto di strumento di distribuzione Web di IIS (distribuzione Web).
 > 
@@ -217,7 +217,7 @@ Come attività finale prima di tentare di distribuire tutti i pacchetti web sul 
 
 Per impostazione predefinita, il servizio agente remoto è in ascolto sulla porta TCP 80, a questo URL:
 
-http:// [<em>nome server</em>] / MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 Nella maggior parte dei casi, non sarà necessario configurare tutte le regole aggiuntive del firewall per il servizio agente remoto, perché i server web in genere l'ascolto delle richieste HTTP sulla porta 80. Se si personalizza l'installazione per l'ascolto su una porta non standard, è necessario configurare le eccezioni del firewall come richiesto.
 

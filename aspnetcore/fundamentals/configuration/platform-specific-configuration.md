@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 9bd54319b312e18e6114cd800231c47e1fa22894
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 793169b491596cd7326d747a3f19d7fdaf7e2b65
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Migliorare un'app da un assembly esterno in ASP.NET Core con IHostingStartup
 
@@ -37,7 +37,7 @@ L'app di esempio legge [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspne
 
 Per disabilitare il caricamento automatico di assembly di avvio dell'hosting sono disponibili due modi:
 
-* Usare l'impostazione di configurazione host per [Impedire l'avvio dell'hosting](xref:fundamentals/hosting#prevent-hosting-startup).
+* Usare l'impostazione di configurazione host per [Impedire l'avvio dell'hosting](xref:fundamentals/host/web-host#prevent-hosting-startup).
 * Impostare la variabile di ambiente `ASPNETCORE_PREVENTHOSTINGSTARTUP`.
 
 Quando l'impostazione host o la variabile di ambiente è impostata su `true` o `1`, gli assembly di avvio dell'hosting non vengono caricati automaticamente. Se entrambe sono impostate, il comportamento viene controllato dall'impostazione host.
@@ -120,7 +120,7 @@ ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
 
 `HostingStartupAttribute` viene cercato solo negli assembly di avvio dell'hosting. Il nome di assembly dell'implementazione viene specificato in questa variabile di ambiente. L'app di esempio imposta questo valore su `StartupDiagnostics`.
 
-È possibile impostare il valore anche tramite l'impostazione di configurazione host [Assembly di avvio dell'hosting](xref:fundamentals/hosting#hosting-startup-assemblies).
+È possibile impostare il valore anche tramite l'impostazione di configurazione host [Assembly di avvio dell'hosting](xref:fundamentals/host/web-host#hosting-startup-assemblies).
 
 DOTNET\_ADDITIONAL\_DEPS
 
