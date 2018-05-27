@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -583,21 +583,22 @@ Il provider funziona solo quando il progetto viene eseguito nell'ambiente di Azu
 
 ## <a name="third-party-logging-providers"></a>Provider di registrazione di terze parti
 
-Ecco alcuni framework di registrazione di terze parti che usano ASP.NET Core:
+Framework di registrazione di terze parti che usano ASP.NET Core:
 
-* [elmah.IO](https://github.com/elmahio/Elmah.Io.Extensions.Logging): provider per il servizio Elmah.Io
-
-* [JSNLog](http://jsnlog.com): registra le eccezioni JavaScript e altri eventi del lato client nel log sul lato server.
-
-* [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging): provider per il servizio Loggr
-
-* [NLog](https://github.com/NLog/NLog.Extensions.Logging): provider per la libreria NLog
-
-* [Serilog](https://github.com/serilog/serilog-extensions-logging): provider per la libreria Serilog
+* [elmah.io](https://elmah.io/) ([repository GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [JSNLog](http://jsnlog.com/) ([repository GitHub](https://github.com/mperdeck/jsnlog))
+* [Loggr](http://loggr.net/) ([repository GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](http://nlog-project.org/) ([repository GitHub](https://github.com/NLog/NLog.Extensions.Logging))
+* [Serilog](https://serilog.net/) ([repository GitHub](https://github.com/serilog/serilog-extensions-logging))
 
 Alcuni framework di terze parti possono eseguire la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-L'uso di un framework di terze parti è simile all'utilizzo di uno dei provider predefiniti: si aggiunge un pacchetto NuGet al progetto e si chiama un metodo di estensione su `ILoggerFactory`. Per altre informazioni, vedere la documentazione di ciascun framework.
+L'uso di un framework di terze parti è simile a quello di uno dei provider predefiniti:
+
+1. Aggiungere un pacchetto NuGet al progetto.
+1. Chiamare un metodo di estensione in `ILoggerFactory`.
+
+Per altre informazioni, vedere la documentazione di ciascun framework.
 
 ## <a name="azure-log-streaming"></a>Flusso di registrazione di Azure
 

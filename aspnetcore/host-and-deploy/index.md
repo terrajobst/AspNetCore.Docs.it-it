@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 6364f54ede43b8eec070166a75b4552d896644f3
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 1ffc7f9f2dc2a06dddb629d2d2553964b56cec05
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -22,9 +22,9 @@ In generale, per distribuire un'app ASP.NET Core in un ambiente host:
 
 * Pubblicare l'app in una cartella nel server host.
 * Configurare un gestore processi che avvia l'app quando arrivano richieste e la riavvia quando si blocca o quando il server viene riavviato.
-* Configurare un proxy inverso che inoltra le richieste all'app.
+* Se è necessario eseguire la configurazione di un proxy inverso, configurare un proxy inverso che inoltra le richieste all'app.
 
-## <a name="publish-to-a-folder"></a>Pubblicare in una cartella 
+## <a name="publish-to-a-folder"></a>Pubblicare in una cartella
 
 Il comando CLI [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) compila il codice dell'app e copia i file necessari per eseguire l'app in una cartella *publish*. Quando si esegue la distribuzione da Visual Studio, il passaggio [dotnet publish](/dotnet/core/tools/dotnet-publish) viene eseguito automaticamente prima della copia dei file nella destinazione di distribuzione.
 
@@ -51,7 +51,9 @@ Un'app ASP.NET Core è un'app console che deve essere avviata all'avvio di un se
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Se l'app usa il servizio Web [Kestrel](xref:fundamentals/servers/kestrel) è possibile usare come server proxy inverso [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) o [IIS](xref:host-and-deploy/iis/index). Un server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel dopo alcune operazioni di gestione preliminari. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
+Se l'app usa il servizio Web [Kestrel](xref:fundamentals/servers/kestrel) è possibile usare come server proxy inverso [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) o [IIS](xref:host-and-deploy/iis/index). Un server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel dopo alcune operazioni di gestione preliminari.
+
+Entrambe le configurazioni (con o senza un server proxy inverso) sono configurazioni di hosting valide e supportate per le app ASP.NET Core 2.0 o versioni successive. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

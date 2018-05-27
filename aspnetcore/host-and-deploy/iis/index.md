@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -113,7 +113,7 @@ Quando si disabilita la trasformazione del file in Web SDK, il valore di *proces
 
 ### <a name="webconfig-file-location"></a>Posizione del file web.config
 
-Le app ASP.NET Core sono ospitate in un proxy inverso tra IIS e il server Kestrel. Per creare il proxy inverso, il file *web.config* deve essere presente nel percorso radice del contenuto (in genere il percorso base dell'app) dell'app distribuita. Corrisponde al percorso fisico del sito Web fornito a IIS. Il file *web.config* deve essere presente nella radice dell'app per abilitare la pubblicazione di più app mediante Distribuzione Web.
+Per creare il proxy inverso tra IIS e il server Kestrel, il file *web.config* deve essere presente nel percorso radice del contenuto (in genere il percorso base dell'app) dell'app distribuita. Corrisponde al percorso fisico del sito Web fornito a IIS. Il file *web.config* deve essere presente nella radice dell'app per abilitare la pubblicazione di più app mediante Distribuzione Web.
 
 Nel percorso fisico dell'app sono presenti file riservati, come *\<assembly>.runtimeconfig.json*, *\<assembly>.xml* (commenti in formato documentazione XML) e *\<assembly>.deps.json*. Quando il file *web.config* è presente e il sito viene avviato normalmente, IIS non fornisce questi file riservati se vengono richiesti. Se il file *web.config* non è presente, ha un nome non corretto o non è in grado di configurare il sito per l'avvio normale, IIS potrebbe rendere disponibili pubblicamente i file riservati.
 
@@ -172,7 +172,7 @@ Abilitare **Console di gestione IIS** e **Servizi Web**.
 1. Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se il sistema non ha una connessione Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare il bundle di hosting .NET Core.
 
    1. Passare alla [pagina di tutti i download per .NET](https://www.microsoft.com/net/download/all).
-   1. Selezionare il runtime di .NET Core non di anteprima più recente nell'elenco (**.NET Core** > **Runtime** > **.NET Core Runtime x.y.z**). A meno che non si preveda di utilizzare software in anteprima, evitare i runtime con la parola "preview" nel testo del collegamento.
+   1. Selezionare il runtime di .NET Core non di anteprima più recente nell'elenco (**.NET Core** > **Runtime** > **.NET Core Runtime x.y.z**). A meno che non si preveda di usare software di anteprima, evitare un runtime con il termine "anteprima" o "rc" (versione finale candidata) nel testo del collegamento.
    1. Nella pagina di download del runtime di .NET Core in **Windows**, selezionare il collegamento **Hosting Bundle Installer** (Programma di installazione del bundle di hosting) per scaricare il *bundle di hosting .NET Core*.
 
    **Importante**: Se il bundle di hosting viene installato prima di IIS, è necessario riparare l'installazione del bundle. Eseguire di nuovo il programma di installazione del bundle di hosting dopo l'installazione di IIS.
