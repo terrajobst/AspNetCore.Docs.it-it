@@ -1,6 +1,6 @@
 # <a name="custom-model-binding-demo"></a>Demo di associazione di modelli personalizzati
 
-Testare `ByteArrayModelBinder` eseguendo l'app e registrando una stringa con codifica base64 per l'endpoint `ImageController` (`/api/image/`). Specificare il file e le proprietà filename nella richiesta Corpo come dati del modulo (usando [Postman](https://www.getpostman.com/) o uno strumento simile). È possibile usare [questa stringa di esempio](Base64String.txt). Il risultato è salvato nella cartella *wwwroot/images/upload* con il filename specificato.
+Testare `ByteArrayModelBinder` eseguendo l'app e registrando una stringa con codifica base64 per l'endpoint `ImageController` (`/api/image/`). Specificare le proprietà file e filename nel corpo della richiesta come form-data (usando [Postman](https://www.getpostman.com/) o uno strumento simile). È possibile usare [questa stringa di esempio](Base64String.txt). Il risultato è salvato nella cartella *wwwroot/images/upload* con il filename specificato.
 
 Per testare l'esempio di associazione personalizzata, provare i seguenti endpoint:
 
