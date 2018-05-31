@@ -1,8 +1,9 @@
 ---
-title: Utilizzare il modello di progetto React-con-il ritorno con ASP.NET Core
+title: Usare il modello di progetto per React con Redux con ASP.NET Core
 author: SteveSandersonMS
-description: Informazioni su come iniziare con il modello di progetto ASP.NET Core singolo pagina applicazione (SPA) per React con Redux e creare app di react.
+description: Informazioni su come iniziare a usare il modello di progetto per applicazioni a pagina singola di ASP.NET Core per React con Redux e create-react-app.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,17 +12,22 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
-ms.translationtype: MT
+ms.openlocfilehash: 7ec4f6d53a4723ace087b1dc256de7845cb44cc6
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555222"
 ---
-# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Utilizzare il modello di progetto React-con-il ritorno con ASP.NET Core
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con Redux con ASP.NET Core
+
+::: moniker range="= aspnetcore-2.0"
 
 > [!NOTE]
-> Sul modello di progetto React-con-il ritorno della presente documentazione non è incluso in ASP.NET 2.0 Core. È sul modello di reazione-con-il ritorno più recente a cui è possibile aggiornare manualmente. Per impostazione predefinita, il modello è incluso in ASP.NET Core 2.1.
+> Questa documentazione non riguarda il modello di progetto per React con Redux incluso in ASP.NET 2.0 Core. È relativa al modello per React con Redux più recente, a cui è possibile eseguire l'aggiornamento manualmente. Il modello è incluso in ASP.NET Core 2.1 per impostazione predefinita.
 
-Il modello di progetto aggiornato React-con-Redux fornisce un punto di partenza ideale per le applicazioni ASP.NET Core utilizzando reagiscono, Redux, e [creare app di reazione](https://github.com/facebookincubator/create-react-app) convenzioni (CRA) per implementare un'interfaccia utente avanzata, sul lato client (UI).
+::: moniker-end
 
-Fatta eccezione per il comando di creazione del progetto, tutte le informazioni relative al modello React-con-il ritorno sono lo stesso come il modello React. Per creare questo tipo di progetto, eseguire `dotnet new reactredux` anziché `dotnet new react`. Per ulteriori informazioni sulle funzionalità comuni a entrambi i modelli basati su React, vedere [reagire la documentazione del modello](xref:spa/react).
+Il modello di progetto aggiornato per React con Redux fornisce un ottimo punto di partenza per le app ASP.NET Core che usano le convenzioni React, Redux e [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) per implementare un'interfaccia utente avanzata sul lato client.
+
+Fatta eccezione per il comando di creazione del progetto, tutte le informazioni relative al modello per React con Redux sono uguali a quelle relative al modello per React. Per creare questo tipo di progetto, eseguire `dotnet new reactredux` anziché `dotnet new react`. Per altre informazioni sulle funzionalità comuni a entrambi i modelli basati su React, vedere la [documentazione del modello per React](xref:spa/react).
