@@ -240,7 +240,7 @@ Viene visualizzato un elenco dei modelli SPA disponibili:
 |:------------------------------------------|:-----------|:---------|:------------|
 | MVC ASP.NET Core con Angular             | angular    | [C#]     | Web/MVC/SPA |
 | MVC ASP.NET Core con React.js            | react      | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core con React.js e il ritorno  | reactredux | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core con React.js e Redux  | reactredux | [C#]     | Web/MVC/SPA |
 
 Per creare un nuovo progetto utilizzando uno dei modelli di SPA, inclusa la **nome breve** del modello nella [dotnet nuovo](/dotnet/core/tools/dotnet-new) comando. Il comando seguente crea un'applicazione angolare con ASP.NET MVC di base configurato per il lato server:
 
