@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729181"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Utilizzo di metodi asincroni in ASP.NET MVC 4
 ====================
@@ -43,7 +44,7 @@ Questo potrebbe non essere un problema, perché possa essere resi grande abbasta
 
 ## <a name="processing-asynchronous-requests"></a>L'elaborazione delle richieste asincrone
 
-Nelle applicazioni web che visualizza un numero elevato di richieste simultanee all'avvio o ha un carico bursty (dove la concorrenza aumenta improvvisamente), effettua le chiamate al servizio web asincrona aumenta la velocità di risposta dell'applicazione. Una richiesta asincrona ha la stessa quantità di tempo per elaborare una richiesta sincrona. Ad esempio, se una richiesta effettuata a un servizio web di chiamata che richiede due secondi completare, la richiesta impiegherà due secondi sia che venga eseguita in modo sincrono o asincrono. Durante una chiamata asincrona, tuttavia, un thread non è bloccato da rispondere alle richieste di altri durante l'attesa di completamento della prima richiesta. Pertanto, le richieste asincrone impediscono crescita di pool di thread e di Accodamento messaggi richiesta quando sono presenti molte richieste simultanee che richiamano operazioni a esecuzione prolungata.
+Nelle applicazioni web che visualizzato un numero elevato di richieste simultanee all'avvio o ha un carico bursty (dove la concorrenza aumenta improvvisamente), eseguire queste chiamate di servizio web asincrona aumenta la velocità di risposta dell'applicazione. Una richiesta asincrona ha la stessa quantità di tempo per elaborare una richiesta sincrona. Ad esempio, se una richiesta effettuata a un servizio web di chiamata che richiede due secondi completare, la richiesta impiegherà due secondi sia che venga eseguita in modo sincrono o asincrono. Durante una chiamata asincrona, tuttavia, un thread non è bloccato da rispondere alle richieste di altri durante l'attesa di completamento della prima richiesta. Pertanto, le richieste asincrone impediscono crescita di pool di thread e di Accodamento messaggi richiesta quando sono presenti molte richieste simultanee che richiamano operazioni a esecuzione prolungata.
 
 ## <a id="ChoosingSyncVasync"></a>  Scelta dei metodi di azione sincroni o asincroni
 
@@ -61,7 +62,7 @@ In generale, è possibile utilizzare metodi sincroni per le condizioni seguenti:
 - Le operazioni sono associate alla rete o associate I/O-anziché basate sulla CPU.
 - Il parallelismo è più importante della semplicità del codice.
 - Si desidera fornire un meccanismo che consente agli utenti di annullare una richiesta a esecuzione prolungata.
-- Il vantaggio del cambio del thread out pondera quando il costo del cambio di contesto. In generale, verificare che un metodo asincrono se il metodo sincrono resta in attesa di thread di richiesta ASP.NET durante l'esecuzione di alcuna operazione. Effettuando questa chiamata asincrona, il thread di richiesta ASP.NET non sia bloccato mentre attende il completamento della richiesta di servizio web non esegue alcuna operazione.
+- Quando il vantaggio del cambio di thread supera il costo del cambio di contesto. In generale, verificare che un metodo asincrono se il metodo sincrono resta in attesa di thread di richiesta ASP.NET durante l'esecuzione di alcuna operazione. Effettuando questa chiamata asincrona, il thread di richiesta ASP.NET non sia bloccato mentre attende il completamento della richiesta di servizio web non esegue alcuna operazione.
 - I test mostrano che le operazioni di blocco sono un collo di bottiglia delle prestazioni del sito e che IIS può soddisfare più richieste tramite metodi asincroni per queste chiamate di blocco.
 
   L'esempio scaricabile mostra come utilizzare efficacemente metodi di azione asincroni. L'esempio fornito è stato progettato per fornire una dimostrazione semplice della programmazione asincrona in ASP.NET MVC 4 con .NET 4.5. L'esempio non deve essere un'architettura di riferimento per la programmazione asincrona in ASP.NET MVC. Il programma di esempio chiama [ASP.NET Web API](../../../web-api/index.md) metodi che a sua volta chiamano [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) per simulare chiamate al servizio web con esecuzione prolungata. La maggior parte delle applicazioni di produzione non visualizzerà tale ovvi utilizzando i metodi di azione asincrono.   
@@ -169,7 +170,7 @@ Per comprendere i vantaggi di un'applicazione web asincrono, potrebbe essere nec
 
     - Aprire Gestione IIS e passare al riquadro pool di applicazioni.
     - Fare clic con il pulsante destro sul pool di applicazioni di destinazione e selezionare **impostazioni avanzate**.  
-        ![advanced](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![Avanzate](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - Nel **impostazioni avanzate** nella finestra di dialogo Modifica *lunghezza coda* da 1.000 a 5.000.  
         ![Lunghezza coda](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   

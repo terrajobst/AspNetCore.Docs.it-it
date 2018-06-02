@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: eb14fbf42f5c18ccdc3ca42af8fd8bcfaa15c623
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688588"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729500"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introduzione a SignalR su ASP.NET Core
 
@@ -75,7 +75,7 @@ Visual Studio include il `Microsoft.AspNetCore.SignalR` pacchetto contenente le 
     npm install @aspnet/signalr
     ```     
 
-4. Copia il *signalr.js* file dalla *node_modules\\ @aspnet\signalr\dist\browser*  per il *lib* cartella nel progetto.
+4. Crea una nuova cartella denominata "signalr" all'interno di *lib* cartella nel progetto. Quindi copiare la *signalr.js* file dalla *node_modules\\ @aspnet\signalr\dist\browser*  in questa cartella.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -102,7 +102,7 @@ Un hub è una classe che funge da una pipeline di alto livello che consente al c
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Aggiungere una classe al progetto scegliendo **File** > **New** > **File** e selezionando **classe Visual c#**.
+1. Aggiungere una classe al progetto scegliendo **File** > **New** > **File** e selezionando **classe Visual c#**. Denominare il file *ChatHub*. 
 
 2. Ereditare da `Microsoft.AspNetCore.SignalR.Hub`. La `Hub` classe contiene proprietà ed eventi per la gestione delle connessioni e gruppi, nonché inviare e ricevere dati.
 
