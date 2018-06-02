@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: a481951812e3498a1172dea98aaa162149b86f2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: dbcef095561fe656bdd28c4fa6560c6b269a2db0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34689009"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -56,7 +57,7 @@ In alternativa, queste due proprietà possono essere configurate nel *launchSett
 
 ## <a name="enable-windows-authentication-with-iis"></a>Abilitare l'autenticazione di Windows con IIS
 
-IIS Usa il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) alle App ASP.NET Core host. Il modulo flussi l'autenticazione di Windows in IIS per impostazione predefinita. L'autenticazione di Windows è configurata in IIS, non l'app. Nelle sezioni seguenti viene illustrato come utilizzare Gestione IIS per configurare un'app di ASP.NET Core per utilizzare l'autenticazione di Windows.
+IIS Usa il [ASP.NET Core modulo](xref:fundamentals/servers/aspnet-core-module) alle App ASP.NET Core host. Il modulo consente l'autenticazione di Windows propagare a IIS per impostazione predefinita. L'autenticazione di Windows è configurata in IIS, non l'app. Nelle sezioni seguenti viene illustrato come utilizzare Gestione IIS per configurare un'app di ASP.NET Core per utilizzare l'autenticazione di Windows.
 
 ### <a name="create-a-new-iis-site"></a>Creare un nuovo sito IIS
 
