@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530150"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Utilizzo di immagini in un sito Web di ASP.NET di pagine (Razor)
 ====================
@@ -62,7 +63,7 @@ In alcuni casi, tuttavia, è necessario essere in grado di visualizzare le immag
 
 La procedura descritta in questa sezione viene illustrato come visualizzare un'immagine al momento in cui gli utenti specificano il nome del file di immagine da un elenco di nomi di immagini. Essi selezionare il nome dell'immagine da un elenco a discesa e quando l'invio della pagina, viene visualizzata l'immagine che è selezionate.
 
-![[immagine] ] (9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![[immagine]](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
 
 1. In WebMatrix, creare un nuovo sito Web.
 2. Aggiungere una nuova pagina denominata *DynamicImage.cshtml*.
@@ -92,7 +93,7 @@ La procedura descritta in questa sezione viene illustrato come visualizzare un'i
 
 Nell'esempio precedente è stato illustrato come visualizzare un'immagine in modo dinamico, ma funzionava solo con le immagini che sono stati già nel sito Web. Questa procedura viene illustrato come consentire agli utenti di caricare un'immagine, che viene quindi visualizzata nella pagina. In ASP.NET, è possibile modificare immagini in tempo reale mediante la `WebImage` helper, che dispone di metodi che consentono di creare, modificare e salvare le immagini. Il `WebImage` helper supporta tutti i web immagine tipi di file comuni, inclusi *jpg*, *PNG*, e *bmp*. In questo articolo, si userà *jpg* immagini, ma è possibile usare uno dei tipi di immagine.
 
-![[immagine] ] (9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![[immagine]](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
 
 1. Aggiungere una nuova pagina e denominarlo *UploadImage.cshtml*.
 2. Sostituire il contenuto esistente nella pagina con le operazioni seguenti: 
@@ -144,7 +145,7 @@ Se il sito Web accetta le immagini da un utente, si desidera ridimensionare le i
 
 Questa procedura viene illustrato come ridimensionare un'immagine caricata per creare un'immagine di anteprima, quindi salvare l'immagine di anteprima e l'immagine originale nel sito Web. Visualizzare l'anteprima della pagina e utilizzare un collegamento ipertestuale per reindirizzare gli utenti per l'immagine a schermo intero.
 
-![[immagine] ] (9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![[immagine]](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
 
 1. Aggiungere una nuova pagina denominata *Thumbnail.cshtml*.
 2. Nel *immagini* cartella, creare una sottocartella denominata *miniature*.
@@ -165,7 +166,7 @@ Questa procedura viene illustrato come ridimensionare un'immagine caricata per c
 
 Il `WebImage` helper consente inoltre di capovolgimento e rotazione di immagini. Questa procedura viene illustrato come ottenere un'immagine dal server, capovolge l'immagine capovolta (verticalmente), salvarlo e quindi visualizzare l'immagine capovolta della pagina. In questo esempio, si utilizza solo un file già presenti nel server (*Photo2.jpg*). In un'applicazione reale, si sarebbe probabilmente capovolge un'immagine il cui nome viene visualizzato in modo dinamico, come negli esempi precedenti.
 
-![[immagine] ] (9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![[immagine]](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
 
 1. Aggiungere una nuova pagina denominata *FlipImage.cshtml*.
 2. Sostituire il contenuto esistente nella pagina con le operazioni seguenti: 
@@ -189,7 +190,7 @@ Per ruotare un'immagine, utilizzare lo stesso codice, tranne il fatto che invece
 
 Quando si aggiungono immagini per il sito Web, è necessario aggiungere una filigrana all'immagine di prima di salvarlo o visualizzarli in una pagina. Gli utenti usano spesso le filigrane per aggiungere informazioni sul copyright a un'immagine o per annunciare il proprio nome aziendale.
 
-![[immagine] ] (9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![[immagine]](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
 
 1. Aggiungere una nuova pagina denominata *Watermark.cshtml*.
 2. Sostituire il contenuto esistente nella pagina con le operazioni seguenti: 
@@ -206,7 +207,7 @@ Quando si aggiungono immagini per il sito Web, è necessario aggiungere una fili
 
 Invece di usare testo per una filigrana, è possibile utilizzare un'altra immagine. Persone talvolta utilizzano immagini ad esempio un logo aziendale come filigrana oppure un'immagine di filigrana anziché di testo per le informazioni sul copyright.
 
-![[immagine] ] (9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![[immagine]](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
 
 1. Aggiungere una nuova pagina denominata *ImageWatermark.cshtml*.
 2. Aggiungere un'immagine di *immagini* cartella in cui è possibile utilizzare come un logo e rinominare l'immagine *MyCompanyLogo.jpg*. L'immagine deve essere un'immagine che è possibile visualizzare chiaramente quando è impostata su 80 pixel di larghezza e 20 pixel.
