@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: b6dbe234973431448c18d3cc82a6ac98d4f53a3b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688970"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34730451"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 
@@ -110,7 +110,7 @@ Vedere [richiedono HTTPS](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Richiedi conferma tramite posta elettronica
 
-È consigliabile verificare il messaggio di posta elettronica di una nuova registrazione utente. Posta elettronica di conferma è utile per verificare che non viene rappresentata un'altra persona (vale a dire, è ancora stato registrato con un altro messaggio di posta elettronica). Si supponga che si dispone di un forum di discussione e si desidera impedire "yli@example.com"tramite la registrazione come"nolivetto@contoso.com." Senza conferma tramite posta elettronica, "nolivetto@contoso.com" Impossibile ricevere il messaggio di posta elettronica indesiderato dall'app. Si supponga che l'utente registrato accidentalmente come "ylo@example.com" e non veniva rilevato l'errore di ortografia di "yli". Essi non potranno utilizzare il recupero della password in quanto l'app non dispone di posta elettronica corretta. Conferma tramite posta elettronica fornisce solo protezione limitata da BOT. Conferma tramite posta elettronica non offre protezione da utenti malintenzionati con numero di account di posta elettronica.
+È consigliabile verificare il messaggio di posta elettronica di una nuova registrazione utente. Posta elettronica di conferma è utile per verificare che non viene rappresentata un'altra persona (vale a dire, è ancora stato registrato con un altro messaggio di posta elettronica). Si supponga che si dispone di un forum di discussione e si desidera impedire "yli@example.com"tramite la registrazione come"nolivetto@contoso.com". Senza conferma tramite posta elettronica, "nolivetto@contoso.com" Impossibile ricevere il messaggio di posta elettronica indesiderato dall'app. Si supponga che l'utente registrato accidentalmente come "ylo@example.com" e non veniva rilevato l'errore di ortografia di "yli". Essi non potranno utilizzare il recupero della password in quanto l'app non dispone di posta elettronica corretta. Conferma tramite posta elettronica fornisce solo protezione limitata da BOT. Conferma tramite posta elettronica non offre protezione da utenti malintenzionati con numero di account di posta elettronica.
 
 In genere si desidera impedire agli utenti di nuovo di tutti i dati al sito web di registrazione prima che sia una conferma tramite posta elettronica.
 
@@ -307,7 +307,7 @@ I due account sono stati combinati. Si è in grado di accedere con uno di questi
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Abilitare la conferma dell'account dopo che un sito con gli utenti
 
-Consentire la conferma dell'account in un sito con utenti Blocca tutti gli utenti esistenti. Gli utenti esistenti vengono bloccati perché gli account non sono confermati. Per risolvere l'uscita di blocco dell'utente, utilizzare uno degli approcci seguenti:
+Consentire la conferma dell'account in un sito con utenti Blocca tutti gli utenti esistenti. Gli utenti esistenti vengono bloccati perché gli account non sono confermati. Per risolvere blocco utente esistente, utilizzare uno degli approcci seguenti:
 
-* Aggiornare il database per contrassegnare tutti gli utenti esistenti come viene confermata
+* Aggiornare il database per contrassegnare tutti gli utenti esistenti come viene confermata.
 * Verificare che gli utenti esistenti. Ad esempio, batch-trasmissione messaggi di posta elettronica con i collegamenti di conferma.
