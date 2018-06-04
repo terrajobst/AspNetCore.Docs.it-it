@@ -10,25 +10,24 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: c2a92cea2fdb3465963df1c4dcb71d1d3c95dcd3
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 1388249eaf62b7e7a102a87385565c462eef8564
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729924"
 ---
-# <a name="scaffolded-razor-pages-in-aspnet-core"></a><span data-ttu-id="bb762-103">Pagine Razor create in ASP.NET Core tramite scaffolding</span><span class="sxs-lookup"><span data-stu-id="bb762-103">Scaffolded Razor Pages in ASP.NET Core</span></span>
-
 [!INCLUDE [model1](../../includes/RP/page1.md)]
 
-<span data-ttu-id="bb762-104">Per visualizzare il tag `<form method="post">`, Visual Studio usa un tipo di carattere distintivo specifico per gli helper tag:</span><span class="sxs-lookup"><span data-stu-id="bb762-104">Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers:</span></span> 
+<span data-ttu-id="55ed5-103">Per visualizzare il tag `<form method="post">`, Visual Studio usa un tipo di carattere distintivo specifico per gli helper tag:</span><span class="sxs-lookup"><span data-stu-id="55ed5-103">Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers:</span></span> 
 
 ![Visualizzazione di VS17 della pagina Create.cshtml](page/_static/th.png)
 
 [!INCLUDE [model1](../../includes/RP/page2.md)]
 
-<span data-ttu-id="bb762-106">L'esercitazione successiva illustra SQL Server LocalDB e il seeding del database.</span><span class="sxs-lookup"><span data-stu-id="bb762-106">The next tutorial explains SQL Server LocalDB and seeding the database.</span></span>
+<span data-ttu-id="55ed5-105">L'esercitazione successiva illustra SQL Server LocalDB e il seeding del database.</span><span class="sxs-lookup"><span data-stu-id="55ed5-105">The next tutorial explains SQL Server LocalDB and seeding the database.</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="bb762-107">[Previous: Adding a model](xref:tutorials/razor-pages/model) (Precedente: Aggiunta di un modello)
-> [Next: SQL Server LocalDB](xref:tutorials/razor-pages/sql) (Successivo: SQL Server LocalDB)</span><span class="sxs-lookup"><span data-stu-id="bb762-107">[Previous: Adding a model](xref:tutorials/razor-pages/model)
+> <span data-ttu-id="55ed5-106">[Previous: Adding a model](xref:tutorials/razor-pages/model) (Precedente: Aggiunta di un modello)
+> [Next: SQL Server LocalDB](xref:tutorials/razor-pages/sql) (Successivo: SQL Server LocalDB)</span><span class="sxs-lookup"><span data-stu-id="55ed5-106">[Previous: Adding a model](xref:tutorials/razor-pages/model)
 [Next: SQL Server LocalDB](xref:tutorials/razor-pages/sql)</span></span>
