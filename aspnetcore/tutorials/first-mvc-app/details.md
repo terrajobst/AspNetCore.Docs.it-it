@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: 3691801c2d48b7f635bee844fdf2392f2f3445de
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b392f956888a740a4a8c7c553996fc85ce63bd4b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729636"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Esaminare i metodi Details e Delete di un'app ASP.NET Core
 
@@ -21,7 +22,14 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Aprire il controller di film ed esaminare il metodo `Details`:
 
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
+
+::: moniker-end
 
 Il motore di scaffolding MVC che ha creato questo metodo di azione aggiunge un commento che mostra una richiesta HTTP che richiama il metodo. In questo caso si tratta di una richiesta GET con tre segmenti di URL, il controller `Movies`, il metodo `Details` e un valore `id`. Tenere presente che questi segmenti vengono definiti nel file *Startup.cs*.
 
@@ -31,7 +39,14 @@ Entity Framework semplifica la ricerca di dati usando il metodo `SingleOrDefault
 
 Esaminare i metodi `Delete` e `DeleteConfirmed`.
 
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_delete)]
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete)]
+
+::: moniker-end
 
 Si noti che il metodo `HTTP GET Delete` non elimina il film specificato, ma restituisce una vista del film in cui è possibile inviare (HttpPost) la richiesta di eliminazione. L'esecuzione di un'operazione di eliminazione in risposta a una richiesta GET (o l'esecuzione di un'operazione di modifica, di creazione o di qualsiasi altra azione che modifica i dati) introduce un problema di sicurezza.
 
@@ -57,8 +72,6 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 ### <a name="publish-to-azure"></a>Pubblicare in Azure
 
 Per istruzioni su come pubblicare l'app in Azure usando Visual Studio, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).  L'app può essere pubblicata anche dalla [riga di comando](xref:tutorials/publish-to-azure-webapp-using-cli).
-
-Grazie aver completato questa introduzione ad ASP.NET Core MVC. Si apprezza l'invio di commenti. [Get started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un complemento ideale per questa esercitazione.
 
 > [!div class="step-by-step"]
 > [Precedente](validation.md)

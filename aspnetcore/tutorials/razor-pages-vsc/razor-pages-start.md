@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 0ad008b4f2b2e74dcf7f3d6c83798d5f03d1d315
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 3dda0f20dfbb7066dfeb3360361435ef65caaca4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688387"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introduzione a pagine Razor ASP.NET Core in Visual Studio Code
 
@@ -30,11 +31,25 @@ Questa esercitazione illustra le nozioni di base della creazione di un'app Web p
 
 Da un terminale eseguire i comandi seguenti:
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new webapp -o RazorPagesMovie
+cd RazorPagesMovie
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new razor -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
+
+::: moniker-end
 
 I comandi precedenti usano [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/dotnet) per creare ed eseguire un progetto di pagine Razor. Aprire un browser all'indirizzo http://localhost:5000 per visualizzare l'applicazione.
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 14c3d464773fe78a563a27776bfcd124c22df134
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566958"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -245,7 +246,7 @@ I servizi disponibili all'interno di una richiesta ASP.NET da `HttpContext` veng
 
 I servizi di richiesta rappresentano i servizi configurati e richiesti come parte dell'applicazione. Quando gli oggetti specificano le dipendenze, le dipendenze sono soddisfatte dai tipi individuati in `RequestServices`, non in `ApplicationServices`.
 
-In genere, è consigliabile non usare queste proprietà direttamente e richiedere invece i tipi necessari alle classi tramite il costruttore della classe e lasciare che il framework inserisca le dipendenze. Si ottengono classi più facili da testare (vedere [Test e debug](xref:testing/index)) e abbinate in modo più libero.
+In genere, è consigliabile non usare queste proprietà direttamente e richiedere invece i tipi necessari alle classi tramite il costruttore della classe e lasciare che il framework inserisca le dipendenze. Si ottengono classi più facili da testare (vedere [Test e debug](xref:test/index)) e abbinate in modo più libero.
 
 > [!NOTE]
 > È consigliabile richiedere le dipendenze come parametri del costruttore per l'accesso alla raccolta `RequestServices`.
@@ -361,7 +362,7 @@ L'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli ogget
 * [Inserimento di dipendenze in controller](xref:mvc/controllers/dependency-injection)
 * [Inserimento di dipendenze nei gestori di requisiti](xref:security/authorization/dependencyinjection)
 * [Avvio dell'applicazione](xref:fundamentals/startup)
-* [Test e debug](xref:testing/index)
+* [Test e debug](xref:test/index)
 * [Attivazione del middleware basata sulla factory](xref:fundamentals/middleware/extensibility)
 * [Scrittura di codice pulito in ASP.NET Core con inserimento delle dipendenze (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Container-Managed Application Design, Prelude: Where does the Container Belong?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/) (Progettazione di applicazioni gestite da contenitori. Prologo: qual è la posizione del contenitore?)

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729853"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metodi e viste del controller in ASP.NET Core
 
@@ -25,30 +26,14 @@ Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentaz
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate di seguito:
 
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+::: moniker-end
 
-Fare clic con il pulsante destro del mouse su una riga rossa ondulata **> Azioni rapide e refactoring**.
-
-  ![Menu di scelta rapida con **> Azioni rapide e refactoring**.](controller-methods-views/_static/qa.png)
-
-
-Toccare `using System.ComponentModel.DataAnnotations;`
-
-  ![using System.ComponentModel.DataAnnotations all'inizio dell'elenco](controller-methods-views/_static/da.png)
-
-  Visual Studio aggiunge `using System.ComponentModel.DataAnnotations;`.
-
-Rimuovere le istruzioni `using` che non sono necessarie. Per impostazione predefinita vengono visualizzate con un tipo di carattere grigio chiaro. Fare clic con il pulsante destro del mouse in qualsiasi punto del file *Movie.cs* **> Rimuovi e ordina using**.
-
-![Rimuovi e ordina using](controller-methods-views/_static/rm.png)
-
-Il codice aggiornato:
-
-[!code-csharp[](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
-
-<!-- include start -->
-
-[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/controller-methods-views.md)]
 
 > [!div class="step-by-step"]
 > [Precedente](working-with-sql.md)

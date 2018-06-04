@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0073e4de361c37a6854ceaf54ffd9eaea4837d4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567049"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Test della logica dei controller in ASP.NET Core
 
@@ -74,7 +75,7 @@ Il secondo test verifica che quando `ModelState` è valido viene aggiunto un nuo
 
 Un altro controller dell'app visualizza informazioni correlate a una sessione di brainstorming specifica. Include logica per gestire i valori ID non validi:
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 L'azione del controller deve eseguire il test di tre casi, uno per ogni istruzione `return`:
 
@@ -100,7 +101,7 @@ L'ultimo test verifica che venga chiamato il metodo `Update` del repository. Com
 
 ## <a name="integration-testing"></a>Test di integrazione
 
-I [test di integrazione](../../testing/integration-testing.md) vengono eseguiti per verificare che moduli separati dell'app interagiscano correttamente. In generale tutto ciò che è possibile verificare con uno unit test può essere verificato anche con un test di integrazione, ma non viceversa. I test di integrazione tendono tuttavia a essere molto più lenti degli unit test. Pertanto è consigliabile verificare tutti gli elementi possibili con unit test e limitare i test di integrazione agli scenari che coinvolgono più collaboratori.
+I [test di integrazione](xref:test/integration-tests) vengono eseguiti per verificare che moduli separati dell'app interagiscano correttamente. In generale tutto ciò che è possibile verificare con uno unit test può essere verificato anche con un test di integrazione, ma non viceversa. I test di integrazione tendono tuttavia a essere molto più lenti degli unit test. Pertanto è consigliabile verificare tutti gli elementi possibili con unit test e limitare i test di integrazione agli scenari che coinvolgono più collaboratori.
 
 Anche se possono risultare utili, gli oggetti fittizi vengono usati di rado nei test di integrazione. Negli unit test gli oggetti fittizi sono un metodo efficace per verificare il comportamento previsto dei collaboratori all'esterno dell'unità oggetto del test. In un test di integrazione vengono usati collaboratori reali per confermare che l'intero sottosistema interagisca correttamente.
 

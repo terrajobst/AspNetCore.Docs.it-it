@@ -16,7 +16,12 @@ Aprire il file *Movie.cs*. DataAnnotations fornisce un set predefinito di attrib
 
 Aggiornare la classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression` e `Range` predefiniti.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
 
 Gli attributi di convalida specificano il comportamento da applicare per le proprietà del modello a cui vengono applicati. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare questa convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente, per `Genre` e `Rating` è necessario usare solo lettere (spazi, numeri e caratteri speciali non consentiti). L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` consente di impostare la lunghezza massima di una proprietà stringa e, facoltativamente, la lunghezza minima. I tipi di valore, ad esempio `decimal`, `int`, `float` e `DateTime`, sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
 
@@ -28,7 +33,7 @@ Eseguire l'app e passare al controller di film.
 
 Toccare il collegamento **Crea nuovo** per aggiungere un nuovo film. Completare il modulo con alcuni valori non validi. Non appena la convalida del lato client jQuery rileva l'errore, viene visualizzato un messaggio di errore.
 
-![Modulo di vista del film con diversi errori di convalida sul lato client jQuery](../../tutorials/first-mvc-app/validation/_static/val.png)
+![Modulo di vista del film con diversi errori di convalida sul lato client jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
 > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale. 
@@ -43,7 +48,7 @@ I dati del modulo non vengono inviati al server fino a quando non sono più pres
 
 Ci si potrebbe chiedere come la convalida dell'interfaccia utente sia stata generata senza aggiornamenti al codice nel controller o nelle viste. Il codice seguente mostra i due metodi `Create`.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
 Il primo metodo di azione (HTTP GET) `Create` visualizza il modulo di creazione iniziale. La seconda versione (`[HttpPost]`) gestisce l'invio del modulo. Il secondo metodo `Create` (la versione `[HttpPost]`) chiama `ModelState.IsValid` per verificare se esistono errori di convalida per il film. La chiamata a questo metodo valuta tutti gli attributi di convalida applicati all'oggetto. Se l'oggetto presenta errori di convalida, il metodo `Create` visualizza di nuovo il modulo. Se non sono presenti errori, il metodo salva il nuovo film nel database. Nell'esempio del film, il modulo non viene inviato al server quando vengono rilevati errori di convalida sul lato client; il secondo metodo `Create` non viene mai chiamato quando sono presenti errori di convalida sul lato client. Se si disabilita JavaScript nel browser, la convalida sul lato client viene disabilitata ed è possibile testare `ModelState.IsValid` del metodo `Create` HTTP POST rilevando eventuali errori di convalida.
 
@@ -51,19 +56,19 @@ Il primo metodo di azione (HTTP GET) `Create` visualizza il modulo di creazione 
 
 La figura seguente illustra come disabilitare JavaScript nel browser FireFox.
 
-![Firefox: nella scheda Contenuti in Opzioni deselezionare la casella di controllo Abilita Javascript.](../../tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: nella scheda Contenuti in Opzioni deselezionare la casella di controllo Abilita Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 La figura seguente illustra come disabilitare JavaScript nel browser Chrome.
 
-![Google Chrome: nella sezione Javascript delle impostazioni dei contenuti selezionare l'opzione per non consentire ai siti di eseguire JavaScript.](../../tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: nella sezione Javascript delle impostazioni dei contenuti selezionare l'opzione per non consentire ai siti di eseguire JavaScript.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
 Dopo avere disabilitato JavaScript, inviare i dati non validi e procedere con il debugger.
 
-![Durante il debug su un invio di dati non validi, Intellisense su ModelState.IsValid mostra che il valore è false.](../../tutorials/first-mvc-app/validation/_static/ms.png)
+![Durante il debug su un invio di dati non validi, Intellisense su ModelState.IsValid mostra che il valore è false.](~/tutorials/first-mvc-app/validation/_static/ms.png)
 
 Di seguito è riportata la parte del modello di vista *Create.cshtml* di cui è stato eseguito lo scaffolding in precedenza nell'esercitazione. Viene usata dai metodi di azione illustrati in precedenza per visualizzare il modulo iniziale e per visualizzarlo nuovamente in caso di errore.
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
 L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
 
@@ -75,7 +80,7 @@ Se necessario, è possibile modificare la logica di convalida in una posizione t
 
 Aprire il file *Movie.cs* ed esaminare la classe `Movie`. Lo spazio dei nomi `System.ComponentModel.DataAnnotations` fornisce gli attributi di formattazione oltre al set predefinito di attributi di convalida. È già stato applicato un valore di enumerazione `DataType` ai campi della data di rilascio e del prezzo. Il codice seguente illustra le proprietà `ReleaseDate` e `Price` con l'attributo appropriato `DataType`.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 Gli attributi `DataType` specificano solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli elementi/attributi, ad esempio `<a>` per l'URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). È possibile usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati più specifico del tipo intrinseco del database; non si tratta di attributi di convalida. In questo caso si vuole solo tenere traccia della data, non dell'ora. L'enumerazione `DataType` fornisce molti tipi di dati, ad esempio Data, Ora, Numero di telefono, Valuta, Indirizzo di posta elettronica e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Gli attributi `DataType` generano attributi `data-` HTML5 (dash di dati pronunciati) supportati dai browser HTML5. Gli attributi `DataType` **non** forniscono alcuna convalida.
 
@@ -109,7 +114,14 @@ L'impostazione `ApplyFormatInEditMode` specifica che la formattazione deve esser
 
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
 
 Nella parte successiva della serie verrà esaminata l'applicazione e verranno apportati alcuni miglioramenti ai metodi `Details` e `Delete` generati automaticamente.
 

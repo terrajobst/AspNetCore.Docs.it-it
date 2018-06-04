@@ -10,12 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e88526d997618658f58488adb37ae1e519ea3f59
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 4a60b6c9bab77e8095cb9f19e615219817702b32
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483432"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566646"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
 
@@ -40,7 +40,7 @@ La tabella indica i moduli di IIS nativi che funzionano con le richieste del pro
 | **Autenticazione digest**<br>`DigestAuthenticationModule` | Yes | |
 | **Esplorazione directory**<br>`DirectoryListingModule` | No | [Middleware di esplorazione directory](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compressione dinamica**<br>`DynamicCompressionModule` | Yes | [Middleware di compressione delle risposte](xref:performance/response-compression) |
-| **Traccia**<br>`FailedRequestsTracingModule` | Yes | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider) |
+| **Traccia**<br>`FailedRequestsTracingModule` | Yes | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Memorizzazione nella cache dei file**<br>`FileCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Memorizzazione nella cache HTTP**<br>`HttpCacheModule` | No | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Registrazione HTTP**<br>`HttpLoggingModule` | Yes | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index)<br>Implementazioni: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
