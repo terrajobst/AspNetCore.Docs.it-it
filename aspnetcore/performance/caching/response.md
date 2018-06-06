@@ -8,20 +8,21 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734510"
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
 Da [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), e [Luke Latham](https://github.com/guardrex)
 
 > [!NOTE]
-> La memorizzazione nella cache di risposta [non è supportata nelle pagine Razor con ASP.NET 2.0 Core](https://github.com/aspnet/Mvc/issues/6437). Questa funzionalità sarà supportata nella [versione 2.1 di ASP.NET Core](https://github.com/aspnet/Home/wiki/Roadmap).
-  
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+> La memorizzazione nella cache nelle pagine Razor di risposta è disponibile in ASP.NET Core 2.1 o versione successiva.
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 Risposta di memorizzazione nella cache riduce il numero di richieste di che un client o proxy consente a un server web. La memorizzazione nella cache di risposta consente inoltre di ridurre la quantità di lavoro del server web esegue per generare una risposta. La memorizzazione nella cache di risposta è controllata dalle intestazioni che specificano la modalità client, proxy e middleware per memorizzare risposte.
 
@@ -113,7 +114,17 @@ Il `ResponseCacheAttribute` viene utilizzato per configurare e creare (tramite `
 
 Questa intestazione viene scritto solo quando il `VaryByHeader` proprietà è impostata. È impostato sul `Vary` valore della proprietà. L'esempio seguente usa il `VaryByHeader` proprietà:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
 
 È possibile visualizzare le intestazioni di risposta con gli strumenti di rete del browser. La figura seguente mostra il F12 Edge in uscita nel **rete** scheda quando il `About2` viene aggiornato il metodo di azione:
 
@@ -130,7 +141,17 @@ Se `NoStore` è `false` e `Location` è `None`, `Cache-Control` e `Pragma` sono 
 
 In genere si imposta `NoStore` a `true` nelle pagine di errore. Ad esempio:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
 
 Ciò comporta le intestazioni seguenti:
 
@@ -148,7 +169,17 @@ Per abilitare la memorizzazione nella cache, `Duration` deve essere impostata su
 
 Di seguito è riportato un esempio che mostra le intestazioni ottenuto impostando `Duration` e lasciando il valore predefinito `Location` valore:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
 
 Viene prodotto l'intestazione seguente:
 
@@ -162,11 +193,31 @@ Anziché ripetere `ResponseCache` su molti attributi di azione controller, i pro
 
 Impostazione di un profilo della cache:
 
-[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 Riferimento a un profilo della cache:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
 
 Il `ResponseCache` attributo può essere applicato sia alle azioni (metodi) e controller (classi). Gli attributi a livello di metodo sostituiscono le impostazioni specificate negli attributi a livello di classe.
 

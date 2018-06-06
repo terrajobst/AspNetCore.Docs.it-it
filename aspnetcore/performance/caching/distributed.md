@@ -4,16 +4,18 @@ author: ardalis
 description: Imparare a usare ASP.NET Core distribuita la memorizzazione nella cache per migliorare le prestazioni dell'applicazione e la scalabilità, in particolare in un ambiente di farm di server o cloud.
 manager: wpickett
 ms.author: riande
+ms.custom: mvc
 ms.date: 02/14/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: c40209e3b3f2b5bf28450bb2a88cbe40e9e23230
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 6c595572641604d241c0c8f702d4f392afe34f71
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734458"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Utilizzare una cache distribuita in ASP.NET Core
 
@@ -73,13 +75,13 @@ Utilizzare il `IDistributedCache` interfaccia:
 
 Nell'esempio seguente viene illustrato come utilizzare un'istanza di `IDistributedCache` in un componente del middleware semplice:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
 
 Nel codice precedente, il valore memorizzato nella cache viene letto ma non è stato scritto. In questo esempio, il valore viene impostato solo quando un server viene avviato e non cambia. In uno scenario con più server, il server più recente per l'avvio sovrascriverà i valori precedenti che sono stati impostati da altri server. Il `Get` e `Set` metodi utilizzano il `byte[]` tipo. Pertanto, il valore di stringa deve essere convertito utilizzando `Encoding.UTF8.GetString` (per `Get`) e `Encoding.UTF8.GetBytes` (per `Set`).
 
 Nell'esempio di codice da *Startup.cs* Mostra il valore da impostare:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
 
 > [!NOTE]
 > Poiché `IDistributedCache` è configurato nel `ConfigureServices` (metodo), è disponibile per il `Configure` metodo come parametro. Aggiungerlo come parametro consentirà l'istanza configurata essere fornito mediante DI.
@@ -92,7 +94,7 @@ Configurare l'implementazione di Redis in `ConfigureServices` e diritti di acces
 
 Nell'esempio di codice, un `RedisCache` implementazione viene utilizzata quando il server è configurato per un `Staging` ambiente. In questo modo il `ConfigureStagingServices` metodo consente di configurare il `RedisCache`:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
 > Per installare Redis sul computer locale, installare il pacchetto chocolatey [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) ed eseguire `redis-server` da un prompt dei comandi.
@@ -101,31 +103,42 @@ Nell'esempio di codice, un `RedisCache` implementazione viene utilizzata quando 
 
 L'implementazione di SqlServerCache consente la cache distribuita utilizzare un database di SQL Server come archivio di backup. Per creare il Server SQL table è possibile utilizzare lo strumento della cache sql, lo strumento crea una tabella con il nome e lo schema specificato.
 
-Per utilizzare lo strumento della cache sql, aggiungere `SqlConfig.Tools` per il `<ItemGroup>` elemento del *csproj* file ed eseguire il ripristino dotnet.
+::: moniker range="< aspnetcore-2.1"
 
-[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+Aggiungere `SqlConfig.Tools` per il `<ItemGroup>` elemento del file di progetto e run `dotnet restore`.
 
-Test SqlConfig.Tools eseguendo il comando seguente
+```xml
+<ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools" 
+                          Version="2.0.2" />
+</ItemGroup>
+```
 
-```none
-C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create --help
-   ```
+::: moniker-end
 
-strumento della cache SQL visualizzano la Guida di utilizzo e le opzioni di comando, ora è possibile creare tabelle in sql server, eseguire "Creazione di cache di sql" comando:
+Testare SqlConfig.Tools eseguendo il comando seguente:
 
-```none
-C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
-   info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
-       Table and index were created successfully.
-   ```
+```console
+dotnet sql-cache create --help
+```
+
+SqlConfig.Tools Visualizza utilizzo, le opzioni e la Guida di comando.
+
+Creare una tabella in SQL Server eseguendo il `sql-cache create` comando:
+
+```console
+dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
+info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
+Table and index were created successfully.
+```
 
 La tabella creata con lo schema seguente:
 
 ![Tabella della Cache di SQL Server](distributed/_static/SqlServerCacheTable.png)
 
-Come tutte le implementazioni di cache, l'app deve ottenere e impostare i valori della cache utilizzando un'istanza di `IDistributedCache`, non un `SqlServerCache`. L'esempio implementa `SqlServerCache` nel `Production` ambiente (in modo che è configurato `ConfigureProductionServices`).
+Come tutte le implementazioni di cache, l'app deve ottenere e impostare i valori della cache utilizzando un'istanza di `IDistributedCache`, non un `SqlServerCache`. Nell'esempio viene implementato `SqlServerCache` nell'ambiente di produzione (in modo che sia configurato `ConfigureProductionServices`).
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
 > Il `ConnectionString` (e, facoltativamente, `SchemaName` e `TableName`) in genere devono essere archiviate di fuori di controllo del codice sorgente (ad esempio segreti utente), poiché potrebbero contenere le credenziali.

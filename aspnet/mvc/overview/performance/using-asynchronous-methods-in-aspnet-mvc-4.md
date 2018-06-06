@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
-ms.translationtype: HT
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729181"
+ms.locfileid: "34734536"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Utilizzo di metodi asincroni in ASP.NET MVC 4
 ====================
@@ -44,7 +44,7 @@ Questo potrebbe non essere un problema, perché possa essere resi grande abbasta
 
 ## <a name="processing-asynchronous-requests"></a>L'elaborazione delle richieste asincrone
 
-Nelle applicazioni web che visualizzato un numero elevato di richieste simultanee all'avvio o ha un carico bursty (dove la concorrenza aumenta improvvisamente), eseguire queste chiamate di servizio web asincrona aumenta la velocità di risposta dell'applicazione. Una richiesta asincrona ha la stessa quantità di tempo per elaborare una richiesta sincrona. Ad esempio, se una richiesta effettuata a un servizio web di chiamata che richiede due secondi completare, la richiesta impiegherà due secondi sia che venga eseguita in modo sincrono o asincrono. Durante una chiamata asincrona, tuttavia, un thread non è bloccato da rispondere alle richieste di altri durante l'attesa di completamento della prima richiesta. Pertanto, le richieste asincrone impediscono crescita di pool di thread e di Accodamento messaggi richiesta quando sono presenti molte richieste simultanee che richiamano operazioni a esecuzione prolungata.
+In un'app web che visualizza un numero elevato di richieste simultanee all'avvio o ha un carico bursty (dove la concorrenza aumenta improvvisamente), effettua chiamate al servizio web asincrona aumenta la velocità di risposta dell'app. Una richiesta asincrona ha la stessa quantità di tempo per elaborare una richiesta sincrona. Se una richiesta effettuata a un servizio web di chiamata che richiede due secondi, la richiesta impiegherà due secondi sia che venga eseguita in modo sincrono o asincrono. Tuttavia durante una chiamata asincrona, un thread non è bloccato da rispondere alle richieste di altri durante l'attesa del completamento della prima richiesta. Pertanto, le richieste asincrone impediscono crescita di pool di thread e di Accodamento messaggi richiesta quando sono presenti molte richieste simultanee che richiamano operazioni a esecuzione prolungata.
 
 ## <a id="ChoosingSyncVasync"></a>  Scelta dei metodi di azione sincroni o asincroni
 
