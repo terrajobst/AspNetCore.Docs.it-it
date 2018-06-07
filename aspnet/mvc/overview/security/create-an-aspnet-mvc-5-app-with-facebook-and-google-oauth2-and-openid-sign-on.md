@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819097"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Crea un'applicazione ASP.NET MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on (c#)
 ====================
@@ -174,7 +175,7 @@ Per l'autenticazione Facebook OAuth2, è necessario copiare nel progetto alcune 
     ![Crea nuova app](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Immettere un **nome App** e **categoria**, quindi fare clic su **creare App**.
 
-    Deve essere univoco in Facebook. Il <strong>App Namespace</strong> è la parte dell'URL utilizzato per accedere all'applicazione di Facebook per l'autenticazione dell'App (ad esempio, https://apps.facebook.com/{App Namespace}). Se non si specifica un <strong>Namespace di App</strong>, <strong>ID App</strong> verrà utilizzato per l'URL. Il <strong>ID App</strong> è un numero lungo generato dal sistema che verrà visualizzato nel passaggio successivo.
+    Il <strong>App Namespace</strong> è la parte dell'URL utilizzato per accedere all'applicazione di Facebook per l'autenticazione dell'App (ad esempio, https\://apps.facebook.com/{App Namespace}). Se non si specifica un <strong>Namespace di App</strong>, <strong>ID App</strong> verrà utilizzato per l'URL. Il <strong>ID App</strong> è un numero lungo generato dal sistema che verrà visualizzato nel passaggio successivo.
 
     ![Creare una finestra di dialogo Nuova App](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Inviare il controllo di sicurezza standard.

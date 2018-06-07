@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: ece2bf541df2b4acac60a88767cc57ede473bd49
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: fd5cf5cdffd7281d7f4e0d96e8230b60be64a7c3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819136"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app in fase di sviluppo in ASP.NET Core
 
@@ -214,7 +215,7 @@ Informazioni riservate dell'utente possono essere recuperati tramite il `Configu
 
 ## <a name="string-replacement-with-secrets"></a>Sostituire le stringhe dei segreti
 
-L'archiviazione delle password in testo normale è rischiosa. Ad esempio, una stringa di connessione di database archiviati *appSettings* può includere una password per l'utente specificato:
+L'archiviazione delle password in testo normale non è protetto. Ad esempio, una stringa di connessione di database archiviati *appSettings* può includere una password per l'utente specificato:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
@@ -224,17 +225,17 @@ Un approccio più sicuro consiste nell'archiviare la password come una chiave pr
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-Sostituire la password nella *appSettings* con un segnaposto. Nell'esempio seguente, `{0}` viene utilizzato come segnaposto al form un [stringa di formato composita](/dotnet/standard/base-types/composite-formatting#composite-format-string).
+Rimuovere il `Password` coppia chiave-valore specificata dalla stringa di connessione in *appSettings*. Ad esempio:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Valore di un segreto può essere inserite nel segnaposto per completare la stringa di connessione:
+Valore di un segreto può essere impostato su un [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder) dell'oggetto [Password](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password) proprietà per completare la stringa di connessione:
 
 ::: moniker range="<= aspnetcore-1.1"
-[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=26-29)]
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.0"
-[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-17)]
 ::: moniker-end
 
 ## <a name="list-the-secrets"></a>Elenco dei segreti
