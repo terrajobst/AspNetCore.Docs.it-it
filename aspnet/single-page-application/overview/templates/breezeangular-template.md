@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 03/08/2013
 ms.topic: article
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
 ms.openlocfilehash: faf28a510a83b7fa07585904344176601c2e1f34
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506690"
 ---
 <a name="breezeangular-template"></a>Modello molto semplice/angolare
 ====================
@@ -27,7 +28,7 @@ da [Mads Kristensen](https://github.com/madskristensen)
 > [Scaricare il modello MVC semplicissimo/Angular](https://go.microsoft.com/fwlink/?LinkId=286437)
 
 
-[AngularJS](http://angularjs.org) è una libreria open source da Google per la compilazione di applicazioni a pagina singola (stabilimenti termali). Offre data binding, l'inserimento di dipendenze e gestione dello schermo. Combinarlo con [BreezeJS](http://www.breezejs.com/?utm_source=ms-spa), un'altra libreria open source per la modellazione di dati e la gestione dei dati, nonché disporre gli elementi essenziali per un'applicazione client HTML/JavaScript eccezionale.
+[AngularJS](http://angularjs.org) è una libreria open source da Google per la compilazione di applicazioni a pagina singola (SPAs). Offre data binding, l'inserimento di dipendenze e gestione dello schermo. Combinarlo con [BreezeJS](http://www.breezejs.com/?utm_source=ms-spa), un'altra libreria open source per la modellazione di dati e la gestione dei dati, nonché disporre gli elementi essenziali per un'applicazione client HTML/JavaScript eccezionale.
 
 Il modello molto semplice/angolare SPA è una variazione sul [modello Knockout.js SPA](../introduction/knockoutjs-template.md) incluso nell'aggiornamento 2012.2 di strumenti Web di ASP.NET. Se si dispone di Visual Studio, è necessario un esempio SPA attivo e in esecuzione in meno di 60 secondi.
 
@@ -43,7 +44,7 @@ Questa pagina vengono visualizzati in esecuzione di un log eventi durante la ses
 
 - Paging. Si noti la creazione di controller Todo #2 e #7.
 - Le query remote (n. 3) e le query di cache locale (#7).
-- Salvataggio di nuova (n. 5, &#6;) e modificare le entità (4).
+- Salvataggio di nuova (n. 5, 6 #) e modificare le entità (4).
 - Modifiche è state convalidate nel client (9), pertanto l'utente possa correggere eventuali errori prima di eseguire il commit delle modifiche al database.
 
 È presente più di esplorare in questo modello, tra cui:
@@ -62,7 +63,7 @@ Ma veniamo al dunque.
 
 Scaricare e installare il modello fare clic sul pulsante Download. Il modello viene fornito come un file di Visual Studio Extension (VSIX). Si potrebbe essere necessario riavviare Visual Studio.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
 
 Nel **nuovo progetto** procedura guidata, selezionare **SPA angolare semplicissimo**.
 

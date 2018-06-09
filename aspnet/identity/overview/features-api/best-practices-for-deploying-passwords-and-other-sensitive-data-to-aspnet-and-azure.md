@@ -2,25 +2,26 @@
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 title: Procedure consigliate per la distribuzione delle password e altri dati sensibili per ASP.NET e servizio App di Azure | Documenti Microsoft
 author: Rick-Anderson
-description: "Questa esercitazione viene illustrato come il codice è possibile archiviare e accedere alle informazioni protette in modo sicuro. L'aspetto più importante è che evitare di archiviare le password o altre sen..."
+description: Questa esercitazione viene illustrato come il codice è possibile archiviare e accedere alle informazioni protette in modo sicuro. L'aspetto più importante è che evitare di archiviare le password o altre sen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033021"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Procedure consigliate per la distribuzione delle password e altri dati sensibili per ASP.NET e servizio App di Azure
 ====================
-Da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Questa esercitazione viene illustrato come il codice è possibile archiviare e accedere alle informazioni protette in modo sicuro. L'aspetto più importante è evitare di archiviare le password o altri dati sensibili nel codice sorgente e non è consigliabile utilizzare i segreti di produzione in modalità di sviluppo e test.
 > 
@@ -54,7 +55,7 @@ Il codice nel file esterno (*AppSettingsSecrets.config* in questo esempio), è l
 Il runtime di ASP.NET unisce il contenuto del file esterno con il markup in &lt;appSettings&gt; elemento. L'attributo di file viene ignorato se non viene trovato il file specificato.
 
 > [!WARNING]
-> Sicurezza: non si aggiunge il *config segreti* file al progetto o archiviarla nel controllo del codice sorgente. Per impostazione predefinita, Visual Studio imposta la `Build Action` a `Content`, ovvero il file viene distribuito. Per ulteriori informazioni vedere [perché non tutti i file nella cartella di progetto vengono distribuiti?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Sebbene sia possibile usare qualsiasi estensione per il *config segreti* file, è consigliabile mantenere *config*, come i file di configurazione non vengono gestiti da IIS. Si noti inoltre che il *AppSettingsSecrets.config* file è di due livelli di directory superiore dal *Web. config* file, pertanto è completamente fuori della directory della soluzione. Spostando il file dalla directory della soluzione, &quot;git aggiungere \* &quot; non verranno aggiunte al repository.
+> Sicurezza: non si aggiunge il *config segreti* file al progetto o archiviarla nel controllo del codice sorgente. Per impostazione predefinita, Visual Studio imposta la `Build Action` a `Content`, ovvero il file viene distribuito. Per altre informazioni vedere [perché non tutti i file nella cartella di progetto vengono distribuiti?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Sebbene sia possibile usare qualsiasi estensione per il *config segreti* file, è consigliabile mantenere *config*, come i file di configurazione non vengono gestiti da IIS. Si noti inoltre che il *AppSettingsSecrets.config* file è di due livelli di directory superiore dal *Web. config* file, pertanto è completamente fuori della directory della soluzione. Spostando il file dalla directory della soluzione, &quot;git aggiungere \* &quot; non verranno aggiunte al repository.
 
 
 <a id="con"></a>
@@ -75,7 +76,7 @@ Visual Studio crea nuovi progetti ASP.NET che utilizzano [LocalDB](https://blogs
 
 
 > [!NOTE]
-> **Avviso di sicurezza nel file di segreti:** si consiglia di non utilizzare i segreti di produzione nel test e sviluppo. Utilizzo di password di produzione in prova o di sviluppo di perdite di segreti.
+> **Avviso di sicurezza nel file di segreti:** si consiglia di non utilizzare i segreti di produzione nel testing e sviluppo. Utilizzo di password di produzione in prova o di sviluppo di perdite di segreti.
 
 
 <a id="wj"></a>
@@ -90,7 +91,7 @@ Il *app* file utilizzato da un'applicazione console non supporta i percorsi rela
 
 Quando si distribuisce l'app web in Azure, il *AppSettingsSecrets.config* file non verrà distribuito (che è quello desiderato). È possibile utilizzare il [il portale di gestione di Azure](https://azure.microsoft.com/services/management-portal/) e impostarli manualmente, a tale scopo:
 
-1. Passare a [https://portal.azure.com](https://portal.azure.com)e accedere con le credenziali di Azure.
+1. Passare a [ https://portal.azure.com ](https://portal.azure.com)e accedere con le credenziali di Azure.
 2. Fare clic su **Sfoglia &gt; App Web**, quindi fare clic sul nome dell'app web.
 3. Fare clic su **tutte le impostazioni &gt; le impostazioni dell'applicazione**.
 

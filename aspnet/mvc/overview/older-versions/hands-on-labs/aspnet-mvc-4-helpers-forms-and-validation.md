@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30878178"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Convalida, moduli e gli helper di ASP.NET MVC 4
 
@@ -605,7 +606,7 @@ Attualmente, i moduli di creazione e modifica che sia non eseguono qualsiasi tip
 
 In questa attività si aggiungerà le annotazioni dei dati al modello che consentono la pagina di creazione e modifica Album visualizzare messaggi di convalida quando appropriato.
 
-Per una classe di modello semplice, l'aggiunta di un'annotazione di dati viene gestita solo tramite l'aggiunta di un **utilizzando** istruzione per **System.ComponentModel.DataAnnotation**, quindi inserire un **[obbligatorio]**attributo le proprietà appropriate. Renderebbe l'esempio seguente il **nome** un campo obbligatorio nella visualizzazione di proprietà.
+Per una classe di modello semplice, l'aggiunta di un'annotazione di dati viene gestita solo tramite l'aggiunta di un **utilizzando** istruzione per **System.ComponentModel.DataAnnotation**, quindi inserire un **[obbligatorio]** attributo le proprietà appropriate. Renderebbe l'esempio seguente il **nome** un campo obbligatorio nella visualizzazione di proprietà.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 

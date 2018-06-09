@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30891471"
 ---
 <a name="creating-a-data-access-layer-c"></a>Creazione di un livello di accesso ai dati (c#)
 ====================
@@ -114,7 +115,7 @@ Dopo aver facendo clic su Aggiungi, quando viene richiesto di aggiungere il set 
 
 Un set di dati tipizzato funge da una raccolta fortemente tipizzata di dati. composti da istanze DataTable fortemente tipizzata, ognuno dei quali a sua volta è costituito da istanze di DataRow fortemente tipizzata. Verrà creata una tabella di dati fortemente tipizzati per ognuna delle tabelle di database sottostanti che è necessario utilizzare in questa serie di esercitazioni. Iniziamo con la creazione di un oggetto DataTable per la **prodotti** tabella.
 
-Tenere presente che DataTable fortemente tipizzate non includono le informazioni su come accedere ai dati dalla tabella di database sottostante. Per poter recuperare i dati per compilare il DataTable, si utilizza una classe TableAdapter, che funziona come il livello di accesso ai dati. Per il nostro **prodotti** DataTable, TableAdapter conterrà i metodi **GetProducts()**, **GetProductByCategoryID (*categoryID*)**e così via che è possibile richiamare dal livello di presentazione. Ruolo del DataTable è come utilizzati per passare dati tra i livelli di oggetti fortemente tipizzati.
+Tenere presente che DataTable fortemente tipizzate non includono le informazioni su come accedere ai dati dalla tabella di database sottostante. Per poter recuperare i dati per compilare il DataTable, si utilizza una classe TableAdapter, che funziona come il livello di accesso ai dati. Per il nostro **prodotti** DataTable, TableAdapter conterrà i metodi **GetProducts()**, **GetProductByCategoryID (*categoryID*)** e così via che è possibile richiamare dal livello di presentazione. Ruolo del DataTable è come utilizzati per passare dati tra i livelli di oggetti fortemente tipizzati.
 
 La configurazione guidata TableAdapter inizia da cui viene richiesto di selezionare il database da utilizzare. L'elenco di riepilogo a discesa Mostra i database in Esplora Server. Se non è stato aggiunto il database Northwind in Esplora Server, è possibile fare clic sul pulsante nuova connessione al momento eseguire questa operazione.
 
@@ -269,7 +270,7 @@ Queste query con parametri possono essere verificate direttamente dalla finestra
 
 Con il **GetProductsByCategoryID (*categoryID*)** nostri DAL metodo, è ora possibile creare una pagina ASP.NET che consente di visualizzare solo i prodotti in una categoria specificata. L'esempio seguente mostra tutti i prodotti della categoria Beverages, che hanno un **CategoryID** pari a 1.
 
-Beverages.asp
+Beverages.ASP
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample4.aspx)]
 
@@ -537,7 +538,7 @@ Per ulteriori informazioni sugli argomenti trattati in questa esercitazione, ved
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o tramite il suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 

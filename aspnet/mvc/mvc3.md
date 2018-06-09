@@ -2,7 +2,7 @@
 uid: mvc/mvc3
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: "(aprile 2011 include strumenti di aggiornamento) ASP.NET MVC 3 è un framework per la creazione di applicazioni web scalabili e basate su standard usando il modello di struttura consolidati..."
+description: (aprile 2011 include strumenti di aggiornamento) ASP.NET MVC 3 è un framework per la creazione di applicazioni web scalabili e basate su standard usando il modello di struttura consolidati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2010
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034737"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -36,14 +37,14 @@ ms.lasthandoff: 01/24/2018
 - Viste espressive, tra cui il nuovo motore di visualizzazione Razor
 - Di accedere con l'inserimento di dipendenze e i filtri azione globali
 - Supporto di Rich JavaScript con JavaScript non intrusivo, convalida jQuery e associazione di JSON
-- *Leggere l'elenco completo di funzionalità [sotto](#overview)*
+- *Leggere l'elenco completo delle funzionalità [sotto](#overview)*
 
 ## <a name="top-links"></a>Collegamenti superiore
 
 Novità di ASP.NET MVC 3
 
 - Phil Haack: [ASP.NET MVC 3 rilasciato](http://haacked.com/archive/2011/01/13/aspnetmvc3-released.aspx)
-- Scott Hanselman: [ASP.NET MVC3, WebMatrix, NuGet, IIS Express e Orchard rilasciato - la versione di gennaio Web di Microsoft nel contesto](http://www.hanselman.com/blog/ASPNETMVC3WebMatrixNuGetIISExpressAndOrchardReleasedTheMicrosoftJanuaryWebReleaseInContext.aspx)
+- Scott Hanselman: [ASP.NET MVC3, WebMatrix, NuGet, IIS Express e Orchard rilasciati per volta, la versione di gennaio Web di Microsoft nel contesto](http://www.hanselman.com/blog/ASPNETMVC3WebMatrixNuGetIISExpressAndOrchardReleasedTheMicrosoftJanuaryWebReleaseInContext.aspx)
 - Scott Guthrie: [annuncio versione di ASP.NET MVC 3, IIS Express, SQL CE 4, Web Farm Framework, Orchard, WebMatrix](https://weblogs.asp.net/scottgu/archive/2011/01/13/announcing-release-of-asp-net-mvc-3-iis-express-sql-ce-4-web-farm-framework-orchard-webmatrix.aspx)
 - [Note sulla versione di ASP.NET MVC 3](../whitepapers/mvc3-release-notes.md)
 
@@ -52,7 +53,7 @@ Installazione e la Guida
 - Installa ASP.NET MVC 3 utilizzando il [installazione guidata piattaforma Web (scelta consigliata)](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MVC3)
 - Installa ASP.NET MVC 3 utilizzando il [programma di installazione eseguibile](https://go.microsoft.com/fwlink/?LinkID=208140)
 - Installare [ASP.NET MVC 3 per anteprima sviluppatori Visual Studio 11](https://go.microsoft.com/fwlink/?LinkID=208140)
-- Lettura di [Introduzione all'esercitazione di ASP.NET MVC 3](overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
+- Lettura di [Intro to ASP.NET MVC 3 esercitazione](overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
 - Visualizzare la Guida e discutere ASP.NET MVC 3 nel [forum](https://forums.asp.net/1146.aspx)
 
 <a id="overview"></a>
@@ -78,9 +79,9 @@ Il nuovo sistema di Scaffolding rende più semplice per prelevare e iniziare a u
 
 Questo è supportato da NuGet nuovo *scaffolding* pacchetto chiamato **MvcScaffolding**. Il termine "Scaffolding" viene utilizzato da numerose tecnologie di software per indicare "rapidamente la generazione di una struttura di base del software che è possibile modificare e personalizzare". Il pacchetto di scaffolding che si sta creando per ASP.NET MVC è molto utile in scenari diversi:
 
-- **Se l'apprendimento ASP.NET MVC per la prima volta**, poiché offre un modo rapido per ottenere alcuni utili, codice di lavoro, che è quindi possibile modificare e adattare in base alle esigenze. Evita il drammatico della ricerca in una pagina vuota e non è chiaro da dove iniziare!
-- **Se si conosce bene ASP.NET MVC e sono ora esplorazione alcune nuove tecnologie di componente aggiuntivo** , ad esempio un mapping relazionale a oggetti, un motore di visualizzazione, una raccolta di test, e così via, poiché il creatore di tale tecnologia potrebbe essere inoltre creato un pacchetto lo scaffolding per tale.
-- **Se il lavoro implica la creazione di classi o i file di qualche simili a ripetutamente**, poiché è possibile creare scaffolders personalizzato che l'output degli strumenti di test, gli script di distribuzione o qualsiasi altra cosa è necessario. Tutti i membri del team può utilizzare il scaffolders personalizzato, troppo.
+- **Se l'apprendimento ASP.NET MVC per la prima volta**, poiché offre un modo rapido per ottenere alcuni utili, codice funzionante, che è quindi possibile modificare e adattare in base alle esigenze. Evita il drammatico della ricerca in una pagina vuota e non è chiaro da dove iniziare!
+- **Se si conosce bene ASP.NET MVC e sono ora esplorazione nuove tecnologie del componente aggiuntivo** , ad esempio un mapping relazionale a oggetti, un motore di visualizzazione, una libreria di test, e così via, perché il creatore di tale tecnologia può avere anche creato un pacchetto che lo scaffolding per tale.
+- **Se il lavoro prevede la creazione di classi o i file di qualche tipo simili a ripetutamente**, in quanto è possibile creare scaffolders personalizzati degli strumenti di test, gli script di distribuzione o qualsiasi altro tipo di richiesta di output. Tutti i membri del team può utilizzare il scaffolders personalizzato, troppo.
 
 Altre funzionalità in MvcScaffolding includono:
 
@@ -103,9 +104,9 @@ Per ulteriori informazioni su Scaffolding di ASP.NET MVC 3, vedere le risorse se
     1. [Introduzione: Eseguire lo scaffolding di progetto ASP.NET MVC 3 con il pacchetto MvcScaffolding](http://blog.stevensanderson.com/2011/01/13/scaffold-your-aspnet-mvc-3-project-with-the-mvcscaffolding-package/)
     2. [Utilizzo standard: casi di utilizzo tipici e opzioni](http://blog.stevensanderson.com/2011/01/13/mvcscaffolding-standard-usage/)
     3. [Relazioni uno-a-molti](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
-    4. [Lo scaffolding azioni e gli Unit test](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
-    5. [I modelli T4 viene sottoposto a override](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
-    6. [Questo post: creazione scaffolders personalizzato](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
+    4. [Le azioni che lo scaffolding e Unit test](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
+    5. [Si esegue l'override i modelli T4](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
+    6. [Questo post: creazione di scaffolders personalizzato](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
 - Post di Scott Hanselman dalla sua sessione PDC 2010 [la creazione di un Blog con Microsoft "Senza nome pacchetto di Web piace"](http://www.hanselman.com/blog/PDC10BuildingABlogWithMicrosoftUnnamedPackageOfWebLove.aspx)
 - [Note sulla versione di MVC 3](../whitepapers/mvc3-release-notes.md)
 
@@ -128,8 +129,8 @@ ASP.NET MVC 3 viene fornito con un nuovo motore di visualizzazione denominato Ra
 
 Alcune nuove funzionalità Razor includono:
 
-- `@model`sintassi per specificare il tipo passato alla visualizzazione.
-- `@* *@`sintassi di commento.
+- `@model` sintassi per specificare il tipo passato alla visualizzazione.
+- `@* *@` sintassi di commento.
 - La possibilità di specificare le impostazioni predefinite (ad esempio `layoutpage`) una volta per un intero sito.
 - Il `Html.Raw` metodo per la visualizzazione di testo senza codifica HTML è.
 - Supporto per la condivisione del codice tra più visualizzazioni (*\_viewstart.cshtml* o  *\_viewstart.vbhtml* file).
@@ -144,9 +145,9 @@ Razor include anche nuovi helper HTML, ad esempio le operazioni seguenti:
 
 Per ulteriori informazioni su Razor, vedere le risorse seguenti:
 
-- [Post di blog di Scott Guthrie introduzione Razor](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)
-- [Post di blog Scott Guthrie introduzione di @model (parola chiave)](https://weblogs.asp.net/scottgu/archive/2010/10/19/asp-net-mvc-3-new-model-directive-support-in-razor.aspx)
-- [Post del blog di Scott Guthrie layout di Razor introduzione](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)
+- [Post di blog Guthrie introduzione Razor](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)
+- [Post di blog Guthrie introdurre il @model (parola chiave)](https://weblogs.asp.net/scottgu/archive/2010/10/19/asp-net-mvc-3-new-model-directive-support-in-razor.aspx)
+- [Introduzione a layout di Razor il post di blog Guthrie](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)
 - [Riferimento API rapida Razor](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 - [Note sulla versione di MVC 3](../whitepapers/mvc3-release-notes.md)
 
@@ -164,7 +165,7 @@ Il **Aggiungi visualizzazione** la finestra di dialogo in ASP.NET MVC 3 consente
 
 Talvolta si desidera eseguire la logica prima dell'esecuzione di un metodo di azione o dopo l'esecuzione di un metodo di azione. A tale scopo, ASP.NET MVC 2 fornito filtri dell'azione. Filtri azione sono attributi personalizzati che forniscono strumenti dichiarativi per aggiungere un comportamento pre-azione e post-azione ai metodi di azione di un controller specifico. Tuttavia, in alcuni casi è consigliabile specificare il comportamento di pre- azione di o post-azione che si applica a tutti i metodi di azione. MVC 3 consente di specificare i filtri globali vengono aggiunte al `GlobalFilters` insieme. Per ulteriori informazioni sui filtri azione globali, vedere le risorse seguenti:
 
-- [Blog di Scott Guthrie sull'anteprima in MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
+- [Relativo Guthrie sull'anteprima in MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
 - [Applicazione di filtri in ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Nuova proprietà "ViewBag"
@@ -186,8 +187,8 @@ Le operazioni seguenti `ActionResult` tipi e metodi di supporto corrispondente s
 Per impostazione predefinita, gli helper di convalida e Ajax in MVC 3 usano un approccio di JavaScript non intrusivo. JavaScript non intrusivo evita di inserire inline JavaScript in HTML. Questo rende il codice HTML, inferiori e meno lineare e rende più semplice per lo swapping o personalizzare le librerie JavaScript. Gli helper di convalida in MVC 3 usano anche la `jQueryValidate` plug-in per impostazione predefinita. Se si desidera il comportamento di MVC 2, è possibile disabilitare JavaScript non intrusivo usando un *Web. config* impostazione del file. Per ulteriori informazioni sui miglioramenti di JavaScript e Ajax, vedere le risorse seguenti:
 
 - [Introduzione di base per JavaScript non intrusivo nel sito di Wikipedia](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)
-- [Post di JavaScript non intrusivo Brad Wilson](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-ajax.html)
-- [Post di convalida JavaScript non intrusivo Brad Wilson](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
+- [Post di blog di Brad Wilson non intrusivo JavaScript](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-ajax.html)
+- [Post di blog di Brad Wilson JavaScript non intrusivo convalida](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
 - [Creazione di un'applicazione di MVC 3 con Razor and Unobtrusive JavaScript](overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md) (esercitazione sul sito ASP.NET)
 - [Note sulla versione di MVC 3](../whitepapers/mvc3-release-notes.md)
 
@@ -255,7 +256,7 @@ MVC 3 supporta la [localizzatore di servizi comune](https://github.com/unitycont
 
 Per ulteriori informazioni DI MVC 3, vedere le risorse seguenti:
 
-- [Serie di blog di Brad Wilson post sul percorso del servizio](http://bradwilson.typepad.com/blog/2010/07/service-location-pt1-introduction.html)
+- [Serie di Brad Wilson di post di blog sul percorso del servizio](http://bradwilson.typepad.com/blog/2010/07/service-location-pt1-introduction.html)
 - [Note sulla versione di MVC 3](../whitepapers/mvc3-release-notes.md)
 
 <a id="BM_Other_New_Features"></a>

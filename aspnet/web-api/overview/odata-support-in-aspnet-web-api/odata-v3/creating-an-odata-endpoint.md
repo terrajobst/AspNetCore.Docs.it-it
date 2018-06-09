@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874629"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Creazione di un Endpoint di OData v3 con Web API 2
 ====================
@@ -57,7 +58,7 @@ In questa esercitazione si creerà un endpoint OData che supporta operazioni CRU
 
 Avviare Visual Studio e selezionare **nuovo progetto** dalla pagina iniziale. O dal **File** dal menu **New** e quindi **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il nodo Visual c#. In **Visual c#**selezionare **Web**. Selezionare **dell'applicazione Web ASP.NET** modello.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il nodo Visual c#. In **Visual c#** selezionare **Web**. Selezionare **dell'applicazione Web ASP.NET** modello.
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 

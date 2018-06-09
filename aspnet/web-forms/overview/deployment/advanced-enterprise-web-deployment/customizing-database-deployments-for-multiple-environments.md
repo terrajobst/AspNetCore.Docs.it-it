@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30881357"
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Personalizzazione delle distribuzioni di Database per più ambienti
 ====================
 da [Jason Lee](https://github.com/jrjlee)
 
-[Scarica il PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[Scaricare PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > In questo argomento viene descritto come personalizzare le proprietà di un database in ambienti di destinazione specifico come parte del processo di distribuzione.
 > 
@@ -74,9 +75,9 @@ Questa tabella mostra le impostazioni di distribuzione tipica per ambienti di de
 | **Regole di confronto di distribuzione** | Origine | destinazione | destinazione |
 | **Distribuisci proprietà database** | True | Solo la prima volta | Solo la prima volta |
 | **Ricrea sempre database** | True | False | False |
-| **Blocca distribuzione incrementale in caso di perdita di dati** | False | Maybe | True |
+| **Blocca distribuzione incrementale in caso di perdita di dati** | False | Forse | True |
 | **Esegui script di distribuzione in modalità utente singolo** | False | True | True |
-| **Eseguire il backup del database prima della distribuzione** | False | Maybe | True |
+| **Eseguire il backup del database prima della distribuzione** | False | Forse | True |
 | **Genera istruzioni DROP per oggetti contenuti nel database di destinazione, ma non nel progetto di database** | False | True | True |
 | **Non utilizzare le istruzioni ALTER ASSEMBLY per aggiornare tipi CLR** | False | False | False |
   

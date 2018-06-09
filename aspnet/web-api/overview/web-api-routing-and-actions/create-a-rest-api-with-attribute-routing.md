@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223262"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creare un'API REST con attributo Routing in ASP.NET Web API 2
 ====================
@@ -26,12 +27,12 @@ Web API 2 supporta un nuovo tipo di routing, denominata *attributo routing*. Per
 
 | Operazione | URI di esempio |
 | --- | --- |
-| Ottenere un elenco di tutti i libri. | /api/books |
+| Ottenere un elenco di tutti i libri. | documentazione/api / |
 | Ottenere un libro di ID. | /api/books/1 |
-| Ottenere i dettagli di un libro. | /api/books/1/details |
+| Ottenere i dettagli di un libro. | /API/books/1/Details |
 | Ottenere un elenco di libri per genere. | /api/books/fantasy |
 | Ottenere un elenco di libri per data di pubblicazione. | /API/books/date/2013-02-16 /api/books/date/2013/02/16 (modulo alternativo) |
-| Ottenere un elenco di libri da un particolare autore. | /api/authors/1/books |
+| Ottenere un elenco di libri da un particolare autore. | /API/authors/1/books |
 
 Tutti i metodi sono di sola lettura (richieste HTTP GET).
 
@@ -55,7 +56,7 @@ Per la maggior parte delle richieste, tuttavia, l'API restituirà un sottoinsiem
 
 Iniziare eseguendo Visual Studio. Dal **File** dal menu **New** e quindi selezionare **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;BooksAPI&quot;.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 

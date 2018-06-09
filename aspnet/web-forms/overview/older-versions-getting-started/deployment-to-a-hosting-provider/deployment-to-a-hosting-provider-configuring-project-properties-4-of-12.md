@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: b8352c1832ffc79db93b6324dd673afaff6b0d74
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30887200"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: configurazione delle proprietà del progetto - 4 di 12
 ====================
@@ -41,7 +42,7 @@ In **Esplora**, fare doppio clic su di **ContosoUniversity** progetto, seleziona
 
 ![Package_Publish_Web_tab](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image1.png)
 
-Quando viene visualizzata la finestra, per impostazione predefinita che mostra impostazioni per qualsiasi configurazione di compilazione è attualmente attivo per la soluzione. Se il **configurazione** casella non è segnalato **attiva (rilascio)**selezionare **versione** per visualizzare le impostazioni per la configurazione della build di rilascio. Distribuire le build di rilascio per gli ambienti di test e di produzione.
+Quando viene visualizzata la finestra, per impostazione predefinita che mostra impostazioni per qualsiasi configurazione di compilazione è attualmente attivo per la soluzione. Se il **configurazione** casella non è segnalato **attiva (rilascio)** selezionare **versione** per visualizzare le impostazioni per la configurazione della build di rilascio. Distribuire le build di rilascio per gli ambienti di test e di produzione.
 
 ![Package_Publish_Web_tab_selecting_Release](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image2.png)
 

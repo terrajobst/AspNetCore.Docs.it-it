@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034607"
 ---
 <a name="custom-mvc-template"></a>Modello MVC personalizzato
 ====================
-da [Jacques Eloff](https://github.com/joeloff)
+da [viene Eloff](https://github.com/joeloff)
 
 La versione di MVC 3 Tools Update per Visual Studio 2010 è stato introdotto una procedura guidata progetto separato per i progetti MVC. La modifica è stata determinata da due fattori. In primo luogo, l'introduzione di nuovi modelli in MVC 3 e il supporto per i motori di visualizzazione aggiuntive, ad esempio Razor causare sovraffollamento la finestra di dialogo Nuovo progetto in Visual Studio. In secondo luogo, i clienti erano richiesta dei punti di estendibilità ed è la creazione guidata nuovo progetto MVC sarebbe concedere ci la possibilità di rispondere alle richieste.
 
@@ -79,11 +80,11 @@ Chiudere la finestra di progettazione del progetto VSIX, quindi fare clic con il
 
 ![Apri finestra di dialogo](custom-mvc-templates/_static/image7.jpg)
 
-Creare un  **&lt;asset&gt;**  elemento e aggiungere un  **&lt;Asset&gt;**  elemento per ogni file che deve essere inclusi in VSIX. Il **tipo** attributo di ogni  **&lt;Asset&gt;**  elemento deve essere impostato su **Microsoft.VisualStudio.Mvc.Template**. Si tratta di uno spazio dei nomi personalizzato che riconosce solo la creazione guidata progetto MVC. Consultare la documentazione di Schema 2.0 VSIX per ulteriori informazioni sulla struttura e al layout del file manifesto.
+Creare un **&lt;asset&gt;** elemento e aggiungere un **&lt;Asset&gt;** elemento per ogni file che deve essere inclusi in VSIX. Il **tipo** attributo di ogni **&lt;Asset&gt;** elemento deve essere impostato su **Microsoft.VisualStudio.Mvc.Template**. Si tratta di uno spazio dei nomi personalizzato che riconosce solo la creazione guidata progetto MVC. Consultare la documentazione di Schema 2.0 VSIX per ulteriori informazioni sulla struttura e al layout del file manifesto.
 
-Aggiungere solo i file per l'estensione VSIX non è sufficiente per registrare i modelli con la procedura guidata MVC. È necessario fornire informazioni quali il nome del modello, descrizione, motori di visualizzazione supportate e linguaggio di programmazione per la procedura guidata MVC. Queste informazioni sono portate in attributi personalizzati associati il  **&lt;Asset&gt;**  per ogni elemento **vstemplate** file.
+Aggiungere solo i file per l'estensione VSIX non è sufficiente per registrare i modelli con la procedura guidata MVC. È necessario fornire informazioni quali il nome del modello, descrizione, motori di visualizzazione supportate e linguaggio di programmazione per la procedura guidata MVC. Queste informazioni sono portate in attributi personalizzati associati il **&lt;Asset&gt;** per ogni elemento **vstemplate** file.
 
-&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
 Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
@@ -93,9 +94,9 @@ Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWe
 
 ProjectType=&quot;MVC&quot;
 
-Language=&quot;C#&quot;
+Language =&quot;c#&quot;
 
-ViewEngine=&quot;Aspx&quot;
+ViewEngine =&quot;Aspx&quot;
 
 TemplateId=&quot;MyMvcApplication&quot;
 
@@ -108,13 +109,13 @@ Versione =&quot;4.0&quot;/&gt;
 Di seguito è una spiegazione di attributi personalizzati che devono essere presenti:
 
 - **ProjectType** deve essere impostato su MVC.
-- **Lingua** definisce il linguaggio di sviluppo supportato dal modello. I valori validi sono in c# o VB.
+- **Linguaggio** definisce il linguaggio di sviluppo supportato dal modello. I valori validi sono in c# o VB.
 - **ViewEngine** designa il motore di visualizzazione supportato dal modello, ad esempio Razor o Aspx. È possibile specificare un valore personalizzato per questo campo.
 - **TemplateId** viene utilizzato per raggruppare i modelli. Se il valore corrisponde a un ID di modello esistente sarà override modelli precedentemente registrati con la procedura guidata MVC.
-- **Titolo** definisce la descrizione breve visualizzata nella procedura guidata di sotto di ogni modello di progetto MVC.
-- **Descrizione** definisce una descrizione più dettagliata del modello.
+- **Titolo** definisce la descrizione breve visualizzata nella procedura guidata MVC di sotto di ogni modello di progetto.
+- **Descrizione** designa una descrizione più dettagliata del modello.
 
-Dopo che tutti i file aggiunti al manifesto e salvato, si noterà che il **asset** scheda nella finestra di progettazione verrà visualizzati tutti i file, ma non gli attributi personalizzati aggiunti al  **&lt;Asset&gt;**  elementi per il **vstemplate** file.
+Dopo che tutti i file aggiunti al manifesto e salvato, si noterà che il **asset** scheda nella finestra di progettazione verrà visualizzati tutti i file, ma non gli attributi personalizzati aggiunti al **&lt;Asset&gt;** elementi per il **vstemplate** file.
 
 ![Finestra di progettazione risorse di progetto](custom-mvc-templates/_static/image8.jpg)
 

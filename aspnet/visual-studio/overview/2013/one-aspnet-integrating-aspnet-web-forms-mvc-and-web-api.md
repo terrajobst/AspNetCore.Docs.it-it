@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507120"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Laboratorio pratico: Un ASP.NET: l'integrazione di Web Form ASP.NET, MVC e Web API
 ====================
-da [categorie Web Team](https://twitter.com/webcamps)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
 [Download Web categorie Kit di formazione](http://aka.ms/webcamps-training-kit)
 
@@ -28,7 +29,7 @@ da [categorie Web Team](https://twitter.com/webcamps)
 > 
 > Visual Studio 2013 introduce un nuovo sistema di progetto unificato che consente di compilare un'applicazione e utilizzare tutte le tecnologie ASP.NET in un unico progetto. Questa funzionalità Elimina la necessità di scegliere una tecnologia all'inizio di un progetto e stick con esso e invece promuove l'uso di diversi framework ASP.NET all'interno di un progetto.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -123,9 +124,9 @@ In questa attività si inizierà creando un nuovo sito Web in Visual Studio in b
 
     *Esplorazione della soluzione generata*
 
-    1. **Account:** questa cartella contiene le pagine Web Form per registrare, accedere a e gestire gli account utente dell'applicazione. Questa cartella viene aggiunta quando le **singoli account utente di** è selezionata l'opzione di autenticazione durante la configurazione del modello di progetto di Web Form.
-    2. **Modelli:** questa cartella contiene le classi che rappresentano i dati dell'applicazione.
-    3. **Controller** e **viste**: sono necessarie per queste cartelle di **ASP.NET MVC** e **ASP.NET Web API** componenti. Analizzerà le tecnologie MVC e Web API negli esercizi.
+    1. **Account:** questa cartella contiene le pagine Web Form per registrare, accedere al e gestire gli account utente dell'applicazione. Questa cartella viene aggiunta quando le **singoli account utente di** è selezionata l'opzione di autenticazione durante la configurazione del modello di progetto di Web Form.
+    2. **Modelli:** questa cartella contiene le classi che rappresentano i dati delle applicazioni.
+    3. **Controller** e **viste**: queste cartelle sono necessari per il **ASP.NET MVC** e **ASP.NET Web API** componenti. Analizzerà le tecnologie MVC e Web API negli esercizi.
     4. Il **Default.aspx**, **Contact.aspx** e **About** file sono pagine Web Form predefinite che è possibile utilizzare come punto di partenza per compilare le pagine specifiche per il applicazione. La logica di programmazione di tali file si trova in un file separato, detto il &quot;codice&quot; file, con un &quot;. aspx&quot; o &quot;. aspx.cs&quot; estensione (a seconda di linguaggio utilizzato). La logica del codice viene eseguito nel server e in modo dinamico produce l'output HTML per la pagina.
     5. Il **Site. master** e **Site.Mobile.Master** pagine definiscono l'aspetto e il comportamento standard di tutte le pagine nell'applicazione.
 5. Fare doppio clic su di **Default.aspx** file per esplorare il contenuto della pagina.
@@ -161,7 +162,7 @@ In questa attività verranno eseguire la soluzione generata, esplorare l'app e a
     *URL brevi*
 
     > [!NOTE]
-    > Come si può notare, l'URL viene modificato per **o contattare**. A partire da **ASP.NET 4**, funzionalità di routing di URL sono stati aggiunti a un Web Form, pertanto è possibile scrivere come URL *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* anziché  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Per ulteriori informazioni fare riferimento a [Routing degli URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Come si può notare, l'URL viene modificato per **o contattare**. A partire da **ASP.NET 4**, le funzionalità di routing di URL sono stati aggiunti a un Web Form, pertanto è possibile scrivere gli URL come *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* anziché  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Per ulteriori informazioni fare riferimento a [Routing degli URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Verrà ora illustrato il flusso di autenticazione integrato nell'applicazione. A tale scopo, fare clic su **registrare** nell'angolo superiore destro della pagina.
 
     ![Registrazione di un nuovo utente](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
@@ -184,7 +185,7 @@ In questa attività verranno eseguire la soluzione generata, esplorare l'app e a
 
 In questo esercizio si sfrutterà il framework di ASP.NET Scaffolding fornito da Visual Studio per creare un controller di ASP.NET MVC 5 con azioni e visualizzazioni Razor per eseguire operazioni CRUD, senza scrivere una singola riga di codice. Il processo di scaffolding userà Code First di Entity Framework per generare il contesto dei dati e lo schema del database nel database SQL.
 
-**Su Entity Framework Code prima**
+**Su Entity Framework Code innanzitutto**
 
 Entity Framework (EF) è un mapping relazionale a oggetti (ORM) che consente di creare applicazioni di accesso ai dati tramite programmazione con un modello di applicazione concettuale anziché programmando direttamente con uno schema di archiviazione relazionale.
 
@@ -227,7 +228,7 @@ Ora che il **persona** creazione del modello, si utilizzerà lo scaffolding di A
     ![Creare un nuovo Controller di scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
 
     *Creare un nuovo Controller di scaffolding*
-2. Nel **aggiungere lo scaffolding** nella finestra di dialogo **Controller MVC 5 con visualizzazioni, mediante Entity Framework** e quindi fare clic su **Aggiungi.**
+2. Nel **aggiungere lo scaffolding** finestra di dialogo **Controller MVC 5 con visualizzazioni, mediante Entity Framework** e quindi fare clic su **Aggiungi.**
 
     ![Selezione di Controller MVC 5 con visualizzazioni ed Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
 
@@ -309,21 +310,21 @@ In questa attività verrà creato un nuovo **Controller API Web** che esporrà i
     ![Creare un nuovo Controller di scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
 
     *Creare un nuovo Controller di scaffolding*
-3. Nel **aggiungere lo scaffolding** nella finestra di dialogo **API Web** nel riquadro a sinistra, quindi **Web 2 Controller API con azioni, mediante Entity Framework** nel riquadro centrale e quindi fare clic su  **Aggiungere.**
+3. Nel **aggiungere lo scaffolding** finestra di dialogo **API Web** nel riquadro sinistro, quindi **Web 2 Controller API con azioni, mediante Entity Framework** nel riquadro centrale e quindi fare clic su  **Aggiungere.**
 
-    ![Selezione di Controller di Web API 2 con azioni ed Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "la selezione di Controller API Web 2 con azioni ed Entity Framework")
+    ![Selezione di Controller di Web API 2 con azioni ed Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "selezionando Web API 2 Controller con azioni ed Entity Framework")
 
     *Selezione di Controller di Web API 2 con azioni ed Entity Framework*
 4. Impostare *ApiPersonController* come il **nome Controller**, selezionare il **utilizzare azioni asincrone del controller** opzione e selezionare **persona (MyHybridSite.Models)**  e **PersonContext (MyHybridSite.Models)** come il **modello** e **contesto dati** classi rispettivamente. Fare quindi clic su **Aggiungi**.
 
-    ![Aggiunta di un Controller API Web con lo scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "aggiunta di un controller API Web con lo scaffolding")
+    ![Aggiunta di un Controller API Web con scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "aggiunta di un controller API Web con scaffolding")
 
-    *Aggiunta di un controller API Web con lo scaffolding*
+    *Aggiunta di un controller API Web con scaffolding*
 5. Visual Studio genera quindi il **ApiPersonController** classe con le quattro azioni CRUD per lavorare con i dati.
 
-    ![Dopo aver creato il controller API Web con lo scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "dopo aver creato il controller API Web con lo scaffolding")
+    ![Dopo aver creato il controller API Web con scaffolding](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "dopo aver creato il controller API Web con scaffolding")
 
-    *Dopo aver creato il controller API Web con lo scaffolding*
+    *Dopo aver creato il controller API Web con scaffolding*
 6. Aprire il **ApiPersonController.cs** file ed esaminare il *GetPeople* metodo di azione. Questo metodo esegue una query il campo di database di **PersonContext** tipo per ottenere le persone di dati.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample5.cs)]
@@ -353,7 +354,7 @@ In questa attività verrà utilizzato Internet Explorer **strumenti di sviluppo 
     > Per eseguire correttamente questa attività, l'applicazione deve disporre di dati. Se il database è vuoto, è possibile tornare all'attività 3 nell'esercizio 2 e seguire i passaggi su come creare un nuovo utente utilizzando le visualizzazioni MVC.
 2. Nel browser, premere **F12** per aprire la **gli strumenti di sviluppo** pannello. Premere **CTRL** + **4** oppure fare clic su di **rete** icona e quindi fare clic su pulsante freccia verde per avviare l'acquisizione del traffico di rete.
 
-    ![Avvio di acquisizione di rete di API Web](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "acquisizione di rete di avvio di Web API")
+    ![Avvio di acquisizione di rete di Web API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "acquisizione di rete di avvio di Web API")
 
     *Avvio di acquisizione di rete di API Web*
 3. Aggiungere **api/ApiPerson** per l'URL nella barra degli indirizzi del browser. È ora esamina i dettagli della risposta di **ApiPersonController**.
@@ -368,7 +369,7 @@ In questa attività verrà utilizzato Internet Explorer **strumenti di sviluppo 
 
     ![La visualizzazione Web corpo della risposta API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image30.png "visualizzazione Web corpo della risposta API")
 
-    *Corpo della risposta di API Web visualizzazione*
+    *Corpo della risposta di API di visualizzazione Web*
 
 <a id="Ex3Task3"></a>
 #### <a name="task-3--adding-web-api-help-pages"></a>Attività 3: aggiunta di pagine della Guida di API Web
@@ -396,7 +397,7 @@ Quando si crea un'API Web, è utile creare una pagina della Guida in modo che al
     *Scheda Compila*
 5. In **Output**selezionare **file di documentazione XML**. Nella casella di modifica, digitare **App\_Data/XmlDocument.xml**.
 
-    ![Output sezione nella scheda compilazione](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "sezione nella scheda compilazione di Output")
+    ![Output sezione nella scheda Compila](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "sezione nella scheda compilazione di Output")
 
     *Sezione di output nella scheda compilazione*
 6. Premere **CTRL** + **S** per salvare le modifiche.
@@ -426,7 +427,7 @@ Quando si crea un'API Web, è utile creare una pagina della Guida in modo che al
     *Descrizione del metodo API*
 13. Fare clic su uno dei metodi API per passare a una pagina con informazioni più dettagliate, tra cui corpi di risposta di esempio.
 
-    ![Pagina informazioni di dettaglio](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "pagina informazioni di dettaglio")
+    ![Pagina informazioni di dettaglio](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "pagina relativa alle informazioni di dettaglio")
 
     *Pagina informazioni dettagliate*
 

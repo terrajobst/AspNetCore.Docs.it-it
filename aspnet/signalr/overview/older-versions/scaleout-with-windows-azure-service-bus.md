@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
 ms.openlocfilehash: b48a7b04701b69f68a492c0f7e08da4a37a92a48
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036440"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Scalabilità orizzontale SignalR con il Bus di servizio di Azure (SignalR 1. x)
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 In questa esercitazione, si distribuirà un'applicazione di SignalR per un ruolo Web di Azure di Windows, con il backplane del Bus di servizio per distribuire i messaggi per ogni istanza del ruolo.
 

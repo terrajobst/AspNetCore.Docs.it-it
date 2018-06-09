@@ -2,21 +2,22 @@
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 title: Modificare la chiave primaria per gli utenti in ASP.NET Identity | Documenti Microsoft
 author: tfitzmac
-description: "In Visual Studio 2013, l'applicazione web predefinita viene utilizzato un valore stringa per la chiave per gli account utente. Identità di ASP.NET consente di modificare il tipo del..."
+description: In Visual Studio 2013, l'applicazione web predefinita viene utilizzato un valore stringa per la chiave per gli account utente. Identità di ASP.NET consente di modificare il tipo del...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26498230"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>Modifica della chiave primaria per gli utenti in ASP.NET Identity
 ====================
@@ -116,7 +117,7 @@ Aprire il file AccountController.cs. È necessario modificare i metodi seguenti.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample9.cs?highlight=1,3)]
 
-**Annullare l'associazione** (metodo)
+**Dissociazione** (metodo)
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample10.cs?highlight=5,9)]
 
@@ -275,7 +276,7 @@ Se è stata creata l'identità ASP.NET tabelle con una chiave primaria diversa, 
 <a id="other"></a>
 ## <a name="other-resources"></a>Altre risorse
 
-- [Panoramica dei provider di archiviazione personalizzato per l'identità ASP.NET](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [La migrazione di un sito Web esistente dall'appartenenza SQL per ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrazione dei dati per l'appartenenza e i profili di ASP.NET Identity Provider Universal](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-- [Applicazione di esempio](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) con la chiave primaria modificata
+- [Panoramica dei provider di archiviazione personalizzati per ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Migrazione di un sito Web esistente dall'appartenenza SQL ad ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [La migrazione dei Provider Universal dati per l'appartenenza e i profili di ASP.NET Identity](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Applicazione di esempio](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) con chiave primaria modificata

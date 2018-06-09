@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037321"
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Convenzioni di routing in ASP.NET Web API 2 Odata
 ====================
@@ -47,9 +48,9 @@ Prima descrivono le convenzioni di routing OData nell'API Web, è utile comprend
 
 Per il routing, la parte importante è il percorso della risorsa. Il percorso della risorsa è suddivisa in segmenti. Ad esempio, `/Products(1)/Supplier` ha tre segmenti:
 
-- `Products`fa riferimento a un set di entità denominato "Prodotti".
-- `1`è una chiave di entità, la selezione di una singola entità dal set.
-- `Supplier`è una proprietà di navigazione che consente di selezionare un'entità correlata.
+- `Products` fa riferimento a un set di entità denominato "Prodotti".
+- `1` è una chiave di entità, la selezione di una singola entità dal set.
+- `Supplier` è una proprietà di navigazione che consente di selezionare un'entità correlata.
 
 Pertanto, questo percorso preleva il fornitore del prodotto 1.
 
@@ -67,7 +68,7 @@ Pertanto, questo percorso preleva il fornitore del prodotto 1.
 | --- | --- | --- | --- |
 | OTTENERE /entityset | / Prodotti | GetEntitySet o Get | GetProducts |
 | OTTENERE /entityset(key) | /Products(1) | GetEntityType o Get | GetProduct |
-| GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType o Get | GetBook |
+| OTTENERE /entityset (chiave) / eseguire il cast | / /Models.Book prodotti (1) | GetEntityType o Get | GetBook |
 
 Per ulteriori informazioni, vedere [creare un OData Endpoint di sola lettura](odata-v3/creating-an-odata-endpoint.md).
 
@@ -77,11 +78,11 @@ Per ulteriori informazioni, vedere [creare un OData Endpoint di sola lettura](od
 | --- | --- | --- | --- |
 | REGISTRARE /entityset | / Prodotti | PostEntityType o Post | PostProduct |
 | Inserire /entityset(key) | /Products(1) | PutEntityType o Put | PutProduct |
-| PUT /entityset (chiave) / eseguire il cast | /Products(1)/Models.Book | PutEntityType o Put | PutBook |
+| PUT /entityset (chiave) / eseguire il cast | / /Models.Book prodotti (1) | PutEntityType o Put | PutBook |
 | PATCH /entityset(key) | /Products(1) | PatchEntityType o Patch | PatchProduct |
-| PATCH /entityset (chiave) / eseguire il cast | /Products(1)/Models.Book | PatchEntityType o Patch | PatchBook |
+| PATCH /entityset (chiave) / eseguire il cast | / /Models.Book prodotti (1) | PatchEntityType o Patch | PatchBook |
 | ELIMINARE /entityset(key) | /Products(1) | DeleteEntityType o Delete | DeleteProduct |
-| ELIMINARE /entityset (chiave) / eseguire il cast | /Products(1)/Models.Book | DeleteEntityType o Delete | DeleteBook |
+| ELIMINARE /entityset (chiave) / eseguire il cast | / /Models.Book prodotti (1) | DeleteEntityType o Delete | DeleteBook |
 
 **Esecuzione di query su una proprietà di navigazione**
 
@@ -99,25 +100,25 @@ Per ulteriori informazioni, vedere [Working with Entity Relations](odata-v3/work
 | POST /entityset (chiave) / $links/spostamento | / Prodotti (1) / $ collegamenti/fornitore | CreateLink |
 | PUT /entityset (chiave) / $links/spostamento | / Prodotti (1) / $ collegamenti/fornitore | CreateLink |
 | Elimina /entityset (chiave) / $links/spostamento | / Prodotti (1) / $ collegamenti/fornitore | DeleteLink |
-| DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
+| ELIMINARE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$Links/Suppliers(1) | DeleteLink |
 
 Per ulteriori informazioni, vedere [Working with Entity Relations](odata-v3/working-with-entity-relations.md).
 
 **Proprietà**
 
-*Richiede di Web API 2*
+*Richiede Web API 2*
 
 | Richiesta | URI di esempio | Nome dell'azione | Azione di esempio |
 | --- | --- | --- | --- |
 | GET /entityset (chiave) / proprietà | / Prodotti (1) / nome | GetPropertyFromEntityType o GetProperty | GetNameFromProduct |
-| GET /entityset(key)/cast/property | / /Models.Book/Author prodotti (1) | GetPropertyFromEntityType o GetProperty | GetTitleFromBook |
+| OTTENERE/cast o la proprietà /entityset (chiave) | / /Models.Book/Author prodotti (1) | GetPropertyFromEntityType o GetProperty | GetTitleFromBook |
 
-**Azioni**
+**azioni**
 
 | Richiesta | URI di esempio | Nome dell'azione | Azione di esempio |
 | --- | --- | --- | --- |
-| POST /entityset(key)/action | / Prodotti (1) e velocità | ActionNameOnEntityType o ActionName | RateOnProduct |
-| POST /entityset(key)/cast/action | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType o ActionName | CheckOutOnBook |
+| POST /entityset (chiave) / azione | / Prodotti (1) e velocità | ActionNameOnEntityType o ActionName | RateOnProduct |
+| Post-azione/cast//entityset (chiave) | / /Models.Book/CheckOut prodotti (1) | ActionNameOnEntityType o ActionName | CheckOutOnBook |
 
 Per ulteriori informazioni, vedere [le azioni OData](odata-v3/odata-actions.md).
 
@@ -169,7 +170,7 @@ Note:
 
 1. La derivazione da **EntitySetRoutingConvention**, in quanto il **SelectController** è appropriato per questa convenzione di routing nuovo metodo nella classe. Ciò significa che non è necessario implementare nuovamente **SelectController**.
 2. La convenzione si applica solo alle richieste GET, e solo quando il modello di percorso è &quot;~/entityset/key/navigation/key&quot;.
-3. Il nome dell'azione è &quot;ottenere {EntityType}&quot;, dove *{EntityType}* è il tipo della raccolta di navigazione. Ad esempio, &quot;GetSupplier&quot;. È possibile utilizzare qualsiasi convenzione di denominazione che si desidera & #8212; Assicurarsi che le azioni del controller corrispondono.
+3. Il nome dell'azione è &quot;ottenere {EntityType}&quot;, dove *{EntityType}* è il tipo della raccolta di navigazione. Ad esempio, &quot;GetSupplier&quot;. È possibile utilizzare qualsiasi convenzione di denominazione che si desidera che &#8212; è sufficiente Assicurarsi che le azioni controller corrispondono.
 4. L'azione accetta due parametri denominati *chiave* e *relatedKey*. (Per un elenco di alcuni nomi di parametro predefiniti, vedere [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Il passaggio successivo consiste nell'aggiunta la convenzione di nuovo all'elenco di convenzioni di routing. Ciò si verifica durante la configurazione, come illustrato nel codice seguente:

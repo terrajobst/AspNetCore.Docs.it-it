@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036164"
 ---
 <a name="working-with-ssl-in-web-api"></a>Utilizzo di SSL in Web API
 ====================
@@ -62,7 +63,7 @@ Per configurare IIS per accettare i certificati client, aprire Gestione IIS ed e
 3. In **i certificati Client**, selezionare una delle seguenti opzioni: 
 
     - **Accettare**: IIS accetterà un certificato dal client, ma non ne richiede.
-    - **Richiedi**: richiede un certificato client. (Per abilitare questa opzione, è necessario selezionare anche "Richiedi SSL")
+    - **Richiedi**: richiedere un certificato client. (Per abilitare questa opzione, è necessario selezionare anche "Richiedi SSL")
 
 È inoltre possibile impostare queste opzioni nel file ApplicationHost. config:
 

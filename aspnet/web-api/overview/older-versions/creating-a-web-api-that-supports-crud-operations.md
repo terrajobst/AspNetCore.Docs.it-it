@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "29153008"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Abilitazione CRUD Operations in ASP.NET Web API 1
 ====================
@@ -74,7 +75,7 @@ Nota: Il metodo PUT sostituisce l'entità product intero. Ovvero, il client è p
 
 Iniziare eseguendo Visual Studio e selezionare **nuovo progetto** dal **avviare** pagina. O dal **File** dal menu **New** e quindi **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;ProductStore&quot; e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;ProductStore&quot; e fare clic su **OK**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
@@ -125,7 +126,7 @@ Ha familiarità con MVC ASP.NET, quindi si ha già familiarità con i controller
 - HomeController è un controller MVC ASP.NET tradizionale. È responsabile per servire le pagine HTML per il sito e non è correlato direttamente l'API Web.
 - ValuesController è un controller WebAPI di esempio.
 
-Vado Avanti ed eliminare ValuesController, facendo clic sul file in Esplora soluzioni e selezionando **eliminare.** Aggiungere ora un nuovo controller, come segue:
+Vado Avanti ed eliminare ValuesController, facendovi in Esplora soluzioni e selezionando **eliminare.** Aggiungere ora un nuovo controller, come segue:
 
 In **Esplora**, fare clic sulla cartella controller. Selezionare **Aggiungi** e quindi selezionare **Controller**.
 
@@ -165,7 +166,7 @@ Per ottenere l'elenco di tutti i prodotti, aggiungere questo metodo per la `Prod
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-Il nome del metodo inizia con &quot;ottenere&quot;, pertanto per convenzione viene eseguito il mapping alle richieste GET. Inoltre, poiché il metodo non ha parametri, viene eseguito il mapping a un URI che non contiene un  *&quot;id&quot;*  segmento del percorso.
+Il nome del metodo inizia con &quot;ottenere&quot;, pertanto per convenzione viene eseguito il mapping alle richieste GET. Inoltre, poiché il metodo non ha parametri, viene eseguito il mapping a un URI che non contiene un *&quot;id&quot;* segmento del percorso.
 
 Per ottenere un prodotto dall'ID, aggiungere questo metodo per la `ProductsController` classe:
 
@@ -194,8 +195,8 @@ Notare due cose su questo metodo:
 
 Questa implementazione funzionerà, ma non è ancora completo. Idealmente, si sarebbe la risposta HTTP per includere i seguenti:
 
-- **Codice di risposta:** per impostazione predefinita, il framework Web API impostato il codice di stato di risposta 200 (OK). Tuttavia, in base al protocollo HTTP/1.1, quando una richiesta POST comporta la creazione di una risorsa, il server deve rispondere con stato 201 (creato).
-- **Percorso:** quando il server crea una risorsa, nell'intestazione Location della risposta deve includere l'URI della nuova risorsa.
+- **Codice di risposta:** per impostazione predefinita, il framework Web API imposta il codice di stato risposta su 200 (OK). Tuttavia, in base al protocollo HTTP/1.1, quando una richiesta POST comporta la creazione di una risorsa, il server deve rispondere con stato 201 (creato).
+- **Percorso:** quando il server crea una risorsa, deve includere l'URI della nuova risorsa nell'intestazione Location della risposta.
 
 ASP.NET Web API semplifica modificare il messaggio di risposta HTTP. Di seguito è riportata l'implementazione migliorata:
 

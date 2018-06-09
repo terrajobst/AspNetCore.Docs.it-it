@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
 ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30879881"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: le proprietà del progetto
 ====================
@@ -39,7 +40,7 @@ In **Esplora**, fare doppio clic su di **ContosoUniversity** progetto, seleziona
 
 ![Scheda Pubblicazione/creazione pacchetto Web](project-properties/_static/image1.png)
 
-Quando viene visualizzata la finestra, per impostazione predefinita che mostra impostazioni per qualsiasi configurazione di compilazione è attualmente attivo per la soluzione. Se il **configurazione** casella non è segnalato **attiva (rilascio)**selezionare **versione** per visualizzare le impostazioni per la configurazione della build di rilascio. Distribuire le build di rilascio per gli ambienti di test e di produzione.
+Quando viene visualizzata la finestra, per impostazione predefinita che mostra impostazioni per qualsiasi configurazione di compilazione è attualmente attivo per la soluzione. Se il **configurazione** casella non è segnalato **attiva (rilascio)** selezionare **versione** per visualizzare le impostazioni per la configurazione della build di rilascio. Distribuire le build di rilascio per gli ambienti di test e di produzione.
 
 ![Selezione configurazione di compilazione di rilascio](project-properties/_static/image2.png)
 

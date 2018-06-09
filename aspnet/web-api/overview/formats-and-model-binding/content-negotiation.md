@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/content-negotiation
 title: Contenuti di negoziazione in ASP.NET Web API | Documenti Microsoft
 author: MikeWasson
-description: "Descrive la modalità di implementazione negoziazione del contenuto HTTP in ASP.NET Web API."
+description: Descrive la modalità di implementazione negoziazione del contenuto HTTP in ASP.NET Web API.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
 ms.openlocfilehash: ca373af6754e82889dc100b63f73b76aaa4e4f27
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507020"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>Negoziazione del contenuto in ASP.NET Web API
 ====================
@@ -29,7 +30,7 @@ La specifica di HTTP (RFC 2616) definisce negoziazione del contenuto come "il pr
 - **Accettare:** quali tipi di supporto sono accettabili per la risposta, ad esempio "application/json", "application/xml" o un tipo di supporto personalizzata, ad esempio &quot;application/vnd.example+xml&quot;
 - **Charset Accept:** i set di caratteri accettabili, ad esempio UTF-8 o ISO 8859-1.
 - **Codifica:** le codifiche di contenuto sono accettabili, ad esempio gzip.
-- **Accept-Language:** la lingua preferita naturale, ad esempio "en-us".
+- **Accept-Language:** il linguaggio naturale preferito, ad esempio "en-us".
 
 Il server può inoltre esaminare altre parti della richiesta HTTP. Ad esempio, se la richiesta contiene un'intestazione X-Requested-With, che indica una richiesta AJAX, il server potrebbe predefinito per JSON se è presente alcuna intestazione Accept.
 

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
 ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875175"
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatizzare tutti gli elementi (creazione di applicazioni Cloud del mondo reale con Azure)
 ====================

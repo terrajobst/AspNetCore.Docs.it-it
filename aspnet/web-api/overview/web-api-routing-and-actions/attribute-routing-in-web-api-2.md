@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 title: Attributo di Routing in ASP.NET Web API 2 | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038049"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Attributo di Routing in ASP.NET Web API 2
 ====================
@@ -61,7 +62,7 @@ In questo esempio, "/ v1/api/prodotti" sarà indirizzato a un controller diverso
 `/api/v1/products`  
 `/api/v2/products`
 
-**Segmenti URI overload**
+**Overload segmenti URI**
 
 In questo esempio, "1" è un numero di ordine, ma "pending" esegue il mapping a una raccolta.
 
@@ -180,13 +181,13 @@ Nella tabella seguente vengono elencati i vincoli che sono supportati.
 
 | Vincolo | Descrizione | Esempio |
 | --- | --- | --- |
-| alpha | Corrispondenze lettere maiuscole o minuscole dell'alfabeto latino caratteri (a-z, A-Z) | {x:alpha} |
+| Alfa | Corrispondenze lettere maiuscole o minuscole dell'alfabeto latino caratteri (a-z, A-Z) | {x:alpha} |
 | bool | Corrisponde a un valore booleano. | {x:bool} |
 | datetime | Corrispondenze un **DateTime** valore. | {x:datetime} |
 | decimal | Corrisponde a un valore decimale. | {x:decimal} |
 | double | Corrisponde a un valore a virgola mobile a 64 bit. | {x:double} |
-| float | Corrisponde a un valore a virgola mobile a 32 bit. | {x:float} |
-| guid | Corrisponde a un valore GUID. | {x:guid} |
+| float | Corrisponde a un valore a virgola mobile a 32 bit. | {x: float} |
+| guid | Corrisponde a un valore GUID. | {x: guid} |
 | int | Corrisponde a un valore integer a 32 bit. | {x:int} |
 | length | Corrisponde a una stringa con la lunghezza specificata o in un determinato intervallo di lunghezza. | {x: length(6)} {x: length(1,20)} |
 | long | Corrisponde a un valore integer a 64 bit. | {x:long} |
@@ -195,7 +196,7 @@ Nella tabella seguente vengono elencati i vincoli che sono supportati.
 | min | Consente di ricercare un numero intero con un valore minimo. | {x:min(10)} |
 | minLength | Corrisponde a una stringa con una lunghezza minima. | {x: minlength(10)} |
 | range | Consente di ricercare un numero intero in un intervallo di valori. | {x:range(10,50)} |
-| regex | Corrisponde a un'espressione regolare. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| regex | Corrisponde a un'espressione regolare. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Si noti che alcuni dei vincoli, ad esempio &quot;min&quot;, accettano argomenti tra parentesi. È possibile applicare più vincoli a un parametro, separato da due punti.
 
@@ -270,9 +271,9 @@ Di seguito è riportato un esempio. Si supponga di che definisce il seguente con
 Queste route vengono ordinate nel modo seguente.
 
 1. orders/details
-2. orders/{id}
+2. gli ordini / {id}
 3. orders/{customerName}
-4. orders/{\*date}
-5. orders/pending
+4. gli ordini / {\*Data}
+5. gli ordini / in sospeso
 
 Si noti che "Dettagli" sono un valore letterale segmento e viene visualizzato prima di "{id}", ma "in sospeso" viene visualizzato ultima perché il **RouteOrder** proprietà è 1. (In questo esempio presuppone che vi sono Nessun cliente denominato "Dettagli" o "in sospeso". In generale, tentare di evitare cicli ambigui. In questo esempio, un modello di route migliore per `GetByCustomer` è "clienti / {NomeCliente}")

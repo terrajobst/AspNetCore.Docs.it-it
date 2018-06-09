@@ -13,26 +13,27 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507260"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Lab pratico: Compilare un'applicazione a pagina singola (SPA) con ASP.NET Web API e Angular.js
 ====================
-da [categorie Web Team](https://twitter.com/webcamps)
+Da [categorie Web Team](https://twitter.com/webcamps)
 
 [Download Web categorie Kit di formazione](http://aka.ms/webcamps-training-kit)
 
 > Nelle applicazioni web tradizionali, il client (browser) avvia la comunicazione con il server richiedendo una pagina. Quindi, il server elabora la richiesta e invia al client il codice HTML della pagina. Nelle successive interazioni con la pagina, ad esempio, l'utente passa a un collegamento o invia un modulo con i dati: una nuova richiesta viene inviata al server e il flusso viene riavviata: il server elabora la richiesta e invia una nuova pagina nel browser in risposta a una nuova richiesta di azione ed dal client.
 > 
-> Nelle applicazioni a pagina singola (stabilimenti termali) la pagina intera viene caricata nel browser dopo la richiesta iniziale, ma le interazioni successive vengono eseguite utilizzando le richieste Ajax. Ciò significa che il browser ha per aggiornare solo la parte della pagina che è stato modificato. non è necessario ricaricare la pagina intera. L'approccio SPA riduce il tempo impiegato dall'applicazione per rispondere alle azioni utente, risultante in un'esperienza più semplice.
+> Nelle applicazioni a pagina singola (SPAs) la pagina intera viene caricata nel browser dopo la richiesta iniziale, ma le interazioni successive eseguite tramite le richieste Ajax. Ciò significa che il browser ha per aggiornare solo la parte della pagina che è stato modificato. non è necessario ricaricare la pagina intera. L'approccio SPA riduce il tempo impiegato dall'applicazione per rispondere alle azioni utente, risultante in un'esperienza più semplice.
 > 
-> L'architettura di un SPA implica alcuni problemi che non sono presenti nelle applicazioni web tradizionali. Tuttavia, le ultimissime tecnologie quali ASP.NET Web API, JavaScript Framework come AngularJS e nuove funzionalità di applicazione di stili fornite da CSS3 rendono molto semplice progettare e compilare stabilimenti termali.
+> L'architettura di un SPA implica alcuni problemi che non sono presenti nelle applicazioni web tradizionali. Tuttavia, le ultimissime tecnologie quali ASP.NET Web API, JavaScript Framework come AngularJS e nuove funzionalità di applicazione di stili fornite da CSS3 rendono molto semplice progettare e compilare SPAs.
 > 
 > In questo laboratorio mano-on, si sarà possibile avvalersi di tali tecnologie per implementare appassionato Quiz, un sito Web gli elementi semplici in base al concetto SPA. Innanzitutto verrà implementato il livello di servizio con l'API Web ASP.NET per esporre gli endpoint necessari per recuperare le domande del quiz e archiviare le risposte. Si compilerà quindi un'interfaccia avanzata e reattiva utente usando AngularJS e CSS3 effetti di trasformazione.
 > 
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Panoramica
@@ -125,22 +126,22 @@ In questa attività si inizierà creando un nuovo progetto MVC ASP.NET con suppo
     *Aggiunta di un elemento esistente*
 5. Nel **Aggiungi elemento esistente** finestra di dialogo passare al **/modelli di attività diorigine/** cartella e selezionare tutti i file. Fare clic su **Aggiungi**.
 
-    ![Aggiunta di risorse modello](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "aggiungendo gli asset di modello")
+    ![Aggiunta di asset di modello](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "aggiungendo gli asset di modello")
 
-    *Aggiunta di risorse modello*
+    *Aggiunta di asset di modello*
 
     > [!NOTE]
     > Aggiungendo questi file, si aggiunge il modello di dati, il contesto di database di Entity Framework e l'inizializzatore del database per l'applicazione appassionato Quiz.
     > 
-    > **Entity Framework (EF)** è un mapping relazionale a oggetti (ORM) che consente di creare applicazioni di accesso ai dati tramite programmazione con un modello di applicazione concettuale anziché programmando direttamente con uno schema di archiviazione relazionale. Maggiori informazioni su Entity Framework [qui](../../../entity-framework.md).
+    > **Entity Framework (EF)** è un mapping relazionale a oggetti (ORM) che consente di creare applicazioni di accesso ai dati eseguendo la programmazione con un modello di applicazione concettuale anziché programmando direttamente con uno schema di archiviazione relazionale. Maggiori informazioni su Entity Framework [qui](../../../entity-framework.md).
     > 
     > Di seguito è una descrizione delle classi che appena aggiunto:
     > 
     > - **TriviaOption:** rappresenta una singola opzione associata a una domanda quiz
-    > - **TriviaQuestion:** rappresenta una domanda quiz ed espone le relative opzioni tramite il **opzioni** proprietà
+    > - **TriviaQuestion:** rappresenta una domanda quiz ed espone opzioni associate tramite il **opzioni** proprietà
     > - **TriviaAnswer:** rappresenta l'opzione selezionata dall'utente in risposta a una domanda quiz
     > - **TriviaContext:** rappresenta il contesto di database di Entity Framework dell'applicazione appassionato Quiz. Questa classe deriva da **DContext** ed espone **DbSet** le proprietà che rappresentano raccolte di entità descritta in precedenza.
-    > - **TriviaDatabaseInitializer:** l'implementazione dell'inizializzatore di Entity Framework per la **TriviaContext** classe che eredita da **CreateDatabaseIfNotExists**. Il comportamento predefinito di questa classe per creare il database solo se non esiste, l'inserimento di entità specificato nella **valore di inizializzazione** metodo.
+    > - **TriviaDatabaseInitializer:** l'implementazione dell'inizializzatore di Entity Framework per il **TriviaContext** classe che eredita da **CreateDatabaseIfNotExists**. Il comportamento predefinito di questa classe per creare il database solo se non esiste, l'inserimento di entità specificato nella **valore di inizializzazione** metodo.
 6. Aprire il **Global.asax.cs** file e aggiungere la seguente istruzione using.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample1.cs)]
@@ -168,7 +169,7 @@ In questa attività si inizierà creando un nuovo progetto MVC ASP.NET con suppo
 
 Nell'attività precedente, la creazione della struttura iniziale dell'applicazione web appassionato Quiz. Ora è necessario compilare un semplice servizio API Web che interagisce con il modello di dati quiz ed espone le seguenti azioni:
 
-- **GET/api/gli elementi semplici**: recupera la prossima domanda dall'elenco quiz la risposta da parte dell'utente autenticato.
+- **Gli elementi GET/api/semplici**: recupera la prossima domanda dall'elenco quiz la risposta da parte dell'utente autenticato.
 - **POST/api/gli elementi semplici**: archivia la risposta quiz specificata dall'utente autenticato.
 
 Utilizzare gli strumenti di ASP.NET Scaffolding forniti da Visual Studio per creare la linea di base per la classe controller API Web.
@@ -190,7 +191,7 @@ Utilizzare gli strumenti di ASP.NET Scaffolding forniti da Visual Studio per cre
     *Creazione di un nuovo elemento di scaffolding*
 5. Nel **aggiungere lo scaffolding** finestra di dialogo, assicurarsi che il **comuni** nodo viene selezionato nel riquadro a sinistra. Selezionare quindi il **Web API 2 Controller - vuoto** modello nel riquadro centrale e fare clic su **Aggiungi**.
 
-    ![Selezionare il modello vuoto di Controller Web API 2](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "selezionando il modello vuoto di Controller Web API 2")
+    ![Selezionare il modello Web API 2 Controller vuoto](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "selezionando il modello vuoto di Controller Web API 2")
 
     *Selezionare il modello vuoto di Controller Web API 2*
 
@@ -261,7 +262,7 @@ In questa attività si verificherà che il servizio Web API che incluso nell'att
     *Esecuzione della soluzione*
 2. Fare clic su **registrare** per creare un nuovo utente.
 
-    ![Registrazione di un nuovo utente](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "la registrazione di un nuovo utente")
+    ![La registrazione di un nuovo utente](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "la registrazione di un nuovo utente")
 
     *Registrazione di un nuovo utente*
 3. Nel **registrare** pagina, immettere un **nome utente** e **Password**, quindi fare clic su **registrare**.
@@ -271,27 +272,27 @@ In questa attività si verificherà che il servizio Web API che incluso nell'att
     *Pagina di registrazione*
 4. L'applicazione Registra nuovo account e l'utente è autenticato e reindirizzato alla home page.
 
-    ![Autenticazione dell'utente](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "utente autenticato")
+    ![Utente autenticato](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "utente autenticato")
 
     *Autenticazione dell'utente*
 5. Nel browser, premere **F12** per aprire la **gli strumenti di sviluppo** pannello. Premere **CTRL + 4** oppure fare clic su di **rete** icona e quindi fare clic su pulsante freccia verde per avviare l'acquisizione del traffico di rete.
 
-    ![Avvio di acquisizione di rete di API Web](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "acquisizione di rete di avvio di Web API")
+    ![Avvio di acquisizione di rete di Web API](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "acquisizione di rete di avvio di Web API")
 
     *Avvio di acquisizione di rete di API Web*
 6. Aggiungere **api o gli elementi semplici** per l'URL nella barra degli indirizzi del browser. È ora esamina i dettagli della risposta di **ottenere** metodo di azione **TriviaController**.
 
-    ![Il recupero dei dati di domanda successivi tramite l'API Web](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "il recupero dei dati di domanda successivi tramite l'API Web")
+    ![Recupero dei dati domanda successivi tramite l'API Web](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "recupero dei dati domanda successivi tramite l'API Web")
 
-    *Il recupero dei dati di domanda successivi tramite l'API Web*
+    *Recupero dei dati domanda successivi tramite l'API Web*
 
     > [!NOTE]
     > Una volta completato il download, verrà richiesto di effettuare un'azione con il file scaricato. Lasciare la finestra di dialogo aperta per poter visualizzare il contenuto della risposta tramite la finestra degli strumenti sviluppatori.
 7. Ora si esamina il corpo della risposta. A tale scopo, fare clic su di **dettagli** scheda e quindi fare clic su **corpo della risposta**. È possibile verificare che i dati scaricati sono un oggetto con le proprietà **opzioni** (ovvero un elenco di **TriviaOption** oggetti), **id** e **titolo** che corrispondono al **TriviaQuestion** classe.
 
-    ![Visualizzare il corpo della risposta di API Web](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "visualizzando il corpo della risposta di API Web")
+    ![Visualizzare il corpo della risposta di API Web](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "visualizzazione il corpo della risposta di API Web")
 
-    *Corpo della risposta di API Web visualizzazione*
+    *Corpo della risposta di API di visualizzazione Web*
 8. Tornare a Visual Studio e premere **MAIUSC + F5** per arrestare il debug.
 
 <a id="Exercise2"></a>
@@ -302,12 +303,12 @@ In questo esercizio verranno compilate parte web front-end del Quiz appassionato
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-the-spa-interface-using-angularjs"></a>Attività 1: creazione dell'interfaccia SPA con AngularJS
 
-In questa attività si utilizzerà **AngularJS** per implementare il lato client dell'applicazione appassionato Quiz. **AngularJS** è un framework JavaScript open source che aumenta le applicazioni basate su browser con *Model-View-Controller* funzionalità (MVC), semplificando sia lo sviluppo e test.
+In questa attività si utilizzerà **AngularJS** per implementare il lato client dell'applicazione appassionato Quiz. **AngularJS** è un framework JavaScript open source che aumenta le applicazioni basate su browser con *Model-View-Controller* funzionalità (MVC), agevolando sia lo sviluppo e test.
 
 Si inizierà installando AngularJS dalla Console di gestione pacchetti di Visual Studio. Quindi, si creerà il controller per fornire il comportamento dell'app appassionato Quiz e la visualizzazione per il rendering il quiz domande frequenti utilizzando il motore del modello di AngularJS.
 
 > [!NOTE]
-> Per ulteriori informazioni su AngularJS, vedere [ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/).
+> Per ulteriori informazioni su AngularJS, consultare [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
 
 
 1. Aprire **Visual Studio Express 2013 per Web** e aprire il **GeekQuiz.sln** soluzione si trova nel **origine/Ex2-CreatingASPAInterface/inizio** cartella. In alternativa, è possibile continuare con la soluzione ottenuta nell'esercizio precedente.
@@ -384,14 +385,14 @@ In questa attività verrà eseguita la soluzione utilizzando il nuovo utente int
     > Se si utilizza la soluzione nell'esercizio precedente, è possibile accedere con l'account utente che è stato creato prima.
 3. Il **Home** verrà visualizzata la pagina, che mostra la prima domanda del quiz. Rispondere alla domanda facendo clic su una delle opzioni. In questo modo verrà attivata la **sendAnswer** funzione definita in precedenza, che invia l'opzione selezionata per il **gli elementi semplici** API Web.
 
-    ![Per rispondere a una domanda](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "rispondere")
+    ![Rispondendo a una domanda](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "rispondere")
 
-    *Per rispondere a una domanda*
+    *Rispondendo a una domanda*
 4. Dopo aver fatto clic su uno dei pulsanti, la risposta dovrebbe essere visualizzato. Fare clic su **domanda successiva** per visualizzare i seguenti aspetti. In questo modo verrà attivata la **nextQuestion** funzione definite nel controller.
 
-    ![La richiesta di domanda successiva](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "richiesta domanda successiva")
+    ![Richiesta di domanda successiva](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "che richiede la domanda successiva")
 
-    *La richiesta di domanda successiva*
+    *Richiesta di domanda successiva*
 5. Domanda successiva dovrebbe essere visualizzato. Continuare a rispondere alle domande più volte. Dopo aver completato tutte le domande è necessario restituire alla prima domanda.
 
     ![Un'altra domanda](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image21.png "un'altra domanda")
@@ -406,14 +407,14 @@ In questa attività si utilizzerà CSS3 proprietà per eseguire le animazioni RT
 
 1. In **Esplora**, fare doppio clic su di **contenuto** cartella del **GeekQuiz** del progetto e selezionare **Aggiungi | Elemento esistente...** .
 
-    ![Aggiunta di un elemento esistente nella cartella dati](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "aggiunta di un elemento esistente per la cartella del contenuto")
+    ![Aggiunta di un elemento esistente per la cartella del contenuto](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "aggiunta di un elemento esistente per la cartella del contenuto")
 
     *Aggiunta di un elemento esistente per la cartella del contenuto*
 2. Nel **Aggiungi elemento esistente** finestra di dialogo passare al **origine/asset** cartella e selezionare **Flip.css**. Fare clic su **Aggiungi**.
 
-    ![Aggiunta del file Flip.css da asset](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "aggiunta del file Flip.css da Asset")
+    ![Aggiunta del file Flip.css da asset](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "aggiunta del file Flip.css uno degli asset")
 
-    *Aggiunta del file Flip.css da Asset*
+    *Aggiunta del file Flip.css uno degli asset*
 3. Aprire il **Flip.css** file è stato aggiunto ed esaminare il relativo contenuto.
 4. Individuare il **capovolgere trasformazione** commento. Foglio di stile CSS di utilizzare gli stili di sotto di tale commento **prospettiva** e **rotateY** trasformazioni per generare un &quot;scheda capovolto&quot; effetto.
 
@@ -427,12 +428,12 @@ In questa attività si utilizzerà CSS3 proprietà per eseguire le animazioni RT
 7. Premere **F5** per eseguire la soluzione e accedere con le credenziali.
 8. Rispondere a una domanda facendo clic su una delle opzioni. Si noti l'effetto scorrimento durante la transizione tra le visualizzazioni.
 
-    ![Per rispondere a una domanda con l'effetto scorrimento](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "rispondere con l'effetto di scorrimento")
+    ![Rispondendo a una domanda con l'effetto di scorrimento](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "rispondere con l'effetto di scorrimento")
 
-    *Per rispondere a una domanda con l'effetto di scorrimento*
+    *Rispondendo a una domanda con l'effetto di scorrimento*
 9. Fare clic su **domanda successiva** per recuperare la domanda seguente. L'effetto scorrimento dovrebbe essere visualizzato nuovamente.
 
-    ![Il recupero alla domanda seguente con l'effetto scorrimento](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "recupero alla domanda seguente con l'effetto di scorrimento")
+    ![Il recupero alla domanda seguente con l'effetto di scorrimento](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "recupero alla domanda seguente con l'effetto di scorrimento")
 
     *Il recupero alla domanda seguente con l'effetto di scorrimento*
 

@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 title: Creazione di pagine della Guida per ASP.NET Web API | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037903"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Creazione di pagine della Guida per ASP.NET Web API
 ====================
@@ -60,9 +61,9 @@ Ogni API dispone di un collegamento a una pagina con informazioni più dettaglia
 
 Dal **strumenti** dal menu **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**. Nel [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) finestra, digitare uno dei seguenti comandi:
 
-Per un **c#** applicazione:`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+Per un **c#** applicazione: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-Per un **Visual Basic** applicazione:`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+Per un **Visual Basic** applicazione: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 Esistono due pacchetti, uno per c# e uno per Visual Basic. Assicurarsi di usare quello che corrisponde al progetto.
 
@@ -118,15 +119,15 @@ Per nascondere un'API del **ApiExplorer**, aggiungere il **ApiExplorerSettings**
 
 È anche possibile aggiungere questo attributo nel controller, escludere il controller di intero.
 
-La classe ApiExplorer Ottiene le stringhe di documentazione dal **IDocumentationProvider** interfaccia. Come illustrato in precedenza, la libreria di pagine della Guida fornisce un **IDocumentationProvider** che ottiene documentazione da stringhe di documentazione XML. Il codice si trova in /Areas/HelpPage/XmlDocumentationProvider.cs. È possibile ottenere la documentazione di un'altra origine scrivendo proprio **IDocumentationProvider**. Per associare il, chiamare il **SetDocumentationProvider** metodo di estensione, definito **HelpPageConfigurationExtensions**
+La classe ApiExplorer Ottiene le stringhe di documentazione dal **IDocumentationProvider** interfaccia. Come illustrato in precedenza, la libreria di pagine della Guida fornisce un **IDocumentationProvider** che ottiene documentazione da stringhe di documentazione XML. Il codice si trova in /Areas/HelpPage/XmlDocumentationProvider.cs. È possibile ottenere la documentazione di un'altra origine scrivendo proprio **IDocumentationProvider**. Per associare lo, chiamare il **SetDocumentationProvider** metodo di estensione, definito **HelpPageConfigurationExtensions**
 
-**ApiExplorer** chiama automaticamente il **IDocumentationProvider** interfaccia da ottenere stringhe della documentazione per ogni API. Li archivia nel **documentazione** proprietà del **ApiDescription** e **ApiParameterDescription** oggetti.
+**ApiExplorer** automaticamente richiamano il **IDocumentationProvider** interfaccia da ottenere stringhe della documentazione per ogni API. Li archivia nel **documentazione** proprietà del **ApiDescription** e **ApiParameterDescription** oggetti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Non è per le pagine della guida indicate di seguito. In effetti, **ApiExplorer** non è limitata alla creazione di pagine della Guida. Yao Huang Lin ha scritto che alcuni grande post di blog per iniziare a pensare all'esterno della casella:
 
-- [Aggiunta di un semplice Client di Test a una pagina della Guida di ASP.NET Web API](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
-- [Funzionamento nei servizi self-hosted di pagina della Guida di ASP.NET Web API](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
-- [Generazione in fase di progettazione di Guida pagina (o client) per l'API Web ASP.NET](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
-- [Personalizzazioni avanzate di pagina della Guida](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)
+- [Aggiunta di un semplice Client di Test alla pagina della Guida di ASP.NET Web API](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
+- [Rendendo pagina della Guida ASP.NET Web API lavorando servizi self-hosted](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
+- [Fase di generazione della Guida pagina (o client) per ASP.NET Web API](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
+- [Personalizzazioni avanzate della pagina della Guida](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)

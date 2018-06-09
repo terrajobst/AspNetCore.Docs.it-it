@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 title: Azioni e funzioni in OData v4 tramite ASP.NET Web API 2.2 | Documenti Microsoft
 author: MikeWasson
-description: "In OData, funzioni e le azioni sono un modo per aggiungere comportamenti sul lato server che non possono essere definiti facilmente come operazioni CRUD su entità. In questa esercitazione viene illustrato come..."
+description: In OData, funzioni e le azioni sono un modo per aggiungere comportamenti sul lato server che non possono essere definiti facilmente come operazioni CRUD su entità. In questa esercitazione viene illustrato come...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
 ms.openlocfilehash: 532362f0c0faaaf0cb0c04726856f0497e5261b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508230"
 ---
 <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Azioni e funzioni in OData v4 tramite ASP.NET Web API 2.2
 ====================
@@ -54,7 +55,7 @@ Un'azione (o una funzione) può far riferimento una singola entità o una raccol
 È pertanto possibile definire un'azione per valutare un prodotto.
 
 > [!NOTE]
-> In questa esercitazione si basa sull'esercitazione [creare un OData v4 Endpoint Using ASP.NET Web API 2](create-an-odata-v4-endpoint.md)
+> Questa esercitazione si basa sull'esercitazione [creare un OData v4 Endpoint Using ASP.NET Web API 2](create-an-odata-v4-endpoint.md)
 
 
 Aggiungere innanzitutto un `ProductRating` modello per rappresentare le classificazioni.

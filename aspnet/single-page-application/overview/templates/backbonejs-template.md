@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506680"
 ---
 <a name="backbone-template"></a>Modello backbone
 ====================
@@ -27,7 +28,7 @@ da [Mads Kristensen](https://github.com/madskristensen)
 > [Scaricare il modello SPA Backbone.js](https://go.microsoft.com/fwlink/?LinkId=293631)
 
 
-Il modello di SPA Backbone.js è progettato per iniziare a creare rapidamente applicazioni web sul lato client interattivo utilizzando [Backbone.js.](http://backbonejs.org/)
+È progettato per iniziare a creare rapidamente le app web interattive sul lato client usando il modello di SPA Backbone.js [Backbone.js.](http://backbonejs.org/)
 
 Il modello fornisce uno scheletro iniziale per lo sviluppo di un'applicazione Backbone.js in ASP.NET MVC. Fornisce funzionalità di accesso utente di base, tra cui la reimpostazione della password di iscrizione, accedi, utente e la conferma dell'utente con i modelli di posta elettronica di base predefinita.
 
@@ -39,7 +40,7 @@ Requisiti:
 
 Scaricare e installare il modello fare clic sul pulsante Download. Il modello viene fornito come un file di Visual Studio Extension (VSIX). Si potrebbe essere necessario riavviare Visual Studio.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
 
 ![](backbonejs-template/_static/image1.png)
 
@@ -61,7 +62,7 @@ Si inizia con il lato client. Gli script dell'applicazione client si trovano nel
 
 **Applicazione**
 
-`Application`è definito in application.ts. Questo oggetto consente di inizializzare l'applicazione e opera come spazio dei nomi radice. Gestisce le informazioni di configurazione e dello stato condiviso tra l'applicazione, ad esempio se l'utente è connesso.
+`Application` è definito in application.ts. Questo oggetto consente di inizializzare l'applicazione e opera come spazio dei nomi radice. Gestisce le informazioni di configurazione e dello stato condiviso tra l'applicazione, ad esempio se l'utente è connesso.
 
 Il `application.start` metodo crea le visualizzazioni modali e i gestori eventi per gli eventi a livello di applicazione, ad esempio account utente. Successivamente, il router predefinito crea e controlla se è stato specificato alcun URL sul lato client. Se non viene reindirizzato all'url predefinito (#! /).
 

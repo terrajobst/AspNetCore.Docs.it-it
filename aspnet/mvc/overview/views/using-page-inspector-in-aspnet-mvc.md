@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034516"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Utilizzo di Controllo pagina in ASP.NET MVC
 ====================
@@ -36,7 +37,7 @@ da Tim Ammann
 > - [Abilitare la modalità di controllo](#_4_inspection_mode)
 > - [Utilizza controllo pagina per apportare modifiche al Markup](#_5_using_page)
 > - [Modalità di ispezione e la finestra di HTML](#_6_inspection_mode)
-> - [Anteprima modifiche CSS nella finestra stili](#_7_previewing_css)
+> - [Anteprima modifiche CSS nella finestra di stili](#_7_previewing_css)
 > - [Sincronizzazione automatica CSS](#css_auto_sync)
 > - [Mediante il selettore del colore CSS](#css_color_picker)
 > - [Mapping di elementi della pagina dinamica per JavaScript](#map_dynamic_elements)
@@ -46,7 +47,7 @@ da Tim Ammann
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) o [Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) oppure [Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Per ottenere la versione più recente di controllo pagina, utilizzare [installazione guidata piattaforma Web](https://go.microsoft.com/fwlink/?LinkId=255386) per installare Windows Azure SDK per .NET 2.0.
@@ -271,7 +272,7 @@ Se si fa clic su un elemento nello stack di chiamate, Visual Studio apre il file
 
 ## <a name="see-also"></a>Vedere anche
 
-[Introduzione ad ASP.NET MVC 4 con Visual Studio](../older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md) (sito Web ASP.net)
+[Introduzione a ASP.NET MVC 4 con Visual Studio](../older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md) (sito Web ASP.net)
 
 [Introduzione a controllo pagina](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector/) (video di Channel 9)
 

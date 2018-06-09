@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875734"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Usare controller e visualizzazioni per implementare un'interfaccia utente/dettagli
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-[Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[Scaricare PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > Si tratta di passaggio 4 di una liberazione [esercitazione applicazione "NerdDinner"](introducing-the-nerddinner-tutorial.md) che si interromperanno-through come compilare un piccolo, ma completa, un'applicazione web con ASP.NET MVC 1.
 > 
@@ -62,7 +63,7 @@ Verrà inoltre aperta la nuova classe DinnersController all'interno dell'editor 
 | **URL** | **Scopo** |
 | --- | --- |
 | */Dinners/* | Visualizzare un elenco HTML di dinners future |
-| */Dinners/Details/[id]* | Visualizzare informazioni dettagliate su una cena specifica indicato da un parametro "id" incorporato all'interno dell'URL, che consente la corrispondenza DinnerID di dinner nel database. Ad esempio: /Dinners/Details/2 Visualizza una pagina HTML con le informazioni di Dinner il cui valore DinnerID è 2. |
+| */Dinners/dettagli / [id]* | Visualizzare informazioni dettagliate su una cena specifica indicato da un parametro "id" incorporato all'interno dell'URL, che consente la corrispondenza DinnerID di dinner nel database. Ad esempio: /Dinners/Details/2 Visualizza una pagina HTML con le informazioni di Dinner il cui valore DinnerID è 2. |
 
 Le implementazioni iniziale di questi URL verranno pubblicate aggiungendo due pubblico "metodi di azione" per la classe DinnersController come di seguito:
 
@@ -97,9 +98,9 @@ Di seguito è una tabella in cui viene illustrato come un'ampia gamma di URL ven
 | **URL** | **Classe controller** | **Metodo di azione** | **Parametri passati** |
 | --- | --- | --- | --- |
 | */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
-| */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
+| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
 | */Dinners/Create* | DinnersController | Metodo di creazione | N/D |
-| */Dinners* | DinnersController | Index) | N/D |
+| */ Dinners* | DinnersController | Index) | N/D |
 | */Home* | HomeController | Index) | N/D |
 | */* | HomeController | Index) | N/D |
 

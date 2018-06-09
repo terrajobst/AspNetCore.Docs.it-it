@@ -2,25 +2,26 @@
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
 title: Creazione di progetti Web ASP.NET in Visual Studio 2013 | Documenti Microsoft
 author: tdykstra
-description: "In questo argomento illustra le opzioni per la creazione di progetti web ASP.NET in Visual Studio 2013 con Update 3 seguito sono riportate alcune delle nuove funzionalità per c di sviluppo web..."
+description: In questo argomento illustra le opzioni per la creazione di progetti web ASP.NET in Visual Studio 2013 con Update 3 seguito sono riportate alcune delle nuove funzionalità per c di sviluppo web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038865"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>La creazione di progetti Web ASP.NET in Visual Studio 2013
 ====================
-Da [Tom Dykstra](https://github.com/tdykstra)
+da [Tom Dykstra](https://github.com/tdykstra)
 
 > In questo argomento vengono descritte le opzioni per la creazione di progetti web ASP.NET in Visual Studio 2013 con Update 3
 > 
@@ -67,7 +68,7 @@ La procedura seguente viene illustrato come creare un progetto web:
 6. Se si desidera aggiungere il supporto per Framework aggiuntive non incluse nel modello, fare clic sulla casella di controllo appropriata. (Nell'esempio illustrato, è possibile aggiungere MVC e/o API Web a un progetto di Web Form.)
 
     ![Aggiungere Framework](creating-web-projects-in-visual-studio/_static/image4.png)
-7. <a id="testproj"></a>Se si desidera aggiungere un progetto di unit test, fare clic su **aggiungere unit test**.
+7. <a id="testproj"></a>Se si desidera aggiungere un progetto di unit test, fare clic su **aggiungere gli unit test**.
 
     ![Aggiungere gli unit test](creating-web-projects-in-visual-studio/_static/image5.png)
 8. Se si desidera un metodo di autenticazione diverso da quello fornite dal modello per impostazione predefinita, fare clic su **Modifica autenticazione**.
@@ -108,7 +109,7 @@ Visual Studio utilizza modelli per creare progetti web. Un modello di progetto p
 Visual Studio 2013 offre le seguenti opzioni per i modelli di progetto web per i progetti destinati a .NET 4.5 o versioni successive di .NET framework:
 
 - [Modello vuoto](#empty)
-- [Modello di Web Form](#wf)
+- [Modello Web Form](#wf)
 - [Modello MVC](#mvc)
 - [Modello API Web](#webapi)
 - [Modello di applicazione a pagina singola](#spa)
@@ -198,7 +199,7 @@ Per ulteriori informazioni sulle applicazioni a pagina singola ASP.NET e sui mod
 
 - [ASP.NET singola pagina applicazione](../../../single-page-application/index.md).
 - [Informazioni sulle funzionalità di sicurezza nel modello di SPA per VS2013 RC](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
-- [Applicazioni a pagina singola: Compilazione di applicazioni Web moderne e reattive con ASP.NET](https://msdn.microsoft.com/magazine/dn463786.aspx)
+- [Applicazioni a pagina singola: Compilare App Web moderno e reattive con ASP.NET](https://msdn.microsoft.com/magazine/dn463786.aspx)
 
 <a id="facebook"></a>
 ### <a name="facebook-template"></a>Modello Facebook
@@ -222,7 +223,7 @@ Il **Visual Studio 2012** consente di nodo, scegliere i modelli web seguenti non
 - Applicazione Web entità ASP.NET Dynamic Data
 - Controllo Server AJAX ASP.NET
 - Estensione di controllo Server AJAX ASP.NET
-- ASP.NET Server Control
+- Controllo Server ASP.NET
 
 <a id="bootstrap"></a>
 ## <a name="bootstrap-in-the-visual-studio-2013-web-project-templates"></a>Bootstrap nei modelli di progetto web di Visual Studio 2013
@@ -243,7 +244,7 @@ Limitare un po' più la finestra e menu in alto orizzontale si trasforma in un'i
 
 Inoltre, è possibile utilizzare funzionalità dei temi del Bootstrap facilmente attuare una modifica nell'aspetto dell'applicazione. Ad esempio, è possibile eseguire i passaggi seguenti per modificare il tema.
 
-1. Nel browser, passare a [http://Bootswatch.com](http://Bootswatch.com), scegliere un tema e quindi fare clic su **scaricare**. (In questo modo verranno *bootstrap.min.css* per impostazione predefinita; se si desidera esaminare il codice CSS, ottenere *bootstrap.css* anziché la versione minimizzata.)
+1. Nel browser, passare a [ http://Bootswatch.com ](http://Bootswatch.com), scegliere un tema e quindi fare clic su **scaricare**. (In questo modo verranno *bootstrap.min.css* per impostazione predefinita; se si desidera esaminare il codice CSS, ottenere *bootstrap.css* anziché la versione minimizzata.)
 2. Copiare il contenuto del file CSS scaricato.
 3. In Visual Studio, creare un nuovo **foglio di stile** file denominato *bootstrap theme.css* nel *contenuto* cartella e Incolla il codice scaricato CSS codice al suo interno.
 4. Aprire *App\_Start/Bundle.config* e modificare *bootstrap.css* a *bootstrap theme.css*.
@@ -293,7 +294,7 @@ Installa i pacchetti WebApi e NuGet newtonsoft. JSON, Crea vuoto *App\_dati*, *c
 Visual Studio 2013 offre diverse opzioni di autenticazione per i modelli Web Form, MVC e Web API:
 
 - [Nessuna autenticazione](#noauth)
-- [Account utente](#indauth) (ASP.NET Identity, precedentemente noto come sistema di appartenenze ASP.NET)
+- [Singoli account utente di](#indauth) (ASP.NET Identity, precedentemente noto come sistema di appartenenze ASP.NET)
 - [Gli account aziendali](#orgauth) (Windows Server Active Directory o Azure Active Directory)
 - [L'autenticazione di Windows](#winauth) (Intranet)
 
@@ -322,8 +323,8 @@ Identità di ASP.NET è una buona scelta se si sta creando un sito web di Intern
 Per ulteriori informazioni sull'opzione di account utente, vedere le risorse seguenti:
 
 - [www.asp.net/identity](../../../identity/index.md). Documentazione su ASP.NET Identity nel sito web ASP.NET.
-- [Creare un'applicazione ASP.NET MVC 5 con Facebook, Google OAuth2 e OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Viene illustrato come personalizzare i dati del profilo utente.
-- [Web API, servizi di autenticazione esterni](../../../web-api/overview/security/external-authentication-services.md)
+- [Creare un'applicazione MVC ASP.NET 5 con Facebook, Google OAuth2 e OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Viene illustrato come personalizzare i dati del profilo utente.
+- [Web API - servizi di autenticazione esterni](../../../web-api/overview/security/external-authentication-services.md)
 - [Aggiunta di account di accesso esterni all'applicazione ASP.NET in Visual Studio 2013](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
 
 <a id="orgauth"></a>
@@ -344,15 +345,15 @@ In alternativa, è possibile creare un sito Intranet che utilizza l'autenticazio
 Il **configurare l'autenticazione** finestra di dialogo offre diverse opzioni per l'autenticazione account di Windows Server Active Directory (AD) o Azure Active Directory (Azure AD, che include Office 365):
 
 - [Cloud - singola organizzazione](#orgauthsingle) (Azure Active Directory o Active Directory mediante l'integrazione di directory con Azure AD)
-- [Cloud - più organizzazione](#orgauthmulti) (Azure Active Directory o Active Directory mediante l'integrazione di directory con Azure AD)
-- [On-premise](#orgauthonprem) (AD)
+- [Cloud - organizzazione Multi](#orgauthmulti) (Azure Active Directory o Active Directory mediante l'integrazione di directory con Azure AD)
+- [On-Premises](#orgauthonprem) (AD)
 
 Se si desidera provare una delle opzioni di Azure AD, ma ancora non dispone di un account, [fare clic qui per iscriversi a un account di Azure AD](https://go.microsoft.com/fwlink/?LinkId=309942).
 
 > [!NOTE]
 > Se si sceglie una delle opzioni di Azure AD, il progetto richiede un database ed è necessario accedere a un account amministratore globale per il tenant di Azure AD. Immettere il nome e la password per un account aziendale (ad esempio, admin@contoso.onmicrosoft.com) che dispone di autorizzazioni amministrative per il tenant di Azure AD.
 > 
-> **Non immettere le credenziali per un account Microsoft (ad esempio, contoso@hotmail.com) nella finestra di dialogo accesso.**
+> **Non immettere le credenziali per un account Microsoft (ad esempio, contoso@hotmail.com) nella finestra di dialogo di accesso.**
 
 
 <a id="orgauthsingle"></a>
@@ -387,7 +388,7 @@ Per informazioni su come creare applicazioni che utilizzano **Cloud - singola or
 - [Autenticazione di Azure](../2012/windows-azure-authentication.md)
 - [Aggiungere Sign-On all'applicazione Web mediante Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
 - [Sviluppo di app ASP.NET con Azure Active Directory](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Proteggere l'API Web ASP.NET con Azure AD e componenti Microsoft OWIN](https://msdn.microsoft.com/magazine/dn463788.aspx)
+- [Proteggere ASP.NET Web API con Azure AD e componenti Microsoft OWIN](https://msdn.microsoft.com/magazine/dn463788.aspx)
 
 Le esercitazioni non sono ancora state aggiornate per Visual Studio 2013; alcune delle quali le esercitazioni le istruzioni per eseguire manualmente automatizzato in Visual Studio 2013.
 
@@ -404,7 +405,7 @@ Per informazioni su come creare applicazioni che utilizzano **Cloud - più organ
 
 - [Integrazione di App Web con Azure Active Directory, ASP.NET &amp; Visual Studio](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx) nel blog del Team di Active Directory.
 - [Sviluppo di applicazioni Web di multi-Tenant con Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx) esercitazione. L'esercitazione non sono ancora stata aggiornata per Visual Studio 2013; alcuni dei quali l'esercitazione vengono fornite informazioni per eseguire manualmente automatizzato in Visual Studio 2013.
-- [È necessario iscriversi con più organizzazioni ASP.NET applicazione prima di poter firmare](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/). Post di blog di Vittorio Bertocci che illustra come risolvere una persone problema comune verificarsi quando si crea un progetto che utilizza l'autenticazione a più organizzazioni.
+- [È necessario iscriversi con più organizzazioni ASP.NET un'App per poter accedere](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/). Post di blog di Vittorio Bertocci che illustra come risolvere una persone problema comune verificarsi quando si crea un progetto che utilizza l'autenticazione a più organizzazioni.
 
 <a id="orgauthonprem"></a>
 ### <a name="on-premises-organizational-authentication"></a>Autenticazione aziendale locale
@@ -426,4 +427,4 @@ Specificare un URI univoco che Active Directory consente di identificare questa 
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo documento fornisce alcune informazioni di base per la creazione di un nuovo progetto web ASP.NET in Visual Studio 2013. Per ulteriori informazioni sull'utilizzo di Visual Studio per lo sviluppo web, vedere [https://www.asp.net/visual-studio/](../../index.md).
+Questo documento fornisce alcune informazioni di base per la creazione di un nuovo progetto web ASP.NET in Visual Studio 2013. Per ulteriori informazioni sull'utilizzo per Visual Studio per lo sviluppo web, vedere [ https://www.asp.net/visual-studio/ ](../../index.md).

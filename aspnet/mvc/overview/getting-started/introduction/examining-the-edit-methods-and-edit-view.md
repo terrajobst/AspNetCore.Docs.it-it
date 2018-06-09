@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874746"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -42,7 +43,7 @@ Il **modifica** collegamento è stato generato dal `Html.ActionLink` metodo il *
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample3.cshtml)]
 
-![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
+![HTML. ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
 Il `Html` oggetto è un helper che viene esposta utilizzando una proprietà sul [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx) classe di base. Il `ActionLink` metodo dell'helper semplifica la generazione dinamica di collegamenti ipertestuali HTML che si collegano a metodi di azione nel controller. Il primo argomento per il `ActionLink` metodo è il testo del collegamento per eseguire il rendering (ad esempio, `<a>Edit Me</a>`). Il secondo argomento è il nome del metodo di azione da richiamare (In questo caso, il `Edit` azione). L'argomento finale è un [oggetto anonimo](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) che genera i dati della route (in questo caso, l'ID di 4).
 
@@ -106,7 +107,7 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 1. Dal **strumenti** dal menu **NuGetLibrary Package Manager**, quindi fare clic su **Gestisci pacchetti NuGet per la soluzione**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. Nel riquadro sinistro, selezionare <strong>esplorare*.</strong>* (Vedere la figura riportata di seguito).
+2. Nel riquadro sinistro, selezionare <strong>esplorare *.</strong>* (Vedere la figura riportata di seguito).
 3. Nella casella di input, immettere * Globalize * *.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Scegliere `jQuery.Validation.Globalize`, scegliere `MvcMovie` e fare clic su **installare**. Il *Scripts\jquery.globalize\globalize.js* file verrà aggiunto al progetto. Il *Scripts\jquery.globalize\cultures\* cartella conterrà i file JavaScript di molte delle impostazioni cultura. Si noti che potrebbe richiedere cinque minuti per installare questo pacchetto.

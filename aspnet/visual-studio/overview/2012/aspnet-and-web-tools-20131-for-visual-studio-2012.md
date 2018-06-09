@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036427"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Note sulla versione di ASP.NET e strumenti Web 2013.1 per Visual Studio 2012
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
 > Questo documento descrive la versione di ASP.NET e 2013.1 strumenti Web per Visual Studio 2012.
 
@@ -49,7 +50,7 @@ by [Microsoft](https://github.com/microsoft)
         - [Visual Studio Express 2012 per Web smette di funzionare dopo l'aggiunta di un elemento di scaffolding](#expressissue)
     - [ASP.NET Razor 3](#issuerazor)
 
-        - [Visualizzazione di file cshtml con Esplora con o F5 provoca un errore del server](#browseissue)
+        - [Visualizzazione file cshtml con Esplora con o F5 provoca un errore del server](#browseissue)
         - [Tilde(~) e riscrittura Url](#rewriteissue)
     - [Modelli](#templateissue)
 
@@ -168,7 +169,7 @@ Per risolvere il problema, configurare Visual Studio Express per funzionare con 
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Visualizzazione di un errore del server withBrowse file cshtml WithorF5causes
 
-Quando si crea un progetto MVC 5 in Visual Studio 2012 (o aprire il progetto di Visual Studio 2012 un MVC 5 che è stato creato in Visual Studio 2013) e si tenta di visualizzare un file cshtml utilizzando Sfoglia con o F5, si riceverà un errore che indica - **errore Server nel Applicazione '/'**. Il server tenta di passare a`http://localhost:XXXX/Views/../XXXX.cshtml`
+Quando si crea un progetto MVC 5 in Visual Studio 2012 (o aprire il progetto di Visual Studio 2012 un MVC 5 che è stato creato in Visual Studio 2013) e si tenta di visualizzare un file cshtml utilizzando Sfoglia con o F5, si riceverà un errore che indica - **errore Server nel Applicazione '/'**. Il server tenta di passare a `http://localhost:XXXX/Views/../XXXX.cshtml`
 
 Per risolvere questo problema, modificare il **azione di avvio** impostazione nel progetto per **pagina specifica**. Non è necessario fornire un valore per la pagina.
 

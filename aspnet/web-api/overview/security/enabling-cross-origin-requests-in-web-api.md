@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508380"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Abilitare le richieste Cross-Origin in ASP.NET Web API 2
 ====================
@@ -51,10 +52,10 @@ Questi due URL abbia la stessa origine:
 
 Questi URL sono origini diverse rispetto a quelli due:
 
-- `http://example.net`-Altro dominio
-- `http://example.com:9000/foo.html`-Porta diversa
-- `https://example.com/foo.html`-Schema differente
-- `http://www.example.com/foo.html`-Sottodominio diverso
+- `http://example.net` -Altro dominio
+- `http://example.com:9000/foo.html` -Porta diversa
+- `https://example.com/foo.html` -Schema differente
+- `http://www.example.com/foo.html` -Sottodominio diverso
 
 > [!NOTE]
 > Internet Explorer non considera la porta quando si confrontano le origini.
@@ -200,7 +201,7 @@ Per abilitare CORS per tutti i controller API Web nell'applicazione, passare un 
 
 Se si imposta l'attributo più di un ambito, l'ordine di precedenza è:
 
-1. Azione
+1. Operazione
 2. Controller
 3. Global
 
@@ -242,7 +243,7 @@ Per impostazione predefinita, il browser non espone tutte le intestazioni di ris
 
 - Cache-Control
 - Content-Language
-- Tipo di contenuto
+- Content-Type
 - Scadenza
 - Ultima modifica
 - Pragma
