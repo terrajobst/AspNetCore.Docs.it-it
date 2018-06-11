@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: ba1db640e5608fd9f5e7fa024283a651bf7772c2
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c71d98f86c15a4c6fbbe400f912123419b4ad076
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819058"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252204"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introduzione a SignalR su ASP.NET Core
 
@@ -85,6 +85,8 @@ Visual Studio include il `Microsoft.AspNetCore.SignalR` pacchetto contenente le 
     dotnet new webapp -o SignalRChat
     ```
 
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 2. Installare la libreria client JavaScript usando *npm*.
 
     ```console
@@ -94,7 +96,7 @@ Visual Studio include il `Microsoft.AspNetCore.SignalR` pacchetto contenente le 
 
 3. Crea una nuova cartella denominata "signalr" all'interno di *lib* cartella nel progetto. Copia il *signalr.js* file dalla *node_modules\\ @aspnet\signalr\dist\browser*  in questa cartella.
 
------
+---
 
 ## <a name="create-the-signalr-hub"></a>Creazione dell'Hub di SignalR
 
