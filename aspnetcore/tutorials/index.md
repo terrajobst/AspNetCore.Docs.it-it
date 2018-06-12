@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688439"
 ---
 # <a name="aspnet-core-tutorials"></a>Esercitazioni di ASP.NET Core
 
@@ -32,55 +33,54 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
 
 * Creare un'app Web ASP.NET Core MVC
 
-   * [App Web con Visual Studio per Windows](first-mvc-app/index.md)
-   * [App Web con Visual Studio per Mac](first-mvc-app-mac/index.md)
-   * [App Web con Visual Studio Code in macOS o Linux](first-mvc-app-xplat/index.md)
+   * [App Web con Visual Studio per Windows](xref:tutorials/first-mvc-app/index)
+   * [App Web con Visual Studio per Mac](xref:tutorials/first-mvc-app-mac/index)
+   * [App Web con Visual Studio Code in macOS o Linux](xref:tutorials/first-mvc-app-xplat/index)
 
-* [Introduzione ad ASP.NET Core ed Entity Framework Core con Visual Studio](../data/ef-mvc/index.md)
-* [Creare helper per i tag](../mvc/views/tag-helpers/authoring.md)
-* [Creare un componente di visualizzazione semplice](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [Sviluppare app ASP.NET Core con dotnet watch](dotnet-watch.md)
+* [Introduzione ad ASP.NET Core ed Entity Framework Core con Visual Studio](xref:data/ef-mvc/index)
+* [Creare helper per i tag](xref:mvc/views/tag-helpers/authoring)
+* [Creare un componente di visualizzazione semplice](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
+* [Sviluppare app usando un watcher per file](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Creare API Web
 * Creare un'API Web con ASP.NET Core
 
-  * [API Web con Visual Studio per Windows](first-web-api.md)
+  * [API Web con Visual Studio per Windows](xref:tutorials/first-web-api)
   * [API Web con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
-  * [API Web con Visual Studio Code](web-api-vsc.md)
+  * [API Web con Visual Studio Code](xref:tutorials/web-api-vsc)
 
 * [Pagine della Guida dell'API Web ASP.NET Core con Swagger](xref:tutorials/web-api-help-pages-using-swagger)
   * [Introduzione a NSwag](xref:tutorials/get-started-with-nswag)
   * [Introduzione a Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
 
-* [Creare servizi Web di back-end per app native per dispositivi mobili](../mobile/native-mobile-backend.md)
+* [Creare servizi Web di back-end per app native per dispositivi mobili](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Accesso ai dati e archiviazione di questi
 * [Introduzione a pagine Razor ed EF Core con Visual Studio](xref:data/ef-rp/intro)
-* [Introduzione ad ASP.NET Core MVC ed EF Core con Visual Studio](../data/ef-mvc/index.md)
-* [ASP.NET Core MVC con EF Core: nuovo database](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [ASP.NET Core MVC con EF Core: database esistente](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Introduzione ad ASP.NET Core MVC ed EF Core con Visual Studio](xref:data/ef-mvc/index)
+* [ASP.NET Core MVC con EF Core: nuovo database](/ef/core/get-started/aspnetcore/new-db)
+* [ASP.NET Core MVC con EF Core: database esistente](/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
-* [Abilitare l'autenticazione tramite Facebook, Google e altri provider esterni](../security/authentication/social/index.md)
-* [Conferma account e recupero password](../security/authentication/accconfirm.md)
-* [Autenticazione a due fattori con SMS](../security/authentication/2fa.md)
+* [Abilitare l'autenticazione tramite Facebook, Google e altri provider esterni](xref:security/authentication/social/index)
+* [Conferma account e recupero password](xref:security/authentication/accconfirm)
+* [Autenticazione a due fattori con SMS](xref:security/authentication/2fa)
 
 ## <a name="client-side-development"></a>Sviluppo lato client
-* [Usare Gulp](../client-side/using-gulp.md)
-* [Usare Grunt](../client-side/using-grunt.md)
-* [Gestire i pacchetti lato client con Bower](../client-side/bower.md)
-* [Creare siti reattivi con Bootstrap](../client-side/bootstrap.md)
+* [Usare Gulp](xref:client-side/using-gulp)
+* [Usare Grunt](xref:client-side/using-grunt)
+* [Gestire i pacchetti lato client con Bower](xref:client-side/bower)
+* [Creare siti reattivi con Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Test
-* [Testing unità in .NET Core tramite test dotnet](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Testing unità in .NET Core tramite test dotnet](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publish-and-deploy"></a>Pubblicare e distribuire
-* [Distribuire un'app web ASP.NET Core in Azure con Visual Studio](publish-to-azure-webapp-using-vs.md)
-* [Distribuire un'app Web ASP.NET Core in Azure con la riga di comando](publish-to-azure-webapp-using-cli.md)
+## <a name="host-and-deploy"></a>Ospitare e distribuire
+* [Distribuire un'app web ASP.NET Core in Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
+* [Distribuire un'app Web ASP.NET Core in Azure con la riga di comando](xref:tutorials/publish-to-azure-webapp-using-cli)
 * [Pubblicare in un'app Web di Azure con la distribuzione continua](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-* [Distribuire un contenitore ASP.NET a un host Docker remoto](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
-* [ASP.NET Core in Nano Server](nano-server.md)
-* [ASP.NET Core e Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)
+* [Distribuire un contenitore ASP.NET a un host Docker remoto](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+* [ASP.NET Core e Azure Service Fabric](/azure/service-fabric/service-fabric-add-a-web-frontend)
 
 <a name="download"></a> 
 ## <a name="how-to-download-a-sample"></a>Come scaricare un esempio
