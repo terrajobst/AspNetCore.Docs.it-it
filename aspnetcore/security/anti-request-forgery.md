@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341860"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Evitare attacchi Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 
@@ -43,11 +44,13 @@ Un esempio di un attacco di tipo CSRF:
 1. L'utente seleziona il pulsante di invio. Il browser effettua la richiesta e include automaticamente il cookie di autenticazione per il dominio richiesto `www.good-banking-site.com`.
 1. La richiesta viene eseguita nel `www.good-banking-site.com` server con il contesto di autenticazione dell'utente e possono eseguire qualsiasi azione che un utente autenticato è autorizzato a eseguire.
 
-Quando l'utente seleziona il pulsante di invio del form, il sito dannoso è stato possibile:
+Oltre a uno scenario in cui l'utente seleziona il pulsante di invio del form, il sito dannoso è stato possibile:
 
 * Eseguire uno script che invia automaticamente il form.
-* Inviare il form come una richiesta AJAX. 
-* Utilizzare un form nascosto con CSS. 
+* Inviare l'invio del modulo come una richiesta AJAX.
+* Nascondere il form utilizzando CSS.
+
+Questi scenari alternativi non richiedono un'azione o l'input dell'utente diverso da inizialmente visitare il sito dannoso.
 
 L'uso di HTTPS non impedire un attacco di tipo CSRF. Il sito dannoso può inviare un `https://www.good-banking-site.com/` richiedere la stessa facilità con cui può inviare una richiesta non protetta.
 

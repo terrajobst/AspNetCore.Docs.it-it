@@ -10,12 +10,12 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734497"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341704"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Risposta la memorizzazione nella cache di Middleware di ASP.NET Core
 
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come configurare la memorizzazione nella cac
 
 ## <a name="package"></a>Pacchetto
 
-Per includere il middleware nel progetto, aggiungere un riferimento ai [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pacchetto oppure utilizzare il [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), che è disponibile per l'utilizzo in ASP.NET Core 2.1 o versioni successive.
+Per includere il middleware nel progetto, aggiungere un riferimento ai [Microsoft.AspNetCore.ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) pacchetto oppure utilizzare il [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), che è disponibile per l'utilizzo di ASP. NET Core 2.1 o versioni successive.
 
 ## <a name="configuration"></a>Configurazione
 
