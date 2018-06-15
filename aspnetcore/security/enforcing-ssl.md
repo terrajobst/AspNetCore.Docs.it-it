@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252074"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652188"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -48,8 +48,8 @@ Il codice seguente chiama [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore
 
 Il codice evidenziato precedente:
 
-* Set [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
-* Imposta la porta HTTPS 5001.
+* Set [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) a `Status307TemporaryRedirect`, ovvero il valore predefinito. Le applicazioni di produzione devono chiamare [UseHsts](#hsts).
+* Imposta la porta HTTPS 5001. Il valore predefinito è 443.
 
 I seguenti meccanismi di impostare automaticamente la porta:
 
@@ -77,6 +77,11 @@ Se non è impostata alcuna porta:
 * Non sono reindirizzare le richieste.
 * Il middleware registra un avviso.
 
+> [!NOTE]
+> Un'alternativa all'utilizzo di HTTPS reindirizzamento Middleware (`UseHttpsRedirection`) consiste nell'utilizzare il Middleware di riscrittura URL (`AddRedirectToHttps`). `AddRedirectToHttps` inoltre possibile impostare il codice di stato e la porta quando viene eseguito il reindirizzamento. Per ulteriori informazioni, vedere [Middleware di riscrittura URL](xref:fundamentals/url-rewriting).
+>
+> Durante il reindirizzamento a HTTPS senza la necessità per le regole di reindirizzamento aggiuntivi, è consigliabile usare HTTPS reindirizzamento Middleware (`UseHttpsRedirection`) descritto in questo argomento.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
@@ -89,7 +94,7 @@ Il codice evidenziato precedente richiede l'utilizzano di tutte le richieste `HT
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-Per ulteriori informazioni, vedere [Middleware di riscrittura URL](xref:fundamentals/url-rewriting).
+Per ulteriori informazioni, vedere [Middleware di riscrittura URL](xref:fundamentals/url-rewriting). Il middleware consente inoltre all'app di impostare il codice di stato o il codice di stato e la porta quando viene eseguito il reindirizzamento.
 
 Che richiedono HTTPS a livello globale (`options.Filters.Add(new RequireHttpsAttribute());`) è una procedura consigliata. L'applicazione di `[RequireHttps]` attributo a tutte le pagine controller/Razor non è considerata sicura come che richiedono HTTPS a livello globale. Non è possibile garantire il `[RequireHttps]` attributo viene applicato quando vengono aggiunti nuovi controller e le pagine Razor.
 
