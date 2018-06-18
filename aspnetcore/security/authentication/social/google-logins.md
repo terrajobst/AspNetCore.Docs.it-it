@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 878c0b16e24f48a0ee84f93393af67af1728e284
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689035"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725965"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Programma di installazione di Google account di accesso esterno in ASP.NET Core
 
@@ -61,7 +61,10 @@ In questa esercitazione viene illustrato come consentire agli utenti di accedere
 
 * Poiché viene creato un progetto di Google + con una sola funzionalità (accesso), è possibile immettere lo stesso **nome** per l'ID client OAuth 2.0 è utilizzato per il progetto.
 
-* Immettere l'URI di sviluppo con */signin-google* aggiunti al **autorizzato URI di reindirizzamento** campo (ad esempio: `https://localhost:44320/signin-google`). L'autenticazione di Google configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel */signin-google* route per implementare il flusso di OAuth.
+* Immettere l'URI di sviluppo con `/signin-google` accodati nel **autorizzati URI di reindirizzamento** campo (ad esempio: `https://localhost:44320/signin-google`). L'autenticazione di Google configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel `/signin-google` route per implementare il flusso di OAuth.
+
+> [!NOTE]
+> Il segmento URI `/signin-google` viene impostato come callback predefinito del provider di autenticazione Google. È possibile modificare l'URI di callback predefinito durante la configurazione il middleware di autenticazione Google tramite ereditato [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) proprietà del [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) classe.
 
 * Premere TAB per aggiungere il **autorizzato URI di reindirizzamento** voce.
 

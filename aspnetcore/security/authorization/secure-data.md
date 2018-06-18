@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 0b67d4aef198aa418b54fb92db76d331ffa2785a
-ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
+ms.openlocfilehash: 53cab4b72980eef47c899a22e49fa697e7497279
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35415033"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726004"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crea un'applicazione ASP.NET di base con i dati dell'utente protetti dall'autorizzazione
 
@@ -139,6 +139,8 @@ La `SeedData` classe crea due account: amministratore e gestione. Utilizzare il 
 ```console
 dotnet user-secrets set SeedUserPW <PW>
 ```
+
+Se non si usa una password complessa, viene generata un'eccezione quando `SeedData.Initialize` viene chiamato.
 
 Aggiornamento `Main` per utilizzare la password di test:
 

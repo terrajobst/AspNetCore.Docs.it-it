@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688996"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725991"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Installazione di accesso esterno Twitter con ASP.NET Core
 
@@ -32,7 +32,10 @@ In questa esercitazione viene illustrato come consentire agli utenti di [accesso
 
 ![Creare una pagina applicazione](index/_static/TwitterCreate.png)
 
-* Immettere l'URI di sviluppo con */signin-twitter* aggiunti al **URI di reindirizzamento di OAuth validi** campo (ad esempio: `https://localhost:44320/signin-twitter`). Lo schema di autenticazione Twitter configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel */signin-twitter* route per implementare il flusso di OAuth.
+* Immettere l'URI di sviluppo con `/signin-twitter` accodati nel **valido OAuth Redirect URIs** campo (ad esempio: `https://localhost:44320/signin-twitter`). Lo schema di autenticazione Twitter configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel `/signin-twitter` route per implementare il flusso di OAuth.
+
+> [!NOTE]
+> Il segmento URI `/signin-twitter` viene impostato come callback predefinito del provider di autenticazione Twitter. È possibile modificare l'URI di callback predefinito durante la configurazione del middleware di autenticazione Twitter tramite ereditato [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) proprietà del [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) classe.
 
 * Compilare il resto del form e toccare **creare un'applicazione Twitter**. Vengono visualizzati i nuovi dettagli di applicazioni:
 
