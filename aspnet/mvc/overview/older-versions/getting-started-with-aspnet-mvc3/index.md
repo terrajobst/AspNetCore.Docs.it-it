@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3
 msc.type: chapter
 ms.openlocfilehash: e5af266175260c5fce4c88823895a8a8ab28830a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26501650"
 ---
 <a name="getting-started-with-aspnet-mvc3"></a>Introduzione a ASP.NET MVC3
 ====================

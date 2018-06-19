@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "Densità di connessione SignalR test con Crank | Documenti Microsoft"
+title: Densità di connessione SignalR test con Crank | Documenti Microsoft
 author: tfitzmac
-description: "Densità di connessione SignalR test con perno"
+description: Densità di connessione SignalR test con perno
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26535330"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Densità di connessione SignalR test con perno
 ====================

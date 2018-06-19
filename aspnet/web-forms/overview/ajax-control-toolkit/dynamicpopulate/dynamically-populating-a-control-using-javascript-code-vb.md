@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869985"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>Compilazione dinamica di un controllo utilizzando codice JavaScript (VB)
 ====================

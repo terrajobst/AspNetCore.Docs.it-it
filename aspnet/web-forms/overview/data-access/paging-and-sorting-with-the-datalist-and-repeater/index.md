@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datal
 msc.type: chapter
 ms.openlocfilehash: e05b1a691a3a6378859847d4530f11bbe4d8c1d3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514420"
 ---
 <a name="paging-and-sorting-with-the-datalist-and-repeater"></a>Il paging e l'ordinamento con il DataList e Repeater
 ====================

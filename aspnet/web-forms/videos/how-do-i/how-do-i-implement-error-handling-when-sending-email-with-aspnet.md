@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-email-with-aspnet
-title: '[Eseguire la ricerca per categorie:] Implementare la gestione degli errori durante l''invio di posta elettronica con ASP.NET | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:] Implementare la gestione degli errori durante l'invio di posta elettronica con ASP.NET | Documenti Microsoft"
 author: rick-anderson
-description: "Chris Pels viene illustrato come implementare gestione degli errori quando l'invio di un messaggio di posta elettronica con ASP.NET. Giorgio crea una pagina web ASP.NET per l'invio di posta elettronica, viene illustrato come configurare & passività..."
+description: Chris Pels viene illustrato come implementare gestione degli errori quando l'invio di un messaggio di posta elettronica con ASP.NET. Giorgio crea una pagina web ASP.NET per l'invio di posta elettronica, viene illustrato come configurare & passività...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526430"
 ---
 <a name="how-do-i-implement-error-handling-when-sending-email-with-aspnet"></a>[Eseguire la ricerca per categorie:] Implementare la gestione degli errori durante l'invio di posta elettronica con ASP.NET
 ====================

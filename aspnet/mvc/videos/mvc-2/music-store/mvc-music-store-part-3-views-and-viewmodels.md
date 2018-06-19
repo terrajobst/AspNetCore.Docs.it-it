@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869348"
 ---
 <a name="mvc-music-store-part-3-views-and-viewmodels"></a>Negozio MVC parte 3: Viste e ViewModel
 ====================

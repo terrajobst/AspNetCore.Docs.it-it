@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526030"
 ---
 <a name="how-do-i-implement-an-httpmodule"></a>[Eseguire la ricerca per categorie:] Implementare un HttpModule?
 ====================

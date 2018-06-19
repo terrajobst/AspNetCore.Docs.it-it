@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/index
 title: Modello di associazione e Web Form in Visual Studio 2013 | Documenti Microsoft
 author: rick-anderson
-description: "Modalità di utilizzo dei dati mediante l'associazione di modelli e Web Form."
+description: Modalità di utilizzo dei dati mediante l'associazione di modelli e Web Form.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding
 msc.type: chapter
 ms.openlocfilehash: f653a1394af8bfc562c244dad00ff35bc4744647
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519770"
 ---
 <a name="model-binding-and-web-forms-in-visual-studio-2013"></a>Associazione di modelli e Web Form in Visual Studio 2013
 ====================

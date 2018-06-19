@@ -2,7 +2,7 @@
 uid: mvc/pluralsight
 title: Video di formazione MVC Pluralsight | Documenti Microsoft
 author: rick-anderson
-description: "Video di formazione MVC Pluralsight questo video di formazione gratuita visualizzerà è attivo e in esecuzione con ASP.NET MVC. Copre tutti i dati da impostare per lo sviluppo..."
+description: Video di formazione MVC Pluralsight questo video di formazione gratuita visualizzerà è attivo e in esecuzione con ASP.NET MVC. Copre tutti i dati da impostare per lo sviluppo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503890"
 ---
 <a name="mvc-video-training-from-pluralsight"></a>Video di formazione MVC Pluralsight
 ====================

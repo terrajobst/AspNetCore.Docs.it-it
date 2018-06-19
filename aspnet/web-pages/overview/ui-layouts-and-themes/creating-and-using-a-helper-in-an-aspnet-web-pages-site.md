@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 title: Creazione e utilizzo di un Helper in un Web ASP.NET, le pagine del sito (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "In questo articolo viene descritto come creare un supporto in un sito Web ASP.NET Web Pages (Razor). Un helper è un componente riutilizzabile che include codice e markup perf..."
+description: In questo articolo viene descritto come creare un supporto in un sito Web ASP.NET Web Pages (Razor). Un helper è un componente riutilizzabile che include codice e markup perf...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530000"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Creazione e utilizzo di un Helper in un sito ASP.NET Web Pages (Razor)
 ====================

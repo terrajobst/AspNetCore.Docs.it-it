@@ -2,13 +2,13 @@
 uid: aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 title: Abilitazione dell'autenticazione di Windows in Katana | Documenti Microsoft
 author: MikeWasson
-description: 'In questo articolo viene illustrato come abilitare l''autenticazione di Windows in Katana. Illustra due scenari: utilizzo di IIS per ospitare Katana e HttpListener per indipendente Kat...'
+description: "In questo articolo viene illustrato come abilitare l'autenticazione di Windows in Katana. Illustra due scenari: utilizzo di IIS per ospitare Katana e HttpListener per indipendente Kat..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
 ms.topic: article
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033970"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Abilitazione dell'autenticazione di Windows in Katana
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating
 msc.type: chapter
 ms.openlocfilehash: cabc043fd4be36d5d81563fa2f4b7e46a08fcad8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511610"
 ---
 <a name="rating"></a>Classificazione
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index
 title: In ASP.NET 4 - Enterprise distribuzione serie 3 configurazione TFS | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione verrà illustrato come configurare Team Foundation Server (TFS) 2010 per compilare soluzioni e distribuire il contenuto web in vari ambienti di destinazione."
+description: In questa esercitazione verrà illustrato come configurare Team Foundation Server (TFS) 2010 per compilare soluzioni e distribuire il contenuto web in vari ambienti di destinazione.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server
 msc.type: chapter
 ms.openlocfilehash: e82bcc3d408a47233e2192d9dd9a56ecd06fbaa1
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515170"
 ---
 <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>In ASP.NET 4 - Enterprise distribuzione serie 3 configurazione di TFS
 ====================

@@ -2,21 +2,22 @@
 uid: identity/overview/getting-started/index
 title: Introduzione a ASP.NET Identity | Documenti Microsoft
 author: rick-anderson
-description: "Il sistema di identità di ASP.NET è progettato per sostituire i sistemi di appartenenza ASP.NET e appartenenza semplice precedenti. Include il supporto di profilo, OAuth integrat..."
+description: Il sistema di identità di ASP.NET è progettato per sostituire i sistemi di appartenenza ASP.NET e appartenenza semplice precedenti. Include il supporto di profilo, OAuth integrat...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: c798b7fd79591ad4dffba21b4a3c110590edc7a5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26497890"
 ---
 <a name="getting-started-with-aspnet-identity"></a>Introduzione a ASP.NET Identity
 ====================

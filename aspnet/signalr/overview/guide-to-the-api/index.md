@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/guide-to-the-api
 msc.type: chapter
 ms.openlocfilehash: 119b21af75576c269b5d81769897281bd05b2986
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503860"
 ---
 <a name="signalr-guide-to-the-api"></a>Guida di SignalR per l'API
 ====================

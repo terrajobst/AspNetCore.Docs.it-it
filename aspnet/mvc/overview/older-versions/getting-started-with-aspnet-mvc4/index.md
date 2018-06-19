@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4
 msc.type: chapter
 ms.openlocfilehash: 2d53060133e982e01e371407fc18ac62188c36b7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26501830"
 ---
 <a name="getting-started-with-aspnet-mvc-4"></a>Introduzione a ASP.NET MVC 4
 ====================

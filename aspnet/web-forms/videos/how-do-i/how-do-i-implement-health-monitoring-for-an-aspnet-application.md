@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: '[Eseguire la ricerca per categorie:]  Implementare il monitoraggio dello stato di un''applicazione ASP.NET? | Microsoft Docs'
+title: "[Eseguire la ricerca per categorie:]  Implementare il monitoraggio dello stato di un'applicazione ASP.NET? | Microsoft Docs"
 author: rick-anderson
 description: In questo video di Chris Pels viene illustrato come implementare di monitoraggio per ottenere informazioni dettagliate di in fase di esecuzione per un'applicazione ASP.NET. Informazioni su avanzato e...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526250"
 ---
 <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[Eseguire la ricerca per categorie:]  Implementare il monitoraggio dello stato di un'applicazione ASP.NET?
 ====================

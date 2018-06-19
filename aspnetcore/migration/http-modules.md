@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741050"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Eseguire la migrazione di gestori HTTP e i moduli al middleware di ASP.NET Core
 

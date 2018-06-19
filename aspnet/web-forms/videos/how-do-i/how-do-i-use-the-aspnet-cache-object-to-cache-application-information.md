@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
-title: '[Ricerca per categorie]: utilizzare l''oggetto della Cache di ASP.NET per memorizzare nella Cache le informazioni dell''applicazione | Documenti Microsoft'
+title: "[Ricerca per categorie]: utilizzare l'oggetto della Cache di ASP.NET per memorizzare nella Cache le informazioni dell'applicazione | Documenti Microsoft"
 author: rick-anderson
 description: In questo video di Chris Pels viene illustrato come utilizzare l'oggetto della Cache di ASP.NET per archiviare le informazioni dell'applicazione. Una pagina di esempio viene creata con una semplice interfaccia utente un...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525980"
 ---
 <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Ricerca per categorie]: utilizzare l'oggetto della Cache di ASP.NET per memorizzare nella Cache le informazioni dell'applicazione
 ====================

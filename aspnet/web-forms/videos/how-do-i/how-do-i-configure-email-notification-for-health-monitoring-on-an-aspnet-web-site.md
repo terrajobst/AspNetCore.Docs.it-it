@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
 title: '[Eseguire la ricerca per categorie:] Configurare la notifica di posta elettronica per il monitoraggio dello stato in un sito Web ASP.NET | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video di Chris Pels viene illustrato come configurare la notifica di posta elettronica per l'integrità del monitoraggio in un sito web ASP.NET. In primo luogo, vedere come configurare l'invio di e..."
+description: In questo video di Chris Pels viene illustrato come configurare la notifica di posta elettronica per l'integrità del monitoraggio in un sito web ASP.NET. In primo luogo, vedere come configurare l'invio di e...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521760"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a>[Eseguire la ricerca per categorie:] Configurare la notifica di posta elettronica per l'integrità del monitoraggio in un sito Web ASP.NET
 ====================

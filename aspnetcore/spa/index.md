@@ -17,6 +17,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555560"
 ---
 # <a name="use-the-single-page-application-templates-with-aspnet-core"></a>Usare i modelli di applicazione a pagina singola con ASP.NET Core
 

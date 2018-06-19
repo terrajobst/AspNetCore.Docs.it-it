@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
 title: In ASP.NET 4 - Enterprise distribuzione serie 4 argomenti avanzati | Documenti Microsoft
 author: rick-anderson
-description: "In questa esercitazione Mostra come eseguire diverse attività che sono necessari o utili in molti scenari di distribuzione dell'organizzazione."
+description: In questa esercitazione Mostra come eseguire diverse attività che sono necessari o utili in molti scenari di distribuzione dell'organizzazione.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
 ms.openlocfilehash: 42e80df6040dec0194bc1a5ba6ccc79c09c65ea6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515150"
 ---
 <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>In ASP.NET 4 - Enterprise distribuzione serie 4 argomenti avanzati
 ====================

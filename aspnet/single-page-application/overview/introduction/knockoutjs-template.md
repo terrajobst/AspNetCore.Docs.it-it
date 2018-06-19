@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036895"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Applicazione a pagina singola: Modello Knockout.js
 ====================
@@ -46,7 +47,7 @@ Requisiti:
 
 Avviare Visual Studio e selezionare **nuovo progetto** dalla pagina iniziale. O dal **File** dal menu **New** e quindi **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#**selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
+Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo. In **Visual c#** selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto e fare clic su **OK**.
 
 ![](knockoutjs-template/_static/image2.png)
 

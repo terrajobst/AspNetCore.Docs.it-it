@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc
 msc.type: chapter
 ms.openlocfilehash: 547ceac45d17c6eb2a3dc8404c5507a243657118
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499180"
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Introduzione a Entity Framework 6 Code First con MVC 5
 ====================

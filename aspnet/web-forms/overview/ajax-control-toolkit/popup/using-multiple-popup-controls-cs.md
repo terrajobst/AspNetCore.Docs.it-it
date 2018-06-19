@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869686"
 ---
 <a name="using-multiple-popup-controls-c"></a>Utilizzo di più controlli Popup (c#)
 ====================

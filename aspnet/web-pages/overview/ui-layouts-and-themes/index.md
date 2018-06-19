@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
 ms.openlocfilehash: 3681ff95e4dbd3cc50f74ef9771ff23cd3ae070a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529570"
 ---
 <a name="ui-layouts-and-themes"></a>Interfaccia utente, layout e temi
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
 title: '[Eseguire la ricerca per categorie:] Rendere accessibile dal codice lato server gli elementi HTML | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video di Chris Pels verrà illustrato come creare elementi HTML standard in una pagina aspx accessibile dal codice lato server possono essere utilizzati nella pagina processin..."
+description: In questo video di Chris Pels verrà illustrato come creare elementi HTML standard in una pagina aspx accessibile dal codice lato server possono essere utilizzati nella pagina processin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521550"
 ---
 <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[Eseguire la ricerca per categorie:] Verificare gli elementi HTML accessibile dal codice lato server
 ====================

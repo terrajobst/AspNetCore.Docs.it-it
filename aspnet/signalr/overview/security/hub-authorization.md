@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872754"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Autenticazione e autorizzazione per gli hub di SignalR
 ====================

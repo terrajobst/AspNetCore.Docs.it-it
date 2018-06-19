@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871194"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>Eseguire la ricerca per categorie: implementare modelli di visualizzazione per gestire i dati per le visualizzazioni ASP.NET MVC?
 ====================

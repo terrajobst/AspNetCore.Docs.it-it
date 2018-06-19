@@ -2,7 +2,7 @@
 uid: web-forms/overview/index
 title: Web Form ASP.NET indicazioni | Documenti Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview
 msc.type: book
 ms.openlocfilehash: 7a2a5a1afd2a6094d01f5acc86737ede48b90dd0
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516860"
 ---
 <a name="aspnet-web-forms-guidance"></a>Web Form ASP.NET informazioni aggiuntive
 ====================

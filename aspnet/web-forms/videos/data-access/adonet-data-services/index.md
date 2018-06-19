@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/adonet-data-services
 msc.type: chapter
 ms.openlocfilehash: 07181564ee701c71ce74ac7cea3d8cfd0f9f4ffd
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525100"
 ---
 <a name="adonet-data-services"></a>ADO.NET Data Services
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms
 msc.type: categoryindex
 ms.openlocfilehash: f56ac2552017ad2b41debdea58d93c19c56268b9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509740"
 ---
 <a name="aspnet-web-forms"></a>Web Form ASP.NET
 ====================

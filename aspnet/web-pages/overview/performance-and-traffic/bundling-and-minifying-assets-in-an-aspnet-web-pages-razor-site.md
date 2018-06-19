@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
 title: Bundling and Minifying asset in un Web ASP.NET, le pagine del sito (Razor) | Documenti Microsoft
 author: microsoft
-description: "Creazione di bundle e minimizzazione disponibili modi per rendere più veloce del sito. Creazione di bundle consente di combinare più file JavaScript (js) o più fogli di stile CSS (..."
+description: Creazione di bundle e minimizzazione disponibili modi per rendere più veloce del sito. Creazione di bundle consente di combinare più file JavaScript (js) o più fogli di stile CSS (...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528550"
 ---
 <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>Bundling and Minifying asset in un sito ASP.NET Web Pages (Razor)
 ====================

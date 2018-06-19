@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/5-minute-introduction-to-aspnet-web-pages
 title: Introduzione di 5 minuti per ASP.NET Web Pages | Documenti Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529730"
 ---
 <a name="5-minute-introduction-to-aspnet-web-pages"></a>Introduzione di 5 minuti a pagine Web ASP.NET
 ====================

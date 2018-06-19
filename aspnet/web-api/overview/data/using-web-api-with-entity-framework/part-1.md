@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871974"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Using Web API 2 con Entity Framework 6
 ====================

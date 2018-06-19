@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: '[Eseguire la ricerca per categorie:] Utilizzo di pagine Master e l''esplorazione del sito? | Microsoft Docs'
+title: "[Eseguire la ricerca per categorie:] Utilizzo di pagine Master e l'esplorazione del sito? | Microsoft Docs"
 author: microsoft
-description: "Creare un sito web con un layout coerente e progettazione tra tutte le pagine utilizzando le pagine master di ASP.NET 2.0. Vedere come è facile aggiungere la navigazione a un sito web..."
+description: Creare un sito web con un layout coerente e progettazione tra tutte le pagine utilizzando le pagine master di ASP.NET 2.0. Vedere come è facile aggiungere la navigazione a un sito web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521500"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a>[Eseguire la ricerca per categorie:] Utilizzo di pagine Master e l'esplorazione del sito?
 ====================

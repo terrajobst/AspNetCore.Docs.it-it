@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started
 msc.type: chapter
 ms.openlocfilehash: a2bee0fa190a0215546bd5ac72e14df23b2be87b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510500"
 ---
 <a name="getting-started"></a>Introduzione
 ====================
