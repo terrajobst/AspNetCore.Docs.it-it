@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077336"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a><span data-ttu-id="6227e-103">Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI</span><span class="sxs-lookup"><span data-stu-id="6227e-103">ASP.NET Core Web API help pages with Swagger / Open API</span></span>
 

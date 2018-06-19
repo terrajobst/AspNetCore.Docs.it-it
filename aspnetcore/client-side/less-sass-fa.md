@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073523"
 ---
 # <a name="less-sass-and-font-awesome-in-aspnet-core"></a><span data-ttu-id="a5082-103">Minore, Sass e tipo di carattere straordinario in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a5082-103">Less, Sass, and Font Awesome in ASP.NET Core</span></span>
 

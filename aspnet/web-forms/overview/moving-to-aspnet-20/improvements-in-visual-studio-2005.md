@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28987990"
 ---
 <a name="improvements-in-visual-studio-2005"></a><span data-ttu-id="1fded-103">Miglioramenti in Visual Studio 2005</span><span class="sxs-lookup"><span data-stu-id="1fded-103">Improvements in Visual Studio 2005</span></span>
 ====================

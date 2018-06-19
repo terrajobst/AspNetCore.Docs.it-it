@@ -8,13 +8,14 @@ manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 4cf5770a731ef77842eb29b0a66ee0aac5d85d85
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883671"
 ---
 # <a name="aspnet-webhooks-handlers"></a><span data-ttu-id="1c09a-103">Gestori ASP.NET Webhook</span><span class="sxs-lookup"><span data-stu-id="1c09a-103">ASP.NET WebHooks handlers</span></span>
 
