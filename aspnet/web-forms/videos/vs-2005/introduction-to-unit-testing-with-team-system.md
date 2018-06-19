@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894054"
 ---
 <a name="introduction-to-unit-testing-with-team-system"></a>Introduzione agli Unit test con Team System
 ====================

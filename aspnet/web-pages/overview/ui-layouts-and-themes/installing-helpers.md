@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896782"
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>L'installazione di un file di supporto nel sito Web ASP.NET (Razor) pagine
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/videos/index
 title: Videos | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos
 msc.type: book
 ms.openlocfilehash: 03e8129816a2fb8b9261618207b0e1795fb7cf23
 ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152963"
 ---
 <a name="videos"></a>Video
 ====================

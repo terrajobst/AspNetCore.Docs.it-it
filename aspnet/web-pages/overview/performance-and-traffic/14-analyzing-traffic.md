@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
 title: Informazioni relative ai visitatori (Analitica) di rilevamento per un ASP.NET Web Pages sito (Razor) | Documenti Microsoft
 author: tfitzmac
-description: "Dopo è stato utilizzato il sito Web prevede, è possibile analizzare il traffico del sito Web."
+description: Dopo è stato utilizzato il sito Web prevede, è possibile analizzare il traffico del sito Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528760"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Informazioni di rilevamento visitatore (Analitica) per un sito Web di ASP.NET di pagine (Razor)
 ====================

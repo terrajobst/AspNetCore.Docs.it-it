@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891295"
 ---
 <a name="the-aspnet-20-page-model"></a>Il modello ASP.NET 2.0 pagina
 ====================

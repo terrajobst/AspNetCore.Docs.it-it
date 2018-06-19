@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897878"
 ---
 # <a name="controller-methods-and-views-in-an-aspnet-core-mvc-app"></a>Metodi e viste del controller in un'app ASP.NET Core MVC
 

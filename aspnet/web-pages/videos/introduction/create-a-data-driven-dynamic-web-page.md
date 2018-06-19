@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/create-a-data-driven-dynamic-web-page
 title: Creare una pagina Web dinamica basati sui dati | Documenti Microsoft
 author: rick-anderson
-description: "Parte 5 è dati, in cui verrà illustrato come utilizzare un database nella pagina web e renderla più dinamiche."
+description: Parte 5 è dati, in cui verrà illustrato come utilizzare un database nella pagina web e renderla più dinamiche.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882516"
 ---
 <a name="create-a-data-driven-dynamic-web-page"></a>Creare una pagina Web dinamica basati sui dati
 ====================

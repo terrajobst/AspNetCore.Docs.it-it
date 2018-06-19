@@ -15,6 +15,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851533"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>Eseguire la migrazione da ClaimsPrincipal.Current
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894717"
 ---
 <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a>Visual Studio 2010 'Rapido Hit' - Visualizza gerarchia di ricerca codice
 ====================

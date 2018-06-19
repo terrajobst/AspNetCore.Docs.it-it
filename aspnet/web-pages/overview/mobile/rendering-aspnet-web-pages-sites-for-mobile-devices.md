@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897319"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Il rendering di siti (Razor) le pagine Web ASP.NET per dispositivi mobili
 ====================

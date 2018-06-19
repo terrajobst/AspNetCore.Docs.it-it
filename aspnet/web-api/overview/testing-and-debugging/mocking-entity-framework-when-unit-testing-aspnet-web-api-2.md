@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152865"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Tali Entity Framework quando gli Unit test ASP.NET Web API 2
 ====================

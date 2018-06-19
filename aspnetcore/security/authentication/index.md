@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903299"
 ---
 # <a name="authentication-in-aspnet-core"></a>Autenticazione in ASP.NET Core
 

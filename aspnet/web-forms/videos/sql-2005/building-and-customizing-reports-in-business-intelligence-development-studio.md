@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894620"
 ---
 <a name="building-and-customizing-reports-in-business-intelligence-development-studio"></a>La creazione e personalizzazione dei report in Business Intelligence Development Studio
 ====================

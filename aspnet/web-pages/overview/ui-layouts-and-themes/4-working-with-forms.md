@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "28046430"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Utilizzo di form HTML in siti Web di ASP.NET di pagine (Razor)
 ====================

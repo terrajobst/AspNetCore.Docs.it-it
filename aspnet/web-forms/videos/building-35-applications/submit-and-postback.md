@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/submit-and-postback
 title: Inviare e Postback | Documenti Microsoft
 author: JoeStagner
-description: "Verrà presentate in questo video di ciò che avviene in &quot;dietro le quinte&quot; quando interagire browser e server dell'applicazione ASP.NET."
+description: Verrà presentate in questo video di ciò che avviene in &quot;dietro le quinte&quot; quando interagire browser e server dell'applicazione ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882354"
 ---
 <a name="submit-and-postback"></a>Inviare e Postback
 ====================

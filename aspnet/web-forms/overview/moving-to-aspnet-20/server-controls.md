@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
 title: I controlli server | Documenti Microsoft
 author: microsoft
-description: "ASP.NET 2.0 consente di ottimizzare i controlli server in molti modi. In questo modulo verranno descritte alcune delle modifiche dell'architettura per la modalità di ASP.NET 2.0 e 200 di Visual Studio..."
+description: ASP.NET 2.0 consente di ottimizzare i controlli server in molti modi. In questo modulo verranno descritte alcune delle modifiche dell'architettura per la modalità di ASP.NET 2.0 e 200 di Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885193"
 ---
 <a name="server-controls"></a>Controlli server
 ====================

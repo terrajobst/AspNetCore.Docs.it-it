@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
 ms.openlocfilehash: bfdab4cfd3945401213bcc0b6f282dd5ffbedc5d
 ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727171"
 ---
 # <a name="aspnet-mvc-4-hands-on-labs"></a>ASP.NET MVC 4 Hands On Labs
 

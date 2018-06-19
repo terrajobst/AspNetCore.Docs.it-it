@@ -2,7 +2,7 @@
 uid: mvc/mvc4
 title: ASP.NET MVC 4 | Documenti Microsoft
 author: rick-anderson
-description: "ASP.NET MVC 4 ASP.NET MVC 4 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e la potenza di AS...."
+description: ASP.NET MVC 4 ASP.NET MVC 4 è un framework per la compilazione di applicazioni web scalabili e basate su standard utilizzando schemi progettuali ben definiti e la potenza di AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26497860"
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================

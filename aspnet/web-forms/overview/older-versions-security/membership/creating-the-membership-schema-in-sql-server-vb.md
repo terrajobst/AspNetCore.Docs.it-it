@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891758"
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Creazione dello Schema di appartenenza in SQL Server (VB)
 ====================

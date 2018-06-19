@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891269"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Creazione di un Layout a livello di sito utilizzando le pagine Master (c#)
 ====================

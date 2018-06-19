@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077653"
 ---
 # <a name="purpose-strings-in-aspnet-core"></a>Stringhe scopo in ASP.NET Core
 

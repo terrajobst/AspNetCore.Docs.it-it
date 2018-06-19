@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076633"
 ---
 # <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorizzazione basata su Vista in ASP.NET MVC di base
 

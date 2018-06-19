@@ -2,7 +2,7 @@
 uid: web-api/overview/security/authentication-filters
 title: Filtri di autenticazione in ASP.NET Web API 2 | Documenti Microsoft
 author: MikeWasson
-description: "Un filtro di autenticazione è un componente che consente di autenticare una richiesta HTTP. API Web 2 e MVC 5 supportano entrambi i filtri di autenticazione, ma differiscono leggermente..."
+description: Un filtro di autenticazione è un componente che consente di autenticare una richiesta HTTP. API Web 2 e MVC 5 supportano entrambi i filtri di autenticazione, ma differiscono leggermente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153518"
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtri di autenticazione in ASP.NET Web API 2
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892036"
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Una panoramica dell'autenticazione basata su form (c#)
 ====================
