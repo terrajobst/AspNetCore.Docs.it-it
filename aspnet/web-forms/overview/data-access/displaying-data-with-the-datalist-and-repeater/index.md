@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist
 msc.type: chapter
 ms.openlocfilehash: 99d24bafb594df2005ba4a7ca9326524e713f25f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513100"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater"></a><span data-ttu-id="f1e40-103">Visualizzazione di dati e DataList Ripetitore</span><span class="sxs-lookup"><span data-stu-id="f1e40-103">Displaying Data with the DataList and Repeater</span></span>
 ====================

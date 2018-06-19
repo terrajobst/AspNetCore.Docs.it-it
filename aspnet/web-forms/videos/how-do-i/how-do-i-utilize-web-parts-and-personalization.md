@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-utilize-web-parts-and-personalization
 title: '[Eseguire la ricerca per categorie:] Utilizzare le Web part e la personalizzazione? | Microsoft Docs'
 author: microsoft
-description: "Informazioni su come utilizzare le nuove funzionalità di Web part e personalizzazione di creare pagine web personalizzabili il cui contenuto e layout può essere modificato dall'utente."
+description: Informazioni su come utilizzare le nuove funzionalità di Web part e personalizzazione di creare pagine web personalizzabili il cui contenuto e layout può essere modificato dall'utente.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526130"
 ---
 <a name="how-do-i-utilize-web-parts-and-personalization"></a><span data-ttu-id="9f265-104">[Eseguire la ricerca per categorie:] Utilizzare le Web part e la personalizzazione?</span><span class="sxs-lookup"><span data-stu-id="9f265-104">[How Do I:] Utilize Web Parts and Personalization?</span></span>
 ====================

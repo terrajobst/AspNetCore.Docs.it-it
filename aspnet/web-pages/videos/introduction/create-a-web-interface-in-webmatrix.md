@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/create-a-web-interface-in-webmatrix
 title: Creare un'interfaccia Web in WebMatrix | Documenti Microsoft
 author: rick-anderson
-description: "Parte 6 viene illustrato come compilare una pagina che consente agli utenti di aggiungere dati al database, in modo che il sito può eseguirne il rendering."
+description: Parte 6 viene illustrato come compilare una pagina che consente agli utenti di aggiungere dati al database, in modo che il sito può eseguirne il rendering.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529740"
 ---
 <a name="create-a-web-interface-in-webmatrix"></a><span data-ttu-id="97dda-103">Creare un'interfaccia Web in WebMatrix</span><span class="sxs-lookup"><span data-stu-id="97dda-103">Create a Web Interface in WebMatrix</span></span>
 ====================

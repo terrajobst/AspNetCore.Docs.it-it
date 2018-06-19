@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
 title: Azioni personalizzate e DataList Ripetitore | Documenti Microsoft
 author: rick-anderson
-description: "Queste esercitazioni viene illustrato come aggiungere i pulsanti per i controlli DataList e Repeater per aggiungere funzionalità personalizzate."
+description: Queste esercitazioni viene illustrato come aggiungere i pulsanti per i controlli DataList e Repeater per aggiungere funzionalità personalizzate.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-da
 msc.type: chapter
 ms.openlocfilehash: b9ec5df400ce445e703119b398e9f7a26d3f5446
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512680"
 ---
 <a name="custom-button-actions-with-the-datalist-and-repeater"></a><span data-ttu-id="f92aa-103">Azioni personalizzate e DataList Ripetitore</span><span class="sxs-lookup"><span data-stu-id="f92aa-103">Custom Button Actions with the DataList and Repeater</span></span>
 ====================

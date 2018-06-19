@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525650"
 ---
 <a name="how-do-i-add-controls-to-an-aspnet-web-page-programmatically"></a><span data-ttu-id="ef70a-104">[Eseguire la ricerca per categorie:] Aggiungere controlli a una pagina Web ASP.NET a livello di codice</span><span class="sxs-lookup"><span data-stu-id="ef70a-104">[How Do I:] Add Controls to an ASP.NET Web Page Programmatically</span></span>
 ====================

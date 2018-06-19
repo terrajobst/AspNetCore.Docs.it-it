@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521850"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a><span data-ttu-id="dbe14-103">[Eseguire la ricerca per categorie:] Utilizzare un progetto di distribuzione Web di Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="dbe14-103">[How Do I:] Use a Visual Studio 2008 Web Deployment Project</span></span>
 ====================

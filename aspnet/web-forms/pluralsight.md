@@ -2,7 +2,7 @@
 uid: web-forms/pluralsight
 title: Web Form Video di formazione Pluralsight | Documenti Microsoft
 author: rick-anderson
-description: "Web Form Video di formazione dal corso di sviluppo Pluralsight questo ASP.NET Web Forms presenta numerose tecnologie chiave, che è necessario conoscere come un scopi di sviluppo .NET..."
+description: Web Form Video di formazione dal corso di sviluppo Pluralsight questo ASP.NET Web Forms presenta numerose tecnologie chiave, che è necessario conoscere come un scopi di sviluppo .NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/16/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520140"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a><span data-ttu-id="bbd9e-103">Web Form Video di formazione Pluralsight</span><span class="sxs-lookup"><span data-stu-id="bbd9e-103">Web Forms Video Training from Pluralsight</span></span>
 ====================

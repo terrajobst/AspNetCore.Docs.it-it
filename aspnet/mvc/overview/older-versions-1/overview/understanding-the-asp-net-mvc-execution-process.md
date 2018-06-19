@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500730"
 ---
 <a name="understanding-the-aspnet-mvc-execution-process"></a><span data-ttu-id="b6175-103">Informazioni sul processo di esecuzione di ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="b6175-103">Understanding the ASP.NET MVC Execution Process</span></span>
 ====================

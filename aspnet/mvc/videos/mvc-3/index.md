@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-3
 msc.type: chapter
 ms.openlocfilehash: e5388ba664e50bd3786b1ce3f923f20dfab80972
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503530"
 ---
 <a name="aspnet-mvc-3"></a><span data-ttu-id="e7172-103">ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="e7172-103">ASP.NET MVC 3</span></span>
 ====================

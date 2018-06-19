@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525320"
 ---
 <a name="intro-to-aspnet-web-forms"></a><span data-ttu-id="97fe7-103">Introduzione a Web Form ASP.NET</span><span class="sxs-lookup"><span data-stu-id="97fe7-103">Intro to ASP.NET Web Forms</span></span>
 ====================

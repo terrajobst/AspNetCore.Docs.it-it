@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526310"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a><span data-ttu-id="11c3b-103">[Eseguire la ricerca per categorie:] Implementare un PostBack tra pagine ASP.NET</span><span class="sxs-lookup"><span data-stu-id="11c3b-103">[How Do I:] Implement a Cross Page PostBack in ASP.NET</span></span>
 ====================

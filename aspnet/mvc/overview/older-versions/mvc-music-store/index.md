@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/mvc-music-store
 msc.type: chapter
 ms.openlocfilehash: b8fc43d8a8803a5b4cacfe46b55282e8dfd988c8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502450"
 ---
 <a name="aspnet-mvc-3-music-store"></a><span data-ttu-id="358d4-103">ASP.NET MVC 3 Negozio</span><span class="sxs-lookup"><span data-stu-id="358d4-103">ASP.NET MVC 3 Music Store</span></span>
 ====================

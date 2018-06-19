@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/views
 msc.type: chapter
 ms.openlocfilehash: 914820b5d086f2f194881ec9d47da2e5db9732a7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503280"
 ---
 <a name="aspnet-mvc-ui-layouts-and-themes"></a><span data-ttu-id="f8928-103">Interfaccia utente di ASP.NET MVC, layout e temi</span><span class="sxs-lookup"><span data-stu-id="f8928-103">ASP.NET MVC UI, Layouts, and Themes</span></span>
 ====================

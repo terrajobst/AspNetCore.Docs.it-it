@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/mobile-clients
 msc.type: chapter
 ms.openlocfilehash: c3415ce41bf47a50b46bf72951955a04c617bab7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508270"
 ---
 <a name="web-api-and-mobile-clients"></a><span data-ttu-id="ec3f3-103">API Web e client mobili</span><span class="sxs-lookup"><span data-stu-id="ec3f3-103">Web API and Mobile Clients</span></span>
 ====================

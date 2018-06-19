@@ -2,7 +2,7 @@
 uid: web-forms/overview/advanced/index
 title: Web Form ASP.NET argomenti avanzati | Documenti Microsoft
 author: rick-anderson
-description: "Argomenti avanzati per la programmazione di applicazioni Web Form ASP.NET, tra cui extensibility internazionalizzazione e accessibilità."
+description: Argomenti avanzati per la programmazione di applicazioni Web Form ASP.NET, tra cui extensibility internazionalizzazione e accessibilità.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/advanced
 msc.type: chapter
 ms.openlocfilehash: e2e229d6ed6343e236c9863e0a1fdb092a2d3529
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509030"
 ---
 <a name="aspnet-web-forms-advanced-topics"></a><span data-ttu-id="6e0da-103">Web Form ASP.NET argomenti avanzati</span><span class="sxs-lookup"><span data-stu-id="6e0da-103">ASP.NET Web Forms Advanced Topics</span></span>
 ====================

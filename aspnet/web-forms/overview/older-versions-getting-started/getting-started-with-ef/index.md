@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-starte
 msc.type: chapter
 ms.openlocfilehash: 4a25fa435613fa099b4ec411f0381d7481d2e228
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518130"
 ---
 <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a><span data-ttu-id="ae48a-103">4 - Introduzione a Entity Framework 4 e Web Form ASP.NET</span><span class="sxs-lookup"><span data-stu-id="ae48a-103">ASP.NET 4 - Getting Started with Entity Framework 4 and Web Forms</span></span>
 ====================

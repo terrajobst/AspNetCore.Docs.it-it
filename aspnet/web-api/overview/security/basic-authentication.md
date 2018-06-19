@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508130"
 ---
 <a name="basic-authentication-in-aspnet-web-api"></a><span data-ttu-id="7da20-103">Autenticazione di base in ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="7da20-103">Basic Authentication in ASP.NET Web API</span></span>
 ====================

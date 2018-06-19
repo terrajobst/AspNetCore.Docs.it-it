@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 37d374d01ca122046f9fcd7b72331fc7cfe569cf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499210"
 ---
 <a name="aspnet-mvc-getting-started"></a><span data-ttu-id="fe91c-103">Guida introduttiva di ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="fe91c-103">ASP.NET MVC Getting Started</span></span>
 ====================

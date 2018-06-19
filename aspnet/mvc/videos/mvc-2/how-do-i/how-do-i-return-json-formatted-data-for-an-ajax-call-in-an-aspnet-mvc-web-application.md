@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867476"
 ---
 <a name="how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application"></a><span data-ttu-id="608d5-105">La modalità delle ricerca per categorie: restituire JSON i dati formattati per una chiamata AJAX in un'applicazione Web ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="608d5-105">How Do I: Return JSON Formatted Data for an AJAX Call in an ASP.NET MVC Web Application?</span></span>
 ====================

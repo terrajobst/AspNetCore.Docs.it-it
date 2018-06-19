@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
 ms.openlocfilehash: 631849ac6728a31ba967783177f5e1aced2716e2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514190"
 ---
 <a name="introduction"></a><span data-ttu-id="3091d-103">Introduzione</span><span class="sxs-lookup"><span data-stu-id="3091d-103">Introduction</span></span>
 ====================

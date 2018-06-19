@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
 title: Introduzione a Web Form | Documenti Microsoft
 author: JoeStagner
-description: "Web Form ASP.NET è il meccanismo di interfaccia utente predefinito per le applicazioni ASP.NET... In questo video illustra gli elementi di base dello sviluppo con Web Form."
+description: Web Form ASP.NET è il meccanismo di interfaccia utente predefinito per le applicazioni ASP.NET... In questo video illustra gli elementi di base dello sviluppo con Web Form.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521020"
 ---
 <a name="intro-to-web-forms"></a><span data-ttu-id="9f7e5-104">Introduzione a Web Form</span><span class="sxs-lookup"><span data-stu-id="9f7e5-104">Intro to Web Forms</span></span>
 ====================

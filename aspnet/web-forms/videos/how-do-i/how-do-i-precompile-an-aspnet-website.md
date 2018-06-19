@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521700"
 ---
 <a name="how-do-i-precompile-an-aspnet-website"></a><span data-ttu-id="e8566-103">[Eseguire la ricerca per categorie:] Precompilare un sito Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="e8566-103">[How Do I:] Precompile an ASP.NET Website</span></span>
 ====================

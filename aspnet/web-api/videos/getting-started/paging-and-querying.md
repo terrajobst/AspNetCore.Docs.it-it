@@ -1,6 +1,6 @@
 ---
 uid: web-api/videos/getting-started/paging-and-querying
-title: 'ASP.NET Web API, parte 4: Paging e l''esecuzione di query | Documenti Microsoft'
+title: "ASP.NET Web API, parte 4: Paging e l'esecuzione di query | Documenti Microsoft"
 author: jongalloway
 description: 'Nota: In questo video contiene le informazioni di una versione non definitiva di ASP.NET Web API'
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509110"
 ---
 <a name="aspnet-web-api-part-4-paging-and-querying"></a><span data-ttu-id="30656-103">ASP.NET Web API, parte 4: Paging e l'esecuzione di query</span><span class="sxs-lookup"><span data-stu-id="30656-103">ASP.NET Web API, Part 4: Paging and Querying</span></span>
 ====================

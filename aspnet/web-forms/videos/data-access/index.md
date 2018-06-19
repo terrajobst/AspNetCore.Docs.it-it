@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
 ms.openlocfilehash: a5372b97b598300f39edc864b4c9384a718f3aad
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525580"
 ---
 <a name="data-access"></a><span data-ttu-id="13ea3-103">Accesso ai dati</span><span class="sxs-lookup"><span data-stu-id="13ea3-103">Data Access</span></span>
 ====================

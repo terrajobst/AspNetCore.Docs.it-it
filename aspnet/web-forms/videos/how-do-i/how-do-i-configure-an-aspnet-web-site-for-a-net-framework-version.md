@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525020"
 ---
 <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a><span data-ttu-id="d03af-104">[Eseguire la ricerca per categorie:] Configurare un sito Web ASP.NET per la versione di .NET Framework</span><span class="sxs-lookup"><span data-stu-id="d03af-104">[How Do I:] Configure an ASP.NET Web Site for a .NET Framework Version</span></span>
 ====================

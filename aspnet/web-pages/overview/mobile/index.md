@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/mobile
 msc.type: chapter
 ms.openlocfilehash: a972010a9b6bc041f2424de1da78f93fc67ae37f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528630"
 ---
 <a name="mobile"></a><span data-ttu-id="09737-103">Cellulare</span><span class="sxs-lookup"><span data-stu-id="09737-103">Mobile</span></span>
 ====================

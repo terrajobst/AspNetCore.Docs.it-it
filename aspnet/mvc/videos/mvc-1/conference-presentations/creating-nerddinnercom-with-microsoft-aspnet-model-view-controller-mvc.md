@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503450"
 ---
 <a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a><span data-ttu-id="326e0-105">Creazione di NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="326e0-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>
 ====================

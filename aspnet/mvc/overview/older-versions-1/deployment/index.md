@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/deployment
 msc.type: chapter
 ms.openlocfilehash: bc88ac685e9d776b7cbf4ffd6e15231e4a932de2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499670"
 ---
 <a name="deployment"></a><span data-ttu-id="578a7-103">Distribuzione</span><span class="sxs-lookup"><span data-stu-id="578a7-103">Deployment</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/movie-database
 msc.type: chapter
 ms.openlocfilehash: df2781ae848ed2196fd5cd2451d20aaac91a2e2b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500710"
 ---
 <a name="movie-database"></a><span data-ttu-id="b4eaa-103">Database di film</span><span class="sxs-lookup"><span data-stu-id="b4eaa-103">Movie Database</span></span>
 ====================

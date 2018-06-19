@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
 ms.openlocfilehash: 8cd1868c8729c79dd9dda2067063e427cf3e0b4e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500090"
 ---
 <a name="older-versions---mvc-1-and-2"></a><span data-ttu-id="690b1-103">Versioni precedenti - MVC 1 e 2</span><span class="sxs-lookup"><span data-stu-id="690b1-103">Older Versions - MVC 1 and 2</span></span>
 ====================

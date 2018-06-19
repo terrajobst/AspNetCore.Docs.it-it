@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: 6e34a1b0-4108-4524-b858-430e742abe44
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-hierarchical-indentation
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506500"
 ---
 <a name="visual-studio-vnext-videos-css-editor-hierarchical-indentation"></a><span data-ttu-id="243f4-103">Visual Studio vNext video: rientro gerarchico di Editor CSS</span><span class="sxs-lookup"><span data-stu-id="243f4-103">Visual Studio vNext Videos: CSS Editor Hierarchical Indentation</span></span>
 ====================
