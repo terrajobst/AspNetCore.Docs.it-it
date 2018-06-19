@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526500"
 ---
 <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a><span data-ttu-id="bc6d4-104">[Eseguire la ricerca per categorie:] Estendere e personalizzare un controllo Server ASP.NET per uno scopo specifico</span><span class="sxs-lookup"><span data-stu-id="bc6d4-104">[How Do I:] Extend and Customize an ASP.NET Server Control for a Specific Purpose</span></span>
 ====================

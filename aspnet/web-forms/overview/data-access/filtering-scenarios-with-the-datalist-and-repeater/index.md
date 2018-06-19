@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-data
 msc.type: chapter
 ms.openlocfilehash: a8a1c2301dc287b49149bc5afe85a7dedad54d58
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514100"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a><span data-ttu-id="d0ec2-103">Gli scenari e DataList ripetitore di filtraggio</span><span class="sxs-lookup"><span data-stu-id="d0ec2-103">Filtering Scenarios with the DataList and Repeater</span></span>
 ====================

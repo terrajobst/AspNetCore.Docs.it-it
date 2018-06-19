@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878347"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a><span data-ttu-id="2dd65-103">Un laboratorio pratico: gestibile siti Web di Azure: gestione del cambiamento e scala</span><span class="sxs-lookup"><span data-stu-id="2dd65-103">Hands on Lab: Maintainable Azure Websites: Managing Change and Scale</span></span>
 ====================

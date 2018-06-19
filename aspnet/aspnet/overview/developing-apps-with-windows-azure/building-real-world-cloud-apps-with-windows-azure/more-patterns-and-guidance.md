@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873667"
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="27d52-104">Più modelli e le indicazioni (creazione di applicazioni Cloud reale in Azure)</span><span class="sxs-lookup"><span data-stu-id="27d52-104">More Patterns and Guidance (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

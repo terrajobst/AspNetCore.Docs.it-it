@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871207"
 ---
 <a name="creating-a-route-constraint-c"></a><span data-ttu-id="8e397-103">Creazione di un vincolo di Route (c#)</span><span class="sxs-lookup"><span data-stu-id="8e397-103">Creating a Route Constraint (C#)</span></span>
 ====================

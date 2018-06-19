@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881763"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a><span data-ttu-id="ecd98-103">Distribuzione Web ASP.NET utilizzando Visual Studio: distribuire file aggiuntivi</span><span class="sxs-lookup"><span data-stu-id="ecd98-103">ASP.NET Web Deployment using Visual Studio: Deploying Extra Files</span></span>
 ====================

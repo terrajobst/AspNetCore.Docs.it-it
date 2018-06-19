@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870115"
 ---
 <a name="part-9-registration-and-checkout"></a><span data-ttu-id="e4276-104">Parte 9: Estrazione e registrazione</span><span class="sxs-lookup"><span data-stu-id="e4276-104">Part 9: Registration and Checkout</span></span>
 ====================

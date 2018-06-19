@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508060"
 ---
 <a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a><span data-ttu-id="cc185-102">Utilizza $select, $expand e $value in ASP.NET Web API 2 OData</span><span class="sxs-lookup"><span data-stu-id="cc185-102">Using $select, $expand, and $value in ASP.NET Web API 2 OData</span></span>
 ====================

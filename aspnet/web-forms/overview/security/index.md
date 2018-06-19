@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/security
 msc.type: chapter
 ms.openlocfilehash: 48bc147288f7bbe2ee78e6b271e7090a99d35af8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519880"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-forms"></a><span data-ttu-id="823b0-103">Sicurezza, autenticazione e autorizzazione in Web Form ASP.NET</span><span class="sxs-lookup"><span data-stu-id="823b0-103">Security, Authentication, and Authorization in ASP.NET Web Forms</span></span>
 ====================

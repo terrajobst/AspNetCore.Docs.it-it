@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepi
 msc.type: chapter
 ms.openlocfilehash: 0e1ee1798d260215f8824a9222605a1a9a900917
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502600"
 ---
 <a name="mvc-3---the-html5-and-jquery-ui-datepicker-popup-calendar"></a><span data-ttu-id="eadc8-103">MVC 3 - The HTML5 and jQuery UI Datepicker Popup Calendar</span><span class="sxs-lookup"><span data-stu-id="eadc8-103">MVC 3 - The HTML5 and jQuery UI Datepicker Popup Calendar</span></span>
 ====================

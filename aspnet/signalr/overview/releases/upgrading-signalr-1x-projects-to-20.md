@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505740"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a><span data-ttu-id="c1fc6-103">L'aggiornamento di progetti SignalR 1. x alla versione 2</span><span class="sxs-lookup"><span data-stu-id="c1fc6-103">Upgrading SignalR 1.x Projects to version 2</span></span>
 ====================

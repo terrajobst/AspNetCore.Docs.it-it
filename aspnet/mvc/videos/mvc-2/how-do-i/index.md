@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-2/how-do-i/index
 title: Come--I | Documenti Microsoft
 author: rick-anderson
-description: "Video di questa sezione riguarda ASP.NET MVC, inclusa la modalità di compilazione di un'applicazione di e-commerce intera dall'inizio completamento 'Storefront di'."
+description: Video di questa sezione riguarda ASP.NET MVC, inclusa la modalità di compilazione di un'applicazione di e-commerce intera dall'inizio completamento 'Storefront di'.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 54d09894c61d8be19ab6b8a1ceb37312c47497a7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504260"
 ---
 <a name="how-do-i"></a><span data-ttu-id="e3573-103">Come--I</span><span class="sxs-lookup"><span data-stu-id="e3573-103">How-Do-I</span></span>
 ====================

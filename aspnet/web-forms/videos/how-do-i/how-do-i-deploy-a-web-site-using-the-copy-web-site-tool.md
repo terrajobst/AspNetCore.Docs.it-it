@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525670"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a><span data-ttu-id="5ac6b-104">[Eseguire la ricerca per categorie:] Distribuire un sito Web tramite lo strumento Copia sito Web</span><span class="sxs-lookup"><span data-stu-id="5ac6b-104">[How Do I:] Deploy a Web Site Using the Copy Web Site Tool</span></span>
 ====================

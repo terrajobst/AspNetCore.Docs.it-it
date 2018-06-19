@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503440"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a><span data-ttu-id="ddb9b-104">Framework Model View Controller per America's Next Top Model</span><span class="sxs-lookup"><span data-stu-id="ddb9b-104">America's Next Top Model View Controller Framework</span></span>
 ====================

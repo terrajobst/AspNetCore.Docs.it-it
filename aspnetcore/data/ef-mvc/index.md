@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153465"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a><span data-ttu-id="c52cb-102">ASP.NET Core MVC con Entity Framework Core: serie di esercitazioni</span><span class="sxs-lookup"><span data-stu-id="c52cb-102">ASP.NET Core MVC with EF Core - tutorial series</span></span>
 

@@ -8,13 +8,14 @@ manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 5125e483-c2bb-435b-8cd1-21d3499bfaaf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: f9726c746c8934594e26f2871f9b867c192374bb
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529910"
 ---
 # <a name="aspnet-webhooks-receiver-dependencies"></a><span data-ttu-id="4da43-103">Dipendenze di ricevitore Webhook ASP.NET</span><span class="sxs-lookup"><span data-stu-id="4da43-103">ASP.NET WebHooks receiver dependencies</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525110"
 ---
 <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a><span data-ttu-id="71cb6-105">[Eseguire la ricerca per categorie:] Creare un sito multilingua con localizzazione?</span><span class="sxs-lookup"><span data-stu-id="71cb6-105">[How Do I:] Create a Multi-Lingual Site with Localization?</span></span>
 ====================

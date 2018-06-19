@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875851"
 ---
 <a name="nested-data-web-controls-c"></a><span data-ttu-id="18e71-104">Controlli Web dati annidati (c#)</span><span class="sxs-lookup"><span data-stu-id="18e71-104">Nested Data Web Controls (C#)</span></span>
 ====================

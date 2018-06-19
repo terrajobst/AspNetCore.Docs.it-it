@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/basic-reporting
 msc.type: chapter
 ms.openlocfilehash: 86c675e3618b1bc21ff05dcae3525aa3de725516
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512600"
 ---
 <a name="basic-reporting"></a><span data-ttu-id="e4569-103">Reporting di base</span><span class="sxs-lookup"><span data-stu-id="e4569-103">Basic Reporting</span></span>
 ====================

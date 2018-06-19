@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869738"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a><span data-ttu-id="ff109-104">Consentire solo il numero di caratteri specifici in una casella di testo (c#)</span><span class="sxs-lookup"><span data-stu-id="ff109-104">Allowing Only Certain Characters in a Text Box (C#)</span></span>
 ====================

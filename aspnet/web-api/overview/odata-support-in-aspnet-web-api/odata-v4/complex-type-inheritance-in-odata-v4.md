@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
-title: "Ereditarietà del tipo complesso in OData v4 con ASP.NET Web API | Documenti Microsoft"
+title: Ereditarietà del tipo complesso in OData v4 con ASP.NET Web API | Documenti Microsoft
 author: microsoft
-description: "In base alla specifica OData v4, un tipo complesso può ereditare da un altro tipo complesso. (Un tipo complesso è un tipo strutturato senza una chiave). API Web..."
+description: In base alla specifica OData v4, un tipo complesso può ereditare da un altro tipo complesso. (Un tipo complesso è un tipo strutturato senza una chiave). API Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508420"
 ---
 <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a><span data-ttu-id="edea4-104">Ereditarietà del tipo complesso in OData v4 con ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="edea4-104">Complex Type Inheritance in OData v4 with ASP.NET Web API</span></span>
 ====================

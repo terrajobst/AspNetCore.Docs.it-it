@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/index
 title: Procedure relative | Microsoft Docs
 author: rick-anderson
-description: "Come eseguire un'ampia gamma di attività comuni."
+description: Come eseguire un'ampia gamma di attività comuni.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 032183a08f05578c04af0fc2adac0d7535e95790
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526510"
 ---
 <a name="how-do-i"></a><span data-ttu-id="5f8c5-104">Procedure relative</span><span class="sxs-lookup"><span data-stu-id="5f8c5-104">How Do I?</span></span>
 ====================

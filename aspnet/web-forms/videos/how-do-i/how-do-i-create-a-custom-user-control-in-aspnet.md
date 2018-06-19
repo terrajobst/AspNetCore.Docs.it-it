@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
 title: '[Eseguire la ricerca per categorie:]  Creare un controllo utente personalizzato in ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: "In questo video Chris Pels verrà illustrato come creare un controllo utente personalizzato in ASP.NET che può essere usato in tutto il sito web o in molti siti web. Sta...."
+description: In questo video Chris Pels verrà illustrato come creare un controllo utente personalizzato in ASP.NET che può essere usato in tutto il sito web o in molti siti web. Sta....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525030"
 ---
 <a name="how-do-i--create-a-custom-user-control-in-aspnet"></a><span data-ttu-id="c7150-105">[Eseguire la ricerca per categorie:]  Creare un controllo utente personalizzato in ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="c7150-105">[How Do I:]  Create a Custom User Control in ASP.NET?</span></span>
 ====================

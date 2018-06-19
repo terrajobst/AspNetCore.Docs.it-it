@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043353"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a><span data-ttu-id="75c9e-105">Self-hosting ASP.NET Web API 1 (c#)</span><span class="sxs-lookup"><span data-stu-id="75c9e-105">Self-Host ASP.NET Web API 1 (C#)</span></span>
 ====================

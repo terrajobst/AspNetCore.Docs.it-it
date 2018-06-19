@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
 title: '[Eseguire la ricerca per categorie:] Implementare i pulsanti di comando per i singoli elementi | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video Chris Pels verrà illustrato come gestire gli eventi associati a un controllo pulsante di ogni elemento di un controllo con associazione a dati come un controllo ListView. Primo,..."
+description: In questo video Chris Pels verrà illustrato come gestire gli eventi associati a un controllo pulsante di ogni elemento di un controllo con associazione a dati come un controllo ListView. Primo,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525560"
 ---
 <a name="how-do-i-implement-command-buttons-for-individual-items"></a><span data-ttu-id="c46e0-104">[Eseguire la ricerca per categorie:] Implementare i pulsanti di comando per i singoli elementi</span><span class="sxs-lookup"><span data-stu-id="c46e0-104">[How Do I:] Implement Command Buttons for Individual Items</span></span>
 ====================

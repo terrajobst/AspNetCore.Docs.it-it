@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/admin
 msc.type: chapter
 ms.openlocfilehash: 8a280ab8b6a7ee6d4c0a43592512976b89d1b723
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519040"
 ---
 <a name="aspnet-35---security-administration"></a><span data-ttu-id="c0dcd-103">ASP.NET 3.5 - amministrazione della sicurezza</span><span class="sxs-lookup"><span data-stu-id="c0dcd-103">ASP.NET 3.5 - Security Administration</span></span>
 ====================

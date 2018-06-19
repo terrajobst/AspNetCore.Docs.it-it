@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873732"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a><span data-ttu-id="d3d00-104">Gestione dei postback da un ModalPopup (c#)</span><span class="sxs-lookup"><span data-stu-id="d3d00-104">Handling Postbacks from a ModalPopup (C#)</span></span>
 ====================

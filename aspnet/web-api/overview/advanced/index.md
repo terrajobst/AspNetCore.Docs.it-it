@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
 ms.openlocfilehash: dca812e1c88d1aa2692365711d71813199be9ca2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506750"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a><span data-ttu-id="19343-103">Argomenti avanzati per ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="19343-103">Advanced Topics for ASP.NET Web API</span></span>
 ====================

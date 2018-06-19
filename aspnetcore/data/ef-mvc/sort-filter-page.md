@@ -13,6 +13,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153722"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a><span data-ttu-id="307f1-103">ASP.NET Core MVC con EF Core - Ordinamento, filtro, suddivisione in pagine - 3 di 10</span><span class="sxs-lookup"><span data-stu-id="307f1-103">ASP.NET Core MVC with EF Core - Sort, Filter, Paging - 3 of 10</span></span>
 

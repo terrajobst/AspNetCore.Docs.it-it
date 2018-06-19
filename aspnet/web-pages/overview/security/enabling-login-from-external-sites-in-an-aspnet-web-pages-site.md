@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530170"
 ---
 <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="b5c68-103">Registrazione tramite siti esterni in un sito Web di ASP.NET di pagine (Razor)</span><span class="sxs-lookup"><span data-stu-id="b5c68-103">Logging In Using External Sites in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

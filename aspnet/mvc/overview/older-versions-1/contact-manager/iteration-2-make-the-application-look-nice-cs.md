@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871844"
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a><span data-ttu-id="f383a-103">Iterazione #2: rendere l'applicazione nice (c#)</span><span class="sxs-lookup"><span data-stu-id="f383a-103">Iteration #2 – Make the application look nice (C#)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-simple-file-uploads-in-aspnet
 title: '[Eseguire la ricerca per categorie:]  Caricamenti di File semplice in ASP.NET | Documenti Microsoft'
 author: JoeStagner
-description: "In questo video verrà illustrato, tramite ASP.NET, il caricamento di un singolo file dal computer client al server. Questo sarà il primo di una serie di caricamento..."
+description: In questo video verrà illustrato, tramite ASP.NET, il caricamento di un singolo file dal computer client al server. Questo sarà il primo di una serie di caricamento...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526110"
 ---
 <a name="how-do-i--simple-file-uploads-in-aspnet"></a><span data-ttu-id="1a984-104">[Eseguire la ricerca per categorie:]  Caricamento di File semplice in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="1a984-104">[How Do I:]  Simple File Uploads in ASP.NET</span></span>
 ====================

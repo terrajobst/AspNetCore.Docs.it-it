@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869816"
 ---
 <a name="understanding-action-filters-vb"></a><span data-ttu-id="333bd-104">Informazioni sui filtri dell'azione (VB)</span><span class="sxs-lookup"><span data-stu-id="333bd-104">Understanding Action Filters (VB)</span></span>
 ====================

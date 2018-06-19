@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
 ms.openlocfilehash: fffeb7c5b5a202a273bfd8b144ad1f63d5743087
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528520"
 ---
 <a name="performance"></a><span data-ttu-id="4e45d-103">Prestazioni</span><span class="sxs-lookup"><span data-stu-id="4e45d-103">Performance</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868724"
 ---
 <a name="dynamically-adding-an-accordion-pane-vb"></a><span data-ttu-id="7c596-104">Aggiunta dinamica di un riquadro soffietto (VB)</span><span class="sxs-lookup"><span data-stu-id="7c596-104">Dynamically Adding An Accordion Pane (VB)</span></span>
 ====================

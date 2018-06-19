@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel
 msc.type: chapter
 ms.openlocfilehash: eb511e4c0f126fc54aad7b64473bd40eccf335a6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509340"
 ---
 <a name="collapsiblepanel"></a><span data-ttu-id="c8044-103">CollapsiblePanel</span><span class="sxs-lookup"><span data-stu-id="c8044-103">CollapsiblePanel</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525300"
 ---
 <a name="how-do-i-create-a-full-featured-customer-login-portal"></a><span data-ttu-id="872f6-104">[Eseguire la ricerca per categorie:] Creare un portale di account di accesso del cliente completa?</span><span class="sxs-lookup"><span data-stu-id="872f6-104">[How Do I:] Create a Full-Featured Customer Login Portal?</span></span>
 ====================

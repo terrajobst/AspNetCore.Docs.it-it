@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032818"
 ---
 <a name="enabling-signalr-tracing"></a><span data-ttu-id="8bcfd-104">Abilitazione della traccia SignalR</span><span class="sxs-lookup"><span data-stu-id="8bcfd-104">Enabling SignalR Tracing</span></span>
 ====================

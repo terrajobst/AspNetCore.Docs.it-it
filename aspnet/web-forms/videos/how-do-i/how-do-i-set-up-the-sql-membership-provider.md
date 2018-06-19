@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526090"
 ---
 <a name="how-do-i-set-up-the-sql-membership-provider"></a><span data-ttu-id="9316f-104">[Eseguire la ricerca per categorie:] Configurare il Provider di appartenenze SQL</span><span class="sxs-lookup"><span data-stu-id="9316f-104">[How Do I:] Set Up the SQL Membership Provider</span></span>
 ====================

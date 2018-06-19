@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
 title: '[Eseguire la ricerca per categorie:] Implementare la riscrittura URL? | Microsoft Docs'
 author: scottgolightly
-description: "In questo video Scott Golightly Mostra come creare un HttpModule ASP.NET ' riscrittura ' URL quando arriva una richiesta per una pagina web. È possibile riscrivere..."
+description: In questo video Scott Golightly Mostra come creare un HttpModule ASP.NET ' riscrittura ' URL quando arriva una richiesta per una pagina web. È possibile riscrivere...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526260"
 ---
 <a name="how-do-i-implement-url-rewriting"></a><span data-ttu-id="deb2e-105">[Eseguire la ricerca per categorie:] Implementare la riscrittura URL?</span><span class="sxs-lookup"><span data-stu-id="deb2e-105">[How Do I:] Implement URL Rewriting?</span></span>
 ====================

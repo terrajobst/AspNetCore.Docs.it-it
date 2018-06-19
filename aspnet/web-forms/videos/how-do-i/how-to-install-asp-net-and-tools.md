@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526290"
 ---
 <a name="how-to-install-aspnet-and-tools"></a><span data-ttu-id="35d90-103">Come installare ASP.NET e strumenti</span><span class="sxs-lookup"><span data-stu-id="35d90-103">How to Install ASP.NET and Tools</span></span>
 ====================

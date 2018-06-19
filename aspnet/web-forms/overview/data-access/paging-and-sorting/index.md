@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting/index
 title: Ordinamento e paging | Documenti Microsoft
 author: rick-anderson
-description: "In queste esercitazioni aggiungere alcune funzionalità di paging e di ordinamento iniziale per i report sui dati."
+description: In queste esercitazioni aggiungere alcune funzionalità di paging e di ordinamento iniziale per i report sui dati.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting
 msc.type: chapter
 ms.openlocfilehash: 1366bf670d130f2df2d887e8f221bc3f57109d54
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514720"
 ---
 <a name="paging-and-sorting"></a><span data-ttu-id="ce0c0-103">Ordinamento e paging</span><span class="sxs-lookup"><span data-stu-id="ce0c0-103">Paging and Sorting</span></span>
 ====================

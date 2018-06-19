@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34472934"
 ---
 # <a name="host-and-deploy-aspnet-core"></a><span data-ttu-id="da216-103">Hosting e distribuzione di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="da216-103">Host and deploy ASP.NET Core</span></span>
 

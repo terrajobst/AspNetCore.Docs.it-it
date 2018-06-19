@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874912"
 ---
 <a name="part-5-edit-forms-and-templating"></a><span data-ttu-id="b4caf-104">Parte 5: Modifica moduli e modelli</span><span class="sxs-lookup"><span data-stu-id="b4caf-104">Part 5: Edit Forms and Templating</span></span>
 ====================

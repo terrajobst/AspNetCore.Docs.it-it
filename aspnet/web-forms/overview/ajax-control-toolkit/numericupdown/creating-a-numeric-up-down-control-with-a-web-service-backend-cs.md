@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868815"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a><span data-ttu-id="e817f-103">Creazione di un controllo su/giù numerico con un back-end del servizio Web (c#)</span><span class="sxs-lookup"><span data-stu-id="e817f-103">Creating a Numeric Up/Down Control with a Web Service Backend (C#)</span></span>
 ====================

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-embed-an-image-in-an-email-with-aspnet
-title: '[Eseguire la ricerca per categorie:] Incorporare un''immagine in un messaggio di posta elettronica con ASP.NET | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:] Incorporare un'immagine in un messaggio di posta elettronica con ASP.NET | Documenti Microsoft"
 author: rick-anderson
 description: Chris Pels viene illustrato come incorporare un'immagine in un messaggio di posta elettronica con ASP.NET. Giorgio crea un web form (con i campi per a, da, oggetto e corpo), si utilizza il AlternateView...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525070"
 ---
 <a name="how-do-i-embed-an-image-in-an-email-with-aspnet"></a><span data-ttu-id="68d80-104">[Eseguire la ricerca per categorie:] Incorporare un'immagine in un messaggio di posta elettronica con ASP.NET</span><span class="sxs-lookup"><span data-stu-id="68d80-104">[How Do I:] Embed an Image in an Email with ASP.NET</span></span>
 ====================

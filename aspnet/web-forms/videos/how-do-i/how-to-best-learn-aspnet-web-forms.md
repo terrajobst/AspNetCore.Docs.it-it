@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521740"
 ---
 <a name="how-to-best-learn-aspnet-web-forms"></a><span data-ttu-id="12d9a-103">Come per più informazioni su Web Form ASP.NET</span><span class="sxs-lookup"><span data-stu-id="12d9a-103">How to Best Learn ASP.NET Web Forms</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist
 msc.type: chapter
 ms.openlocfilehash: 14ad3527a17b0853dd10a07aba28d60867f79169
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511620"
 ---
 <a name="reorderlist"></a><span data-ttu-id="e142a-103">ReorderList</span><span class="sxs-lookup"><span data-stu-id="e142a-103">ReorderList</span></span>
 ====================

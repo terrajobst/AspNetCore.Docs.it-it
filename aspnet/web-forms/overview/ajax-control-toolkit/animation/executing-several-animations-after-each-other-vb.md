@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873758"
 ---
 <a name="executing-several-animations-after-each-other-vb"></a><span data-ttu-id="87192-104">L'esecuzione di numerose animazioni dopo l'altro (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="87192-104">Executing Several Animations after Each Other (VB)</span></span>
 ====================

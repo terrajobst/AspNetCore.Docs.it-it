@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873810"
 ---
 <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a><span data-ttu-id="37887-102">Parte 5: Creazione di un'interfaccia utente dinamica con Knockout.js</span><span class="sxs-lookup"><span data-stu-id="37887-102">Part 5: Creating a Dynamic UI with Knockout.js</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508960"
 ---
 <a name="aspnet-web-api"></a><span data-ttu-id="ac5d1-103">API Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="ac5d1-103">ASP.NET Web API</span></span>
 ====================

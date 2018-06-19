@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505520"
 ---
 <a name="signalr-and-web-sockets"></a><span data-ttu-id="3e9a7-103">SignalR e WebSocket</span><span class="sxs-lookup"><span data-stu-id="3e9a7-103">SignalR and Web Sockets</span></span>
 ====================

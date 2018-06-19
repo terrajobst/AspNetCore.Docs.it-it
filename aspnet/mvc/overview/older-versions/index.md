@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: b017b33346c3d61741f2285896870002d61d3703
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502570"
 ---
 <a name="older-versions---mvc-3-and-4"></a><span data-ttu-id="73e9f-103">Versioni precedenti - MVC 3 e 4</span><span class="sxs-lookup"><span data-stu-id="73e9f-103">Older Versions - MVC 3 and 4</span></span>
 ====================

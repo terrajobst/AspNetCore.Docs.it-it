@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps
 msc.type: chapter
 ms.openlocfilehash: a237409281885cbec652de091c6e1d690b24061c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513030"
 ---
 <a name="database-driven-site-maps"></a><span data-ttu-id="55714-103">Mappe del sito basati su database</span><span class="sxs-lookup"><span data-stu-id="55714-103">Database-Driven Site Maps</span></span>
 ====================

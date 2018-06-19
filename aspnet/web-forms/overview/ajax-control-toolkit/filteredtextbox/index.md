@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox
 msc.type: chapter
 ms.openlocfilehash: 04197e6348ac97f8ea668591c894f25774966cae
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510390"
 ---
 <a name="filteredtextbox"></a><span data-ttu-id="fbb6f-103">FilteredTextBox</span><span class="sxs-lookup"><span data-stu-id="fbb6f-103">FilteredTextBox</span></span>
 ====================

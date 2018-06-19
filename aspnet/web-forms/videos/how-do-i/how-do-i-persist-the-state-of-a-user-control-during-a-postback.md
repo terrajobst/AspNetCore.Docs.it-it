@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
 title: '[Ricerca per categorie]: rendere persistente lo stato di un controllo utente durante un Postback | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video di Chris Pels Mostra come rendere persistente lo stato di uno o più oggetti in un controllo utente. Innanzitutto, viene creato un controllo utente che rappresenta il abilit..."
+description: In questo video di Chris Pels Mostra come rendere persistente lo stato di uno o più oggetti in un controllo utente. Innanzitutto, viene creato un controllo utente che rappresenta il abilit...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525970"
 ---
-<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a><span data-ttu-id="f886b-104">[Ricerca per categorie]: rendere persistente lo stato di un controllo utente durante un Postback</span><span class="sxs-lookup"><span data-stu-id="f886b-104">[How Do I]: Persist the State of a User Control During a Postback</span></span>
+<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Ricerca per categorie]: rendere persistente lo stato di un controllo utente durante un Postback
+[How Do I]: Persist the State of a User Control During a Postback
 ====================
 <span data-ttu-id="f886b-105">da [Chris PEL](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="f886b-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

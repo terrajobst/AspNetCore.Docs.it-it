@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036895"
 ---
 <a name="single-page-application-knockoutjs-template"></a><span data-ttu-id="4cf84-103">Applicazione a pagina singola: Modello Knockout.js</span><span class="sxs-lookup"><span data-stu-id="4cf84-103">Single Page Application: KnockoutJS template</span></span>
 ====================
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="4cf84-121">Avviare Visual Studio e selezionare **nuovo progetto** dalla pagina iniziale.</span><span class="sxs-lookup"><span data-stu-id="4cf84-121">Start Visual Studio and select **New Project** from the Start page.</span></span> <span data-ttu-id="4cf84-122">O dal **File** dal menu **New** e quindi **progetto**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="4cf84-123">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="4cf84-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="4cf84-124">In **Visual c#**selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="4cf84-125">Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-125">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="4cf84-126">Denominare il progetto e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-126">Name the project and click **OK**.</span></span>
+<span data-ttu-id="4cf84-123">Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il **Visual c#** nodo.</span><span class="sxs-lookup"><span data-stu-id="4cf84-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="4cf84-124">In **Visual c#** selezionare **Web**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="4cf84-125">Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-125">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="4cf84-126">Denominare il progetto e fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="4cf84-126">Name the project and click **OK**.</span></span>
 
 ![](knockoutjs-template/_static/image2.png)
 

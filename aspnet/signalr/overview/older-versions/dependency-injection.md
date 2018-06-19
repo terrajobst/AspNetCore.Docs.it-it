@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/dependency-injection
 title: Inserimento di dipendenze in SignalR 1. x | Documenti Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/15/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505490"
 ---
 <a name="dependency-injection-in-signalr-1x"></a><span data-ttu-id="b0fb3-102">Inserimento di dipendenze in SignalR 1. x</span><span class="sxs-lookup"><span data-stu-id="b0fb3-102">Dependency Injection in SignalR 1.x</span></span>
 ====================

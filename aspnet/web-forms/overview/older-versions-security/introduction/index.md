@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/introduction
 msc.type: chapter
 ms.openlocfilehash: f964a35693e781451db24ae6ed7ca8d5aa7a6917
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519060"
 ---
 <a name="aspnet-35---introduction-to-security"></a><span data-ttu-id="70f1e-103">ASP.NET 3.5 - Introduzione alla sicurezza</span><span class="sxs-lookup"><span data-stu-id="70f1e-103">ASP.NET 3.5 - Introduction to Security</span></span>
 ====================

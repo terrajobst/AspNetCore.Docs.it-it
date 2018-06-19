@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-3/mvc-3-razor-helpers
 title: MVC 3 - Razor Helpers | Documenti Microsoft
 author: jongalloway
-description: "In questo video si apprenderà come usare entrambi i metodi di estensione e dichiarativa @helper sintassi nelle visualizzazioni Razor."
+description: In questo video si apprenderà come usare entrambi i metodi di estensione e dichiarativa @helper sintassi nelle visualizzazioni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503660"
 ---
 <a name="mvc-3---razor-helpers"></a><span data-ttu-id="666d3-103">MVC 3 - Razor Helpers</span><span class="sxs-lookup"><span data-stu-id="666d3-103">MVC 3 - Razor Helpers</span></span>
 ====================

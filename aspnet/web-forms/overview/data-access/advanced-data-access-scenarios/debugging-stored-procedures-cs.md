@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876501"
 ---
 <a name="debugging-stored-procedures-c"></a><span data-ttu-id="bf5d2-103">Debug di Stored procedure (c#)</span><span class="sxs-lookup"><span data-stu-id="bf5d2-103">Debugging Stored Procedures (C#)</span></span>
 ====================

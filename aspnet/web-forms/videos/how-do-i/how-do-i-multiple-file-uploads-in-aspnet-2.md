@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
-title: "[Eseguire la ricerca per categorie:]  Consente di caricare più File in ASP.NET 2 | Documenti Microsoft"
+title: '[Eseguire la ricerca per categorie:]  Consente di caricare più File in ASP.NET 2 | Documenti Microsoft'
 author: JoeStagner
 description: In questo video viene illustrato il caricamento di un numero di file determinato dinamicamente all'applicazione ASP.NET.
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521380"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-2"></a><span data-ttu-id="52939-103">[Eseguire la ricerca per categorie:]  Consente di caricare più File in ASP.NET 2</span><span class="sxs-lookup"><span data-stu-id="52939-103">[How Do I:]  Multiple File Uploads in ASP.NET 2</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/videos/getting-started
 msc.type: chapter
 ms.openlocfilehash: c06a3e5670839af357a515331cd864521d260c0e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508990"
 ---
 <a name="aspnet-web-api-overview-and-getting-started-videos"></a><span data-ttu-id="0e84f-103">Panoramica dell'API Web ASP.NET come guida introduttiva video</span><span class="sxs-lookup"><span data-stu-id="0e84f-103">ASP.NET Web API Overview and Getting Started Videos</span></span>
 ====================

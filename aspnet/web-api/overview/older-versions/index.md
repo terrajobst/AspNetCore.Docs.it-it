@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: e3cb215e60ba11ec23f4e0c8d03dd08aa39a174f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508190"
 ---
 <a name="documentation-on-older-versions-of-web-api"></a><span data-ttu-id="a5d01-103">Documentazione su versioni precedenti dell'API Web</span><span class="sxs-lookup"><span data-stu-id="a5d01-103">Documentation on Older Versions of Web API</span></span>
 ====================

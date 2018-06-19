@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-cache-portions-of-an-aspnet-page
 title: '[Eseguire la ricerca per categorie:] Memorizzare nella cache di parti di una pagina ASP.NET | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video di Chris Pels viene illustrato come memorizzare nella cache di uno o più parti di una pagina ASP.NET mediante l'implementazione di OutputCache per i controlli utente nella pagina. Innanzitutto, un..."
+description: In questo video di Chris Pels viene illustrato come memorizzare nella cache di uno o più parti di una pagina ASP.NET mediante l'implementazione di OutputCache per i controlli utente nella pagina. Innanzitutto, un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525280"
 ---
 <a name="how-do-i-cache-portions-of-an-aspnet-page"></a><span data-ttu-id="f3ac3-104">[Eseguire la ricerca per categorie:] Parti di cache di una pagina ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f3ac3-104">[How Do I:] Cache Portions of an ASP.NET Page</span></span>
 ====================

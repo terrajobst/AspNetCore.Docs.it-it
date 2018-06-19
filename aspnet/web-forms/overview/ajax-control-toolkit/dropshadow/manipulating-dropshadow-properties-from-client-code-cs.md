@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870336"
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-c"></a><span data-ttu-id="213c6-103">La modifica delle proprietà di DropShadow dal codice Client (c#)</span><span class="sxs-lookup"><span data-stu-id="213c6-103">Manipulating DropShadow Properties from Client Code (C#)</span></span>
 ====================

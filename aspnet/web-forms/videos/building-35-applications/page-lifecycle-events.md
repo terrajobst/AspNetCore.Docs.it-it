@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521600"
 ---
 <a name="page-lifecycle-events"></a><span data-ttu-id="44f3e-104">Eventi del ciclo di vita di pagina</span><span class="sxs-lookup"><span data-stu-id="44f3e-104">Page Lifecycle Events</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525960"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a><span data-ttu-id="6419b-103">[Eseguire la ricerca per categorie:] Utilizzare pagine Master annidate per creare il layout del contenuto Standard</span><span class="sxs-lookup"><span data-stu-id="6419b-103">[How Do I:] Work with Nested Master Pages to Create Standard Content Layouts</span></span>
 ====================

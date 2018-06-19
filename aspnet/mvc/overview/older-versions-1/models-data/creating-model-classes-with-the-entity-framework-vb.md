@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874447"
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a><span data-ttu-id="e1493-104">Creazione di classi di modello con Entity Framework (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="e1493-104">Creating Model Classes with the Entity Framework (VB)</span></span>
 ====================

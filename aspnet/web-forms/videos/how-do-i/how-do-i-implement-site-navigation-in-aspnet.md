@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 title: '[Eseguire la ricerca per categorie:] Esplorazione del sito di implementare in ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: "In questo video è informazioni su come definire una mappa del sito e utilizzarlo con i controlli server Menu, TreeView e Sitemap. Viene illustrato come utilizzare una mappa del sito in una pagina master..."
+description: In questo video è informazioni su come definire una mappa del sito e utilizzarlo con i controlli server Menu, TreeView e Sitemap. Viene illustrato come utilizzare una mappa del sito in una pagina master...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525690"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a><span data-ttu-id="87430-105">[Eseguire la ricerca per categorie:] Esplorazione del sito di implementare in ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="87430-105">[How Do I:] Implement Site Navigation in ASP.NET?</span></span>
 ====================

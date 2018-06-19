@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: '[Ricerca per categorie]: sincronizzare i dati in controlli utente secondario in base alle selezioni dell''utente | Documenti Microsoft'
+title: "[Ricerca per categorie]: sincronizzare i dati in controlli utente secondario in base alle selezioni dell'utente | Documenti Microsoft"
 author: rick-anderson
 description: In questo video di Chris Pels viene illustrato come creare due controlli DropDownList in cui la selezione di un elemento nel primo elenco inserisce gli elementi nel secondo elenco. Home...
 ms.author: aspnetcontent
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526440"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a><span data-ttu-id="788ce-104">[Ricerca per categorie]: sincronizzare i dati in controlli utente secondario in base alle selezioni dell'utente</span><span class="sxs-lookup"><span data-stu-id="788ce-104">[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections</span></span>
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Ricerca per categorie]: sincronizzare i dati in controlli utente secondario in base alle selezioni dell'utente
+[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections
 ====================
 <span data-ttu-id="788ce-105">da [Chris PEL](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="788ce-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

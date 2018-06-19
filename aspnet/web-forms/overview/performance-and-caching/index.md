@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/performance-and-caching
 msc.type: chapter
 ms.openlocfilehash: 1a7881ba937308ffe07aeeeaafd5e6422f9fcce9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519480"
 ---
 <a name="performance"></a><span data-ttu-id="8d85c-103">Prestazioni</span><span class="sxs-lookup"><span data-stu-id="8d85c-103">Performance</span></span>
 ====================

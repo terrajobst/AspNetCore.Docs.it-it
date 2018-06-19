@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870180"
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a><span data-ttu-id="8e244-103">Utilizzare AJAX per distribuire gli aggiornamenti dinamici</span><span class="sxs-lookup"><span data-stu-id="8e244-103">Use AJAX to Deliver Dynamic Updates</span></span>
 ====================

@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: c0c084d3-1b12-4de1-b904-30fbbda59a30
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-color-picker
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506420"
 ---
 <a name="visual-studio-vnext-videos-css-editor-color-picker"></a><span data-ttu-id="50f61-103">Visual Studio vNext video: selezione dei colori CSS (Editor)</span><span class="sxs-lookup"><span data-stu-id="50f61-103">Visual Studio vNext Videos: CSS Editor Color Picker</span></span>
 ====================

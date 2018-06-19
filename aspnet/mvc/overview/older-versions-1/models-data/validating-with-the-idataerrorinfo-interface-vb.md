@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870089"
 ---
 <a name="validating-with-the-idataerrorinfo-interface-vb"></a><span data-ttu-id="19200-103">Convalida con l'interfaccia IDataErrorInfo (VB)</span><span class="sxs-lookup"><span data-stu-id="19200-103">Validating with the IDataErrorInfo Interface (VB)</span></span>
 ====================

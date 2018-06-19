@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb
 msc.type: chapter
 ms.openlocfilehash: 564f4557b2a3a77d9977a194ebd0a2cda9ccdef6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26501620"
 ---
 <a name="getting-started-with-aspnet-mvc-3-vbnet"></a><span data-ttu-id="de28b-103">Introduzione a ASP.NET MVC 3 (Visual Basic.NET)</span><span class="sxs-lookup"><span data-stu-id="de28b-103">Getting Started with ASP.NET MVC 3 (VB.NET)</span></span>
 ====================

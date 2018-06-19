@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page
-title: "[Eseguire la ricerca per categorie:] Utilizzare la proprietà Reponse.Filter per sostituire HTML in una pagina ASP.NET | Documenti Microsoft"
+title: '[Eseguire la ricerca per categorie:] Utilizzare la proprietà Reponse.Filter per sostituire HTML in una pagina ASP.NET | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video di Chris Pels viene illustrato come utilizzare la proprietà Reponse.Filter per intercettare e modificare il codice HTML inviati a una pagina. Una pagina di esempio viene innanzitutto creata w..."
+description: In questo video di Chris Pels viene illustrato come utilizzare la proprietà Reponse.Filter per intercettare e modificare il codice HTML inviati a una pagina. Una pagina di esempio viene innanzitutto creata w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/29/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525530"
 ---
 <a name="how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page"></a><span data-ttu-id="42bfe-104">[Eseguire la ricerca per categorie:] Utilizzare la proprietà Reponse.Filter per sostituire HTML in una pagina ASP.NET</span><span class="sxs-lookup"><span data-stu-id="42bfe-104">[How Do I:] Use the Reponse.Filter Property to Replace HTML in an ASP.NET Page</span></span>
 ====================

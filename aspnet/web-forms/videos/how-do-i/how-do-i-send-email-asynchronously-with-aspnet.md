@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525870"
 ---
 <a name="how-do-i-send-email-asynchronously-with-aspnet"></a><span data-ttu-id="04d3c-104">[Eseguire la ricerca per categorie:] Invio di posta elettronica in modo asincrono con ASP.NET</span><span class="sxs-lookup"><span data-stu-id="04d3c-104">[How Do I:] Send Email Asynchronously with ASP.NET</span></span>
 ====================
