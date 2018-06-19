@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/presenting-and-managing-data
 msc.type: chapter
 ms.openlocfilehash: fcfe22a67a2d0876e25b867d43a3bc1535149110
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519760"
 ---
 <a name="working-with-data-in-aspnet-web-forms"></a>Utilizzo dei dati in Web Form ASP.NET
 ====================

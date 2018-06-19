@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-
 msc.type: chapter
 ms.openlocfilehash: 45d58999934e1d4a3df144f1e5b0e108192f6588
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502440"
 ---
 <a name="getting-started-with-ef-5-using-mvc-4"></a>Introduzione a Entity Framework 5 utilizzando MVC 4
 ====================

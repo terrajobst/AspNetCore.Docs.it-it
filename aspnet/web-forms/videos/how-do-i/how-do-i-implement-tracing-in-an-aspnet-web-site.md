@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
 title: '[Eseguire la ricerca per categorie:]  Implementa la traccia in un sito Web ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: "In questo video Chris Pels verrà descritto come implementare la traccia in un sito web ASP.NET di monitorare o misurare le prestazioni e di diagnosticare gli errori. Ulteriori ho..."
+description: In questo video Chris Pels verrà descritto come implementare la traccia in un sito web ASP.NET di monitorare o misurare le prestazioni e di diagnosticare gli errori. Ulteriori ho...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526560"
 ---
 <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[Eseguire la ricerca per categorie:]  Implementa la traccia in un sito Web ASP.NET?
 ====================

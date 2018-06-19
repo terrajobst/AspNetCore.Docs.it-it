@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/choosing-the-right-programming-model
 title: Scelta del modello di programmazione | Documenti Microsoft
 author: shanselman
-description: "Microsoft Scott Hanselman offre le informazioni che necessarie per stabilire se Web Form ASP.NET, MVC ASP.NET o ASP.NET Web Pages è adatta alle proprie esigenze."
+description: Microsoft Scott Hanselman offre le informazioni che necessarie per stabilire se Web Form ASP.NET, MVC ASP.NET o ASP.NET Web Pages è adatta alle proprie esigenze.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525440"
 ---
 <a name="choosing-the-right-programming-model"></a>Scelta del modello di programmazione
 ====================

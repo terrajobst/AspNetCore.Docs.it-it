@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/testing-and-debugging
 msc.type: chapter
 ms.openlocfilehash: 567fe8f790d5f7684b74018503f97ea8caabccc9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508260"
 ---
 <a name="testing-and-debugging-aspnet-web-api"></a>Test e debug di ASP.NET Web API
 ====================

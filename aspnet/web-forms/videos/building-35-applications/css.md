@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/css
 title: CSS | Documenti Microsoft
 author: JoeStagner
-description: "Fogli di stile CSS sono essenziali per lo sviluppo web moderno e Visual Web Developer 2008 include una raccolta di CSS potenti funzionalità per consentire di compilazione..."
+description: Fogli di stile CSS sono essenziali per lo sviluppo web moderno e Visual Web Developer 2008 include una raccolta di CSS potenti funzionalità per consentire di compilazione...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521480"
 ---
 <a name="css"></a>CSS
 ====================

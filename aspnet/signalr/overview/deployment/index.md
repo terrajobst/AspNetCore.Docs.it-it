@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 8c018a2fe92c90e3264326116cb4b21a0070bff4
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504070"
 ---
 <a name="signalr-deployment-and-hosting"></a>Distribuzione di SignalR e Hosting
 ====================

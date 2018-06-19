@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/index
 title: In ASP.NET 4 - continuare con Entity Framework 4 e Web Form | Documenti Microsoft
 author: rick-anderson
-description: "Come compilare l'applicazione Contoso U come un'applicazione a più livelli utilizzando il controllo ObjectDataSource e come gestire la concorrenza e ottimizzare le prestazioni."
+description: Come compilare l'applicazione Contoso U come un'applicazione a più livelli utilizzando il controllo ObjectDataSource e come gestire la concorrenza e ottimizzare le prestazioni.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-wit
 msc.type: chapter
 ms.openlocfilehash: aa412b55bddf886f6915dc852599a423c56c9fc3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516640"
 ---
 <a name="aspnet-4---continuing-with-entity-framework-4-and-web-forms"></a>In ASP.NET 4 - continuare con Entity Framework 4 e Web Form
 ====================

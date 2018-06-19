@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507130"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Lab pratico: Strumenti Web 2013 Visual Studio
 ====================

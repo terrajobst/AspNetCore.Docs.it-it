@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
 ms.openlocfilehash: e773ced66465ab99e9b662d84e1cdb8e607918e7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512290"
 ---
 <a name="advanced-data-access-scenarios"></a>Scenari di accesso ai dati avanzati
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
 ms.openlocfilehash: eee9d853e67cf8e13541a8ae570108a3564f8a51
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508980"
 ---
 <a name="web-api-routing"></a>Routing di API Web
 ====================

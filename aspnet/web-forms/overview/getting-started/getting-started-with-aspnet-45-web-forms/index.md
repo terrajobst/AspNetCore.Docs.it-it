@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-4
 msc.type: chapter
 ms.openlocfilehash: 1c6e6f08c94d025c3643938de2c6ca2326402f90
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516540"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013
 ====================

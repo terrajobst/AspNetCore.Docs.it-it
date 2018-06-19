@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
-title: "[Eseguire la ricerca per categorie:] Utilizzare la possibilità di creare gruppi con il controllo ListView per diversi dati | Documenti Microsoft"
+title: '[Eseguire la ricerca per categorie:] Utilizzare la possibilità di creare gruppi con il controllo ListView per diversi dati | Documenti Microsoft'
 author: rick-anderson
 description: In questo video Chris Pels viene illustrato come raggruppare gli elementi nella visualizzazione dei dati in un controllo ListView. In primo luogo, vedere le nozioni di base di layout degli elementi nel controllo del codice di ListView...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525200"
 ---
 <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[Eseguire la ricerca per categorie:] Utilizzare la possibilità di creare gruppi con il controllo ListView per dati diversi
 ====================

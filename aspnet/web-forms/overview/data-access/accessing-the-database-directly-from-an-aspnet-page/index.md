@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/index
 title: L'accesso al Database direttamente da una pagina ASP.NET | Documenti Microsoft
 author: rick-anderson
-description: "Queste esercitazioni viene illustrato come utilizzare il controllo SqlDataSource per eseguire query direttamente sul database quando non è necessaria una separazione strict della presentazione e i dati..."
+description: Queste esercitazioni viene illustrato come utilizzare il controllo SqlDataSource per eseguire query direttamente sul database quando non è necessaria una separazione strict della presentazione e i dati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-f
 msc.type: chapter
 ms.openlocfilehash: ec6474ccfd2aadc76dc21596fa1e4a5dc7bf01f8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511720"
 ---
 <a name="accessing-the-database-directly-from-an-aspnet-page"></a>L'accesso al Database direttamente da una pagina ASP.NET
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/overview/security/index
 title: Sicurezza, autenticazione e autorizzazione con ASP.NET MVC | Documenti Microsoft
 author: rick-anderson
-description: "Come rendere più sicuro un sito ASP.NET e come implementare l'autenticazione e autorizzazione."
+description: Come rendere più sicuro un sito ASP.NET e come implementare l'autenticazione e autorizzazione.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/10/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/security
 msc.type: chapter
 ms.openlocfilehash: ae6cee1fcccc080c9865f618f162e5f2acdcb620
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503210"
 ---
 <a name="security-authentication-and-authorization-with-aspnet-mvc"></a>Sicurezza, autenticazione e autorizzazione con ASP.NET MVC
 ====================

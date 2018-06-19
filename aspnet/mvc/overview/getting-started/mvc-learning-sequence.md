@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/mvc-learning-sequence
-title: "MVC è consigliabile esercitazioni e articoli | Documenti Microsoft"
+title: MVC è consigliabile esercitazioni e articoli | Documenti Microsoft
 author: Rick-Anderson
 description: Questa pagina contiene collegamenti a esercitazioni di ASP.NET MVC e la sequenza consigliata per utilizzarle.
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032641"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>Esercitazioni e gli articoli consigliati MVC
 ====================

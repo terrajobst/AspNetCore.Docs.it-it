@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
-title: "[Eseguire la ricerca per categorie:] Utilizzare i ruoli per segmentare funzionalità in un sito Web ASP.NET | Documenti Microsoft"
+title: '[Eseguire la ricerca per categorie:] Utilizzare i ruoli per segmentare funzionalità in un sito Web ASP.NET | Documenti Microsoft'
 author: rick-anderson
 description: In questo video Chris Pels viene illustrato come ottimizzare l'utilizzo dei ruoli in un sito web ASP.NET dopo aver impostato le appartenenze di ASP.NET. In primo luogo, informazioni su come configurare il ruolo...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526530"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Eseguire la ricerca per categorie:] Utilizzare i ruoli per segmentare funzionalità in un sito Web ASP.NET
 ====================
