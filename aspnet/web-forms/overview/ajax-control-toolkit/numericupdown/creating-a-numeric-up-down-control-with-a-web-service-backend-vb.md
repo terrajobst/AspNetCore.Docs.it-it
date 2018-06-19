@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871389"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Creazione di un controllo su/giù numerico con un back-end del servizio Web (VB)
 ====================

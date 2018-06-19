@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877762"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Creazione di nuove Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (VB)
 ====================

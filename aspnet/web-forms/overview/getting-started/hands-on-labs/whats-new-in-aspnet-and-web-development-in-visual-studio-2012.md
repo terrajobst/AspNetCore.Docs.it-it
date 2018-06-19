@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306832"
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Novità di ASP.NET e lo sviluppo Web in Visual Studio 2012
 ====================

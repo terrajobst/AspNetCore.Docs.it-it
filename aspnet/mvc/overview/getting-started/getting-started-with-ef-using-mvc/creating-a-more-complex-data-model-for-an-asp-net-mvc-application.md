@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877099"
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Creazione di un modello di dati più complesso per un'applicazione MVC ASP.NET
 ====================

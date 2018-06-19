@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: '[Eseguire la ricerca per categorie:] Esportare i dati in un File delimitato da virgole (CSV) per un''applicazione come Excel | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:] Esportare i dati in un File delimitato da virgole (CSV) per un'applicazione come Excel | Documenti Microsoft"
 author: rick-anderson
-description: "In questo video Chris Pels viene illustrato come utilizzare i dati da un database o altre origini ed esportarlo in un file delimitato da virgole che può essere utilizzato in un'applicazione li..."
+description: In questo video Chris Pels viene illustrato come utilizzare i dati da un database o altre origini ed esportarlo in un file delimitato da virgole che può essere utilizzato in un'applicazione li...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525640"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[Eseguire la ricerca per categorie:] Esportare i dati in un File delimitato da virgole (CSV) per un'applicazione come Excel
 ====================

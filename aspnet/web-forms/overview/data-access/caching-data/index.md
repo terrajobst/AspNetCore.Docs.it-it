@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/index
 title: La memorizzazione nella cache dati | Documenti Microsoft
 author: rick-anderson
-description: "Questa esercitazione viene spiegato la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione utilizzando il controllo ObjectDataSource..."
+description: Questa esercitazione viene spiegato la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione utilizzando il controllo ObjectDataSource...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
 ms.openlocfilehash: 0b14ecdd4a8cab1d61bf9b7c238fc32330d54e52
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512620"
 ---
 <a name="caching-data"></a>Memorizzazione di dati nella cache
 ====================

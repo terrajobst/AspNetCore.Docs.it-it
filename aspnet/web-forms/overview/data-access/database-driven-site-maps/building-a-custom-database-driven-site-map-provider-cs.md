@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878009"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-c"></a>Creazione di un Provider di mappa del sito basati su Database personalizzato (c#)
 ====================

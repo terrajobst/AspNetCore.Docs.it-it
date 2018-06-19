@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877385"
 ---
 <a name="iteration-1--create-the-application-c"></a>Iterazione #1: creare l'applicazione (c#)
 ====================

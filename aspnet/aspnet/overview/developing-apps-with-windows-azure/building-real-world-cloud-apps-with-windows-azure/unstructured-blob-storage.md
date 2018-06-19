@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872572"
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Archiviazione di Blob non strutturati (creazione di applicazioni Cloud reale in Azure)
 ====================

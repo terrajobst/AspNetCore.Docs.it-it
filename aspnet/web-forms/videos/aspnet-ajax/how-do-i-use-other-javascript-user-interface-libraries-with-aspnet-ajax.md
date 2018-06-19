@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882712"
 ---
 <a name="how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax"></a>[Eseguire la ricerca per categorie:] Usare altre librerie di interfaccia utente di JavaScript con ASP.NET AJAX?
 ====================

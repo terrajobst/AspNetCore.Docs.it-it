@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882364"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a>Come è possibile modificare come viene eseguito il rendering di my campi?
 ====================

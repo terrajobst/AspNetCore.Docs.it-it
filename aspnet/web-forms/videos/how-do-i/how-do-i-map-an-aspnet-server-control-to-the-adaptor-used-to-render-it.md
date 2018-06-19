@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
-title: '[Eseguire la ricerca per categorie:] Eseguire il mapping di un controllo Server ASP.NET per l''adattatore utilizzato per eseguirne il rendering | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:] Eseguire il mapping di un controllo Server ASP.NET per l'adattatore utilizzato per eseguirne il rendering | Documenti Microsoft"
 author: rick-anderson
 description: In questo video di Chris Pels viene illustrato come usare una scheda di controllo per fornire il rendering diverso per un controllo server ASP.NET senza modificare effettivamente il c...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526060"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[Eseguire la ricerca per categorie:] Eseguire il mapping di un controllo Server ASP.NET per l'adattatore utilizzato per eseguirne il rendering
 ====================

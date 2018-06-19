@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/login-controls
 title: Controlli di accesso | Documenti Microsoft
 author: JoeStagner
-description: "In questo video Joe verrà presentate le appartenenze di ASP.NET viene illustrato come utilizzare alcuni dei controlli di accesso in ASP.NET."
+description: In questo video Joe verrà presentate le appartenenze di ASP.NET viene illustrato come utilizzare alcuni dei controlli di accesso in ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520920"
 ---
 <a name="login-controls"></a>Controlli di accesso
 ====================

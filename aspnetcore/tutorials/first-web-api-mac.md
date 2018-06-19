@@ -16,6 +16,7 @@ ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/09/2018
+ms.locfileid: "33923204"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Mac
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033847"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>Esercitazione: Introduzione a SignalR 2 e MVC 5
 ====================

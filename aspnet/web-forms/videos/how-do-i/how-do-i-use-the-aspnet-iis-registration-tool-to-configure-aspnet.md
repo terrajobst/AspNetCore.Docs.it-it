@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
 title: Come utilizzare lo strumento di registrazione ASP.NET IIS per configurare ASP.NET | Documenti Microsoft
 author: rick-anderson
-description: "In questo video di Chris Pels viene illustrato come utilizzare lo strumento di registrazione ASP.NET IIS per configurare ASP.NET. In primo luogo, vedere la modalità di mapping delle estensioni di file ad ASP.NET nel..."
+description: In questo video di Chris Pels viene illustrato come utilizzare lo strumento di registrazione ASP.NET IIS per configurare ASP.NET. In primo luogo, vedere la modalità di mapping delle estensioni di file ad ASP.NET nel...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525890"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a>Utilizzo di strumento di registrazione ASP.NET IIS per configurare ASP.NET
 ====================

@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 title: La memorizzazione nella cache di dati in un Web ASP.NET di pagine del sito (Razor) per ottenere prestazioni migliori | Documenti Microsoft
 author: tfitzmac
-description: "È possibile velocizzare il sito Web richiedendo store - ovvero cache: i risultati dei dati che in genere richiederebbe molto tempo per recuperare o elaborare un..."
+description: 'È possibile velocizzare il sito Web richiedendo store - ovvero cache: i risultati dei dati che in genere richiederebbe molto tempo per recuperare o elaborare un...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039196"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Memorizzazione nella cache i dati nel sito Web ASP.NET (Razor) pagine per migliorare le prestazioni
 ====================

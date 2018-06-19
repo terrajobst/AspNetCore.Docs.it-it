@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889095"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Il recupero e visualizzazione dei dati con l'associazione di modelli e web form
 ====================

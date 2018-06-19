@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526000"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Eseguire la ricerca per categorie:] Gestire gli eventi nelle pagine Master e contenuto
 ====================

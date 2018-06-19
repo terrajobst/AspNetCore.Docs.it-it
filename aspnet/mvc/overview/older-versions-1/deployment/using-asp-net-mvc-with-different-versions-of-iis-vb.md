@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874031"
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Utilizzo di ASP.NET MVC con versioni diverse di IIS (VB)
 ====================
