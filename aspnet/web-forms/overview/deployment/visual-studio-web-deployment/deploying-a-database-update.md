@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892621"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a><span data-ttu-id="dfbd6-103">Distribuzione Web ASP.NET utilizzando Visual Studio: aggiornamento di un Database di distribuzione</span><span class="sxs-lookup"><span data-stu-id="dfbd6-103">ASP.NET Web Deployment using Visual Studio: Deploying a Database Update</span></span>
 ====================

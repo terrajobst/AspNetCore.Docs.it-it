@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895051"
 ---
 <a name="working-with-forms-part-1"></a><span data-ttu-id="eaa7a-103">Utilizzo dei moduli (parte 1)</span><span class="sxs-lookup"><span data-stu-id="eaa7a-103">Working with Forms (Part 1)</span></span>
 ====================

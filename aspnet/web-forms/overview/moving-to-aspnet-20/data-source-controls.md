@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
 title: I controlli origine dati | Documenti Microsoft
 author: microsoft
-description: "Il controllo DataGrid in ASP.NET 1. x contrassegnato un notevole miglioramento di accesso ai dati nelle applicazioni Web. Tuttavia, non è stato semplice da utilizzare come potrebbe..."
+description: Il controllo DataGrid in ASP.NET 1. x contrassegnato un notevole miglioramento di accesso ai dati nelle applicazioni Web. Tuttavia, non è stato semplice da utilizzare come potrebbe...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885895"
 ---
 <a name="data-source-controls"></a><span data-ttu-id="c626d-104">Controlli origine dati</span><span class="sxs-lookup"><span data-stu-id="c626d-104">Data Source Controls</span></span>
 ====================

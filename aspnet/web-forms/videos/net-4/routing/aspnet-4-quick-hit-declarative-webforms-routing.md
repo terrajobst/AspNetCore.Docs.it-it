@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893017"
 ---
 <a name="aspnet-4-quick-hit---declarative-webforms-routing"></a><span data-ttu-id="33f1d-103">In ASP.NET 4 "rapido Hit' - WebForms dichiarativa Routing</span><span class="sxs-lookup"><span data-stu-id="33f1d-103">ASP.NET 4 "Quick Hit" - Declarative WebForms Routing</span></span>
 ====================

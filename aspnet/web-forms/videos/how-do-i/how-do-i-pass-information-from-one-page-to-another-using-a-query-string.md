@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: '[Eseguire la ricerca per categorie:] Passare le informazioni da una pagina a un''altra usando una stringa di Query | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:] Passare le informazioni da una pagina a un'altra usando una stringa di Query | Documenti Microsoft"
 author: rick-anderson
-description: "In questo video Chris Pels visualizzerà come informazioni possono essere passate da una pagina a un altro utilizzando una stringa di query. In primo luogo, vedere come costruire una stringa di query in..."
+description: In questo video Chris Pels visualizzerà come informazioni possono essere passate da una pagina a un altro utilizzando una stringa di query. In primo luogo, vedere come costruire una stringa di query in...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521960"
 ---
 <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a><span data-ttu-id="74bab-104">[Eseguire la ricerca per categorie:] Passare le informazioni da una pagina a un altro utilizzando una stringa di Query</span><span class="sxs-lookup"><span data-stu-id="74bab-104">[How Do I:] Pass Information From One Page to Another Using a Query String</span></span>
 ====================

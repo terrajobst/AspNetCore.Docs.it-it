@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039209"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a><span data-ttu-id="00415-103">Guida di ASP.NET SignalR hub API - Server (c#)</span><span class="sxs-lookup"><span data-stu-id="00415-103">ASP.NET SignalR Hubs API Guide - Server (C#)</span></span>
 ====================

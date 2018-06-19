@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33840957"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a><span data-ttu-id="d6ea0-103">Usare più ambienti in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d6ea0-103">Use multiple environments in ASP.NET Core</span></span>
 

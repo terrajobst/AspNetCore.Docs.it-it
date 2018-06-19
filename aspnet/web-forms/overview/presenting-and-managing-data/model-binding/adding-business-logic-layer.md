@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892751"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a><span data-ttu-id="f3fb3-104">Livello di logica di business aggiunta a un progetto che utilizza l'associazione di modelli e web form</span><span class="sxs-lookup"><span data-stu-id="f3fb3-104">Adding business logic layer to a project that uses model binding and web forms</span></span>
 ====================

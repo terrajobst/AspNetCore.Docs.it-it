@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072639"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a><span data-ttu-id="f09f2-103">Derivazione della sottochiave e crittografia autenticata in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f09f2-103">Subkey derivation and authenticated encryption in ASP.NET Core</span></span>
 

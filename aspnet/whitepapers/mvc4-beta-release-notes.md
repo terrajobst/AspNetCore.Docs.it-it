@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899616"
 ---
 <a name="aspnet-mvc-4"></a><span data-ttu-id="96a25-103">ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="96a25-103">ASP.NET MVC 4</span></span>
 ====================

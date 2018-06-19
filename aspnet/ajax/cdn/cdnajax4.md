@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070690"
 ---
 <a name="aspnet-web-forms-and-ajax-4"></a><span data-ttu-id="fb77c-102">Web Form ASP.NET e Ajax 4</span><span class="sxs-lookup"><span data-stu-id="fb77c-102">ASP.NET Web Forms and Ajax 4</span></span>
 ====================

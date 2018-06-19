@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879244"
 ---
 <a name="using-the-slider-control-with-auto-postback-c"></a><span data-ttu-id="78671-104">Utilizzo del controllo dispositivo di scorrimento con Postback automatico (c#)</span><span class="sxs-lookup"><span data-stu-id="78671-104">Using the Slider Control With Auto-Postback (C#)</span></span>
 ====================

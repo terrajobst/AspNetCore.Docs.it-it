@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29902279"
 ---
 # <a name="mobile-development-with-aspnet-core"></a><span data-ttu-id="575bd-103">Sviluppo di applicazioni per dispositivi mobili con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="575bd-103">Mobile development with ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892881"
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a><span data-ttu-id="087a7-103">Una matrice e file Leggimi versione Beta 3 di Web ASP.NET (Razor) pagine Web</span><span class="sxs-lookup"><span data-stu-id="087a7-103">Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme</span></span>
 ====================

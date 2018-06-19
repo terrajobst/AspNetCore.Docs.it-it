@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891981"
 ---
 <a name="storing-additional-user-information-vb"></a><span data-ttu-id="eee33-104">L'archiviazione delle informazioni utente aggiuntive (VB)</span><span class="sxs-lookup"><span data-stu-id="eee33-104">Storing Additional User Information (VB)</span></span>
 ====================

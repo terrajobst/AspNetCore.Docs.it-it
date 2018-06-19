@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891282"
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a><span data-ttu-id="1ba07-103">L'interazione con la pagina Master dalla pagina contenuta (VB)</span><span class="sxs-lookup"><span data-stu-id="1ba07-103">Interacting with the Master Page from the Content Page (VB)</span></span>
 ====================

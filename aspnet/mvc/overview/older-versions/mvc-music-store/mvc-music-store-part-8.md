@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871285"
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a><span data-ttu-id="e0319-104">Parte 8: Shopping Cart con gli aggiornamenti Ajax</span><span class="sxs-lookup"><span data-stu-id="e0319-104">Part 8: Shopping Cart with Ajax Updates</span></span>
 ====================

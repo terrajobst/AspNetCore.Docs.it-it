@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32078486"
 ---
 # <a name="advanced-topics-for-aspnet-core-web-api"></a><span data-ttu-id="d1dd0-103">Argomenti avanzati per l'API Web ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d1dd0-103">Advanced topics for ASP.NET Core Web API</span></span>
 

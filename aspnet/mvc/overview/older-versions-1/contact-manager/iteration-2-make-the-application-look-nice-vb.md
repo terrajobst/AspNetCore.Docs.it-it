@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872767"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a><span data-ttu-id="47cd0-103">Iterazione #2: rendere l'applicazione nice (VB)</span><span class="sxs-lookup"><span data-stu-id="47cd0-103">Iteration #2 – Make the application look nice (VB)</span></span>
 ====================

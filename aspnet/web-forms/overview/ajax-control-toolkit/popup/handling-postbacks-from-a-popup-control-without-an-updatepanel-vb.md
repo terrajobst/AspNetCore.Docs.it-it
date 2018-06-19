@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871363"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a><span data-ttu-id="17144-104">Gestione dei postback da un controllo Popup senza un UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="17144-104">Handling Postbacks from A Popup Control Without an UpdatePanel (VB)</span></span>
 ====================

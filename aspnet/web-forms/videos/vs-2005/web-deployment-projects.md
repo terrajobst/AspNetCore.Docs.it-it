@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894288"
 ---
 <a name="web-deployment-projects"></a><span data-ttu-id="d4c40-103">Progetti di distribuzione Web</span><span class="sxs-lookup"><span data-stu-id="d4c40-103">Web Deployment Projects</span></span>
 ====================

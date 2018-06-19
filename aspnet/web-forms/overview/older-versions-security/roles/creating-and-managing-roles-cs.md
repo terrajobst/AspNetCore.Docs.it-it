@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891679"
 ---
 <a name="creating-and-managing-roles-c"></a><span data-ttu-id="eb908-104">Creazione e gestione dei ruoli (c#)</span><span class="sxs-lookup"><span data-stu-id="eb908-104">Creating and Managing Roles (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873118"
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a><span data-ttu-id="95cd0-103">Compressione ed espansione di un pannello da JavaScript (VB)</span><span class="sxs-lookup"><span data-stu-id="95cd0-103">Collapsing and Expanding a Panel from JavaScript (VB)</span></span>
 ====================

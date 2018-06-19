@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892309"
 ---
 <a name="building-and-packaging-web-application-projects"></a><span data-ttu-id="8c7b5-103">Compilazione e l'assemblaggio di progetti di applicazione Web</span><span class="sxs-lookup"><span data-stu-id="8c7b5-103">Building and Packaging Web Application Projects</span></span>
 ====================

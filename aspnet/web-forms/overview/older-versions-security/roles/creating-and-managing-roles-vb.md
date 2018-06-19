@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891360"
 ---
 <a name="creating-and-managing-roles-vb"></a><span data-ttu-id="a6248-104">Creazione e gestione dei ruoli (VB)</span><span class="sxs-lookup"><span data-stu-id="a6248-104">Creating and Managing Roles (VB)</span></span>
 ====================

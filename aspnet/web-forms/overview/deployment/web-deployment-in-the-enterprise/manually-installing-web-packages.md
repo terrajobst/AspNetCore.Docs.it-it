@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890216"
 ---
 <a name="manually-installing-web-packages"></a><span data-ttu-id="f8fc8-104">Installare manualmente i pacchetti Web</span><span class="sxs-lookup"><span data-stu-id="f8fc8-104">Manually Installing Web Packages</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891445"
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a><span data-ttu-id="79400-103">Specifica il titolo, tag Meta e altre intestazioni HTML della pagina Master (VB)</span><span class="sxs-lookup"><span data-stu-id="79400-103">Specifying the Title, Meta Tags, and Other HTML Headers in the Master Page (VB)</span></span>
 ====================

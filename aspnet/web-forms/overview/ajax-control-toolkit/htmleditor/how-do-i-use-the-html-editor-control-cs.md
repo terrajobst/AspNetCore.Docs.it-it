@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879777"
 ---
 <a name="how-do-i-use-the-html-editor-control-c"></a><span data-ttu-id="f4ed6-104">Utilizzo del controllo Editor HTML</span><span class="sxs-lookup"><span data-stu-id="f4ed6-104">How do I use the HTML Editor Control?</span></span> <span data-ttu-id="f4ed6-105">(C#)</span><span class="sxs-lookup"><span data-stu-id="f4ed6-105">(C#)</span></span>
 ====================

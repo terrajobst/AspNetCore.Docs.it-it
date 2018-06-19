@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/application-level-objects
 title: Gli oggetti a livello di applicazione | Documenti Microsoft
 author: JoeStagner
-description: "In questo video verrà introdurre eventi a livello di applicazione e gli oggetti e illustrare il concetto di &quot;ambito&quot; quanto fa riferimento a essi."
+description: In questo video verrà introdurre eventi a livello di applicazione e gli oggetti e illustrare il concetto di &quot;ambito&quot; quanto fa riferimento a essi.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521560"
 ---
 <a name="application-level-objects"></a><span data-ttu-id="d8260-103">Oggetti a livello di applicazione</span><span class="sxs-lookup"><span data-stu-id="d8260-103">Application Level Objects</span></span>
 ====================

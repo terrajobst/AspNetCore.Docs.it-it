@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306845"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a><span data-ttu-id="5b168-103">Le migrazioni e lo Scaffolding di ASP.NET MVC 4 Entity Framework</span><span class="sxs-lookup"><span data-stu-id="5b168-103">ASP.NET MVC 4 Entity Framework Scaffolding and Migrations</span></span>
 

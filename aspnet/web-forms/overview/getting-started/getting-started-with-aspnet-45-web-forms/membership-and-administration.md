@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30889631"
 ---
 <a name="membership-and-administration"></a><span data-ttu-id="a7f87-103">L'appartenenza e l'amministrazione</span><span class="sxs-lookup"><span data-stu-id="a7f87-103">Membership and Administration</span></span>
 ====================

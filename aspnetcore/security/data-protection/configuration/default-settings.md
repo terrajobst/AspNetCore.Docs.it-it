@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887290"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a><span data-ttu-id="6fcf4-103">Gestione della chiave di protezione dati e la durata in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6fcf4-103">Data Protection key management and lifetime in ASP.NET Core</span></span>
 

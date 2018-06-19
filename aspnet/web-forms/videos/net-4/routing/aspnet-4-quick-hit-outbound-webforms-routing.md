@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893752"
 ---
 <a name="aspnet-4-quick-hit---outbound-webforms-routing"></a><span data-ttu-id="c4a09-103">In ASP.NET 4 "rapido Hit' - WebForms in uscita Routing</span><span class="sxs-lookup"><span data-stu-id="c4a09-103">ASP.NET 4 "Quick Hit" - Outbound WebForms Routing</span></span>
 ====================

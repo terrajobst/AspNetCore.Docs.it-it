@@ -17,6 +17,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2018
+ms.locfileid: "30078088"
 ---
 <a name="jquery-datatables-1105"></a><span data-ttu-id="086b4-102">jQuery DataTable 1.10.5</span><span class="sxs-lookup"><span data-stu-id="086b4-102">jQuery DataTables 1.10.5</span></span>
 ====================

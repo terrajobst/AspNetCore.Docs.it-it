@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892322"
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a><span data-ttu-id="d26a3-103">Scenario: Configurazione di un ambiente di gestione temporanea per la distribuzione Web</span><span class="sxs-lookup"><span data-stu-id="d26a3-103">Scenario: Configuring a Staging Environment for Web Deployment</span></span>
 ====================

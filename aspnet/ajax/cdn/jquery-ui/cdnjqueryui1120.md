@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074419"
 ---
 <a name="jquery-ui-1120-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="50b03-102">jQuery UI 1.12.0 sulla rete CDN di Microsoft Ajax</span><span class="sxs-lookup"><span data-stu-id="50b03-102">jQuery UI 1.12.0 on the Microsoft Ajax CDN</span></span>
 ====================

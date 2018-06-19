@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889862"
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a><span data-ttu-id="56205-104">La gestione della concorrenza con Entity Framework 4.0 in un'applicazione Web 4 ASP.NET</span><span class="sxs-lookup"><span data-stu-id="56205-104">Handling Concurrency with the Entity Framework 4.0 in an ASP.NET 4 Web Application</span></span>
 ====================

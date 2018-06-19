@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896241"
 ---
 <a name="how-do-i-use-routing-with-aspnet-web-forms"></a><span data-ttu-id="759f0-105">Eseguire la ricerca per categorie: utilizzare Routing with ASP.NET Web Forms?</span><span class="sxs-lookup"><span data-stu-id="759f0-105">How Do I: Use Routing with ASP.NET Web Forms?</span></span>
 ====================

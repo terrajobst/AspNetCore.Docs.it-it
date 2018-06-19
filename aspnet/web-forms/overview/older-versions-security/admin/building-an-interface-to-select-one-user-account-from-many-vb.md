@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891204"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a><span data-ttu-id="f606b-104">Creazione di un'interfaccia per selezionare un Account utente da molti (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="f606b-104">Building an Interface to Select One User Account from Many (VB)</span></span>
 ====================

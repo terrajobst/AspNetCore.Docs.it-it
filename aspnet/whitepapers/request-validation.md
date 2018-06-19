@@ -2,13 +2,13 @@
 uid: whitepapers/request-validation
 title: Richiedere la convalida - prevenzione degli attacchi Script | Documenti Microsoft
 author: rick-anderson
-description: "In questo documento descrive la funzionalità di convalida richiesta di ASP.NET in cui, per impostazione predefinita, l'applicazione viene impedito di elaborazione submitt di contenuto HTML non codificato..."
+description: In questo documento descrive la funzionalità di convalida richiesta di ASP.NET in cui, per impostazione predefinita, l'applicazione viene impedito di elaborazione submitt di contenuto HTML non codificato...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883555"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="3eac1-103">Richiedere la convalida - prevenzione degli attacchi di Script</span><span class="sxs-lookup"><span data-stu-id="3eac1-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

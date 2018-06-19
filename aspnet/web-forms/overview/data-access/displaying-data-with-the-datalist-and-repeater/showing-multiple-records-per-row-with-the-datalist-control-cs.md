@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891217"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a><span data-ttu-id="a90a2-103">La visualizzazione di più record per ogni riga con il controllo DataList (c#)</span><span class="sxs-lookup"><span data-stu-id="a90a2-103">Showing Multiple Records per Row with the DataList Control (C#)</span></span>
 ====================

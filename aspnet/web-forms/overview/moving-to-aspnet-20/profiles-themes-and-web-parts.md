@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892114"
 ---
 <a name="profiles-themes-and-web-parts"></a><span data-ttu-id="b756e-104">I profili, temi e Web part</span><span class="sxs-lookup"><span data-stu-id="b756e-104">Profiles, Themes, and Web Parts</span></span>
 ====================

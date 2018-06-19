@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891087"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a><span data-ttu-id="db5b4-103">L'interazione con la pagina di contenuto dalla pagina Master (c#)</span><span class="sxs-lookup"><span data-stu-id="db5b4-103">Interacting with the Content Page from the Master Page (C#)</span></span>
 ====================

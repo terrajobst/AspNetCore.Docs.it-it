@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070875"
 ---
 <a name="jqueryvalidate-version-19"></a><span data-ttu-id="c4ea5-102">versione jQuery.Validate 1.9</span><span class="sxs-lookup"><span data-stu-id="c4ea5-102">jquery.validate version 1.9</span></span>
 ====================

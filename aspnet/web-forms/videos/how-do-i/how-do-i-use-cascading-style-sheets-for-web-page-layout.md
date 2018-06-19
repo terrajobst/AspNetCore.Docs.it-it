@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
 title: '[Eseguire la ricerca per categorie:] Usare i fogli di stile CSS per il Layout di pagina Web? | Microsoft Docs'
 author: rick-anderson
-description: "In questo video è illustrato come utilizzare &amp;lt; div&amp;gt; gli elementi in combinazione con i fogli di stile (CSS) per creare affidabile e versioni successive delle prestazioni web p..."
+description: In questo video è illustrato come utilizzare &amp;lt; div&amp;gt; gli elementi in combinazione con i fogli di stile (CSS) per creare affidabile e versioni successive delle prestazioni web p...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988003"
 ---
 <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a><span data-ttu-id="6a958-104">[Eseguire la ricerca per categorie:] Usare i fogli di stile CSS per il Layout di pagina Web?</span><span class="sxs-lookup"><span data-stu-id="6a958-104">[How Do I:] Use Cascading Style Sheets for Web Page Layout?</span></span>
 ====================

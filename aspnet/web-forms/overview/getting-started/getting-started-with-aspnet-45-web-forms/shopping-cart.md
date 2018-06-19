@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890720"
 ---
 <a name="shopping-cart"></a><span data-ttu-id="fa3e2-103">Carrello acquisti</span><span class="sxs-lookup"><span data-stu-id="fa3e2-103">Shopping Cart</span></span>
 ====================

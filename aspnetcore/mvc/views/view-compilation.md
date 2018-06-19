@@ -16,6 +16,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336278"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a><span data-ttu-id="45395-103">Compilazione del file Razor in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="45395-103">Razor file compilation in ASP.NET Core</span></span>
 

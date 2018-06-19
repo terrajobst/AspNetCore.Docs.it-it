@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070264"
 ---
 <a name="aspnet-ajax-35"></a><span data-ttu-id="c113e-102">ASP.NET Ajax 3.5</span><span class="sxs-lookup"><span data-stu-id="c113e-102">ASP.NET Ajax 3.5</span></span>
 ====================

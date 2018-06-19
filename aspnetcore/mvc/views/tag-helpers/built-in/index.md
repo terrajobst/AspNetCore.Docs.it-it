@@ -1,7 +1,7 @@
 ---
 title: Helper per tag predefiniti di ASP.NET Core
 author: pkellner
-description: "Informazioni su come gli helper per i tag predefiniti di ASP.NET Core sono utili per incrementare la produttività."
+description: Informazioni su come gli helper per i tag predefiniti di ASP.NET Core sono utili per incrementare la produttività.
 manager: wpickett
 ms.author: riande
 ms.date: 09/13/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903208"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a><span data-ttu-id="74c20-103">Helper per tag predefiniti di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="74c20-103">ASP.NET Core built-in Tag Helpers</span></span>
 

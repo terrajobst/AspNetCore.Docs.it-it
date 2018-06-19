@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875383"
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a><span data-ttu-id="d6f10-104">L'autenticazione degli utenti con l'autenticazione di Windows (c#)</span><span class="sxs-lookup"><span data-stu-id="d6f10-104">Authenticating Users with Windows Authentication (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892699"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a><span data-ttu-id="9c4bf-103">Creare un'app Web Form ASP.NET protetta con la registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password (c#)</span><span class="sxs-lookup"><span data-stu-id="9c4bf-103">Create a secure ASP.NET Web Forms app with user registration, email confirmation and password reset (C#)</span></span>
 ====================

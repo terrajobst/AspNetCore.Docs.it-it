@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
 title: "[Eseguire la ricerca per categorie:] Inviare messaggi di posta elettronica basati su modelli per l'integrità del monitoraggio di eventi in ASP.NET | Documenti Microsoft"
 author: rick-anderson
-description: "In questo video Chris Pels viene illustrato come utilizzare il TemplatedEmailWebEventProvider per inviare messaggi di posta elettronica quando si verificano eventi di monitoraggio di integrità che utilizzano un modello per t..."
+description: In questo video Chris Pels viene illustrato come utilizzare il TemplatedEmailWebEventProvider per inviare messaggi di posta elettronica quando si verificano eventi di monitoraggio di integrità che utilizzano un modello per t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521790"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a><span data-ttu-id="815d7-103">[Eseguire la ricerca per categorie:] Inviare messaggi di posta elettronica basati su modelli per l'integrità del monitoraggio di eventi in ASP.NET</span><span class="sxs-lookup"><span data-stu-id="815d7-103">[How Do I:] Send Templated Emails for Health Monitoring Events in ASP.NET</span></span>
 ====================

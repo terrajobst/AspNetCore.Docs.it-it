@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891997"
 ---
 <a name="data-bound-controls"></a><span data-ttu-id="c41b4-104">Controlli con associazione a dati</span><span class="sxs-lookup"><span data-stu-id="c41b4-104">Data Bound Controls</span></span>
 ====================

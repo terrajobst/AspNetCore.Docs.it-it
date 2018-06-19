@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074354"
 ---
 # <a name="overview-of-aspnet-core-security"></a><span data-ttu-id="aa34f-103">Panoramica sulla sicurezza di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="aa34f-103">Overview of ASP.NET Core Security</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898908"
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a><span data-ttu-id="e27bf-103">Introduzione all'uso di un Database in ASP.NET Web Pages siti (Razor)</span><span class="sxs-lookup"><span data-stu-id="e27bf-103">Introduction to Working with a Database in ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

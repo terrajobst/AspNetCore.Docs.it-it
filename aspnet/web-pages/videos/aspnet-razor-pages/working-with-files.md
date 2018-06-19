@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30895103"
 ---
 <a name="working-with-files"></a><span data-ttu-id="3eee9-103">Utilizzo dei file</span><span class="sxs-lookup"><span data-stu-id="3eee9-103">Working with Files</span></span>
 ====================

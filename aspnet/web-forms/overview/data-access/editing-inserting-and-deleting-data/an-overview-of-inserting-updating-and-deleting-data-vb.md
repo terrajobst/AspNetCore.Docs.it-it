@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890821"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a><span data-ttu-id="88a6a-103">Cenni preliminari di inserimento, aggiornamento ed eliminazione di dati (VB)</span><span class="sxs-lookup"><span data-stu-id="88a6a-103">An Overview of Inserting, Updating, and Deleting Data (VB)</span></span>
 ====================

@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di richiesta in ASP.NET Core"
+title: Funzionalità di richiesta in ASP.NET Core
 author: ardalis
 description: Dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP definiti nelle interfacce per ASP.NET Core.
 manager: wpickett
@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913572"
 ---
 # <a name="request-features-in-aspnet-core"></a><span data-ttu-id="19613-103">Funzionalità di richiesta in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="19613-103">Request Features in ASP.NET Core</span></span>
 

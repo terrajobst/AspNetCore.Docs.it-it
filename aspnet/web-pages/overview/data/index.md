@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/data
 msc.type: chapter
 ms.openlocfilehash: 99893092b5f6a4cc7112795b3ff1541a653682ea
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528540"
 ---
 <a name="working-with-data"></a><span data-ttu-id="dfe8e-103">Uso dei dati</span><span class="sxs-lookup"><span data-stu-id="dfe8e-103">Working with Data</span></span>
 ====================

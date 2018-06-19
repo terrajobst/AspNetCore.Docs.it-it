@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153680"
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="aea41-103">Visualizzazione di Video in un sito Web di ASP.NET di pagine (Razor)</span><span class="sxs-lookup"><span data-stu-id="aea41-103">Displaying Video in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

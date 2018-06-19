@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094129"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a><span data-ttu-id="1db14-104">Introduzione all'identità su ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1db14-104">Introduction to Identity on ASP.NET Core</span></span>
 

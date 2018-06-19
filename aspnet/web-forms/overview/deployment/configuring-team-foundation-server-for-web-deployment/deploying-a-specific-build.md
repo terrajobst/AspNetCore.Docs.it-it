@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880037"
 ---
 <a name="deploying-a-specific-build"></a><span data-ttu-id="d2594-103">Distribuzione di una compilazione specifica</span><span class="sxs-lookup"><span data-stu-id="d2594-103">Deploying a Specific Build</span></span>
 ====================

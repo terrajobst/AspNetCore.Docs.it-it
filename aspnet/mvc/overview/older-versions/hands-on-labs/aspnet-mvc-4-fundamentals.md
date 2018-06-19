@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306767"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a><span data-ttu-id="d8e17-103">Nozioni fondamentali su ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="d8e17-103">ASP.NET MVC 4 Fundamentals</span></span>
 

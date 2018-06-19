@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 title: Aprire i tipi in OData v4 con ASP.NET Web API | Documenti Microsoft
 author: microsoft
-description: "In OData v4, un tipo aperto è un tipo stuctured che contiene le proprietà dinamiche, oltre a tutte le proprietà che vengono dichiarate nella definizione del tipo. Apri..."
+description: In OData v4, un tipo aperto è un tipo stuctured che contiene le proprietà dinamiche, oltre a tutte le proprietà che vengono dichiarate nella definizione del tipo. Apri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153272"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a><span data-ttu-id="c20dc-104">Aprire i tipi in OData v4 con ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="c20dc-104">Open Types in OData v4 with ASP.NET Web API</span></span>
 ====================

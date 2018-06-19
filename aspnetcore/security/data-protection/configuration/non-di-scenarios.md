@@ -1,7 +1,7 @@
 ---
 title: Non DI scenari compatibile con protezione dei dati in ASP.NET Core
 author: rick-anderson
-description: "Informazioni su come supportare gli scenari di protezione dati in cui non è possibile o non si desidera utilizzare un servizio fornito dall'inserimento di dipendenze."
+description: Informazioni su come supportare gli scenari di protezione dati in cui non è possibile o non si desidera utilizzare un servizio fornito dall'inserimento di dipendenze.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727246"
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a><span data-ttu-id="819c2-103">Non DI scenari compatibile con protezione dei dati in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="819c2-103">Non-DI aware scenarios for Data Protection in ASP.NET Core</span></span>
 

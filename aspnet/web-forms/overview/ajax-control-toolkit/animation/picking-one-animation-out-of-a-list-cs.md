@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871662"
 ---
 <a name="picking-one-animation-out-of-a-list-c"></a><span data-ttu-id="d8bed-104">Selezione di un'animazione da un elenco (c#)</span><span class="sxs-lookup"><span data-stu-id="d8bed-104">Picking One Animation Out Of a List (C#)</span></span>
 ====================

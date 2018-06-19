@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871623"
 ---
 <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a><span data-ttu-id="a4d5f-103">ASP.NET MVC vetrina parte 4: Linq Raccoglitore Sql</span><span class="sxs-lookup"><span data-stu-id="a4d5f-103">ASP.NET MVC Storefront Part 4: Linq To Sql Spike</span></span>
 ====================

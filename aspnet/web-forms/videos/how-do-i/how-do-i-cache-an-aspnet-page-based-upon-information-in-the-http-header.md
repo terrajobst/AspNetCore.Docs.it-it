@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: '[Eseguire la ricerca per categorie:]  Cache di una pagina ASP.NET in base alle informazioni nell''intestazione HTTP | Documenti Microsoft'
+title: "[Eseguire la ricerca per categorie:]  Cache di una pagina ASP.NET in base alle informazioni nell'intestazione HTTP | Documenti Microsoft"
 author: rick-anderson
 description: In questo video di Chris Pels viene illustrato come mantenere una pagina nella cache di output ASP.NET in base alle informazioni nell'intestazione HTTP della pagina. Primo, il potenziale hea HTTP...
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882217"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a><span data-ttu-id="74792-104">[Eseguire la ricerca per categorie:]  Cache di una pagina ASP.NET in base alle informazioni nell'intestazione HTTP</span><span class="sxs-lookup"><span data-stu-id="74792-104">[How Do I:]  Cache an ASP.NET Page Based Upon Information in the HTTP Header</span></span>
 ====================

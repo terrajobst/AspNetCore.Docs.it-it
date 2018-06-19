@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879543"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a><span data-ttu-id="e234a-104">Gestione dei postback da un controllo Popup senza un UpdatePanel (c#)</span><span class="sxs-lookup"><span data-stu-id="e234a-104">Handling Postbacks from A Popup Control Without an UpdatePanel (C#)</span></span>
 ====================

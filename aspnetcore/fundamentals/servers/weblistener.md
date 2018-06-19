@@ -14,6 +14,7 @@ ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34248453"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a><span data-ttu-id="8d799-103">Implementazione del server Web WebListener in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="8d799-103">WebListener web server implementation in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899042"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="a4c7e-103">Cenni preliminari sullo sviluppo di Visual Studio 2010 Web e di ASP.NET 4</span><span class="sxs-lookup"><span data-stu-id="a4c7e-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 ====================

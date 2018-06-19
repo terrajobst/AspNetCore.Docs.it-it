@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070927"
 ---
 <a name="jquery-validation-1131"></a><span data-ttu-id="0f380-102">Convalida 1.13.1 jQuery</span><span class="sxs-lookup"><span data-stu-id="0f380-102">jQuery Validation 1.13.1</span></span>
 ====================

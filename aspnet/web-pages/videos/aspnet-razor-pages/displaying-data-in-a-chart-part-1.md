@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899788"
 ---
 <a name="displaying-data-in-a-chart-part-1"></a><span data-ttu-id="10d6d-103">La visualizzazione dei dati in un grafico (parte 1)</span><span class="sxs-lookup"><span data-stu-id="10d6d-103">Displaying Data in a Chart (Part 1)</span></span>
 ====================
