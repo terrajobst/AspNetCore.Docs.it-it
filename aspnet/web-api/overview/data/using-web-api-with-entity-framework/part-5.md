@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878685"
 ---
 <a name="create-data-transfer-objects-dtos"></a><span data-ttu-id="bce3a-102">Creare oggetti di trasferimento dati (DTO)</span><span class="sxs-lookup"><span data-stu-id="bce3a-102">Create Data Transfer Objects (DTOs)</span></span>
 ====================

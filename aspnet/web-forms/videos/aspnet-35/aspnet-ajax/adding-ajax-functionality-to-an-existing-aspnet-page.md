@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885864"
 ---
 <a name="adding-ajax-functionality-to-an-existing-aspnet-page"></a><span data-ttu-id="7b0f0-104">Aggiunta di funzionalità AJAX a una pagina ASP.NET esistente</span><span class="sxs-lookup"><span data-stu-id="7b0f0-104">Adding AJAX Functionality to an Existing ASP.NET Page</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878555"
 ---
 <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a><span data-ttu-id="a7c85-103">ASP.NET MVC vetrina parte 19: il completamento del flusso di lavoro di Windows</span><span class="sxs-lookup"><span data-stu-id="a7c85-103">ASP.NET MVC Storefront Part 19a: Windows Workflow Followup</span></span>
 ====================

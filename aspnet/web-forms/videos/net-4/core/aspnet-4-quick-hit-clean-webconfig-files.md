@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884503"
 ---
 <a name="aspnet-4-quick-hit---clean-webconfig-files"></a><span data-ttu-id="d021e-104">In ASP.NET 4 "Rapido riscontri" - pulire i file Web. config</span><span class="sxs-lookup"><span data-stu-id="d021e-104">ASP.NET 4 "Quick Hit" - Clean Web.Config Files</span></span>
 ====================

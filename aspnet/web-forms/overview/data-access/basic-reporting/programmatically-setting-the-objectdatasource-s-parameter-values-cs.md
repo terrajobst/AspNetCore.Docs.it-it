@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875682"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a><span data-ttu-id="1c05f-104">A livello di codice impostando i valori dei parametri di ObjectDataSource (c#)</span><span class="sxs-lookup"><span data-stu-id="1c05f-104">Programmatically Setting the ObjectDataSource's Parameter Values (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893862"
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="a1812-103">Visualizzazione di mappe in un sito Web di ASP.NET di pagine (Razor)</span><span class="sxs-lookup"><span data-stu-id="a1812-103">Displaying Maps in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

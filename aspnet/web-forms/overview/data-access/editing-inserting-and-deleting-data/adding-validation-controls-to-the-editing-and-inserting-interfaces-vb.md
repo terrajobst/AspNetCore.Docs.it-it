@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887941"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a><span data-ttu-id="c62ad-103">Aggiunta di controlli di convalida per la modifica e l'inserimento di interfacce (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="c62ad-103">Adding Validation Controls to the Editing and Inserting Interfaces (VB)</span></span>
 ====================

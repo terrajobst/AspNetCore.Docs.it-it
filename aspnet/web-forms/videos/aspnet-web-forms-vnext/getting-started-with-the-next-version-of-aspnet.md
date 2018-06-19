@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885664"
 ---
 <a name="getting-started-with-the-next-version-of-aspnet"></a><span data-ttu-id="4767d-103">Introduzione a una versione successiva di ASP.NET</span><span class="sxs-lookup"><span data-stu-id="4767d-103">Getting Started with the Next Version of ASP.NET</span></span>
 ====================

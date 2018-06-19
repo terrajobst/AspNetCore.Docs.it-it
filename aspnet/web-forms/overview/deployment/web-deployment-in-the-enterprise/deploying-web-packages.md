@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887503"
 ---
 <a name="deploying-web-packages"></a><span data-ttu-id="36ee5-103">Distribuzione di pacchetti Web</span><span class="sxs-lookup"><span data-stu-id="36ee5-103">Deploying Web Packages</span></span>
 ====================

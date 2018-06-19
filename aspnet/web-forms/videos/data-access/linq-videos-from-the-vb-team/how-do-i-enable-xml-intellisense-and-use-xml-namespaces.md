@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885897"
 ---
 <a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a><span data-ttu-id="8effb-104">[Eseguire la ricerca per categorie:] Abilitare IntelliSense XML e usare gli spazi dei nomi XML?</span><span class="sxs-lookup"><span data-stu-id="8effb-104">[How Do I:] Enable XML IntelliSense and Use XML Namespaces?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894551"
 ---
 <a name="tailspin-spyworks---implementing-and-using-the-also-purchased-control"></a><span data-ttu-id="90f6b-103">Tailspin Spyworks - implementare e utilizzare il controllo anche acquistato</span><span class="sxs-lookup"><span data-stu-id="90f6b-103">Tailspin Spyworks - Implementing and Using the Also Purchased Control</span></span>
 ====================

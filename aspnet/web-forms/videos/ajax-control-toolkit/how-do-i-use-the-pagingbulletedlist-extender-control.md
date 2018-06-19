@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884171"
 ---
 <a name="how-do-i-use-the-pagingbulletedlist-extender-control"></a><span data-ttu-id="7d6c3-105">[Eseguire la ricerca per categorie:] Utilizzare il controllo Extender PagingBulletedList?</span><span class="sxs-lookup"><span data-stu-id="7d6c3-105">[How Do I:] Use the PagingBulletedList Extender Control?</span></span>
 ====================

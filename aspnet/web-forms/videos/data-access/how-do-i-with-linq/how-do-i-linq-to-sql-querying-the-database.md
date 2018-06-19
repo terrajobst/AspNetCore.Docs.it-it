@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882442"
 ---
 <a name="how-do-i-linq-to-sql-querying-the-database"></a><span data-ttu-id="c66fa-103">[Eseguire la ricerca per categorie:] LINQ to SQL: una query sul Database</span><span class="sxs-lookup"><span data-stu-id="c66fa-103">[How Do I:] LINQ to SQL: Querying the Database</span></span>
 ====================

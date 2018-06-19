@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880141"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a><span data-ttu-id="e2c4c-104">Aggiunta di conferma dal lato Client durante l'eliminazione (VB)</span><span class="sxs-lookup"><span data-stu-id="e2c4c-104">Adding Client-Side Confirmation When Deleting (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890866"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a><span data-ttu-id="fadd2-103">Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di Test</span><span class="sxs-lookup"><span data-stu-id="fadd2-103">ASP.NET Web Deployment using Visual Studio: Deploying to Test</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884834"
 ---
 <a name="how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application"></a><span data-ttu-id="1abd3-104">Come creare moduli personalizzati specifici di tabella in un'applicazione di ASP.NET Dynamic Data</span><span class="sxs-lookup"><span data-stu-id="1abd3-104">How to Create Table Specific Custom Forms in an ASP.NET Dynamic Data Application</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881090"
 ---
 <a name="aspnet-and-web-tools-20122"></a><span data-ttu-id="9f720-105">ASP.NET e strumenti Web 2012.2</span><span class="sxs-lookup"><span data-stu-id="9f720-105">ASP.NET and Web Tools 2012.2</span></span>
 ====================

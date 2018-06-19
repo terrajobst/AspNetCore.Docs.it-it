@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886342"
 ---
 <a name="how-do-i-use-aspnet-ajax-client-templates"></a><span data-ttu-id="273bc-104">Eseguire la ricerca per categorie: utilizzare ASP.NET AJAX, modelli di Client</span><span class="sxs-lookup"><span data-stu-id="273bc-104">How Do I: Use ASP.NET AJAX Client Templates</span></span>
 ====================

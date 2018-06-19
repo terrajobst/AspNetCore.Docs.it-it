@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886609"
 ---
 <a name="how-to-dynamically-add-controls-to-a-web-page"></a><span data-ttu-id="84450-103">Come aggiungere in modo dinamico i controlli a una pagina Web</span><span class="sxs-lookup"><span data-stu-id="84450-103">How To Dynamically Add Controls to a Web Page</span></span>
 ====================

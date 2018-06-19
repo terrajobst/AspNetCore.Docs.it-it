@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873940"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a><span data-ttu-id="eb84e-104">Iterazione #4: verificare l'applicazione ad accoppiamento debole (VB)</span><span class="sxs-lookup"><span data-stu-id="eb84e-104">Iteration #4 – Make the application loosely coupled (VB)</span></span>
 ====================

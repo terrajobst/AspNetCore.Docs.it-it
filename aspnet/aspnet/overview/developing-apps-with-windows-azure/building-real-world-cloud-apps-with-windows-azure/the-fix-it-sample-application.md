@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876475"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="af5c1-104">Appendice: per risolvere il problema applicazione di esempio (creazione di applicazioni Cloud del mondo reale con Azure)</span><span class="sxs-lookup"><span data-stu-id="af5c1-104">Appendix: The Fix It Sample Application (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

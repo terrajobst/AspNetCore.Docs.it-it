@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879153"
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a><span data-ttu-id="c0a8f-104">La modifica di un'animazione con il codice lato Client (VB)</span><span class="sxs-lookup"><span data-stu-id="c0a8f-104">Changing an Animation Using Client-Side Code (VB)</span></span>
 ====================

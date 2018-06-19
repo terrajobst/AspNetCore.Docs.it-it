@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886313"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropshadow-extender"></a><span data-ttu-id="a8e42-104">[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX DropShadow?</span><span class="sxs-lookup"><span data-stu-id="a8e42-104">[How Do I:] Use the ASP.NET AJAX DropShadow Extender?</span></span>
 ====================

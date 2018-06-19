@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876930"
 ---
 <a name="displaying-data-with-the-objectdatasource-c"></a><span data-ttu-id="aee3a-103">Visualizzazione dei dati con ObjectDataSource (c#)</span><span class="sxs-lookup"><span data-stu-id="aee3a-103">Displaying Data With the ObjectDataSource (C#)</span></span>
 ====================

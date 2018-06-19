@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881441"
 ---
 <a name="how-do-i-cascading-style-sheets-in-visual-studio-2008"></a><span data-ttu-id="374b0-104">[Eseguire la ricerca per categorie:] Fogli di stile CSS in Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="374b0-104">[How Do I:] Cascading Style Sheets in Visual Studio 2008</span></span>
 ====================

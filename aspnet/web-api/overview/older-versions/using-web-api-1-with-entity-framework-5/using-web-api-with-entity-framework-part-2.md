@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878581"
 ---
 <a name="part-2-creating-the-domain-models"></a><span data-ttu-id="255ed-102">Parte 2: Creazione dei modelli di dominio</span><span class="sxs-lookup"><span data-stu-id="255ed-102">Part 2: Creating the Domain Models</span></span>
 ====================

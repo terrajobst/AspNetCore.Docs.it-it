@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899116"
 ---
 <a name="aspnet-4-breaking-changes"></a><span data-ttu-id="2750d-103">Modifiche di rilievo 4 ASP.NET</span><span class="sxs-lookup"><span data-stu-id="2750d-103">ASP.NET 4 Breaking Changes</span></span>
 ====================

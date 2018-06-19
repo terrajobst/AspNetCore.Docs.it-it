@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898457"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a><span data-ttu-id="db235-104">Introduzione a ASP.NET Web Pages - visualizzazione di dati</span><span class="sxs-lookup"><span data-stu-id="db235-104">Introducing ASP.NET Web Pages - Displaying Data</span></span>
 ====================

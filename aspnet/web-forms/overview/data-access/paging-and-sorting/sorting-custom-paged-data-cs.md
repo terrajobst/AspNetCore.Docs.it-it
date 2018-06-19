@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882416"
 ---
 <a name="sorting-custom-paged-data-c"></a><span data-ttu-id="b8c06-104">Ordinamento personalizzato paging dei dati (c#)</span><span class="sxs-lookup"><span data-stu-id="b8c06-104">Sorting Custom Paged Data (C#)</span></span>
 ====================

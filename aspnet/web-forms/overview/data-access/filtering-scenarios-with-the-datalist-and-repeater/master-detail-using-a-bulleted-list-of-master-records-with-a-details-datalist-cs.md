@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888968"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a><span data-ttu-id="9adc8-103">Master-Details con un elenco puntato dei record Master DataList dettagli (c#)</span><span class="sxs-lookup"><span data-stu-id="9adc8-103">Master/Detail Using a Bulleted List of Master Records with a Details DataList (C#)</span></span>
 ====================
