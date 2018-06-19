@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048168"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>Distribuzione Web ASP.NET - consigliato risorse
 ====================

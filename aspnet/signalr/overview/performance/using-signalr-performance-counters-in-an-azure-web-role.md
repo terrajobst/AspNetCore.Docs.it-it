@@ -18,6 +18,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988016"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Utilizzo di contatori delle prestazioni di SignalR in un ruolo Web Azure
 

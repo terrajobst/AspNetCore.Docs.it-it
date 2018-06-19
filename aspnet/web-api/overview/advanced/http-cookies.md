@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071629"
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>Cookie HTTP in ASP.NET Web API
 ====================

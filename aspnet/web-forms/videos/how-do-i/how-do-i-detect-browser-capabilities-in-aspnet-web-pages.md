@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
-title: "[Eseguire la ricerca per categorie:] Rilevare le funzionalità del Browser in ASP.NET Web Pages | Documenti Microsoft"
+title: '[Eseguire la ricerca per categorie:] Rilevare le funzionalità del Browser in ASP.NET Web Pages | Documenti Microsoft'
 author: rick-anderson
-description: "In questo video Chris Pels viene illustrato come determinare quali funzionalità sono disponibili un browser quando si visualizzano le pagine in un sito web ASP.NET. Innanzitutto, le informazioni come...."
+description: In questo video Chris Pels viene illustrato come determinare quali funzionalità sono disponibili un browser quando si visualizzano le pagine in un sito web ASP.NET. Innanzitutto, le informazioni come....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884091"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a>[Eseguire la ricerca per categorie:] Rilevare le funzionalità del Browser nelle pagine Web ASP.NET
 ====================

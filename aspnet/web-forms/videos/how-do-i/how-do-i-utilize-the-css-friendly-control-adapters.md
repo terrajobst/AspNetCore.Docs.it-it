@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988081"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[Eseguire la ricerca per categorie:] Utilizzare le schede di controllo descrittivo CSS?
 ====================
