@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876592"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a><span data-ttu-id="b23e9-103">Formattazione di DataList e Repeater sulla base dei dati (VB)</span><span class="sxs-lookup"><span data-stu-id="b23e9-103">Formatting the DataList and Repeater Based Upon Data (VB)</span></span>
 ====================

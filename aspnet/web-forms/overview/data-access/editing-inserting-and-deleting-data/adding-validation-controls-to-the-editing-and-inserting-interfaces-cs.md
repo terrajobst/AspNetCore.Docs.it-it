@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888448"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a><span data-ttu-id="f1d6c-103">Aggiunta di controlli di convalida per la modifica e l'inserimento di interfacce (c#)</span><span class="sxs-lookup"><span data-stu-id="f1d6c-103">Adding Validation Controls to the Editing and Inserting Interfaces (C#)</span></span>
 ====================

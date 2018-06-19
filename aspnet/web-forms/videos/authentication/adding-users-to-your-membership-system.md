@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881038"
 ---
 <a name="adding-users-to-your-membership-system"></a><span data-ttu-id="d3f07-103">Aggiunta di utenti al sistema di appartenenza</span><span class="sxs-lookup"><span data-stu-id="d3f07-103">Adding Users to Your Membership System</span></span>
 ====================

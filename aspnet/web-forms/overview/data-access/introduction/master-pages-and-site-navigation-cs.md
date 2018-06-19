@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887600"
 ---
 <a name="master-pages-and-site-navigation-c"></a><span data-ttu-id="29773-104">Pagine master e esplorazione del sito (c#)</span><span class="sxs-lookup"><span data-stu-id="29773-104">Master Pages and Site Navigation (C#)</span></span>
 ====================

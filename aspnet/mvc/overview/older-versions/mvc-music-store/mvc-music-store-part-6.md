@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872416"
 ---
 <a name="part-6-using-data-annotations-for-model-validation"></a><span data-ttu-id="ed207-104">Parte 6: Utilizzando le annotazioni dei dati per la convalida del modello</span><span class="sxs-lookup"><span data-stu-id="ed207-104">Part 6: Using Data Annotations for Model Validation</span></span>
 ====================

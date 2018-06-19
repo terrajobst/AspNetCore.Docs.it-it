@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033574"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a><span data-ttu-id="c5b82-103">Utilizzo di provider OAuth con MVC 4</span><span class="sxs-lookup"><span data-stu-id="c5b82-103">Using OAuth Providers with MVC 4</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879465"
 ---
 <a name="dynamically-adding-an-accordion-pane-c"></a><span data-ttu-id="10e5a-104">Aggiunta dinamica di un riquadro soffietto (c#)</span><span class="sxs-lookup"><span data-stu-id="10e5a-104">Dynamically Adding An Accordion Pane (C#)</span></span>
 ====================

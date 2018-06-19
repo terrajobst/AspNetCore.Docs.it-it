@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870154"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-vb"></a><span data-ttu-id="c5067-104">Consentire solo il numero di caratteri specifici in una casella di testo (VB)</span><span class="sxs-lookup"><span data-stu-id="c5067-104">Allowing Only Certain Characters in a Text Box (VB)</span></span>
 ====================

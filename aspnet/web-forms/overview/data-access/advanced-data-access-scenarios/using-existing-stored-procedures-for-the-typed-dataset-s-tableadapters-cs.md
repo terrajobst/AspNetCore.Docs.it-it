@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877073"
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a><span data-ttu-id="52df3-104">Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)</span><span class="sxs-lookup"><span data-stu-id="52df3-104">Using Existing Stored Procedures for the Typed DataSet's TableAdapters (C#)</span></span>
 ====================

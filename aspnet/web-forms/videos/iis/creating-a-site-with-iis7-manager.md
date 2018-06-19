@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883079"
 ---
 <a name="creating-a-site-with-iis7-manager"></a><span data-ttu-id="7341d-103">Creazione di un sito con gestione IIS7</span><span class="sxs-lookup"><span data-stu-id="7341d-103">Creating a Site with IIS7 Manager</span></span>
 ====================

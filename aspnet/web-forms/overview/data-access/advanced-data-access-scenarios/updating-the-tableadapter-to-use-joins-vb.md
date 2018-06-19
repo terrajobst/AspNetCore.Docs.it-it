@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878308"
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a><span data-ttu-id="483b9-104">L'aggiornamento dell'oggetto TableAdapter per usare join (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="483b9-104">Updating the TableAdapter to Use JOINs (VB)</span></span>
 ====================

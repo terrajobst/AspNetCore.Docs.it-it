@@ -17,6 +17,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962428"
 ---
 <a name="examining-the-details-and-delete-methods"></a><span data-ttu-id="22319-102">Esaminare i dettagli e i metodi di eliminazione</span><span class="sxs-lookup"><span data-stu-id="22319-102">Examining the Details and Delete Methods</span></span>
 ====================

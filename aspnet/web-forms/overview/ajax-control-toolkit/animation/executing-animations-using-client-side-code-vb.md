@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870700"
 ---
 <a name="executing-animations-using-client-side-code-vb"></a><span data-ttu-id="a1e76-104">L'esecuzione di animazioni utilizzando codice lato Client (VB)</span><span class="sxs-lookup"><span data-stu-id="a1e76-104">Executing Animations Using Client-Side Code (VB)</span></span>
 ====================

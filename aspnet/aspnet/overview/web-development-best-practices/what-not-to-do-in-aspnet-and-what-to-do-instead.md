@@ -1,6 +1,6 @@
 ---
 uid: aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
-title: "Che cosa è necessario eseguire in ASP.NET e quali operazioni eseguire invece | Documenti Microsoft"
+title: Che cosa è necessario eseguire in ASP.NET e quali operazioni eseguire invece | Documenti Microsoft
 author: tfitzmac
 description: In questo argomento vengono descritti i diversi errori comuni, assicurarsi di persone all'interno dei progetti web ASP.NET. Fornisce indicazioni per le operazioni da effettuare per evitare questi commo...
 ms.author: aspnetcontent
@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 05/08/2014
 ms.topic: article
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034920"
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a><span data-ttu-id="293b4-104">Che cosa è necessario eseguire in ASP.NET e quali operazioni eseguire invece</span><span class="sxs-lookup"><span data-stu-id="293b4-104">What not to do in ASP.NET, and what to do instead</span></span>
 ====================

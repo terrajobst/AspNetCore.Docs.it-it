@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872013"
 ---
 <a name="fighting-bots-c"></a><span data-ttu-id="fad91-104">Tori bot (c#)</span><span class="sxs-lookup"><span data-stu-id="fad91-104">Fighting Bots (C#)</span></span>
 ====================

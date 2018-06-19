@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888825"
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a><span data-ttu-id="621bd-104">La distribuzione del sito utilizzando Visual Studio (c#)</span><span class="sxs-lookup"><span data-stu-id="621bd-104">Deploying Your Site Using Visual Studio (C#)</span></span>
 ====================

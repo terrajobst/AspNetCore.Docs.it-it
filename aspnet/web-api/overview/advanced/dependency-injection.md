@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036515"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a><span data-ttu-id="d8e3c-104">Dependency Injection in ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="d8e3c-104">Dependency Injection in ASP.NET Web API 2</span></span>
 ====================

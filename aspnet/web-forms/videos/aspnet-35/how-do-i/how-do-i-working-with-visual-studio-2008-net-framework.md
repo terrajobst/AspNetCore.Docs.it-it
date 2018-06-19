@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881116"
 ---
 <a name="how-do-i-working-with-visual-studio-2008-net-framework"></a><span data-ttu-id="e59f7-105">[Eseguire la ricerca per categorie:] Utilizzo di Visual Studio 2008 .NET Framework</span><span class="sxs-lookup"><span data-stu-id="e59f7-105">[How Do I:] Working with Visual Studio 2008 .NET Framework</span></span>
 ====================

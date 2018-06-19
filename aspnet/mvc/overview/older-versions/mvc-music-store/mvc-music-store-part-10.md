@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878594"
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a><span data-ttu-id="06765-104">Parte 10: Aggiornamenti finali allo spostamento e la struttura del sito, conclusione</span><span class="sxs-lookup"><span data-stu-id="06765-104">Part 10: Final Updates to Navigation and Site Design, Conclusion</span></span>
 ====================

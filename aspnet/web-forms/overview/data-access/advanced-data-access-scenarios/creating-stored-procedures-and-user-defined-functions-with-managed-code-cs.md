@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877437"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a><span data-ttu-id="f7637-104">Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (c#)</span><span class="sxs-lookup"><span data-stu-id="f7637-104">Creating Stored Procedures and User-Defined Functions with Managed Code (C#)</span></span>
 ====================

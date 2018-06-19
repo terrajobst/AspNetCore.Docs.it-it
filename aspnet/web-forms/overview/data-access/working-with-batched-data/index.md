@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
 ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514760"
 ---
 <a name="working-with-batched-data"></a><span data-ttu-id="42c08-103">Utilizzo dei dati in batch</span><span class="sxs-lookup"><span data-stu-id="42c08-103">Working with Batched Data</span></span>
 ====================

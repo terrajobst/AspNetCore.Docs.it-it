@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884249"
 ---
 <a name="how-do-i-make-custom-pages"></a><span data-ttu-id="f3a46-104">Come eseguire le pagine personalizzate</span><span class="sxs-lookup"><span data-stu-id="f3a46-104">How Do I Make Custom Pages?</span></span>
 ====================

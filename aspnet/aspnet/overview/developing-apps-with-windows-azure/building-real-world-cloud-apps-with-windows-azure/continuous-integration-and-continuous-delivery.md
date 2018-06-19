@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869413"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="e175d-104">Integrazione continua e il recapito continuo (creazione di applicazioni Cloud reale in Azure)</span><span class="sxs-lookup"><span data-stu-id="e175d-104">Continuous Integration and Continuous Delivery (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

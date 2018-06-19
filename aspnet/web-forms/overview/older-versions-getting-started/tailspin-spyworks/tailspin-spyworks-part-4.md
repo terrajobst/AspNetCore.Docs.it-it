@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881064"
 ---
 <a name="part-4-listing-products"></a><span data-ttu-id="013b3-104">Parte 4: Elenco di prodotti</span><span class="sxs-lookup"><span data-stu-id="013b3-104">Part 4: Listing Products</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889807"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a><span data-ttu-id="4856c-103">Distribuzione Web ASP.NET utilizzando Visual Studio: la distribuzione nell'ambiente di produzione</span><span class="sxs-lookup"><span data-stu-id="4856c-103">ASP.NET Web Deployment using Visual Studio: Deploying to Production</span></span>
 ====================

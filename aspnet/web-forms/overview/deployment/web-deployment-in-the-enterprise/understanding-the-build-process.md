@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888000"
 ---
 <a name="understanding-the-build-process"></a><span data-ttu-id="309a3-104">Informazioni sul processo di compilazione</span><span class="sxs-lookup"><span data-stu-id="309a3-104">Understanding the Build Process</span></span>
 ====================

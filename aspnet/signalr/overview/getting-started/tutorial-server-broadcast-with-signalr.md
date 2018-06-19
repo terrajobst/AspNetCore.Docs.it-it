@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876813"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a><span data-ttu-id="c75d4-104">Esercitazione: Server Broadcast con SignalR 2</span><span class="sxs-lookup"><span data-stu-id="c75d4-104">Tutorial: Server Broadcast with SignalR 2</span></span>
 ====================

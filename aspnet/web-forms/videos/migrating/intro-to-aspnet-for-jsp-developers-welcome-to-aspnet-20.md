@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882683"
 ---
 <a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a><span data-ttu-id="b11aa-103">Introduzione a ASP.NET per gli sviluppatori JSP: Introduzione a ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="b11aa-103">Intro to ASP.NET for JSP Developers: Welcome to ASP.NET 2.0</span></span>
 ====================

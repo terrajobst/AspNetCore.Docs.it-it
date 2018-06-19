@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877060"
 ---
 <a name="iteration-1--create-the-application-vb"></a><span data-ttu-id="3fcc5-104">Iterazione #1: creare l'applicazione (VB)</span><span class="sxs-lookup"><span data-stu-id="3fcc5-104">Iteration #1 – Create the Application (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875916"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a><span data-ttu-id="b0004-103">Creazione di un'estensione di controllo Toolkit controllo AJAX personalizzati (c#)</span><span class="sxs-lookup"><span data-stu-id="b0004-103">Creating a Custom AJAX Control Toolkit Control Extender (C#)</span></span>
 ====================

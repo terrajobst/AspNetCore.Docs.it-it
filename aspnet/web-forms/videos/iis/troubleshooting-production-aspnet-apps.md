@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886095"
 ---
 <a name="troubleshooting-production-aspnet-apps"></a><span data-ttu-id="4de02-103">Risoluzione dei problemi di produzione, applicazioni ASP.NET</span><span class="sxs-lookup"><span data-stu-id="4de02-103">Troubleshooting Production ASP.NET Apps</span></span>
 ====================

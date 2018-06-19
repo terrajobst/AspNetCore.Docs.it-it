@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869842"
 ---
 <a name="passing-data-to-view-master-pages-c"></a><span data-ttu-id="e6bc9-104">Passaggio di dati a pagine Master di visualizzazione (c#)</span><span class="sxs-lookup"><span data-stu-id="e6bc9-104">Passing Data to View Master Pages (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30874694"
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a><span data-ttu-id="61c2e-104">Creazione di un MVC 3 Application with Razor and JavaScript non intrusivo</span><span class="sxs-lookup"><span data-stu-id="61c2e-104">Creating a MVC 3 Application with Razor and Unobtrusive JavaScript</span></span>
 ====================

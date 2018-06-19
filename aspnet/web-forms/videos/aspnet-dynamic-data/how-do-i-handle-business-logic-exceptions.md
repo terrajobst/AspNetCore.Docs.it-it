@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886446"
 ---
 <a name="how-do-i-handle-business-logic-exceptions"></a><span data-ttu-id="f399d-105">Come posso gestire eccezioni della logica di Business</span><span class="sxs-lookup"><span data-stu-id="f399d-105">How do I Handle Business Logic Exceptions?</span></span>
 ====================

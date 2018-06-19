@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884542"
 ---
 <a name="creating-user-accounts-with-the-create-user-wizard"></a><span data-ttu-id="9a834-104">Creazione di account utente con la creazione guidata utente</span><span class="sxs-lookup"><span data-stu-id="9a834-104">Creating User Accounts with the Create User Wizard</span></span>
 ====================

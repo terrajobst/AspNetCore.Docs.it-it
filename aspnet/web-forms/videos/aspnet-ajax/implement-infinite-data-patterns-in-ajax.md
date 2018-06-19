@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883255"
 ---
 <a name="implement-infinite-data-patterns-in-ajax"></a><span data-ttu-id="7d83a-103">Implementare i modelli di dati infiniti in AJAX</span><span class="sxs-lookup"><span data-stu-id="7d83a-103">Implement Infinite Data Patterns in AJAX</span></span>
 ====================

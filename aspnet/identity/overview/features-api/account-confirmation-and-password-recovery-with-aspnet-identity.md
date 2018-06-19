@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876033"
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a><span data-ttu-id="f30f5-104">La conferma dell'account e Password di ripristino con identità di ASP.NET (c#)</span><span class="sxs-lookup"><span data-stu-id="f30f5-104">Account Confirmation and Password Recovery with ASP.NET Identity (C#)</span></span>
 ====================

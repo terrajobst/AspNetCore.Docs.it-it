@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888393"
 ---
 <a name="part-7-adding-features"></a><span data-ttu-id="a064f-104">Parte 7: Aggiunta di funzionalità</span><span class="sxs-lookup"><span data-stu-id="a064f-104">Part 7: Adding Features</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880752"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a><span data-ttu-id="a7801-102">Codice modifica Web Forms ASP.NET in Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="a7801-102">Code Editing ASP.NET Web Forms in Visual Studio 2013</span></span>
 ====================

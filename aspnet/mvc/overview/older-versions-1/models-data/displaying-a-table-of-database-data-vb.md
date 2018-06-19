@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872273"
 ---
 <a name="displaying-a-table-of-database-data-vb"></a><span data-ttu-id="efc10-104">Visualizza una tabella di dati del Database (Visual Basic)</span><span class="sxs-lookup"><span data-stu-id="efc10-104">Displaying a Table of Database Data (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877125"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a><span data-ttu-id="2f864-104">Visualizzazione di dati con il DataList e Repeater (VB)</span><span class="sxs-lookup"><span data-stu-id="2f864-104">Displaying Data with the DataList and Repeater Controls (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882657"
 ---
 <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="4d51e-104">[Eseguire la ricerca per categorie:] Passare a gestione e le funzionalità del foglio di stile CSS</span><span class="sxs-lookup"><span data-stu-id="4d51e-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 ====================

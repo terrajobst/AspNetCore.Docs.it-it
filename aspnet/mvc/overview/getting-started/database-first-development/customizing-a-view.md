@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867658"
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a><span data-ttu-id="f6db3-104">Database di Entity Framework prima con ASP.NET MVC: personalizzare una visualizzazione</span><span class="sxs-lookup"><span data-stu-id="f6db3-104">EF Database First with ASP.NET MVC: Customizing a View</span></span>
 ====================

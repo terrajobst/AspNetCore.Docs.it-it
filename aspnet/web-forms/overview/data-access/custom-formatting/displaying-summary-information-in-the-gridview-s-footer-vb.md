@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877616"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a><span data-ttu-id="d7e37-104">Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (VB)</span><span class="sxs-lookup"><span data-stu-id="d7e37-104">Displaying Summary Information in the GridView's Footer (VB)</span></span>
 ====================

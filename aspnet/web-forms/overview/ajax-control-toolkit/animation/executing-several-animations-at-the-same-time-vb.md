@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879439"
 ---
 <a name="executing-several-animations-at-the-same-time-vb"></a><span data-ttu-id="7bd59-104">L'esecuzione di numerose animazioni contemporaneamente (VB)</span><span class="sxs-lookup"><span data-stu-id="7bd59-104">Executing Several Animations at The Same Time (VB)</span></span>
 ====================

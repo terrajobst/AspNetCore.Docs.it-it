@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885923"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-passwordstrength-extender"></a><span data-ttu-id="4bd9c-105">[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX PasswordStrength?</span><span class="sxs-lookup"><span data-stu-id="4bd9c-105">[How Do I:] Use the ASP.NET AJAX PasswordStrength Extender?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878776"
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a><span data-ttu-id="d420a-104">Database di Entity Framework prima con ASP.NET MVC: creazione, l'applicazione Web e i modelli di dati</span><span class="sxs-lookup"><span data-stu-id="d420a-104">EF Database First with ASP.NET MVC: Creating the Web Application and Data Models</span></span>
 ====================

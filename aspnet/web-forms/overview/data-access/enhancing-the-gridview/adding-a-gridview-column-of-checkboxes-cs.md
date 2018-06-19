@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880167"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a><span data-ttu-id="8f73e-103">Aggiunta di una colonna di GridView di caselle di controllo (c#)</span><span class="sxs-lookup"><span data-stu-id="8f73e-103">Adding a GridView Column of Checkboxes (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885406"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a><span data-ttu-id="a77a2-104">Ordinamento, paging e filtro dei dati con l'associazione di modelli e web form</span><span class="sxs-lookup"><span data-stu-id="a77a2-104">Sorting, paging, and filtering data with model binding and web forms</span></span>
 ====================

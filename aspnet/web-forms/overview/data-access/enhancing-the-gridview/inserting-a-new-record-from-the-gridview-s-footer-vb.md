@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888370"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a><span data-ttu-id="dcf4c-103">Inserimento di un nuovo Record dal piè di pagina del controllo GridView (VB)</span><span class="sxs-lookup"><span data-stu-id="dcf4c-103">Inserting a New Record from the GridView's Footer (VB)</span></span>
 ====================

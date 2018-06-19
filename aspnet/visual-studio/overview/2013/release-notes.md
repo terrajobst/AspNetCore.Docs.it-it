@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877801"
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a><span data-ttu-id="f0385-103">ASP.NET e strumenti Web per note sulla versione di Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="f0385-103">ASP.NET and Web Tools for Visual Studio 2013 Release Notes</span></span>
 ====================

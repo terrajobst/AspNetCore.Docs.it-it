@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872715"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a><span data-ttu-id="714e7-103">Utilizzare AJAX per implementare scenari di Mapping</span><span class="sxs-lookup"><span data-stu-id="714e7-103">Use AJAX to Implement Mapping Scenarios</span></span>
 ====================

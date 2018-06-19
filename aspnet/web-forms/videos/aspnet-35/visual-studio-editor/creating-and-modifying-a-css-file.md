@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880817"
 ---
 <a name="creating-and-modifying-a-css-file"></a><span data-ttu-id="c787c-104">Creazione e modifica di un File CSS</span><span class="sxs-lookup"><span data-stu-id="c787c-104">Creating and Modifying a CSS File</span></span>
 ====================

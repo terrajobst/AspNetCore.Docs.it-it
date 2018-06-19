@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885713"
 ---
 <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a><span data-ttu-id="0b997-103">Eseguire la ricerca per categorie: LINQ to SQL: esecuzione di SQL non autorizzato</span><span class="sxs-lookup"><span data-stu-id="0b997-103">How Do I: LINQ to SQL: Executing Arbitrary SQL</span></span>
 ====================

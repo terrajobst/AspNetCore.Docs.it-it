@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887707"
 ---
 <a name="urls-in-master-pages-c"></a><span data-ttu-id="bb320-104">URL nelle pagine Master (c#)</span><span class="sxs-lookup"><span data-stu-id="bb320-104">URLs in Master Pages (C#)</span></span>
 ====================

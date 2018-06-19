@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526300"
 ---
 <a name="how-do-i-make-use-of-caching"></a><span data-ttu-id="c416b-104">[Eseguire la ricerca per categorie:] Avvalersi della memorizzazione nella cache?</span><span class="sxs-lookup"><span data-stu-id="c416b-104">[How Do I:] Make use of Caching?</span></span>
 ====================

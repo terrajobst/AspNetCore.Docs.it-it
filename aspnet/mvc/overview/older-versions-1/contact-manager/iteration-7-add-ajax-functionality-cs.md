@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875526"
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a><span data-ttu-id="2c5e3-103">Iterazione #7: la funzionalità Aggiungi Ajax (c#)</span><span class="sxs-lookup"><span data-stu-id="2c5e3-103">Iteration #7 – Add Ajax functionality (C#)</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment
 msc.type: chapter
 ms.openlocfilehash: de7898f13c132f82b64403061558ba04684f523c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515200"
 ---
 <a name="aspnet-web-deployment-using-visual-studio"></a><span data-ttu-id="069e1-103">Distribuzione Web ASP.NET utilizzando Visual Studio</span><span class="sxs-lookup"><span data-stu-id="069e1-103">ASP.NET Web Deployment using Visual Studio</span></span>
 ====================

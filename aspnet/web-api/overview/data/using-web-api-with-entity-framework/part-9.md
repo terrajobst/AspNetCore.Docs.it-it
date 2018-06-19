@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868373"
 ---
 <a name="add-a-new-item-to-the-database"></a><span data-ttu-id="cef48-102">Aggiungere un nuovo elemento al Database</span><span class="sxs-lookup"><span data-stu-id="cef48-102">Add a New Item to the Database</span></span>
 ====================
