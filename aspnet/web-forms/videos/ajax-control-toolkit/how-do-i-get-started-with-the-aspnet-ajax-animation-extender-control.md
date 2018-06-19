@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880623"
 ---
 <a name="how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control"></a>[Eseguire la ricerca per categorie:] Iniziare con il controllo ASP.NET AJAX animazione estensione?
 ====================

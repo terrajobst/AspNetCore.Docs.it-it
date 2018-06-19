@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881370"
 ---
 <a name="add-custom-data-to-the-authentication-method"></a>Aggiungere dati personalizzati per il metodo di autenticazione
 ====================

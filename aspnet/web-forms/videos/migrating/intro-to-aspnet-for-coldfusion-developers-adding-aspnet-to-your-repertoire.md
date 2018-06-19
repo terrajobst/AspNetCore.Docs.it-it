@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883752"
 ---
 <a name="intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire"></a>Introduzione a ASP.NET per gli sviluppatori ColdFusion: aggiunta di ASP.NET per la gamma
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881334"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: distribuzione di un aggiornamento del codice
 ====================
