@@ -2,25 +2,21 @@
 title: Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0
 author: scottaddie
 description: In questo articolo vengono illustrati i prerequisiti e i passaggi più comuni per la migrazione di un progetto di ASP.NET Core 1.x su ASP.NET 2.0 Core.
-manager: wpickett
 ms.author: scaddie
 ms.date: 10/03/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 1052b17b433f06162325db340cd53ee61b76a184
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555235"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272504"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0
 
 Di [Scott Addie](https://github.com/scottaddie)
 
-Questo articolo illustra come aggiornare un progetto ASP.NET Core 1.x esistente ad ASP.NET Core 2.0. La migrazione dell'applicazione ad ASP.NET 2.0 Core consente di sfruttare le [molte nuove caratteristiche e i miglioramenti delle prestazioni](xref:aspnetcore-2.0). 
+Questo articolo illustra come aggiornare un progetto ASP.NET Core 1.x esistente ad ASP.NET Core 2.0. La migrazione dell'applicazione ad ASP.NET 2.0 Core consente di sfruttare le [molte nuove caratteristiche e i miglioramenti delle prestazioni](xref:aspnetcore-2.0).
 
 Le applicazioni esistenti di ASP.NET Core 1.x si basano su modelli di progetto specifico della versione. Quando il framework di ASP.NET Core si evolve, i modelli del progetto fanno la stessa cosa, così come il codice di avvio in essi contenuti. Oltre ad aggiornare il framework di ASP.NET Core, è necessario aggiornare il codice dell'applicazione.
 

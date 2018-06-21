@@ -2,19 +2,15 @@
 title: Panoramica sulla sicurezza di ASP.NET Core
 author: rachelappel
 description: Informazioni sui concetti di base di autenticazione, autorizzazione e sicurezza in ASP.NET Core.
-manager: wpickett
 ms.author: rachelap
 ms.date: 11/01/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/index
-ms.openlocfilehash: da3829b2d5ae5db1861c7423da5afc7acbee6697
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a23d23cf1bf0503b59c6f5d962cecf89af37b4b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074354"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278505"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Panoramica sulla sicurezza di ASP.NET Core
 
