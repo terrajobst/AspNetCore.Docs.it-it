@@ -2,24 +2,20 @@
 title: API di estendibilità per la protezione dati di ASP.NET Core
 author: rick-anderson
 description: Vari argomenti dedicati all'estendibilità per la protezione dati di ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/index
-ms.openlocfilehash: 822f44b9aa2745278c3074f74f7f6f7972d5edd2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 6a5a50f13fa3c7c437ec7d98da4dab67e4870f71
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077509"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273527"
 ---
-# <a name="aspnet-core-data-protection-extensibility-apis"></a><span data-ttu-id="f01fa-103">API di estendibilità per la protezione dati di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f01fa-103">ASP.NET Core Data Protection extensibility APIs</span></span>
+# <a name="aspnet-core-data-protection-extensibility-apis"></a><span data-ttu-id="ae075-103">API di estendibilità per la protezione dati di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="ae075-103">ASP.NET Core Data Protection extensibility APIs</span></span>
 
-* [<span data-ttu-id="f01fa-104">Estendibilità della crittografia Core</span><span class="sxs-lookup"><span data-stu-id="f01fa-104">Core cryptography extensibility</span></span>](xref:security/data-protection/extensibility/core-crypto)
+* [<span data-ttu-id="ae075-104">Estendibilità della crittografia Core</span><span class="sxs-lookup"><span data-stu-id="ae075-104">Core cryptography extensibility</span></span>](xref:security/data-protection/extensibility/core-crypto)
 
-* [<span data-ttu-id="f01fa-105">Estendibilità della gestione delle chiavi</span><span class="sxs-lookup"><span data-stu-id="f01fa-105">Key management extensibility</span></span>](xref:security/data-protection/extensibility/key-management)
+* [<span data-ttu-id="ae075-105">Estendibilità della gestione delle chiavi</span><span class="sxs-lookup"><span data-stu-id="ae075-105">Key management extensibility</span></span>](xref:security/data-protection/extensibility/key-management)
 
-* [<span data-ttu-id="f01fa-106">Varie API</span><span class="sxs-lookup"><span data-stu-id="f01fa-106">Miscellaneous APIs</span></span>](xref:security/data-protection/extensibility/misc-apis)
+* [<span data-ttu-id="ae075-106">Varie API</span><span class="sxs-lookup"><span data-stu-id="ae075-106">Miscellaneous APIs</span></span>](xref:security/data-protection/extensibility/misc-apis)
