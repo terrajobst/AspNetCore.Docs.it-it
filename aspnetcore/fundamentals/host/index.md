@@ -2,20 +2,16 @@
 title: Hosting in ASP.NET Core
 author: guardrex
 description: Informazioni sull'host Web ASP.NET Core e sull'host generico .NET, responsabili della gestione dell'avvio e della durata delle app.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/host/index
-ms.openlocfilehash: 7f8ccff7e3da93d6e617505ac93fafc3a82ed880
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 365c679e789c07818c6eb007f40f6aef43b82c44
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252009"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276617"
 ---
 # <a name="host-in-aspnet-core"></a>Hosting in ASP.NET Core
 

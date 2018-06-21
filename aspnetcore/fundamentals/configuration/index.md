@@ -2,20 +2,16 @@
 title: Configurazione in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come usare l'API di configurazione per configurare un'app ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: a146991945add3c1299633db2147edbc63d3bc40
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: 70e9e73eeb5d08baf9ef190ebfbda998ace60d77
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35725978"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278325"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
