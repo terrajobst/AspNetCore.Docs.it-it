@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652201"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -33,7 +34,7 @@ ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di
 
 ## <a name="how-to-create-logs"></a>Come creare log
 
-Per creare i log, ottenere un oggetto `ILogger` dal contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection):
+Per creare i log, implementare un oggetto [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) dal contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
@@ -63,14 +64,14 @@ Il modello di progetto predefinito consente la registrazione con il metodo [Crea
 
 Un provider di registrazione recupera i messaggi creati dall'utente con un oggetto `ILogger` e li visualizza o li archivia. Il provider Console, ad esempio, visualizza i messaggi nella console e il provider del Servizio app di Azure può archiviarli nell'archivio BLOB di Azure.
 
-Per usare un provider, installare il relativo pacchetto NuGet e chiamare il metodo di estensione del provider in un'istanza di `ILoggerFactory`, come illustrato nell'esempio seguente.
+Per usare un provider, installare il relativo pacchetto NuGet e chiamare il metodo di estensione del provider in un'istanza di [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory), come illustrato nell'esempio seguente:
 
 [!code-csharp[](index/sample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) di ASP.NET Core fornisce l'istanza di `ILoggerFactory`. I metodi di estensione `AddConsole` e `AddDebug` sono definiti nei pacchetti [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) e [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/). Ogni metodo di estensione chiama il metodo `ILoggerFactory.AddProvider` passando un'istanza del provider. 
 
 > [!NOTE]
-> L'applicazione di esempio di questo articolo aggiunge provider di registrazione nel metodo `Configure` della classe `Startup`. Per ottenere l'output della registrazione dal codice eseguito in precedenza, aggiungere i provider di registrazione nel costruttore della classe `Startup`. 
+> L'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) aggiunge provider di log nel metodo `Startup.Configure`. Per ottenere l'output del log dal codice eseguito in precedenza, aggiungere i provider di log nel costruttore della classe `Startup`.
 
 ---
 
@@ -372,7 +373,7 @@ Il metodo di estensione `WithFilter` viene fornito dal pacchetto NuGet [Microsof
 
 È possibile raggruppare un set di operazioni logiche all'interno di un *ambito* per collegare gli stessi dati a ogni log creato come parte del set. È ad esempio possibile fare in modo che ogni log creato come parte dell'elaborazione di una transazione includa l'ID della transazione.
 
-Un ambito è un tipo `IDisposable` restituito dal metodo `ILogger.BeginScope<TState>` e viene mantenuto fino all'eliminazione. Un ambito si usa mediante il wrapping delle chiamate del logger in un blocco `using`, come illustrato di seguito:
+Un ambito è un tipo `IDisposable` restituito dal metodo [ILogger.BeginScope&lt;TState&gt;](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) e viene mantenuto fino all'eliminazione. Un ambito si usa mediante il wrapping delle chiamate del logger in un blocco `using`, come illustrato di seguito:
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -410,15 +411,14 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core include i provider seguenti:
 
-* [Console](#console)
-* [Debug](#debug)
-* [EventSource](#eventsource)
-* [EventLog](#eventlog)
-* [TraceSource](#tracesource)
-* [Servizio app di Azure](#appservice)
+* [Console](#console-provider)
+* [Debug](#debug-provider)
+* [EventSource](#eventsource-provider)
+* [EventLog](#windows-eventlog-provider)
+* [TraceSource](#tracesource-provider)
+* [Servizio app di Azure](#azure-app-service-provider)
 
-<a id="console"></a>
-### <a name="the-console-provider"></a>Provider Console
+### <a name="console-provider"></a>Provider Console
 
 Il pacchetto del provider [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) invia l'output della registrazione alla console. 
 
@@ -452,8 +452,7 @@ Le impostazioni visualizzate limitano i log del framework agli avvisi, consenten
 
 ---
 
-<a id="debug"></a>
-### <a name="the-debug-provider"></a>Provider Debug
+### <a name="debug-provider"></a>Provider Debug
 
 Il pacchetto del provider [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) scrive l'output della registrazione usando la classe [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) (chiamate del metodo `Debug.WriteLine`).
 
@@ -475,8 +474,7 @@ Gli [overload di AddDebug](/dotnet/api/microsoft.extensions.logging.debugloggerf
 
 ---
 
-<a id="eventsource"></a>
-### <a name="the-eventsource-provider"></a>Provider EventSource
+### <a name="eventsource-provider"></a>Provider EventSource
 
 Per le app destinate a ASP.NET Core 1.1.0 o versione successiva, il pacchetto di provider [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) può implementare la traccia degli eventi. In Windows, usa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Il provider è multipiattaforma, ma non sono ancora disponibili gli strumenti di raccolta e visualizzazione degli eventi per Linux o macOS. 
 
@@ -500,8 +498,7 @@ Per configurare PerfView per la raccolta degli eventi registrati da questo provi
 
 ![Provider aggiuntivi di PerfView](index/_static/perfview-additional-providers.png)
 
-<a id="eventlog"></a>
-### <a name="the-windows-eventlog-provider"></a>Provider EventLog di Windows
+### <a name="windows-eventlog-provider"></a>Provider EventLog di Windows
 
 Il pacchetto di provider [Microsoft.Extensions.Logging.AventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) invia l'output del log al registro eventi di Windows.
 
@@ -521,8 +518,7 @@ Gli [overload di AddEventLog](/dotnet/api/microsoft.extensions.logging.eventlogg
 
 ---
 
-<a id="tracesource"></a>
-### <a name="the-tracesource-provider"></a>Provider TraceSource
+### <a name="tracesource-provider"></a>Provider TraceSource
 
 Il pacchetto di provider [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) usa le librerie e i provider di [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource).
 
@@ -548,14 +544,13 @@ L'esempio seguente configura un provider `TraceSource` che registra messaggi `Wa
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
-<a id="appservice"></a>
-### <a name="the-azure-app-service-provider"></a>Provider del Servizio app di Azure
+### <a name="azure-app-service-provider"></a>Provider del Servizio app di Azure
 
-Il pacchetto di provider [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) scrive i log in file di testo nel file system di un'app del Servizio app di Azure e nell'[archivio di BLOB](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in un account di archiviazione di Azure. Il provider è disponibile solo per le app destinate ad ASP.NET Core 1.1.0 o versione successiva. 
+Il pacchetto di provider [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) scrive i log in file di testo nel file system di un'app del Servizio app di Azure e nell'[archivio di BLOB](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in un account di archiviazione di Azure. Il provider è disponibile solo per le app destinate ad ASP.NET Core 1.1 o versione successiva.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Se la destinazione è .NET Core, non è necessario installare il pacchetto di provider o chiamare `AddAzureWebAppDiagnostics` in modo esplicito. Il provider è automaticamente disponibile per l'app quando la si distribuisce nel di Servizio app di Azure.
+Se la destinazione è .NET Core, non è necessario installare il pacchetto di provider o chiamare [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) in modo esplicito. Il provider è automaticamente disponibile per l'app quando l'app viene distribuita nel Servizio app di Azure.
 
 Se la destinazione è .NET Framework, aggiungere il pacchetto di provider al progetto e richiamare `AddAzureWebAppDiagnostics`:
 
@@ -569,23 +564,24 @@ logging.AddAzureWebAppDiagnostics();
 loggerFactory.AddAzureWebAppDiagnostics();
 ```
 
-Un overload di `AddAzureWebAppDiagnostics` consente di passare [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs) con cui è possibile eseguire l'override delle impostazioni predefinite, ad esempio il modello di output di registrazione, il nome di BLOB e il limite di dimensioni di file. (Il *modello di output* è un modello di messaggio che viene applicato a tutti i log oltre quello specificato dall'utente quando si chiama un metodo `ILogger`.)
+Un overload di [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) consente di passare [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) con cui è possibile eseguire l'override delle impostazioni predefinite, ad esempio il modello di output del log, il nome di BLOB e il limite delle dimensioni del file. (Il *modello di output* è un modello di messaggio che viene applicato a tutti i log oltre quello specificato dall'utente quando si chiama un metodo `ILogger`.)
 
 ---
 
-Quando si distribuisce un'app del Servizio app, l'applicazione rispetta le impostazioni della sezione dei [log di diagnostica](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) dalla pagina del **Servizio app** del portale di Azure. Quando si modificano queste impostazioni, le modifiche hanno effetto immediatamente senza la necessità di riavviare l'app o ridistribuire codice. 
+Quando si distribuisce un'app del Servizio app, l'app rispetta le impostazioni della sezione dei [log di diagnostica](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) dalla pagina del **Servizio app** del portale di Azure. Quando queste impostazioni vengono aggiornate, le modifiche hanno effetto immediato senza richiedere un riavvio o la ridistribuzione dell'app.
 
 ![Impostazioni di registrazione di Azure](index/_static/azure-logging-settings.png)
 
-Il percorso predefinito per i file di log è nella cartella *D:\\home\\LogFiles\\Application* e il nome di file predefinito è *diagnostics-aaaammgg.txt*. Il limite predefinito per le dimensioni del file è 10 MB e il numero massimo predefinito di file conservati è 2. Il nome BLOB predefinito è *{nome-app}{timestamp}/aaaa/mm/gg/hh/{guid}-applicationLog.txt*. Per altre informazioni sul comportamento predefinito, vedere [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
+Il percorso predefinito per i file di log è nella cartella *D:\\home\\LogFiles\\Application* e il nome di file predefinito è *diagnostics-aaaammgg.txt*. Il limite predefinito per le dimensioni del file è 10 MB e il numero massimo predefinito di file conservati è 2. Il nome BLOB predefinito è *{nome-app}{timestamp}/aaaa/mm/gg/hh/{guid}-applicationLog.txt*. Per altre informazioni sul comportamento predefinito, vedere [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings).
 
-Il provider funziona solo quando il progetto viene eseguito nell'ambiente di Azure. Non ha alcun effetto quando si esegue localmente, in quanto non scrive nulla in file locali o in archivi di sviluppo locali per i BLOB.
+Il provider funziona solo quando il progetto viene eseguito nell'ambiente di Azure. Non ha alcun effetto quando il progetto viene eseguito localmente, in quanto non scrive nulla in file locali o in archivi di sviluppo locali per i BLOB.
 
 ## <a name="third-party-logging-providers"></a>Provider di registrazione di terze parti
 
 Framework di registrazione di terze parti che usano ASP.NET Core:
 
 * [elmah.io](https://elmah.io/) ([repository GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](http://docs.graylog.org/en/2.3/pages/gelf.html) ([repository GitHub](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](http://jsnlog.com/) ([repository GitHub](https://github.com/mperdeck/jsnlog))
 * [Loggr](http://loggr.net/) ([repository GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([repository GitHub](https://github.com/NLog/NLog.Extensions.Logging))
@@ -604,22 +600,21 @@ Per altre informazioni, vedere la documentazione di ciascun framework.
 
 Il flusso di registrazione di Azure consente di visualizzare l'attività di registrazione in tempo reale da: 
 
-* Server applicazioni 
+* Server applicazioni
 * Server Web
-* Traccia delle richieste non riuscite 
+* Traccia delle richieste non riuscite
 
-Per configurare il flusso di registrazione di Azure: 
+Per configurare il flusso di registrazione di Azure:
 
 * Passare alla pagina **Log di diagnostica** dalla pagina del portale dell'applicazione
-* Attivare **Registrazione applicazioni (file system)**. 
+* Attivare **Registrazione applicazioni (file system)**.
 
 ![Pagina dei log di diagnostica del portale di Azure](index/_static/azure-diagnostic-logs.png)
 
-Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'applicazione. Vengono registrati dall'applicazione tramite l'interfaccia `ILogger`. 
+Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'applicazione. Vengono registrati dall'applicazione tramite l'interfaccia `ILogger`.
 
 ![Flusso di registrazione dell'applicazione nel portale di Azure](index/_static/azure-log-streaming.png)
 
-
-## <a name="see-also"></a>Vedere anche
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Registrazione ad alte prestazioni con LoggerMessage](xref:fundamentals/logging/loggermessage)

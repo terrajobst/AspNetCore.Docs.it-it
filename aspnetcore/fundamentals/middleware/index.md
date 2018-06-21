@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c6d362cf15b5d4611f0e544c5092a18f32ed7dfc
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819045"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -196,10 +197,13 @@ ASP.NET Core viene dato con i componenti middleware seguenti e una descrizione d
 | [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [CORS](xref:security/cors) | Configura la condivisione di risorse tra le origini (CORS). | Prima dei componenti che usano CORS. |
 | [Diagnostica](xref:fundamentals/error-handling) | Configura la diagnostica. | Prima dei componenti che generano errori. |
-| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Inoltra le intestazioni proxy nella richiesta corrente. | Prima dei componenti che usano i campi aggiornati, ad esempio Scheme, Host, ClientIP, Method. |
+| [Intestazioni inoltrate](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Inoltra le intestazioni proxy nella richiesta corrente. | Prima dei componenti che usano i campi aggiornati, ad esempio schema, host, IP client, metodo. |
+| [Override del metodo HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Consente a una richiesta POST in arrivo di eseguire l'override del metodo. | Prima dei componenti che usano il metodo aggiornato. |
+| [Reindirizzamento HTTPS](xref:security/enforcing-ssl#require-https) | Reindirizzare tutte le richieste HTTP a HTTPS (ASP.NET Core 2.1 o versioni successive). | Prima dei componenti che usano l'URL. |
+| [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware di ottimizzazione della sicurezza che aggiunge un'intestazione della risposta speciale (ASP.NET Core 2.1 o versioni successive). | Prima dell'invio delle risposte e dopo i componenti che modificano le richieste, ad esempio intestazioni inoltrate o riscrittura dell'URL. |
 | [Memorizzazione nella cache delle risposte](xref:performance/caching/middleware) | Offre il supporto per la memorizzazione delle risposte nella cache. | Prima dei componenti che richiedono la memorizzazione nella cache. |
 | [Compressione delle risposte](xref:performance/response-compression) | Offre il supporto per la compressione delle risposte. | Prima dei componenti che richiedono la compressione. |
-| [RequestLocalization](xref:fundamentals/localization) | Offre il supporto per la localizzazione. | Prima dei componenti sensibili alla localizzazione. |
+| [Localizzazione della richiesta](xref:fundamentals/localization) | Offre il supporto per la localizzazione. | Prima dei componenti sensibili alla localizzazione. |
 | [Routing](xref:fundamentals/routing) | Definisce e vincola le route di richiesta. | Terminale per le route corrispondenti. |
 | [Sessione](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. |
 | [File statici](xref:fundamentals/static-files) | Offre il supporto per la gestione di file statici e l'esplorazione directory. | Terminale se una richiesta corrisponde ai file. |

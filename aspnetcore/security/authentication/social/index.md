@@ -9,15 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: dc6ec61519c200901cc8af03853e7381c1d4cad0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "35217324"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
-
-<a name="security-authentication-social-logins"></a>
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -78,13 +77,15 @@ Usare gli argomenti seguenti per configurare l'applicazione per usare i rispetti
 * Istruzioni di [Microsoft](xref:security/authentication/microsoft-logins)
 * Istruzioni di [altri provider](xref:security/authentication/otherlogins)
 
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
+
 ## <a name="optionally-set-password"></a>Impostare facoltativamente la password
 
 Quando ci si registra con un provider di accesso esterno, non si dispone di una password registrata con l'app. Questo evita la creazione e la memorizzazione di una password per il sito, ma crea anche una dipendenza dal provider di accesso esterno. Se il provider di accesso esterno non è disponibile, non si potrà accedere al sito web.
 
 Per creare una password e accedere usando la posta elettronica impostata durante il processo di accesso con provider esterni:
 
-* Toccare il collegamento **Hello <email alias>** nell'angolo superiore destro per passare alla vista **Gestione**.
+* Toccare il collegamento **Hello &lt;alias di posta elettronica&gt;** nell'angolo superiore destro per passare alla vista **Gestione**.
 
 ![Vista Gestione dell'applicazione Web](index/_static/pass1a.png)
 
