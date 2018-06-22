@@ -181,7 +181,7 @@ In questo esercizio verranno esplorati i miglioramenti nei modelli di progetto A
 
        Sfogliare le viste di modello per individuare il nuovo tag di tema.
 
-       ![Nuovo modello, utilizzando il markup About.cshtml Razor e HTML5. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Nuovo modello, utilizzando il markup About.cshtml Razor e HTML5.")
+       ![Nuovo modello, utilizzando il markup About.cshtml Razor e HTML5. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Nuovo modello, utilizzando il markup About.cshtml Razor e HTML5.")
 
        *Nuovo modello, utilizzando il markup Razor e HTML5 (About.cshtml).*
    - **Librerie JavaScript aggiornate**
