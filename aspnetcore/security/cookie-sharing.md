@@ -2,20 +2,16 @@
 title: Condividere i cookie tra le app con ASP.NET e ASP.NET Core
 author: rick-anderson
 description: Informazioni su come condividere i cookie di autenticazione tra ASP.NET 4. x e le applicazioni ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cookie-sharing
-ms.openlocfilehash: c22db501a2689feb8c16649eba4866e1190361a4
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 2636688fa50fb36a8cbd07549e8038474ffa30ca
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613018"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278466"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Condividere i cookie tra le app con ASP.NET e ASP.NET Core
 

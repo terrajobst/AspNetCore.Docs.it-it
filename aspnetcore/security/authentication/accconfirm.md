@@ -2,19 +2,15 @@
 title: La conferma dell'account e il recupero della password in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come compilare un'app di ASP.NET Core con messaggio di posta elettronica conferma e reimpostazione della password.
-manager: wpickett
 ms.author: riande
 ms.date: 2/11/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d7c1aea2b533fc614eb25c537b72bea773e76077
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: db41dd47518fa8b35c006b3291068e7724cf6cca
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252282"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275080"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>La conferma dell'account e il recupero della password in ASP.NET Core
 

@@ -1,0 +1,112 @@
+---
+title: Usare il modello di progetto per React con ASP.NET Core
+author: SteveSandersonMS
+description: Informazioni su come iniziare a usare il modello di progetto per applicazioni a pagina singola di ASP.NET Core per React e create-react-app.
+monikerRange: '>= aspnetcore-2.0'
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 02/21/2018
+uid: spa/react
+ms.openlocfilehash: 721ea1d4197ddd17dde657924f12dee2a6858d97
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291504"
+---
+# <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
+
+::: moniker range="= aspnetcore-2.0"
+
+> [!NOTE]
+> Questa documentazione non riguarda il modello di progetto per React incluso in ASP.NET 2.0 Core. È relativa al modello per React più recente, a cui è possibile eseguire l'aggiornamento manualmente. Il modello è incluso in ASP.NET Core 2.1 per impostazione predefinita.
+
+::: moniker-end
+
+Il modello di progetto aggiornato per React fornisce un ottimo punto di partenza per le app ASP.NET Core che usano le convenzioni React e [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) per implementare un'interfaccia utente avanzata sul lato client.
+
+Il modello è equivalente alla creazione di un progetto ASP.NET Core che opera come un back-end API e un progetto React CRA standard che opera come un'interfaccia utente, ma con la praticità di ospitare entrambi in un singolo progetto di app, che può essere creato e pubblicato come una singola unità.
+
+## <a name="create-a-new-app"></a>Creare una nuova app
+
+::: moniker range="= aspnetcore-2.0"
+
+Se si usa ASP.NET Core 2.0, assicurarsi di avere [installato il modello di progetto React aggiornato](xref:spa/index#installation).
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+
+Se si dispone di ASP.NET Core 2.1 installato, non è necessario installare il modello di progetto React.
+
+::: moniker-end
+
+Creare un nuovo progetto da un prompt dei comandi usando il comando `dotnet new react` in una directory vuota. Ad esempio, i comandi seguenti creano l'app in una directory *my-new-app* e passano a tale directory:
+
+```console
+dotnet new react -o my-new-app
+cd my-new-app
+```
+
+Eseguire l'app da Visual Studio o dall'interfaccia della riga di comando di .NET Core:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Aprire il file con estensione *csproj* generato ed eseguire l'app come di consueto da tale posizione.
+
+Alla prima esecuzione, il processo di compilazione ripristina le dipendenze di npm. Tale operazione può richiedere alcuni minuti. Le compilazioni successive sono molto più veloci.
+
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+
+Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con valore `Development`. In Windows (in prompt non PowerShell) eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS eseguire `export ASPNETCORE_Environment=Development`.
+
+Eseguire [dotnet build](/dotnet/core/tools/dotnet-build) per verificare che l'app venga compilata correttamente. Alla prima esecuzione, il processo di compilazione ripristina le dipendenze di npm. Tale operazione può richiedere alcuni minuti. Le compilazioni successive sono molto più veloci.
+
+Eseguire [dotnet run](/dotnet/core/tools/dotnet-run) per avviare l'app.
+
+---
+
+Il modello di progetto crea un'app ASP.NET Core e un'app React. L'app ASP.NET Core è destinata all'uso per l'accesso ai dati, l'autorizzazione e altri elementi sul lato server. L'app React, disponibile nella sottodirectory *ClientApp*, è destinata all'uso per tutti gli aspetti relativi all'interfaccia utente.
+
+## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
+
+La directory *ClientApp* è un'app React CRA standard. Per altre informazioni, vedere la [documentazione ufficiale di CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+Vi sono piccole differenze tra l'app React creata tramite questo modello e quella creata tramite CRA stesso. Le funzionalità dell'app restano comunque invariate. L'app creata tramite il modello contiene un layout basato su [bootstrap](https://getbootstrap.com/) e un esempio di routing di base.
+
+## <a name="install-npm-packages"></a>Installa nuovi pacchetti npm
+
+Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio:
+
+```console
+cd ClientApp
+npm install --save <package_name>
+```
+
+## <a name="publish-and-deploy"></a>Pubblicare e distribuire
+
+In fase di sviluppo, l'app viene eseguita in una modalità ottimizzata per gli sviluppatori. Ad esempio, i bundle JavaScript includono il mapping di origine, in modo da poter visualizzare il codice sorgente originale durante il debug. L'app controlla le modifiche dei file JavaScript, HTML e CSS su disco, quindi esegue automaticamente la ricompilazione e il ricaricamento quando rileva modifiche dei file.
+
+Nell'ambiente di produzione usare una versione dell'app ottimizzata per le prestazioni. Questo comportamento è configurato per l'esecuzione automatica. Quando si esegue la pubblicazione, la configurazione della build genera una compilazione minimizzata con transpile del codice sul lato client. A differenza della build di sviluppo, la build di produzione non richiede l'installazione di Node.js nel server.
+
+È possibile usare i [metodi standard di hosting e distribuzione di ASP.NET Core](xref:host-and-deploy/index).
+
+## <a name="run-the-cra-server-independently"></a>Eseguire il server CRA in modo indipendente
+
+Il progetto è configurato in modo da avviare la propria istanza del server di sviluppo CRA in background all'avvio dell'app ASP.NET Core in modalità di sviluppo. Ciò risulta utile in quanto evita di dover eseguire manualmente un server distinto.
+
+Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server CRA viene riavviato. Per avviare il backup sono necessari alcuni secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio del server CRA, eseguire il server CRA esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo:
+
+1. In un prompt dei comandi passare alla sottodirectory *ClientApp* e avviare il server di sviluppo CRA:
+
+    ```console
+    cd ClientApp
+    npm start
+    ```
+
+2. Modificare l'app ASP.NET Core in modo da usare l'istanza del server CRA esterno anziché avviarne una autonomamente. Nella classe *Startup* sostituire la chiamata `spa.UseReactDevelopmentServer` con quanto segue:
+
+    ```csharp
+    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+    ```
+
+All'avvio dell'app ASP.NET Core, questa non avvierà un server CRA. Verrà invece usata l'istanza che è stata avviata manualmente. Ciò consente di velocizzare l'avvio e il riavvio. Non è più necessario attendere che l'app React venga ricompilata ogni volta.

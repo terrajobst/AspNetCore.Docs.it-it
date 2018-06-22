@@ -2,21 +2,17 @@
 title: Pubblicare un Core di ASP.NET SignalR app per App Web di Azure
 author: rachelappel
 description: Pubblicare un Core di ASP.NET SignalR app per App Web di Azure
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/20/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 8612824cc9d4a9ace1c214411c44754350100f06
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0d98c6b24b9695c0af0170173f13902bac5f55ed
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341808"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36271918"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Pubblicare un Core di ASP.NET SignalR app a un'App Web di Azure
 

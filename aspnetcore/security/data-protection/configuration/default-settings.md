@@ -2,19 +2,15 @@
 title: Gestione della chiave di protezione dati e la durata in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulla gestione delle chiavi protezione dei dati e la durata in ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: b43c14af015d5e03f46200c51a1218a581b1de0c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 54259b1e2f37cdbbd551038e80f2b0fa1d77f196
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28887290"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277812"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Gestione della chiave di protezione dati e la durata in ASP.NET Core
 
@@ -24,10 +20,10 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 L'applicazione tenta di rilevare l'ambiente operativo e gestire chiavi configurazione nel proprio.
 
-1. Se l'applicazione è ospitata in [App Azure](https://azure.microsoft.com/services/app-service/), le chiavi vengono rese persistenti il *%HOME%\ASP.NET\DataProtection-Keys* cartella. Questa cartella viene supportata dall'archiviazione di rete e viene sincronizzata in tutti i computer che ospita l'app.
-   * Le chiavi non sono protette inattivi.
+1. Se l'applicazione è ospitata in [App Azure](https://azure.microsoft.com/services/app-service/), le chiavi vengono rese persistenti il *%HOME%\ASP.NET\DataProtection-Keys* cartella. La cartella è associata all'archiviazione di rete e sincronizzata in tutti i computer che ospitano l'app.
+   * Le chiavi non vengono protette quando sono inattive.
    * Il *DataProtection chiavi* cartella fornisce la gestione delle chiavi a tutte le istanze di un'app in uno slot di distribuzione singolo.
-   * Gli slot di distribuzione separato, ad esempio gestione temporanea e produzione, non condividono un anello di chiave. Durante lo scambio tra gli slot di distribuzione, ad esempio lo scambio di gestione temporanea nell'ambiente di produzione o utilizzando A / B test, qualsiasi app utilizzando la protezione dei dati non saranno in grado di decrittografare i dati archiviati tramite la gestione delle chiavi all'interno di slot precedente. Questo porta agli utenti viene registrati da un'app che utilizza l'autenticazione dei cookie ASP.NET Core standard, in quanto utilizza la protezione dei dati per proteggere i propri cookie. Se si desiderano anelli chiave indipendente di slot, usare un provider di chiavi esterne, ad esempio l'archiviazione di Blob di Azure, insieme di credenziali chiave di Azure, un archivio SQL, oppure cache Redis.
+   * Gli slot di distribuzione separati, ad esempio gli slot di gestione temporanea e di produzione, non condividono un KeyRing. Durante lo scambio tra gli slot di distribuzione, ad esempio lo scambio di gestione temporanea nell'ambiente di produzione o utilizzando A / B test, qualsiasi app utilizzando la protezione dei dati non saranno in grado di decrittografare i dati archiviati tramite la gestione delle chiavi all'interno di slot precedente. Questo porta agli utenti viene registrati da un'app che utilizza l'autenticazione dei cookie ASP.NET Core standard, in quanto utilizza la protezione dei dati per proteggere i propri cookie. Se si desiderano anelli chiave indipendente di slot, usare un provider di chiavi esterne, ad esempio l'archiviazione di Blob di Azure, insieme di credenziali chiave di Azure, un archivio SQL, oppure cache Redis.
 
 1. Se il profilo utente è disponibile, le chiavi vengono rese persistenti il *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* cartella. Se il sistema operativo è Windows, le chiavi vengono crittografate a riposo usando la DPAPI.
 

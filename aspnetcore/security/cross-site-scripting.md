@@ -2,18 +2,15 @@
 title: Impedire Cross-Site Scripting (XSS) in ASP.NET Core
 author: rick-anderson
 description: Informazioni su Cross-Site Scripting (XSS) e le tecniche per risolvere questa vulnerabilità in un'applicazione ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272448"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Impedire Cross-Site Scripting (XSS) in ASP.NET Core
 
@@ -60,7 +57,7 @@ Questa vista restituisce il contenuto del *untrustedInput* variabile. Questa var
 
 ## <a name="javascript-encoding-using-razor"></a>JavaScript codifica utilizzando Razor
 
-È possibile che si desidera inserire un valore JavaScript per l'elaborazione della visualizzazione. È possibile ottenere questo risultato in due modi. Il modo più sicuro per inserire valori semplici è di inserire il valore in un attributo di dati di un tag e recuperarli in JavaScript. Ad esempio:
+È possibile che si desidera inserire un valore JavaScript per l'elaborazione della visualizzazione. È possibile ottenere questo risultato in due modi. Il modo più sicuro per inserire valori è per inserire il valore in un attributo di dati di un tag e recuperare in JavaScript. Ad esempio:
 
 ```none
 @{
@@ -228,4 +225,4 @@ Generale accettato pratica è che la codifica viene eseguita al momento di outpu
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Convalida come tecnica di prevenzione XSS
 
-La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una semplice stringa numerica contenente solo i caratteri 0-9 non verrà generato un attacco XSS. Convalida diventa più complessa se lo si desidera accettare HTML nell'input dell'utente, l'analisi di input HTML è difficile se non impossibile. MarkDown e altri formati di testo sarebbe un'opzione più sicura per l'input RTF. Mai affidamento sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente dal tipo di convalida è stata eseguita.
+La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una stringa numerica contenente solo i caratteri 0-9 non verrà generato un attacco XSS. Convalida diventa più complessa se lo si desidera accettare HTML nell'input dell'utente, l'analisi di input HTML è difficile se non impossibile. MarkDown e altri formati di testo sarebbe un'opzione più sicura per l'input RTF. Mai affidamento sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente dal tipo di convalida è stata eseguita.

@@ -1,21 +1,17 @@
 ---
 title: Test di integrazione in ASP.NET Core
 author: guardrex
-description: Informazioni su come i test di integrazione garantire che i componenti dell'app funzionano correttamente a livello di infrastruttura, tra cui il database, file system e rete.
-manager: wpickett
+description: Informazioni su come i test di integrazione garantiscono che i componenti dell'app funzionano correttamente a livello di infrastruttura, tra cui database, file system e rete.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35217686"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277696"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -29,9 +25,9 @@ Questo argomento si presuppone una conoscenza di base di unit test. Se non si ha
 
 L'app di esempio è un'app di pagine Razor e presuppone una conoscenza di base di pagine Razor. Se non si ha dimestichezza con le pagine Razor, vedere gli argomenti seguenti:
 
-* [Introduzione a Razor Pages in ASP.NET Core](xref:mvc/razor-pages/index)
+* [Introduzione a Razor Pages in ASP.NET Core](xref:razor-pages/index)
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
-* [Razor pagine unit test](xref:test/razor-pages-tests)
+* [Unit test per Razor Pages](xref:test/razor-pages-tests)
 
 ## <a name="introduction-to-integration-tests"></a>Introduzione ai test di integrazione
 
@@ -314,6 +310,6 @@ L'app di esempio esegue il seeding del database con tre messaggi in *Utilities.c
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Razor pagine unit test](xref:test/razor-pages-tests)
+* [Unit test per Razor Pages](xref:test/razor-pages-tests)
 * [Middleware](xref:fundamentals/middleware/index)
 * [Test controller](xref:mvc/controllers/testing)

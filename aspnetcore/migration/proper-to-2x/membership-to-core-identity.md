@@ -2,20 +2,16 @@
 title: Eseguire la migrazione dall'autenticazione di appartenenza ASP.NET all'identità di ASP.NET Core 2.0
 author: isaac2004
 description: Informazioni su come eseguire la migrazione di applicazioni ASP.NET esistenti utilizzando l'autenticazione di appartenenza di ASP.NET Core 2.0 Identity.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851543"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274105"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Eseguire la migrazione dall'autenticazione di appartenenza ASP.NET all'identità di ASP.NET Core 2.0
 
@@ -42,7 +38,7 @@ Il modo più rapido per visualizzare lo schema per l'identità di ASP.NET Core 2
 
 * Selezionare **File** > **Nuovo** > **Progetto**.
 * Creare un nuovo **applicazione Web di ASP.NET Core**e denominare il progetto *CoreIdentitySample*.
-* Selezionare **ASP.NET Core 2.0** nell'elenco a discesa, quindi selezionare **applicazione Web**. Questo modello genera un [pagine Razor](xref:mvc/razor-pages/index) app. Prima di fare clic **OK**, fare clic su **Modifica autenticazione**.
+* Selezionare **ASP.NET Core 2.0** nell'elenco a discesa, quindi selezionare **applicazione Web**. Questo modello genera un [pagine Razor](xref:razor-pages/index) app. Prima di fare clic **OK**, fare clic su **Modifica autenticazione**.
 * Scegliere **singoli account utente di** per i modelli di identità. Infine, fare clic su **OK**, quindi **OK**. Visual Studio crea un progetto usando il modello ASP.NET Identity Core.
 
 Usa identità ASP.NET Core 2.0 [Entity Framework Core](/ef/core) per interagire con il database di archiviare i dati di autenticazione. Affinché l'app appena creato funzionare, deve essere presente un database per archiviare i dati. Dopo aver creato una nuova app, il modo più rapido per controllare lo schema in un ambiente di database consiste nel creare il database utilizzando le migrazioni di Entity Framework. Questo processo viene creato un database, sia localmente o in altre posizioni, che riproduce tale schema. Vedere la documentazione precedente per ulteriori informazioni.

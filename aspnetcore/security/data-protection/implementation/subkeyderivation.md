@@ -2,19 +2,15 @@
 title: Derivazione della sottochiave e crittografia autenticata in ASP.NET Core
 author: rick-anderson
 description: Informazioni sui dettagli di implementazione della protezione dei dati di ASP.NET Core sottochiave derivazione e autenticato crittografia.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072639"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275723"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Derivazione della sottochiave e crittografia autenticata in ASP.NET Core
 
@@ -39,7 +35,7 @@ Il `IAuthenticatedEncryptor` interfaccia funge da interfaccia principale per tut
 
 Poiché Azure ad è univoco per la tupla di tutti e tre i componenti, è possibile usarlo per derivare nuove chiavi KM anziché KM stesso in tutti gli operazioni di crittografia. Per ogni chiamata a `IAuthenticatedEncryptor.Encrypt`, avviene il processo di derivazione della chiave seguente:
 
-( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
+(K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, | | keyModifier)
 
 In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sec. 5.1) con i parametri seguenti:
 
@@ -49,7 +45,7 @@ In questo caso, stiamo chiamando l'utilizzo di SP800-108 NIST in modalità di co
 
 * etichetta = additionalAuthenticatedData
 
-* context = contextHeader || keyModifier
+* contesto = contextHeader | | keyModifier
 
 L'intestazione del contesto è di lunghezza variabile e funge essenzialmente da un'identificazione personale degli algoritmi per il quale si sta derivazione K_E e K_H. Il modificatore di chiave è una stringa di 128 bit generata in modo casuale per ogni chiamata a `Encrypt` e serve a garantire con sovraccaricare probabilità che KE e KH siano univoci per questa operazione di crittografia di autenticazione specifici, anche se tutti gli altri input per l'utilizzo è costante.
 

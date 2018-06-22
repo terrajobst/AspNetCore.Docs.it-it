@@ -2,19 +2,15 @@
 title: Estendibilità della crittografia dei componenti di base in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer e la factory di primo livello.
-manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 47432cfefe0a52c9f815d717f7269ec68fdb6af3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896826"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272896"
 ---
 # <a name="core-cryptography-extensibility-in-aspnet-core"></a>Estendibilità della crittografia dei componenti di base in ASP.NET Core
 
@@ -145,7 +141,7 @@ I tipi che implementano IAuthenticatedEncryptorDescriptorDeserializer devono ave
 
 * .ctor(IServiceProvider)
 
-* .ctor()
+* . ctor)
 
 > [!NOTE]
 > L'IServiceProvider passato al costruttore può essere null.

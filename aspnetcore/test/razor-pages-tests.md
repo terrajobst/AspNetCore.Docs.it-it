@@ -2,20 +2,16 @@
 title: Razor pagine unit test in ASP.NET Core
 author: guardrex
 description: Informazioni su come creare unit test per App di pagine Razor.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/razor-pages-tests
-ms.openlocfilehash: df74d8e44b2dff00e76139edba47fd8a30ce33ef
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: bde1bef78fcc7ac1d570057d54636ea0f5490de8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252305"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274407"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Razor pagine unit test in ASP.NET Core
 
@@ -30,7 +26,7 @@ ASP.NET Core supporta unit test di App pagine Razor. Test dei dati accedere laye
 
 In questo argomento si presuppone una conoscenza di base di pagine Razor App e gli unit test. Se non si ha familiarità con i concetti di test o pagine Razor App, vedere gli argomenti seguenti:
 
-* [Introduzione a Razor Pages in ASP.NET Core](xref:mvc/razor-pages/index)
+* [Introduzione a Razor Pages in ASP.NET Core](xref:razor-pages/index)
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Unit test c# in .NET Core usando xUnit e test dotnet](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 

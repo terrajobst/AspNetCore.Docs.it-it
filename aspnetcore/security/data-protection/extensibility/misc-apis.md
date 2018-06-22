@@ -2,19 +2,15 @@
 title: API di protezione dati di varie ASP.NET Core
 author: rick-anderson
 description: Informazioni sull'interfaccia ISecret di protezione dei dati di ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/misc-apis
-ms.openlocfilehash: 484c6a0979a10e7cf2b801873655caa99a42532c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 114cdd6209970e46b827e403fbe79b95692d0242
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072764"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279155"
 ---
 # <a name="miscellaneous-aspnet-core-data-protection-apis"></a>API di protezione dati di varie ASP.NET Core
 

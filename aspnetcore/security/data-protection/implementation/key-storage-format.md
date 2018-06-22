@@ -2,19 +2,15 @@
 title: Formato di archiviazione chiavi in ASP.NET Core
 author: rick-anderson
 description: Informazioni su dettagli di implementazione del formato di archiviazione delle chiavi di protezione dei dati di ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 1a5912f246708355e6677c60034d982d053c3938
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: bb2bcdff3ac2b17623a67f51fd27b29bb928a2fb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153573"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274518"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>Formato di archiviazione chiavi in ASP.NET Core
 

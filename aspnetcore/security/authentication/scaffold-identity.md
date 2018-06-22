@@ -2,26 +2,22 @@
 title: Identità Scaffold nei progetti ASP.NET Core
 author: rick-anderson
 description: Informazioni su come eseguire lo scaffolding di identità in un progetto ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 5/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 80cd39af61e856d3ce92db1c26e70788bcdca83d
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: cf6544d8b671f026c8466fa8dff506027b64cf1f
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35725819"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276318"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identità Scaffold nei progetti ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Fornisce ASP.NET Core 2.1 e versioni successive [ASP.NET Identity Core](xref:security/authentication/identity) come una [libreria di classi Razor](xref:mvc/razor-pages/ui-class). Le applicazioni che includono l'identità possono applicare scaffolder per aggiungere in modo selettivo il codice sorgente incluso in Identity Razor classe libreria (RCL). È possibile generare codice sorgente, pertanto è possibile modificare il codice e modificare il comportamento. Ad esempio, si può indicare scaffolder per generare il codice usato nella registrazione. Codice generato ha la precedenza sullo stesso codice in RCL l'identità. Per ottenere il completo controllo dell'interfaccia utente e non usa il valore predefinito RCL, vedere la sezione [origine dell'interfaccia utente di creare identità completa](#full).
+Fornisce ASP.NET Core 2.1 e versioni successive [ASP.NET Identity Core](xref:security/authentication/identity) come una [libreria di classi Razor](xref:razor-pages/ui-class). Le applicazioni che includono l'identità possono applicare scaffolder per aggiungere in modo selettivo il codice sorgente incluso in Identity Razor classe libreria (RCL). È possibile generare codice sorgente, pertanto è possibile modificare il codice e modificare il comportamento. Ad esempio, si può indicare scaffolder per generare il codice usato nella registrazione. Codice generato ha la precedenza sullo stesso codice in RCL l'identità. Per ottenere il completo controllo dell'interfaccia utente e non usa il valore predefinito RCL, vedere la sezione [origine dell'interfaccia utente di creare identità completa](#full).
 
 Le applicazioni che hanno **non** includono l'autenticazione è possibile applicare scaffolder per aggiungere il pacchetto RCL identità. È la possibilità di selezionare il codice di identità da generare.
 
@@ -37,7 +33,7 @@ Quando viene eseguito il scaffolder Identity, una *ScaffoldingReadme.txt* file v
 
 Aggiungere il seguente chiama evidenziato per il `Startup` classe:
 
-[!code-csharp[Main](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
+[!code-csharp[](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
@@ -71,7 +67,7 @@ Identità sia configurata nel *Areas/Identity/IdentityHostingStartup.cs*. Per al
 
 Nel `Configure` metodo per il `Startup` classe, chiamare [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) dopo `UseStaticFiles`:
 
-[!code-csharp[Main](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
+[!code-csharp[](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
@@ -117,7 +113,7 @@ dotnet ef database update
 
 Facoltativo: Aggiungere l'account di accesso parziale (`_LoginPartial`) per il *Views/Shared/_Layout.cshtml* file:
 
-[!code-html[Main](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
+[!code-html[](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
 
 * Spostare il *Pages/Shared/_LoginPartial.cshtml* file *Views/Shared/_LoginPartial.cshtml*
 
@@ -127,7 +123,7 @@ Identità sia configurata nel *Areas/Identity/IdentityHostingStartup.cs*. Per al
 
 Chiamare [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) dopo `UseStaticFiles`:
 
-[!code-csharp[Main](scaffold-identity/sample/StartupMvcNoAuth.cs?name=snippet1&highlight=23)]
+[!code-csharp[](scaffold-identity/sample/StartupMvcNoAuth.cs?name=snippet1&highlight=23)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
@@ -153,15 +149,16 @@ Per mantenere il controllo completo dell'interfaccia utente identità, eseguire 
 
 Il codice evidenziato di seguito mostra le modifiche per sostituire il valore predefinito dell'interfaccia utente di identità con identità in un'app web ASP.NET Core 2.1. È possibile effettuare questa operazione per avere il pieno controllo dell'interfaccia utente di identità.
 
-[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
+[!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
 
-Il valore predefinito di identità viene sostituito nel codice seguente: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
+Il valore predefinito di identità viene sostituito nel codice seguente:
 
-Il codice seguente consente di configurare ASP.NET Core per autorizzare le pagine di identità che richiedono autorizzazione: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+[!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
 
-Nell'esempio di codice imposta il cookie di identità da utilizzare il percorso di pagine di identità corretto.
-[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+Nell'esempio il codice imposta il [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [proprietà logoutpath dal](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), e [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):
+
+[!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
 
 Registrare un `IEmailSender` implementazione, ad esempio:
 
-[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
+[!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet4)]

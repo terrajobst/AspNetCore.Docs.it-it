@@ -2,19 +2,16 @@
 title: Collegamento del browser in ASP.NET Core
 author: ncarandini
 description: Viene spiegato come collegamento del Browser è una funzionalità di Visual Studio che collega l'ambiente di sviluppo con uno o più web browser.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: 0496f9df35956b8fe7ca9fcc7c03df33437d5a87
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8808dc705ec87ebf6e7874ad69616ed5bbf61576
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274092"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core
 
@@ -26,7 +23,13 @@ Collegamento del browser è una funzionalità di Visual Studio che crea un canal
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-ASP.NET Core 2. x **applicazione Web**, **vuoto**, e **API Web** modello progetti utilizzano il [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) Meta pacchetto, che contiene un riferimento al pacchetto per [browserlink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). Pertanto, l'utilizzo di `Microsoft.AspNetCore.All` meta pacchetto non richiede alcuna azione aggiuntiva per rendere disponibili per l'utilizzo di collegamento del Browser.
+ASP.NET Core 2.0 **applicazione Web**, **vuota**, e **API Web** modello progetti utilizzano il [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage , che contiene un riferimento al pacchetto per [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). Pertanto, si utilizza il `Microsoft.AspNetCore.All` metapackage è richiesta alcuna azione aggiuntiva per rendere disponibili ai fini del collegamento del Browser.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Quando si converte un progetto ASP.NET Core 2.0 in ASP.NET Core 2.1 e in fase di transizione per il [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage, è necessario installare il [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pacchetto manualmente per BrowserLink funzionalità.
+
+::: moniker-end
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -66,7 +69,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Per altre informazioni, vedere [utilizzare più ambienti](xref:fundamentals/environments).
+Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Come utilizzare il collegamento del Browser
 

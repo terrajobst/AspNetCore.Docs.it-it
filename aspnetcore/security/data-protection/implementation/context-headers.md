@@ -2,19 +2,15 @@
 title: Intestazioni di contesto in ASP.NET Core
 author: rick-anderson
 description: Informazioni su dettagli di implementazione delle intestazioni di contesto di protezione dei dati di ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2343e59898c024eba420390d7fb0bce2fc82a895
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077854"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274469"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Intestazioni di contesto in ASP.NET Core
 
@@ -118,7 +114,7 @@ D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
 
 Successivamente, calcolare Enc_CBC (K_E, IV, "") per 3DES-192-CBC dato IV = 0 * e K_E come illustrato in precedenza.
 
-result := ABB100F81E53E10E
+risultato: = ABB100F81E53E10E
 
 Successivamente, calcolo MAC (K_H, "") per HMACSHA1 dato K_H come illustrato in precedenza.
 
