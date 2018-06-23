@@ -4,18 +4,18 @@ author: rick-anderson
 description: Informazioni su come archiviare e recuperare le informazioni riservate come segreti dell'app durante lo sviluppo di un'app di ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/23/2018
+ms.date: 06/21/2018
 uid: security/app-secrets
-ms.openlocfilehash: 8db1d1069958d3b08bbb3b9727ddbc47ae5747df
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d3b2de1a17012986ef8dea7aaf8636dd35d10fa1
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275425"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314175"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Archiviazione sicura di segreti dell'app in fase di sviluppo in ASP.NET Core
 
-Da [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), e [Scott Addie](https://github.com/scottaddie)
+Dal [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), e [Scott Addie](https://github.com/scottaddie)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
@@ -41,11 +41,11 @@ Si consideri un'applicazione web ASP.NET Core in cui **singoli account utente di
 Lo strumento Gestione Secret archivia i dati sensibili durante lo sviluppo di un progetto ASP.NET Core. In questo contesto, una parte dei dati sensibili è un segreto dell'app. App segreti sono archiviati in una posizione separata dalla struttura del progetto. I segreti dell'app sono associati a un progetto specifico o condivisa tra più progetti. I segreti dell'app non sono archiviati nel controllo del codice sorgente.
 
 > [!WARNING]
-> Lo strumento di gestione di segreto non crittografa i segreti archiviati e non deve essere considerato come un archivio attendibile. È solo a fini di sviluppo. Le chiavi e valori vengono archiviati in un file di configurazione JSON nella directory di profilo dell'utente.
+> Lo strumento di gestione di chiave privata non crittografa i segreti archiviati e non deve essere considerato come un archivio attendibile. È solo a scopo di sviluppo. Le chiavi e valori vengono archiviati in un file di configurazione JSON nella directory del profilo utente.
 
 ## <a name="how-the-secret-manager-tool-works"></a>Il segreto Manager funzionamento dello strumento
 
-Lo strumento di gestione di segreto estrae i dettagli di implementazione, ad esempio dove e come i valori vengono archiviati. È possibile utilizzare lo strumento senza conoscere questi dettagli di implementazione. I valori vengono archiviati in un file di configurazione JSON in una cartella del profilo utente sistema protetto nel computer locale:
+Lo strumento Gestione segreto estrae i dettagli di implementazione, ad esempio dove e come i valori vengono archiviati. È possibile utilizzare lo strumento senza conoscere questi dettagli di implementazione. I valori vengono archiviati in un file di configurazione JSON in una cartella del profilo utente sistema protetto nel computer locale:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -123,7 +123,7 @@ Use "dotnet user-secrets [command] --help" for more information about a command.
 
 ## <a name="set-a-secret"></a>Impostare un segreto
 
-Lo strumento Gestione segreto opera sulle impostazioni di configurazione specifici del progetto archiviate nel profilo utente. Per utilizzare informazioni riservate dell'utente, definire un `UserSecretsId` elemento all'interno di un `PropertyGroup` del *con estensione csproj* file. Il valore di `UserSecretsId` è arbitrario, ma è univoco per il progetto. Gli sviluppatori di generano in genere un GUID per il `UserSecretsId`.
+Lo strumento Gestione segreto opera sulle impostazioni di configurazione specifici del progetto archiviate nel profilo utente. Per utilizzare informazioni riservate dell'utente, definire un `UserSecretsId` elemento all'interno di un `PropertyGroup` del *con estensione csproj* file. Il valore di `UserSecretsId` è arbitrario, ma è univoco per il progetto. Gli sviluppatori di solito viene generano un GUID per il `UserSecretsId`.
 
 ::: moniker range="<= aspnetcore-1.1"
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]
