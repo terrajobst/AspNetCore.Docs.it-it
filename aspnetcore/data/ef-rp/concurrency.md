@@ -2,19 +2,15 @@
 title: Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 author: rick-anderson
 description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741407"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272750"
 ---
 it-it/
 

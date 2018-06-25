@@ -2,19 +2,15 @@
 title: Esaminare i metodi Details e Delete di un'app ASP.NET Core
 author: rick-anderson
 description: Informazioni sul metodo e sulla vista del controller Details in un'app ASP.NET Core MVC di base.
-manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: b392f956888a740a4a8c7c553996fc85ce63bd4b
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: f7f9a369e3e612542140fcf1091b21037e530a91
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729636"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278648"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Esaminare i metodi Details e Delete di un'app ASP.NET Core
 

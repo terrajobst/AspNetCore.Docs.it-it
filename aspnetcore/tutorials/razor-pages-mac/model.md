@@ -2,20 +2,16 @@
 title: Aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio per Mac
 author: rick-anderson
 description: Informazioni su come aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio per Mac.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: 97bc9f14b8d6da958a7f587e54a37d2d0e0aabd4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 3ca6c9b9988b8335116b7248c6c4a89997d02b14
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483667"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273274"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-for-mac"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio per Mac
 

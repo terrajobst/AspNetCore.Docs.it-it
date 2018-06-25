@@ -2,19 +2,15 @@
 title: Aggiungere un controller a un'app ASP.NET Core
 author: rick-anderson
 description: Informazioni su come aggiungere un controller a una semplice app ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 02/28/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/adding-controller
-ms.openlocfilehash: 613b9f1b119c164067446b6140991970e8efabb9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4992beba0382dbb0eb60cc4622bff27c3e5b01d0
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892962"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272399"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-app"></a>Aggiungere un controller a un'app ASP.NET Core
 

@@ -2,20 +2,16 @@
 title: Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI
 author: rsuter
 description: In questa esercitazione viene descritta una procedura dettagliata per aggiungere Swagger e generare la documentazione e le pagine della Guida di un'app API Web.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/09/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: e44b491fd5265e12646efa42f12eb0662e287f04
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077336"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272251"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI
 

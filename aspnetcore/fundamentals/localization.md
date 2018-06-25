@@ -2,19 +2,15 @@
 title: Globalizzazione e localizzazione in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come ASP.NET Core offre servizi e middleware per la localizzazione di contenuti in diverse lingue e culture.
-manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 929c73c314a15e7003853d3996158d1328e597cb
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 0f48490af5805e4351c983f3ae519268c8e9c7a7
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094600"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274131"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 

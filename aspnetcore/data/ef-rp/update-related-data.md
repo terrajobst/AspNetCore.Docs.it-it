@@ -2,19 +2,15 @@
 title: Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
 author: rick-anderson
 description: In questa esercitazione verrà effettuato l'aggiornamento di dati correlati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740374"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275294"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
 
@@ -95,8 +91,6 @@ Il markup precedente apporta le modifiche seguenti:
 * Visualizza l'ID del corso. In genere, la chiave primaria di un'entità non viene visualizzata. Le chiavi primarie di solito non sono significative per gli utenti. In questo caso, la chiave primaria corrisponde al numero del corso.
 * Modifica la didascalia da **DepartmentID** a **Department**.
 * Sostituisce `"ViewBag.DepartmentID"` con `DepartmentNameSL` (dalla classe di base).
-* Aggiunge l'opzione "Select Department" (Selezionare il dipartimento). Questa modifica esegue il rendering di "Select Department" (Selezionare il dipartimento) anziché del primo dipartimento.
-* Aggiunge un messaggio di convalida quando il dipartimento non è selezionato.
 
 La pagina contiene un campo nascosto (`<input type="hidden">`) per il numero del corso. L'aggiunta di un helper tag `<label>` con `asp-for="Course.CourseID"` non elimina la necessità del campo nascosto. `<input type="hidden">` è necessario per includere il numero del corso tra i dati inviati quando l'utente fa clic su **Save** (Salva).
 

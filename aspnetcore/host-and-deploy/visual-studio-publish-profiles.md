@@ -2,20 +2,16 @@
 title: Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 author: rick-anderson
 description: Informazioni su come creare profili di pubblicazione in Visual Studio e usarli per la gestione delle distribuzioni di app ASP.NET Core in varie destinazioni.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 3dc858793cd4ddb2630d05a5084f4b7caeaa30eb
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 280599ab4b4f0a70d154cc4408e7232aaf766d8e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483370"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279558"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 

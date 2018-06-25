@@ -2,19 +2,15 @@
 title: Aggiunta della funzionalità di ricerca
 author: rick-anderson
 description: Illustra come aggiungere la funzionalità di ricerca a una semplice app ASP.NET Core MVC
-manager: wpickett
 ms.author: riande
 ms.date: 04/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/search
-ms.openlocfilehash: 71e6074035e7c66fed40673d19c241bfcc585c18
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: dc84eb38c0487d90451979ec9572bf1641571357
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896494"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276006"
 ---
 [!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
 

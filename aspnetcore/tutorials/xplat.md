@@ -2,19 +2,15 @@
 title: Esercitazioni di ASP.NET Core
 author: rick-anderson
 description: Elenco di procedure dettagliate per l'apprendimento dello sviluppo di applicazioni ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: 097d63d5be5bd83c688a7f377d8ed45ffdd43ff8
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 9cc2f7a91c081fbd74999f6dc0334a4ee1980864
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223073"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277049"
 ---
 # <a name="aspnet-core-tutorials"></a>Esercitazioni di ASP.NET Core
 
@@ -22,9 +18,9 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
 
 ## <a name="build-web-apps"></a>Creare app Web
 
-[Razor Pages](xref:mvc/razor-pages/index) è l'approccio consigliato per la creazione di una nuova app di interfaccia utente Web con ASP.NET Core 2.0 e versioni successive.
+[Razor Pages](xref:razor-pages/index) è l'approccio consigliato per la creazione di una nuova app di interfaccia utente Web con ASP.NET Core 2.0 e versioni successive.
 
-* [Introduzione a Razor Pages in ASP.NET Core](xref:mvc/razor-pages/index)
+* [Introduzione a Razor Pages in ASP.NET Core](xref:razor-pages/index)
 * Creare un'app web Razor Pages con ASP.NET Core
 
    * [Razor Pages in macOS](xref:tutorials/razor-pages-mac/index)

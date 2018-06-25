@@ -2,19 +2,15 @@
 title: Provider di file in ASP.NET Core
 author: ardalis
 description: Informazioni su come ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file.
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0d356322ea9f4cc2caead81746bf9ede4a87923f
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29724571"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276240"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 

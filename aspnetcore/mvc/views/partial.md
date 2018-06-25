@@ -2,19 +2,15 @@
 title: Visualizzazioni parziali in ASP.NET Core
 author: ardalis
 description: Informazioni sulle visualizzazioni parziali, visualizzazioni il cui rendering viene eseguito all'interno di un'altra visualizzazione, e su quando devono essere usate nelle app ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 03/14/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: 3deaaeb666e5443d0784f2ac6977e58e1b25d711
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: f3782961a63c08293a483ec7a75dadff2031b131
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2018
-ms.locfileid: "30000902"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279532"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 

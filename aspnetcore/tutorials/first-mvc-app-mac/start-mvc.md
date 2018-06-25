@@ -2,19 +2,15 @@
 title: Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 author: rick-anderson
 description: Informazioni introduttive su ASP.NET Core MVC e Visual Studio
-manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: e94b9aa6b6c594ae407792387788410f776d4c1d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2018
-ms.locfileid: "30896640"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272293"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introduzione ad ASP.NET Core MVC e Visual Studio per Mac
 
