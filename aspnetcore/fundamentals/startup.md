@@ -2,20 +2,16 @@
 title: Avvio dell'applicazione in ASP.NET Core
 author: ardalis
 description: Informazioni su come la classe Startup in ASP.NET Core configura i servizi e la pipeline delle richieste dell'app.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: f0b907e4322809dfe2bcd287bb064f35f5ebe150
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "34233170"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36314120"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Avvio dell'applicazione in ASP.NET Core
 
@@ -45,7 +41,7 @@ Il costruttore della classe `Startup` accetta le dipendenze definite dall'host. 
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. L'app può definire classi `Startup` separate per i diversi ambienti (ad esempio, `StartupDevelopment`) e la classe di avvio appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#startup-conventions).
+Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. L'app può definire classi `Startup` separate per i diversi ambienti (ad esempio, `StartupDevelopment`) e la classe di avvio appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Per altre informazioni su `WebHostBuilder`, vedere l'argomento [Hosting](xref:fundamentals/host/index). Per informazioni sulla gestione degli errori durante l'avvio, vedere [Gestione delle eccezioni durante l'avvio](xref:fundamentals/error-handling#startup-exception-handling).
 
