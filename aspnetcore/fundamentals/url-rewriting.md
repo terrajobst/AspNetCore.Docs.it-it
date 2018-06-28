@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 336a097c2186bc195854bd54211d4554a577ed14
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: a4ffa512825fedafdc58ade9929097e255593fa9
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652214"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
@@ -22,15 +23,16 @@ Di [Luke Latham](https://github.com/guardrex) e [Mikael Mengistu](https://github
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una o più regole predefinite. Il processo di riscrittura URL crea un'astrazione tra i percorsi delle risorse e i relativi indirizzi, in modo che i percorsi e gli indirizzi non risultino strettamente collegati. La riscrittura URL risulta utile in diversi scenari:
-* Spostamento o sostituzione temporanea o permanente di risorse server pur mantenendo localizzatori stabili di queste risorse
-* Suddivisione dell'elaborazione delle richieste tra diverse app o tra diverse aree di un'unica app
-* Rimozione, aggiunta o riorganizzazione di segmenti URL nelle richieste in ingresso
-* Ottimizzazione degli URL pubblici per l'ottimizzazione motore di ricerca (SEO, Search Engine Optimization)
-* Autorizzazione dell'uso di URL pubblici brevi per consentire agli utenti di prevedere il contenuto trovato seguendo un collegamento
-* Reindirizzamento delle richieste non protette a endpoint protetti
-* Blocco dell'hotlinking di immagini
 
-È possibile definire regole per la modifica dell'URL con diverse modalità, tra cui regex, le regole di modulo Apache mod_rewrite, le regole di modulo IIS Rewrite e l'uso di logica delle regole personalizzata. Questo documento presenta la riscrittura URL con istruzioni per l'uso del middleware Riscrittura URL nelle applicazioni ASP.NET Core.
+* Spostamento o sostituzione temporanea o permanente di risorse server pur mantenendo localizzatori stabili di queste risorse.
+* Suddivisione dell'elaborazione delle richieste tra diverse app o tra diverse aree di un'unica app.
+* Rimozione, aggiunta o riorganizzazione di segmenti URL nelle richieste in ingresso.
+* Ottimizzazione degli URL pubblici per l'ottimizzazione motore di ricerca (SEO, Search Engine Optimization).
+* Autorizzazione dell'uso di URL pubblici brevi per consentire agli utenti di prevedere il contenuto trovato seguendo un collegamento.
+* Reindirizzamento delle richieste non protette a endpoint protetti.
+* Blocco dell'hotlinking di immagini.
+
+È possibile definire regole per la modifica dell'URL con diverse modalità, tra cui Regex, le regole di modulo Apache mod_rewrite, le regole di modulo IIS Rewrite e l'uso di logica delle regole personalizzata. Questo documento presenta la riscrittura URL con istruzioni per l'uso del middleware Riscrittura URL nelle applicazioni ASP.NET Core.
 
 > [!NOTE]
 > La riscrittura URL può ridurre le prestazioni di un'app. Ove possibile, limitare il numero e la complessità delle regole.
@@ -127,8 +129,8 @@ La parte dell'espressione racchiusa tra parentesi è denominata *gruppo Capture*
 
 Nella stringa di sostituzione i gruppi acquisiti vengono inseriti nella stringa con il simbolo di dollaro (`$`) seguito dal numero di sequenza dell'acquisizione. Il primo valore del gruppo Capture viene ottenuto con `$1`, il secondo con `$2` e la procedura continua in sequenza per i gruppi Capture presenti nell'espressione regolare. Nell'espressione regolare della regola di reindirizzamento dell'app di esempio è presente un solo gruppo acquisito, pertanto nella stringa di sostituzione è presente un solo gruppo inserito, ovvero `$1`. Quando viene applicata la regola, l'URL diventa `/redirected/1234/5678`.
 
-<a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Reindirizzamento URL a un endpoint protetto
+
 Usare `AddRedirectToHttps` per reindirizzare le richieste HTTP allo stesso host e allo stesso percorso mediante il protocollo HTTPS (`https://`). Se il codice di stato non viene specificato, il middleware imposta il valore predefinito 302 (Trovato). Se la porta non viene specificata, il middleware imposta il valore predefinito `null`, che indica che il protocollo diventa `https://` e il client accede alla risorsa sulla porta 443. L'esempio indica come impostare il codice di stato su 301 (Spostato permanentemente) e come cambiare il numero di porta in 5001.
 
 ```csharp
@@ -153,13 +155,16 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-L'app di esempio indica come usare `AddRedirectToHttps` o `AddRedirectToHttpsPermanent`. Aggiungere il metodo di estensione a `RewriteOptions`. Eseguire una richiesta non sicura all'app su qualsiasi URL. Ignorare l'avviso di sicurezza del browser indicante che il certificato autofirmato non è attendibile.
+> [!NOTE]
+> Per il reindirizzamento a HTTPS quando non sono richieste regole di reindirizzamento aggiuntive, si consiglia di usare il middleware di reindirizzamento HTTPS. Per altre informazioni, vedere l'argomento [Imporre HTTPS](xref:security/enforcing-ssl#require-https).
 
-Richiesta originale con `AddRedirectToHttps(301, 5001)`: `/secure`
+L'app di esempio indica come usare `AddRedirectToHttps` o `AddRedirectToHttpsPermanent`. Aggiungere il metodo di estensione a `RewriteOptions`. Eseguire una richiesta non sicura all'app su qualsiasi URL. Ignorare l'avviso di sicurezza del browser indicante che il certificato autofirmato non è attendibile oppure creare un'eccezione per rendere affidabile il certificato.
+
+Richiesta originale con `AddRedirectToHttps(301, 5001)`: `http://localhost:5000/secure`
 
 ![Finestra del browser con gli strumenti di sviluppo per il rilevamento di richieste e risposte](url-rewriting/_static/add_redirect_to_https.png)
 
-Richiesta originale con `AddRedirectToHttpsPermanent`: `/secure`
+Richiesta originale con `AddRedirectToHttpsPermanent`: `http://localhost:5000/secure`
 
 ![Finestra del browser con gli strumenti di sviluppo per il rilevamento di richieste e risposte](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
@@ -254,6 +259,7 @@ Richiesta originale: `/apache-mod-rules-redirect/1234`
 ##### <a name="supported-server-variables"></a>Variabili server supportate
 
 Il middleware supporta le seguenti variabili server del modulo Apache mod_rewrite:
+
 * CONN_REMOTE_ADDR
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -325,6 +331,7 @@ Se è presente un modulo IIS Rewrite attivo con regole di livello server configu
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Il middleware rilasciato con ASP.NET Core 2.x non supporta le seguenti funzionalità di IIS URL Rewrite Module:
+
 * Regole in uscita
 * Variabili server personalizzate
 * Caratteri jolly
@@ -333,6 +340,7 @@ Il middleware rilasciato con ASP.NET Core 2.x non supporta le seguenti funzional
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Il middleware rilasciato con ASP.NET Core 1.x non supporta le seguenti funzionalità di IIS URL Rewrite Module:
+
 * Regole globali
 * Regole in uscita
 * Mapping di riscrittura
@@ -347,6 +355,7 @@ Il middleware rilasciato con ASP.NET Core 1.x non supporta le seguenti funzional
 #### <a name="supported-server-variables"></a>Variabili server supportate
 
 Il middleware supporta le seguenti variabili server di IIS URL Rewrite Module:
+
 * CONTENT_LENGTH
 * CONTENT_TYPE
 * HTTP_ACCEPT

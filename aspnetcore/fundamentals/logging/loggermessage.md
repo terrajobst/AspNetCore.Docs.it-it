@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729194"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registrazione a prestazioni elevate con LoggerMessage in ASP.NET Core
 
@@ -143,13 +144,9 @@ Definire un [ambito del log](xref:fundamentals/logging/index#log-scopes) da appl
 
 L'app di esempio include un pulsante **Clear All** (Cancella tutto) per eliminare tutte le offerte nel database. Le offerte vengono eliminate rimuovendole una alla volta. Ogni volta che viene eliminata un'offerta, viene chiamato il metodo `QuoteDeleted` nel logger. Viene aggiunto un ambito di log a questi messaggi di log.
 
-Abilitare `IncludeScopes` nelle opzioni del logger della console:
+Abilitare `IncludeScopes` nella sezione del logger di console di *appsettings.json*:
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-Nelle app ASP.NET Core 2.0 è necessario impostare `IncludeScopes` per abilitare gli ambiti di log. L'impostazione di `IncludeScopes` tramite i file di configurazione *appsettings* è una funzionalità prevista per ASP.NET Core 2.1.
-
-L'app di esempio cancella gli altri provider e aggiunge filtri per ridurre l'output di registrazione. Ciò facilita la visualizzazione dei messaggi di log dell'esempio che descrive le funzionalità di `LoggerMessage`.
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 Per creare un ambito di log, aggiungere un campo per inserire un delegato `Func` per l'ambito. L'app di esempio crea un campo denominato `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Registrazione](xref:fundamentals/logging/index)

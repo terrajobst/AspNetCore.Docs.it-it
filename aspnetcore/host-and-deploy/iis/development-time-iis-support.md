@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233079"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34555482"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -25,7 +25,10 @@ Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual St
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
+* [Visual Studio per Windows](https://www.microsoft.com/net/download/windows)
+* **ASP.NET e carico di lavoro di sviluppo Web**
+* Carico di lavoro di **sviluppo multipiattaforma .NET Core**
+* Certificato di protezione X.509
 
 ## <a name="enable-iis"></a>Abilitare IIS
 

@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555404"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252152"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -78,7 +78,7 @@ I filtri asincroni definiscono un singolo metodo On*fase*ExecutionAsync. Questo 
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` implementa `IFilter`. Pertanto, un'istanza di `IFilterFactory` può essere usata come un'istanza di `IFilter` in un punto qualsiasi della pipeline filtro. Quando il framework si prepara per richiamare il filtro, tenta di eseguirne il cast su un'istanza di `IFilterFactory`. Se l'esecuzione del cast ha esito positivo, viene chiamato il metodo `CreateInstance` per creare l'istanza di `IFilter` che verrà richiamata. In questo modo viene specificata una struttura flessibile, poiché non è necessario impostare in modo esplicito la pipeline filtro all'avvio dell'app.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementa [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). Pertanto, un'istanza di `IFilterFactory` può essere usata come un'istanza di `IFilterMetadata` in un punto qualsiasi della pipeline filtro. Quando il framework si prepara per richiamare il filtro, tenta di eseguirne il cast su un'istanza di `IFilterFactory`. Se l'esecuzione del cast ha esito positivo, viene chiamato il metodo [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) per creare l'istanza di `IFilterMetadata` che verrà richiamata. In questo modo viene specificata una struttura flessibile, poiché non è necessario impostare in modo esplicito la pipeline filtro all'avvio dell'app.
 
 Un altro approccio alla creazione di filtri consiste nell'implementare `IFilterFactory` nelle implementazioni dell'attributo:
 
@@ -221,7 +221,7 @@ System.InvalidOperationException: No service for type
 'FiltersSample.Filters.AddHeaderFilterWithDI' has been registered.
 ```
 
-`ServiceFilterAttribute` implementa `IFilterFactory`. `IFilterFactory` espone il metodo `CreateInstance` per creare un'istanza `IFilter`. Il metodo `CreateInstance` carica il tipo specificato dal contenitore dei servizi (DI).
+`ServiceFilterAttribute` implementa `IFilterFactory`. `IFilterFactory` espone il metodo `CreateInstance` per creare un'istanza `IFilterMetadata`. Il metodo `CreateInstance` carica il tipo specificato dal contenitore dei servizi (DI).
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 

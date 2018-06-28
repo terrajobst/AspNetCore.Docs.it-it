@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687503"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
@@ -103,25 +104,29 @@ Se si verifica un problema con l'estensione del sito di anteprima, aprire un pro
 
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
 
-* Dal portale di Azure passare al pannello Servizi App.
-* Immettere "est" nella casella di ricerca.
-* Selezionare **Estensioni**.
-* Seleziona "Aggiungi".
+1. Dal portale di Azure passare al pannello Servizi App.
+1. Selezionare l'app Web.
+1. Immettere "ex" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
+1. Selezionare **STRUMENTI DI LAVORO** > **Extensions** (Estensioni).
+1. Selezionare **Aggiungi**.
 
-![Pannello dell'app Azure con i passaggi precedenti](index/_static/x1.png)
+   ![Pannello dell'app Azure con i passaggi precedenti](index/_static/x1.png)
 
-* Selezionare **ASP.NET Core 2.1 (x86) Runtime** (Runtime ASP.NET Core 2.1 (x86)) o **ASP.NET Core 2.1 (x64) Runtime** (Runtime ASP.NET Core 2.1 (x64)).
-* Scegliere **OK**. Selezionare di nuovo **OK**.
+1. Selezionare **ASP.NET Core Runtime Extensions** (Estensioni di ASP.NET Core).
+1. Selezionare **OK** per accettare le condizioni legali.
+1. Per installare l'estensione, selezionare **OK**.
 
-Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core 2.1. Verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello **Servizi app**:
+Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core. Verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello **Servizi app**:
 
-* Immettere "con" nella casella di ricerca.
-* Selezionare **Console**.
-* Immettere `dotnet --info` nella console.
+1. Immettere "con" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
+1. Selezionare **STRUMENTI DI LAVORO** > **Console**.
+1. Immettere `dotnet --info` nella console.
+
+Se la versione `2.1.300-preview1-008174` è la versione di anteprima più recente,viene ottenuto l'output seguente eseguendo `dotnet --info` al prompt dei comandi:
 
 ![Pannello dell'app Azure con i passaggi precedenti](index/_static/cons.png)
 
-L'immagine precedente era aggiornata al momento della redazione di questo articolo. Potrebbe essere visualizzata una versione diversa.
+La versione di ASP.NET Core illustrata nell'immagine precedente `2.1.300-preview1-008174` è un esempio. La versione di anteprima di ASP.NET Core più recente al momento della configurazione dell'estensione del sito viene visualizzata quando si esegue `dotnet --info`.
 
 `dotnet --info` consente di visualizzare il percorso dell'estensione del sito in cui è stata installata l'anteprima. Mostra che l'app è in esecuzione dall'estensione del sito invece che dal percorso predefinito *ProgramFiles*. Se viene visualizzato *ProgramFiles*, riavviare il sito ed eseguire `dotnet --info`.
 
@@ -142,7 +147,7 @@ Le app autonome sono un'opzione per tutte le app ASP.NET Core.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
 
-L'[hub di Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima 2.1. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
+L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

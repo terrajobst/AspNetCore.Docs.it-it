@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962817"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652175"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -25,15 +25,29 @@ Questa guida fornisce informazioni su come configurare [Apache](https://httpd.ap
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Server che esegue CentOS 7 con un account utente standard con privilegio sudo
-2. App ASP.NET Core
+1. Server che esegue CentOS 7 con un account utente standard con privilegio sudo.
+1. Installare il runtime .NET Core nel server.
+   1. Visitare la [pagina di tutti i download per .NET Core](https://www.microsoft.com/net/download/all).
+   1. Selezionare il runtime non di anteprima più recente nell'elenco **Runtime**.
+   1. Selezionare e seguire le istruzioni per CentOS/Oracle.
+1. Un'app ASP.NET Core esistente.
 
-## <a name="publish-the-app"></a>Pubblicare l'app
+## <a name="publish-and-copy-over-the-app"></a>Pubblicare e copiare l'app
 
-Pubblicare l'app come una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) nella configurazione di rilascio per il runtime CentOS 7 (`centos.7-x64`). Copiare il contenuto della cartella *bin/Release/netcoreapp2.0/centos.7-x64/publish* nel server tramite SCP, FTP o un altro metodo di trasferimento di file.
+Configurare l'app per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
+
+Eseguire [dotnet publish](/dotnet/core/tools/dotnet-publish) dall'ambiente di sviluppo per creare il pacchetto di un'app in una directory (ad esempio, *bin/Release/&lt;target_framework_moniker&gt;/publish*) che può essere eseguita nel server:
+
+```console
+dotnet publish --configuration Release
+```
+
+È anche possibile pubblicare l'app come [distribuzione completa](/dotnet/core/deploying/#self-contained-deployments-scd) se si preferisce non mantenere il runtime .NET Core nel server.
+
+Copiare l'app ASP.NET Core sul server usando uno strumento integrato nel flusso di lavoro dell'organizzazione, ad esempio SCP o FTP. Le app Web si trovano in genere nella directory *var*, ad esempio *var/aspnetcore/hellomvc*.
 
 > [!NOTE]
-> In uno scenario di distribuzione di produzione un flusso di lavoro di integrazione continua esegue le operazioni di pubblicazione dell'app e di copia degli asset nel server. 
+> In uno scenario di distribuzione di produzione un flusso di lavoro di integrazione continua esegue le operazioni di pubblicazione dell'app e di copia degli asset nel server.
 
 ## <a name="configure-a-proxy-server"></a>Configurazione di un server proxy
 
@@ -41,9 +55,14 @@ Un proxy inverso è una configurazione comune per la gestione delle app Web dina
 
 Un server proxy inoltra le richieste del client a un altro server anziché evaderle da solo. Un proxy inverso inoltra a una destinazione fissa, in genere per conto di client non autorizzati. In questa guida Apache viene configurato come proxy inverso in esecuzione nello stesso server usato da Kestrel per gestire l'app ASP.NET Core.
 
-Poiché le richieste vengono inoltrate dal proxy inverso, usare il middleware delle intestazioni inoltrate dal pacchetto [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/). Il middleware aggiorna `Request.Scheme` usando l'intestazione `X-Forwarded-Proto`, in modo che gli URI di reindirizzamento e altri criteri di sicurezza funzionino correttamente.
+Poiché le richieste vengono inoltrate dal proxy inverso, usare il [middleware delle intestazioni inoltrate](xref:host-and-deploy/proxy-load-balancer) dal pacchetto [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/). Il middleware aggiorna `Request.Scheme` usando l'intestazione `X-Forwarded-Proto`, in modo che gli URI di reindirizzamento e altri criteri di sicurezza funzionino correttamente.
 
-Quando si usa qualsiasi tipo di middleware di autenticazione, il middleware delle intestazioni inoltrate deve essere eseguito per primo. Questo ordine garantisce che il middleware di autenticazione sia in grado di usare i valori delle intestazioni e di generare gli URI di reindirizzamento corretti.
+Qualsiasi componente che dipende dallo schema, ad esempio l'autenticazione, la generazione di collegamenti, i reindirizzamenti e la georilevazione, deve essere inserito dopo aver richiamato il middleware delle intestazioni inoltrate. Come regola generale,il middleware delle intestazioni inoltrate deve essere eseguito prima degli altri middleware, ad eccezione del middleware di diagnostica e gestione degli errori. Questo ordine garantisce che il middleware basato sulle intestazioni inoltrate possa usare i valori di intestazione per l'elaborazione.
+
+::: moniker range=">= aspnetcore-2.0"
+> [!NOTE]
+> Entrambe le configurazioni (con o senza un server proxy inverso) sono configurazioni di hosting valide e supportate per le app ASP.NET Core 2.0 o versioni successive. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
+::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -117,13 +136,17 @@ Complete!
 > [!NOTE]
 > In questo esempio, l'output rispecchia httpd.86_64 poiché la versione CentOS 7 è a 64 bit. Per verificare dove è installato Apache, eseguire `whereis httpd` da un prompt dei comandi.
 
-### <a name="configure-apache-for-reverse-proxy"></a>Configurare Apache per il proxy inverso
+### <a name="configure-apache"></a>Configurare Apache
 
 I file di configurazione per Apache si trovano all'interno della directory `/etc/httpd/conf.d/`. Qualsiasi file con l'estensione *.conf* viene elaborato in ordine alfabetico, in aggiunta ai file di configurazione dei moduli in `/etc/httpd/conf.modules.d/`, che contiene tutti i file di configurazione necessari per caricare i moduli.
 
 Creare un file di configurazione denominato *hellomvc.conf* per l'app:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
@@ -158,7 +181,6 @@ sudo systemctl enable httpd
 ## <a name="monitoring-the-app"></a>Monitoraggio dell'app
 
 Apache è ora configurato in modo da inoltrare le richieste eseguite a `http://localhost:80` all'app ASP.NET Core eseguita in Kestrel all'indirizzo `http://127.0.0.1:5000`.  Tuttavia, Apache non è configurato per la gestione del processo Kestrel. Usare *systemd* e creare un file del servizio per avviare e monitorare l'app Web sottostante. *systemd* è un sistema di inizializzazione che offre molte funzionalità potenti per l'avvio, l'arresto e la gestione dei processi. 
-
 
 ### <a name="create-the-service-file"></a>Creare il file del servizio
 
@@ -262,7 +284,7 @@ sudo firewall-cmd --add-port=443/tcp --permanent
 
 Ricaricare le impostazioni del firewall. Verificare i servizi e le porte disponibili nell'area predefinita. Le opzioni sono disponibili controllando `firewall-cmd -h`.
 
-```bash 
+```bash
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-all
 ```
@@ -286,6 +308,7 @@ Per configurare Apache per SSL, viene usato il modulo *mod_ssl*. Durante l'insta
 ```bash
 sudo yum install mod_ssl
 ```
+
 Per imporre SSL, installare il modulo `mod_rewrite` per abilitare la riscrittura degli URL:
 
 ```bash
@@ -295,10 +318,14 @@ sudo yum install mod_rewrite
 Modificare il file *hellomvc.conf* per abilitare la riscrittura degli URL e proteggere le comunicazioni sulla porta 443:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -364,7 +391,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 Aggiungere la riga `Header set X-Content-Type-Options "nosniff"`. Salvare il file. Riavviare Apache.
 
-### <a name="load-balancing"></a>Bilanciamento del carico 
+### <a name="load-balancing"></a>Bilanciamento del carico
 
 Questo esempio illustra come impostare e configurare Apache CentOS 7 e Kestrel nello stesso computer dell'istanza. Per evitare di avere un singolo punto di errore, l'uso di *mod_proxy_balancer* e la modifica di **VirtualHost** consentono la gestione di più istanze delle app Web dietro il server proxy di Apache.
 
@@ -375,10 +402,14 @@ sudo yum install mod_proxy_balancer
 Nel file di configurazione illustrato di seguito, un'istanza aggiuntiva dell'app `hellomvc` viene configurata per l'esecuzione sulla porta 5001. La sezione *Proxy* è impostata con una configurazione del servizio di bilanciamento del carico, con due membri per il bilanciamento del carico di *byrequests*.
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -407,6 +438,7 @@ Nel file di configurazione illustrato di seguito, un'istanza aggiuntiva dell'app
 ```
 
 ### <a name="rate-limits"></a>Limiti di velocità
+
 Usando *mod_ratelimit*, incluso nel modulo *httpd*, è possibile limitare la larghezza di banda del client:
 
 ```bash
@@ -422,3 +454,7 @@ Il file di esempio limita la larghezza di banda a 600 KB al secondo nel percorso
     </Location>
 </IfModule>
 ```
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer)
