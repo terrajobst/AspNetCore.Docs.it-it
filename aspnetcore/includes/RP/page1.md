@@ -8,7 +8,16 @@ In questa esercitazione vengono esaminate le pagine Razor create tramite scaffol
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Pagine di creazione, eliminazione, dettagli e modifica.
 
-Esaminare il modello di pagina *Pages/Movies/Index.cshtml.cs*: [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+Esaminare il modello di pagina *Pages/Movies/Index.cshtml.cs*:
+
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]
+
+::: moniker-end
 
 Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe derivata `PageModel` viene denominata `<PageName>Model`. Il costruttore usa l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per aggiungere `MovieContext` alla pagina. Tutte le pagine create tramite scaffolding seguono questo schema. Vedere [Codice asincrono](xref:data/ef-rp/intro#asynchronous-code) per altre informazioni sulla programmazione asincrona con Entity Framework.
 
@@ -17,7 +26,7 @@ Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restit
 Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene usato alcun metodo restituito. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo *Pages/Movies/Create.cshtml.cs* `OnPostAsync`:
 
 <!-- TODO - replace with snippet
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
  -->
 
 ```csharp
@@ -34,6 +43,7 @@ public async Task<IActionResult> OnPostAsync()
     return RedirectToPage("./Index");
 }
 ```
+
 Esaminare la pagina Razor *Pages/Movies/Index.cshtml*:
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
@@ -62,7 +72,7 @@ La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Ne
 -->
 
 <a name="vd"></a>
-###ViewData e layout
+### ViewData e layout
 
 Esaminare il codice seguente:
 
@@ -70,13 +80,28 @@ Esaminare il codice seguente:
 
 Il codice evidenziato sopra è un esempio di transizione Razor in C#. Tra i caratteri `{` e `}` è racchiuso un blocco di codice C#.
 
-La classe di base `PageModel` ha una proprietà del dizionario `ViewData` che può essere usata per aggiungere i dati da passare a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà "Title" viene aggiunta al dizionario `ViewData`. La proprietà "Title" viene usata nel file *Pages/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *Pages/_Layout.cshtml*.
+La classe di base `PageModel` ha una proprietà del dizionario `ViewData` che può essere usata per aggiungere i dati da passare a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà "Title" viene aggiunta al dizionario `ViewData`. 
+
+::: moniker range="= aspnetcore-2.0"
+
+La proprietà "Title" viene usata nel file *Pages/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *Pages/_Layout.cshtml*.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+La proprietà "Title" viene usata nel file *Pages/Shared/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *_Layout.cshtml*.
+
+::: moniker-end
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 La riga `@*Markup removed for brevity.*@` è un commento Razor. A differenza dei commenti HTML (`<!-- -->`), i commenti Razor non vengono inviati al client.
 
 Eseguire l'app e i collegamenti di test nel progetto (**Home**, **Informazioni**, **Contatto**, **Crea**, **Modifica** ed **Elimina**). In ogni pagina viene impostato il titolo che è possibile visualizzare nella scheda del browser. Quando una pagina viene specificata come segnalibro, il titolo viene usato per il segnalibro. *Pages/Index.cshtml* e *Pages/Movies/Index.cshtml* hanno attualmente lo stesso titolo, ma è possibile modificarli in modo che i valori siano diversi.
+
+> [!NOTE]
+> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
 
 La proprietà `Layout` viene impostata nel file *Pages/_ViewStart.cshtml*:
 
@@ -109,15 +134,22 @@ Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. V
 
 Esaminare il modello di pagina *Pages/Movies/Create.cshtml.cs*:
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+::: moniker-end
 
-Il metodo `OnGet` inizializza lo stato necessario per la pagina. La pagina di creazione non possiede uno stato da inizializzare. Il metodo `Page` crea un oggetto `PageResult` che esegue il rendering della pagina *Create.cshtml*.
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]
+::: moniker-end
+
+
+Il metodo `OnGet` inizializza lo stato necessario per la pagina. La pagina di creazione non possiede uno stato da inizializzare. Viene restituito `Page`. Più avanti nell'esercitazione viene illustrato lo stato di inizializzazione del metodo `OnGet`. Il metodo `Page` crea un oggetto `PageResult` che esegue il rendering della pagina *Create.cshtml*.
 
 La proprietà `Movie` usa l'attributo `[BindProperty]` per consentire l'[associazione di modelli](xref:mvc/models/model-binding). Dopo che il modulo di creazione registra i valori, il runtime di ASP.NET Core associa i valori registrati al modello `Movie`.
 
 Il metodo `OnPostAsync` viene eseguito quando la pagina inserisce i dati del modulo:
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
 
 Se il modello contiene errori, il modulo viene nuovamente visualizzato insieme ai dati del modulo inviati. La maggior parte degli errori del modello sono riscontrabili sul lato client prima che il modulo sia inviato. La registrazione di un valore per il campo data non convertibile in una data è un esempio di errore del modello. Durante l'esercitazione saranno poi trattate nel dettaglio la convalida lato client e la convalida del modello.
 
@@ -127,7 +159,7 @@ Se non sono presenti errori nel modello, i dati vengono salvati e il browser vie
 
 Esaminare il file della pagina Razor *Pages/Movies/Create.cshtml*:
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).
