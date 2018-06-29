@@ -2,20 +2,16 @@
 title: Introduzione a Swashbuckle e ad ASP.NET Core
 author: zuckerthoben
 description: Informazioni su come aggiungere Swashbuckle al progetto dell'API Web ASP.NET Core per integrare l'interfaccia utente di Swagger.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/31/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: eaeb27903c462ef002edbb0b84cd5a751db2bb9d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 7a1fdad874211134308ea3feac3110ea38095d49
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729730"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274456"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 

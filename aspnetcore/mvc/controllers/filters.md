@@ -2,19 +2,15 @@
 title: Filtri in ASP.NET Core
 author: ardalis
 description: Informazioni su come funzionano i filtri e su come usarli in ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252152"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275645"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -23,10 +19,10 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://githu
 I *filtri* in ASP.NET Core MVC consentono di eseguire codice prima o dopo fasi specifiche della pipeline di elaborazione della richiesta.
 
 > [!IMPORTANT]
-> Questo argomento **non** si applica a Razor Pages. ASP.NET Core 2.1 e le versioni successive supportano [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) per Razor Pages. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:mvc/razor-pages/filter).
+> Questo argomento **non** si applica a Razor Pages. ASP.NET Core 2.1 e le versioni successive supportano [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) per Razor Pages. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:razor-pages/filter).
 
  I filtri predefiniti gestiscono attività, ad esempio:
- 
+
  * Autorizzazione (impedire l'accesso alle risorse per cui un utente non è autorizzato).
  * Assicurarsi che tutte le richieste utilizzino HTTPS.
  * Memorizzazione nella cache delle risposte (blocco della pipeline delle richieste per restituire una risposta memorizzata nella cache). 

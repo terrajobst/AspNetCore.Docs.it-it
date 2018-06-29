@@ -2,20 +2,16 @@
 title: Helper tag in ASP.NET Core
 author: rick-anderson
 description: Informazioni sugli helper tag e su come usarli in ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c8d5a63948aed0630d677ad3c0a40fb07ddc62af
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613125"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273569"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Helper tag in ASP.NET Core
 

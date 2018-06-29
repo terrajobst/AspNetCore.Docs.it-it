@@ -2,19 +2,15 @@
 title: Registrazione a prestazioni elevate con LoggerMessage in ASP.NET Core
 author: guardrex
 description: Informazioni su come usare LoggerMessage per creare delegati inseribili nella cache che richiedono un numero minore di allocazioni di oggetti per scenari di registrazione a prestazioni elevate.
-manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: e952591bac29868d87d765820e88c74b50a1fe88
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729194"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272435"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registrazione a prestazioni elevate con LoggerMessage in ASP.NET Core
 

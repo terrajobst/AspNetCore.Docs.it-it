@@ -2,20 +2,16 @@
 title: Ospitare ASP.NET Core in Servizio app di Azure
 author: guardrex
 description: Informazioni su come ospitare le app ASP.NET Core nel servizio app di Azure con collegamenti a risorse utili.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 2890b2e6cdb536850b3764b5a78084cca335b489
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34687503"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275762"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
