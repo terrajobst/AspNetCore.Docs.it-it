@@ -5,12 +5,12 @@ description: Informazioni sul framework di registrazione di ASP.NET Core. Inform
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033313"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077777"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -610,6 +610,10 @@ Per configurare il flusso di registrazione di Azure:
 Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'applicazione. Vengono registrati dall'applicazione tramite l'interfaccia `ILogger`.
 
 ![Flusso di registrazione dell'applicazione nel portale di Azure](index/_static/azure-log-streaming.png)
+
+## <a name="azure-application-insights-trace-logging"></a>Registrazione di traccia di Azure Application Insights
+
+[Application Insights](https://azure.microsoft.com/services/application-insights/) SDK raccoglie la telemetria di traccia dei registri generati con l'infrastruttura di registrazione di ASP.NET Core. Per altre informazioni, vedere [Microsoft/ApplicationInsights-aspnetcore Wiki: Logging](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging) (Wiki di Microsoft/ApplicationInsights-aspnetcore: registrazione).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

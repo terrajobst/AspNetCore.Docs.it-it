@@ -2,20 +2,16 @@
 title: Metapacchetto Microsoft.AspNetCore.App per ASP.NET Core 2.1 e versioni successive
 author: Rick-Anderson
 description: Il metapacchetto Microsoft.AspNetCore.App include tutti i pacchetti ASP.NET Core e Entity Framework Core supportati.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 7c7f69a6176d3f7982a67106cb823ff42200b50e
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
+ms.openlocfilehash: 4840d0a7536b1e9d8da835690b285ac2074967f5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306621"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277472"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Metapacchetto Microsoft.AspNetCore.App per ASP.NET Core 2.1
 
@@ -63,5 +59,11 @@ La versione implicita è impostata su `major.minor.0` per le app portabili. Il m
 Specificando un numero di versione nel riferimento `Microsoft.AspNetCore.App` **non** si garantisce che verrà scelta la versione del framework condiviso. Si supponga ad esempio che venga specificata la versione "2.1.1" ma che sia installata la versione "2.1.3". In tal caso, l'app userà "2.1.3". Benché non sia consigliabile, è possibile disabilitare il roll forward (patch e/o versioni secondarie). Per altre informazioni su come eseguire il roll forward dell'host dotnet e configurarne il comportamento, vedere [dotnet host rollforward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Roll forward dell'host dotnet).
 
 Il [metapacchetto](/dotnet/core/packages#metapackages) `Microsoft.AspNetCore.App` non è un pacchetto tradizionale aggiornato da NuGet. Analogamente a `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` rappresenta un runtime condiviso, con una semantica di controllo delle versioni speciale gestita all'esterno di NuGet. Per altre informazioni, vedere [Pacchetti, metapacchetti e framework](/dotnet/core/packages).
+
+`<Project Sdk` deve essere impostato su `Microsoft.NET.Sdk.Web` per usare la versione implicita `Microsoft.AspNetCore.App`.  Quando viene usato `<Project Sdk="Microsoft.NET.Sdk">`, vengono generati gli avvisi seguenti:
+
+*Avviso NU1604: la dipendenza Microsoft.AspNetCore.App del progetto non contiene un limite inferiore inclusivo. Includere un limite inferiore nella versione della dipendenza per garantire risultati di ripristino coerenti.*
+
+*Avviso NU1602: in [Nome progetto] non è specificato un limite inferiore inclusivo per la dipendenza Microsoft.AspNetCore.App. È stata risolta una migliore corrispondenza approssimativa di Microsoft.AspNetCore.App 2.1.0.*
 
 Se l'applicazione usava in precedenza `Microsoft.AspNetCore.All`, vedere [Migrazione da Microsoft.AspNetCore.All a Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).

@@ -2,19 +2,15 @@
 title: Routing in ASP.NET Core
 author: ardalis
 description: Descrizione del modo in cui la funzionalità di routing di ASP.NET Core è responsabile del mapping di una richiesta in ingresso a un gestore di route.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341782"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314136"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -154,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Questo modello confronta un percorso URL come `/Products/5` ed estrae i valori `{ controller = Products, action = Details, id = 5 }` e i token di dati `{ locale = en-US }`.
+Questo modello confronta un percorso URL come `/en-US/Products/5` ed estrae i valori `{ controller = Products, action = Details, id = 5 }` e i token di dati `{ locale = en-US }`.
 
 ![Token della finestra Variabili locali](routing/_static/tokens.png)
 
@@ -285,6 +281,16 @@ La tabella seguente illustra alcuni modelli di route con il relativo comportamen
 L'uso di un modello è in genere l'approccio più semplice al routing. I vincoli e le impostazioni predefinite possono essere specificati anche all'esterno del modello di route.
 
 Suggerimento: abilitare la [registrazione](xref:fundamentals/logging/index) per vedere in che modo le implementazioni del routing, ad esempio `Route`, corrispondono alle richieste.
+
+## <a name="reserved-routing-names"></a>Nomi riservati di routing
+
+Le parole chiave seguenti sono nomi riservati e non possono essere usate come nomi o parametri di route:
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
 
 ## <a name="route-constraint-reference"></a>Riferimento per i vincoli di route
 

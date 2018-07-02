@@ -2,27 +2,23 @@
 title: Inizializzare richieste HTTP
 author: stevejgordon
 description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gestire le istanze di HttpClient logiche in ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
+ms.date: 06/22/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: e56c7a3ed80cc08103f6178859a1a99f1a5ec068
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33838761"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327522"
 ---
 # <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
 
 Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) e [Steve Gordon](https://github.com/stevejgordon)
 
-È possibile registrare e usare `IHttpClientFactory` per configurare e creare istanze di [HttpClient](/dotnet/api/system.net.http.httpclient) in un'app. I vantaggi offerti sono i seguenti:
+È possibile registrare e usare [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) per configurare e creare istanze di [HttpClient](/dotnet/api/system.net.http.httpclient) in un'app. I vantaggi offerti sono i seguenti:
 
 * Offre una posizione centrale per la denominazione e la configurazione di istanze di `HttpClient` logiche. Ad esempio, è possibile registrare e configurare un client "github" per accedere a GitHub. È possibile registrare un client predefinito per altri scopi.
 * Codifica il concetto di middleware in uscita tramite la delega di gestori in `HttpClient` e offre estensioni per il middleware basato su Polly per sfruttarne i vantaggi.
@@ -42,7 +38,7 @@ Nessuno di questi modi può essere considerato superiore a un altro. L'approccio
 
 ### <a name="basic-usage"></a>Utilizzo di base
 
-È possibile registrare `IHttpClientFactory` chiamando il metodo di estensione `AddHttpClient` in `IServiceCollection`, all'interno del metodo `ConfigureServices` in Startup.cs.
+È possibile registrare `IHttpClientFactory` chiamando il metodo di estensione `AddHttpClient` in `IServiceCollection`, all'interno del metodo `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
 
@@ -54,7 +50,7 @@ Questo uso di `IHttpClientFactory` è un ottimo modo per effettuare il refactori
 
 ### <a name="named-clients"></a>Client denominati
 
-Se un'app richiede più usi distinti di `HttpClient`, ognuno con una configurazione diversa, un'opzione è l'uso di **client denominati**. La configurazione di un `HttpClient` denominato può essere specificata durante la registrazione in `ConfigureServices`.
+Se un'app richiede più usi distinti di `HttpClient`, ognuno con una configurazione diversa, un'opzione è l'uso di **client denominati**. La configurazione di un `HttpClient` denominato può essere specificata durante la registrazione in `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
@@ -78,7 +74,7 @@ Un client tipizzato accetta il parametro `HttpClient` nel proprio costruttore:
 
 Nel codice precedente la configurazione viene spostata nel client tipizzato. L'oggetto `HttpClient` viene esposto come una proprietà pubblica. È possibile definire metodi di API specifiche che espongono la funzionalità `HttpClient`. Il metodo `GetAspNetDocsIssues` incapsula il codice necessario per eseguire una query e analizzare gli ultimi problemi aperti in un repository GitHub.
 
-Per registrare un client tipizzato è possibile usare il metodo di estensione `AddHttpClient` generico all'interno di `ConfigureServices`, specificando la classe del client tipizzato:
+Per registrare un client tipizzato è possibile usare il metodo di estensione `AddHttpClient` generico all'interno di `Startup.ConfigureServices`, specificando la classe del client tipizzato:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
 
@@ -86,7 +82,7 @@ Il client tipizzato viene registrato come temporaneo nell'inserimento di dipende
 
 [!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
-Se si preferisce, è possibile specificare la configurazione di un client tipizzato durante la registrazione in `ConfigureServices`, anziché nel relativo costruttore:
+Se si preferisce, è possibile specificare la configurazione di un client tipizzato durante la registrazione in `Startup.ConfigureServices`, anziché nel relativo costruttore:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
 
@@ -175,7 +171,7 @@ Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento 
 
 `IHttpClientFactory` si integra con una libreria di terze parti piuttosto diffusa denominata [Polly](https://github.com/App-vNext/Polly). Polly è una libreria di gestione degli errori temporanei e di resilienza completa per .NET. Consente agli sviluppatori di esprimere criteri quali Retry, Circuit Breaker, Timeout, Bulkhead Isolation e Fallback in modo fluido e thread-safe.
 
-Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient` sono disponibili metodi di estensione. Le estensioni per Polly sono disponibili in un pacchetto NuGet denominato "Microsoft.Extensions.Http.Polly". Questo pacchetto non è incluso per impostazione predefinita dal metapacchetto "Microsoft.AspNetCore.App". Per usare le estensioni è necessario includere esplicitamente un elemento PackageReference nel progetto.
+Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient` sono disponibili metodi di estensione. Le estensioni per Polly sono disponibili nel pacchetto NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/). Il pacchetto non è incluso nel metapacchetto [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Per usare le estensioni, nel progetto deve essere incluso un elemento `<PackageReference />` esplicito.
 
 [!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
 
@@ -185,7 +181,7 @@ Dopo il ripristino di questo pacchetto, i metodi di estensione che supportano l'
 
 Gli errori più comuni che si prevede possano verificarsi quando si effettuano chiamate HTTP esterne saranno temporanei. Per definire un criterio in grado di gestire gli errori temporanei è disponibile un pratico metodo di estensione denominato `AddTransientHttpErrorPolicy`. I criteri configurati con questo metodo di estensione gestiscono `HttpRequestException`, risposte HTTP 5xx e risposte HTTP 408.
 
-L'estensione `AddTransientHttpErrorPolicy` può essere usata all'interno di `ConfigureServices`. L'estensione consente l'accesso a un oggetto `PolicyBuilder` configurato per gestire gli errori che rappresentano un possibile errore temporaneo:
+L'estensione `AddTransientHttpErrorPolicy` può essere usata all'interno di `Startup.ConfigureServices`. L'estensione consente l'accesso a un oggetto `PolicyBuilder` configurato per gestire gli errori che rappresentano un possibile errore temporaneo:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
 
