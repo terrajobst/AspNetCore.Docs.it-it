@@ -6,24 +6,25 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.date: 06/21/2018
 uid: signalr/index
-ms.openlocfilehash: b3839e5daf7f42ab0a4f26b07741708fd2cfc6c0
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 249b4760aafe481d6a11437b83a0640e965d0447
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961373"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126144"
 ---
-# <a name="aspnet-core-signalr"></a><span data-ttu-id="a3646-103">ASP.NET Core SignalR</span><span class="sxs-lookup"><span data-stu-id="a3646-103">ASP.NET Core SignalR</span></span>
+# <a name="aspnet-core-signalr"></a><span data-ttu-id="d86f8-103">ASP.NET Core SignalR</span><span class="sxs-lookup"><span data-stu-id="d86f8-103">ASP.NET Core SignalR</span></span>
 
-* [<span data-ttu-id="a3646-104">Introduzione</span><span class="sxs-lookup"><span data-stu-id="a3646-104">Introduction</span></span>](xref:signalr/introduction)
-* [<span data-ttu-id="a3646-105">Introduzione</span><span class="sxs-lookup"><span data-stu-id="a3646-105">Get started</span></span>](xref:tutorials/signalr)
-* [<span data-ttu-id="a3646-106">Hub</span><span class="sxs-lookup"><span data-stu-id="a3646-106">Hubs</span></span>](xref:signalr/hubs)
-* [<span data-ttu-id="a3646-107">Client JavaScript</span><span class="sxs-lookup"><span data-stu-id="a3646-107">JavaScript client</span></span>](xref:signalr/javascript-client)
-* [<span data-ttu-id="a3646-108">Client .NET</span><span class="sxs-lookup"><span data-stu-id="a3646-108">.NET client</span></span>](xref:signalr/dotnet-client)
-* [<span data-ttu-id="a3646-109">HubContext</span><span class="sxs-lookup"><span data-stu-id="a3646-109">HubContext</span></span>](xref:signalr/hubcontext)
-* [<span data-ttu-id="a3646-110">Utenti e gruppi</span><span class="sxs-lookup"><span data-stu-id="a3646-110">Users and groups</span></span>](xref:signalr/groups)
-* [<span data-ttu-id="a3646-111">Configurazione</span><span class="sxs-lookup"><span data-stu-id="a3646-111">Configuration</span></span>](xref:signalr/configuration)
-* [<span data-ttu-id="a3646-112">Protocollo hub MessagePack</span><span class="sxs-lookup"><span data-stu-id="a3646-112">MessagePack Hub Protocol</span></span>](xref:signalr/messagepackhubprotocol)
-* [<span data-ttu-id="a3646-113">Pubblicare in Azure</span><span class="sxs-lookup"><span data-stu-id="a3646-113">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
-* [<span data-ttu-id="a3646-114">Flusso</span><span class="sxs-lookup"><span data-stu-id="a3646-114">Streaming</span></span>](xref:signalr/streaming)
-* [<span data-ttu-id="a3646-115">Piattaforme supportate</span><span class="sxs-lookup"><span data-stu-id="a3646-115">Supported platforms</span></span>](xref:signalr/supported-platforms)
+* [<span data-ttu-id="d86f8-104">Introduzione</span><span class="sxs-lookup"><span data-stu-id="d86f8-104">Introduction</span></span>](xref:signalr/introduction)
+* [<span data-ttu-id="d86f8-105">Introduzione</span><span class="sxs-lookup"><span data-stu-id="d86f8-105">Get started</span></span>](xref:tutorials/signalr)
+* [<span data-ttu-id="d86f8-106">Hub</span><span class="sxs-lookup"><span data-stu-id="d86f8-106">Hubs</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="d86f8-107">Client JavaScript</span><span class="sxs-lookup"><span data-stu-id="d86f8-107">JavaScript client</span></span>](xref:signalr/javascript-client)
+* [<span data-ttu-id="d86f8-108">Client .NET</span><span class="sxs-lookup"><span data-stu-id="d86f8-108">.NET client</span></span>](xref:signalr/dotnet-client)
+* [<span data-ttu-id="d86f8-109">HubContext</span><span class="sxs-lookup"><span data-stu-id="d86f8-109">HubContext</span></span>](xref:signalr/hubcontext)
+* [<span data-ttu-id="d86f8-110">Utenti e gruppi</span><span class="sxs-lookup"><span data-stu-id="d86f8-110">Users and groups</span></span>](xref:signalr/groups)
+* [<span data-ttu-id="d86f8-111">Configurazione</span><span class="sxs-lookup"><span data-stu-id="d86f8-111">Configuration</span></span>](xref:signalr/configuration)
+* [<span data-ttu-id="d86f8-112">Protocollo hub MessagePack</span><span class="sxs-lookup"><span data-stu-id="d86f8-112">MessagePack Hub Protocol</span></span>](xref:signalr/messagepackhubprotocol)
+* [<span data-ttu-id="d86f8-113">Pubblicare in Azure</span><span class="sxs-lookup"><span data-stu-id="d86f8-113">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
+* [<span data-ttu-id="d86f8-114">Flusso</span><span class="sxs-lookup"><span data-stu-id="d86f8-114">Streaming</span></span>](xref:signalr/streaming)
+* [<span data-ttu-id="d86f8-115">WebPack e TypeScript</span><span class="sxs-lookup"><span data-stu-id="d86f8-115">WebPack and TypeScript</span></span>](xref:tutorials/signalr-typescript-webpack)
+* [<span data-ttu-id="d86f8-116">Piattaforme supportate</span><span class="sxs-lookup"><span data-stu-id="d86f8-116">Supported platforms</span></span>](xref:signalr/supported-platforms)
