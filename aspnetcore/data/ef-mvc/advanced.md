@@ -5,14 +5,18 @@ description: Questa esercitazione presenta argomenti utili dopo aver appreso le 
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274369"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093075"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC con EF Core - Argomenti avanzati - 10 di 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -195,7 +199,7 @@ Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio su
 
 Tom Dykstra e Rick Anderson (twitter @RickAndMSFT) hanno scritto questa esercitazione. Rowan Miller, Diego Vega e altri membri del team Entity Framework hanno offerto supporto per le revisioni del codice e per il debug dei problemi sorti durante la scrittura del codice per le esercitazioni.
 
-## <a name="common-errors"></a>Errori comuni  
+## <a name="common-errors"></a>Errori comuni
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll usata da un altro processo
 
@@ -240,6 +244,7 @@ Messaggio di errore:
 Soluzione:
 
 Controllare la stringa di connessione. Se il file di database è stato eliminato manualmente, modificare il nome del database nella stringa di costruzione per riniziare con un nuovo database.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Precedente](inheritance.md)

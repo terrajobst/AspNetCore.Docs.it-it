@@ -5,14 +5,18 @@ description: Questa esercitazione illustra come implementare l'ereditarietà nel
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272854"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092997"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -50,7 +54,7 @@ I criteri tabella per tipo concreto e tabella per gerarchia offrono in genere pr
 
 Questa esercitazione illustra come implementare l'ereditarietà tabella per gerarchia. Il criterio di ereditarietà tabella per gerarchia è l'unico supportato da Entity Framework Core.  Verranno eseguite le operazioni di creazione di una classe `Person`, modifica delle classi `Instructor` e `Student` in modo che derivino da `Person`, aggiunta della nuova classe a `DbContext` e creazione di una migrazione.
 
-> [!TIP] 
+> [!TIP]
 > È consigliabile salvare una copia del progetto prima di apportare le modifiche seguenti.  In caso di problemi e se fosse necessario ricominciare da capo, sarà più facile iniziare dal progetto salvato invece di annullare i passaggi eseguiti per questa esercitazione o tornare all'inizio dell'intera serie.
 
 ## <a name="create-the-person-class"></a>Creare la classe Person
@@ -121,7 +125,7 @@ dotnet ef database update
 
 In un sistema di produzione verrebbero apportate modifiche corrispondenti al metodo `Down` nel caso fosse necessario usarlo per tornare alla versione precedente del database. Per questa esercitazione, il metodo `Down` non verrà usato.
 
-> [!NOTE] 
+> [!NOTE]
 > Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori. Per eliminare il database, usare SSOX o eseguire il comando dell’interfaccia della riga di comando `database drop`.
 
 ## <a name="test-with-inheritance-implemented"></a>Eseguire il test con l'ereditarietà implementata
@@ -140,6 +144,8 @@ Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mo
 
 È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](https://docs.microsoft.com/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Precedente](concurrency.md)
-> [Successivo](advanced.md)  
+> [Successivo](advanced.md)
