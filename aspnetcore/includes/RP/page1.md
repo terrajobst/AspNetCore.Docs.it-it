@@ -107,7 +107,7 @@ La proprietà `Layout` viene impostata nel file *Pages/_ViewStart.cshtml*:
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Il markup precedente imposta il file di layout su *Pages/_Layout.cshtml* per tutti i file Razor contenuti nella cartella *Pagine*. Vedere [Layout](xref:mvc/razor-pages/index#layout) per altre informazioni.
+Il markup precedente imposta il file di layout su *Pages/_Layout.cshtml* per tutti i file Razor contenuti nella cartella *Pagine*. Vedere [Layout](xref:razor-pages/index#layout) per altre informazioni.
 
 ### <a name="update-the-layout"></a>Aggiornare il layout
 

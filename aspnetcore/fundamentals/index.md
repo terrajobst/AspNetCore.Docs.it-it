@@ -2,20 +2,16 @@
 title: Nozioni fondamentali su ASP.NET Core
 author: rick-anderson
 description: Individuare i concetti fondamentali per la compilazione di applicazioni ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233310"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278869"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -78,7 +74,7 @@ Per altre informazioni, vedere [Avvio dell'applicazione](xref:fundamentals/start
 
 ## <a name="content-root"></a>Radice del contenuto
 
-La radice del contenuto è il percorso di base per i contenuti usati dall'applicazione, ad esempio viste, [Razor Pages](xref:mvc/razor-pages/index)e asset statici. Per impostazione predefinita, la radice del contenuto è uguale al percorso di base dell'applicazione per il file eseguibile che ospita l'app.
+La radice del contenuto è il percorso di base per i contenuti usati dall'applicazione, ad esempio viste, [Razor Pages](xref:razor-pages/index)e asset statici. Per impostazione predefinita, la radice del contenuto è uguale al percorso di base dell'applicazione per il file eseguibile che ospita l'app.
 
 ## <a name="web-root"></a>Radice Web
 
@@ -106,9 +102,13 @@ I middleware basati su [OWIN](http://owin.org) sono disponibili per le app ASP.N
 
 Per altre informazioni, vedere [Middleware](xref:fundamentals/middleware/index) e [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) (Interfaccia Web aperta per .NET (OWIN).
 
+::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
 
 Per informazioni sull'uso di `IHttpClientFactory` per accedere alle istanze di `HttpClient` per effettuare richieste HTTP, vedere [Inizializzare richieste HTTP](xref:fundamentals/http-requests).
+
+::: moniker-end
 
 ## <a name="environments"></a>Ambienti
 
@@ -126,7 +126,7 @@ Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/
 
 ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione. I provider predefiniti supportano l'invio dei registri a una o più destinazioni. È possibile usare framework di registrazione di terze parti.
 
-[Registrazione](xref:fundamentals/logging/index)
+Per altre informazioni, vedere [Registrazione](xref:fundamentals/logging/index)
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -158,11 +158,11 @@ Le app ASP.NET Core configurano e avviano un *host*, che è responsabile della g
 
 Per altre informazioni, vedere [Hosting in ASP.NET Core](xref:fundamentals/host/index).
 
-## <a name="session-and-application-state"></a>Stato di sessione e applicazione
+## <a name="session-and-app-state"></a>Stato di sessioni e app
 
-Lo stato della sessione è una funzionalità di ASP.NET Core che è possibile usare per salvare e archiviare i dati utente mentre l'utente visualizza l'app Web.
+ASP.NET Core offre diversi approcci per mantenere lo stato di sessioni e app mentre l'utente usa un'app Web.
 
-Per altre informazioni, vedere [Stato di sessione e applicazione](xref:fundamentals/app-state).
+Per altre informazioni, vedere [Stato di sessioni e app](xref:fundamentals/app-state).
 
 ## <a name="servers"></a>Server
 

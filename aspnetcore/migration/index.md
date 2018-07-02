@@ -2,18 +2,15 @@
 title: Migrazione ad ASP.NET Core
 author: rick-anderson
 description: Informazioni sulla migrazione di vari aspetti di ASP.NET 4.x ad ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 05/04/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/index
-ms.openlocfilehash: 2f4b65795c1b62487d46d92f1b32386435cdc0d1
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 0d622e47f2031d9e473819af52d387c7e01838cb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275710"
 ---
 # <a name="migration-to-aspnet-core"></a>Migrazione ad ASP.NET Core
 
@@ -32,3 +29,7 @@ ms.lasthandoff: 05/08/2018
 
 * [Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0](xref:migration/1x-to-2x/index)
 * [Eseguire la migrazione dell'autenticazione e dell'identità](xref:migration/1x-to-2x/identity-2x)
+
+## <a name="aspnet-core-20-to-21"></a>Da ASP.NET Core 2.0 a 2.1
+
+* [Eseguire la migrazione da ASP.NET Core 2.0 alla versione 2.1](xref:migration/20_21)
