@@ -5,12 +5,12 @@ description: Informazioni di base sulla compilazione di un'app Web pagine Razor 
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e317b49f2ad33c392de33bc32a87f67bb8cb72a0
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7148f2d944bd1978b1a83278dfed9051f192e4dd
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278044"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144937"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -94,7 +94,7 @@ Premere **F5** per eseguire l'app in modalità di debug o **Ctrl-F5** per l'esec
 * Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente, il numero di porta è 5000. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
 
-[!INCLUDE [razor-pages-start](~/includes/RP/2.1/razor-pages-start.md)]
+[!INCLUDE [razor-pages-start](~/includes/RP/razor-pages-start.md)]
 
 ::: moniker-end
 

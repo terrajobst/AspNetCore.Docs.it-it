@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: eb049dea2800cf2e12c044b88d1664ee80bb95a5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296768"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077660"
 ---
 # <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
 ::: moniker range=">= aspnetcore-2.1"
 
-1. Installare [!INCLUDE[](~/includes/2.1-SDK.md)].
+1. Installare [!INCLUDE [](~/includes/2.1-SDK.md)].
 
 2. Creare un progetto ASP.NET Core. Aprire una shell dei comandi e immettere il comando seguente:
 
@@ -25,7 +25,7 @@ ms.locfileid: "36296768"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
 
 3. Considerare attendibile il certificato di sviluppo HTTPS:
 
@@ -76,13 +76,13 @@ ms.locfileid: "36296768"
 
 7. Passare a [http://localhost:5001/About](http://localhost:5001/About) e verificare che le modifiche siano visualizzate.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-1. Installare [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].
+1. Installare [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
 2. Creare un nuovo progetto ASP.NET Core.
 
@@ -107,7 +107,7 @@ ms.locfileid: "36296768"
 
 6. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
@@ -154,5 +154,5 @@ ms.locfileid: "36296768"
 
 7. Passare a `http://localhost:5000`.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 ::: moniker-end

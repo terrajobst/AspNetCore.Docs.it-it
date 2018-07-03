@@ -2,19 +2,15 @@
 title: Introduzione ad ASP.NET Core MVC e Visual Studio
 author: rick-anderson
 description: Informazioni introduttive su ASP.NET Core MVC e Visual Studio.
-manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 3272700c7739778a6a341ae8ee424fd69605ca53
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 1fb3947023843341403f4355c6ae1e61d7e4f6b1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729717"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275552"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introduzione ad ASP.NET Core MVC e Visual Studio
 
@@ -61,7 +57,7 @@ Visual Studio ha usato un modello predefinito per il progetto MVC appena creato.
 
 Toccare **F5** per eseguire l'app in modalità di debug o **CTRL+F5** per eseguirla in modalità non di debug.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
-![App in esecuzione](start-mvc/_static/1.png)
+![app in esecuzione](start-mvc/_static/1.png)
 
 * Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente il numero di porta è 5000. Nell'URL nel browser viene visualizzato `localhost:5000`. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
@@ -148,7 +144,7 @@ Visual Studio ha usato un modello predefinito per il progetto MVC appena creato.
 
 Toccare **F5** per eseguire l'app in modalità di debug o **CTRL+F5** per eseguirla in modalità non di debug.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
-![App in esecuzione](start-mvc/_static/1.png)
+![app in esecuzione](start-mvc/_static/1.png)
 
 * Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente il numero di porta è 5000. Nell'URL nel browser viene visualizzato `localhost:5000`. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
