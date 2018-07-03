@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: Routing e la selezione di azione in ASP.NET Web API | Documenti Microsoft
+title: Routing e selezione dell'azione nell'API Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,35 +9,34 @@ ms.date: 07/27/2012
 ms.topic: article
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dc0edbdf62ceab1baf441301b47c0293de9a5c5d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28043418"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388614"
 ---
-<a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing e la selezione di azione in ASP.NET Web API
+<a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing e selezione dell'azione nell'API Web ASP.NET
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
-In questo articolo viene descritto come ASP.NET Web API invia una richiesta HTTP a una determinata azione su un controller.
+Questo articolo descrive come API Web ASP.NET consente di indirizzare una richiesta HTTP per una determinata azione su un controller.
 
 > [!NOTE]
-> Per una panoramica del routing, vedere [Routing in ASP.NET Web API](routing-in-aspnet-web-api.md).
+> Per una panoramica generale del routing, vedere [Routing in API Web ASP.NET](routing-in-aspnet-web-api.md).
 
 
-In questo articolo esamina i dettagli del processo di routing. Se si crea un progetto di Web API e trova che alcune richieste non indirizzate come che previsto, probabilmente consente di questo articolo.
+Questo articolo esamina i dettagli del processo di routing. Se si crea un progetto API Web e si scopre che alcune richieste Don ' t get indirizzato nel modo che previsto, si spera in questo articolo spiega come.
 
-Il routing offre tre fasi principali:
+Routing prevede tre fasi principali:
 
 1. Corrispondenza dell'URI per un modello di route.
-2. Selezione di un controller.
-3. Selezionando un'azione.
+2. Quando si seleziona un controller.
+3. Selezionare un'azione.
 
-È possibile sostituire alcune parti del processo con comportamenti personalizzati. In questo articolo, descrivo il comportamento predefinito. Al termine, nota le posizioni in cui è possibile personalizzare il comportamento.
+È possibile sostituire alcune parti del processo con i propri comportamenti personalizzati. In questo articolo, descritto il comportamento predefinito. Al termine, nota le posizioni in cui è possibile personalizzare il comportamento.
 
 ## <a name="route-templates"></a>Modelli di route
 
@@ -49,32 +48,32 @@ Quando si crea una route, è possibile fornire valori predefiniti per alcuni o t
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample2.cs)]
 
-È inoltre possibile specificare vincoli, ovvero limitano come un segmento URI può corrispondere a un segnaposto:
+È anche possibile fornire i vincoli, che limitano come un segmento dell'URI può corrispondere a un segnaposto:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample3.js)]
 
-Il framework tenta di abbinare i segmenti nel percorso dell'URI per il modello. Valori letterali nel modello devono corrispondere esattamente. Un segnaposto corrisponde a qualsiasi valore, a meno che non si specificano vincoli. Il framework non corrisponde a altre parti dell'URI, ad esempio il nome host o i parametri di query. Il framework seleziona la prima route nella tabella di route che corrisponde all'URI specificato.
+Il framework tenta di far corrispondere i segmenti nel percorso dell'URI per il modello. Valori letterali nel modello devono corrispondere esattamente. Un segnaposto corrisponde a qualsiasi valore, a meno che non si specificano vincoli. Il framework non corrisponde a altre parti dell'URI, ad esempio il nome host o i parametri di query. Il framework sceglie la prima route nella tabella di route che corrisponde all'URI specificato.
 
-Esistono due segnaposto speciale: "{controller}" e "{action}".
+Esistono due segnaposto speciali: "{controller}" e "{action}".
 
 - "{controller}" fornisce il nome del controller.
-- "{action}" fornisce il nome dell'azione. Nell'API Web, la convenzione di solito è omettere "{action}".
+- "{action}" fornisce il nome dell'azione. Nell'API Web, la convenzione consueto consiste nell'omettere "{action}".
 
 ### <a name="defaults"></a>attività
 
-Se si specificano valori predefiniti, la route corrisponde un URI a cui mancano i segmenti. Ad esempio:
+Se si specificano le impostazioni predefinite, route corrisponderà a un URI privo di tali segmenti. Ad esempio:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-L'URI "`http://localhost/api/products`" corrisponde a questa route. Il segmento '{categoria}' è assegnato il valore predefinito "tutti".
+L'URI "`http://localhost/api/products`" corrisponde a questa route. Il segmento "{category}" è assegnato il valore predefinito "all".
 
 ### <a name="route-dictionary"></a>Dizionario della route
 
-Se il framework trova una corrispondenza per un URI, viene creato un dizionario che contiene il valore per ogni segnaposto. Le chiavi sono i nomi dei segnaposto, senza includere le parentesi graffe. I valori vengono ricavati dal percorso URI o dalle impostazioni predefinite. Il dizionario viene archiviato nel **IHttpRouteData** oggetto.
+Se il framework rileva una corrispondenza per un URI, crea un dizionario che contiene il valore di ogni segnaposto. Le chiavi sono i nomi dei segnaposto, senza includere le parentesi graffe. I valori vengono ricavati dal percorso URI o i valori predefiniti. Il dizionario viene archiviato nel **IHttpRouteData** oggetto.
 
-Durante questa fase di corrispondenza di route le speciali "{controller}" segnaposto "{action}" vengano considerati come altri segnaposto. Questi sono semplicemente archiviati nel dizionario con gli altri valori.
+Durante questa fase di corrispondenza dei route, la speciale "{controller}" e il segnaposto "{action}" vengono gestiti come i segnaposto di altri. Sono semplicemente archiviati nel dizionario gli altri valori.
 
-Valore predefinito può avere il valore speciale **RouteParameter.Optional**. Se questo valore assegnato un segnaposto, il valore non viene aggiunto per il dizionario della route. Ad esempio:
+Un valore predefinito può avere il valore speciale **RouteParameter.Optional**. Se questo valore assegnato un segnaposto, il valore non viene aggiunto al dizionario della route. Ad esempio:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample5.cs)]
 
@@ -89,7 +88,7 @@ Per "api/prodotti/toys/123", tuttavia, il dizionario della route conterrà:
 - category: "toys"
 - id: "123"
 
-Le impostazioni predefinite possono inoltre includere un valore che non viene visualizzata in qualsiasi punto nel modello di route. Se la route corrisponde, tale valore viene archiviato nel dizionario. Ad esempio:
+I valori predefiniti possono anche includere un valore che non viene visualizzato in un punto qualsiasi nel modello di route. Se la route corrisponde, tale valore viene archiviato nel dizionario. Ad esempio:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample6.cs)]
 
@@ -98,23 +97,23 @@ Se il percorso dell'URI è "root/api/8", il dizionario contiene due valori:
 - controller: "customers"
 - id: "8"
 
-## <a name="selecting-a-controller"></a>La selezione di un Controller
+## <a name="selecting-a-controller"></a>Quando si seleziona un Controller
 
-La selezione del controller è gestita dal **IHttpControllerSelector.SelectController** metodo. Questo metodo accetta un **HttpRequestMessage** istanza e restituisce un **HttpControllerDescriptor**. L'implementazione predefinita viene eseguito il **DefaultHttpControllerSelector** classe. Questa classe Usa un semplice algoritmo:
+La selezione del controller è gestita dal **IHttpControllerSelector.SelectController** (metodo). Questo metodo accetta un **HttpRequestMessage** istanza e restituisce un' **HttpControllerDescriptor**. L'implementazione predefinita avviene tramite il **DefaultHttpControllerSelector** classe. Questa classe Usa un algoritmo molto semplice:
 
-1. Esaminare il dizionario della route per la chiave "controller".
-2. Accettare il valore per questa chiave e aggiungere la stringa "Controller" per ottenere il nome del tipo di controller.
-3. Cercare un controller Web API con questo nome del tipo.
+1. Cercare nel dizionario della route per la chiave "controller".
+2. Il valore per questa chiave e aggiungere la stringa "Controller" per ottenere il nome del tipo di controller.
+3. Cercare un controller API Web con questo nome del tipo.
 
-Ad esempio, se il dizionario della route contiene il coppia chiave-valore Microsoft "controller" = "prodotti", il tipo di controller è "ProductsController". Se è presente alcun tipo corrispondente, o più corrispondenze, il framework restituisce un errore al client.
+Ad esempio, se il dizionario della route contiene il coppia chiave-valore "controller" = "prodotti", il tipo di controller è "ProductsController". Se è presente alcun tipo di corrispondenza o più corrispondenze, il framework restituisce un errore al client.
 
-Per il passaggio 3, **DefaultHttpControllerSelector** utilizza il **IHttpControllerTypeResolver** interfaccia da ottenere l'elenco dei tipi di controller API Web. L'implementazione predefinita di **IHttpControllerTypeResolver** restituisce tutte le classi pubbliche che implementano (a) **IHttpController**, (b) sono non astratta e (c) dispone di un nome che termina con "Controller".
+Passaggio 3, **DefaultHttpControllerSelector** Usa le **IHttpControllerTypeResolver** interfaccia da ottenere l'elenco dei tipi di controller API Web. L'implementazione predefinita di **IHttpControllerTypeResolver** restituisce tutte le classi pubbliche che implementano (a) **IHttpController**, (b) sono non astratta e (c) dispone di un nome che termina con "Controller".
 
-## <a name="action-selection"></a>Selezione di azione
+## <a name="action-selection"></a>Selezione azione
 
-Dopo aver selezionato il controller, il framework seleziona l'azione chiamando il **IHttpActionSelector.SelectAction** metodo. Questo metodo accetta un **HttpControllerContext** e restituisce un **HttpActionDescriptor**.
+Dopo aver selezionato il controller, il framework consente di selezionare l'azione chiamando il **IHttpActionSelector.SelectAction** (metodo). Questo metodo accetta un **HttpControllerContext** e restituisce un' **HttpActionDescriptor**.
 
-L'implementazione predefinita viene eseguito il **ApiControllerActionSelector** classe. Per selezionare un'azione, esamina le operazioni seguenti:
+L'implementazione predefinita avviene tramite il **ApiControllerActionSelector** classe. Per selezionare un'azione, analizza i seguenti:
 
 - Il metodo HTTP della richiesta.
 - Il segnaposto "{action}" nel modello di route, se presente.
@@ -122,59 +121,59 @@ L'implementazione predefinita viene eseguito il **ApiControllerActionSelector** 
 
 Prima di esaminare l'algoritmo di selezione, è necessario comprendere alcuni aspetti di azioni del controller.
 
-**I metodi sul controller sono considerati "azioni"?** Quando si seleziona un'azione, il framework esamina solo i metodi di istanza pubblici nel controller. Inoltre, sono esclusi ["nome speciale"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) metodi (costruttori, eventi, gli overload degli operatori e così via) e metodi ereditati dal **ApiController** classe.
+**I metodi nel controller che sono considerati "azioni"?** Quando si seleziona un'azione, il framework esamina solo i metodi di istanza pubblici nel controller. Inoltre, esclude ["nome speciale"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) metodi (costruttori, eventi, gli overload degli operatori e così via) e metodi ereditati dalle **ApiController** classe.
 
-**Metodi HTTP.** Il framework sceglie solo le azioni che corrispondano al metodo HTTP della richiesta, determinata come segue:
+**Metodi HTTP.** Il framework sceglie solo le azioni che corrispondono al metodo HTTP della richiesta, determinata come segue:
 
-1. È possibile specificare il metodo HTTP con un attributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **HttpOptions**, **HttpPatch**, **HttpPost**, o **HttpPut**.
-2. In caso contrario, se il nome del metodo controller inizia con "Get", "Post", "Put", "Delete", "Head", "Opzioni" o "Patch", quindi per convenzione l'azione supporta il metodo HTTP.
+1. È possibile specificare il metodo HTTP con un attributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **HttpOptions**, **HttpPatch**, **HttpPost**, oppure **HttpPut**.
+2. In caso contrario, se il nome del metodo del controller inizia con "Get", "Post", "Put", "Delete", "Head", "Opzioni" o "Patch", quindi per convenzione l'azione supporta tale metodo HTTP.
 3. Se nessuna delle precedenti, il metodo supporta POST.
 
-**Associazioni di parametri.** Associazione di un parametro è un valore per un parametro di creazione delle API Web. Di seguito è riportata la regola predefinita per l'associazione di parametri:
+**Associazioni di parametro.** Un'associazione di parametri è come API Web crea un valore per un parametro. Ecco la regola predefinita per l'associazione di parametro:
 
-- Tipi semplici vengono eseguiti dall'URI.
-- Tipi complessi vengono estratti dal corpo della richiesta.
+- Tipi semplici vengono forniti dall'URI.
+- I tipi complessi sono tratti dal corpo della richiesta.
 
-I tipi semplici includono tutti il [tipi primitivi di .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), oltre a **DateTime**, **decimale**, **Guid**, **stringa** , e **TimeSpan**. Per ogni azione, al massimo un parametro può leggere il corpo della richiesta.
+Tipi semplici includono tutte le [i tipi primitivi di .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), plus **DateTime**, **Decimal**, **Guid**, **stringa** , e **TimeSpan**. Per ogni azione, al massimo un parametro può leggere il corpo della richiesta.
 
 > [!NOTE]
-> È possibile ignorare le regole di associazione predefinito. Vedere [l'associazione di parametri WebAPI dietro le quinte](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
+> È possibile sostituire le regole di associazione predefinita. Visualizzare [associazione di parametri di API Web dietro le quinte](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
 
 
-Con lo sfondo, di seguito è l'algoritmo di selezione dell'azione.
+Detto questo, ecco l'algoritmo di selezione dell'azione.
 
-1. Creare un elenco di tutte le azioni sul controller a cui corrisponde il metodo di richiesta HTTP.
+1. Creare un elenco di tutte le azioni nel controller che corrisponde al metodo di richiesta HTTP.
 2. Se il dizionario della route è una voce "action", rimuovere le azioni il cui nome corrisponde a questo valore.
-3. Provare a corrispondere ai parametri azione per l'URI, come indicato di seguito: 
+3. Provare a corrispondere ai parametri di azione all'URI, come indicato di seguito: 
 
-    1. Per ogni azione, è possibile ottenere un elenco di parametri che sono un tipo semplice, in cui l'associazione ottiene il parametro dall'URI. Escludere i parametri facoltativi.
-    2. Da questo elenco, provare a trovare una corrispondenza per ogni nome di parametro, il dizionario della route o nella stringa di query dell'URI. Corrispondenze vengono fatta distinzione tra maiuscole e minuscole e non dipendono dall'ordine dei parametri.
+    1. Per ogni azione, ottenere un elenco dei parametri sono un tipo semplice, in cui l'associazione ottiene il parametro dall'URI. Escludere i parametri facoltativi.
+    2. In questo elenco, provare a trovare una corrispondenza per ogni nome di parametro, il dizionario della route o nella stringa di query dell'URI. Corrispondenze sono maiuscole e minuscole e non dipendono l'ordine dei parametri.
     3. Selezionare un'azione in cui ogni parametro nell'elenco ha una corrispondenza nell'URI.
-    4. Se più di un'azione soddisfa questi criteri, selezionare quella con la maggior parte delle corrispondenze di parametro.
+    4. Se più di una sola azione soddisfa questi criteri, scegliere quella con la maggior parte delle corrispondenze di parametro.
 4. Ignorare le azioni con il **[NonAction]** attributo.
 
-Passaggio 3 # è probabilmente il più intuitive. L'idea di base è che un parametro è possibile ottenere il valore dell'URI, dal corpo della richiesta o da un'associazione personalizzata. Per i parametri forniti dall'URI, si desidera assicurarsi che l'URI contiene effettivamente un valore per il parametro, nel percorso (tramite il dizionario della route) o nella stringa di query.
+Passaggio #3 è probabilmente il più confusione. L'idea di base è che un parametro può ottenere il relativo valore dall'URI, dal corpo della richiesta o da un'associazione personalizzata. Per i parametri forniti dall'URI, è opportuno assicurarsi che l'URI contiene effettivamente un valore per tale parametro, il percorso (tramite il dizionario della route) o nella stringa di query.
 
 Ad esempio, si consideri l'azione seguente:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample7.cs)]
 
-Il *id* il parametro viene associato all'URI. Pertanto, questa azione può corrispondere solo un URI che contiene un valore per "id", il dizionario della route o nella stringa di query.
+Il *id* il parametro viene associato all'URI. Pertanto, questa azione può corrispondere solo a un URI che contiene un valore per "id", il dizionario della route o nella stringa di query.
 
-Parametri facoltativi sono un'eccezione, perché sono facoltativi. Per un parametro facoltativo, è OK se l'associazione non è possibile ottenere il valore dell'URI.
+I parametri facoltativi sono un'eccezione, perché sono facoltativi. Per un parametro facoltativo, è OK se l'associazione non è possibile ottenere il valore dall'URI.
 
-I tipi complessi sono un'eccezione per un motivo diverso. Un tipo complesso può associarsi solo a URI tramite un'associazione personalizzata. Ma in tal caso, cui il framework non è possibile sapere in anticipo se il parametro sarebbe associato a un particolare URI. Per individuare, sarebbe necessario richiamare l'associazione. L'obiettivo dell'algoritmo consiste nel selezionare un'azione in base alla descrizione statica, prima di richiamare le associazioni. Di conseguenza, i tipi complessi sono escluse dall'algoritmo di corrispondenza.
+I tipi complessi sono un'eccezione per un motivo diverso. Un tipo complesso può associarsi solo a URI tramite un'associazione personalizzata. Ma in tal caso, il framework non è possibile tener presente se il parametro sarebbe associato a un particolare URI. Per individuare, sarebbe necessario richiamare l'associazione. L'obiettivo dell'algoritmo consiste nel selezionare un'azione dalla descrizione statica, prima di richiamare tutti i binding. Di conseguenza, i tipi complessi vengono esclusi dall'algoritmo di corrispondenza.
 
 Dopo aver selezionato l'azione, tutte le associazioni di parametro vengono richiamate.
 
 Riepilogo:
 
-- L'azione deve corrispondere il metodo HTTP della richiesta.
-- Il nome dell'azione deve corrispondere alla voce di "azione" nel dizionario di route, se presente.
-- Per ogni parametro dell'azione, se il parametro non viene eseguito dall'URI, quindi il nome del parametro deve essere trovato nel dizionario della route o nella stringa di query dell'URI. (Parametri facoltativi e parametri con tipi complessi sono esclusi.)
-- Provare a cui corrisponde il maggior numero di parametri. La corrispondenza migliore potrebbe essere un metodo senza parametri.
+- L'azione deve corrispondere al metodo HTTP della richiesta.
+- Il nome dell'azione deve corrispondere alla voce "action" nel dizionario della route, se presente.
+- Per ogni parametro dell'azione, se il parametro viene estratto dall'URI, quindi il nome del parametro deve essere trovato nel dizionario della route o nella stringa di query dell'URI. (I parametri facoltativi e parametri con tipi complessi vengono esclusi.)
+- Tentativo di rendere il maggior numero di parametri. La corrispondenza migliore potrebbe essere un metodo senza parametri.
 
-## <a name="extended-example"></a>Esempio esteso
+## <a name="extended-example"></a>Esempio dettagliato
 
 Route:
 
@@ -195,34 +194,34 @@ L'URI corrisponde alla route denominata "DefaultApi". Il dizionario della route 
 - controller: "prodotti"
 - id: "1"
 
-Il dizionario della route non contiene parametri di stringa di query "version" e "Dettagli", ma questi verranno ancora considerati durante la selezione di azione.
+Il dizionario della route non contiene i parametri della stringa di query, "version" e "Dettagli", ma questi continueranno ad essere considerati durante la selezione di azione.
 
 ### <a name="controller-selection"></a>Selezione del controller
 
-Voce "controller" nel dizionario della route, è il tipo di controller `ProductsController`.
+Dalla voce "controller" nel dizionario della route, il tipo di controller è `ProductsController`.
 
-### <a name="action-selection"></a>Selezione di azione
+### <a name="action-selection"></a>Selezione azione
 
-La richiesta HTTP è una richiesta GET. Le azioni del controller che supportano il recupero sono `GetAll`, `GetById`, e `FindProductsByName`. Il dizionario della route non contiene una voce per "action", è necessario associare il nome dell'azione.
+La richiesta HTTP è una richiesta GET. Le azioni del controller che supportano il recupero vengono `GetAll`, `GetById`, e `FindProductsByName`. Il dizionario della route non contiene una voce per "action", pertanto non è necessario affinché corrisponda al nome di azione.
 
-Successivamente, si tenta di corrispondere i nomi dei parametri per le azioni, esaminare solo le operazioni GET.
+Quindi, cerchiamo corrispondano ai nomi di parametro per le azioni, osservando solo le azioni GET.
 
 | Operazione | Parametri di corrispondenza |
 | --- | --- |
 | `GetAll` | none |
 | `GetById` | "id" |
-| `FindProductsByName` | "nome" |
+| `FindProductsByName` | "name" |
 
 Si noti che il *versione* parametro di `GetById` non viene considerato, perché è un parametro facoltativo.
 
-Il `GetAll` metodo corrisponde in modo semplice. Il `GetById` metodo inoltre corrisponde, perché il dizionario della route contiene "id". Il `FindProductsByName` (metodo) non corrisponde.
+Il `GetAll` metodo corrisponde alla facilmente. Il `GetById` metodo anche corrispondenze, perché il dizionario della route contiene "id". Il `FindProductsByName` (metodo) non corrisponde.
 
-Il `GetById` metodo wins, poiché corrisponde a un parametro, e nessun parametro per `GetAll`. Il metodo viene richiamato con i valori dei parametri seguenti:
+Il `GetById` metodo wins, poiché corrisponde a un parametro, rispetto a alcun parametro per `GetAll`. Il metodo viene richiamato con i valori dei parametri seguenti:
 
 - *id* = 1
-- *versione* = 1.5
+- *versione* Version=1.5
 
-Si noti che anche se *versione* non è stato utilizzato nell'algoritmo di selezione, il valore del parametro proviene dalla stringa di query URI.
+Si noti che sebbene *versione* non è stata usata nell'algoritmo di selezione, il valore del parametro proviene dalla stringa di query URI.
 
 ## <a name="extension-points"></a>Punti di estensione
 
@@ -232,11 +231,11 @@ API Web fornisce punti di estensione per alcune parti del processo di routing.
 | --- | --- |
 | **IHttpControllerSelector** | Seleziona il controller. |
 | **IHttpControllerTypeResolver** | Ottiene l'elenco dei tipi di controller. Il **DefaultHttpControllerSelector** sceglie il tipo di controller da questo elenco. |
-| **IAssembliesResolver** | Ottiene l'elenco degli assembly di progetto. Il **IHttpControllerTypeResolver** interfaccia utilizza questo elenco per trovare i tipi di controller. |
+| **IAssembliesResolver** | Ottiene l'elenco degli assembly di progetto. Il **IHttpControllerTypeResolver** interfaccia Usa questo elenco per trovare i tipi di controller. |
 | **IHttpControllerActivator** | Crea nuove istanze di controller. |
 | **IHttpActionSelector** | Seleziona l'azione. |
 | **IHttpActionInvoker** | Richiama l'azione. |
 
-Per garantire la propria implementazione di una di queste interfacce, utilizzare il **servizi** insieme il **HttpConfiguration** oggetto:
+Per garantire la propria implementazione di una di queste interfacce, usare il **Services** insieme nel **HttpConfiguration** oggetto:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample11.cs)]

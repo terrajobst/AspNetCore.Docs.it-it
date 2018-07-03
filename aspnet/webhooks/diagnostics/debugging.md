@@ -1,6 +1,6 @@
 ---
 uid: webhooks/diagnostics/debugging
-title: ASP.NET Webhook debug | Documenti Microsoft
+title: Webhook ASP.NET debug | Microsoft Docs
 author: rick-anderson
 description: Come eseguire il debug ASP.NET Webhook.
 ms.author: aspnetcontent
@@ -9,33 +9,32 @@ ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 524cdf0246eda9ef213414923cd23a92a01f211e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5c567fb51db008526f59e09fce5bb60b66f6e479
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28044864"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389059"
 ---
-# <a name="aspnet-webhooks-debugging"></a>ASP.NET Webhook debug  
+# <a name="aspnet-webhooks-debugging"></a>Webhook ASP.NET debug  
 
 ## <a name="debugging-in-azure"></a>Debug in Azure
 
-Per eseguire il debug dell'applicazione Web durante l'esecuzione in Azure, vedere l'esercitazione [risolvere i problemi relativi a un'app web nel servizio App di Azure con Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
+Per eseguire il debug dell'applicazione Web durante l'esecuzione in Azure, vedere l'esercitazione [risolvere i problemi di un'app web nel servizio App di Azure con Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
 
-## <a name="debugging-with-source-and-symbols"></a>Con l'origine e i simboli di debug
+## <a name="debugging-with-source-and-symbols"></a>Debug con simboli e origine
 
-Oltre a debug il proprio codice, è possibile eseguire il debug direttamente in Microsoft ASP.NET WebHooks e, in realtà tutti .NET. Questo procedimento funziona indipendentemente dal fatto se si esegue il debug in locale o remota. Innanzitutto, configurare Visual Studio per trovare l'origine e i simboli passando a **Debug** e quindi **opzioni e impostazioni**. Impostare le opzioni simile al seguente:
+Oltre a debug il proprio codice, è possibile eseguire il debug direttamente in Microsoft ASP.NET WebHooks e in effetti tutti di .NET. Questa opzione funziona indipendentemente dal fatto che si esegue il debug in locale o remoto. Prima di tutto configurare Visual Studio per trovare l'origine e i simboli selezionando **Debug** e quindi **opzioni e impostazioni**. Impostare le opzioni simile al seguente:
 
 ![Opzioni e impostazioni](_static/SourceSymbols.png)
 
-Quindi aggiungere un collegamento a [symbolsource.org](http://symbolsource.org) per scaricare l'origine e i simboli. Passare al **simboli** scheda del menu precedente e aggiungere un percorso simboli le seguenti:
+Quindi aggiungere un collegamento a [symbolsource.org](http://symbolsource.org) per aver scaricato l'origine e i simboli. Andare alla **simboli** scheda del precedente menu e aggiungere quanto segue come un percorso simboli:
 
 ```
 http://srv.symbolsource.org/pdb/Public
 ```
 
-Inoltre, assicurarsi che la directory della cache è un nome breve. in caso contrario i nomi dei file possono diventare troppo lunghi che fa sì che i simboli non viene caricato. È un percorso di esempio:
+Inoltre, assicurarsi che la directory della cache ha un nome breve. in caso contrario, i nomi dei file possono diventare troppo lunghi che produrrà i simboli non viene caricato. È un percorso di esempio:
 
 ```
 C:\SymCache

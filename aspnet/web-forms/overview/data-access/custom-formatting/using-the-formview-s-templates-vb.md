@@ -1,122 +1,121 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
-title: Utilizzo di modelli del controllo FormView (VB) | Documenti Microsoft
+title: Usando i modelli del controllo FormView (VB) | Microsoft Docs
 author: rick-anderson
-description: A differenza di DetailsView, FormView è composta non da campi. In alternativa, FormView rendering viene eseguito utilizzando i modelli. In questa esercitazione si esamineranno utilizzando il F....
+description: A differenza di DetailsView, FormView non comprende i campi. Al contrario, FormView rendering viene eseguito usando i modelli. In questa esercitazione verrà esaminato utilizzando le F....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
 ms.topic: article
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 16293960f5d8758c93646844bd159547f5e0f38c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 66ad79c0c385afed75c1888b81328220ee048d19
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875149"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389914"
 ---
-<a name="using-the-formviews-templates-vb"></a>Utilizzo di modelli del controllo FormView (VB)
+<a name="using-the-formviews-templates-vb"></a>Usando i modelli del controllo FormView (VB)
 ====================
 da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Scaricare App di esempio](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_14_VB.exe) o [Scarica il PDF](using-the-formview-s-templates-vb/_static/datatutorial14vb1.pdf)
+[Scaricare l'App di esempio](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_14_VB.exe) o [Scarica il PDF](using-the-formview-s-templates-vb/_static/datatutorial14vb1.pdf)
 
-> A differenza di DetailsView, FormView è composta non da campi. In alternativa, FormView rendering viene eseguito utilizzando i modelli. In questa esercitazione che si esamineranno utilizzando il controllo FormView per presentare una visualizzazione di dati meno rigida.
+> A differenza di DetailsView, FormView non comprende i campi. Al contrario, FormView rendering viene eseguito usando i modelli. In questa esercitazione che verrà esaminato tramite il controllo FormView per presentare una visualizzazione di dati meno rigida.
 
 
 ## <a name="introduction"></a>Introduzione
 
-Nelle ultime due esercitazioni è stato illustrato come personalizzare l'output dei controlli GridView e DetailsView con TemplateFields. Consente di TemplateFields per il contenuto di un campo specifico essere altamente personalizzati, ma alla fine GridView e DetailsView hanno un aspetto piuttosto squadrato, forma di griglia. Per molti scenari di un layout di griglia è ideale, ma in alcuni casi in cui è necessaria una visualizzazione più semplice e meno rigida. Quando si visualizza un singolo record, tale un layout semplice è possibile utilizzare il controllo FormView.
+Nelle ultime due esercitazioni è stato illustrato come personalizzare gli output dei controlli GridView e DetailsView, uso di TemplateFields. TemplateFields consentono il contenuto per un campo specifico essere altamente personalizzato, ma alla fine GridView e DetailsView avere un aspetto simile a griglia e piuttosto squadrato. Per molti scenari è consigliabile un layout griglia simile a questo tipo, ma in alcuni casi è necessaria una visualizzazione più fluida, meno rigida. Quando si visualizza un singolo record, è possibile utilizzando il controllo FormView tali un layout fluido.
 
-A differenza di DetailsView, FormView è composta non da campi. È possibile aggiungere un TemplateField BoundField a un controllo FormView. In alternativa, FormView rendering viene eseguito utilizzando i modelli. Considerato come un controllo DetailsView che contiene un singolo TemplateField FormView. FormView supporta i modelli seguenti:
+A differenza di DetailsView, FormView non comprende i campi. È possibile aggiungere un BoundField o TemplateField a un controllo FormView. Al contrario, FormView rendering viene eseguito usando i modelli. Pensi a FormView come un controllo DetailsView contenente un TemplateField singolo. FormView supporta i modelli seguenti:
 
-- `ItemTemplate` usato per il rendering il record specifico visualizzato in FormView
+- `ItemTemplate` utilizzato per il rendering il record specifico visualizzato nel controllo FormView
 - `HeaderTemplate` Consente di specificare una riga di intestazioni facoltative
 - `FooterTemplate` Consente di specificare una riga di piè di pagina facoltativi
-- `EmptyDataTemplate` Quando il controllo FormView `DataSource` non è presente alcun record, il `EmptyDataTemplate` viene usato al posto del `ItemTemplate` per il rendering di markup del controllo
-- `PagerTemplate` può essere utilizzato per personalizzare l'interfaccia di paging per FormViews con paging abilitato
-- `EditItemTemplate` / `InsertItemTemplate` usato per personalizzare l'interfaccia di modifica o l'interfaccia di inserimento per FormViews che supportano tale funzionalità
+- `EmptyDataTemplate` Quando il controllo FormView `DataSource` non dispone di alcun record, il `EmptyDataTemplate` viene usato al posto di `ItemTemplate` per il rendering del markup del controllo
+- `PagerTemplate` può essere utilizzato per personalizzare l'interfaccia di paging per FormViews che hanno il paging è abilitato
+- `EditItemTemplate` / `InsertItemTemplate` usato per personalizzare l'interfaccia per la modifica o l'interfaccia di inserimento per FormViews che supportano questa funzionalità
 
-In questa esercitazione che si esamineranno utilizzando il controllo FormView per presentare una visualizzazione dei prodotti meno rigida. Invece di campi per il nome, categoria, fornitore e del così via, FormView `ItemTemplate` verranno visualizzati i valori utilizzando una combinazione di un elemento di intestazione e un `<table>` (vedere la figura 1).
-
-
-[![FormView interruzioni del Layout di griglia simile a quello visualizzato nel controllo DetailsView.](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
-
-**Figura 1**: FormView interrotta il Layout Grid-Like visualizzato nel controllo DetailsView ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-vb/_static/image3.png))
+In questa esercitazione che verrà esaminato tramite il controllo FormView per presentare una visualizzazione di prodotti meno rigida. Evitando che i campi per il nome, categoria, fornitore e del così via, FormView `ItemTemplate` mostrerà tali valori usando una combinazione di un elemento di intestazione e un `<table>` (vedere la figura 1).
 
 
-## <a name="step-1-binding-the-data-to-the-formview"></a>Passaggio 1: Associazione di dati per il controllo FormView
+[![FormView suddivide la del Layout di tipo griglia visualizzato nel controllo DetailsView.](using-the-formview-s-templates-vb/_static/image2.png)](using-the-formview-s-templates-vb/_static/image1.png)
 
-Aprire il `FormView.aspx` pagina e trascinare un controllo FormView dalla casella degli strumenti nella finestra di progettazione. Quando si aggiungono innanzitutto FormView viene visualizzato come una casella grigia, che ci indica che un `ItemTemplate` è necessaria.
-
-
-[![FormView non può essere eseguito il rendering nella finestra di progettazione fino a quando non viene fornito un elemento ItemTemplate](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
-
-**Figura 2**: il controllo FormView non è possibile visualizzare la finestra di progettazione fino a un' `ItemTemplate` fornito ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-vb/_static/image6.png))
+**Figura 1**: FormView esce il Layout Grid-Like visualizzato nel controllo DetailsView ([fare clic per visualizzare l'immagine con dimensioni normali](using-the-formview-s-templates-vb/_static/image3.png))
 
 
-Il `ItemTemplate` possono essere creati manualmente (tramite la sintassi dichiarativa) o possono essere create automaticamente associando FormView a un controllo origine dati tramite la finestra di progettazione. Questo create automaticamente `ItemTemplate` contiene tag HTML che elenca il nome di ogni campo e un'etichetta controllo cui `Text` proprietà è associata al valore del campo. Questo approccio anche auto-crea un `InsertItemTemplate` e `EditItemTemplate`, entrambi i quali vengono popolati con i controlli di input per ognuno dei campi di dati restituiti dal controllo origine dati.
+## <a name="step-1-binding-the-data-to-the-formview"></a>Passaggio 1: Associazione dei dati a FormView
 
-Se si desidera creare automaticamente il modello, smart tag del controllo FormView di aggiungere un nuovo controllo ObjectDataSource che richiama la `ProductsBLL` della classe `GetProducts()` metodo. Verrà creato un controllo FormView con un `ItemTemplate`, `InsertItemTemplate`, e `EditItemTemplate`. Dalla visualizzazione origine, rimuovere il `InsertItemTemplate` e `EditItemTemplate` poiché non si è interessati la creazione di un controllo FormView che supporta la modifica o inserimento ancora. Successivamente, cancellare il markup all'interno di `ItemTemplate` in modo che si dispone di una situazione pulita da.
+Aprire il `FormView.aspx` pagina e trascinare un controllo FormView dalla casella degli strumenti nella finestra di progettazione. Quando si aggiunge innanzitutto FormView viene visualizzato come una casella grigia, che indicano a noi che un `ItemTemplate` è necessaria.
 
-Se si preferisce creare di `ItemTemplate` manualmente, è possibile aggiungere e configurare ObjectDataSource trascinandolo dalla casella degli strumenti nella finestra di progettazione. Tuttavia, non impostare l'origine di dati del controllo FormView dalla finestra di progettazione. Al contrario, passare alla visualizzazione origine e impostare manualmente il controllo FormView `DataSourceID` proprietà per il `ID` valore ObjectDataSource. Successivamente, aggiungere manualmente il `ItemTemplate`.
 
-Indipendentemente dal quale approccio deciso di richiedere, a questo punto markup dichiarativo del FormView deve aspetto:
+[![FormView non è possibile visualizzare nella finestra di progettazione fino a quando non viene fornito un ItemTemplate](using-the-formview-s-templates-vb/_static/image5.png)](using-the-formview-s-templates-vb/_static/image4.png)
+
+**Figura 2**: il controllo FormView non è possibile visualizzare la finestra di progettazione fino a quando non un' `ItemTemplate` viene fornito ([fare clic per visualizzare l'immagine con dimensioni normali](using-the-formview-s-templates-vb/_static/image6.png))
+
+
+Il `ItemTemplate` possono essere creati manualmente (tramite la sintassi dichiarativa) o possono essere creati automaticamente mediante l'associazione FormView a un controllo origine dati tramite la finestra di progettazione. Ciò creato automaticamente `ItemTemplate` contiene codice HTML che elenca il nome di ogni campo e un'etichetta di controllo la cui `Text` è associata la proprietà per il valore del campo. Questo approccio anche auto-crea un' `InsertItemTemplate` e `EditItemTemplate`, entrambi vengono popolati con i controlli di input per ognuno dei campi dati restituiti dal controllo origine dati.
+
+Se si desidera creare automaticamente il modello, dallo smart tag del controllo FormView aggiungere un nuovo controllo ObjectDataSource che richiama il `ProductsBLL` della classe `GetProducts()` (metodo). Verrà creato un controllo FormView con un `ItemTemplate`, `InsertItemTemplate`, e `EditItemTemplate`. Dalla visualizzazione origine, rimuovere il `InsertItemTemplate` e `EditItemTemplate` poiché non sono interessati la creazione di un controllo FormView che supporta la modifica o inserimento ancora. Successivamente, cancellare il contenuto markup all'interno di `ItemTemplate` in modo che abbiamo uno slate pulito di lavorare da.
+
+Se si preferisce creare di `ItemTemplate` manualmente, è possibile aggiungere e configurare ObjectDataSource, trascinarlo dalla casella degli strumenti nella finestra di progettazione. Tuttavia, non imposta origine dati del controllo FormView dalla finestra di progettazione. Al contrario, passare alla visualizzazione origine e impostare manualmente il controllo FormView `DataSourceID` proprietà per il `ID` pari a ObjectDataSource. Successivamente, aggiungere manualmente il `ItemTemplate`.
+
+Indipendentemente dal quale approccio si deciso di sfruttare, a questo punto markup dichiarativo di FormView deve sono simili a:
 
 
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample1.aspx)]
 
-È opportuno selezionare la casella di controllo Abilita Paging nello smart tag del controllo FormView; verrà aggiunta la `AllowPaging="True"` attributo per la sintassi dichiarativa del controllo FormView. Inoltre, impostare il `EnableViewState` la proprietà su False.
+Si consiglia di controllare la casella di controllo Attiva Paging nello smart tag del controllo FormView; verrà aggiunta la `AllowPaging="True"` sintassi dichiarativa del controllo FormView dell'attributo. Inoltre, impostare il `EnableViewState` proprietà su False.
 
-## <a name="step-2-defining-theitemtemplates-markup"></a>Passaggio 2: Definire il`ItemTemplate`del Markup
+## <a name="step-2-defining-theitemtemplates-markup"></a>Passaggio 2: Definizione di`ItemTemplate`del Markup
 
-Con il controllo FormView associata al controllo ObjectDataSource e configurato per supportare il paging si è pronti per specificare il contenuto per il `ItemTemplate`. Per questa esercitazione, si hanno il nome del prodotto visualizzato un `<h3>` titolo. In seguito, che consente di usare un elemento HTML `<table>` per visualizzare le proprietà rimanenti di prodotto in una tabella di quattro colonne in cui le colonne del prima e il terza elencano i nomi delle proprietà e il secondo e il quarto elenco i relativi valori.
+Con il controllo FormView associata al controllo ObjectDataSource e configurato per supportare il paging siamo pronti per specificare il contenuto per il `ItemTemplate`. Per questa esercitazione, è possibile visualizzare nome del prodotto in un `<h3>` intestazione. In seguito, è possibile usare un elemento HTML `<table>` per visualizzare le proprietà rimanenti del prodotto in una tabella di quattro colonne in cui la prima e la terza colonna elenca i nomi delle proprietà e il secondo e il quarto elenco i relativi valori.
 
-Questo codice può essere inserita tramite l'interfaccia di modifica del controllo FormView modello nella finestra di progettazione o immesso manualmente tramite la sintassi dichiarativa. Quando si lavora con modelli in genere risultare più veloce lavorare direttamente con la sintassi dichiarativa, ma è possibile utilizzare qualsiasi tecnica si è più comodo.
+Questo markup può essere immessi tramite l'interfaccia di modifica modello del controllo FormView nella finestra di progettazione o immettere manualmente tramite la sintassi dichiarativa. Quando si lavora con i modelli in genere risultare più veloce lavorare direttamente con la sintassi dichiarativa, ma è possibile usare qualsiasi tecnica con cui hai più dimestichezza.
 
-Di seguito viene illustrato il markup dichiarativo FormView dopo il `ItemTemplate`della struttura è stata completata:
+Il markup seguente illustra il markup dichiarativo di FormView dopo il `ItemTemplate`della struttura è stata completata:
 
 
 [!code-aspx[Main](using-the-formview-s-templates-vb/samples/sample2.aspx)]
 
-Si noti che la sintassi di associazione dati - `<%# Eval("ProductName") %>`, ad esempio può essere inserita direttamente nell'output del modello. Ovvero non è necessario essere assegnato a un controllo di etichetta `Text` proprietà. Ad esempio, è necessario il `ProductName` valore visualizzato in un `<h3>` elemento utilizzando `<h3><%# Eval("ProductName") %></h3>`, che per il prodotto Chai verrà eseguito il rendering come `<h3>Chai</h3>`.
+Si noti che la sintassi di Data Binding - `<%# Eval("ProductName") %>`, ad esempio può essere inserito direttamente nell'output del modello. Vale a dire, è necessario non assegnarlo a un controllo etichetta `Text` proprietà. Ad esempio, è necessario il `ProductName` valore visualizzato un `<h3>` elemento usando `<h3><%# Eval("ProductName") %></h3>`, che per il prodotto Chai verranno sottoposti a rendering come `<h3>Chai</h3>`.
 
-Il `ProductPropertyLabel` e `ProductPropertyValue` classi CSS vengono utilizzate per specificare lo stile di nomi di proprietà di prodotto e i valori nel `<table>`. Queste classi CSS sono definite `Styles.css` , pertanto i nomi delle proprietà in grassetto e allineato a destra e aggiungere un diritto di riempimento per i valori delle proprietà.
+Il `ProductPropertyLabel` e `ProductPropertyValue` classi CSS vengono utilizzate per specificare lo stile dei nomi delle proprietà di prodotto e i valori nel `<table>`. Queste classi CSS sono definite `Styles.css` , pertanto i nomi delle proprietà grassetto e allineato a destra e aggiungere il diritto di riempimento per i valori delle proprietà.
 
-Poiché non sono disponibili con il controllo FormView, nessun CheckBoxFields per mostrare il `Discontinued` valore come una casella di controllo è necessario aggiungere un controllo casella di controllo. Il `Enabled` è impostata su False, rendendo di sola lettura e la casella di controllo `Checked` proprietà è associata al valore del `Discontinued` campo dati.
+Poiché non esistono disponibili con FormView, nessun CheckBoxFields per mostrare il `Discontinued` valore come una casella di controllo è necessario aggiungere un controllo casella di controllo. Il `Enabled` è impostata su False, rendendo di sola lettura e la casella di controllo `Checked` proprietà è associata al valore della `Discontinued` campo dati.
 
-Con il `ItemTemplate` completo, vengono visualizzate le informazioni di prodotto in modo molto più semplice. Confrontare l'output di DetailsView dall'ultima esercitazione (figura 3) con l'output generato dal FormView in questa esercitazione (figura 4).
+Con la `ItemTemplate` completo, vengono visualizzate le informazioni di prodotto in modo molto più fluido. Confrontare l'output di DetailsView dall'ultima esercitazione (figura 3) con l'output generato dal FormView in questa esercitazione (figura 4).
 
 
 [![L'Output di DetailsView rigida](using-the-formview-s-templates-vb/_static/image8.png)](using-the-formview-s-templates-vb/_static/image7.png)
 
-**Figura 3**: l'Output di DetailsView rigida ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-vb/_static/image9.png))
+**Figura 3**: l'Output di DetailsView rigida ([fare clic per visualizzare l'immagine con dimensioni normali](using-the-formview-s-templates-vb/_static/image9.png))
 
 
-[![L'Output FormView fluido](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
+[![L'Output di FormView fluide](using-the-formview-s-templates-vb/_static/image11.png)](using-the-formview-s-templates-vb/_static/image10.png)
 
-**Figura 4**: l'Output di FormView fluido ([fare clic per visualizzare l'immagine ingrandita](using-the-formview-s-templates-vb/_static/image12.png))
+**Figura 4**: l'Output di FormView fluidodinamica ([fare clic per visualizzare l'immagine con dimensioni normali](using-the-formview-s-templates-vb/_static/image12.png))
 
 
 ## <a name="summary"></a>Riepilogo
 
-Mentre i controlli GridView e DetailsView possono avere l'output personalizzato tramite TemplateFields, sia ancora presentare i dati in un formato griglia, squadrato. Tutte le volte quando è necessario un singolo record da visualizzare utilizzando un layout meno rigido, FormView è la scelta ideale. Analogamente a DetailsView, FormView esegue il rendering di un singolo record relativo `DataSource`, ma a differenza di DetailsView è composto solo da modelli e non supporta i campi.
+Anche se i controlli GridView e DetailsView possono avere l'output delle applicazioni personalizzata utilizzando TemplateFields, entrambe ancora presentare i propri dati in un formato simile a griglia e squadrato. Nei casi quando un singolo record deve essere visualizzata utilizzando un layout meno rigido, FormView rappresenta la scelta ideale. Analogamente a DetailsView, FormView esegue il rendering di un singolo record dalla relativa `DataSource`, ma a differenza di DetailsView è composto solo da modelli e non supporta i campi.
 
-Come abbiamo visto in questa esercitazione, FormView consente un layout più flessibile per la visualizzazione di un singolo record. In futuro esercitazioni si esamineranno i controlli DataList e Repeater, che forniscono lo stesso livello di flessibilità come il FormsView, ma sono in grado di visualizzare più record (ad esempio GridView).
+Come abbiamo visto in questa esercitazione, FormView consente un layout più flessibile per la visualizzazione di un singolo record. Esercitazioni in futuro verranno presi in esame i controlli DataList e Repeater, che forniscono lo stesso livello di flessibilità come il FormsView, ma sono in grado di visualizzare più record (ad esempio, il controllo GridView).
 
 Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di sette libri e fondatore di [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha collaborato con tecnologie Web di Microsoft dal 1998. Lavora come un consulente, formatore e autore. Il suo ultimo libro si intitola [ *Sams Teach Yourself ASP.NET 2.0 in 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). È possibile contattarlo al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, che è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore per questa esercitazione è stata E.R. Morelli. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Il revisore capo di questa esercitazione è stata E.R. Morelli. Se si è interessati prossimi articoli MSDN dello? In questo caso, Inviami una riga in corrispondenza [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Precedente](using-templatefields-in-the-detailsview-control-vb.md)

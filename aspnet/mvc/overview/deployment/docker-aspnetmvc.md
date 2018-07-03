@@ -7,16 +7,15 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.topic: article
-ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: fa010e795878b26c79dbe04ef0017373283c4269
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29143189"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37403019"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrazione di applicazioni ASP.NET MVC ai contenitori di Windows
 
@@ -75,7 +74,7 @@ Fare clic su **Pubblica** in modo che Visual Studio copi tutti gli asset necessa
 Definire l'immagine Docker in un Dockerfile. Il Dockerfile contiene le istruzioni per l'immagine di base, eventuali componenti aggiuntivi, l'app da eseguire e altre immagini di configurazione.  Il Dockerfile costituisce l'input per il comando `docker build` che crea l'immagine.
 
 Verrà creata un'immagine basata sull'immagine `microsoft/aspnet` situata nell'[hub Docker](https://hub.docker.com/r/microsoft/aspnet/).
-L'immagine di base, `microsoft/aspnet`, è un'immagine di Windows Server. Contiene Server Core di Windows, IIS e ASP.NET 4.6.2. Quando si esegue questa immagine in un contenitore, verranno avviati automaticamente IIS e i siti Web installati.
+L'immagine di base, `microsoft/aspnet`, è un'immagine di Windows Server. Contiene Windows Server Core, IIS e ASP.NET 4.6.2. Quando si esegue questa immagine in un contenitore, verranno avviati automaticamente IIS e i siti Web installati.
 
 Il documento Dockerfile che crea l'immagine è simile al seguente:
 
@@ -89,7 +88,7 @@ FROM microsoft/aspnet
 COPY ./bin/Release/PublishOutput/ /inetpub/wwwroot
 ```
 
-Non esiste alcun comando `ENTRYPOINT` in questo Dockerfile. Non è necessario. Quando si esegue Windows Server con IIS, il processo IIS è il punto di ingresso, è configurato per avviarsi nell'immagine di base aspnet.
+Non esiste alcun comando `ENTRYPOINT` in questo Dockerfile. Non è necessario. Quando si esegue Windows Server con IIS, il processo IIS è il punto di ingresso, configurato per l'avvio nell'immagine di base aspnet.
 
 Eseguire il comando di compilazione di Docker per creare l'immagine che esegue l'app ASP.NET. A tale scopo, aprire una finestra di PowerShell nella directory del progetto e digitare il comando seguente nella directory della soluzione:
 
@@ -97,7 +96,7 @@ Eseguire il comando di compilazione di Docker per creare l'immagine che esegue l
 docker build -t mvcrandomanswers .
 ```
 
-Questo comando creerà una nuova immagine con le istruzioni del Dockerfile, denominazione (-t tag) dell'immagine come mvcrandomanswers. L'operazione potrebbe includere il pull dell'immagine di base dall'[hub Docker](http://hub.docker.com) e l'aggiunta dell'app a tale immagine.
+Questo comando consente di creare la nuova immagine usando le istruzioni nel Dockerfile, denominazione (-t tagging) come mvcrandomanswers un'immagine. L'operazione potrebbe includere il pull dell'immagine di base dall'[hub Docker](http://hub.docker.com) e l'aggiunta dell'app a tale immagine.
 
 Dopo aver completato il comando è possibile eseguire il comando `docker images` per visualizzare informazioni sulla nuova immagine:
 
@@ -118,7 +117,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 L'argomento `-d` indica a Docker di avviare l'immagine senza collegamento. Ciò significa che l'immagine Docker viene eseguita scollegata dalla shell corrente.
 
-In molti esempi di docker, si può vedere -p per il mapping delle porte contenitore e host. L'immagine aspnet predefinita è già configurato il contenitore per l'ascolto sulla porta 80 ed esporre quest'ultimo. 
+In molti esempi di docker, è possibile riscontrare -p per il mapping delle porte contenitore e host. L'immagine aspnet di predefinita è già configurato il contenitore per l'ascolto sulla porta 80 e lo si espone. 
 
 Il valore `--name randomanswers` assegna un nome al contenitore in esecuzione. È possibile usare questo nome anziché l'ID del contenitore nella maggior parte dei comandi.
 
@@ -127,7 +126,7 @@ Il valore `mvcrandomanswers` è il nome dell'immagine da avviare.
 ## <a name="verify-in-the-browser"></a>Verificare nel browser
 
 > [!NOTE]
-> Con la versione corrente di contenitore di Windows, è possibile individuare `http://localhost`.
+> Con la versione corrente di contenitore di Windows, è possibile esplorare `http://localhost`.
 > Questo è un comportamento noto in WinNAT e verrà risolto in futuro. Fino a quel momento sarà necessario usare l'indirizzo IP del contenitore.
 
 Dopo l'avvio del contenitore, trovarne l'indirizzo IP in modo da consentire la connessione al contenitore in esecuzione da un browser:
@@ -137,7 +136,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
 172.31.194.61
 ```
 
-Connettersi al contenitore in esecuzione utilizzando l'indirizzo IPv4, `http://172.31.194.61` nell'esempio illustrato. Digitando l'URL nel browser viene visualizzato il sito in esecuzione.
+Connettersi al contenitore in esecuzione usando l'indirizzo IPv4, `http://172.31.194.61` nell'esempio illustrato. Digitando l'URL nel browser viene visualizzato il sito in esecuzione.
 
 > [!NOTE]
 > Alcuni software VPN o proxy possono impedire la navigazione nel sito.

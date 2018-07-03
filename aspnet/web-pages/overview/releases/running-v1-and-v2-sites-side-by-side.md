@@ -1,33 +1,32 @@
 ---
 uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
-title: Che eseguono versioni diverse delle pagine Web ASP.NET (Razor) Side-by | Documenti Microsoft
+title: Che eseguono versioni diverse delle pagine Web ASP.NET (Razor) Side-by-Side | Microsoft Docs
 author: tfitzmac
-description: In questo articolo viene illustrato come eseguire i siti Web di ASP.NET Web Pages (Razor) nello stesso computer o server quando i siti Web sono configurati per utilizzare versioni diverse...
+description: Questo articolo illustra come eseguire siti Web di ASP.NET Web Pages (Razor) nello stesso computer o server quando i siti Web configurati per l'uso di diverse versioni...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
 ms.topic: article
 ms.assetid: a861409b-4ae6-4868-9e09-87edfac3535f
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: 1729f3201013926b221afc92d23416b0081d8efb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aa2bf41054540cc67b7c0b4669e356e732fed8d1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898406"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402457"
 ---
-<a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Esecuzione side-by-Side di versioni diverse delle pagine Web ASP.NET (Razor)
+<a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Esecuzione side-by-Side di versioni diverse di ASP.NET Web Pages (Razor)
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questo articolo viene illustrato come eseguire i siti Web di ASP.NET Web Pages (Razor) nello stesso computer o server quando i siti Web sono configurati per utilizzare versioni diverse di ASP.NET Web Pages.
+> Questo articolo illustra come eseguire siti Web di ASP.NET Web Pages (Razor) nello stesso computer o server quando i siti Web configurati per usare versioni diverse di ASP.NET Web Pages.
 > 
-> Illustra quanto segue:
+> Che cosa si apprenderà come:
 > 
-> - Il comportamento predefinito novità in ASP.NET quando si dispone di siti creati con ASP.NET Web Pages.
+> - Il comportamento predefinito novità di ASP.NET quando si dispongono di siti creati con ASP.NET Web Pages.
 > - Come configurare un nuovo sito per l'esecuzione con una versione precedente di ASP.NET Web Pages.
 >   
 > 
@@ -39,25 +38,25 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Versioni del software
 > 
 > 
-> - Pagine Web ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
-> In questa esercitazione si integra inoltre con ASP.NET Web Pages 2 e pagine Web ASP.NET 1.0.
+> Questa esercitazione si integra inoltre con ASP.NET Web Pages 2 e le pagine Web ASP.NET 1.0.
 
 
-Le pagine Web ASP.NET supporta la possibilità di eseguire siti Web side-by. Ciò consente di continuare a eseguire le applicazioni ASP.NET Web Pages precedenti, creare nuove applicazioni ASP.NET Web Pages ed eseguire tutti gli elementi nello stesso computer.
+ASP.NET Web Pages supporta la possibilità di eseguire siti Web di fianco a fianco. È possibile continuare a eseguire le applicazioni ASP.NET Web Pages precedenti, creare nuove applicazioni ASP.NET Web Pages ed eseguire tutti gli elementi nello stesso computer.
 
-Di seguito sono illustrati alcuni aspetti da ricordare quando si installano le pagine Web con WebMatrix:
+Ecco alcuni aspetti da ricordare quando si installa le pagine Web con WebMatrix:
 
-- Per impostazione predefinita, le applicazioni esistenti di pagine Web verranno eseguita come la versione più recente nel computer in uso. (Gli assembly vengono installati nella global assembly cache (GAC) e vengono usati automaticamente).
-- Se si desidera eseguire un sito con una versione diversa di ASP.NET Web Pages, è possibile configurare il sito a tale scopo. Se il sito non ha ancora un *Web. config* file nella radice del sito, crearne uno nuovo e copiarvi il seguente codice XML, sovrascrivendo il contenuto esistente. Se il sito contiene già un *Web. config* file, aggiungere un `<appSettings>` elemento simile a quello riportato di seguito per il `<configuration>` sezione.
+- Per impostazione predefinita, le applicazioni Web Pages esistente verranno eseguita come la versione più recente nel computer. (Gli assembly vengono installati nella global assembly cache (GAC) e vengono usati automaticamente).
+- Se si desidera eseguire un sito usando una versione diversa di ASP.NET Web Pages, è possibile configurare il sito a tale scopo. Se il sito non ha ancora un *Web. config* file nella radice del sito, crearne uno nuovo e copiarvi il codice XML seguente, sovrascrivendo il contenuto esistente. Se il sito contiene già un *Web. config* Aggiungi un' `<appSettings>` elemento simile a quello riportato di seguito per il `<configuration>` sezione.
 
     [!code-xml[Main](running-v1-and-v2-sites-side-by-side/samples/sample1.xml)]
-  '-Se non si specifica una versione di *Web. config* file, un sito viene distribuito come la versione più recente. (Gli assembly vengono copiati il *bin* cartella nel sito distribuito.)
-- Le nuove applicazioni create utilizzando i modelli di sito Web matrice includono gli assembly della versione pagine Web del sito *bin* cartella.
+  '-Se non si specifica una versione nel *Web. config* file, un sito viene distribuito come la versione più recente. (Gli assembly vengono copiati i *bin* cartella nel sito distribuito.)
+- Le nuove applicazioni create con i modelli di sito in WebMatrix includono gli assembly della versione di pagine Web del sito *bin* cartella.
 
-In generale, è sempre possibile controllare quale versione delle pagine Web da usare con il sito usando NuGet per installare gli assembly appropriati al sito *bin* cartella. Per trovare i pacchetti, visitare [NuGet.org](http://NuGet.org).
+In generale, è sempre possibile controllare quale versione di pagine Web da utilizzare con il sito con NuGet per installare gli assembly adatti al sito *bin* cartella. Per trovare i pacchetti, visitare [NuGet.org](http://NuGet.org).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-[Le funzionalità principali di ASP.NET Web Pages 2](top-features-in-web-pages-2.md)
+[Le funzionalità migliori in ASP.NET Web Pages 2](top-features-in-web-pages-2.md)

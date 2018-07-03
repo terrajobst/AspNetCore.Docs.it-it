@@ -1,40 +1,39 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
-title: Creare un Singleton in OData v4 Using Web API 2.2 | Documenti Microsoft
+title: Creare un Singleton in OData v4 Using Web API 2.2 | Microsoft Docs
 author: rick-anderson
-description: In questo argomento viene illustrato come definire un singleton in un endpoint OData in Web API 2.2.
+description: In questo argomento viene illustrato come definire un singleton in un endpoint OData nell'API Web 2.2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
 ms.topic: article
 ms.assetid: 4064ab14-26ee-4d5c-ae58-1bdda525ad06
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 92c5056548b1e39defb28ac36f83b001dd108f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ae9b23fae356e387a011a190119d760dc46d022
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508210"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390927"
 ---
-<a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Creare un Singleton in OData v4 Using Web API 2.2
+<a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Creare un Singleton in OData v4 tramite l'API Web 2.2
 ====================
 da Zoe Luo
 
-> In genere, un'entità può accedere solo se è stato incapsulato all'interno di un set di entità. Ma OData v4 fornisce due opzioni aggiuntive, Singleton e contenuto, che supporta WebAPI 2.2.
+> In genere, un'entità è stato possibile accedere solo se si sono stato incapsulato all'interno di un set di entità. Ma OData v4 fornisce due opzioni aggiuntive, Singleton e contenimento, che supporta l'API Web 2.2.
 
 
-In questo articolo viene illustrato come definire un singleton in un endpoint OData in Web API 2.2. Per informazioni su quali un singleton e come è possibile trarre vantaggio dall'utilizzo, vedere [utilizzando un singleton per definire l'entità speciale](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx). Per creare un endpoint OData V4 in Web API, vedere [creare un OData v4 Endpoint Using ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md). 
+Questo articolo illustra come definire un singleton in un endpoint OData nell'API Web 2.2. Per informazioni su quali un singleton e come è possibile trarre vantaggio dal loro utilizzo, vedere [uso di un singleton per definire l'entità speciale](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx). Per creare un endpoint OData V4 nell'API Web, vedere [creare un OData v4 Endpoint Using ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md). 
 
-Si creerà un singleton nel progetto API Web con il modello di dati seguenti:
+Si creerà un singleton nel progetto API Web usando il modello di dati seguenti:
 
 ![Modello dati](using-a-singleton-in-an-odata-endpoint-in-web-api-22/_static/image1.png)
 
-Un singleton denominato `Umbrella` verranno definiti in base al tipo `Company`e un set denominato di entità `Employees` verranno definiti in base al tipo `Employee`.
+Un singleton denominato `Umbrella` verranno definiti in base al tipo `Company`e un'entità, set denominato `Employees` verranno definiti in base al tipo `Employee`.
 
-La soluzione usata in questa esercitazione può essere scaricata da [CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/).
+La soluzione usata in questa esercitazione può essere scaricata dal [CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/).
 
 ## <a name="define-the-data-model"></a>Definizione del modello di dati
 
@@ -47,11 +46,11 @@ La soluzione usata in questa esercitazione può essere scaricata da [CodePlex](h
 
     In questo caso, `builder.Singleton<Company>("Umbrella")` indica il generatore di modelli per creare un singleton denominato `Umbrella` nel modello EDM.
 
-    Metadati generati avrà un aspetto simile al seguente:
+    I metadati generati avrà un aspetto simile al seguente:
 
     [!code-xml[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample3.xml)]
 
-    Dai metadati possiamo vedere che la proprietà di navigazione `Company` nel `Employees` set di entità è associata a singleton `Umbrella`. L'associazione viene eseguita automaticamente da `ODataConventionModelBuilder`, poiché solo `Umbrella` ha il `Company` tipo. Se è presente qualsiasi ambiguità nel modello, è possibile utilizzare `HasSingletonBinding` associare in modo esplicito una proprietà di navigazione in un singleton; `HasSingletonBinding` ha lo stesso effetto dell'utilizzo di `Singleton` attributo nella definizione del tipo CLR:
+    Dai metadati è possibile osservare che la proprietà di navigazione `Company` nella `Employees` set di entità è associato a singleton `Umbrella`. L'associazione viene eseguito automaticamente dal `ODataConventionModelBuilder`, poiché solo `Umbrella` ha il `Company` tipo. Se è presente un'ambiguità nel modello, è possibile usare `HasSingletonBinding` associare in modo esplicito una proprietà di navigazione in un singleton; `HasSingletonBinding` ha lo stesso effetto dell'utilizzo di `Singleton` attributo nella definizione del tipo CLR:
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample4.cs)]
 
@@ -61,17 +60,17 @@ Ad esempio il controller di EntitySet, il controller singleton eredita da `OData
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample5.cs)]
 
-Per gestire diversi tipi di richieste, sono necessarie azioni per essere predefinite nel controller. **Attributo routing** è abilitata per impostazione predefinita in WebApi 2.2. Ad esempio, per definire un'azione per gestire l'esecuzione di query `Revenue` da `Company` routing degli attributi, utilizzare le operazioni seguenti:
+Per gestire diversi tipi di richieste, sono necessarie azioni per essere predefinite nel controller. **Routing con attributi** è abilitato per impostazione predefinita nell'API Web 2.2. Ad esempio, per definire un'azione per gestire l'esecuzione di query `Revenue` da `Company` usando il routing con attributi, usare il comando seguente:
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample6.cs)]
 
-Se non si è disposti definire gli attributi per ogni azione, solo per definire le azioni seguenti [convenzioni di Routing OData](../odata-routing-conventions.md). Poiché una chiave non è necessaria per l'esecuzione di query singleton, le azioni definite nel controller singleton sono leggermente diverse dalle azioni definite nel controller di entityset.
+Se non si è disposti definire gli attributi per ogni azione, definire solo le azioni seguenti [convenzioni di Routing OData](../odata-routing-conventions.md). Poiché una chiave non è necessaria per l'esecuzione di query singleton, le azioni definite nel controller singleton sono leggermente diverse dalle azioni definite nel controller entityset.
 
-Per riferimento, di seguito sono elencate le firme del metodo per ogni definizione di azione nel controller singleton.
+Per riferimento, di seguito sono elencate le firme di metodo per ogni definizione di azione nel controller singleton.
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample7.cs)]
 
-In pratica, è sufficiente eseguire sul lato del servizio. Il [progetto di esempio](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/) contiene tutto il codice per la soluzione e il client OData in cui viene illustrato come utilizzare il singleton. La compilazione del client seguendo i passaggi descritti in [creare un'App Client di OData v4](create-an-odata-v4-client-app.md).
+Si tratta in sostanza, è sufficiente per eseguire operazioni sul lato del servizio. Il [progetto di esempio](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/) contiene tutto il codice per la soluzione e il client OData che illustra come usare il singleton. Il client viene compilato, seguire i passaggi descritti in [creare un'App Client OData v4](create-an-odata-v4-client-app.md).
 
 . 
 

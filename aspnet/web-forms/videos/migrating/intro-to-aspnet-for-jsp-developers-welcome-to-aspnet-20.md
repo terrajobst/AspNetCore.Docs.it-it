@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20
-title: 'Introduzione a ASP.NET per gli sviluppatori JSP: Introduzione a ASP.NET 2.0 | Documenti Microsoft'
+title: 'Introduzione ad ASP.NET per gli sviluppatori JSP: Introduzione ad ASP.NET 2.0 | Microsoft Docs'
 author: microsoft
-description: In questa sessione è incentrata sullo sfondo di base necessario per comprendere ASP.NET e modalità di integrazione ASP.NET con .NET Framework e Microsoft IIS.
+description: In questa sessione si concentra sullo sfondo di base necessario per comprendere come ASP.NET si integra con .NET Framework e Microsoft IIS e ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
 ms.topic: article
 ms.assetid: 1a95474a-a897-4ba1-b372-8a112cb324ba
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20
 msc.type: video
-ms.openlocfilehash: 20f73bfeb0ad00725482af35941c998407dec776
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 38c7c42c248fe9f6c06852d1d580c2fdb42fd5d8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882683"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391754"
 ---
-<a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a>Introduzione a ASP.NET per gli sviluppatori JSP: Introduzione a ASP.NET 2.0
+<a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a>Introduzione ad ASP.NET per gli sviluppatori JSP: Introduzione ad ASP.NET 2.0
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-In questa sessione è incentrata sullo sfondo di base necessario per comprendere ASP.NET e modalità di integrazione ASP.NET con .NET Framework e Microsoft IIS.
+In questa sessione si concentra sullo sfondo di base necessario per comprendere come ASP.NET si integra con .NET Framework e Microsoft IIS e ASP.NET.
 
-[&#9654;Guardare video (minuti 61)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20)
+[&#9654;Guarda il video (61 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20)
 
 > [!div class="step-by-step"]
 > [Precedente](migrating-from-classic-asp-to-aspnet.md)

@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender
-title: "[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX FilteredTextbox? | Microsoft Docs"
+title: '[Procedura:] Usare il dispositivo Extender FilteredTextbox ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Informazioni su come l'estensione di ASP.NET AJAX FilteredTextbox utile consente allo sviluppatore di definire i caratteri che l'utente può immettere nel controllo casella di testo.
+description: Informazioni su come l'utile extender FilteredTextbox di ASP.NET AJAX consente allo sviluppatore di definire i caratteri che l'utente può immettere in un controllo casella di testo.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/31/2007
 ms.topic: article
 ms.assetid: 919b509c-37e8-4765-92a4-70277bd87269
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender
 msc.type: video
-ms.openlocfilehash: b9422c43d1871fefa470b7666a51bd0f49ab7216
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a4c9d36a411e413d479764ba8aa23125eb5939f3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880492"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392568"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-filteredtextbox-extender"></a>[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX FilteredTextbox?
+<a name="how-do-i-use-the-aspnet-ajax-filteredtextbox-extender"></a>[Procedura:] Usare il dispositivo Extender FilteredTextbox ASP.NET AJAX?
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-Informazioni su come l'estensione di ASP.NET AJAX FilteredTextbox utile consente allo sviluppatore di definire i caratteri che l'utente può immettere nel controllo casella di testo.
+Informazioni su come l'utile extender FilteredTextbox di ASP.NET AJAX consente allo sviluppatore di definire i caratteri che l'utente può immettere in un controllo casella di testo.
 
-[&#9654;Guardare video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender)
+[&#9654;Guarda il video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-filteredtextbox-extender)
 
 > [!div class="step-by-step"]
 > [Precedente](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)

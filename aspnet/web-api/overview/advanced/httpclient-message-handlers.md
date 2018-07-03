@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/advanced/httpclient-message-handlers
-title: Gestori messaggi HttpClient ASP.NET Web API | Documenti Microsoft
+title: Gestori di messaggi HttpClient nell'API Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,52 +9,51 @@ ms.date: 10/01/2012
 ms.topic: article
 ms.assetid: 5a4b6c80-b2e9-4710-8969-d5076f7f82b8
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/httpclient-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 805741b0ac682b7479ce82127df48b1b9a49a427
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1712f190c5a313c79b7c91b671214dd8972cb3c9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506790"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402941"
 ---
-<a name="httpclient-message-handlers-in-aspnet-web-api"></a>Gestori messaggi HttpClient ASP.NET Web API
+<a name="httpclient-message-handlers-in-aspnet-web-api"></a>Gestori di messaggi HttpClient nell'API Web ASP.NET
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
 Oggetto *gestore di messaggi* è una classe che riceve una richiesta HTTP e restituisce una risposta HTTP.
 
-In genere, una serie di gestori di messaggi sono concatenati. Il primo gestore riceve una richiesta HTTP, esegue alcune operazioni di elaborazione e inviare la richiesta al gestore successivo. A un certo punto, la risposta viene creata e viene reimpostato fino alla catena. Questo modello viene denominato un *delega* gestore.
+In genere, una serie di gestori di messaggi vengono concatenati. Il primo gestore riceve una richiesta HTTP, esegue alcune operazioni di elaborazione e offre la richiesta al gestore successivo. A un certo punto, la risposta viene creata e viene reimpostato fino alla catena. Questo modello viene chiamato un *delega* gestore.
 
 ![](httpclient-message-handlers/_static/image1.png)
 
-Sul lato client, il **HttpClient** classe utilizza un gestore di messaggi per elaborare le richieste. Il gestore predefinito **HttpClientHandler**, che invia la richiesta attraverso la rete e si ottiene la risposta dal server. È possibile inserire i gestori di messaggi personalizzati nella pipeline di client:
+Sul lato client, il **HttpClient** classe Usa un gestore di messaggi per elaborare le richieste. Il gestore predefinito è **HttpClientHandler**, che invia la richiesta attraverso la rete e ottiene la risposta dal server. È possibile inserire i gestori di messaggi personalizzato nella pipeline del client:
 
 ![](httpclient-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> ASP.NET Web API utilizza anche i gestori di messaggi sul lato server. Per ulteriori informazioni, vedere [gestori di messaggi HTTP](http-message-handlers.md).
+> API Web ASP.NET usa anche i gestori di messaggi sul lato server. Per altre informazioni, vedere [gestori di messaggi HTTP](http-message-handlers.md).
 
 
 ## <a name="custom-message-handlers"></a>Gestori di messaggi personalizzato
 
-Per scrivere un gestore di messaggi personalizzato, derivare da **System.Net.Http.DelegatingHandler** ed eseguire l'override di **SendAsync** metodo. Di seguito è riportata la firma del metodo:
+Per scrivere un gestore di messaggi personalizzato, derivare da **System.Net.Http.DelegatingHandler** ed eseguire l'override di **SendAsync** (metodo). Ecco la firma del metodo:
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample1.cs)]
 
-Il metodo accetta un **HttpRequestMessage** come input e, in modo asincrono, restituisce un **HttpResponseMessage**. Un'implementazione tipica esegue le operazioni seguenti:
+Il metodo accetta un **HttpRequestMessage** come input e in modo asincrono restituisce un **HttpResponseMessage**. Una tipica implementazione esegue le operazioni seguenti:
 
 1. Elaborare il messaggio di richiesta.
-2. Chiamare `base.SendAsync` per inviare la richiesta al gestore interno.
+2. Chiamare `base.SendAsync` per inviare la richiesta per il gestore interno.
 3. Il gestore interno restituisce un messaggio di risposta. (Questo passaggio è asincrono).
 4. Elaborare la risposta e restituirlo al chiamante.
 
-Nell'esempio seguente viene illustrato un gestore di messaggi che aggiunge un'intestazione personalizzata alla richiesta in uscita:
+Nell'esempio seguente viene illustrato un gestore di messaggi che aggiunge un'intestazione personalizzata per la richiesta in uscita:
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample2.cs)]
 
-La chiamata a `base.SendAsync` è asincrono. Se il gestore esegue qualsiasi lavoro dopo questa chiamata, utilizzare il **await** (parola chiave) per riprendere l'esecuzione dopo il completamento del metodo. Nell'esempio seguente viene illustrato un gestore che registra i codici di errore. La registrazione se stesso non è molto interessante, ma nell'esempio viene illustrato come ottenere la risposta all'interno del gestore.
+La chiamata a `base.SendAsync` è asincrona. Se il gestore esegue qualsiasi attività dopo questa chiamata, usare il **await** parola chiave per riprendere l'esecuzione dopo il completamento del metodo. Nell'esempio seguente illustra un gestore che registra i codici di errore. La registrazione se stessa non è molto interessante, ma nell'esempio viene illustrato come ottenere la risposta all'interno del gestore.
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample3.cs?highlight=10,13)]
 
@@ -64,4 +63,4 @@ Per aggiungere gestori personalizzati per **HttpClient**, utilizzare il **HttpCl
 
 [!code-csharp[Main](httpclient-message-handlers/samples/sample4.cs)]
 
-Messaggio che vengono chiamati nell'ordine in cui vengono passate la **crea** metodo. Perché vengono annidati i gestori eventi, il messaggio di risposta viene spostato in altra direzione. L'ultimo gestore è il primo ad avere il messaggio di risposta.
+Gestori di messaggi vengono chiamati nell'ordine in cui vengono trasmessi nel **Create** (metodo). Perché vengono annidati i gestori eventi, il messaggio di risposta viene trasferita in altra direzione. L'ultimo gestore, ovvero è il primo per ottenere il messaggio di risposta.
