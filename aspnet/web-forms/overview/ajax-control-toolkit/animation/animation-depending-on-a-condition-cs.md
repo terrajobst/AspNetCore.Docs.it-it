@@ -1,67 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
-title: Animazione in base a una condizione (c#) | Documenti Microsoft
+title: Animazione in base a una condizione (c#) | Microsoft Docs
 author: wenz
-description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se è un'animazione...
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Se un'animazione è...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b530239e76654bc68a8fa6ac900a20df1d5699b0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c28f4583e6f0d1bb5c1438322980a44aa53fbd89
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878568"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391363"
 ---
-<a name="animation-depending-on-a-condition-c"></a><span data-ttu-id="3f373-104">Animazione in base a una condizione (c#)</span><span class="sxs-lookup"><span data-stu-id="3f373-104">Animation Depending On a Condition (C#)</span></span>
+<a name="animation-depending-on-a-condition-c"></a><span data-ttu-id="5325c-104">Animazione in base a una condizione (c#)</span><span class="sxs-lookup"><span data-stu-id="5325c-104">Animation Depending On a Condition (C#)</span></span>
 ====================
-<span data-ttu-id="3f373-105">da [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="3f373-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="5325c-105">da [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="5325c-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="3f373-106">[Scaricare codice](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) o [Scarica il PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="3f373-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)</span></span>
+<span data-ttu-id="5325c-106">[Scaricare il codice](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) o [Scarica il PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)</span><span class="sxs-lookup"><span data-stu-id="5325c-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)</span></span>
 
-> <span data-ttu-id="3f373-107">Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo.</span><span class="sxs-lookup"><span data-stu-id="3f373-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="3f373-108">Se un'animazione viene eseguita o non può dipendere anche una condizione in forma di codice JavaScript.</span><span class="sxs-lookup"><span data-stu-id="3f373-108">Whether an animation is run or not can also depend on a condition in form of some JavaScript code.</span></span>
+> <span data-ttu-id="5325c-107">Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo.</span><span class="sxs-lookup"><span data-stu-id="5325c-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="5325c-108">Se viene eseguita un'animazione o non può dipendere anche una condizione sotto forma di codice JavaScript.</span><span class="sxs-lookup"><span data-stu-id="5325c-108">Whether an animation is run or not can also depend on a condition in form of some JavaScript code.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="3f373-109">Panoramica</span><span class="sxs-lookup"><span data-stu-id="3f373-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="5325c-109">Panoramica</span><span class="sxs-lookup"><span data-stu-id="5325c-109">Overview</span></span>
 
-<span data-ttu-id="3f373-110">Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo.</span><span class="sxs-lookup"><span data-stu-id="3f373-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="3f373-111">Se un'animazione viene eseguita o non può dipendere anche una condizione in forma di codice JavaScript.</span><span class="sxs-lookup"><span data-stu-id="3f373-111">Whether an animation is run or not can also depend on a condition in form of some JavaScript code.</span></span>
+<span data-ttu-id="5325c-110">Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo.</span><span class="sxs-lookup"><span data-stu-id="5325c-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="5325c-111">Se viene eseguita un'animazione o non può dipendere anche una condizione sotto forma di codice JavaScript.</span><span class="sxs-lookup"><span data-stu-id="5325c-111">Whether an animation is run or not can also depend on a condition in form of some JavaScript code.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="3f373-112">Passaggi</span><span class="sxs-lookup"><span data-stu-id="3f373-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="5325c-112">Passaggi</span><span class="sxs-lookup"><span data-stu-id="5325c-112">Steps</span></span>
 
-<span data-ttu-id="3f373-113">Prima di tutto, includere il `ScriptManager` nella pagina; quindi, la libreria AJAX di ASP.NET viene caricata, che consente di usare il Toolkit di controllo:</span><span class="sxs-lookup"><span data-stu-id="3f373-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
+<span data-ttu-id="5325c-113">Prima di tutto, includere il `ScriptManager` nella pagina; quindi, la libreria ASP.NET AJAX viene caricata, rendendo possibile usare il Toolkit di controllo:</span><span class="sxs-lookup"><span data-stu-id="5325c-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample1.aspx)]
 
-<span data-ttu-id="3f373-114">Verrà applicata l'animazione a un riquadro del testo che presenta un aspetto simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="3f373-114">The animation will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="5325c-114">Verrà applicata l'animazione a un pannello del testo che presenta un aspetto simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="5325c-114">The animation will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample2.aspx)]
 
-<span data-ttu-id="3f373-115">Nella classe CSS associata per il pannello, definire un colore di sfondo nice e inoltre impostare una larghezza fissa per il pannello:</span><span class="sxs-lookup"><span data-stu-id="3f373-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
+<span data-ttu-id="5325c-115">Nella classe CSS associata per il pannello, definire un colore di sfondo interessante e anche impostare una larghezza fissa per il pannello:</span><span class="sxs-lookup"><span data-stu-id="5325c-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
 
 [!code-css[Main](animation-depending-on-a-condition-cs/samples/sample3.css)]
 
-<span data-ttu-id="3f373-116">Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `TargetControlID` attributo e l'obbligatoria `runat="server":`</span><span class="sxs-lookup"><span data-stu-id="3f373-116">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server":`</span></span>
+<span data-ttu-id="5325c-116">Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `TargetControlID` attributo e l'obbligatoria `runat="server":`</span><span class="sxs-lookup"><span data-stu-id="5325c-116">Then, add the `AnimationExtender` to the page, providing an `ID`, the `TargetControlID` attribute and the obligatory `runat="server":`</span></span>
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample4.aspx)]
 
-<span data-ttu-id="3f373-117">All'interno di `<Animations>` nodo, utilizzare `<OnLoad>` per eseguire le animazioni dopo la pagina è stata caricata completamente.</span><span class="sxs-lookup"><span data-stu-id="3f373-117">Within the `<Animations>` node, use `<OnLoad>` to run the animations once the page has been fully loaded.</span></span> <span data-ttu-id="3f373-118">Invece di una delle animazioni, regolare il `<Condition>` elemento entra in gioco.</span><span class="sxs-lookup"><span data-stu-id="3f373-118">Instead of one of the regular animations, the `<Condition>` element comes into play.</span></span> <span data-ttu-id="3f373-119">Il codice JavaScript fornito come valore della `ConditionScript` attributo viene eseguito in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="3f373-119">The JavaScript code provided as the value of the `ConditionScript` attribute is executed at runtime.</span></span> <span data-ttu-id="3f373-120">Se restituisce true, l'animazione viene eseguita, in caso contrario non.</span><span class="sxs-lookup"><span data-stu-id="3f373-120">If it evaluates to true, the animation is executed, otherwise not.</span></span> <span data-ttu-id="3f373-121">Il markup seguente fornisce due animazioni, ognuno di essi in esecuzione al 50% dei case al momento casuale.</span><span class="sxs-lookup"><span data-stu-id="3f373-121">The following markup provides two animations, each of them being executed in 50% of cases upon random.</span></span> <span data-ttu-id="3f373-122">Poiché potrebbe essere presente solo un'animazione all'interno di `<OnLoad>`, i due `<Condition>` animazioni vengono unite tramite un insieme di `<Sequence>` elemento:</span><span class="sxs-lookup"><span data-stu-id="3f373-122">Since there may only be one animation within `<OnLoad>`, the two `<Condition>` animations are joined together using the `<Sequence>` element:</span></span>
+<span data-ttu-id="5325c-117">All'interno di `<Animations>` nodo, usare `<OnLoad>` per eseguire le animazioni dopo la pagina è stata caricata completamente.</span><span class="sxs-lookup"><span data-stu-id="5325c-117">Within the `<Animations>` node, use `<OnLoad>` to run the animations once the page has been fully loaded.</span></span> <span data-ttu-id="5325c-118">Invece di uno delle animazioni, regolare il `<Condition>` entra in gioco l'elemento.</span><span class="sxs-lookup"><span data-stu-id="5325c-118">Instead of one of the regular animations, the `<Condition>` element comes into play.</span></span> <span data-ttu-id="5325c-119">Il codice JavaScript fornito come valore del `ConditionScript` attributo viene eseguito in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="5325c-119">The JavaScript code provided as the value of the `ConditionScript` attribute is executed at runtime.</span></span> <span data-ttu-id="5325c-120">Se restituisce true, l'animazione viene eseguita, in caso contrario non.</span><span class="sxs-lookup"><span data-stu-id="5325c-120">If it evaluates to true, the animation is executed, otherwise not.</span></span> <span data-ttu-id="5325c-121">Il markup seguente fornisce due animazioni, ognuna di esse in esecuzione al 50% dei case al momento casuale.</span><span class="sxs-lookup"><span data-stu-id="5325c-121">The following markup provides two animations, each of them being executed in 50% of cases upon random.</span></span> <span data-ttu-id="5325c-122">Poiché può esistere solo un'animazione all'interno `<OnLoad>`, i due `<Condition>` animazioni vengono unite mediante la `<Sequence>` elemento:</span><span class="sxs-lookup"><span data-stu-id="5325c-122">Since there may only be one animation within `<OnLoad>`, the two `<Condition>` animations are joined together using the `<Sequence>` element:</span></span>
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample5.aspx)]
 
-<span data-ttu-id="3f373-123">Si noti che il segno di minore di (`<`) nei `ConditionScript` attributo deve essere sottoposto a escape ().</span><span class="sxs-lookup"><span data-stu-id="3f373-123">Note that the less than sign (`<`) in the `ConditionScript` attribute must be escaped ().</span></span> <span data-ttu-id="3f373-124">Quando si esegue questo script viene eseguito alcuna animazione, o uno dei due non oppure eseguire entrambe.</span><span class="sxs-lookup"><span data-stu-id="3f373-124">When you run this script, either no animation runs, or one of the two does, or both do.</span></span>
+<span data-ttu-id="5325c-123">Si noti che il segno di minore (`<`) nel `ConditionScript` attributo deve essere sottoposto a escape ().</span><span class="sxs-lookup"><span data-stu-id="5325c-123">Note that the less than sign (`<`) in the `ConditionScript` attribute must be escaped ().</span></span> <span data-ttu-id="5325c-124">Quando si esegue questo script, nessuna animazione viene eseguito, o uno dei due viene, o eseguire entrambe.</span><span class="sxs-lookup"><span data-stu-id="5325c-124">When you run this script, either no animation runs, or one of the two does, or both do.</span></span>
 
 
-<span data-ttu-id="3f373-125">[![Il pannello è dissolvenza in uscita senza alcun ridimensionamento, pertanto l'esecuzione del secondo animazione, il primo non](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="3f373-125">[![The panel is fading out without resizing, so the second animation runs, the first one didn't](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)</span></span>
+<span data-ttu-id="5325c-125">[![Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo che non ha esecuzioni animazione secondo, il primo elemento](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="5325c-125">[![The panel is fading out without resizing, so the second animation runs, the first one didn't](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)</span></span>
 
-<span data-ttu-id="3f373-126">Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo non ha l'esecuzione del secondo animazione, il primo ([fare clic per visualizzare l'immagine ingrandita](animation-depending-on-a-condition-cs/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="3f373-126">The panel is fading out without resizing, so the second animation runs, the first one didn't ([Click to view full-size image](animation-depending-on-a-condition-cs/_static/image3.png))</span></span>
+<span data-ttu-id="5325c-126">Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo che non ha esecuzioni animazione secondo, il primo elemento ([fare clic per visualizzare l'immagine con dimensioni normali](animation-depending-on-a-condition-cs/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="5325c-126">The panel is fading out without resizing, so the second animation runs, the first one didn't ([Click to view full-size image](animation-depending-on-a-condition-cs/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="3f373-127">[Precedente](executing-several-animations-after-each-other-cs.md)
-> [Successivo](picking-one-animation-out-of-a-list-cs.md)</span><span class="sxs-lookup"><span data-stu-id="3f373-127">[Previous](executing-several-animations-after-each-other-cs.md)
+> <span data-ttu-id="5325c-127">[Precedente](executing-several-animations-after-each-other-cs.md)
+> [Successivo](picking-one-animation-out-of-a-list-cs.md)</span><span class="sxs-lookup"><span data-stu-id="5325c-127">[Previous](executing-several-animations-after-each-other-cs.md)
 [Next](picking-one-animation-out-of-a-list-cs.md)</span></span>

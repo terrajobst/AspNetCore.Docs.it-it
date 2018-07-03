@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: Creare un'App Client di OData v4 (c#) | Documenti Microsoft
+title: Creare un'App Client OData v4 (c#) | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,84 +9,83 @@ ms.date: 06/26/2014
 ms.topic: article
 ms.assetid: 47202362-3808-4add-9a69-c9d1f91d5e4e
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 msc.type: authoredcontent
-ms.openlocfilehash: 51a3c7b9c5b6525d6d82b9a45910f58b71268b7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ea6121db781c2d08bc8c76cd07be3c5a4f23f62
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036700"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377392"
 ---
-<a name="create-an-odata-v4-client-app-c"></a><span data-ttu-id="c2c89-102">Creare un'App Client di OData v4 (c#)</span><span class="sxs-lookup"><span data-stu-id="c2c89-102">Create an OData v4 Client App (C#)</span></span>
+<a name="create-an-odata-v4-client-app-c"></a><span data-ttu-id="a1599-102">Creare un'App Client OData v4 (c#)</span><span class="sxs-lookup"><span data-stu-id="a1599-102">Create an OData v4 Client App (C#)</span></span>
 ====================
-<span data-ttu-id="c2c89-103">da [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="c2c89-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="a1599-103">da [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="a1599-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-<span data-ttu-id="c2c89-104">Nell'esercitazione precedente, creato un servizio OData di base che supporta operazioni CRUD.</span><span class="sxs-lookup"><span data-stu-id="c2c89-104">In the previous tutorial, you created a basic OData service that supports CRUD operations.</span></span> <span data-ttu-id="c2c89-105">Ora è possibile crearne un client per il servizio.</span><span class="sxs-lookup"><span data-stu-id="c2c89-105">Now let's create a client for the service.</span></span>
+<span data-ttu-id="a1599-104">Nell'esercitazione precedente, creato un servizio OData di base che supporta operazioni CRUD.</span><span class="sxs-lookup"><span data-stu-id="a1599-104">In the previous tutorial, you created a basic OData service that supports CRUD operations.</span></span> <span data-ttu-id="a1599-105">A questo punto è possibile creare un client per il servizio.</span><span class="sxs-lookup"><span data-stu-id="a1599-105">Now let's create a client for the service.</span></span>
 
-<span data-ttu-id="c2c89-106">Avviare una nuova istanza di Visual Studio e creare un nuovo progetto applicazione console.</span><span class="sxs-lookup"><span data-stu-id="c2c89-106">Start a new instance of Visual Studio and create a new console application project.</span></span> <span data-ttu-id="c2c89-107">Nel **nuovo progetto** finestra di dialogo Seleziona **installato** &gt; **modelli** &gt; **Visual c#** &gt; **Windows Desktop**e selezionare il **applicazione Console** modello.</span><span class="sxs-lookup"><span data-stu-id="c2c89-107">In the **New Project** dialog, select **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Desktop**, and select the **Console Application** template.</span></span> <span data-ttu-id="c2c89-108">Denominare il progetto &quot;ProductsApp&quot;.</span><span class="sxs-lookup"><span data-stu-id="c2c89-108">Name the project &quot;ProductsApp&quot;.</span></span>
+<span data-ttu-id="a1599-106">Avviare una nuova istanza di Visual Studio e creare un nuovo progetto applicazione console.</span><span class="sxs-lookup"><span data-stu-id="a1599-106">Start a new instance of Visual Studio and create a new console application project.</span></span> <span data-ttu-id="a1599-107">Nel **nuovo progetto** finestra di dialogo, seleziona **installati** &gt; **modelli** &gt; **Visual C#** &gt; **Desktop di Windows**e selezionare il **applicazione Console** modello.</span><span class="sxs-lookup"><span data-stu-id="a1599-107">In the **New Project** dialog, select **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Desktop**, and select the **Console Application** template.</span></span> <span data-ttu-id="a1599-108">Denominare il progetto &quot;ProductsApp&quot;.</span><span class="sxs-lookup"><span data-stu-id="a1599-108">Name the project &quot;ProductsApp&quot;.</span></span>
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
 > [!NOTE]
-> <span data-ttu-id="c2c89-109">È anche possibile aggiungere l'applicazione console alla stessa soluzione di Visual Studio che contiene il servizio OData.</span><span class="sxs-lookup"><span data-stu-id="c2c89-109">You can also add the console app to the same Visual Studio solution that contains the OData service.</span></span>
+> <span data-ttu-id="a1599-109">È anche possibile aggiungere l'app console per la stessa soluzione di Visual Studio che contiene il servizio OData.</span><span class="sxs-lookup"><span data-stu-id="a1599-109">You can also add the console app to the same Visual Studio solution that contains the OData service.</span></span>
 
 
-## <a name="install-the-odata-client-code-generator"></a><span data-ttu-id="c2c89-110">Installare il generatore di codice Client OData</span><span class="sxs-lookup"><span data-stu-id="c2c89-110">Install the OData Client Code Generator</span></span>
+## <a name="install-the-odata-client-code-generator"></a><span data-ttu-id="a1599-110">Installare il generatore di codice Client OData</span><span class="sxs-lookup"><span data-stu-id="a1599-110">Install the OData Client Code Generator</span></span>
 
-<span data-ttu-id="c2c89-111">Dal **strumenti** dal menu **estensioni e aggiornamenti**.</span><span class="sxs-lookup"><span data-stu-id="c2c89-111">From the **Tools** menu, select **Extensions and Updates**.</span></span> <span data-ttu-id="c2c89-112">Selezionare **Online** &gt; **Visual Studio Gallery**.</span><span class="sxs-lookup"><span data-stu-id="c2c89-112">Select **Online** &gt; **Visual Studio Gallery**.</span></span> <span data-ttu-id="c2c89-113">Nella casella di ricerca, cercare &quot;generatore di codice Client OData&quot;.</span><span class="sxs-lookup"><span data-stu-id="c2c89-113">In the search box, search for &quot;OData Client Code Generator&quot;.</span></span> <span data-ttu-id="c2c89-114">Fare clic su **scaricare** per installare l'estensione VSIX.</span><span class="sxs-lookup"><span data-stu-id="c2c89-114">Click **Download** to install the VSIX.</span></span> <span data-ttu-id="c2c89-115">Potrebbe essere necessario riavviare Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="c2c89-115">You might be prompted to restart Visual Studio.</span></span>
+<span data-ttu-id="a1599-111">Dal **degli strumenti** dal menu **estensioni e aggiornamenti**.</span><span class="sxs-lookup"><span data-stu-id="a1599-111">From the **Tools** menu, select **Extensions and Updates**.</span></span> <span data-ttu-id="a1599-112">Selezionare **Online** &gt; **Visual Studio Gallery**.</span><span class="sxs-lookup"><span data-stu-id="a1599-112">Select **Online** &gt; **Visual Studio Gallery**.</span></span> <span data-ttu-id="a1599-113">Nella casella di ricerca, cercare &quot;generatore di codice Client OData&quot;.</span><span class="sxs-lookup"><span data-stu-id="a1599-113">In the search box, search for &quot;OData Client Code Generator&quot;.</span></span> <span data-ttu-id="a1599-114">Fare clic su **scaricare** per installare l'estensione VSIX.</span><span class="sxs-lookup"><span data-stu-id="a1599-114">Click **Download** to install the VSIX.</span></span> <span data-ttu-id="a1599-115">Potrebbe essere necessario riavviare Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="a1599-115">You might be prompted to restart Visual Studio.</span></span>
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
-## <a name="run-the-odata-service-locally"></a><span data-ttu-id="c2c89-116">Esegue il servizio OData in locale</span><span class="sxs-lookup"><span data-stu-id="c2c89-116">Run the OData Service Locally</span></span>
+## <a name="run-the-odata-service-locally"></a><span data-ttu-id="a1599-116">Eseguire il servizio OData in locale</span><span class="sxs-lookup"><span data-stu-id="a1599-116">Run the OData Service Locally</span></span>
 
-<span data-ttu-id="c2c89-117">Eseguire il progetto ProductService da Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="c2c89-117">Run the ProductService project from Visual Studio.</span></span> <span data-ttu-id="c2c89-118">Per impostazione predefinita, Visual Studio avvia un browser per la radice dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="c2c89-118">By default, Visual Studio launches a browser to the application root.</span></span> <span data-ttu-id="c2c89-119">Prendere nota dell'URI; è necessario nel passaggio successivo.</span><span class="sxs-lookup"><span data-stu-id="c2c89-119">Note the URI; you will need this in the next step.</span></span> <span data-ttu-id="c2c89-120">Lasciare l'applicazione in esecuzione.</span><span class="sxs-lookup"><span data-stu-id="c2c89-120">Leave the application running.</span></span>
+<span data-ttu-id="a1599-117">Eseguire il progetto ProductService da Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="a1599-117">Run the ProductService project from Visual Studio.</span></span> <span data-ttu-id="a1599-118">Per impostazione predefinita, Visual Studio avvia un browser nella radice dell'applicazione.</span><span class="sxs-lookup"><span data-stu-id="a1599-118">By default, Visual Studio launches a browser to the application root.</span></span> <span data-ttu-id="a1599-119">Prendere nota dell'URI; è necessario nel passaggio successivo.</span><span class="sxs-lookup"><span data-stu-id="a1599-119">Note the URI; you will need this in the next step.</span></span> <span data-ttu-id="a1599-120">Lasciare l'applicazione in esecuzione.</span><span class="sxs-lookup"><span data-stu-id="a1599-120">Leave the application running.</span></span>
 
 ![](create-an-odata-v4-client-app/_static/image4.png)
 
 > [!NOTE]
-> <span data-ttu-id="c2c89-121">Se si inseriscono entrambi i progetti nella stessa soluzione, assicurarsi di eseguire il progetto ProductService senza debug.</span><span class="sxs-lookup"><span data-stu-id="c2c89-121">If you put both projects in the same solution, make sure to run the ProductService project without debugging.</span></span> <span data-ttu-id="c2c89-122">Nel passaggio successivo, sarà necessario mantenere il servizio in esecuzione mentre si modifica il progetto di applicazione console.</span><span class="sxs-lookup"><span data-stu-id="c2c89-122">In the next step, you will need to keep the service running while you modify the console application project.</span></span>
+> <span data-ttu-id="a1599-121">Se si inseriscono entrambi i progetti nella stessa soluzione, assicurarsi di eseguire il progetto ProductService senza debug.</span><span class="sxs-lookup"><span data-stu-id="a1599-121">If you put both projects in the same solution, make sure to run the ProductService project without debugging.</span></span> <span data-ttu-id="a1599-122">Nel passaggio successivo, è necessario mantenere il servizio in esecuzione mentre si modifica il progetto applicazione console.</span><span class="sxs-lookup"><span data-stu-id="a1599-122">In the next step, you will need to keep the service running while you modify the console application project.</span></span>
 
 
-## <a name="generate-the-service-proxy"></a><span data-ttu-id="c2c89-123">Generare il Proxy del servizio</span><span class="sxs-lookup"><span data-stu-id="c2c89-123">Generate the Service Proxy</span></span>
+## <a name="generate-the-service-proxy"></a><span data-ttu-id="a1599-123">Generare il Proxy del servizio</span><span class="sxs-lookup"><span data-stu-id="a1599-123">Generate the Service Proxy</span></span>
 
-<span data-ttu-id="c2c89-124">Il proxy del servizio è una classe .NET che definisce i metodi per l'accesso al servizio OData.</span><span class="sxs-lookup"><span data-stu-id="c2c89-124">The service proxy is a .NET class that defines methods for accessing the OData service.</span></span> <span data-ttu-id="c2c89-125">Il proxy converte le chiamate di metodo in richieste HTTP.</span><span class="sxs-lookup"><span data-stu-id="c2c89-125">The proxy translates method calls into HTTP requests.</span></span> <span data-ttu-id="c2c89-126">Si creerà la classe proxy eseguendo un [modello T4](https://msdn.microsoft.com/library/bb126445.aspx).</span><span class="sxs-lookup"><span data-stu-id="c2c89-126">You will create the proxy class by running a [T4 template](https://msdn.microsoft.com/library/bb126445.aspx).</span></span>
+<span data-ttu-id="a1599-124">Il proxy del servizio è una classe .NET che definisce i metodi per l'accesso al servizio OData.</span><span class="sxs-lookup"><span data-stu-id="a1599-124">The service proxy is a .NET class that defines methods for accessing the OData service.</span></span> <span data-ttu-id="a1599-125">Il proxy converte le chiamate di metodo nelle richieste HTTP.</span><span class="sxs-lookup"><span data-stu-id="a1599-125">The proxy translates method calls into HTTP requests.</span></span> <span data-ttu-id="a1599-126">Si creerà la classe proxy eseguendo un [modello T4](https://msdn.microsoft.com/library/bb126445.aspx).</span><span class="sxs-lookup"><span data-stu-id="a1599-126">You will create the proxy class by running a [T4 template](https://msdn.microsoft.com/library/bb126445.aspx).</span></span>
 
-<span data-ttu-id="c2c89-127">Fare clic sul progetto.</span><span class="sxs-lookup"><span data-stu-id="c2c89-127">Right-click the project.</span></span> <span data-ttu-id="c2c89-128">Selezionare **aggiungere** &gt; **nuovo elemento**.</span><span class="sxs-lookup"><span data-stu-id="c2c89-128">Select **Add** &gt; **New Item**.</span></span>
+<span data-ttu-id="a1599-127">Fare clic sul progetto.</span><span class="sxs-lookup"><span data-stu-id="a1599-127">Right-click the project.</span></span> <span data-ttu-id="a1599-128">Selezionare **aggiungere** &gt; **nuovo elemento**.</span><span class="sxs-lookup"><span data-stu-id="a1599-128">Select **Add** &gt; **New Item**.</span></span>
 
 ![](create-an-odata-v4-client-app/_static/image5.png)
 
-<span data-ttu-id="c2c89-129">Nel **Aggiungi nuovo elemento** finestra di dialogo Seleziona **elementi di Visual c#** &gt; **codice** &gt; **OData Client**.</span><span class="sxs-lookup"><span data-stu-id="c2c89-129">In the **Add New Item** dialog, select **Visual C# Items** &gt; **Code** &gt; **OData Client**.</span></span> <span data-ttu-id="c2c89-130">Nome del modello &quot;ProductClient.tt&quot;.</span><span class="sxs-lookup"><span data-stu-id="c2c89-130">Name the template &quot;ProductClient.tt&quot;.</span></span> <span data-ttu-id="c2c89-131">Fare clic su **Aggiungi** e fare clic su tramite l'avviso di sicurezza.</span><span class="sxs-lookup"><span data-stu-id="c2c89-131">Click **Add** and click through the security warning.</span></span>
+<span data-ttu-id="a1599-129">Nel **Aggiungi nuovo elemento** finestra di dialogo, seleziona **elementi di Visual c#** &gt; **codice** &gt; **OData Client**.</span><span class="sxs-lookup"><span data-stu-id="a1599-129">In the **Add New Item** dialog, select **Visual C# Items** &gt; **Code** &gt; **OData Client**.</span></span> <span data-ttu-id="a1599-130">Denominare il modello &quot;ProductClient.tt&quot;.</span><span class="sxs-lookup"><span data-stu-id="a1599-130">Name the template &quot;ProductClient.tt&quot;.</span></span> <span data-ttu-id="a1599-131">Fare clic su **Add** ed esplorare l'avviso di sicurezza.</span><span class="sxs-lookup"><span data-stu-id="a1599-131">Click **Add** and click through the security warning.</span></span>
 
 [![](create-an-odata-v4-client-app/_static/image7.png)](create-an-odata-v4-client-app/_static/image6.png)
 
-<span data-ttu-id="c2c89-132">A questo punto, si otterrà un errore, che è possibile ignorare.</span><span class="sxs-lookup"><span data-stu-id="c2c89-132">At this point, you'll get an error, which you can ignore.</span></span> <span data-ttu-id="c2c89-133">Visual Studio esegue automaticamente il modello, ma il modello debba essere alcune impostazioni di configurazione prima.</span><span class="sxs-lookup"><span data-stu-id="c2c89-133">Visual Studio automatically runs the template, but the template needs some configuration settings first.</span></span>
+<span data-ttu-id="a1599-132">A questo punto, si otterrà un errore, che è possibile ignorare.</span><span class="sxs-lookup"><span data-stu-id="a1599-132">At this point, you'll get an error, which you can ignore.</span></span> <span data-ttu-id="a1599-133">Visual Studio esegue automaticamente il modello, ma il modello richiede alcune impostazioni di configurazione prima.</span><span class="sxs-lookup"><span data-stu-id="a1599-133">Visual Studio automatically runs the template, but the template needs some configuration settings first.</span></span>
 
 [![](create-an-odata-v4-client-app/_static/image9.png)](create-an-odata-v4-client-app/_static/image8.png)
 
-<span data-ttu-id="c2c89-134">Aprire il file ProductClient.odata.config. Nel `Parameter` elemento Incolla dell'URI dal progetto ProductService (passaggio precedente).</span><span class="sxs-lookup"><span data-stu-id="c2c89-134">Open the file ProductClient.odata.config. In the `Parameter` element, paste in the URI from the ProductService project (previous step).</span></span> <span data-ttu-id="c2c89-135">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="c2c89-135">For example:</span></span>
+<span data-ttu-id="a1599-134">Aprire il file ProductClient.odata.config. Nel `Parameter` elemento, incollare l'URI dal progetto ProductService (passaggio precedente).</span><span class="sxs-lookup"><span data-stu-id="a1599-134">Open the file ProductClient.odata.config. In the `Parameter` element, paste in the URI from the ProductService project (previous step).</span></span> <span data-ttu-id="a1599-135">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="a1599-135">For example:</span></span>
 
 [!code-xml[Main](create-an-odata-v4-client-app/samples/sample1.xml)]
 
 [![](create-an-odata-v4-client-app/_static/image11.png)](create-an-odata-v4-client-app/_static/image10.png)
 
-<span data-ttu-id="c2c89-136">Eseguire nuovamente il modello.</span><span class="sxs-lookup"><span data-stu-id="c2c89-136">Run the template again.</span></span> <span data-ttu-id="c2c89-137">In Esplora soluzioni, fare clic con il pulsante destro del file ProductClient.tt e selezionare **Esegui strumento personalizzato**.</span><span class="sxs-lookup"><span data-stu-id="c2c89-137">In Solution Explorer, right click the ProductClient.tt file and select **Run Custom Tool**.</span></span>
+<span data-ttu-id="a1599-136">Eseguire nuovamente il modello.</span><span class="sxs-lookup"><span data-stu-id="a1599-136">Run the template again.</span></span> <span data-ttu-id="a1599-137">In Esplora soluzioni fare clic con il pulsante destro del file ProductClient.tt e selezionare **Esegui strumento personalizzato**.</span><span class="sxs-lookup"><span data-stu-id="a1599-137">In Solution Explorer, right click the ProductClient.tt file and select **Run Custom Tool**.</span></span>
 
-<span data-ttu-id="c2c89-138">Il modello crea un file di codice denominato ProductClient.cs che definisce il proxy.</span><span class="sxs-lookup"><span data-stu-id="c2c89-138">The template creates a code file named ProductClient.cs that defines the proxy.</span></span> <span data-ttu-id="c2c89-139">Quando si sviluppa l'app, se si modifica l'endpoint OData, eseguire il modello di nuovo per aggiornare il proxy.</span><span class="sxs-lookup"><span data-stu-id="c2c89-139">As you develop your app, if you change the OData endpoint, run the template again to update the proxy.</span></span>
+<span data-ttu-id="a1599-138">Il modello crea un file di codice denominato ProductClient.cs che definisce il proxy.</span><span class="sxs-lookup"><span data-stu-id="a1599-138">The template creates a code file named ProductClient.cs that defines the proxy.</span></span> <span data-ttu-id="a1599-139">Quando si sviluppa l'app, se si modifica l'endpoint OData, eseguire il modello nuovo per aggiornare il proxy.</span><span class="sxs-lookup"><span data-stu-id="a1599-139">As you develop your app, if you change the OData endpoint, run the template again to update the proxy.</span></span>
 
 ![](create-an-odata-v4-client-app/_static/image12.png)
 
-## <a name="use-the-service-proxy-to-call-the-odata-service"></a><span data-ttu-id="c2c89-140">Utilizzare il Proxy del servizio per chiamare il servizio OData</span><span class="sxs-lookup"><span data-stu-id="c2c89-140">Use the Service Proxy to Call the OData Service</span></span>
+## <a name="use-the-service-proxy-to-call-the-odata-service"></a><span data-ttu-id="a1599-140">Usare il Proxy del servizio per chiamare il servizio OData</span><span class="sxs-lookup"><span data-stu-id="a1599-140">Use the Service Proxy to Call the OData Service</span></span>
 
-<span data-ttu-id="c2c89-141">Aprire il file Program.cs e sostituire il codice boilerplate con le operazioni seguenti.</span><span class="sxs-lookup"><span data-stu-id="c2c89-141">Open the file Program.cs and replace the boilerplate code with the following.</span></span>
+<span data-ttu-id="a1599-141">Aprire il file Program.cs e sostituire il codice boilerplate con il codice seguente.</span><span class="sxs-lookup"><span data-stu-id="a1599-141">Open the file Program.cs and replace the boilerplate code with the following.</span></span>
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample2.cs)]
 
-<span data-ttu-id="c2c89-142">Sostituire il valore di *serviceUri* con l'URI del servizio da versioni precedenti.</span><span class="sxs-lookup"><span data-stu-id="c2c89-142">Replace the value of *serviceUri* with the service URI from earlier.</span></span>
+<span data-ttu-id="a1599-142">Sostituire il valore di *serviceUri* con l'URI del servizio in precedenza.</span><span class="sxs-lookup"><span data-stu-id="a1599-142">Replace the value of *serviceUri* with the service URI from earlier.</span></span>
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample3.cs)]
 
-<span data-ttu-id="c2c89-143">Quando si esegue l'app, deve restituire le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="c2c89-143">When you run the app, it should output the following:</span></span>
+<span data-ttu-id="a1599-143">Quando si esegue l'app, deve restituire il codice seguente:</span><span class="sxs-lookup"><span data-stu-id="a1599-143">When you run the app, it should output the following:</span></span>
 
 [!code-console[Main](create-an-odata-v4-client-app/samples/sample4.cmd)]
