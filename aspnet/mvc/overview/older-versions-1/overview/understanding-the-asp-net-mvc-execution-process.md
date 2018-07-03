@@ -1,63 +1,62 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
-title: Informazioni sul processo di esecuzione di ASP.NET MVC | Documenti Microsoft
+title: Informazioni sul processo di esecuzione di ASP.NET MVC | Microsoft Docs
 author: microsoft
-description: Informazioni su come framework di MVC ASP.NET elabora una richiesta del browser dettagliata.
+description: Informazioni su come il framework ASP.NET MVC elabora una richiesta del browser dettagliata.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
 ms.topic: article
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: 5837c6e49709d6b86ee52cd88ffd4759c1850544
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d94fcedb6e0ec6134bdbd69729abf1f875fac420
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26500730"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378271"
 ---
 <a name="understanding-the-aspnet-mvc-execution-process"></a>Informazioni sul processo di esecuzione di ASP.NET MVC
 ====================
 da [Microsoft](https://github.com/microsoft)
 
-> Informazioni su come framework di MVC ASP.NET elabora una richiesta del browser dettagliata.
+> Informazioni su come il framework ASP.NET MVC elabora una richiesta del browser dettagliata.
 
 
-Le richieste a un'applicazione Web basata su MVC ASP.NET passano innanzitutto attraverso il **UrlRoutingModule** oggetto, ovvero un modulo HTTP. Questo modulo analizza la richiesta ed esegue la selezione delle route. Il **UrlRoutingModule** oggetto seleziona il primo oggetto route che corrisponde alla richiesta corrente. (Un oggetto route è una classe che implementa **RouteBase**, e in genere è un'istanza di **Route** classe.) Se non viene indirizzato corrisponda, il **UrlRoutingModule** oggetto non ha alcun effetto e consente di eseguire il fallback alla richiesta di ASP.NET o IIS regolare l'elaborazione della richiesta.
+Le richieste a un'applicazione Web basata su MVC ASP.NET passano innanzitutto attraverso il **UrlRoutingModule** oggetto, ovvero un modulo HTTP. Questo modulo analizza la richiesta ed esegue la selezione di route. Il **UrlRoutingModule** oggetto consente di selezionare il primo oggetto route che corrisponde alla richiesta corrente. (Un oggetto route è una classe che implementa **RouteBase**, ed è in genere un'istanza di **Route** classe.) Se nessuna route corrispondono, il **UrlRoutingModule** oggetto non esegue alcuna operazione e consente la richiesta di eseguire il fallback alla richiesta di ASP.NET o IIS normale elaborazione.
 
-Dall'oggetto selezionato **Route** oggetto, il **UrlRoutingModule** oggetto Ottiene il **IRouteHandler** oggetto a cui è associato il **Route**oggetto. In genere, in un'applicazione MVC, questo sarà un'istanza di **MvcRouteHandler**. Il **IRouteHandler** istanza crea un **IHttpHandler** dell'oggetto e lo passa il **IHttpContext** oggetto. Per impostazione predefinita, il **IHttpHandler** istanza per MVC è il **MvcHandler** oggetto. Il **MvcHandler** oggetto seleziona quindi il controller che gestirà infine la richiesta.
+Dall'oggetto selezionato **Route** oggetto, il **UrlRoutingModule** oggetto Ottiene il **IRouteHandler** oggetto a cui è associato il **Route**oggetto. In genere, in un'applicazione MVC, sarà un'istanza di **MvcRouteHandler**. Il **IRouteHandler** istanza crea un **IHttpHandler** dell'oggetto e lo passa il **IHttpContext** oggetto. Per impostazione predefinita, il **IHttpHandler** dell'istanza per MVC è la **MvcHandler** oggetto. Il **MvcHandler** oggetto seleziona quindi il controller che gestirà infine la richiesta.
 
 > [!NOTE]
-> Quando un'applicazione Web MVC ASP.NET viene eseguito in IIS 7.0, estensione non è necessaria per i progetti MVC. Tuttavia, in IIS 6.0, il gestore richiede il mapping di estensione del nome di file MVC alla DLL ISAPI ASP.NET.
+> Quando un'applicazione Web MVC ASP.NET viene eseguita in IIS 7.0, non è necessario per i progetti MVC estensione. In IIS 6.0, il gestore richiede tuttavia che è eseguire il mapping di estensione del nome di file MVC alla DLL ISAPI ASP.NET.
 
 
-Il modulo e il gestore sono i punti di ingresso per il framework di MVC ASP.NET. Eseguire le operazioni seguenti:
+Il modulo e il gestore sono i punti di ingresso per il framework ASP.NET MVC. Eseguire le operazioni seguenti:
 
 - Selezionare il controller appropriato in un'applicazione Web MVC.
-- Ottenere un'istanza di un controller specifico.
-- Chiamare il controller **Execute** metodo.
+- Ottenere un'istanza del controller specifico.
+- Chiamare il controller **Execute** (metodo).
 
 Di seguito sono elencate le fasi di esecuzione per un progetto Web MVC:
 
 - Ricezione della prima richiesta per l'applicazione 
 
-    - Nel file Global. asax, **Route** gli oggetti vengono aggiunti per il **RouteTable** oggetto.
+    - Nel file Global. asax **Route** gli oggetti vengono aggiunti per il **RouteTable** oggetto.
 - Eseguire il routing 
 
-    - Il **UrlRoutingModule** modulo Usa la prima corrispondenza **Route** oggetto di **RouteTable** insieme per creare il **RouteData** oggetto che viene quindi utilizzato per creare un **RequestContext** (**IHttpContext**) oggetto.
+    - Il **UrlRoutingModule** modulo Usa la prima corrispondenza **Route** dell'oggetto nel **RouteTable** insieme per creare il **RouteData** oggetto, che viene quindi utilizzato per creare un **RequestContext** (**IHttpContext**) oggetti.
 - Creare il gestore di richieste MVC 
 
-    - Il **MvcRouteHandler** oggetto crea un'istanza di **MvcHandler** classe e la passa il **RequestContext** istanza.
+    - Il **MvcRouteHandler** oggetto crea un'istanza del **MvcHandler** classe e la passa il **RequestContext** istanza.
 - Creare controller 
 
-    - Il **MvcHandler** viene utilizzata da object il **RequestContext** istanza per identificare il **IControllerFactory** oggetto (in genere un'istanza di  **DefaultControllerFactory** classe) per creare l'istanza del controller.
-- Esegui controller - il **MvcHandler** istanza chiama controller s **Execute** metodo. |
-- Richiama l'azione 
+    - Il **MvcHandler** oggetto utilizza il **RequestContext** istanza per identificare il **IControllerFactory** oggetto (in genere un'istanza del  **DefaultControllerFactory** classe) per creare l'istanza del controller.
+- Execute controller - i **MvcHandler** istanza chiama il controller s **Execute** (metodo). |
+- Azione di richiamo 
 
-    - La maggior parte dei controller di ereditare il **Controller** classe di base. Per i controller che a tale scopo, il **ControllerActionInvoker** oggetto associato con il controller determina quale metodo di azione della classe controller da chiamare, quindi chiama tale metodo.
-- Esecuzione del risultato 
+    - La maggior parte dei controller ereditano dal **Controller** classe di base. Per i controller che eseguire questa operazione, il **ControllerActionInvoker** oggetto, ovvero associato al controller determina quale metodo di azione della classe controller da chiamare e quindi chiama tale metodo.
+- Risultato dell'esecuzione 
 
-    - Un metodo di azione tipica potrebbe ricevere l'input dell'utente, preparare i dati di risposta appropriato e quindi eseguire il risultato restituendo un tipo di risultato. Tipi di risultato incorporati che è possono eseguire includono: **ViewResult** (che esegue il rendering di una vista ed è il tipo di risultato utilizzato più frequentemente), **RedirectToRouteResult**,  **RedirectResult**, **ContentResult**, **JsonResult**, e **EmptyResult**.
+    - Un metodo di azione tipica potrebbe ricevere l'input utente, preparare i dati di risposta appropriato e quindi eseguire il risultato tramite la restituzione di un tipo di risultato. I tipi di risultato incorporati che possono essere eseguiti includono quanto segue: **ViewResult** (che esegue il rendering di una vista ed è il tipo di risultato utilizzato più frequentemente), **RedirectToRouteResult**,  **RedirectResult**, **ContentResult**, **JsonResult**, e **EmptyResult**.

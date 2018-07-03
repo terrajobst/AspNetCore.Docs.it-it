@@ -1,98 +1,97 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
-title: Convalida con i validator di annotazione dei dati (c#) | Documenti Microsoft
+title: Convalida con i validator di annotazione dei dati (c#) | Microsoft Docs
 author: microsoft
-description: È possibile sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. Informazioni su come utilizzare i diversi tipi di convalida...
+description: È possibile sfruttare il raccoglitore di modelli di annotazione dei dati per eseguire la convalida all'interno di un'applicazione ASP.NET MVC. Informazioni su come usare i diversi tipi di convalida...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2009
 ms.topic: article
 ms.assetid: 7ca8013e-9dfc-4e33-8336-cdccfd5f9414
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0aca9472094e6a54c7b7cb4ad4f12df64fe12db2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 484d836c3865ca3df684a379585b71138d42ab7a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870193"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378217"
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a>Convalida con i validator di annotazione dei dati (c#)
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-> È possibile sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. Informazioni su come utilizzare i diversi tipi di attributi di convalida e utilizzarli in Entity Framework Microsoft.
-
-
-In questa esercitazione imparare a usare i validator di annotazione dei dati per eseguire la convalida in un'applicazione MVC ASP.NET. Il vantaggio di utilizzare i validator di annotazione dei dati è che consentono di eseguire la convalida semplicemente aggiungendo uno o più attributi, ad esempio la o attributo StringLength: per una proprietà di classe.
-
-Prima di poter utilizzare i validator di annotazione dei dati, è necessario scaricare lo strumento di associazione dati modello di annotazioni. È possibile scaricare l'esempio di Raccoglitore modello annotazioni dati dal sito Web CodePlex facendo [qui](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471).
+> È possibile sfruttare il raccoglitore di modelli di annotazione dei dati per eseguire la convalida all'interno di un'applicazione ASP.NET MVC. Informazioni su come usare i diversi tipi di attributi di convalida e usarle in Microsoft Entity Framework.
 
 
-È importante tenere presente che il gestore di associazione di dati le annotazioni del modello non è una parte del framework di MVC ASP.NET Microsoft ufficiale. Anche se il gestore di associazione di dati le annotazioni del modello è stato creato dal team di Microsoft ASP.NET MVC, Microsoft non offre supporto ufficiale del prodotto per il gestore di associazione dati modello annotazioni descritto e utilizzati in questa esercitazione.
+In questa esercitazione descrive come usare i validator di annotazione dei dati per eseguire la convalida in un'applicazione ASP.NET MVC. Il vantaggio di usare i validator di annotazione dei dati è che consentono di eseguire la convalida mediante la semplice aggiunta di uno o più attributi, come richiesto o un attributo StringLength: per una proprietà di classe.
+
+Prima di poter usare i validator di annotazione dei dati, è necessario scaricare lo strumento individuerebbe annotazioni dei dati. È possibile scaricare l'esempio di strumento di associazione di modello annotazioni dati dal sito Web CodePlex facendo [qui](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471).
 
 
-## <a name="using-the-data-annotation-model-binder"></a>Utilizzando lo strumento di associazione dati modello annotazione
+È importante comprendere che lo strumento individuerebbe annotazioni dei dati non è una parte ufficiale di Microsoft ASP.NET MVC framework. Anche se lo strumento individuerebbe annotazioni dei dati è stato creato dal team di Microsoft ASP.NET MVC, Microsoft non offre il supporto ufficiale del prodotto per lo strumento individuerebbe annotazioni dei dati descritti e usati in questa esercitazione.
 
-Per utilizzare lo strumento di associazione di dati le annotazioni del modello in un'applicazione ASP.NET MVC, è necessario prima aggiungere un riferimento all'assembly Microsoft.Web.Mvc.DataAnnotations.dll e l'assembly System.ComponentModel.DataAnnotations.dll. Selezionare l'opzione di menu **progetto, Aggiungi riferimento**. Fare clic su di **Sfoglia** scheda e passare al percorso in cui è stato scaricato (e decompressi) nell'esempio di Raccoglitore di modelli di dati le annotazioni (vedere **figura 1**).
+
+## <a name="using-the-data-annotation-model-binder"></a>Usando lo strumento individuerebbe annotazione dei dati
+
+Per usare lo strumento individuerebbe annotazioni dei dati in un'applicazione ASP.NET MVC, è necessario aggiungere un riferimento all'assembly Microsoft.Web.Mvc.DataAnnotations.dll e DataAnnotations assembly. Selezionare l'opzione di menu **progetto, Aggiungi riferimento**. Successivamente fare clic sui **esplorare** scheda e selezionare il percorso in cui è stato scaricato (e decompresso) l'esempio di Raccoglitore di modelli di annotazioni dei dati (vedere **figura 1**).
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image2.png)](validation-with-the-data-annotation-validators-cs/_static/image1.png)
 
-**Figura 1**: aggiunta di un riferimento al Binder di modello di dati le annotazioni ([fare clic per visualizzare l'immagine ingrandita](validation-with-the-data-annotation-validators-cs/_static/image3.png))
+**Figura 1**: aggiunta di un riferimento al Binder di modello di annotazioni dei dati ([fare clic per visualizzare l'immagine con dimensioni normali](validation-with-the-data-annotation-validators-cs/_static/image3.png))
 
-Selezionare l'assembly Microsoft.Web.Mvc.DataAnnotations.dll sia assembly DataAnnotations e fare clic su di **OK** pulsante.
-
-
-È possibile utilizzare l'assembly DataAnnotations incluso in .NET Framework Service Pack 1 con lo strumento di associazione dati modello di annotazioni. È necessario utilizzare la versione dell'assembly DataAnnotations incluso con il download di esempio di Raccoglitore modello di dati le annotazioni.
+Selezionare sia la Microsoft.Web.Mvc.DataAnnotations.dll agli assembly e DataAnnotations e scegliere il **OK** pulsante.
 
 
-Infine, è necessario registrare il gestore di associazione modello DataAnnotations nel file Global. asax. Aggiungere la riga di codice seguente all'applicazione\_gestore dell'evento Start () in modo che l'applicazione\_metodo Start () è simile al seguente:
+È possibile usare l'assembly DataAnnotations incluso in .NET Framework Service Pack 1 con lo strumento individuerebbe annotazioni dei dati. È necessario usare la versione dell'assembly DataAnnotations incluso con il download di esempio dello strumento di associazione di dati le annotazioni del modello.
+
+
+Infine, è necessario registrare il gestore di associazione di modelli di DataAnnotations nel file Global. asax. Aggiungere la riga di codice seguente all'applicazione\_gestore dell'evento Start () in modo che l'applicazione\_metodo Start () si presenta come segue:
 
 [!code-csharp[Main](validation-with-the-data-annotation-validators-cs/samples/sample1.cs)]
 
-Questa riga di codice registra il ataAnnotationsModelBinder come gestore di associazione del modello predefinito per l'intera applicazione MVC ASP.NET.
+Questa riga di codice registra l'ataAnnotationsModelBinder come il raccoglitore dei modelli predefiniti per l'intera applicazione ASP.NET MVC.
 
-## <a name="using-the-data-annotation-validator-attributes"></a>Usando gli attributi di convalida di annotazione dei dati
+## <a name="using-the-data-annotation-validator-attributes"></a>Usando gli attributi di Validator di annotazione dei dati
 
-Quando si utilizza lo strumento di associazione di dati le annotazioni del modello, utilizzare attributi di validator per eseguire la convalida. Lo spazio dei nomi System.ComponentModel.DataAnnotations include i seguenti attributi di convalida:
+Quando si usa lo strumento individuerebbe annotazioni dei dati, si usano attributi di convalida per eseguire la convalida. Lo spazio dei nomi System.ComponentModel.DataAnnotations include gli attributi di convalida seguenti:
 
-- Intervallo: consente di verificare se il valore di una proprietà è compreso tra un intervallo di valori specificato.
-- RegularExpression: consente di verificare se il valore di una proprietà corrisponde a un criterio di espressione regolare specificata.
-- Richiesto: consente di contrassegnare una proprietà come obbligatoria.
-- StringLength: consente di specificare una lunghezza massima per una proprietà di stringa.
+- Intervallo: consente di verificare se il valore di una proprietà è compreso tra un determinato intervallo di valori.
+- RegularExpression: consente di verificare se il valore di una proprietà corrisponde a un modello di espressione regolare specificata.
+- È necessario: consente di contrassegnare una proprietà in base alle esigenze.
+- StringLength – consente di specificare una lunghezza massima per una proprietà di stringa.
 - Convalida-classe di base per tutti gli attributi di convalida.
 
 > [!NOTE] 
 > 
-> Se le esigenze di convalida non vengono soddisfatti da uno qualsiasi dei validator standard sempre possibile la possibilità di creare un attributo di validator personalizzato ereditando un nuovo attributo di convalida dell'attributo di convalida di base.
+> Se le esigenze di convalida non sono soddisfatte da una delle funzioni di convalida standard quindi avere sempre la possibilità di creare un attributo di validator personalizzato ereditando un nuovo attributo di convalida dall'attributo di convalida di base.
 
 
-La classe di prodotto in **listato 1** viene illustrato come utilizzare questi attributi di convalida. Le proprietà di nome, descrizione e UnitPrice sono contrassegnate come richiesto. La proprietà Name deve avere una lunghezza di stringa di caratteri inferiore a 10. Infine, la proprietà UnitPrice deve corrispondere a un criterio di espressione regolare che rappresenta un importo in valuta.
+La classe di prodotto nel **listato 1** illustra come usare questi attributi di convalida. La proprietà Name, Description e UnitPrice sono contrassegnate come richiesto. La proprietà del nome deve avere una lunghezza di stringa contenente meno di 10 caratteri. Infine, la proprietà UnitPrice deve corrispondere un criterio di espressione regolare che rappresenta un importo di valuta.
 
 [!code-csharp[Main](validation-with-the-data-annotation-validators-cs/samples/sample2.cs)]
 
-**Elenco 1**: Models\Product.cs
+**Listato 1**: Models\Product.cs
 
-La classe di prodotto viene illustrato come utilizzare un attributo aggiuntivo: l'attributo DisplayName. L'attributo DisplayName consente di modificare il nome della proprietà quando la proprietà viene visualizzata in un messaggio di errore. Invece di visualizzare il messaggio di errore "è obbligatorio il campo UnitPrice" è possibile visualizzare il messaggio di errore "il campo Prezzo è obbligatorio".
+La classe di prodotto viene illustrato come utilizzare un attributo aggiuntivo: l'attributo DisplayName. L'attributo DisplayName consente di modificare il nome della proprietà quando la proprietà viene visualizzata in un messaggio di errore. Invece di visualizzare il messaggio di errore "il campo UnitPrice è obbligatorio" è possibile visualizzare il messaggio di errore "il campo del prezzo è obbligatorio".
 
 > [!NOTE] 
 > 
-> Se si desidera personalizzare completamente il messaggio di errore visualizzato da un validator è possibile assegnare un messaggio di errore personalizzato per la proprietà del validator messaggio di errore simile al seguente: `<Required(ErrorMessage:="This field needs a value!")>`
+> Se si desidera personalizzare completamente il messaggio di errore visualizzato da un servizio validator è possibile assegnare un messaggio di errore personalizzato per la proprietà del validator messaggio di errore simile al seguente: `<Required(ErrorMessage:="This field needs a value!")>`
 
 
-È possibile utilizzare la classe di prodotto in **listato 1** con l'azione del controller nel metodo di creazione **listato 2**. Questa azione del controller ricompilata la visualizzazione Create quando lo stato del modello contiene errori.
+È possibile usare la classe di prodotto nel **listato 1** con l'azione del controller create () in **listato 2**. Questa azione del controller Visualizza di nuovo la visualizzazione Create quando lo stato del modello contiene eventuali errori.
 
 [!code-csharp[Main](validation-with-the-data-annotation-validators-cs/samples/sample3.cs)]
 
-**Il listato 2**: Controllers\ProductController.vb
+**Listato 2**: Controllers\ProductController.vb
 
-Infine, è possibile creare la visualizzazione in **listato 3** facendo clic l'azione del metodo di creazione e selezionando l'opzione di menu **Aggiungi visualizzazione**. Creare una visualizzazione fortemente tipizzata con la classe di prodotto come classe di modello. Selezionare **crea** dall'elenco a discesa del contenuto di visualizzazione (vedere **figura 2**).
+Infine, è possibile creare la vista **listato 3** facendo clic su azione create () e selezionando l'opzione di menu **Aggiungi visualizzazione**. Creare una visualizzazione fortemente tipizzata con la classe Product come la classe del modello. Selezionare **Create** nell'elenco a discesa contenuto visualizzazione (vedere **Figura2**).
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image5.png)](validation-with-the-data-annotation-validators-cs/_static/image4.png)
 
-**Figura 2**: aggiunta della visualizzazione di creazione
+**Figura 2**: aggiunta della visualizzazione Create
 
 [!code-aspx[Main](validation-with-the-data-annotation-validators-cs/samples/sample4.aspx)]
 
@@ -100,28 +99,28 @@ Infine, è possibile creare la visualizzazione in **listato 3** facendo clic l'a
 
 > [!NOTE] 
 > 
-> Rimuovere il campo Id dal modulo di creazione generato dal **Aggiungi visualizzazione** opzione di menu. Poiché il campo Id corrisponde a una colonna Identity, non si desidera consentire agli utenti di immettere un valore per questo campo.
+> Rimuovere il campo Id dal form crea generato per il **Aggiungi visualizzazione** l'opzione di menu. Poiché il campo Id corrisponde a una colonna Identity, non si vuole consentire agli utenti di immettere un valore per questo campo.
 
 
-Se si invia il form per la creazione di un prodotto e non si immette i valori per i campi obbligatori, quindi i messaggi di errore di convalida nella **figura 3** vengono visualizzati.
+Se si invia il modulo per la creazione di un prodotto e non si immette i valori per i campi obbligatori, quindi i messaggi di errore di convalida nella **figura 3** vengono visualizzati.
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image7.png)](validation-with-the-data-annotation-validators-cs/_static/image6.png)
 
-**Figura 3**: campi necessari mancanti
+**Figura 3**: campi obbligatori mancanti
 
-Se si immette un importo di valuta non valido, quindi il messaggio di errore in **figura 4** viene visualizzato.
+Se si immette un importo di valuta non è valido, quindi il messaggio di errore in **figura 4** viene visualizzato.
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image9.png)](validation-with-the-data-annotation-validators-cs/_static/image8.png)
 
-**Figura 4**: importo in valuta non valido
+**Figura 4**: importo di valuta non è valido
 
-## <a name="using-data-annotation-validators-with-the-entity-framework"></a>Utilizzo di validator annotazione dei dati con Entity Framework
+## <a name="using-data-annotation-validators-with-the-entity-framework"></a>Uso di validator di annotazione dei dati con Entity Framework
 
-Se si utilizza Microsoft Entity Framework per generare classi del modello di dati è possibile applicare gli attributi di convalida direttamente alle classi. Poiché la finestra di progettazione di Entity Framework genera classi del modello, le modifiche apportate alle classi modello verranno sovrascritto alla successiva che si apportano modifiche nella finestra di progettazione.
+Se si usa Microsoft Entity Framework per generare classi del modello di dati è possibile applicare gli attributi di convalida direttamente alle classi. Poiché la finestra di progettazione di Entity Framework genera le classi del modello, le modifiche apportate alle classi di modello verranno sovrascritto alla successiva che si apportano modifiche nella finestra di progettazione.
 
-Se si desidera utilizzare i validator con le classi generate da Entity Framework è necessario creare classi di dati di metadati. Applicare i validator per la classe di metadati dati invece di applicare i validator alla classe effettiva.
+Se si desidera usare i validator con le classi generate da Entity Framework è necessario creare classi di dati di metadati. I validator è applicare alla classe di dati di metadati anziché applicare i validator alla classe effettiva.
 
-Ad esempio, si supponga che sia stato creato una classe di film tramite Entity Framework (vedere **figura 5**). Si supponga inoltre che si desidera rendere il titolo del film e Director proprietà obbligatorio. In tal caso, è possibile creare la classe parziale e dati in meta **listato 4**.
+Ad esempio, immaginare che hanno creato una classe di film mediante Entity Framework (vedere **figura 5**). Si supponga, inoltre, che si desidera rendere il titolo del film e direttore proprietà necessarie di proprietà. In tal caso, è possibile creare la classe parziale e metaclasse dati in **listato 4**.
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image11.png)](validation-with-the-data-annotation-validators-cs/_static/image10.png)
 
@@ -131,28 +130,28 @@ Ad esempio, si supponga che sia stato creato una classe di film tramite Entity F
 
 **Listato 4**: Models\Movie.cs
 
-Il file in **listato 4** contiene due classi denominate film e MovieMetaData. La classe film è una classe parziale. Corrisponde alla classe parziale generata da Entity Framework che è contenuto nel file DataModel.Designer.vb.
+Il file nella **listato 4** contiene due classi denominate film e MovieMetaData. La classe di film è una classe parziale. Corrisponde alla classe parziale generata da Entity Framework che è contenuto nel file DataModel.Designer.vb.
 
-.NET framework attualmente non supporta proprietà parziale. Pertanto, non è possibile applicare gli attributi di convalida per le proprietà della classe film definita nel file DataModel.Designer.vb applicando gli attributi di convalida per le proprietà della classe film definita nel file **listato 4**.
+Attualmente, .NET framework non supporta proprietà parziale. Pertanto, non è possibile applicare gli attributi di convalida per le proprietà della classe film definito nel file DataModel.Designer.vb applicando gli attributi di convalida per le proprietà della classe film definito nel file **listato 4**.
 
-Si noti che la classe parziale film è decorata con un attributo MetadataType che fa riferimento la classe MovieMetaData. La classe MovieMetaData contiene le proprietà del proxy per le proprietà della classe film.
+Si noti che la classe parziale del film è decorata con un attributo MetadataType che punta alla classe MovieMetaData. La classe MovieMetaData contiene proprietà proxy per le proprietà della classe di film.
 
-Gli attributi di convalida vengono applicati alle proprietà della classe MovieMetaData. La proprietà Title, Director e DateReleased sono tutti contrassegnate come proprietà obbligatorie. La proprietà di directory deve essere assegnata una stringa contenente meno di 5 caratteri. Infine, in cui viene applicato l'attributo DisplayName per la proprietà DateReleased per visualizzare un messaggio di errore "il campo rilasciato data è obbligatorio." anziché l'errore "il campo DateReleased è obbligatorio."
+Gli attributi di convalida vengono applicati alle proprietà della classe MovieMetaData. Le proprietà Title, Director e DateReleased tutti vengono contrassegnate come proprietà obbligatorie. La proprietà Director deve essere assegnata una stringa contenente meno di 5 caratteri. Infine, viene applicato l'attributo DisplayName alla proprietà DateReleased per visualizzare un messaggio di errore, ad esempio "il campo rilasciato data è obbligatorio". anziché l'errore "il campo DateReleased è obbligatorio".
 
 > [!NOTE] 
 > 
-> Si noti che le proprietà del proxy nella classe MovieMetaData non necessaria rappresentare gli stessi tipi di proprietà corrispondenti nella classe film. Ad esempio, la proprietà Director è una proprietà stringa nella classe film e proprietà di un oggetto nella classe MovieMetaData.
+> Si noti che la proprietà nella classe MovieMetaData proxy non è necessario rappresentare gli stessi tipi di proprietà corrispondenti nella classe di film. Ad esempio, la proprietà Director è una proprietà di stringa della classe di film e proprietà di un oggetto della classe MovieMetaData.
 
 
-La pagina in **figura 6** illustra i messaggi di errore restituiti quando si immettono valori non validi per le proprietà di film.
+La pagina **figura 6** illustra i messaggi di errore restituiti quando si immettono valori non validi per le proprietà di film.
 
 [![](validation-with-the-data-annotation-validators-cs/_static/image13.png)](validation-with-the-data-annotation-validators-cs/_static/image12.png)
 
-**Figura 6**: utilizzo di validator con Entity Framework ([fare clic per visualizzare l'immagine ingrandita](validation-with-the-data-annotation-validators-cs/_static/image14.png))
+**Figura 6**: tramite validator con Entity Framework ([fare clic per visualizzare l'immagine con dimensioni normali](validation-with-the-data-annotation-validators-cs/_static/image14.png))
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione è stato descritto come sfruttare il raccoglitore di modelli dati annotazione per la convalida all'interno di un'applicazione MVC ASP.NET. È stato descritto come utilizzare i diversi tipi di attributi di convalida, ad esempio la e StringLength. È stato inoltre descritto come utilizzare questi attributi quando si lavora con Microsoft Entity Framework.
+In questa esercitazione è stato descritto come sfruttare il raccoglitore di modelli di annotazione dei dati per eseguire la convalida all'interno di un'applicazione ASP.NET MVC. Si è appreso come usare i diversi tipi di attributi di convalida come richiesto e StringLength attributi. Inoltre appreso come usare questi attributi quando si lavora sul Microsoft Entity Framework.
 
 > [!div class="step-by-step"]
 > [Precedente](validating-with-a-service-layer-cs.md)

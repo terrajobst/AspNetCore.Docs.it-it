@@ -1,38 +1,37 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
-title: Configurazione degli ambienti di Server per la distribuzione Web | Documenti Microsoft
+title: Configurazione degli ambienti Server per la distribuzione Web | Microsoft Docs
 author: jrjlee
-description: In questa esercitazione viene illustrato come configurare gli ambienti server a supporto di un solo clic o automatizzato, distribuzione del sito Web e la pubblicazione in vari dello scenario diverse...
+description: Questa esercitazione illustrerà come configurare gli ambienti server supporta un solo clic, o automatizzato, distribuzione nel sito Web e pubblicazione dei vari dello scenario diverse...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: ff6118be618a170ac76d66a9de24a7b5cc2d840a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 520239c926b853b91638ed2687daebfb561fb99a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365270"
 ---
-<a name="configuring-server-environments-for-web-deployment"></a>Configurazione degli ambienti di Server per la distribuzione Web
+<a name="configuring-server-environments-for-web-deployment"></a>Configurazione degli ambienti Server per la distribuzione Web
 ====================
 da [Jason Lee](https://github.com/jrjlee)
 
-[Scarica il PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[Scaricare PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> In questa esercitazione Mostra come configurare gli ambienti server a un solo clic, o automatizzati, distribuzione del sito Web e la pubblicazione in vari scenari diversi. L'esercitazione include gli argomenti che consentono di completare varie attività, ad esempio la configurazione di un server web per approcci specifici per la distribuzione e configurazione di una server farm Web Farm Framework (WFF), insieme a panoramiche basata su scenario che forniscono supporto istruzioni di livello superiore end-to-end.
+> Questa esercitazione illustrerà come configurare gli ambienti server a supporta un solo clic, o automatizzato, distribuzione nel sito Web e pubblicazione nei vari scenari diversi. L'esercitazione include gli argomenti che consentono di completare varie attività, come la configurazione di un server web per approcci specifici per la distribuzione e configurazione di una farm di server Web Farm Framework (WFF), insieme a panoramiche basati su scenari che forniscono supporto istruzioni di end-to-end di livello superiore.
 > 
-> L'esercitazione Usa lo scenario di distribuzione di Fabrikam, Inc. descritto in [distribuzione Web aziendale: panoramica dello Scenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md) come punto di riferimento per gli esempi e l'infrastruttura di rete.
+> L'esercitazione Usa lo scenario di distribuzione di Fabrikam, Inc. descritto nella [distribuzione Web aziendale: panoramica dello Scenario](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md) come punto di riferimento per gli esempi e l'infrastruttura di rete.
 > 
 > Per una traduzione italiana di queste esercitazioni, visitare [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
-In questa esercitazione include questi argomenti:
+Questa esercitazione include questi argomenti:
 
 - [Scelta dell'approccio corretto per la distribuzione Web](choosing-the-right-approach-to-web-deployment.md)
 - [Scenario: Configurazione di un ambiente di test per la distribuzione Web](scenario-configuring-a-test-environment-for-web-deployment.md)
@@ -45,29 +44,29 @@ In questa esercitazione include questi argomenti:
 - [Creazione di una server farm con Web Farm Framework](creating-a-server-farm-with-the-web-farm-framework.md)
 - [Configurazione delle proprietà di distribuzione per un ambiente di destinazione](configuring-deployment-properties-for-a-target-environment.md)
 
-Il primo argomento, [scelta dell'approccio di destra per distribuzione Web](choosing-the-right-approach-to-web-deployment.md), vengono descritti gli approcci principali, è possibile utilizzare per pubblicare applicazioni web tramite lo strumento di distribuzione Web di Internet Information Services (IIS) (distribuzione Web) 2.0. Vengono inoltre identificati gli scenari in cui eseguire il mapping a ciascun approccio. Da qui, ogni argomento di scenario viene fornita una panoramica delle attività da completare e identifica gli argomenti in cui che è necessario per completare queste attività di lavoro tramite.
+Il primo argomento, [scelta dell'approccio a destra per la distribuzione Web](choosing-the-right-approach-to-web-deployment.md), vengono descritti gli approcci principali, è possibile usare per pubblicare le applicazioni web tramite lo strumento di distribuzione di Internet Information Services (IIS) Web (distribuzione Web) 2.0. Vengono inoltre identificati gli scenari che eseguono il mapping a ogni approccio. A questo punto, ogni argomento scenario fornisce una panoramica generale delle attività da completare e identifica gli argomenti, occorre usare per completare queste attività.
 
-Se si utilizza l'approccio di file di progetto split descritto in [comprendere il processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md) per compilare e distribuire la soluzione, l'argomento finale, [configurazione delle proprietà di distribuzione per un ambiente di destinazione](configuring-deployment-properties-for-a-target-environment.md), viene descritto come configurare i file di progetto specifici dell'ambiente per la distribuzione in ambienti di destinazione diversi.
+Se si usa l'approccio di file di progetto split descritto in [informazioni sul processo di compilazione](../web-deployment-in-the-enterprise/understanding-the-build-process.md) per compilare e distribuire la soluzione, l'argomento finale, [configurazione le proprietà di distribuzione per un ambiente di destinazione](configuring-deployment-properties-for-a-target-environment.md), viene descritto come configurare i file di progetto specifici dell'ambiente per la distribuzione in ambienti di destinazione diversi.
 
-## <a name="key-technologies"></a>Tecnologie principali
+## <a name="key-technologies"></a>Tecnologie chiave
 
-In questa esercitazione viene illustrato come utilizzare questi prodotti e tecnologie per supportare la distribuzione web:
+Questa esercitazione è incentrata su come usare questi prodotti e tecnologie per supportare la distribuzione web:
 
 - IIS 7.5
-- 2. x di distribuzione Web
+- Distribuzione Web 2.x
 - WFF 2.x
 - Servizio di gestione IIS Web (WMSvc)
 
-L'esercitazione interessa anche l'utilizzo di ASP.NET MVC 3, SQL Server 2008 R2, ASP.NET 4.0 e Windows Server 2008 R2.
+L'esercitazione interessa anche all'uso di Windows Server 2008 R2, SQL Server 2008 R2, ASP.NET 4.0 e ASP.NET MVC 3.
 
 ## <a name="other-tutorials-in-this-series"></a>Altre esercitazioni di questa serie
 
-Questo fa parte di una serie di cinque esercitazioni su distribuzione web su larga scala. Ecco le altre esercitazioni nella serie:
+Ciò fa parte di una serie di cinque esercitazioni su distribuzione web su larga scala. Ecco le altre esercitazioni della serie:
 
-- [Distribuzione di applicazioni Web in scenari aziendali](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Questo contenuto introduttivo fornisce lo sfondo di scelta rapida per la serie di esercitazioni. Viene descritto lo scenario dell'esercitazione e viene illustrato come le attività e procedure dettagliate descritte in tutta la serie rientrano in un processo più ampio di Application Lifecycle Management (ALM).
-- [Distribuzione nell'organizzazione Web](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). In questa esercitazione vengono introdotti i concetti relativi ai file di progetto di Microsoft Build Engine (MSBuild), la Pipeline di pubblicazione sul Web, distribuzione Web e altre tecnologie correlate. Spiega come è possibile utilizzare questi strumenti insieme per gestire i processi di distribuzione complessi.
-- [Configurazione di Team Foundation Server per la distribuzione Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). In questa esercitazione viene descritto come configurare Team Foundation Server (TFS) per supportare diversi scenari di distribuzione, tra cui la distribuzione automatica come parte di un processo di integrazione continua (CI) e attivate manualmente le distribuzioni di compilazioni specifiche.
-- [Distribuzione Web aziendale avanzate](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). In questa esercitazione viene illustrato come eseguire diverse attività di distribuzione più avanzate, ad esempio personalizzare le distribuzioni di database per più ambienti, esclusione dalla distribuzione di file e cartelle e l'esecuzione di applicazioni web offline durante il processo di distribuzione .
+- [Distribuzione di applicazioni Web in scenari aziendali](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Questo contenuto introduttivo fornisce lo sfondo contesto per la serie di esercitazioni. Viene descritto lo scenario dell'esercitazione e viene illustrato come le attività e procedure dettagliate descritte in tutta la serie rientrano in un processo più ampio di Application Lifecycle Management (ALM).
+- [Distribuzione nell'organizzazione Web](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Questa esercitazione offre un'introduzione concettuale a file di progetto di Microsoft Build Engine (MSBuild), la Pipeline di pubblicazione sul Web, distribuzione Web e altre tecnologie correlate. Viene spiegato come è possibile utilizzare questi strumenti insieme per gestire i processi di distribuzione complesse.
+- [Configurazione di Team Foundation Server per la distribuzione Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Questa esercitazione descrive come configurare Team Foundation Server (TFS) per supportare diversi scenari di distribuzione, tra cui la distribuzione automatizzata come parte di un processo di integrazione continua (CI) e attivata manualmente le distribuzioni di compilazioni specifiche.
+- [Distribuzione Web aziendale avanzata](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Questa esercitazione descrive come eseguire varie attività di distribuzione più avanzate, come la personalizzazione delle distribuzioni di database per più ambienti, esclusione di file e cartelle dalla distribuzione e portare offline l'applicazioni web durante il processo di distribuzione .
 
 > [!div class="step-by-step"]
 > [avanti](choosing-the-right-approach-to-web-deployment.md)

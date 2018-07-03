@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-outbound-webforms-routing
-title: Routing in uscita WebForms | Documenti Microsoft
+title: Routing in uscita WebForms | Microsoft Docs
 author: JoeStagner
-description: In questo video verranno visualizzati come utilizzare il meccanismo di distribuzione per creare in modo dinamico un URL in uscita in base all'input dell'utente.
+description: In questo video si vedrà come utilizzare il meccanismo di distribuzione per creare dinamicamente un URL in uscita in base all'input dell'utente.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2009
 ms.topic: article
 ms.assetid: 90d79218-505c-4b6d-87f5-a59592d59ccc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-outbound-webforms-routing
 msc.type: video
-ms.openlocfilehash: f49b7115a18413c9b6faefe49e988a86b443ea94
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 11975e5425d1d8bc8238e34bb3fac8e3574313af
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893752"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362320"
 ---
-<a name="aspnet-4-quick-hit---outbound-webforms-routing"></a>In ASP.NET 4 "rapido Hit' - WebForms in uscita Routing
+<a name="aspnet-4-quick-hit---outbound-webforms-routing"></a>ASP.NET 4 "Riscontro rapido" - Routing in uscita di Web Form
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-In questo video verranno visualizzati come utilizzare il meccanismo di distribuzione per creare in modo dinamico un URL in uscita in base all'input dell'utente. 
+In questo video si vedrà come utilizzare il meccanismo di distribuzione per creare dinamicamente un URL in uscita in base all'input dell'utente. 
 
-[&#9654;Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-outbound-webforms-routing)
+[&#9654;Guarda il video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-outbound-webforms-routing)
 
 > [!div class="step-by-step"]
 > [Precedente](aspnet-4-quick-hit-declarative-webforms-routing.md)

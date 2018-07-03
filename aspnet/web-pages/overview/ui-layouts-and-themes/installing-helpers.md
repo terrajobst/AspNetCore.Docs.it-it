@@ -1,31 +1,30 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: L'installazione di un Helper in un Web ASP.NET di pagine del sito (Razor) | Documenti Microsoft
+title: Installazione di un Helper in un Web ASP.NET le pagine del sito (Razor) | Microsoft Docs
 author: tfitzmac
-description: In questo articolo viene descritto come installare un helper in un sito Web ASP.NET Web Pages (Razor). Un helper è un componente riutilizzabile che include codice e markup per...
+description: Questo articolo descrive come installare un helper in un sito Web ASP.NET Web Pages (Razor). Un helper è un componente riutilizzabile che include il codice e markup per...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
 ms.topic: article
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 38290fd47355e7893eddd1f867f47b113b54ca7e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896782"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361806"
 ---
-<a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>L'installazione di un file di supporto nel sito Web ASP.NET (Razor) pagine
+<a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Installazione di un Helper in un sito di ASP.NET Web Pages (Razor)
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questo articolo viene descritto come installare un helper in un sito Web ASP.NET Web Pages (Razor). Oggetto *helper* è un componente riutilizzabile che include codice e markup per eseguire un'attività che potrebbe essere noiosa o complessi.
+> Questo articolo descrive come installare un helper in un sito Web ASP.NET Web Pages (Razor). Oggetto *helper* è un componente riutilizzabile che include il codice e markup per eseguire un'attività che potrebbe essere noioso o complessi.
 > 
-> Illustra quanto segue:
+> Che cosa si apprenderà come:
 > 
 > - Come installare un helper in un sito Web creato utilizzando WebMatrix 3.
 >   
@@ -36,33 +35,33 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > - WebMatrix 3
 
 
-## <a name="overview-of-helpers"></a>Panoramica di helper
+## <a name="overview-of-helpers"></a>Panoramica degli helper
 
-Alcune attività che gli utenti desiderano spesso nelle pagine web richiedono una grande quantità di codice o richiedono la conoscenza aggiuntivo. Esempi includono la visualizzazione di un grafico per i dati. inserimento di un pulsante di "Seguire" Twitter in una pagina. Invio messaggio di posta elettronica dal sito Web; il ritaglio e ridimensionamento di immagini. utilizzo di PayPal per il sito. Per consentire un facile eseguire questi tipi di elementi, le pagine Web ASP.NET consente di utilizzare *helper*. Gli helper sono componenti che si installa per un sito e che consentono di eseguono attività comuni usando solo una riga o codice Razor.
+Alcune attività che spesso gli utenti vogliono eseguire operazioni sulle pagine web richiedono una grande quantità di codice o della Knowledge Base aggiuntiva. Gli esempi includono la visualizzazione di un grafico per i dati. inserimento di un pulsante "Segui" Twitter in una pagina. Invio messaggio di posta elettronica tramite il sito Web; ritaglio o ridimensionamento delle immagini; utilizzo di PayPal per il sito. Per renderlo semplice eseguire questo tipo di attività, ASP.NET Web Pages ti permette di usare *helper*. Gli helper sono componenti installare per un sito e che consentono di eseguono attività tipiche usando solo una o due righe di codice Razor.
 
-Le pagine Web ASP.NET dispone di alcuni helper compilato. Tuttavia, molte funzioni di supporto sono disponibili nei pacchetti che sono forniti usando Gestione pacchetti NuGet (componenti aggiuntivi). NuGet consente di selezionare un pacchetto da installare e quindi si occupa di tutti i dettagli dell'installazione.
+ASP.NET Web Pages ha alcuni helper incorporato. Tuttavia, molti helper sono disponibili nei pacchetti forniti tramite Gestione pacchetti NuGet (componenti aggiuntivi). NuGet consente di selezionare un pacchetto da installare e quindi si occupa di tutti i dettagli dell'installazione.
 
-## <a name="installing-a-helper-in-webmatrix-3"></a>L'installazione di un Helper in WebMatrix 3
+## <a name="installing-a-helper-in-webmatrix-3"></a>Installazione di un Helper di WebMatrix 3
 
-1. In WebMatrix 3, fare clic su di **NuGet** pulsante.
+1. In WebMatrix 3, fare clic sui **NuGet** pulsante.
 
-    ![Nella finestra di dialogo Raccolta NuGet WebMatrix](installing-helpers/_static/image1.png)
-2. Verrà avviato Gestione pacchetti NuGet e visualizza i pacchetti disponibili. Nella casella di ricerca, immettere una parola chiave per il supporto di cui che si desidera installare.
+    ![Finestra di dialogo NuGet Gallery in WebMatrix](installing-helpers/_static/image1.png)
+2. Verrà avviato Gestione pacchetti NuGet e visualizza i pacchetti disponibili. Nella casella di ricerca, immettere una parola chiave per l'helper in cui che si vuole installare.
 
-    ![Nella finestra di dialogo Raccolta NuGet WebMatrix](installing-helpers/_static/image2.png)
+    ![Finestra di dialogo NuGet Gallery in WebMatrix](installing-helpers/_static/image2.png)
 3. Selezionare il pacchetto e quindi fare clic su **installare**. Fare clic su **Sì** quando viene richiesto se si desidera installare il pacchetto e indicare che si accettano le condizioni.
 
-     Se questa è la prima volta che è stato installato un helper, NuGet consente di creare cartelle nel sito Web per il codice che costituisce l'helper.
-4. Per disinstallare un helper, fare clic su di **raccolta** fare clic su di **installato** scheda e selezionare il pacchetto che si desidera disinstallare.
+     Se questa è la prima volta che è stato installato un file di supporto, NuGet crea le cartelle nel sito Web per il codice che costituisce l'helper.
+4. Per disinstallare un helper, fare clic sui **Gallery** e fare clic il **installato** scheda e selezionare il pacchetto da disinstallare.
 
-## <a name="installing-the-twitter-helper"></a>L'installazione l'helper di Twitter
+## <a name="installing-the-twitter-helper"></a>Installare l'helper di Twitter
 
-La versione più recente dell'API di Twitter non è compatibile con l'helper di Twitter che si installa tramite NuGet. In alternativa, vedere il [Helper di Twitter con WebMatrix](twitter-helper.md) argomento per informazioni su come configurare l'helper di Twitter nel progetto.
+La versione più recente dell'API di Twitter non è compatibile con l'helper di Twitter che si installa tramite NuGet. Al contrario, vedere la [Helper di Twitter con WebMatrix](twitter-helper.md) argomento per informazioni su come configurare l'helper di Twitter nel progetto.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 
-[Introduzione a ASP.NET Web Pages 2 - nozioni di base sulla programmazione](../getting-started/introducing-razor-syntax-c.md)
+[Introduzione ad ASP.NET Web Pages 2 - nozioni fondamentali di programmazione](../getting-started/introducing-razor-syntax-c.md)
 
 [Helper di Twitter con WebMatrix](twitter-helper.md)

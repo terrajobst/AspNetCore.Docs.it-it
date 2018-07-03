@@ -1,175 +1,174 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: 'Distribuzione Web ASP.NET utilizzando Visual Studio: aggiornamento di un Database di distribuzione | Documenti Microsoft'
+title: 'Distribuzione Web ASP.NET tramite Visual Studio: distribuzione di un aggiornamento di Database | Microsoft Docs'
 author: tdykstra
-description: Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
+description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
 ms.topic: article
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3020cfa19bf12f21c6d42a77ed257595431b4e86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 37b996452dfa619ba1276a1aba562ed7efc579b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892621"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389189"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Distribuzione Web ASP.NET utilizzando Visual Studio: aggiornamento di un Database di distribuzione
+<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Distribuzione Web ASP.NET tramite Visual Studio: distribuzione di un aggiornamento del Database
 ====================
 da [Tom Dykstra](https://github.com/tdykstra)
 
-[Scaricare il progetto Starter](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Download progetto iniziale](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Questa serie di esercitazioni viene illustrato come distribuire un ASP.NET (pubblica) per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web utilizzando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione di serie](introduction.md).
+> Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web usando Visual Studio 2012 o Visual Studio 2010. Per informazioni sulla serie, vedere [la prima esercitazione della serie](introduction.md).
 
 
 ## <a name="overview"></a>Panoramica
 
-In questa esercitazione è apportare una modifica al database e le modifiche correlate, verificare le modifiche in Visual Studio, quindi distribuire l'aggiornamento in ambienti di test, gestione temporanea e produzione.
+In questa esercitazione, si apportano una modifica al database e le modifiche al codice correlato, testare le modifiche in Visual Studio, quindi distribuire l'aggiornamento agli ambienti di test, staging e produzione.
 
-L'esercitazione innanzitutto illustrato come aggiornare un database gestito da migrazioni Code First e in seguito viene illustrato come aggiornare un database tramite il provider dbDacFx.
+L'esercitazione illustra innanzitutto la procedura per aggiornare un database gestito da migrazioni Code First e versioni successive viene illustrato come aggiornare un database tramite il provider dbDacFx.
 
-Promemoria: Se viene visualizzato un messaggio di errore o non funzioni man mano che Leggi l'esercitazione, assicurarsi di controllare il [risoluzione dei problemi di pagina](troubleshooting.md).
+Promemoria: Se viene visualizzato un messaggio di errore o qualcosa non funziona durante l'esecuzione dell'esercitazione, assicurarsi di controllare la [risoluzione dei problemi pagina](troubleshooting.md).
 
-## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Distribuire un aggiornamento del database utilizzando migrazioni Code First
+## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Distribuire un aggiornamento del database usando migrazioni Code First
 
-In questa sezione, si aggiunge una colonna di data di nascita per il `Person` classe di base per il `Student` e `Instructor` entità. È quindi necessario aggiornare la pagina che visualizza i dati di istruttore in modo da visualizzare la nuova colonna. Infine, le modifiche vengono distribuite a test, gestione temporanea e produzione.
+In questa sezione si aggiunge una colonna di date di nascita per il `Person` classe di base per il `Student` e `Instructor` entità. Quindi necessario aggiornare la pagina che visualizza i dati di instructor in modo da visualizzare la nuova colonna. Infine, distribuire le modifiche al test, staging e produzione.
 
 ### <a name="add-a-column-to-a-table-in-the-application-database"></a>Aggiungere una colonna a una tabella nel database dell'applicazione
 
-1. Nel *ContosoUniversity.DAL* progetto, aprire *Person* e aggiungere la proprietà seguente alla fine del `Person` classe (dovrebbero essere presenti due parentesi graffe riportata di seguito):
+1. Nel *ContosoUniversity.DAL* progetto aprire *Person.cs* e aggiungere la proprietà seguente alla fine del `Person` classe (dovrebbero essere presenti due parentesi graffe riportata di seguito):
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample1.cs)]
 
-    Aggiornare quindi il `Seed` metodo in modo che fornisce un valore per la nuova colonna. Aprire *Migrations\Configuration.cs* e sostituire il blocco di codice che inizia `var instructors = new List<Instructor>` con blocco di codice seguente, che include informazioni sulla data di nascita:
+    A questo punto, aggiornare il `Seed` metodo in modo che l'it conferisce un valore per la nuova colonna. Aprire *Migrations\Configuration.cs* e sostituire il blocco di codice che inizia `var instructors = new List<Instructor>` con blocco di codice seguente che include informazioni sulla data di nascita:
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample2.cs)]
-2. Compilare la soluzione e quindi aprire il **Package Manager Console** finestra. Assicurarsi che ContosoUniversity.DAL sia ancora selezionato come il **progetto predefinito**.
-3. Nel **Package Manager Console** selezionare **ContosoUniversity.DAL** come il **progetto predefinito**, quindi immettere il comando seguente:
+2. Compilare la soluzione e quindi aprire il **Console di gestione pacchetti** finestra. Assicurarsi che ContosoUniversity.DAL sia ancora selezionato come le **progetto predefinito**.
+3. Nel **Console di gestione pacchetti** finestra, seleziona **ContosoUniversity.DAL** come il **progetto predefinito**, quindi immettere il comando seguente:
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample3.ps1)]
 
-    Al termine di questo comando, Visual Studio apre il file di classe che definisce la nuova `DbMIgration` (classe) e il `Up` metodo è possibile visualizzare il codice che crea la nuova colonna. Il `Up` metodo consente di creare la colonna quando si implementa la modifica e `Down` metodo elimina la colonna quando si esegue il rollback della modifica.
+    Al termine di questo comando, Visual Studio apre il file di classe che definisce la nuova `DbMIgration` (classe) e nel `Up` metodo è possibile visualizzare il codice che crea la nuova colonna. Il `Up` metodo consente di creare la colonna quando si implementa la modifica e il `Down` metodo elimina la colonna quando si esegue il rollback della modifica.
 
     ![AddBirthDate_migration_code](deploying-a-database-update/_static/image1.png)
-4. Compilare la soluzione e quindi immettere il comando seguente nel **Package Manager Console** finestra (assicurarsi che sia ancora selezionato il progetto ContosoUniversity.DAL):
+4. Compilare la soluzione e quindi immettere il comando seguente nel **Console di gestione pacchetti** finestra (assicurarsi che il progetto ContosoUniversity.DAL sia ancora selezionato):
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample4.ps1)]
 
-    Entity Framework viene eseguito il `Up` (metodo) e quindi viene eseguito il `Seed` metodo.
+    Entity Framework esegue il `Up` metodo e quindi esegue il `Seed` (metodo).
 
-### <a name="display-the-new-column-in-the-instructors-page"></a>Visualizzare la nuova colonna nella pagina i docenti
+### <a name="display-the-new-column-in-the-instructors-page"></a>Visualizzare la nuova colonna nella pagina instructors (insegnanti)
 
-1. Nel progetto ContosoUniversity, aprire *Instructors.aspx* e aggiungere un nuovo modello di campo per visualizzare la data di nascita. Aggiungere il progetto tra quelle per l'assegnazione di office e di data di assunzione:
+1. Nel progetto ContosoUniversity, aprire *Instructors.aspx* e aggiungere un nuovo modello di campo per visualizzare la data di nascita. Aggiungerlo tra quelle per l'assegnazione di office e data di assunzione:
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample5.aspx?highlight=9-17)]
 
-    (Se il rientro di codice ottiene sincronizzato, è possibile premere CTRL-K e CTRL + D per riformattare automaticamente il file.)
-2. Eseguire l'applicazione e fare clic su di **i docenti** collegamento.
+    (Se rientro del codice viene sincronizzato, è possibile premere CTRL-K e CTRL + D per riformattare automaticamente il file.)
+2. Eseguire l'applicazione, quindi scegliere il **instructors (insegnanti)** collegamento.
 
-    Quando il caricamento della pagina, vedrai che contiene il nuovo campo Data di nascita.
+    Quando la pagina viene caricata, si noterà che che contiene il nuovo campo di data di nascita.
 
-    ![Pagina istruttori con data di nascita](deploying-a-database-update/_static/image2.png)
+    ![Pagina instructors (insegnanti) con data di nascita](deploying-a-database-update/_static/image2.png)
 3. Chiudere il browser.
 
 ### <a name="deploy-the-database-update"></a>Distribuire l'aggiornamento del database
 
-1. In **Esplora** selezionare il progetto ContosoUniversity.
-2. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic su di **Test** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**. (Se la barra degli strumenti è disabilitato, selezionare il progetto ContosoUniversity in **Esplora**.)
+1. Nelle **Esplora soluzioni** selezionare il progetto ContosoUniversity.
+2. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic sui **Test** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**. (Se la barra degli strumenti è disabilitata, selezionare il progetto ContosoUniversity **Esplora soluzioni**.)
 
-    Visual Studio distribuisce l'applicazione aggiornata e il browser viene visualizzata la pagina home.
-3. Eseguire il **i docenti** pagina per verificare che l'aggiornamento è stato distribuito correttamente.
+    Visual Studio distribuisce l'applicazione aggiornata e nel browser verrà aperta la home page.
+3. Eseguire la **instructors (insegnanti)** pagina per verificare che l'aggiornamento è stato distribuito correttamente.
 
-    Quando l'applicazione tenta di accedere al database per questa pagina, il primo codice aggiorna lo schema del database e viene eseguito il `Seed` metodo. Quando viene visualizzata la pagina, viene visualizzato il previsto **data di nascita** colonna delle date in essa contenuti.
-4. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic su di **gestione temporanea** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**.
-5. Eseguire il **i docenti** pagina di gestione temporanea per verificare che l'aggiornamento è stato distribuito correttamente.
-6. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic su di **produzione** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**.
-7. Eseguire il **i docenti** pagina nell'ambiente di produzione per verificare che l'aggiornamento è stato distribuito correttamente.
+    Quando l'applicazione prova ad accedere al database per questa pagina, Code First Aggiorna lo schema del database ed esegue il `Seed` (metodo). Quando viene visualizzata la pagina, noterete che quella prevista **data di nascita** colonna delle date in esso.
+4. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic sui **Staging** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**.
+5. Eseguire la **instructors (insegnanti)** pagina in gestione temporanea per verificare che l'aggiornamento è stato distribuito correttamente.
+6. Nel **Web-pubblicazione con un clic** sulla barra degli strumenti, fare clic sui **produzione** profilo di pubblicazione e quindi fare clic su **pubblica sul Web**.
+7. Eseguire la **instructors (insegnanti)** pagina nell'ambiente di produzione per verificare che l'aggiornamento è stato distribuito correttamente.
 
-    Per un aggiornamento dell'applicazione di produzione reali che include una modifica al database anche in genere si procederà quindi l'applicazione durante la distribuzione tramite *app\_offline.htm*, come visto nell'esercitazione precedente.
+    Per un aggiornamento dell'applicazione di produzione reali che include una modifica al database anche in genere si procederà quindi l'applicazione in modalità offline durante la distribuzione usando *app\_offline.htm*, come illustrato nell'esercitazione precedente.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Distribuire un aggiornamento del database tramite il provider dbDacFx
 
-In questa sezione, si aggiunge un *commenti* colonna per il *utente* tabella nel database delle appartenenze e creare una pagina che consente di visualizzare e modificare commenti per ogni utente. Distribuire le modifiche a test, gestione temporanea e produzione.
+In questa sezione aggiunge un *commenti* colonna il *utente* tabella nel database delle appartenenze e creare una pagina che consente di visualizzare e modificare i commenti per ogni utente. Quindi distribuire le modifiche al test, staging e produzione.
 
 ### <a name="add-a-column-to-a-table-in-the-membership-database"></a>Aggiungere una colonna a una tabella nel database delle appartenenze
 
 1. In Visual Studio, aprire **Esplora oggetti di SQL Server**.
-2. Espandere **(localdb) \v11.0**, espandere **database**, espandere **aspnet ContosoUniversity** (non **aspnet-ContosoUniversity-Prod**) e quindi espandere **tabelle**.
+2. Espandere **(localdb) \v11.0**, espandere **database**, espandere **aspnet-ContosoUniversity** (non **aspnet-ContosoUniversity-produzione**) e infine **tabelle**.
 
-    Se non viene visualizzato **(localdb) \v11.0** sotto il **SQL Server** nodo, fare doppio clic su di **SQL Server** nodo e fare clic su **aggiungere SQL Server**. Nel **Connetti al Server** la finestra di dialogo immettere *(localdb) \v11.0* come il **nome del Server**, quindi fare clic su **Connetti**.
+    Se non viene visualizzata **\v11.0 (localdb)** sotto il **SQL Server** nodo, fare doppio clic il **SQL Server** nodo e fare clic su **Aggiungi SQL Server**. Nel **Connetti al Server** finestra di dialogo immettere *\v11.0 (localdb)* come il **nome del Server**e quindi fare clic su **Connect**.
 
-    Se non viene visualizzato **aspnet ContosoUniversity**, eseguire il progetto e accedere con il *admin* credenziali (password è *devpwd*), quindi aggiornare il  **Esplora oggetti di SQL Server** finestra.
-3. Fare doppio clic su di **utenti** tabella e quindi fare clic su **Visualizza finestra di progettazione**.
+    Se non viene visualizzato **aspnet-ContosoUniversity**, eseguire il progetto e accedere con il *admin* credenziali (password viene *devpwd*) e quindi aggiornare il  **Esplora oggetti di SQL Server** finestra.
+3. Fare doppio clic il **gli utenti** tabella e quindi fare clic su **Progettazione viste**.
 
-    ![Finestra di progettazione sillaba SSOX](deploying-a-database-update/_static/image3.png)
-4. Nella finestra di progettazione, aggiungere un *commenti* colonna e renderlo *nvarchar (128)* e ammette valori null, quindi fare clic su **aggiornamento**.
+    ![Progettazione viste SSOX](deploying-a-database-update/_static/image3.png)
+4. Nella finestra di progettazione, aggiungere un *commenti* colonna e renderlo *nvarchar (128)* e ammette valori null, quindi fare clic su **Update**.
 
     ![Aggiunta di commenti colonna](deploying-a-database-update/_static/image4.png)
-5. Nel **Anteprima aggiornamenti Database** fare clic su **aggiornamento Database**.
+5. Nel **Anteprima aggiornamenti Database** fare clic su **Update Database**.
 
     ![Anteprima aggiornamenti Database](deploying-a-database-update/_static/image5.png)
 
 ### <a name="create-a-page-to-display-and-edit-the-new-column"></a>Creare una pagina per visualizzare e modificare la nuova colonna
 
-1. In **Esplora**, fare doppio clic su di **Account** cartella nel progetto ContosoUniversity, fare clic su **Aggiungi**e quindi fare clic su **nuovo elemento** .
-2. Creare un nuovo **pagina Web Form utilizzando Master** e denominarlo *UserInfo.aspx*. Accettare il valore predefinito *Site. master* file della pagina master.
+1. In **Esplora soluzioni**, fare doppio clic sul **Account** cartella nel progetto ContosoUniversity, fare clic su **Add**, quindi fare clic su **nuovo elemento** .
+2. Creare una nuova **della pagina Master utilizzando di Web Form** e denominarlo *UserInfo.aspx*. Accettare il valore predefinito *Site. master* file come pagina master.
 3. Copiare il seguente markup nel `MainContent` `Content` elemento (l'ultimo di 3 `Content` elementi):
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample6.aspx)]
-4. Fare doppio clic su di *UserInfo.aspx* pagina e fare clic su **Visualizza nel Browser**.
-5. Accedere con il *admin* le credenziali dell'utente (password *devpwd*) e aggiungere alcuni commenti a un utente per verificare il corretto funzionamento della pagina.
+4. Fare doppio clic il *UserInfo.aspx* e fare clic su **Visualizza nel Browser**.
+5. Accedi con il *admin* le credenziali dell'utente (password viene *devpwd*) e aggiungere alcuni commenti a un utente per verificare il corretto funzionamento della pagina.
 
     ![Pagina informazioni utente](deploying-a-database-update/_static/image6.png)
 6. Chiudere il browser.
 
 ## <a name="deploy-the-database-update"></a>Distribuire l'aggiornamento del database
 
-Per distribuire tramite il provider dbDacFx, è sufficiente selezionare il **Aggiorna database** opzione nel profilo di pubblicazione. Tuttavia, per la distribuzione iniziale quando si utilizza questa opzione è inoltre configurato alcuni script SQL aggiuntive da eseguire: quelli presenti nel profilo, è necessario evitare che venga eseguita di nuovo.
+Per distribuire usando il provider dbDacFx, è sufficiente selezionare la **aggiornare il database** opzione nel profilo di pubblicazione. Tuttavia, per la distribuzione iniziale quando è stata utilizzata questa opzione inoltre configurato alcuni altri script SQL per eseguire: sono ancora nel profilo e sarà necessario impedirne l'esecuzione anche in questo caso.
 
-1. Aprire il **pubblica sul Web** guidata facendo clic su progetto ContosoUniversity e facendo clic su **pubblica**.
+1. Aprire il **pubblica sul Web** procedura guidata facendo clic sul progetto ContosoUniversity e facendo clic su **Publish**.
 2. Selezionare il **Test** profilo.
-3. Fare clic su di **impostazioni** scheda.
-4. In **DefaultConnection**selezionare **Aggiorna database**.
-5. Disabilitare gli script aggiuntivi configurati per essere eseguiti per la distribuzione iniziale:
+3. Scegliere il **impostazioni** scheda.
+4. Sotto **DefaultConnection**, selezionare **Aggiorna database**.
+5. Disabilitare gli script aggiuntivi che è configurato per l'esecuzione per la distribuzione iniziale:
 
-    1. Fare clic su **configurare gli aggiornamenti di database**.
-    2. Nel **Configura Aggiornamenti Database** la finestra di dialogo, deselezionare le caselle di controllo accanto a *Grant.sql* e *aspnet-data-dev.sql*.
+    1. Fare clic su **Configura Aggiornamenti database**.
+    2. Nel **configurare gli aggiornamenti del Database** della finestra di dialogo deselezionare le caselle di controllo accanto a *Grant.sql* e *aspnet-data-dev.sql*.
     3. Fare clic su **Chiudi**.
-6. Fare clic su di **anteprima** scheda.
-7. In **database** e a destra del **DefaultConnection**, fare clic su di **database di anteprima** collegamento.
+6. Scegliere il **Preview** scheda.
+7. Sotto **database** e a destra di **DefaultConnection**, fare clic sui **anteprima database** collegamento.
 
-    ![Anteprima di database](deploying-a-database-update/_static/image7.png)
+    ![Database (anteprima)](deploying-a-database-update/_static/image7.png)
 
-    La finestra di anteprima mostra lo script che verrà eseguito nel database di destinazione affinché corrisponda allo schema del database di origine schema del database. Lo script include un comando ALTER TABLE che aggiunge la nuova colonna.
-8. Chiudi il **anteprima di Database** la finestra di dialogo e quindi fare clic su **pubblica**.
+    La finestra di anteprima mostra lo script che verrà eseguito nel database di destinazione per rendere tale schema del database corrispondono allo schema del database di origine. Lo script include un comando ALTER TABLE che aggiunge la nuova colonna.
+8. Chiudi il **Database (anteprima)** finestra di dialogo e quindi fare clic su **Publish**.
 
-    Visual Studio distribuisce l'applicazione aggiornata e il browser viene visualizzata la pagina home.
-9. Eseguire la pagina UserInfo (aggiungere *Account/UserInfo.aspx* per l'URL della home page) per verificare che l'aggiornamento è stato distribuito correttamente. È necessario accedere immettendo *admin* e *devpwd*.
+    Visual Studio distribuisce l'applicazione aggiornata e nel browser verrà aperta la home page.
+9. Eseguire la pagina della UserInfo (aggiungere *Account/UserInfo.aspx* a URL della home page) per verificare che l'aggiornamento è stato distribuito correttamente. È possibile accedere immettendo *admin* e *devpwd*.
 
-    Per impostazione predefinita non vengono distribuiti i dati nelle tabelle e si non è stato configurato uno script di distribuzione di dati per l'esecuzione, in modo da non individuare il commento è stato aggiunto in fase di sviluppo. È possibile aggiungere un nuovo commento a questo punto di gestione temporanea per verificare che la modifica è stata distribuita il database e corretto funzionamento della pagina.
-10. Seguire la stessa procedura per la distribuzione di gestione temporanea e produzione.
+    Per impostazione predefinita non vengono distribuiti i dati nelle tabelle e non sono state configurate uno script di distribuzione dei dati per l'esecuzione, in modo che non sono disponibili il commento aggiunto in fase di sviluppo. È possibile aggiungere un nuovo commento a questo punto nella gestione temporanea per verificare che la modifica è stata distribuita nel database e la pagina funziona correttamente.
+10. Seguire la stessa procedura per distribuire in gestione temporanea e produzione.
 
-    Non dimenticare di disattivare gli script aggiuntivi. L'unica differenza rispetto al profilo di Test è che si disabiliterà solo uno script di gestione temporanea e produzione profili perché sono stati configurati per l'esecuzione solo *aspnet-op-data.sql*.
+    Non dimenticare di disabilitare gli script aggiuntivi. L'unica differenza rispetto al profilo di Test è che si disabiliterà un solo script nel processo di Staging e produzione profili perché sono stati configurati per l'esecuzione solo *aspnet-prod-data.sql*.
 
-    Le credenziali per la gestione temporanea e produzione sono prodpwd e amministrazione.
+    Le credenziali per lo staging e produzione sono prodpwd e amministratore.
 
-    Per un aggiornamento dell'applicazione di produzione reali che include una modifica al database anche in genere si procederà quindi l'applicazione durante la distribuzione caricando *app\_offline.htm* prima della pubblicazione e l'eliminazione in seguito, come specificato nella [esercitazione precedente](deploying-a-code-update.md).
+    Per un aggiornamento dell'applicazione di produzione reali che include una modifica al database è in genere anche sarebbe portare offline l'applicazione durante la distribuzione caricando *app\_offline.htm* prima della pubblicazione e l'eliminazione in seguito, come illustrato nelle [nell'esercitazione precedente](deploying-a-code-update.md).
 
 ## <a name="summary"></a>Riepilogo
 
-Aggiornamento di un'applicazione che include una modifica di database utilizzando migrazioni Code First sia il provider dbDacFx distribuiti a questo punto.
+A questo punto è stata distribuita un aggiornamento dell'applicazione che una modifica al database tramite le migrazioni Code First e il provider dbDacFx incluso.
 
-![Pagina istruttori con data di nascita](deploying-a-database-update/_static/image8.png)
+![Pagina instructors (insegnanti) con data di nascita](deploying-a-database-update/_static/image8.png)
 
 ![Pagina informazioni utente](deploying-a-database-update/_static/image9.png)
 
-L'esercitazione successiva viene illustrato come eseguire le distribuzioni tramite la riga di comando.
+L'esercitazione successiva illustra come eseguire distribuzioni usando la riga di comando.
 
 > [!div class="step-by-step"]
 > [Precedente](deploying-a-code-update.md)

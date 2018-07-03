@@ -1,28 +1,27 @@
 ---
 uid: aspnet/tutorials
-title: Esercitazioni ASP.NET | Documenti Microsoft
+title: Esercitazioni su ASP.NET | Microsoft Docs
 author: tdykstra
-description: Un elenco di istruzioni dettagliate per lo sviluppo di applicazioni ASP.NET.
+description: Un elenco di procedure dettagliate per lo sviluppo di applicazioni ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036765"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389612"
 ---
-# <a name="aspnet-tutorials"></a>Esercitazioni ASP.NET
+# <a name="aspnet-tutorials"></a>Esercitazioni su ASP.NET
 
-Le seguenti guide dettagliate per lo sviluppo di applicazioni ASP.NET sono disponibili.
+Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni ASP.NET.
 
 > [!NOTE]
-> Ricerca per le esercitazioni di ASP.NET Core?  Sono disponibili tramite [qui](https://docs.microsoft.com/aspnet/core/tutorials/).
+> Alla ricerca di esercitazioni di ASP.NET Core?  Trovarle [qui](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Web Form
 
@@ -48,7 +47,7 @@ Le seguenti guide dettagliate per lo sviluppo di applicazioni ASP.NET sono dispo
 
 ## <a name="mvc"></a>MVC
 
-* [Introduzione a ASP.NET MVC 5](mvc/overview/getting-started/introduction/index.md)
+* [Introduzione ad ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
 * [Introduzione a EF 6 con MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [Database First di EF con ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Uso di Controllo pagina in ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)

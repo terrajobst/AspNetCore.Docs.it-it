@@ -1,78 +1,77 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
-title: La convalida, moduli e gli helper di ASP.NET MVC 4 | Documenti Microsoft
+title: Gli helper di ASP.NET MVC 4, moduli e convalida | Microsoft Docs
 author: rick-anderson
-description: In ASP.NET MVC 4 modelli e le esercitazioni pratiche accesso ai dati, è stato durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il...
+description: In ASP.NET MVC 4 modelli e le esercitazioni pratiche accesso dati, si sono stati il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verrà aggiunto ai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: f2eb624e72d6f52d1694b5753ee2b1f8117c2851
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30878178"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376737"
 ---
-# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Convalida, moduli e gli helper di ASP.NET MVC 4
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Gli helper di ASP.NET MVC 4, moduli e convalida
 
-Da [categorie Web Team](https://twitter.com/webcamps)
+da [Camp Web Team](https://twitter.com/webcamps)
 
-[Download Web categorie Kit di formazione](https://aka.ms/webcamps-training-kit)
+[Download Web Camp Kit di formazione](https://aka.ms/webcamps-training-kit)
 
-In **accesso ai dati e i modelli di ASP.NET MVC 4** pratica, si è stati durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verranno aggiunti per il **negozio** applicazione la possibilità di modificare i dati.
+Nelle **modelli di ASP.NET MVC 4 e l'accesso ai dati** Lab pratici, sono stati durante il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verrà aggiunto per il **Music Store** applicazione la possibilità di modificare i dati.
 
-Con tale scopo, si creerà innanzitutto il controller che supporterà le azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) di album. Verrà generato un modello di visualizzazione dell'indice usufruire della funzionalità di scaffolding di ASP.NET MVC per visualizzare le proprietà degli album in una tabella HTML. Per migliorare la visualizzazione, si aggiungerà un helper HTML personalizzato che verrà troncato descrizioni lunghe.
+Tenendo presente questo obiettivo, si creerà innanzitutto il controller che supporterà le azioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) di album. Si genererà un modello di visualizzazione dell'indice sfruttando i vantaggi della funzionalità di scaffolding di ASP.NET MVC per visualizzare le proprietà degli album in una tabella HTML. Per migliorare tale visualizzazione, si aggiungerà un helper HTML personalizzato che verrà troncato descrizioni lunghe.
 
-Successivamente, si aggiungerà la modifica e creazione di visualizzazioni che consente di modificare gli album nel database, con l'aiuto di elementi del form come elenchi a discesa.
+Successivamente, si aggiungerà la modifica e creare visualizzazioni che consentirà di modificare gli album nel database, con l'aiuto degli elementi del form, ad esempio elenchi a discesa.
 
-Infine, si permettono agli utenti di eliminare un album e inoltre si impedirà l'immissione di dati errati, convalidando l'input.
+Infine, si consentirà agli utenti di eliminare un album e inoltre si impedirà l'immissione di dati errati, convalidando l'input.
 
-Questa pratica presuppone avere conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **nozioni fondamentali su MVC ASP.NET** le esercitazioni pratiche.
+Questa pratica si presuppone conoscenze di base **ASP.NET MVC**. Se non è stato utilizzato **ASP.NET MVC** in precedenza, è consigliabile esaminare **concetti di base di ASP.NET MVC** laboratorio pratico.
 
-Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza tramite l'applicazione di modifiche di lieve entità a un'applicazione Web di esempio fornita nella cartella di origine.
+Questa esercitazione illustra i miglioramenti e nuove funzionalità descritte in precedenza applicando modifiche minime a un'applicazione Web di esempio fornita nella cartella di origine.
 
 > [!NOTE]
-> Tutto il codice di esempio e i frammenti di codice sono inclusi nel Web categorie Training Kit, disponibile all'indirizzo [versioni Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Il progetto specifico per questa esercitazione è disponibile all'indirizzo [helper di ASP.NET MVC 4, i form e convalida](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
+> Tutto il codice di esempio e frammenti di codice sono inclusi nel Web Camp Kit di formazione, disponibile all'indirizzo [Microsoft-Web/WebCampTrainingKit versioni](https://aka.ms/webcamps-training-kit). Il progetto specifico per questo lab è disponibile all'indirizzo [helper di ASP.NET MVC 4, moduli e convalida](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Obiettivi
 
-In questa pratica, si apprenderà come:
+In questo laboratorio pratico, si apprenderà come:
 
 - Creare un controller per supportare le operazioni CRUD
-- Generare una visualizzazione di indice per visualizzare le proprietà delle entità in una tabella HTML
-- Aggiungere un helper HTML personalizzati
+- Generare una visualizzazione indice per visualizzare le proprietà dell'entità in una tabella HTML
+- Aggiungere un helper HTML personalizzato
 - Creare e personalizzare una visualizzazione di modifica
-- Distinguere tra i metodi di azione che reagiscono a HTTP-GET o chiamate HTTP-POST
+- Distinguere i metodi di azione che reagiscono a HTTP-GET o le chiamate HTTP-POST
 - Aggiungere e personalizzare un'istruzione Create View
 - Gestire l'eliminazione di un'entità
-- Convalidare l'input dell'utente
+- Convalida dell'input utente
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Prerequisiti
 
-È necessario che gli elementi seguenti per completare questa esercitazione:
+Sono necessari gli elementi seguenti per completare questa esercitazione:
 
-- [Microsoft Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superiore (lettura [appendice](#AppendixA) per istruzioni su come installarlo).
+- [Microsoft Visual Studio Express 2012 per Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superiore (leggere [appendice A](#AppendixA) per istruzioni su come installarlo).
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Configurazione
 
-**L'installazione di frammenti di codice**
+**Installazione di frammenti di codice**
 
-Per praticità, gran parte del codice che vengono gestiti in questa esercitazione è disponibile come frammenti di codice di Visual Studio. Per installare i frammenti di codice eseguire **.\Source\Setup\CodeSnippets.vsi** file.
+Per praticità, gran parte del codice che vengono gestiti insieme questo lab è disponibile come frammenti di codice di Visual Studio. Per installare i frammenti di codice eseguiti **.\Source\Setup\CodeSnippets.vsi** file.
 
-Se non si ha familiarità con i frammenti di codice di Visual Studio e si desidera per informazioni su come usarle, è possibile fare riferimento all'appendice di questo documento &quot; [appendice b: tramite i frammenti di codice](#AppendixB)&quot;.
+Se non ha familiarità con i frammenti di codice di Visual Studio e si vuole imparare a usarle, è possibile fare riferimento all'appendice di questo documento &quot; [appendice b: Using Code Snippets](#AppendixB)&quot;.
 
 * * *
 
@@ -81,18 +80,18 @@ Se non si ha familiarità con i frammenti di codice di Visual Studio e si deside
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Esercizi
 
-Esercizi seguenti che costituiscono questa pratica:
+Gli esercizi seguenti che costituiscono questo laboratorio pratico:
 
-1. [Creazione di controller di gestione di Store e la visualizzazione dell'indice](#Exercise1)
+1. [Creazione di controller di gestione di Store e la relativa visualizzazione dell'indice](#Exercise1)
 2. [Aggiunta di un HTML Helper](#Exercise2)
 3. [Creazione della visualizzazione di modifica](#Exercise3)
-4. [Aggiunta di una vista di creazione](#Exercise4)
-5. [Eliminazione di gestione](#Exercise5)
+4. [Aggiunta di una visualizzazione Create](#Exercise4)
+5. [Gestisce l'eliminazione](#Exercise5)
 6. [Aggiunta della convalida](#Exercise6)
-7. [Utilizzo di jQuery non intrusiva sul lato Client](#Exercise7)
+7. [Uso di jQuery Unobtrusive sul lato Client](#Exercise7)
 
 > [!NOTE]
-> Ogni esercizio è accompagnato da un **fine** cartella che contiene la soluzione risultante si dovrebbe ottenere dopo aver completato l'esercitazione dall'inizio. Se è necessario ulteriore assistenza utilizza gli esercizi, è possibile utilizzare questa soluzione come guida.
+> Ogni esercizio è accompagnato da un **End** cartella che contiene la soluzione risultante si dovrebbe ottenere dopo aver completato gli esercizi. Se ti serve assistenza aggiuntiva esaminando gli esercizi, è possibile usare questa soluzione come guida.
 
 
 Tempo stimato per completare questa esercitazione: **60 minuti**
@@ -100,92 +99,92 @@ Tempo stimato per completare questa esercitazione: **60 minuti**
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Creating_the_Store_Manager_controller_and_its_Index_view"></a>
-### <a name="exercise-1-creating-the-store-manager-controller-and-its-index-view"></a>Esercizio 1: Creazione di controller di gestione di Store e la visualizzazione dell'indice
+### <a name="exercise-1-creating-the-store-manager-controller-and-its-index-view"></a>Esercizio 1: Creazione di controller di gestione di Store e la relativa visualizzazione dell'indice
 
-In questo esercizio, si apprenderà come creare un nuovo controller per supportare le operazioni CRUD, personalizzare il relativo metodo di azione Index per restituire un elenco di album dal database e infine la generazione di un modello di visualizzazione dell'indice sfruttando la possibilità di scaffolding di ASP.NET MVC funzionalità per visualizzare le proprietà degli album in una tabella HTML.
+In questo esercizio, si apprenderà come creare un nuovo controller di supportare le operazioni CRUD, personalizzare il metodo di azione Index per restituire un elenco di album dal database e infine la generazione di un modello di visualizzazione dell'indice a sfruttare lo scaffolding di ASP.NET MVC funzionalità per visualizzare le proprietà degli album in una tabella HTML.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Creating_the_StoreManagerController"></a>
-#### <a name="task-1---creating-the-storemanagercontroller"></a>Attività 1 - Creazione di StoreManagerController
+#### <a name="task-1---creating-the-storemanagercontroller"></a>Attività 1: creazione di StoreManagerController
 
-In questa attività si creerà un nuovo controller chiamato **StoreManagerController** per supportare le operazioni CRUD.
+In questa attività si creerà un nuovo controller denominato **StoreManagerController** per supportare le operazioni CRUD.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex1-CreatingTheStoreManagerController/Begin/** cartella.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **origine/Ex1-CreatingTheStoreManagerController/inizio/** cartella.
 
-   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. È necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aggiunge un nuovo controller. A tale scopo, fare doppio clic su di **controller** cartella in Esplora soluzioni, selezionare **Aggiungi** e quindi la **Controller** comando. Modifica il **Controller** **nome** a **StoreManagerController** e accertarsi che l'opzione **controller MVC con azioni di lettura/scrittura vuote**è selezionata. Fare clic su **Aggiungi**.
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aggiungere un nuovo controller. A tale scopo, fare doppio clic sui **controller** cartella all'interno di Esplora soluzioni, scegliere **Add** e quindi il **Controller** comando. Modifica il **Controller** **Name** al **StoreManagerController** e assicurarsi che l'opzione **controller MVC con azioni di lettura/scrittura vuote**è selezionato. Fare clic su **Aggiungi**.
 
     ![Finestra di dialogo Aggiungi controller](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "finestra di dialogo Aggiungi controller")
 
-    *Aggiungere una finestra di dialogo Controller*
+    *Aggiungi finestra di dialogo Controller*
 
-    Viene generata una nuova classe Controller. Poiché è indicato per aggiungere le azioni di lettura/scrittura, i metodi stub per gli utenti, le azioni CRUD comuni vengono create con i commenti TODO compilati, verrà richiesto di includere la logica specifica dell'applicazione.
+    Viene generata una nuova classe Controller. Poiché è indicato per aggiungere azioni per la lettura/scrittura, i metodi stub per tali valori, vengono create azioni CRUD comuni con i commenti TODO compilati, verrà richiesto di includere la logica specifica dell'applicazione.
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Customizing_the_StoreManager_Index"></a>
 #### <a name="task-2---customizing-the-storemanager-index"></a>Attività 2 - personalizzare l'indice StoreManager
 
-In questa attività si personalizzerà il metodo di azione StoreManager indice per restituire una vista con l'elenco di album dal database.
+In questa attività si personalizzerà il metodo di azione StoreManager Index per restituire una visualizzazione con l'elenco di album dal database.
 
-1. Nella classe StoreManagerController, aggiungere le seguenti *utilizzando* direttive.
+1. Aggiungere il codice seguente nella classe StoreManagerController *usando* direttive.
 
-    (- Frammento di codice *convalida - Ex1 e form e ASP.NET MVC 4 helper utilizzando MvcMusicStore*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - Ex1 usando MvcMusicStore*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample1.cs)]
-2. Aggiungere un campo di **StoreManagerController** per contenere un'istanza di **MusicStoreEntities.**
+2. Aggiungere un campo per il **StoreManagerController** per contenere un'istanza di **MusicStoreEntities.**
 
-    (- Frammento di codice *gli helper di ASP.NET MVC 4, moduli e convalida - Ex1 MusicStoreEntities*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - MusicStoreEntities Ex1*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample2.cs)]
-3. Implementare l'operazione sull'indice di StoreManagerController per restituire una vista con l'elenco di album.
+3. Implementare l'azione StoreManagerController Index per restituire una visualizzazione con l'elenco di album.
 
-    La logica di azione del Controller sarà molto simile all'azione di indice del StoreController scritto in precedenza. Utilizzare LINQ per recuperare tutti gli album, incluse le informazioni Genre e artista per la visualizzazione.
+    La logica di azione del Controller sarà molto simile all'azione Index del StoreController scritto in precedenza. Usare LINQ per recuperare tutti gli album, incluse quelle relative al genere e artista per la visualizzazione.
 
-    (- Frammento di codice *gli helper di ASP.NET MVC 4, moduli e convalida - Ex1 StoreManagerController indice*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - indice StoreManagerController Ex1*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample3.cs)]
 
 <a id="Ex1Task3"></a>
 
 <a id="strongTask_3_-_Creating_the_Index_Viewstrong"></a>
-#### <a name="task-3---creating-the-index-view"></a>Attività 3: creazione della visualizzazione dell'indice
+#### <a name="task-3---creating-the-index-view"></a>Attività 3: creare la visualizzazione dell'indice
 
-In questa attività si creerà il modello di visualizzazione dell'indice per visualizzare l'elenco di album restituito dal **StoreManager** Controller.
+In questa attività si creerà il modello di visualizzazione dell'indice per visualizzare l'elenco di album restituiti dai **StoreManager** Controller.
 
-1. Prima di creare il nuovo modello di visualizzazione, è necessario compilare il progetto in modo che il **finestra di dialogo Aggiungi visualizzazione** viene a conoscenza di **Album** classe da utilizzare. Selezionare **compilare | Compilare MvcMusicStore** per compilare il progetto.
-2. Fare doppio clic all'interno di **indice** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la **Aggiungi visualizzazione** finestra di dialogo.
+1. Prima di creare il nuovo modello di vista, è necessario compilare il progetto in modo che il **finestra di dialogo Aggiungi visualizzazione** conosce le **Album** classe da utilizzare. Selezionare **compilare | Compilare MvcMusicStore** per compilare il progetto.
+2. Pulsante destro del mouse all'interno di **indice** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la **Aggiungi visualizzazione** finestra di dialogo.
 
     ![Aggiungi visualizzazione](aspnet-mvc-4-helpers-forms-and-validation/_static/image2.png "Aggiungi visualizzazione")
 
-    *Aggiunta di una vista all'interno del metodo di indice*
-3. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della visualizzazione è **indice**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa. Selezionare **elenco** dal **modello di scaffolding** elenco a discesa. Lasciare il **motore di visualizzazione** a **Razor** e gli altri campi con valori predefiniti di valore e quindi fare clic su **Aggiungi**.
+    *Aggiunta di una vista all'interno del metodo Index*
+3. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della vista sia **indice**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa. Selezionare **elenco** dalle **modelli di scaffolding** elenco a discesa. Lasciare il **motore di visualizzazione** al **Razor** mentre gli altri campi con valori predefiniti di valore e quindi fare clic su **Add**.
 
-    ![Aggiunta di una visualizzazione index](aspnet-mvc-4-helpers-forms-and-validation/_static/image3.png "aggiunta di una vista di indice")
+    ![Aggiunta di una visualizzazione indice](aspnet-mvc-4-helpers-forms-and-validation/_static/image3.png "aggiunta di una visualizzazione indice")
 
-    *Aggiunta di una vista di indice*
+    *Aggiunta di una visualizzazione indice*
 
 <a id="Ex1Task4"></a>
 
 <a id="Task_4_-_Customizing_the_scaffold_of_the_Index_View"></a>
-#### <a name="task-4---customizing-the-scaffold-of-the-index-view"></a>Attività 4: personalizzare la pagina della visualizzazione dell'indice
+#### <a name="task-4---customizing-the-scaffold-of-the-index-view"></a>Attività 4: personalizzazione della visualizzazione Index scaffold
 
-In questa attività, si potrà regolare il modello di visualizzazione semplice creato con funzionalità di scaffolding di ASP.NET MVC per visualizzare i campi desiderati.
+In questa attività si regolerà il semplice modello di vista creato con funzionalità di scaffolding di ASP.NET MVC in modo che i campi da visualizzare.
 
 > [!NOTE]
-> Il **scaffolding** supporto all'interno di ASP.NET MVC genera un semplice modello di visualizzazione in cui sono elencati tutti i campi nel modello Album. **Lo scaffolding** offre un modo rapido per un'introduzione a una visualizzazione fortemente tipizzata: invece di scrivere manualmente il modello di visualizzazione, lo scaffolding rapidamente genera un modello predefinito e quindi è possibile modificare il codice generato.
+> Il **scaffolding** supporto all'interno di ASP.NET MVC genera un semplice modello di vista in cui sono elencati tutti i campi nel modello di Album. **Lo scaffolding** offre un modo rapido per iniziare a usare in una visualizzazione fortemente tipizzata: invece di dover scrivere manualmente il modello di vista, lo scaffolding rapidamente genera un modello predefinito e quindi è possibile modificare il codice generato.
 
 
-1. Esaminare il codice creato. L'elenco di campi generato sarà parte del seguente tabella HTML **Scaffolding** utilizzata per la visualizzazione dei dati tabulari.
+1. Esaminare il codice creato. L'elenco dei campi generato faranno parte della seguente tabella HTML **Scaffolding** utilizza per la visualizzazione di dati tabulari.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
-2. Sostituire il **&lt;tabella&gt;** codice con il codice seguente per visualizzare solo il **Genre**, **artista**, **titolo**, e **prezzo** campi. Questo elimina la **payload** e **Album Art URL** colonne. Inoltre, viene modificato GenreId e ArtistId colonne per visualizzare le proprietà di classe collegati di **Artist.Name** e **Genre.Name**e rimuove il **dettagli** collegamento.
+2. Sostituire il **&lt;tabella&gt;** codice con il codice seguente per visualizzare solo i **Genre**, **artista**, **titolo Album**, e **prezzo** campi. Questa procedura elimina le **AlbumId** e **Album Art URL** colonne. Inoltre, viene modificato GenreId e ArtistId colonne per visualizzare le relative proprietà di classe collegati di **Artist.Name** e **Genre.Name**e rimuove il **dettagli** collegamento.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample5.cshtml)]
 3. Modificare le descrizioni seguenti.
@@ -197,61 +196,61 @@ In questa attività, si potrà regolare il modello di visualizzazione semplice c
 <a id="Task_5_-_Running_the_Application"></a>
 #### <a name="task-5---running-the-application"></a>Attività 5: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **indice** modello di visualizzazione viene visualizzato un elenco di album in base alla progettazione dei passaggi precedenti.
+In questa attività si testerà che il **StoreManager** **indice** Visualizza modello viene visualizzato un elenco di album in base alla progettazione dei passaggi precedenti.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager** per verificare che venga visualizzato un elenco di album, che mostra i **titolo**, **artista** e **Genre**.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager** per verificare che venga visualizzato un elenco di album, che mostra le **titolo**, **artista** e **Genre**.
 
-    ![Esplorazione dell'elenco di album](aspnet-mvc-4-helpers-forms-and-validation/_static/image4.png "esplorazione dell'elenco di album")
+    ![Esplorare l'elenco di album](aspnet-mvc-4-helpers-forms-and-validation/_static/image4.png "esplorare l'elenco di album")
 
-    *Esplorazione dell'elenco di album*
+    *Esplorare l'elenco di album*
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Adding_an_HTML_Helper"></a>
 ### <a name="exercise-2-adding-an-html-helper"></a>Esercizio 2: Aggiunta di un HTML Helper
 
-La pagina di indice StoreManager dispone di un potenziale problema: la proprietà Title e Name artista può essere entrambi sufficientemente lungo per lanciare la formattazione della tabella. In questo esercizio si apprenderà come aggiungere un helper HTML personalizzato per troncare il testo.
+La pagina di indice StoreManager dispone di un potenziale problema: le proprietà di titolo e il nome dell'artista possono essere entrambi sufficientemente lungo per lanciare la formattazione della tabella. In questa esercitazione si apprenderà come aggiungere un helper HTML personalizzato per troncare il testo.
 
-Nella figura seguente, è possibile visualizzare come viene modificato il formato a causa della lunghezza del testo quando si utilizza una dimensione piccola del browser.
+Nella figura seguente, è possibile visualizzare come il formato viene modificato a causa della lunghezza del testo quando si usa la dimensione small del browser.
 
-![Esplorazione dell'elenco di album con di testo non troncato](aspnet-mvc-4-helpers-forms-and-validation/_static/image5.png "esplorazione dell'elenco di album con di testo non troncato")
+![Esplorare l'elenco di album con di testo non troncato](aspnet-mvc-4-helpers-forms-and-validation/_static/image5.png "esplorare l'elenco di album con di testo non troncato")
 
-*Esplorazione dell'elenco di album con di testo non troncato*
+*Esplorare l'elenco di album con di testo non troncato*
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Extending_the_HTML_Helper"></a>
-#### <a name="task-1---extending-the-html-helper"></a>Attività 1 - estensione l'HTML Helper
+#### <a name="task-1---extending-the-html-helper"></a>Attività 1: estendere l'HTML Helper
 
-In questa attività si aggiungerà un nuovo metodo **Truncate** per il **HTML** oggetto esposto all'interno di viste di MVC ASP.NET. A tale scopo, implementare un **metodo di estensione** agli incorporati **System** classe fornita da ASP.NET MVC.
+In questa attività si aggiungerà un nuovo metodo **Truncate** per il **HTML** oggetto esposto all'interno di viste di ASP.NET MVC. A tale scopo, si implementerà un **metodo di estensione** per l'oggetto incorporato **System** classe fornita da ASP.NET MVC.
 
 > [!NOTE]
-> Per ulteriori informazioni su **metodi di estensione**, visitare questo articolo di msdn. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
+> Per altre informazioni, vedere **metodi di estensione**, vedere questo articolo di msdn. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
 
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex2-AddingAnHTMLHelper/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **origine/Ex2-AddingAnHTMLHelper/inizio/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire la visualizzazione di StoreManager indice. A tale scopo, in Esplora soluzioni espandere la **viste** cartella, quindi il **StoreManager** e aprire il **cshtml** file.
-3. Aggiungere il codice seguente sotto il <strong>@model</strong> (direttiva) per definire il <strong>Truncate</strong> metodo di supporto.
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aprire la visualizzazione del StoreManager indice. A tale scopo, in Esplora soluzioni espandere la **viste** cartella, il **StoreManager** e aprire il **index. cshtml** file.
+3. Aggiungere il codice seguente sotto il <strong>@model</strong> direttiva per definire il <strong>Truncate</strong> metodo helper.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample7.cshtml)]
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_Truncating_Text_in_the_Page"></a>
-#### <a name="task-2---truncating-text-in-the-page"></a>Attività 2 - testo troncato nella pagina
+#### <a name="task-2---truncating-text-in-the-page"></a>Attività 2 - testo troncamento nella pagina
 
-In questa attività, si utilizzerà il **Truncate** metodo troncare il testo nel modello di visualizzazione.
+In questa attività si userà il **Truncate** metodo per troncare il testo nel modello di visualizzazione.
 
-1. Aprire la visualizzazione di StoreManager indice. A tale scopo, in Esplora soluzioni espandere la **viste** cartella, quindi il **StoreManager** e aprire il **cshtml** file.
-2. Sostituire le righe che mostrano il **Nome artista** dell'Album e **titolo**. A tale scopo, sostituire le righe seguenti.
+1. Aprire la visualizzazione del StoreManager indice. A tale scopo, in Esplora soluzioni espandere la **viste** cartella, il **StoreManager** e aprire il **index. cshtml** file.
+2. Sostituire le righe che mostrano le **nome dell'artista** e un album trae **titolo**. A tale scopo, sostituire le righe seguenti.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample8.cshtml)]
 
@@ -260,62 +259,62 @@ In questa attività, si utilizzerà il **Truncate** metodo troncare il testo nel
 <a id="Task_3_-_Running_the_Application"></a>
 #### <a name="task-3---running-the-application"></a>Attività 3: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **indice** modello di visualizzazione tronca titolo e il nome artista dell'Album.
+In questa attività si testerà che il **StoreManager** **indice** Visualizza modello tronca titolo dell'Album e artista.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager** per verificare che prolungata testi nel **titolo** e **artista** colonna vengono troncati.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager** per verificare tale prolungata testi nel **titolo** e **artista** colonna vengono troncati.
 
-    ![I nomi dei titoli e artisti troncato](aspnet-mvc-4-helpers-forms-and-validation/_static/image6.png "troncati i nomi dei titoli e artisti")
+    ![Troncare i nomi dei titoli e gli artisti](aspnet-mvc-4-helpers-forms-and-validation/_static/image6.png "troncato titoli e gli artisti nomi")
 
-    *Titoli troncati e i nomi degli artisti*
+    *Troncato titoli e nomi di artista*
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Creating_the_Edit_View"></a>
 ### <a name="exercise-3-creating-the-edit-view"></a>Esercizio 3: Creazione della visualizzazione di modifica
 
-In questo esercizio, si apprenderà come creare un form per consentire ai responsabili di archivio di modifica di un Album. Verrà esplorano il **/StoreManager/Edit/id** URL (**id** da id univoco dell'album da modificare), rendendo in tal modo una chiamata HTTP-GET al server.
+In questo esercizio, si apprenderà come creare un form per consentire ai responsabili di archivio di modifica di un Album. Si sfoglierà il **/StoreManager/Edit/id** URL (**id** in corso l'id univoco dell'album da modificare), rendendo in tal modo una chiamata HTTP-GET per il server.
 
-Il metodo di azione Modifica Controller verranno recuperare Album appropriato dal database, creare un **StoreManagerViewModel** incapsularlo (insieme a un elenco degli artisti e generi) e quindi passare a un modello di visualizzazione per oggetto all'utente, eseguire il rendering della pagina HTML. Questa pagina conterrà un **&lt;modulo&gt;** elemento con caselle di testo ed elenchi a discesa per modificare le proprietà dell'Album.
+Il metodo di azione Modifica Controller verrà recuperare dell'Album appropriato dal database, creare un **StoreManagerViewModel** oggetto incapsularlo (insieme a un elenco degli artisti e generi) e quindi passarlo a un modello di vista eseguire il rendering della pagina HTML all'utente. Questa pagina contiene un **&lt;form&gt;** elemento con caselle di testo ed elenchi a discesa per modificare le proprietà dell'Album.
 
-Dopo che l'utente aggiorna i valori del form Album e fa clic il **salvare** pulsante, le modifiche vengono inviate tramite un POST HTTP richiamare **/StoreManager/Edit/id**. Anche se l'URL viene mantenuta come l'ultima chiamata, ASP.NET MVC che identifica questa volta è un POST HTTP e pertanto viene eseguito un altro metodo di azione di modifica (uno decorati con **[HttpPost]**).
+Dopo che l'utente aggiorna i valori del modulo Album e fa clic il **salvare** pulsante, le modifiche vengono inviate tramite una richiesta HTTP-POST richiamare **/StoreManager/Edit/id**. Anche se l'URL resta invariato come nell'ultima chiamata, ASP.NET MVC che identifica questa volta è una richiesta HTTP-POST e pertanto viene eseguito un altro metodo di azione di modifica (uno dotato **[HttpPost]**).
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Implementing_the_HTTP-GET_Edit_Action_Method"></a>
-#### <a name="task-1---implementing-the-http-get-edit-action-method"></a>Attività 1: implementazione del metodo di azione di modifica HTTP-GET
+#### <a name="task-1---implementing-the-http-get-edit-action-method"></a>Attività 1: l'implementazione del metodo di azione di modifica HTTP-GET
 
-In questa attività verrà implementata la versione HTTP-GET del metodo di azione di modifica per recuperare Album appropriato dal database, nonché un elenco di tutti i generi e artisti. Creerà un pacchetto dati nel **StoreManagerViewModel** oggetto definito nell'ultimo passaggio, verrà quindi passato a un modello di visualizzazione per il rendering con la risposta.
+In questa attività si implementerà la versione HTTP-GET del metodo di azione di modifica per il recupero dell'Album appropriato dal database, nonché un elenco di tutti i generi e gli artisti. Verrà creato il pacchetto i dati nel **StoreManagerViewModel** definito nel passaggio precedente, che verrà quindi passato a un modello di vista per eseguire il rendering della risposta con oggetto.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex3-CreatingTheEditView/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **origine/Ex3-CreatingTheEditView/inizio/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire il **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
-3. Sostituire il **HTTP-GET modifica** il metodo di azione con il codice seguente per recuperare l'oggetto appropriato **Album** , nonché **generi** e **artisti**Elenca.
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aprire il **StoreManagerController** classe. A tale scopo, espandere la **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
+3. Sostituire il **HTTP-GET modificare** metodo di azione con il codice seguente per recuperare l'oggetto appropriato **Album** , nonché **generi** e **alle creazioni degli artisti**sono elencati.
 
-    (- Frammento di codice *helper di ASP.NET MVC 4, moduli e convalida - Ex3 StoreManagerController HTTP-GET Modifica azione*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - Ex3 StoreManagerController HTTP-GET Modifica azione*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample9.cs)]
 
     > [!NOTE]
-    > Si utilizza **System** **SelectList** per artisti e generi anziché il **System.Collections.Generic** elenco.
+    > Si usa **System** **SelectList** alle creazioni degli artisti e generi anziché il **System.Collections.Generic** elenco.
     > 
-    > **SelectList** è un modo più semplice per popolare i menu a discesa HTML e gestione di elementi quali la selezione corrente. Creazione di un'istanza e la successiva configurazione di questi oggetti ViewModel nell'azione del controller rende scenario del modulo di modifica più chiara.
+    > **SelectList** è un modo più semplice per popolare i menu a discesa HTML e gestione di elementi quali la selezione corrente. Creazione di istanze e successiva configurazione di questi oggetti ViewModel nell'azione del controller renderà lo scenario di modulo di modifica più chiara.
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Creating_the_Edit_View"></a>
 #### <a name="task-2---creating-the-edit-view"></a>Attività 2: creazione della visualizzazione di modifica
 
-In questa attività si creerà un modello di visualizzazione di modifica che consente di visualizzare in un secondo momento le proprietà album.
+In questa attività si creerà un modello di visualizzazione di modifica in un secondo momento verrà visualizzate le proprietà di album.
 
-1. Creare la visualizzazione di modifica. A tale scopo, fare doppio clic all'interno di **modifica** metodo di azione e selezionare **Aggiungi visualizzazione**.
-2. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della visualizzazione è **modifica**. Controllare il **creare una visualizzazione fortemente tipizzata** casella di controllo e selezionare **Album (MvcMusicStore.Models)** dal **visualizzare dati classe** elenco a discesa. Selezionare **modifica** dal **modello di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Aggiungi**.
+1. Creare la visualizzazione di modifica. A tale scopo, fare doppio clic all'interno di **Edit** metodo di azione e selezionare **Aggiungi visualizzazione**.
+2. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della vista sia **modifica**. Controllare la **creare una visualizzazione fortemente tipizzata** casella di controllo e selezionare **Album (MvcMusicStore.Models)** dal **visualizzare dati classe** elenco a discesa. Selezionare **Edit** dalle **modelli di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Add**.
 
     ![Aggiunta di una visualizzazione di modifica](aspnet-mvc-4-helpers-forms-and-validation/_static/image7.png "aggiunta di una visualizzazione di modifica")
 
@@ -326,80 +325,80 @@ In questa attività si creerà un modello di visualizzazione di modifica che con
 <a id="Task_3_-_Running_the_Application"></a>
 #### <a name="task-3---running-the-application"></a>Attività 3: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **modifica** pagina di visualizzazione consente di visualizzare i valori delle proprietà dell'album passato come parametro.
+In questa attività si testerà che il **StoreManager** **modificare** visualizzazione pagina vengono visualizzati i valori delle proprietà dell'album passato come parametro.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager/Edit/1** per verificare che vengano visualizzati i valori delle proprietà dell'album passato.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager/Edit/1** per verificare che vengano visualizzati i valori delle proprietà dell'album passato.
 
-    ![Visualizzazione di modifica dell'Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image8.png "Modifica visualizzazione Album esplorazione")
+    ![Esplorazione di visualizzazione di modifica di un album trae](aspnet-mvc-4-helpers-forms-and-validation/_static/image8.png "Modifica visualizzazione un album trae di esplorazione")
 
-    *Visualizzazione di modifica dell'Album.*
+    *Visualizzazione di modifica di un album trae di esplorazione*
 
 <a id="Ex3Task4"></a>
 
 <a id="Task_4_-_Implementing_drop-downs_on_the_Album_Editor_Template"></a>
-#### <a name="task-4---implementing-drop-downs-on-the-album-editor-template"></a>Attività 4: implementazione di elenchi a discesa sul modello di Editor Album
+#### <a name="task-4---implementing-drop-downs-on-the-album-editor-template"></a>Attività 4: implementazione di elenchi a discesa sul modello di Album Editor
 
-In questa attività si aggiungerà gli elenchi a discesa per il modello di visualizzazione creato nell'ultima attività, in modo che l'utente può selezionare da un elenco degli artisti e generi.
+In questa attività si aggiungerà elenchi a discesa per il modello di vista creato nell'ultima attività, in modo che l'utente può selezionare da un elenco degli artisti e generi.
 
-1. Sostituisci tutto il **Album** fieldset codice con quanto segue:
+1. Sostituire tutte le **Album** fieldset codice con quanto segue:
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample10.cshtml)]
 
     > [!NOTE]
-    > Un **Html.DropDownList** è stato aggiunto supporto per elenchi a discesa per la scelta artisti e generi di eseguire il rendering. I parametri passati al **Html.DropDownList** sono:
+    > Un' **Html.DropDownList** helper è stato aggiunto per il rendering di elenchi a discesa per la scelta alle creazioni degli artisti e generi. I parametri passati al **Html.DropDownList** sono:
     > 
     > 1. Il nome del campo del form (**&quot;ArtistId&quot;**).
-    > 2. Il **SelectList** dei valori di elenco a discesa.
+    > 2. Il **SelectList** dei valori per l'elenco a discesa.
 
 <a id="Ex3Task5"></a>
 
 <a id="Task_5_-_Running_the_Application"></a>
 #### <a name="task-5---running-the-application"></a>Attività 5: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **modifica** pagina di visualizzazione consente di visualizzare gli elenchi a discesa anziché artista e l'ID di genere campi di testo.
+In questa attività si testerà che il **StoreManager** **modificare** visualizzazione pagina vengono visualizzati elenchi a discesa anziché artista e dell'ID di genere campi di testo.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager/Edit/1** per verificare che vengano visualizzati gli elenchi a discesa anziché artista e l'ID di genere campi di testo.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager/Edit/1** per verificare che vengano visualizzati elenchi a discesa anziché artista e dell'ID di genere campi di testo.
 
-    ![Visualizzazione di modifica dell'Album con menu a discesa](aspnet-mvc-4-helpers-forms-and-validation/_static/image9.png "Modifica visualizzazione esplorazione Album con menu a discesa")
+    ![Esplorazione di visualizzazione di modifica di un album trae con elenchi a discesa](aspnet-mvc-4-helpers-forms-and-validation/_static/image9.png "Modifica visualizzazione esplorazione di un album trae con elenchi a discesa")
 
-    *Visualizzazione di modifica dell'Album, questa volta con menu a discesa*
+    *Visualizzazione di modifica di un album trae, questa volta con elenchi a discesa di esplorazione*
 
 <a id="Ex3Task6"></a>
 
 <a id="Task_6_-_Implementing_the_HTTP-POST_Edit_action_method"></a>
-#### <a name="task-6---implementing-the-http-post-edit-action-method"></a>Attività 6: implementazione del metodo di azione HTTP-POST modifica
+#### <a name="task-6---implementing-the-http-post-edit-action-method"></a>Attività 6: l'implementazione del metodo di azione HTTP-POST modifica
 
-Ora che la visualizzazione di modifica vengono visualizzate come previsto, è necessario implementare il metodo HTTP-POST Modifica azione per salvare le modifiche apportate all'Album.
+Ora che la visualizzazione di modifica vengono visualizzate come previsto, è necessario implementare il metodo di azione di modifica HTTP-POST per salvare le modifiche apportate all'album.
 
-1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** dal **controller** cartella.
-2. Sostituire **HTTP-POST modifica** codice metodo di azione con la seguente (si noti che il metodo che deve essere sostituito versione di overload che riceve due parametri di):
+1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** dalle **controller** cartella.
+2. Sostituire **HTTP-POST modifica** codice del metodo azione con il codice seguente (si noti che il metodo che deve essere sostituito versione sottoposta a overload che riceve due parametri):
 
-    (- Frammento di codice *helper di ASP.NET MVC 4, moduli e convalida - Ex3 StoreManagerController HTTP-POST Modifica azione*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - Ex3 StoreManagerController HTTP-POST Modifica azione*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample11.cs)]
 
     > [!NOTE]
-    > Questo metodo verrà eseguito quando l'utente sceglie il **salvare** pulsante della vista ed esegue un POST HTTP dei valori di form al server per renderle persistenti nel database. L'elemento decorator **[HttpPost]** indica che il metodo deve essere utilizzato per gli scenari HTTP-POST. Il metodo accetta un **Album** oggetto. ASP.NET MVC crea automaticamente l'oggetto di Album da registrato il &lt;modulo&gt; valori.
+    > Questo metodo verrà eseguito quando l'utente sceglie il **salvare** pulsante della visualizzazione ed esegue una richiesta HTTP-POST dei valori di form al server per renderle persistenti nel database. L'elemento decorator **[HttpPost]** indica che il metodo deve essere utilizzato per gli scenari HTTP-POST. Il metodo accetta un **Album** oggetto. ASP.NET MVC crea automaticamente l'oggetto di Album da registrato il &lt;form&gt; valori.
     > 
-    > Il metodo verrà eseguire questi passaggi:
+    > Il metodo verrà eseguiti questi passaggi:
     > 
     > 1. Se il modello è valido:
     > 
-    >     1. Aggiornare la voce album nel contesto per contrassegnarlo come un oggetto modificato.
-    >     2. Salvare le modifiche e reindirizzare la visualizzazione dell'indice.
-    > 2. Se il modello non è valido, popola ViewBag con il **GenreId** e **ArtistId**, verrà restituito la vista con l'oggetto Album ricevuto per consentire all'utente di eseguire qualsiasi aggiornamento necessario.
+    >     1. Aggiornare la voce di album nel contesto per contrassegnarlo come un oggetto modificato.
+    >     2. Salvare le modifiche e reindirizza alla vista index.
+    > 2. Se il modello non è valido, verrà popolato ViewBag con il **GenreId** e **ArtistId**, verrà restituito la visualizzazione con l'oggetto Album ricevuto per consentire all'utente di eseguire qualsiasi aggiornamento obbligatorio.
 
 <a id="Ex3Task7"></a>
 
 <a id="Task_7_-_Running_the_Application"></a>
 #### <a name="task-7---running-the-application"></a>Attività 7: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager modifica** pagina Salva effettivamente i dati di Album aggiornati nel database.
+In questa attività si testerà che il **StoreManager modifica** Visualizza pagina Salva effettivamente i dati di Album aggiornati nel database.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager/Edit/1**. Modificare il titolo dell'Album in **carico** e fare clic su **salvare**. Verificare che il titolo dell'album effettivamente modificato nell'elenco degli album.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager/Edit/1**. Modificare il titolo Album **Load** e fare clic su **salvare**. Verificare che il titolo dell'album effettivamente modificato nell'insieme di album.
 
     ![L'aggiornamento di un album](aspnet-mvc-4-helpers-forms-and-validation/_static/image10.png "l'aggiornamento di un album")
 
@@ -408,51 +407,51 @@ In questa attività, si verificherà che il **StoreManager modifica** pagina Sal
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Adding_a_Create_View"></a>
-### <a name="exercise-4-adding-a-create-view"></a>Esercizio 4: Aggiunta di una vista di creazione
+### <a name="exercise-4-adding-a-create-view"></a>Esercizio 4: Aggiunta di una visualizzazione Create
 
-Ora che il **StoreManagerController** supporta il **modifica** possibilità, in questo esercizio si apprenderà come aggiungere un modello Create View per consentire di memorizzare Manager aggiungere nuovo album all'applicazione.
+Ora che il **StoreManagerController** supporta il **modificare** possibilità, in questo esercizio si apprenderà come aggiungere un modello Create View per consentono di archiviare Manager aggiungere nuovo album all'applicazione.
 
-Come fatto in precedenza con la funzionalità di modifica, implementare lo scenario Create utilizzando due metodi distinti all'interno di **StoreManagerController** classe:
+Come con la funzionalità di modifica, si implementerà lo scenario di creazione usando due metodi distinti all'interno di **StoreManagerController** classe:
 
-1. Un metodo di azione verrà visualizzato un form vuoto quando l'archivio Gestioni prima visita il **StoreManager/crea** URL.
-2. Un secondo metodo di azione gestirà lo scenario in cui il gestore del Negozio seleziona il **salvare** pulsante all'interno del form e invia nuovamente i valori al **StoreManager/crea** URL come un POST HTTP.
+1. Un metodo di azione verrà visualizzato un form vuoto quando gestori store visita prima la **StoreManager/crea** URL.
+2. Un secondo metodo di azione gestirà lo scenario in cui il gestore dell'archivio fa clic sul **salvare** pulsante all'interno del form e invia nuovamente i valori per il **StoreManager/crea** URL come una richiesta HTTP-POST.
 
 <a id="Ex4Task1"></a>
 
 <a id="Task_1_-_Implementing_the_HTTP-GET_Create_action_method"></a>
-#### <a name="task-1---implementing-the-http-get-create-action-method"></a>Attività 1: implementazione del metodo di azione HTTP-GET creare
+#### <a name="task-1---implementing-the-http-get-create-action-method"></a>Attività 1: l'implementazione del metodo di azione HTTP-GET creare
 
-In questa attività verrà implementata la versione HTTP-GET del metodo di azione Create per recuperare un elenco di tutti i generi e artisti, creare pacchetti questi dati in un **StoreManagerViewModel** oggetto, che verrà quindi passato a un modello di visualizzazione.
+In questa attività si implementerà la versione HTTP-GET del metodo di azione Create per recuperare un elenco di tutti i generi e gli artisti, i pacchetti con questi dati un **StoreManagerViewModel** oggetto, che verrà quindi passato a un modello di visualizzazione.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex4-AddingACreateView/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **origine/Ex4-AddingACreateView/inizio/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
-3. Sostituire il **crea** codice metodo di azione con quanto segue:
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aprire **StoreManagerController** classe. A tale scopo, espandere la **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
+3. Sostituire il **Create** codice del metodo azione con il codice seguente:
 
-    (- Frammento di codice *convalida - Ex4 StoreManagerController HTTP-GET Create action e form e ASP.NET MVC 4 helper*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - azione Ex4 StoreManagerController HTTP-GET crea*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample12.cs)]
 
 <a id="Ex4Task2"></a>
 
 <a id="Task_2_-_Adding_the_Create_View"></a>
-#### <a name="task-2---adding-the-create-view"></a>Attività 2: aggiunta della visualizzazione di creazione
+#### <a name="task-2---adding-the-create-view"></a>Attività 2: aggiunta della visualizzazione Create
 
 In questa attività si aggiungerà il modello Create View che verrà visualizzato un nuovo form Album (vuoto).
 
-1. Fare doppio clic all'interno di **crea** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la finestra di dialogo Aggiungi visualizzazione.
-2. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della visualizzazione è **crea**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa e **crea** dal **modello di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Aggiungi**.
+1. Pulsante destro del mouse all'interno di **Create** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la finestra di dialogo Aggiungi visualizzazione.
+2. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della vista sia **Create**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa e **crea** dal **modello di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Add**.
 
-    ![Aggiunta di una vista crea](aspnet-mvc-4-helpers-forms-and-validation/_static/image11.png "aggiunta-a-Crea-view.png")
+    ![Aggiunta di una visualizzazione di creazione](aspnet-mvc-4-helpers-forms-and-validation/_static/image11.png "aggiunta-a-create-view.png")
 
-    *Aggiunta della visualizzazione di creazione*
-3. Aggiornamento di **GenreId** e **ArtistId** campi da utilizzare un elenco a discesa come illustrato di seguito:
+    *Aggiunta della visualizzazione Create*
+3. Aggiorna il **GenreId** e **ArtistId** campi da usare un elenco di riepilogo a discesa come illustrato di seguito:
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample13.cshtml)]
 
@@ -461,10 +460,10 @@ In questa attività si aggiungerà il modello Create View che verrà visualizzat
 <a id="Task_3_-_Running_the_Application"></a>
 #### <a name="task-3---running-the-application"></a>Attività 3: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **crea** pagina di visualizzazione consente di visualizzare un form Album vuoto.
+In questa attività si testerà che il **StoreManager** **crea** visualizzazione pagina viene visualizzato un form vuoto di Album.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **StoreManager/creare**. Verificare che un form vuoto viene visualizzato per la compilazione di nuove proprietà Album.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **StoreManager/creare**. Verificare che venga visualizzato un form vuoto per riempire le nuove proprietà di Album.
 
     ![Creare una vista con un form vuoto](aspnet-mvc-4-helpers-forms-and-validation/_static/image12.png "Create View con un form vuoto")
 
@@ -473,36 +472,36 @@ In questa attività, si verificherà che il **StoreManager** **crea** pagina di 
 <a id="Ex4Task4"></a>
 
 <a id="Task_4_-_Implementing_the_HTTP-POST_Create_Action_Method"></a>
-#### <a name="task-4---implementing-the-http-post-create-action-method"></a>Metodo di azione di creazione di attività 4: implementazione di HTTP-POST
+#### <a name="task-4---implementing-the-http-post-create-action-method"></a>Attività 4: implementare il protocollo HTTP-POST Crea metodo di azione
 
-In questa attività verrà implementata la versione HTTP-POST del metodo di azione di creazione che verrà richiamato quando un utente fa clic il **salvare** pulsante. Il metodo deve salvare il nuovo album nel database.
+In questa attività si implementerà la versione HTTP-POST del metodo di azione di creazione che verrà richiamato quando un utente sceglie il **salvare** pulsante. Il metodo deve salvare il nuovo album nel database.
 
-1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
-2. Sostituire **creare HTTP-POST** codice metodo di azione con quanto segue:
+1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** classe. A tale scopo, espandere la **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
+2. Sostituire **HTTP-POST creare** codice del metodo azione con il codice seguente:
 
-    (- Frammento di codice *convalida - Ex4 StoreManagerController HTTP - POST azione Create e form e ASP.NET MVC 4 helper*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - Ex4 StoreManagerController HTTP - POST azione crea*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample14.cs)]
 
     > [!NOTE]
-    > Azione di creazione è molto simile al metodo di azione di modifica precedente ma, anziché impostare l'oggetto come modificata, viene aggiunto al contesto.
+    > L'azione di creazione è molto simile al metodo di azione di modifica precedente, ma anziché impostare l'oggetto come modificata, viene aggiunto al contesto.
 
 <a id="Ex4Task5"></a>
 
 <a id="Task_5_-_Running_the_Application"></a>
 #### <a name="task-5---running-the-application"></a>Attività 5: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager creare** pagina di visualizzazione consente di creare un nuovo Album e viene quindi reindirizzata alla visualizzazione StoreManager indice.
+In questa attività si testerà che il **StoreManager creare** visualizzazione pagina consente di creare un nuovo Album e viene quindi reindirizzata alla vista Index StoreManager.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **StoreManager/creare**. Compilare tutti i campi modulo con i dati per un nuovo Album, simile a quello nella figura riportata di seguito:
+2. Il progetto viene avviato nella Home page. Modificare l'URL **StoreManager/creare**. Compilare tutti i campi modulo con i dati per un nuovo Album, simile a quello nella figura seguente:
 
     ![Creazione di un Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image13.png "la creazione di un Album")
 
     *Creazione di un Album*
-3. Verificare che l'utente viene reindirizzato alla visualizzazione indice StoreManager che include il nuovo Album appena creato.
+3. Verificare che l'utente viene reindirizzato alla vista Index StoreManager che include il nuovo Album appena creato.
 
-    ![Nuovo Album creato](aspnet-mvc-4-helpers-forms-and-validation/_static/image14.png "Nuovo Album creato")
+    ![Creato Nuovo Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image14.png "Nuovo Album creato")
 
     *Nuovo Album creato*
 
@@ -511,39 +510,39 @@ In questa attività, si verificherà che il **StoreManager creare** pagina di vi
 <a id="Exercise_5_Handling_Deletion"></a>
 ### <a name="exercise-5-handling-deletion"></a>Esercizio 5: Gestisce l'eliminazione
 
-La possibilità di eliminare gli album non è ancora implementata. Questo è ciò che questo esercizio su. Come prima, si verrà implementare lo scenario di eliminazione utilizzando due metodi distinti all'interno di **StoreManagerController** classe:
+La possibilità di eliminare gli album non è ancora implementata. Questo è ciò che in questo esercizio sarà su. Come in precedenza, si implementerà lo scenario di eliminazione utilizzando due metodi distinti all'interno di **StoreManagerController** classe:
 
-1. Un metodo di azione verrà visualizzato un modulo di conferma
+1. Un metodo di azione verrà visualizzato un form di conferma
 2. Un secondo metodo di azione gestirà l'invio del modulo
 
 <a id="Ex5Task1"></a>
 
 <a id="Task_1_-_Implementing_the_HTTP-GET_Delete_Action_Method"></a>
-#### <a name="task-1---implementing-the-http-get-delete-action-method"></a>Attività 1: implementazione del metodo di azione Delete HTTP-GET
+#### <a name="task-1---implementing-the-http-get-delete-action-method"></a>Attività 1: l'implementazione del metodo di azione Delete HTTP-GET
 
-In questa attività si implementerà la versione HTTP-GET del metodo di azione di eliminazione per recuperare le informazioni dell'album.
+In questa attività si implementerà la versione HTTP-GET del metodo di azione Delete per recuperare le informazioni dell'album.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex5-HandlingDeletion/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **origine/Ex5-HandlingDeletion/inizio/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
-3. L'azione di eliminazione controller è esattamente come azione del controller dettagli archivio precedente: viene eseguita una query di **album** oggetto dal database utilizzando il **id** fornito l'URL e restituisce il appropriato **vista**. A tale scopo, sostituire HTTP-GET **eliminare** codice metodo di azione con quanto segue:
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aprire **StoreManagerController** classe. A tale scopo, espandere la **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
+3. L'azione del controller Delete è esattamente quello utilizzato per l'azione del controller Store dettagli precedente: viene eseguita una query il **album** oggetto dal database utilizzando il **id** forniti l'URL e restituisce il appropriato **vista**. A tale scopo, sostituire l'HTTP-GET **eliminare** codice del metodo azione con il codice seguente:
 
-    (- Frammento di codice *helper di ASP.NET MVC 4, moduli e convalida - HTTP-GET di eliminazione gestione Ex5 Elimina azione*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - HTTP-GET di eliminazione gestione Ex5 Elimina azione*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample15.cs)]
-4. Fare doppio clic all'interno di **eliminare** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la finestra di dialogo Aggiungi visualizzazione.
-5. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della visualizzazione è **eliminare**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa. Selezionare **eliminare** dal **modello di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Aggiungi**.
+4. Pulsante destro del mouse all'interno di **eliminare** metodo di azione e selezionare **Aggiungi visualizzazione**. Verrà visualizzata la finestra di dialogo Aggiungi visualizzazione.
+5. Nella finestra di dialogo Aggiungi visualizzazione, verificare che il nome della vista sia **Elimina**. Selezionare il **creare una visualizzazione fortemente tipizzata** opzione e selezionare **Album (MvcMusicStore.Models)** dal **classe modello** elenco a discesa. Selezionare **eliminare** dalle **modelli di scaffolding** elenco a discesa. Lasciare gli altri campi con il valore predefinito e quindi fare clic su **Add**.
 
-    ![Aggiunta di una vista Elimina](aspnet-mvc-4-helpers-forms-and-validation/_static/image15.png "aggiunta di una visualizzazione di eliminazione")
+    ![Aggiunta di una visualizzazione di eliminazione](aspnet-mvc-4-helpers-forms-and-validation/_static/image15.png "aggiunta di una visualizzazione di eliminazione")
 
     *Aggiunta di una visualizzazione di eliminazione*
-6. Il modello di eliminazione Mostra tutti i campi dal modello. Mostrare solo il titolo dell'album. A tale scopo, sostituire il contenuto della visualizzazione con il codice seguente:
+6. Il modello di eliminazione Mostra tutti i campi dal modello. Si visualizzerà solo titolo dell'album. A tale scopo, sostituire il contenuto della visualizzazione con il codice seguente:
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample16.cshtml)]
 
@@ -552,26 +551,26 @@ In questa attività si implementerà la versione HTTP-GET del metodo di azione d
 <a id="Task_2_-_Running_the_Application"></a>
 #### <a name="task-2---running-the-application"></a>Attività 2: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager** **eliminare** pagina di visualizzazione consente di visualizzare un modulo di conferma l'eliminazione.
+In questa attività si testerà che il **StoreManager** **eliminare** visualizzazione pagina viene visualizzato un form di conferma dell'eliminazione.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager**. Selezionare un album da eliminare facendo **eliminare** e verificare che la nuova vista venga caricata.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager**. Selezionare un album eliminare facendo **Elimina** e verificare che la nuova vista venga caricata.
 
-    ![Eliminazione di un Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image16.png "eliminazione di un Album")
+    ![Eliminazione di un Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image16.png "l'eliminazione di un Album")
 
     *Eliminazione di un Album*
 
 <a id="Ex05Task3"></a>
 
 <a id="Task_3-_Implementing_the_HTTP-POST_Delete_Action_Method"></a>
-#### <a name="task-3--implementing-the-http-post-delete-action-method"></a>Attività 3-implementazione del metodo di azione Delete HTTP-POST
+#### <a name="task-3--implementing-the-http-post-delete-action-method"></a>Attività 3: implementazione del metodo di azione Delete HTTP-POST
 
-In questa attività verrà implementata la versione HTTP-POST del metodo di azione Delete che verrà richiamato quando un utente fa clic il **eliminare** pulsante. Il metodo deve eliminare album nel database.
+In questa attività si implementerà la versione HTTP-POST del metodo di azione Delete che verrà richiamato quando un utente sceglie il **eliminare** pulsante. Il metodo deve l'eliminazione dell'album nel database.
 
-1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** classe. A tale scopo, espandere il **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
-2. Sostituire **HTTP-POST eliminare** codice metodo di azione con quanto segue:
+1. Chiudere il browser, se necessario, per tornare alla finestra di Visual Studio. Aprire **StoreManagerController** classe. A tale scopo, espandere la **controller** cartella e fare doppio clic su **StoreManagerController.cs**.
+2. Sostituire **HTTP-POST Delete** codice del metodo azione con il codice seguente:
 
-    (- Frammento di codice *helper di ASP.NET MVC 4, moduli e convalida - HTTP-POST di eliminazione gestione Ex5 Elimina azione*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - HTTP-POST di eliminazione gestione Ex5 Elimina azione*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample17.cs)]
 
@@ -580,118 +579,118 @@ In questa attività verrà implementata la versione HTTP-POST del metodo di azio
 <a id="Task_4_-_Running_the_Application"></a>
 #### <a name="task-4---running-the-application"></a>Attività 4: esecuzione dell'applicazione
 
-In questa attività, si verificherà che il **StoreManager Delete** pagina di visualizzazione consente di eliminare un Album e viene quindi reindirizzata alla visualizzazione StoreManager indice.
+In questa attività si testerà che il **StoreManager Delete** visualizzazione pagina consente di eliminare un Album e viene quindi reindirizzata alla vista Index StoreManager.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **/StoreManager**. Selezionare un album da eliminare facendo **eliminare.** Confermare l'eliminazione, fare clic su **eliminare** pulsante:
+2. Il progetto viene avviato nella Home page. Modificare l'URL **/StoreManager**. Selezionare un album eliminare facendo **eliminare.** Confermare l'eliminazione facendo **eliminare** pulsante:
 
-    ![Eliminazione di un Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image17.png "eliminazione di un Album")
+    ![Eliminazione di un Album](aspnet-mvc-4-helpers-forms-and-validation/_static/image17.png "l'eliminazione di un Album")
 
     *Eliminazione di un Album*
-3. Verificare che album è stato eliminato poiché non viene visualizzato nel **indice** pagina.
+3. Verificare che sia stato eliminato dell'album poiché non viene visualizzato nei **indice** pagina.
 
 <a id="Exercise6"></a>
 
 <a id="Exercise_6_Adding_Validation"></a>
 ### <a name="exercise-6-adding-validation"></a>Esercizio 6: Aggiunta della convalida
 
-Attualmente, i moduli di creazione e modifica che sia non eseguono qualsiasi tipo di convalida. Se l'utente lascia un campo obbligatorio vuoto o lettere tipo nel campo prezzo, il primo errore che verrà visualizzato sarà dal database.
+Attualmente, le forme di creazione e modifica che sia non eseguono qualsiasi tipo di convalida. Se l'utente lascia un campo obbligatorio vuoto o lettere tipo del campo prezzo, il primo errore che verrà visualizzato sarà dal database.
 
-È possibile aggiungere la convalida per l'applicazione aggiungendo le annotazioni dei dati per la classe di modello. Le annotazioni dei dati consentono di descrivere le regole da applicare alle proprietà del modello e MVC ASP.NET si occuperà di applicazione e visualizzazione messaggio appropriato per gli utenti.
+È possibile aggiungere la convalida per l'applicazione mediante l'aggiunta di annotazioni dei dati per la classe di modello. Annotazioni dei dati per consentono che descrive le regole desiderate applicate alle proprietà del modello e ASP.NET MVC eseguirà l'applicazione e visualizzazione messaggio appropriato per gli utenti.
 
 <a id="Ex06Task1"></a>
 
 <a id="Task_1_-_Adding_Data_Annotations"></a>
-#### <a name="task-1---adding-data-annotations"></a>Attività 1: aggiunta di annotazioni dati
+#### <a name="task-1---adding-data-annotations"></a>Attività 1: aggiunta di annotazioni dei dati
 
-In questa attività si aggiungerà le annotazioni dei dati al modello che consentono la pagina di creazione e modifica Album visualizzare messaggi di convalida quando appropriato.
+In questa attività si aggiungerà le annotazioni dei dati al modello di Album che renderà la pagina di creazione e modifica visualizzare i messaggi di convalida quando appropriato.
 
-Per una classe di modello semplice, l'aggiunta di un'annotazione di dati viene gestita solo tramite l'aggiunta di un **utilizzando** istruzione per **System.ComponentModel.DataAnnotation**, quindi inserire un **[obbligatorio]** attributo le proprietà appropriate. Renderebbe l'esempio seguente il **nome** un campo obbligatorio nella visualizzazione di proprietà.
+Per una classe di modello semplice, aggiunta di un'annotazione dei dati viene gestita solo tramite l'aggiunta di un **usando** istruzione for **System.ComponentModel.DataAnnotation**, quindi inserire un **[obbligatorio]** attributo per le proprietà appropriate. Renderebbe l'esempio seguente il **nome** proprietà un campo obbligatorio nella visualizzazione.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 
-È leggermente più complesso in casi come questo tipo di applicazione in cui viene generato l'Entity Data Model. Se si aggiungono le annotazioni dei dati direttamente a classi del modello, essi verranno sovrascritte se si aggiorna il modello dal database. In alternativa, è possibile apportare le classi di utilizzo delle classi parziali di metadati che sarà disponibile per contenere le annotazioni e sono associati al modello utilizzando il **[MetadataType]** attributo.
+Questo è un po' più complesso in casi come questa applicazione in cui viene generato l'Entity Data Model. Se è stato aggiunto le annotazioni dei dati direttamente le classi del modello, essi verranno sovrascritti se si aggiorna il modello dal database. In alternativa, è possibile apportare le classi di uso delle classi parziali che esisterà per contenere le annotazioni e sono associati al modello usando il **[MetadataType]** attributo.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex6-AddingValidation/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **inizio/origine/Ex6-AddingValidation/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire il **Album.cs** dal **modelli** cartella.
-3. Sostituire **Album.cs** contenuto con il codice evidenziato di seguito, in modo che risulti simile al seguente:
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+2. Aprire il **Album.cs** dalle **modelli** cartella.
+3. Sostituire **Album.cs** del contenuto con il codice evidenziato di seguito, in modo che risulti simile al seguente:
 
     > [!NOTE]
-    > La riga **[DisplayFormat(ConvertEmptyStringToNull=false)]** indica che le stringhe vuote dal modello di non essere convertite in null quando viene aggiornato il campo dei dati nell'origine dati. Questa impostazione per evitare un'eccezione quando Entity Framework assegna i valori null per il modello prima che i campi di convalida l'annotazione dei dati.
+    > La riga **[DisplayFormat(ConvertEmptyStringToNull=false)]** indica che le stringhe vuote dal modello non verranno convertite in null quando il campo dati viene aggiornato nell'origine dati. Questa impostazione verrà evitare un'eccezione quando Entity Framework assegna i valori null per il modello prima di annotazione dei dati verifica i campi.
 
-    (- Frammento di codice *convalida - classe parziale di metadati Ex6 Album e form e ASP.NET MVC 4 helper*)
+    (Code - Snippet *helper di ASP.NET MVC 4, moduli e convalida - classe parziale i metadati di Album Ex6*)
 
     [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample19.cs)]
 
     > [!NOTE]
-    > Questo **Album** classe parziale è un **MetadataType** attributo che fa riferimento al **AlbumMetaData** classe per le annotazioni dei dati. Questi sono alcuni degli attributi di annotazione dei dati in uso per annotare il modello di Album:
+    > Ciò **Album** classe parziale ha un' **MetadataType** attributo che fa riferimento al **AlbumMetaData** classe per le annotazioni dei dati. Questi sono alcuni degli attributi di annotazione dei dati in uso per annotare il modello di Album:
     > 
     > - Richiesto: indica che la proprietà è un campo obbligatorio
-    > - DisplayName - definisce il testo da utilizzare per i campi del form e i messaggi di convalida
-    > - DisplayFormat - specifica come vengono visualizzati e formattazione dei campi dati.
+    > - DisplayName - definisce il testo da usare per i campi del form e i messaggi di convalida
+    > - DisplayFormat: specifica la modalità di visualizzazione e formattazione dei campi dati.
     > - StringLength - definisce una lunghezza massima per un campo stringa
-    > - Intervallo - assegna un valore minimo e massimo per un campo numerico
-    > - ScaffoldColumn - consente di nascondere i campi da moduli di editor
+    > - Intervallo: fornisce un valore minimo e massimo per un campo numerico
+    > - ScaffoldColumn - consente di nascondere i campi dall'editor form
 
 <a id="Ex06Task2"></a>
 
 <a id="Task_2_-_Running_the_Application"></a>
 #### <a name="task-2---running-the-application"></a>Attività 2: esecuzione dell'applicazione
 
-In questa attività si testerà convalidano che le pagine di creare e modificare i campi, utilizzando i nomi visualizzati scelti nell'ultima attività.
+In questa attività si testerà che le pagine di creazione e modifica è convalidare campi, usando i nomi visualizzati scelti nell'ultima attività.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Modificare l'URL in **StoreManager/creare**. Verificare che i nomi visualizzati corrispondano a quelli nella classe parziale (ad esempio **Album Art URL** anziché **AlbumArtUrl**)
-3. Fare clic su **crea**, senza la compilazione del form. Verificare che i messaggi di convalida corrispondente.
+2. Il progetto viene avviato nella Home page. Modificare l'URL **StoreManager/creare**. Verificare che i nomi visualizzati corrispondano a quelli nella classe parziale (ad esempio **URL Art Album** invece di **AlbumArtUrl**)
+3. Fare clic su **Create**, senza la compilazione del form. Verificare che i messaggi di convalida corrispondente.
 
-    ![Convalidare i campi nella pagina Crea](aspnet-mvc-4-helpers-forms-and-validation/_static/image18.png "convalidati i campi nella pagina Crea")
+    ![Convalidare i campi nella pagina di creazione](aspnet-mvc-4-helpers-forms-and-validation/_static/image18.png "convalidati i campi nella pagina Crea")
 
-    *Campi convalidati nella pagina Crea*
-4. È possibile verificare che lo stesso si verifica con la **modifica** pagina. Modificare l'URL in **/StoreManager/Edit/1** e verificare che i nomi visualizzati corrispondano a quelli nella classe parziale (ad esempio **Album Art URL** anziché **AlbumArtUrl**). Vuota il **titolo** e **prezzo** campi e fare clic su **salvare**. Verificare che i messaggi di convalida corrispondente.
+    *Convalidato i campi nella pagina Crea*
+4. È possibile verificare che lo stesso accade con la **modifica** pagina. Modificare l'URL **/StoreManager/Edit/1** e verificare che i nomi visualizzati corrispondano a quelli nella classe parziale (ad esempio **Album Art URL** invece di **AlbumArtUrl**). Vuoto il **Title** e **prezzo** campi e fare clic su **Salva**. Verificare che i messaggi di convalida corrispondente.
 
-    ![Convalidato i campi della pagina di modifica](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
+    ![Convalidato campi nella pagina di modifica](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Convalidato i campi della pagina di modifica*
+    *Convalidato campi nella pagina di modifica*
 
 <a id="Exercise7"></a>
 
 <a id="Exercise_7_Using_Unobtrusive_jQuery_at_Client_Side"></a>
-### <a name="exercise-7-using-unobtrusive-jquery-at-client-side"></a>Esercizio 7: Utilizzo di jQuery non intrusiva sul lato Client
+### <a name="exercise-7-using-unobtrusive-jquery-at-client-side"></a>Esercizio 7: Uso di jQuery Unobtrusive sul lato Client
 
-In questo esercizio, si apprenderà come abilitare la convalida jQuery non intrusiva di MVC 4 sul lato client.
+In questo esercizio, si apprenderà come abilitare MVC 4 Unobtrusive validation di jQuery sul lato client.
 
 > [!NOTE]
-> JQuery non intrusiva utilizza prefisso dati ajax JavaScript per richiamare metodi di azione sul server anziché intrusivo creazione script client in linea.
+> Il componente aggiuntivo jQuery Unobtrusive Usa dati ajax prefisso JavaScript per richiamare i metodi di azione sul server anziché intrusivo che genera gli script client inline.
 
 
 <a id="Ex7Task1"></a>
 
 <a id="Task_1_-_Running_the_Application_before_Enabling_Unobtrusive_jQuery"></a>
-#### <a name="task-1---running-the-application-before-enabling-unobtrusive-jquery"></a>Attività 1: esecuzione dell'applicazione prima di attivazione non intrusiva jQuery
+#### <a name="task-1---running-the-application-before-enabling-unobtrusive-jquery"></a>Attività 1: esecuzione dell'applicazione prima di jQuery Unobtrusive abilitazione
 
-In questa attività verrà eseguita l'applicazione prima di includere jQuery per confrontare i modelli di convalida.
+In questa attività si eseguirà l'applicazione prima di includere jQuery per confrontare i modelli di convalida.
 
-1. Aprire il **iniziare** soluzione disponibile all'indirizzo **origine/Ex7-UnobtrusivejQueryValidation/Begin/** cartella. In caso contrario, è possibile continuare a usare il **fine** soluzione ottenuto completando l'esercizio precedente.
+1. Aprire il **Begin** soluzione disponibile all'indirizzo **inizio/origine/Ex7-UnobtrusivejQueryValidation/** cartella. In caso contrario, è possibile continuare a usare il **End** soluzione ottenuta completando l'esercizio precedente.
 
-   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A tale scopo, fare clic su di **progetto** dal menu **Gestisci pacchetti NuGet**.
+   1. Se è stato aperto l'oggetto fornito **iniziare** soluzione, è necessario scaricare alcuni pacchetti NuGet mancanti prima di continuare. A questo scopo, scegliere il **Project** menu e selezionare **Gestisci pacchetti NuGet**.
    2. Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic su **ripristinare** per scaricare i pacchetti mancanti.
    3. Infine, compilare la soluzione facendo **compilare** | **Compila soluzione**.
 
       > [!NOTE]
-      > Uno dei vantaggi dell'uso di NuGet è che non è necessario fornire tutte le librerie nel progetto, la riduzione delle dimensioni del progetto. Con Power Tools di NuGet, specificando le versioni del pacchetto nel file Packages, sarà in grado di scaricare tutte le librerie richieste la prima volta che si esegue il progetto. È per questo motivo è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
+      > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
 2. Premere **F5** per eseguire l'applicazione.
-3. Il progetto viene avviato nella Home page. Sfoglia **StoreManager/crea** e fare clic su **crea** senza compilare il modulo per verificare che i messaggi di convalida:
+3. Il progetto viene avviato nella Home page. Esplorare **StoreManager/creare** e fare clic su **crea** senza compilare il modulo per verificare che i messaggi di convalida:
 
-    ![Convalida del client disabilitata](aspnet-mvc-4-helpers-forms-and-validation/_static/image20.png "la convalida del Client disabilitato")
+    ![Convalida del client disabilitata](aspnet-mvc-4-helpers-forms-and-validation/_static/image20.png "disabilitata la convalida del Client")
 
-    *Convalida del client disabilitata*
+    *Disabilitata la convalida del client*
 4. Nel browser, aprire il codice sorgente HTML:
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample20.html)]
@@ -699,63 +698,63 @@ In questa attività verrà eseguita l'applicazione prima di includere jQuery per
 <a id="Ex7Task2"></a>
 
 <a id="Task_2_-_Enabling_Unobtrusive_Client_Validation"></a>
-#### <a name="task-2---enabling-unobtrusive-client-validation"></a>Attività 2: convalida del Client non intrusiva abilitazione
+#### <a name="task-2---enabling-unobtrusive-client-validation"></a>Attività 2: abilitare la convalida del Client non intrusivi
 
-In questa attività si abiliterà jQuery **la convalida del client non intrusiva** da **Web. config** file, per impostazione predefinita impostato su false in tutti i nuovi progetti ASP.NET MVC 4. Inoltre, si aggiungeranno che necessari script i riferimenti per rendere jQuery lavoro convalida del Client non intrusiva.
+In questa attività si abiliterà jQuery **la convalida del client non intrusivi** dalla **Web. config** file, che è impostato su false in tutti i nuovi progetti ASP.NET MVC 4 per impostazione predefinita. Inoltre, si aggiungerà che la necessità di generare script i riferimenti per rendere jQuery lavoro Unobtrusive Validation di Client.
 
-1. Aprire **Web. config** file alla radice del progetto e verificare che il **ClientValidationEnabled** e **UnobtrusiveJavaScriptEnabled** valori di chiavi sono impostati su **true**.
+1. Aprire **Web. config** file alla radice del progetto e assicurarsi che il **ClientValidationEnabled** e **UnobtrusiveJavaScriptEnabled** i valori delle chiavi vengono impostati **true**.
 
     [!code-xml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample21.xml)]
 
     > [!NOTE]
-    > È inoltre possibile abilitare la convalida del client dal codice in Global.asax.cs per ottenere gli stessi risultati:
+    > È anche possibile abilitare la convalida del client dal codice in Global.asax.cs per ottenere gli stessi risultati:
     > 
     > **HtmlHelper.ClientValidationEnabled = true;**
     > 
-    > Inoltre, è possibile assegnare l'attributo ClientValidationEnabled in qualsiasi controller di avere un comportamento personalizzato.
-2. Aprire **Create.cshtml** in **Views\StoreManager**.
-3. Assicurarsi che i seguenti file di script, **jquery.validate** e **jquery.validate.unobtrusive**, viene fatto riferimento in attraverso la visualizzazione di &quot; **~/bundles/jqueryval** &quot; bundle.
+    > Inoltre, è possibile assegnare attributi ClientValidationEnabled in qualsiasi controller di avere un comportamento personalizzato.
+2. Aprire **create. cshtml** alla **Views\StoreManager**.
+3. Assicurarsi che i file di script seguente, **jQuery. Validate** e **jquery.validate.unobtrusive**, viene fatto riferimento in tramite la vista il &quot; **~/bundles/jqueryval** &quot; bundle.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample22.cshtml)]
 
     > [!NOTE]
-    > Tutte queste librerie jQuery sono incluse nei nuovi progetti MVC 4. È possibile trovare altre librerie nel **/script** nella cartella del progetto è.
+    > Tutte queste librerie jQuery sono incluse nei nuovi progetti MVC 4. È possibile trovare altre librerie nel **/Scripts** cartella del progetto.
     > 
-    > Per rendere questa convalida il funzionamento delle librerie, è necessario aggiungere un riferimento alla libreria di framework jQuery. Poiché questo riferimento è già stato aggiunto nel  **\_cshtml** file, sarà necessario aggiungerlo in questa vista specifica.
+    > Per rendere questa convalida il funzionamento delle librerie, è necessario aggiungere un riferimento alla libreria framework jQuery. Poiché il riferimento è già stato aggiunto nel  **\_layout. cshtml** file, è necessario aggiungerlo in questa vista specifica.
 
 <a id="Ex7Task3"></a>
 
 <a id="Task_3_-_Running_the_Application_Using_Unobtrusive_jQuery_Validation"></a>
-#### <a name="task-3---running-the-application-using-unobtrusive-jquery-validation"></a>Attività 3: in esecuzione l'applicazione utilizzando discreto jQuery convalida
+#### <a name="task-3---running-the-application-using-unobtrusive-jquery-validation"></a>Attività 3: esegue la convalida jQuery non intrusivo usando Application
 
-In questa attività, si verificherà che il **StoreManager** creare vista modello esegue la convalida lato client utilizzando le librerie di jQuery quando l'utente crea un nuovo album.
+In questa attività si testerà che il **StoreManager** creare vista modello esegue la convalida lato client usando le librerie di jQuery quando l'utente crea un nuovo album.
 
 1. Premere **F5** per eseguire l'applicazione.
-2. Il progetto viene avviato nella Home page. Sfoglia **StoreManager/crea** e fare clic su **crea** senza compilare il modulo per verificare che i messaggi di convalida:
+2. Il progetto viene avviato nella Home page. Esplorare **StoreManager/creare** e fare clic su **crea** senza compilare il modulo per verificare che i messaggi di convalida:
 
-    ![Convalida del client con jQuery abilitato](aspnet-mvc-4-helpers-forms-and-validation/_static/image21.png "la convalida del Client con jQuery abilitato")
+    ![Convalida del client con jQuery abilitata](aspnet-mvc-4-helpers-forms-and-validation/_static/image21.png "convalida del Client con jQuery abilitata")
 
-    *Convalida del client con jQuery abilitato*
+    *Convalida del client con jQuery abilitata*
 3. Nel browser, aprire il codice sorgente per la visualizzazione di creazione:
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample23.html)]
 
    > [!NOTE]
-   > Per ogni regola di convalida del client, jQuery non intrusiva aggiunge un attributo con dati-val -*rulename*=&quot;*messaggio*&quot;. Di seguito è riportato un elenco di tag che Unobtrusive jQuery inserisce nel campo di input html per eseguire la convalida del client:
+   > Per ogni regola di convalida del client, jQuery Unobtrusive aggiunge un attributo con i dati-- val*rulename*=&quot;*messaggio*&quot;. Ecco un elenco di tag che Unobtrusive jQuery viene inserito nel campo di input html per eseguire la convalida del client:
    > 
    > - Dati val
-   > - Numero di dati val
+   > - Numero dei dati-val
    > - Intervallo di dati val
-   > - Dati-val-intervallo-min / dati-val-intervallo-max
-   > - Val dati obbligatori
-   > - Val-lunghezza dei dati
-   > - Dati-val lunghezza max / min dati-val-lunghezza
+   > - Data-val-intervallo-min / dati-val-intervallo-max
+   > - Dati val necessari
+   > - I dati a val-lunghezza
+   > - Data-val-length-max / min-Data-val-lunghezza
    > 
-   > Tutti i valori di dati vengono riempiti con modello **annotazione dei dati**. Quindi, è possibile eseguire la logica che funziona sul lato server sul lato client. Ad esempio, prezzo e presenta l'annotazione dei dati seguenti nel modello:
+   > Tutti i valori di data vengono riempiti con modello **annotazione dei dati**. Quindi, tutta la logica che funziona sul lato server può essere eseguita sul lato client. Ad esempio, prezzo e presenta l'annotazione dei dati seguenti nel modello:
    > 
    > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
    > 
-   > Dopo aver utilizzato jQuery non intrusiva, il codice generato è:
+   > Dopo l'uso di jQuery Unobtrusive, il codice generato è:
    > 
    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
@@ -768,25 +767,25 @@ In questa attività, si verificherà che il **StoreManager** creare vista modell
 
 Completando questa pratica si è appreso come consentire agli utenti di modificare i dati archiviati nel database con l'uso delle operazioni seguenti:
 
-- Le azioni del controller come indice, creazione, modifica, eliminazione
-- Funzionalità di scaffolding di ASP.NET MVC per la visualizzazione delle proprietà in una tabella HTML
+- Le azioni del controller, ad esempio Index, Create, Edit, Delete
+- Funzionalità di scaffolding di ASP.NET MVC per visualizzare le proprietà in una tabella HTML
 - Esperienza di helper HTML personalizzati per migliorare l'utente
-- Metodi di azione che reagiscono a HTTP-GET o chiamate HTTP-POST
-- Un modello condiviso editor di modelli di visualizzazione simili come creare e modificare
-- Elementi form come elenchi a discesa
+- Metodi di azione che reagiscono a HTTP-GET o le chiamate HTTP-POST
+- Un modello di editor condivisa per i modelli di vista simile, ad esempio creazione e modifica
+- Elementi del form, ad esempio elenchi a discesa
 - Annotazioni dei dati per la convalida del modello
-- Convalida lato client tramite jQuery non intrusiva libreria
+- Convalida lato client con jQuery Unobtrusive libreria
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Appendice a: installazione di Visual Studio Express 2012 per Web
 
-È possibile installare **Microsoft Visual Studio Express 2012 per Web** o un altro &quot;Express&quot; versione utilizzando il **[installazione guidata piattaforma Web di Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web di Microsoft*.
+È possibile installare **Microsoft Visual Studio Express 2012 per Web** o da un'altra &quot;Express&quot; versione utilizzando il **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare *Visual studio Express 2012 per Web* utilizzando *installazione guidata piattaforma Web Microsoft*.
 
-1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e ricerca per il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
-2. Fare clic su **installa**. Se non si dispone **installazione guidata piattaforma Web** si verrà reindirizzati per scaricarlo e installarlo prima.
-3. Una volta **installazione guidata piattaforma Web** è aperto, fare clic su **installare** per avviare l'installazione.
+1. Passare a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). In alternativa, se è già stato installato installazione guidata piattaforma Web, è possibile aprire e cercare il prodotto &quot; <em>Visual Studio Express 2012 per Web con Windows Azure SDK</em>&quot;.
+2. Fare clic su **Installa ora**. Se non hai **instalace Webové Platformy** si verrà reindirizzati per scaricarlo e installarlo prima di tutto.
+3. Una volta **instalace Webové Platformy** è aperto, fare clic su **installare** per avviare il programma di installazione.
 
     ![Installa Visual Studio Express](aspnet-mvc-4-helpers-forms-and-validation/_static/image22.png "installa Visual Studio Express")
 
@@ -806,53 +805,53 @@ Completando questa pratica si è appreso come consentire agli utenti di modifica
     ![Installazione completata](aspnet-mvc-4-helpers-forms-and-validation/_static/image25.png)
 
     *Installazione completata*
-7. Fare clic su **uscita** per chiudere l'installazione guidata piattaforma Web.
-8. Per aprire Visual Studio Express per Web, passare al **avviare** schermata e iniziare la scrittura &quot; **VS Express**&quot;, quindi fare clic su di **Visual Studio Express per Web** il riquadro.
+7. Fare clic su **Exit** per chiudere l'installazione guidata piattaforma Web.
+8. Per aprire Visual Studio Express per Web, fare clic per il **avviare** schermata e iniziare la scrittura &quot; **Visual Studio Express**&quot;, quindi fare clic sul **Visual Studio Express per Web** il riquadro.
 
-    ![VS Express per il riquadro Web](aspnet-mvc-4-helpers-forms-and-validation/_static/image26.png)
+    ![Visual Studio Express per il riquadro Web](aspnet-mvc-4-helpers-forms-and-validation/_static/image26.png)
 
-    *VS Express per il riquadro Web*
+    *Visual Studio Express per il riquadro Web*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>Appendice b: utilizzo dei frammenti di codice
+## <a name="appendix-b-using-code-snippets"></a>Appendice b: uso dei frammenti di codice
 
-Con i frammenti di codice, si dispone di tutto il codice che necessario a portata di mano. Il documento lab consentirà di determinare esattamente quando è possibile utilizzarli, come illustrato nella figura seguente.
+Con i frammenti di codice, hai tutto il codice che necessario a tua disposizione. Il documento lab indicherà esattamente quando usarli, come illustrato nella figura seguente.
 
-![Utilizzo di frammenti di codice di Visual Studio per inserire il codice nel progetto](aspnet-mvc-4-helpers-forms-and-validation/_static/image27.png "frammenti di codice tramite Visual Studio per inserire codice nel progetto")
+![Uso di frammenti di codice di Visual Studio per inserire codice nel progetto](aspnet-mvc-4-helpers-forms-and-validation/_static/image27.png "frammenti di codice con Visual Studio per inserire codice nel progetto")
 
-*Utilizzo di frammenti di codice di Visual Studio per inserire il codice nel progetto*
+*Uso di frammenti di codice di Visual Studio per inserire codice nel progetto*
 
 ***Per aggiungere un frammento di codice utilizzando la tastiera (solo c#)***
 
-1. Posizionare il cursore dove si desidera inserire il codice.
-2. Iniziare a digitare il nome del frammento di codice (senza spazi o segni meno).
-3. Osservare come IntelliSense consente di visualizzare i nomi dei frammenti di codice corrispondenti.
-4. Selezionare il frammento corretto (o continuare a digitare fino a quando non viene selezionato il nome del frammento intero).
+1. Posizionare il cursore in cui si vuole inserire il codice.
+2. Iniziare a digitare il nome del frammento di codice (senza spazi o trattini).
+3. Guarda come IntelliSense consente di visualizzare i nomi dei frammenti di codice corrispondenti.
+4. Selezionare il frammento di codice corretto (o continuare a digitare fino a quando non viene selezionato il nome del frammento intero).
 5. Premere il tasto Tab due volte per inserire il frammento di codice nella posizione del cursore.
 
-![Iniziare a digitare il nome del frammento di codice](aspnet-mvc-4-helpers-forms-and-validation/_static/image28.png "inizia a digitare il nome del frammento di codice")
+![Iniziare a digitare il nome di frammento](aspnet-mvc-4-helpers-forms-and-validation/_static/image28.png "inizia a digitare il nome del frammento di codice")
 
 *Iniziare a digitare il nome del frammento di codice*
 
-![Premere Tab per selezionare il frammento di codice evidenziata](aspnet-mvc-4-helpers-forms-and-validation/_static/image29.png "premere Tab per selezionare il frammento evidenziato")
+![Premere Tab per selezionare il frammento di codice evidenziata](aspnet-mvc-4-helpers-forms-and-validation/_static/image29.png "premere Tab per selezionare il frammento di codice evidenziata")
 
 *Premere Tab per selezionare il frammento di codice evidenziata*
 
-![Premere Tab nuovamente e il frammento di codice verranno espansi](aspnet-mvc-4-helpers-forms-and-validation/_static/image30.png "espanderà premere Tab nuovamente e il frammento di codice")
+![Il frammento di codice e premere nuovamente Tab espanderà](aspnet-mvc-4-helpers-forms-and-validation/_static/image30.png "si espanderà il frammento di codice e premere nuovamente Tab")
 
-*Premere Tab nuovamente e il frammento di codice verranno espansi*
+*Il frammento di codice e premere nuovamente Tab espanderà*
 
-***Per aggiungere un frammento di codice utilizzando il mouse (c#, Visual Basic e XML)*** 1. Fare clic in cui si desidera inserire il frammento di codice.
+***Per aggiungere un frammento di codice usando il mouse (c#, Visual Basic e XML)*** 1. Pulsante destro del mouse in cui si desidera inserire il frammento di codice.
 
-1. Selezionare **Inserisci frammento di codice** seguito da **frammenti di codice**.
+1. Selezionare **Inserisci frammento** aggiungendo **frammenti di codice**.
 2. Selezionare il frammento di codice rilevante dall'elenco, facendo clic su di esso.
 
-![Pulsante destro del mouse in cui si desidera inserire il frammento di codice e selezionare Inserisci frammento di codice](aspnet-mvc-4-helpers-forms-and-validation/_static/image31.png "rapida in cui si desidera inserire il frammento di codice e selezionare Inserisci frammento di codice")
+![Pulsante destro del mouse in cui si desidera inserire il frammento di codice e scegliere Inserisci frammento](aspnet-mvc-4-helpers-forms-and-validation/_static/image31.png "rapida in cui si desidera inserire il frammento di codice e scegliere Inserisci frammento di codice")
 
-*Pulsante destro del mouse in cui si desidera inserire il frammento di codice e selezionare Inserisci frammento di codice*
+*Pulsante destro del mouse in cui si desidera inserire il frammento di codice e scegliere Inserisci frammento di codice*
 
-![Selezionare il frammento di codice rilevante dall'elenco, facendo clic su di esso](aspnet-mvc-4-helpers-forms-and-validation/_static/image32.png "selezionare il frammento di codice rilevante dall'elenco, facendo clic su di esso")
+![Selezionare il frammento di codice rilevante dall'elenco, facendo clic su di esso](aspnet-mvc-4-helpers-forms-and-validation/_static/image32.png "selezionare il frammento di codice rilevante dall'elenco, facendo clic su di essa")
 
-*Selezionare il frammento di codice rilevante dall'elenco, facendo clic su di esso*
+*Selezionare il frammento di codice rilevante dall'elenco, facendo clic su di essa*

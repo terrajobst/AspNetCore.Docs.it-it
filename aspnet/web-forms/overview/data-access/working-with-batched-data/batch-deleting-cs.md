@@ -1,108 +1,107 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
-title: Batch di eliminazione (c#) | Documenti Microsoft
+title: Batch di eliminazione (c#) | Microsoft Docs
 author: rick-anderson
-description: Informazioni su come eliminare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è di ampliare un GridView avanzata creato nella versione precedente tut...
+description: Informazioni su come eliminare più record di database in un'unica operazione. Nel livello di interfaccia utente si basano un GridView avanzato creati in un precedente tut...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
 ms.topic: article
 ms.assetid: ac6916d0-a5ab-4218-9760-7ba9e72d258c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59c90dcf373d19aad42250ee6dedba5f09f833b5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c6d792519d4a9c30f8d28497a74bc45b00197169
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891867"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365305"
 ---
 <a name="batch-deleting-c"></a>Batch di eliminazione (c#)
 ====================
 da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Scaricare codice](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_65_CS.zip) o [Scarica il PDF](batch-deleting-cs/_static/datatutorial65cs1.pdf)
+[Scaricare il codice](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_65_CS.zip) o [Scarica il PDF](batch-deleting-cs/_static/datatutorial65cs1.pdf)
 
-> Informazioni su come eliminare più record di database in un'unica operazione. Il Layer dell'interfaccia utente è di ampliare un GridView avanzata creata in un'esercitazione precedente. Nel livello di accesso ai dati si eseguono il wrapping di più operazioni di eliminazione in una transazione per garantire che tutte le eliminazioni completata o vengono eseguito il rollback di tutte le eliminazioni.
+> Informazioni su come eliminare più record di database in un'unica operazione. Nel livello di interfaccia utente si basano un GridView avanzato creati in un'esercitazione precedente. Nel livello di accesso ai dati è eseguire il wrapping di più operazioni di eliminazione in una transazione per garantire che tutte le eliminazioni di esito positivo o vengano eseguito il rollback di tutte le eliminazioni.
 
 
 ## <a name="introduction"></a>Introduzione
 
-Il [esercitazione precedente](batch-updating-cs.md) esplorata come creare un batch Modifica interfaccia usando un GridView completamente modificabile. In situazioni in cui gli utenti sono in genere modifica numero di record in una sola volta, un batch di interfaccia di modifica richiederà meno postback e il contesto di mouse da tastiera per commutatori, migliorando l'efficienza di s utente finale. Questa tecnica è allo stesso modo utile per le pagine in cui è comune per gli utenti di eliminare più record in un'unica operazione.
+Il [esercitazione precedente](batch-updating-cs.md) esaminato come creare un batch Modifica interfaccia utilizzando un controllo GridView interamente modificabili. In situazioni in cui gli utenti sono in genere modifica numero di record in una sola volta, un batch di interfaccia di modifica richiederà meno i postback e il contesto di tastiera per mouse commutatori, migliorando l'efficienza di s utente finale. Questa tecnica è utile in modo analogo per le pagine in cui è comune per gli utenti di eliminare il numero di record in un'unica operazione.
 
-Chi ha utilizzato un client di posta elettronica online ha già familiarità con uno dei più comuni batch l'eliminazione di interfacce: pulsante di una casella di controllo in ogni riga in una griglia con un corrispondente eliminare tutti gli elementi selezionati (vedere la figura 1). In questa esercitazione è piuttosto breve perché è ve già tutte le operazioni di disco rigida nelle esercitazioni precedenti per creare sia l'interfaccia basata sul web e un metodo per eliminare una serie di record come una singola operazione atomica. Nel [aggiunta di una colonna di GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) è creato un controllo GridView con una colonna di caselle di controllo e nell'esercitazione di [di wrapping delle modifiche del Database all'interno di una transazione](wrapping-database-modifications-within-a-transaction-cs.md) esercitazione è stato creato un metodo in il livello Business LOGIC che usa una transazione per eliminare un `List<T>` di `ProductID` valori. In questa esercitazione verrà si basano e unire il nostro esperienze precedenti per creare un batch di lavoro, l'eliminazione di esempio.
+Chiunque abbia usato un client di posta elettronica online ha già familiarità con uno dei batch di più comune l'eliminazione di interfacce: pulsante di una casella di controllo in ogni riga in una griglia con una corrispondente eliminare tutti gli elementi selezionati (vedere la figura 1). Questa esercitazione è piuttosto breve perché è stato già fatto tutto il lavoro difficile nelle esercitazioni precedenti nella creazione sia l'interfaccia basata sul web e un metodo per eliminare una serie di record di una singola operazione atomica. Nel [aggiunta di una colonna GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) esercitazione viene creato un controllo GridView con una colonna di caselle di controllo e nel [wrapping delle modifiche al Database in una transazione](wrapping-database-modifications-within-a-transaction-cs.md) esercitazione è stato creato un metodo in il livello BLL che usa una transazione per eliminare un `List<T>` di `ProductID` valori. In questa esercitazione verranno si basano e nostre esperienze precedenti per creare un batch di lavoro l'eliminazione di esempio di tipo merge.
 
 
 [![Ogni riga include una casella di controllo](batch-deleting-cs/_static/image1.gif)](batch-deleting-cs/_static/image1.png)
 
-**Figura 1**: ogni riga include una casella di controllo ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image2.png))
+**Figura 1**: ogni riga include una casella di controllo ([fare clic per visualizzare l'immagine con dimensioni normali](batch-deleting-cs/_static/image2.png))
 
 
-## <a name="step-1-creating-the-batch-deleting-interface"></a>Passaggio 1: Creazione di Batch di eliminazione di interfaccia
+## <a name="step-1-creating-the-batch-deleting-interface"></a>Passaggio 1: Creazione di Batch di eliminazione dell'interfaccia
 
-Poiché è già stato creato il batch, l'eliminazione di interfaccia di [aggiunta di una colonna di GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) esercitazione, è possibile semplicemente copiare `BatchDelete.aspx` anziché crearlo da zero. Avvia aprendo il `BatchDelete.aspx` nella pagina di `BatchData` cartella e il `CheckBoxField.aspx` nella pagina di `EnhancedGridView` cartella. Dal `CheckBoxField.aspx` pagina, passare alla visualizzazione origine e copiare il codice tra le `<asp:Content>` tag come illustrato nella figura 2.
+Poiché è già stato creato l'eliminazione di interfaccia in batch le [aggiunta di una colonna GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) esercitazione, è possibile semplicemente copiarlo `BatchDelete.aspx` anziché crearlo da zero. Iniziare aprendo il `BatchDelete.aspx` nella pagina la `BatchData` cartella e il `CheckBoxField.aspx` nella pagina di `EnhancedGridView` cartella. Dal `CheckBoxField.aspx` pagina, passare alla visualizzazione origine e copiare il codice tra il `<asp:Content>` tag come illustrato nella figura 2.
 
 
 [![Copiare il Markup dichiarativo di CheckBoxField.aspx negli Appunti](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
 
-**Figura 2**: copiare il Markup dichiarativo del `CheckBoxField.aspx` negli Appunti ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image4.png))
+**Figura 2**: Markup dichiarativo di copiare `CheckBoxField.aspx` negli Appunti ([fare clic per visualizzare l'immagine con dimensioni normali](batch-deleting-cs/_static/image4.png))
 
 
-Successivamente, passare alla visualizzazione origine in `BatchDelete.aspx` e incollare il contenuto degli Appunti all'interno di `<asp:Content>` tag. Anche copiare e incollare il codice dall'interno la classe code-behind in `CheckBoxField.aspx.cs` all'interno di classe code-behind in `BatchDelete.aspx.cs` (il `DeleteSelectedProducts` pulsante s `Click` gestore dell'evento, il `ToggleCheckState` (metodo) e `Click` gestori eventi per il `CheckAll` e `UncheckAll` pulsanti). Dopo aver copiato il contenuto, la `BatchDelete.aspx` classe code-behind s pagina deve contenere il codice seguente:
+Successivamente, passare alla visualizzazione origine nella `BatchDelete.aspx` e incollare il contenuto degli Appunti all'interno di `<asp:Content>` tag. Copiare e incollare il codice all'interno della classe code-behind in anche `CheckBoxField.aspx.cs` all'interno della classe code-behind in `BatchDelete.aspx.cs` (il `DeleteSelectedProducts` pulsante s `Click` gestore eventi, il `ToggleCheckState` metodo e il `Click` gestori eventi per il `CheckAll` e `UncheckAll` pulsanti). Dopo aver copiato questo contenuto, il `BatchDelete.aspx` classe code-behind pagina s deve contenere il codice seguente:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample1.cs)]
 
-Dopo aver copiato il markup dichiarativo e codice sorgente, è opportuno testare `BatchDelete.aspx` visualizzandolo tramite un browser. Verrà visualizzato un elenco dei primi dieci prodotti in un controllo GridView con ogni riga Elenca il nome del prodotto s, categoria e prezzo insieme a una casella di controllo di GridView. Dovrebbero essere presenti tre pulsanti: controllare tutti deselezionare tutti i prodotti ed eliminare selezionato. Fare clic sul pulsante Seleziona tutto seleziona tutte le caselle di controllo, mentre tutti deselezionare Cancella tutte le caselle di controllo. Facendo clic di eliminare i prodotti selezionati viene visualizzato un messaggio in cui sono elencati i `ProductID` i valori dei prodotti selezionati, ma non elimina effettivamente i prodotti.
+Dopo aver copiato il markup dichiarativo e codice sorgente, si consiglia di testare `BatchDelete.aspx` visualizzandolo tramite un browser. Verrà visualizzato un elenco dei primi dieci prodotti in un controllo GridView con ogni riga Elenca il nome del prodotto s, categoria e prezzo insieme a una casella di controllo di GridView. Dovrebbero essere presenti tre pulsanti: controllare tutti deselezionare tutti i prodotti ed eliminare selezionata. Facendo clic sul pulsante Seleziona tutto consente di selezionare tutte le caselle di controllo, mentre tutte deselezionare Cancella tutte le caselle di controllo. Facendo clic su Elimina prodotti selezionati viene visualizzato un messaggio in cui sono elencati i `ProductID` i valori dei prodotti selezionati, ma non elimina effettivamente i prodotti.
 
 
 [![L'interfaccia da CheckBoxField.aspx è stata spostata in BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
 
-**Figura 3**: l'interfaccia da `CheckBoxField.aspx` sono state spostate in `BatchDeleting.aspx` ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image6.png))
+**Figura 3**: l'interfaccia da `CheckBoxField.aspx` è stata spostata `BatchDeleting.aspx` ([fare clic per visualizzare l'immagine con dimensioni normali](batch-deleting-cs/_static/image6.png))
 
 
-## <a name="step-2-deleting-the-checked-products-using-transactions"></a>Passaggio 2: Eliminazione dei prodotti selezionati utilizzando transazioni
+## <a name="step-2-deleting-the-checked-products-using-transactions"></a>Passaggio 2: Eliminare i prodotti selezionati utilizzando transazioni
 
-Con il batch eliminando interfaccia copiata di `BatchDeleting.aspx`tutti che rimane consiste nell'aggiornare il codice in modo che il pulsante Elimina prodotti selezionati Elimina i prodotti selezionati utilizzando il `DeleteProductsWithTransaction` metodo nel `ProductsBLL` classe. Questo metodo, aggiunto nel [di wrapping delle modifiche del Database all'interno di una transazione](wrapping-database-modifications-within-a-transaction-cs.md) esercitazione accetta come input un `List<T>` di `ProductID` valori ed elimina ogni corrispondente `ProductID` all'interno dell'ambito di un transazione.
+Con il batch di eliminazione dell'interfaccia è stata copiata in `BatchDeleting.aspx`, resta per aggiornare il codice in modo che il pulsante di eliminare i prodotti selezionati Elimina i prodotti selezionati tramite i `DeleteProductsWithTransaction` metodo nel `ProductsBLL` classe. Questo metodo, aggiunto nel [di wrapping delle modifiche al Database in una transazione](wrapping-database-modifications-within-a-transaction-cs.md) esercitazione accetta come input un `List<T>` dei `ProductID` valori ed elimina ogni corrispondente `ProductID` all'interno dell'ambito di un transazione.
 
 Il `DeleteSelectedProducts` pulsante s `Click` gestore dell'evento attualmente utilizza il seguente `foreach` ciclo per scorrere ogni riga GridView:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample2.cs)]
 
-Per ogni riga, il `ProductSelector` controllo casella di controllo Web a livello di codice a cui fa riferimento. Se è selezionata, la riga s `ProductID` viene recuperato dal `DataKeys` insieme e `DeleteResults` etichetta s `Text` proprietà viene aggiornata per includere un messaggio che indica che la riga è stata selezionata per l'eliminazione.
+Per ogni riga, il `ProductSelector` controllo casella di controllo Web a livello di codice viene fatto riferimento. Se è selezionata, la riga s `ProductID` viene recuperato dal `DataKeys` raccolta e il `DeleteResults` etichetta s `Text` proprietà viene aggiornata per includere un messaggio che indica che la riga è stata selezionata per l'eliminazione.
 
-Il codice precedente non viene eliminato alcun record come la chiamata al `ProductsBLL` classe s `Delete` metodo è impostato come commento. Sono stati questa logica di eliminazione da applicare, il codice di eliminare i prodotti ma non all'interno di un'operazione atomica. Ovvero, se le eliminazioni alcuni prima nella sequenza ha avuto esito positivo, ma una versione più recente non riuscito (probabilmente a causa di una violazione di vincolo di chiave esterna), verrebbe generata un'eccezione ma restano eliminati i prodotti già eliminati.
+Il codice sopra riportato non elimina effettivamente i record come la chiamata ai `ProductsBLL` classe s `Delete` metodo viene impostata come commento. Sono stati questa logica di eliminazione da applicare, il codice eliminerebbe i prodotti, ma non all'interno di un'operazione atomica. Vale a dire, se le eliminazioni di alcuni prima nella sequenza ha avuto esito positivo, ma una versione più recente non riuscito (forse a causa di una violazione di vincolo di chiave esterna), verrebbe generata un'eccezione mentre rimangono eliminati i prodotti già eliminati.
 
-Per garantire l'atomicità, è necessario usare invece il `ProductsBLL` classe s `DeleteProductsWithTransaction` metodo. Poiché questo metodo accetta un elenco di `ProductID` valori, è necessario innanzitutto compilare questo elenco dalla griglia e quindi passarlo come parametro. È necessario creare un'istanza di un `List<T>` di tipo `int`. All'interno di `foreach` ciclo è necessario aggiungere i prodotti selezionati `ProductID` valori a questo `List<T>`. Dopo il ciclo si `List<T>` deve essere passato al `ProductsBLL` classe s `DeleteProductsWithTransaction` metodo. Aggiornamento di `DeleteSelectedProducts` pulsante s `Click` gestore dell'evento con il codice seguente:
+Per garantire l'atomicità, è necessario usare invece i `ProductsBLL` classe s `DeleteProductsWithTransaction` (metodo). Poiché questo metodo accetta un elenco di `ProductID` valori, è necessario innanzitutto compilare questo elenco dalla griglia e quindi passarlo come parametro. Viene innanzitutto creata un'istanza di un `List<T>` di tipo `int`. All'interno di `foreach` ciclo è necessario aggiungere prodotti selezionati `ProductID` valori a questo `List<T>`. Dopo il ciclo ciò `List<T>` deve essere passato per il `ProductsBLL` classe s `DeleteProductsWithTransaction` (metodo). Aggiorna il `DeleteSelectedProducts` pulsante s `Click` gestore dell'evento con il codice seguente:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample3.cs)]
 
-Crea il codice aggiornato un `List<T>` di tipo `int` (`productIDsToDelete`) e la popola con il `ProductID` valori da eliminare. Dopo il `foreach` ciclo, se è presente almeno un prodotto selezionato, il `ProductsBLL` classe s `DeleteProductsWithTransaction` metodo viene chiamato e passato a questo elenco. Il `DeleteResults` viene visualizzata anche l'etichetta e i dati riassociati a GridView (in modo che i record eliminati appena più visualizzati come righe della griglia).
+Crea il codice aggiornato un `List<T>` typu `int` (`productIDsToDelete`) e la popola con i `ProductID` valori da eliminare. Dopo il `foreach` ciclo, se è presente almeno un prodotto selezionato, il `ProductsBLL` classe s `DeleteProductsWithTransaction` metodo viene chiamato e passato questo elenco. Il `DeleteResults` etichetta viene inoltre visualizzato e i dati riassociati a GridView (in modo che il record appena eliminata non saranno più visualizzati come righe nella griglia).
 
-La figura 4 mostra GridView dopo aver selezionato un numero di righe per l'eliminazione. Figura 5 mostra la schermata immediatamente dopo aver scelto il pulsante Elimina prodotti selezionati. Si noti che nella figura 5 di `ProductID` nell'etichetta sotto controllo GridView. vengono visualizzati i valori dei record eliminati e le righe non sono più in GridView.
-
-
-[![I prodotti selezionati verranno eliminati](batch-deleting-cs/_static/image4.gif)](batch-deleting-cs/_static/image7.png)
-
-**Figura 4**: il selezionati i prodotti verranno eliminati ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image8.png))
+Figura 4 illustra il controllo GridView dopo aver selezionato un numero di righe per l'eliminazione. Figura 5 mostra la schermata immediatamente dopo che è stato fatto clic sul pulsante Elimina i prodotti selezionati. Si noti che nella figura 5 il `ProductID` valori del record eliminati vengono visualizzati nell'etichetta sotto il controllo GridView e tali righe non sono più in GridView.
 
 
-[![I valori di ProductID prodotti eliminato sono elencati sotto il controllo GridView.](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
+[![Verranno eliminati i prodotti selezionati](batch-deleting-cs/_static/image4.gif)](batch-deleting-cs/_static/image7.png)
 
-**Figura 5**: il prodotti eliminato `ProductID` i valori sono elencati sotto il controllo GridView. ([fare clic per visualizzare l'immagine ingrandita](batch-deleting-cs/_static/image10.png))
+**Figura 4**: The selezionato prodotti verranno eliminati ([fare clic per visualizzare l'immagine con dimensioni normali](batch-deleting-cs/_static/image8.png))
+
+
+[![I valori di ProductID prodotti eliminati vengono elencate di sotto di GridView](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
+
+**Figura 5**: di prodotti eliminati `ProductID` i valori sono elencati sotto GridView ([fare clic per visualizzare l'immagine con dimensioni normali](batch-deleting-cs/_static/image10.png))
 
 
 > [!NOTE]
-> Per testare il `DeleteProductsWithTransaction` atomicità metodo s, aggiungere manualmente una voce per un prodotto di `Order Details` tabella e quindi si tenta di eliminare tale prodotto (insieme ad altri utenti). Si riceverà una violazione di vincolo di chiave esterna quando si tenta di eliminare il prodotto con un ordine associato, ma si noti come le altre operazioni di eliminazione prodotti selezionati viene eseguito il rollback.
+> Per testare la `DeleteProductsWithTransaction` atomicità metodo s, aggiungere manualmente una voce per un prodotto nel `Order Details` di tabella, quindi tentare di eliminare tale prodotto (insieme ad altri utenti). Si riceverà una violazione di vincolo di chiave esterna quando si prova a eliminare il prodotto con un ordine associato, ma si noti come il rollback all'eliminazione di altri prodotti selezionati.
 
 
 ## <a name="summary"></a>Riepilogo
 
-Creazione di un batch di eliminazione interfaccia prevede l'aggiunta di un controllo GridView con una colonna di caselle di controllo e un pulsante che, quando selezionato, verranno eliminate tutte le righe selezionate come una singola operazione atomica. In questa esercitazione tale interfaccia è compilata da riunire lavoro svolto in due esercitazioni precedenti, [aggiunta di una colonna di GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) e [di wrapping delle modifiche del Database all'interno di una transazione](wrapping-database-modifications-within-a-transaction-cs.md). Nella prima esercitazione è stato creato un GridView con una colonna di caselle di controllo e in quest'ultimo è implementato un metodo in BLL che, quando viene passato un `List<T>` di `ProductID` valori, sono stati eliminati nell'ambito di una transazione.
+Creazione di un batch di eliminazione dell'interfaccia prevede l'aggiunta di un controllo GridView con una colonna di caselle di controllo e controllo Web un pulsante che, quando selezionato, verranno eliminate tutte le righe selezionate come una singola operazione atomica. In questa esercitazione è stato creato questo tipo di interfaccia da riunire a lavorare in due esercitazioni precedenti [aggiunta di una colonna GridView di caselle di controllo](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) e [wrapping delle modifiche al Database in una transazione](wrapping-database-modifications-within-a-transaction-cs.md). Nella prima esercitazione viene creato un controllo GridView con una colonna di caselle di controllo e in quest'ultimo è implementato un metodo nel livello BLL che, quando viene passato un `List<T>` di `ProductID` li eliminati i valori, tutto all'interno dell'ambito di una transazione.
 
 Nella prossima esercitazione si creerà un'interfaccia per l'esecuzione di inserimenti batch.
 
@@ -110,11 +109,11 @@ Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di sette libri e fondatore di [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha collaborato con tecnologie Web di Microsoft dal 1998. Lavora come un consulente, formatore e autore. Il suo ultimo libro si intitola [ *Sams Teach Yourself ASP.NET 2.0 in 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). È possibile contattarlo al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, che è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Hilton Giesenow e Teresa Murphy. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. I revisori per questa esercitazione sono state Hilton Giesenow e Teresa Murphy. Se si è interessati prossimi articoli MSDN dello? In questo caso, Inviami una riga in corrispondenza [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Precedente](batch-updating-cs.md)

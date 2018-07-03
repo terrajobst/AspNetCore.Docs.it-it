@@ -1,32 +1,31 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
-title: Creazione di un Database | Documenti Microsoft
+title: Creazione di un Database | Microsoft Docs
 author: shanselman
-description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
+description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice che legge e scrive da un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: ff2a41803cd31ce50bbf79e630d827b6de441ba3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0e72359095e4c40ef7e56f1290a45ded257143c9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868074"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362356"
 ---
 <a name="creating-a-database"></a>Creazione di un Database
 ====================
 da [Scott Hanselman](https://github.com/shanselman)
 
-> Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà un'applicazione web semplice la lettura e scrittura da un database. Visitare il [area risorse di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.
+> Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà una semplice applicazione web che legge e scrive da un database. Visitare il [centro di formazione di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.
 
 
-In questa sezione verrà per creare un nuovo database di SQL Express che verranno utilizzate per archiviare e recuperare i dati di film. IDE di Visual Web Developer, selezionare visualizzazione | Esplora server. Fare clic con il pulsante destro su connessioni di dati e fare clic su Aggiungi connessione...
+In questa sezione si intende creare un nuovo database di SQL Express che verranno utilizzate per archiviare e recuperare i dati dei film. IDE di Visual Web Developer, selezionare Visualizza | Esplora server. Fare clic con il pulsante destro su connessioni di dati e fare clic su Aggiungi connessione...
 
 ![AddConnection](getting-started-with-mvc-part4/_static/image1.png)
 
@@ -34,59 +33,59 @@ Nella finestra di dialogo Scegli origine dati, selezionare Microsoft SQL Server 
 
 ![](getting-started-with-mvc-part4/_static/image2.png)
 
-Nella finestra di dialogo Aggiungi connessione immettere ". \SQLEXPRESS" per il nome del Server, quindi immettere "Filmati" come nome per il nuovo database.
+Nella finestra di dialogo Aggiungi connessione, immettere ". \SQLEXPRESS" per il nome del Server, quindi immettere "Movies" come nome per il nuovo database.
 
-[![Finestra di dialogo di connessione aggiunta](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[![Aggiungi finestra di dialogo di connessione](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
-Fare clic su OK e viene chiesto se si desidera creare il database. Selezionare Sì.
+Fare clic su OK e viene chiesto se si desidera creare tale database. Selezionare Sì.
 
-[![Creare filmati?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[![Creazione di film?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
-Ora si ha un database vuoto in Esplora Server.
+A questo punto è disponibile un database vuoto in Esplora Server.
 
 ![Aggiungi nuova tabella](getting-started-with-mvc-part4/_static/image7.png)
 
-Fare clic con il pulsante destro su tabelle e fare clic su Aggiungi tabella. Verrà visualizzata la finestra di progettazione di tabella. Aggiungere colonne per Id, titolo, ReleaseDate, Genre e prezzo. Fare clic con il pulsante destro sulla colonna ID e fare clic su Imposta chiave primaria. Ecco le my aree di progettazione ha un aspetto simile.
+Fare clic con il pulsante destro su tabelle e fare clic su Aggiungi tabella. Verrà visualizzata la finestra di progettazione di tabella. Aggiungere colonne per Id, Title, ReleaseDate, Genre e prezzo. Fare clic con il pulsante destro sulla colonna ID e fare clic su Imposta chiave primaria. Ecco quali my aree di progettazione dell'aspetto.
 
 [![Editor di tabella di database](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
-Inoltre, selezionare la colonna Id e in proprietà della colonna seguito modificare "Specifica identità" a "Yes".
+Inoltre, selezionare la colonna Id e nella proprietà della colonna seguito modificare "Specifica Identity" su "Sì".
 
-[![IsIdentity - le proprietà delle colonne](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
+[![IsIdentity - proprietà colonna](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
 
-Quando hai eseguito, fare clic sull'icona Salva nella barra degli strumenti o selezionare File | Nome della tabella e Salva dal menu "**film**" (singolare). Abbiamo un database e una tabella.
+Quando è stato fatto, fare clic sull'icona Salva nella barra degli strumenti o scegliere File | Salva dal menu di scelta e assegnare un nome di tabella "**film**" (singolare). Abbiamo un database e una tabella.
 
-[![Scegliere nome](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
+[![Scegli nome](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
-Tornare a Esplora Server e fare clic con il pulsante destro nella tabella di film, quindi selezionare "Mostra tabella dati". Immettere alcuni filmati database dispone di dati.
+Tornare a Esplora Server e fare clic con il pulsante destro tabella Movie, quindi selezionare "Mostra dati tabella". Immettere alcuni filmati in modo che il database dispone di alcuni dati.
 
 [![Modifica delle tabelle di database](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>Creazione di un modello
 
-A questo punto, tornare a Esplora soluzioni sul lato destro dell'IDE e destro del mouse sulla cartella modelli e selezionare Aggiungi | Nuovo elemento.
+A questo punto, tornare a Esplora soluzioni sul lato destro dell'IDE e del mouse sulla cartella Models e scegliere Aggiungi | Nuovo elemento.
 
 [![addnewmodelitem](getting-started-with-mvc-part4/_static/image17.png)](getting-started-with-mvc-part4/_static/image16.png)
 
-Si userà per creare un modello di entità dal nuovo database. Verrà aggiunto un set di classi al progetto che rende più semplice per la query e modificare i dati all'interno del database. Selezionare il nodo di dati sul lato sinistro della finestra di dialogo e quindi selezionare il modello di elemento di ADO.NET Entity Data Model. Nome Movies.edmx.
+Dobbiamo creare un modello di entità dal nuovo database. Si aggiungerà un set di classi per il progetto che rende più semplice per la query e modificare i dati all'interno di database. Selezionare il nodo di dati sul lato sinistro della finestra di dialogo e quindi selezionare il modello di elemento ADO.NET Entity Data Model. Denominarla Movies.edmx.
 
 [![AddNewDataModel](getting-started-with-mvc-part4/_static/image19.png)](getting-started-with-mvc-part4/_static/image18.png)
 
-Fare clic sul pulsante "Aggiungi". Viene quindi avviata "Entity Data Model Wizard".
+Fare clic sul pulsante "Aggiungi". Verrà quindi avviata "Entity Data Model Wizard".
 
-Nella finestra di dialogo nuovo visualizzata selezionare Genera da Database. Poiché sono stati apportati solo un database, è necessario solo informare che Entity Framework il nuovo database e la relativa tabella. Scegliere Avanti per salvare la connessione al database nella configurazione dell'applicazione web. A questo punto, controllare le tabelle e un film casella di controllo e fare clic su Fine.
+Nella finestra di dialogo Nuovo che viene visualizzata, selezionare Generate dal Database. Poiché abbiamo appena creato un database, è necessario solo in merito a Entity Framework il nuovo database e la relativa tabella. Scegliere Avanti per salvare la connessione al database nella configurazione dell'applicazione web. A questo punto, controllare le tabelle e i film e fare clic su Fine.
 
 [![Procedura guidata Entity Data Model](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
 
-Ora è possibile visualizzare la nuova tabella film in Entity Framework Designer e accedervi dal codice.
+A questo punto è possibile visualizzare la nuova tabella di film in Entity Framework Designer e accedervi dal codice.
 
-[![Filmati - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![Film - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
-Nell'area di progettazione è possibile visualizzare una classe "Filmato". Questa classe esegue il mapping alla tabella nel database "Filmato" e ogni proprietà all'interno di esso viene eseguito il mapping a una colonna con la tabella. Ogni istanza di una classe "Filmato" corrisponde a una riga all'interno della tabella "Filmato".
+Nell'area di progettazione è possibile visualizzare una classe "Movie". Questa classe esegue il mapping alla tabella "Movie" nel nostro database, e ogni proprietà all'interno di esso viene eseguito il mapping a una colonna con la tabella. Ogni istanza di una classe "Movie" corrisponderà a una riga all'interno della tabella "Movie".
 
-Se non si desidera che i nomi predefiniti e mapping convenzioni usate da Entity Framework, è possibile utilizzare la finestra di progettazione di Entity Framework per modificare o personalizzare. Per questa applicazione verrà usata le impostazioni predefinite e salvare il file come-è.
+Se non sono quelli di denominazione predefinito e le convenzioni usate da Entity Framework di mapping, è possibile utilizzare la finestra di progettazione di Entity Framework per modificare o personalizzarli. Per questa applicazione verrà usata le impostazioni predefinite e salvare solo il file come-è.
 
-È ora possibile lavorare con alcuni dati reali.
+A questo punto, è possibile usare alcuni dati reali.
 
 > [!div class="step-by-step"]
 > [Precedente](getting-started-with-mvc-part3.md)

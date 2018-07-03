@@ -1,41 +1,40 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: Pagine Web ASP.NET (Razor) rapida API riferimento | Documenti Microsoft
+title: ASP.NET Web Pages (Razor) riferimento rapido sulle API | Microsoft Docs
 author: tfitzmac
-description: Questa pagina contiene un elenco con brevi esempi di oggetti utilizzati più di frequente, le proprietà e metodi per la programmazione di ASP.NET Web Pages con sintassi Razor.
+description: Questa pagina contiene un elenco con brevi esempi di oggetti più comunemente usati, proprietà e metodi per la programmazione di ASP.NET Web Pages con sintassi Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
 ms.topic: article
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3bf706cefe5302cf1085e0f814dc6654e42ae917
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897584"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378663"
 ---
-<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages riferimento API rapida (Razor)
+<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) riferimento rapido sulle API
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Questa pagina contiene un elenco con brevi esempi di oggetti utilizzati più di frequente, le proprietà e metodi per la programmazione di ASP.NET Web Pages con sintassi Razor.
+> Questa pagina contiene un elenco con brevi esempi di oggetti più comunemente usati, proprietà e metodi per la programmazione di ASP.NET Web Pages con sintassi Razor.
 > 
-> Le descrizioni contrassegnate con "(v2)" sono stati introdotti in ASP.NET Web Pages versione 2.
+> Le descrizioni contrassegnate con "(v2)" sono state introdotte in ASP.NET Web Pages versione 2.
 > 
-> Per la documentazione di riferimento API, vedere il [la documentazione di riferimento di ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=208659) su MSDN.
+> Per la documentazione di riferimento API, vedere la [documentazione di riferimento di ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=208659) su MSDN.
 > 
 > ## <a name="software-versions"></a>Versioni del software
 > 
 > 
-> - Pagine Web ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
-> In questa esercitazione funziona anche con ASP.NET Web Pages 2 e pagine Web ASP.NET 1.0 (ad eccezione delle funzionalità contrassegnate v2).
+> Questa esercitazione funziona anche con ASP.NET Web Pages 2 e ASP.NET Web Pages 1.0 (tranne le funzionalità contrassegnate v2).
 
 
 Questa pagina contiene informazioni di riferimento per le operazioni seguenti:
@@ -50,19 +49,19 @@ Questa pagina contiene informazioni di riferimento per le operazioni seguenti:
 
 ### `AppState[key], AppState[index],App`
 
-Contiene dati che possono essere condiviso da tutte le pagine dell'applicazione. È possibile utilizzare dinamica `App` proprietà per accedere agli stessi dati, come nell'esempio seguente:
+Contiene dati che possono essere condiviso da tutte le pagine nell'applicazione. È possibile usare dinamica `App` proprietà a cui accedere agli stessi dati, come nell'esempio seguente:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample1.html)]
 
 ### `AsBool(), AsBool(true|false)`
 
-Converte un valore stringa in un valore booleano (true/false). Restituisce false o il valore specificato se la stringa non rappresentano true o false.
+Converte un valore stringa in un valore booleano (true/false). Restituisce false o il valore specificato se la stringa non rappresenta true o false.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample2.cs)]
 
 ### `AsDateTime(), AsDateTime(value)`
 
-Converte un valore di stringa a data/ora. Restituisce `DateTime.MinValue` o il valore specificato se la stringa non rappresenta una data/ora.
+Converte un valore stringa a data/ora. Restituisce `DateTime.MinValue` o il valore specificato se la stringa non rappresenta una data/ora.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample3.cs)]
 
@@ -86,13 +85,13 @@ Converte un valore stringa in un intero. Restituisce 0 o il valore specificato s
 
 ### `Href(path [, param1 [, param2]])`
 
-Crea un URL compatibile con browser da un percorso file locale, con le parti di percorso aggiuntivo facoltativo.
+Crea un URL compatibile con browser da un percorso file locale, con le parti di percorso aggiuntivi facoltativi.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample7.cshtml)]
 
 ### `Html.Raw(value)`
 
-Esegue il rendering *valore* come markup HTML anziché eseguirne il rendering con codifica HTML come output.
+Esegue il rendering *valore* come markup HTML anziché eseguirne il rendering come codificata in formato HTML di output.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample8.cshtml)]
 
@@ -110,7 +109,7 @@ Restituisce true se l'oggetto o una variabile non ha alcun valore.
 
 ### `IsPost`
 
-Restituisce true se la richiesta è una richiesta POST. (Le richieste iniziali sono in genere è un'operazione GET).
+Restituisce true se la richiesta viene pubblicato un POST. (Le richieste iniziali sono in genere è un'operazione GET).
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample11.cs)]
 
@@ -122,26 +121,26 @@ Specifica il percorso di una pagina di layout da applicare a questa pagina.
 
 ### `PageData[key], PageData[index],Page`
 
-Contiene dati condivisi tra la pagina, pagine di layout e pagine parziali nella richiesta corrente. È possibile utilizzare dinamica `Page` proprietà per accedere agli stessi dati, come nell'esempio seguente:
+Contiene i dati condivisi tra la pagina, pagine di layout e pagine parziali nella richiesta corrente. È possibile usare dinamica `Page` proprietà a cui accedere agli stessi dati, come nell'esempio seguente:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample13.html)]
 
 ### `RenderBody()`
 
-(Le pagine di layout) Visualizza il contenuto di una pagina di contenuto che non sia in qualsiasi sezioni denominate.
+(Pagine di layout) Visualizza il contenuto di una pagina di contenuto che non si trova in tutte le sezioni denominate.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample14.cs)]
 
 ### `RenderPage(path, values)`  
 `RenderPage(path[,param1 [, param2]])`
 
-Esegue il rendering di una pagina di contenuto con il percorso specificato e i dati aggiuntivi facoltativi. È possibile ottenere i valori dei parametri aggiuntivi da `PageData` dalla posizione (ad esempio, 1) o alla chiave (ad esempio, 2).
+Esegue il rendering di una pagina di contenuto utilizzando il percorso specificato e dati aggiuntivi facoltativi. È possibile ottenere i valori dei parametri aggiuntivi da `PageData` con posizione (ad esempio, 1) o una chiave (ad esempio, 2).
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample15.js)]
 
 ### `RenderSection(sectionName [, required = true|false])`
 
-(Le pagine di layout) Esegue il rendering di una sezione di contenuto con un nome. Impostare *obbligatorio* su false per rendere una sezione facoltativa.
+(Pagine di layout) Esegue il rendering di una sezione di contenuto con un nome. Impostare *obbligatorio* su false per rendere una sezione facoltativa.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample16.js)]
 
@@ -172,25 +171,25 @@ Ottiene i dati che è stati specificati nella stringa di query dell'URL. `Reques
 ### `Request.Unvalidated(key)`  
 `Request.Unvalidated().QueryString|Form|Cookies|Headers[key]`
 
-Convalida per un elemento del form, il valore di stringa di query, dal cookie o valore dell'intestazione della richiesta in modo selettivo disabilita. Convalida della richiesta è abilitata per impostazione predefinita e impedisce agli utenti di markup o altro contenuto potenzialmente pericoloso di registrazione.
+Convalida per un elemento del form, il valore di stringa di query, dal cookie o valore dell'intestazione della richiesta in modo selettivo viene disabilitato. Convalida delle richieste è abilitata per impostazione predefinita e impedisce agli utenti di inserimento markup o altro contenuto potenzialmente pericoloso.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample21.cs)]
 
 ### `Response.AddHeader(name, value)`
 
-Aggiunge un'intestazione di server HTTP alla risposta.
+Aggiunge un'intestazione HTTP del server nella risposta.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample22.cs)]
 
 ### `Response.OutputCache(seconds [, sliding] [, varyByParams])`
 
-Memorizza nella cache l'output delle pagine per un tempo specificato. Facoltativamente, impostare *scorrevole* per reimpostare il timeout per ogni accesso alla pagina e *varyByParams* per memorizzare nella cache diverse versioni della pagina per ogni stringa di query diversi nella richiesta della pagina.
+Memorizza nella cache l'output delle pagine per un determinato periodo. Facoltativamente, impostare *scorrevole* reimpostare il timeout per ogni accesso alla pagina e *varyByParams* per memorizzare nella cache diverse versioni della pagina per ogni stringa di query diversi nella richiesta della pagina.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample23.js)]
 
 ### `Response.Redirect(path)`
 
-Reindirizza la richiesta del browser in un nuovo percorso.
+Reindirizza la richiesta del browser in una nuova posizione.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample24.js)]
 
@@ -202,19 +201,19 @@ Imposta il codice di stato HTTP inviato al browser.
 
 ### `Response.WriteBinary(data [, mimetype])`
 
-Scrive il contenuto di *dati* alla risposta con un tipo MIME facoltativo.
+Scrive il contenuto del *dati* alla risposta con un tipo MIME facoltativo.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample26.js)]
 
 ### `Response.WriteFile(file)`
 
-Scrive il contenuto di un file di risposta.
+Scrive il contenuto di un file alla risposta.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample27.cs)]
 
 ### `@section(sectionName) {content }`
 
-(Le pagine di layout) Definisce una sezione di contenuto con un nome.
+(Pagine di layout) Definisce una sezione di contenuto con un nome.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample28.cshtml)]
 
@@ -250,7 +249,7 @@ Codifica testo da inserire in un URL.
 
 ### `Session[key]`
 
-Ottiene o imposta un valore che non esiste finché l'utente chiude il browser.
+Ottiene o imposta un valore che è presente finché l'utente chiude il browser.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample34.css)]
 
@@ -274,7 +273,7 @@ Modifica la password per l'utente specificato.
 
 ### `WebSecurity.ConfirmAccount(accountConfirmationToken)`
 
-Conferma di un account con il token di conferma di account.
+Conferma di un account usando il token di conferma di account.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample38.cs)]
 
@@ -287,7 +286,7 @@ Crea un nuovo account utente con il nome utente specificato e la password. Per r
 
 ### `WebSecurity.CurrentUserId`
 
-Ottiene l'identificatore di tipo integer per l'utente attualmente connesso.
+Ottiene l'identificatore integer per l'utente attualmente connesso.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample40.cs)]
 
@@ -300,13 +299,13 @@ Ottiene il nome per l'utente attualmente connesso.
 ### `WebSecurity.GeneratePasswordResetToken(username`  
  `[, tokenExpirationInMinutesFromNow])`
 
-Genera un token di reimpostazione della password che può essere inviato tramite posta elettronica a un utente in modo che l'utente è possibile reimpostare la password.
+Genera un token di reimpostazione della password che è possibile inviare tramite posta elettronica a un utente in modo che l'utente può reimpostare la password.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample42.cs)]
 
 ### `WebSecurity.GetUserId(userName)`
 
-Restituisce l'ID utente del nome utente.
+Restituisce l'ID utente da nome utente.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample43.cs)]
 
@@ -330,13 +329,13 @@ Restituisce true se il nome dell'utente corrente corrisponde al nome utente spec
 
 ### `WebSecurity.Login(userName,password[, persistCookie])`
 
-Consente all'utente in impostando un token di autenticazione nel cookie.
+Accesso all'utente in impostando un token di autenticazione nel cookie.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample47.cs)]
 
 ### `WebSecurity.Logout()`
 
-Registra la disconnessione dell'utente rimuovendo il cookie di token di autenticazione.
+Accesso all'utente di disconnettersi rimuovendo il cookie di token di autenticazione.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample48.css)]
 
@@ -370,7 +369,7 @@ Se il token di reimpostazione della password è valido, cambia la password dell'
 
 ### `Database.Execute(SQLstatement [,parameters]`
 
-Esegue *SQLstatement* (con parametri facoltativi), ad esempio INSERT, DELETE o UPDATE e restituisce il numero di record interessati.
+Viene eseguito *SQLstatement* (con parametri facoltativi), ad esempio INSERT, DELETE o UPDATE e restituisce il numero di record interessati.
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample53.sql)]
 
@@ -383,31 +382,31 @@ Restituisce la colonna identity della riga inserita più di recente.
 ### `Database.Open(filename)`  
 `Database.Open(connectionStringName)`
 
-Apre il file di database specificato o il database specificato utilizzando una stringa di connessione denominata dal *Web. config* file.
+Apre il file di database specificato o il database specificato usando una stringa di connessione denominata dal *Web. config* file.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample55.cs)]
 
 ### `Database.OpenConnectionString(connectionString)`
 
-Apre un database utilizzando la stringa di connessione. (Questo contrasta con `Database.Open`, che utilizza un nome di stringa di connessione.)
+Consente di aprire un database usando la stringa di connessione. (Ciò è in contrasto con `Database.Open`, che usa un nome di stringa di connessione.)
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample56.cs)]
 
 ### `Database.Query(SQLstatement[,parameters])`
 
-Il database utilizzando una query *SQLstatement* (passando facoltativamente i parametri) e restituisce i risultati sotto forma di raccolta.
+Esegue una query del database utilizzando *SQLstatement* (passando facoltativamente i parametri) e restituisce i risultati sotto forma di raccolta.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample57.html)]
 
 ### `Database.QuerySingle(SQLstatement [, parameters])`
 
-Esegue *SQLstatement* (con parametri facoltativi) e restituisce un singolo record.
+Viene eseguito *SQLstatement* (con parametri facoltativi) e restituisce un singolo record.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample58.cs)]
 
 ### `Database.QueryValue(SQLstatement [, parameters])`
 
-Esegue *SQLstatement* (con parametri facoltativi) e restituisce un valore singolo.
+Viene eseguito *SQLstatement* (con parametri facoltativi) e restituisce un valore singolo.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample59.cs)]
 
@@ -416,25 +415,25 @@ Esegue *SQLstatement* (con parametri facoltativi) e restituisce un valore singol
 
 ### `Analytics.GetGoogleHtml(webPropertyId)`
 
-Esegue il rendering del codice JavaScript Analitica Google per l'ID specificato.
+Esegue il rendering del codice JavaScript di Analitica di Google per l'ID specificato.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample60.js)]
 
 ### `Analytics.GetStatCounterHtml(project,security)`
 
-Esegue il rendering il codice JavaScript Analitica StatCounter per il progetto specificato.
+Esegue il rendering di codice JavaScript di Analitica StatCounter per il progetto specificato.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample61.css)]
 
 ### `Analytics.GetYahooHtml(account)`
 
-Esegue il rendering il codice JavaScript Analitica Yahoo per l'account specificato.
+Esegue il rendering di codice JavaScript di Analitica Yahoo per l'account specificato.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample62.js)]
 
 ### `Bing.SearchBox([boxWidth])`
 
-Passa una ricerca in Bing. Per specificare il sito alla ricerca e un titolo per la casella di ricerca, è possibile impostare il `Bing.SiteUrl` e `Bing.SiteTitle` proprietà. In genere si impostano queste proprietà  *\_AppStart* pagina.
+Passa una ricerca di Bing. Per specificare il sito alla ricerca e un titolo per la casella di ricerca, è possibile impostare il `Bing.SiteUrl` e `Bing.SiteTitle` proprietà. In genere è impostare queste proprietà  *\_AppStart* pagina.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample63.html)]
 
@@ -448,7 +447,7 @@ Inizializza un grafico.
 
 ### `Chart.AddLegend([title] [, name])`
 
-Aggiunge una legenda a un grafico.
+Aggiunge una legenda in un grafico.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample66.cshtml)]
 
@@ -456,7 +455,7 @@ Aggiunge una legenda a un grafico.
  `[, axisLabel] [, legend] [, markerStep] [, xValue]`  
  `[, xField] [, yValues] [, yFields] [, options])`
 
-Aggiunge una serie di valori al grafico.
+Aggiunge una serie di valori per il grafico.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample67.cshtml)]
 
@@ -477,20 +476,20 @@ Consente agli utenti di Facebook di stabilire una connessione a pagine.
 ### `FileUpload.GetHtml([initialNumberOfFiles] [, allowMoreFilesToBeAdded]`  
  `[, includeFormTag] [, addText] [, uploadText])`
 
-Esegue il rendering dell'interfaccia utente per il caricamento dei file.
+Esegue il rendering dell'interfaccia utente per il caricamento di file.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample70.html)]
 
 ### `GamerCard.GetHtml(gamerTag)`
 
-Esegue il rendering del tag giocatore Xbox specificato.
+Esegue il rendering del tag del giocatore di Xbox specificato.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample71.js)]
 
 ### `Gravatar.GetHtml(email [, imageSize] [, defaultImage] [, rating]`  
  `[, imageExtension] [, attributes])`
 
-Esegue il rendering dell'immagine Gravatar per l'indirizzo di posta elettronica specificato.
+Esegue il rendering di immagini Gravatar per l'indirizzo di posta elettronica specificato.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample72.css)]
 
@@ -502,51 +501,51 @@ Converte un oggetto dati in una stringa in formato JavaScript Object Notation (J
 
 ### `Json.Decode(string)`
 
-Converte una stringa di input con codifica JSON in un oggetto dati che è possibile scorrere o inserire in un database.
+Converte una stringa di input con codifica JSON in un oggetto dati che è possibile eseguire l'iterazione su o inserire in un database.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample74.cs)]
 
 ### `LinkShare.GetHtml(pageTitle[, pageLinkBack] [, twitterUserName]`  
  `[, additionalTweetText] [, linkSites])`
 
-Esegue il rendering di collegamenti di rete sociali tramite il titolo specificato e l'URL facoltativo.
+Esegue il rendering di collegamenti di rete basati su social network con il titolo specificato e l'URL facoltativi.
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample75.xml)]
 
 ### `ModelStateDictionary.AddError(key, errorMessage)`
 
-Associa un messaggio di errore a un campo del form. Utilizzare il `ModelState` helper per l'accesso al membro.
+Associa un messaggio di errore a un campo del form. Usare il `ModelState` helper per accedere a questo membro.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample76.cs)]
 
 ### `ModelStateDictionary.AddFormError(errorMessage)`
 
-Associa un messaggio di errore a un form. Utilizzare il `ModelState` helper per l'accesso al membro.
+Associa un messaggio di errore a un form. Usare il `ModelState` helper per accedere a questo membro.
 
 [!code-powershell[Main](asp-net-web-pages-api-reference/samples/sample77.ps1)]
 
 ### `ModelStateDictionary.IsValid`
 
-Restituisce true se non sono presenti errori di convalida. Utilizzare il `ModelState` helper per l'accesso al membro.
+Restituisce true se non sono presenti errori di convalida. Usare il `ModelState` helper per accedere a questo membro.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample78.cs)]
 
 ### `ObjectInfo.Print(value [, depth] [, enumerationLength])`
 
-Esegue il rendering le proprietà e i valori di elementi figlio e un oggetto oggetti.
+Esegue il rendering le proprietà e valori di un oggetto e qualsiasi figlio oggetti.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample79.css)]
 
 ### `Recaptcha.GetHtml([, publicKey] [, theme] [, language] [, tabIndex])`
 
-Esegue il rendering il test di verifica reCAPTCHA.
+Esegue il rendering di test di verifica reCAPTCHA.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample80.css)]
 
 ### `ReCaptcha.PublicKey`  
  `ReCaptcha.PrivateKey`
 
-Imposta le chiavi pubbliche e private per il servizio di reCAPTCHA. In genere si impostano queste proprietà  *\_AppStart* pagina.
+Imposta le chiavi pubbliche e private per il servizio di reCAPTCHA. In genere è impostare queste proprietà  *\_AppStart* pagina.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample81.css)]
 
@@ -558,7 +557,7 @@ Restituisce il risultato del test di reCAPTCHA.
 
 ### `ServerInfo.GetHtml()`
 
-Esegue il rendering delle informazioni sullo stato sulle pagine Web ASP.NET.
+Esegue il rendering informazioni sullo stato su ASP.NET Web Pages.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample83.cshtml)]
 
@@ -570,13 +569,13 @@ Esegue il rendering di un flusso di Twitter per l'utente specificato.
 
 ### `Twitter.Search(searchQuery)`
 
-Esegue il rendering di un flusso di Twitter per il testo di ricerca specificato.
+Esegue il rendering di un flusso di Twitter per il testo di ricerca specificati.
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample85.xml)]
 
 ### `Video.Flash(filename [, width, height])`
 
-Esegue il rendering di un lettore Flash video per il file specificato con l'altezza e larghezza facoltativa.
+Esegue il rendering di un lettore video Flash per il file specificato con l'altezza e larghezza facoltativa.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample86.cshtml)]
 
@@ -588,13 +587,13 @@ Esegue il rendering di un lettore multimediale di Windows per il file specificat
 
 ### `Video.Silverlight(filename, width, height)`
 
-Esegue il rendering di un lettore Silverlight per l'oggetto specificato *XAP* file con l'altezza e larghezza richiesta.
+Esegue il rendering di un lettore Silverlight per l'oggetto specificato *XAP* file con l'altezza e larghezza necessaria.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample88.cshtml)]
 
 ### `WebCache.Get(key)`
 
-Restituisce l'oggetto specificato da *chiave*, oppure null se l'oggetto non è stato trovato.
+Restituisce l'oggetto specificato da *chiave*, oppure null se l'oggetto non viene trovato.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample89.cs)]
 
@@ -612,19 +611,19 @@ Inserisce *valore* nella cache con il nome specificato da *chiave*.
 
 ### `WebGrid(data)`
 
-Crea un nuovo `WebGrid` utilizzando i dati di una query dell'oggetto.
+Crea un nuovo `WebGrid` usando i dati da una query dell'oggetto.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample92.cs)]
 
 ### `WebGrid.GetHtml()`
 
-Esegue il rendering di markup per la visualizzazione di dati in una tabella HTML.
+Esegue il rendering di markup per la visualizzazione dei dati in una tabella HTML.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample93.html)]
 
 ### `WebGrid.Pager()`
 
-Esegue il rendering di un cercapersone per il `WebGrid` oggetto.
+Esegue il rendering di un pager per il `WebGrid` oggetto.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample94.html)]
 
@@ -649,13 +648,13 @@ Aggiunge il testo specificato all'immagine.
 ### `WebImage.FlipHorizontal()`  
 `WebImage.FlipVertical()`
 
-Consente di capovolgere orizzontalmente o verticalmente l'immagine.
+Consente di capovolgere l'immagine orizzontalmente o verticalmente.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample98.css)]
 
 ### `WebImage.GetImageFromRequest()`
 
-Carica un'immagine quando viene registrata un'immagine a una pagina durante il caricamento di un file.
+Carica un'immagine quando viene inserita un'immagine di una pagina durante il caricamento di un file.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample99.cs)]
 
@@ -668,7 +667,7 @@ Ridimensiona un'immagine.
 ### `WebImage.RotateLeft()`  
 `WebImage.RotateRight()`
 
-Ruota l'immagine a sinistra o a destra.
+Consente di ruotare l'immagine a sinistra o destra.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample101.css)]
 
@@ -680,7 +679,7 @@ Salva l'immagine nel percorso specificato.
 
 ### `WebMail.Password`
 
-Imposta la password per il server SMTP. In genere si imposta questa proprietà  *\_AppStart* pagina.
+Imposta la password per il server SMTP. In genere è impostare questa proprietà  *\_AppStart* pagina.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample103.cs)]
 
@@ -693,7 +692,7 @@ Invia un messaggio di posta elettronica.
 
 ### `WebMail.SmtpServer`
 
-Imposta il nome del server SMTP. In genere si imposta questa proprietà<em>\_AppStart</em> pagina.
+Imposta il nome del server SMTP. In genere è impostare questa proprietà<em>\_AppStart</em> pagina.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 
@@ -726,19 +725,19 @@ Imposta il nome utente per il server SMTP. In genere è necessario impostare que
 
 ### `Validation.ClassFor(field)`
 
-(v2) In modo dinamico esegue il rendering di attributi della classe CSS per la convalida lato client in modo che è possibile formattare i messaggi di errore di convalida. (Richiede che fare riferimento alle librerie di script client appropriati e definire le classi CSS).
+(v2) In modo dinamico viene eseguito il rendering degli attributi di classe CSS per la convalida lato client in modo che è possibile formattare i messaggi di errore di convalida. (Richiede che si fa riferimento le librerie di script client appropriato e definire le classi CSS).
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample110.html)]
 
 ### `Validation.For(field)`
 
-(v2) Abilita la convalida lato client per il campo di input utente. È necessario che fare riferimento alle librerie di script client appropriato.
+(v2) Abilita la convalida lato client per il campo di input utente. (Richiede di fare riferimento a librerie di script client appropriato).
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample111.html)]
 
 ### `Validation.IsValid()`
 
-(v2) Restituisce true se tutti gli elementi input utente che vengono registrate per la convalida contengono valori validi.
+(v2) Restituisce true se tutti gli elementi input utente che vengono registrate per la convalida contengono i valori validi.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample112.cs)]
 
@@ -750,7 +749,7 @@ Imposta il nome utente per il server SMTP. In genere è necessario impostare que
 
 ### `Validation.RequireFields(field1[, field12, field3, ...])`
 
-(v2) Specifica che gli utenti devono fornire valori per ognuno degli elementi di input dell'utente. Questo metodo non consente di specificare un messaggio di errore personalizzato.
+(v2) Specifica che gli utenti devono fornire valori per ognuno degli elementi di input utente. Questo metodo consente di specificare un messaggio di errore personalizzato.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample114.html)]
 
@@ -765,6 +764,6 @@ Imposta il nome utente per il server SMTP. In genere è necessario impostare que
 `Validator.StringLength(length)`  
 `Validator.Url([error message])`
 
-(v2) Specifica un test di convalida quando si utilizza il `Validation.Add` metodo.
+(v2) Specifica un test di convalida quando si usa il `Validation.Add` (metodo).
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample115.js)]

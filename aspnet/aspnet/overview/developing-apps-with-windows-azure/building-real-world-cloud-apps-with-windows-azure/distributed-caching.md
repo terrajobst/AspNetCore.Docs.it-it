@@ -1,116 +1,115 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
-title: Memorizzazione nella cache (creazione di applicazioni con Azure Cloud del mondo reale) distribuita | Documenti Microsoft
+title: Distributed la memorizzazione nella cache (creazione di App Cloud funzionanti con Azure) | Microsoft Docs
 author: MikeWasson
-description: Le App per Cloud mondo reale compilazione con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure che è possibile...
+description: La creazione Real World di App Cloud con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure consigliate che egli può...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2015
 ms.topic: article
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 3600200f9bb705ccf66c859547668bdf8e89d97a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f92d9a00ce3cc723643f4f8077bb4308f5d8089e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868672"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365646"
 ---
-<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Distribuita di memorizzazione nella cache (compilazione Cloud del mondo reale App con Azure)
+<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Memorizzazione nella cache (Building Real-World Cloud App distribuite con Azure)
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Download correggerlo progetto](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [scaricare E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Download risolverlo Project](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [Scarica l'E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Il **predefiniti reale World Cloud App con Azure** e-book è basato su una presentazione sviluppata da Scott Guthrie. Vengono descritte le 13 modelli e procedure consigliate che consentono di avere esito negativo con lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [primo capitolo](introduction.md).
+> Il **creazione Real World di App Cloud con Azure** eBook si basa su una presentazione sviluppata da Scott Guthrie. Viene illustrato 13 modelli e procedure consigliate che consentono di avere esito positivo lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [capitolo prima](introduction.md).
 
 
-Capitolo precedente esaminato gestione degli errori temporanei e indicato come interruttore strategia di memorizzazione nella cache. Questo capitolo vengono fornite ulteriori informazioni sulla memorizzazione nella cache, incluso quando utilizzare la funzionalità, i modelli comuni per il relativo utilizzo e la relativa implementazione in Azure.
+Nel capitolo precedente esaminato gestione degli errori temporanei e menzionato la memorizzazione nella cache come strategia di interruttore di circuito. In questo capitolo vengono fornite maggiori sulla memorizzazione nella cache, tra cui sul relativo utilizzo, i modelli comuni per l'uso e come implementarlo in Azure.
 
 ## <a name="what-is-distributed-caching"></a>Che cos'è distribuita la memorizzazione nella cache
 
-Una cache offre una velocità effettiva elevata, bassa latenza di accesso ai dati dell'applicazione si accede di frequente, archiviando i dati in memoria. Per un'app cloud il tipo di cache più utile è la cache distribuita, ovvero i dati non vengono archiviati in memoria del server web singoli, ma in altre risorse del cloud e i dati memorizzati nella cache diventa disponibili per tutti i server di un'applicazione web (o altri cloud macchine virtuali che ar e utilizzata dall'applicazione).
+Una cache offre elevata velocità effettiva, bassa latenza di accesso ai dati dell'applicazione si accede di frequente, archiviando i dati in memoria. Per un'app cloud il tipo di cache più utile è la cache distribuita, ovvero i dati non vengono archiviati in memoria del server web singoli, ma in altre risorse cloud e i dati memorizzati nella cache sarà disponibili per tutti i server web di un'applicazione (o altro cloud macchine virtuali che ar e utilizzato dall'applicazione).
 
-![diagramma che illustra più server web, accesso ai server di cache stessa](distributed-caching/_static/image1.png)
+![diagramma che mostra più server web accedono ai server della cache stessa](distributed-caching/_static/image1.png)
 
-Quando l'applicazione viene ridimensionata tramite l'aggiunta o rimozione di server o quando vengono sostituiti i server a causa di aggiornamenti o errori, i dati memorizzati nella cache rimangono accessibili a tutti i server che esegue l'applicazione.
+Quando l'applicazione viene scalata aggiungendo o rimuovendo i server o quando vengono sostituiti i server a causa di aggiornamenti o errori, i dati memorizzati nella cache rimangono accessibili a tutti i server che esegue l'applicazione.
 
-Evitando l'accesso ai dati ad alta latenza di un archivio dati persistente, la memorizzazione nella cache possono migliorare notevolmente la velocità di risposta dell'applicazione. Ad esempio, il recupero dei dati dalla cache è molto più veloce rispetto recuperarlo da un database relazionale.
+Evitando l'accesso ai dati ad alta latenza di un archivio dati permanente, la memorizzazione nella cache può migliorare notevolmente la velocità di risposta dell'applicazione. Ad esempio, il recupero dei dati dalla cache è molto più veloce rispetto a recuperarli da un database relazionale.
 
-Dei vantaggi della memorizzazione nella cache viene ridotto il traffico verso l'archivio dati persistente, con conseguente riduzione dei costi quando sono presenti dati in uscita gli addebiti per l'archivio dati persistente.
+Un vantaggio secondario, la memorizzazione nella cache si riduce il traffico verso l'archivio dati permanente, che potrebbe comportare costi più bassi quando sono presenti dati in uscita sarà addebitato l'archivio dati permanente.
 
-## <a name="when-to-use-distributed-caching"></a>Quando utilizzare la memorizzazione nella cache distribuita
+## <a name="when-to-use-distributed-caching"></a>Quando usare la memorizzazione nella cache distribuita
 
-Memorizzazione nella cache più adatta per i carichi di lavoro dell'applicazione che non la lettura di più rispetto alla scrittura di dati e quando il modello di dati supporta l'organizzazione di chiave/valore utilizzate per archiviare e recuperare i dati nella cache. È inoltre più utile quando gli utenti dell'applicazione condividono molti dati comuni; ad esempio, cache non tanti vantaggi se fornisce in genere, ogni utente recupera dati univoci per l'utente. Un esempio in cui potrebbe essere molto utile la memorizzazione nella cache è un catalogo dei prodotti, poiché i dati non vengono modificati spesso e tutti i clienti siano esaminando gli stessi dati.
+Memorizzazione nella cache è più adatta per carichi di lavoro dell'applicazione che eseguire ulteriori informazioni rispetto alla scrittura di dati e quando il modello di dati supporta l'organizzazione di chiave/valore che consente di archiviare e recuperare i dati nella cache. È anche più utile quando gli utenti dell'applicazione condividono una grande quantità di dati comuni; ad esempio, della cache non fornirebbe tanti vantaggi se ogni utente in genere recupera dati univoci per l'utente. Un esempio in cui la memorizzazione nella cache potrebbe essere molto utili è un catalogo dei prodotti, poiché i dati non vengono modificati spesso e tutti i clienti cercano gli stessi dati.
 
-Il vantaggio della memorizzazione nella cache diventa sempre più misurabile maggiore scalabilità di un'applicazione, come i limiti di velocità effettiva e i ritardi di latenza dell'archivio dati permanente diventano più di un limite per le prestazioni complessive dell'applicazione. Tuttavia, è possibile implementare la memorizzazione nella cache per altri motivi di prestazioni anche. Per i dati che non devono essere perfettamente aggiornati quando viene visualizzata all'utente, accesso alla cache può essere utilizzato come un interruttore per quando l'archivio dati persistente è che non risponde o non disponibile.
+Il vantaggio della memorizzazione nella cache diventa sempre più misurabile maggiore scalabilità dell'applicazione, perché i limiti di velocità effettiva e ritardi di latenza dell'archivio dati permanente diventano più di un limite per le prestazioni complessive dell'applicazione. Tuttavia, è possibile implementare la memorizzazione nella cache per altri motivi di prestazioni anche. Per i dati che non deve necessariamente essere perfettamente aggiornati quando visualizzata all'utente, accesso alla cache può essere utilizzato come un interruttore per quando l'archivio dati persistente non risponde o non disponibile.
 
-## <a name="popular-cache-population-strategies"></a>Strategie di popolamento della cache comuni
+## <a name="popular-cache-population-strategies"></a>Strategie di popolamento della cache più diffusi
 
-Per poter recuperare i dati dalla cache, è necessario archiviarlo esiste prima. Sono disponibili diverse strategie per il recupero di dati necessari in una cache:
+Per poter essere in grado di recuperare i dati dalla cache, è necessario archiviarlo presenti prima di tutto. Sono disponibili diverse strategie per ottenere i dati necessari in una cache:
 
-- Su richiesta / Cache Aside
+- Su richiesta o memorizzare nella Cache Aside
 
-    L'applicazione tenta di recuperare i dati dalla cache e quando la cache non dispone di dati (un "mancati"), l'applicazione archivia i dati nella cache in modo che sia disponibile al successivo. Alla successiva, che l'applicazione tenta di ottenere gli stessi dati, Trova ciò che sta cercando nella cache (un "accesso"). Per evitare il recupero di dati memorizzati nella cache sono stata modificata nel database, invalidano la cache quando si apportano modifiche all'archivio dati.
+    L'applicazione tenta di recuperare dati dalla cache e quando la cache non dispone dei dati (un "miss"), l'applicazione archivia i dati nella cache in modo che sia disponibile al successivo. La volta successiva che l'applicazione prova a ottenere gli stessi dati, Trova ciò che sta cercando nella cache (un "riscontro"). Per evitare il recupero dei dati memorizzati nella cache che sono stato modificato nel database, invalidare la cache quando si apportano modifiche all'archivio dati.
 - Push di dati in background
 
-    Servizi in background push dei dati nella cache in base a una pianificazione regolare e l'app sempre esegue il pull dalla cache. Questo approccio funziona bene con le origini dati ad alta latenza che non richiedono sempre di restituire i dati più recenti.
-- Interruttore
+    Servizi in background push dei dati nella cache in base a una pianificazione regolare e l'app sempre pull dalla cache. Questo approccio funziona bene con le origini dati ad alta latenza che non richiedono sempre di restituire i dati più recenti.
+- Interruttore di circuito
 
-    L'applicazione è in genere comunica direttamente con l'archivio dati persistente, ma quando l'archivio dati persistente presenta problemi di disponibilità, l'applicazione recupera dati dalla cache. Dati potrebbero essere stati messi in cache utilizzando la cache riservata o strategia di push dei dati in background. Si tratta di handler strategia anziché una strategia di miglioramento delle prestazioni.
+    L'applicazione è in genere comunica direttamente con l'archivio dati persistente, ma quando l'archivio dati persistente riscontra problemi di disponibilità, l'applicazione recupera i dati dalla cache. I dati inseriti nella cache utilizzando la cache riservato o strategia di push dei dati in background. Si tratta di handler strategia anziché una strategia di miglioramento delle prestazioni.
 
-Per mantenere i dati nella cache corrente, è possibile eliminare le voci della cache correlati quando l'applicazione consente di creare, gli aggiornamenti, o Elimina i dati. Se è bene per l'applicazione per ottenere in alcuni casi i dati obsoleti leggermente, è possibile basarsi su una data di scadenza per impostare un limite della cache risale dati possono essere configurabili.
+Per mantenere aggiornati i dati nella cache, è possibile eliminare le voci della cache correlate quando l'applicazione crea, Aggiorna, o Elimina i dati. Se è bene per l'applicazione ottenere i dati che non sono aggiornati leggermente in alcuni casi, è possibile basarsi su una scadenza configurabili per impostare un limite sulla cache quanto tempo i dati possono essere.
 
-È possibile configurare la scadenza assoluta (quantità di tempo dopo che è stato creato l'elemento della cache) o alla scadenza (quantità di tempo trascorso dall'ultimo accesso di un elemento della cache). La scadenza assoluta viene utilizzata quando si è legati al meccanismo di scadenza della cache per impedire che i dati di diventare obsoleti. Nell'app Correggi si saranno rimuovere manualmente gli elementi della cache non aggiornata e verrà utilizzata la scadenza variabile per mantenere i dati più recenti nella cache. Indipendentemente dal criterio di scadenza desiderato, la cache automaticamente rimuoverà gli elementi meno recenti (almeno usati di recente o LRU) quando viene raggiunto il limite di memoria della cache.
+È possibile configurare la scadenza assoluta (quantità di tempo poiché è stato creato l'elemento della cache) o (quantità di tempo trascorso dall'ultimo accesso a un elemento della cache è stata) scadenza variabile. Scadenza assoluta viene usata quando dipendono il meccanismo di scadenza della cache per impedire che i dati diventi obsoleta. Nell'app Fix It, abbiamo manualmente verranno rimossi gli elementi della cache non aggiornata e si userà la scadenza variabile per mantenere i dati più recenti nella cache. Indipendentemente dai criteri di scadenza che scelto, la cache automaticamente rimuoverà gli elementi meno recenti (minimi usati di recente o LRU) quando viene raggiunto il limite di memoria della cache.
 
-## <a name="sample-cache-aside-code-for-fix-it-app"></a>Esempio di codice di cache-aside per Correggi app
+## <a name="sample-cache-aside-code-for-fix-it-app"></a>Esempio di codice di cache-aside per l'app Fix It
 
-Nell'esempio di codice seguente, è innanzitutto nella cache durante il recupero di un'attività di correzione. Se l'attività è stata trovata nella cache, vengono restituiti; Se non viene trovato, scaricarla dal database e memorizzarlo nella cache. Le modifiche verrebbero apportate aggiungere la memorizzazione nella cache per il `FindTaskByIdAsync` metodo vengono evidenziati.
+Nell'esempio di codice seguente, viene innanzitutto nella cache durante il recupero di un'attività Fix It. Se l'attività è disponibile nella cache, viene restituito. Se non viene trovato, ottenerlo dal database e memorizzarlo nella cache. Le modifiche da creare per aggiungere la memorizzazione nella cache per il `FindTaskByIdAsync` metodo vengono evidenziati.
 
 [!code-csharp[Main](distributed-caching/samples/sample1.cs?highlight=5,9-11,13-15,19)]
 
-Quando si aggiorna o si elimina un'attività di correzione, è necessario invalidare (rimuovere) memorizzato nella cache attività. In caso contrario, futuro tenta di leggere che tale attività continuerà ad avere i vecchi dati dalla cache.
+Quando si aggiorna o elimina un'attività Fix It, è necessario invalidare attività (rimuovere) memorizzato nella cache. In caso contrario, i successivi tentativi leggere che tale attività continuerà ad avere i vecchi dati dalla cache.
 
 [!code-csharp[Main](distributed-caching/samples/sample2.cs?highlight=7)]
 
-Questi sono esempi per illustrare semplice codice di memorizzazione nella cache. la memorizzazione nella cache non è stato implementato nel Correggi progetto scaricabile.
+Questi sono esempi per illustrare semplice codice di memorizzazione nella cache. la memorizzazione nella cache non è stata implementata nel Fix It progetto scaricabile.
 
 ## <a name="azure-caching-services"></a>Servizi di caching di Azure
 
-Azure offre i seguenti servizi di memorizzazione nella cache: [Cache Redis di Azure](https://msdn.microsoft.com/library/dn690523.aspx) e [Cache gestita di Azure](https://msdn.microsoft.com/library/dn386094.aspx). Cache Redis di Azure si basa sulla famosa [Cache Redis open source](http://redis.io/) ed è la prima scelta per la maggior parte di memorizzazione nella cache gli scenari.
+Azure offre i servizi di memorizzazione nella cache seguenti: [Cache Redis di Azure](https://msdn.microsoft.com/library/dn690523.aspx) e [Cache gestita di Azure](https://msdn.microsoft.com/library/dn386094.aspx). Cache Redis di Azure si basa sul popolare [Cache Redis open source](http://redis.io/) ed è la scelta ideale per la maggior parte di memorizzazione nella cache gli scenari.
 
 <a id="sessionstate"></a>
-## <a name="aspnet-session-state-using-a-cache-provider"></a>Stato della sessione ASP.NET utilizza un provider di cache
+## <a name="aspnet-session-state-using-a-cache-provider"></a>Stato della sessione ASP.NET usando un provider di cache
 
-Come accennato nel [capitolo di web sviluppo best practices](web-development-best-practices.md), una procedura consigliata consiste nell'evitare di utilizzare lo stato della sessione. Se l'applicazione richiede lo stato della sessione, la successiva procedura ottimale consiste nell'evitare il provider in memoria predefinito dal momento che non abilitare la scalabilità orizzontale (più istanze del server web). Il provider di stato sessione ASP.NET SQL Server consente a un sito in esecuzione su più server web per utilizzare lo stato della sessione, ma comporta un costo di latenza elevata rispetto a un provider in memoria. La soluzione migliore se è necessario utilizzare lo stato della sessione consiste nell'utilizzare un provider di cache, ad esempio il [Provider di stato sessione per Cache di Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
+Come accennato nella [capitolo di web development best practices](web-development-best-practices.md), una procedura consigliata consiste nell'evitare di usare lo stato della sessione. Se l'applicazione richiede lo stato della sessione, per evitare il provider in memoria predefinito dal momento che non abilitare la scalabilità orizzontale (più istanze del server web) è la procedura consigliata successiva. Il provider di stato sessione SQL Server ASP.NET consente a un sito che viene eseguito su più server web per usare lo stato della sessione, ma comporta un costo di una latenza elevata rispetto a un provider in memoria. La soluzione migliore se è necessario usare lo stato della sessione consiste nell'usare un provider di cache, ad esempio la [Provider di stato della sessione per Cache di Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Riepilogo
 
-Si è visto come app Correggi Impossibile implementare la memorizzazione nella cache per migliorare la scalabilità e tempo di risposta e per consentire all'app continuare a essere reattiva per operazioni di lettura quando il database è disponibile. Nel [capitolo successivo](queue-centric-work-pattern.md) vi mostreremo come ulteriore miglioramento della scalabilità e rendere l'app continuano a essere reattiva per operazioni di scrittura.
+Si è visto come l'app Fix It può implementare la memorizzazione nella cache per migliorare la scalabilità e il tempo di risposta e per consentire all'app di continuare a essere reattive per operazioni di lettura quando il database è disponibile. Nel [capitolo successivo](queue-centric-work-pattern.md) vi mostreremo come un'ulteriore miglioramento della scalabilità e rendere l'app continuano a essere reattivi per le operazioni di scrittura.
 
 ## <a name="resources"></a>Risorse
 
-Per ulteriori informazioni sulla memorizzazione nella cache, vedere le risorse seguenti.
+Per altre informazioni sulla memorizzazione nella cache, vedere le risorse seguenti.
 
 Documentazione
 
-- [Cache di Azure](https://msdn.microsoft.com/library/gg278356.aspx). Ufficiale documentazione MSDN relativa alla memorizzazione nella cache in Azure.
+- [Cache di Azure](https://msdn.microsoft.com/library/gg278356.aspx). Documentazione ufficiale di MSDN sulla memorizzazione nella cache in Azure.
 - [Microsoft Patterns and Practices - informazioni aggiuntive su Azure](https://msdn.microsoft.com/library/dn568099.aspx). Visualizzare informazioni aggiuntive di memorizzazione nella cache e modello Cache-Aside.
-- [Operatore alternativo: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Vedere la sezione la memorizzazione nella cache.
-- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud di Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. White paper Mark Simms e Michael Thomassy. Vedere la sezione di memorizzazione nella cache distribuita.
-- [Distributed la memorizzazione nella cache nel percorso scalabilità](https://msdn.microsoft.com/magazine/dd942840.aspx). Un articolo di MSDN Magazine meno recente (2009), ma un'introduzione chiare per la cache distribuita. vengono inseriti in modo più dettagliato le sezioni di memorizzazione nella cache dei white paper operatore alternativo e procedure consigliate.
+- [FailSafe: Informazioni aggiuntive per architetture Cloud resilienti](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). White paper Marc Mercuri, Ulrich Homann e Andrew Townhill. Vedere la sezione sulla memorizzazione nella cache.
+- [Procedure consigliate per la progettazione di servizi su larga scala nei servizi Cloud di Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. White paper Mark Simms e Michael Thomassy. Vedere la sezione sulla memorizzazione nella cache distribuita.
+- [Memorizzazione nella cache nel percorso per la scalabilità distribuita](https://msdn.microsoft.com/magazine/dd942840.aspx). Un articolo di MSDN Magazine (2009) precedente, ma un'introduzione alla memorizzazione nella cache distribuita, in genere; scritta in modo chiaro entra in modo più dettagliato le sezioni di memorizzazione nella cache dei white paper operatore alternativo e procedure consigliate.
 
 Video
 
-- [Operatore alternativo: Compilazione di servizi Cloud scalabili e resilienti](https://channel9.msdn.com/Series/FailSafe). Serie di nove parti Ulrich Homann, Marc Mercuri e Mark Simms. Presenta una visualizzazione a livello di 400 come progettare applicazioni basate su cloud. Questa serie è incentrata sulla teoria e le ragioni; Per ulteriori informazioni sulle procedure, vedere la serie compilazione Big Mark Simms. Vedere la discussione di memorizzazione nella cache in episodio 3 a partire da 1:24:14.
-- [Compilazione Big: Insegnamenti appresi ai clienti di Azure - parte I](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies viene distribuita la memorizzazione nella cache a partire da 46:00. Simile alla serie di operatore alternativo ma consente di spostarsi in dettaglio procedure. La presentazione è stata specificata il 31 ottobre 2012 in modo non copre il servizio cache di App Web in Azure App Service che è stata introdotta in 2013.
+- [Operatore alternativo: Creazione di servizi Cloud scalabili, resilienti](https://channel9.msdn.com/Series/FailSafe). Serie in nove parti Marc Mercuri, Ulrich Homann e Mark Simms. Presenta una visualizzazione di livello 400 di come progettare App cloud. Questa serie è incentrato sulla teoria e le ragioni; per altre informazioni sulle procedure, vedere la serie Building big data da Mark Simms. Vedere la discussione su memorizzazione nella cache nell'episodio 3 partire 1: 24:14.
+- [Compilazione Big: Lezioni apprese dai clienti di Azure - parte I](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies illustra distribuita memorizzazione nella cache, iniziando in corrispondenza di 46:00. Simile alla serie di tipo operatore alternativo, ma passa ad analizzare altri dettagli sulle procedure. La presentazione è stata assegnata il 31 ottobre 2012 in modo da non copre il servizio memorizzazione nella cache di App Web nel servizio App di Azure che è stato introdotto nel 2013.
 
-Nell'esempio di codice
+Esempio di codice
 
-- [Sviluppo di servizi in Azure cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Applicazione di esempio che implementa la memorizzazione nella cache distribuita. Vedere il blog relativo post [sviluppo di servizi Cloud: nozioni di base sulla memorizzazione nella cache](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
+- [Sviluppo di servizi in Azure cloud](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Applicazione di esempio che implementa la memorizzazione nella cache distribuita. Vedere il blog di accompagnamento [nozioni fondamentali su servizi Cloud-concetti di base di memorizzazione nella cache](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
 
 > [!div class="step-by-step"]
 > [Precedente](transient-fault-handling.md)
