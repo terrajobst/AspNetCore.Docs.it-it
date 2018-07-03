@@ -1,26 +1,25 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-2012-page-inspector
-title: Controllo pagina di Visual Studio 2012 | Documenti Microsoft
+title: Visual Studio 2012 Page Inspector | Microsoft Docs
 author: shanselman
-description: Scott Hanselman viene illustrato il controllo di pagina di Visual Studio 2012.
+description: Scott Hanselman illustra il controllo di pagina di Visual Studio 2012.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 90f33da5-b3fb-4715-b890-b27e263c808e
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-page-inspector
 msc.type: video
-ms.openlocfilehash: 27685168ccdd06dc7536002ba5e86067dc38a676
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5632d33b0dd21b060cd37b2a2cf6423be042ca5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506450"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378012"
 ---
-<a name="visual-studio-2012-page-inspector"></a><span data-ttu-id="cd11f-103">Controllo pagina di Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="cd11f-103">Visual Studio 2012 Page Inspector</span></span>
+<a name="visual-studio-2012-page-inspector"></a><span data-ttu-id="9126e-103">Controllo pagina di Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="9126e-103">Visual Studio 2012 Page Inspector</span></span>
 ====================
-<span data-ttu-id="cd11f-104">da [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="cd11f-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="9126e-104">da [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="9126e-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="cd11f-105">&#9654; Guardare video (3 minuti)</span><span class="sxs-lookup"><span data-stu-id="cd11f-105">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-page-inspector)
+[<span data-ttu-id="9126e-105">&#9654;Guarda il video (3 minuti)</span><span class="sxs-lookup"><span data-stu-id="9126e-105">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-page-inspector)
