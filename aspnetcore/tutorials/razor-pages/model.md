@@ -2,19 +2,15 @@
 title: Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 author: rick-anderson
 description: Scoprire come aggiungere classi per la gestione dei film in un database tramite Entity Framework Core (EF Core).
-manager: wpickett
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 50b1b01448ad870a2889db7dfe8367ab9e661840
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729963"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327552"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -90,7 +86,7 @@ Ignorare il messaggio di avviso seguente che sarà risolto nell'esercitazione su
 
       *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.*
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *Models/MovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualunque nome, ma per convenzione si sceglie un nome che descrive la migrazione. Per altre informazioni vedere [Introduzione alle migrazioni](xref:data/ef-mvc/migrations#introduction-to-migrations).
+Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualunque nome, ma per convenzione si sceglie un nome che descrive la migrazione. Per altre informazioni vedere [Introduzione alle migrazioni](xref:data/ef-mvc/migrations#introduction-to-migrations).
 
 Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 
