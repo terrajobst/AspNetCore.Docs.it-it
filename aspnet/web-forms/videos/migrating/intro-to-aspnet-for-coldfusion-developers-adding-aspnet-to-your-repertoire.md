@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire
-title: 'Introduzione a ASP.NET per gli sviluppatori ColdFusion: aggiunta di ASP.NET per la gamma | Documenti Microsoft'
+title: 'Introduzione ad ASP.NET per gli sviluppatori ColdFusion: aggiunta di ASP.NET al repertorio | Microsoft Docs'
 author: microsoft
-description: Questo sessioni Mostra un confronto di codice semplice ma reale world tra ColdFusion e ASP.NET.
+description: Questa sessioni Mostra un confronto di codice semplice ma real world tra ColdFusion e ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
 ms.topic: article
 ms.assetid: 835a2484-e9e5-468e-9e43-5ae4e61531b6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire
 msc.type: video
-ms.openlocfilehash: b58106b0ff7519158f890c06155993a00a8c0a17
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7583236174f6cdddf88c4a1b8ab78c16c1db2615
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883752"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393769"
 ---
-<a name="intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire"></a>Introduzione a ASP.NET per gli sviluppatori ColdFusion: aggiunta di ASP.NET per la gamma
+<a name="intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire"></a>Introduzione ad ASP.NET per gli sviluppatori ColdFusion: aggiunta di ASP.NET al repertorio
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-Questo sessioni Mostra un confronto di codice semplice ma reale world tra ColdFusion e ASP.NET.
+Questa sessioni Mostra un confronto di codice semplice ma real world tra ColdFusion e ASP.NET.
 
-[&#9654;Guardare video (minuti 49)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire)
+[&#9654;Guarda il video (49 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire)
 
 > [!div class="step-by-step"]
 > [Precedente](intro-to-aspnet-for-jsp-developers-building-applications.md)

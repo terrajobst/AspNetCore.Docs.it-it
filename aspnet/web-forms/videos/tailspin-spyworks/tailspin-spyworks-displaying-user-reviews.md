@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-reviews
-title: Spyworks Tailspin - visualizzazione utente revisioni | Documenti Microsoft
+title: Tailspin Spyworks - visualizzazione delle revisioni utente | Microsoft Docs
 author: JoeStagner
-description: L'applicazione Web Form di esempio Tailspin Spyworks Joe Stagner Visualizza recensioni dei clienti.
+description: Joe Stagner Visualizza le revisioni dei clienti nell'applicazione Web Form di esempio Tailspin Spyworks.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 55d5652a-bcf3-451e-89e4-8b907d88708f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-reviews
 msc.type: video
-ms.openlocfilehash: 2c144823885a0a63364822d954fd7f39910d0bd1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 834f67f5b2f7203abd53491d8cd3d4320164e6ce
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895927"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37367350"
 ---
-<a name="tailspin-spyworks---displaying-user-reviews"></a>Spyworks Tailspin - visualizzazione utente revisioni
+<a name="tailspin-spyworks---displaying-user-reviews"></a>Tailspin Spyworks - visualizzazione delle revisioni utente
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-L'applicazione Web Form di esempio Tailspin Spyworks Joe Stagner Visualizza recensioni dei clienti.
+Joe Stagner Visualizza le revisioni dei clienti nell'applicazione Web Form di esempio Tailspin Spyworks.
 
-[&#9654;Guardare video (13 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-displaying-user-reviews)
+[&#9654;Guarda il video (13 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-displaying-user-reviews)
 
 > [!div class="step-by-step"]
 > [Precedente](tailspin-spyworks-adding-user-product-reviews.md)

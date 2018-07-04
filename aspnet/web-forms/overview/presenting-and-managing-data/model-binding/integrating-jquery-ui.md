@@ -1,72 +1,71 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
-title: L'integrazione con l'associazione di modelli e web form JQuery UI Datepicker | Documenti Microsoft
+title: L'integrazione JQuery UI Datepicker con associazione di modelli e web form | Microsoft Docs
 author: tfitzmac
-description: Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice-...
+description: Questa serie di esercitazioni illustra aspetti di base dell'uso di associazione di modelli con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più linee rette-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 126262b440f3e914a7fac3f0b7eeadb4f648d2bb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7d60d2945dbf9daca33422ab82b9265fedc2ba31
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887912"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393834"
 ---
-<a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>L'integrazione di JQuery UI Datepicker con l'associazione di modelli e web form
+<a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>L'integrazione JQuery UI Datepicker con associazione di modelli e web form
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Questa serie di esercitazioni illustra gli aspetti di base dell'utilizzo di associazione del modello con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice rispetto a gestione dati di oggetti di origine (ad esempio ObjectDataSource o SqlDataSource). Questa serie inizia con materiale introduttivo e sposta concetti più avanzati nelle esercitazioni successive.
+> Questa serie di esercitazioni illustra aspetti di base dell'uso di associazione di modelli con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più semplice rispetto a gestione dati di oggetti di origine (ad esempio ObjectDataSource o SqlDataSource). Questa serie inizia con materiale introduttivo e sposta i concetti più avanzati nelle esercitazioni successive.
 > 
-> In questa esercitazione viene illustrato come aggiungere la UI JQuery [Datepicker widget](http://jqueryui.com/datepicker/) in un Web Form e l'utilizzo del modello di associazione per aggiornare il database con il valore selezionato.
+> Questa esercitazione illustra come aggiungere la UI JQuery [widget Datepicker](http://jqueryui.com/datepicker/) in un Web Form, utilizzo del modello di associazione per aggiornare il database con il valore selezionato.
 > 
-> Questa esercitazione si basa sul progetto creato nel [prima](retrieving-data.md) e [secondo](updating-deleting-and-creating-data.md) parti della serie.
+> Questa esercitazione si basa sul progetto creato nel [primo](retrieving-data.md) e [secondo](updating-deleting-and-creating-data.md) parti della serie.
 > 
-> È possibile [scaricare](https://go.microsoft.com/fwlink/?LinkId=286116) il progetto completo in c# o VB. Il codice scaricabile funziona con Visual Studio 2012 o Visual Studio 2013. Usa il modello di Visual Studio 2012, è leggermente diverso rispetto al modello di Visual Studio 2013 illustrato in questa esercitazione.
+> È possibile [scaricare](https://go.microsoft.com/fwlink/?LinkId=286116) il progetto completo in c# o VB. Il codice scaricabile funziona con Visual Studio 2012 o Visual Studio 2013. Usa il modello di Visual Studio 2012, che è leggermente diverso rispetto al modello di Visual Studio 2013 illustrato in questa esercitazione.
 
 
-## <a name="what-youll-build"></a>Occorre invece compilare
+## <a name="what-youll-build"></a>Scopo dell'esercitazione
 
-In questa esercitazione, effettuare le operazioni seguenti:
+In questa esercitazione, sarà:
 
-1. Aggiungere una proprietà al modello per registrare la data di registrazione dello studente
-2. Consentire all'utente di selezionare la data di registrazione utilizzando il widget JQuery UI Datepicker
+1. Aggiungere una proprietà nel modello per registrare la data di registrazione dello studente
+2. Consentire all'utente di selezionare la data di registrazione con il widget di JQuery UI Datepicker
 3. Applicare le regole di convalida per la data di registrazione
 
-Il widget JQuery UI Datepicker consente agli utenti di selezionare con facilità una data dal calendario che viene visualizzato quando l'utente interagisce con il campo. Utilizzo di questo widget può essere più conveniente per gli utenti di manualmente digitando una data. Integrazione di widget Datepicker in una pagina che utilizza l'associazione di modelli per le operazioni di dati richiede solo una piccola quantità di lavoro aggiuntiva.
+Il widget di JQuery UI Datepicker consente agli utenti di selezionare con facilità una data da un calendario che viene visualizzato quando l'utente interagisce con il campo. Uso di questo widget può essere più pratica per gli utenti che manualmente digitando una data. L'integrazione di widget Datepicker in una pagina che utilizza l'associazione di modelli per le operazioni di dati richiede solo una piccola quantità di operazioni aggiuntive.
 
 ## <a name="add-a-new-property-to-the-model"></a>Aggiungere una nuova proprietà al modello
 
-In primo luogo, si aggiungerà un **Datetime** proprietà per il vostro studente del modello ed eseguire la migrazione di tale modifica al database. Aprire **UniversityModels.cs**e aggiungere il codice evidenziato per il modello di studenti.
+In primo luogo, si aggiungerà un **Datetime** tuoi studenti la proprietà del modello ed eseguire la migrazione di tale modifica al database. Aprire **UniversityModels.cs**e aggiungere il codice evidenziato per il modello Student.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample1.cs?highlight=16-18)]
 
-Il **RangeAttribute** è incluso per applicare le regole di convalida per la proprietà. Per questa esercitazione, si suppone che Contoso University fondata sul 1 ° gennaio 2013 e pertanto non sono valide le date di registrazione precedente.
+Il **RangeAttribute** è incluso per applicare le regole di convalida per la proprietà. Per questa esercitazione si presuppone che Contoso University fu fondata sul 1 ° gennaio 2013 e quindi le date di iscrizione precedenti non sono valide.
 
-Nella finestra di gestione dei pacchetti, aggiungere una migrazione eseguendo il comando **AddEnrollmentDate migrazione aggiungere**. Si noti che il codice di migrazione aggiunge la nuova colonna Datetime nella tabella di studenti. Per trovare il valore specificato è il RangeAttribute, aggiungere un valore predefinito per la nuova colonna, come illustrato nel seguente codice evidenziato.
+Nella finestra Gestione pacchetti, aggiungere una migrazione eseguendo il comando **AddEnrollmentDate migrazione aggiungere**. Si noti che il codice di migrazione aggiunge la nuova colonna di data/ora per la tabella Student. Per corrispondere al valore specificato nella RangeAttribute, aggiungere un valore predefinito per la nuova colonna, come illustrato nel codice evidenziato seguente.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample2.cs?highlight=11)]
 
 Salvare la modifica del file di migrazione.
 
-Non è necessario inizializzare nuovamente i dati. Pertanto, aprire **Configuration.cs** nella cartella migrazioni e rimuovere o impostare come commento il codice il **valore di inizializzazione** (metodo). Salvare e chiudere il file.
+Non è necessaria inizializzare nuovamente i dati. Pertanto, aprire **Configuration.cs** nella cartella Migrations e rimuovere o impostare come commento il codice nel **Seed** (metodo). Salvare e chiudere il file.
 
-A questo punto, eseguire il comando **aggiornamento database**. Si noti che la colonna è ora presente nel database e di tutti i record esistenti il valore predefinito per EnrollmentDate.
+A questo punto, eseguire il comando **update-database**. Si noti che la colonna è ora presente nel database e tutti i record esistenti hanno il valore predefinito per un elemento EnrollmentDate.
 
-## <a name="add-dynamic-controls-for-enrollment-date"></a>Aggiungere i controlli dinamici per la data di registrazione
+## <a name="add-dynamic-controls-for-enrollment-date"></a>Aggiungere controlli dinamici per la data di registrazione
 
-A questo punto si aggiungerà i controlli per visualizzare e modificare la data di registrazione. A questo punto, il valore viene modificato tramite una casella di testo. Più avanti nell'esercitazione si modificherà la casella di testo per il widget JQuery Datepicker.
+A questo punto si aggiungerà i controlli per visualizzare e modificare la data di registrazione. A questo punto, il valore viene modificato tramite una casella di testo. Più avanti nell'esercitazione si modificherà la casella di testo per il widget di JQuery Datepicker.
 
-Innanzitutto, è importante notare che è necessario apportare qualsiasi modifica apportata al **AddStudent.aspx** file. Il controllo DynamicEntity renderà automaticamente la nuova proprietà.
+In primo luogo, è importante notare che non è necessario apportare modifiche per il **AddStudent.aspx** file. Il controllo DynamicEntity forniranno automaticamente la nuova proprietà.
 
-Aprire **Students.aspx**e aggiungere il codice evidenziato di seguito.
+Aprire **Students.aspx**e aggiungere il codice evidenziato seguente.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample3.aspx?highlight=13)]
 
@@ -78,25 +77,25 @@ In alternativa, la modifica di un valore esistente:
 
 ![Data modifica](integrating-jquery-ui/_static/image2.png)
 
-Digitare la data di funzioni, ma potrebbe non essere si desidera fornire l'esperienza del cliente. Nella sezione successiva, verrà abilitata la selezione di una data tramite un calendario.
+Digitare il funzionamento della data, ma potrebbe non essere l'esperienza dei clienti che si desidera fornire. Nella sezione successiva, si abiliterà la selezione di una data tramite un calendario.
 
-## <a name="install-nuget-package-to-work-with-jquery-ui"></a>Installare il pacchetto NuGet per funzionare con JQuery UI
+## <a name="install-nuget-package-to-work-with-jquery-ui"></a>Installare il pacchetto NuGet per lavorare con JQuery UI
 
-Il **dell'interfaccia utente succo** pacchetto NuGet consente una facile integrazione dei widget JQuery UI nell'applicazione web. Per utilizzare questo pacchetto, installarlo tramite NuGet.
+Il **succo di UI** pacchetto NuGet consente una facile integrazione dei widget JQuery UI nell'applicazione web. Per usare questo pacchetto, l'installazione tramite NuGet.
 
-![aggiunta dell'interfaccia utente di succo di](integrating-jquery-ui/_static/image3.png)
+![aggiungere l'interfaccia utente di succo di](integrating-jquery-ui/_static/image3.png)
 
-La versione dell'interfaccia utente di succo installato sia in conflitto con la versione di JQuery nell'applicazione. Prima di procedere con questa esercitazione, provare a eseguire l'applicazione. Se si verifica un errore di JavaScript, è necessario risolvere le differenze tra la versione di JQuery. È possibile aggiungere la versione prevista di JQuery alla cartella degli script (versione 1.8.2 al momento della stesura di questa esercitazione) o in Site. master, specificare il percorso al file JQuery.
+La versione dell'interfaccia utente di succo di cui si installa sia in conflitto con la versione di JQuery nell'applicazione. Prima di procedere con questa esercitazione, provare a eseguire l'applicazione. Se si verifica un errore di JavaScript, è necessario risolvere le differenze tra la versione di JQuery. È possibile aggiungere la versione prevista di JQuery nella cartella degli script (versione 1.8.2 al momento della stesura di questa esercitazione), oppure specificare il percorso al file JQuery in Site. master.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample4.aspx)]
 
-## <a name="customize-datetime-template-to-include-datepicker-widget"></a>Personalizzare il modello di data/ora per includere i widget Datepicker
+## <a name="customize-datetime-template-to-include-datepicker-widget"></a>Personalizzare il modello di data/ora in modo da includere Datepicker widget
 
-Il widget Datepicker verranno aggiunti al modello di dati dinamici per la modifica di un valore datetime. Aggiungendo il widget per il modello, ne viene automaticamente eseguito il rendering nel formato per l'aggiunta di un nuovo studente e nella visualizzazione griglia per studenti di modifica. Aprire **DateTime\_Edit. ascx**e aggiungere il codice evidenziato di seguito.
+Si aggiungerà il widget Datepicker al modello di dati dinamici per la modifica di un valore datetime. Quando si aggiungono widget per il modello, viene visualizzato automaticamente nel modulo per l'aggiunta di un nuovo studente e nella visualizzazione griglia per gli studenti di modifica. Aprire **data/ora\_Edit. ascx**e aggiungere il codice evidenziato seguente.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample5.aspx?highlight=3)]
 
-Nel file code-behind, si imposteranno le date minime e massime per la selezione data. Impostando questi valori, si impedirà agli utenti di spostarsi tra le date non valide. Si recupererà i valori minimo e massimi dal **RangeAttribute** sulla proprietà DateTime, se disponibile. Aprire **DateTime\_Edit.ascx.cs**e aggiungere il codice evidenziato di seguito alla pagina\_metodo Load.
+Nel file code-behind, si imposterà le date minime e massime per il controllo DatePicker. Impostando questi valori, si impedirà agli utenti di passare a date non valide. Si recupererà i valori minimi e massimo dal **RangeAttribute** sulla proprietà DateTime, se presente. Open **data/ora\_Edit.ascx.cs**, quindi aggiungere il codice evidenziato seguente alla pagina\_metodo Load.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample6.cs?highlight=9-14)]
 
@@ -104,7 +103,7 @@ Eseguire l'applicazione web e passare alla pagina AddStudent. Specificare i valo
 
 ![selezione data](integrating-jquery-ui/_static/image4.png)
 
-Selezionare una data e fare clic su **inserire**. Il RangeAttribute applica la convalida sul server. Impostando la proprietà minDate sul Datepicker, è inoltre applicare la convalida sul client. Il calendario non consentire all'utente di passare a una data precedente il valore della proprietà minDate.
+Selezionare una data e fare clic su **Inserisci**. Il RangeAttribute applica la convalida nel server. Impostando la proprietà minDate sul controllo Datepicker, è inoltre applicare la convalida sul client. Il calendario non consentire all'utente di passare a una data prima il valore della proprietà minDate.
 
 Quando si modifica un record nella visualizzazione griglia, viene visualizzato anche il calendario.
 
@@ -112,9 +111,9 @@ Quando si modifica un record nella visualizzazione griglia, viene visualizzato a
 
 ## <a name="conclusion"></a>Conclusione
 
-In questa esercitazione è stato descritto come incorporare un widget di JQuery in un web form che utilizza l'associazione del modello.
+In questa esercitazione è stato illustrato come incorporare un widget di JQuery in un web form che usa l'associazione di modelli.
 
-Nella prossima [esercitazione](using-query-string-values-to-retrieve-data.md), si utilizzerà un valore di stringa di query quando la selezione di dati.
+Entro i prossimi [esercitazione](using-query-string-values-to-retrieve-data.md), si userà un valore di stringa di query quando si selezionano i dati.
 
 > [!div class="step-by-step"]
 > [Precedente](sorting-paging-and-filtering-data.md)

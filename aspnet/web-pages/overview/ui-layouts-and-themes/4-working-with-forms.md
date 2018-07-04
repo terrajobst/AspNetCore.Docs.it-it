@@ -1,38 +1,37 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
-title: Utilizzo di form HTML nei siti ASP.NET Web Pages (Razor) | Documenti Microsoft
+title: Utilizzo di moduli HTML in ASP.NET Web Pages (Razor) Sites | Microsoft Docs
 author: tfitzmac
-description: Un modulo è una sezione di un documento HTML in cui inserire i controlli di input dell'utente, ad esempio elenchi a discesa, caselle di controllo, pulsanti di opzione e caselle di testo. È necessario utilizzare moduli CO...
+description: Un modulo è una sezione di un documento HTML si inseriranno i controlli dell'input dell'utente, ad esempio le caselle di testo, caselle di controllo, pulsanti di opzione e gli elenchi a discesa. È necessario utilizzare moduli eriore a...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
 ms.topic: article
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8d52cb6406859c77687622b7a101cf67781b863d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "28046430"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380347"
 ---
-<a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Utilizzo di form HTML in siti Web di ASP.NET di pagine (Razor)
+<a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Uso dei moduli HTML in ASP.NET Web Pages (Razor) Sites
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questo articolo viene descritto come elaborare un form HTML (con i pulsanti e caselle di testo) quando si lavora in un sito Web ASP.NET Web Pages (Razor).
+> Questo articolo descrive come elaborare un form HTML (con le caselle di testo e pulsanti) quando si lavora in un sito Web ASP.NET Web Pages (Razor).
 > 
-> **Illustra quanto segue:** 
+> **Che cosa si apprenderà come:** 
 > 
 > - Come creare un form HTML.
-> - Come leggere l'input dell'utente dal modulo.
+> - Come leggere l'input dell'utente dal form.
 > - Come convalidare l'input dell'utente.
-> - Come ripristinare i valori del form, dopo l'invio della pagina.
+> - Come ripristinare i valori del form dopo l'invio della pagina.
 > 
-> Programmazione di concetti introdotti nell'articolo ASP.NET sono:
+> Questi sono i concetti introdotti nell'articolo di programmazione ASP.NET:
 > 
 > - Oggetto `Request`.
 > - Convalida dell'input.
@@ -42,98 +41,98 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
 > 
 > 
-> - Pagine Web ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
-> In questa esercitazione si integra inoltre con ASP.NET Web Pages 2.
+> Questa esercitazione si integra inoltre con ASP.NET Web Pages 2.
 
 
 ## <a name="creating-a-simple-html-form"></a>Creazione di un Form HTML semplice
 
 1. Creare un nuovo sito Web.
-2. Nella cartella radice, creazione di una pagina web denominata *Form.cshtml* e immettere il markup seguente:
+2. Nella cartella radice, creare una pagina web denominata *Form.cshtml* e immettere il markup seguente:
 
     [!code-html[Main](4-working-with-forms/samples/sample1.html)]
-3. Avviare la pagina nel browser. (In WebMatrix, nel **file** area di lavoro, il pulsante destro e quindi selezionare **Avvia nel browser**.) Un modulo semplice con tre campi di input e un **Invia** pulsante viene visualizzato.
+3. Avvio della pagina nel browser. (In WebMatrix, nelle **file** dell'area di lavoro, il pulsante destro e quindi selezionare **Avvia nel browser**.) Un modulo semplice con tre campi di input e un **Submit** pulsante viene visualizzato.
 
-    ![Schermata di un form con tre caselle di testo.](4-working-with-forms/_static/image1.jpg)
+    ![Screenshot di un form tre caselle di testo.](4-working-with-forms/_static/image1.jpg)
 
-    A questo punto, se si sceglie il **Invia** pulsante, non accade nulla. Per rendere il modulo è utile, è necessario aggiungere il codice che verrà eseguito nel server.
+    A questo punto, se si sceglie la **Submit** pulsante, non accade nulla. Per rendere il modulo è utile, è necessario aggiungere il codice che verrà eseguito nel server.
 
-## <a name="reading-user-input-from-the-form"></a>Leggere l'Input dell'utente dal modulo
+## <a name="reading-user-input-from-the-form"></a>Input dell'utente durante la lettura dal Form
 
-Per elaborare il form, Aggiungi il codice che legge i valori dei campi inviati ed esegue un'operazione con essi. In questa procedura viene illustrato come leggere i campi e visualizzare l'input dell'utente della pagina. (In un'applicazione di produzione, generalmente si procede più interessanti con l'input dell'utente. L'utente eseguirà che nell'articolo sull'utilizzo di database.)
+Per elaborare il form, si aggiunge codice che legge i valori dei campi inviato e non esegue un'operazione con essi. Questa procedura viene illustrato come leggere i campi e visualizzare l'input dell'utente della pagina. (In un'applicazione di produzione in genere eseguire operazioni più interessanti con input utente. È possibile farlo nell'articolo sull'uso di database.)
 
-1. Nella parte superiore del *Form.cshtml* file, immettere il codice seguente:
+1. In cima il *Form.cshtml* file, immettere il codice seguente:
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample2.cshtml)]
 
-    Quando l'utente richiede innanzitutto la pagina, viene visualizzato solo il form vuoto. L'utente (che sarà si) compila il modulo e quindi fa clic su **Invia**. In questo modo inviata (POST) all'input dell'utente al server. Per impostazione predefinita, la richiesta viene inviata alla stessa pagina (vale a dire, *Form.cshtml*).
+    Quando l'utente richiede innanzitutto la pagina, viene visualizzato solo il modulo vuoto. L'utente (che sarà è) compila il modulo e quindi fa clic su **Submit**. (POST) viene inviata l'input dell'utente al server. Per impostazione predefinita, la richiesta viene inviata alla stessa pagina (vale a dire *Form.cshtml*).
 
-    Quando si invia la pagina questa volta, i valori immessi vengono visualizzati sopra la forma:
+    Quando si invia la pagina in questo momento, i valori immessi vengono visualizzati sopra la forma:
 
-    ![Schermata che mostra i valori immessi visualizzati nella pagina.](4-working-with-forms/_static/image2.jpg)
+    ![Screenshot che mostra i valori che immessi sono visualizzati nella pagina.](4-working-with-forms/_static/image2.jpg)
 
-    Esaminare il codice per la pagina. Utilizzare innanzitutto la `IsPost` metodo per determinare se viene inviata la pagina &#8212; vale a dire, se un utente ha selezionato il **Invia** pulsante. Se questa è una richiesta post, `IsPost` restituisce true. Questo è il modo standard nelle pagine Web ASP.NET per determinare se si lavora con una richiesta iniziale (una richiesta GET) o un postback (una richiesta POST). (Per ulteriori informazioni su GET e POST, vedere "HTTP GET e POST e l'istruzione IsPost Property" barra laterale in [Introduzione a ASP.NET Web Pages di programmazione utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Esaminare il codice per la pagina. Utilizzare innanzitutto la `IsPost` metodo per determinare se la pagina viene registrata &#8212; , ovvero se è stato selezionato un il **Invia** pulsante. Se si tratta di un post, `IsPost` restituisce true. Questo è il modo standard nelle pagine Web ASP.NET per determinare se si lavora con una richiesta iniziale (una richiesta GET) o un postback (una richiesta POST). (Per ulteriori informazioni su GET e POST, vedere l'intestazione laterale "HTTP GET e POST e l'istruzione IsPost Property" nella [Introduzione a ASP.NET Web Pages di programmazione utilizzando la sintassi Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
-    Successivamente, si otterranno i valori che viene compilato dal `Request.Form` oggetto e inserirli in variabili per un momento successivo. Il `Request.Form` oggetto contiene tutti i valori che sono stati inviati con la pagina, ognuna identificata da una chiave. La chiave è l'equivalente di `name` attributo del campo del form che si desidera leggere. Ad esempio, per leggere il `companyname` campo (casella di testo), utilizzare `Request.Form["companyname"]`.
+    Successivamente, si otterranno i valori che l'utente compilata dalla `Request.Form` oggetto e inserirli in variabili per un uso successivo. Il `Request.Form` oggetto contiene tutti i valori che sono stati inviati con la pagina, ognuna identificata da una chiave. La chiave è l'equivalente di `name` attributo del campo del form che si desidera leggere. Ad esempio, per leggere il `companyname` campo (casella di testo), si utilizza `Request.Form["companyname"]`.
 
-    I valori del form vengono archiviati nel `Request.Form` oggetti come stringhe. Pertanto, quando si lavora con un valore come numero o una data o un altro tipo, è necessario convertirlo da stringa al tipo. Nell'esempio di `AsInt` metodo il `Request.Form` viene usata per convertire il valore del campo, che contiene un conteggio di dipendenti, i dipendenti in un intero.
-2. Avviare la pagina nel browser, compilare i campi del form e fare clic su **Invia**. La pagina Visualizza i valori immessi.
+    I valori del form vengono archiviati nel `Request.Form` oggetto sotto forma di stringhe. Pertanto, quando si lavora con un valore come numero o una data o un altro tipo, è necessario convertirlo da stringa al tipo. Nell'esempio, il `AsInt` metodo del `Request.Form` viene usata per convertire il valore del campo, che contiene un conteggio dipendenti, i dipendenti in un numero intero.
+2. Avvio della pagina nel browser, compilare i campi del form e fare clic su **Submit**. La pagina Visualizza i valori immessi.
 
 > [!TIP] 
 > 
 > <a id="SB_HTMLEncoding"></a>
-> ### <a name="html-encoding-for-appearance-and-security"></a>La codifica per la sicurezza e aspetto HTML
+> ### <a name="html-encoding-for-appearance-and-security"></a>HTML codifica per l'aspetto e sicurezza
 > 
-> HTML è speciale viene utilizzato per i caratteri, ad esempio `<`, `>`, e `&`. Se sono presenti questi caratteri speciali in cui non si previste, essi possono compromettere l'aspetto e le funzionalità della pagina web. Ad esempio, il browser interpreta il `<` caratteri (a meno che è seguito da uno spazio) come carattere iniziale di un elemento HTML, ad esempio `<b>` o `<input ...>`. Se il browser non riconosce l'elemento, ignora semplicemente la stringa che inizia con `<` nuovamente finché raggiunge un elemento che esso venga riconosciuto. Ovviamente, questo può comportare alcuni strano per il rendering della pagina.
+> HTML ha usi speciali per i caratteri, ad esempio `<`, `>`, e `&`. Se sono presenti questi caratteri speciali in cui si non sta previsto, può danneggiare la l'aspetto e le funzionalità della pagina web. Ad esempio, il browser interpreta il `<` di caratteri (a meno che non è seguito da uno spazio) come inizio di un elemento HTML, ad esempio `<b>` o `<input ...>`. Se il browser non riconosce l'elemento, ignora semplicemente la stringa che inizia con `<` nuovamente finché non raggiunge un elemento che esso venga riconosciuto. Ovviamente, ciò può comportare alcune strano per il rendering della pagina.
 > 
-> La codifica HTML sostituisce questi caratteri riservati con un codice di browser di interpretare come simbolo corretto. Ad esempio, il `<` viene sostituito con `&lt;` e `>` viene sostituito con `&gt;`. Il browser esegue il rendering di queste stringhe di sostituzione come i caratteri che si desidera visualizzare.
+> La codifica HTML sostituisce questi caratteri riservati con un codice che i browser interpretano come nel simbolo corretto. Ad esempio, il `<` viene sostituito con `&lt;` e il `>` viene sostituito con `&gt;`. Il browser esegue il rendering di queste stringhe di sostituzione come i caratteri che si desidera visualizzare.
 > 
-> È consigliabile utilizzare ogni volta che si visualizzare stringhe codificate in formato HTML (input) che è stato creato da un utente. In caso contrario, un utente può provare a ottenere la pagina web per eseguire uno script dannoso o altre operazioni che compromette la sicurezza del sito o che non si desidera. (Ciò è particolarmente importante se si accettano input dell'utente, archiviarlo identificabile e quindi visualizzarla in un secondo momento &#8212; , ad esempio, come un commento di blog, revisione utente o molto simile a quello.)
+> È consigliabile usare ogni volta che si visualizza stringhe codificate in formato HTML (input) che è stato creato da un utente. In caso contrario, un utente può provare a ottenere la pagina web per eseguire uno script dannoso o eseguire altre operazioni che compromette la protezione del sito oppure non è previsto. (Ciò è particolarmente importante se si accettano input dell'utente, archiviarlo altre fonti e quindi visualizzarli in un secondo momento &#8212; , ad esempio, come un commento di blog, verifica utente o qualcosa del genere.)
 > 
-> Per evitare questi problemi, ASP.NET Web Pages automaticamente codifica in HTML qualsiasi testo contenuto che si output dal codice. Ad esempio, quando si visualizza il contenuto di una variabile o un'espressione che utilizza, ad esempio di codice `@MyVar`, ASP.NET Web Pages codifica automaticamente l'output.
+> Per consentire di evitare questi problemi, ASP.NET Web Pages automaticamente codifica in HTML qualsiasi testo di contenuto che si dal codice di output. Ad esempio, quando si visualizza il contenuto di una variabile o espressione tramite codice come `@MyVar`, ASP.NET Web Pages codifica automaticamente l'output.
 
 
 ## <a name="validating-user-input"></a>Convalida dell'Input utente
 
-Gli utenti commettono errori. Chiedere di riempimento in un campo e ne dimenticassero, o si chiedere loro di immettere il numero di dipendenti e quindi digitare un nome invece. Per assicurarsi che un modulo è stato compilato correttamente prima elaborarlo, convalidare l'input dell'utente.
+Gli utenti commettono errori. Chiedere loro di inserire in un campo e ne dimenticassero, o chiedere loro di immettere il numero di dipendenti e digitano invece un nome. Per assicurarsi che un modulo è stato compilato correttamente prima elaborarla, convalidare l'input dell'utente.
 
-Questa procedura viene illustrato come convalidare tutti i campi di tre form per assicurarsi che l'utente non lascia il campo vuoto. È inoltre possibile verificare che il valore del conteggio dipendente è un numero. Se sono presenti errori, si verrà visualizzato un errore messaggio che indica all'utente i valori non superare la convalida.
+Questa procedura viene illustrato come convalidare tutti i campi modulo tre per assicurarsi che l'utente non ha lasciarli vuoti. È anche verificare che il valore del conteggio dipendenti è un numero. Se sono presenti errori, si verrà visualizzato un errore messaggio che indica all'utente i valori che non supera la convalida.
 
 1. Nel *Form.cshtml* file, sostituire il primo blocco di codice con il codice seguente: 
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample3.cshtml)]
 
-    Per convalidare l'input dell'utente, utilizzare il `Validation` helper. Registrare i campi obbligatori chiamando `Validation.RequireField`. Registrare altri tipi di convalida chiamando `Validation.Add` e specificando il campo da convalidare e il tipo di convalida da eseguire.
+    Per convalidare l'input dell'utente, si utilizza il `Validation` helper. È possibile registrare i campi obbligatori chiamata `Validation.RequireField`. È possibile registrare altri tipi di convalida chiamata `Validation.Add` e specificando il campo da convalidare e il tipo di convalida da eseguire.
 
-    Quando la pagina viene eseguita, ASP.NET esegue tutti la convalida per l'utente. È possibile controllare i risultati chiamando `Validation.IsValid`, che restituisce true se tutti gli elementi passati e false se qualsiasi campo non è riuscita la convalida. In genere, la chiamata `Validation.IsValid` prima di eseguire qualsiasi elaborazione in input dell'utente.
-2. Aggiornamento di `<body>` elemento tramite l'aggiunta di tre chiamate al `Html.ValidationMessage` metodo, simile al seguente:
+    Quando si esegue la pagina, ASP.NET esegue tutte le convalide per l'utente. È possibile controllare i risultati chiamando `Validation.IsValid`, che restituisce true se tutti gli elementi passati e false se qualsiasi campo non è riuscita la convalida. In genere, si chiama `Validation.IsValid` prima di eseguire qualsiasi elaborazione input dell'utente.
+2. Aggiorna il `<body>` elemento mediante l'aggiunta di tre chiamate al `Html.ValidationMessage` metodo, simile al seguente:
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample4.cshtml?highlight=8,13,18)]
 
-    Per visualizzare i messaggi di errore di convalida, è possibile chiamare Html.`ValidationMessage` e passa il nome del campo che si desidera che il messaggio per.
-3. Eseguire la pagina. Lasciare vuoti i campi e fare clic su **Invia**. Vengono visualizzati messaggi di errore.
+    Per visualizzare i messaggi di errore di convalida, è possibile chiamare codice Html.`ValidationMessage` e passa il nome del campo che si desidera che il messaggio per.
+3. Eseguire la pagina. Lasciare vuoti i campi e fare clic su **Submit**. Vengono visualizzati messaggi di errore.
 
-    ![Schermata che mostra i messaggi di errore visualizzati se l'input dell'utente non supera la convalida.](4-working-with-forms/_static/image3.jpg)
-4. Aggiungere una stringa (ad esempio, "ABC") per il **Employee Count** campo e fare clic su **Invia** nuovamente. Questa volta che viene visualizzato un errore che indica che la stringa non è nel formato corretto, vale a dire, un numero intero.
+    ![Screenshot che mostra i messaggi di errore visualizzati se l'input dell'utente non soddisfa la convalida.](4-working-with-forms/_static/image3.jpg)
+4. Aggiungere una stringa (ad esempio, "ABC") per il **Employee Count** campo e fare clic su **Submit** nuovamente. Questa volta che viene visualizzato un errore che indica che la stringa non è nel formato corretto, vale a dire, un numero intero.
 
-    ![Schermata che mostra i messaggi di errore visualizzati se gli utenti immettere una stringa per il campo di dipendenti.](4-working-with-forms/_static/image4.jpg)
+    ![Screenshot che mostra i messaggi di errore visualizzati se gli utenti immettere una stringa per il campo di dipendenti.](4-working-with-forms/_static/image4.jpg)
 
-Le pagine Web ASP.NET fornisce più opzioni per la convalida dell'input utente, inclusa la possibilità di eseguire automaticamente la convalida utilizzando lo script client, in modo che gli utenti di ottenere un feedback immediato nel browser. Vedere il [risorse aggiuntive](#Additional_Resources) sezione in un secondo momento per ulteriori informazioni.
+ASP.NET Web Pages sono disponibili più opzioni per la convalida dell'input utente, inclusa la possibilità di eseguire automaticamente la convalida usando lo script client, in modo che gli utenti di ottenere un feedback immediato nel browser. Vedere le [risorse aggiuntive](#Additional_Resources) sezione più avanti per ulteriori informazioni.
 
 ## <a name="restoring-form-values-after-postbacks"></a>Ripristinare i valori del Form dopo il postback
 
-Quando il test della pagina nella sezione precedente, è possibile notare che se si verifica un errore di convalida, immesse (non solo i dati non validi) è stato eliminato ed era necessario immettere nuovamente i valori per tutti i campi. Nell'esempio viene illustrato un punto importante: quando si invia una pagina, elaborarlo e quindi di eseguire il rendering della pagina, la pagina è stato nuovamente creata da zero. Come si è visto, ciò significa che tutti i valori presenti nella pagina quando è stato inviato andranno persi.
+Quando il test della pagina nella sezione precedente, si potrebbe notare che se si verifica un errore di convalida, tutti gli elementi che immessi (non solo i dati non validi) è stato ancora attivo ed era necessario immettere nuovamente i valori per tutti i campi. Nell'esempio viene illustrato un punto importante: quando si invia una pagina, elaborarlo e quindi di nuovo il rendering della pagina, la pagina viene ricreata da zero. Come si è visto, ciò significa che tutti i valori presenti nella pagina quando al momento dell'invio vengono persi.
 
-È possibile risolvere il problema facilmente, tuttavia. Si ha accesso ai valori che sono stati inviati (nel `Request.Form` dell'oggetto, pertanto è possibile inserire tali valori nei campi modulo quando viene eseguito il rendering della pagina.
+È possibile risolvere il problema con facilità, tuttavia. È possibile utilizzare i valori che sono stati inviati (nelle `Request.Form` dell'oggetto, pertanto è possibile inserire tali valori in campi modulo quando viene eseguito il rendering della pagina.
 
-1. Nel *Form.cshtml* file, sostituire il `value` gli attributi del `<input>` elementi utilizzando il `value` attributo.: 
+1. Nel *Form.cshtml* del file, sostituire il `value` gli attributi del `<input>` elementi, usando il `value` attributo.: 
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample5.cshtml?highlight=13,19,25)]
 
-    Il `value` attributo del `<input>` elementi è stata impostata in modo dinamico, leggere il valore del campo da di `Request.Form` oggetto. La prima volta che viene richiesta la pagina, i valori di `Request.Form` oggetto siano vuoti. L'operazione è corretta, perché in questo modo il modulo è vuoto.
-2. Avviare la pagina nel browser, compilare i campi modulo o lasciare il campo vuoto e fare clic su **Invia**. Viene visualizzata una pagina che mostra i valori inviati.
+    Il `value` attributo del `<input>` elementi è stata impostata per leggere in modo dinamico il valore del campo del `Request.Form` oggetto. La prima volta che viene richiesta la pagina, i valori di `Request.Form` oggetto sono tutte vuote. Ciò è corretto, perché in questo modo il modulo è vuoto.
+2. Avvio della pagina nel browser, compilare i campi modulo o lasciarli vuoti e fare clic su **Submit**. Viene visualizzata una pagina che mostra i valori presentati.
 
     ![forms-5](4-working-with-forms/_static/image5.jpg)
 
@@ -143,4 +142,4 @@ Quando il test della pagina nella sezione precedente, è possibile notare che se
 - [1.001 modi per ottenere l'Input dagli utenti Web](https://msdn.microsoft.com/library/ms971057.aspx)
 - [Utilizzo di form e l'elaborazione dell'Input dell'utente](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
 - [Convalida dell'input utente nelle pagine Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [Utilizzo di completamento automatico nei form HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)
+- [Uso di AutoComplete nei form HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

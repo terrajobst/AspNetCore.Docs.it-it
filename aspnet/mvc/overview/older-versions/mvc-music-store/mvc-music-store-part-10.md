@@ -1,40 +1,39 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
-title: 'Parte 10: Aggiornamenti finali allo spostamento e la struttura del sito, conclusione | Documenti Microsoft'
+title: 'Parte 10: Aggiornamenti finali allo spostamento e struttura del sito, conclusioni | Microsoft Docs'
 author: jongalloway
-description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Negozio. Parte 10 copre finali aggiornamenti allo spostamento e S....
+description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Parte 10 copre aggiornamenti finali allo spostamento e S....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a5b1d02d268530d6288ed2bc502679336d06d403
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366320"
 ---
-<a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Aggiornamenti finali allo spostamento e la struttura del sito, conclusione
+<a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Aggiornamenti finali allo spostamento e struttura del sito, conclusioni
 ====================
 da [Jon Galloway](https://github.com/jongalloway)
 
-> L'archivio di musica MVC è un'applicazione di esercitazione che vengono presentati e dettagliate sull'utilizzo di MVC ASP.NET e Visual Studio per lo sviluppo web.  
+> Store la musica MVC è un'applicazione di esercitazione introduce e dettagliata spiega come usare ASP.NET MVC e Visual Studio per lo sviluppo web.  
 >   
-> L'archivio di musica MVC è un'implementazione dell'archivio di esempio semplice che vende album musicali online e ne implementa amministrazione sito di base, account utente e funzionalità di carrello acquisti.  
+> La Store musica MVC è un'implementazione di archivio di esempio leggero che vende gli album musicali online e ne implementa amministrazione sito di base, accesso dell'utente e la funzionalità di carrello acquisti.  
 >   
-> Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Negozio. Parte 10 copre finali aggiornamenti allo spostamento e la struttura del sito, conclusione.
+> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Parte 10 copre aggiornamenti finali allo spostamento e struttura del sito, conclusioni.
 
 
-Abbiamo completato tutte le funzionalità principali per il sito, ma si dispone ancora di alcune funzionalità da aggiungere per l'esplorazione del sito, la home page e la pagina Sfoglia archivio.
+Abbiamo completato tutte le funzionalità principali per il sito, ma sono ancora disponibili alcune funzionalità da aggiungere al riquadro di spostamento del sito, la home page e la pagina Sfoglia Store.
 
 ## <a name="creating-the-shopping-cart-summary-partial-view"></a>Creazione della visualizzazione parziale riepilogo carrello acquisti
 
-Si vuole esporre il numero di elementi nel carrello acquisti dell'utente in tutto il sito.
+Si vuole esporre il numero di elementi nel carrello acquisti dell'utente nell'intero sito.
 
 ![](mvc-music-store-part-10/_static/image1.png)
 
@@ -44,99 +43,99 @@ Come illustrato in precedenza, il controller ShoppingCart include un metodo di a
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample1.cs)]
 
-Per creare la visualizzazione parziale CartSummary, fare clic sulla cartella viste/ShoppingCart e selezionare Aggiungi visualizzazione. Nome della vista CartSummary e controllare la casella di controllo "Crea una visualizzazione parziale", come illustrato di seguito.
+Per creare la visualizzazione parziale CartSummary, pulsante destro del mouse sulla cartella visualizzazioni/ShoppingCart e selezionare Aggiungi visualizzazione. Nome della vista CartSummary e selezionare la casella di controllo "Crea una visualizzazione parziale" come illustrato di seguito.
 
 ![](mvc-music-store-part-10/_static/image2.png)
 
-La visualizzazione parziale CartSummary è molto semplice: è solo un collegamento alla visualizzazione che mostra il numero di elementi nel carrello ShoppingCart indice. Il codice completo per CartSummary.cshtml è il seguente:
+La visualizzazione parziale CartSummary è davvero semplice: è solo un collegamento alla vista ShoppingCart Index che mostra il numero di elementi nel carrello. Il codice completo per CartSummary.cshtml è come segue:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample2.cshtml)]
 
-È possibile includere una visualizzazione parziale in qualsiasi pagina del sito, inclusi lo schema del sito, tramite il metodo Html.RenderAction. RenderAction richiede di specificare il nome dell'azione ("CartSummary") e il nome del Controller ("ShoppingCart") come di seguito.
+È possibile includere una visualizzazione parziale in qualsiasi pagina nel sito, incluso il database master del sito, usando il metodo Html.RenderAction. RenderAction richiede di specificare il nome dell'azione ("CartSummary") e il nome del Controller ("ShoppingCart") come di seguito.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample3.cshtml)]
 
-Prima di aggiungere questo Layout il sito, si creerà inoltre il genere di Menu per eseguire tutti gli aggiornamenti Site. master in una sola volta.
+Prima di aggiungere questo sito di Layout, verranno create anche nel Menu Genre quindi faciliteremo tutti gli aggiornamenti Site. master in una sola volta.
 
-## <a name="creating-the-genre-menu-partial-view"></a>Creazione della visualizzazione parziale di genere Menu
+## <a name="creating-the-genre-menu-partial-view"></a>Creazione della visualizzazione parziale Menu al genere
 
-È possibile rendere molto più semplice per gli utenti per spostarsi tra l'archivio mediante l'aggiunta di un Menu di genere che elenca tutti i generi disponibili nel Negozio.
+È possibile rendere molto più semplice per gli utenti per spostarsi tra l'archivio mediante l'aggiunta di un Menu di genere che elenca tutti i generi disponibili nel nostro store.
 
 ![](mvc-music-store-part-10/_static/image3.png)
 
-Si seguirà la stessa procedura consente di creare anche una visualizzazione parziale GenreMenu e quindi è possibile aggiungere entrambi allo schema del sito. In primo luogo, aggiungere la seguente azione controller GenreMenu il StoreController:
+Si seguirà la stessa procedura crea anche una visualizzazione parziale GenreMenu e quindi è possibile aggiungere entrambi al master del sito. In primo luogo, aggiungere l'azione del controller seguente GenreMenu il StoreController:
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample4.cs)]
 
-Questa azione restituisce un elenco di generi che verrà visualizzato tramite la visualizzazione parziale, che verrà creato successivamente.
+Questa azione restituisce un elenco dei generi che verrà visualizzato tramite la visualizzazione parziale, che verrà creato successivamente.
 
-*Nota: È stato aggiunto l'attributo [ChildActionOnly] per questa azione controller, che indica che si vuole inserire solo questa azione utilizzabile da una visualizzazione parziale. Questo attributo impedirà l'azione del controller venga eseguito selezionando /Store/GenreMenu. Questo non è necessario per le visualizzazioni parziali, ma è consigliabile, poiché è necessario assicurarsi che le azioni del controller vengono usate come si desidera. È in corso anche restituzione PartialView anziché a vista, che informa il motore di visualizzazione che consigliabile non usa il Layout per questa visualizzazione, come includerlo nelle altre visualizzazioni.*
+*Nota: È stato aggiunto l'attributo [ChildActionOnly] all'azione del controller, che indica che si desidera solo questa azione per essere usata da una visualizzazione parziale. Questo attributo eviterà l'azione del controller da in esecuzione passando a /Store/GenreMenu. Non è obbligatorio per le visualizzazioni parziali, ma è buona norma, poiché si vogliono verificare che le azioni del controller vengono usate come Microsoft prevede di rendere. È inoltre sta restituendo PartialView invece di visualizzazione, che consente il motore di visualizzazione di sapere che non devono usare il Layout per questa visualizzazione, come verrà incluso nelle altre visualizzazioni.*
 
-Fare clic su azione del controller GenreMenu e creare una visualizzazione parziale denominata GenreMenu fortemente tipizzato utilizzando la classe di dati di visualizzazione Genre, come illustrato di seguito.
+Fare clic su azione del controller GenreMenu e creare una visualizzazione parziale denominata GenreMenu che è fortemente tipizzata utilizzando la classe di dati di visualizzazione Genre, come illustrato di seguito.
 
 ![](mvc-music-store-part-10/_static/image4.png)
 
-Aggiornare il codice di visualizzazione per la visualizzazione parziale GenreMenu visualizzare gli elementi utilizzando un elenco non ordinato nel modo seguente.
+Aggiornare il codice di visualizzazione per la visualizzazione parziale GenreMenu visualizzare gli elementi usando un elenco non ordinato nel modo seguente.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample5.cshtml)]
 
-## <a name="updating-site-layout-to-display-our-partial-views"></a>Aggiornamento del Layout del sito per visualizzare il nostro visualizzazioni parziali
+## <a name="updating-site-layout-to-display-our-partial-views"></a>Aggiornamento del Layout del sito per visualizzare viste parziali
 
-È possibile aggiungere il nostro visualizzazioni parziali per il Layout del sito (/ / Shared/viste\_cshtml) chiamando Html.RenderAction(). In entrambi, nonché alcuni tag aggiuntivi per visualizzarli, verrà aggiunto come illustrato di seguito:
+È possibile aggiungere viste parziali al Layout del sito (/viste/Shared/\_layout. cshtml) chiamando Html.RenderAction(). Viene aggiunto in entrambi in, nonché alcuni tag aggiuntivi per visualizzarli, come illustrato di seguito:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample6.cshtml)]
 
-A questo punto quando si esegue l'applicazione, verrà spiegato il genere nell'area di navigazione a sinistra e il riepilogo di carrello nella parte superiore.
+A questo punto quando si esegue l'applicazione, si vedrà il genere nell'area di navigazione a sinistra e il riepilogo di carrello nella parte superiore.
 
-## <a name="update-to-the-store-browse-page"></a>Aggiornare la pagina Sfoglia archivio
+## <a name="update-to-the-store-browse-page"></a>Aggiornare la pagina Sfoglia Store
 
-La pagina Sfoglia archivio funzionale, ma non è del tutto soddisfacente. È possibile aggiornare la pagina per visualizzare gli album in un layout ottimale, aggiornare il vista codice (presente in /Views/Store/Browse.cshtml) come indicato di seguito:
+La pagina Sfoglia Store è funzionale, ma non molto bene. È possibile aggiornare la pagina per visualizzare album in un layout ottimale, aggiornare il visualizzazione codice (disponibile in /Views/Store/Browse.cshtml) come indicato di seguito:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample7.cshtml)]
 
-Qui stiamo utilizzare Action anziché HTML. ActionLink in modo che è possibile applicare una formattazione speciale per il collegamento per includere il disegno album.
+Qui seguito all'utilizzo di Action anziché HTML. ActionLink in modo che è possibile applicare una formattazione speciale per il collegamento per includere la grafica di album.
 
-*Nota: Viene visualizzato una copertina generico per questi album. Queste informazioni vengono archiviate nel database e può essere modificato tramite la gestione di Store. Si è benvenuto aggiungere un'immagine personalizzata.*
+*Nota: Si sta visualizzando una copertina album generico per questi album. Queste informazioni vengono archiviate nel database e può essere modificate tramite la gestione di Store. Si è possibile aggiungere un'immagine personalizzata.*
 
-Ora quando si passa a un genere, si visualizzeranno gli album visualizzati in una griglia con la grafica album.
+A questo punto quando si passa a un genere, si vedrà album visualizzato in una griglia con la grafica di album.
 
 ![](mvc-music-store-part-10/_static/image5.png)
 
-## <a name="updating-the-home-page-to-show-top-selling-albums"></a>Aggiornamento della pagina Home per visualizzare album vendite superiore
+## <a name="updating-the-home-page-to-show-top-selling-albums"></a>Aggiornare la Home Page per visualizzare album vendita Top
 
-Si vuole funzionalità nostri venduti album nella home page per aumentare le vendite. Alcuni aggiornamenti da apportare al nostro HomeController per gestire questa condizione e aggiungere in alcune altre immagini.
+Vogliamo principali album nella home page per incrementare le vendite di vendita di funzionalità. Apportare alcuni aggiornamenti al nostro HomeController all'handle che e aggiungere anche alcuni grafici aggiuntivi.
 
-In primo luogo, una proprietà di navigazione verrà aggiunto alla classe Album in modo che sia in grado EntityFramework che essi è associati. Le ultime righe del nostro **Album** classe dovrebbe essere simile al seguente:
+In primo luogo, si aggiungerà una proprietà di navigazione per la classe Album in modo che Entity Framework sappia che sono associate. Le ultime righe del nostro **Album** classe dovrebbe ora essere simile al seguente:
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample8.cs)]
 
-*Nota: Questo richiederà aggiunta di un tramite portare nello spazio dei nomi System.Collections.Generic dell'istruzione.*
+*Nota: Questo richiederà l'aggiunta di un utilizzo portare nello spazio dei nomi System.Collections.Generic dell'istruzione.*
 
-In primo luogo, verrà aggiunto un campo storeDB e il MvcMusicStore.Models utilizzando le istruzioni, come il nostro altri controller. Successivamente, aggiungeremo il metodo seguente per la classe HomeController che esegue query di database per trovare album vendite in base alle OrderDetails.
+In primo luogo, si aggiungerà un campo storeDB e il MvcMusicStore.Models usando le istruzioni, come nel nostro altri controller. Successivamente, si aggiungerà il metodo seguente per la classe HomeController che esegue una query dal database per trovare superiore gli album delle vendite in base a OrderDetails.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample9.cs)]
 
-Si tratta di un metodo privato, poiché non si desidera renderlo disponibile come un'azione del controller. Si incluso in HomeController per motivi di semplicità, ma vengono fornite informazioni utili per spostare la logica di business in classi di servizio separato come appropriato.
+Si tratta di un metodo privato, poiché non vogliamo per renderlo disponibile come un'azione del controller. Si sta includerlo in HomeController per motivi di semplicità, ma sono invitati a spostare la logica di business in classi di servizio separato come appropriato.
 
-A questo punto, è possibile aggiornare l'azione del controller di indice per eseguire query i primi 5 album di vendita e li tornare alla visualizzazione.
+A questo punto, è possibile aggiornare l'azione del controller dell'indice per eseguire query i primi 5 vendere gli album e li tornare alla visualizzazione.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample10.cs)]
 
-Il codice completo per HomeController aggiornato è come illustrato di seguito.
+Il codice completo per la classe HomeController aggiornato è come illustrato di seguito.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample11.cs)]
 
-Infine, è necessario aggiornare la visualizzazione dell'indice Home in modo che è possibile visualizzare un elenco di album l'aggiornamento del tipo di modello e aggiungendo l'elenco di album nella parte inferiore. Si avrà l'opportunità di aggiungere anche un titolo e una sezione di innalzamento di livello alla pagina.
+Infine, è necessario aggiornare la visualizzazione dell'indice Home in modo che sia possibile visualizzare un elenco di album aggiornando il tipo di modello e aggiungendo l'elenco di album alla fine. Verrà usato l'opportunità di aggiungere anche un'intestazione e una sezione di innalzamento di livello alla pagina.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample12.cshtml)]
 
-A questo punto quando si esegue l'applicazione, verranno esaminati aggiornato home page con album vendite e il messaggio promozionale.
+A questo punto quando si esegue l'applicazione, si vedrà la home page aggiornata con album di vendita superiore e il nostro messaggio promozionale.
 
 ![](mvc-music-store-part-10/_static/image1.jpg)
 
 ## <a name="conclusion"></a>Conclusione
 
-Abbiamo visto che ASP.NET MVC rende più semplice per creare un sito Web complesse con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente. Probabilmente questa esercitazione riceve gli strumenti che necessari per iniziare la creazione di applicazioni personalizzate ASP.NET MVC.
+Abbiamo visto che ASP.NET MVC rende più semplice per creare un sito Web sofisticate con accesso al database, l'appartenenza, AJAX, e così via. abbastanza rapidamente. Si spera in questa esercitazione è stata fornita gli strumenti che necessari per iniziare a compilare applicazioni personalizzati ASP.NET MVC.
 
 
 > [!div class="step-by-step"]

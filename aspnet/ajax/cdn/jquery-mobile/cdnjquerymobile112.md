@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile112
-title: jQuery Mobile 1.1.2 nella rete CDN di Microsoft Ajax | Documenti Microsoft
+title: jQuery Mobile 1.1.2 sulla rete CDN Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 8fae1a7e-2575-45ef-8b20-5d8d614d3e96
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile112
 msc.type: content
-ms.openlocfilehash: ef575c538d1975f5e02921fd6b0b272165065e08
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c519245de725a548cb0ad7b6d9e3c4003d4ea87c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071317"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393941"
 ---
-<a name="jquery-mobile-112-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.1.2 nella rete CDN di Microsoft Ajax
+<a name="jquery-mobile-112-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.1.2 sulla rete CDN Microsoft Ajax
 ====================
-Libreria jQuery Mobile 1.1.2 include i file seguenti:
+La libreria di jQuery Mobile 1.1.2 include i file seguenti:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.2/jquery.mobile.structure-1.1.2.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.2/jquery.mobile.structure-1.1.2.min.css

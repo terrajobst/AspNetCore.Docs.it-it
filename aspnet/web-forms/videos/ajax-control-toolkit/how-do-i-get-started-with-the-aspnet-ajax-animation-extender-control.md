@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control
-title: '[Eseguire la ricerca per categorie:] Iniziare con il controllo ASP.NET AJAX animazione estensione? | Microsoft Docs'
+title: '[Procedura:] Iniziare a usare il controllo Extender ASP.NET AJAX animazione? | Microsoft Docs'
 author: JoeStagner
-description: In questo video viene illustrato il controllo di extender animazione di ASP.NET AJAX Control Toolkit, che offre agli sviluppatori un framework estendibile completamente per un...
+description: Questo video introduce il controllo extender Animation di ASP.NET AJAX Control Toolkit, che offre agli sviluppatori un framework completamente estensibile per un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2007
 ms.topic: article
 ms.assetid: 47f94a4c-9c95-4fc2-96e6-e7cc54b6784f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control
 msc.type: video
-ms.openlocfilehash: aeb72c4df02575999e2e1e60bb8306c18e9543da
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 647bf970a364f8189e96272e5a4949fd94a34cd1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880623"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380571"
 ---
-<a name="how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control"></a>[Eseguire la ricerca per categorie:] Iniziare con il controllo ASP.NET AJAX animazione estensione?
+<a name="how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control"></a>[Procedura:] Iniziare a usare il controllo Extender ASP.NET AJAX animazione?
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-In questo video introduce il controllo extender animazione di ASP.NET AJAX Control Toolkit, che offre agli sviluppatori un framework estendibile completamente per l'aggiunta di effetti di animazione a una pagina Web ASP.NET.
+In questo video introduce il controllo extender Animation di ASP.NET AJAX Control Toolkit, che offre agli sviluppatori un framework completamente estensibile per l'aggiunta di effetti di animazione a una pagina Web ASP.NET.
 
-[&#9654;Guardare video (20 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control)
+[&#9654;Guarda il video (20 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control)
 
 > [!div class="step-by-step"]
 > [Precedente](how-do-i-use-the-aspnet-ajax-passwordstrength-extender.md)
