@@ -1,291 +1,290 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: Interfaccia utente e la navigazione | Documenti Microsoft
+title: Interfaccia utente ed esplorazione | Microsoft Docs
 author: Erikre
-description: Questa serie di esercitazioni verranno fornite le nozioni di base della creazione di un'applicazione Web Form ASP.NET tramite ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per abbiamo...
+description: Questa serie di esercitazioni insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET con ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per Microsoft...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
 ms.topic: article
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: d2d4101455a85c53e016e567c0cf1337642f1863
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f8570942c094edc0a2825613be634fbfb447b13c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890242"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394278"
 ---
 <a name="ui-and-navigation"></a>Interfaccia utente e la navigazione
 ====================
 da [Erik Reitan](https://github.com/Erikre)
 
-[Scarica progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [scaricare E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Scaricare progetto di esempio Wingtip Toys (c#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [Scarica l'E-book (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Questa serie di esercitazioni verranno fornite le nozioni di base della creazione di un'applicazione Web Form ASP.NET utilizzando ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per Web. Un Visual Studio 2013 [progetto con il codice sorgente c#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) complemento questa serie di esercitazioni è disponibile.
+> Questa serie di esercitazioni insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET con ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per Web. Un Visual Studio 2013 [progetto con codice sorgente c#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) complemento a questa serie di esercitazioni è disponibile.
 
 
-In questa esercitazione si modificherà l'interfaccia utente dell'applicazione Web predefinita per supportare le funzionalità dell'applicazione front-archivio Wingtip Toys. Inoltre, si aggiungeranno semplice e navigazione con associazione a dati. In questa esercitazione si basa sull'esercitazione precedente "Creare il livello di accesso ai dati" e fa parte della serie di esercitazioni Wingtip Toys.
+In questa esercitazione si modificherà l'interfaccia utente dell'applicazione Web predefinita per supportare le funzionalità dell'applicazione front-archivio di Wingtip Toys. Inoltre, si aggiungeranno semplice e navigazione con associazione a dati. Questa esercitazione si basa sull'esercitazione precedente "Creare il livello di accesso ai dati" e fa parte della serie di esercitazioni di Wingtip Toys.
 
-## <a name="what-youll-learn"></a>Illustra quanto segue:
+## <a name="what-youll-learn"></a>Che cosa si apprenderà come:
 
-- Come modificare l'interfaccia utente per supportare le funzionalità dell'applicazione front-archivio Wingtip Toys.
+- Come modificare l'interfaccia utente per supportare le funzionalità dell'applicazione front-archivio di Wingtip Toys.
 - Come configurare un elemento HTML5 per includere la navigazione.
 - Come creare un controllo basato sui dati a cui passare i dati di prodotto specifico.
 - Come visualizzare i dati da un database creato utilizzando Code First di Entity Framework.
 
-Web Form ASP.NET consente di creare contenuto dinamico per l'applicazione Web. Ogni pagina Web ASP.NET viene creato in modo analogo a una pagina HTML Web statica (una pagina che non include l'elaborazione basata su server), ma la pagina Web ASP.NET include elementi aggiuntivi che ASP.NET riconosce ed elabora per generare HTML quando viene eseguita la pagina.
+Web Form ASP.NET consentono di creare contenuto dinamico per l'applicazione Web. Ogni pagina Web ASP.NET viene creato in modo analogo a una pagina HTML Web statica (una pagina che non include l'elaborazione basata su server), ma la pagina Web ASP.NET include elementi aggiuntivi che ASP.NET riconosce ed elabora per generare HTML quando viene eseguita la pagina.
 
-Con una pagina HTML statica (*htm* o *HTML* file), il server soddisfa un `Web` richiesta per la lettura del file e inviarlo come-al browser. Al contrario, quando un utente richiede una pagina Web ASP.NET (*aspx* file), la pagina viene eseguito come un programma nel server Web. Durante l'esecuzione della pagina, è possibile eseguire qualsiasi attività che richiede il sito Web, inclusi il calcolo dei valori, di lettura o scrittura delle informazioni di database o la chiamata di altri programmi. Come output, in modo dinamico la pagina genera markup (ad esempio gli elementi in formato HTML) e invia l'output dinamico nel browser.
+Con una pagina HTML statica (*htm* oppure *. HTML* file), il server soddisfa un `Web` richiesta per la lettura del file e inviarlo come-al browser. Al contrario, quando un utente richiede una pagina Web ASP.NET (*aspx* file), la pagina viene eseguito come un programma nel server Web. Durante l'esecuzione della pagina, è possibile eseguire qualsiasi attività che richiede il sito Web, tra cui il calcolo dei valori, la lettura o la scrittura delle informazioni di database o la chiamata di altri programmi. Come output, in modo dinamico la pagina genera markup (ad esempio, gli elementi in formato HTML) e invia l'output dinamico al browser.
 
-## <a name="modifying-the-ui"></a>Modifica l'interfaccia utente
+## <a name="modifying-the-ui"></a>Modifica dell'interfaccia utente
 
-Si continuerà a questa serie di esercitazioni modificando il *Default.aspx* pagina. Si modificherà l'interfaccia utente già definiti nel modello predefinito utilizzato per creare l'applicazione. I tipi di modifiche da eseguire sono tipiche durante la creazione di qualsiasi applicazione Web Form. È possibile farlo cambiando il titolo, parte del contenuto di sostituzione e rimozione di contenuto predefinito non necessari.
+Si continuerà a questa serie di esercitazioni modificando la *default. aspx* pagina. Si modificherà l'interfaccia utente che è già stata stabilita dal modello predefinito utilizzato per creare l'applicazione. Il tipo di modifiche che verranno eseguite sono tipiche durante la creazione di qualsiasi applicazione Web Form. Tale scopo, si sarà cambiando il titolo, parte del contenuto di sostituzione e rimozione di contenuto predefinito non necessari.
 
-1. Aprire o passare il *Default.aspx* pagina.
-2. Se viene visualizzata la pagina **progettazione** passare alla **origine** visualizzazione.
-3. Nella parte superiore della pagina di `@Page` direttiva, modifica il `Title` attributo "Iniziale", come evidenziato in giallo sotto. 
+1. Apre o passa per la *default. aspx* pagina.
+2. Se viene visualizzata la pagina **Design** passare alla **origine** visualizzazione.
+3. Nella parte superiore della pagina nel `@Page` direttiva, modifica il `Title` dell'attributo "Attività iniziali", come evidenziato in giallo di seguito. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample1.aspx?highlight=1)]
-4. Anche nel *Default.aspx* pagina, sostituire tutto il contenuto predefinito contenuto nel `<asp:Content>` tag in modo che il markup viene visualizzato come sotto. 
+4. Nel *default. aspx* pagina, sostituire tutto il contenuto predefinito contenuto nel `<asp:Content>` contrassegnare in modo che il markup viene visualizzato come di seguito. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
-5. Salvare il *Default.aspx* selezionando **salvare Default.aspx** dal **File** menu.
+5. Salvare il *default. aspx* selezionando **salvare default. aspx** dal **File** menu.
 
-   Il valore risultante *Default.aspx* pagina viene visualizzata come indicato di seguito: 
+   L'oggetto risultante *default. aspx* pagina viene visualizzata come indicato di seguito: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
-Nell'esempio, impostare il `Title` attributo del `@Page` direttiva. Quando il codice HTML viene visualizzato in un browser, il codice server `<%: Page.Title %>` risolve il contenuto di `Title` attributo.
+Nell'esempio è stato impostato il `Title` attributo del `@Page` direttiva. Quando il codice HTML viene visualizzato in un browser, il codice del server `<%: Page.Title %>` risolve per il contenuto presente nel `Title` attributo.
 
-La pagina di esempio include gli elementi di base che costituiscono una pagina Web ASP.NET. La pagina contiene testo statico, potrebbe essere in una pagina HTML, insieme a elementi specifici di ASP.NET. Il contenuto di *Default.aspx* pagina verrà integrata con il contenuto della pagina master, che verrà spiegato più avanti in questa esercitazione.
+La pagina di esempio include gli elementi di base che costituiscono una pagina Web ASP.NET. La pagina contiene testo statico, come si farebbe in una pagina HTML, insieme a elementi specifici di ASP.NET. Il contenuto presente nel *default. aspx* pagina verrà integrata con il contenuto della pagina master, che verrà spiegato più avanti in questa esercitazione.
 
 ### <a name="page-directive"></a>@Page (Direttiva)
 
-Web Form ASP.NET è in genere contengono direttive che consentono di specificare informazioni della pagina proprietà e la configurazione per la pagina. Le direttive sono utilizzate da ASP.NET come istruzioni sull'elaborazione della pagina, ma non vengono sottoposte a rendering come parte del codice che viene inviato al browser.
+Web Form ASP.NET è in genere contengono direttive che consentono di specificare informazioni sulla pagina di configurazione e proprietà per la pagina. Le direttive sono utilizzate da ASP.NET come istruzioni per l'elaborazione della pagina, ma non vengono sottoposte a rendering come parte del markup che viene inviato al browser.
 
-La direttiva utilizzata più di frequente è il `@Page` direttiva, che consente di specificare numerose opzioni di configurazione per la pagina, inclusi i seguenti:
+La direttiva di uso più comune è la `@Page` direttiva, che consente di specificare numerose opzioni di configurazione per la pagina, inclusi i seguenti:
 
 1. Il server di linguaggio di programmazione per il codice nella pagina, ad esempio c#.
-2. Se la pagina è una pagina con il codice server direttamente nella pagina, che viene chiamata una pagina a file singolo, o se è una pagina con il codice in un file di classe separata, che viene chiamato una pagina code-behind.
-3. Se la pagina associata a una pagina master associata e pertanto deve essere considerata come una pagina di contenuto.
-4. Il debug e le opzioni di traccia.
+2. Indica se la pagina è una pagina con il codice server direttamente nella pagina, che viene chiamato una pagina a file singolo, oppure se si tratta di una pagina con il codice in un file di classe separata, che viene chiamato una pagina code-behind.
+3. Indica se la pagina è una pagina master associata e deve pertanto essere considerati come una pagina di contenuto.
+4. Il debug e opzioni di traccia.
 
-Se non si include un `@Page` direttiva nella pagina o se la direttiva non include un'impostazione specifica, verrà ereditata da un'impostazione di *Web. config* file di configurazione o dal *Machine. config* file di configurazione. Il *Machine. config* file fornisce ulteriori impostazioni di configurazione a tutte le applicazioni in esecuzione in un computer.
+Se non si include un' `@Page` direttiva nella pagina o se la direttiva non include un'impostazione specifica, un'impostazione verrà ereditata dal *Web. config* file di configurazione o dal *Machine. config* file di configurazione. Il *Machine. config* file fornisce ulteriori impostazioni di configurazione a tutte le applicazioni in esecuzione in un computer.
 
 > [!NOTE] 
 > 
-> Il *Machine. config* fornisce anche informazioni dettagliate su tutte le impostazioni di configurazione.
+> Il *Machine. config* fornisce anche informazioni dettagliate su tutte le impostazioni di configurazione possibili.
 
 
 ### <a name="web-server-controls"></a>Controlli Server Web
 
-Nella maggior parte delle applicazioni Web Form ASP.NET, si aggiungerà i controlli che consentono all'utente di interagire con la pagina, ad esempio pulsanti, caselle di testo, elenchi e così via. I controlli server Web sono simili ai pulsanti HTML e gli elementi di input. Tuttavia, vengono elaborate sul server, consentendo di utilizzare il codice lato server per impostare le relative proprietà. Questi controlli inoltre generano eventi che è possibile gestire nel codice server.
+Nella maggior parte delle applicazioni Web Form ASP.NET, si aggiungerà i controlli che consentono all'utente di interagire con la pagina, ad esempio pulsanti, caselle di testo, elenchi e così via. Questi controlli server Web sono simili ai pulsanti HTML e gli elementi di input. Tuttavia, questi vengono elaborati nel server, consentendo di usare il codice lato server per impostare le relative proprietà. Questi controlli inoltre generano eventi che è possibile gestire nel codice server.
 
-I controlli server utilizzano una sintassi speciale che ASP.NET riconosce durante l'esecuzione della pagina. Il nome di tag per i controlli server ASP.NET inizia con un `asp:` prefisso. Ciò consente di riconoscere ed elaborare questi controlli server ASP.NET. Il prefisso può essere diverso se il controllo non fa parte di .NET Framework. Oltre al `asp:` prefisso, controlli server ASP.NET includono inoltre il `runat="server"` attributo e un `ID` che è possibile utilizzare per fare riferimento al controllo nel codice server.
+Controlli server utilizzano una sintassi speciale che ASP.NET riconosce quando viene eseguita la pagina. Il nome del tag per controlli server ASP.NET inizia con un `asp:` prefisso. Ciò consente di riconoscere ed elaborare questi controlli server ASP.NET. Il prefisso potrebbe essere diverso se il controllo non fa parte di .NET Framework. Oltre al `asp:` prefisso, includano anche i controlli server ASP.NET il `runat="server"` attributo e un `ID` che è possibile usare il riferimento al controllo nel codice server.
 
-Quando la pagina viene eseguita, ASP.NET identifica i controlli server e viene eseguito il codice che è associato a tali controlli. Molti controlli eseguire il rendering di HTML o altro markup nella pagina quando viene visualizzato in un browser.
+Quando viene eseguita la pagina, ASP.NET identifica i controlli server e viene eseguito il codice che è associato a tali controlli. Molti controlli il rendering HTML o altri markup nella pagina quando viene visualizzato in un browser.
 
 ### <a name="server-code"></a>Codice lato server
 
-La maggior parte delle applicazioni Web Form ASP.NET includono codice che viene eseguito nel server durante l'elaborazione della pagina. Come indicato in precedenza, è possibile utilizzare il codice lato server per svolgere un'ampia gamma di elementi, ad esempio l'aggiunta di dati a un controllo ListView. ASP.NET supporta molte lingue per l'esecuzione nel server, inclusi c#, Visual Basic, j# e altri utenti.
+La maggior parte delle applicazioni Web Form ASP.NET includono codice che viene eseguito nel server quando la pagina viene elaborata. Come indicato in precedenza, il codice lato server è utilizzabile per svolgere un'ampia gamma di elementi, ad esempio l'aggiunta di dati a un controllo ListView. ASP.NET supporta molte lingue per l'esecuzione nel server, tra cui c#, Visual Basic, j# e ad altri utenti.
 
-ASP.NET supporta due modelli per la scrittura di codice server per una pagina Web. Nel modello di file singolo, il codice per la pagina è in un elemento di script in cui sono inclusi il tag di apertura di `runat="server"` attributo. In alternativa, è possibile creare il codice per la pagina in un file di classe separata, che viene definito il modello code-behind. In questo caso, la pagina Web Form ASP.NET non contiene in genere alcun codice server. Al contrario, il `@Page` direttiva include informazioni che si collega il *aspx* pagina con il file code-behind associato.
+ASP.NET supporta due modelli per la scrittura di codice lato server per una pagina Web. Nel modello di file singolo, il codice per la pagina è in un elemento di script in cui sono inclusi i tag di apertura di `runat="server"` attributo. In alternativa, è possibile creare il codice per la pagina in un file di classe separata, che viene considerato il modello code-behind. In questo caso, la pagina Web Form ASP.NET non contiene in genere alcun codice lato server. Al contrario, il `@Page` direttiva include informazioni che si collega il *aspx* pagina con il relativo file code-behind associato.
 
-Il `CodeBehind` contenuto nell'attributo la `@Page` direttiva specifica il nome del file di classi separato e `Inherits` attributo specifica il nome della classe all'interno del file di codice che corrisponde alla pagina.
+Il `CodeBehind` contenuto nell'attributo il `@Page` direttiva specifica il nome del file di classe separata e il `Inherits` attributo specifica il nome della classe all'interno del file code-behind che corrisponde alla pagina.
 
-### <a name="updating-the-master-page"></a>Aggiornamento della pagina Master
+### <a name="updating-the-master-page"></a>L'aggiornamento della pagina Master
 
-Web Form ASP.NET, pagine master consentono di creare un layout coerente per le pagine dell'applicazione. Una singola pagina master definisce l'aspetto e il comportamento standard che desidera che per tutte le pagine (o un gruppo di pagine) nell'applicazione. È quindi possibile creare singole pagine di contenuto che includono il contenuto che si desidera visualizzare, come descritto in precedenza. Quando gli utenti richiedono le pagine di contenuto, ASP.NET unisce con la pagina master per produrre l'output che combina il layout della pagina master con il contenuto della pagina di contenuto.
+In Web Form ASP.NET, pagine master consentono di creare un layout coerente per le pagine nell'applicazione. Una singola pagina master definisce l'aspetto e il comportamento standard che desidera che per tutte le pagine (o un gruppo di pagine) nell'applicazione. È quindi possibile creare singole pagine di contenuto che contengono il contenuto che si desidera visualizzare, come descritto in precedenza. Quando gli utenti richiedono le pagine di contenuto, ASP.NET le unisce alla pagina master per generare l'output che combina il layout della pagina master con il contenuto della pagina di contenuto.
 
-Il nuovo sito è necessario un singolo logo da visualizzare in ogni pagina. Per aggiungere il logo, è possibile modificare il codice HTML della pagina master.
+Il nuovo sito necessita un logo da visualizzare in ogni pagina singolo. Per aggiungere il logo, è possibile modificare il codice HTML della pagina master.
 
-1. In **Esplora**, trovare e aprire il **Site. master** pagina.
-2. Se la pagina è **progettazione** passare alla **origine** visualizzazione.
-3. Aggiornare la pagina master da **modificando o aggiungendo** il markup evidenziato in giallo: 
+1. Nelle **Esplora soluzioni**individuare e aprire il **Site. master** pagina.
+2. Se la pagina si trova in **Design** passare alla **origine** visualizzazione.
+3. Aggiornare la pagina master dalla **modificando o aggiungendo** il markup evidenziato in giallo: 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample4.aspx?highlight=9,49,76-81,87)]
 
-Questo codice HTML verrà visualizzata l'immagine denominata *logo* dal *immagini* cartella dell'applicazione Web, che verrà aggiunto in un secondo momento. Quando viene visualizzata una pagina che utilizza la pagina master in un browser, verrà visualizzato il logo. Se un utente fa clic sul logo, l'utente verrà visualizzata nuovamente la *Default.aspx* pagina. Il tag di ancoraggio HTML `<a>` include il controllo server di immagine e consente l'immagine deve essere incluso come parte del collegamento. Il `href` per il tag di ancoraggio specifica la radice dell'attributo "`~/`" del sito Web come percorso di collegamento. Per impostazione predefinita, il *Default.aspx* pagina viene visualizzata quando l'utente passa alla radice del sito Web. Il **immagine** `<asp:Image>` controllo server include le proprietà di aggiunta, ad esempio `BorderStyle`, che eseguono il rendering in formato HTML quando visualizzata in un browser.
+Questo codice HTML verrà visualizzata l'immagine denominata *logo* dalle *immagini* cartella dell'applicazione Web, che verrà aggiunto in un secondo momento. Quando viene visualizzata una pagina che utilizza la pagina master in un browser, verrà visualizzato il logo. Se un utente fa clic sul logo, l'utente passerà nuovamente al *default. aspx* pagina. Il tag di ancoraggio HTML `<a>` include il controllo server di immagine e consente l'immagine deve essere incluso come parte del collegamento. Il `href` per il tag di ancoraggio specifica la radice dell'attributo "`~/`" del sito Web come percorso di collegamento. Per impostazione predefinita, il *default. aspx* pagina viene visualizzata quando l'utente passa alla radice del sito Web. Il **immagine** `<asp:Image>` controllo del server include le proprietà di addizione, ad esempio `BorderStyle`, che eseguono il rendering come testo HTML se visualizzati in un browser.
 
 ### <a name="master-pages"></a>Pagine master
 
-Una pagina master è un file con estensione master di ASP.NET (ad esempio, *Site. master*) con un layout predefinito che può includere testo statico, gli elementi HTML e controlli server. La pagina master è identificata da una speciale `@Master` che sostituisce il `@Page` istruzione utilizzata per ordinario *aspx* pagine.
+Una pagina master è un file con estensione master di ASP.NET (ad esempio, *Site. master*) con un layout predefinito che può includere testo statico, gli elementi HTML e controlli server. La pagina master è identificata da uno speciale `@Master` che sostituisce il `@Page` direttiva che viene utilizzata per normali *aspx* pagine.
 
-Oltre al `@Master` direttiva, la pagina master contiene anche tutti gli elementi HTML di livello superiore per una pagina, ad esempio `html`, `head`, e `form`. Ad esempio, nella pagina master è stato aggiunto in precedenza, utilizzare un elemento HTML `table` per il layout, un `img` elemento per il logo della società, testo statico e controlli di server per gestire l'appartenenza comune per il sito. È possibile utilizzare qualsiasi codice HTML e ASP.NET come parte della pagina master.
+Oltre al `@Master` direttiva della pagina master contiene anche tutti gli elementi HTML principali per una pagina, ad esempio `html`, `head`, e `form`. Ad esempio, nella pagina master aggiunto nel passaggio precedente, usare un elemento HTML `table` per il layout, un `img` (elemento) per il logo della società, testo statico e controlli server per gestire l'appartenenza comune per il sito. È possibile utilizzare qualsiasi codice HTML e gli eventuali elementi ASP.NET come parte della pagina master.
 
-Oltre ai controlli che verranno visualizzato in tutte le pagine e testo statico, la pagina master include anche uno o più **ContentPlaceHolder** controlli. Questi controlli segnaposto definiscono le aree in cui verrà visualizzato il contenuto sostituibile. A sua volta, il contenuto sostituibile è definito nelle pagine di contenuto, ad esempio *Default.aspx*, usando il **contenuto** controllo server.
+Oltre a testo statico e i controlli che verranno visualizzato in tutte le pagine, la pagina master include inoltre uno o più **ContentPlaceHolder** controlli. Questi controlli segnaposto definiscono le aree in cui verrà visualizzato il contenuto sostituibile. A sua volta, il contenuto sostituibile viene definito nelle pagine di contenuto, ad esempio *default. aspx*, usando la **contenuto** controllo server.
 
 #### <a name="adding-image-files"></a>Aggiunta di file di immagine
 
-L'immagine del logo che viene fatto riferimento in precedenza, insieme a tutte le immagini di prodotto, deve essere aggiunto all'applicazione Web in modo che possano essere visualizzati quando il progetto viene visualizzato in un browser.
+L'immagine del logo che viene fatto riferimento in precedenza, insieme a tutte le immagini del prodotto, deve essere aggiunto all'applicazione Web in modo che possano essere visualizzati quando il progetto viene visualizzato in un browser.
 
-#### <a name="download-from-msdn-samples-site"></a>Scaricare dal sito di esempi MSDN:
+#### <a name="download-from-msdn-samples-site"></a>Scaricare dal sito degli esempi di MSDN:
 
-[Guida introduttiva a 4.5 Web Form ASP.NET e Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (c#)
+[Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (c#)
 
-Il download include le risorse di *WingtipToys asset* cartella in cui vengono utilizzati per creare l'applicazione di esempio.
+Il download include le risorse nel *WingtipToys-asset* cartella in cui vengono usati per creare l'applicazione di esempio.
 
-1. Se non già stato fatto, scaricare i file di esempio compressi utilizzando il collegamento precedente dal sito di esempi MSDN.
-2. Una volta scaricata, aprire il file con estensione zip e copiare il contenuto in una cartella locale nel computer.
-3. Trovare e aprire il *WingtipToys asset* cartella.
-4. Trascinando e rilasciando, copiare il *catalogo* cartella dalla cartella locale nella radice del progetto di applicazione Web nel **Esplora** di Visual Studio. 
+1. Se non già stato fatto, scaricare i file di esempio compresso usando il collegamento sopra riportato dal sito di esempi MSDN.
+2. Al termine del download, aprire il file con estensione zip e copiare il contenuto in una cartella locale nel computer.
+3. Trovare e aprire il *WingtipToys-asset* cartella.
+4. Trascinando e rilasciando, copiare il *Catalog* cartella dalla cartella locale nella radice del progetto di applicazione Web nelle **Esplora soluzioni** di Visual Studio. 
 
-    ![Interfaccia utente e la navigazione - copia di file](ui_and_navigation/_static/image1.png)
-5. Successivamente, creare una nuova cartella denominata *immagini* facendo clic con il **WingtipToys** nel progetto **Esplora** e selezionando **Aggiungi**  - &gt; **Nuova cartella**.
-6. Copia il *logo* file dal *WingtipToys asset* cartella **Esplora File** per il *immagini* cartella dell'applicazione Web nel progetto **Esplora** di Visual Studio.
-7. Fare clic su di **Mostra tutti i file** opzione nella parte superiore di **Esplora** per aggiornare l'elenco dei file se non viene visualizzato i nuovo file.  
+    ![Navigazione - copiare file e dell'interfaccia utente](ui_and_navigation/_static/image1.png)
+5. Successivamente, creare una nuova cartella denominata *immagini* facendo clic con il **WingtipToys** progetto **Esplora soluzioni** e selezionando **Aggiungi**  - &gt; **Nuova cartella**.
+6. Copia il *logo* del file dal *WingtipToys-asset* cartella nel **Esplora File** per il *immagini* cartella dell'applicazione Web progetto in **Esplora soluzioni** di Visual Studio.
+7. Fare clic sui **Mostra tutti i file** opzione in cima **Esplora soluzioni** per aggiornare l'elenco di file se non viene visualizzato i nuovo file.  
   
-    **Esplora soluzioni** ora vengono mostrati i file di progetto aggiornato. 
+    **Esplora soluzioni** Mostra ora i file di progetto aggiornato. 
 
     ![Interfaccia utente e la navigazione - Esplora soluzioni](ui_and_navigation/_static/image2.png)
 
 ### <a name="adding-pages"></a>Aggiunta di pagine
 
-Prima di aggiungere navigazione per l'applicazione Web, aggiungerai due nuove pagine che verrà visualizzata. Più avanti in questa serie di esercitazioni, si visualizzeranno i prodotti e i relativi dettagli su queste nuove pagine.
+Prima di aggiungere navigazione nell'applicazione Web, si aggiungerà innanzitutto due nuove pagine che verrà visualizzata. Più avanti in questa serie di esercitazioni si visualizzeranno i prodotti e i dettagli del prodotto in queste nuove pagine.
 
-1. In **Esplora**, fare doppio clic su **WingtipToys**, fare clic su **Aggiungi**, quindi fare clic su **nuovo elemento**.   
+1. Nelle **Esplora soluzioni**, fare doppio clic su **WingtipToys**, fare clic su **Add**, quindi fare clic su **nuovo elemento**.   
  Verrà visualizzata la finestra di dialogo **Aggiungi nuovo elemento**.
-2. Selezionare il **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra. Selezionare quindi **Web Form con pagina Master** dal centro elenco e denominarlo *ProductList.aspx*. 
+2. Selezionare il **Visual c#**  - &gt; **Web** gruppo di modelli a sinistra. Quindi, selezionare **Web Form con pagina Master** dalla parte centrale elencare e denominarlo *ProductList. aspx*. 
 
     ![Interfaccia utente e la navigazione - Aggiungi finestra di dialogo Nuovo elemento](ui_and_navigation/_static/image3.png)
-3. Selezionare **Site. master** per collegare la pagina master per l'oggetto appena creato *aspx* pagina. 
+3. Selezionare **Site. master** collegare la pagina master per l'oggetto appena creato *aspx* pagina. 
 
     ![Interfaccia utente e la navigazione - Seleziona pagina Master](ui_and_navigation/_static/image4.png)
-4. Aggiungere una pagina aggiuntiva denominata *ProductDetails.aspx* seguendo la stessa procedura.
+4. Aggiungere una pagina aggiuntiva denominata *ProductDetails.aspx* seguendo questa procedura stessa.
 
 ### <a name="updating-bootstrap"></a>L'aggiornamento di Bootstrap
 
-Utilizzano i modelli di progetto di Visual Studio 2013 [Bootstrap](http://getbootstrap.com/), un framework di layout e i temi creato da Twitter. Bootstrap utilizza CSS3 per fornire una progettazione reattiva, ovvero layout può adattarsi dinamicamente alle dimensioni della finestra del browser diverse. Inoltre, è possibile utilizzare funzionalità dei temi del Bootstrap facilmente attuare una modifica nell'aspetto dell'applicazione. Per impostazione predefinita, il modello di applicazione Web ASP.NET in Visual Studio 2013 include Bootstrap come pacchetto NuGet.
+Usano i modelli di progetto di Visual Studio 2013 [Bootstrap](http://getbootstrap.com/), un framework di layout e temi creato da Twitter. Bootstrap Usa CSS3 per fornire progettazione reattiva, ovvero i layout possono adattarsi dinamicamente alle dimensioni di finestra diversa del browser. È possibile usare anche funzionalità temi del Bootstrap per rendere facilmente effettiva una modifica nell'aspetto dell'applicazione. Per impostazione predefinita, il modello di applicazione Web ASP.NET in Visual Studio 2013 include Bootstrap come pacchetto NuGet.
 
-In questa esercitazione si modificherà aspetto dell'applicazione Wingtip Toys sostituendo i file CSS di Bootstrap.
+In questa esercitazione si modificherà aspetto dell'applicazione Wingtip Toys, sostituendo i file CSS Bootstrap.
 
-1. In **Esplora**, aprire il *contenuto* cartella.
-2. Fare doppio clic su di *bootstrap.css* file e rinominarlo *bootstrap original.css*.
-3. Rinominare il *bootstrap.min.css* a *bootstrap original.min.css*.
-4. In **Esplora**, fare doppio clic su di *contenuto* cartella e selezionare **Apri cartella in Esplora File**.  
-   Verrà visualizzato Esplora File. Si salverà un file CSS bootstrap scaricati in questa posizione.
+1. Nelle **Esplora soluzioni**, aprire il *contenuto* cartella.
+2. Fare doppio clic il *bootstrap* del file e rinominarlo *bootstrap original.css*.
+3. Rinominare il *bootstrap.min.css* al *bootstrap original.min.css*.
+4. Nelle **Esplora soluzioni**, fare doppio clic il *contenuto* cartella e selezionare **Apri cartella in Esplora File**.  
+   Verrà visualizzato Esplora File. Si salverà un file CSS bootstrap scaricati da questa posizione.
 5. Nel browser, passare a [ http://Bootswatch.com ](http://bootswatch.com/).
 6. Scorrere la finestra del browser finché non viene visualizzato il tema Cerulean. 
 
     ![Interfaccia utente e la navigazione - Cerulean tema](ui_and_navigation/_static/image5.png)
-7. Scaricare entrambi il *bootstrap.css* file e *bootstrap.min.css* file per il *contenuto* cartella. Utilizzare il percorso per la cartella del contenuto che viene visualizzata nel **Esplora File** finestra aperta in precedenza.
-8. In **Visual Studio** nella parte superiore di **Esplora**, selezionare il **Mostra tutti i file** opzione per visualizzare i nuovi file nella cartella del contenuto. 
+7. Scaricare sia la *bootstrap* file e il *bootstrap.min.css* del file per il *contenuto* cartella. Usare il percorso della cartella contenuto che viene visualizzato nei **Esplora File** finestra in cui è stato aperto in precedenza.
+8. Nelle **Visual Studio** in cima **Esplora soluzioni**, selezionare il **Mostra tutti i file** opzione per visualizzare i nuovi file nella cartella del contenuto. 
 
     ![Interfaccia utente e la navigazione - Esplora soluzioni](ui_and_navigation/_static/image6.png)
 
-   Si noterà che i due nuovi file CSS nel **contenuto** cartella, ma si noti che l'icona accanto a ogni nome di file non è disponibile. Ciò significa che il file non è ancora stato aggiunto al progetto.
-9. Fare doppio clic su di *bootstrap.css* e *bootstrap.min.css* file e selezionare **Includi nel progetto**.   
+   Si noterà che i due nuovi file CSS nel **contenuto** cartella, ma si noti che l'icona accanto a ogni nome di file è disattivato. Ciò significa che il file non è ancora stato aggiunto al progetto.
+9. Fare doppio clic il *bootstrap* e il *bootstrap.min.css* i file e selezionare **Includi nel progetto**.   
    Quando si esegue l'applicazione Wingtip Toys più avanti in questa esercitazione, verrà visualizzata la nuova interfaccia utente.
 
 > [!NOTE] 
 > 
-> Il modello di applicazione Web ASP.NET utilizza il *Bundle.config* file alla radice del progetto per archiviare il percorso dei file CSS di Bootstrap.
+> Il modello di applicazione Web ASP.NET usa la *Bundle.config* file nella radice del progetto in cui archiviare il percorso dei file CSS Bootstrap.
 
 
-### <a name="modifying-the-default-navigation"></a>Modifica di navigazione predefinito
+### <a name="modifying-the-default-navigation"></a>Modifica riquadro di spostamento predefinito
 
-La navigazione predefinito per ogni pagina nell'applicazione può essere modificata da modificare l'elemento di elenco non ordinato di navigazione nel *Site. master* pagina.
+La navigazione predefinita per ogni pagina dell'applicazione può essere modificata modificando l'elemento di elenco non ordinato di navigazione che si trova nel *Site. master* pagina.
 
-1. In **Esplora**, individuare e aprire il *Site. master* pagina.
+1. Nelle **Esplora soluzioni**individuare e aprire il *Site. master* pagina.
 2. Aggiungere il collegamento di navigazione aggiuntivi evidenziato in giallo per l'elenco non ordinato illustrato di seguito:   
 
     [!code-html[Main](ui_and_navigation/samples/sample5.html?highlight=5)]
 
-Come si può notare nel codice HTML sopra, ogni voce è stato modificato `<li>` contenente un tag di ancoraggio `<a>` con un collegamento `href` attributo. Ogni `href` punta a una pagina nell'applicazione Web. Nel browser, quando un utente fa clic su uno di questi collegamenti (ad esempio **prodotti**), verrà visualizzata la pagina contenuta nel `href` (ad esempio **ProductList.aspx**). Alla fine di questa esercitazione verrà eseguita l'applicazione.
+Come può notare nel codice HTML riportato sopra, ogni voce è stato modificato `<li>` contenente un tag di ancoraggio `<a>` con un collegamento `href` attributo. Ogni `href` punta a una pagina nell'applicazione Web. Nel browser, quando un utente fa clic su uno di questi collegamenti (ad esempio **prodotti**), sono passerà alla pagina contenuta nel `href` (ad esempio **ProductList. aspx**). Si eseguirà l'applicazione alla fine di questa esercitazione.
 
 > [!NOTE] 
 > 
-> La tilde (`~`) carattere viene utilizzato per specificare che il `href` percorso inizia alla radice del progetto.
+> La tilde (`~`) carattere viene utilizzato per specificare che il `href` percorso in cui inizia la radice del progetto.
 
 
-### <a name="adding-a-data-control-to-display-navigation-data"></a>Aggiunta di un controllo di dati per visualizzare i dati di navigazione
+### <a name="adding-a-data-control-to-display-navigation-data"></a>Aggiunta di un controllo dei dati per visualizzare i dati di navigazione
 
-Successivamente, aggiungere un controllo per visualizzare tutte le categorie dal database. Ogni categoria fungerà da un collegamento per il *ProductList.aspx* pagina. Quando un utente fa clic su un collegamento categoria nel browser, essi verranno passare alla pagina dei prodotti e vedere solo i prodotti associati alla categoria selezionata.
+Successivamente, si aggiungerà un controllo per visualizzare tutte le categorie dal database. Ogni categoria verrà utilizzato come un collegamento per il *ProductList. aspx* pagina. Quando un utente fa clic su un collegamento categoria nel browser, essi verranno passare alla pagina di prodotti e visualizzare solo i prodotti associati alla categoria selezionata.
 
-Si userà un **ListView** controllo per visualizzare tutte le categorie contenute nel database. Per aggiungere un **ListView** controllo della pagina master:
+Si userà una **ListView** controllo per visualizzare tutte le categorie contenute nel database. Per aggiungere un **ListView** controllo alla pagina master:
 
-1. Nel *Site. master* pagina, aggiungere le seguenti evidenziate `<div>` elemento **dopo** il `<div>` elemento che contiene il `id="TitleContent"` aggiunta in precedenza:  
+1. Nel *Site. master* pagina, aggiungere il codice seguente evidenziato `<div>` elemento **dopo** il `<div>` elemento che contiene il `id="TitleContent"` aggiunti in precedenza:  
 
     [!code-aspx[Main](ui_and_navigation/samples/sample6.aspx?highlight=7-21)]
 
-Questo codice visualizza tutte le categorie dal database. Il **ListView** controllo Visualizza il nome di ogni categoria come testo del collegamento e include un collegamento per il *ProductList* pagina con un valore di stringa di query contenente il `ID` della categoria. Impostando il `ItemType` proprietà nel **ListView** controllo, espressione di associazione dati `Item` è disponibile all'interno di `ItemTemplate` nodo e il controllo diventa fortemente tipizzati. È possibile selezionare i dettagli del `Item` oggetto usando IntelliSense, ad esempio specificando il `CategoryName`. Questo codice è contenuto all'interno del contenitore `<%#: %>` che contrassegna un'espressione di associazione dati. Aggiungendo (:) alla fine del `<%#` prefisso, il risultato dell'espressione di associazione di dati è codificata in formato HTML. Quando il risultato è codificata in formato HTML, l'applicazione migliore protezione contro intersito script injection (XSS) e attacchi intrusivi nel codice HTML.
+Questo codice visualizza tutte le categorie dal database. Il **ListView** consente di visualizzare ogni nome di categoria come testo del collegamento e include un collegamento al controllo il *ProductList. aspx* pagina con un valore di stringa di query contenente il `ID` della categoria. Impostando il `ItemType` proprietà nel **ListView** controllare, l'espressione di associazione dati `Item` è disponibile all'interno di `ItemTemplate` nodo e il controllo diventa fortemente tipizzati. È possibile selezionare i dettagli del `Item` dell'oggetto usando IntelliSense, ad esempio specificando le `CategoryName`. Questo codice è contenuto all'interno del contenitore `<%#: %>` che contrassegna un'espressione di associazione dati. Aggiungendo i due punti (:) alla fine del `<%#` prefisso, il risultato dell'espressione di associazione dati è codificata in formato HTML. Quando il risultato è codificata in formato HTML, l'applicazione meglio contro il tra siti (XSS) injection e attacchi intrusivi nel codice HTML di script.
 
 > [!NOTE] 
 > 
 > **Suggerimento**
 > 
-> Quando si aggiunge codice digitando durante lo sviluppo, si può verificare che un membro valido di un oggetto viene trovato poiché fortemente tipizzato controlli dati mostrano i membri disponibili in base a IntelliSense. IntelliSense consente di scegliere di codice appropriato al contesto durante la digitazione di codice, ad esempio proprietà, metodi e oggetti.
+> Quando si aggiunge codice digitando durante lo sviluppo, è possibile essere certi che un membro valido di un oggetto è stato trovato perché fortemente tipizzate controlli dati mostrano i membri disponibili basati su IntelliSense. IntelliSense offre opzioni di codice appropriato al contesto durante la digitazione di codice, ad esempio proprietà, metodi e oggetti.
 
 
-Nel passaggio successivo, verrà implementata la `GetCategories` metodo per recuperare i dati.
+Nel passaggio successivo, si implementerà il `GetCategories` metodo per recuperare i dati.
 
-### <a name="linking-the-data-control-to-the-database"></a>Collegamento del controllo dati al Database
+### <a name="linking-the-data-control-to-the-database"></a>Collegamento di controllo dei dati al Database
 
-Prima di poter visualizzare i dati nel controllo dei dati, è necessario collegare il controllo dei dati al database. Per rendere il collegamento, è possibile modificare il codice sottostante del *Site.Master.cs* file.
+Prima che sia possibile visualizzare i dati nel controllo dei dati, è necessario collegare il controllo dei dati nel database. Per rendere il collegamento, è possibile modificare il code-behind del *Site.Master.cs* file.
 
-1. In **Esplora**, fare doppio clic su di *Site. master* pagina e quindi fare clic su **Visualizza codice**. Il *Site.Master.cs* file viene aperto nell'editor.
-2. Inizio della parte di *Site.Master.cs* file, aggiungere due spazi dei nomi aggiuntivi in modo che gli spazi dei nomi inclusi come indicato:  
+1. In **Esplora soluzioni**, fare doppio clic il *Site* e quindi fare clic su **Visualizza codice**. Il *Site.Master.cs* file viene aperto nell'editor.
+2. Prossimità dell'inizio del *Site.Master.cs* , aggiungere due spazi dei nomi aggiuntivi in modo che tutti gli spazi dei nomi inclusi apparire come segue:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample7.cs?highlight=8-9)]
 3. Aggiungere evidenziata `GetCategories` metodo dopo il `Page_Load` gestore dell'evento come indicato di seguito:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample8.cs?highlight=6-11)]
 
-Il codice precedente viene eseguito quando qualsiasi pagina che utilizza la pagina master viene caricata nel browser. Il `ListView` controllo (denominata "categoryList") che è stato aggiunto in precedenza in questa esercitazione Usa l'associazione di modelli per selezionare i dati. Nel markup del `ListView` controllo è impostare il controllo `SelectMethod` proprietà per il `GetCategories` metodo illustrato in precedenza. Il `ListView` chiamate di controllo di `GetCategories` metodo nel momento adeguato del ciclo di vita della pagina del ciclo e associa automaticamente i dati restituiti. Verranno fornite informazioni sull'associazione di dati nella prossima esercitazione.
+Il codice sopra riportato viene eseguito quando qualsiasi pagina che utilizza la pagina master viene caricata nel browser. Il `ListView` controllo (denominati "categoryList") che è stato aggiunto in precedenza in questa esercitazione Usa l'associazione di modelli per selezionare i dati. Nel markup del `ListView` è impostare il controllo di controllo `SelectMethod` proprietà di `GetCategories` metodo illustrato in precedenza. Il `ListView` le chiamate di controllo di `GetCategories` metodo nel momento adeguato del ciclo di vita della pagina del ciclo e associa automaticamente i dati restituiti. Verranno fornite informazioni sull'associazione di dati nella prossima esercitazione.
 
 ### <a name="running-the-application-and-creating-the-database"></a>Esecuzione dell'applicazione e la creazione del Database
 
-In precedenza in questa serie di esercitazioni creato un inizializzatore di classe (denominato "ProductDatabaseInitializer") e specificato a questa classe nella *global.asax.cs* file. Entity Framework genera il database quando l'applicazione viene eseguita la prima volta, poiché il `Application_Start` contenuta nel metodo il *global.asax.cs* file chiamerà la classe di inizializzatore. La classe di inizializzatore utilizzerà le classi di modello (`Category` e `Product`) aggiunto in precedenza in questa serie di esercitazioni per creare il database.
+In precedenza in questa serie di esercitazioni si created-classe di un inizializzatore (denominata "ProductDatabaseInitializer") e specificare questa classe nella *global.asax.cs* file. Entity Framework genera il database quando l'applicazione viene eseguita la prima volta, poiché il `Application_Start` contenuta nel metodo il *global.asax.cs* file chiamerà la classe dell'inizializzatore. La classe inizializzatore userà le classi del modello (`Category` e `Product`) che aggiunto in precedenza in questa serie di esercitazioni per creare il database.
 
-1. In **Esplora**, fare doppio clic su di *Default.aspx* pagina e selezionare **imposta come pagina iniziale**.
-2. Stampa di Visual Studio **F5**.   
- Richiederà un po' di tempo per impostare tutti gli elementi durante la prima esecuzione.   
-    ![Interfaccia utente e la navigazione - finestre del Browser](ui_and_navigation/_static/image7.png)  
- Quando si esegue l'applicazione, verrà compilata l'applicazione e il database denominato *wingtiptoys.mdf* verrà creato nel *App\_dati* cartella. Nel browser, verrà visualizzato un menu di navigazione categoria. Questo menu è stato generato mediante il recupero delle categorie dal database. Nella prossima esercitazione, verrà implementata la navigazione.
+1. Nelle **Esplora soluzioni**, fare doppio clic il *default. aspx* pagina e selezionare **imposta come pagina iniziale**.
+2. In Visual Studio premere **F5**.   
+ Richiederà un po' di tempo per tutti gli elementi configurata durante questa prima esecuzione.   
+    ![Interfaccia utente e la navigazione - Browser Windows](ui_and_navigation/_static/image7.png)  
+ Quando si esegue l'applicazione, l'applicazione verrà compilata e il database denominato *wingtiptoys.mdf* verrà creato nel *App\_dati* cartella. Nel browser, verrà visualizzato un menu di navigazione categoria. Questo menu è stato generato tramite il recupero delle categorie dal database. Nella prossima esercitazione, si implementerà la navigazione.
 3. Chiudere il browser per arrestare l'applicazione in esecuzione.
 
-### <a name="reviewing-the-database"></a>Verifica del Database
+### <a name="reviewing-the-database"></a>Esaminare il Database
 
-Aprire il *Web. config* file ed esaminare la sezione della stringa di connessione. È possibile vedere che il `AttachDbFilename` punta al valore nella stringa di connessione di `DataDirectory` per il progetto di applicazione Web. Il valore `|DataDirectory|` è un valore riservato che rappresenta il *App\_dati* cartella nel progetto. Questa cartella è in cui si trova il database creato da classi di entità.
+Aprire il *Web. config* file ed esaminare la sezione della stringa di connessione. È possibile notare che il `AttachDbFilename` valore nella stringa di connessione punti al `DataDirectory` per il progetto di applicazione Web. Il valore `|DataDirectory|` è un valore riservato che rappresenta il *App\_dati* cartella nel progetto. Questa cartella è in cui si trova il database che è stato creato da classi di entità.
 
 [!code-xml[Main](ui_and_navigation/samples/sample9.xml)]
 
 > [!NOTE] 
 > 
-> Se il *App\_dati* cartella non è visibile o se la cartella è vuota, selezionare il **aggiornamento** icona e quindi la **Mostra tutti i file** in alto del **Esplora** finestra. Espandere la larghezza del **Esplora** windows potrebbe essere necessario visualizzare tutte le icone disponibili.
+> Se il *App\_Data* cartella non è visibile o se la cartella è vuota, selezionare il **aggiornare** icona e quindi la **Mostra tutti i file** icona nella parte superiore della finestra di **Esplora soluzioni** finestra. Espandere la larghezza del **Esplora soluzioni** windows potrebbe essere necessario per visualizzare tutte le icone disponibili.
 
 
-Ora è possibile controllare i dati contenuti nel *wingtiptoys.mdf* file di database utilizzando il **Esplora Server** finestra.
+A questo punto è possibile esaminare i dati contenuti nel *wingtiptoys.mdf* file di database tramite il **Esplora Server** finestra.
 
-1. Espandere il *App\_dati* cartella. Se il *App\_dati* cartella non è visibile, vedere la nota precedente.
-2. Se il *wingtiptoys.mdf* file di database non è visibile, selezionare il **aggiornamento** icona e quindi la **Mostra tutti i file** in alto del **Esplora soluzioni**  finestra.
-3. Fare doppio clic su di *wingtiptoys.mdf* file di database e selezionare **aprire**.  
+1. Espandere la *App\_dati* cartella. Se il *App\_dati* cartella non è visibile, vedere la nota precedente.
+2. Se il *wingtiptoys.mdf* file di database non è visibile, selezionare la **aggiornare** icona e quindi il **Mostra tutti i file** icona nella parte superiore del **Esplora soluzioni**  finestra.
+3. Fare doppio clic il *wingtiptoys.mdf* file di database, quindi scegliere **Open**.  
     **Esplora server** viene visualizzato. 
 
     ![Interfaccia utente e la navigazione - Esplora Server](ui_and_navigation/_static/image8.png)
-4. Espandere il *tabelle* cartella.
-5. Fare doppio clic su di **prodotti**tabella e selezionare **Mostra dati tabella**.  
+4. Espandere la *tabelle* cartella.
+5. Fare doppio clic il **prodotti**tabelle e selezionare **Mostra dati tabella**.  
  Il **prodotti** tabella viene visualizzata. 
 
-    ![Interfaccia utente e la navigazione - tabella di prodotti](ui_and_navigation/_static/image9.png)
-6. Questa visualizzazione consente di visualizzare e modificare i dati di **prodotti** tabella manualmente.
-7. Chiudi il **prodotti** finestra della tabella.
-8. Nel **Esplora Server**, fare doppio clic su di **prodotti** tabella nuovo e selezionare **Apri definizione tabella**.  
- I dati di progettazione per il **prodotti** tabella viene visualizzata. 
+    ![Navigazione - tabella Products e dell'interfaccia utente](ui_and_navigation/_static/image9.png)
+6. In questa vista consente di visualizzare e modificare i dati nella **prodotti** tabella manualmente.
+7. Chiudi il **prodotti** finestra di tabella.
+8. Nel **Esplora Server**, fare doppio clic il **prodotti** nuovamente di tabella e selezionare **Apri definizione tabella**.  
+ Dati di progettazione per il **prodotti** tabella viene visualizzata. 
 
     ![Interfaccia utente e la navigazione - progettazione di prodotti](ui_and_navigation/_static/image10.png)
-9. Nel **T-SQL** scheda verrà visualizzato l'istruzione SQL DDL che è stato utilizzato per creare la tabella. È inoltre possibile utilizzare l'interfaccia utente di **progettazione** scheda per modificare lo schema.
-10. Nel **Esplora Server**, fare doppio clic su **WingtipToys** del database e selezionare **chiusura connessione**.   
- Scollegare il database da Visual Studio, lo schema del database sarà in grado di modificare più avanti in questa serie di esercitazioni.
-11. Tornare alla **Esplora**selezionando il **Esplora** scheda nella parte inferiore del **Esplora Server** finestra.
+9. Nel **T-SQL** scheda verrà visualizzato l'istruzione SQL DDL che è stato usato per creare la tabella. È anche possibile usare l'interfaccia utente di **progettazione** pressione di tab per modificare lo schema.
+10. Nel **Esplora Server**, fare doppio clic su **WingtipToys** del database e selezionare **3=chiusura connessione**.   
+ Scollegando il database da Visual Studio, lo schema del database sarà in grado di modificare più avanti in questa serie di esercitazioni.
+11. Tornare alla **Esplora soluzioni**selezionando le **Esplora soluzioni** scheda nella parte inferiore della **Esplora Server** finestra.
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione della serie è stato aggiunto alcuni interfaccia utente di base, grafica, pagine e navigazione. Inoltre, è stata eseguita l'applicazione Web, che il database creato dalle classi di dati che è stato aggiunto nell'esercitazione precedente. Inoltre visualizzare il contenuto del *prodotti* tabella del database visualizzando direttamente il database. Nella prossima esercitazione, si visualizzeranno gli elementi di dati e i dettagli del database.
+In questa esercitazione della serie è stato aggiunto alcuni interfaccia utente di base, elementi grafici, le pagine e navigazione. Inoltre, è stata eseguita l'applicazione Web, che il database creato dalle classi di dati che è stato aggiunto nell'esercitazione precedente. Anche visualizzato il contenuto del *prodotti* tabella del database visualizzando direttamente il database. Nella prossima esercitazione, verranno visualizzati gli elementi di dati e i dettagli del database.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

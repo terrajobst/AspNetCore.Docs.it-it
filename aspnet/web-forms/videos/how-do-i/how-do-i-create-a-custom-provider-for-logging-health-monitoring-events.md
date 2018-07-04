@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
-title: "[Eseguire la ricerca per categorie:] Creare un Provider personalizzato per la registrazione eventi di monitoraggio dell'integrità | Documenti Microsoft"
+title: '[Procedura:] Creare un Provider personalizzato per gli eventi di monitoraggio dello stato di registrazione | Microsoft Docs'
 author: rick-anderson
-description: Chris Pels viene illustrato come creare un provider personalizzato per lo stato ASP.NET, sistema, che registra gli eventi in un file di log basato su testo di monitoraggio dello stato di monitoraggio. Le...
+description: Chris Pels illustra come creare un provider personalizzato per l'integrità ASP.NET il monitoraggio di sistema, che registra gli eventi in un file di log basata su testo di monitoraggio dell'integrità. Le...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
 ms.topic: article
 ms.assetid: 18ae018d-b388-4f79-a218-b5dd4dc4e75b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
 msc.type: video
-ms.openlocfilehash: 0619e93b4cca58537a496e059949f86d1a26bbd9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 05b5ea9ad21e500593fce643b53d5ccb7c66ca66
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26524970"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381143"
 ---
-<a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Eseguire la ricerca per categorie:] Creare un Provider personalizzato per la registrazione eventi di monitoraggio dell'integrità
+<a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Procedura:] Creare un Provider personalizzato per gli eventi di monitoraggio dello stato di registrazione
 ====================
-da [Chris PEL](https://twitter.com/chrispels)
+da [Chris Pels](https://twitter.com/chrispels)
 
-Chris Pels viene illustrato come creare un provider personalizzato per lo stato ASP.NET, sistema, che registra gli eventi in un file di log basato su testo di monitoraggio dello stato di monitoraggio. Informazioni su come creare la classe provider personalizzato, che eredita dalla classe BufferedWebEventProvider, comprendere i metodi e proprietà utilizzate per creare il provider e creare un sito web che viene utilizzata per scrivere i file di log.
+Chris Pels illustra come creare un provider personalizzato per l'integrità ASP.NET il monitoraggio di sistema, che registra gli eventi in un file di log basata su testo di monitoraggio dell'integrità. Informazioni su come creare la classe provider personalizzato, che eredita dalla classe BufferedWebEventProvider, comprendere i metodi e proprietà usate per creare il provider e creare un sito web che viene utilizzato per scrivere i file di log.
 
-[&#9654; Guardare video (minuti 26)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events)
+[&#9654;Guarda il video (26 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events)
