@@ -1,75 +1,74 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
-title: Modifica dell'ordine z di un DropShadow (VB) | Documenti Microsoft
+title: Modifica dello Z Index di un controllo DropShadow (VB) | Microsoft Docs
 author: wenz
-description: Il controllo DropShadow AJAX Control Toolkit estende un pannello con un'ombreggiatura. Tuttavia questo shadow talvolta è in conflitto con altri controlli, per insta...
+description: Il controllo DropShadow in AJAX Control Toolkit estende un pannello con un'ombreggiatura. Tuttavia questo shadow in alcuni casi è in conflitto con altri controlli, di programma...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b484dc6bfa6f67bd6b70f7c36c2eb2ec7143edaf
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: afc51c6e52a08f46ffc44cc462bdf9a9d5c8ef43
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871298"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397542"
 ---
-<a name="adjusting-the-z-index-of-a-dropshadow-vb"></a><span data-ttu-id="67130-104">Modifica dell'ordine z di un DropShadow (VB)</span><span class="sxs-lookup"><span data-stu-id="67130-104">Adjusting the Z-Index of a DropShadow (VB)</span></span>
+<a name="adjusting-the-z-index-of-a-dropshadow-vb"></a><span data-ttu-id="00ef6-104">Modifica dello Z Index di un controllo DropShadow (VB)</span><span class="sxs-lookup"><span data-stu-id="00ef6-104">Adjusting the Z-Index of a DropShadow (VB)</span></span>
 ====================
-<span data-ttu-id="67130-105">da [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="67130-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="00ef6-105">da [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="00ef6-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="67130-106">[Scaricare codice](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) o [Scarica il PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="67130-106">[Download Code](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) or [Download PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)</span></span>
+<span data-ttu-id="00ef6-106">[Scaricare il codice](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) o [Scarica il PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="00ef6-106">[Download Code](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) or [Download PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)</span></span>
 
-> <span data-ttu-id="67130-107">Il controllo DropShadow AJAX Control Toolkit estende un pannello con un'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="67130-107">The DropShadow control in the AJAX Control Toolkit extends a panel with a drop shadow.</span></span> <span data-ttu-id="67130-108">Tuttavia questo shadow talvolta è in conflitto con altri controlli, ad esempio il controllo Menu ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="67130-108">However this shadow sometimes conflicts with other controls, for instance the ASP.NET Menu control.</span></span> <span data-ttu-id="67130-109">Quando una voce di menu viene visualizzata, viene visualizzato dietro l'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="67130-109">When a menu entry pops up, it appears behind the drop shadow.</span></span>
+> <span data-ttu-id="00ef6-107">Il controllo DropShadow in AJAX Control Toolkit estende un pannello con un'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="00ef6-107">The DropShadow control in the AJAX Control Toolkit extends a panel with a drop shadow.</span></span> <span data-ttu-id="00ef6-108">Tuttavia questo shadow in alcuni casi è in conflitto con altri controlli, ad esempio il controllo di ASP.NET Menu.</span><span class="sxs-lookup"><span data-stu-id="00ef6-108">However this shadow sometimes conflicts with other controls, for instance the ASP.NET Menu control.</span></span> <span data-ttu-id="00ef6-109">Quando una voce di menu viene visualizzata, viene visualizzato dietro l'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="00ef6-109">When a menu entry pops up, it appears behind the drop shadow.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="67130-110">Panoramica</span><span class="sxs-lookup"><span data-stu-id="67130-110">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="00ef6-110">Panoramica</span><span class="sxs-lookup"><span data-stu-id="00ef6-110">Overview</span></span>
 
-<span data-ttu-id="67130-111">Il controllo DropShadow AJAX Control Toolkit estende un pannello con un'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="67130-111">The DropShadow control in the AJAX Control Toolkit extends a panel with a drop shadow.</span></span> <span data-ttu-id="67130-112">Tuttavia questo shadow talvolta è in conflitto con altri controlli, ad esempio il controllo Menu ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="67130-112">However this shadow sometimes conflicts with other controls, for instance the ASP.NET Menu control.</span></span> <span data-ttu-id="67130-113">Quando una voce di menu viene visualizzata, viene visualizzato dietro l'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="67130-113">When a menu entry pops up, it appears behind the drop shadow.</span></span>
+<span data-ttu-id="00ef6-111">Il controllo DropShadow in AJAX Control Toolkit estende un pannello con un'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="00ef6-111">The DropShadow control in the AJAX Control Toolkit extends a panel with a drop shadow.</span></span> <span data-ttu-id="00ef6-112">Tuttavia questo shadow in alcuni casi è in conflitto con altri controlli, ad esempio il controllo di ASP.NET Menu.</span><span class="sxs-lookup"><span data-stu-id="00ef6-112">However this shadow sometimes conflicts with other controls, for instance the ASP.NET Menu control.</span></span> <span data-ttu-id="00ef6-113">Quando una voce di menu viene visualizzata, viene visualizzato dietro l'ombreggiatura.</span><span class="sxs-lookup"><span data-stu-id="00ef6-113">When a menu entry pops up, it appears behind the drop shadow.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="67130-114">Passaggi</span><span class="sxs-lookup"><span data-stu-id="67130-114">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="00ef6-114">Passaggi</span><span class="sxs-lookup"><span data-stu-id="00ef6-114">Steps</span></span>
 
-<span data-ttu-id="67130-115">Il codice inizia con il pannello, contenente testo in modo che il pannello contiene testo sufficiente per l'effetto sia visibile:</span><span class="sxs-lookup"><span data-stu-id="67130-115">The code commences with the Panel itself, containing enough text so that the panel contains enough text for the effect to be visible:</span></span>
+<span data-ttu-id="00ef6-115">Il codice inizia con il pannello stesso, che contiene il testo sufficiente in modo che il pannello contiene testo sufficiente per l'effetto sia visibile:</span><span class="sxs-lookup"><span data-stu-id="00ef6-115">The code commences with the Panel itself, containing enough text so that the panel contains enough text for the effect to be visible:</span></span>
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="67130-116">Un altro pannello viene eseguito immediatamente prima di `panelShadow` pannello.</span><span class="sxs-lookup"><span data-stu-id="67130-116">Another panel is placed directly before the `panelShadow` panel.</span></span> <span data-ttu-id="67130-117">Contiene un menu con orientamento orizzontale in modo che le voci di menu visualizzate in (oppure piuttosto: sotto) il `dropShadow` pannello):</span><span class="sxs-lookup"><span data-stu-id="67130-117">It contains a menu with horizontal orientation so that menu entries appear over (or rather: under) the `dropShadow` panel):</span></span>
+<span data-ttu-id="00ef6-116">Un altro pannello è posizionato direttamente prima il `panelShadow` pannello.</span><span class="sxs-lookup"><span data-stu-id="00ef6-116">Another panel is placed directly before the `panelShadow` panel.</span></span> <span data-ttu-id="00ef6-117">Contiene un menu con orientamento orizzontale, in modo che le voci di menu visualizzate in (o piuttosto: sotto) il `dropShadow` pannello):</span><span class="sxs-lookup"><span data-stu-id="00ef6-117">It contains a menu with horizontal orientation so that menu entries appear over (or rather: under) the `dropShadow` panel):</span></span>
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="67130-118">Quindi, `DropShadowExtender` viene aggiunto per estendere il `panelShadow` pannello con un effetto di ombreggiatura:</span><span class="sxs-lookup"><span data-stu-id="67130-118">Then, the `DropShadowExtender` is added to extend the `panelShadow` panel with a drop shadow effect:</span></span>
+<span data-ttu-id="00ef6-118">Successivamente, il `DropShadowExtender` viene aggiunto per estendere il `panelShadow` pannello con un effetto ombreggiatura:</span><span class="sxs-lookup"><span data-stu-id="00ef6-118">Then, the `DropShadowExtender` is added to extend the `panelShadow` panel with a drop shadow effect:</span></span>
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample3.aspx)]
 
-<span data-ttu-id="67130-119">Infine, ASP.NET AJAX `ScriptManager` controllo Abilita il Toolkit di controllo utilizzare:</span><span class="sxs-lookup"><span data-stu-id="67130-119">Finally, the ASP.NET AJAX `ScriptManager` control enables the Control Toolkit to work:</span></span>
+<span data-ttu-id="00ef6-119">Infine, ASP.NET AJAX `ScriptManager` controllo Abilita il Toolkit di controllo lavorare:</span><span class="sxs-lookup"><span data-stu-id="00ef6-119">Finally, the ASP.NET AJAX `ScriptManager` control enables the Control Toolkit to work:</span></span>
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample4.aspx)]
 
-<span data-ttu-id="67130-120">Quando si esegue questo script, le voci di menu vengono visualizzate sotto il pannello.</span><span class="sxs-lookup"><span data-stu-id="67130-120">When you run this script, the menu entries appear underneath the panel.</span></span> <span data-ttu-id="67130-121">Tuttavia il menu utilizza la classe CSS `panel` in cui è sufficiente definire due operazioni per visualizzare gli elementi davanti a un pannello di:</span><span class="sxs-lookup"><span data-stu-id="67130-121">However the menu uses the CSS class `panel` where you just have to define two things to make elements appear in front of the other panel:</span></span>
+<span data-ttu-id="00ef6-120">Quando si esegue questo script, le voci di menu vengono visualizzate sotto il pannello.</span><span class="sxs-lookup"><span data-stu-id="00ef6-120">When you run this script, the menu entries appear underneath the panel.</span></span> <span data-ttu-id="00ef6-121">Tuttavia il menu di scelta Usa la classe CSS `panel` in cui è sufficiente definire due cose come è possibile visualizzare gli elementi davanti a altro pannello:</span><span class="sxs-lookup"><span data-stu-id="00ef6-121">However the menu uses the CSS class `panel` where you just have to define two things to make elements appear in front of the other panel:</span></span>
 
-- <span data-ttu-id="67130-122">Posizionamento relativo</span><span class="sxs-lookup"><span data-stu-id="67130-122">Relative positioning</span></span>
-- <span data-ttu-id="67130-123">Indice z positivo</span><span class="sxs-lookup"><span data-stu-id="67130-123">A positive z-index</span></span>
+- <span data-ttu-id="00ef6-122">Posizionamento relativo</span><span class="sxs-lookup"><span data-stu-id="00ef6-122">Relative positioning</span></span>
+- <span data-ttu-id="00ef6-123">Un indice z positivo</span><span class="sxs-lookup"><span data-stu-id="00ef6-123">A positive z-index</span></span>
 
 [!code-css[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample5.css)]
 
-<span data-ttu-id="67130-124">Quindi, `DropShadowExtender` controllo non è in conflitto più con il controllo Menu.</span><span class="sxs-lookup"><span data-stu-id="67130-124">Then, the `DropShadowExtender` control does not conflict any longer with the Menu control.</span></span>
+<span data-ttu-id="00ef6-124">Quindi, `DropShadowExtender` controllo non è in conflitto più con il controllo Menu.</span><span class="sxs-lookup"><span data-stu-id="00ef6-124">Then, the `DropShadowExtender` control does not conflict any longer with the Menu control.</span></span>
 
 
-<span data-ttu-id="67130-125">[![Prima: La voce di menu non è visibile](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="67130-125">[![Before: The menu entry is not visible](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)</span></span>
+<span data-ttu-id="00ef6-125">[![Prima: La voce di menu non è visibile](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="00ef6-125">[![Before: The menu entry is not visible](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)</span></span>
 
-<span data-ttu-id="67130-126">Prima: La voce di menu non è visibile ([fare clic per visualizzare l'immagine ingrandita](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="67130-126">Before: The menu entry is not visible ([Click to view full-size image](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))</span></span>
+<span data-ttu-id="00ef6-126">Prima: La voce di menu non è visibile ([fare clic per visualizzare l'immagine con dimensioni normali](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="00ef6-126">Before: The menu entry is not visible ([Click to view full-size image](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))</span></span>
 
 
-<span data-ttu-id="67130-127">[![Dopo: Viene visualizzata la voce di menu](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)</span><span class="sxs-lookup"><span data-stu-id="67130-127">[![After: The menu entry appears](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)</span></span>
+<span data-ttu-id="00ef6-127">[![Dopo: Viene visualizzata la voce di menu](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)</span><span class="sxs-lookup"><span data-stu-id="00ef6-127">[![After: The menu entry appears](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)</span></span>
 
-<span data-ttu-id="67130-128">Dopo: Viene visualizzata la voce di menu ([fare clic per visualizzare l'immagine ingrandita](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))</span><span class="sxs-lookup"><span data-stu-id="67130-128">After: The menu entry appears ([Click to view full-size image](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))</span></span>
+<span data-ttu-id="00ef6-128">Dopo: La voce di menu viene visualizzata ([fare clic per visualizzare l'immagine con dimensioni normali](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))</span><span class="sxs-lookup"><span data-stu-id="00ef6-128">After: The menu entry appears ([Click to view full-size image](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="67130-129">[Precedente](manipulating-dropshadow-properties-from-client-code-cs.md)
-> [Successivo](manipulating-dropshadow-properties-from-client-code-vb.md)</span><span class="sxs-lookup"><span data-stu-id="67130-129">[Previous](manipulating-dropshadow-properties-from-client-code-cs.md)
+> <span data-ttu-id="00ef6-129">[Precedente](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [Successivo](manipulating-dropshadow-properties-from-client-code-vb.md)</span><span class="sxs-lookup"><span data-stu-id="00ef6-129">[Previous](manipulating-dropshadow-properties-from-client-code-cs.md)
 [Next](manipulating-dropshadow-properties-from-client-code-vb.md)</span></span>
