@@ -1,81 +1,80 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
-title: 'Parte 4: Elenco di prodotti | Documenti Microsoft'
+title: 'Parte 4: Elenco di prodotti | Microsoft Docs'
 author: JoeStagner
-description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 4 viene illustrato l'elenco di prodotti con Contr GridView....
+description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 4 illustra l'elenco di prodotti con GridView Contr....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 929d88d747c25ca7c4f6f991421cb3aa9456aa45
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881064"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368809"
 ---
 <a name="part-4-listing-products"></a>Parte 4: Elenco di prodotti
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks viene illustrato come particolarmente semplice è creare potenti applicazioni scalabili per la piattaforma .NET. Illustra come usare le nuove caratteristiche in ASP.NET 4 per creare un archivio online, inclusi gli acquisti, estrazione e l'amministrazione.
+> Tailspin Spyworks viene illustrato come saliente è davvero semplice per creare applicazioni potenti e scalabili per la piattaforma .NET. Illustra come usare le nuove funzionalità in ASP.NET 4 per creare un negozio online, tra cui acquisti, estrazione e l'amministrazione.
 > 
-> Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 4 viene illustrata l'elenco di prodotti con il controllo GridView.
+> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 4 viene illustrato l'elenco di prodotti con il controllo GridView.
 
 
 ## <a id="_Toc260221670"></a>  Elenco di prodotti con il controllo GridView
 
-Esaminiamo implementazione page ProductsList.aspx "Facendo clic" nella soluzione, selezionare "Aggiungi" e "New Item".
+È possibile iniziare a implementare la pagina ProductsList.aspx facendo clic su"con il pulsante destro" nella nostra soluzione e selezionando "Aggiungi" e "Nuovo elemento".
 
 ![](tailspin-spyworks-part-4/_static/image1.jpg)
 
-Scegliere "Web Form mediante pagina Master" e immettere il nome di una pagina di ProductsList.aspx".
+Scegliere "Web Form mediante pagina Master" e immettere un nome di pagina del ProductsList.aspx".
 
 Fare clic su "Aggiungi".
 
 ![](tailspin-spyworks-part-4/_static/image2.jpg)
 
-Successivamente, scegliere la cartella "Stili" in cui è stato inserito nella pagina Site. master e selezionarla nella finestra "Il contenuto della cartella".
+Quindi scegliere la cartella "Stili" in cui è stato inserito un pagina Site. master e selezionarlo dalla finestra "Contenuto della cartella".
 
 ![](tailspin-spyworks-part-4/_static/image3.jpg)
 
 Fare clic su "Ok" per creare la pagina.
 
-Il database viene popolato con i dati di prodotto come illustrato di seguito.
+Il database viene popolato con dati del prodotto come illustrato di seguito.
 
 ![](tailspin-spyworks-part-4/_static/image4.jpg)
 
-Dopo aver creata la pagina nuovo verrà utilizzata un'origine dati di entità per accedere ai dati di prodotto, ma in questa istanza è necessario selezionare le entità del prodotto ed è necessario limitare gli elementi che vengono restituiti solo a quelli per la categoria selezionata.
+Dopo aver creata la pagina si userà anche in questo caso un'origine dati di entità per accedere ai dati del prodotto, ma in questo caso è necessario selezionare le entità Product e dobbiamo limitare gli elementi che vengono restituiti solo a quelli per la categoria selezionata.
 
-A tale scopo c'EntityDataSource per generare automaticamente la clausola WHERE e si specificano il WhereParameter.
+A tale scopo possiamo dirti EntityDataSource per generare automaticamente la clausola WHERE e, specifichiamo il WhereParameter.
 
-Si ricordi che quando abbiamo creato le voci di Menu nel nostro "Menu categoria prodotto" sono compilate in modo dinamico il collegamento aggiungendo il CatagoryID per il parametro QueryString per ciascun collegamento. Microsoft comunicherà l'origine dati di entità da cui derivare il parametro in cui tale parametro di stringa di query.
+Si ricordi che quando abbiamo creato le voci di Menu nel nostro "Menu categoria prodotto" viene compilata dinamicamente il collegamento aggiungendo il CatagoryID alla stringa di query per ogni collegamento. Microsoft comunicherà l'origine dati di entità da cui derivare il parametro in cui tale parametro di stringa di query.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample1.aspx)]
 
-Successivamente, è possibile configurare il controllo ListView per visualizzare un elenco di prodotti. Per creare un'esperienza ottimale di acquisto che è sarà compattare diverse funzionalità concisa ogni singolo prodotto visualizzato nel nostro ListVew.
+Si configurerà quindi il controllo ListView per visualizzare un elenco di prodotti. Per creare un'esperienza di shopping ottimale che è sarà compact diverse funzionalità concisa in ogni singolo prodotto visualizzato nel nostro ListVew.
 
-- Il nome del prodotto sarà un collegamento alla visualizzazione dettagli del prodotto.
+- Il nome di prodotto è un collegamento alla visualizzazione di dettaglio del prodotto.
 - Verrà visualizzato il prezzo del prodotto.
-- Verrà visualizzata un'immagine del prodotto e si selezionerà in modo dinamico l'immagine da una directory di catalogo immagini nell'applicazione.
-- È incluso un collegamento per aggiungere subito il prodotto specifico al carrello.
+- Verrà visualizzata un'immagine del prodotto e si selezionerà in modo dinamico l'immagine da una directory di immagini di catalogo nella nostra applicazione.
+- Verrà incluso un collegamento per aggiungere immediatamente il prodotto specifico al carrello acquisti.
 
-Di seguito è riportato il markup per l'istanza del controllo ListView.
+Ecco il markup per l'istanza del controllo ListView.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample2.aspx)]
 
 Stiamo creando dinamicamente diversi collegamenti per ogni prodotto visualizzato.
 
-Inoltre, prima che sia testare una nuova pagina è necessario creare la struttura di directory per il prodotto immagini catalogo come indicato di seguito.
+Inoltre, prima è proprio nuova pagina di test è necessario creare la struttura di directory per il prodotto catalogo immagini come indicato di seguito.
 
 ![](tailspin-spyworks-part-4/_static/image1.png)
 
-Una volta le immagini di questo prodotto sono accessibili sia possibile testare la pagina di elenco del prodotto.
+Dopo che sono accessibili le nostre immagini di prodotto è possibile testare la pagina di elenco del prodotto.
 
 ![](tailspin-spyworks-part-4/_static/image5.jpg)
 
@@ -83,23 +82,23 @@ Dalla home page del sito, fare clic su uno dei collegamenti elenco categoria.
 
 ![](tailspin-spyworks-part-4/_static/image6.jpg)
 
-È necessario implementare la pagina ProductDetials.apsx e la funzionalità AddToCart.
+Ora è necessario implementare la pagina ProductDetials.apsx e la funzionalità AddToCart.
 
-Utilizzare File -&gt;nuovo per creare un nome di pagina ProductDetails.aspx tramite il sito pagina Master, come è stato fatto in precedenza.
+Utilizzare File -&gt;New per creare un nome di pagina ProductDetails.aspx usando Master Page del sito come in precedenza.
 
-Si utilizzerà nuovamente un controllo EntityDataSource per accedere al record di prodotto specifico nel database e si utilizzerà un controllo FormView ASP.NET per visualizzare i dati di prodotto, come indicato di seguito.
+Anche in questo caso si userà un controllo EntityDataSource per accedere al record di prodotto specifico nel database e si userà un controllo FormView ASP.NET per visualizzare i dati del prodotto come indicato di seguito.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample3.aspx)]
 
-Non occorre preoccuparsi se la formattazione è un po' divertente all'utente. Il markup precedente lascia spazio nel layout di visualizzazione per un paio di funzionalità che verrà implementato in un secondo momento.
+Non occorre preoccuparsi se la formattazione sembra un po' divertente all'utente. Il markup precedente lascia spazio nel layout di visualizzazione per un paio di funzionalità che verrà implementato in un secondo momento.
 
-Shopping Cart rappresenterà la logica più complessa nell'applicazione. Per iniziare a utilizzare File -&gt;nuovo per creare una pagina denominata MyShoppingCart.aspx.
+Il carrello della spesa rappresenterà la logica più complessa nella nostra applicazione. Per iniziare, usare File -&gt;nuovo per creare una pagina denominata MyShoppingCart.aspx.
 
-Si noti che non si sta scelta ShoppingCart.aspx il nome.
+Si noti che non è stato scelto il nome ShoppingCart.aspx.
 
-Il database contiene una tabella denominata "ShoppingCart". Quando viene generato un Entity Data Model è stata creata una classe per ogni tabella nel database. Pertanto, Entity Data Model generato una classe di entità denominata "ShoppingCart". È possibile modificare il modello in modo che è possibile utilizzare il nome per l'implementazione di carrello acquisti o estenderlo per le esigenze specifiche, ma si è scelto invece a semplicemente selezionare un nome che verrà evitare il conflitto.
+Il database contiene una tabella denominata "ShoppingCart". Quando viene generato un Entity Data Model è stata creata una classe per ogni tabella nel database. Pertanto, l'Entity Data Model generato una classe di entità denominato "ShoppingCart". È stato possibile modificare il modello in modo che abbiamo potremmo utilizzare tale nome per l'implementazione di carrello degli acquisti o estenderla per le nostre esigenze, ma si opterà invece a è sufficiente selezionare un nome da evita il conflitto.
 
-È inoltre importante notare che si creeranno un carrello semplice e incorporare la logica di carrello degli acquisti con la visualizzazione del carrello acquisti. È possibile anche scegliere di implementare nostro carrello acquisti in un livello di Business completamente separate.
+È inoltre importante sottolineare che creeremo un carrello acquisti semplice e incorporare la logica di carrello degli acquisti con la visualizzazione del carrello acquisti. Si potrebbe essere anche scegliere di implementare il carrello acquisti in un livello di Business completamente separate.
 
 > [!div class="step-by-step"]
 > [Precedente](tailspin-spyworks-part-3.md)

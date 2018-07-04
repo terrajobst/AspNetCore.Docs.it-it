@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: Utilizzare migrazioni Code First per il seeding del Database | Documenti Microsoft
+title: Usare migrazioni Code First per effettuare il seeding del Database | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,25 +9,24 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 33bc6d82daa9ca5f46452a1adf4e2eebea04fa6c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d753ea52c57af2cbffff9e1e8741bbe49bc6d7b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869933"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370526"
 ---
-<a name="use-code-first-migrations-to-seed-the-database"></a>Utilizzare migrazioni Code First per il seeding del Database
+<a name="use-code-first-migrations-to-seed-the-database"></a>Usare migrazioni Code First per effettuare il seeding del Database
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
-[Scaricare il progetto completato](https://github.com/MikeWasson/BookService)
+[Download progetto completato](https://github.com/MikeWasson/BookService)
 
-In questa sezione, si utilizzerà [migrazioni Code First](https://msdn.microsoft.com/data/jj591621) in Entity Framework per il seeding del database con dati di test.
+In questa sezione si userà [migrazioni Code First](https://msdn.microsoft.com/data/jj591621) in Entity Framework per effettuare il seeding del database con dati di test.
 
-Dal **strumenti** dal menu **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, immettere il comando seguente:
+Dal **degli strumenti** dal menu **Library Package Manager**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 [!code-console[Main](part-3/samples/sample1.cmd)]
 
@@ -35,7 +34,7 @@ Questo comando aggiunge una cartella denominata migrazioni al progetto, oltre a 
 
 ![](part-3/_static/image1.png)
 
-Aprire il file Configuration.cs. Aggiungere il seguente **utilizzando** istruzione.
+Aprire il file Configuration.cs. Aggiungere il codice seguente **usando** istruzione.
 
 [!code-csharp[Main](part-3/samples/sample2.cs)]
 
@@ -47,59 +46,59 @@ Nella finestra della Console di gestione pacchetti, digitare i comandi seguenti:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-Il primo comando genera codice che crea il database e il secondo comando esegue il codice. Il database viene creato localmente, utilizzando [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
+Il primo comando genera codice che crea il database e il secondo comando esegue tale codice. Il database viene creato in locale, usando [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
 
 ![](part-3/_static/image2.png)
 
 ## <a name="explore-the-api-optional"></a>Esplorare l'API (facoltativo)
 
-Premere F5 per eseguire l'applicazione in modalità di debug. Visual Studio avvia IIS Express ed esegue l'app web. Visual Studio, quindi, viene avviato un browser e verrà visualizzata la home page dell'app.
+Premere F5 per eseguire l'applicazione in modalità di debug. Visual Studio avvia IIS Express ed esegue l'app web. Quindi, Visual Studio avvia un browser e verrà visualizzata la home page dell'app.
 
-Quando Visual Studio viene eseguito un progetto web, viene assegnato un numero di porta. Nell'immagine seguente, il numero di porta è 50524. Quando si esegue l'applicazione, verrà visualizzato un numero di porta diverso.
+Quando Visual Studio viene eseguito un progetto web, assegna un numero di porta. Nell'immagine seguente, il numero di porta è 50524. Quando si esegue l'applicazione, si noterà un numero di porta diverso.
 
 ![](part-3/_static/image3.png)
 
-Home page viene implementata utilizzando ASP.NET MVC. Nella parte superiore della pagina, è presente un collegamento che afferma "API". Questo collegamento consente di visualizzare una pagina della Guida generato automaticamente per l'API web. (Per informazioni su come aggiungere la propria documentazione per la pagina e la modalità di generazione di questa pagina della Guida, vedere [la creazione di pagine della Guida per ASP.NET Web API](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) È possibile fare clic su Guida di collegamenti della pagina per visualizzare i dettagli sull'API, incluso il formato di richiesta e risposta.
+Home page viene implementata tramite ASP.NET MVC. Nella parte superiore della pagina, è presente un collegamento con la dicitura "API". Questo collegamento consente di accedere a una pagina della Guida generata automaticamente per l'API web. (Per altre modalità di generazione di questa pagina della Guida e come è possibile aggiungere il proprio documentazione alla pagina, vedere [creazione di pagine della Guida per l'API Web ASP.NET](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) È possibile fare clic su Guida di collegamenti della pagina per visualizzare informazioni dettagliate sulle API, incluso il formato della richiesta e risposta.
 
 ![](part-3/_static/image4.png)
 
-L'API consente le operazioni CRUD nel database. Di seguito viene riepilogata l'API.
+L'API consente le operazioni CRUD sul database. Di seguito sono riepilogate le API.
 
 | Autori |  |
 | --- | -- |
-| OTTENERE l'api o gli autori | Ottenere tutti gli autori. |
-| Api GET/autori / {id} | Ottenere un autore dall'ID. |
+| OTTENERE/autori di api | Ottenere tutti gli autori. |
+| Api/autori di GET / {id} | Ottenere un autore per ID. |
 | Autori di POST/api / | Creare un nuovo autore. |
-| Inserire /api autori / {id} | Aggiornare un autore esistente. |
-| ELIMINARE /api autori / {id} | Eliminare un autore. |
+| PUT/API/autori / {id} | Aggiornare un autore esistente. |
+| ELIMINARE/API/autori / {id} | Eliminare un autore. |
 
 | Libri |  |
 | --- | -- |
 | OTTENERE /api/books | Ottenere tutti i libri. |
 | GET /api/books/{id} | Ottenere un libro di ID. |
-| REGISTRARE/api/documentazione | Creare una nuova rubrica. |
-| Inserire /api documentazione / {id} | Aggiornare un libro esistente. |
-| DELETE /api/books/{id} | Eliminare un libro. |
+| POST/api/documentazione | Creare un nuovo libro. |
+| PUT/API/documentazione / {id} | Aggiornare un libro esistente. |
+| ELIMINARE/API/documentazione / {id} | Eliminare un libro. |
 
 ## <a name="view-the-database-optional"></a>Visualizzare il Database (facoltativo)
 
-Quando è stato eseguito il comando Update-Database, EF creato il database e chiamare il `Seed` metodo. Quando si esegue l'applicazione localmente, Entity Framework Usa [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx). È possibile visualizzare il database in Visual Studio. Dal **vista** dal menu **Esplora oggetti di SQL Server**.
+Quando è stato eseguito il comando Update-Database, Entity Framework è stato creato il database e chiamato il `Seed` (metodo). Quando si esegue l'applicazione in locale, Usa EF [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx). È possibile visualizzare il database in Visual Studio. Dal **View** dal menu **Esplora oggetti di SQL Server**.
 
 ![](part-3/_static/image5.png)
 
-Nel **Connetti al Server** finestra di dialogo, nel **nome Server** casella di modifica, digitare "(localdb) \v11.0". Lasciare il **autenticazione** opzione come "Autenticazione di Windows". Fare clic su **Connetti**.
+Nel **Connetti al Server** finestra di dialogo, nella **nome Server** casella di modifica, digitare "(localdb) \v11.0". Lasciare il **autenticazione** opzione come "Autenticazione di Windows". Fare clic su **Connetti**.
 
 ![](part-3/_static/image6.png)
 
-Visual Studio si connette al database locale e Mostra i database esistenti nella finestra Esplora oggetti di SQL Server. È possibile espandere i nodi per visualizzare le tabelle create Entity Framework.
+Visual Studio si connette al database locale e visualizza i database esistenti nella finestra di Esplora oggetti di SQL Server. È possibile espandere i nodi per visualizzare le tabelle create di Entity Framework.
 
 ![](part-3/_static/image7.png)
 
-Per visualizzare i dati, fare doppio clic su una tabella e selezionare **Visualizza dati**.
+Per visualizzare i dati, fare doppio clic su una tabella e selezionare **dati della visualizzazione**.
 
 ![](part-3/_static/image8.png)
 
-Nella schermata seguente mostra i risultati per la tabella di documentazione. Si noti che EF popolato il database con i dati del valore di inizializzazione e la tabella contiene la chiave esterna alla tabella degli autori.
+Lo screenshot seguente mostra i risultati per la tabella di libri. Si noti che EF popolato il database con i dati di seeding e la tabella contiene la chiave esterna alla tabella degli autori.
 
 ![](part-3/_static/image9.png)
 

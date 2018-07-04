@@ -1,44 +1,43 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
-title: 'Parte 2: Livello di accesso ai dati | Documenti Microsoft'
+title: 'Nella parte 2: Livello di accesso ai dati | Microsoft Docs'
 author: JoeStagner
-description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 2 viene illustrata l'aggiunta del livello di accesso ai dati.
+description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 2 illustra l'aggiunta di livello di accesso ai dati.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 5a9d5429-d70b-411c-8474-f42cf7ef8a2b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9f734b04a0f4cec3c33bc5b42ef283ea64cdb463
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 13abb02e76b3af80aa11d09e75dc223403917804
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890489"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382569"
 ---
 <a name="part-2-data-access-layer"></a>Parte 2: Livello di accesso ai dati
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks viene illustrato come particolarmente semplice è creare potenti applicazioni scalabili per la piattaforma .NET. Illustra come usare le nuove caratteristiche in ASP.NET 4 per creare un archivio online, inclusi gli acquisti, estrazione e l'amministrazione.
+> Tailspin Spyworks viene illustrato come saliente è davvero semplice per creare applicazioni potenti e scalabili per la piattaforma .NET. Illustra come usare le nuove funzionalità in ASP.NET 4 per creare un negozio online, tra cui acquisti, estrazione e l'amministrazione.
 > 
-> Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 2 viene illustrata l'aggiunta del livello di accesso ai dati.
+> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 2 illustra l'aggiunta di livello di accesso ai dati.
 
 
 ## <a id="_Toc260221668"></a>  Aggiunta di livello di accesso ai dati
 
 L'applicazione di e-commerce dipenderà da due database.
 
-Per informazioni sul cliente verrà usato il database di sistema di appartenenze ASP.NET standard. Per il nostro carrello catalogo carrello e il prodotto è un database di SQL Express viene implementato come indicato di seguito.
+Per informazioni sui clienti useremo database di appartenenze ASP.NET standard. Per il nostro catalogo di prodotto e carrello acquisti implementeremo un database SQL Express come indicato di seguito.
 
 ![](tailspin-spyworks-part-2/_static/image1.jpg)
 
-Dopo aver creato il database (Commerce.mdf) nell'App dell'applicazione\_cartella dati è possibile procedere per creare il livello di accesso ai dati tramite Entity Framework .NET.
+Dopo aver creato il database (Commerce.mdf) nell'App dell'applicazione\_cartella dati è possibile procedere per creare il livello di accesso ai dati usando .NET Entity Framework.
 
-Verrà creata una cartella denominata "dati\_accesso" e fare clic con il pulsante destro per tale cartella e scegliere "Aggiungi nuovo elemento".
+Si creerà una cartella denominata "dati\_accesso" e fare clic con il pulsante destro su tale cartella e scegliere "Aggiungi nuovo elemento".
 
 In "Modelli installati" elemento e quindi selezionare "ADO.NET Entity Data Model" Immettere EDM\_Commerce.edmx come il nome e fare clic sul pulsante "Aggiungi".
 
@@ -56,7 +55,7 @@ Scegliere "Genera da Database".
 
 Salvare e compilare.
 
-Si è ora pronti per aggiungere la funzionalità: prima di un menu di categoria di prodotto.
+A questo punto siamo pronti aggiungere la prima funzionalità – un menu di categoria di prodotto.
 
 > [!div class="step-by-step"]
 > [Precedente](tailspin-spyworks-part-1.md)

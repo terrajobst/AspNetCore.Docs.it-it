@@ -4,14 +4,14 @@ author: guardrex
 description: Collegamenti alle risorse per eseguire il test e il debug di applicazioni ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 07/03/2018
 uid: test/index
-ms.openlocfilehash: c5925d55a1b7d50d44d6bea4013331416ce3cec8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 20f6804c1db588a88abb0d5686f894b7463ff6a9
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278801"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433961"
 ---
 # <a name="test-debug-and-troubleshoot-in-aspnet-core"></a>Test, debug e risoluzione dei problemi in ASP.NET Core
 
@@ -31,6 +31,12 @@ Informazioni sul test della logica dei controller in ASP.NET Core con Moq e xUni
 
 ## <a name="debug"></a>Debug
 
+[Informazioni sul debug tramite Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
+Scoprire le funzionalità del debugger di Visual Studio con una procedura dettagliata.
+
+[Debugging with Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) (Debug con Visual Studio Code)  
+Informazioni sul supporto del debug incorporato in Visual Studio Code.
+
 [Eseguire il debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)  
 Informazioni su come eseguire il debug delle origini dati di .NET Core e ASP.NET Core.
 
@@ -38,7 +44,7 @@ Informazioni su come eseguire il debug delle origini dati di .NET Core e ASP.NET
 Informazioni su come impostare e configurare un'app ASP.NET Core di Visual Studio 2017, distribuirla in IIS con Azure e collegare il debugger remoto da Visual Studio.
 
 [Debugger di snapshot](/azure/application-insights/app-insights-snapshot-debugger)  
-Indicazioni su come raccogliere snapshot per le eccezioni generate più di frequente in modo da avere le informazioni necessarie per diagnosticare eventuali problemi nell'ambiente di produzione.
+Informazioni su come raccogliere snapshot per le eccezioni generate più di frequente in modo da avere le informazioni necessarie per diagnosticare eventuali problemi nell'ambiente di produzione.
 
 ## <a name="troubleshoot"></a>Risolvere i problemi
 

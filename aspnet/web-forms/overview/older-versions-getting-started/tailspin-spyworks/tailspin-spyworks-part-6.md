@@ -1,38 +1,37 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: "Parte 6: L'appartenenza ASP.NET | Documenti Microsoft"
+title: 'Parte 6: Appartenenza ASP.NET | Microsoft Docs'
 author: JoeStagner
-description: Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
+description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6d01a745ca1428f065f564f676d483ee807eb52e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886810"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368473"
 ---
-<a name="part-6-aspnet-membership"></a>Parte 6: L'appartenenza ASP.NET
+<a name="part-6-aspnet-membership"></a>Parte 6: Appartenenza ASP.NET
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks viene illustrato come particolarmente semplice è creare potenti applicazioni scalabili per la piattaforma .NET. Illustra come usare le nuove caratteristiche in ASP.NET 4 per creare un archivio online, inclusi gli acquisti, estrazione e l'amministrazione.
+> Tailspin Spyworks viene illustrato come saliente è davvero semplice per creare applicazioni potenti e scalabili per la piattaforma .NET. Illustra come usare le nuove funzionalità in ASP.NET 4 per creare un negozio online, tra cui acquisti, estrazione e l'amministrazione.
 > 
-> Questa serie di esercitazioni in dettaglio tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
+> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 6 aggiunge le appartenenze di ASP.NET.
 
 
-## <a id="_Toc260221672"></a>  Utilizzo di appartenenze ASP.NET
+## <a id="_Toc260221672"></a>  Utilizzo di appartenenza ASP.NET
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
-Fare clic su protezione
+Fare clic su sicurezza
 
 ![](tailspin-spyworks-part-6/_static/image1.jpg)
 
@@ -40,78 +39,78 @@ Assicurarsi che si sta usando l'autenticazione basata su form.
 
 ![](tailspin-spyworks-part-6/_static/image2.jpg)
 
-Utilizzare il collegamento "Create User" per creare un paio di utenti.
+Usare il collegamento "Create User" per creare un paio di utenti.
 
 ![](tailspin-spyworks-part-6/_static/image3.jpg)
 
-Al termine, fare riferimento alla finestra di Esplora soluzioni e aggiornare la visualizzazione.
+Al termine, fare riferimento alla finestra Esplora soluzioni e aggiornare la visualizzazione.
 
 ![](tailspin-spyworks-part-6/_static/image2.png)
 
-Si noti che il file ASPNETDB. Fine file MDF è stato creato. Questo file contiene le tabelle per supportare i servizi ASP.NET di base come l'appartenenza.
+Si noti che il file ASPNETDB. È stato creato correttamente MDF. Questo file contiene le tabelle per supportare i servizi ASP.NET core, ad esempio l'appartenenza.
 
-Ora è possibile iniziare l'implementazione del processo di estrazione.
+A questo punto è possibile iniziare a implementare il processo di estrazione.
 
 Iniziare creando una pagina CheckOut.aspx.
 
-La pagina CheckOut.aspx solo deve essere disponibile per gli utenti connessi in modo si verrà limitato l'accesso ai registrato in utenti e reindirizzerà gli utenti che non sono connessi alla pagina di accesso.
+La pagina CheckOut.aspx solo deve essere disponibile per gli utenti che sono registrati in modo che Microsoft limiterà l'accesso a effettuato l'accesso degli utenti e reindirizzerà gli utenti che non sono connessi alla pagina di accesso.
 
-A tale scopo seguente verrà aggiunto alla sezione di configurazione del file Web. config.
+A questo scopo si aggiungerà quanto segue alla sezione di configurazione del file Web. config.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample1.xml)]
 
-Il modello per le applicazioni Web Form ASP.NET viene automaticamente aggiunta una sezione di autenticazione per il file Web. config e stabilita pagina di accesso.
+Il modello per le applicazioni Web Form ASP.NET automaticamente aggiunta una sezione di autenticazione al file Web. config e stabilito la pagina di accesso predefinito.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample2.xml)]
 
-È necessario modificare il login file code-behind per eseguire la migrazione di un carrello acquisti anonimo quando l'utente effettua l'accesso. Modificare la pagina\_evento di caricamento come indicato di seguito.
+È necessario modificare il codice aspx file per eseguire la migrazione di un carrello acquisti anonimo quando l'utente accede code-behind. La pagina Cambia\_evento di caricamento come indicato di seguito.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample3.cs)]
 
-Quindi aggiungere un gestore dell'evento simile al seguente per impostare il nome della sessione per l'utente appena connesso e modificare l'id sessione temporaneo nel carrello acquisti a quella dell'utente chiamando il metodo MigrateCart della classe MyShoppingCart "LoggedIn". (Implementato nel file con estensione cs)
+Aggiungere quindi un gestore dell'evento "LoggedIn" simile al seguente per impostare il nome della sessione per l'utente appena connesso e modificare l'id sessione temporaneo nel carrello acquisti in quello dell'utente chiamando il metodo MigrateCart nella nostra classe MyShoppingCart. (Implementata nel file con estensione cs)
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample4.cs)]
 
-Implementare il metodo MigrateCart() come segue.
+Implementare il metodo MigrateCart() simile al seguente.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample5.cs)]
 
-In checkout.aspx utilizzeremo un controllo EntityDataSource e un controllo GridView in, vedere la pagina quanto abbiamo nella nostra pagina carrello acquisti.
+In checkout.aspx useremo un controllo EntityDataSource e un controllo GridView in, vedere la pagina così come è stato fatto nella nostra pagina carrello acquisti.
 
 [!code-aspx[Main](tailspin-spyworks-part-6/samples/sample6.aspx)]
 
-Si noti che il controllo GridView specifica un gestore di evento "ondatabound" denominato MyList\_RowDataBound questo punto implementare il gestore dell'evento simile al seguente.
+Si noti che il controllo GridView specifica un gestore di evento "ondatabound" denominato MyList\_RowDataBound così è possibile implementare tale gestore eventi simile al seguente.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample7.cs)]
 
-Mantenere questo metodo un totale parziale del Market carrello come ogni riga è associata e aggiorna la riga inferiore di GridView.
+Questo metodo modo, viene mantenuto un totale parziale del carrello come ogni riga è associata e aggiorni la riga nella parte inferiore di GridView.
 
-In questa fase è stata implementata una presentazione di "verifica" nell'ordine da inserire.
+A questo punto sono state implementate una presentazione di "recensione" dell'ordine da inserire.
 
-Verrà gestito un scenario del carrello vuoto mediante l'aggiunta di alcune righe di codice alla pagina dei\_evento di caricamento:
+È possibile gestire un scenario del carrello vuoto mediante l'aggiunta di poche righe di codice alla nostra pagina\_evento di caricamento:
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample8.cs)]
 
-Quando l'utente fa clic sul pulsante "Invia" eseguiamo il codice seguente nel gestore di evento di fare clic su pulsante Submit.
+Quando l'utente fa clic sul pulsante "Invia" si eseguirà il codice seguente nel gestore dell'evento fare clic sul pulsante Submit.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample9.cs)]
 
-"Carne" del processo di invio dell'ordine è per essere implementato nel metodo della classe organizzazione MyShoppingCart SubmitOrder().
+La sostanza"" del processo di invio dell'ordine è per essere implementata nel metodo SubmitOrder() della nostra classe MyShoppingCart.
 
 SubmitOrder sarà:
 
-- Eseguire tutti gli articoli nel carrello acquisti e utilizzarli per creare un nuovo Record di ordine e i record OrderDetails associati.
-- Calcolare la data di spedizione.
+- Eseguire tutte le voci nel carrello acquisti e usarli per creare un nuovo Record di ordine e i record OrderDetails associati.
+- Calcola la data di spedizione.
 - Deselezionare il carrello acquisti.
 
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample10.cs)]
 
-Ai fini di questa applicazione di esempio è sarà calcolare una data di spedizione semplicemente aggiungendo due giorni alla data corrente.
+Ai fini di questa applicazione di esempio sarà calcoliamo una data di spedizione semplicemente aggiungendo due giorni alla data corrente.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample11.cs)]
 
-Esegue l'applicazione ora consentirà per testare il processo di acquisto dall'inizio alla fine.
+Esecuzione dell'applicazione ora consentirà per testare il processo di acquisto dall'inizio alla fine.
 
 > [!div class="step-by-step"]
 > [Precedente](tailspin-spyworks-part-5.md)

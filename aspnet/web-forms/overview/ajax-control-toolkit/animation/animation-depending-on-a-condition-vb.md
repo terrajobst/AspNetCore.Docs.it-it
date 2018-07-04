@@ -1,48 +1,47 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
-title: Animazione in base a una condizione (VB) | Documenti Microsoft
+title: Animazione in base a una condizione (VB) | Microsoft Docs
 author: wenz
-description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se è un'animazione...
+description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Se un'animazione è...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 1b87d8d6-b3f7-4126-b51c-d41442fbf947
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d3a648ff8299c9720e9f34522f271595ab1b9bc9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 160b53519382c215db039fd6297bb907688b81c1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868152"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368557"
 ---
 <a name="animation-depending-on-a-condition-vb"></a>Animazione in base a una condizione (VB)
 ====================
 da [Christian Wenz](https://github.com/wenz)
 
-[Scaricare codice](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.vb.zip) o [Scarica il PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4VB.pdf)
+[Scaricare il codice](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.vb.zip) o [Scarica il PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4VB.pdf)
 
-> Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se un'animazione viene eseguita o non può dipendere anche una condizione in forma di codice JavaScript.
+> Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Se viene eseguita un'animazione o non può dipendere anche una condizione sotto forma di codice JavaScript.
 
 
 ## <a name="overview"></a>Panoramica
 
-Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework per aggiungere le animazioni a un controllo. Se un'animazione viene eseguita o non può dipendere anche una condizione in forma di codice JavaScript.
+Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Se viene eseguita un'animazione o non può dipendere anche una condizione sotto forma di codice JavaScript.
 
 ## <a name="steps"></a>Passaggi
 
-Prima di tutto, includere il `ScriptManager` nella pagina; quindi, la libreria AJAX di ASP.NET viene caricata, che consente di usare il Toolkit di controllo:
+Prima di tutto, includere il `ScriptManager` nella pagina; quindi, la libreria ASP.NET AJAX viene caricata, rendendo possibile usare il Toolkit di controllo:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample1.aspx)]
 
-Verrà applicata l'animazione a un riquadro del testo che presenta un aspetto simile al seguente:
+Verrà applicata l'animazione a un pannello del testo che presenta un aspetto simile al seguente:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample2.aspx)]
 
-Nella classe CSS associata per il pannello, definire un colore di sfondo nice e inoltre impostare una larghezza fissa per il pannello:
+Nella classe CSS associata per il pannello, definire un colore di sfondo interessante e anche impostare una larghezza fissa per il pannello:
 
 [!code-css[Main](animation-depending-on-a-condition-vb/samples/sample3.css)]
 
@@ -50,16 +49,16 @@ Quindi, aggiungere il `AnimationExtender` alla pagina, fornendo un' `ID`, il `Ta
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample4.aspx)]
 
-All'interno di `<Animations>` nodo, utilizzare `<OnLoad>` per eseguire le animazioni dopo la pagina è stata caricata completamente. Invece di una delle animazioni, regolare il `<Condition>` elemento entra in gioco. Il codice JavaScript fornito come valore della `ConditionScript` attributo viene eseguito in fase di esecuzione. Se restituisce true, l'animazione viene eseguita, in caso contrario non. Il markup seguente fornisce due animazioni, ognuno di essi in esecuzione al 50% dei case al momento casuale. Poiché potrebbe essere presente solo un'animazione all'interno di `<OnLoad>`, i due `<Condition>` animazioni vengono unite tramite un insieme di `<Sequence>` elemento:
+All'interno di `<Animations>` nodo, usare `<OnLoad>` per eseguire le animazioni dopo la pagina è stata caricata completamente. Invece di uno delle animazioni, regolare il `<Condition>` entra in gioco l'elemento. Il codice JavaScript fornito come valore del `ConditionScript` attributo viene eseguito in fase di esecuzione. Se restituisce true, l'animazione viene eseguita, in caso contrario non. Il markup seguente fornisce due animazioni, ognuna di esse in esecuzione al 50% dei case al momento casuale. Poiché può esistere solo un'animazione all'interno `<OnLoad>`, i due `<Condition>` animazioni vengono unite mediante la `<Sequence>` elemento:
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample5.aspx)]
 
-Si noti che il segno di minore di (`<`) nei `ConditionScript` attributo deve essere sottoposto a escape (). Quando si esegue questo script viene eseguito alcuna animazione, o uno dei due non oppure eseguire entrambe.
+Si noti che il segno di minore (`<`) nel `ConditionScript` attributo deve essere sottoposto a escape (). Quando si esegue questo script, nessuna animazione viene eseguito, o uno dei due viene, o eseguire entrambe.
 
 
-[![Il pannello è dissolvenza in uscita senza alcun ridimensionamento, pertanto l'esecuzione del secondo animazione, il primo non](animation-depending-on-a-condition-vb/_static/image2.png)](animation-depending-on-a-condition-vb/_static/image1.png)
+[![Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo che non ha esecuzioni animazione secondo, il primo elemento](animation-depending-on-a-condition-vb/_static/image2.png)](animation-depending-on-a-condition-vb/_static/image1.png)
 
-Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo non ha l'esecuzione del secondo animazione, il primo ([fare clic per visualizzare l'immagine ingrandita](animation-depending-on-a-condition-vb/_static/image3.png))
+Il pannello è dissolvenza in uscita senza alcun ridimensionamento, in modo che non ha esecuzioni animazione secondo, il primo elemento ([fare clic per visualizzare l'immagine con dimensioni normali](animation-depending-on-a-condition-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Precedente](executing-several-animations-after-each-other-vb.md)

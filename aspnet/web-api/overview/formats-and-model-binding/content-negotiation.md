@@ -1,46 +1,45 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: Contenuti di negoziazione in ASP.NET Web API | Documenti Microsoft
+title: Nell'API Web ASP.NET negoziazione del contenuto | Microsoft Docs
 author: MikeWasson
-description: Descrive la modalità di implementazione negoziazione del contenuto HTTP in ASP.NET Web API.
+description: Viene descritto come API Web ASP.NET implementa la negoziazione del contenuto HTTP.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2012
 ms.topic: article
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: ca373af6754e82889dc100b63f73b76aaa4e4f27
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c4e7a0c2601ca60f081876e83757997a2e920298
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26507020"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368929"
 ---
-<a name="content-negotiation-in-aspnet-web-api"></a>Negoziazione del contenuto in ASP.NET Web API
+<a name="content-negotiation-in-aspnet-web-api"></a>Negoziazione del contenuto nell'API Web ASP.NET
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
-In questo articolo viene descritto come ASP.NET Web API implementa negoziazione del contenuto.
+Questo articolo descrive come API Web ASP.NET implementa la negoziazione del contenuto.
 
-La specifica di HTTP (RFC 2616) definisce negoziazione del contenuto come "il processo di selezione la migliore rappresentazione di una risposta specificata quando sono disponibili più rappresentazioni". Il meccanismo principale per la negoziazione del contenuto HTTP sono queste intestazioni della richiesta:
+La specifica HTTP (RFC 2616) definisce la negoziazione del contenuto come "il processo di selezione la migliore rappresentazione per una determinata risposta quando sono disponibili più rappresentazioni." Il meccanismo principale per la negoziazione del contenuto di tipo HTTP sono le intestazioni della richiesta:
 
-- **Accettare:** quali tipi di supporto sono accettabili per la risposta, ad esempio "application/json", "application/xml" o un tipo di supporto personalizzata, ad esempio &quot;application/vnd.example+xml&quot;
-- **Charset Accept:** i set di caratteri accettabili, ad esempio UTF-8 o ISO 8859-1.
+- **Accettare:** quali tipi di supporto sono accettabili per la risposta, ad esempio "application/json", "application/xml" o un tipo di supporto personalizzato, ad esempio &quot;application/vnd.example+xml&quot;
+- **Charset Accept:** i set di caratteri sono accettabili, ad esempio UTF-8 o ISO 8859-1.
 - **Codifica:** le codifiche di contenuto sono accettabili, ad esempio gzip.
-- **Accept-Language:** il linguaggio naturale preferito, ad esempio "en-us".
+- **Accept-Language:** del linguaggio naturale preferito, ad esempio "en-us".
 
-Il server può inoltre esaminare altre parti della richiesta HTTP. Ad esempio, se la richiesta contiene un'intestazione X-Requested-With, che indica una richiesta AJAX, il server potrebbe predefinito per JSON se è presente alcuna intestazione Accept.
+Il server può anche esaminare altre parti della richiesta HTTP. Ad esempio, se la richiesta contiene un'intestazione X-Requested-With, che indica una richiesta AJAX, il server potrebbe per impostazione predefinita in formato JSON se non è presente alcuna intestazione Accept.
 
-In questo articolo verranno esaminate le intestazioni Accept e Accept-Charset di utilizzo delle API Web. (In questo momento, non vi è alcun supporto predefinito per Accept-Encoding o Accept-Language).
+In questo articolo, esamineremo come API Web Usa le intestazioni Accept e Accept-Charset. (A questo punto, non vi è alcun supporto predefinito per Accept-Encoding o Accept-Language).
 
 ## <a name="serialization"></a>Serializzazione
 
-Se un controller API Web restituisce una risorsa come tipo CLR, la pipeline serializza il valore restituito e di scriverla nel corpo della risposta HTTP.
+Se un controller Web API restituisce una risorsa come tipo CLR, la pipeline serializza il valore restituito e lo scrive nel corpo della risposta HTTP.
 
-Si consideri ad esempio l'azione del controller seguente:
+Ad esempio, si consideri l'azione del controller seguente:
 
 [!code-csharp[Main](content-negotiation/samples/sample1.cs)]
 
@@ -52,60 +51,60 @@ In risposta, il server potrebbe inviare:
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-In questo esempio, il client ha richiesto JSON, Javascript o "qualsiasi" (\*/\*). Il server è disponibile una rappresentazione JSON del `Product` oggetto. Si noti che l'intestazione Content-Type nella risposta è impostata su &quot;application/json&quot;.
+In questo esempio, il client ha richiesto JSON, Javascript o "qualsiasi" (\*/\*). Il server Delivery con una rappresentazione JSON del `Product` oggetto. Si noti che l'intestazione Content-Type nella risposta è impostata su &quot;application/json&quot;.
 
 Un controller può restituire anche un **HttpResponseMessage** oggetto. Per specificare un oggetto CLR per il corpo della risposta, chiamare il **CreateResponse** metodo di estensione:
 
 [!code-csharp[Main](content-negotiation/samples/sample4.cs)]
 
-Questa opzione garantisce un maggiore controllo sui dettagli della risposta. È possibile impostare il codice di stato, aggiungere le intestazioni HTTP e così via.
+Questa opzione offre maggiore controllo sui dettagli della risposta. È possibile impostare il codice di stato, aggiungere le intestazioni HTTP e così via.
 
-L'oggetto che serializza la risorsa viene chiamato un *formattatore di media*. Formattatori di Media derivano il **MediaTypeFormatter** classe. API Web fornisce formattatori di media per XML e JSON ed è possibile creare formattatori personalizzati per supportare altri tipi di supporti. Per informazioni sulla scrittura di un formattatore personalizzato, vedere [formattatori di Media](media-formatters.md).
+L'oggetto che viene serializzata la risorsa viene chiamato un *formattatore di media*. Formattatori di Media derivano dal **MediaTypeFormatter** classe. API Web fornisce formattatori di media per XML e JSON ed è possibile creare i formattatori personalizzati per supportare altri tipi di supporto. Per informazioni sulla scrittura di un formattatore personalizzato, vedere [formattatori di Media](media-formatters.md).
 
-## <a name="how-content-negotiation-works"></a>Funzionamento di negoziazione come contenuto
+## <a name="how-content-negotiation-works"></a>Funziona come contenuto di negoziazione
 
-Ottiene prima di tutto, la pipeline di **IContentNegotiator** servizio il **HttpConfiguration** oggetto. Ottiene anche l'elenco di formattatori di media dal **HttpConfiguration.Formatters** insieme.
+In primo luogo, la pipeline Ottiene il **IContentNegotiator** servizio il **HttpConfiguration** oggetto. Ottiene anche l'elenco di formattatori di file multimediali dal **HttpConfiguration.Formatters** raccolta.
 
-Successivamente, la pipeline chiama **IContentNegotiatior.Negotiate**, passando:
+Successivamente, chiama la pipeline **IContentNegotiatior.Negotiate**passando:
 
 - Il tipo di oggetto da serializzare
-- La raccolta di formattatori di media
+- La raccolta di formattatori di file multimediali
 - La richiesta HTTP
 
-Il **Negotiate** restituisce due tipi di informazioni:
+Il **Negotiate** metodo restituisce due tipi di informazioni:
 
 - Il formattatore da utilizzare
 - Il tipo di supporto per la risposta
 
-Se non viene trovato alcun formattatore, il **Negotiate** restituisce **null**e l'errore del client riceve HTTP 406 (non valida).
+Se non viene trovato alcun formattatore, il **Negotiate** metodo restituisce **null**e l'errore del client riceve HTTP 406 (pagina non valida).
 
-Il codice seguente viene illustrato come un controller può richiamare direttamente negoziazione del contenuto:
+Il codice seguente viene illustrato come un controller può richiamare direttamente la negoziazione del contenuto:
 
 [!code-csharp[Main](content-negotiation/samples/sample5.cs)]
 
-Questo codice è equivalente per la pipeline viene eseguita automaticamente.
+Questo codice è equivalente a elementi di cui la pipeline viene eseguita automaticamente.
 
-## <a name="default-content-negotiator"></a>Negoziatore del contenuto predefinito
+## <a name="default-content-negotiator"></a>Negoziatore del contenuto predefinita
 
-Il **DefaultContentNegotiator** classe fornisce l'implementazione predefinita di **IContentNegotiator**. Per selezionare un formattatore Usa diversi criteri.
+Il **DefaultContentNegotiator** classe fornisce l'implementazione predefinita di **IContentNegotiator**. Usa criteri diversi per selezionare un formattatore.
 
 In primo luogo, il formattatore deve essere in grado di serializzare il tipo. Questa operazione viene verificata chiamando **MediaTypeFormatter.CanWriteType**.
 
-Successivamente, il negoziatore del contenuto esamina ciascun formattatore e valuta l'accuratezza corrisponde alla richiesta HTTP. Per valutare la corrispondenza, il negoziatore del contenuto esamina due operazioni sul formattatore:
+Successivamente, il negoziatore del contenuto esamina ciascun formattatore e viene valutata come associa la richiesta HTTP. Per valutare la corrispondenza, il negoziatore del contenuto esamina due cose sul formattatore:
 
-- Il **SupportedMediaTypes** insieme, che contiene un elenco di tipi di supporto. Negoziatore del contenuto tenta di associare l'elenco di intestazione Accept della richiesta. Si noti che l'intestazione Accept può includere gli intervalli. Ad esempio, "text/plain" è una corrispondenza per il testo /\* o \* / \*.
-- Il **MediaTypeMappings** insieme, che contiene un elenco di **MediaTypeMapping** oggetti. Il **MediaTypeMapping** classe fornisce un modo generico per la corrispondenza di richieste HTTP con i tipi di supporto. Ad esempio, è possibile mappare un'intestazione HTTP personalizzata per un determinato tipo di supporto.
+- Il **SupportedMediaTypes** insieme che contiene un elenco di tipi di supporto. Negoziatore del contenuto Cerca la corrispondenza con l'elenco con l'intestazione Accept della richiesta. Si noti che l'intestazione Accept può includere intervalli. Ad esempio, "text/plain" è una corrispondenza per il testo /\* oppure \* / \*.
+- Il **MediaTypeMappings** insieme che contiene un elenco delle **MediaTypeMapping** oggetti. Il **MediaTypeMapping** classe fornisce un modo generico per corrispondono alle richieste HTTP con i tipi di supporto. Ad esempio, è stato possibile eseguire il mapping di un'intestazione HTTP personalizzata a un tipo di supporti particolare.
 
-Se sono presenti più corrispondenze, la corrispondenza con il server wins fattore qualità più elevata. Ad esempio:
+Se sono presenti più corrispondenze, la corrispondenza con il server wins factor qualità più elevata. Ad esempio:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 
-In questo esempio, application/json è un fattore di qualità implicita pari a 1,0, pertanto è preferibile su application/xml.
+In questo esempio, applicazione/json è un fattore di qualità implicita pari a 1,0, pertanto è preferito su application/xml.
 
-Se non vengono trovate corrispondenze, il negoziatore del contenuto tenta di corrispondenza per il tipo di supporto del corpo della richiesta, se presente. Ad esempio, se la richiesta contiene i dati JSON, negoziatore del contenuto Cerca un formattatore JSON.
+Se viene trovata alcuna corrispondenza, il negoziatore del contenuto tenta di corrispondenza per il tipo di supporti del corpo della richiesta, se presente. Ad esempio, se la richiesta contiene i dati JSON, il negoziatore del contenuto Cerca un formattatore JSON.
 
 Se non sono ancora presenti corrispondenze, il negoziatore del contenuto sceglie semplicemente il primo formattatore in grado di serializzare il tipo.
 
 ## <a name="selecting-a-character-encoding"></a>Selezionare una codifica dei caratteri
 
-Dopo aver selezionato un formattatore, negoziatore del contenuto sceglie la migliore codifica dei caratteri esaminando il **SupportedEncodings** proprietà, il formattatore e trovare una corrispondenza con l'intestazione Accept-Charset nella richiesta (se presente).
+Dopo aver selezionato un formattatore, il negoziatore del contenuto sceglie la codifica dei caratteri migliori esaminando il **SupportedEncodings** proprietà il formattatore e trovare una corrispondenza con l'intestazione Accept-Charset nella richiesta (se presente).

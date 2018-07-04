@@ -1,61 +1,60 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: Dependency Injection in ASP.NET Web API 2 | Documenti Microsoft
+title: Inserimento delle dipendenze in ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: In questa esercitazione viene illustrato come inserire le dipendenze nel controller di ASP.NET Web API. Versioni del software utilizzate nell'esercitazione di Web API 2 Unity Application Block...
+description: Questa esercitazione illustra come inserire le dipendenze nel controller dell'API Web ASP.NET. Versioni del software utilizzate nell'esercitazione di Web API 2 Unity Application Block...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 7f64cc83e36c80b0ffd53edfc629557c0847b200
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92ce5eadc7f371540295c1c4279f817dba09f8e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036515"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369172"
 ---
-<a name="dependency-injection-in-aspnet-web-api-2"></a>Dependency Injection in ASP.NET Web API 2
+<a name="dependency-injection-in-aspnet-web-api-2"></a>Inserimento delle dipendenze in ASP.NET Web API 2
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
-[Scaricare il progetto completato](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
+[Download progetto completato](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
-> In questa esercitazione viene illustrato come inserire le dipendenze nel controller di ASP.NET Web API.
+> Questa esercitazione illustra come inserire le dipendenze nel controller dell'API Web ASP.NET.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
 > 
 > 
-> - Web API 2
-> - [Blocco applicazione per Unity](https://www.nuget.org/packages/Unity/)
+> - API Web 2
+> - [Unity Application Block](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 (versione 5 funziona anche)
 
 
-## <a name="what-is-dependency-injection"></a>Che cos'è l'inserimento di dipendenze?
+## <a name="what-is-dependency-injection"></a>Che cos'è l'inserimento delle dipendenze?
 
-Oggetto *dipendenza* è qualsiasi oggetto che richiede un altro oggetto. Ad esempio, è comune per definire un [repository](http://martinfowler.com/eaaCatalog/repository.html) che gestisce l'accesso ai dati. Di seguito è illustrato un esempio. In primo luogo, definiamo un modello di dominio:
+Oggetto *dipendenza* è qualsiasi oggetto che richiede un altro oggetto. Ad esempio, è comune per definire un [repository](http://martinfowler.com/eaaCatalog/repository.html) che gestisce l'accesso ai dati. Di seguito è illustrato un esempio. In primo luogo, si definirà un modello di dominio:
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
-Di seguito è una classe semplice di repository che contiene gli elementi in un database, mediante Entity Framework.
+Di seguito è una classe di repository semplice che archivia gli elementi in un database usando Entity Framework.
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-Ora è pertanto possibile definire un controller API Web che supporta le richieste GET per `Product` entità. (Spese di spedizione POST e altri metodi per motivi di semplicità.) Di seguito è riportato un primo tentativo:
+A questo punto è possibile definire un controller API Web che supporta le richieste GET per `Product` entità. (Spese di spedizione POST e altri metodi per motivi di semplicità.) Di seguito è un primo tentativo:
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Si noti che la classe controller dipende `ProductRepository`, e ci stiamo consentendo il controller di creare il `ProductRepository` istanza. Tuttavia, è una buona idea a livello di codice in questo modo, la dipendenza per diversi motivi.
+Si noti che la classe controller dipende `ProductRepository`, e si sta consentendo il controller crea il `ProductRepository` istanza. Tuttavia, è opportuno evitare di livello di codice in questo modo, la dipendenza per diversi motivi.
 
-- Se si desidera sostituire `ProductRepository` con un'implementazione diversa, è inoltre necessario modificare la classe controller.
-- Se il `ProductRepository` dispone di dipendenze, è necessario configurare questi all'interno del controller. Per un progetto di grandi dimensioni con più controller, il codice di configurazione diventa distribuito il progetto.
-- È difficile allo unit test, perché il controller è hardcoded alla query del database. Per uno unit test, è consigliabile utilizzare un repository non è possibile con la progettazione imposta fittizi o stub.
+- Se si desidera sostituire `ProductRepository` con un'implementazione diversa, è anche necessario modificare la classe controller.
+- Se il `ProductRepository` ha dipendenze, è necessario configurare questi all'interno del controller. Per un progetto di grandi dimensioni con più controller, il codice di configurazione diventa sparsi tra il progetto.
+- È difficile allo unit test, perché il controller è hardcoded su query del database. Per uno unit test, è consigliabile usare un repository fittizi o stub, che non è possibile eseguire con la progettazione di imposta.
 
-È possibile risolvere questi problemi da *inserendo* repository nel controller. In primo luogo, eseguire il refactoring di `ProductRepository` classe in un'interfaccia:
+Possiamo risolvere questi problemi dal *inserimento* il repository nel controller. In primo luogo, eseguire il refactoring di `ProductRepository` classe in un'interfaccia:
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
@@ -63,13 +62,13 @@ Fornire quindi il `IProductRepository` come parametro di costruttore:
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-Questo esempio viene utilizzato [inserimento costruttore](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). È inoltre possibile utilizzare *inserimento di setter*, in cui è necessario impostare la dipendenza tramite una proprietà o metodo setter.
+Questo esempio viene usato [inserimento del costruttore](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). È anche possibile usare *inserimento di setter*, in cui è necessario impostare la dipendenza attraverso un metodo di impostazione o una proprietà.
 
-Ma ora si verifica un problema, perché l'applicazione non è possibile creare il controller direttamente. API Web crea il controller quando si indirizza la richiesta e l'API Web non riconosce i `IProductRepository`. Si tratta di dove è il resolver di dipendenza di Web API disponibile in.
+Ma Ecco presentarsi un problema, perché l'applicazione non crea direttamente il controller. API Web crea il controller quando indirizza la richiesta e API Web non riconosce i `IProductRepository`. Questo è il resolver di dipendenza di API Web entra in gioco.
 
 ## <a name="the-web-api-dependency-resolver"></a>Il Resolver di dipendenza di API Web
 
-API Web definisce il **resolver di dipendenza** interfaccia per la risoluzione delle dipendenze. Di seguito è riportata la definizione dell'interfaccia:
+API Web definisce la **IDependencyResolver** interfaccia per la risoluzione delle dipendenze. Ecco la definizione dell'interfaccia:
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
@@ -78,50 +77,50 @@ Il **IDependencyScope** interfaccia dispone di due metodi:
 - **GetService** crea un'istanza di un tipo.
 - **GetServices** crea una raccolta di oggetti di un tipo specificato.
 
-Il **resolver di dipendenza** metodo eredita **IDependencyScope** e aggiunge il **BeginScope** metodo. Gli ambiti verrà trattato più avanti in questa esercitazione.
+Il **IDependencyResolver** metodo eredita **IDependencyScope** e aggiunge i **BeginScope** (metodo). Gli ambiti saranno trattati più avanti in questa esercitazione.
 
-Quando l'API Web crea un'istanza del controller, chiama innanzitutto **IDependencyResolver.GetService**, passando il tipo di controller. È possibile utilizzare questo hook di estensibilità per creare il controller, di risoluzione di eventuali dipendenze. Se **GetService** restituisce null, API Web cerca un costruttore senza parametri nella classe controller.
+Quando l'API Web crea un'istanza del controller, viene prima chiamato **IDependencyResolver.GetService**, passando il tipo di controller. È possibile utilizzare questo hook di estensibilità per creare il controller, la risoluzione di eventuali dipendenze. Se **GetService** restituisce null, API Web cerca un costruttore senza parametri nella classe controller.
 
 ## <a name="dependency-resolution-with-the-unity-container"></a>Risoluzione delle dipendenze con il contenitore di Unity
 
-Sebbene sia possibile scrivere un completo **resolver di dipendenza** implementazione partendo da zero, l'interfaccia è destinato funga da ponte tra API Web e i contenitori IoC esistenti.
+Anche se è possibile scrivere una completa **IDependencyResolver** implementazione da zero, l'interfaccia è realmente progettato per fungere da ponte tra API Web e i contenitori IoC esistenti.
 
-Un contenitore di inversione di controllo è un componente software che è responsabile della gestione delle dipendenze. Si registrare i tipi con il contenitore e quindi usare il contenitore per creare oggetti. Le relazioni di dipendenza determina automaticamente il contenitore. Numero di contenitori IoC consentono inoltre di controllare elementi quali la durata degli oggetti e ambito.
+Un contenitore IoC è un componente software che è responsabile della gestione delle dipendenze. Registrare i tipi con il contenitore e quindi usare il contenitore per creare oggetti. Il contenitore determina automaticamente le relazioni di dipendenza. Numerosi contenitori IoC consentono anche di controllare elementi quali la durata degli oggetti e l'ambito.
 
 > [!NOTE]
-> "IoC" è l'acronimo di "inversione di controllo", che è un modello generale in cui un framework chiama il codice dell'applicazione. Un contenitore IoC costruisce oggetti, quali "inverte" il normale flusso di controllo.
+> "IoC" è l'acronimo di "inversione di controllo", ovvero un modello generale in cui un framework chiama il codice dell'applicazione. Un contenitore IoC costruisce oggetti, quali "inverte" il normale flusso di controllo.
 
 
-Per questa esercitazione si userà [Unity](https://msdn.microsoft.com/library/ff647202.aspx) da Microsoft Patterns &amp; consigliate. (Altre librerie comuni includono [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), e [StructureMap ](http://docs.structuremap.net/).) Per installare Unity, è possibile utilizzare Gestione pacchetti NuGet. Dal **strumenti** menu in Visual Studio, selezionare **Gestione pacchetti libreria**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, digitare il comando seguente:
+Per questa esercitazione, useremo [Unity](https://msdn.microsoft.com/library/ff647202.aspx) da Microsoft Patterns &amp; procedure consigliate. (Includono altre librerie molto diffuse [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), e [StructureMap ](http://docs.structuremap.net/).) È possibile usare Gestione pacchetti NuGet per installare Unity. Dal **degli strumenti** dal menu di Visual Studio, selezionare **Library Package Manager**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, digitare il comando seguente:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 
-Di seguito è un'implementazione di **resolver di dipendenza** che esegue il wrapping di un contenitore di Unity.
+Ecco un'implementazione di **IDependencyResolver** che esegue il wrapping di un contenitore di Unity.
 
 [!code-csharp[Main](dependency-injection/samples/sample8.cs)]
 
 > [!NOTE]
-> Se il **GetService** (metodo) non è possibile risolvere un tipo, deve restituire **null**. Se il **GetServices** metodo non è possibile risolvere un tipo, deve restituire un oggetto raccolta vuoto. Non generano eccezioni per i tipi sconosciuti.
+> Se il **GetService** metodo non è possibile risolvere un tipo, deve restituire **null**. Se il **GetServices** (metodo) non è possibile risolvere un tipo, deve restituire un oggetto raccolta vuoto. Non generare eccezioni per i tipi sconosciuti.
 
 
 ## <a name="configuring-the-dependency-resolver"></a>Configurare il Resolver di dipendenza
 
 Impostare il resolver di dipendenza per il **DependencyResolver** proprietà dell'oggetto globale **HttpConfiguration** oggetto.
 
-Nell'esempio di codice registri il `IProductRepository` interfacciarsi con Unity e crea quindi un `UnityResolver`.
+Il codice seguente registra il `IProductRepository` interfacciarsi con Unity e quindi crea un `UnityResolver`.
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
-## <a name="dependency-scope-and-controller-lifetime"></a>Ambito di dipendenza e la durata di Controller
+## <a name="dependency-scope-and-controller-lifetime"></a>Ambito delle dipendenze e la durata di Controller
 
-I controller vengono creati per ogni richiesta. Per la gestione della durata degli oggetti, **resolver di dipendenza** viene utilizzato il concetto di un *ambito*.
+I controller vengono creati per ogni richiesta. Per la gestione della durata degli oggetti, **IDependencyResolver** Usa il concetto di un *ambito*.
 
-Il resolver di dipendenza è collegata la **HttpConfiguration** oggetto ha un ambito globale. Quando l'API Web viene creato un controller, chiama **BeginScope**. Questo metodo restituisce un **IDependencyScope** che rappresenta un ambito figlio.
+Il resolver di dipendenza associata ai **HttpConfiguration** oggetto ha un ambito globale. Quando l'API Web crea un controller, viene chiamato **BeginScope**. Questo metodo restituisce un **IDependencyScope** che rappresenta un ambito figlio.
 
-API Web chiama quindi **GetService** nell'ambito figlio per creare il controller. Una volta completata, richiesta di chiamate all'API Web **Dispose** nell'ambito figlio. Utilizzare il **Dispose** metodo per eliminare le dipendenze del controller.
+API Web chiamerà **GetService** nell'ambito figlio per creare il controller. Quando richiesta risulta completata, l'API Web chiama **Dispose** nell'ambito figlio. Usare la **Dispose** metodo per l'eliminazione delle dipendenze del controller.
 
-Modalità di implementazione di **BeginScope** varia a seconda del contenitore di inversione di controllo. Per Unity, ambito corrisponde a un contenitore figlio:
+Modalità di implementazione **BeginScope** dipende dal contenitore IoC. Per Unity, ambito corrisponde a un contenitore figlio:
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs)]
 
-La maggior parte dei contenitori IoC dispongono di equivalenti simili.
+La maggior parte dei contenitori IoC dispongono di equivalenti simile.

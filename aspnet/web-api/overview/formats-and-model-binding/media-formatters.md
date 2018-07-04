@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/formats-and-model-binding/media-formatters
-title: Formattatori di Media in ASP.NET Web API 2 | Documenti Microsoft
+title: Formattatori di Media in ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,54 +9,53 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb1c7e0f832a0a0160276fbd41facc017e2ae3e
-ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.openlocfilehash: 824fea5a8837ff8b09af832b7d2a094c7d82907b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34452600"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368916"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Formattatori di Media in ASP.NET Web API 2
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
-Questa esercitazione viene illustrato come supportare altri formati multimediali nell'API Web ASP.NET.
+Questa esercitazione illustra come supportare altri formati multimediali nell'API Web ASP.NET.
 
 ## <a name="internet-media-types"></a>Tipi di supporto Internet
 
-Un tipo di supporto, detto anche un tipo MIME, identifica il formato di una porzione di dati. In HTTP, i tipi di supporto vengono descritti il formato del corpo del messaggio. Un tipo di supporto è costituito da due stringhe, un tipo e sottotipo. Ad esempio:
+Un tipo di supporto, detto anche tipo MIME, identifica il formato di una porzione di dati. Tipi di supporti HTTP, descrivono il formato del corpo del messaggio. Un tipo di supporto è costituito da due stringhe, un tipo e sottotipo. Ad esempio:
 
 - testo/html
 - image/png
 - application/json
 
-Quando un messaggio HTTP contiene un corpo dell'entità, l'intestazione Content-Type: Specifica il formato del corpo del messaggio. Questo valore indica il destinatario come analizzare il contenuto del corpo del messaggio.
+Quando un messaggio HTTP contiene un corpo di entità, l'intestazione Content-Type specifica il formato del corpo del messaggio. Il ricevitore indica come analizzare il contenuto del corpo del messaggio.
 
-Ad esempio, se una risposta HTTP contiene un'immagine PNG, la risposta potrebbe essere le intestazioni seguenti.
+Ad esempio, se una risposta HTTP contiene un'immagine PNG, la risposta contenga le intestazioni seguenti.
 
 [!code-console[Main](media-formatters/samples/sample1.cmd)]
 
-Quando il client invia un messaggio di richiesta, è possibile includere un'intestazione Accept. L'intestazione Accept indica il server che supporti tipi il client eseguirà dal server. Ad esempio:
+Quando il client invia un messaggio di richiesta, può includere un'intestazione Accept. L'intestazione Accept indica il server che supporti tipi del client richiede dal server. Ad esempio:
 
 [!code-console[Main](media-formatters/samples/sample2.cmd)]
 
 Questa intestazione indica al server che il client richiede HTML, XHTML o XML.
 
-Il tipo di supporto determina come API Web serializza e deserializza il corpo del messaggio HTTP. API Web include il supporto incorporato per XML, JSON, BSON e dati di form-urlencoded e si possono supportare i tipi di supporto aggiuntive scrivendo un *formattatore di media*.
+Il tipo di supporti determina come API Web serializza e deserializza il corpo del messaggio HTTP. API Web offre supporto predefinito per XML, JSON, BSON e dati form-urlencoded ed è possibile supportare i tipi di supporto aggiuntive per la scrittura di un *formattatore di media*.
 
 Per creare un formattatore di media, derivare da una di queste classi:
 
-- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Questa classe viene utilizzata della lettura asincrona e metodi di scrittura.
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Questa lettura asincrona Usa classi e metodi di scrittura.
 - [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Questa classe deriva da **MediaTypeFormatter** ma vengono utilizzati i metodi di lettura/scrittura sychronous.
 
-Derivazione da **BufferedMediaTypeFormatter** è più semplice, perché non è presente codice asincrono, ma significa inoltre possibile bloccare il thread chiamante durante il / o.
+Che deriva da **BufferedMediaTypeFormatter** è più semplice, perché non è presente codice asincrono, ma significa anche durante il / o può bloccare il thread chiamante.
 
 ## <a name="example-creating-a-csv-media-formatter"></a>Esempio: Creazione di un formattatore di Media CSV
 
-Nell'esempio seguente viene illustrato un formattatore di media type che può serializzare un oggetto di prodotto in un formato con valori delimitati da virgole (CSV). Questo esempio viene utilizzato il tipo di prodotto definito in questa esercitazione [la creazione di un'API Web che supporta le operazioni CRUD](../older-versions/creating-a-web-api-that-supports-crud-operations.md). Di seguito è riportata la definizione dell'oggetto prodotto:
+L'esempio seguente illustra un formattatore di media type che può serializzare un oggetto prodotto da un formato con valori delimitati da virgole (CSV). Questo esempio viene usato il tipo di prodotto definito nell'esercitazione [creazione di un'API Web che supporta le operazioni CRUD](../older-versions/creating-a-web-api-that-supports-crud-operations.md). Ecco la definizione dell'oggetto prodotto:
 
 [!code-csharp[Main](media-formatters/samples/sample3.cs)]
 
@@ -64,38 +63,38 @@ Per implementare un formattatore CSV, definire una classe che deriva da **Buffer
 
 [!code-csharp[Main](media-formatters/samples/sample4.cs)]
 
-Nel costruttore, aggiungere i tipi di supporto che supporta il formattatore. In questo esempio, il formattatore supporta un solo tipo di supporto, &quot;testo/csv&quot;:
+Nel costruttore, aggiungere i tipi di supporti che supporta il formattatore. In questo esempio, il formattatore supporta un tipo di supporto &quot;testo/csv&quot;:
 
 [!code-csharp[Main](media-formatters/samples/sample5.cs)]
 
-Eseguire l'override di **CanWriteType** metodo per indicare quali tipi al formattatore in grado di serializzare:
+Eseguire l'override di **CanWriteType** metodo per indicare quali tipi di formattatore in grado di serializzare:
 
 [!code-csharp[Main](media-formatters/samples/sample6.cs)]
 
-In questo esempio, il formattatore in grado di serializzare solo `Product` oggetti e raccolte di `Product` oggetti.
+In questo esempio, il formattatore in grado di serializzare single `Product` oggetti, oltre a raccolte di `Product` oggetti.
 
-Analogamente, eseguire l'override di **CanReadType** può deserializzare il metodo per indicare quali tipi al formattatore. In questo esempio, il formattatore supporta la deserializzazione, il metodo restituisce semplicemente **false**.
+Analogamente, eseguire l'override di **CanReadType** metodo per indicare quali tipi di formattatore può deserializzare. In questo esempio, il formattatore non supporta la deserializzazione, quindi il metodo restituisce semplicemente **false**.
 
 [!code-csharp[Main](media-formatters/samples/sample7.cs)]
 
-Infine, eseguire l'override di **WriteToStream** metodo. Questo metodo serializza un tipo scrivendolo in un flusso. Se il formattatore supporta la deserializzazione, anche l'override di **ReadFromStream** metodo.
+Infine, eseguire l'override di **WriteToStream** (metodo). Questo metodo serializza un tipo scrivendola su un flusso. Se il formattatore supporta la deserializzazione, anche l'override di **ReadFromStream** (metodo).
 
 [!code-csharp[Main](media-formatters/samples/sample8.cs)]
 
-## <a name="adding-a-media-formatter-to-the-web-api-pipeline"></a>Aggiunta di un formattatore di Media per la Pipeline di Web API
+## <a name="adding-a-media-formatter-to-the-web-api-pipeline"></a>Aggiunta di un formattatore di Media alla Pipeline API Web
 
-Per aggiungere un tipo di supporto del formattatore per la pipeline di Web API, utilizzare il **formattatori** proprietà il **HttpConfiguration** oggetto.
+Per aggiungere un tipo di supporto formattatore in modo che la pipeline di Web API, usare il **formattatori** proprietà di **HttpConfiguration** oggetto.
 
 [!code-csharp[Main](media-formatters/samples/sample9.cs)]
 
-## <a name="character-encodings"></a>Codifiche di caratteri
+## <a name="character-encodings"></a>Codifiche dei caratteri
 
-Facoltativamente, un formattatore di media può supportare più codifiche di caratteri, ad esempio UTF-8 o ISO 8859-1.
+Facoltativamente, un formattatore di media può supportare più codifiche di carattere, ad esempio UTF-8 o ISO 8859-1.
 
-Nel costruttore, aggiungere uno o più [Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) i tipi di **SupportedEncodings** insieme. Inserire il valore predefinito prima di codifica.
+Nel costruttore, aggiungere uno o più [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) tipi per il **SupportedEncodings** raccolta. Inserire il valore predefinito prima di codifica.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-Nel **WriteToStream** e **ReadFromStream** chiamare metodi, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) per selezionare la codifica dei caratteri preferita. Questo metodo consente di ricercare le intestazioni della richiesta rispetto all'elenco di codifiche supportate. Utilizzare l'oggetto restituito **codifica** quando si leggere o scrivere dal flusso:
+Nel **WriteToStream** e **ReadFromStream** metodi, chiamare [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) per selezionare la codifica dei caratteri preferita. Questo metodo associa le intestazioni della richiesta rispetto all'elenco di codifiche supportate. Utilizzare l'oggetto restituito **Encoding** quando è leggere o scrivere dal flusso:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

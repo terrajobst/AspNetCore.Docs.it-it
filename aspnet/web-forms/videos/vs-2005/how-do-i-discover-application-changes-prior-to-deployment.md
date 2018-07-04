@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
-title: "[Eseguire la ricerca per categorie:] Individuare le modifiche all'applicazione prima della distribuzione? | Microsoft Docs"
+title: "[Procedura:] Individuare le modifiche dell'applicazione prima della distribuzione? | Microsoft Docs"
 author: pjhacker
-description: Informazioni su come utilizzare Esplora controllo codice sorgente da Visual Studio Team System per individuare le modifiche apportate all'applicazione Web e per ensur...
+description: Informazioni su come usare Esplora controllo codice sorgente da Visual Studio Team System per individuare le modifiche apportate all'applicazione Web e per ensur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2007
 ms.topic: article
 ms.assetid: 6945a637-cab3-4a13-a678-f6d2d83c2587
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
 msc.type: video
-ms.openlocfilehash: 29c13582b41408a318f6cab0eeef516778554b4a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a61186141a95688f3e09e22658dd383149a23727
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894317"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396919"
 ---
-<a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Eseguire la ricerca per categorie:] Individuare le modifiche all'applicazione prima della distribuzione?
+<a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Procedura:] Individuare le modifiche dell'applicazione prima della distribuzione?
 ====================
-da [pirata informatico Paul](https://github.com/pjhacker)
+da [Paul Hacker](https://github.com/pjhacker)
 
-Informazioni su come utilizzare Esplora controllo codice sorgente da Visual Studio Team System per individuare le modifiche apportate all'applicazione Web e per garantire che solo le modifiche necessarie vengono distribuite al sito Web in tempo reale. Verranno inoltre esaminate un'utilità gratuita che consente di unire le modifiche per semplificare la distribuzione.
+Informazioni su come usare Esplora controllo codice sorgente da Visual Studio Team System per individuare le modifiche apportate all'applicazione Web e per garantire che solo le modifiche necessarie vengono distribuite al sito Web in tempo reale. Verrà inoltre esaminato un'utilità gratuita che consente di unire le modifiche insieme per semplificare la distribuzione.
 
-[&#9654;Guardare video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-discover-application-changes-prior-to-deployment)
+[&#9654;Guarda il video (5 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-discover-application-changes-prior-to-deployment)
 
 > [!div class="step-by-step"]
 > [Precedente](how-do-i-publish-and-analyze-test-results.md)

@@ -1,126 +1,125 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
-title: Prevenzione degli attacchi Injection JavaScript (c#) | Documenti Microsoft
+title: Prevenzione degli attacchi Injection JavaScript (c#) | Microsoft Docs
 author: StephenWalther
-description: Evitare attacchi Injection JavaScript e Cross-Site Scripting attacchi accada all'utente. In questa esercitazione, Stephen Walther viene spiegato come aggiungere facilmente de...
+description: Evitare attacchi Injection JavaScript e gli attacchi di Cross-Site Scripting accada all'utente. In questa esercitazione, Stephen Walther spiega come è possibile eseguire facilmente Germania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
 ms.topic: article
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fbec58c009640164d908db5a45557c9e50041173
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2d307e1034dca4893cd45baf7d54edb7544829e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871411"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381890"
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>Prevenzione degli attacchi Injection JavaScript (c#)
 ====================
 da [Stephen Walther](https://github.com/StephenWalther)
 
-[Scarica il PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
+[Scaricare PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
 
-> Evitare attacchi Injection JavaScript e Cross-Site Scripting attacchi accada all'utente. In questa esercitazione, Stephen Walther viene illustrato come è possibile annullare facilmente questi tipi di attacchi di codifica del contenuto HTML.
-
-
-L'obiettivo di questa esercitazione è illustrare come è possibile impedire attacchi intrusivi nel codice JavaScript nelle applicazioni ASP.NET MVC. In questa esercitazione vengono descritti due approcci per difendersi il sito Web da attacchi intrusivi nel codice JavaScript. Informazioni su come impedire attacchi injection JavaScript la codifica dei dati che si visualizzano. Inoltre informazioni su come evitare attacchi injection JavaScript la codifica dei dati che si accettano.
-
-## <a name="what-is-a-javascript-injection-attack"></a>Che cos'è un attacco intrusivo nel codice JavaScript?
-
-Ogni volta che si accetta l'input dell'utente e visualizzare nuovamente l'input dell'utente, si apre il sito Web da attacchi intrusivi nel codice JavaScript. Verrà ora esaminata un'applicazione concreta vulnerabili agli attacchi intrusivi nel codice JavaScript.
-
-Si supponga di aver creato un sito di commenti e suggerimenti del cliente (vedere la figura 1). I clienti possono visitare il sito Web e immettere i commenti e suggerimenti sull'esperienza relativa utilizzando i prodotti. Quando un cliente invia i commenti e suggerimenti, commenti e suggerimenti viene nuovamente visualizzato la pagina dei commenti e suggerimenti.
+> Evitare attacchi Injection JavaScript e gli attacchi di Cross-Site Scripting accada all'utente. In questa esercitazione, Stephen Walther spiega come si possono annullare facilmente questi tipi di attacchi di codifica del contenuto HTML.
 
 
-[![Sito Web di commenti e suggerimenti clienti](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
+L'obiettivo di questa esercitazione è illustrare come è possibile impedire attacchi intrusivi nel codice JavaScript nelle applicazioni ASP.NET MVC. Questa esercitazione illustra due approcci per la difesa contro il sito Web da attacchi intrusivi nel codice JavaScript. Descrive come evitare attacchi injection JavaScript codificando i dati visualizzati. Anche informazioni su come evitare attacchi injection JavaScript codificando i dati che accettano.
 
-**Figura 01**: sito Web di commenti e suggerimenti cliente ([fare clic per visualizzare l'immagine ingrandita](preventing-javascript-injection-attacks-cs/_static/image3.png))
+## <a name="what-is-a-javascript-injection-attack"></a>Che cos'è un attacco Injection JavaScript?
+
+Ogni volta che si accettano input dall'utente e quindi visualizzare di nuovo l'input dell'utente, si apre il sito Web da attacchi intrusivi nel codice JavaScript. Verrà ora esaminato un'applicazione concreta aperta agli attacchi intrusivi nel codice JavaScript.
+
+Si supponga che sia stato creato un sito di commenti e suggerimenti dei clienti (vedere la figura 1). I clienti possono visitare il sito Web e inserire commenti e suggerimenti sulla loro esperienza usando i propri prodotti. Quando un cliente invia i commenti e suggerimenti, commenti e suggerimenti viene nuovamente visualizzato la pagina commenti e suggerimenti.
 
 
-Il sito di commenti e suggerimenti del cliente utilizza il `controller` nel listato 1. Questo `controller` contiene due azioni denominate `Index()` e `Create()`.
+[![Sito Web di commenti e suggerimenti dei clienti](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
-**Elenco 1: `HomeController.cs`**
+**Figura 01**: sito Web di commenti e suggerimenti dei clienti ([fare clic per visualizzare l'immagine con dimensioni normali](preventing-javascript-injection-attacks-cs/_static/image3.png))
+
+
+Il sito Web commenti e suggerimenti dei clienti Usa il `controller` nel listato 1. Ciò `controller` contiene due azioni denominate `Index()` e `Create()`.
+
+**Listato 1: `HomeController.cs`**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample1.cs)]
 
-Il `Index()` metodo visualizza il `Index` visualizzazione. Questo metodo passa tutti i suggerimenti dei clienti precedenti per il `Index` visualizzazione recuperando i commenti dal database (tramite una query LINQ to SQL).
+Il `Index()` metodo visualizza il `Index` vista. Questo metodo passa tutti i commenti e suggerimenti dei clienti precedenti per il `Index` vista recuperando i commenti e suggerimenti dal database (tramite una query LINQ to SQL).
 
-Il `Create()` metodo crea un nuovo elemento di Feedback e lo aggiunge al database. Il messaggio che il cliente viene inserito nel modulo viene passato per il `Create()` metodo nel parametro del messaggio. Viene creato un elemento di Feedback e il messaggio viene assegnato all'elemento di Feedback `Message` proprietà. L'elemento di Feedback viene inviato al database con il `DataContext.SubmitChanges()` chiamata al metodo. Infine, il visitatore viene reindirizzato al `Index` Visualizza tutti i commenti e suggerimenti in cui vengono visualizzati.
+Il `Create()` metodo crea un nuovo elemento di Feedback e lo aggiunge al database. Il messaggio che il cliente immette del modulo viene passato per il `Create()` metodo nel parametro del messaggio. Viene creato un elemento di Feedback e il messaggio viene assegnato all'elemento dei commenti `Message` proprietà. L'elemento di Feedback viene inviato al database con il `DataContext.SubmitChanges()` chiamata al metodo. Infine, il visitatore viene reindirizzato al `Index` Visualizza tutti i commenti e suggerimenti in cui viene visualizzato.
 
 Il `Index` Vista è contenuta nel listato 2.
 
-**Elenco 2: `Index.aspx`**
+**Listato 2: `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample2.aspx)]
 
-Il `Index` Vista dispone di due sezioni. Nella sezione superiore contiene la forma di commenti e suggerimenti dei clienti. Nella sezione inferiore contiene un ciclo For... Ogni ciclo che esegue il ciclo di tutti gli elementi di commenti e suggerimenti cliente precedente e visualizza le proprietà EntryDate e messaggio per ogni elemento di feedback.
+Il `Index` visualizzazione composta da due sezioni. Nella sezione superiore contiene la forma di commenti e suggerimenti di clienti reali. Nella sezione inferiore contiene un ciclo For.. Ciclo foreach che scorre in ciclo tutti gli elementi di commenti e suggerimenti dei clienti precedenti e visualizza le proprietà EntryDate e messaggio per ogni elemento dei commenti.
 
-Sito Web di commenti e suggerimenti del cliente è un semplice sito Web. Purtroppo, il sito Web sono vulnerabili agli attacchi intrusivi nel codice JavaScript.
+Il sito Web dei clienti è un semplice sito Web. Sfortunatamente, il sito Web è vulnerabile agli attacchi injection JavaScript.
 
-Si supponga che in form di commenti e suggerimenti dei clienti è immettere il testo seguente:
+Si supponga che si immette il testo seguente nel modulo di commenti e suggerimenti dei clienti:
 
 [!code-html[Main](preventing-javascript-injection-attacks-cs/samples/sample3.html)]
 
-Questo testo rappresenta uno script JavaScript che visualizza una finestra di messaggio di avviso. Modulo dopo che un utente invia commenti e suggerimenti questo script, il messaggio <em>Boo!</em> verrà visualizzata ogni volta che chiunque visite in sito Web di commenti e suggerimenti del cliente in futuro (vedere la figura 2).
+Questo testo rappresenta uno script JavaScript che visualizza una finestra di messaggio di avviso. Dopo che un utente invia lo script in commenti e suggerimenti modulo, il messaggio <em>Boo!</em> verrà visualizzata ogni volta che chiunque visiti il sito Web dei clienti che a in futuro (vedere la figura 2).
 
 
-[![Attacco intrusivo nel codice JavaScript](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
+[![Attacchi Injection JavaScript](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
 
-**Figura 02**: Injection JavaScript ([fare clic per visualizzare l'immagine ingrandita](preventing-javascript-injection-attacks-cs/_static/image6.png))
+**Figura 02**: attacchi Injection JavaScript ([fare clic per visualizzare l'immagine con dimensioni normali](preventing-javascript-injection-attacks-cs/_static/image6.png))
 
 
-A questo punto, la risposta iniziale per attacchi intrusivi nel codice JavaScript può essere apathy. Si potrebbe pensare che gli attacchi injection JavaScript sono semplicemente un tipo di *alterazione* attacco. Potresti ritenere che nessuno possa eseguire alcuna operazione realmente male eseguendo il commit di un attacco intrusivo nel codice JavaScript.
+A questo punto, la risposta iniziale a attacchi injection JavaScript potrebbe essere apatia. Si potrebbe pensare che degli attacchi injection JavaScript sono semplicemente un tipo di *al danneggiamento* attacco. Si potrebbe ritenere che non possono eseguire qualsiasi operazione davvero evil eseguendo il commit di un attacco injection JavaScript.
 
-Purtroppo, un pirata informatico effettuare alcune effettivamente, operazioni effettivamente male inserendo JavaScript in un sito Web. È possibile utilizzare un attacco intrusivo nel codice JavaScript per eseguire un attacco di Cross-Site Scripting (XSS). In un attacco di tipo Cross-Site Scripting rubare informazioni utente riservate e inviare le informazioni a un altro sito Web.
+Sfortunatamente, un pirata informatico può eseguire tutte o alcune davvero, davvero evil cose inserendo JavaScript in un sito Web. È possibile usare un attacco injection JavaScript per eseguire un attacco di tipo Cross-Site Scripting (XSS). In un attacco di tipo Cross-Site Scripting viene rubare le informazioni utente riservate e invierà tali informazioni a un altro sito Web.
 
-Ad esempio, un pirata informatico può usare un attacco intrusivo nel codice JavaScript per rubare i valori dei cookie del browser da altri utenti. Se le informazioni riservate, ad esempio password, numeri di carta di credito o numeri di previdenza sociale: sono archiviate nei cookie del browser, un pirata informatico può utilizzare un attacco intrusivo nel codice JavaScript per rubare le informazioni. In alternativa, se un utente immette le informazioni riservate in un campo del form contenuto in una pagina che sia stata compromessa con un attacco di JavaScript, il pirata informatico è possibile usare il codice JavaScript inserito per acquisire i dati del form e inviarlo a un altro sito Web.
+Ad esempio, un pirata informatico può usare un attacco injection JavaScript per rubare i valori dei cookie del browser da altri utenti. Se le informazioni sensibili, ad esempio password, numeri di carta di credito o codici fiscali – sono archiviate nei cookie del browser, un pirata informatico può usare un attacco injection JavaScript per rubare le informazioni. In alternativa, se un utente immette le informazioni riservate in un campo del form contenuto in una pagina in cui è stato compromesso da un attacco di JavaScript, quindi l'utente malintenzionato può usare il codice JavaScript inserito per recuperare i dati del form e inviarlo a un altro sito Web.
 
-*Per essere impaurito*. Richiedere gravemente attacchi intrusivi nel codice JavaScript e proteggere le informazioni riservate dell'utente. Nelle due sezioni, esaminati due tecniche che è possibile utilizzare per proteggere le applicazioni ASP.NET MVC da attacchi intrusivi nel codice JavaScript.
+*. È anche possibile mischiare*. Seriamente degli attacchi injection JavaScript e proteggere le informazioni riservate dell'utente. In due sezioni successive, vengono illustrati due tecniche che è possibile usare per difendere le applicazioni MVC ASP.NET da attacchi intrusivi nel codice JavaScript.
 
-## <a name="approach-1-html-encode-in-the-view"></a>Approccio #1: Codifica HTML nella visualizzazione
+## <a name="approach-1-html-encode-in-the-view"></a>Approccio 1 #: Codifica HTML nella visualizzazione
 
-Un metodo semplice per impedire attacchi injection JavaScript è in formato HTML codificare tutti i dati immessi dagli utenti del sito Web quando vengono visualizzati nuovamente i dati in una vista. L'aggiornamento `Index` visualizzazione listato 3 segue questo approccio.
+Un metodo semplice di prevenzione degli attacchi injection JavaScript è in formato HTML codificare tutti i dati immessi dagli utenti di sito Web quando vengono visualizzati nuovamente i dati in una vista. Aggiornato `Index` visualizzazione nel listato 3 segue questo approccio.
 
 **Listato 3 – `Index.aspx` (codificato in formato HTML)**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample4.aspx)]
 
-Si noti che il valore di `feedback.Message` HTML con codificata prima che venga visualizzato il valore con il codice seguente:
+Si noti che il valore di `feedback.Message` è in formato HTML con codificata prima che venga visualizzato il valore con il codice seguente:
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample5.aspx)]
 
-Cosa Media in formato HTML codificare una stringa? Quando si HTML codifica una stringa, pericolose caratteri, ad esempio `<` e `>` sono sostituiti dai riferimenti alle entità HTML, ad esempio `&lt;` e `&gt;`. Quando la stringa `<script>alert("Boo!")</script>` HTML con codifica, viene convertito in `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. La stringa codificata non viene più eseguito come script JavaScript quando vengono interpretati da un browser. Ottenere invece la pagina innocua nella figura 3.
+Che cosa significa in formato HTML codificare una stringa? Quando si HTML codifica una stringa, pericoloso caratteri, ad esempio `<` e `>` vengono sostituiti dai riferimenti alle entità HTML, ad esempio `&lt;` e `&gt;`. Pertanto quando la stringa `<script>alert("Boo!")</script>` è in formato HTML con codifica, verranno convertiti in `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. La stringa con codifica non viene più eseguito come script JavaScript quando vengono interpretati da un browser. Al contrario, viene visualizzata la pagina innocua nella figura 3.
 
 
 [![Attacco JavaScript annullato](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
-**Figura 03**: aggirato attacco JavaScript ([fare clic per visualizzare l'immagine ingrandita](preventing-javascript-injection-attacks-cs/_static/image9.png))
+**Figura 03**: annullato attacco JavaScript ([fare clic per visualizzare l'immagine con dimensioni normali](preventing-javascript-injection-attacks-cs/_static/image9.png))
 
 
-Si noti che il `Index` visualizzare listato 3 solo il valore di `feedback.Message` viene codificato. Il valore di `feedback.EntryDate` non viene codificato. È necessario solo codificare i dati immessi da un utente. Poiché il valore di EntryDate è stato generato nel controller, è non necessario in formato HTML codificare questo valore.
+Si noti che il `Index` visualizzare nel listato 3 solo il valore di `feedback.Message` è codificato. Il valore di `feedback.EntryDate` non viene codificato. Devi solo codificare i dati immessi dall'utente. Poiché il valore di EntryDate è stato generato nel controller, è non necessario in formato HTML codificare questo valore.
 
-## <a name="approach-2-html-encode-in-the-controller"></a>Approccio #2: Codifica HTML nel Controller
+## <a name="approach-2-html-encode-in-the-controller"></a>Approccio #2: Codifica HTML del controller
 
-Anziché alla codifica HTML dati quando si visualizzano i dati in una vista, è possibile HTML codificare i dati appena prima di inviare i dati al database. In caso di adottare questo approccio secondo il `controller` listato 4.
+Anziché la codifica dei dati quando si visualizzano i dati in una visualizzazione HTML, si può HTML codificare i dati prima di inviare i dati nel database. Questo secondo approccio viene adottato nel caso del `controller` nel listato 4.
 
 **Listato 4 – `HomeController.cs` (codificato in formato HTML)**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample6.cs)]
 
-Si noti che il valore del messaggio è HTML con codificato prima che il valore viene inviato al database all'interno di `Create()` azione. Quando il messaggio verrà nuovamente visualizzato nella visualizzazione, il messaggio è codificato in formato HTML e codice JavaScript inserito nel messaggio non viene eseguito.
+Si noti che il valore del messaggio è HTML con codificata prima che il valore venga inviato al database all'interno di `Create()` azione. Quando il messaggio viene nuovamente visualizzato nella vista, il messaggio è codificato in formato HTML e codice JavaScript inserito nel messaggio non viene eseguito.
 
-È preferibile in genere, il primo approccio descritto in questa esercitazione su questo secondo approccio. Il problema con questo secondo approccio è che alla fine si dati codificato in formato HTML nel database. In altre parole, i dati di database sono stati modificati con divertenti caratteri professionale.
+In genere, è consigliabile favorire il primo approccio descritto in questa esercitazione in questo secondo approccio. Il problema con questo secondo approccio è che si otterrà i dati con codificata HTML del database. In altre parole, i dati del database sono danneggiati con caratteri dall'aspetto professionale divertenti.
 
-Perché è errato? Se è necessario visualizzare i dati di database in un valore diverso da una pagina web, sarà necessario problemi. Ad esempio, è possibile visualizzare non è più facilmente i dati in un'applicazione Windows Form.
+Perché è non valido? Se è necessario visualizzare i dati del database in un valore diverso da una pagina web, si avranno problemi. Ad esempio, è possibile visualizzare non è più facilmente i dati in un'applicazione Windows Form.
 
 ## <a name="summary"></a>Riepilogo
 
-Lo scopo di questa esercitazione era spaventare sulla prospettiva di un attacco intrusivo nel codice JavaScript. In questa esercitazione descritti due approcci per proteggere le applicazioni ASP.NET MVC da attacchi injection JavaScript il: è possibile entrambi HTML codificare utente inviati dati nella vista del oppure è possono HTML codificare utente inviati dati nel controller.
+Lo scopo di questa esercitazione è stata spaventare sulla prospettiva di un attacco injection JavaScript. Questa esercitazione descritti due approcci per la difesa contro le applicazioni MVC ASP.NET da attacchi injection JavaScript: è possibile entrambi HTML codificare utente inviate dati nella vista del oppure si possono HTML codificare utente inviati dati nel controller.
 
 > [!div class="step-by-step"]
 > [Precedente](authenticating-users-with-windows-authentication-cs.md)
