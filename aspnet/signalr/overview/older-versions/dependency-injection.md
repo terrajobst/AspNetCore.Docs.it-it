@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/dependency-injection
-title: Inserimento di dipendenze in SignalR 1. x | Documenti Microsoft
+title: Inserimento delle dipendenze in SignalR 1.x | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,27 +9,26 @@ ms.date: 05/15/2013
 ms.topic: article
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 6fd155adc9a0aa71b66db7a51062a51fb0c1feca
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51775fe2ba7acf6527bff2a2635ba30f97682096
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505490"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397876"
 ---
-<a name="dependency-injection-in-signalr-1x"></a>Inserimento di dipendenze in SignalR 1. x
+<a name="dependency-injection-in-signalr-1x"></a>Inserimento delle dipendenze in SignalR 1.x
 ====================
-da [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
-Inserimento di dipendenze è un modo per rimuovere le dipendenze hardcoded tra gli oggetti, rendendo più semplice per sostituire le dipendenze di un oggetto, uno per i test (tramite oggetti fittizi) o per modificare il comportamento in fase di esecuzione. In questa esercitazione viene illustrato come eseguire l'inserimento di dipendenze su hub SignalR. Viene inoltre illustrato come utilizzare i contenitori IoC con SignalR. Un contenitore di inversione di controllo è un framework generale per l'inserimento di dipendenze.
+Inserimento di dipendenze è un modo per rimuovere le dipendenze hardcoded tra gli oggetti, rendendo più semplice per sostituire le dipendenze di un oggetto, uno per i test (tramite oggetti fittizi) o per modificare il comportamento in fase di esecuzione. Questa esercitazione illustra come eseguire l'inserimento di dipendenze sugli hub SignalR. Viene inoltre illustrato come usare contenitori IoC con SignalR. Un contenitore IoC è un framework generale per l'inserimento di dipendenze.
 
-## <a name="what-is-dependency-injection"></a>Che cos'è l'inserimento di dipendenze?
+## <a name="what-is-dependency-injection"></a>Che cos'è l'inserimento delle dipendenze?
 
-Se si ha già familiarità con l'inserimento di dipendenze, ignorare questa sezione.
+Se si ha già familiarità con inserimento delle dipendenze, ignorare questa sezione.
 
-*Inserimento di dipendenze* (DI) è un modello in cui gli oggetti non sono responsabili della creazione le proprie dipendenze. Di seguito è riportato un esempio semplice di motivare DI. Si supponga di che avere un oggetto che è necessario registrare i messaggi. È possibile definire un'interfaccia di registrazione:
+*Inserimento di dipendenze* (inserimento delle dipendenze) è un modello in cui gli oggetti non sono responsabili della creazione le proprie dipendenze. Ecco un esempio semplice per motivare l'inserimento delle dipendenze. Si supponga di che avere un oggetto che è necessario registrare i messaggi. È possibile definire un'interfaccia di registrazione:
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
@@ -37,72 +36,72 @@ L'oggetto, è possibile creare un `ILogger` per registrare i messaggi:
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-Questo procedimento funziona, ma non è l'approccio migliore. Se si desidera sostituire `FileLogger` con un altro `ILogger` implementazione, sarà necessario modificare `SomeComponent`. Presupponendo che molti altri oggetti di uso `FileLogger`, sarà necessario modificare tutti gli elementi. O se si decide di creare `FileLogger` un singleton, è inoltre necessario apportare modifiche in tutta l'applicazione.
+Questo procedimento funziona, ma non è la migliore struttura. Se si desidera sostituire `FileLogger` con un'altra `ILogger` implementazione, sarà necessario modificare `SomeComponent`. Presumere che molti degli altri oggetti usare `FileLogger`, sarà necessario modificare tutti gli elementi. O se si decide di apportare `FileLogger` un singleton, è inoltre necessario apportare modifiche in tutta l'applicazione.
 
 Un approccio migliore consiste nel "inserire" un `ILogger` nell'oggetto, ad esempio, usando un argomento del costruttore:
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Dopo l'oggetto non è responsabile della selezione che `ILogger` da utilizzare. È possibile swich `ILogger` implementazioni senza modificare gli oggetti che dipendono da esso.
+A questo punto l'oggetto non è responsabile della selezione che `ILogger` da usare. È possibile swich `ILogger` implementazioni senza modificare gli oggetti che dipendono da esso.
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
-Questo modello viene denominato [inserimento costruttore](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Un altro modello è inserimento di setter, in cui impostare la dipendenza tramite una proprietà o metodo setter.
+Questo modello viene denominato [inserimento del costruttore](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Un altro modello è l'inserimento di setter, in cui è impostare la dipendenza attraverso un metodo di impostazione o una proprietà.
 
 ## <a name="simple-dependency-injection-in-signalr"></a>Inserimento di dipendenze semplice in SignalR
 
-Si consideri l'applicazione di Chat dall'esercitazione [Introduzione a SignalR](../getting-started/tutorial-getting-started-with-signalr.md). Di seguito è la classe dell'hub da quell'applicazione:
+Prendere in considerazione l'applicazione di Chat nell'esercitazione [Introduzione a SignalR](../getting-started/tutorial-getting-started-with-signalr.md). Questa è la classe dell'hub da quell'applicazione:
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-Si supponga che si desidera archiviare i messaggi di chat nel server prima di inviarli. Si potrebbe definire un'interfaccia che astrae questa funzionalità e usare DI per inserire l'interfaccia nella `ChatHub` classe.
+Si supponga che si desidera archiviare i messaggi di chat nel server prima di inviarli. Si potrebbe definire un'interfaccia che consente di astrarre questa funzionalità e usare l'inserimento delle dipendenze per inserire l'interfaccia nel `ChatHub` classe.
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
-Il solo problema è che un'applicazione di SignalR non crea direttamente hub; SignalR verranno creati automaticamente. Per impostazione predefinita, SignalR presuppone una classe di hub per avere un costruttore senza parametri. Tuttavia, si può facilmente registrare una funzione per creare istanze di hub e utilizzare questa funzione per eseguire DI. Registrare la funzione chiamando **GlobalHost.DependencyResolver.Register**.
+L'unico problema è che un'applicazione di SignalR non crea direttamente hub; SignalR verranno creati automaticamente. Per impostazione predefinita, SignalR si aspetta che una classe di hub per avere un costruttore senza parametri. Tuttavia, è possibile facilmente registrare una funzione per creare istanze di hub e usare questa funzione per eseguire l'inserimento delle dipendenze. Registrare la funzione chiamando **GlobalHost.DependencyResolver.Register**.
 
 [!code-csharp[Main](dependency-injection/samples/sample7.cs)]
 
-Ora SignalR richiamerà questa funzione anonima ogni volta che è necessario creare un `ChatHub` istanza.
+A questo punto SignalR richiama questa funzione anonima ogni volta che è necessario crearne un `ChatHub` istanza.
 
 ## <a name="ioc-containers"></a>Contenitori IoC
 
-Il codice precedente è appropriato per i casi più semplici. Ma se è ancora necessario scrivere questo:
+Il codice precedente è appropriato per i casi semplici. Ma era ancora necessario scrivere questo codice:
 
 [!code-css[Main](dependency-injection/samples/sample8.css)]
 
-In un'applicazione complessa con numerose dipendenze, potrebbe essere necessario scrivere una grande quantità di questo codice di "collegamento". Questo codice può essere difficile da gestire, soprattutto se le dipendenze sono annidate. È inoltre difficile allo unit test.
+In un'applicazione complessa con numerose dipendenze, si potrebbe essere necessario scrivere una grande quantità di questo codice di "collegamento". Questo codice può essere difficile da gestire, soprattutto se le dipendenze sono annidate. È anche difficile lo unit test.
 
-Una soluzione consiste nell'utilizzare un contenitore di inversione di controllo. Un contenitore di inversione di controllo è un componente software che è responsabile della gestione delle dipendenze. Si registrare i tipi con il contenitore e quindi usare il contenitore per creare oggetti. Le relazioni di dipendenza determina automaticamente il contenitore. Numero di contenitori IoC consentono inoltre di controllare elementi quali la durata degli oggetti e ambito.
+Un'unica soluzione consiste nell'usare un contenitore IoC. Un contenitore IoC è un componente software che è responsabile della gestione delle dipendenze. Registrare i tipi con il contenitore e quindi usare il contenitore per creare oggetti. Il contenitore determina automaticamente le relazioni di dipendenza. Numerosi contenitori IoC consentono anche di controllare elementi quali la durata degli oggetti e l'ambito.
 
 > [!NOTE]
-> "IoC" è l'acronimo di "inversione di controllo", che è un modello generale in cui un framework chiama il codice dell'applicazione. Un contenitore IoC costruisce oggetti, quali "inverte" il normale flusso di controllo.
+> "IoC" è l'acronimo di "inversione di controllo", ovvero un modello generale in cui un framework chiama il codice dell'applicazione. Un contenitore IoC costruisce oggetti, quali "inverte" il normale flusso di controllo.
 
 
-## <a name="using-ioc-containers-in-signalr"></a>Utilizzo di contenitori IoC in SignalR
+## <a name="using-ioc-containers-in-signalr"></a>Uso dei contenitori IoC in SignalR
 
-L'applicazione di Chat è probabilmente troppo semplice per trarre vantaggio da un contenitore di inversione di controllo. Al contrario, verrà ora esaminata la [StockTicker](http://nuget.org/packages/microsoft.aspnet.signalr.sample) esempio.
+L'applicazione di Chat è probabilmente troppo semplice per trarre vantaggio da un contenitore IoC. Al contrario, verrà ora esaminato il [StockTicker](http://nuget.org/packages/microsoft.aspnet.signalr.sample) esempio.
 
 L'esempio StockTicker definisce due classi principali:
 
-- `StockTickerHub`: La classe di hub, che gestisce le connessioni client.
-- `StockTicker`: Un singleton che contiene i prezzi azionari e li aggiorna periodicamente.
+- `StockTickerHub`: La classe dell'hub, che gestisce le connessioni client.
+- `StockTicker`: Un singleton che contiene quotazioni di titoli e li aggiorna periodicamente.
 
-`StockTickerHub`contiene un riferimento di `StockTicker` singleton, mentre `StockTicker` contiene un riferimento al **IHubConnectionContext** per il `StockTickerHub`. Usa questa interfaccia per comunicare con `StockTickerHub` istanze. (Per ulteriori informazioni, vedere [Server Broadcast con ASP.NET SignalR](index.md).)
+`StockTickerHub` contiene un riferimento al `StockTicker` singleton, mentre `StockTicker` contiene un riferimento al **IHubConnectionContext** per il `StockTickerHub`. Usa questa interfaccia per comunicare con `StockTickerHub` istanze. (Per altre informazioni, vedere [trasmissione Server con ASP.NET SignalR](index.md).)
 
-È possibile usare un contenitore IoC interfoliati un po' queste dipendenze. In primo luogo, consente di semplificare il `StockTickerHub` e `StockTicker` classi. Nel codice seguente, ho impostata come commento le parti che non è necessaria.
+È possibile usare un contenitore IoC interfoliati un po' queste dipendenze. In primo luogo, è possibile semplificare la `StockTickerHub` e `StockTicker` classi. Nel codice seguente, ho ho aggiunto le parti che non è necessario.
 
-Rimuovere il costruttore senza parametri da `StockTicker`. Invece, si utilizzerà sempre DI creare l'hub.
+Rimuovere il costruttore senza parametri da `StockTicker`. In alternativa, sempre si userà l'inserimento delle dipendenze per creare l'hub.
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
-Per StockTicker, rimuovere l'istanza singleton. In un secondo momento, si userà il contenitore di inversione di controllo per controllare la durata di StockTicker. Inoltre, rendere il costruttore pubblico.
+Per StockTicker, rimuovere l'istanza singleton. In un secondo momento, si userà il contenitore IoC per controllare la durata StockTicker. Verificare inoltre che il costruttore pubblico.
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs?highlight=7)]
 
-Successivamente, è possibile effettuare il refactoring di codice tramite la creazione di un'interfaccia per `StockTicker`. Questa interfaccia verrà usato per separare il `StockTickerHub` dalla `StockTicker` classe.
+Successivamente, è possibile effettuare il refactoring di codice tramite la creazione di un'interfaccia per `StockTicker`. Si userà questa interfaccia per disaccoppiare le `StockTickerHub` dal `StockTicker` classe.
 
-Visual Studio rende questo tipo di refactoring semplice. Aprire il file StockTicker.cs, fare clic su di `StockTicker` dichiarazione di classe, quindi selezionare **refactoring** ... **Estrai interfaccia**.
+Visual Studio rende questo tipo di refactoring semplice. Aprire il file StockTicker.cs, fare clic sui `StockTicker` dichiarazione di classe, quindi selezionare **effettuare il refactoring** ... **Estrai interfaccia**.
 
 ![](dependency-injection/_static/image1.png)
 
@@ -112,7 +111,7 @@ Nel **Estrai interfaccia** finestra di dialogo, fare clic su **Seleziona tutto**
 
 Visual Studio crea una nuova interfaccia denominata `IStockTicker`e viene modificato anche `StockTicker` da cui derivare `IStockTicker`.
 
-Aprire il file IStockTicker.cs e modificare l'interfaccia per **pubblica**.
+Aprire il file IStockTicker.cs e modificare l'interfaccia **pubblica**.
 
 [!code-csharp[Main](dependency-injection/samples/sample11.cs?highlight=1)]
 
@@ -120,36 +119,36 @@ Nel `StockTickerHub` classe, modificare le due istanze di `StockTicker` a `IStoc
 
 [!code-csharp[Main](dependency-injection/samples/sample12.cs?highlight=4,6)]
 
-Creazione di un `IStockTicker` interfaccia non è strettamente necessaria, ma si desidera mostrare come SEN consente di ridurre l'accoppiamento tra componenti dell'applicazione.
+Creazione di un `IStockTicker` interfaccia non è strettamente necessaria, ma ho preferito dimostrare come l'inserimento delle dipendenze può contribuire a ridurre l'accoppiamento tra componenti dell'applicazione.
 
 ## <a name="add-the-ninject-library"></a>Aggiungere la libreria Ninject
 
-Esistono molti contenitori di IoC open source per .NET. Per questa esercitazione si utilizzerà [Ninject](http://www.ninject.org/). (Altre librerie comuni includono [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Unity](https://github.com/unitycontainer/unity), e [StructureMap ](http://docs.structuremap.net).)
+Esistono numerosi contenitori IoC open source per .NET. Per questa esercitazione userà [Ninject](http://www.ninject.org/). (Includono altre librerie molto diffuse [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Unity](https://github.com/unitycontainer/unity), e [StructureMap ](http://docs.structuremap.net).)
 
-Usare NuGet Package Manager per installare il [Ninject libreria](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio, dal **strumenti** menu selezionare **Gestione pacchetti libreria** | **Package Manager Console**. Nella finestra della Console di gestione pacchetti, immettere il comando seguente:
+Usare Gestione pacchetti NuGet per installare il [Ninject libreria](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio dal **strumenti** dal menu **Library Package Manager** | **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 [!code-powershell[Main](dependency-injection/samples/sample13.ps1)]
 
 ## <a name="replace-the-signalr-dependency-resolver"></a>Sostituire il Resolver di dipendenza di SignalR
 
-Per utilizzare Ninject all'interno di SignalR, creare una classe che deriva da **DefaultDependencyResolver**.
+Per usare Ninject all'interno di SignalR, creare una classe che deriva da **DefaultDependencyResolver**.
 
 [!code-csharp[Main](dependency-injection/samples/sample14.cs)]
 
-Questa classe esegue l'override di **GetService** e **GetServices** metodi di **DefaultDependencyResolver**. SignalR chiama questi metodi per creare vari oggetti in fase di esecuzione, incluse le istanze di hub, nonché diversi servizi utilizzati internamente da SignalR.
+Questa classe esegue l'override di **GetService** e **GetServices** metodi **DefaultDependencyResolver**. SignalR chiama questi metodi per creare vari oggetti in fase di esecuzione, tra cui le istanze di hub, nonché diversi servizi utilizzati internamente da SignalR.
 
-- Il **GetService** metodo crea una singola istanza di un tipo. Eseguire l'override di questo metodo per chiamare il kernel di Ninject **TryGet** metodo. Se tale metodo restituisce null, eseguire il fallback per il resolver predefinito.
-- Il **GetServices** metodo crea una raccolta di oggetti di un tipo specificato. Eseguire l'override di questo metodo per concatenare i risultati di Ninject e i risultati dal sistema di risoluzione predefinito.
+- Il **GetService** metodo crea un'istanza di un tipo singola. Eseguire l'override di questo metodo per chiamare il kernel di Ninject **TryGet** (metodo). Se tale metodo restituisce null, eseguire il fallback per il resolver predefinito.
+- Il **GetServices** metodo crea una raccolta di oggetti di un tipo specificato. Eseguire l'override di questo metodo per concatenare i risultati da Ninject con i risultati dal sistema di risoluzione predefinito.
 
-## <a name="configure-ninject-bindings"></a>Configurare le associazioni Ninject
+## <a name="configure-ninject-bindings"></a>Configurare i binding Ninject
 
-Ora Ninject verrà utilizzata per dichiarare associazioni del tipo.
+A questo punto si userà Ninject per dichiarare associazioni di tipi.
 
-Aprire il file RegisterHubs.cs. Nel `RegisterHubs.Start` (metodo), creare il contenitore Ninject, che chiama Ninject il *kernel*.
+Aprire il file RegisterHubs.cs. Nel `RegisterHubs.Start` metodo, creare il contenitore Ninject, che chiama Ninject il *kernel*.
 
 [!code-csharp[Main](dependency-injection/samples/sample15.cs)]
 
-Creare un'istanza di questo resolver di dipendenza personalizzata:
+Creare un'istanza del nostro resolver di dipendenza personalizzata:
 
 [!code-csharp[Main](dependency-injection/samples/sample16.cs)]
 
@@ -157,21 +156,21 @@ Creare un'associazione per `IStockTicker` come indicato di seguito:
 
 [!code-html[Main](dependency-injection/samples/sample17.html)]
 
-Questo codice indica che due elementi. Primo, ogni volta che l'applicazione richiede un `IStockTicker`, il kernel deve creare un'istanza di `StockTicker`. In secondo luogo, la `StockTicker` classe deve essere creato come un oggetto singleton. Ninject verrà creata un'istanza dell'oggetto e restituire la stessa istanza per ogni richiesta.
+Questo codice indica che due cose. Innanzitutto, ogni volta che l'applicazione necessita di un `IStockTicker`, il kernel deve creare un'istanza di `StockTicker`. Secondo, il `StockTicker` classe deve essere un oggetto creato come un oggetto singleton. Ninject verranno creare un'istanza dell'oggetto e restituire la stessa istanza per ogni richiesta.
 
 Creare un'associazione per **IHubConnectionContext** come indicato di seguito:
 
 [!code-csharp[Main](dependency-injection/samples/sample18.cs)]
 
-Questo creatres codice una funzione anonima che restituisce un **IHubConnection**. Il **WhenInjectedInto** metodo indica Ninject per utilizzare questa funzione solo durante la creazione di `IStockTicker` istanze. Il motivo è che consente di creare SignalR **IHubConnectionContext** internamente, istanze e non si desidera eseguire l'override come SignalR li crea. Questa funzione si applica solo ai nostri `StockTicker` classe.
+Questo codice creatres una funzione anonima che restituisce un **IHubConnection**. Il **WhenInjectedInto** metodo indica a Ninject usare questa funzione solo quando si crea `IStockTicker` istanze. Il motivo è che consente di creare SignalR **IHubConnectionContext** istanze internamente e non si desidera eseguire l'override come SignalR li crea. Questa funzione si applica solo ai nostri `StockTicker` classe.
 
 Passare il resolver di dipendenza nel **MapHubs** metodo:
 
 [!code-csharp[Main](dependency-injection/samples/sample19.cs)]
 
-Ora SignalR userà il sistema di risoluzione specificato **MapHubs**, anziché il resolver predefinito.
+A questo punto SignalR utilizzerà il sistema di risoluzione specificato nel **MapHubs**, anziché il resolver predefinito.
 
-Ecco l'elenco di codice per `RegisterHubs.Start`.
+Di seguito è riportato per il codice completo `RegisterHubs.Start`.
 
 [!code-csharp[Main](dependency-injection/samples/sample20.cs)]
 
@@ -179,4 +178,4 @@ Per eseguire l'applicazione StockTicker in Visual Studio, premere F5. Nella fine
 
 ![](dependency-injection/_static/image3.png)
 
-L'applicazione ha esattamente la stessa funzionalità come prima. (Per una descrizione, vedere [Server Broadcast con ASP.NET SignalR](index.md).) Non è stato modificato il comportamento. appena creati facili da testare, gestire e sviluppare il codice.
+L'applicazione ha esattamente la stessa funzionalità come prima. (Per una descrizione, vedere [trasmissione Server con ASP.NET SignalR](index.md).) È ancora stato modificato il comportamento. semplicemente più semplice da testare, gestire e sviluppare il codice.

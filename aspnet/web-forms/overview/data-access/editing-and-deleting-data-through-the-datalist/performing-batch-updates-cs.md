@@ -1,174 +1,173 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
-title: Esecuzione di aggiornamenti Batch (c#) | Documenti Microsoft
+title: Esecuzione di aggiornamenti Batch (c#) | Microsoft Docs
 author: rick-anderson
-description: Informazioni su come creare un completamente modificabile DataList in cui tutti gli elementi sono in modalità di modifica e i cui valori possono essere salvati, facendo clic su un pulsante 'Aggiorna tutto' il...
+description: Informazioni su come creare un completamente modificabile DataList in cui tutti i relativi elementi sono in modalità di modifica e i cui valori possono essere salvati facendo clic su un pulsante "Aggiorna tutto" il...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
 ms.topic: article
 ms.assetid: 57743ca7-5695-4e07-aed1-44b297f245a9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: af19104edb1849272773193befe1f5b2c7347683
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 94bff897d28adfec001f7d818c2dc17329651e80
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30890795"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371207"
 ---
 <a name="performing-batch-updates-c"></a>Esecuzione di aggiornamenti Batch (c#)
 ====================
 da [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Scaricare App di esempio](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_CS.exe) o [Scarica il PDF](performing-batch-updates-cs/_static/datatutorial37cs1.pdf)
+[Scaricare l'App di esempio](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_CS.exe) o [Scarica il PDF](performing-batch-updates-cs/_static/datatutorial37cs1.pdf)
 
-> Informazioni su come creare un completamente modificabile DataList in cui tutti gli elementi sono in modalità di modifica e i cui valori possono essere salvati, facendo clic sul pulsante "Aggiorna tutte" nella pagina.
+> Informazioni su come creare un completamente modificabile DataList in cui tutti i relativi elementi sono in modalità di modifica e i cui valori possono essere salvati, fare clic su un pulsante "Aggiorna tutto" nella pagina.
 
 
 ## <a name="introduction"></a>Introduzione
 
-Nel [esercitazione precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md) abbiamo esaminato come creare un livello di elemento di DataList. Come standard GridView modificabile, ogni elemento DataList incluso una pulsante Modifica che, quando selezionato, rendere modificabile l'elemento. Mentre questo livello di elemento modifica funziona anche per i dati che viene aggiornati solo occasionalmente, alcuni scenari di casi di utilizzo richiedono all'utente di modificare più record. Se un utente deve modificare numerose di record e fare clic su Modifica, apportare le modifiche desiderate e fare clic su Aggiorna per ciascuno di essi viene forzato, la quantità di facendo clic su può compromettere la produttività. In tali situazioni, un'opzione migliore è di fornire un controllo DataList completamente modificabile, dove *tutti* dei relativi elementi sono in modalità di modifica e i cui valori possono essere modificati, fare clic su un pulsante Aggiorna tutte sulla pagina (vedere la figura 1).
+Nel [esercitazione precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md) abbiamo esaminato come creare un livello di elemento di DataList. Ad esempio GridView modificabile standard, ogni elemento di DataList incluso una modifica sul pulsante che, quando selezionato, renderebbero l'elemento modificabile. Anche se questo elemento a livello di modifica è ottimale per i dati che viene aggiornati solo in alcuni casi, alcuni scenari dei casi d'uso richiedono all'utente di modificare più record. Se un utente deve modificare decine di record e viene forzato a fare clic su Modifica, apportare le modifiche desiderate e fare clic su Aggiorna per ognuno di essi, la quantità di facendo clic può compromettere la propria produttività. In tali situazioni, un'opzione migliore consiste nel fornire un controllo DataList completamente modificabile, dove *tutti* dei relativi elementi sono in modalità di modifica e i cui valori possono essere modificati, fare clic su un pulsante Aggiorna tutte sulla pagina (vedere la figura 1).
 
 
-[![Ogni elemento in un DataList modificabile può essere modificato](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
+[![Ogni elemento in un controllo DataList modificabile completamente può essere modificato.](performing-batch-updates-cs/_static/image2.png)](performing-batch-updates-cs/_static/image1.png)
 
-**Figura 1**: ogni elemento in un DataList modificabile può essere modificato ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image3.png))
+**Figura 1**: può essere modificato ogni elemento in un controllo DataList modificabile completamente ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image3.png))
 
 
-In questa esercitazione si esamineranno come permettere agli utenti di aggiornare le informazioni sull'indirizzo di fornitori utilizzando un DataList completamente modificabile.
+In questa esercitazione verrà esaminato come consentire agli utenti di aggiornare informazioni sull'indirizzo di fornitori utilizzando un controllo DataList interamente modificabili.
 
-## <a name="step-1-create-the-editable-user-interface-in-the-datalist-s-itemtemplate"></a>Passaggio 1: Creare l'interfaccia utente modificabile in ItemTemplate s DataList
+## <a name="step-1-create-the-editable-user-interface-in-the-datalist-s-itemtemplate"></a>Passaggio 1: Creare l'interfaccia utente modificabili di ItemTemplate s DataList
 
-Nell'esercitazione precedente, in cui è la creazione di un controllo DataList standard, a livello di elemento modificabile, abbiamo utilizzato due modelli:
+Nell'esercitazione precedente, in cui è la creazione di un controllo DataList standard, a livello di elemento modificabile, venivano utilizzati due modelli:
 
-- `ItemTemplate` contiene l'interfaccia utente di sola lettura (i controlli Web di etichetta per la visualizzazione di ogni elemento name s prodotto e prezzo).
+- `ItemTemplate` contenuto dell'interfaccia utente di sola lettura (i controlli Web di etichetta per la visualizzazione di ogni s nome prodotto e prezzo).
 - `EditItemTemplate` contiene l'interfaccia utente in modalità di modifica (i due controlli TextBox Web).
 
-DataList s `EditItemIndex` proprietà stabilisce cosa `DataListItem` (se presente) viene eseguito il rendering tramite il `EditItemTemplate`. In particolare, il `DataListItem` cui `ItemIndex` valore corrisponde a DataList s `EditItemIndex` viene eseguito il rendering di proprietà utilizzando il `EditItemTemplate`. Questo modello funziona bene quando è possibile modificare solo un elemento a un ora, ma divide in due cade durante la creazione di un DataList completamente modificabile.
+S DataList `EditItemIndex` proprietà stabilisce cosa `DataListItem` (se presente) viene eseguito il rendering tramite il `EditItemTemplate`. In particolare, il `DataListItem` la cui `ItemIndex` valore corrisponde a DataList s `EditItemIndex` viene eseguito il rendering di proprietà utilizzando il `EditItemTemplate`. Questo modello funziona bene quando solo un elemento può essere modificato in un momento, ma distanti tra loro non rientra durante la creazione di un controllo DataList interamente modificabili.
 
-Per un controllo DataList completamente modificabile, desideriamo *tutti* del `DataListItem` s per il rendering tramite l'interfaccia modificabile. Il modo più semplice per eseguire questa operazione consiste nel definire l'interfaccia modificabile nel `ItemTemplate`. Per modificare le informazioni sull'indirizzo di fornitori, l'interfaccia modificabile contiene il nome del fornitore come testo e caselle di testo per l'indirizzo, città e i valori di paese.
+Per un controllo DataList completamente modificabile, vogliamo *tutte* del `DataListItem` s per il rendering usando l'interfaccia modificabile. Il modo più semplice per eseguire questa operazione consiste nel definire l'interfaccia modificabile nel `ItemTemplate`. Per modificare le informazioni sull'indirizzo di fornitori, l'interfaccia modificabile contiene il nome del fornitore come testo e quindi nelle caselle di testo per l'indirizzo, città e valori del paese.
 
-Aprire il `BatchUpdate.aspx` pagina, aggiungere un controllo DataList e impostare il relativo `ID` proprietà `Suppliers`. Smart tag DataList s, scegliere di aggiungere un nuovo controllo ObjectDataSource denominato `SuppliersDataSource`.
+Iniziare aprendo il `BatchUpdate.aspx` pagina, aggiungere un controllo DataList e impostare relativi `ID` proprietà `Suppliers`. Nello smart tag, DataList s scegliere di aggiungere un nuovo controllo ObjectDataSource denominato `SuppliersDataSource`.
 
 
 [![Creare un nuovo oggetto ObjectDataSource denominato SuppliersDataSource](performing-batch-updates-cs/_static/image5.png)](performing-batch-updates-cs/_static/image4.png)
 
-**Figura 2**: creare un nuovo denominato ObjectDataSource `SuppliersDataSource` ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image6.png))
+**Figura 2**: creare un nuovo oggetto ObjectDataSource denominato `SuppliersDataSource` ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image6.png))
 
 
-Configurare ObjectDataSource per recuperare dati tramite il `SuppliersBLL` classe s `GetSuppliers()` (metodo) (vedere la figura 3). Con l'esercitazione precedente, piuttosto che l'aggiornamento delle informazioni del fornitore tramite ObjectDataSource, è necessario utilizzare direttamente il livello di logica di Business. Pertanto, impostare l'elenco a discesa su (nessuno) nella scheda aggiornamento (vedere la figura 4).
+Configurare ObjectDataSource per recuperare i dati usando il `SuppliersBLL` classe s `GetSuppliers()` (metodo) (vedere la figura 3). Come con l'esercitazione precedente anziché aggiornare le informazioni del fornitore tramite ObjectDataSource, sarà lavoriamo direttamente con il livello di logica di Business. Pertanto, impostare l'elenco a discesa su (nessuno) nella scheda aggiornamenti (vedere la figura 4).
 
 
-[![Recuperare informazioni sul fornitore tramite il metodo GetSuppliers()](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
+[![Recuperare le informazioni sul fornitore utilizzando il metodo GetSuppliers()](performing-batch-updates-cs/_static/image8.png)](performing-batch-updates-cs/_static/image7.png)
 
-**Figura 3**: recuperare informazioni sul fornitore utilizzando il `GetSuppliers()` metodo ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image9.png))
-
-
-[![Impostazione dell'elenco di riepilogo a discesa su (nessuno) nella scheda dell'aggiornamento](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
-
-**Figura 4**: impostare l'elenco a discesa su (nessuno) nella scheda aggiornamento ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image12.png))
+**Figura 3**: recuperare informazioni sul fornitore utilizzando i `GetSuppliers()` metodo ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image9.png))
 
 
-Dopo aver completato la procedura guidata, Visual Studio genera automaticamente DataList s `ItemTemplate` per visualizzare ogni campo di dati restituito dall'origine dati in un controllo etichetta Web. È necessario modificare il modello in modo che fornisce l'interfaccia di modifica. Il `ItemTemplate` può essere personalizzato tramite la finestra di progettazione utilizzando l'opzione di modifica modelli dallo smart tag DataList s o direttamente tramite la sintassi dichiarativa.
+[![Impostare l'elenco a discesa su (nessuno) nella scheda aggiornamenti](performing-batch-updates-cs/_static/image11.png)](performing-batch-updates-cs/_static/image10.png)
 
-Richiedere qualche istante per creare un'interfaccia di modifica che visualizza il nome del fornitore s come testo, ma include caselle di testo per il fornitore s indirizzo, città e i valori di paese. Dopo aver apportato queste modifiche, la sintassi dichiarativa s della pagina dovrebbe essere simile al seguente:
+**Figura 4**: impostare l'elenco a discesa su (nessuno) nella scheda aggiornamenti ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image12.png))
+
+
+Dopo aver completato la procedura guidata, Visual Studio genera automaticamente il controllo DataList s `ItemTemplate` per visualizzare ogni campo di dati restituito dall'origine dati in un controllo etichetta Web. È necessario modificare il modello in modo che fornisca invece l'interfaccia di modifica. Il `ItemTemplate` può essere personalizzato tramite la finestra di progettazione utilizzando l'opzione di modifica modelli dello smart tag DataList s o direttamente tramite la sintassi dichiarativa.
+
+Si consiglia di creare un'interfaccia di modifica che visualizza il nome del fornitore s come testo, ma include caselle di testo per il fornitore s indirizzo, città e valori del paese. Dopo aver apportato queste modifiche, la sintassi dichiarativa per s pagina dovrebbe essere simile al seguente:
 
 
 [!code-aspx[Main](performing-batch-updates-cs/samples/sample1.aspx)]
 
 > [!NOTE]
-> Come con l'esercitazione precedente DataList in questa esercitazione deve essere attivato lo stato di visualizzazione.
+> Come con l'esercitazione precedente, DataList in questa esercitazione è necessario il proprio stato abilitato.
 
 
-Nel `ItemTemplate` si m utilizzando due nuove classi CSS, `SupplierPropertyLabel` e `SupplierPropertyValue`, che sono state aggiunte per la `Styles.css` classe e configurato per utilizzare le stesse impostazioni di stile il `ProductPropertyLabel` e `ProductPropertyValue` classi CSS.
+Nel `ItemTemplate` ho m usando due nuove classi CSS, `SupplierPropertyLabel` e `SupplierPropertyValue`, che sono state aggiunte ad il `Styles.css` classe e configurato per usare le stesse impostazioni di stile del `ProductPropertyLabel` e `ProductPropertyValue` classi CSS.
 
 
 [!code-css[Main](performing-batch-updates-cs/samples/sample2.css)]
 
-Dopo aver apportato queste modifiche, visitare la pagina tramite un browser. Come illustrato nella figura 5, ogni elemento DataList Visualizza il nome del fornitore come testo e usato nelle caselle di testo per visualizzare l'indirizzo, città e paese.
+Dopo aver apportato queste modifiche, visita questa pagina tramite un browser. Come illustrato nella figura 5, ogni elemento DataList Visualizza il nome del fornitore come testo e utilizzata nelle caselle di testo per visualizzare l'indirizzo, città e paese.
 
 
 [![Ogni fornitore in DataList è modificabile](performing-batch-updates-cs/_static/image14.png)](performing-batch-updates-cs/_static/image13.png)
 
-**Figura 5**: ogni fornitore in DataList è modificabile ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image15.png))
+**Figura 5**: ogni fornitore in DataList è modificabile ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image15.png))
 
 
 ## <a name="step-2-adding-an-update-all-button"></a>Passaggio 2: Aggiunta di un aggiornamento pulsante tutto
 
-Mentre ogni fornitore nella figura 5 con indirizzo, città e i campi del paese visualizzati in una casella di testo, attualmente non disponibile alcun pulsante di aggiornamento. Invece di un pulsante Aggiorna per ogni elemento, con DataList completamente modificabile è in genere un solo pulsante Aggiorna tutte sulla pagina che, quando si fa clic, Aggiorna *tutti* dei record di DataList. Per questa esercitazione, consentire s aggiungere due pulsanti Aggiorna tutto - uno nella parte superiore della pagina e l'altro nella parte inferiore (anche se facendo clic su uno dei pulsanti avrà lo stesso effetto).
+Mentre ogni fornitore nella figura 5 ha relativo indirizzo, città e paese campi visualizzati in una casella di testo, non è attualmente alcun pulsante di aggiornamento disponibile. Evitando che un pulsante Aggiorna per ogni elemento, con DataList completamente modificabile è in genere un singolo pulsante Aggiorna tutto nella pagina che, quando si fa clic, viene aggiornato *tutti* dei record di controllo DataList. Per questa esercitazione, lasciare s aggiungere due pulsanti Aggiorna tutto - uno nella parte superiore della pagina e l'altro nella parte inferiore (sebbene facendo clic su dei pulsanti avrà lo stesso effetto).
 
-Inizio aggiungendo un controllo pulsante Web di sopra del DataList e impostare il relativo `ID` proprietà `UpdateAll1`. Successivamente, aggiungere il secondo controllo pulsante Web sotto il controllo DataList, l'impostazione relativa `ID` a `UpdateAll2`. Impostare il `Text` le proprietà per i due pulsanti per l'aggiornamento tutti. Infine, creare i gestori eventi per entrambi i pulsanti `Click` eventi. Invece di duplicare la logica di aggiornamento in ognuno dei gestori eventi, s consentono di effettuare il refactoring di quella logica a un terzo metodo, `UpdateAllSupplierAddresses`, con i gestori di eventi semplicemente richiamare questo metodo terzo.
+Avvio tramite l'aggiunta di un controllo Web Button di sopra di DataList e set relativo `ID` proprietà `UpdateAll1`. Successivamente, aggiungere il secondo controllo Web Button di sotto di DataList, l'impostazione relativa `ID` a `UpdateAll2`. Impostare il `Text` le proprietà per i due pulsanti a All Update. Infine, creare gestori eventi per entrambi i pulsanti `Click` gli eventi. Invece di duplicare la logica di aggiornamento in ciascuno dei gestori di eventi, ti permettono di s, effettuare il refactoring che per la logica a un terzo metodo `UpdateAllSupplierAddresses`, con i gestori di eventi è sufficiente richiamare questo metodo terzo.
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample3.cs)]
 
-Figura 6 mostra la pagina dopo l'aggiornamento a tutti i pulsanti sono stati aggiunti.
+Figura 6 mostra la pagina dopo l'aggiornamento tutti i pulsanti sono stati aggiunti.
 
 
 [![Due aggiornamento tutti i pulsanti sono stati aggiunti alla pagina](performing-batch-updates-cs/_static/image17.png)](performing-batch-updates-cs/_static/image16.png)
 
-**Figura 6**: due aggiornamento tutti i pulsanti sono stati aggiunti alla pagina ([fare clic per visualizzare l'immagine ingrandita](performing-batch-updates-cs/_static/image18.png))
+**Figura 6**: due aggiornamento tutti i pulsanti sono stati aggiunti alla pagina ([fare clic per visualizzare l'immagine con dimensioni normali](performing-batch-updates-cs/_static/image18.png))
 
 
-## <a name="step-3-updating-all-of-the-suppliers-address-information"></a>Passaggio 3: Aggiornamento di tutte le informazioni di indirizzo fornitori
+## <a name="step-3-updating-all-of-the-suppliers-address-information"></a>Passaggio 3: Aggiornamento di tutte le informazioni di indirizzo Suppliers
 
-Con tutti gli elementi DataList s visualizzare l'interfaccia di modifica e l'aggiunta di aggiornare tutti i pulsanti, che rimane sta scrivendo il codice per eseguire l'aggiornamento batch. In particolare, è necessario scorrere gli elementi DataList s e chiamata di `SuppliersBLL` classe s `UpdateSupplierAddress` metodo per ognuno di essi.
+Con tutti gli elementi s DataList visualizzare l'interfaccia di modifica e l'aggiunta di aggiornare tutti i pulsanti, che rimane sta scrivendo il codice per eseguire l'aggiornamento batch. In particolare, è necessario eseguire un ciclo tramite le voci di DataList s e una chiamata di `SuppliersBLL` classe s `UpdateSupplierAddress` metodo per ognuno di essi.
 
-La raccolta di `DataListItem` istanze di tale struttura DataList saranno accessibili tramite DataList s [ `Items` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Con un riferimento a un `DataListItem`, è possibile acquisire corrispondente `SupplierID` dal `DataKeys` raccolta e a livello di programmazione TextBox Web controlli all'interno di riferimento di `ItemTemplate` come illustrato nel codice seguente:
+La raccolta di `DataListItem` istanze di tale struttura DataList sono accessibili tramite DataList s [ `Items` proprietà](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Con un riferimento a un `DataListItem`, è possibile recuperare il corrispondente `SupplierID` dal `DataKeys` raccolta e a livello di programmazione riferimento Web nella casella di testo controlli all'interno di `ItemTemplate` come illustrato nel codice seguente:
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample4.cs)]
 
-Quando l'utente fa clic su uno dei pulsanti, Aggiorna tutte le `UpdateAllSupplierAddresses` metodo scorre ogni `DataListItem` nel `Suppliers` DataList e chiama il `SuppliersBLL` classe s `UpdateSupplierAddress` , passando i valori corrispondenti. Un valore non è stato immesso per indirizzo, città o paese passa è un valore di `Nothing` a `UpdateSupplierAddress` (anziché una stringa vuota), che comporta un database `NULL` per i campi di record s sottostante.
+Quando l'utente fa clic su uno dei pulsanti, Aggiorna tutte le `UpdateAllSupplierAddresses` metodo scorre ogni `DataListItem` nel `Suppliers` DataList e chiama il `SuppliersBLL` classe s `UpdateSupplierAddress` , passando i valori corrispondenti. Un valore per l'indirizzo, città o paese passa immesso non è un valore di `Nothing` al `UpdateSupplierAddress` (anziché a una stringa vuota), in modo da un database `NULL` per i campi di record s sottostante.
 
 > [!NOTE]
-> In alternativa, si desidera aggiungere un controllo etichetta Web stato alla pagina che fornisce un messaggio di conferma dopo l'aggiornamento batch viene eseguito.
+> Come ulteriore miglioramento, è possibile aggiungere uno stato controllo etichetta Web alla pagina che fornisce un messaggio di conferma dopo l'aggiornamento batch viene eseguito.
 
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>L'aggiornamento solo gli indirizzi che sono stati modificati
 
-L'algoritmo di aggiornamento batch utilizzato per le chiamate di questa esercitazione il `UpdateSupplierAddress` metodo per *ogni* fornitore in DataList, indipendentemente dal fatto che le relative informazioni di indirizzo sono state modificate. Mentre tale blind aggiornamenti non in genere un problema di prestazioni, se si stanno controllo modifica alla tabella di database può causare superflue dei record. Ad esempio, se si utilizzano trigger per registrare tutti `UPDATE` s per il `Suppliers` tabella a una tabella di controllo, ogni volta che un utente fa clic sul pulsante Aggiorna tutto verrà creato un nuovo record di controllo per ogni fornitore nel sistema, indipendentemente dal fatto se l'utente rese qualsiasi modifiche.
+L'algoritmo di aggiornamento batch utilizzato per le chiamate di questa esercitazione il `UpdateSupplierAddress` metodo per *ogni* fornitore in DataList, indipendentemente dal fatto che le informazioni sull'indirizzo è stati modificati. Mentre tale blind Aggiorna t sono in genere un problema di prestazioni, se si ri il controllo viene modificata alla tabella di database può causare ai record superfluo. Ad esempio, se si utilizzano trigger per registrare tutti `UPDATE` s per il `Suppliers` tabella a una tabella di controllo, ogni volta che un utente fa clic sul pulsante Aggiorna tutto verrà creato un nuovo record di controllo per ogni fornitore nel sistema, indipendentemente dal fatto che l'utente eseguita ogni modifiche.
 
-Le classi DataTable di ADO.NET e DataAdapter sono progettate per supportare gli aggiornamenti di batch in cui i record di nuovi, eliminati e modificati solo comporta le comunicazioni di database. Ogni riga nella DataTable dispone un [ `RowState` proprietà](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) che indica se la riga è stata aggiunta alla tabella di dati eliminato da quest'ultimo, modifica, o non subisce modifiche. Quando un oggetto DataTable inizialmente è popolato, tutte le righe contrassegnate subisce modifiche. Modifica del valore di una o più colonne s riga la riga viene contrassegnata come modificata.
+Le classi DataTable di ADO.NET e DataAdapter sono progettate per supportare gli aggiornamenti in batch in cui solo modificati, eliminati e nuovi record risultante in tutte le comunicazioni del database. Ogni riga nella DataTable ha un [ `RowState` proprietà](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) che indica se la riga è stato aggiunto alla tabella di dati, da quest'ultimo, modificati, eliminato o rimane invariata. Quando un oggetto DataTable inizialmente è popolato, tutte le righe sono contrassegnate invariate. Modifica del valore di una o più colonne s riga la riga viene contrassegnata come modificata.
 
-Nel `SuppliersBLL` classe è aggiornare le informazioni sull'indirizzo specificato fornitore s mediante la lettura prima del record singolo fornitore in un `SuppliersDataTable` e quindi impostare il `Address`, `City`, e `Country` i valori di colonna utilizzando il codice seguente:
+Nel `SuppliersBLL` classe le informazioni sull'indirizzo specificato supplier s viene aggiornato da leggere prima l'articolo nel record unico fornitore in un `SuppliersDataTable` e quindi impostare il `Address`, `City`, e `Country` i valori di colonna usando il codice seguente:
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample5.cs)]
 
-Questo codice assegna gestire i passato in indirizzo, città, paese valori e per il `SuppliersRow` nel `SuppliersDataTable` indipendentemente dal fatto che i valori sono stati modificati. Tali modifiche causano il `SuppliersRow` s `RowState` proprietà sarà contrassegnata come modificata. Quando s il livello di accesso ai dati `Update` metodo viene chiamato, viene rilevato che il `SupplierRow` è stato modificato e pertanto invia un `UPDATE` comando nel database.
+Gestire questo codice viene assegnato l'indirizzo passato, città e valori del paese per la `SuppliersRow` nella `SuppliersDataTable` indipendentemente dal fatto o meno i valori sono stati modificati. Tali modifiche causano il `SuppliersRow` s `RowState` proprietà deve essere contrassegnato come modificato. Quando il livello di accesso ai dati di s `Update` viene chiamato il metodo, vede che il `SupplierRow` è stato modificato e pertanto invia un `UPDATE` comando nel database.
 
-Si supponga, tuttavia, che il codice è stato aggiunto a questo metodo per assegnare solo l'indirizzo passato, city e valori di paese se differiscono dal `SuppliersRow` valori esistenti s. Nel caso in cui l'indirizzo, città e paese sono come i dati esistenti, non verrà apportata alcuna modifica e `SupplierRow` s `RowState` rimarrà invariata contrassegnato come di sinistra. Il risultato finale è che quando i dispositivi DAL `Update` metodo viene chiamato, verrà effettuata alcuna chiamata di database perché il `SuppliersRow` non è stato modificato.
+Si supponga, tuttavia, che è stato aggiunto codice a questo metodo solo assegnare l'indirizzo passato, città e paese valori se sono diversi dal `SuppliersRow` i valori esistenti di s. Nel caso in cui l'indirizzo, città e paese sono le stesse i dati esistenti, non sarà possibile apportare modifiche e il `SupplierRow` s `RowState` resteranno inalterati contrassegnati come left. Il risultato è che quando i dispositivi DAL `Update` viene chiamato il metodo, poiché non sarà necessario eseguire alcuna chiamata al database di `SuppliersRow` non è stato modificato.
 
-Per rendere effettiva questa modifica, sostituire le istruzioni che ciecamente assegnare l'indirizzo passato, città, paese i valori e con il codice seguente:
+Per applicare questa modifica, sostituire le istruzioni che alla cieca assegnare l'indirizzo passato, città e valori del paese con il codice seguente:
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample6.cs)]
 
-Con questo aggiunto codice, i dispositivi DAL `Update` metodo invia un `UPDATE` istruzione per il database solo i record i cui valori relativi a indirizzi sono stati modificati.
+Con questo codice, i dispositivi DAL aggiunto `Update` metodo invia un `UPDATE` istruzione per il database solo i record i cui valori correlate agli indirizzi sono stati modificati.
 
-In alternativa, è possibile tenere traccia del se sono presenti eventuali differenze tra i campi indirizzo passato e i dati del database e, se non sono presenti, ignora semplicemente la chiamata a s DAL `Update` metodo. Questo approccio funziona anche se si stanno utilizzando il database di metodo, diretto trascorsi da t DB dirette del metodo non è un `SuppliersRow` istanza il cui `RowState` può essere controllato per determinare se una chiamata al database è effettivamente necessario.
+In alternativa, è possibile tenere traccia degli se sono presenti eventuali differenze tra i campi indirizzo passato e i dati del database e, se non vi sono, ignorare semplicemente la chiamata a s DAL `Update` (metodo). Questo approccio funziona bene se metodo, si stia usando il database diretto poiché passato t DB metodo diretto non è un `SuppliersRow` istanza cui `RowState` può essere controllato per determinare se una chiamata al database è effettivamente necessario.
 
 > [!NOTE]
-> Ogni volta che il `UpdateSupplierAddress` metodo viene richiamato, viene eseguita una chiamata al database per recuperare informazioni sui record aggiornato. Quindi, se sono state apportate modifiche nei dati, viene eseguita un'altra chiamata al database per aggiornare la riga della tabella. Questo flusso di lavoro può essere ottimizzata mediante la creazione di un `UpdateSupplierAddress` overload del metodo che accetta un `EmployeesDataTable` istanza che dispone di *tutti* delle modifiche del `BatchUpdate.aspx` pagina. Quindi, è possibile apportare una chiamata al database per ottenere tutti i record di `Suppliers` tabella. Quindi è stato possibile enumerare i due set di risultati ed è stato possibile aggiornare solo i record in cui sono state apportate modifiche.
+> Ogni volta che il `UpdateSupplierAddress` metodo viene richiamato, viene eseguita una chiamata al database per recuperare informazioni su del record aggiornato. Quindi, se sono state apportate modifiche nei dati, viene eseguita un'altra chiamata al database per aggiornare la riga della tabella. Questo flusso di lavoro può essere ottimizzata mediante la creazione di un' `UpdateSupplierAddress` overload del metodo che accetta un `EmployeesDataTable` istanza che ha *tutti* delle modifiche dal `BatchUpdate.aspx` pagina. Quindi, potrebbe verificare una chiamata al database per ottenere tutti i record dal `Suppliers` tabella. I due set di risultati può quindi essere enumerati ed è stato possibile aggiornare solo i record in cui sono state apportate modifiche.
 
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione è stato illustrato come creare un controllo DataList completamente modificabile, consentendo all'utente di modificare rapidamente le informazioni sull'indirizzo per più fornitori. È stato avviato mediante la definizione di interfaccia per la modifica di un controllo casella di testo Web per il fornitore s indirizzo, città e i valori di paese in DataList s `ItemTemplate`. Successivamente, abbiamo aggiunto aggiornamento tutti i pulsanti sopra e sotto il controllo DataList. Dopo che un utente è apportate le modifiche e fa clic su uno dei pulsanti, Aggiorna tutte le `DataListItem` s vengono enumerati e una chiamata al `SuppliersBLL` classe s `UpdateSupplierAddress` metodo.
+In questa esercitazione è stato illustrato come creare un controllo DataList completamente modificabile, che consente all'utente di modificare rapidamente le informazioni sull'indirizzo per diversi fornitori. Abbiamo iniziato con la definizione di interfaccia per la modifica di un controllo TextBox Web per l'indirizzo di fornitore, città e valori del paese in DataList s `ItemTemplate`. Successivamente, abbiamo aggiunto aggiornamento tutti i pulsanti sopra e sotto il controllo DataList. Dopo che un utente ha effettuato le modifiche e fatto clic su uno dei pulsanti Aggiorna tutto, il `DataListItem` s vengono enumerati e una chiamata per il `SuppliersBLL` classe s `UpdateSupplierAddress` metodo è costituito.
 
 Buona programmazione!
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), l'autore di sette libri e fondatore di [4GuysFromRolla](http://www.4guysfromrolla.com), ha lavorato con tecnologie Web di Microsoft dal 1998. Scott funziona come un consulente trainer e writer. Il suo ultimo libro è [ *SAM insegna manualmente ASP.NET 2.0 nelle 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Egli può essere raggiunto al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, cui è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autore di sette libri e fondatore di [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha collaborato con tecnologie Web di Microsoft dal 1998. Lavora come un consulente, formatore e autore. Il suo ultimo libro si intitola [ *Sams Teach Yourself ASP.NET 2.0 in 24 ore*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). È possibile contattarlo al [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o sul suo blog, che è reperibile in [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Ringraziamenti speciali
 
-Questa serie di esercitazioni è stata esaminata da diversi validi revisori. Lead revisori per questa esercitazione sono stati Zack Jones e Ken Pespisa. Se si è interessati my prossimi articoli MSDN? In caso affermativo, Inviami una riga alla [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Questa serie di esercitazioni è stata esaminata da diversi validi revisori. I revisori per questa esercitazione sono state Zack Jones e Ken Pespisa. Se si è interessati prossimi articoli MSDN dello? In questo caso, Inviami una riga in corrispondenza [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Precedente](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
