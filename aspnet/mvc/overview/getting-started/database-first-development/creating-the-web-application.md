@@ -1,60 +1,59 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: 'Database di Entity Framework prima con ASP.NET MVC: creazione di applicazioni Web e i modelli di Data | Documenti Microsoft'
+title: "Database di Entity Framework prima di tutto con ASP.NET MVC: creazione dell'applicazione Web e i modelli di dati | Microsoft Docs"
 author: tfitzmac
-description: Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
+description: Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa esercitazione seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
 ms.topic: article
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 04ccc00fa48702608fdc7b5b00d73778985852f9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a1c4e3365d320ee54d378de33a77666558a854d2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878776"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398245"
 ---
-<a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>Database di Entity Framework prima con ASP.NET MVC: creazione, l'applicazione Web e i modelli di dati
+<a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>Database di Entity Framework prima di tutto con ASP.NET MVC: creazione dell'applicazione Web e i modelli di dati
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Usa lo Scaffolding di ASP.NET MVC ed Entity Framework, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni viene illustrato come automaticamente generare il codice che consente agli utenti di visualizzare, modificare, creare ed eliminare dati che si trovano in una tabella di database. Il codice generato corrisponde alle colonne nella tabella di database.
+> Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database.
 > 
-> Questa parte della serie è incentrata sulla creazione dell'applicazione web e la generazione di modelli di data in base alle tabelle di database.
+> Questa parte della serie è incentrato sulla creazione dell'applicazione web e la generazione di modelli di dati basati su tabelle di database.
 
 
 ## <a name="create-a-new-aspnet-web-application"></a>Creare una nuova applicazione Web ASP.NET
 
-In una nuova soluzione o della stessa soluzione come progetto di database, creare un nuovo progetto in Visual Studio e selezionare il **applicazione Web ASP.NET** modello. Denominare il progetto **ContosoSite**.
+In una nuova soluzione o la stessa soluzione come progetto di database, creare un nuovo progetto in Visual Studio e selezionare il **applicazione Web ASP.NET** modello. Denominare il progetto **ContosoSite**.
 
 ![Crea progetto](creating-the-web-application/_static/image1.png)
 
 Fare clic su **OK**.
 
-Nella finestra Nuovo progetto ASP.NET, selezionare il **MVC** modello. È possibile cancellare il **Host nel cloud** opzione per il momento, poiché verrà distribuito l'applicazione nel cloud in un secondo momento. Fare clic su **OK** per creare l'applicazione.
+Nella finestra Nuovo progetto ASP.NET, selezionare la **MVC** modello. È possibile cancellare il **ospita nel cloud** opzione per il momento, perché si distribuirà l'applicazione nel cloud in un secondo momento. Fare clic su **OK** per creare l'applicazione.
 
 ![Selezionare il modello mvc](creating-the-web-application/_static/image2.png)
 
 Il progetto viene creato con i file predefiniti e le cartelle.
 
-In questa esercitazione si utilizzerà Entity Framework 6. È possibile verificare la versione di Entity Framework del progetto tramite la finestra Gestisci pacchetti NuGet. Se necessario, aggiornare la versione di Entity Framework.
+In questa esercitazione si userà Entity Framework 6. È possibile verificare la versione di Entity Framework nel progetto tramite la finestra Gestisci pacchetti NuGet. Se necessario, aggiornare la versione di Entity Framework.
 
 ![Mostra versione](creating-the-web-application/_static/image3.png)
 
-## <a name="generate-the-models"></a>Generare i modelli
+## <a name="generate-the-models"></a>Genera i modelli
 
-I modelli di Entity Framework si creerà ora dalle tabelle del database. Questi modelli sono classi che si utilizzerà per funzionare con i dati. Ogni modello riflette una tabella nel database e contiene proprietà che corrispondono alle colonne nella tabella.
+Ora si creerà i modelli di Entity Framework dalle tabelle del database. Questi modelli sono classi che si userà per lavorare con i dati. Ogni modello riflette una tabella nel database e contiene proprietà che corrispondono alle colonne nella tabella.
 
-Fare doppio clic su di **modelli** cartella e selezionare **Aggiungi** e **nuovo elemento**.
+Fare doppio clic il **modelli** cartella e selezionare **Add** e **nuovo elemento**.
 
 ![Aggiungi nuovo elemento](creating-the-web-application/_static/image4.png)
 
-Nella finestra Aggiungi nuovo elemento selezionare **dati** nel riquadro a sinistra e **ADO.NET Entity Data Model** tra le opzioni nel riquadro centrale. Denominare il nuovo file di modello **ContosoModel**.
+Nella finestra Aggiungi nuovo elemento, selezionare **Data** nel riquadro sinistro e **ADO.NET Entity Data Model** tra le opzioni nel riquadro centrale. Denominare il nuovo file di modello **ContosoModel**.
 
 ![Crea modello](creating-the-web-application/_static/image5.png)
 
@@ -66,23 +65,23 @@ Nella procedura guidata Entity Data Model, selezionare **Entity Framework Design
 
 Scegliere **Avanti**.
 
-Se si dispone di connessioni di database definite all'interno dell'ambiente di sviluppo, si può vedere una di queste connessioni pre-selezionate. Tuttavia, si desidera creare una nuova connessione al database che è stato creato nella prima parte di questa esercitazione. Fare clic su di **nuova connessione** pulsante.
+Se si dispone di connessioni di database definite all'interno dell'ambiente di sviluppo, si potrebbe vedere una di queste connessioni pre-selezionate. Tuttavia, si desidera creare una nuova connessione al database creato nella prima parte di questa esercitazione. Scegliere il **nuova connessione** pulsante.
 
-![Connettersi al database](creating-the-web-application/_static/image7.png)
+![connettersi al database](creating-the-web-application/_static/image7.png)
 
-Nella finestra proprietà di connessione, specificare il nome del server locale in cui è stato creato il database (in questo caso **(localdb) \ProjectsV12**). Dopo aver specificato il nome del server, selezionare il ContosoUniversityData database disponibili.
+Nella finestra proprietà di connessione, specificare il nome del server locale in cui è stato creato il database (in questo caso **\ProjectsV12 (localdb)**). Dopo aver specificato il nome del server, selezionare il ContosoUniversityData dai database di disponibilità.
 
 ![impostare le proprietà di connessione](creating-the-web-application/_static/image8.png)
 
 Fare clic su **OK**.
 
-Le proprietà di connessione corrette vengono ora visualizzate. È possibile utilizzare il nome predefinito per la connessione nel file Web. config
+Sono ora visualizzate le proprietà di connessione corretta. È possibile usare il nome predefinito per la connessione nel file Web. config
 
 ![impostazioni di connessione](creating-the-web-application/_static/image9.png)
 
 Scegliere **Avanti**.
 
-Selezionare **tabelle** per generare modelli per le tre tabelle.
+Selezionare **tabelle** per generare modelli per tutte le tre tabelle.
 
 ![Selezionare le tabelle](creating-the-web-application/_static/image10.png)
 
@@ -94,13 +93,13 @@ I modelli vengono generati dalle tabelle del database e viene visualizzato un di
 
 ![diagramma del modello](creating-the-web-application/_static/image11.png)
 
-La cartella Modelli include molti nuovi file correlati ai modelli che sono stati generati dal database.
+La cartella Models ora include molti nuovi file correlati ai modelli generati dal database.
 
 ![Mostra i nuovi file di modello](creating-the-web-application/_static/image12.png)
 
-Il **ContosoModel.Context.cs** file contiene una classe che deriva dal **DbContext** classe e fornisce una proprietà per ogni classe di modello che corrisponde a una tabella di database. Il **Course.cs**, **Enrollment.cs**, e **Student.cs** file contengono le classi di modello che rappresentano le tabelle di database. Si utilizzerà la classe di contesto e le classi modello quando si utilizza lo scaffolding.
+Il **ContosoModel.Context.cs** file contiene una classe che deriva dalle **DbContext** classe e fornisce una proprietà per ogni classe di modello che corrisponde a una tabella di database. Il **Course.cs**, **Enrollment.cs**, e **Student.cs** file contengono le classi del modello che rappresentano le tabelle di database. Si utilizzerà la classe del contesto sia le classi del modello quando si lavora con scaffolding.
 
-Prima di procedere con questa esercitazione, compilare il progetto. Nella sezione successiva, verrà generato codice basato sui modelli di dati, ma tale sezione non funzionerà se non è stato compilato il progetto.
+Prima di procedere con questa esercitazione, compilare il progetto. Nella sezione successiva, si genererà codice basato su modelli di data, ma tale sezione non funzionerà se non è stato compilato il progetto.
 
 > [!div class="step-by-step"]
 > [Precedente](setting-up-database.md)
