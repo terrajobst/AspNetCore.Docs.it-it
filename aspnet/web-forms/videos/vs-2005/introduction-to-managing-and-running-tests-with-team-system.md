@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-team-system
-title: Introduzione alla gestione ed esecuzione di test con Team System | Documenti Microsoft
+title: Introduzione alla gestione e all'esecuzione di test con Team System | Microsoft Docs
 author: rick-anderson
-description: In questo video viene illustrato come è possibile gestire tutti o nei vari test case usando la funzionalità di gestione test di Visual Studio Team System. Verrà anche visualizzato...
+description: In questo video viene illustrato come è possibile gestire tutte o nei vari test case usando le funzionalità di gestione test di Visual Studio Team System. Si vedrà anche...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: e262ca69-55e5-4ec2-b278-78ee129b4649
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-team-system
 msc.type: video
-ms.openlocfilehash: 545d29f245f46f1d6fbdcc4690e52b0ef60e746a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c74f30d0577ada7d4fb939d1c52cd4b7249cca18
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895179"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373738"
 ---
-<a name="introduction-to-managing-and-running-tests-with-team-system"></a><span data-ttu-id="1623c-104">Introduzione alla gestione e l'esecuzione di test con Team System</span><span class="sxs-lookup"><span data-stu-id="1623c-104">Introduction to Managing and Running Tests with Team System</span></span>
+<a name="introduction-to-managing-and-running-tests-with-team-system"></a><span data-ttu-id="641e9-104">Introduzione alla gestione e all'esecuzione di test con Team System</span><span class="sxs-lookup"><span data-stu-id="641e9-104">Introduction to Managing and Running Tests with Team System</span></span>
 ====================
-<span data-ttu-id="1623c-105">da Eric Lee</span><span class="sxs-lookup"><span data-stu-id="1623c-105">by Eric Lee</span></span>
+<span data-ttu-id="641e9-105">da feed di Eric Lee</span><span class="sxs-lookup"><span data-stu-id="641e9-105">by Eric Lee</span></span>
 
-<span data-ttu-id="1623c-106">In questo video viene illustrato come è possibile gestire tutti o nei vari test case usando la funzionalità di gestione test di Visual Studio Team System.</span><span class="sxs-lookup"><span data-stu-id="1623c-106">In this video we see how you can manage all or your various test cases using the test management capabilities of Visual Studio Team System.</span></span> <span data-ttu-id="1623c-107">Si verifica anche modalità di esecuzione test e di configurazione.</span><span class="sxs-lookup"><span data-stu-id="1623c-107">We will also see how tests are run and configured.</span></span>
+<span data-ttu-id="641e9-106">In questo video viene illustrato come è possibile gestire tutte o nei vari test case usando le funzionalità di gestione test di Visual Studio Team System.</span><span class="sxs-lookup"><span data-stu-id="641e9-106">In this video we see how you can manage all or your various test cases using the test management capabilities of Visual Studio Team System.</span></span> <span data-ttu-id="641e9-107">Si vedrà anche come i test vengono eseguiti e configurati.</span><span class="sxs-lookup"><span data-stu-id="641e9-107">We will also see how tests are run and configured.</span></span>
 
-[<span data-ttu-id="1623c-108">&#9654;Guardare video (8 minuti)</span><span class="sxs-lookup"><span data-stu-id="1623c-108">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-managing-and-running-tests-with-team-system)
+[<span data-ttu-id="641e9-108">&#9654;Guarda il video (8 minuti)</span><span class="sxs-lookup"><span data-stu-id="641e9-108">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-managing-and-running-tests-with-team-system)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="1623c-109">[Precedente](introduction-to-manual-testing-with-team-system.md)
-> [Successivo](measuring-the-business-value-of-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="1623c-109">[Previous](introduction-to-manual-testing-with-team-system.md)
+> <span data-ttu-id="641e9-109">[Precedente](introduction-to-manual-testing-with-team-system.md)
+> [Successivo](measuring-the-business-value-of-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="641e9-109">[Previous](introduction-to-manual-testing-with-team-system.md)
 [Next](measuring-the-business-value-of-ajax.md)</span></span>

@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-extender
-title: "[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX RoundedCorners? | Microsoft Docs"
+title: '[Procedura:] Usare il dispositivo Extender RoundedCorners ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: In questo video viene illustrato come il controllo extender RoundedCorner può concedere a pagine web un aspetto può tenue aggiungendo interessanti angoli arrotondati all'area di contenuto...
+description: In questo video viene illustrato come il controllo extender RoundedCorner può concedere a pagine web un aspetto tenue aggiungendo interessanti angoli arrotondati all'area di contenuto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/01/2007
 ms.topic: article
 ms.assetid: 2a23e599-2969-4d2a-92c2-4bdfea8f59bc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-extender
 msc.type: video
-ms.openlocfilehash: 13a6faebcf60e87f1529850b1ed904f7c885e26f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a19842b5e3da73463e945b695ca12b91d535e5ee
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884987"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401720"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a><span data-ttu-id="9ca05-104">[Eseguire la ricerca per categorie:] Utilizzare l'estensione ASP.NET AJAX RoundedCorners?</span><span class="sxs-lookup"><span data-stu-id="9ca05-104">[How Do I:] Use the ASP.NET AJAX RoundedCorners Extender?</span></span>
+<a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a><span data-ttu-id="177fa-104">[Procedura:] Usare il dispositivo Extender RoundedCorners ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="177fa-104">[How Do I:] Use the ASP.NET AJAX RoundedCorners Extender?</span></span>
 ====================
-<span data-ttu-id="9ca05-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="9ca05-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="177fa-105">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="177fa-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="9ca05-106">In questo video viene illustrato come il controllo extender RoundedCorner può concedere a pagine web un aspetto può tenue aggiungendo interessanti angoli arrotondati ad aree di contenuto.</span><span class="sxs-lookup"><span data-stu-id="9ca05-106">In this video we see how the RoundedCorner extender control can give your web pages a softer look and feel by adding attractive round corners to content areas.</span></span>
+<span data-ttu-id="177fa-106">In questo video viene illustrato come il controllo extender RoundedCorner può concedere a pagine web un aspetto tenue aggiungendo angoli arrotondati interessanti per le aree del contenuto.</span><span class="sxs-lookup"><span data-stu-id="177fa-106">In this video we see how the RoundedCorner extender control can give your web pages a softer look and feel by adding attractive round corners to content areas.</span></span>
 
-[<span data-ttu-id="9ca05-107">&#9654;Guardare video (2 minuti)</span><span class="sxs-lookup"><span data-stu-id="9ca05-107">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-roundedcorners-extender)
+[<span data-ttu-id="177fa-107">&#9654;Guarda il video (2 minuti)</span><span class="sxs-lookup"><span data-stu-id="177fa-107">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-roundedcorners-extender)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="9ca05-108">[Precedente](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
-> [Successivo](how-do-i-use-the-aspnet-ajax-timer-control.md)</span><span class="sxs-lookup"><span data-stu-id="9ca05-108">[Previous](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
+> <span data-ttu-id="177fa-108">[Precedente](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
+> [Successivo](how-do-i-use-the-aspnet-ajax-timer-control.md)</span><span class="sxs-lookup"><span data-stu-id="177fa-108">[Previous](how-do-i-use-an-aspnet-ajax-scriptmanagerproxy.md)
 [Next](how-do-i-use-the-aspnet-ajax-timer-control.md)</span></span>
