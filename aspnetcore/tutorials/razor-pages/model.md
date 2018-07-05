@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327552"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961175"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -49,10 +49,40 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 * Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)**.
 * Nella riga **Classe contesto di dati** selezionare il segno più **+** e accettare il nome generato **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* Nell'elenco a discesa **Classe contesto di dati** selezionare **RazorPagesMovie.Models.RazorPagesMovieContext**
+* Nel menu a discesa **Classe del contesto dei dati** selezionare **RazorPagesMovie.Models.RazorPagesMovieContext**
 * Selezionare **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/arp.png)
+
+Il processo di scaffolding ha creato e modificato i file seguenti:
+
+### <a name="files-created"></a>File creati
+
+* Pagine di creazione, eliminazione, dettagli, modifica, indice di *Pages/Movies*. Queste pagine vengono descritte in dettaglio nell'esercitazione successiva.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="files-updates"></a>Aggiornamenti di file
+
+* *Startup.cs*: le modifiche a questo file vengono descritte in dettaglio nella sezione successiva.
+* *appsettings.json*: è stata aggiunta la stringa di connessione usata per connettersi a un database locale.
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Esaminare il contesto registrato con l'inserimento di dipendenze
+
+ASP.NET Core viene compilato con l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). I servizi, ad esempio il contesto di database di Entity Framework Core, vengono registrati con l'inserimento delle dipendenze durante l'avvio dell'applicazione. Questi servizi vengono quindi offerti ai componenti per cui sono necessari (ad esempio Razor Pages) tramite i parametri del costruttore. Più avanti nell'esercitazione viene illustrato il codice del costruttore che ottiene un'istanza del contesto di database.
+
+Lo strumento di scaffolding ha creato automaticamente un contesto del database e lo ha registrato con il contenitore di inserimento delle dipendenze.
+
+Esaminare il metodo `Startup.ConfigureServices`. La riga evidenziata è stata aggiunta dallo scaffolder:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+La classe principale che coordina le funzionalità di Entity Framework Core per un determinato modello di dati è la classe del contesto di database. Il contesto dei dati è derivato da [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Il contesto dei dati specifica le entità incluse nel modello di dati. In questo progetto la classe è denominata `RazorPagesMovieContext`.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs)]
+
+Il codice precedente crea una proprietà [DbSet\<Movie>](/dotnet/api/microsoft.entityframeworkcore.dbset-1) per il set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database. Un'entità corrisponde a una riga nella tabella.
+
+Il nome della stringa di connessione viene passato al contesto chiamando un metodo in un oggetto [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions). Per lo sviluppo locale, il [sistema di configurazione di ASP.NET Core](xref:fundamentals/configuration/index) legge la stringa di connessione dal file *appsettings.json*.
 
 <a name="pmc"></a>
 ## <a name="perform-initial-migration"></a>Eseguire la migrazione iniziale
@@ -194,4 +224,4 @@ L'esercitazione successiva illustra i file creati tramite scaffolding.
 
 > [!div class="step-by-step"]
 > [Precedente: Introduzione](xref:tutorials/razor-pages/razor-pages-start)
-> [Successivo: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)    
+> [Successivo: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
