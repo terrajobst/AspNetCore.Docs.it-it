@@ -4,19 +4,16 @@ title: "Introduzione ad ASP.NET per gli sviluppatori ColdFusion: creazione di un
 author: microsoft
 description: In questo webcast viene illustrato come compilare un'applicazione ASP.NET a partire da un form vuoto, per offrire agli sviluppatori ColdFusion esperti un'idea chiara di ciò che...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2006
-ms.topic: article
 ms.assetid: 47316dec-a4cd-4818-8ba7-87e29d963c38
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: a898f510ed1632f2d5d8de35b365d550458005c6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cc2e6e95210be61347f595d38673b904111fdb94
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401263"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803868"
 ---
 <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Introduzione ad ASP.NET per gli sviluppatori ColdFusion: creazione di un'applicazione ASP.NET
 ====================

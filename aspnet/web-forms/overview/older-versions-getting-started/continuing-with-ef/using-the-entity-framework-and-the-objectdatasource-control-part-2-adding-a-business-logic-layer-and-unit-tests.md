@@ -4,19 +4,16 @@ title: 'Utilizzo di Entity Framework 4.0 e controllo ObjectDataSource, parte 2: 
 author: tdykstra
 description: Questa serie di esercitazioni si basa sull'applicazione web di Contoso University specificano che viene creato da Getting Started with serie di esercitazioni in Entity Framework 4.0. POSSO...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2011
-ms.topic: article
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 02f0b86203eb879ca618655b8956f22dc67858cd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6adeb0e49fa754c42bdff6e0bb058f7b73a3f68f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394242"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832558"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Utilizzo di Entity Framework 4.0 e controllo ObjectDataSource, parte 2: aggiunta di un livello di logica di Business e Unit test
 ====================

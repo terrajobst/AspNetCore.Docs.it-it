@@ -4,19 +4,16 @@ title: '[Procedura:] Aggiunta di elementi a un file CSS di File e creare nuovo c
 author: rick-anderson
 description: In questo video verranno compilare in un foglio di stile esistente e ottimizzarlo con ID di elemento usando i nuovi strumenti di gestione di CSS in Visual Studio 2008.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/14/2008
-ms.topic: article
 ms.assetid: 426a5d0f-fde7-447c-ad69-4efe45f8efea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly
 msc.type: video
-ms.openlocfilehash: 036ea175f6a4fb62b7c4823fa33d261d6c92e4de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 93fdcbe1091694455339490e7363316ea2a81038
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385408"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803879"
 ---
 <a name="how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly"></a>[Procedura:] Aggiunta di elementi a un file CSS di File e Crea nuovo contenuto CSS in tempo reale
 ====================

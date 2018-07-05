@@ -4,19 +4,16 @@ title: Formazione in Video su MVC di Pluralsight | Microsoft Docs
 author: rick-anderson
 description: Formazione in Video su MVC di Pluralsight in questo video di formazione gratuito otterrà è attivo e in esecuzione con ASP.NET MVC. Viene descritto come tutti gli elementi di configurazione di una soluzione di sviluppo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/09/2011
-ms.topic: article
 ms.assetid: 87612fe1-258c-4f50-88d8-c3047dec3f14
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/pluralsight
 msc.type: content
-ms.openlocfilehash: 94faa3b9026ff1ef34c16698de823566c809ea52
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 95b1a38a6842f0ed46568757d0420a57ee2a3c63
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376329"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817242"
 ---
 <a name="mvc-video-training-from-pluralsight"></a>Formazione in Video su MVC di Pluralsight
 ====================

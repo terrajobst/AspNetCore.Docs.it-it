@@ -4,19 +4,16 @@ title: "Iterazione #2-migliorare l'applicazione aspetto interessante (VB) | Micr
 author: microsoft
 description: In questa iterazione è migliorare l'aspetto dell'applicazione modificando il valore predefinito di pagina master visualizzazione MVC ASP.NET e foglio di stile CSS.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: f65cb436-e493-46fd-9608-384b27385aa1
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c1209a925a43bd7846a9dc07ce557c55bb1827ae
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d3db23204555f8e341fa975c788ba820986a0902
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381105"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828611"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iterazione #2-migliorare l'applicazione aspetto interessante (VB)
 ====================

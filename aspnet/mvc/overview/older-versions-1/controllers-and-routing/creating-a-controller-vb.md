@@ -4,19 +4,16 @@ title: Creazione di un Controller (VB) | Microsoft Docs
 author: StephenWalther
 description: In questa esercitazione, Stephen Walther spiega come aggiungere un controller a un'applicazione ASP.NET MVC.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/02/2009
-ms.topic: article
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 619fff7a78526cae6c3db0f3c414215bf7db9bb5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b24aeabc6fd4192f44f83e0c0b2150e87ef6f501
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393889"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833063"
 ---
 <a name="creating-a-controller-vb"></a>Creazione di un Controller (VB)
 ====================

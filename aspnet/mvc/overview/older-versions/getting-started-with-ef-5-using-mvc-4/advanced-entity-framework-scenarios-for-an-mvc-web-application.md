@@ -4,19 +4,16 @@ title: Advanced scenari di Entity Framework per un'applicazione Web MVC (10 di 1
 author: tdykstra
 description: L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 4 con Code First di Entity Framework 5 e Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 64906a1d-f734-41cf-9615-ee95f8740996
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: e4e0a754163ad6b44ca02678fe6a0407e71ec3e6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5a75d85140a40660314ab267fdd74a8058d791fc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398197"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832675"
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Scenari avanzati Entity Framework per un'applicazione Web MVC (10 di 10)
 ====================

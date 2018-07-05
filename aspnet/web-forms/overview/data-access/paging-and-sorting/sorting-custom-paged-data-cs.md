@@ -4,19 +4,16 @@ title: Ordinamento con paging personalizzato dei dati (c#) | Microsoft Docs
 author: rick-anderson
 description: Nell'esercitazione precedente abbiamo appreso come implementare il paging personalizzato quando presentating dati in una pagina web. In questa esercitazione viene illustrato come estendere il precedente...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2006
-ms.topic: article
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 36080799c94b359a7e5b7ba6ccb47e359fc2161d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8057b11f9d2d812b9b2bf8d9e016ed17cff4e2f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362797"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816746"
 ---
 <a name="sorting-custom-paged-data-c"></a>Ordinamento con paging personalizzato dei dati (c#)
 ====================

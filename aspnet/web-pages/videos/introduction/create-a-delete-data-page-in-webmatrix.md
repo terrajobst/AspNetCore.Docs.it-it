@@ -4,19 +4,16 @@ title: Creare una pagina di eliminazione dei dati in WebMatrix | Microsoft Docs
 author: rick-anderson
 description: Parte 8 termina disattivata l'applicazione, mostrando come creare una pagina di eliminazione per i dati.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/12/2011
-ms.topic: article
 ms.assetid: 3e84d61e-e462-44a1-b3c2-ac8a1f7fcac6
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/introduction/create-a-delete-data-page-in-webmatrix
 msc.type: video
-ms.openlocfilehash: c1b11aba6fd4a55e2acab00bcc6abc7b3045a092
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 73cbb47d66578d2018e36381c27fabec5837c32f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383396"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833050"
 ---
 <a name="create-a-delete-data-page-in-webmatrix"></a>Creare una pagina di eliminazione dei dati in WebMatrix
 ====================

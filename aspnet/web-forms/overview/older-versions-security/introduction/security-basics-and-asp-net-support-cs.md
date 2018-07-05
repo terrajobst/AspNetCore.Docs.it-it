@@ -4,19 +4,16 @@ title: Nozioni fondamentali sulla sicurezza e supporto di ASP.NET (c#) | Microso
 author: rick-anderson
 description: Questa è la prima esercitazione di una serie di esercitazioni che verranno illustrate le tecniche per l'autenticazione ai visitatori tramite un web form, autorizzare l'accesso a Pers...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/13/2008
-ms.topic: article
 ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cbc2da996726c6e1d838624726e7323ba947ce1e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9600dc0c5bee5fa81cbe19a35dab7fb35e01df1b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374850"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815808"
 ---
 <a name="security-basics-and-aspnet-support-c"></a>Nozioni fondamentali sulla sicurezza e supporto di ASP.NET (c#)
 ====================

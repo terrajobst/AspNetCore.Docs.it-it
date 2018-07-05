@@ -4,19 +4,16 @@ title: 'Esercitazione: Trasmissione Server con ASP.NET SignalR 1.x | Microsoft D
 author: pfletcher
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di trasmissione di server. Trasmissione server significa che communic...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/10/2013
-ms.topic: article
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: caaafd0ff353b180b0f71a1e1f9522cfa574d854
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f98b35236812aac1362f1e36e60971ff8d896bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369935"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816194"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Esercitazione: Trasmissione Server con ASP.NET SignalR 1.x
 ====================

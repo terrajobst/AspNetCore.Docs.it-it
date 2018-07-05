@@ -4,19 +4,16 @@ title: '[Lezione 1:] Introduzione a Visual Web Developer Express | Microsoft Doc
 author: microsoft
 description: In questa lezione si inizierà acquisire familiarità con Visual Web Developer Express Edition ed esaminare il flusso di lavoro relativi all'utilizzo del programma per compilare dyn...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/08/2005
-ms.topic: article
 ms.assetid: e9341b0b-1f01-4371-bfe0-0fb7410916a4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express
 msc.type: video
-ms.openlocfilehash: 8d57f3b6b330892092517053a0eae348211ddea3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 91fb2d0c2f288700d99d18b052ac17cecb516b60
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380636"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828442"
 ---
 <a name="lesson-1-getting-started-with-visual-web-developer-express"></a>[Lezione 1:] Introduzione a Visual Web Developer Express
 ====================

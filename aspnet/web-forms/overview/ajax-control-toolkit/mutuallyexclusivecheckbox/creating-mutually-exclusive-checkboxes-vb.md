@@ -4,19 +4,16 @@ title: Creazione di caselle di controllo si escludono a vicenda (VB) | Microsoft
 author: wenz
 description: "Quando è possibile selezionare solo uno di un set di opzioni, pulsanti di opzione in genere vengono usati. C'è però uno svantaggio: dopo aver selezionato un pulsante di opzione in un gruppo,..."
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c71ba157a52335078a01dc8419370db33a37c43e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6badd005ed4775cb248784f3e9991132db1b3969
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391379"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828799"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Creazione di caselle di controllo si escludono a vicenda (VB)
 ====================

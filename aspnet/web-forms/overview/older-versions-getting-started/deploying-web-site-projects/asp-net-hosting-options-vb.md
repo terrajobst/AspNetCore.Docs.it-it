@@ -4,19 +4,16 @@ title: ASP.NET (VB) opzioni di Hosting | Microsoft Docs
 author: rick-anderson
 description: Le applicazioni web ASP.NET sono progettate in genere, creano e testati in un ambiente di sviluppo locale e devono essere distribuite a una o ambiente di produzione...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2009
-ms.topic: article
 ms.assetid: 492f5ae2-bad7-4107-89a9-f04a9525dee7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0977548ce56ad8dba2dc677ae4958fd4c040bb57
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 68f12de0b459c01ecf766e09144364a64e2d69d3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399117"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817710"
 ---
 <a name="aspnet-hosting-options-vb"></a>Opzioni di Hosting ASP.NET (VB)
 ====================

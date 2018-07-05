@@ -4,19 +4,16 @@ title: Ordinamento dei dati in un controllo DataList o Repeater (VB) | Microsoft
 author: rick-anderson
 description: In questa esercitazione verrà esaminato come includere l'ordinamento di supporto con DataList e Repeater, nonché come costruire un controllo DataList o Repeater i cui dati possono...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/13/2006
-ms.topic: article
 ms.assetid: 97c13898-0741-45f9-b3fa-7540ab1679e6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd76fb5835f9fadd0eee835d4b24484c9ae80bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fcbc1f83a00621ce0031cdcb775537992e3cb843
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389651"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828883"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Ordinamento dei dati in un controllo DataList o Repeater (VB)
 ====================

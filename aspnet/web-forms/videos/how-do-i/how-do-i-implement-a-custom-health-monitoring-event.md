@@ -4,19 +4,16 @@ title: '[Procedura:] Implementare un evento di monitoraggio dello stato personal
 author: rick-anderson
 description: In questo video Chris Pels mostrerà come creare un evento che si estende un monitoraggio degli eventi ASP.NET dello stato standard di monitoraggio dello stato personalizzato. Il funzionalità pro personalizzato...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/17/2007
-ms.topic: article
 ms.assetid: 5fa365a1-d709-40e2-b7bf-489ff687f2ce
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
 msc.type: video
-ms.openlocfilehash: 2818a6781c753def18d489bd31806a6c02a5b708
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 161ed55459f5aaf93f6418bd4beeda98cbb464ff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396162"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828780"
 ---
 <a name="how-do-i-implement-a-custom-health-monitoring-event"></a>[Procedura:] Implementare un evento di monitoraggio di integrità personalizzati
 ====================

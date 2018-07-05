@@ -4,19 +4,16 @@ title: Che cos'è ASP.NET? | Microsoft Docs
 author: shanselman
 description: Scott Hanselman di Microsoft offre una breve panoramica di ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/09/2010
-ms.topic: article
 ms.assetid: 96b57317-72b6-4699-ae60-cc917688cfa1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/what-is-asp-net
 msc.type: video
-ms.openlocfilehash: bd47a19de588c2f5cbb2025de3afe870656a0d66
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c753a5e970a01e918368c3747ca3f82bd0e5039c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384310"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832331"
 ---
 <a name="what-is-aspnet"></a>Che cos'è ASP.NET?
 ====================

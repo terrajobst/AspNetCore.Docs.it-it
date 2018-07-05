@@ -4,19 +4,16 @@ title: Creazione di un Layout a livello di sito tramite le pagine Master (c#) | 
 author: rick-anderson
 description: In questa esercitazione verrà illustrato nozioni di base di pagina master. Vale a dire, cosa sono le pagine master, qual è una creazione di una pagina master, che cosa sono i segnaposto del contenuto, come fa un cr...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cea5894b269209326391de49003ec1d19c8e87f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf9264f6569fe1a5c0369b17a2358c5207cad6ad
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398550"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829279"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Creazione di un Layout a livello di sito tramite le pagine Master (c#)
 ====================
