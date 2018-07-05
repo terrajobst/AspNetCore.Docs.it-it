@@ -4,19 +4,16 @@ title: Gli helper di ASP.NET MVC 4, moduli e convalida | Microsoft Docs
 author: rick-anderson
 description: In ASP.NET MVC 4 modelli e le esercitazioni pratiche accesso dati, si sono stati il caricamento e visualizzazione dei dati dal database. In questo laboratorio pratico, verrà aggiunto ai...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: f2eb624e72d6f52d1694b5753ee2b1f8117c2851
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a84e35695fa08ac1bd4834d2803d2be76f863e5b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376737"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815921"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Gli helper di ASP.NET MVC 4, moduli e convalida
 

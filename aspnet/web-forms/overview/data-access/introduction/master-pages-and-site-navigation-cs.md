@@ -4,19 +4,16 @@ title: Pagine master e spostamento nel sito (c#) | Microsoft Docs
 author: rick-anderson
 description: Una caratteristica comune dei siti Web semplici da usare è che dispongono di uno schema di layout e la navigazione pagina coerenti e a livello di sito. Questa esercitazione viene descritto come y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7f152dcd32b1a7e3022d939c27860a81396a34b0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0ad86398122f3a47721bda689b7f5afc706047bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370361"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816496"
 ---
 <a name="master-pages-and-site-navigation-c"></a>Pagine master e spostamento nel sito (c#)
 ====================
