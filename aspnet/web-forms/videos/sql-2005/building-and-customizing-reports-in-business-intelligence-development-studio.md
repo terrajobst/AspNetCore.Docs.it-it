@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/sql-2005/building-and-customizing-reports-in-business-intelligence-development-studio
-title: La creazione e personalizzazione dei report in Business Intelligence Development Studio | Documenti Microsoft
+title: Creazione e personalizzazione di report in Business Intelligence Development Studio | Microsoft Docs
 author: microsoft
-description: Sulla base della lezione precedente, è esplorare la creazione di report da zero e modifica dei report creati con le procedure guidate e finestre di progettazione. È un...
+description: Compila la lezione precedente, è possibile approfondire la creazione di report da zero e modifica dei report che sono state create usando le procedure guidate e finestre di progettazione. Abbiamo un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/22/2006
 ms.topic: article
 ms.assetid: f38a1055-d387-49c2-aa1b-693688417c15
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/building-and-customizing-reports-in-business-intelligence-development-studio
 msc.type: video
-ms.openlocfilehash: 185ae7d37f1f65af56f4e48513b1b85fe6314e0e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 45ebdc71f4427de99ae1446195c36e5813bb191c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894620"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398459"
 ---
-<a name="building-and-customizing-reports-in-business-intelligence-development-studio"></a>La creazione e personalizzazione dei report in Business Intelligence Development Studio
+<a name="building-and-customizing-reports-in-business-intelligence-development-studio"></a>Creazione e personalizzazione di report in Business Intelligence Development Studio
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-Sulla base della lezione precedente, è esplorare la creazione di report da zero e modifica dei report creati con le procedure guidate e finestre di progettazione. È inoltre viene illustrato come incorporare i report nelle applicazioni Web Form ASP.NET.
+Compila la lezione precedente, è possibile approfondire la creazione di report da zero e modifica dei report che sono state create usando le procedure guidate e finestre di progettazione. Viene inoltre illustrato come incorporare i report nelle applicazioni Web Form ASP.NET.
 
-[&#9654;Guardare video (minuti 44)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/building-and-customizing-reports-in-business-intelligence-development-studio)
+[&#9654;Guarda il video (44 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/building-and-customizing-reports-in-business-intelligence-development-studio)
 
 > [!div class="step-by-step"]
 > [Precedente](getting-started-with-reporting-services.md)

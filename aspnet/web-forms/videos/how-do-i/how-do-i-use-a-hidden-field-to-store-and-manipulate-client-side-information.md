@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: '[Eseguire la ricerca per categorie:] Utilizzare un campo nascosto per archiviare e gestire informazioni sul lato Client | Documenti Microsoft'
+title: '[Procedura:] Utilizzo di un campo nascosto per Store e modificare informazioni sul lato Client | Microsoft Docs'
 author: rick-anderson
-description: In questo video Chris Pels viene illustrato come utilizzare un campo nascosto come uno degli approcci disponibili per la gestione dello stato semplice in una pagina ASP.NET e per la comunicazione lato client...
+description: In questo video Chris Pels verrà illustrato come usare un campo nascosto come uno degli approcci per la gestione dello stato semplice in una pagina ASP.NET e per le comunicazioni sul lato client...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
 ms.topic: article
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 2d20082329859ca1529aa6202244c97271ff9c1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83aeef1b7331dfeab727139ca9031cb5b8305e31
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525080"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385930"
 ---
-<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Eseguire la ricerca per categorie:] Utilizzare un campo nascosto per archiviare e gestire informazioni sul lato Client
+<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Procedura:] Utilizzo di un campo nascosto per Store e modificare informazioni sul lato Client
 ====================
-da [Chris PEL](https://twitter.com/chrispels)
+da [Chris Pels](https://twitter.com/chrispels)
 
-In questo video Chris Pels viene illustrato come utilizzare un campo nascosto come uno degli approcci disponibili per la gestione dello stato semplice in una pagina ASP.NET e per la comunicazione client informazioni sull'elaborazione sul lato. Innanzitutto, vedere come aggiungere un campo nascosto a una pagina con un controllo server ASP.NET HiddenField e recuperare il valore del campo nascosto nel codice sul lato server dopo un postback. Successivamente, informazioni su come modificare il valore del campo nascosto nello script sul lato client e quindi recuperare il valore modificato nel codice sul lato server. Infine, vedere un esempio di come utilizzare i diversi campi nascosti per archiviare le informazioni dall'elaborazione sul lato client che può essere registrato per l'elaborazione di server.
+In questo video Chris Pels verrà illustrato come usare un campo nascosto come uno degli approcci per la gestione dello stato semplice in una pagina ASP.NET e per client che comunicano informazioni sull'elaborazione sul lato. In primo luogo, informazioni su come aggiungere un campo nascosto a una pagina utilizzando un controllo server ASP.NET HiddenField e recuperare il valore del campo nascosto nel codice lato server dopo un postback. Successivamente, per informazioni su come modificare il valore del campo nascosto in uno script lato client e quindi recuperare il valore modificato nel codice lato server. Infine, vedere un esempio di come usare diversi campi nascosti per archiviare le informazioni di elaborazione sul lato client che può essere registrato per l'elaborazione di server.
 
-[&#9654; Guardare video (minuti 24)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)
+[&#9654;Guarda il video (24 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)

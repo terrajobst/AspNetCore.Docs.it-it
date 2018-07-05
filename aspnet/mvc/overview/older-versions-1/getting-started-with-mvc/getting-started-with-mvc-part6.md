@@ -1,70 +1,69 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: Aggiunta di un metodo di creazione e creare vista | Documenti Microsoft
+title: Aggiunta di un creare metodo e vista | Microsoft Docs
 author: shanselman
-description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
+description: Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Creare un'applicazione web semplice che legge e scrive da un database.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 976df78ea22c30c094f70a57792d287f15d2c62d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30867983"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400908"
 ---
-<a name="adding-a-create-method-and-create-view"></a>Aggiunta di un metodo di creazione e creare vista
+<a name="adding-a-create-method-and-create-view"></a>Aggiunta di un creare metodo e vista
 ====================
 da [Scott Hanselman](https://github.com/shanselman)
 
-> Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà un'applicazione web semplice la lettura e scrittura da un database. Visitare il [area risorse di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.
+> Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà una semplice applicazione web che legge e scrive da un database. Visitare il [centro di formazione di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.
 
 
-In questa sezione verrà per implementare il supporto necessario per consentire agli utenti di creare nuovi film nel database. Faremo implementando l'azione URL filmati/Create.
+In questa sezione si intende implementare il supporto necessario per consentire agli utenti di creare nuovi film nel database. Faremo implementando l'azione URL Movies/Create.
 
-Implementare l'URL di filmati/Create è un processo in due fasi. Quando un utente visita innanzitutto l'URL di filmati/Create desideriamo mostrare un form HTML che è possibile compilare per immettere un nuovo filmato. Quando l'utente invia il form e gli invii che i dati di postback al server, si desidera recuperare il contenuto registrato e salvarlo nel database.
+L'URL di Movies/Create l'implementazione è un processo in due passaggi. Quando un utente visita prima di tutto l'URL di Movies/Create si vuole visualizzare in un form HTML che è possibile compilare per immettere un nuovo film. Quindi, quando l'utente invia il form e gli invii che i dati di postback al server, si vuole recuperare il contenuto registrato e salvarlo nel database.
 
-Questi due passaggi all'interno di due metodi di metodo di creazione verrà implementato all'interno della classe MoviesController. Verrà visualizzato un metodo di &lt;modulo&gt; che l'utente deve compilare per creare un nuovo film. Il secondo metodo gestisce l'elaborazione dei dati inviati quando l'utente invia il &lt;modulo&gt; il postback al server e salvare un nuovo filmato all'interno del database.
+Che verrà implementato questi due passaggi all'interno di due metodi Create () all'interno della classe MoviesController. Un metodo consente di visualizzare il &lt;form&gt; che l'utente deve compilare per creare un nuovo film. Il secondo metodo gestirà l'elaborazione dei dati inviati quando l'utente invia il &lt;form&gt; il postback al server e salvare un nuovo film nel database.
 
-Di seguito è riportato il codice verrà aggiunto alla classe MoviesController per implementare questa:
+Di seguito è riportato il codice verrà aggiunto alla nostra classe MoviesController per implementare questa:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample1.cs)]
 
-Il codice sopra riportato contiene tutto il codice che è necessario all'interno di questo Controller.
+Il codice sopra riportato contiene tutto il codice che avremo bisogno all'interno di Controller.
 
-Verrà ora implementata il modello Create View che verranno utilizzate per visualizzare un form all'utente. Si sarà fare clic con il primo metodo di creazione e selezionare "Aggiungi visualizzazione" per creare il modello di visualizzazione per il modulo di film.
+Verrà ora implementata il modello Create View che verranno utilizzate per visualizzare un form all'utente. Si sarà fare clic con il pulsante destro nel primo metodo di creazione e selezionare "Aggiungi visualizzazione" per creare il modello di visualizzazione per il modulo di film.
 
-Si selezionerà si decide di passare il modello di visualizzazione di un filmato"" come la classe di visualizzazione dati, e indicare che si desidera "lo scaffolding" modello "Creazione".
+Sceglieremo ora che abbiamo si decide di passare il modello di vista di un film"" come la classe di visualizzazione dei dati e indicare che desideriamo "lo scaffolding di" un modello di "Crea".
 
 [![Aggiungi visualizzazione](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
-Dopo aver fatto clic sul pulsante Aggiungi modello di visualizzazione \Movies\Create.aspx verrà creato automaticamente. Poiché è selezionata l'opzione "Crea" nell'elenco a discesa "Visualizza contenuto", la finestra di dialogo Aggiungi visualizzazione automaticamente "scaffolding" del contenuto predefinito per noi. Lo scaffolding creato HTML &lt;modulo&gt;, per passare una posizione per errore di convalida dei messaggi e poiché lo scaffolding conoscenza di filmati, creata etichetta e i campi per ogni proprietà di classe.
+Dopo aver fatto clic sul pulsante Aggiungi modello di vista \Movies\Create.aspx verrà creato automaticamente. Poiché sono stati selezionati nell'elenco a discesa "visualizzare il contenuto" "Crea", la finestra di dialogo Aggiungi visualizzazione automaticamente "sottoposto a scaffolding" del contenuto predefinito per noi. Lo scaffolding creato un elemento HTML &lt;form&gt;, per passare una posizione per errore di convalida dei messaggi e poiché lo scaffolding SA sui film, creata etichetta e i campi per ogni proprietà della nostra classe.
 
 [!code-aspx[Main](getting-started-with-mvc-part6/samples/sample2.aspx)]
 
-Poiché il database offre un filmato automaticamente un ID, rimuovere tali campi tale modello di riferimento. ID dalla visualizzazione di creazione. Rimuovere le righe dopo 7 &lt;legenda&gt;campi&lt;/legend&gt; come visualizzano il campo ID non vogliamo.
+Poiché il nostro database fornisce automaticamente un film un ID, è possibile rimuovere tali campi di tale modello di riferimento. ID dalla visualizzazione Create. Rimuovere le 7 righe dopo &lt;legenda&gt;campi&lt;/legend&gt; che mostrano il campo ID non vogliamo.
 
-Verrà ora creare un nuovo filmato e aggiungerlo al database. Verrà questo scopo, eseguire nuovamente l'applicazione e visitare il "/ filmati" URL e fare clic su "Crea" collegamento per aggiungere un nuovo film.
+È possibile ora creare un nuovo film e aggiungerlo al database. Verrà effettuare questa operazione eseguendo nuovamente l'applicazione e visitare il "/ film" URL e fare clic sul collegamento "Crea" per aggiungere un nuovo film.
 
 [![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
-Quando si fa clic sul pulsante Crea, verranno resi disponibili (tramite HTTP POST) i dati del form per il metodo /Movies/Create che abbiamo appena creato. Analogamente a quando automaticamente il sistema ha impiegato il parametro "numTimes" e "name" all'URL e li mappati ai parametri su un metodo in precedenza, il sistema automaticamente richiedere i campi del modulo da un POST e associarli a un oggetto. In questo caso, i valori dei campi in formato HTML come "ReleaseDate" e "Title" verranno automaticamente messe nelle proprietà corrette di una nuova istanza di un film.
+Quando si fa clic sul pulsante Crea, verranno resi disponibili (tramite HTTP POST) i dati in questo modulo per il metodo /Movies/Create appena creato. Proprio come quando automaticamente il sistema ha richiesto il parametro "numTimes" e "name" all'URL esterno e li mappati ai parametri in un metodo in precedenza, il sistema verrà automaticamente portare i campi del modulo da una richiesta POST ed eseguirne il mapping a un oggetto. In questo caso, i valori dei campi in formato HTML, ad esempio "ReleaseDate" e "Title" automaticamente essere inseriti nelle proprietà del corretta di una nuova istanza di un film.
 
-Esaminiamo il secondo metodo Create dal nostro MoviesController nuovamente. Si noti come accetta un oggetto di "Filmato" come argomento:
+Verrà ora esaminato il secondo metodo Create dal nostro MoviesController nuovamente. Si noti come richiede un oggetto "Film" come argomento:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample3.cs)]
 
-Questo oggetto film quindi passato alla versione [HttpPost] del metodo di azione Create e viene salvato nel database e quindi l'utente viene reindirizzato al metodo di azione Index () che consente di visualizzare il risultato salvato nell'elenco di film:
+Questo oggetto è stato quindi passato alla versione [HttpPost] del nostro metodo di azione Create e salvato nel database e quindi l'utente viene reindirizzato al metodo di azione Index () che consente di visualizzare il risultato salvato nell'elenco di film:
 
 [![Elenco di film - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
-È non verifica se i filmati siano corretti, tuttavia, e il database non consente di salvare un filmato con nessun titolo. Sarebbe utile se è stato possibile indicare all'utente di database ha generato un errore. Successiva attività verranno eseguite tramite l'aggiunta di supporto della convalida per l'applicazione.
+È non verifica se il film siano corretti, tuttavia, e il database non consentirà di salvare un film con nessun titolo. Sarebbe bello se potremmo l'utente viene informato che prima il database ha generato un errore. Faremo successiva mediante l'aggiunta di supporto per la convalida per l'applicazione.
 
 > [!div class="step-by-step"]
 > [Precedente](getting-started-with-mvc-part5.md)

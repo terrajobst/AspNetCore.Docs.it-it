@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-use-an-aspnet-ajax-scriptmanagerproxy
-title: '[Eseguire la ricerca per categorie:] Utilizzare un ScriptManagerProxy AJAX ASP.NET? | Microsoft Docs'
+title: '[Procedura:] Usare un controllo ScriptManagerProxy di ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Informazioni su come un ScriptManagerProxy consente a una pagina contenuto passare i riferimenti a ScriptManager inserito nella relativa pagina master ASP.NET, consentendo di ogni pagina di contenuto t...
+description: Informazioni su come un controllo ScriptManagerProxy consente una pagina di contenuto passare i riferimenti a ScriptManager inserito nella relativa pagina master ASP.NET, consentendo di ogni pagina dei contenuti di t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/01/2007
 ms.topic: article
 ms.assetid: c11935d8-c3df-45d3-aab1-1d90f6599b6d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-an-aspnet-ajax-scriptmanagerproxy
 msc.type: video
-ms.openlocfilehash: 2afe1ab24dd9faab01f4ff0278d4d3fa17ab242a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b48f5ecaf031185f87385f86ca4f75fa2fc43313
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885380"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386455"
 ---
-<a name="how-do-i-use-an-aspnet-ajax-scriptmanagerproxy"></a>[Eseguire la ricerca per categorie:] Utilizzare un ScriptManagerProxy AJAX ASP.NET?
+<a name="how-do-i-use-an-aspnet-ajax-scriptmanagerproxy"></a>[Procedura:] Usare un controllo ScriptManagerProxy di ASP.NET AJAX?
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-Informazioni su come un ScriptManagerProxy consente a una pagina contenuto passare i riferimenti a ScriptManager inserito nella relativa pagina master ASP.NET, consentendo di ogni pagina contenuto per definire il comportamento di AJAX.
+Informazioni su come un controllo ScriptManagerProxy consente una pagina di contenuto passare i riferimenti a ScriptManager inserito nella relativa pagina master ASP.NET, consentendo di ogni pagina di contenuto definire il proprio comportamento in AJAX.
 
-[&#9654;Guardare video (8 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-an-aspnet-ajax-scriptmanagerproxy)
+[&#9654;Guarda il video (8 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-an-aspnet-ajax-scriptmanagerproxy)
 
 > [!div class="step-by-step"]
 > [Precedente](how-do-i-use-the-aspnet-ajax-client-library-controls.md)

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
-title: Incapsulamento NerdDinner backup | Documenti Microsoft
+title: Di Nerddinner | Microsoft Docs
 author: microsoft
 description: Questo è il termine dell'esercitazione NerdDinner e vengono fornite informazioni su come per altre informazioni.
 ms.author: aspnetcontent
@@ -9,44 +9,43 @@ ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 5c6371c0-a944-4adf-a28e-5afbdd011ca8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: 8d418f40f6d2911491c1a4f2498a4f711e9c271c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bc4e4528ff62b92407d2149d825e6872c40e5126
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867424"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387062"
 ---
-<a name="nerddinner-wrap-up"></a>Incapsulamento NerdDinner backup
+<a name="nerddinner-wrap-up"></a>Di Nerddinner
 ====================
-by [Microsoft](https://github.com/microsoft)
+da [Microsoft](https://github.com/microsoft)
 
-[Scarica il PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[Scaricare PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > Questo è il termine dell'esercitazione NerdDinner e vengono fornite informazioni su come per altre informazioni.
 > 
-> Se si utilizza ASP.NET MVC 3, è consigliabile seguire il [recupero avviato con MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) o [negozio MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) esercitazioni.
+> Se si usa ASP.NET MVC 3, è consigliabile seguire le [Guida introduttiva con MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) oppure [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) esercitazioni.
 
 
-L'applicazione NerdDinner è ora completo e pronto per la distribuzione sul web.
+La nostra applicazione NerdDinner è ora completo e pronto per la distribuzione sul web.
 
 ![](nerddinner-wrap-up/_static/image1.png)
 
-Per compilare NerdDinner utilizzato una vasta gamma di funzionalità di ASP.NET MVC. Probabilmente il processo di sviluppo, a chiarire come componenti di base del lavoro di funzionalità di ASP.NET MVC e il contesto fornito in modo queste funzionalità Integrazione all'interno di un'applicazione.
+Abbiamo utilizzato un'ampia gamma di funzionalità di ASP.NET MVC per compilare NerdDinner. Si spera il processo di sviluppo, diradare sul modo in cui il lavoro di funzionalità di ASP.NET MVC core e il contesto fornito sul modo in cui queste funzionalità integrati in un'applicazione.
 
 ### <a name="learning-more"></a>Ulteriori informazioni
 
-In questa esercitazione NerdDinner è il primo capitolo della nuova [Professional ASP.NET MVC 1.0](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611) libro da Wrox Press.
+Questa esercitazione NerdDinner è il capitolo prima della nuova [professionisti ASP.NET MVC 1.0](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611) libro pubblicato da Wrox Press.
 
 [![](https://mscblogs.blob.core.windows.net/media/scottgu/Media/bookcover1_6CAECF94.png)](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611)
 
-È possibile leggere il resto del libro per ulteriori informazioni su ASP.NET MVC.
+È possibile leggere il resto del libro per altre informazioni su ASP.NET MVC.
 
-È anche possibile trovare grande ASP.NET MVC, esercitazioni e video in: [ https://www.asp.net/mvc ](../../../index.md) verranno pubblicati poco altro ottimi documentazione di ASP.NET MVC. Questa pagina per includere i collegamenti alla documentazione aggiuntive man mano che diventano disponibili verrà aggiornato.
+È anche possibile trovare eccezionali ASP.NET MVC, esercitazioni e video in: [ https://www.asp.net/mvc ](../../../index.md) verranno pubblicati a breve altre eccezionali documentazione di ASP.NET MVC. Aggiornerà questa pagina per includere i collegamenti alla documentazione aggiuntive man mano che diventano disponibili.
 
-Auguriamo,
+Pensa in questo modo,
 
 Scott
 

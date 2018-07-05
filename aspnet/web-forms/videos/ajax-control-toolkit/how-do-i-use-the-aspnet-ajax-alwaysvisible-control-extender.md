@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender
-title: "[Eseguire la ricerca per categorie:] Utilizzare l'estensione di controllo AlwaysVisible ASP.NET AJAX? | Microsoft Docs"
+title: '[Procedura:] Usare il controllo Extender AlwaysVisible controllo ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Vedere come è facile da ancorare un elemento di pagina in una posizione sullo schermo, in cui rimane sempre visibile indipendentemente da parte dell'utente può scorrere il documento. Il...
+description: Scopri come è facile da ancorare un elemento di pagina in una posizione sullo schermo, in cui resta sempre visibile, indipendentemente dal modo in cui parte dell'utente può scorrere il documento. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2007
 ms.topic: article
 ms.assetid: 1126e173-733e-437f-abdd-81784f47b7f0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender
 msc.type: video
-ms.openlocfilehash: 83536e6d3bea0dacd61d6b62258f0f4ddcdaceec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26d81d37d39320ed81f9daceca764f62ee61e6b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882020"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387460"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender"></a>[Eseguire la ricerca per categorie:] Utilizzare l'estensione di controllo AlwaysVisible ASP.NET AJAX?
+<a name="how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender"></a>[Procedura:] Usare il controllo Extender AlwaysVisible controllo ASP.NET AJAX?
 ====================
 da [Joe Stagner](https://github.com/JoeStagner)
 
-Vedere come è facile da ancorare un elemento di pagina in una posizione sullo schermo, in cui rimane sempre visibile indipendentemente da parte dell'utente può scorrere il documento. L'elemento di pagina mobile può essere qualsiasi elemento da testo statico in una casella basate su AJAX, che riconoscano il contesto della Guida...
+Scopri come è facile da ancorare un elemento di pagina in una posizione sullo schermo, in cui resta sempre visibile, indipendentemente dal modo in cui parte dell'utente può scorrere il documento. L'elemento di pagina a virgola mobile può essere qualsiasi elemento, da testo statico a una finestra della Guida sensibili al contesto e basate su AJAX...
 
-[&#9654;Guardare video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender)
+[&#9654;Guarda il video (6 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender)
 
 > [!div class="step-by-step"]
 > [Precedente](how-do-i-use-the-aspnet-ajax-modalpopup-extender-control.md)

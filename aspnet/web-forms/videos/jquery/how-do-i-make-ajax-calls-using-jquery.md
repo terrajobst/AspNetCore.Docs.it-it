@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
-title: 'Eseguire la ricerca per categorie: verificare le chiamate Ajax tramite jQuery? | Microsoft Docs'
+title: 'Procedura: rendere le chiamate Ajax tramite jQuery? | Microsoft Docs'
 author: rick-anderson
-description: In questo video di Chris Pels viene illustrato come utilizzare la libreria jQuery supportano chiamate Ajax. Un sito web di esempio viene creato che contiene un servizio web semplice che restituisce...
+description: In questo video Chris Pels illustra come effettuare chiamate Ajax tramite la libreria jQuery. Viene creato un sito web di esempio contenente un servizio web semplice che restituisce...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2010
 ms.topic: article
 ms.assetid: 112b6255-ec37-4311-b967-c1aacce78bc8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
 msc.type: video
-ms.openlocfilehash: ca7ed4a27c34506154ad97719aaf41d91673d513
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5e47921071fe3e7b0dbf94b814befadd3cf4e7e0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26526420"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385917"
 ---
-<a name="how-do-i-make-ajax-calls-using-jquery"></a>Eseguire la ricerca per categorie: verificare le chiamate Ajax tramite jQuery?
+<a name="how-do-i-make-ajax-calls-using-jquery"></a>Procedura: rendere le chiamate Ajax tramite jQuery?
 ====================
-da [Chris PEL](https://twitter.com/chrispels)
+da [Chris Pels](https://twitter.com/chrispels)
 
-In questo video di Chris Pels viene illustrato come utilizzare la libreria jQuery supportano chiamate Ajax. Un sito web di esempio viene creato che contiene un servizio web semplice che restituisce un valore. Successivamente, il metodo ajax() jQuery è usato per chiamare il servizio web. Un numero di opzioni di metodo ajax() sono inclusi l'url, il tipo di dati, i dati e così via. Inoltre, vengono definiti gestori eventi per le condizioni di esito positivo e di errore. Servizi web di un altro viene quindi definita che accetta un argomento e restituisce un valore. Una seconda chiamata ajax() è definita che passa un valore per la chiamata del servizio web ed elabora i dati restituiti. Infine, vengono descritti il programma di installazione per le opzioni globali e i gestori eventi per le chiamate al metodo ajax().
+In questo video Chris Pels illustra come effettuare chiamate Ajax tramite la libreria jQuery. Viene creato un sito web di esempio contenente un servizio web semplice che restituisce un valore. Successivamente, il metodo ajax() jQuery è usato per chiamare il servizio web. Un numero di opzioni di metodo ajax() viene impostato tra cui url, il tipo di dati, dati e così via. Inoltre, i gestori eventi per le condizioni con esito positivo ed errore sono definiti. Servizi web di un altro viene quindi definita che accetta un argomento e restituisce un valore. Viene definita una seconda chiamata ajax() che passa un valore alla chiamata al servizio web ed elabora i dati restituiti. Infine, vengono descritti l'installazione di opzioni globali e i gestori di eventi delle chiamate al metodo ajax().
 
-[&#9654; Guardare video (minuti 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-ajax-calls-using-jquery)
+[&#9654;Guarda il video (21 minuti)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-ajax-calls-using-jquery)
