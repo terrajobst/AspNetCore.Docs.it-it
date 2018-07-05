@@ -4,19 +4,16 @@ title: Utilizzo delle colonne calcolate (VB) | Microsoft Docs
 author: rick-anderson
 description: Quando si crea una tabella di database, Microsoft SQL Server consente di definire una colonna calcolata il cui valore viene calcolato da un'espressione che, in genere referen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5837baccb9e378546d26703c99dcddd144ba80de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7e489640c9075b3443725ddd776ca08fd5569232
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386773"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830993"
 ---
 <a name="working-with-computed-columns-vb"></a>Utilizzo delle colonne calcolate (VB)
 ====================

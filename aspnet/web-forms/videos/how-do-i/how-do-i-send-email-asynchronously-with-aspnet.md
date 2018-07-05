@@ -4,19 +4,16 @@ title: '[Procedura:] Invio di posta elettronica in modo asincrono con ASP.NET | 
 author: rick-anderson
 description: In questo video Chris Pels illustra come usare le classi System.NET. Mail in ASP.NET per inviare un messaggio di posta elettronica asincrono. In primo luogo, informazioni su come configurare un intervento di servizio web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/24/2008
-ms.topic: article
 ms.assetid: 77a5c8fa-ebb2-426d-b56b-a5a98a46b516
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
 msc.type: video
-ms.openlocfilehash: 69810f4c25b6b449168ca31af5df584c77d92e07
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e1405a82117a079dbdca72911b85b742c916262c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395928"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830043"
 ---
 <a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[Procedura:] Invio di posta elettronica in modo asincrono con ASP.NET
 ====================

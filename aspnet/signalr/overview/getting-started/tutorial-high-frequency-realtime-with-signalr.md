@@ -4,19 +4,16 @@ title: 'Esercitazione: Messaggistica di ad alta frequenza con SignalR 2 | Micros
 author: pfletcher
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di messaggistica ad alta frequenza. Ad alta frequenza messaggistica in...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 8bcc80492804aff2e5a7d3c63004a84447600530
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 14ec1c8b4c034332afd8d3102a310fd3fb399d32
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393248"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829463"
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Esercitazione: Messaggistica di ad alta frequenza con SignalR 2
 ====================

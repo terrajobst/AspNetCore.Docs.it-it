@@ -4,19 +4,16 @@ title: Aggiunta di una conferma lato Client durante l'eliminazione (VB) | Micros
 author: rick-anderson
 description: Nelle interfacce che abbiamo creato finora, un utente può eliminare accidentalmente dei dati facendo clic sul pulsante Elimina quando si intende fare clic sul pulsante Modifica. In questo t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: acab34cb362bd3e3351156a41a6826d03e5a749f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2318018b20841038ebb7a6e4900cf9849057d941
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388267"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802494"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Aggiunta di una conferma lato Client durante l'eliminazione (VB)
 ====================

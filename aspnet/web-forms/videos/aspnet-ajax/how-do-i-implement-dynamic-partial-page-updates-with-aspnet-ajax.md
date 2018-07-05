@@ -4,19 +4,16 @@ title: '[Procedura:] Implementare aggiornamenti parziali di pagine dinamici con 
 author: JoeStagner
 description: In questo video si apprenderà come aggiungere gli aggiornamenti parziali della pagina dinamici a un'applicazione ASP.NET con Microsoft ASP.NET AJAX. In particolare, si noterà come...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/25/2007
-ms.topic: article
 ms.assetid: 7559a912-2753-4866-a140-a4c6cefee00c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 51e032c3a23619291fee0f13d2ff40cdc08ddbb6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5eb178edc60a379fd960bee3ca86a73b931e36fe
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376058"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803694"
 ---
 <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[Procedura:] Implementare aggiornamenti parziali di pagine dinamici con ASP.NET AJAX?
 ====================

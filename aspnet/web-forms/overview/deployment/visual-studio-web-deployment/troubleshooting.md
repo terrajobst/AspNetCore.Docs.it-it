@@ -4,19 +4,16 @@ title: 'Distribuzione Web ASP.NET tramite Visual Studio: risoluzione dei problem
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/01/2015
-ms.topic: article
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 0b57a91c29ba15463e6c534693b951aee8286ad2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b2be5d2f5aa0b7628f7b9338c860593660ef5893
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364002"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830892"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Distribuzione Web ASP.NET tramite Visual Studio: risoluzione dei problemi
 ====================

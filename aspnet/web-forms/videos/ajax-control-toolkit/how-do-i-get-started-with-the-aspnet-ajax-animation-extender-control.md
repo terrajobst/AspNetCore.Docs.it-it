@@ -4,19 +4,16 @@ title: '[Procedura:] Iniziare a usare il controllo Extender ASP.NET AJAX animazi
 author: JoeStagner
 description: Questo video introduce il controllo extender Animation di ASP.NET AJAX Control Toolkit, che offre agli sviluppatori un framework completamente estensibile per un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2007
-ms.topic: article
 ms.assetid: 47f94a4c-9c95-4fc2-96e6-e7cc54b6784f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control
 msc.type: video
-ms.openlocfilehash: 647bf970a364f8189e96272e5a4949fd94a34cd1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b0f8a85e1cbbe0521068bf5067124a62f49bbfd7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380571"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801486"
 ---
 <a name="how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control"></a>[Procedura:] Iniziare a usare il controllo Extender ASP.NET AJAX animazione?
 ====================

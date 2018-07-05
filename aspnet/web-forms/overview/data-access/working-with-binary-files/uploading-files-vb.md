@@ -4,19 +4,16 @@ title: Caricamento di file (VB) | Microsoft Docs
 author: rick-anderson
 description: Informazioni su come consentire agli utenti di caricare i file binari (ad esempio i documenti di Word o PDF) sul sito Web in cui possono essere archiviati nel file system del server...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: f7c00fbd-652c-433d-8ed3-0e5168a4d4df
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1b6257c05bcefa01d3358536ffbdfc3a31d6b280
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 412a809de63f22fd3fddf99ad34d06c079f73fd0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373159"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802721"
 ---
 <a name="uploading-files-vb"></a>Caricamento di file (VB)
 ====================

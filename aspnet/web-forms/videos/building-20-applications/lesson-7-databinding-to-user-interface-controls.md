@@ -4,19 +4,16 @@ title: "[Lezione 7:] Associazione dati ai controlli dell'interfaccia utente | Mi
 author: microsoft
 description: In questa lezione si apprenderà come visualizzare i dati in ASP.NET&#160;applicazioni di alcuni dei nuovi controlli con associazione a dati web 2.0.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/29/2005
-ms.topic: article
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
-ms.openlocfilehash: aa7d2143e60d504041302f85322970aeffbc1011
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 868072c6a3ccc8d461cd86d2092b5b8c82ed7fc9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361402"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802229"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a>[Lezione 7:] Associazione dati ai controlli dell'interfaccia utente
 ====================

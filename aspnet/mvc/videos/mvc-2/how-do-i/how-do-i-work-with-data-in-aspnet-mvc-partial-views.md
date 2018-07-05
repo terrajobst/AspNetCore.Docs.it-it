@@ -4,19 +4,16 @@ title: 'Procedura: elaborazione dati in ASP.NET MVC le visualizzazioni parziali?
 author: rick-anderson
 description: In questo video Chris Pels illustra come organizzare e passare i dati per le visualizzazioni parziali in un'applicazione MVC. Viene creata un'applicazione MVC di esempio che contiene il dominio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2009
-ms.topic: article
 ms.assetid: 2f0d41d2-2860-4113-8f5e-0efdd29abf7b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views
 msc.type: video
-ms.openlocfilehash: 055efbaf76f608d8b88b458068be9803f341e315
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5048e04d21b76696cc7f9575d0484029a768897b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388435"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815317"
 ---
 <a name="how-do-i-work-with-data-in-aspnet-mvc-partial-views"></a>Procedura: elaborazione dati in ASP.NET MVC le visualizzazioni parziali?
 ====================

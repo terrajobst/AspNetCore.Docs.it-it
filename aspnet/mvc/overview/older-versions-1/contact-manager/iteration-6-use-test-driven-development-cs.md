@@ -4,19 +4,16 @@ title: 'Iterazione #6-usare lo sviluppo basato su test (c#) | Microsoft Docs'
 author: microsoft
 description: In questa iterazione sesta, viene aggiunto nuove funzionalità all'applicazione scrivendo unit test prima e scrivere codice sull'unit test. In questa iterazione,...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2b3b0dc38d933f7ff8922b6642f904e4bb40cfe1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 58e1ab5a0a65e65b70a8f8a9f5e45564499efd63
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379089"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830069"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>Iterazione #6-usare lo sviluppo basato su test (c#)
 ====================

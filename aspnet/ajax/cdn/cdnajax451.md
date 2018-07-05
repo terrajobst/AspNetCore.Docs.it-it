@@ -4,19 +4,16 @@ title: Web Form ASP.NET e Ajax 4.5.1 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/18/2015
-ms.topic: article
 ms.assetid: d7ec655d-49b0-4968-af5e-3064616aff9a
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/cdnajax451
 msc.type: content
-ms.openlocfilehash: 7e4fd7927b1f5084b673947c0a998e3c032afedf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b8b1e799d7fb0bbe4360d1b5307deda6c94e4921
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363345"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802176"
 ---
 <a name="aspnet-web-forms-and-ajax-451"></a>Web Form ASP.NET e Ajax 4.5.1
 ====================

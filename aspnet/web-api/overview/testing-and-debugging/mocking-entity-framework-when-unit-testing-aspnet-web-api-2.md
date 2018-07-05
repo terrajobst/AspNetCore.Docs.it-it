@@ -4,19 +4,16 @@ title: Comportamento fittizio di Entity Framework quando gli Unit test ASP.NET W
 author: tfitzmac
 description: Questo materiale sussidiario e applicazione illustrano come creare unit test per l'applicazione API Web 2 che usa Entity Framework. Viene illustrato come modificare il...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/13/2013
-ms.topic: article
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f1ff2fda85a6d56a6bbb76b1bff740301ab0c70d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dc50965a2757defb254d05f0b8a5fd46a90dc75f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371869"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804400"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Comportamento fittizio di Entity Framework quando gli Unit test ASP.NET Web API 2
 ====================

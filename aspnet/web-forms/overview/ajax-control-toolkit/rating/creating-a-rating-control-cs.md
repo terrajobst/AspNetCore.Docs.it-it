@@ -4,19 +4,16 @@ title: Creazione di un controllo Rating (c#) | Microsoft Docs
 author: wenz
 description: Molti siti Web, di e-commerce a siti di community, offrono agli utenti di articoli di frequenza o elementi. Ciò in genere richiede alcune attività di codifica, ma non è disponibile il...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 969fb28f-2bff-4fc4-b24a-27f5e2534a37
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7be954a73c6c08bca9992aacf6ad529bc61c9247
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 67c66d2a28a247493a0b1ea67e15935c27af80ae
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389586"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830954"
 ---
 <a name="creating-a-rating-control-c"></a>Creazione di un controllo Rating (c#)
 ====================

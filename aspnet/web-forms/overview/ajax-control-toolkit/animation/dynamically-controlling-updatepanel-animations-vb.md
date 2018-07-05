@@ -4,19 +4,16 @@ title: Controllo dinamico delle animazioni UpdatePanel (VB) | Microsoft Docs
 author: wenz
 description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Per il contenuto di un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 79a256f5d5c62123184beffce3365ade0ac13e46
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b93ed1c7994c7561396298d876af213ae872f787
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365941"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803655"
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a>Controllo dinamico delle animazioni UpdatePanel (VB)
 ====================

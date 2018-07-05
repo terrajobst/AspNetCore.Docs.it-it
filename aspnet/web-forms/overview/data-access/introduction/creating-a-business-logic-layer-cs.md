@@ -4,19 +4,16 @@ title: Creazione di un livello di logica di Business (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione si vedrà come centralizzare le regole di business in un livello Business (LOGIC) che funge da intermediario per lo scambio di dati tra t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 85554606-47cb-4e4f-9848-eed9da579056
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 191b85b4e57055041d3fc281a9ff30e397b51ec7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e9fc60d9f6867063c3d4dc4faa8d73a683ec87c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373146"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803136"
 ---
 <a name="creating-a-business-logic-layer-c"></a>Creazione di un livello di logica di Business (c#)
 ====================

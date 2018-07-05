@@ -4,19 +4,16 @@ title: Creare un ASP.NET Web Forms app con l'autenticazione a due fattori SMS (c
 author: Erikre
 description: Questa esercitazione illustra come compilare un'app Web Form ASP.NET con autenticazione a due fattori. Questa esercitazione è stata progettata per integrare l'esercitazione intitolata Cr...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/09/2014
-ms.topic: article
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 1231ed0cb238ad35c12405dd9a264ccfd7332960
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 16045b116ca5c797e7840f2ee5944e5f2c6282eb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401292"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803549"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Creare un ASP.NET Web Forms app con l'autenticazione a due fattori SMS (c#)
 ====================

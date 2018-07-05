@@ -4,19 +4,16 @@ title: I profili, temi e Web part | Microsoft Docs
 author: microsoft
 description: Esistono importanti modifiche alla configurazione e la strumentazione in ASP.NET 2.0. La nuova API di configurazione di ASP.NET consente di apportare modifiche di configurazione da apportare delle richieste pull...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 505f03d339eebc871726fc5b3c385e595ad523d4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fa4405302f5b813dc3b99f612ef8efc8793cd6c8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378456"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815688"
 ---
 <a name="profiles-themes-and-web-parts"></a>I profili, temi e Web part
 ====================

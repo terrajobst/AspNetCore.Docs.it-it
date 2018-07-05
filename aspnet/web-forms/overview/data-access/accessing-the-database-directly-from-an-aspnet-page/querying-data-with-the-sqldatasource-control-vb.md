@@ -4,19 +4,16 @@ title: Eseguire query sui dati con il controllo SqlDataSource (VB) | Microsoft D
 author: rick-anderson
 description: Nelle esercitazioni precedenti abbiamo utilizzato il controllo ObjectDataSource per separare completamente il livello di presentazione dal livello di accesso ai dati. A partire da questa tutor...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7ec182325d609877ac0d3603a5124b5fbe5a229
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2fa26eeb640ddf096d5002b9bffbb48a87cfccd9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365711"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830532"
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>Eseguire query sui dati con il controllo SqlDataSource (VB)
 ====================
