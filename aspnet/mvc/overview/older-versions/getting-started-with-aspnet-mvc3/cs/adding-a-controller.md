@@ -4,19 +4,16 @@ title: Aggiunta di un Controller (c#) | Microsoft Docs
 author: Rick-Anderson
 description: Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express corrisponde Service Pack 1, cui ho...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 0b8c56b5-fdf3-42dd-a866-98fbe0ab78a0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: ba6cc715f8c8eaf624ab5314e3afbfd68da11485
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0c13248960384e8d773f9c5ba3d927b6a8502938
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370892"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805859"
 ---
 <a name="adding-a-controller-c"></a>Aggiunta di un Controller (c#)
 ====================

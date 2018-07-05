@@ -4,19 +4,16 @@ title: ASP.NET 4 e panoramica di sviluppo Web di Visual Studio 2010 | Microsoft 
 author: rick-anderson
 description: Questo documento fornisce una panoramica di molte delle nuove funzionalità per ASP.NET che sono inclusi in.NET Framework 4 e in Visual Studio 2010.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 7a75b0c39c923bb500368dbb2304b534d8ed994d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5c7aa95b18bc0a97f42cc981476c110830286fa5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380779"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829043"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Panoramica sullo sviluppo di Visual Studio 2010 Web e ASP.NET 4
 ====================

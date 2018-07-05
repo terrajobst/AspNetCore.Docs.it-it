@@ -4,19 +4,16 @@ title: Implementazione di un Provider di archiviazione MySQL personalizzato ASP.
 author: raquelsa
 description: ASP.NET Identity è un sistema estendibile che consente di creare un proprio provider di archiviazione e di inserirli direttamente nell'applicazione senza utilizzare nuovamente il appli...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/22/2015
-ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
-ms.technology: ''
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 44c21b749377c5df445a20deee3f1b689c7c84c0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e5784991a95dcff0db38d87707bc83555da716df
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381127"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805675"
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementazione di un Provider di archiviazione MySQL personalizzato ASP.NET Identity
 ====================
