@@ -1,66 +1,65 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
-title: ASP.NET MVC Visualizza panoramica (VB) | Documenti Microsoft
+title: Panoramica (VB) delle visualizzazioni ASP.NET MVC | Microsoft Docs
 author: StephenWalther
-description: Che cos'è una visualizzazione MVC ASP.NET e differenza da una pagina HTML? In questa esercitazione, Stephen Walther vengono introdotte le visualizzazioni e viene illustrato come è possibile t...
+description: Che cos'è una visualizzazione MVC ASP.NET e in che cosa differisce da una pagina HTML? In questa esercitazione, Stephen Walther presenta le viste e viene illustrato come è possibile t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
 ms.topic: article
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a64c70851d13b923964dfd1cf3bad55612ae0d0f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 12039a799b71c88e012831f6eefb01c668142a75
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870856"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369273"
 ---
-<a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC Visualizza panoramica (VB)
+<a name="aspnet-mvc-views-overview-vb"></a>Panoramica (VB) delle visualizzazioni ASP.NET MVC
 ====================
 da [Stephen Walther](https://github.com/StephenWalther)
 
-> Che cos'è una visualizzazione MVC ASP.NET e differenza da una pagina HTML? In questa esercitazione, Stephen Walther vengono introdotte le visualizzazioni e viene illustrato come è possibile usufruire di visualizzare i dati e gli helper HTML all'interno di una vista.
+> Che cos'è una visualizzazione MVC ASP.NET e in che cosa differisce da una pagina HTML? In questa esercitazione, Stephen Walther presenta le viste e viene illustrato come è possibile sfruttare i vantaggi di visualizzare i dati e gli helper HTML all'interno di una vista.
 
 
-Lo scopo di questa esercitazione consiste nel fornire una breve introduzione alle visualizzazioni ASP.NET MVC, visualizzare i dati e gli helper HTML. Al termine di questa esercitazione, è necessario comprendere come creare nuove visualizzazioni, passare una visualizzazione dati da un controller e utilizzare l'helper HTML per generare il contenuto in una vista.
+Lo scopo di questa esercitazione è fornire una breve introduzione a visualizzazioni ASP.NET MVC, visualizzare i dati e gli helper HTML. Al termine di questa esercitazione, è necessario comprendere come creare nuove viste, passare i dati da un controller a una visualizzazione e usare gli helper HTML per generare il contenuto in una vista.
 
 ## <a name="understanding-views"></a>Informazioni sulle viste
 
-A differenza delle pagine ASP o ASP.NET, MVC ASP.NET non include tutto ciò che corrisponde direttamente a una pagina. In un'applicazione ASP.NET MVC, non c'è una pagina su disco che corrisponde al percorso nell'URL digitato nella barra degli indirizzi del browser. La cosa più vicina a una pagina in un'applicazione ASP.NET MVC è un elemento denominato un *vista*.
+A differenza di ASP.NET o pagine ASP, ASP.NET MVC non include tutto ciò che corrisponde direttamente a una pagina. In un'applicazione ASP.NET MVC, non esiste una pagina su disco che corrisponde al percorso nell'URL digitato nella barra degli indirizzi del browser. L'elemento più simile a una pagina in un'applicazione ASP.NET MVC è un elemento chiamato un' *vista*.
 
-In un'applicazione ASP.NET MVC, alle richieste del browser in ingresso vengono mappate alle azioni del controller. Un'azione del controller potrebbe restituire una visualizzazione. Tuttavia, un'azione del controller potrebbe eseguire un altro tipo di azione, ad esempio si reindirizzamento a un'altra azione del controller.
+In un'applicazione ASP.NET MVC, le richieste in ingresso browser vengono mappate alle azioni del controller. Un'azione del controller potrebbe restituire una visualizzazione. Tuttavia, un'azione del controller potrebbe eseguire un altro tipo di azione, ad esempio è il reindirizzamento a un'altra azione del controller.
 
-Elenco 1 contiene un controller semplice denominato HomeController. La classe HomeController espone due azioni del controller denominate Index () e Details().
+L'elenco 1 contiene un controller semplice denominato HomeController. La classe HomeController espone due azioni del controller denominate Details() e Index ().
 
-**Listing 1 - HomeController.vb**
+**Listato 1 - HomeController.vb**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample1.vb)]
 
-È possibile richiamare la prima azione, l'azione Index (), digitando il seguente URL nella barra degli indirizzi del browser:
+È possibile richiamare la prima azione, l'azione Index (), digitare l'URL seguente nella barra degli indirizzi del browser:
 
-/Home/Index
+/ Home/Index
 
-È possibile richiamare la seconda azione, l'azione Details(), digitando l'indirizzo nel browser:
+È possibile richiamare la seconda azione, l'azione Details(), immettendo questo indirizzo nel browser:
 
 / Home/dettagli
 
-L'azione Index () restituisce una visualizzazione. La maggior parte delle azioni create restituirà le visualizzazioni. Tuttavia, un'azione può restituire altri tipi di risultati dell'azione. Ad esempio, l'azione Details() restituisce un RedirectToActionResult che reindirizza la richiesta in ingresso per l'azione Index ().
+L'azione Index () restituisce una visualizzazione. La maggior parte delle azioni che creano restituirà le visualizzazioni. Tuttavia, un'azione può restituire altri tipi di risultati dell'azione. Ad esempio, l'azione Details() restituisce un RedirectToActionResult che reindirizza le richieste in ingresso per l'azione Index ().
 
 L'azione Index () contiene la seguente riga di codice:
 
 View()
 
-Questa riga di codice restituisce una visualizzazione che deve trovarsi nel percorso seguente sul server web:
+Questa riga di codice restituisce una vista in cui deve trovarsi nel percorso seguente nel server web:
 
 \Views\Home\Index.aspx
 
 Il percorso della visualizzazione viene dedotto dal nome del controller e il nome dell'azione del controller.
 
-Se si preferisce, possono essere esplicite sulla visualizzazione. La riga di codice seguente restituisce una visualizzazione denominata Fred:
+Se si preferisce, possono essere esplicite sulla vista. La riga di codice seguente restituisce una visualizzazione denominata Fred:
 
 Visualizzazione (Fred)
 
@@ -70,16 +69,16 @@ Quando viene eseguita questa riga di codice, viene restituita una visualizzazion
 
 > [!NOTE] 
 > 
-> Se si prevede di creare unit test per l'applicazione ASP.NET MVC è consigliabile essere espliciti sui nomi di visualizzazione. In questo modo, è possibile creare uno unit test per verificare che la vista previsto è stata restituita da un'azione del controller.
+> Se si prevede di creare unit test per l'applicazione ASP.NET MVC è una buona idea definire esplicito i nomi delle visualizzazioni. In questo modo, è possibile creare uno unit test per verificare che la vista previsto è stata restituita da un'azione del controller.
 
 
 ## <a name="adding-content-to-a-view"></a>Aggiunta di contenuto a una vista
 
-Una vista è uno standard (documento HTML che può includere script X). Gli script consentono di aggiungere contenuto dinamico a una vista.
+Una vista è uno standard (documento HTML che può contenere gli script X). È utilizzare script per aggiungere contenuto dinamico a una visualizzazione.
 
-Ad esempio, la visualizzazione nel listato 2 Visualizza la data e ora correnti.
+Ad esempio, la visualizzazione nel listato 2 consente di visualizzare la data e ora correnti.
 
-**Il listato 2 - \Views\Home\Index.aspx**
+**Listato 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample2.aspx)]
 
@@ -87,21 +86,21 @@ Si noti che il corpo della pagina HTML nel listato 2 contiene lo script seguente
 
 &lt;% Response.Write(DateTime.Now)%&gt;
 
-Utilizzare i delimitatori di script &lt;% e %&gt; per contrassegnare l'inizio e alla fine di uno script. Questo script viene scritto in Visual basic. Visualizza la data e ora correnti, chiamare il metodo Response per il rendering del contenuto nel browser. I delimitatori di script &lt;% e %&gt; può essere usato per eseguire una o più istruzioni.
+Si usano i delimitatori di script &lt;% e %&gt; per contrassegnare l'inizio e alla fine di uno script. Questo script viene scritto in Visual basic. Visualizza la data e ora correnti, chiamare il metodo Response per il rendering del contenuto nel browser. I delimitatori di script &lt;% e %&gt; può essere utilizzato per eseguire una o più istruzioni.
 
-Poiché si effettuano chiamate Response spesso, Microsoft offre un scelta rapida per chiamare il metodo Response. La visualizzazione nel listato 3 utilizza i delimitatori &lt;% = % e&gt; come scelta rapida per la chiamata a Response.
+Poiché si chiama spesso Response, Microsoft fornisce un collegamento è per chiamare il metodo Response. La visualizzazione nel listato 3 Usa i delimitatori &lt;% = % e&gt; come collegamento per la chiamata a Response.
 
-**Elenco di 3 - Views\Home\Index2.aspx**
+**Listato 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample3.aspx)]
 
-È possibile utilizzare qualsiasi linguaggio .NET per generare il contenuto dinamico in una vista. In genere, si ll utilizzare Visual Basic .NET o Visual c# per scrivere il controller e visualizzazioni.
+È possibile usare qualsiasi linguaggio .NET per generare il contenuto dinamico in una vista. In genere, si userà Visual Basic .NET o c# per scrivere il controller e visualizzazioni.
 
-## <a name="using-html-helpers-to-generate-view-content"></a>Utilizzando l'helper HTML per generare il contenuto di visualizzazione
+## <a name="using-html-helpers-to-generate-view-content"></a>Utilizzo di helper HTML per generare Visualizza contenuto
 
-Per rendere più semplice aggiungere contenuto a una vista, è possibile sfruttare cosiddetto un *HTML Helper*. Un HTML Helper, è in genere, un metodo che genera una stringa. È possibile utilizzare l'helper HTML per generare elementi HTML standard, ad esempio caselle di testo, collegamenti, elenchi a discesa e caselle di riepilogo.
+Per renderne più semplice aggiungere contenuto a una vista, è possibile sfruttare i vantaggi di un elemento denominato un' *HTML Helper*. Un HTML Helper, è in genere, un metodo che genera una stringa. È possibile usare gli helper HTML per generare gli elementi HTML standard, ad esempio caselle di testo, collegamenti, elenchi a discesa e caselle di riepilogo.
 
-Ad esempio, la visualizzazione nel listato 4 sfrutta i vantaggi dei tre helper HTML, gli helper BeginForm() TextBox() e Password()-consente di generare un account di accesso formano (vedere Figura 1).
+Ad esempio, la visualizzazione nel listato 4 sfrutta le tre gli helper HTML, gli helper BeginForm() TextBox() e Password(): per generare un account di accesso formano (vedere la figura 1).
 
 **Listato 4 - \Views\Home\Login.aspx**
 
@@ -110,48 +109,48 @@ Ad esempio, la visualizzazione nel listato 4 sfrutta i vantaggi dei tre helper H
 
 [![La finestra di dialogo Nuovo progetto](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
-**Figura 01**: un form di accesso standard ([fare clic per visualizzare l'immagine ingrandita](asp-net-mvc-views-overview-vb/_static/image2.png))
+**Figura 01**: un modulo di accesso standard ([fare clic per visualizzare l'immagine con dimensioni normali](asp-net-mvc-views-overview-vb/_static/image2.png))
 
 
-Tutti i metodi helper HTML sono chiamati sulla proprietà della visualizzazione Html. Ad esempio, si esegue il rendering una casella di testo chiamando il metodo Html.TextBox().
+Tutti i metodi helper HTML vengono chiamati nella proprietà Html della visualizzazione. Ad esempio, si esegue il rendering una casella di testo chiamando il metodo Html.TextBox().
 
-Si noti che utilizzare i delimitatori di script &lt;% = % e&gt; quando si chiama Html.TextBox() sia Html.Password() helper. Questi helper limitino a restituire una stringa. È necessario chiamare Response per eseguire il rendering di stringa per il browser.
+Si noti che userai i delimitatori di script &lt;% = % e&gt; quando si chiama Html.TextBox() sia Html.Password() helper. Questi helper è sufficiente restituiscono una stringa. È necessario chiamare Response per eseguire il rendering di stringa al browser.
 
-Utilizzo di metodi HTML Helper è facoltativo. Essi semplificano la vita riducendo la quantità di HTML e script che è necessario scrivere. La visualizzazione nel listato 5 esegue il rendering lo stesso formato esatto di visualizzazione nel listato 4 senza utilizzare l'helper HTML.
+Uso di metodi HTML Helper è facoltativo. Semplificano la vita, riducendo la quantità di codice HTML e script che è necessario scrivere. La visualizzazione nel listato 5 esegue il rendering esattamente dello stesso formato di visualizzazione nel listato 4 senza l'utilizzo di helper HTML.
 
-**Nel listato 5 - \Views\Home\Login.aspx**
+**Listato 5 - \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample5.aspx)]
 
-È inoltre la possibilità di creare la propria helper HTML. Ad esempio, è possibile creare un metodo di supporto GridView() che visualizza automaticamente un set di record del database in una tabella HTML. In questo argomento vengono illustrati nell'esercitazione **la creazione di helper HTML personalizzati**.
+È inoltre la possibilità di creare il proprio gli helper HTML. Ad esempio, è possibile creare un metodo helper GridView() che visualizza automaticamente un set di record del database in una tabella HTML. In questo argomento verrà esaminata in esercitazioni **creazione di helper HTML personalizzati**.
 
-## <a name="using-view-data-to-pass-data-to-a-view"></a>Utilizzando i dati della visualizzazione di passare dati a una vista
+## <a name="using-view-data-to-pass-data-to-a-view"></a>Utilizzando i dati della visualizzazione per passare dati a una vista
 
-Visualizzare i dati consentono di passare i dati da un controller a una visualizzazione. Pensare a visualizzare i dati come un pacchetto che si invia tramite posta elettronica. Tutti i dati passati da un controller a una vista devono essere inviati tramite questo pacchetto. Ad esempio, il controller nel listato 6 aggiunge un messaggio per visualizzare i dati.
+Visualizzare i dati è possibile per passare i dati da un controller a una visualizzazione. Pensare a visualizzare i dati, ad esempio un pacchetto che si invia tramite posta elettronica. Tutti i dati passati da un controller a una visualizzazione devono essere inviati tramite questo pacchetto. Ad esempio, il controller nel listato 6 aggiunge un messaggio per visualizzare i dati.
 
-**Elenco 6 - ProductController.vb**
+**Listato 6 - ProductController.vb**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample6.vb)]
 
-Il controller di proprietà ViewData rappresenta una raccolta di coppie nome / valore. Nel listato 6, il metodo Index () aggiunge un elemento per la raccolta di dati di visualizzazione denominata messaggio con il valore di Hello World!. Quando la vista viene restituita dal metodo Index (), i dati della visualizzazione viene passati automaticamente alla visualizzazione.
+Il controller di proprietà ViewData rappresenta una raccolta di coppie nome / valore. Nel listato 6, il metodo Index () aggiunge un elemento alla raccolta di dati di visualizzazione denominata messaggio con il valore Hello World!. Quando la vista viene restituita dal metodo Index (), i dati di visualizzazione vengono passati automaticamente alla visualizzazione.
 
-La visualizzazione nel listato 7 recupera il messaggio dai dati di visualizzazione e visualizza il messaggio nel browser.
+La visualizzazione nel listato 7 recupera il messaggio da visualizzare i dati ed esegue il rendering il messaggio al browser.
 
-**Elenco 7 - \Views\Product\Index.aspx**
+**Listato 7 - \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample7.aspx)]
 
-Si noti che la vista consente di sfruttare il metodo Helper HTML Html.Encode() quando il rendering del messaggio. L'Helper HTML Html.Encode() codifica i caratteri speciali, ad esempio &lt; e &gt; in caratteri che possono essere visualizzati in una pagina web. Ogni volta che si esegue il rendering del contenuto per l'invio di un utente a un sito Web, si consiglia di codificare il contenuto per impedire attacchi intrusivi nel codice JavaScript.
+Si noti che la vista si avvale del metodo Helper HTML Html.Encode() durante il rendering del messaggio. L'Helper HTML Html.Encode() codifica i caratteri speciali, ad esempio &lt; e &gt; in caratteri che possono essere visualizzati in una pagina web. Ogni volta che si esegue il rendering del contenuto per l'invio di un utente a un sito Web, è consigliabile codificare il contenuto per impedire attacchi injection JavaScript.
 
-(Perché abbiamo creato il messaggio effettuata nel ProductController, non abbiamo t devono necessariamente codificare il messaggio. Tuttavia, è consigliabile chiamare sempre il metodo Html.Encode() quando visualizzare il contenuto recuperato da visualizzare i dati all'interno di una vista.)
+(Perché è stato creato il messaggio di noi nel ProductController, non abbiamo t realmente necessario codificare il messaggio. Tuttavia, è un'operazione consigliabile chiamare sempre il metodo Html.Encode() quando visualizzare il contenuto recuperato da visualizzare i dati all'interno di una vista).
 
-Nel listato 7, abbiamo sfruttato Visualizza dati per passare un messaggio stringa semplice da un controller a una visualizzazione. È possibile utilizzare dati di visualizzazione per trasmettere altri tipi di dati, ad esempio una raccolta di record del database, da un controller a una vista. Ad esempio, se si desidera visualizzare il contenuto della tabella Products del database in una vista, quindi passare la raccolta di database nella visualizzazione registra dati.
+Nel listato 7, abbiamo sfruttato visualizzare i dati di passare un messaggio stringa semplice da un controller a una visualizzazione. È anche possibile usare Visualizza dati per trasmettere altri tipi di dati, ad esempio una raccolta di record del database, da un controller a una visualizzazione. Ad esempio, se si desidera visualizzare il contenuto della tabella Products del database in una vista, quindi si passa la raccolta di database i record nella visualizzazione dei dati.
 
-È inoltre possibile passare i dati di visualizzazione fortemente tipizzata da un controller a una vista. In questo argomento vengono illustrati nell'esercitazione **dati di visualizzazione di informazioni sui fortemente tipizzati e viste**.
+È possibile scegliere di passare i dati di visualizzazione fortemente tipizzata da un controller a una visualizzazione. In questo argomento verrà esaminata in esercitazioni **Understanding fortemente tipizzate visualizzare i dati e viste**.
 
 ## <a name="summary"></a>Riepilogo
 
-In questa esercitazione viene fornita una breve introduzione a ASP.NET MVC viste, visualizzare i dati e gli helper HTML. Nella prima sezione, è stato descritto come aggiungere nuove visualizzazioni per il progetto. Si è appreso che è necessario aggiungere una visualizzazione nella cartella corretta per chiamarlo da un controller specifico. Successivamente, abbiamo parlato l'argomento di helper HTML. Si è appreso come helper HTML consentono di generare facilmente il contenuto HTML standard. Infine, è stato descritto come sfruttare i vantaggi dei dati di visualizzazione per passare dati da un controller di una vista.
+Questa esercitazione è fornita una breve introduzione a visualizzazioni ASP.NET MVC, visualizzare i dati e gli helper HTML. Nella prima sezione, è stato descritto come aggiungere nuove visualizzazioni per il progetto. Si è appreso che è necessario aggiungere una visualizzazione nella cartella corretta per chiamarla da un controller specifico. Successivamente, abbiamo discusso l'argomento di helper HTML. Si è appreso come helper HTML consentono di generare in modo semplice il contenuto HTML standard. Infine, si è appreso come sfruttare i vantaggi di visualizzare i dati per passare i dati da un controller a una visualizzazione.
 
 > [!div class="step-by-step"]
 > [Precedente](passing-data-to-view-master-pages-cs.md)
